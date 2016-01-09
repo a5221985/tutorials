@@ -1,0 +1,28 @@
+Problems with existing apps:
+1. Ads:
+	1. Make it ad free
+2. Proprietary
+	1. Make it open source and free
+		1. Original code base integrity is maintained and is read only
+3. Too much navigation
+	1. App should suggest features based on few hints
+	2. Interactive assistant
+4. Dry and not very interactive
+	1. Interactive assistant like a chatbot
+5. Paid
+	1. Free to download/use/distribute
+6. Platform specific
+	1. Use write once, build and/or run anywhere frameworks and libraries
+7. Lack of features
+	1. Continually add more and more features identifying the gaps
+8. Lack of tutorials
+	1. Interactive assistant that guides the user
+
+
+Summary:
+1. Ad free
+2. Open source and free but original code base is read only
+3. Interactive assistant who suggests features, helps navigate, guides user to configure
+4. Free to download/use/distribute with appropriate license to protect user and author
+5. Write once, build and/or run anywhere
+6. Continually identify gaps and provide more and more features

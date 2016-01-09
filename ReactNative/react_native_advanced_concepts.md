@@ -57,6 +57,13 @@
 		3. You probably need this if you want to handle gesture animations
 
 ### The Animation Module ###
+1. Values: value valueXY (current position of element being animated)
+2. Types: Spring, Decay, Timing (how is animation changing)
+3. Components: View, Text, Image (Apply animation's current position to actual component)
+4. Simple example: Circle move from top left to bottom right
+	1. Open the project in atom
+	2. 
+
 ### Animation from Square One ###
 ### Moving a Ball ###
 ### How Animations Work ###

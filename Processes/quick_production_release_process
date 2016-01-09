@@ -1,0 +1,19 @@
+Steps for quick release to production:
+1. Get existing production environment information
+	1. RFC numbers
+	1. Artifact versions
+	2. Code base versions used to generate artifacts
+2. Prepare local environment to correspond to production
+	1. Check out the source codes of the code base versions
+	2. Build and deploy the artifacts to local environment(s)
+3. Prepare lower environment to correspond to production
+	1. Deploy artifacts to lower environment
+4. Fix the issue and verify locally
+	1. Build and deploy to local environment
+5. Release the fix to local environment
+6. Verify the fix
+7. Release the fix to lower environment
+8. Perform quick sanity and regression testing on lower environment
+9. Prepare release notes and artifacts and get it reviewed
+9. Share release notes and artifacts to deployment team
+10. Coordinate with deployment team for production release (until this process is stabilized)

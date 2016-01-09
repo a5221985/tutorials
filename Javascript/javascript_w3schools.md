@@ -7191,102 +7191,81 @@
 		</html>
 
 ### Display the First CD in an HTML div Element ###
+1. Display first CD element in HTML element with id="showCD":
+
+		displayCD(0);
+
+		function displayCD(i) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status = 200) {
+					myFunction(this, i);
+				}
+			};
+			xmlhttp.open("GET", "cd_catalog.xml", true);
+			xmlhttp.send();
+		}
+
+		function myFunction(xml, i) {
+			var xmlDoc = xml.responseXML;
+			x = xmlDoc.getElementsByTagName("CD");
+			document.getElementById("showCD").innerHTML = "Artist: " + x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue + "<br>Title: " + x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue + "<br>Year: " + x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+		}
+
 ### Navigate Between the CDs ###
 1. Define `next()` and `previous()`
 
+		function next() {
+			// display the next CD, unless you are on the last CD
+			if (i < len - 1) {
+				i++;
+				displyCD(i);
+			}
+		}
+
+		function previous() {
+			// display the previous CD, unless you are on the first CD
+			if (i > 0) {
+				i--;
+				displayCD(i);
+			}
+		}
+
 ### Show Album Information When Clicking On a CD ###
+1. [Try it yourself](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_app)
 
 ## AJAX Examples ##
 ### Simple Examples ###
+1. [A simple AJAX Example](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_first): Build a simple XMLHttpRequest and retrieve data from TXT file
+2. [An AJAX example with a callback function](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_callback): Build a XMLHttpRequest with a callback function, and retrieve data from a TXT file
+3. [Examples explained](https://www.w3schools.com/js/js_ajax_intro.asp)
+
 ### Request Header Information ###
+1. [Retrieve all header information of a resource (file)](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_header)
+2. [Retrieve specific header information of a resource (file)](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_lastmodified)
+3. [Examples explained](https://www.w3schools.com/js/js_ajax_http_response.asp)
+
 ### Request XML Files ###
+1. [Load an XML file with AJAX](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_xml): Build an XMLHttpRequest to retrieve data from an XML file
+2. [Retrieve the content of an XML file](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_xml2): Build an XMLHttpRequest to retrieve data from an XML file and display the data in an HTML table
+3. [Examples Explained](https://www.w3schools.com/js/js_ajax_xmlfile.asp)
+
 ### Retrieve Server Data with PHP and ASP ###
+1. [Retrieve the content of a PHP file](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_suggest_php): How a web page can communicate with a web server while a user types characters in an input field
+2. [Retrieve the content of an ASP file]()
+
 ### Retrieve Database Information ###
+1. [Retrieve content from a database](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_database): How a web page can fetch information from a database with AJAX
+
 ### AJAX Applications ###
+1. [View an XML CD catalog](https://www.w3schools.com/js/cd_catalog.xml)
+2. [Display XML data in an HTML table](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_display_table)
+3. [Show XML data inside an HTML div element](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_app_first)
+4. [Navigate through XML nodes](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_app_navigate)
+5. [A simple CD catalog application](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_app)
 
-# JS JSON #
-## JSON Intro ##
-### Exchanging Data ###
-### Sending Data ###
-### Receiving Data ###
-### Storing Data ###
-### What is JSON? ###
-### Why use JSON? ###
+#### Examples Explained ####
+1. [Examples Explained](https://www.w3schools.com/js/js_ajax_applications.asp)
 
-## JSON Syntax ##
-### JSON Syntax Rules ###
-### JSON Data - A Name and a Value ###
-### JSON - Evaluates to JavaScript Objects ###
-### JSON Values ###
-### JSON Uses JavaScript Syntax ###
-### JavaScript Arrays as JSON ###
-### JSON Files ###
 
-## JSON vs XML ##
-### JSON is Like XML Because ###
-### JSON is Unline XML Because ###
-### Why JSON is Better Than XML ###
-
-## JSON Data Types ##
-### Valid Data Types ###
-### JSON Strings ###
-### JSON Numbers ###
-### JSON Objects ###
-### JSON Arrays ###
-### JSON Booleans ###
-### JSON `null` ###
-
-## JSON Objects ##
-### Object Syntax ###
-### Accessing Object Values ###
-### Looping an Object ###
-### Nested JSON Objects ###
-### Modify Values ###
-### Delete Object Properties ###
-
-## JSON Arrays ##
-### Arrays as JSON Objects ###
-### Arrays in JSON Objects ###
-### Accessing Array Values ###
-### Looping Through an Array ###
-### Nested Arrays in JSON Objects ###
-### Modify Array Values ###
-### Delete Array Items ###
-
-## JSON Parse ##
-### `JSON.parse()` ###
-### Example - Parsing JSON ###
-### JSON From the Server ###
-### Array as JSON ###
-### Exceptions ###
-### Browser Support ###
-
-## JSON Stringify ##
-### `JSON.stringify()` ###
-### Stringify a JavaScript Object ###
-### Stringify a JavaScript Array ###
-### Exceptions ###
-### Browser Support ###
-
-## JSON PHP ##
-### The PHP File ###
-### The Client JavaScript ###
-### PHP Array ###
-### The Client JavaScript ###
-### PHP Database ###
-### Loop Through the Result ###
-### PHP Method = POST ###
-
-## JSON HTML ##
-### HTML Table ###
-### Dynamic HTML Table ###
-### HTML Drop Down List ###
-
-## JSON JSONP ##
-### JSONP Intro ###
-### The Server File ###
-### The JavaScript function ###
-### Creation of Dynamic Script Tag ###
-### Dynamic JSONP Result ###
-### Callback Function ###
  
