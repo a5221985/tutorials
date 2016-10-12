@@ -266,10 +266,135 @@
 	1. `public void boxText(Box<Number> n) { /* ... */ }`
 
 	![generics-subtypeRelationship.gif](generics-subtypeRelationship.gif)
+4. Generic Classes and Subtyping
+	1. Generic class can be subtyped by extending or implementing it.
+	2. Example:
+		
+		![generics-sampleHierarchy.gif](generics-sampleHierarchy.gif)
+
+		1. `ArrayList<E>` implements `List<E>` and `List<E>` extends `Collection<E>`
+	3. Type argument must be the same for subtype relationships
+	4. Example:
+	
+		![generics-payloadListHierarchy.gif](generics-payloadListHierarchy.gif)
+
+		1. `PayloadList<E, P>` extends `List<E>` and associates a value of type `P` with each element of type `E`
+
+				interface PayloadList<E, P> extends List<E> {
+					void setPayload(int index, P val);
+					...
+				}
+		2. `PayloadList<String, String>`, `PayloadList<String, Number>` and `PayloadList<String, Exception>` are subtypes of `List<String>`
 
 ### Type Inference ###
+1. Java compiler looks at method invocation and corresponding method declaration to determine type argument to make the invocation.
+2. Inference algorithm determines types of arguments, type of result assigned or returned.
+3. Inference algorithm finds most specific type that works with all arguments
+	1. Example:
+
+			static <T> T pick(T a1, T a2) { return a2; }
+			Serializable s = pick("d", new ArrayList<String>()); // compiler identifies the second argument as Serializable object
+	2. Type Inference and Generic Methods
+		1. Type arguments need not be passed to generic methods explicitly using angle brackets.
+		2. Example:
+
+				public class BoxDemo {
+					public static <U> void addBox(U u, java.util.List<Box<U>> boxes) {
+						Box<U> box = new Box<>();
+						box.set(u);
+						boxes.add(box);
+					}
+
+					public static <U> void outputBoxes(java.util.List<Box<U>> boxes) {
+						int counter = 0;
+						for (Box<U> box: boxes) {
+							U boxContents = box.get();
+							System.out.println("Box #" + counter + " coutains [" + boxContents.toString() + "]");
+							counter++;
+						}
+					}
+
+					public static void main(String[] args) {
+						java.util.ArrayList<Box<Integer>> listOfIntegerBoxes = new java.util.ArrayList<>();
+						BoxDemo.<Integer>addBox(Integer.valueOf(10), listOfIntegerBoxes);
+						BoxDemo.addBox(Integer.valueOf(20), listOfIntegerBoxes);
+						BoxDemo.addBox(Integer.valueOf(30), listOfIntegerBoxes);
+						BoxDemo.outputBoxes(listOfIntegerBoxes);
+					}
+				}
+
+			2. To invoke generic method `addBox` we can specify type parameter as follows:
+				1. `BoxDemo.<Integer>addBox(Integer.valueOf(10), listOfIntegerBoxes);`
+			3. If we ignore the type witness, java will automatically infer the type `Integer`
+				1. `BoxDemo.addBox(Integer.valueOf(20), listOfIntegerBoxes);` 
+
+	3. Type Inference and Instantiation of Generic Classes
+		1. Type arguments while invoking the constructor can be ignored using `<>` diamond
+			1. `Map<String, List<String>> myMap = new HashMap<String, List<String>>();` can be re-written as `Map<String, List<String>> myMap = new HashMap<>();`
+
+	4. Type Inference and Generic Constructors of Generic and Non-Generic Classes
+		1. Constructors can be generic declaring their own type parameters in both generic and non-generic classes
+		2. Example:
+			
+				class MyClass<X> {
+					<T> MyClass(T t) {
+						// ...
+					}
+				}
+
+				new MyClass<Integer>(""); // compiler infers the type of T as String because String type object is passed as argument
+
+		3. Example 2:
+
+				MyClass<Integer> myObject = new MyClass<>(""); // compiler infers the type Integer for X and the type String for T
+
+		4. Inference algorithm does not use results from later in the program for inference
+
+	5. Target Types
+		1. Target type is the datatype of an expression.
+		2. Example: `static <T> List<T> emptyList();`
+			1. Assignment statement: `List<String> listOne = Collections.emptyList(); // compiler will infer type of T as String`
+			2. Alternative assignment statement: `List<String> listOne = Collections.<String>emptyList();`
+		3. Example 2: Consider the following method:
+
+				void processStringList(List<String> stringList) {
+					// process stringList
+				}
+
+			1. Java SE 7 does not support the following: `processStringList(Collections.emptyList()); // List<Object> cannot be converted to List<String> error`
+				1. Compiler looks for an object type for T and assigns `Object`
+			2. Java SE 8 supports the above invocation (target type is expanded to include method arguments)
+
 ### Wildcards ###
+1. ?: wildcard - unknown type
+2. wildcard can be used as
+	1. type of parameter
+	2. field
+	3. local variable
+	4. return type
+5. Wildcard is not used as
+	1. type argument for generic method invocation, generic class instance creation, supertype
+
 #### Upper Bounded Wildcards ####
+1. Used to relax restrictions on a variable
+2. Example:
+	1. The upper bound for `List<Integer>`, `List<Double>` and `List<Number>` is `Number`
+3. Syntax:
+	1. `? extends <upper-bound>` (for both classes and interfaces)
+	2. Example:
+		1. For `List<Integer>`, `List<Double>` and `List<Number>` use `List<? extends Number>` (match  list of any `Number`)
+4. Example:
+	1. `public static void process(List<? extends Foo> list) { /* ... */ }`
+	2. Access list elements as of type `Foo`:
+	
+			public static void process(List<? extends Foo> list) {
+				for (Foo elem: list) {
+					// ...
+				}
+			} 
+
+	3. We can use any method defined in `Foo` class
+
 #### Unbounded Wildcards ####
 #### Lower Bounded Wildcards ####
 #### Wildcards and Subtyping ####
