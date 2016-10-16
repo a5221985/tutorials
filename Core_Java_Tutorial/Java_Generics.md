@@ -394,15 +394,234 @@
 			} 
 
 	3. We can use any method defined in `Foo` class
+5. Example 2:
+	1. `sumOfList` to return sum of numbers
+	
+			public static double sumOfList(List<? extends Number> list) {
+				double s = 0.0;
+				for (Number n: list) {
+					s += n.doubleValue();
+				}
+			}
+
+			List<Integer> li = Arrays.asList(1, 2, 4);
+			System.out.println("sum = " + sumOfList(li));
+			List<Double> ld = Arrays.asList(2.3, 4.6, 7.2);
+			System.out.println("sum = " + sumOfList(ld));
 
 #### Unbounded Wildcards ####
+1. ? is used to specify unbounded type
+2. Example:
+	1. `List<?>` - list of unknown type
+3. Purpose:
+	1. Writing method that can be implemented using functionality in `Object` class
+	2. If code is using methods in generic class that do not require type parameter: `List.size`, `List.clear`
+	3. Example: `Class<?>` is used because most methods in `Class<T>` do not use type parameter.
+4. Example:
+
+		public static void printList(List<?> list) {
+			for (Object elem: list) {
+				System.out.println(elem + " ");
+			}
+			System.out.println();
+		}
+
+		List<Integer> li = Arrays.asList(1, 2, 3);
+		List<String> ls = Arrays.asList("one", "two", "three"); // **(M)** static factory method converts array to fixed-size list
+		printList(li);
+		printList(ls);
+
 #### Lower Bounded Wildcards ####
+1. LBW restricts unknown type to specifc type or a super type of the specific type
+2. Syntax:
+	1. `<? super A>` **(M)**
+3. We cannot specify both lower bound and upper bound for a wildcard
+4. Example: A method puts `Integer` objects into a list.
+
+		public static void addNumbers(List<? super Integer> list) {
+			for(int i = 1; i <= 10; i++) {
+				list.add(i);
+			}
+		}
+
 #### Wildcards and Subtyping ####
+1. Common parent of `List<Number>` and `List<Integer>` is `List<?>`
+
+![generics-listParent.gif](generics-listParent.gif)
+
+1. `List<? extends Integer>` is a subtype of `List<? extends Number>`
+
+		List<? extends Integer> intList = new ArrayList<>();
+		List<? extends Number> numList = intList;
+
+	![generics-wildcardSubtyping.gif](generics-wildcardSubtyping.gif)
+
+
 #### Wildcards Capture and Helper Methods ####
+1. Wildcard capture: In certain scenarios, compiler infers the type of a wildcard.
+	1. Example: Consider `List<?>`. When evaluating an expression, compiler infers a type for `?`
+2. Handle it when you see the error "capture of"
+	1. Example:
+
+			import java.util.List;
+
+			public class WildcardError {
+				void foo(List<?> i) {
+					i.set(0, i.get(0));
+				}
+			}
+
+	2. Compiler infers the type of `i` input parameter to be `Object`
+	3. Compiler cannot confirm the type of object when `List.set(int, E)` is invoked. Compiler assumes wrong type variable assignment.
+3. Solution:
+	1. Use *private helper method* which captures the wildcard.
+
+			public class WildCardFixed {
+				void foo(List<?> i) {
+					fooHelper(i);
+				}
+
+				// Helper method created so that the wildcard can be captures
+				// through type inference
+				private <T> void fooHelper(List<T> l) {
+					l.set(0, l.get(0));
+				}
+			}
+4. Convention for helper method: *originalMethodNameHelper* 
+5. Example of code for which there is no helper method
+
+		import java.util.List;
+
+		public class WildcardErrorBad {
+			void swapFirst(List<? extends Number> l1, List<? extends Number> l2) {
+				Number temp = l1.get(0);
+				l1.set(0, l2.get(0)); // expected a CAP#1 extends Number,
+									// got a CAP#2 extends Number;
+									// same bound, but different types
+				l2.set(0, temp);	// expected a CAP#1 extends Number,
+									// got a Number
+			}
+		}
+
+		List<Integer> li = Arrays.asList(1, 2, 3);
+		List<Double> ld = Arrays.asList(10.10, 20.20, 30.30);
+		swapFirst(li, ld);
+
 #### Guidelines for Wildcard Use ####
+1. When to use upper bounded and lower bounded wild cards?
+	1. Variables provide two functions
+		1. "In" variable: serves data to code. Example: `copy(src, dest);` - `src` is "In" parameter
+		2. "Out" variable: holds data for use elsewhere. Example: `dest`
+	3. Some variables server both functions of "In" and "Out".
+2. Guidelines (not for method's return type):
+	1. "In" variable is defined with upper bound wildcard, using `extends`
+	2. "Out" variable is defined with lower bound wildcard, using `super`
+	3. If "In" variable can be accessed using methods of `Object` class, use unbounded wildcard
+	4. If variable acts as both "In" and "Out" variable, then do not use a wildcard
+	5. Do not use wildcards for return type (programmers have to deal with it (?))
+3. `List<? extends ...>` is read-only informally (cannot add or change an element but can remove elements or add `null` and capture and add elements read from the list).
+	1. Example:
+		
+			class NaturalNumber {
+				private int i;
+
+				public NaturalNumber(int i) { this.i = i; }
+			}
+
+			class EvenNumber extends NaturalNumber {
+				public EvenNumber(int i) { super(i); }
+			}
+
+			List<EvenNumber> le = new ArrayList<>();
+			List<? extends NaturalNumber> ln = le;
+			ln.add(new NaturalNumber(35)); // compile-time error
+			ln.add(new EvenNumber(36)); // compile-time error
+
+	2. Possible operations
+		1. can add `null`
+			1. `ln.add(null);`
+		2. can invoke `clear`
+			1. `ln.clear();`
+		3. can get iterator and invoke remove
+			
+				Iterator i = ln.getIterator();
+				i.remove(e);
+		4. Can capture wildcard and write elements you have read from the list 
+
 ### Type Erasure ###
+1. For generics implementation, Java compiler applies type erasure to:
+	1. If type parameters are unbounded, they are replaced with their bounds or `Object`
+	2. Insert type casts if necessary to preserve type safety
+	3. In extended generic types, bridge methods are generated to preserve polymorphism
+2. Note: No new classes are created
+
 #### Erasure of Generic Types ####
+1. If type parameter is bounded: compiler replaces it with the first bound
+2. If type parameter is unbounded: compiler replaces it with `Object`
+
+		public class Node<T> {
+			private T data;
+			private Node<T> next;
+
+			public Node(T data, Node<T> next) {
+				this.data = data;
+				this.next = next;
+			}
+
+			public T getData() { return data; }
+			// ...
+		}
+
+	1. Java compiler replaces `T` with `Object`
+
+		public class Node {
+			private Object data;
+			private Node next;
+
+			public Node(Object data, Node next) {
+				this.data = data;
+				this.next = next;
+			}
+
+			public Object getData() { return data; }
+			// ...
+		}
+
+3. Example of Bounded type parameter
+
+		public class Node<T extends Comparable<T>> {
+			private T data;
+			private Node<T> next;
+
+			public Node(T data, Node<T> next) {
+				this.data = data;
+				this.next = next;
+			}
+
+			public T getData() { return data; }
+			// ...
+		}
+
+	1. Java compiler replaces `T` with first bound class `Comparable`
+
+			public class Node {
+				private Comparable data;
+				private Node next;
+
+				public Node(Comparable data, Node next) {
+					this.data = data;
+					this.next = next;
+				}
+
+				public Comparable getData() {
+					return data;
+				}
+				// ...
+			}
+
 #### Erasure of Generic Methods ####
+
+
 #### Effects of Type Erasure and Bridge Methods ####
 #### Non-Reifiable Types ####
 ### Restrictions on Generics ###
