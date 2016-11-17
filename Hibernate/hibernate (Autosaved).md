@@ -616,6 +616,10 @@
 	1. `@Id` annotation: It is on a field and it must access properties on an object directly through fields at runtime.
 		1. If `@Id` is placed on `getId()` then enable access to properties through getter and setter methods.
 
+### @Entity Annotation ###
+### @Table Annotation ###
+### @Id and @GeneratedValue 
+
 
 ## Hibernate - Query Language ##
 ## Hibernate - Criteria Queries ##
