@@ -616,9 +616,207 @@
 	1. `@Id` annotation: It is on a field and it must access properties on an object directly through fields at runtime.
 		1. If `@Id` is placed on `getId()` then enable access to properties through getter and setter methods.
 
+### @Entity Annotation ###
+1. Annotations contained in EJB 3 are contained in `javax.persistence` package.
+2. `@Entity`: marks the class as entity bean
+	1. The class must have a no-argument constructor visible atleast with protected scope
+
+### @Table Annotation ###
+1. `@Table` Annotation:
+	1. Allows to specify details of the table
+	2. Provides 4 attributes:
+		1. Allows to override name of table
+		2. Override catalogue
+		3. Override its schema
+		4. Enforce unique constraints on columns
+
+### @Id and @GeneratedValue Annotations ###
+1. An entity bean will have primary key which is annotated by `@Id`
+	1. It can be single field or a combination of fields (depends on table)
+2. `@GeneratedValue`: Key generation strategy (overrides default key generation strategy)
+	1. Parameters: `strategy`, `generator`
+3. Default key generation strategy makes the code portable between databases.
+
+### @Column Annotation ###
+1. `@Column`: column to which the field or property will be mapped.
+2. Attributes:
+	1. `name`: column name explicitly specified
+	2. `length`: size of column (ex for a String)
+	3. `nullable`: Permits column to be marked `NOT NULL` when schema is generated.
+	4. `unique`: permits column to be marked as containing only unique values
+
+### Create Application Class ###
+1. Similar to previous example
+
+### Database Configuration ###
+1. Similar to previous example
 
 ## Hibernate - Query Language ##
+1. HQL: 
+	1. It is an object oriented query language similar to SQL
+	2. HQL works with persistent objects and properties instead of tables and columns
+	3. HQL queries are translated into conventional SQL queries which in turn perform operations on dbs
+	4. SQL can be used directly but HQL is recommended to make the code more portable, utilize Hibernate's SQL generation and caching strategies
+	5. `SELECT`, `FROM`, `WHERE` are case insensitive but properties, table and column names are case sensitive.
+
+### FROM Clause ###
+1. `FROM` clause is used to load complete peristent objects into memory.
+2. Syntax:
+
+		String hql = "FROM Employee";
+		Query query = session.createQuery(hql);
+		List results = query.list();
+
+3. To fully qualify a classname, specify the package and class name
+
+		String hql = "FROM com.hibernatebook.criteria.Employee";
+		Query query = session.createQuery(hql);
+		List list = query.list();
+
+### AS Clouse ###
+1. `AS` is used to assign aliases to classes in HQL queries (for long queries).
+2. Example:
+
+		String hql = "FROM Employee AS E";
+		Query query = session.createQuery(hql);
+		List list = query.list();
+
+3. Example: `AS` is optional
+
+		String hql = "FROM Employee E";
+		Query query = session.createQuery(hql);
+		List list = query.list();
+
+### SELECT Clause ###
+1. `SELECT`: 
+	1. for more control over result set
+	2. If a few properties only have to be obtained instead of complete object.
+2. Syntax:
+
+		String hql = "SELECT E.firstName FROM Employee E";
+		Query query = session.createQuery(hql);
+		List list = query.list();
+
+	1. `E.firstName`: property of `Employee` object and not filed of `EMPLOYEE` table
+
+### WHERE Clause ###
+1. Used to narrow down to specific objects in storage
+2. Syntax:
+	
+		String hql = "FROM EMPLOYEE E WHERE E.id = 10";
+		Query query = session.createQuery(hql);
+		List results = query.list();
+
+### ORDER BY Clause ###
+1. Used to sort HQL query's results.
+2. We can order results by any property on objects in either ascending (`ASC`) or descending (`DESC`) order.
+3. Syntax:
+
+		String hql = "FROM Employee E WHERE E.id > 10 ORDER BY E.salary DESC";
+		Query query = session.createQuery(hql);
+		List list = query.list();
+
+4. To sort by multiple properties, just add the additional properties to the list separated by commas
+
+		String hql = "FROM Employee E WHERE E.id > 10" +
+					"ORDER BY E.firstName DESC, E.salary DESC";
+		Query query = session.createQuery(hql);
+		List list = query.list();
+
+### GROUP BY Clause ###
+1. Enables Hibernate to pull informtion from db and group it based on value of an attribute.
+2. Used to apply aggregate function on each group.
+3. Syntax:
+
+		String hql = "SELECT SUM(E.salary), E.firstName FROM Employee E " + 
+					"GROUP BY E.firstName";
+		Query query = session.createQuery(hql);
+		List list = query.list(); 
+
+### Using Named Parameters ###
+1. Used to accept inputs from users and assign them to properties.
+2. Tackles the problem of SQL injection attacks.
+3. Syntax:
+
+		String hql = "FROM Employee E WHERE E.id = :employee_id";
+		Query query = session.createQuery(hql);
+		query.setParameter("employee_id", 10);
+		List results = query.list();
+
+### UPDATE Clause ###
+1. Hibernate 3:
+	1. Bulk updates are introduced
+	2. Delete works differently than Hibernate 2
+2. `executeUpdate()`: method for UPDATE and DELETE statements
+3. **UPDATE**: It is used to update one or more properties of one or more objects.
+4. Syntax:
+	
+		String hql = "UPDATE Employee set salary = :salary " +
+					"WHERE id = :employee_id";
+		Query query = session.createQuery(hql);
+		query.setParameter("salary", 1000);
+		query.setParameter("employee_id", 10);
+		int result = query.executeUpdate();
+		System.out.println("Rows affected: " + result);
+
+### DELETE Clause ###
+1. `DELETE`: used to delete one or more objects.
+2. Syntax:
+	
+		String hql = "DELETE FROM Employee " +
+					"WHERE id = :employee_id";
+		Query query = session.createQuery(hql);
+		query.setParameter("employee_id", 10);
+
+### INSERT Clause ###
+1. `INSERT INTO`: clause used to insert records from one object to another.
+2. Syntax:
+
+		String hql = "INSERT INTO Employee(firstName, lastName, salary) " +
+					"SELECT firstName, lastName, salary FROM old_employee";
+		Query query = session.createQuery(hql);
+		int result = query.executeUpdate();
+		System.out.println("Rows affected: " + result);
+
+### Aggregate Methods ###
+1. The aggregate methods work the same way as in SQL.
+2. The following is a list of available functions
+	1. `avg(property name)`: average of property value
+	2. `count(property name or *)`: number of times, the property occurs in the results
+	3. `max(property name)`: maximum value of the property values
+	4. `min(property name)`: minimum value of the property values
+	5. `sum(property name)`: sum total of property values
+3. `distinct`: counts unique values in row set
+	
+		String hql = "SELECT count(distinct E.firstName) FROM Employee E";
+		Query query = session.createQuery(hql);
+		List results = query.list();
+
+### Pagination using Query ###
+1. `Query setFirstResult(int startPosition)` **(M)**: takes an integer that represents first row in the result set starting with row 0.
+2. `Query setMaxResults(int maxResult)` **(M)**: Tells Hibernate to retrieve fixed number `maxResults` of objects
+3. Example: Constructing paging component
+
+		String hql = "FROM Employee";
+		Query query = session.createQuery(hql);
+		query.setFirstResult(1);
+		query.setMaxResults(10);
+		List list = query.list();
+
 ## Hibernate - Criteria Queries ##
+
+### Restriction with Criteria: ###
+
+### Pagination using Criteria ###
+
+### Sorting the Results ###
+
+### Projections & Aggregations ###
+
+### Criteria Queries Example: ###
+
+### Compilation and 
+
 ## Hibernate - Native SQL ##
 ## Hibernate - Caching ##
 ## Hibernate - Batch Processing ##
