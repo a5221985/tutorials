@@ -804,24 +804,364 @@
 		List list = query.list();
 
 ## Hibernate - Criteria Queries ##
+1. It is an alternative method for manipulting persistent objects.
+2. We can build a crietria query object and apply filteration rules and logical conditions.
+3. `Session.createCriteria()` **(M)**: Used to create `Criteria` object.
+4. When a criteria query is executed, instances of persistence objects are returned.
+5. Example: Return every object of `Employee` class
+
+		Criteria cr = session.createCriteria(Employee.class);
+		List results = cr.list();
+
 
 ### Restriction with Criteria: ###
+1. Use `add()` method to add restrictions to `Criteria` query.
+2. Example: Return records with salary equal to 2000.
+
+		Criteria cr = session.createCriteria(Employee.class);
+		cr.add(Restrictions.eq("salary", 2000));
+		List results = cr.list();
+
+2. Examples:
+
+		Criteria cr = session.createCriteria(Employee.class);
+		
+		// To get records having salary more than 2000
+		cr.add(Restrictions.gt("salary", 2000));
+
+		// To get records having salary less than 2000
+		cr.add(Restrictions.lt("salary", 2000));
+
+		// To get records having firstName starting with zara
+		cr.add(Restrictions.like("firstName", "zara%"));
+
+		// Case sensitive form of the above restriction
+		cr.add(Restrictions.ilike("firstName", "zara%")); // **(M)**
+
+		// To get records having salary in between 1000 and 2000
+		cr.add(Restrictions.between("salary", 1000, 2000));
+
+		// To check if the given property is null
+		cr.add(Restrictions.isNull("salary"));
+
+		// To check if the given property is not null
+		cr.add(Restrictions.isNotNull("salary"));
+
+		// To check if the given property is empty
+		cr.add(Restrictions.isEmpty("salary"));
+
+		// To check if the given propert is not empty
+		cr.add(Restrictions.isNotEmpty("salary"));
+
+3. AND and OR conditions
+
+		Criteria cr = session.createCriteria(Employee.class);
+		
+		Criterion salary = Restrictions.gt("salary", 2000);
+		Criterion name = Restrictions.ilike("firstName", "zara%");
+	
+		// To get records matching with OR conditions
+		LogicalExpression orExp = Restrictions.or(salary, name);
+		cr.add(orExp);
+
+		// To get records matching with AND conditions
+		LogicalExpression andExp = Restrictions.and(salary, name);
+		cr.add(andExp);
+
+		List results = cr.list();
 
 ### Pagination using Criteria ###
+1. Two methods for pagination:
+	1. `public Criteria setFirstResult(int firstResult)`: takes an integer that represents first row in result set (starts from row 0)
+	2. `public Criteria setMaxReults(int maxResults)`: Tells Hibernate to retrieve fixed number `maxResults` of objects
+2. Example:
+
+		Criteria cr = session.createCriteria(Employee.class);
+		cr.setFirstResult(1);
+		cr.setMaxResults(10);
+		List result = cr.list();
+
 
 ### Sorting the Results ###
+1. `org.hibernate.criterion.Order`: used to sort result set in ascending or descending order
+2. Example:
+	
+		Criteria cr = session.createCriteria(Employee.class);
+		// To get records having salary more than 2000
+		cr.add(Restrictions.gt("salary", 2000));
+
+		// To sort records in descending order
+		cr.addOrder(Order.desc("salary"));
+
+		// To sort records in ascending order
+		cr.addOrder(Order.asc("salary"));
+
+		List list = cr.list();
 
 ### Projections & Aggregations ###
+1. `org.hibernate.criterion.Projections`:
+	1. get average
+	2. get max and min of property values
+	3. ...
+3. It has many factory methods for obtaining `Projection` instances
+4. Example:
+
+		Criteria cr = session.createCriteria(Employee.class);
+		
+		// To get total row count.
+		cr.setProjection(Projections.rowCount());
+
+		// To get average of a property.
+		cr.setProjection(Projections.avg("salary"));
+
+		// To get distinct count of a property.
+		cr.setProjection(Projections.countDistinct("firstName"));
+
+		// To get maximum of a property.
+		cr.setProjection(Projections.max("salary"));
+
+		// To get minimum of a property
+		cr.setProjection(Projections.min("salary"));
+
+		// To get sum of a property.
+		cr.setProjection(Projections.sum("salary"));
 
 ### Criteria Queries Example: ###
+1. `Employee` POJO class
+2. `EMPLOYEE` table in MySQL db
+3. `Employee.hbm.xml`: hibernate mapping file
+
+		<?xml version="1.0" encoding="utf-8"?>
+		<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+		
+		<hibernate-mapping>
+			<class name="Employee" table="EMPLOYEE">
+				<meta attribute="class-description">
+					This class contains the employee detail.
+				</meta>
+				<id name="id" type="int" column="id">
+					<generator class="native"/>
+				</id>
+				<property name="firstName" column="first_name"
+			</class>
+		</hibernate-mapping>
 
 ### Compilation and 
 
 ## Hibernate - Native SQL ##
+1. Purpose: To use db specific features
+	1. Example: `CONNECT` in Oracle
+2. Support of Hibernate:
+	1. SQL
+	2. Stored procedures
+3. `createSQLQuery()` **(M)**: method for creation of native SQL query
+	1. `public SQLQuery createSQLQuery(String sqlString) throws HibernateException`
+4. `addEntity` **(M)**: associate SQL result with existing Hibernate entity (?)
+5. `addJoin()` **(M)**: associate SQL result with existing Hibernate join (?)
+6. `addScalar()` **(M)**: associate SQL result with scalar result (?)
+
+### Scalar queries ###
+1. Query to get scalars (values) from one or more tables
+2. Syntax:
+
+		String sql = "SELECT first_name, salary FROM EMPLOYEE";
+		SQLQuery query = session.createSQLQuery(sql);
+		query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+		List results = query.list();
+
+3. The operation returns raw values from resultset
+
+### Entity queries ###
+1. Operation to return whole entity objects (instead of raw values)
+
+		String sql = "SELECT * FROM EMPLOYEE";
+		SQLQuery query = session.createSQLQuery(sql);
+		query.addEntity(Employee.class);
+		List results = query.list();
+
+### Named SQL queries ###
+1. Syntax:
+
+		String sql = "SELECT * FROM EMPLOYEE WHERE id = :employee_id";
+		SQLQuery query = session.createSQLQuery(sql);
+		query.addEntity(Employee.class);
+		query.setParameter("employee_id", 10);
+		List results = query.list();
+
+### Example ###
+
 ## Hibernate - Caching ##
+1. Why do caching? 
+	1. To optimize application performance
+2. Where is the cache?
+	1. Between the app and db
+3. What is the goal?
+	1. To minimize the number of hits to the db (to give better performance for performance critical apps)
+4. Hibernate uses multi-level chaching scheme
+
+	![Multi-level chaching](hibernate_cache.jpg)
+
+### First-level cache ###
+1. It is the session cache (mandatory cache).
+2. All requests must pass through the first-level cache
+3. Session object keeps an object in its power before committing it to database
+4. If multiple update requests are issued on an object, Hibernate tries to delay doing update as long as possible to reduce number of update SQL statements.
+5. If session is closed, all objects being cached are lost and either persisted or updated in db.
+
+### Second-level cache ###
+1. Optional
+2. First-level cache is consulted first before attempting to locate an object in second level cache.
+3. Can be configured per class basis or per-collection basis.
+4. It can be used to cache objects across sessions.
+5. Third party cache can be used with Hibernate.
+6. `org.hibernate.cache.CacheProvider`: interface - must be implemented to provide Hibernate with a handle to the cache implementation.
+
+### Query-level cache ###
+1. Cache for query resultsets (integrates with second level cache)
+2. Optional
+3. Requires two more physical cache regions (for cached query results and timestamps when table was last updated)
+4. For queries run frequently with same parameters
+
+### The second Level Cache ###
+1. Two steps to setup:
+	1. Decide the concurrency strategy (?)
+	2. Configure cache expiration and physical cache attributes using cache provider (?)
+
+### Concurrency strategies ###
+1. It is a mediator responsible for storing items of data in cache and retrieving them from cache.
+2. Choose concurrency strategy if second-level cache is selected for each persistent class and collection
+3. Types of concurrency strategies:
+	1. **Transactional**: Use it for read-mostly data where it is critical to prevent stale data in concurrent transactions in rare cases of update
+	2. **Read-write**: Use it for read-mostly data where it is critical to prevent stale data in concurrent transaction, in rare cases of update
+	3. **Nonstrict-read-write**: Does not guarentee consistency between cache and db. Use it if data hardly changes and small likelihood of stale data is not critical concern
+	4. **Read-only**: For data which never changes. For reference data
+4. Example:
+
+		<?xml version="1.0" encoding="utf-8"?>
+		<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+		
+		<hibernate-mapping>
+			<class name="Employee" table="EMPLOYEE">
+				<meta attribute="class-description">
+					This class contains the employee detail.
+				</meta>
+				<cache usage="read-write"/>
+				<id name="id" type="int" column="id">
+					<generator class="native"/>
+				</id>
+				<property name="firstName" column="first_name" type="string"/>
+				<property name="lastName" column="last_name" type="string"/>
+				<property name="salary" column="salary" type="int"/>
+			</class>
+		</hibernate-mapping>
+
+### Cache provider ###
+1. Hibernate forces to chose a single cache provider for the app if we want to choose.
+2. Cache providers:
+	1. EHCache: can cache in memory or on disk. Clustered caching. Supports optional Hibernate query result cache.
+	2. OSCache: caching to memory and disk in single JVM. rich set of expiration policies and query cache support.
+	3. warmCache: Cluster cache based on JGroups (?). Uses clustered invalidation. Does not support Hibernate query cache
+	4. JBoss Cache: Full transactional replicated clustered cache based on JGroup multicast library (?). Supports replication/ invalidation (?), supports synchronous or asynchronous communication, optimistic and pessimistic locking. Hibernate query cache is supported.
+3. Compatibility of cache provider with concurrency strategy
+	1. EHCache: Read-only, Nonstrictread-write, Read-write
+	2. OSCache: Read-only, Nonstrictread-write, Read-write
+	3. SwarmCache: Read-only, Nonstrictread-write
+	4. JBoss Cache: Read-only, Transactional
+4. `hibernate.cfg.xml`
+
+		<?xml version="1.0" encoding="utf-8"?>
+		<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+		<hibernate-configuration>
+			<session-factory>
+				<property name="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</property>
+				<property name="hibernate.connection.driver_class">
+					com.mysql.jdgc.Driver
+				</property>
+
+				<!-- Assume students is the database name -->
+				<property name="hibernate.connection.url">
+					jdbc:mysql://localhost/test
+				</property>
+				<property name="hibernate.connection.username">
+					root
+				</property>
+				<property name="hibernate.connection.password">
+					root123
+				</property>
+				<property name="hibernate.cache.provider_class">
+					org.hibernate.cache.EhCacheProvider
+				</property>
+
+				<!-- List of XML mapping files -->
+				<mapping resource="Employee.hbm.xml"/>
+			</session-factory>
+		</hibernate-configuration>
+5. `ehcache.xml`: EHCache's configuration file
+	1. Add the file to CLASSPATH
+	2. Example:
+
+			<diskStore path="java.io.tmpdir"/>
+			<defaultCache
+				maxElementsInMemory="1000"
+				eternal="false"
+				timeToIdleSeconds="120"
+				timeToLiveSeconds="120"
+				overflowToDisk="true"
+			/>
+
+			<cache name="Employee"
+				maxElementsInMemory="500"
+				eternal="true"
+				timeToIdleSeconds="0"
+				timeToLiveSeconds="0"
+				overflowToDisk="false"
+			/>
+	3. Hibernate hits second level cache whenever 
+		1. You navigate to Employee
+		2. When you load Employee by id.
+	4. Sometimes second level caching may downgrade performance of app
+		1. Solution: 
+			1. Bench mark the app without enabling caching
+			2. Enable caching and check performance
+
+### The Query-level Cache ###
+1. To use it, activate it first
+	1. `hibernate.cache.use_query_cache="true"`
+		1. Hibernate will add necessary caches in memory to hold query and id sets.
+2. Next, use `setCacheable(Boolean)` of `Query` class.
+
+		Session session = SessionFactory.openSession();
+		Query query = session.createQuery("FROM EMPLOYEE");
+		query.setCacheable(true);
+		List users = query.list();
+		SessionFactory.closeSession();
+
+3. Add cache region:
+
+		Session session = SessionFactory.openSession();
+		Query query = session.createQuery("FROM EMPLOYEE");
+
+	1. Cache region is given a name, tells Hibernate to store and look for query in employee area of cache
+
 ## Hibernate - Batch Processing ##
+1. Uploading large number of records in db using Hibernate
+2. Example:
+
+		Session session = SessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		for (int i = 0; i < 100000; i++) {
+			Employee employee = new Employee(....);
+			session.save(employee);
+		}
+		tx.commit();
+		session.close();
+
+
 ## Hibernate - Interceptors ##
+
 ## Hibernate - Q & A ##
-## Hibernate - Quick Guide ##
 ## Hibernate - Useful Resources ##
 ## Hibernate - Discussion ##
