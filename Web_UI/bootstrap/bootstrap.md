@@ -296,7 +296,7 @@
 			}
 
 			#counter .countdown {
-				font-size: 1.4 em !important; # since font-size already set
+				font-size: 1.4em !important; # since font-size already set
 			}
 
 			#icons .fa {
@@ -342,11 +342,10 @@
 		?>
 
 
-			<form ...>
-
-				<?php echo $emailError; ?>
-				<?php echo $result; ?>
 			</form>
+
+			<?php echo $emailError; ?>
+			<?php echo $result; ?>
 
 ## Styling ##
 1. Wrap message in `<div>` to `$emailError`

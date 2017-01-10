@@ -47,3 +47,12 @@
 			/:
 				get:
 					description: "This endpoint returns all todos avaialable in the database"
+					operationId: "GetAllTodos"
+					parameters: []
+					responses:
+						200:
+							description: "An array of todos"
+							schema:
+								type: "array"
+								items:
+									$ref: "#/definitions/Todo"
