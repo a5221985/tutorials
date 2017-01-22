@@ -1349,8 +1349,8 @@
 4. Clear floats:
 
 		.clearfix {zoom: 1}
-		.clearfix {
-			content: ".";
+		.clearfix:after {
+			content: '.';
 			clear: both;
 			display: block;
 			height: 0;
@@ -1365,3 +1365,1410 @@
 			background-color: #f4f4f4;
 		}
 
+### Building the cities section - Part 1 ###
+1. What we'll learn in this lecture
+	1. Practice our new skill set
+	2. How to use small icons aligned with some text
+	3. How to style generic links
+2. Implementation
+	1. index.html
+
+			<section class="section-cities">
+				<div class="row">
+					<h2>We're currently in these cities</h2>
+				</div>
+				<div class="row">
+					<div class="col span-1-of-4 box">
+						<img src="resources/img/lisbon-3.jpg" alt="Lisbon" />
+						<h3>Lisbon</h3>
+						<div class="city-feature">
+							<i class="ion-ios-person icon-small"></i>
+							1600+ happy eaters
+						<div class="city-feature">
+							<i class="ion-ios-star icon-small"></i>
+							60+ top chefs
+						</div>
+						<div class="city-feature">
+							<i class="ion-social-twitter icon-small"></i>
+							<a href="#">@omnifood_lx</a> 
+						</div>
+					</div>
+					<div class="col span-1-of-4">
+						<img src="resources/img/san-francisco.jpg" alt="Lisbon" />
+						<h3>San Francisco</h3>
+						<div class="city-feature">
+							<i class="ion-ios-person icon-small"></i>
+							3700+ happy eaters
+						</div>
+						<div class="city-feature">
+							<i class="ion-ios-star icon-small"></i>
+							160+ top chefs
+						</div>
+						<div class="city-feature">
+							<i class="ion-social-twitter icon-small"></i>
+							<a href="#">@omnifood_sf</a> 
+						</div>
+					</div>
+					<div class="col span-1-of-4">
+						<img src="resources/img/berlin.jpg" alt="Berlin" />
+						<h3>Berlin</h3>
+						<div class="city-feature">
+							<i class="ion-ios-person icon-small"></i>
+							2300+ happy eaters
+						</div>
+						<div class="city-feature">
+							<i class="ion-ios-star icon-small"></i>
+							110+ top chefs
+						</div>
+						<div class="city-feature">
+							<i class="ion-social-twitter icon-small"></i>
+							<a href="#">@omnifood_berlin</a> 
+						</div>
+					</div>
+					<div class="col span-1-of-4">
+						<img src="resources/img/london.jpg" alt="London" />
+						<h3>London</h3>
+						<div class="city-feature">
+							<i class="ion-ios-person icon-small"></i>
+							1200+ happy eaters
+						</div>
+						<div class="city-feature">
+							<i class="ion-ios-star icon-small"></i>
+							50+ top chefs
+						</div>
+						<div class="city-feature">
+							<i class="ion-social-twitter icon-small"></i>
+							<a href="#">@omnifood_london</a> 
+						</div>
+					</div>
+				</div>
+			</section>
+
+### Building the cities section - Part 2 ###
+1. Styling:
+
+		/* ----------------------------------- */
+		/* CITIES */
+		/* ----------------------------------- */
+
+		.box img {
+   			width: 100%;
+    		height: auto;
+    		margin-bottom: 15px;
+		}
+
+		.city-feature {
+    		margin-bottom: 5px;
+		}
+
+		.icon-small {
+    		display: inline-block;
+    		width: 30px;
+    		text-align: center;
+    		color: #e67e22;
+    		font-size: 120%;
+    
+    		/* secrets to align text and icons */
+    		line-height: 120%;
+    		vertical-align: middle;
+    		margin-top: -4px;
+    
+    		margin-right: 10px;
+		}
+
+		/* -------- LINKS -------- */
+		
+		a:link,
+		a:visited {
+			color: #e67e22;
+			text-decoration: none;
+			border-bottom: 1px solid #e67e22;
+			transition: border-bottom 0.2s, color 0.2s;
+		}
+
+		a:hover,
+		a:active {
+			color: #555;
+			border-bottom: 1px solid transparent;
+		}
+
+		...
+
+		.btn-app:link,
+		.bnt-app:visited {
+			border: 0;
+		}
+
+### Building the customer testimonial section - Part 1 ###
+1. What we'll learn
+	1. How to build a beautiful background-image effect
+	2. How to effectively communicate what customers have to say
+2. html code:
+
+		<section class="section-testimonials">
+			<div class="row">
+				<h2>Our customers can't live without us</h2>
+			</div>
+			<div class="row">
+				<div class="col span-1-of-3">
+					<blockquote>
+						Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+						<cite><img src="resources/img/customer-1.jpg"/>Alberto Duncan</cite>
+					</blockquote>
+				</div>
+				<div class="col span-1-of-3">
+					<blockquote>
+						Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!
+						<cite><img src="resources/img/customer-2.jpg"/>Joana Silva</cite>
+					</blockquote>
+				</div>
+				<div class="col span-1-of-3">
+					<blockquote>
+						I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!
+						<cite><img src="resources/img/customer-3.jpg"/>Milton Chapman</cite>
+					</blockquote>
+				</div>
+			</div>
+		</section>
+
+### Building the customer testimonial section - Part 2 ###
+1. Styling:
+2. Add `back-customer.jpg` to `css/img/`
+
+		/* ----------------------------------- */
+		/* TESTIMONIALS */
+		/* ----------------------------------- */
+
+		.section-testimonials {
+			background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg);
+			background-size: cover;
+			color: #fff;
+			background-attachment: fixed;
+		}
+
+		blockquotes {
+			padding: 2%;
+			font-style: italic;
+			ling-height: 145%;
+			position: relative;
+			margin-top: 40px;
+		}
+
+		cite {
+			font-size: 90%;
+			margin-top: 25px;
+			display: block;
+		}
+
+		blockquote:before {
+			content: "\201C";
+			font-size: 500%;
+			display: block;
+			position: absolute; /* Parent should be relative */
+			top: -5px;
+			left: -3px;
+		}
+
+		cite img {
+			height: 45%;
+			border-radius: 50%;
+			margin-right: 10px;
+			vertical-align: middle;
+		}	
+
+		...
+
+		header {
+			background-attachment: fixed;
+		}
+
+3. Use left double from [https://css-tricks.com/snippets/html/glyphs](https://css-tricks.com/snippets/html/glyphs)	
+
+### Building the sign-up-section ###
+1. What we'll learn
+	1. Design with broder radius
+	2. How box shadows with CSS	
+2. HTML
+
+		<section class="section-plans">
+			<div class="row">
+				<h2>Start eating healthy today</h2>
+			</div>
+			<div class="row">
+				<div class="col span-1-of-3">
+					<div class="plan-box">
+						<div>
+							<h3>Premium</h3>
+							<p class="plan-price">$399 / month</p>
+							<p class="plan-price-meal">That’s only 13.30$ per meal</p>
+						</div>
+						<div>
+							<ul>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal every day</li>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>Order 24/7</li>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>Access to newest creations</li>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>Free delivery</li>
+							</ul>
+						</div>
+						<div>
+							<a href="a" class="btn btn-full">Sign up now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col span-1-of-3">
+					<div class="plan-box">
+						<div>
+							<h3>Pro</h3>
+							<p class="plan-price">149$ / month</p>
+							<p class="plan-price-meal">That’s only 14.90$ per meal</p>
+						</div>
+						<div>
+							<ul>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal 10 days/month</li>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>Order 24/7</li>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>Access to newest creations</li>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>Free delivery</li>
+							</ul>
+						</div>
+						<div>
+							<a href="a" class="btn btn-ghost">Sign up now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col span-1-of-3">
+					<div class="plan-box">
+						<div>
+							<h3>Starter</h3>
+							<p class="plan-price">19$ / meal</p>
+							<p class="plan-price"></p>
+						</div>
+						<div>
+							<ul>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal</li>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>Order from 8 am to 12 pm</li>
+								<li><i class="ion-ios-close-empty icon-small"></i></li>
+								<li><i class="ion-ios-checkmark-empty icon-small"></i>Free delivery</li>
+							</ul>
+						</div>
+						<div>
+							<a href="a" class="btn btn-ghost">Sign up now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+### Building the sign-up section - Part 2 ###
+1. styling
+
+		/* ----------------------------------- */
+		/* SIGN UP */
+		/* ----------------------------------- */
+		
+		.section-plans {
+			background-color: #f4f4f4;
+		}
+
+		.plan-box {
+			background-color: #fff;
+			border-radius: 5px;
+			width: 90%;
+			margin-left: 5%;
+			box-shadow: 0 2px 2px #efefef;
+		}
+
+		.plan-box div {
+			padding: 15px;
+			border-bottom: 1px solid #e8e8e8;
+		}
+
+		.plan-box div:first-child {
+			background-color: #fcfcfc;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+
+		.plan-box div:last-child {
+			text-align: center;
+			border: 0;
+		}
+
+		.plan-price {
+			font-size: 300%;
+			margin-bottom: 10px;
+			font-weight: 100;
+			color: #e67e22;
+		}
+
+		.plan-price-meal {
+			font-size: 80%:
+			font-weight: 300; /* to avoid inheritance */
+		}
+
+		.plan-price span {
+			font-size: 30%; /* of 300% of parent */
+		}
+
+		.plan-box ul {
+			list-style: none;
+		}
+
+		.plan-box ul li {
+			padding: 5px 
+		}
+
+2. HTML
+
+		...<span>/ meal</span> <!-- Appear within a paragraph and style only that portion differently -->
+
+### Building a Contact Form - Part 1 ###
+1. What we'll learn
+	1. How to use a set of new HTML elements for forms: form, label, input, select, option, textarea
+	2. How to style the elements
+2. HTML code
+
+		<section class="section-form">
+			<div class="row">
+				<h2>We're happy to hear from you</h2>
+			</div>
+			<div class="row">
+				<form method="post" action="#" class="contact-form">
+					<div class="row">
+						<div class="col span-1-of-3">
+							<label for="name">Name</label>
+						</div>
+						<div class="col span-2-of-3"></div>
+							<input type="text" name="name" id="name" placeholder="Your name" required/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col span-1-of-3"></div>
+							<label for="email">Email</label>
+						</div>
+						<div class="col span-2-of-3"></div>
+							<input type="email" name="email" id="email" placeholder="Your email" required/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col span-1-of-3"></div>
+							<label for="find-us">How did you find us?</label>
+						</div>
+						<div class="col span-2-of-3"></div>
+							<select name="find-us" id="find-us">
+								<option value="friends">Friends</option>
+								<option value="search" selected>Search engine</option>
+								<option value="ad">Advertisement</option>
+								<option value="other">Other</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col span-1-of-3"></div>
+							<label>Newsletter</label>
+						</div>
+						<div class="col span-2-of-3"></div>
+							<input type="checkbox" name="news" id="news" checked/> Yes, please
+						</div>
+					</div>
+					<div class="row">
+						<div class="col span-1-of-3"></div>
+							<label>Drop us a line</label>
+						</div>
+						<div class="col span-2-of-3"></div>
+							<textarea name="message" placeholder="Your message"></textarea>											
+						</div>
+					</div>
+					<div class="row">
+						<div class="col span-1-of-3"></div>
+							<label>&nbsp;</label>
+						</div>
+						<div class="col span-2-of-3"></div>
+							<input type="submit" value="Send it!"/>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+
+### Building the contact form section - Part 2 ###
+1. Styling
+
+		/* ----------------------------------- */
+		/* FORM */
+		/* ----------------------------------- */
+
+		.contact-form {
+			width: 60%;
+			margin: 0 auto;
+		}
+
+		input[type=text],
+		input[type=email],
+		select,
+		textarea {
+			width: 100%;
+			padding: 7px;
+			border-radius: 3px;
+			border: 1px solid #ccc;
+		}
+
+		textarea {
+			height: 100px;
+		}
+		
+		input[type=checkbox] {
+			margin: 10px 5px 10px 0;
+		}
+
+		*:focus {
+			outline: none;
+		}
+
+		...
+
+		.bin:link,
+		.btn:visited,
+		input[type=submit] {
+			...
+		}
+
+		.btn-full:link,
+		.btn-full:visited,
+		input[type=submit] {
+			...
+		}
+
+		.btn:hover,
+		.btn:active,
+		input[type=submit]:hover,
+		input[type=submit]:active {
+			...
+		}
+
+### Building the Footer - Part 1 ###
+1. What we'll learn
+	1. How to build a simple but effective footer
+	2. Cool way to use social icons on a web page
+2. HTML code
+
+		<footer>
+			<div class="row">
+				<div class="col span-1-of-2">
+					<ul class="footer-nav">
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Press</a></li>
+						<li><a href="#">iOS App</a></li>
+						<li><a href="#">Android App</a></li>
+					</ul>	
+				</div>
+				<div class="col span-1-of-2">
+					<ul class="social-links">
+						<li><a href="#"><i class="ion-social-facebook"></i></a></li>
+						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+						<li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+						<li><a href="#"><i class="ion-social-instagram"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<p>
+					Copyright &copy; 2015 by Omnifood. All right reserved.
+				</p>
+			</div>
+		</footer>
+
+### Building the footer - Part 2 ###
+1. Styling
+	
+		/* ----------------------------------- */
+		/* FOOTER */
+		/* ----------------------------------- */
+
+		footer {
+			background-color: #333;
+			padding: 30px;
+			font-size: 80%;
+		}
+
+		.footer-nav {
+			list-style: none;
+			float: left;
+		}
+
+		.social-links {
+			list-style: none;
+			float: right;
+		}
+
+		.footer-nav li,
+		.social-links li {
+			display: inline-block;
+			margin-right: 20px;
+		}
+
+		.footer-nav li:last-child,
+		.social-links li:last-child {
+			margin-right: 0;
+		}
+
+		.footer-nav li a:link,
+		.footer-nav li a:visited,
+		.social-links li a:link,
+		.social-links li a:visited {
+			text-decoration: none;
+			border: 0;
+			color: #888;
+			transition: color 0.2s;
+		}
+		
+		.footer-nav li a:hover,
+		.footer-nav li a:active {
+			color: #ddd;
+		}
+
+		footer p {
+			color: #888;
+			text-align: center;
+			margin-top: 20px;
+		}
+
+2. Change icon colors to corresponding social network color [http://designpieces.com/2012/12/social-media-colours-hex-and-rgb](http://designpieces.com/2012/12/social-media-colours-hex-and-rgb)
+
+		.social-links li a:link,
+		.social-links li a:visited {
+			font-size: 160%;
+		}			
+
+		.ion-social-facebook,
+		.ion-social-twitter,
+		.ion-social-googleplus,
+		.ion-social-instagram {
+			transition: color 0.2s;
+		}
+
+		.ion-social-facebook:hover {
+			color: #3b5998;
+		}
+
+		.ion-social-twitter:hover {
+			color: #55acee;
+		}
+
+		.ion-social-googleplus:hover {
+			color: #dd4b39;
+		}
+
+		.ion-social-instagram:hover {
+			color: #125688;
+		}
+
+### Making the website responsive - Part 1 ###
+
+1. Using Media Queries
+	1. Use css properties for different devices
+2. Break points
+	1. 0px to 1480px - iPhone
+	2. 480px to 768px - iPad vertical
+	3. 768px to 1024px - iPad horizontal
+	4. 1024px to 1200px - Mac Book
+3. New file `css/queries.css`
+
+		/* Big tablet to 1200px (width smaller than the 1140px row) */
+		@media only screen and (max-width: 1200px) {
+			.hero-text-box {
+				width: 100%:
+				padding: 0 2%;
+			}
+			
+			.row { padding: 0 2%; }
+		}
+
+		/* Small tablet t big tablet from 768px to 1023px */
+		@media only screen and (max-width: 1023px) {
+			body { font-size: 18px; }
+			section { padding: 60px 0; }
+
+			.long-copy {
+				width: 80%;
+				margin-left: 10%;
+			}
+
+			.steps-box { margin-top: 10px; }
+			.steps-box:last-child { margin-top: 10px; }
+			.works-step { margin-bottom: 40px; }
+			.works-step:last-of-type { margin-bottom: 60px; }
+
+			.app-screen { width: 50%; }
+
+			.icon-small { 
+				width: 17px;
+				 
+			}
+			.city-feature { font-size: 90% }
+
+			.plan-box {
+				width: 100%;
+				margin-left: 0;
+			}
+
+			.plan-price {
+				font-size: 250%;
+			}
+
+			.contact-form { width: 80%; }
+		}
+
+		/* Small phones to small tablets: from 481 to 767px */
+		@media only screen and (max-width: 767px) {
+			body { font-size: 16px; }
+			section { padding: 30px 0; }
+			.row,
+			.hero-text-box { padding: 0 4%; }
+			.col { 
+				width: 100%;
+				margin: 0 0 4% 0%; 	
+			}
+
+			.main-nav { display: none; }
+
+			h1 { font-size: 180%; }
+			h2 { font-size: 150%; }
+
+			.long-copy {
+				width: 100%;
+				margin-left: 0;
+			}	
+
+			.works-step { margin-bottom: 20px; }
+			.works-step:last-of-type { margin-bottom: 20px; }
+		
+			.works-step div {
+				height: 40px;
+				width: 40px;
+				margin-right: 15px;
+				padding: 4px;
+				font-size: 120%;
+			}
+
+			.app-screen { width: 40%; }
+			.steps-box:first-child { text-align: center; }
+		}
+
+		/* Small phones: from 0 to 480px */
+		@media only screen and (max-width: 480px) {
+			section { padding: 25px 0; }
+			.contact-form { width: 100%; }
+		}
+
+3. style.css
+
+		html,
+		body {
+			...
+			overflow-x: hidden;
+		}
+
+3. Include the file
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		...
+
+		<link rel="stylesheet" type="text/css" href="resources/css/queries.css">
+
+### A note about web browsers ###
+1. Each browser may interpret html and css differently
+2. How to make the code compatible with different browsers?
+	1. Using css browser prefixes **(M)**
+		1. Android: -webkit-
+		2. chrome: -webkit-
+		3. Firefox: -moz-
+		4. Internet Explorer: -ms-
+		5. ios: -webkit-
+		6. Opera: -o-
+		7. Safari: -webkit-
+3. Examples:
+
+		-webkit-border-radius: 25px;
+		-moz-border-radius: 25px;
+		-o-border-radius: 25px;
+		border-radius: 25px;
+
+	1. They are backward compatable and work on older browsers
+
+4. Automate using brakets
+	1. Search for `autoperfixer`
+	2. Install
+	3. ctrl - A on style
+	4. Edit > Auto prefix selection (style.css, queries.css, grid.css)
+5. Javascript to enable new funtionality in old browsers
+	1. respond.js - [www.jsdelivr.com](www.jsdelivr.com)
+		1. Search for `respond`
+		2. Copy the code and paste at the bottom of html file
+	
+				<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+	2. html 5 shiv - enables to style html5
+		1. Search for html5shiv
+		2. Copy the code and paste at the bottom of html file
+	3. selctivizr - css3 pseudo classes (last-child, first-child)
+		1. Search and copy the code at the bottom
+6. [Can I use](caniuse.com/#search=transform) -
+	1. write css properties and tells where it works
+
+### Introduction to jQuery ###
+1. What is JQuery?
+	1. Most popular JS library
+	2. Free
+	3. Makes it easy to
+		1. Select and manipulate HTML elements
+		2. Animations
+		3. Develops Ajax applications
+2. JQuery plugins
+	1. Can be downloaded (Refer to course e-book)
+	2. Magnific Popup
+		1. Gallaries
+		2. Open Youtube video
+		3. Open Google map
+		4. Mono dialog
+	3. tooltipsters
+		1. Different kinds of tooltips
+	4. Maplace.JS
+		1. Embed google maps
+		2. Markers on maps
+		3. ...
+	5. Typer.js
+		1. That types
+	6. One Page Scroll v1.3.1
+		1. We can see one section after another (fills viewport)
+		2. Presentation style websites
+3. JS file
+	1. Open [Google Hoster Libraries](https://developers.google.com/speed/libraries/)
+	2. Paste the script in index.html
+
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	3. New `resources/js/script.js`
+
+			$(document).ready(function() {
+				$('h1').click(function() {
+					$(this).css('background-color', '#ff0000');
+				})
+			})
+	4. At the bottom of index.html
+
+			<script src="resources/js/script.js"></script>
+
+### Building a "sticky" navigation - Part 1 ###
+1. style.css
+
+		/* Main navi */
+		...
+	
+		/* Sticky navi */
+		.sticky {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			background-color: rgba(255, 255, 255, 0.98);
+			box-shadow: 0 2px 2px #efefef;
+		}
+
+		.sticky .main-nav { margin-top: 18px; }
+
+		.sticky .main-nav li a:link,
+		.sticky .main-nav li a:visited {
+			padding: 16px 0;
+			color: #555;
+		}
+
+		.sticky .logo { display: none; }
+		.sticky .logo-black { display: block; }
+
+		...
+
+		.logo-black {
+			display: none;
+			height: 50px;
+			width: auto;
+			float: left;
+			margin: 5px 0;
+		}
+
+2. html
+
+		<header>
+			<nav class="sticky">
+				<div ...>
+					<img ...>
+					<img src="resources/img/logo.png" alt="Omnifood logo" class="logo-black">
+
+				...
+		</header>
+
+### Building a "sticky" navigation - Part 2 ###
+1. [Waypoints](http://imakewebthings.com/waypoints/)
+	1. To trigger a function when we scroll to an element
+	2. Download
+	3. Extract it
+	4. Copy jquery.waypoints.min.js to `vendors/js`
+2. Include the file
+
+		<script src="vendors/js/jquery.waypoints.min.js"></script>
+		...
+3. Copy the snippet
+
+		var waypoints = $('#handler-first').waypoint(function(direction) {
+			notify(this.element.id + ' hit 25% from top of window')
+		}, {
+			offset: '25%'
+		})
+
+4. js
+
+		/* For the sticky navigation */
+		$('.js--section-features').waypoint(function (direction) {
+			if (direction == "down") {
+				$('nav').addClass('sticky');
+			} else {
+				$('nav').removeClass('sticky');
+			}
+		}, {
+			offset: '60px;'
+		});
+
+5. html
+
+		<section class="section-features js--section-features">
+			... 
+
+	1. Remove `class="sticky"`
+
+6. Bring navigation to the front
+
+		.sticky {
+			...
+			z-index: 9999; /* Highest possible value */
+		}
+
+### Scrolling to elements ###
+1. js
+
+		/* Scroll on buttons */
+		$('.js--scroll-to-plan').click(function() {
+			$('html, body').animate({scrollTop: $(.js--sections-plans).offset().top}, 1000);
+		});
+
+		$('.js--scroll-to-start').click(function() {
+			$('html, body').animate({scrollTop: $(.js--sections-features).offset().top}, 1000);
+		});
+
+2. html
+
+		<a class="btn btn-full js--sroll-to-plan">...
+
+		...
+		<section class="section-plans js--section-plans">
+		...
+
+		<a class="btn btn-ghost js--scroll-to-start">...
+		...
+		<section class="section-start js--section-start">
+		...
+
+3. [Smooth Scrolling](https://css-tricks.com/snippets/jquery/smooth-scrolling)
+	1. Copy the script used for navigation
+	
+			$(function() {
+  				$('a[href*="#"]:not([href="#"])').click(function() {
+   					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      					var target = $(this.hash);
+      					target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      					if (target.length) {
+        					$('html, body').animate({
+          						scrollTop: target.offset().top
+        					}, 1000);
+        					return false;
+      					}
+    				}
+  				});
+			});
+		
+4. html
+
+		<li><a href="#features">Food delivery</a></li>
+		<li><a href="#works">Food delivery</a></li>
+		<li><a href="#cities">Food delivery</a></li>
+		<li><a href="#plans">Food delivery</a></li>
+
+		<section class="section-features ..." id="features">
+			...
+		</section>
+
+		<section class="section-works ..." id="works">
+			...
+		</section>
+
+		<section class="section-cities ..." id="cities">
+			...
+		</section>
+
+		<section class="section-plans ..." id="plans">
+			...
+		</section>
+
+### Adding animations on scroll ###
+1. [Animate.css](deneden.github.com/animate.css/)
+	1. Animation framework
+	2. Download
+	3. Copy `animate.css` to `vendors/css`
+	4. Include the css file in index.html
+
+		<link rel="stylesheet" type="text/css" href="vendors/css/animate.css"
+2. jquery
+
+		/* Animations on scroll */
+		$('.js--wp-1').waypoint(function(direction) {
+			$('.js--wp-1').addClass('animated fadeIn');
+		}, {
+			offset: '50%'
+		});
+
+		$('.js--wp-2').waypoint(function(direction) {
+			$('.js--wp-2').addClass('animated fadeInUp');
+		}, {
+			offset: '50%'
+		});
+
+		$('.js--wp-3').waypoint(function(direction) {
+			$('.js--wp-3').addClass('animated fadeIn');
+		}, {
+			offset: '50%'
+		});
+
+		$('.js--wp-4').waypoint(function(direction) {
+			$('.js--wp-4').addClass('animated pulse');
+		}, {
+			offset: '50%'
+		});
+
+3. HTML
+
+		<section class="section-features">
+			<div class="row js--wp-1">
+			...
+
+		<img src="..." alt="..." class="app-screen js--wp-2">
+		...
+	
+		<section class="section-cities">
+			...
+			<div class="row js--wp-3">
+
+		...
+
+		<section class="section-plans ...">
+			...
+			<div class="plan-box js--wp-4">
+
+
+
+4. css
+
+		/* ----------------------------------- */
+		/* Animations */
+		/* ----------------------------------- */
+
+		.js--wp-1,
+		.js--wp-2,
+		.js--wp-3 {
+			opacity: 0;
+			animation-duration: 1s;
+		}
+
+		.js--wp-4 {
+			-webkit-animation-duration: 1s;
+			animation-duration: 1s;
+		}
+
+		.js--wp-1.animated,
+		.js--wp-2.animated,
+		.js--wp-3.animated {
+			opacity: 1;
+		}
+
+### Making the navigation responsive ###
+1. HTML
+
+		<a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
+
+		...
+		<ul class="main-nav js--main-nav">
+
+
+2. Style
+
+		/* Mobile navi */
+		.mobile-nav-icon {
+			float: right;
+			margin-top: 30px;
+			cursor: pointer;
+			display: none;
+		}
+
+		.mobile-nav-icon i {
+			font-size: 200%;
+			color: #fff;
+		}
+
+3. queries.css
+
+		@media only screen and (max-width: 767px) {
+
+			/* comment it to test */
+			.main-nav { display: none; }
+
+			.mobile-nav-icon { display: inline-block; }
+
+			.main-nav { 
+				float: left; 
+				margin-top: 35px;
+				margin-left: 25px;
+			}
+
+			.main-nav li {
+				display: block;
+			}
+
+			.main-nav li a:link,
+			.main-nav li a:visited {
+				display: block;
+				border: 0;
+				padding: 10px 0;
+				font-size: 100%;
+			}
+
+			...
+			.sticky .main-nav { margin-top: 10px; }
+
+			.sticky .main-nav li a:link,
+			.sticky .main-nav li a:visited {
+				padding: 10px 0;
+				/* remove color */
+			}
+
+			/* remove .sticky .logo ... */
+
+			.sticky .mobile-nav-icon { margin-top: 10px; }
+			.sticky .mobile-nav-icon i { color: #555; }
+
+		}
+
+3. script.js
+
+		/* Mobile navigation */
+		$('.js--nav-icon').click(function () {
+			var nav = $('.js--main-nav');
+			var icon = $('js--nav-icon i');
+
+			nav.slideToggle(200);
+		
+			if (icon.hasClass('ion-navicon-round')) {
+				icon.addClass('ion-close-round');
+				icon.removeClass('ion-navicon-round');
+			} else {
+				icon.addClass('ion-navicon-round');
+				icon.removeClass('ion-close-round');
+			}
+			
+		});
+
+### Final touch: creating a favicon ###
+1. [http://realfavicongenerator.net](http://realfavicongenerator.net)
+	1. Pick image:
+		1. `logo.png`
+		3. iOS:
+			1. Select **Add a solid, thin background to fill the transparents regions**
+		3. Android:
+		4. Favicon Generator Options
+			1. Make a folder: `resources/favicons`
+			2. Select `I cannot or I do not want ...`
+			3. Generate
+		5. Download **Favicon package**
+		6. Grab the code and paste it in `index.html` in `head` towards the end.
+		7. Copy `favicons` folder to `resources`
+
+### Performance optimization: site speed ###
+1. Enhancing page speed
+	1. Optimize heavy images
+	2. Minify CSS and jQuery Code
+2. Optimizing images:
+	1. Reduce file sizes
+		1. Select image
+		2. Right click and select Inspect Element
+			1. size vs actual size
+		3. Make image size 2 times the actual size
+		4. Select city images
+		5. Open
+		6. Select all of them
+		7. `Tools` > Image tool
+			1. Select 750
+		8. Save all images
+3. [OPTIMIZILLA](optimizilla.com) - for compressing images
+	1. Select `back-customers.jpg`, `hero.jpg`
+		1. Select Quality: 70 (for hero)
+		2. Download
+		3. Select Quality: 90 (for back-customers.jpg)
+	2. Copy the images to img and change names to `back-customers.min.jpg` and `hero.min.jpg`
+	3. Change the image names in css code and/or html code
+4. Minify CSS and jQuery code
+	1. [http://www.minifycss.com/css-compressor/](http://www.minifycss.com/css-compressor/)
+
+### Basic search engine optimization (SEO) ###
+1. SEO: techniques that improve and promote a website to increase the number of visitors the site receives from search engines
+2. Meta description tag
+
+		<meta name="description" content="Udemy is the world&#039;s largest destimation for online courses. Discover an online course on Udemy.com and start learning a new skill today."/>
+3. Our webpage
+
+		<meta charset="utf-8">
+		<meta name="description" content="Omnifood is a premium food delivery service with the mission to bring affordable and healthy means to as many people as possible."/>
+4. Valid html code: (Preferred by google)
+	1. Copy the html code
+	2. [validator.w3.org](validator.w3.org)
+	3. Define `alt` for `img`
+4. Content is king
+	1. Keep updting
+	2. Make it great
+	3. Use keywords in content (for search engine)
+		1. Title
+		2. Meta description
+		3. Headings
+		4. Links
+	4. Other websites should link to you
+		1. Search sites rank by number of backlinks
+5. Course e-book
+
+### Let's launch our website ###
+1. Steps:
+	1. Choose and buy a domain name (www.omnifood.com)
+	2. Buy web hosting
+		1. Right bandwidth for smooth running of website
+	3. Upload our website
+2. GoDaddy.com (best web hosting according to trainer)
+	1. Search for domain
+	2. Guy webspace
+		1. `<domain>/cpanel`
+			1. Open file manager
+			2. Website must be in `public_html`
+3. Upload
+	1. FTP account in GoDaddy
+	2. New folder omnifood under public_html
+	2. Bracket FTP-Sync Plus plugin
+	3. Hit icon
+		1. Server: ftp.<domain>
+		2. Username:
+		3. Port: 21
+		4. Folder: /public_html/omnifood
+	4. Only uploads changed files
+
+### Google Analytics ###
+1. Site maintenance
+	1. Keep track of website's success
+	2. Monitor user's behavior
+	3. Make adjustments to make it better
+2. [www.google.com/analytics](www.google.com/analytics)
+	1. Add website
+	2. Copy the script and add it to the website at the bottom of index.html
+	3. Paste the script in each of the pages
+
+### You made it! Congratulations! ###
+1. Web design and development blogs
+	1. designmodo
+	2. sitepoint
+	3. webdesigner
+	4. smashing magazine
+	5. Hey, designer!
+	6. sidebar.io
+2. What now?
+	1. Redesign existing websites that you think are poorly designed
+		1. Show to owner
+	2. Design a website for free for a local charity
+	3. Join design contests at [http://99design.com](http://99design.com)
+	4. Start to do some freelance work on freelancing sites such as freelancer.com, odesk or elance
+3. Practice and never stop learning, dream big
+
+### Super effective ways to improve your website's conversion ###
+1. Build trust with future customers
+	1. Free gifts
+		1. An e-book for free
+	2. Strong call to action button
+		1. Repeat it in more places
+	3. Grab user's attention
+		1. Pop up box for sign up (may be annoying but works)
+	4. Tell user the benefit
+		1. Of clicking the button (TRY IT FOR FREE)
+		2. Use verb that tells benefit
+	5. Don't ask for too much information (than the one you need)
+	6. Use social proof
+		1. Customer testimonials
+		2. Other companies using your services
+	7. Use urgency
+		1. Deal has limited time ...
+		2. Clear call to action button
+	8. Use scarcity
+		1. Product or service is in short supply
+		2. User may value it more
+
+### Adding a map to the Omnifood website ###
+1. jQuery plugin [https://hpneo.github.io/gmaps](https://hpneo.github.io/gmaps)
+	1. Download jQuery file and sive it in `resources/js`
+2. Include Google's API
+	
+		<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+3. Add the jquery file to index.html
+
+		<script src="resources/js/gmaps.js"></script>
+
+4. Copy simple map code
+
+		/* Maps */
+		var map = new GMaps({
+			div: '.map',
+			lat: -12.043333,
+			lng: -9.05,
+			zoom: 12
+		});
+
+		map.addMarker({
+			lat: ...,
+			lng: ...,
+			title: 'Lisbon';
+			infoWindow: {
+				content: '<p>Our Lisbon HQ</p>'
+			}
+		})
+
+5. HTML
+
+		<section class="section-form"> (remove this)
+
+		<div class="map-box">
+			<div class="map"></div>
+
+			<div class="form-box">
+			...
+
+			</div>
+		</div>
+
+6. styling
+
+		/* FORM */
+
+		.contact-form {
+			width: 90%;
+			...
+		}
+		
+		.map-box {
+			width: 100%;
+			height: 560px;
+			position: relative;
+		}
+
+		.map {
+			width: 100%;
+			height: 560px;
+			position: relative;
+			z-index: 0;
+		}
+
+		.form-box {
+			position: absolute;
+			width: 50%;
+			top: 0;
+			right: 0;
+			background-color: rgba(255, 255, 255, 0.8);
+			z-index: 10;
+			height: 560px;
+			padding-top: 40px;
+		}
+
+7. Configure map:
+	1. Get coordinates of Lisbon
+	2. Paste the latitude and longitude
+8. Responsive design
+	
+		@media only screen and (max-width: 1023px) {
+			...
+				.map-box {
+				width: 100%;
+				height: auto;
+				position: relative;
+			}
+
+			.map {
+				width: 100%;
+				height: 300px;
+				position: relative;
+				z-index: 0;
+			}
+
+			.form-box {
+				position: relative;
+				width: 100%;
+				height: auto;
+				padding-top: 30px 0;
+			}
+		}
+
+### Using PHP to make our form work ###
+1. Client side: HTML, CSS, JS
+2. Server side: php, .Net, Rails
+3. Install plugin `brackets icons`
+4. HTML
+
+		<form ... action="mailer.php">
+
+5. mailer.php
+
+		<?php
+			// Get the form fields, remove html tags and whitespace
+			$name = strip_tags(trim($_POST["name"]));
+			$name = str_replace(array("\r","\n"), array(" ", " "), $name);
+			$email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+			$message = trim($_POST["message"]);
+
+			// Check the date
+			if (empty($name) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				header("Location: http://www.webdesignercourse.co/omnifood/index.php?success=-1#form");
+				exit;
+			}
+
+			// Set the recipient email address. Update this to YOUR desired email address
+			$recipient = "hello@webdesigncourse.co";
+
+			// Set the email subject
+			$subject = "New contact form $name";
+
+			// Build the email content.
+			$email_content = "Name: $name\n";
+			$email_conent .= "Email: $email\n\n";
+			$email_content .= "Message:\n$message\n";
+
+			// Build the email header
+			$email_headers = "From: $name <$email>";
+
+			// Send the email.
+			mail($recipient, $subject, $email_content, $email_headers);
+
+			// Redirect to the index.html page with success code
+			header("Location: http://www.webdesigncourse.co/omnifood/index.php?success=1#form");
+		?>
+
+6. html:
+
+		<div class="form-box" id="form">
+	
