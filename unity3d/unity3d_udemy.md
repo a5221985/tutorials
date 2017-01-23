@@ -492,5 +492,11 @@
 			health -= attackPower;
 			Debug.Log("Health After Attack: " + health);
 		}
+4. Right click, > UI > Button
+5. Change Text to Attack
+6. On Click
+7. Drag script to Main Camera
+8. Drag Main Camera to On Click
+9. Pick `UpTownFunctionYouUP`> `Attack()`
 
 
