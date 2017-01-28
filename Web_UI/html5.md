@@ -155,11 +155,108 @@
 					<link rel="stylesheet" href="css/main.css">
 				</head>
 				<body>						
-					<header>
+					<header class="head">
 						<h1>HTML 5 Blog</h1>
 						<p>Best place to stay up to date on all things html 5</p>
 					</header>
 				</body>
 			</html>
+
+11. nav element
+	1. Helps google and yahoo understand the content
+
+			<nav>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+
+			<main>
+				<section>
+					<h2>Html 5</h2>
+					<article>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</article>
+				</section>
+			</main>
+
+			<main>
+				<section>
+					<h2>Css 3</h2>
+					<article>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</article>
+				</section>
+			</main>
+
+			<aside>
+				<h2>Place your ad here</h2>
+				<p>We now have more than one million hits a da</p>
+			</aside>
+
+			<footer>
+				<p>Html 5 blog all copy rights reserer to html 5 blog</p>
+			</footer>
+
+12. CSS
 			
+		body {
+			margin: 0 auto;
+			padding: 0 auto;
+			background-color: #98DDDD;
+			width: 960px;
+			font-family: Verdana, helvetica, san-serif;
+			font-size: 14px; 
+		}
+
+		.head {
+			background-color: #abb3e3;
+			padding: 10px 20px;
+		}
+
+		nav {
+			background-color: #987dd4;
+			padding: 1px;
+		}
+
+		li {
+			display: inline;
+			font-size: 15px;
+			font-family: helvetica, san-serif;
+			margin-left: 7px;
+			margin-right: 7px;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		section {
+			background-color: #90dabf;
+		}
+
+		main {
+			width: 640px;
+			float: left;
+		}
+
+		footer {
+			background-color: #987dd4;
+			clear: both;
+			padding: 3px 40px;
+			position: relative;
+			text-align: center;
+		}
+
+		aside {
+			background-color: #ede4f6;
+			font-size: 12px;
+			width: 270px;
+			float: right;
+			padding: 20px;
+			margin: 10px;
+		}
 		

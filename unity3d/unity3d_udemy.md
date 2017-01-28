@@ -499,4 +499,223 @@
 8. Drag Main Camera to On Click
 9. Pick `UpTownFunctionYouUP`> `Attack()`
 
+4. Heal
 
+		public void Heal() {
+			int healAmount = GetRamdomNumber();
+			health += healAmount;
+
+			Debug.Log ("Received " + healAmount + " health");
+			Debug.Log ("You now have " + health + " health");
+		}
+
+		private int GetRandomNumber() {
+			return Random.Range (2, 10);
+		}
+
+5. Sheild
+
+		public void Attack() {
+			int damageToInflict = GetAttackDamage(shieldOn, sheildAmt, attackPower);
+			health -= damageToInflict;
+		}
+
+		...
+
+		bool shieldOn = true;
+		int shieldAmount = 15;
+
+		private int GetAttackDamage(bool isShieldOn, int theShieldAmnt, int theAttackPower) {
+			
+			int damage = 0;
+			if (isShieldOn) {
+				damage = theAttackPower - (int)((float)theShieldAmnt * 0.10f);
+			} else {
+				damage = theAttackPower;
+			}
+
+			return damage; 
+		}
+
+## Object Oriented Programming ##
+1. Car factory:
+	1. Blueprint: Class
+2. Example:
+
+		public class Humanoid : MonoBehavior {
+			//  
+			void Start () {
+
+			}
+
+			// Update is called once per frame
+			void Update () {
+
+			}
+		}
+
+3. Unless class inherits `MonoBehavior`, we cannot attack it to object(s)
+4. Plain class
+
+		public class Humanoid : MonoBehavior {
+			protected int health;
+			protected int attackDamage;
+			protected float movementSpeed;
+
+			public virtual void TakeDamage(int damageToTake) {
+				health -= damageToTake;
+			}
+
+			public virtual void Attack () {
+				return attackDamage;
+			}
+
+			public virtual void Move () {
+				transform.translate (Vector3.forward = Time.deltaTime);
+			}
+
+			public void Die () {
+
+			}
+		}
+
+5. Another class
+
+		public class Player : Humanoid {
+			private int spinAttackDamage = 10;
+			public override int Attack () {
+				return attackDamage + spingAttackDamage;
+			}
+		}
+
+6. Another class
+
+		public class Zombie : Humanoid {
+			private int poisonDamage = 3;
+
+			public override void Move () {
+				base.Move ();
+				transform.Translate(Vector3.left * 3 * Time.deltaTime);
+			}
+
+			public int AcidPukeAttack() {
+				return attackDamage + poisonDamage;
+			}
+		}
+
+7. GameManager Script
+	1. Drag it onto Main Camera
+	
+			public class GameManager : MonoBehavior {
+				void Start () {
+					Zombie zombie = new Zombie ();
+					Player player = new Player();
+					player.TakeDamage(zombie.Attack());
+					player.TakeDamage(zombie.AcidPukeAttack ());
+
+					player.Die();
+
+					Zombie[] zombies = new Zombie [100];
+
+					for (int x = 0; x < zombies.length; x++) {
+						zombie [x] = new Zombie();
+						Debug.Log("Creating Zombie #:" + x);
+					}
+				}
+			}
+
+## Intro to Haunted Zombie Rush Game ##
+1. Assets:
+	1. [https://shop.bitgem3d.com](https://shop.bitgem3d.com)
+		1. Cannot redistribute
+		2. Cannot publish
+		3. Cannot sell
+	2. Play with models
+		1. Texture files
+		2. Tear them apart
+
+### Interface Overview ###
+1. Layout
+	1. Window > Layout > 4 Split
+	2. Window > Layout > Tall
+	3. Window > Layout > Wide
+2. Play button
+3. Asset Store:
+	1. Window > Asset Store
+	2. Purchase
+		1. 2D, 3D, Music, ...
+	3. Web: Unity Asset Store
+4. GameObject
+	1. GameObject > 3D Object > Cube
+		1. Alt > Keyboard
+		2. Click arrows to move around
+		3. E -> rotate with mouse
+		4. R -> Scale across any access
+		5. Q -> Pan
+		6. W -> select
+		7. Transform tool
+5. Main Camera
+	1. We can move camera (game scene)
+	2. Components
+		1. Meshfilter:
+		2. Box collider: if something collides, it bounces off
+		3. Mesh renderer
+			1. Turning off makes object invisible
+
+## Project Creation and Importing Assets into Unity 3D ##
+1. Open Unity
+2. New
+	1. Haunted Zombie Rush
+	2. Turn off analytics
+3. Layouts > 2 by 3
+	1. Put Project down
+4. Save Scene as Game
+5. Assets
+	1. Drag `Fantasy Demon Caves` to Assets folder
+6. Drag `Demo_Scene` to the Scene window
+
+## Working with Lighting & Materials in Unity 3D ##
+1. Default Skybox:
+	1. New  project comes with defult lighting
+2. Directional Light
+	1. Turning off
+3. Window > Lighting
+	1. Scene
+		1. Skybox
+			1. None
+4. Turn on light
+5. Turn directional light on (to see the game)
+6. Rotate with command to see the mouth
+7. Delete things behind camera
+	1. Hold shift and select or drag and ctrl + delete
+8. GameObject > 3D Object > Plain
+	1. Right click on Static > Reset
+9. Rename Demo Scene to Background
+10. Bring it up
+11. Bring up Camera
+12. Make plane very big
+13. Rotate Background at an angle
+14. Right click on Assets and Folder > Material (Call it Lava)
+15. Albedo, Choose Lava texture
+16. Set tiling to 10 and 10
+
+## Altering Shaders in Unity 3D ##
+1. Select an object
+2. Shader > Unlit > Texture (lighting does not affect the object)
+3. Turn the directional light off
+	1. Plane > Unlit > Texture
+4. Main Camera > Background > Black
+5. Put some mountains behind 
+	1. Select Mountain
+	2. Cmd + D
+	3. R to scale
+
+## Switching Build Platform ##
+1. File > Build Setting > iOS
+2. Double click to install
+3. Reopen Unity
+4. Select iOS > Switch Platform
+5. Change aspect ratio to ipad
+
+
+		

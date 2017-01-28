@@ -2771,4 +2771,67 @@
 6. html:
 
 		<div class="form-box" id="form">
-	
+
+			...
+			<form ...>
+				<div class="row">
+					<div class="form-messges success">
+						Thank you! Your message has been sent.
+					</div>
+					<div class="form-messges error">
+						Oops! Something went wrong. Please try again!
+					</div>
+				</div>
+				...
+
+7. Style:
+
+		.form-messages {
+			width: 70%;
+			margin: 0 auto;
+			padding: 10px;
+			border-radius: 3px;
+			margin-bottom: 30px;
+			color: #333;
+		}
+
+		.success {
+			background-color: rgba(38, 191, 68, 0.8);
+		}
+
+		.error {
+			background-color: rgba(209, 46, 46, 0.8);
+		}
+
+		...
+
+		.map-box {
+			height: 630px;
+			...
+		}
+
+		.map {
+			height: 630px;
+			...
+		}
+
+		.form-box {
+			height: 650px;
+			...
+		}
+
+8. Interactive linter brackets plugin
+9. Include PHP and save it as php file `index.php`
+
+		<?php
+			if($_GET['success'] == 1) {
+				echo "<div class=\"form-messges success\">Thank you! Your message has been sent.</div>";
+			}
+
+			if($_GET['success'] == -1) {
+				echo "<div class=\"form-messges error\">Oops! Something went wrong. Please try again!</div>";
+			}
+		?>
+
+10. Upload the document
+11. Open index.php
