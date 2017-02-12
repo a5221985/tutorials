@@ -587,4 +587,436 @@
 		9. Hint: you can use a loop not only to read from an array, like y[i], but also to set values in an array, like y[i] = ... You can also use the specific array methods.
 
 ## Coding Challenge 2 Solution ##
-1. 
+
+## Important Note: ES5, ES6/ES2015 and ES2016
+1. 1196: Changed LiveScript to JavaScript to atract Java developers but nothing to do with Java
+2. 1997? ECMAScript 1 the language standard, JavaScript: the language in practice
+3. 2009: ECMAScript 5 was released with lots of features
+4. 2015: ECMAScript 2015 was released. biggest update (ES2015)
+5. 2016: ES 2016
+6. ES5 is fully supported by modern browsers, ES6 partial support in modern browsers, ES2016: poor support in modern browsers
+7. ES5 Preferred:
+	1. ES2015 very incomplete browser support today
+	2. Almost all tutorials on web in ES5
+	3. When working on old codebases, these will be written in ES5
+	4. It is easier to learn ES5 and upgrade to ES6
+
+## Section Intro ##
+1. How JavaScript works behind the scenes
+
+## How Our Code is Executed ##
+1. Environment: Browser usually
+	1. Node.JS web server
+2. Host has a Javascript engine (program that executes Javascript code)
+	1. Google V8 engine
+	2. Spider monkey
+	3. ...
+3. Parser:
+	1. Parses checks syntax
+		1. Throws error if there is error
+	2. Praser then constructs an Abstract Syntax Tree
+	3. Abstract Syntax Tree is translated to machine code (executed by processor)
+	4. Code Runs on Machine
+
+## Execution Contexts and The Execution Stack ##
+1. Execution context:
+	1. A box, a container, or a wrapper which stores variables and in which a peice of our code is evaluated and executed
+	2. Default execution context: Global context
+		1. Code that is not inside any functions
+		2. Associated with global object (window object in a browser)
+			1. `lastName === window.lastName // true`
+	3. Code inside functions
+		1. Each function gets its own execution context
+
+				var name = 'John';
+	
+				function first() {
+					var a = 'Hello!';
+					second();
+					var x = a + name;
+				}	
+
+				function second() {
+					var b = 'Hi!';
+					third();
+					var z = b + name;
+				}
+
+				function third() {
+					var c = 'Hey!';
+					var z = c + name;
+				}
+
+				first();
+
+		2. `name`, `first()`, `second()` and `third()` definitions are in global execution context
+		3. `first();` call will give rise to new Execution Context on top of Global Execution Context
+		4. Execution Stack is formed and the new execution context becomes the active context in which the code is executed
+			1. `a` is stored in execution context
+		5. `second();` call will give rise to a new execution context and the new execution context becomes the active context
+			1. `b` is stored in the new execution context
+		6. `third();` will give rise to a new execution context which will become the active context
+			1. `c` is stored in the new execution context
+			2. `z` is stored in the new execution context
+		7. When `third()` returns, the execution context is removed and the next execution context becomes active
+		8. `z` is stored in the active context
+		9. When `second()` returns, the execution context is popped out of execution stack and the next execution context becomes active
+		10. `x` is stored in the active execution context
+		11. When `first()` returns, the execution context is popped out of the stack and the global execution context becomes active
+
+## Execution Contexts in Detail: Creation and Execution Phases and Hoisting ##
+1. Execution context object
+	1. Three properties
+		1. Variable Object (VO): function arguments, inner variable declarations and function declarations
+		2. Scope chain: contains current variable objects and variable objects of its parents
+		3. "This" variable
+2. How is it created?
+	1. When a function is called, a new execution context is put on stop of execution stack
+		1. Two phases:
+			1. Creation phase
+				1. Creation of VO
+					1. Argument object is created, containing all arguments passed into function
+					2. Code is scanned for function declarations: for each function, a property is created in Variable Object, pointing to the function (Hoisting)
+					3. Code is scanned for variable declarations: for each variable, a property is created in VO, and set to `undefined` (Hoisting)
+	
+				2. Creation of scope chain
+				3. this is determined and set
+			2. Execution Phase
+				1. Code of function that generated the current execution context is run line by line
+
+## Hoisting in Practice ##
+1. Code
+		
+		calculateAge(1965);
+
+		function calculateAge(year) {
+			console.log(2017 - year);
+		}
+
+		// Hoisting: function definition is stored in Variable Object (VO) even before execution
+
+2. Function expressions
+
+		retirement(1965); // errors out
+
+		var retirement = function (year) {
+			console.log()
+		}	// Hoisting only works for function declarations but not for function expressions
+
+3. Variable hoisting
+
+		console.log(age);	// age is undefined due to hoisting
+		var age = 23;	// stored in global execution context object
+		console.log(age);
+
+		console.log(bla);	// bla is not declared at all so errors out
+
+		function foo() {
+			console.log(age);	// ag is undefined
+			var age = 65;	// stored in VO of foo's execution object
+			console.log(age);	// 
+		}
+
+		foo();
+		console.log(age);
+
+## Scoping in Javascirpt ##
+1. Scoping: Where can we access a variable or a function in Javascript
+	1. Each new function gives rise to a new scope (space or environment in which variables it defines are accessible)
+2. For new scope, we need new function
+3. Lexical scoping: lexical - position of something
+	1. function that is lexically within another function gets access to the scope of outer function
+		1. Inner function gets access to variables of outer functions
+	2. Example:
+
+			var a = 'Hello!';
+
+			function first() {
+				var b = 'Hi!';
+				second();
+
+				function second() {
+					var c = 'Hey!';
+					console.log(a + b + c);
+				}
+			}
+
+		1. `first()` has access to VO_Global + VO_l
+	3. Scope chain: (direction of resolution)
+		1. local scope -> parent scope -> parent scope -> ... -> Global scope
+	4. During creation, each execution object gets same scope chain (?)
+4. Example:
+
+		var a = 'Hello!';
+		first();
+
+		function first() {
+			var b = 'Hi!';
+			second();
+
+			function second() {
+				var c = 'Hey!';
+				third(); // possible because of scope chain
+			}
+		}
+
+		function third() {
+			var d = 'John';
+			console.log(a + b + c + d); // error since b, c are not in scope chain
+		}
+
+## The 'this' Keyword ##
+1. Determining and setting 'this' variable:
+2. Each execution context gets a 'this' variable
+3. Regular function call: 'this' points to global object (window object)
+4. Method call: `this` points to object calling the method
+5. `this` is assigned value when function where it is defined is called.
+
+## The 'this' keyword in Practice ##
+1. Example:
+
+		console.log(this); // Window object
+		
+		calculateAge(1985);
+
+		function calculateAge(year) {
+			console.log(2017 - year);
+			console.log(this); // Window object
+		}
+
+		var john = {
+			name: 'John',
+			yearOfBirth: 1990,
+			calculateAge: function () {
+				console.log(this); // john object which called the method
+				console.log(2017 - this.yearOfBirth);
+
+				function innerFunction() {
+					console.log(this); // Window object (?) - it is a regular function
+				}
+
+				innerFunction();
+			}
+		};
+
+		john.calculateAge();
+
+2. Example:
+
+		var mike = {
+			name: 'Mike',
+			yearOfBirth: 1984
+		};
+
+		mike.calculateAge = john.calculateAge; // method borrowing
+		mike.calculateAge(); // mike object - since mike is calling the method and this is assigned a value only when the method is called
+
+## Section Intro - DOM Manipulation and events ##
+1. Download the code:
+
+## The DOM and DOM Manipulation ##
+1. DOM: Document Object Model - structured representation of an HTML document.
+	1. Used to connect webpages to scripts like JavaScript
+	2. It is object oriented representation
+		1. For each element in html there is a corresponding object
+	3. JavaScript can manipulate the DOM
+
+## 5-Minute HTML and CSS Crash Course ##
+
+## Projct Setup and Details ##
+1. Open the project
+
+## First DOM Access and Manipulation ##
+1. What we will learn?
+	1. Creation of fundamental game variables
+	2. How to generate a random number
+	3. How to manipulate DOM
+	3. How to read from DOM
+	4. How to change CSS styles
+2. JS
+
+		var scores, roundScores, activePlayer, dice;
+
+		scores = [0, 0];
+		roundScore = 0;
+		activePlayer = 0; // used to read scores array
+
+		dice = Math.floor(Math.random() * 6) + 1;
+		
+		// document.querySelector('#current-' + activePlayer).textContent = dice;
+		document.querySelector("#current-" + activePlayer).innerHTML = '<em>' + dice + '</em>';
+
+		var x = docuement.querySelector('#score-' + activePlayer).textContent;
+		console.log(x);
+
+		document.querySelector('.dice').style.display = 'none';
+
+## Events and Event Handling: Rolling the Dice ##
+1. Events: notifications sent to notify the code that something happened on webpage
+	1. Clicking a button, resizing a window, scrolling down or pressing key
+2. Event listener: function that performs action based on certain event. It waits for specific events to happen
+3. How is event processed?
+	1. Event is processed as soon as the execution stack is empty
+	2. Message Queue: Events are put in the queue and wait to be processed
+		1. When an event needs to be processed, an execution context is put on top of the Execution stack for the event handler
+4. What you will learn in the lecture?
+	1. How to set up an event handler
+	2. What a callback function is
+	3. What an anonymous function is
+	4. Another way to select elements by ID
+	5. How to change the image in an <img> element
+5. Code
+
+		document.getElementById('score-0').textContent = '0';
+		document.getElementById('score-1').textContent = '0';
+		document.getElementById('current-0').textContent = '0';
+		document.getElementById('current-1').textContent = '0';
+
+		document.querySelector('.btn-roll').addEventListener('click', function () {
+			// 1. Random number
+			dice = Math.floor(Math.random() + 6) + 1;
+			
+			//2. Display the result
+			var diceDOM = document.querySelector('.dice');
+			diceDOM.style.display = 'block';
+			diceDOM.src = 'dice-' + dice + '.png';
+
+			//3. Update the round score IF the rolled number was NOT a 1
+		});
+
+## Updating Scores and Changing the Active Player ##
+1. What we will learn?
+	1. What the ternary operator is
+	2. How to add, remove and toggle HTML classes.
+2. Code
+
+			//3. Update the round score IF the rolled number was NOT a 1
+			if (dice !== 1) {
+				// Add score
+				roundScore += dice;
+				document.querySelector('#current-' + activePlayer).textContent = roundScore;
+			} else {
+				// Next player
+				activePlayer === 0? activePlayer = 1: activePlayer = 0;
+				roundScore = 0;
+				
+				document.getElementById('current-0').textContent = '0';
+				document.getElementById('current-1').textContent = '0';
+
+				// document.querySelector('.player-0-panel').classList.remove('active');
+				// document.querySelector('.player-1-panel').classList.add('active');
+
+				document.querySelector('.player-0-panel').classList.toggle('active');
+				document.querySelector('.player-1-panel').classList.toggle('active');
+
+				document.querySelector('.dice').style.display = 'none';
+			}
+
+## Implementing Our 'Hold' Function And The DRY Principle ##
+1. What you will learn?
+	1. How to use functions to correctly apply DRY principle
+	2. How to think about the game logic like a programmer
+2. Code
+
+		document.querySelector('.btn-hold').addEventListener('click', function () {
+
+				// Check if player won the game
+				if (scores[activePlayer] >= 100) {
+					document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+					document.querySelector('.dice').style.display = 'none';
+					document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+					document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+				} else {			
+					...
+					// Next Player
+					nextPlayer();
+				}
+			}
+				
+
+		document.querySelector('.btn-hold').addEventListener('click', function () {
+			// Add CURRENT score to GLOBAL score
+			scores[activePlayer] += roundScore;			
+
+			// Update the UI
+			document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+
+			// Check if player won the game
+			nextPlayer();
+		});
+
+		function nextPlayer() {
+			// Next player
+				activePlayer === 0? activePlayer = 1: activePlayer = 0;
+				roundScore = 0;
+				
+				document.getElementById('current-0').textContent = '0';
+				document.getElementById('current-1').textContent = '0';
+
+				// document.querySelector('.player-0-panel').classList.remove('active');
+				// document.querySelector('.player-1-panel').classList.add('active');
+
+				document.querySelector('.player-0-panel').classList.toggle('active');
+				document.querySelector('.player-1-panel').classList.toggle('active');
+
+				document.querySelector('.dice').style.display = 'none';
+		}
+
+## Creation of a Game Initialization Function ##
+1. Code
+
+		document.querySelector('.btn-new').addEventListener('click', init);
+
+		function init() {
+			scores = [0, 0];
+			activePlayer = 0;
+			roundScore = 0;
+
+			document.querySelector('.dice').style.display = 'none';
+			document.getElementById('score-0').textContent = '0';
+		document.getElementById('score-1').textContent = '0';
+		document.getElementById('current-0').textContent = '0';
+		document.getElementById('current-1').textContent = '0';
+
+			document.getElementById('name-0').textContent = 'Player 1';
+			document.getElementById('name-1').textContent = 'Player 2';
+
+			document.querySelector('.player-0-panel').classList.remove('winner');
+			document.querySelector('.player-1-panel').classList.remove('winner');
+					document.querySelector('.player-0-panel').classList.remove('active');
+			document.querySelector('.player-1-panel').classList.remove('active');
+
+			document.querySelector('.player-0-panel').classList.add('active');
+		}
+
+## Finishing Touches ##
+1. What you will learn?
+	1. What a state variable is, how to use it and why
+2. State variable: tells the condition of a system
+3. Code
+		
+		var ..., gamePlaying;
+
+		document.querySelector('.btn-hold').addEventListener('click', function () {
+			if (gamePlaying) {
+				...
+				if (scores[activePlayer] >= 100) {
+					...
+					gamePlaying = false;
+				}
+			}
+		});
+
+		document.querySelector('.btn-roll').addEventListener('click', function () {
+			if (gamePlaying) {
+				...
+			}
+		});
+
+		function init() {
+			...
+			gamePlaying = true;
+			...
+		}
+
+## Coding Challenge ##
