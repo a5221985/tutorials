@@ -716,6 +716,52 @@
 3. Reopen Unity
 4. Select iOS > Switch Platform
 5. Change aspect ratio to ipad
+6. Select Object and Make it Global
+
+### Foreground ###
+1. Select a stone_bridge platform to scene
+2. Change Shader to Unlit Texture
+3. Move it forward
+4. Choose Module platform and drag it
+5. cmd + d to duplicate
+6. Connect it
+7. cmd + d
+8. New Empty object and call it Flat
+9. Drag the flat components to Flat
+10. Select and choose Center and rotate
+11. New Emptry Object and call it Platform
+	1. Select components and drag them into Platform
+
+### Moving Objects in Unity 3D ###
+1. Put the object in Prefab
+	1. Right click on Assets > New Folder > Prefabs
+	2. Drag the Platform to Prefabs folder
+	3. Drag the Prefab from folder to Hierarchy
+2. Script
+	1. Right click on Assets > New Folder > Scripts
+	2. Right Click on Scripts > Create > C# Script > Object1
+3. Transform
+	
+		[SerializeField] private float objectSpeed = 1; // Can change from Unity
+		private float resetPosition = -21.65f;
+	
+		void Update () {
+			transform.Translate(Vector3.left * (objectSpeed * Time.deltaTime));
+
+			if (transform.localPosition.x <= resetPosition) {
+				Vector3 newPos = new Vector3(79.67, transform.position.y, transform.position.z);
+				transform.position = newPos;
+			}
+		}
+
+4. Drag script to Platform
+5. cmd + D the Platform two times and attach them
+
+### Co-Routines and Wait Time in Unity 3D ###
+1. Drag Rock04_lava to screen
+2. Increase the size and place it at the edge of a bridge
+3. 
+
 
 
 		
