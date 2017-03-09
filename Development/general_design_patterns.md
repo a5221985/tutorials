@@ -1837,3 +1837,1366 @@
 					subject.setState(10);
 				}
 			}
+
+##### State Pattern
+1. Class behavior changes based on its state.
+2. It is a behavior pattern
+3. Objects represent various states
+4. Context object's behavior changes as its state object changes
+
+###### Implementation
+1. `State`: Interface which has an action
+2. Concrete state classes: implement `State` interface
+3. `Context`: Carries a state
+4. `StatePatternDemo`: Demo class
+
+	![state_pattern_uml_diagram](state_pattern_uml_diagram.jpg)
+
+###### Steps
+1. `State.java`
+
+		public interface State {
+			public void doAction(Context context);
+		}
+
+2. `StartState.java`
+
+		public class StartState implements State {
+			public void doAction(Context context) {
+				System.out.println("Player is in start state");
+				context.setState(this);
+			}
+
+			public String toString() {
+				return "Start State";
+			}
+		}
+
+3. `StopState.java`
+
+		public class StopState implements State {
+			public void doAction(Context context) {
+				System.out.println("Player is in stop state");
+				context.setState(this);
+			}
+
+			public String toString() {
+				return "Stop State";
+			}
+		}
+
+4. `Context.java`
+
+		public class Context {
+			private State state;
+
+			public Context() {
+				state = null;
+			}
+
+			public void setState(State state) {
+				this.state = state;
+			}
+
+			public State getState() {
+				return state;
+			}
+		}
+
+5. `StatePatternDemo.java`
+
+		public class StatePatternDemo {
+			public static void main(String[] args) {
+				Context context = new Context();
+
+				StartState startState = new StartState();
+				startState.doAction(context);
+
+				System.out.println(context.getState().toString());
+
+				StopState stopState = new StopState();
+				stopState.doAction(context);
+	
+				System.out.println(context.getState().toString());
+			}
+		}
+
+##### Null Object Pattern
+1. Null object replaces check of NULL object instance.
+2. Instead of checking for null value, Null object reflects do nothing relationship.
+3. Null object can provide default behavior if data is not available.
+4. Abstract class specifies various operations
+	1. Concrete classes extend the class
+	2. Null object class is a do nothing implementation of the class (used where we need to check null value)
+
+###### Implementation
+1. `AbstractCustomer`: abstract class with operations
+2. `CustomerFactory`: Factory class returns on of the following based on customer name:
+	1. Returns RealCustomer
+	2. Returns NullCustomer
+3. `NullPatternDemo`: Demo class
+
+	![null_pattern_uml_diagram](null_pattern_uml_diagram.jpg)
+
+###### Steps
+1. `AbstractCustomer.java`
+
+		public abstract class AbstractCustomer {
+			protected String name;
+			public abstract boolean isNil();
+			public abstract String getName();
+		}
+
+2. `RealCustomer.java`
+
+		public class RealCustomer extends AbstractCustomer {
+			public RealCustomer(String name) {
+				this.name = name;
+			}
+
+			@Override
+			public String getName() {
+				return name;
+			}
+
+			@Override
+			public boolean isNil() {
+				return false;
+			}
+		}
+
+3. `NullCustomer.java`
+
+		public class NullCustomer extends AbstractCustomer {
+			@Override
+			public String getName() {
+				return "Not Available in Customer Database";
+			}
+
+			@Override
+			public boolean isNil() {
+				return true;
+			}
+		}
+
+4. `CustomerFactor.java`
+		
+		public class CustomerFactory {
+			public static final String[] names = {"Rob", "Joe", "Julie"};
+
+			public static AbstractCustomer getCustomer(String name) {
+				for (int i = 0; i < names.length; i++) {
+					if (names[i].equalsIgnoreCase(name)) {
+						return new RealCustomer(name);
+					}
+				}
+				return new NullCustomer();
+			}
+		}
+
+5. `NullPatternDemo.java`
+
+		public class NullPatternDemo {
+			public static void main(String[] args) {
+				AbstractCustomer customer1 = CustomerFactory.getCustomer("Rob");
+				AbstractCustomer customer2 = CustomerFactory.getCustomer("Bob");
+				AbstractCustomer customer3 = CustomerFactory.getCustomer("Julie");
+				AbstractCustomer customer4 = CustomerFactory.getCustomer("Laura");
+
+				System.out.println("Customers");
+				System.out.println(customer1.getName());
+				System.out.println(customer2.getName());
+				System.out.println(customer3.getName());
+				System.out.println(customer4.getName());
+			}
+		}
+
+
+##### Strategy Pattern
+1. A class behavior or its algorithm can be changed at runtime
+2. It is a behavior pattern
+3. An object represents strategies and a context object whose behavior varies as per its strategy object
+
+###### Implementation
+1. `Strategy`: interface with one action
+2. Concrete strategy classes: implement `Strategy`
+3. `Context`: class that uses `Strategy`
+4. `StrategyPatternDemo`: Demo class that shows change in `Context` behavior with different strategies
+
+###### Steps
+1. `Strategy.java`
+
+		public interface Strategy {
+			public int doOperation(int num1, int num2);
+		}
+
+2. `OperationAdd.java`
+
+		public class OperationAdd implements Strategy {
+			@Override
+			public int doOperation(int num1, int num2) {
+				return num1 + num2;
+			}
+		}
+
+3. `OperationSubtract.java`
+
+		public class OperationSubtract implements Strategy {
+			@Override
+			public int doOperation(int num1, int num2) {
+				return num1 - num2;
+			}
+		}
+
+4. `OperationMultiply.java`
+
+		public class OperationMultiply implements Strategy {
+			@Override
+			public int doOperation(int num1, int num2) {
+				return num1 * num2;
+			}
+		}
+
+5. `Context.java`
+
+		public class Context {
+			private Strategy strategy;
+
+			public Context(Strategy strategy) {
+				this.strategy = strategy;
+			}
+
+			public int executeStrategy(int num1, int num2) {		
+				return strategy.doOperation(num1, num2);
+			}
+		}
+
+6. `StrategyPatternDemo.java`
+
+		public class StrategyPatternDemo {
+			public static void main(String[] args) {
+				Context context = new Context(new OperationAdd());
+				System.out.println("10 + 5 = " + context.executeStrategy(10, 5));
+
+				context = new Context(new OperationSubtract());
+				System.out.println("10 - 5 = " + context.executeStrategy(10, 5));
+
+				context = new Context(new OperationMultiply());
+				System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
+			}
+		}
+
+##### Template Pattern
+1. Abstract class exposes defined template(s) to execute its methods.
+2. Subclasses can override method implementations
+3. Invocation of the methods by subclasses must be in the same way as defined by abstract class.
+4. It is a behavior pattern
+
+###### Implementation
+1. `Game`: Abstract class which defines operations with a template method that is set to be final which cannot be overridden.
+2. `Cricket`, `Football`: Concrete classes that extend `Game` and override its methods.
+3. `TemplatePatternDemo`: Demo class
+
+	![template_pattern_uml_diagram](template_pattern_uml_diagram.jpg)
+
+###### Steps
+1. `Game.java`
+
+		public abstract class Game {
+			abstract void initialize();
+			abstract void startPlay();
+			abstract void endPlay();
+
+			//template method
+			public final void play() {
+				// initialize the game
+				initialize();
+
+				// start game
+				startPlay();
+			
+				// end game
+				endPlay();
+			}
+		}
+
+2. `Cricket.java`
+
+		public class Cricket extends Game {
+			@Override
+			void endPlay() {
+				System.out.println("Cricket Game Finished!");
+			}
+
+			@Override
+			void initialize() {
+				System.out.println("Cricket Game Initialized! Start playing.");
+			}
+
+			@Override
+			void startPlay() {
+				System.out.println("Cricket Game Started. Enjoy the game!");
+			}
+		}
+
+3. `Football.java`
+
+		public class Football extends Game {
+			@Override
+			void endPlay() {
+				System.out.println("Football Game Finished!");
+			}
+
+			@Override
+			void initialize() {
+				System.out.println("Football Game Initialized! Start playing.");
+			}
+
+			@Override
+			void startPlay() {
+				System.out.println("Football Game Started. Enjoy the game!");
+			}
+		}
+
+4. `TemplatePatternDemo.java`: Uses template `play()` which is a defined way to play the game
+
+		public class TemplatePatternDemo {
+			public static void main(String[] args) {
+				Game game = new Cricket();
+				game.play();
+				System.out.println();
+				game = new Football();
+				game.play();
+			}
+		}
+
+##### Visitor Pattern
+1. Visitor class changes the execution algorithm of an element class.
+2. As and when visitor varies, the execution algorithm of element class varies.
+3. It is a behavior pattern
+4. Element object must accept a visitor object which in turn handles the operation for the element object.
+
+###### Implementation
+1. `ComputerPart`: Interface with `accept` operation
+2. `Keyboard`, `Mouse`, `Monitor`, `Computer`: concrete classes implementing `ComputerPart` interface
+3. `ComputerPartVisitor`: Interface that defines visitor class operations
+4. `ComputerPartDisplayVisitor`: concrete class implementing `ComputerPartVisitor`
+5. `VisitorPatternDemo`: Demo class
+
+	![visitor_pattern_uml_diagram](visitor_pattern_uml_diagram.jpg)
+
+###### Steps
+1. `ComputerPart.java`
+
+		public interface ComputerPart {
+			public void accept(ComputerPartVisitor computerPartVisitor);
+		}
+
+2. `Keyboard.java`
+
+		public class Keyboard implements ComputerPart {
+			@Override
+			public void accept(ComputerPartVisitor computerPartVisitor) {
+				computerPartVisitor.visit(this);
+			}
+		}
+
+3. `Monitor.java`
+
+		public class Monitor implements ComputerPart {
+			@Override
+			public void accept(ComputerPartVisitor computerPartVisitor) {
+				computerPartVisitor.visit(this);
+			}
+		}
+
+4. `Mouse.java`
+
+		public class Mouse implements ComputerPart {
+			@Override
+			public void accept(ComputerPartVisitor computerPartVisitor) {
+				computerPartVisitor.visit(this);
+			}
+		}
+
+5. `Computer.java`
+
+		public class Computer implements ComputerPart {
+			ComputerPart[] parts;
+
+			public Computer() {
+				parts = new ComputerPart[] {new Mouse(), new Keyboard(), new Monitor()}
+			}
+
+			@Override
+			public void accept(ComputerPartVisitor computerPartVisitor) {
+				for (int i = 0; i < parts.length; i++)
+					parts[i].accept(computerPartVisitor);
+				computerPartVisitor.visit(this);
+			}
+		}
+
+6. `ComputerPartVisitor.java`
+
+		public interface ComputerPartVisitor {
+			public void visit(Computer computer);
+			public void visit(Mouse mouse);
+			public void visit(Keyboard keyboard);
+			public void visit(Monitor monitor);
+		}
+
+7. `ComputerPartDisplayVisitor.java`
+
+		public class ComputerPartDisplayVisitor implements ComputerPartVisitor {
+			@Override
+			public void visit(Computer computer) {
+				System.out.println("Displaying computer.");
+			}
+
+			@Override
+			public void visit(Mouse mouse) {
+				System.out.println("Displaying Mouse.");
+			}
+
+			@Override
+			public void visit(Keyboard keyboard) {
+				System.out.println("Displaying Keyboard.");
+			}
+	
+			@Override
+			public void visit(Monitor monitor) {
+				System.out.println("Displaying Monitor.");
+			}
+		}
+
+8. `VisitorPatternDemo.java`
+
+		public class VisitorPatternDemo {
+			public static void main(String[] args) {
+				ComputerPart computer = new Computer();
+				computer.accept(new ComputerPartDisplayVisitor());
+			}
+		}
+
+##### MVC Pattern
+1. MVC: Model View Controller
+2. Separates app concerns into
+	1. **Model**: Object or POJO carrying data
+		1. Can also have logic to update controller if data changes
+	2. **View**: Visualization of data that model contains
+	3. **Controller**:
+		1. Acts on **Model** and **View**
+		2. Controls data flow into model
+		3. Updates view when data changes
+
+###### Implementation
+1. `Student` object: Model
+2. `StudentView`: view class that prints student details on console
+3. `StudentController`:
+	1. Stores data in `Student` object
+	2. Updates view `StudentView` when data changes
+
+	![mvc_pattern_uml_diagram](mvc_pattern_uml_diagram.jpg)
+
+4. Steps
+	1. `Student.java`
+
+			public class Student {
+				private String rollNo;
+				private String name;
+
+				public String getRollNo() {
+					return rollNo;
+				}
+
+				public void setRollNo(String rollNo) {
+					this.rollNo = rollNo;
+				}
+
+				public String getName() {
+					return name;
+				}
+
+				public String setName(String name) {
+					this.name = name;
+				}
+			}
+
+	2. `StudentView.java`
+
+			public class StudentView {
+				public void printStudentDetails(String studentName, String studentRollNo) {
+					System.out.println("Student: ");
+					System.out.println("Name: " + studentName);
+					System.out.println("Roll No: " + studentRollNo);
+				}
+			}
+
+	3. `StudentController.java`
+
+			public class StudentController {
+				private Student model;
+				private StudentView view;
+
+				public StudentController(Student model, StudentView view) {
+					this.model = model;
+					this.view = view;
+				}
+
+				public void setStudentName(String name) {
+					model.setName(name);
+				}
+
+				public String getStudentName() {
+					return model.getName();
+				}
+
+				public void setStudentRollNo(String rollNo) {
+					model.setRollNo(rollNo);
+				}
+
+				public String getStudentRollNo() {
+					return model.getRollNo();
+				}
+
+				public void updateView() {
+					view.printStudentDetails(model.getName(), model.getRollNo());
+				}
+			}
+
+	4. `MVCPatternDemo.java`
+
+			public class MVCPatternDemo {
+				public static void main(String[] args) {
+					// fetch student record based on his roll no from the database
+					Student model = retrieveStudentFromDatabase();
+					
+					// Creation of view: to write student details to console
+					Student view = new StudentView();
+
+					StudentController controller = new StudentController(model, view);
+
+					controller.updateView();
+
+					// update model data
+					controller.setStudentName("John");
+
+					controller.updateView();
+				}
+
+				private static Student retrieveStudentFromDatabase() {
+					Student student = new Student();
+					student.setName("Robert");
+					student.setRollNo("10");
+					return student;
+				}
+			}
+
+##### Business Delegate Pattern
+1. Used to decouple business layer and presentation layer
+2. Reduces communication/ lookup of functionality in presentation tier code to business tier code
+3. Entities in Business Delegate Pattern:
+	1. **Client**: Presentation tier code (JSP, Servlet or Java UI)
+	2. **Business Delegate**: Single entry point class for client entities (provide access to Business Service methods)
+	3. **LookUp Service**: Responsible to get business implementation and provide business object access to business delegate object (?)
+	4. **Business Service**: Interface. Concrete classes implement it to provide actual business implementation logic.
+
+###### Implementation
+1. `Client`
+2. `BusinessDelegate`
+3. `BusinessService`
+4. `LookUpService`
+5. `JMSService`
+6. `EJBService`
+7. `BusinessDelegatePatternDemo`: Demo class
+
+	![business_delegate_pattern_uml_diagram](business_delegate_pattern_uml_diagram.jpg)
+
+###### Steps
+1. `BusinessService.java`
+
+		public interface BusinessService {
+			public void doProcessing();
+		}
+
+2. `EJBService.java`
+
+		public class EJBService implements BusinessService {
+			@Override
+			public void doProcessing() {
+				System.out.println("Processing task by invoking EJB Service");
+			}
+		}
+
+3. `JMSService.java`
+
+		public class JMSService implements BusinessService {
+			@Override
+			public void doProcessing() {
+				System.out.println("Processing task by invoking JMS Service");
+			}
+		}
+
+4. `BusinessLookUp.java`
+
+		public class BusinessLookup {
+			public BusinessService getBusinessService(String serviceType) {
+				if (serviceType.equalsIgnoreCase("EJB")) {
+					return new EJBService();
+				} else {
+					return new JMSService();
+				}
+			}
+		}
+
+5. `BusinessDelegate.java`
+
+		public class BusinessDelegate {
+			private BusinessLookup lookupService = new BusinessLookup();
+			private BusinessService businessService;
+			private String serviceType;
+
+			public void setServiceType(String serviceType) {
+				this.serviceType = serviceType;
+			}
+
+			public void doTask() {
+				businessService = lookupService.getBusinessService(serviceType);
+				businessService.doProcessing();
+			}
+		}
+
+6. `Client.java`
+
+		public class Client {
+			BusinessDelegate businessService;
+
+			public Client(BusinessDelegate businessService) {
+				this.businessService = businessService;
+			}
+
+			public void doTask() {
+				businessService.doTask();
+			}
+		}
+
+7. `BusinessDelegatePatternDemo.java`
+
+		public class BusinessDelegatePatternDemo {
+			public static void main(String[] args) {
+				BusinessDelegate businessDelegate = new BusinessDelegate();
+				businessDelegate.setServiceType("EJB");
+
+				Client client = new Client(businessDelegate);
+				client.doTask();
+
+				businessDelegate.setServiceType("JMS");
+				client.doTask();
+			}
+		}
+
+##### Composite Entity Pattern
+1. Used in EJB persistence mechanism
+2. Composite entity: EJB entity bean which reperesents graph of objects.
+	1. If a composite entity is updated, internal descendent objects beans get updated automatically.
+3. Participants:
+	1. **Composite Entity** Primary entity bean. Can be coarse grained or contain coarse grained object used for persistence
+	2. **Coarse-Grained Object** Contains dependent objects
+		1. It has its lifecycle
+		2. It manages lifecycle of dependent objects
+	3. **Dependent Object** Depends on coarse grained object for its persistence lifecycle.
+	4. **Strategies** represents how to implement composite entity (?)
+
+###### Implementation
+1. `CompositeEntity`
+2. `CoarseGrainedObject`: contains dependent objects
+3. `CompositeEntityPatternDemo`: Demo class
+4. `Client`
+
+	![compositeentity_pattern_uml_diagram](compositeentity_pattern_uml_diagram.jpg)
+
+###### Steps
+1. `DependentObject1.java`
+
+		public class DependentObject1 {
+			private String data;
+
+			public void setData(String data) {
+				this.data = data;
+			}
+	
+			public String getData() {
+				return data;
+			}
+		}
+
+2. `DependentObject2.java`
+
+		public class DependentObject2 {
+			private String data;
+
+			public void setData(String data) {
+				this.data = data;
+			}
+
+			public String getData() {
+				return data;
+			}
+		}
+
+3. `CoarseGrainedObject.java`
+
+		public class CoarseGrainedObject {
+			DependentObject1 do1 = new DependentObject1();
+			DependentObject2 do2 = new DependentObject2();
+
+			public void setData(String data1, String data2) {
+				do1.setData(data1);
+				do2.setData(data2);
+			}
+
+			public String[] getData() {
+				return new String[] {do1.getData(), do2.getData()};
+			}
+		}
+
+4. `CompositeEntity.java`
+
+		public class CompositeEntity {
+			private CoarseGrainedObject cgo = new CoarseGrainedObject();
+
+			public void setData(String data1, String data2) {
+				cgo.setData(data1, data2);
+			}
+
+			public String[] getData() {
+				return cgo.getData();
+			}
+		}
+
+5. `Client.java`
+
+		public class Client {
+			private CompositeEntity compositeEntity = new CompositeEntity();
+
+			public void printData() {
+				for (int i = 0; i < compositeEntity.getData().length; i++) {
+					System.out.println("Data: " + compositeEntity.getData()[i]);
+				}
+			}
+
+			public void setData(String data1, String data2) {
+				compositeEntity.setData(data1, data2);
+			}
+		}
+
+6. `CompositeEntityDesignPattern.java`
+
+		public class CompositeEntityPatternDemo {
+			public static void main(String[] args) {
+				Client client = new Client();
+				client.setData("Test", "Data");
+				client.printData();
+				client.setData("Second Test", "Data1");
+				client.printData();
+			}
+		}
+
+##### Data Access Object Pattern
+1. Separates low level data accessing API/ operations from high level business services.
+2. Participants
+	1. **Data Access Object Interface**: Defines standard operations performed on model object(s)
+	2. **Data Access Object concrete class**: Class implements DAO interface.
+		1. Responsible for getting data from data source (database/ xml/ other storage mechanism)
+	3. **Model Object** or **Value Object**: Simple POJO containing get/set methods to store data retrieved using DAO class.
+
+###### Implementation
+1. `Student`: Model object or Value object
+2. `StudentDao`: Data access object interface
+3. `StudentDaoImpl`: Concrete class implementing DAO interface
+4. `DaoPatternDemo`: demo class
+
+	![dao_pattern_uml_diagram](dao_pattern_uml_diagram.jpg)
+
+###### Steps
+1. `Student.java`
+
+		public class Student {
+			private String name;
+			private int rollNo;
+
+			Student(String name, int rollNo) {
+				this.name = name;
+				this.rollNo = rollNo;
+			}
+
+			public String getName() {
+				return name;
+			}
+
+			public void setName(String name) {
+				this.name = name;
+			}
+
+			public int getRollNo() {
+				return rollNo;
+			}
+
+			public void setRollNo(int rollNo) {
+				this.rollNo = rollNo;
+			}
+		}
+
+2. `StudentDao.java`
+
+		import java.util.List;
+
+		public interface StudentDao {
+			public List<Student> getAllStudents();
+			public Student getStudent(int rollNo);
+			public void updateStudent(Student student);
+			public void deleteStudent(Student student);
+		}
+
+3. `StudentDaoImpl.java`
+
+		import java.util.ArrayList;
+		import java.util.List;
+
+		public class StudentDaoImpl implements StudentDao {
+			// List is working as a database
+			List<Student> students;
+
+			public StudentDaoImpl() {
+				students = new ArrayList<Student>();
+				Student student1 = new Student("Robert", 0);
+				Student student2 = new Student("John", 1);
+				students.add(student1);
+				students.add(student2);
+			}
+
+			@Override
+			public void deleteStudent(Student student) {
+				students.remove(student.getRollNo());
+				System.out.println("Student: Roll No " + student.getRollNo() + ", delete from database");
+			}
+
+			// retrieve list of students from the database
+			@Override
+			public List<Student> getAllStudents() {
+				return students;
+			}
+
+			@Override
+			public Student getStudent(int rollNo) {
+				return students.get(rollNo);
+			}
+
+			@Override
+			public void updateStudent(Student student) {
+				students.get(student.getRollNo()).setName(student.getName());
+				System.out.println("Student: Roll No " + student.getRollNo() + ", update in the database")
+			}
+		}
+
+4. `DaoPatternDemo.java`
+
+		public class DaoPatternDemo {
+			public static void main(String[] args) {
+				StudentDao studentDao = new StudentDaoImpl();
+
+				// print all students
+				for (Student student: studentDao.getAllStudents()) {
+					System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+				}
+
+				// Update student
+				Student student = studentDao.getAllStudents().get(0);
+				student.setName("Michael");
+				studentDao.updateStudent(student);
+
+				// get the student
+				studentDao.getStudent(0);
+				System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+			}
+		}
+
+##### Front Controller Pattern
+1. Provides centralized request handling mechanism
+	1. All requests will be handled by the single handler
+2. It can do
+	1. Authentication
+	2. Authorization
+	3. Logging
+	4. Request tracking
+3. It passes request to corresponding handler
+4. Entities:
+	1. **Front Controller**: Single handler for all requests coming from app
+	2. **Dispatcher**: Dispatcher can be used to dispatch request to specific handler
+	3. **View**: Object for which request is made
+
+###### Implementation
+1. `FrontController`
+2. `Dispatcher`
+3. `HomeView`, `StudentView`: views
+4. `FrontControllerPatternDemo`: demo class
+
+	![frontcontroller_pattern_uml_diagram](frontcontroller_pattern_uml_diagram.jpg)
+
+###### Steps
+1. `HomeView.java`
+
+		public class HomeView {
+			public void show() {
+				System.out.println("Displaying Home Page");
+			}
+		}
+
+2. `StudentView.java`
+
+		public class StudentView {
+			public void show() {
+				System.out.println("Displaying Student Page");
+			}
+		}
+
+3. `Dispatcher.java`
+
+		public class Dispatcher {
+			private StudentView studentView;
+			private HomeView homeView;
+
+			public Dispatcher() {
+				studentView = new StudentView();
+				homeView = new HomeView();
+			}
+
+			public void dispatch(String request) {
+				if (request.equalsIgnoreCase("STUDENT")) {
+					studentView.show();
+				} else {
+					homeView.show();
+				}
+			}
+		}
+
+4. `FrontController.java`
+
+		public class FrontController {
+			private Dispatcher dispatcher;
+
+			public FrontController() {
+				dispatcher = new Dispatcher();
+			}
+
+			private boolean isAuthenticUser() {
+				System.out.println("User is authenticated successfully.");
+			}
+
+			private void trackRequest(String request) {
+				System.out.println("Page requested: " + request);
+			}
+
+			public void dispatchRequest(String request) {
+				//log each request
+				trackRequest(request);
+
+				//authenticte the user
+				if(isAuthenticUser()) {
+					dispatcher.dispatch(request);
+				}
+			}
+		}
+
+5. `FrontControllerPatternDemo.java`
+
+		public class FrontControllerPatternDemo {
+			public static void main(String[] args) {
+				FrontController frontController = new FrontController();
+				frontController.dispatchRequest("HOME");
+				frontController.dispatchRequest("STUDENT");
+			}
+		}
+
+##### Intercepting Filter Pattern
+1. Used for doing pre-processing/ post-processing with request or response of an app.
+2. Filter is applied to request before passing it to the actual target app.
+3. Applications:
+	1. Authentication
+	2. Authorization
+	3. Logging
+	4. Request tracking
+4. Entities
+	1. **Filter**: Performs a task prior to or after execution of a request by request handler
+	2. **Filter Chain**: Carries multiple filters and helps to execute the filters in a defined order
+	3. **Target**: Request handler
+	4. **Filter Manager**: Manages filters and filter chain
+	5. **Client**: Sends request to Target object
+
+###### Implementation
+1. `FilterChain`
+2. `FilterManager`
+3. `Target`
+4. `Client`
+5. `AuthenticationFilter`, `DebugFilter`: Concrete filter implementations
+6. `InterceptingFilterDemo`: Demo class
+
+	![interceptingfilter_pattern_uml_diagram](interceptingfilter_pattern_uml_diagram.jpg)
+
+###### Steps
+1. `Filter.java`
+
+		public interface Filter {
+			public void execute(String request);
+		}
+
+2. `AuthenticationFilter.java`
+
+		public class AuthenticationFilter implements Filter {
+			@Override
+			public void execute(String request) {
+				System.out.println("Authenticating request: " + request);
+			}
+		}
+
+3. `DebugFilter.java`
+
+		public class DebugFilter implements Filter {
+			@Override
+			public void execute(String request) {
+				System.out.println("request log: " + request);
+			}
+		}
+
+4. `Target.java`
+
+		public class Target {
+			public void execute(String request) {
+				System.out.println("Executing request: " + request);
+			}
+		}
+
+5. `FilterChain.java`
+
+		import java.util.ArrayList;
+		import java.util.List;
+
+		public class FilterChain {
+			private List<Filter> filters = new ArrayList<Filter>();
+			private Target target;
+
+			public void addFilter(Filter filter) {
+				filters.add(filter);
+			}
+
+			public void execute(String request) {
+				for (Filter filter: filters) {
+					filter.execute(request);
+				}
+				target.execute();
+			}
+
+			public void setTarget(Target target) {
+				this.target = target;
+			}
+		}
+
+6. `FilterManager.java`
+
+		public class FilterManager {
+			FilterChain filterChain;
+			
+			public FilterManager(Target target) {
+				filterChain = new FilterChain();
+				filterChain.setTarget(target);
+			}
+
+			public void setFilter(Filter filter) {
+				filterChain.addFilter(filter);
+			}
+
+			public void filterRequest(String request) {
+				filterChain.execute(request);
+			}
+		}
+
+7. `Client.java`
+
+		public class Client {
+			FilterManager filterManager;
+			
+			public void setFilterManager(FilterManager filterManager) {
+				this.filterManager = filterManager;
+			}
+
+			public void sendRequest(String request) {
+				filterManager.filterRequest(request);
+			}
+		}
+
+8. `InterceptingFilterDemo.java`
+
+		public class InterceptingFilterDemo {
+			public static void main(String[] args) {
+				FilterManager filterManager = new FilterManager(new Target());
+				filterManager.setFilter(new AuthenticationFilter());
+				filterManager.setFilter(new DebugFilter());
+
+				Client client = new Client();
+				client.setFilterManager(filterManager);
+				client.sendRequest("HOME");
+			}
+		}
+
+##### Service Locator Pattern
+1. Used to locate services using JNDI lookup.
+2. It makes of caching technique due to the cost associated with JNDI lookup.
+	1. First Service Locator looks up JNDI and caches the service object
+	2. Subsequently Service Locator finds the service object in the cache
+3. Entities
+	1. **Service**: Service that processes request. Reference is lookup up in JNDI server
+	2. **Context/ Initial Context**: JNDI context that carries reference to service for lookup
+	3. **Service Locator**: Single point of contact to get services by JNDI lookup and caching
+	4. **Cache**: Used to store references of services for reuse
+	5. **Client**: Object that invokes service via Service Locator.
+
+###### Implementation
+1. `ServiceLocator`
+2. `InitialContext`
+3. `Cache`
+4. `Service`: Interface
+5. `Service1` , `Service2`: concrete services
+6. `ServiceLocatorPatternDemo`: Demo class
+
+	![servicelocator_pattern_uml_diagram](servicelocator_pattern_uml_diagram.jpg)
+
+###### Steps
+1. `Service.java`
+
+		public interface Service {
+			public String getName();
+			public void execute();
+		}
+
+2. `Service1.java`: concrete service
+
+		public class Service1 implements Service {
+			@Override
+			public void execute() {
+				System.out.println("Executing Service1");
+			}
+
+			@Override
+			public String getName() {
+				return "Service1";
+			}
+		}
+
+3. `Service2.java`: concrete service
+
+		public class Service2 implements Service {
+			@Override
+			public void execute() {
+				System.out.println("Executing Service2");
+			}
+
+			@Override
+			public String getName() {
+				return "Service2";
+			}
+		}
+
+4. `InitialContext.java`
+
+		public class InitialContext {
+			public Object lookup(String jndiName) {
+				if (jndiName.equalsIgnoreCase("SERVICE1")) {
+					System.out.println("Looking up and creation of a new Service1 object");
+					return new Service1();
+				} else if (jndiName.equalsIgnoreCase("SERVICE2")) {
+					System.out.println("Looking up and creation of a new Service2 object");
+					return new Service2();
+				}
+			}
+		}
+
+5. `Cache.java`
+
+		import java.util.ArrayList;
+		import java.util.List;
+
+		public class Cache {
+			private List<Service> services;
+
+			public Cache() {
+				services = new ArrayList<Service>();
+			}
+
+			public Service getService(String serviceName) {
+				for (Service service: services) {
+					if(service.getName().equalsIgnoreCase(serviceName)) {
+						System.out.println("Returning cached " + serviceName + "object");
+						return  service;
+					}
+				}
+				return null;
+			}
+
+			public void addService(Service newService) {
+				boolean exists = false;
+
+				for (Service service : services) {
+					if (service.getName().equalsIgnoreCase(newService.getName())) {
+						exists = true;
+					}
+				}
+				if (!exists) {
+					services.add(newService);
+				}
+			}
+		}
+
+6. `ServiceLocator.java`
+
+		public class ServiceLocator {
+			private static Cache cache;
+
+			static {
+				cache = new Cache();
+			}
+
+			public static Service getService(String jndiName) {
+				Service service = cache.getService(jndiName);
+
+				if(service != null) {
+					return service;
+				}
+
+				InitialContext context = new InitialContext();
+				Service service1 = (Service) context.lookup(jndiName);
+				cache.addService(service1);
+				return service1;
+			}
+		}
+
+7. `ServiceLocatorPatternDemo.java`
+
+		public class ServiceLocatorPatternDemo {
+			public static void main(String[] args) {
+				Service service = ServiceLocator.getService("Service1");
+				service.execute();
+				service = ServiceLocator.getService("Service2");
+				service.execute();
+				service = ServiceLocator.getService("Service1");
+				service.execute();
+				service = ServiceLocator.getService("Service2");
+				service.execute();
+			}
+		}
+
+##### Transfer Object Pattern
+1. Used to pass data with multiple attributes from client to server
+2. Also known as value object
+3. Transfer Object: simple POJO with getter/setter methods and is serializable to be transfered over the network.
+	1. It has no behavior
+4. Server side business class fetches data from db and fills POJO and sends it to client or pass it by value.
+5. Transfer object is read only for client.
+6. Client can build a transfer object and pass it to server to update values in db in one shot.
+7. Entities:
+	1. **Business Object**: Business service fills transfer object with data
+	2. **Transfer Object**: POJO that has set/get attributes only
+	3. **Client**: Requests or sends transfer object to business object
+
+	![transferobject_pattern_uml_diagram](transferobject_pattern_uml_diagram.jpg)
+
+###### Implementation
+1. `StudentBO`: Business object
+2. `Student`: transfer object
+
+###### Steps
+1. `StudentVO.java`
+
+		public class StudentVO {
+			private String name;
+			private int rollNo;
+
+			StudentVO(String name, int rollNo) {
+				this.name = name;
+				this.rollNo = rollNo;
+			}
+
+			public String getName() {
+				return name;
+			}
+
+			public void setName(String name) {
+				this.name = name;
+			}
+
+			public int getRollNo() {
+				return rollNo;
+			}
+
+			public void setRollNo(int rollNo) {
+				this.rollNo = rollNo;
+			}
+		}
+
+2. `StudentBO.java`
+
+		import java.util.ArrayList;
+		import java.util.List;
+
+		public class StudentBO {
+			//list is working as a database
+			List<StudentVO> students;
+
+			public StudentBO() {
+				students = new ArrayList<StudentVO>();
+				StudentVO student1 = new StudentVO("Robert", 0);
+				StudentVO student2 = new StudentVO("John", 1);
+				students.add(student1);
+				students.add(student2);
+			}
+
+			public void deleteStudent(StudentVO student) {
+				students.remove(student.getRollNo());
+				System.out.println("Student: Roll No " + student.getRollNo() + ", deleted from datastore");
+			}
+
+			//retrive list of students from the database
+			public List<StudentVO> getAllStudents() {
+				return students;
+			}
+
+			public StudentVO getStudent(int rollNo) {
+				return students.get(rollNo);
+			}
+
+			public void updateStudent(StudentVO student) {
+				students.get(student.getRollNo()).setName(student.getName());
+				System.out.println("Student: Roll No " + student.getRollNo() + ", updated in datastore");
+			}
+		}
+
+3. `TransferObjectPatternDemo.java`
+
+		public class TransferObjectPatternDemo {
+			public static void main(String[] args) {
+				StudentBO studentBusinessObject = new StudentBO();
+
+				//print all students
+				for (StudentVO student : studentBusinessObject.getAllStudents()) {
+					System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+				}
+
+				//update student
+				StudentVO student = studentBusinessObject.getAllStudents().get(0);
+				student.setName("Michael");
+				studentBusinessObject.updateStudent(student);
+
+				//get the student
+				student = studentBusinessObject.getStudent(0);
+				System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+			}
+		}
