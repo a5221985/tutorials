@@ -1159,9 +1159,507 @@
 		tx.commit();
 		session.close();
 
+3. Hibernate will cache all persisted objects in session-level cache and cause **OutOfMemoryException**.
+	1. Solution: Use batch processing
+		1. Set **hibernate.jdbc.batch_size** to 20 or 50 (depends on object size)
+			1. Every 20 or 50 rows will be inserted as batch
+
+4. Modification to code:
+
+		Session session = SessionFactory.beginSession();
+		Transaction tx = session.beginTransaction();
+		for (int i = 0; i < 100000; i++) {
+			Employee employee = new Employee(.....);
+			session.save(employee);
+				if (i % 50 == 0) { // Same as the JDBC batch size
+				//flush a batch of inserts and release memory:
+				session.flush(); 
+				session.clear();
+		}
+		tx.commit();
+		session.close();
+
+	1. `session.flush()` **(M)**
+	2. `session.clear()` **(M)**
+		1. Releases memory
+
+5. For Update operation:
+
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+
+		ScrollableResults employeeCursor = session.createQuery("FROM EMPLOYEE").scroll();
+
+		int count = 0;
+
+		while (employeeCursor.next()) {
+			Employee employee = (Employee) employeeCursor.get(0);
+			employee.updateEmployee();
+			session.update(employee);
+			if ( ++count % 50 == 0 ) {
+				session.flush();
+				session.clear();
+			}
+		}
+
+### Batch Processing Example ###
+1. Configuration:
+
+		<?xml version="1.0" encoding="utf-8"?>
+		<!DOCTYPE hibernate-configuration SYSTEM
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+		<hibernate-configuration>
+			<session-factory>
+				<property name="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</property>
+				<property name="hibernate.connection.driver_class">
+					com.mysql.jdbc.Driver
+				</property>
+
+				<!-- Assume company is the database name -->
+				<property name="hibernate.connection.url">
+					jdbc:mysql://localhost/test
+				</property>
+				<property name="hibernate.connection.username">
+					root
+				</property>
+				<property name="hiberante.connection.password">
+					password
+				</property>
+				<property name="hibernate.jdbc.batch_size">
+					50
+				</property>
+
+				<!-- List of XML mapping files -->
+				<mapping resource="Employee.hbm.xml"/>
+			</session-factory>
+		</hibernate-configuration>
+
+2. Employee POJO
+
+		public class Employee {
+			private int id;
+			private String firstName;
+			private String lastName;
+			private int salary;
+
+			public Employee() {}
+			public Employee(String fname, String lname, int salary) {
+				this.firstName = fname;
+				this.lastName = lname;
+				this.salary = salary;
+			}
+
+			public int getId() {
+				return id;
+			}
+
+			public void setId(int id) {
+				this.id = id;
+			}
+
+			public String getFirstName() {
+				return firstName;
+			}
+
+			public void setFirstName(String first_name) {
+				this.firstName = first_name;
+			}
+
+			public String getLastName() {
+				return lastName;
+			}
+
+			public void setLastName(String last_name) {
+				this.lastName = last_name;
+			}
+
+			public int getSalary() {
+				return salary;
+			}
+
+			public void setSalary(int salary) {
+				this.salary = salary;
+			}
+		}
+
+3. EMPLOYEE table
+
+		create table EMPLOYEE (
+			id INT NOT NULL auto_increment,
+			first_name VARCHAR(20) default NULL,
+			last_name VARCHAR(20) default NULL,
+			salary INT default NULL,
+			PRIMARY KEY (id)
+		);
+
+4. Mapping Employee objects to EMPLOYEE table
+
+		<?xml version="1.0" encoding="utf-8"?>
+		<!DOCTYPE hibernate-mapping PUBLIC
+			"-//Hibernate/Hibernate Mapping DTD//EN"
+			"http://www.hibernate.org/dtd/hiberante-mapping-3.0.dtd">
+
+		<hibernate-mapping>
+			<class name="Employee" table="EMPLOYEE">
+				<meta attribute="class-description">
+					This class contains the employee details
+				</meta>
+				<id name="id" type="int" column="id">
+					<generator class="native"/>
+				</id>
+				<property name="firstName" column="first_name" type="string"/>
+				<property name="lastName" column="last_name" type="string"/>
+				<property name="salary" column="salary" type="int"/>
+			</class>
+		</hibernate-mapping>
+
+5. Application Class
+
+		import java.util.*;
+
+		import org.hibernate.HibernateException;
+		import org.hibernate.Session;
+		import org.hiberante.Transaction;
+		import org.hibernate.SessionFactory;
+		import org.hibernate.cfg.Configuration;
+
+		public class ManageEmployee {
+			private static SessionFactory factory;
+			public static void main(String[] args) {
+				try {
+					factory = new Configuration().configure().buildSessionFactory();
+				} catch (Throwable ex) {
+					System.err.println("Failed to create sessionFactory object." + ex);
+					throw new ExceptionInInitializerError(ex);
+				}
+				ManageEmployee ME = new ManageEmployee();
+
+				/* Add employee records in batches */
+				ME.addEmployees();
+			}
+		
+			/* Method for creation of employee records in batches */
+			public void addEmployees() {
+				Session session = factory.openSession();
+				Transaction tx = null;
+				Integer employeeID = null;
+				try {
+					tx = session.beginTransaction();
+					for (int i = 0; i < 100000; i++) {
+						String fname = "First Name " + i;
+						String lname = "Last Name " + i;
+						Integer salary = i;
+						Employee employee = new Employee(fname, lname, salary);
+						session.save(employee);
+						if (i % 50 == 0) {
+							session.flush();
+							session.clear();
+						}
+					}
+					tx.commit();
+				} catch (HibernateException e) {
+					if (tx != null) tx.rollback();
+					e.printStrackTrace();
+				} finally {
+					session.close();
+				}
+				return;
+			}
+		}
 
 ## Hibernate - Interceptors ##
+1. When an object is changed, it is persisted in the database.
+2. When an object is needed, it will be loaded from persistent store.
+3. **Intercetor** Interface:
+	1. It contains methods which can be called at different stages to perform certains tasks.
+	2. Methods are callbacks from session to app
+	3. The app can inspect and/ or manipulate properties of persistent object before it is saved, updated, deleted or loaded.
+4. Methods:
+	1. `findDirty()`: called when `flush()` method is called on `Session` object
+	2. `instantiate()`: called when persisted class is instantiated.
+	3. `isUnsaved()`: called when object is passed to `saveOrUpdate()` method
+	4. `onDelete()`: called before an object is deleted
+	5. `onFlushDirty()`: called when Hibernate detects that an object is dirty (changed) during a flush operation.
+	6. `onLoad()`: called before an object is initialized
+	7. `onSave()`: called before an object is saved
+	8. `postFlush()`: called after a flush has occurred and object has been updated in memory
+	9. `preFlush()`: called before a flush
+5. Gives control over how object looks to app and database
 
-## Hibernate - Q & A ##
+### How to use Interceptors? ###
+1. Two ways:
+	1. Implement `Interceptor` interface
+	2. Extend `EmptyInterceptor` class
+
+### Creation of Interceptors: ###
+1. Extending `EmptyInterceptor`
+
+		import java.io.Serializable;
+		import java.util.Date;
+		import java.util.Iterator;
+
+		import org.hibernate.EmptyInterceptor;
+		import org.hibernate.Transaction;
+		import org.hibernate.type.Type;
+
+		public class MyInterceptor extends EmptyInterceptor {
+			private int updates;
+			private int instantiates;
+			private int loads;
+
+			public void onDelete(Object entity, Serializable id, Object[] state, String[] propertyName, Types[] types) {
+				// do nothing
+			}
+
+			// This method is called when Employee object gets updated.
+			public boolean onFlushDirty(Object entity, Serializable id, Object[] currentState, Object[] previousState, String[] propertyNames, Type[] types) {
+				if (entity isinstanceof Employee) {
+					System.out.println("Update Operation");
+					return true;
+				}
+				return false;
+			}
+			public boolean onLoad(Object entity, Serializable id, Object[] state, String[] propertyName, Types[] types) {
+				// do nothing
+				return true;
+			}
+			// This method is called when Employee object gets created.
+			public boolean onSave(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
+				System.out.println("Creation Operation");
+				return true;
+			}
+			// called before commit into database
+			public void preFlush(Iterator iterator) {
+				System.out.println("preFlush");
+			}
+			// called after committing into database			public void postFlush(Iterator iterator) {
+				System.out.println("postFlush");
+			}
+		}
+
+### Creation of POJO Classes: ###
+1. Employee.java
+
+		public class Employee {
+			private int id;
+			private String firstName;
+			private String lastName;
+			private int salary;
+
+			public Employee() {}
+			public Employee(String firstName, String lastName, int salary) {
+				this.firstName = firstName;
+				this.lastName = lastName;
+				this.salary = salary;
+			}
+
+			public int getId() {
+				return id;
+			}
+
+			public void setId(int id) {
+				this.id = id;
+			}
+
+			public String getFirstName() {
+				return firstName;
+			}
+
+			public void setFirstName(String firstName) {
+				this.firstName = firstName;
+			}
+
+			public String getLastName() {
+				return lastName;
+			}
+
+			public void setLastName(String lastName) {
+				this.lastName = lastName;
+			}
+
+			public int getSalary() {
+				return salary;
+			}
+
+			public void setSalary(int salary) {
+				this.salary = salary;
+			}
+		}
+
+### Creation of Database Tables: ###
+1. Table:
+
+		create table EMPLOYEE (
+			id INT NOT NULL auto_increment,
+			first_name VARCHAR(20) default NULL,
+			last_name VARCHAR(20) default NULL,
+			salary INT default NULL,
+			PRIMARY KEY (id)
+		);
+
+### Creation of Mapping Configuration File: ###
+1. hibernate.cfg.xml
+
+		<?xml version="1.0" encoding="utf-8"?>
+		<!DOCTYPE hibernate-mapping PUBLIC
+			"-//Hibernate/Hibernate Mapping DTD//EN"
+			"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+		<hibernate-mapping>
+			<class name="hibernate.interceptor.Employee" table="EMPLOYEE">
+				<meta attribute="class-description">
+					This class contains the employee details.
+				</meta>
+				<id name="id" column="id" type="int">
+					<generator class="native"/>
+				</id>
+				<property name="firstName" column="first_name" type="string"/>
+				<property name="lastName" column="last_name" type="string"/>
+				<property name="salary" column="salary" type="int"/>
+			</class>
+		</hibernate-mapping>
+
+### Creation of Application Class: ###
+1. ManageEmployee.java
+
+		import java.util.List;
+		import java.util.Date;
+		import java.util.Iterator;
+
+		import org.hibernate.HibernateException;
+		import org.hibernate.Session;
+		import org.hibernate.Transaction;
+		import org.hibernate.SessionFactory;
+		import org.hibernate.cfg.Configuration;
+
+		public class ManageEmployee {
+			private static SessionFactory factory;
+			public static void main(String[] args) {
+				try {
+					factory = new Configuration().configure().buildSessionFactory();
+				} catch (Throwable ex) {
+					System.err.println("Failed creation of sessionFactory object." + ex);
+					throw new ExceptionInInitializerError(ex);
+				}
+				ManageEmployee ME = new ManageEmployee();
+
+				/* Add few employee records in database */
+				Integer empID1 = ME.addEmployee("Zara", "Ali", 1000);
+				Integer empID2 = ME.addEmployee("Daisy", "Das", 5000);
+				Integer empID3 = ME.addEmployee("John", "Paul", 10000);
+
+				/* List down all the employees */
+				ME.listEmployees();
+
+				/* Update employee's records */
+				ME.updateEmployee(empID1, 5000);
+
+				/* Delete an employee from the database */
+				ME.deleteEmployee(empID2);
+				
+				/* List down new list of the employees */
+				ME.listEmployees();
+			}
+			/* Method for CREATION of an employee in the database */
+			public Integer addEmployee(String firstName, String lastName, int salary) {
+				Session session = factory.withOptions().interceptor(new MyInterceptor()).openSession();
+				Transaction tx = null;
+				Integer employeeID = null;
+				try {
+					tx = session.beginTransaction();
+					Employee employee = new Employee(firstName, lastName, salary);
+					employeeID = (Integer) session.save(employee);
+					tx.commit();
+				} catch (HibernateException e) {
+					if (tx != null)
+						tx.rollback();
+					e.printStackTrace();
+				} finally {
+					session.close();
+				}
+			}
+			/* Method to READ all the employees */
+			public void listEmployees() {
+				Session session = factory.withOptions().interceptor(new MyInterceptor()).openSession();
+				Transaction tx = null;
+				try {
+					tx = session.beginTransaction();
+					List employees = session.createQuery("FROM Employee").list();
+					for (Iterator iterator = employees.iterator(); iterator.hasNext();) {
+						Employee employee = (Employee) iterator.next();
+						System.out.print("First Name: " + employee.getFirstName());
+						System.out.print(" Last Name: " + employee.getLastName());
+						System.out.println(" Salary: " + employee.getSalary());
+					}
+					tx.commit();
+				} catch (HibernateException e) {
+					if (tx != null)
+						tx.rollback();
+					e.printStackTrace();
+				} finally {
+					session.close();
+				}
+			}
+			/* Method to UPDATE salary for an employee */
+			public void updateEmployee(Integer EmployeeID, int salary) {
+				Session session = factory.withOptions().interceptor(new MyInterceptor()).openSession();
+				Transaction tx = null;
+				try {
+					tx = session.beginTransaction();
+					Employee = employee = (Employee) session.get(Employee.class, EmployeeID);
+					employee.setSalary(salary);
+					session.update(employee);
+					tx.commit();
+				} catch (HibernateException e) {
+					if (tx != null)
+						tx.rollback();
+					e.printStackTrace();
+				} finally {
+					session.close();
+				}
+			}
+			/* Method to DELETE an employee from the records */
+			public void deleteEmployee(Integer EmployeeID) {
+				Session session = factory.withOptions().interceptor(new MyInterceptor()).openSession();
+				Transaction tx = null;
+				try {
+					tx = session.beginTransaction();
+					Employee employee = (Employee) session.get(Employee.class, EmployeeID);
+					session.delete(employee);
+					tx.commit();
+				} catch (HibernateException e) {
+					if (tx != null)
+						tx.rollback();
+					e.printStackTrace();
+				} finally {
+					session.close();
+				}
+			}
+		}
+
 ## Hibernate - Useful Resources ##
+1. Links:
+	1. [Hibernate](http://www.hibernate.org/)
+	2. [Hibernate Documentation](http://www.hibernate.org/docs.html)
+		1. Reference
+		2. Javadocs
+	3. [iBATIS](http://ibatis.apache.org/hibernate_dicussion.html)
+		1. Apache Software Foundation
+	4. [iBATIS for Java](http://ibatis.apache.org/java.cgi)
+	5. [Oracle's Site on JDBC](http://www.oracle.com/technetwork/java/javase/tech/index-jsp-136101.html)
+	6. [MySQL Connector/J](http://dev.mysql.com/downloads/connector/j/5.1.html)
+2. Books:
+	1. Beginning Hibernate: Jeff Linwood and Dave Minter
+	2. Hibernate Search in Action
+	3. Java Persistence with Hibernate
+	4. Harnessing Hibernate
+	5. Hibernate in Action
+	6. Hibernate Recipes (A Problem-Solution Approach)
+
 ## Hibernate - Discussion ##
+1. Hibernate: High performance Object/Relational persistence and query service (LGPL)
+2. Maps Java classes to database tables.
+3. Provides data query and retrieval facilities
