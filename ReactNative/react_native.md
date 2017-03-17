@@ -1201,33 +1201,621 @@
 ### Login Form Scaffolding ###
 1. New file: `src/components/LoginForm.js`
 
+		import React, { Component } from 'react';
+		import { View } from 'react-native';
+		import { Button, Card, CardSection } from './common';
+
+		class LoginForm extends Component {
+			render() {
+				return (
+					<Card>
+						<CardSection />
+						<CardSection />
+						<CardSection>
+							<Button>
+								Log in
+							</Button>
+						</CardSection>
+					</Card>
+				);
+			}
+		}
+
+		export default LoginForm;
+
+2. app.js
+
+		import LoginForm from './components/LoginForm';
+
+		...
+		<View>
+			...
+			<LoginForm />
+		</View>
+
+
 ### Handling User Inputs ###
+1. LoginForm.js
+
+		import { ..., TextInput } from 'react-native';
+		...
+		<CardSection>
+			<TextInput style={{ height: 20, width: 100 }} />
+		</CardSection>
+
+	1. <TextInput> has 0 size and 0 styling by default
+
 ### More on Handling User Inputs ###
+1. Reading text from TextInput
+2. LoginForm.js
+
+		class LoginForm extends Component {
+			state = { text: '' };
+			...
+			<TextInput
+				value={this.state.text}
+				onChangeText={text => this.setState({ text })}
+				...
+			/>
+
 ### How are Controlled Components Created? ###
+1. Input cycle
+	1. TextInput
+	2. User types text
+	3. `onChangeText` event is called
+	4. 'setState' with new text
+	5. Component re-renders
+	6. When TextInput re-renders, we tell it that its value is 'this.state.text'
+2. Text Input stays in state
+	1. It has benefits
+
 ### Making Text Inputs From Scratch ###
+1. Resusable Input Component:
+	1. new src/components/common/Input.js
+
+			import React from 'react';
+			import { TextInput, View, Text } from 'react-native';
+			
+			const Input = ({ label }) => {
+				return (
+					<View>
+						<Text>{label}</Text>
+					</View>
+				);
+			};
+		
+			export { Input }; // no default but will be exportd by index.js
+
+2. index.js
+
+		export * from './Input';
+
 ### A Focus on Passing Props ###
+1. Input.js
+		
+		const Input = ({ ..., value, onChangeText }) => {
+
+			<View>
+				...
+				<TextInput
+					value={value}
+					onChangeText={onChangeText}
+					style={{ height: 20, width: 100 }}
+				/>
+			</View>
+		...
+
+2. LoginForm.js
+	1. Remove `import { TextInput } ...`
+	2. Add `import { ...., Input } from './common';`
+
+			<CardSection>
+				<Input
+					value={this.state.text}
+					onChangeText={text => this.setState({ text })}
+				/>
+			</CardSection>
+
 ### Making the Input Pretty ###
+1. Input.js
+
+		...
+
+		const Input ... => {
+			const { inputStyle, labelStyle, constainerStyle } = styles;
+			...
+			<View style={containerStyle}>
+				<Text style={labelStyle}>...</Text>
+				<TextInput
+					style={inputStyle}
+					...
+				/>
+			</View>
+			...
+		};
+
+		const styles = {
+			inputStyle: {
+				color: '#000',
+				paddingRight: 5,
+				paddingLeft: 5,
+				fontSize: 18,
+				lineHeight: 23, // in between each line of text
+				flex: 2
+			},
+			labelStyle: {
+				fontSize: 18,
+				paddingLeft: 20,
+				flex: 1
+			},
+			containerStyle: {
+				height: 40,
+				flex: 1,
+				flexDirection: 'row',
+				alignItems: 'center'
+			}
+		};
+
+	1. `flex: 2`: for the sibling 2/3 rd of allocated space
+	2. `flex: 1`: for the sibling 1/3 rd of allocated space
+2. LoginForm.js
+
+		<Input
+			label="Email"
+			...
+		/>
+
 ### Wrapping up Inputs ###
+1. Remove `style={ height ... }`
+2. Remove autocorrection
+
+		const Input = ({ ..., placeholder }) => {
+			...
+			<TextInput
+				placeholder={placeholder}
+				autoCorrect={false}
+				...
+			/>
+			...
+
+2. LoginForm.js
+
+		state = { email: '' };
+
+		<Input
+			placeholder="user@gmail.com"
+			...
+			value={this.state.email}
+			onChangeText={email => this.setState({ email })}
+
+	1. `{ email }`: gets expanded to { email: email } (ES6)
+
 ### Password Inputs ###
+1. LoginForm.js
+
+		state = { ..., password: '' };
+		...
+		<CardSection>
+			<Input
+				secureTextEntry
+				placeholder="password"
+				label="Password"
+				value={this.state.password}
+				onChangeText={password => this.setState({ password })}
+			/>
+		</CardSection>
+
+	1. If we not pass a prop value, it is undefined which means it will be interpreted as not required
+
+2. Input.js
+
+		<TextInput
+			secureTextEntry={true}
+			...
+		
+	1. `secureTextEntry={true}` can be replaced with `secureTextEntry`
+	2. Prop
+
+			const Input = ({ ..., secureTextEntry }) => {
+				...
+				<TextInput
+					secureTextEntry={secureTextEntry}
+					...
+				/>
+			}
 
 ## Processing Authentication Credentials ##
 ### Logging a User in ###
+1. this.state.email, this.state.password
+2. LoginForm.js
+
+		import firebase from 'firebase';
+	
+		...
+
+		onButtonPress() {
+			const { email, password } = this.state;
+			firebase.auth().signInWithEmailAndPassword(email, password);
+		}
+
+		<CardSection>
+			<Button onPress={this.onButtonPress.bing(this)}>
+
+			</Button>
+		</CardSection>
+
+3. Process:
+	1. Sign In Attempt
+		1. Success
+		2. Fail
+			1. Creation of an Account
+				1. Success
+				2. Fail
+					1. Show an Error
+
 ### Error Handling ###
+1. firebase.auth().... - returns a promise
+2. LoginForm.js
+
+		import { Text } from 'react-native';
+		...
+		state = { ..., error: '' };
+		...
+		firebase.auth().signInWithEmailAndPassword(email, password)
+			.catch(() => {
+				firebase.auth().createUserWithEmailAndPassword(email, password)
+					.catch(() => {
+						this.setState({ error: 'Authentication Failed.' });
+					});
+			});
+
+		...
+		<Text style={style.errorTextStyle}>
+			{This.state.error}
+		</Text>
+		<CardSection>
+			<Button ...>
+		</CardSection>
+		...
+		const styles = {
+			errorTextStyle: {
+				fontSize: 20,
+				alignSelf: 'center',
+				color: 'red'
+			};
+		}
+
 ### More on Authentication Flow ###
+1. First test with Test@test.com and password
+2. Second, test with Test@test.com and pass
+	1. Error gets thrown
+3. Clear Authentication Failed message
+
+		this.setState({ error: '' });
+		...
+		firebase.auth(...)
+
+4. Spinner component: `components/common/Spinner.js`
+	
+		import React from 'react';
+		import { View } from 'react-native';
+
+		const Spinner = () => {
+			return (
+				<View />
+			);
+		};
+
+		export { Spinner };
+
+5. index.js
+
+		export * from './Spinner';
+		
+
 ### Creation of an Activity Spinner ###
+1. Use default spinner provided by react-native
+2. Spinner.js
+
+		import { ..., ActivityIndicator } from 'react-native';
+
+		...
+
+		const Spinner = ({ size }) => {
+			<View style={styles.spinnerStyle}>
+				<AtivityInidactory size={size || 'large'} />
+			</View>
+		};
+		...
+
+		const styles = {
+			spinnerStyle: {
+				flex: 1,
+				justifyContent: 'center',
+				alignItems: 'center'
+			}
+		};
+	
+	1. size: large or small
+
 ### Conditional Rendering of JSX ###
+1. LoginForm.js
+	1. Optionally show button or spinner
+
+			import { ..., Spinner } from './common';
+
+			state = { ..., loading: false };
+			...
+			this.setState({ ..., loading: true });
+			...
+			renderButton() {
+				if (this.state.loading) {
+					return <Spinner size="small"/>;
+				}
+
+				return (
+					<Button onPress={this.onButtonPress.bind(this)}>
+						Log in	
+					</Button>
+				);
+			}
+			...
+
+			<CardSection>
+				{this.renderButton()}
+			</CardSection>
+
 ### Clearing the Form Spinner ###
+1. LoginForm.js
+
+		firebase.auth() ...
+			.then(this.onLoginSuccess.bind(this))
+			.catch(() => {
+				...
+				.then(this.onLoginSuccess.bind(this))
+				.catch(this.onLoginFail.bind(this));
+			});
+
+		onLoginFail() {
+			this.setState({ error: 'Authentication Failed', loading: false });
+		}
+
+		onLoginSuccess() {
+			this.setState({ 
+				email: '',
+				password: '',
+				loading: false,
+				error: ''
+			});
+		}
+
+	1. `bind(this)`: since promise is returned and the method is called sometime asynchronously in the future, we need to bind the method to the object
+
 ### Handling Authentication Events ###
+1. Solution 1: `onLoginSuccess()`
+2. Solution 2: `firebase.auth().onAuthStateChanged()`'s method
+	1. called when user signs in or signs out
+3. App.js
+
+		class App extends Component {
+			state = { loggedIn: false };
+
+			componentWillMount() {
+				...
+				firebase.auth().onAuthStateChanged((user) => {
+					if (user) {
+						this.setState({ loggedIn: true });
+					} else {
+						this.setState({ loggedIn: false });
+					}
+				});
+			}
+
 ### More on Conditional Rendering ###
+1. App.js
+
+		import { ..., Button } from './common';
+		...
+		renderContent() {
+			if (this.state.loggedIn) {
+				return (
+					<Button>
+						Log out
+					</Button>
+				);
+			}
+
+			return <LoginForm />;
+		}
+
+		render() {
+			return (
+				<View>
+					...
+					{this.renderContent()}
+				</View>
+			);
+		}
+
+2. App.js
+
+		import { ..., Spinner } from './component/common';
+		...
+		state = { loggedIn: null };
+		...
+		renderContent() {
+			switch(this.state.loggedIn) {
+				case true:
+					return <Button>Log out</Button>;
+				case false:
+					return <LoginForm />;
+				default:
+					return <Spinner size="large" />;
+			}
+		}
+
+
 ### Logging a User Out and Wrapup ###
+1. App.js
+
+		case true:
+			return (
+				<Button onPress={() => firebase.auth().signOut()}>Log out</Button>
+			);
+
+2. Walkthrough:
+	1. Firebase: Local library
+		1. Initialized
+	2. Different flows
+	3. User input
+	4. Conditional rendering
+	5. Reusable, Input and Spinner components
+	6. Feedback to users
 
 ## Digging Deeper with Redux ##
 ### App Mockup and Approach ###
+1. Redux will be used:
+	1. React makes it painless to build interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+2. For rendering list which are very long (maps become slow with size)
+3. Smooth animations/ transitions
+4. New Project
+	1. `react-native init tech_stack`
+
 ### The Basics of Redux ###
+1. Redux:
+	1. [stephengrider.github.io/JSPlaygrounds](stephengrider.github.io/JSPlaygrounds])
+		1. Type any javascript
+2. How does Redux work:
+	1. Action -> Reducer -> State
+		1. Action: An object that tells the reducer how to change its data
+			1. Must have `type` property
+	2. Store: (Reducer -> State)
+		1. Reducer: A function that produces some amount of data
+		2. State: App's data (value of input field, user authenticated? ...)
+		3. Store: An object that holds app's Reducer and State
+			1. Represent's Redux's data
+3. Example:
+	1. Action: Turn 'asdf' into an array of characters
+	2. Reducer: If the action's type is 'split', I will take a string of characters and turn it into a list of characters
+	3. State: ['a','s','d','f']
+
 ### More on Redux ###
+1. Open [stephengrider.github.io/JSPlaygrounds](stephengrider.github.io/JSPlaygrounds])
+2. Code
+	
+		const reducer = (state = [], action) => {
+			if (action.type === 'split_string') {
+				return action.payload.split('');
+			}
+		};
+		
+		const store = Redux.createStore(reducer);
+
+		store.getState();
+
+		const action = { 
+			type: 'split_string', 
+			payload: 'asdf' 
+		};
+
+		store.dispatch(action);
+
+		store.getState();
+
+	1. `type: '<string>'`: tells what to do with the payload
+	2. `store.dispatch(...)`: sends action to different reducers
+
 ### Redux is Hard! ###
+1. Why use Redux at all?
+	1. Redux is the best tool used to scale an application to be very large with the least amount of code complexity.
+	2. How?
+		1. Actions give us the ability to make predictable changes to the state of app
+			1. We don't modify state directly
+			2. Action modifies state only in a very particular way
+		2. Example: We can know for certainty that state can be either empty or an array
+2. Another action:
+
+		const reducer = (state = [], action) => {
+			...
+			else if (action.type === 'add_character') {
+				state.push(action.payload);
+				return state;
+			}
+			...
+		}
+
+		const action2 = {
+			type: 'add_character',
+			payload: 'a'
+		};
+
+		store.dispatch(action2);
+
+		store.getState();
+
+1. Gotcha:
+	1. Do not mutate existing state but return a new object or array.
+
+			return [ ...state, action.payload ];
+		1. ...state: ES6 syntax to get all contents of `state`
+
 ### Application Boilerplate ###
+1. `npm install --save redux react-redux`
+2. Install ESLint
+3. Open `tech_stack`
+	1. new `src`
+	2. New app.js
+
+			import react from 'react';
+			import { View } from 'react-native';
+
+			const App = () => {
+				return (
+					<View />
+				);
+			};
+
+			export default App;
+
+4. Delete everything from `index.ios.js` and `index.android.js`
+5. Code in both
+
+		import { AppRegistry } from 'react-native';
+		import App from './src/app';
+
+		AppRegistry.registerComponent('tech_stack', () => App);
+
 ### More on Redux Boilerplate ###
+1. app.js
+
+		import { Provider } from 'react-redux';
+		import { createStore } from 'redux';
+
+			return (
+				<Provider store={createStore}>
+					<View />
+				</Provider>
+			);
+
+	1. `Provider`: works with store (which stores states)
+		1. Translates data in store into a form that is accessed by react part of app
+		2. Communication glue with react (because redux was not made only for react)
+			1. That is why we need `react-redux` glue
+2. New `src/reducers`
+3. New `src/reducers/index.js`
+
+		import { combineReducers } from 'redux';
+		
+		export default combinerReducers({
+			libraries: () => []
+		});
+
+4. app.js
+
+		import reducers from './reducers';
+		...
+			<Providers store={createStore(reducers)}>
+				...
 
 ## Back to React ##
 ### Rendering the Header ###
