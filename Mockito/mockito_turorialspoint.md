@@ -1,6 +1,14 @@
 # Mockito Tutorial #
 ## Introduction ##
+1. Mockito is a mocking framework
+2. It is a Java based library used for effective unit testing
+2. It is used to mock interfaces (by adding dummy functionality)
+
 ## Audience ##
+1. Java developers
+	1. Novice to expert level
+	2. Want to improve quality of software through unit testing and TDD
+
 ## Prerequisites ##
 
 ## Mockito Overview ##

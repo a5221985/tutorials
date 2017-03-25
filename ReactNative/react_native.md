@@ -1766,7 +1766,7 @@
 	1. new `src`
 	2. New app.js
 
-			import react from 'react';
+			import React from 'react';
 			import { View } from 'react-native';
 
 			const App = () => {
@@ -1810,6 +1810,8 @@
 			libraries: () => []
 		});
 
+	1. `() => []`: simple reducer list
+
 4. app.js
 
 		import reducers from './reducers';
@@ -1819,27 +1821,448 @@
 
 ## Back to React ##
 ### Rendering the Header ###
+1. `src/components/common`
+2. Copy all common components to common directory
+3. App.js
+
+		import { Header } from './components/common';
+		...
+			<Provider ...>
+				<View>
+					<Header headerText="Tech Stack" />
+				</View>
+			</Provider>
+
+	1. `<Provider>` can have only one child component
+
 ### Reducer and State Design ###
+1. A file with list will be used in the app (only for the purpose)
+2. Reducers produce the app state (which is the app data)
+3. Different types of Reducers:
+	1. Two separate states
+		1. List of libraries
+		2. Currently selected library
+	2. Two separate reduces:
+		1. Library reducer: produces list of libraries to show to the user
+			
+				[
+					{ id: 1, name: 'React', ... },
+					{ id: 2, name: 'Redux', ... },
+					...
+				]
+		2. Selected Reducer: keeps track of current library that is being shown to the user
+			
+				1
+
+
 ### Library List of Data ###
+1. reducers/index.js (convention: one reducer per file)
+2. `src/reducers/LibraryReducer.js`
+
+		export default () => [];
+
+3. reducers/index.js
+
+		import LibraryReducer from './LibraryReducer';
+		...
+			libraries: LibraryReducer
+
+	1. `libraries`: key (state will be: `{ libraries: [] }`)
+4. `LibraryReducer.js`
+
+		export default () => [
+
+		];
+
+5. `src/reducers/LibraryList.json`
+
+		[
+			{
+				"id": 0,
+				"title": "Webpack",
+				"description": "Webpack is a module bundler. It packs CommonJs/AMD modules i. e. for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand."
+			},
+			{
+				"id": 1,
+				"title": "React",
+				"description": "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes."
+			},
+			{
+				"id": 2,
+				"title": "Redux",
+				"description": "Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test."
+			},
+			{
+				"id": 3,
+				"title": "React-Redux",
+				"description": "React-Redux is the official set of bindings between the React and Redux libraries. With this library you can keep your views and data in sync."
+			},
+			{
+				"id": 4,
+				"title": "Lodash",
+				"description": "A modern JavaScript utility library delivering modularity, performance, & extras. Lodash is released under the MIT license & supports modern environments."
+			},
+			{
+				"id": 5,
+				"title": "Redux-Thunk",
+				"description": "Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met."
+			},
+			{
+				"id": 6,
+				"title": "ESLint",
+				"description": "ESLint is an open source JavaScript linting utility originally created by Nicholas C. Zakas in June 2013. Code linting is a type of static analysis that is frequently used to find problematic patterns or code that doesn't adhere to certain style guidelines."
+			},
+			{
+				"id": 7,
+				"title": "Babel",
+				"description": "Babel has support for the latest version of JavaScript through syntax transformers. These plugins allow you to use new syntax, right now without waiting for browser support."
+			},
+			{
+				"id": 8,
+				"title": "Axios",
+				"description": "Promise based HTTP client for the browser and node.js. With Axios, you can make XMLHttpRequests from the browser or Node with the full Promise Api."
+			}
+		]
+
 ### JSON CopyPaste ###
 ### The Connect Function ###
+1. LibraryReducer.js
+
+		import data from './LibraryList.json';
+
+		export default () => data;
+
+2. New Component: `components/LibraryList.js`:
+
+		import React, { Component } from 'react';
+
+		class LibraryList extends Component {
+			render() {
+				return;
+			}
+		}
+
+		export default LibraryList;
+
+3. Provider wraps Store
+	1. Store contains
+		1. libraries
+		2. selectedLibraryId
+4. `Connect`: helper in react-redux library
+	1. To connect a component with redux store
+		1. We can get state from LibraryList component
+5. LibraryList.js
+
+		import { connect } from 'react-redux';
+		...
+		export default connect()(LibraryList);
+
+	1. calls function `connect()` which returns another function we then immediately call it with `LibraryList`
+
 ### MapStateToProps with Connect ###
-### A Quick Review and Breater ###
+1. LibraryList.js
+
+		...
+		const mapStateToProps = state => {
+			console.log(state);
+		};
+
+		export default connect(mapStateToProps)
+
+	1. `state`: global state object
+	2. `mapStateToProps`: maps State object properties to props of the component
+
+2. App.js
+		
+		import LibraryList from './components/LibraryList';
+		...
+		<View>
+			...
+			<LibraryList />
+
+	1. When app starts, it evaluates `libraries: LibraryReducer` and generates `state = { libraries: [...] }`
+
+3. If an object is returned from `mapStateToProps`, it will appear in props the component `LibraryList`
+
+		class LibraryList extends ... {
+			render() {
+				console.log(this.props);
+				...
+			}
+		}
+
+		const mapStateToProps = state => {
+			return { libraries: state.libraries };
+		}
+
+### A Quick Review and Breather ###
+1. When app boots up, stre gets created
+2. Libraries Reducer runs and returns `libraries: []` when store is created
+3. Connect requests Provider for its state
+4. Connect Calls mapStateToProps with the returned state
+5. mapStateToProps returns the state as props to the component
 
 ## Rendering Lists the Right Way ##
 ### The Theory of ListView ###
+1. Traditional approach: one component per item (object)
+	1. Users can see only a few items (upfront rendering of all components will make them sit in memory)
+		1. Need to reduce memory footprint
+			1. ListView: It is a component that finds what items are visible to the user and builds components only for visible items on the screen.
+			2. When we scroll, ListView watches for items, moves the invisible component to the just visible item and sticks item into the ListView
+
 ### ListView in Practice ###
+1. LibraryList.js
+
+		import { ListView } from 'react-native';
+		...
+		class LibraryList ... {
+			componentWillMount() {
+				const ds = new ListView.DataSource({ 
+					rowHasChanged: (r1, r2) => r1 !== r2 
+				});
+
+				this.dataSource = ds.cloneWithRows(this.props.libraries);
+			}
+
+			renderRow() {
+				
+			}
+
+			render() {
+				return (
+					<ListView
+						dataSource={this.dataSource}
+						renderRow={this.renderRow}
+					/>
+				);
+			}
+		}
+
+	1. `ds.cloneWithRows`: 
+	2. We have to tell ListView how to render a row
+
 ### Rendering a Single Row ###
+1. LibraryList.js
+
+		import ListItem from './ListItem';
+		...
+		renderRow(library) {
+			return <ListItem library={library} />;
+		}
+
+2. ListItem.js
+
+		import React, { Component } from 'react';
+		
+		class ListItem extends Component {
+			render() {
+
+			}
+		}
+
+		export default listItem;
+
 ### Styling the List ###
+1. ListItem.js
+
+		import { Text } from 'react-native';
+		import { CardSection } from './common';
+
+		render() {
+			const { titleStyle } = styles;
+			
+			return (
+				<CardSection>
+					<Text style={titleStyle}>{this.props.library.title}</Text>
+				</CardSection>
+			);
+		}
+		...
+		const styles = {
+			titleStyle: {
+				fontSize: 18,
+				paddingLeft: 15
+			}
+		};
+
+3. App.js
+
+		<View style={{ flex: 1 }}>
+
+	1. `{{`: outer one is for JSX and inner one defines an object
+
 ### Creation of Selection Reducer ###
+1. `reducers/SelectionReducer.js`
+
+		export default () => {
+			return null;
+		};
+
+	1. Initial state of app: cannot be undefined (`null` - no row selected)
+2. `index.js`
+
+		import SelectionReducer from './SelectionReducer';
+
+		export default combineReducers({
+			libraries: LibraryReducer,
+			selectedLibraryId: SelectionReducer
+		});
+
 ### Introducing Action Creation ###
+1. How to dispatch an action in a component:
+	1. Using Action Creator (JS function that generates an Action)
+2. `src/actions/index.js` (Action creators container)
+
+		export const selectLibrary = (libraryId) => {
+			return {
+				type: 'select_library'
+				payload: libraryId
+			};
+		};
+		
+
 ### Calling Action Creation ###
+1. ListItem.js
+
+		import { connect } from 'react-redux';
+		...
+		import * as actions from '../actions';
+		...
+		class ListItem ... {
+			...
+			console.log(this.props); // will contain action creator which can be called which automatically dispatches the action
+			...
+		}
+
+		export default connect(null, actions)(ListItem);
+
+	1. *: imports all Action Creator functions
+	2. No default in export: when importing many things
+	3. `connect(null, actions)`:
+		1. `null`: no mapStateToProps
+		2. `actions`: mutates action creator into special function and dispatch action to store
+			1. passes the data as props to the component
+
 ### Adding a Touchable ###
+1. ListItem.js
+
+		import { ..., TouchableWithoutFeedback, View } from 'react-native';
+		...
+
+		render() {
+			...
+			const { id, title } = this.props.library;
+
+			return (
+				<TouchableWithoutFeedback 
+					onPress={() => this.props.selectLibrary(id)}
+				>
+					<View>
+						<CardSection>
+							<Text ...>
+								{title}
+							...
+					</View>
+				</TouchableWithoutFeedback>
+		);
+
+2. SelectionReducer.js
+
+		export default (state, action) {
+			console.log(action);
+			return null;
+		};
+
 ### Rules of Reducers ###
+1. SelectionReducer.js
+
+		export default (state = null, action) => {
+			switch (action.type) {
+				case 'select_library':
+					return action.payload;
+				default:
+					return state;
+			}
+		}; // state is undefined initially
+
 ### Expanding a Row ###
+1. ListItem.js
+
+		class ...
+
+			renderDescription() {
+				const { library, selectedLibraryId } = this.props;
+	
+				if (this.props.library.id === selectedLibraryId) {
+					return (
+						<Text>{library.description}</Text>
+					);
+				} 
+			}
+
+			render() {
+				...
+				<View>
+					...
+					</CardSection>
+					{this.renderDescription()}
+				...
+
+		const mapStateToProps = state => {
+			return { selectedLibraryId: state.selectedLibraryId };
+		};
+
+		export default connect(mapStateToProps, ...)(...);
+
 ### Moving Logic Out of Components ###
+1. ListItem.js
+
+		renderDescription() {
+			const { ..., expanded } = this.props;
+			...
+			if (expanded) {
+				return (
+					...
+				);
+			}
+		}
+
+		const mapStateToProps = (state, ownProps) => {
+			const expanded = state.selectedLibraryId === ownProps.library.id;
+			return { expanded };
+		}; // ownProps: same as this.props of component
+
 ### Animations ###
-### Wrapup ### 
+1. Styling: ListItem.js
+
+		import { ..., LayoutAnimation } from 'react-native';
+		...
+		class ListItem ... {
+
+			componentWilUpdate() {
+				LayoutAnimation.spring();
+			}
+
+			return (
+				<CardSection>
+					<Text style={{ flex: 1 }}>
+						...
+					</Text>
+				</CardSection>
+			);
+
+	1. Cycle:
+		1. User Presses Library
+		2. Action Creator
+		3. Rerun Reducers
+		4. mapStateToProps
+		5. Components rerenders
+			1. `componentWillUpdate()`: for animation
+		6. View updates
+
+### Wrapup ###
+1. Redux is for many state pieces and complex apps
+2. When action is displatched, the entire app will re-render
 
 ## Not Done Yet... ##
 ### Overview of Our Next App ###
