@@ -2051,33 +2051,6 @@
 ### Validate HTML With The W3C Validator ###
 [Validate HTML](https://www.w3schools.com/html/html_xhtml.asp)
 
-## HTML Forms ##
-#### The <form> Element ####
-#### The <input> Element ####
-#### Text Input ####
-#### Radio Button Input ####
-#### The Submit Button ####
-#### The Action Attribute ####
-#### The Method Attribute ####
-#### When to Use GET? ####
-#### When to Use POST? ####
-#### The Name Attribute ####
-#### Grouping Form Data with <fieldset> ####
-#### <form> Attributes ####
-
-### HTML Forms ###
-### HTML Form Elements ###
-### HTML Input Types ###
-### HTML Input Attributes ###
-
-## HTML5 ##
-### HTML5 Intro ###
-### HTML5 Support ###
-### HTML5 Elements ###
-### HTML5 Semantics ###
-### HTML5 Migration ###
-### HTML5 Style Guide ###
-
 ## HTML Graphics ##
 ### HTML Canvas ###
 1. `<canvas>` **(M)**: used to draw graphics in HTML page
@@ -2662,56 +2635,664 @@
 	4. `showPosition()` outputs the Latitude and Longitude
 
 #### Handling Errors and Rejections ####
+1. Second parameter of `getCurrentPosition()` is an error handler (it is run if it fails to get user location)
+	
+		function showError(error) {
+			switch(error.code) {
+				case error.PERMISSION_DENIED:
+					x.innerHTML = "User denied the request for Geolocation.";
+					break;
+				case error.POSITION_UNAVAILABLE:
+					x.innerHTML = "Location information is unavailable.";
+					break;
+				case error.TIMEOUT:
+					x.innerHTML = "The request to get user location timed out.";
+					break;
+				case error.UNKNOWN_ERROR:
+					x.innerHTML = "An unknown error occurred."
+					break;
+			}
+		}
 
+2. Example:
+
+		<!DOCTYPE html>
+		<html>
+			<body>
+				<p>Click the button to get your coordinates.</p>
+
+				<button onclick="getLocation()">Try It</button>
+
+				<p id="demo"></p>
+
+				<script>
+					var x = document.getElementById('demo');
+
+					function getLocation() {
+						if (navigator.geolocation) {
+							navigator.geolocation.getCurrentPosition(showPosition, showError);
+						} else {
+							x.innerHTML = "Geolocation is not supported by this browser.";
+						}
+					}
+
+					function showPosition(position) {
+						x.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />Longitude: ' + position.coords.longitude;
+					}
+
+					function showError(error) {
+						switch (error.code) {
+							case error.PERMISSION_DENIED:
+								x.innerHTML = 'User denied the request for Geolocation.';
+								break;
+							case error.POSITION_UNAVAILABLE:
+								x.innerHTML = 'Location information is unavailable.';
+								break;
+							case error.TIMEOUT:
+								x.innerHTML = 'The request to get user location timed out.';
+								break;
+							case error.UNKNOWN_ERROR:
+								x.innerHTML = 'An unknown error occurred.';
+								break;
+						}
+					}
+				</script>
+			</body>
+		</html>
+
+3. Showing Markers:
+	1. [Google Map Script](https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation_map_script)
+	2. Get a free API KEY [here](https://console.developers.google.com/apis/credentials?project=authentication-40b76)
+	3. Example:
+
+			<!DOCTYPE html>
+			<html>
+				<body>
+					<p id="demo">Click the button to get your position.</p>
+
+					<button onclick="getLocation()">Try it</button>
+
+					<div id="mapholder"></div>
+
+					<script src="https://maps.google.com/maps/api/js?sensor=false&key=AIzaSyCXt57RaaCvZCGC_uFqwQNUyKcf6-vaOi4"></script>
+					<!-- To use this code on your website, get a free API key from Google. Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+					-->
+					<script>
+						var x = document.getElementById('demo');
+
+						function getLocation() {
+							if (navigator.gelocation) {
+								navigator.gelocation.getCurrentPosition(showPosition, showError);
+							} else {
+								x.innerHTML = 'Geolocation is not supported by this browser.';
+							}
+						}
+
+						function showPosition(position) {
+							lat = position.coords.latitude;
+							long = position.coords.longitude;
+							latlon = new google.maps.LatLng(lat, lon);
+							var mapholder = document.getElementById('mapholder');
+							mapholder.style.height = '250px';
+							mapholder.style.width = '500px';
+
+							var myOptions = {
+								center: latlon,
+								zoom: 14,
+								mapTypeId: google.maps.MapTypeId.ROADMAP,
+								mapTypeControl: false,
+								navigationControlOptions: {
+									style: google.maps.NavigationControlStyle.SMALL
+								}
+							}
+
+							var map = new google.maps.Map(document.getElementById('mapholder'), myOptions);
+
+							var marker = new google.maps.Marker({
+								position: latlon,
+								map: map,
+								title: 'You are here!'
+							});
+						}
+
+						function showError(error) {
+							switch (error.code) {
+								case error.PERMISSION_DENIED:
+									x.innerHTML = 'User denied the request for Geolocation.';
+									break;
+								case error.POSITION_UNAVAILABLE:
+									x.innerHTML = 'Location information is unavalable.';
+									break;
+								case error.TIMEOUT:
+									x.innerHTML = 'The request to get user location timed out.';
+									break;
+								case error.UNKNOWN_ERROR:
+									x.innerHTML = 'An unknown error occurred.';
+									break;
+							}
+						}
+					</script>
+				</body>
+			</html>
 
 #### Displaying the Result in a Map ####
+1. Need access to a map service like Google Maps.
+2. Example:
+
+		function showPosition(position) {
+			var latlon = position.coords.latitude + ',' + position.coords.longitude;
+
+			var img_url = 'https://maps.googleapis.com/maps/api/staticmap?center=' + latlon + '&zoom=14&size=400x300&sensor=false&key=YOUR_:KEY';
+
+			document.getElementById('mapholder').innerHTML = '<img src="' + img_url + '">';
+		}
+
 #### Location-specific Information ####
+1. Information such as:
+	1. Up-to-date local information
+	2. Showing points of interest near the user
+	3. Turn-by-turn navigation (GPS)
+
 #### The getCurrentPosition() Method - Return Data
+1. `getCurrentPosition()` returns an object on success
+	1. `latitude`
+	2. `longitude`
+	3. `accuracy`
+2. Other Optional properties are also returned if available:
+	1. `coords.latitude`: decimal
+	2. `coords.longitude`: decimal
+	3. `coords.accuracy`: accuracy
+	4. `coords.altitude`: in meters above mean sea level
+	5. `coords.altitudeAccuracy`: accuracy
+	6. `coords.heading`: degrees clockwise from North
+	7. `coords.speed`: speed in meters per second
+	8. `timestamp`: date/time of response
+
 #### Geolocation Object - Other interesting Methods ####
+1. Interesting methods in Geolocation object:
+	1. `watchPosition()`: returns current position of user and continues to return updated position as the user moves (like GPS)
+	2. `clearWatch()`: Stops watchPosition() method
+2. Example:
+
+		<script>
+			var x = document.getElementById('demo');
+			function getLocation() {
+				if (navigation.geolocation) {
+					navigator.geolocation.watchPosition(showPosition);
+				} else {
+					x.innerHTML = 'Geolocation is not supported by this browser.';
+				}
+			}
+
+			function showPosition(position) {
+				x.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />Longitude: ' + position.coords.longitude;
+			}
+		</script>
 
 ### HTML Drag/Drop ###
 #### Drag and Drop ####
+1. Grab an object and drag it to a different location.
+2. Drag and drop is part of HTML standard
+	1. Any element can be draggable.
+
 #### Browser Support ####
+1. Chrome: 4.0
+2. IE: 9.0
+3. Firefox: 3.5
+4. Safari: 6.0
+5. Opera: 12.0
+
 #### HTML Drag and Drop Example ####
+
+		<!DOCTYPE html>
+		<html>
+			<head>
+				<style>
+					#div1 {
+						width: 339px;
+						height: 69px;
+						padding: 10px;
+						border: 1px solid black;
+					}
+				</style>
+				<script>
+					function allowDrop(ev) {
+						ev.prefentDefault();
+					}
+
+					function drag(ev) {
+						ev.dataTransfer.setData('text', ev.target.id);
+					}
+
+					function drop(ev) {
+						ev.preventDefault();
+						var data = ev.dataTransfer.getData('text');
+						ev.target.appendChild(document.getElementById(data));
+					}
+				</script>
+			</head>
+			<body>
+				<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+				<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
+			</body>
+		</html>
+
 #### Make an Element Draggable ####
+1. Set `draggable="true"` to make an element draggable.
+	1. `<img draggable="true">`
+
 #### What to Drag - ondragstart and setData() ####
+1. Specify what should happen when element is dragged.
+2. `ondragstart`: attribute
+	1. Calls function `drag(event)` which specifies what data to be dragged
+	2. `dataTransfer.setData()`: sets data type and the value of dragged data
+
+			function drag(ev) {
+				ev.dataTransfer.setData("text", ev.target.id);
+			}
+		
+		1. `text`: data type
+		2. `ev.target.id`: value is id of draggable element
+
 #### Where to Drop - ondragover ####
+1. `ondragover`: event specifies where dragged data can be dropped
+	1. By default, data/elements cannot be dropped in other elements.
+		1. To avoid default behavior, we must avoid default handling of element.
+			1. Done by `event.prefentDefault()`
+
 #### Do the Drop - ondrop ####
+1. When dragged data is dropped, `drop` event occurs
+2. `ondrop` attribute calls `drop(event)`
+
+		function drop(ev) {
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");
+			ev.target.appendChild(document.getElementById(data));
+		}
+
+	1. `preventDefault()`: prevents browser default handling of data (default: open as link on drop)
+	2. `dataTransfer.getData()`: returns dragged data (returns data that was set to the type specified using `setData()`)
+	3. data that was dragged is the id of dragged element
+	4. Append dragged element into drop element
+
 #### More Examples ####
+1. How to drag (and drop) an image back and forth between two <div> elements.
 
 ### HTML Local Storage ###
+1. local storage is better than cookies
+
 #### What is HTML Local Storage ####
+1. Web apps can store data locally withing user's browser
+2. Before HTML5: app had to store data in cookies
+	1. The cookies were included in every server request
+3. Local storage:
+	1. More secure than cookies
+	2. Large amounts of data can be stored
+		1. Storage limit (5 MB)
+	3. Website performance is not affected
+	4. Info is not transfered to server
+	5. It is per origin (domain and protocol)
+		1. All pages from the same origin can store and access same data
+
 #### Browser Support ####
+1. Chrome: 4.0
+2. IE: 8.0
+4. Firefox: 3.5
+5. Safari: 4.0
+6. Opera: 11.5
+
 #### HTML Local Storage Objects ####
+1. Two objects to store data:
+	1. `window.localStorage` **(M)**: stores data with no expiration date
+	2. `window.sessionStorage` **(M)**: stores data for a session (data is lost when browser tab is closed)
+2. Check browser support:
+
+		if (typeof(Storage) !== 'undefined') {
+			// Code for localStorage/sessionStorage.
+		} else {
+			// Sorry! No Web Storage support
+		} 
+
 #### The localStorage Object ####
+1. No expiration date
+2. The data remains even if browser is closed.
+
+		// Store
+		localStorage.setItem('lastname', 'Smith');
+		// Retrieve
+		document.getElementById('result').innerHTML = localStorage.getItem('lastname');
+	1. name = 'lastname', value = 'Smith'
+	2. retrieve 'lastname' and assign it to an element
+3. Another way to write the code
+
+		// Store
+		localStorage.lastname = 'Smith';
+		// Retrieve
+		document.getElementById('result').innerHTML = localStorage.lastname;
+
+4. Remove the item:
+
+		localStorage.removeItem('lastname');
+
+5. name/value pairs are stored as strings. (Convert to another format if required)
+6. Example: Get the number of times a user has clicked a button:
+
+		if (localStorage.clickcount) {
+			localStorage.clickcount = Number(localStorage.clickcount) + 1;
+		} else {
+			localStorage.clickcount = 1;
+		}
+		document.getElementById('result').innerHTML = 'You have clicked the button ' + localStorage.clickcount + ' time(s).';
+
 #### The sessionStorage Object ####
+1. `sessionStorage` is similar to `localStorage` but it stores data for only one session. (data is deleted when user closes specific browser tab)
+2. Example:
+
+		if (sessionStorage.clickcount) {
+			sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+		} else {
+			sessionStorage.clickcount = 1;
+		}
+		document.getElementById('result').innerHTML = 'You have click the button ' + sessionStorage.clickcount + ' time(s) in this session.';
 
 ### HTML App Cache ###
+1. Used to build an offline version of web app (by constructing a cache manifest file)
+
 #### What is Application Cache? ####
+1. A web application is cached and is accessable without internet connection
+2. Advantages:
+	1. Offline browsing: Users can use even if they are offline
+	2. Speed: cached resources load faster
+	3. Reduced server load: browser will download updated/ changed resources from server
+
 #### Browser Support ####
+1. Chrome: 4.0
+2. IE: 10.0
+3. Firefox: 3.5
+4. Safari: 4.0
+5. Opera: 11.5
+
 #### HTML Cache Manifest Example ####
+
+		<!DOCTYPE html>
+		<html manifest="demo.appcache">
+			<body>
+				The content of the document ........
+			</body>
+		</html>
+
 #### Cache Manifest Basics ####
+1. `manifest` **(M)**: attribute that enables application cache
+	1. When user visits the page, it will be cached
+	2. If not specified, it may be specified directly in manifest file
+2. `demo.appcache`:
+	1. `.appcache`: recommended file extenion of manifest file
+	2. manifest file must be served with correct media type of `text/cache-manifest` **(M)**
+
 #### The Manifest File ####
+1. Manifest file is a simple text file (tells browser what to cache and what not to cache)
+2. Structure:
+	1. Three sections:
+		1. **CACHE MANIFEST**: files listed in this header will be cached after they are downloaded for the first time
+		2. **NETWORK**: files listed under this header require connection to the server and will never be cached
+		3. **FALLBACK**: files listed under this header specifies fallback pages if a page is inaccessible
+3. **CACHE MANIFEST**
+	1. Structure:
+
+			CACHE MANIFEST
+			/theme.css
+			/logo.gif
+			/main.js
+
+		1. Lists three resources: a CSS file, a GIF image, JavaScript file. Browser will download the three files from root directory of the web site. (Even if a user is not connected to the internet the resources are still available)
+4. **NETWORK**
+	1. Structure:
+
+			NETWORK:
+			login.asp
+
+		1. `login.asp` should never be cached and will not be available offline
+	2. Structure 2:
+
+			NETWORK:
+			*
+
+		1. * says all other resources/files require an internet connection
+5. **FALLBACK**
+	1. Structure:
+
+			FALLBACK:
+			/html/ /offline.html
+		
+		1. `offline.html` will be served in place of all files in `/html/` catalog in case an internet connection cannot be established
+
 #### Updating the Cache ####
+1. An application remains cached until the following happens:
+	1. User clear's browser's cache
+	2. Manifest file is modified
+	3. Application cache is programmatically updated
+
 #### Example - Complete Cache Manifest File ####
+
+		CACHE MANIFEST
+		# 2012-02-21 v1.0.0
+		/theme.css
+		/logo.gif
+		/main.js
+
+		NETWORK:
+		login.asp
+
+		FALLBACK:
+		/html/ /offline.html
+
+	1. `#` indicates a comment or can serve other purpose (updating the date will recache the files if changes in JavaScript funtion or image needs to be reflected)
+
 #### Notes on Application Cache ####
+1. Once a file is cached, browser will continue to show the cached version even if the file is changed in the server.
+2. To ensure the browser updates the cache, change the manifest file
+3. Browsers may have different cache limits (ex: 5MB limit per site)
 
 ### HTML Web Workers ###
+1. Web worker: It is a JavaScript running in the background without affecting performance of the page
+
 #### What is a Web Worker? ####
+1. Usually, until a script is finished, the page becomes unresponsive
+2. Web worker is a JavaScript that runs in the background, independently of other scripts. We can continue to interact with the page (click, select things, ...) while web worker runs in the background.
+
 #### Browser Support ####
+1. Chrome: 4.0
+2. IE: 10.0
+3. Firefox: 3.5
+4. Safari: 4.0
+5. Opera: 11.5
+
 #### HTML Web Workers Example ####
+1. Web worker that counts numbers in the background
+
+		<!DOCTYPE html>
+		<html>
+			<body>
+				<p>Count numbers: <output id="result"></output></p>
+				<button onclick="startWorker()">Start Worker</button>
+				<button onclick="stopWorker()">Stop Worker</button>
+
+				<p><strong>Note:</strong> Internet Explorer 9 and earlier versions do not support Web Workers.</p>
+
+				<script>
+					var w;
+
+					function startWorker() {
+						if(typeof(Worker) !== 'undefined') {
+							if (typeof(w) == 'undefined') {
+								w = new Worker('demo_workers.js);
+							}
+							w.onmessage = function (event) {
+								document.getElementById('result').innerHTML = event.data;
+							}
+						} else {
+							document.getElementById('result').innerHTML = 'Sorry, your browser does not support Web Workers...';
+						}
+					}
+
+					function stopWorker() {
+						w.terminate();
+						w = undefined;
+					}
+				</script>
+			</body>
+		</html>
+
+	1. To run the file `python -m http.server` from the folder
+	2. Access the file using: `http://0.0.0.0:8000/simple_page_34.html`
+
 #### Check Web Worker Support ####
+
+		if (typeof(Worker) !== 'undefined') {
+			// Yes! Web worker support!
+			// Some code.....
+		} else {
+			// Sorry! No Web Worker support..
+		}
+
 #### Creation of a Web Worker File ####
+1. `demo_workers.js`
+
+		var i = 0;
+
+		function timedCount() {
+			i = i + 1;
+			postMessage();
+			setTimeout('timedCount()', 500);
+		}
+
+		timedCount();
+
+	1. `postMessage()` **(M)**: posts message back to html page
+	2. Use web workers for more CPU intensive tasks 
+
 #### Creation of a Web Worker Object ####
+1. Check if worker already exists, if not, initiate a new web worker object and run the code in `demo_workers.js`
+
+		if (typeof(w) == 'undefined') {
+			w = new Worker('demo_workers.js');
+		}
+
+2. Send and receive message from web worker
+
+		w.onmessage = function (event) {
+			document.getElementById('result').innerHTML = event.data;
+		}
+
+	1. When web worker posts a message, the code within the event listener is executed. data is present in `event.data`
+
 #### Terminate a Web Worker ####
+1. Even if external script is finished, if web worker is not terminated, it will continue to listen for messages.
+2. Terminating web worker will free browser/computer resources
+
+		w.terminate();
+
 #### Reuse the Web Worker ####
-#### Full Web Worker Example Code ####
+1. `w = 'undefined';` makes `w` reusable
+
 #### Web Workers and the DOM ####
+1. Web workers are in external files and hence do not have access to the following:
+	1. window object
+	2. document object
+	3. parent object
 
 ### HTML SSE ###
+1. Server-Sent Events allow a web page to get updates from a server.
+
 #### Server-Sent Events - One Way Messaging ####
+1. An event when a web page automatically gets updates from a server
+	1. Previously, web page needed to ask if any updates were available.
+	2. Now updates come automatically
+2. Examples:
+	1. Facebook/Twitter updates
+	2. Stock price updates
+	3. News feeds
+	4. Sport results
+	5. ...
+
 #### Browser Support ####
+1. Chrome: 6.0
+2. IE: Not supported
+3. Firefox: 6.0
+4. Safari: 5.0
+5. Opera: 11.5
+
 #### Receive Server-Sent Event Notifications ####
+1. `EventSource`: object used to receive server-sent event notifications
+2. Example:
+
+		<!DOCTYPE html>
+		<html>
+			<body>
+				<h1>Getting server updates</h1>
+				<div id="result"></div>
+
+				<script>
+					if (typeof(EventSource) !== 'undefined') {
+						var source = new EventSource('demo_sse.php');
+						source.onmessage = function (event) {
+							document.getElementById('result').innerHTML += event.data + '<br />';
+						};
+					} else {
+						document.getElementByid('result').innerHTML = 'Sorry, your browser does not support server-sent events...';
+					}
+				</script>
+			</body>
+		</html>
+
+	1. Construct a new `EventSource` object and specify URL of the page sending updates
+	2. Each time an update is received, `onmessage` event occurs
+	3. When an onmessage event occurs, put the received data in the element with `id="result"`
+	4. To run:
+		1. `php -S 127.0.0.1:1800 -t .`
+			1. `php [options] -S <addr>:<port> [-t docroot]`
+		2. `http://127.0.0.1:1800/simple_page_35.html`
+
+
 #### Check Server-Sent Events Support ####
+
+		if (typeof(EventSource) !== 'undefined') {
+			// Yes! Server-sent events support!
+			// Some code....
+		} else {
+			// Sorry! No server-sent events support....
+		}
+
 #### Server-Side Code Example ####
+1. Server file should be able to send updates (PHP or ASP)
+2. Example: PHP
+
+		<?php
+		header('Content-Type: text/event-stream');
+		header('Cache-Control: no-cache');
+
+		$time = date('r');
+		echo "data: The server time is: {$time}\n\n";
+		flush();
+		?>
+
+	1. `Content-Type: text/event-stream`
+	2. Specify that page should not cache
+	3. Output the data
+	4. Flush the output data back to web page
+
+3. Example: ASP
+
+		<%
+			Response.ContentType = 'text/event-stream'
+			Response.Expires = -1
+			Response.Write('data: The server time is: ' & now())
+			Response.Flush()
+		%>
+
 #### The EventSource Object ####
+1. Other events:
+	1. `onopen`: When a connection to server is opened
+	2. `onmessage`: When a message is received
+	3. `onerror`: When an error occurs

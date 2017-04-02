@@ -2266,23 +2266,372 @@
 
 ## Not Done Yet... ##
 ### Overview of Our Next App ###
+1. Navigation: User should move around different pages in the app
+2. New App:
+	1. `react-native init manager`
+3. App description:
+	1. Send schedule to employee as a text
+	2. We can add employees to a list
+	3. Form for editing employee
+	4. Fire an employee
+
 ### App Challenges ###
+1. Need to redux-ify login form
+2. Need to show different screens. How to navigate?
+3. Header content needs to change based on screen we're looking at
+4. Each user should have their own pool of employees. How to save the data and secure
+5. Need to send text message
+6. Need a full screen overlay (popup). How to style it
+
 ### Just a Touch More Setup ###
+1. cd `manager`
+2. `npm install --save react-redux redux`
+3. Root component:
+	1. New `src/App.js`
+	
+			import React, { Component } from 'react';
+			import { View, Text } from 'react-native';
+			import { Provider } from 'react-redux';
+			import { createStore } from 'redux';
+
+			class App extends Component {
+				render() {
+					return (
+						<Provider store={createStore()}>
+							<View>
+								<Text>
+									Hello!
+								</Text>
+							</View>
+						</Provider>
+					);
+				}
+			}
+
+			export default App;
+
+4. `index.android.js`, `index.ios.js`
+
+		import {
+			AppRegistry
+		} from 'react-native';
+
+		import App from './src/App';
+
+		AppRegistry.registerComponent('manager', () => App);
+
 ### More on Boilerplate Setup ###
+1. Default Reducer:
+	1. `src/reducers/index.js`
+
+			import { combineReducers } from 'redux';
+
+			export default combineReducers({
+				banana: () => []
+			});
+
+2. App.js
+
+		import reducers from './reducers';
+		...
+			<Provider store={createStore(reducers)}>
+
+3. Firebase:
+	1. `npm install --save firebase`
+	2. `https://console.firebase.google.com`
+		1. CREATE NEW PROJECT
+			1. manager
+		2. Auth
+			1. Email/Password -> Enable
+	3. WEB SETUP
+		1. Copy the JS code
+	4. App.js
+
+			import firebase from 'firebase';
+
+			componentWillMount() {
+				<paste>
+			}
+
+		1. Change double quotes to single quotes
 
 ## Handling Data in React vs Redux ##
 ### Login Form in a Redux World ###
+1. React works without redux.
+2. We might use Redux for future increase in complexity
+3. Make component as simple as possible (show a form, call action creator when a suer types or clicks a button)
+4. Managing what to do with user actions is transitioned to redux
+5. Flow:
+	1. User does something
+	2. React forwards that request to redux
+	3. Redux decides whether to update it's state
+	4. Push the state to react
+	5. React shows new stuff
+
 ### Rebuilding the Login Form ###
+1. Copy paste common directory:
+	1. `src/components`
+2. `src/components/loginForm.js`
+
+		import React, { Component } from 'react';
+		import { Card, CardSection, Input, Button } from './common';
+
+		class LoginForm extends Component {
+			render() {
+				return (
+					<Card>
+						<CardSection>
+							<Input
+								label="Email"
+								placeholder="email@gamil.com"
+							/>
+						</CardSection>
+							
+						<CardSection>
+							<Input
+								secureTextEntry
+								label="Password"
+								placeholder="password"
+							/>
+						</CardSection>
+
+						<CardSection>
+							<Button>
+								Login
+							</Button>
+						</CardSection>
+					</Card>
+				);
+			}
+		}
+
+		export default LoginForm;
+
+3. App.js
+
+		import LoginForm from './components/LoginForm';
+		...
+		return (
+			<Provider ...>
+				<LoginForm />
+			</Provider>
+		);
+
 ### Handling Form Updates with Action Creation ###
+1. Full flow:
+	1. User Types Something
+	2. Call Action Creator with new text
+	3. Action Creator returns an action
+	4. Action sent to all reducers
+	5. Reducer calculates new app state
+	6. State sent to all components
+	7. Components rerender with new state
+	8. Wait for new change (Return to 1)
+2. `LoginForm.js`
+
+		onEmailChange(text) {
+			
+		}
+
+		<Input
+			...
+			onChangeText={this.onEmailChange.bind(this)}
+
+3. `src/actions/index.js`
+
+		export const emailChanged = (text) => {
+			return ({
+				type: 'email_changed',
+				payload: text
+			});
+		};
+
 ### Wiring up Action Creation ###
+1. Turning off an ESLint rule
+
+		{
+			...
+			"rules": {
+				"arrow-body-style": 0
+			}
+		}
+
+2. LoginForm.js
+
+		import { connect } from 'react-redux';
+		import { emailChanged } from '../actions';
+		
+		onEmailChange(text) {
+			this.props.emailChanged(text); // passes text to the action creator
+		}
+		...
+		export default connect(null, { emailChanged })(LoginForm);
+
+3. `reducers/AuthReducer.js`
+
+		const INITIAL_STATE = { email: '' };
+
+		export default (state = INITIAL_STATE, action) => {
+			switch (action.type) {
+				default:
+					return state;
+			}	
+		};
+
+4. `reducers/index.js`
+
+		import AuthReducer from './AuthReducer';
+
+		...
+			auth: AuthReducer
+		... 
+
 ### Typed Actions ###
+1. `src/actions/types.js`
+	1. Contains constants for reducers and actions
+
+			export const EMAIL_CHANGED = 'email_changed';
+
+		1. `const` is used instead of `default` because there may be multiple
+
+2. `actions/index.js`
+		
+		import { EMAIL_CHANGED } from './types';
+		...
+			type: EMAIL_CHANGED,
+			...
+
+3. AuthReducer.js
+
+		import { EMAIL_CHANGED } from '../actions/types';
+		...
+			switch (action.type) {
+				case EMAIL_CHANGED:
 
 ## Don't Mutate that State ##
 ### Immutable State ###
+1. How reducer works:
+	1. Slice of State (state.auth) + Action
+	2. Reducer get both
+	3. New slice of state
+	4. Is newState === oldState?
+	5. If yes, Guess nothing happened
+	6. If no, Something changed, update!
+2. Problem:
+	
+		const state = {}
+		const newState = state // both are pointing to the same object
+		newState.color = 'red';
+		newState === state // always true because they are pointing to same object
+
 ### Creation of Immutable State ###
+1. Do not change the state directly
+2. AuthReducer.js
+
+		case EMAIL_CHANGED:
+			return { ...state, email: action.payload }; // a new object is built
+
+	1. `email: action.payload` will override `email: ''` in `state`
+
+3. LoginForm.js
+
+		onEmailChange(text) {
+			this.props.emailChanged(text);
+		}
+		...
+		<CardSection>
+			<Input
+				...
+				value={this.props.email}
+			/>
+		</CardSection>
+
+		const mapStateToProps = state => {
+			return {
+				email: state.auth.email
+			};
+		};
+
+		export default connect(mapStateToProps, ...)(...)
+
 ### More on Creation of Immutable State ###
+1. LoginForm.js
+
+		import { ..., passwordChanged } from '../actions';
+
+		...
+		<Input
+			...
+			value={this.props.password}
+		/>
+
+		...
+		onPasswordChange(text) {
+			this.props.passwordChanged(text);
+		}
+
+		<Input
+			...
+			onChangeText={this.onPasswordChange.bind(this)}
+
+		const mapStateToProps = ... {
+			return {
+				...
+				password: state.auth.password
+			};
+		};
+
+		... connect(..., { ..., passwordChanged })(...);
+
+2. `index.js`
+
+		export const passwordChanged = (text) => {
+			return {
+				type: PASSWORD_CHANGED,
+				payload: text
+			};
+		};
+
+3. `types.js`
+
+		export const PASSWORD_CHANGED = 'password_changed';
+
+4. AuthReducer.js
+
+		import { ..., PASSWORD_CHANGED } from '../actions/types';
+
+		const INITIAL_STATE = {
+			...
+			password: ''
+		};
+
+		...
+		case PASSWORD_CHANGED:
+			return { ...state, password: action.payload };
+
 ### Synchronous vs Asynchronous Action Creation ###
+1. Other properties:
+	1. loading flag: boolean to show spinner
+		1. start as false
+		2. If request starts, it becomes true
+		3. When request is complete, change it to false
+	2. error: string with error message
+		1. Default: empty string.
+		2. If there is an error and when request completes, toss in an error message.
+	3. user: user model supplied by firebase
+		1. Default null
+		2. Put in user model after request completes
+2. Procedure:
+	1. Call to action creator
+	2. Action creator runs
+	3. Request to firebase is made
+	4. We have nothing to return!
+	3. Asnchrounously request complete, we can return action
+3. We need to write asynchronous action creator
+
 ### Introduction to Redux Thunk ###
+
+
 ### Redux Thunk in Practice ###
 ### Redux Thunk in Practice Continued ###
 ### Making LoginUser More Robust ###
