@@ -2630,59 +2630,1407 @@
 3. We need to write asynchronous action creator
 
 ### Introduction to Redux Thunk ###
+1. Attempt:
 
+		import firebase from firebase;
+		...
+		export const loginUser = ({ email, password }) => {
+			firebase.auth().signInWithEmailAndPassword(email, password)
+				.then(user => console.log(user));
+		}
+
+2. Redux Thunk: Used to handle asynchronous action creators (for any ajax requests)
+	1. `npm install --save redux-thunk`
+
+3. Default action creator rules:
+	1. Action creators are functions
+	2. Must return an action
+	3. An action is an object with a 'type' property and optional 'payload'
+4. Redux thunk: Bends action rules:
+	1. Action creators are functions
+	2. Must return a function
+	3. This function will be called with 'dispatch' automatically
+		1. dispatch manually dispatches actions
 
 ### Redux Thunk in Practice ###
+1. Wiring up Redux thunk (middleware):
+	1. App.js
+
+			import { ..., ApplyMiddleware } from 'redux';
+			import ReduxThunk from 'redux-thunk';
+			...
+			const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+
+			<Provider store={store}>
+			...
+
+		1. `{}` initial state
+		2. `applyMiddleware`: store enhancer
+
+	2. index.js
+
+			export const loginUser = ... {
+				return (dispatch) => {
+					firebase.auth()...;
+				}
+			}
+
+2. What is redux thunk doing?
+	1. Action creator called
+	2. Action creator returns a function
+	3. Redux thunk sees that we return a function and calls it with dispatch method
+	4. We do our login request
+	5. wait
+	6. wait
+	7. Request complete, user logged in
+	8. .then runs
+	9. Manually Dispatch our action	
+
 ### Redux Thunk in Practice Continued ###
+1. index.js
+
+		firebase.auth()...
+			.then(user => {
+				dispatch({ type: 'LOGIN_USER_SUCCESS', payload: user });
+			});
+		}
+
+2. AuthReducer.js
+
+		export default (state = INITIAL_STATE, action) => {
+			console.log(action);
+			...
+		}
+
+3. Firebase:
+	1. Auth > ADD USER
+		1. test@text.com
+		2. password
+4. LoginForm.js
+
+		import { ..., loginUser } from '../actions';
+		...
+		onButtonPress() {
+			const { email, password } = this.props;
+
+			this.props.loginUser({ email, password });
+		}	
+		...
+		<Button onPress={this.onButtonPress.bind(this)}>
+		...
+		connect(..., {emailChanged, passwordChnged, loginUser)...;
+
 ### Making LoginUser More Robust ###
+1. We can dispatch many actions using `dispatch` method
+2. types.js
+
+		export const LOGIN_USER_SUCCESS = 'login_user_success';
+
+3. index.js
+
+		import {  
+			...,
+			LOGIN_USER_SUCCESS
+		} from './types';
+		...
+			dispatch({ type: LOGIN_USER_SUCCESS, ...});
+
+4. AuthReducer.js
+
+		import {
+			...,
+			LOGIN_USER_SUCCESS
+		}
+		...
+		const INITIAL_STATE = {
+			...,
+			user: null
+		}
+
+		export default (state ...) => {
+			switch (action.type) {
+				...
+				case LOGIN_USER_SUCCESS:
+					return { ...state, user: action.payload };
+				...
+			}
+		}
+
 ### Creating User Accounts ###
+1. If authentication fails, a new account may be created.
+2. index.js
+
+		import {
+			...
+			LOGIN_USER_FAIL
+		} from './types';
+
+		firebase.auth()...
+			.then(user => loginUserSuccess(dispatch, user))
+			.catch() => {
+				firebase.auth().createUserWithEmailAndPassword(email, password)
+					.then(user => loginUserSuccess(dispatch, user))
+					.catch(() => loginUserFail(dispatch)); 
+				...
+			}
+
+		const loginUserFail = (dispatch) => {
+			dispatch({ type: LOGIN_USER_FAIL });
+		};
+
+		const loginUserSuccess = (dispatch, user) => {
+			dispatch({
+				type: LOGIN_USER_SUCCESS,
+				payload: user
+			});
+		};
+
+3. types.js
+
+		export const LOGIN_USER_FAIL = 'login_user-fail';
+
 ### Showing Error Messages ###
+1. AuthReducer.js
+
+		import {
+			...
+			LOGIN_USER_FAIL
+		} from './types';
+		...
+		const INITIAL_STATE {
+			...,
+			error: null
+		}
+		...
+		export default ... {
+			...
+			case LOGIN_USER_FAIL:
+				return { ...state, error: 'Authentication Failed.', password: '' };
+			...
+		}
+
+2. LoginForm.js
+
+		import { Text } from 'react-native';
+		...
+		<Text style={styles.errorTextStyle}>
+			{this.props.error}
+		</Text>
+		<CardSection>
+			<Button ...>
+		...
+
+		const styles = {
+			errorTextStyle: {
+				fontSize: 20,
+				alignSelf: 'center',
+				color: 'red'
+			}
+		}
+
+		const mapStateToProps = ({ auth }) => {
+			const { email, password, error } = auth;
+	
+			return { email, password, error };
+		}
+
 ### A Firebase Gotcha ###
+1. AuthReducer.js
+
+		case LOGIN_USER_SUCCESS:
+			return { ...state, user: action.payload, error: '' };
+
+2. Gotcha:
+	1. AuthReducer.js
+
+			case LOGIN_USER_SUCCESS:
+				banana; // Shows Authentication Failed. on screen
+				return { ...state, user: ...};
+
+	2. Firebase assumes something went wrong with request
+
+			.catch(error) {
+				console.log(error); // runs when it hits banana
+			}
+
 ### Showing a Spinner on Loading ###
+1. types.js
+
+		export const LOGIN_USER = 'login_user';
+
+2. index.js
+
+		return (disptch) => {
+			dispatch({ type: LOGIN_USER }); // instead of START_SPINNER
+			...
+		}
+
+3. AuthReducer.js
+
+		const INITIAL_STATE = {
+			...
+			loading: false
+		};
+
+		export default ... => {
+			...
+			case LOGIN_USER:
+				return { ...state, loading: true, error: '' }
+			case LOGIN_USER_SUCCESS:
+				return { ..., loading: false, email: '', password: '' }; // When we navigate back to the login form, the credentials are cleared out
+			case LOGIN_USER_FAIL:
+				return { ..., loading: false };
+			...
+		};
+
+4. LoginForm.js
+
+		import { ..., Spineer } from './common';
+		...
+		renderButton() {
+			if (this.props.loading) {
+				return <Spinner size="large" />;
+			}
+
+			return (
+				<Button onPress={this.onButtonPress.bind(this)}>
+					Login
+				</Button>
+			);
+		}
+
+		<CardSection>
+			{this.renderButton()}
+		</CardSection>
+
+		const mapStateToProps = (..) => {
+			const { email, password, error, loading } = auth;
+
+			return { email, password, error, loading };
+		}
+
+5. AuthReducer.js
+
+		case LOGIN_USER_SUCCESS:
+			return { ...state, ...INITIAL_STATE, user: action.payload };
 
 ## Navigating Users Around ##
 ### Dealing with Navigation ###
+1. There are different solutions for navigation:
+	1. React Native router flux
+		1. `npm install --save react-native-router-flux@3.35.0`
+2. Flow:
+	1. Authentication flow
+	2. Main flow
+3. Scene:
+	1. Component that is imported from routing library
+	2. Authentication flow: scene1
+	3. Main flow: scene2 and scene3
+	4. Props:
+
+			<Scene
+				key="login"
+				component={LoginForm}
+				title="Login"
+				initial
+			/>
+
+		1. `key="login"`: Call `Actions.login()` to show this screen
+			1. Identifies a screen
+		2. `component={LoginForm}`: Show the component `LoginForm`
+		3. `title="Login"`: Make a nav bar and give it a title of "Login"
+				1. Built in header title
+		4. `initial`: This is the first screen to show
+
 ### Navigation in the Router ###
+1. `src/Router.js`
+
+		import React from 'react';
+		import { Scene, Router } from 'react-native-router-flux';
+		import LoginForm from './components/LoginForm';
+
+		const RouterComponent = () => {
+			return (
+				<Router>
+					<Scene key="login" component={LoginForm} title="Please Login" />
+				</Router>
+			);
+		};
+
+		export default RouterComponent;
+
+2. Puttin it in app:
+	1. App.js
+
+			import Router from './Router';
+			...
+			return (
+				<Provider store={store}>
+					<Router />
+				</Provider>
+			);
+
 ### Addressing Styling Issues ###
+1. `<Router>`: Organizes scenes
+2. `<Router />` in App.js
+3. Navbar is customizable
+4. Router.js
+
+		<Router sceneStyle={{ paddingTop: 65 }}>
+			...
+
+	1. `sceneStyle`: applies to all scenes
+
 ### Displaying Multiple Scenes ###
+1. `src/components/EmployeeList.js`
+
+		import React, { Component } from 'react';
+		import { View, Text } from 'react-native';
+
+		class EmployeeList extends Component {
+			render() {
+				return (
+					<View>
+						<Text>Employee List</Text>
+						<Text>Employee List</Text>
+						<Text>Employee List</Text>
+						<Text>Employee List</Text>
+						<Text>Employee List</Text>
+					</View>
+				);
+			}
+		}
+
+		export default EmployeeList;
+
+2. Another scene:
+	1. Router.js
+
+			import EmployeeList from './components/EmployeeList';
+
+			...
+				return (
+					<Router ...>
+						<Scene key="login" component ... />
+						<Scene key="employeeList" component={EmployeeList} title="Employees" initial />
+					</Router>
+				);
+
+		1. Order of scenes will be used by default if `initial` is not specified.
+
 ### Navigating Between Routes ###
+1. index.js
+
+		import { Actions } from 'react-native-router-flux';
+
+		const loginUserSuccess = (dispatch, user) => {
+			...
+			Actions.employeeList();
+		}
+
+	1. `Actions`
+	2. `employeeList()`: Defined by `key="employeeList"`
+
 ### Grouping Scens with Buckets ###
+1. Scene nesting:
+	1. Example: Router.js
+
+			<Scene key="auth">
+				<Scene key="login" component={LoginForm} title="Login" initial />
+			</Scene>
+
+			<Scene key="main">
+				<Scene component={EmployeeList} title="Your Employees" />
+				<Scene component={EmployeeCreate} title="Employee" />
+			</Scene>
+
+		1. Scene bucket will have back and forward buttons for nested scenes.
+2. Gotcha:
+	1. index.js
+
+			Actions.main();
+
 ### Navigation Bar Buttons ###
+1. Router.js
+
+		<Scene key="main">
+			<Scene
+				onRight={() => console.log('right!!!')}
+				rightTitle="Add"
+				...
+
 ### Navigating to the Employee Creation Form ###
+1. `components/EmployeeCreate.js`
+
+		import React, { Component } from 'react';
+		import { View, Text } from 'react-native';
+
+		class EmployeeCreate extends Component {
+			render() {
+				return (
+					<View>
+						<Text>Employee Form</Text>
+					</View>
+				);
+			}
+		}
+
+		export default EmployeeCreate;
+
+2. Router.js
+
+		import EmployeeCreate from './components/EmployeeCreate';
+		import { ..., Actions } from 'react-native-router-flux';
+		...
+
+		<Scene key="main">
+			<Scene
+				onRight={() => Actions.employeeCreate()}
+				...
+				initial
+			/>
+			<Scene key="employeeCreate" component={EmployeeCreate} title="Create Employee" />
+		</Scene>
+
 ### Building the Employee Creation Form ###
+1. Import reusable components:
+2. EmployeeCreate.js
+
+		import { Card, CardSection, Input, Button } from './common';
+		...
+			retrun (
+				<Card>
+					<CardSection>
+						<Input
+							label="Name"
+							placeholder="Jane"
+						/>
+					</CardSection>
+
+					<CardSection>
+						<Input
+							label="Phone"
+							placeholder="555-555-5555"
+						/>
+					</CardSection>
+
+					<CardSection>
+					</CardSection>
+
+					<CardSection>
+						<Button>
+							Create										</Button>
+					</CardSection>
+				</Card>	
+			);
+
 ### Employee Form Actions ###
-### Handling Form Updtes at the Reducer Level ###
+1. `actions/EmployeeActions.js`
+
+		import {
+			EMPLOYEE_UPDATE
+		} from './types';
+
+		export const employeeUpdate = ({ prop, value }) => {
+			return {
+				type: EMPLOYEE_UPDATE,
+				payload: { prop, value }
+			}	
+		};
+
+	1. `{ prop, value }`: object
+2. types.js
+
+		export const EMPLOYEE_UPDATE = 'employee_update';
+
+3. `reducers/EmployeeFormReducer.js`
+
+		import {
+			EMPLOYEE_UPDATE
+		} from '../actions/types';
+
+		const INITIAL_STATE = {};
+
+		export default (state = INITIAL_STATE, action) => {
+			switch (action.type) {
+				default:
+					return state;
+			}
+		};
+
+### Handling Form Updates at the Reducer Level ###
+1. EmployeeFormReducer.js
+
+		const INITIAL_STATE = {
+			name: '',
+			phone: '',
+			shift: ''
+		};
+
+		switch (action.type) {
+			case EMPLOYEE_UPDATE:
+				// action.payload === { prop: 'name', value: 'jane' }
+				return { ...state, [action.payload.prop]: action.payload.value };
+			...
+		}
+
+	1. `[]`: not an array but key interpolation (key is determined at runtime)
+		1. Becomes `name` for example
+		2. Similar to: `newState[action.payload.prop] = action.payload.value;`
+2. new `actions/AuthActions.js`: cut and paste from `index.js`
+3. `index.js`
+
+		export * from './AuthActions';
+		export * from './EmployeeActions';
+
 ### Dynamic Property Updates ###
+1. `reducers/index.js`
+
+		import EmployeeFormReducer from './EmployeeFormReducer';
+
+		export default ...({
+			auth: AuthReducer,
+			employeeForm: EmployeeFormReducer
+		});
+
+2. `EmployeeCreate.js`
+
+		import { connect } from 'react-redux';
+		import { employeeUpdate } from '../actions';
+		...
+
+			<Input
+				label="Name"
+				...
+				value={this.props.name}
+				onChangeText={text => this.props.employeeUpdate({ prop: 'name', value: text })}
+			/>
+			...
+			<Input
+				label="Phone"
+				...
+				value={this.props.phone}
+				onChangeText={value => this.props.employeeUpdate({ prop: 'phone', value })} // ES6
+			/>
+
+		const mapStateToProps = (state) => {
+			const { name, phone, shift } = state.employeeForm; // key
+			return { name, phone, shift };
+		};		
+
+		export default connect(mapStateToProps, { employeeUpdate} )(EmployeeCreate);
+
 ### The Picker Component ###
+1. API: [https://facebook.github.io/react-native/releases/next/docs/picker.html](https://facebook.github.io/react-native/releases/next/docs/picker.html)
+2. Example:
+
+		<Picker
+			selectedValue={this.state.language}
+			onValueChange={(lang) => this.setState({language: lang})}>
+			<Picker.Item label="Java" value="java" />
+			<Picker.Item label="JavaScript" value="js" />
+		</Picker>
+
+3. EmployeeCreate.js
+
+		import { Picker } from 'react-native';
+		...
+		<CardSection>
+			<Picker
+				style={{ flex: 1 }} // default width is 0
+				selectedValue={this.props.shift}
+				onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
+			>
+				<Picker.Item label="Monday" value="Monday" />
+				<Picker.Item label="Tuesday" value="Tuesday" />
+				<Picker.Item label="Wednesday" value="Wednesday" />
+				<Picker.Item label="Thursday" value="Thursday" />
+				<Picker.Item label="Friday" value="Friday" />
+				<Picker.Item label="Saturday" value="Saturday" />
+				<Picker.Item label="Sunday" value="Sunday" />
+			</Picker>
+		</CardSection>
+
 ### Pickers and Style Overrides ###
+1. Add a label:
+	2. EmployeeCreate.js
+
+			import { ..., Text } from 'react-native';
+			...
+			<CardSection style={{ flexDirection: 'column' }}> // Need to define this in the component
+				<Text style={styles.pickerTextStyle}>Shift</Text>
+				<Picker
+					...
+			</CardSection>
+			...
+			const styles = {
+				pickerTextStyle: {
+					fontSize: 18,
+					paddingLeft: 20
+				}
+			};
+
+2. CardSection.js
+
+		const CardSection = (props) => {
+			return (
+				<View style={[styles.containerStyle, props.style]}>
+					...
+			);
+		}
+
+	1. `[...]`: array - `props.style` will override `styles.containerStyle`
 
 ## Firebase as a Data Store ##
 ### Firebase JSON Schema ###
+1. Open Firebase
+	1. Database (It is a JSON data store)
+2. Datastructure of the data that is going to be stored:
+	1. Collection of Users
+		1. Each user has a collection of Employees
+	2. JSON example:
+
+			{
+				"users": {
+					"user 456": { employees: {} },
+					"user 123": {
+						"employees": {
+							"employee 1": {
+								"name": "Jane",
+								"phone": "555-555-5555",
+								"shift": "Monday"
+							},
+							"employee 2": {
+								"name": "Jim",
+								"phone": "333-333-3333",
+								"shift": "Tuesday"
+							}
+						}
+					}
+				}
+			}
+
 ### Data Security in Firebase ###
+1. Default: If a user is authenticated, the user can access any data
+2. Goto Firebase
+	1. Database > Rules
+
+			{
+				"rules": {
+					"users": {
+						"$uid": {
+							".read": "$uid === auth.uid",
+							".write": "$uid === auth.uid"
+						}
+					}
+				}
+			}
+
+	2. Click `PUBLISH`
+
 ### Creation of Records with Firebase ###
+1. EmployeeCreate.js
+
+		import { ..., employeeCreate } from '../actions';
+
+		class ...
+
+			onButtonPress() {
+				const { name, phone, shift } = this.props;
+
+				this.props.employeeCreate({ name, phone, shift });
+			}
+
+			<Button onPress={this.onButtonPress.bind(this))
+				...
+
+		export default connect(..., {
+			...,
+			employeeCreate
+		})(...);
+
+2. EmployeeActions.js
+
+		export const employeeCreate = ({ name, phone, shift }) => {
+			console.log(name, phone, shift);	
+		};
+
+	1. `shift` will not get logged since it is empty string initially.
+
 ### Default Form Values ###
+1. One solution:
+	
+		const INITIAL_STATE = {
+			shift: 'Monday'
+		};
+
+	1. Problem: Tightly coupled to the value
+
+2. Second solution:
+	1. EmployeeCreate.js
+		
+			ComponentWillMount() {
+				// Manually call action creator manually and set default value of shift
+			}
+
+3. Third solution:
+	1. EmployeeCreate.js
+
+			onButtonPress() {
+				...
+				this.props.employeeCreate({ name, phone, shift: shift || 'Monday' });
+			}
+
 ### Successful Data Save to Firebase ###
+1. EmployeeActions.js
+
+		import firebase from 'firebase';
+		...
+		export const employeeCreate = ({ name, phone, shift }) => {
+			const { currentUser } = firebase.auth(); // Currently authenticated user
+			firebase.database().ref(`/users/${currentUser.uid}/employees`)
+			.push({ name, phone, shift });
+		};
+
+	1. `/users/userId/employees`: Find collection of users and find a key userId and find a key employees
+2. Test in Firebase console
+
 ### Resetting Form Properties ###
+1. Redirecting to Employee List screen
+	1. Not returning an action
+		1. EmployeeActions.js
+
+				import { Actions } from 'react-native-redux-flux';
+
+				export const employeeCreate ... {
+					...
+					return () => {
+						firebase.database()...
+							.push(...)
+							.then(() => Actions.employeeList({ type: 'reset' }));
+					};
+				}
+
+		1. `type: 'reset'`: don't treat it as next view but reset the entire view stack (don't display back button)
+2. Clearing out the form:
+	1. EmployeeAction.js
+
+			import {
+				...
+				EMPLOYEE_CREATE
+			} from './types';
+
+			export const employeeCreate = ... {
+				...
+				return (dispatch) => {
+					firebase....
+					...
+					.then(() => {
+						dispatch({ type: EMPLOYEE_CREATE });
+						...
+					});
+				}
+			}
+
+	2. types.js
+
+			export const EMPLOYEE_CREATE = 'employee_create';
+
+	3. EmployeeFormReducer.js
+
+			case EMPLOYEE_UPDATE:
+				...
+			case EMPLOYEE_CREATE:
+				return INITIAL_STATE;
+			...
+
 ### Fetching Data from Firebase ###
+1. EmployeeActions.js
+
+		import {
+			...
+			EMPLOYEES_FETCH_SUCCESS
+		} from './types';
+		...
+		export const employeesFetch = () => {
+			const { currentUser } = firebase.auth();
+
+			return (dispatch) => {
+				firebase.database().ref(`/users/${currentUser.uid}/employees`)
+					.on('value', snapshot => {
+						dispatch({ type: EMPLOYEES_FETCH_SUCCESS, payload: snapshot.val() });
+					});
+			};
+		};
+
+	1. Any `value` that we get from ref, call the fat arrow function with an object that describes the data in the ref
+	2. `snapshot.val()`: the actual data
+	3. Anytime any data comes, the fat arrow function is called by just calling `.on` once
+2. types.js
+
+		export const EMPLOYESS_FETCH_SUCCESS = 'employees_fetch_success';
+
 ### Storing Data by ID ###
+1. EmployeeList.js
+
+		import { connect } from 'react-redux';
+		import { employeesFetch } from '../actions';
+		...
+		class EmployeeList ...{
+			componentWillMount() {
+				this.props.employeesFetch();
+			}
+			...
+		}
+		export default connect(null, { employeesFetch })(EmployeeList);
+
+2. `/reducers/EmployeeReducer.js`
+
+		import {
+			EMPLOYEES_FETCH_SUCCESS
+		} from '../actions/types';
+
+		const INITIAL_STATE = {};
+
+		export default (state = INITIAL_STATE, action) => {
+			switch (action.type) {
+				case EMPLOYEES_FETCH_SUCCESS:
+					console.log(action);
+					return state;
+				default:
+					return state;
+			}
+		};
+
+3. `index.js`
+
+		import EmployeeReducer from './EmployeeReducer';
+
+		export default combineReducers({
+			...
+			employees: EmployeeReducer
+		});
+
+4. Run Simulator and check the log
+	1. Firebase returns an object instead of an array (easier to update)
+
 ### Dynamic DataSource Building ###
+1. EmployeeList.js
+
+		import { ListView, ... } from 'react-native';
+		...
+		class EmployeeList extends Component {
+			componentWillMount() {
+				this.props.employeesFetch(); // asynchronous
+
+				this.creationOfDataSource(this.props);
+			}
+
+			componentWillReceiveProps(nextProps) {
+				// nextProps are the next set of props that this component will be rendered with and this.props is still the old set of props
+
+				this.creationOfDataSource(this.props);
+			}
+
+			creationOfDataSource({ employees }) {
+				const ds = new ListView.DataSource({
+					rowHasChanged: (r1, r2) => r1 !== r2
+				});
+
+				this.dataSource = ds.cloneWithRows(employees);
+			}
+		}
+
 ### Transforming Objects to Arrays ###
+1. `cloneWithRows`: works only with Arrays and not objects
+2. EmployeeList.js
+
+		import _ from 'lodash';
+		...
+		render() {
+			console.log(this.props);
+			...
+		}
+		...
+		const mapStateToProps = state => {
+			const employees = _.map(state.employees, (val, uid) => {
+				return { ...val, uid }; // { shift: 'Monday', name: ... id: ... }
+			});
+
+			return { employees };
+		};
+
+		export default connect(mapStateToProps, { employeesFetch })(EmployeeList);
+
+	1. `map`: for each key value pair, run the fat arrow function
+		1. `val`: user model (value)
+		2. `uid`: key
+	2. `{ ...val, uid }`: new object with value and key together
+
+3. `npm install --save lodash`: helper to work with objects and arrays
+4. Refresh and check the log for array of employees
+
 ### List Building in Employee List ###
+1. EmployeeList.js
+
+		import { ListView } from 'react-native';
+		...
+		import ListItem from './ListItem;
+
+		renderRow(employee) {
+			return <ListItem employee={employee} />;
+		}
+
+		render() {
+			return (
+				<ListView
+					enableEmptySections
+					dataSource={this.dataSource}
+					renderRow={this.renderRow}
+				/>
+			);
+		}
+
+2. `components/ListItem.js`
+
+		import React, { Component } from 'react';
+		import { Text } from 'react-native';
+		import { CardSection } from './common';
+
+		class ListItem extends Component {
+			render() {
+				const { name } = this.props.employee;
+
+				return (
+					<CardSection>
+						<Text style={styles.textStyle}>
+							{name}
+						</Text>
+					</CardSection>
+				);
+			}
+		}
+
+		const styles = {
+			titleStyle: {
+				fontSize: 18,
+				paddingLeft: 15
+			}
+		}
+
+		export default ListItem;
 
 ## Code Reuse - Edit vs Create ##
 ### Reusing the Employee Form ###
+1. ListItem.js
+
+		import { Text, TouchableWithoutFeedback, View } from 'react-native';
+		import { Actions } from 'react-native-router-flux';
+		...
+		onRowPress() {
+			Actions.employeeCreate({ employee: this.props.employee }); // Additional prop is given to the method
+		}
+		
+		render() {
+			return (
+				<TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
+					<View>
+						<CardSection>
+						...
+					</View>
+				</TouchableWithoutFeedback>
+			):
+		}
+
+2. EmployeeCreate.js
+
+		render() {
+			console.log(this.props.employee); // We get it from EmployeeList.js
+			...
+		}
+
 ### Creation vs Edit Forms ###
+1. Should we reuse Create form for Editing?
+	1. Pros: Code sharing
+	2. Cons: Added complexity due to conditional logic
+2. How the form is currently working:
+	1. User Navigates to create employee form
+	2. EmployeeFormReducer is empty
+	3. From is empty
+	4. User updates values
+	5. User submits form
+	6. We save the data from the reducer
+3. Edit case:
+	1. User Navigates to edit employee form
+	2. EmployeeFormReducer is empty
+	3. Form is empty
+	4. We have to prepopulate state in form reducer!!!
+	5. User edits form - we do not change employee model (in memory)!!!
+		1. If we change model in memory, it becomes dirty and we need to re-fetch from firebase
+	6. User submits form
+	7. We save the data from the reducer
+
 ### Reusable Forms ###
+1. `components/EmployeeForm.js`
+
+		import React, { Component } from 'react';
+		import { View, Text, Picker } from 'react-native';
+		import { connect } from 'react-redux';
+		import { employeeUpdate } from '../actions';
+		import { CardSection, Input } from './common';
+
+		class EmployeeForm extends Component {
+			render() {
+
+			}
+		}
+		...
+		const mapStateToProps = (state) => {
+			const { name, phone, shift } = state.employeeForm;
+
+			return { name, phone, shift };
+		};
+
+		export default connect(mapStateToProps, { employeeUpdate })(EmployeeForm);
+
+2. Copy and paste first three card sections from EmployeeCreate.js
+3. Copy and paste styles object
+4. EmployeeCreate.js
+
+		import EmployeeForm from 'EmployeeForm';
+		...
+		<Card>
+			<EmployeeForm {...this.props} />
+			...
+		</Card>
+
 ### A Standalone Employee Edit Form ###
+1. `components/EmployeeEdit.js`
+
+		import React, { Component } from 'react';
+		import { connect } from 'react-redux';
+		import EmployeeForm from './EmployeeForm';
+		import { Card, CardSection, Button } from './common';
+
+		class EmployeeEdit extends Component {
+			render() {
+				return (
+					<Card>
+						<EmployeeForm />
+						<CardSection>
+							<Button>
+								Save Changes
+							</Button>
+						</CardSection>
+					</Card>
+				);
+			}
+		}
+
+		export default connect()(EmployeeEdit);
+
 ### Initializing Forms from State ###
+1. ListItem.js
+
+		onRowPress() {
+			Actions.employeeEdit(...);
+		}
+
+2. Router.js
+
+		import EmployeeEdit from './components/EmployeeEdit';
+		...
+		<Scene key="main">
+			...
+			<Scene key="employeeEdit" component={EmployeeEdit} title="Edit Employee" />
+		</Scene>
+
+3. EmployeeEdit.js
+
+		import _ from 'lodash';
+		import { employeeUpdate } from '../actions';
+		...
+		class ... {
+			componentWillMount() {
+				_.each(this.props.employee, (value, prop) => {
+					this.props.employeeUpdate({ prop, value });
+				});
+			}
+	
+			onButtonPress() {
+				const { name, phone, shift } = this.props;
+				console.log(name, phone, shift);
+			}
+			
+			render() {
+			...
+				<Button onPress={this.onButtonPress.bind(this)}>
+			}
+		}
+
+		const mapStateToProps = (state) => {
+			const { name, phone, shift } = state.employeeForm;
+
+			return { name, phone, shift };
+		};
+		
+		export defult connect(mapStateToProps, { employeeUpdate })(EmployeeEdit);
+
 ### Updating Firebase Records ###
+1. EmployeeActions.js
+
+		export const employeeSave = ({ name, phone, shift, id }) => {
+			const { currentUser } = firebase.auth();
+			return () => {
+				firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+					.set({ name, phone, shift })
+					.then(() => console.log('saved!'));
+			};
+		};
+
+2. EmployeeEdit.js
+
+		import { ..., employeeSave } from '../actions';
+		...
+			onButtonPress() {
+				...
+				this.props.employeeSave({ name, phone, shift, uid: this.props.employee.uid });
+			}
+		export default connect(..., {
+			...
+			employeeSave
+		})(...);
+
+	1. `employee`: is passed as prop
+
 ### Clearing Form Attributes ###
+1. EmployeeActions.js
+
+		import {
+			...
+			EMPLOYEE_SAVE_SUCCESS
+		} form './types';
+
+		return (dispatch) => {
+			firebase ...
+				...
+				.then(() => {
+					dispatch({ type: EMPLOYEE_SAVE_SUCCESS });
+					Action.employeeList({ type: 'reset' });
+			});
+		}
+
+2. types.js
+
+		export const EMPLOYEE_SAVE_SUCCESS = 'employee_save_success';
+
+3. EmployeeFormReducer.js
+
+		import {
+			...
+			EMPLOYEE_SAVE_SUCCESS
+		} from './types';
+		...
+
+		case EMPLOYEE_SAVE_SUCCESS:
+			return INITIAL_STATE;
+
 ### Texting Employees ###
+1. Open native text messaging of the device
+2. `react-native-communications` (npmjs.com)
+	1. We can initiate
+		1. text
+		2. email
+		3. phone call
+	2. `npm install --save react-native-communications`
+3. EmployeeEdit.js
+
+		import Communications from 'react-native-communications';
+		...
+		onTextPress() {
+			const { phone, shift } = this.props:
+			
+			Communications.text(phone, `Your upcoming shift is on ${shift}`);
+		}
+		...
+		return (
+			...
+			<CardSection>
+				<Button onPress={this.onTextPress.bind(this)}>
+					Text Schedule
+				</Button>
+			</CardSection>
+		);
+
 ### Modals as a Reusable Component ###
+1. Problem: texting does not work in iOS simulator
+	1. Solution: Works on Android simulator
+2. Modal: A popup on current screen:
+	1. [https://facebook.github.io/react-native/docs/modal.html](https://facebook.github.io/react-native/docs/modal.html)
+		
+			<Modal
+				animationType={"slide"}
+				transparent={false}
+				visible={this.state.modalVisible}
+				onRequestClose={() => {alert("Modal has been closed.")}}
+			>
+
+		1. `transparent`: see through modal or not
+		2. `visible`: should the modal be visible or not
+		3. `onRequestClose`: required for android device
+3. Reusable Modal component:
+	1. `src/components/common/Confirm.js`
+
+			import React from 'react';
+			import { Text, View, Modal } from 'react-native';
+			// import { CardSection, Button } form '.'; // generates a cyclical dependency which node resolves but not recommended
+			import { CardSection } from './CardSection';
+			import { Button } from './Button';
+
+			const Confirm = () => {
+
+			};
+
+			export { Confirm }; // since it is reusable component
+
+4. index.js
+
+		export * from './Confirm';
+
 ### The Model Component Continued ###
+1. Confirm.js
+
+		const Confirm = ({ children, visible, onAccept, onDecline }) => {
+			return (
+				<Modal
+					visible={visible}
+					transparent
+					animationType="slide"
+					onRequestClose={() => {}}
+				>
+					<View>
+						<CardSection>
+							<Text>{children}</Text>
+						</CardSection>
+
+						<CardSection>
+							<Button onPress={onAccept}>Yes</Button>
+							<Button onPress={onDecline}>No</Button>
+						</CardSection>
+					</View>
+				</Modal>
+			);
+		}
+
 ### Styling the Modal ###
-### Employee Delete Action Cration ###
+1. Confirm.js
+
+		const Confirm ... {
+			const { containerStyle, textStyle, cardSectionStyle } = styles;
+
+			<View style={containerStyle}>
+				<CardSection style={cardSectionStyle}>
+					<Text style={textStyle}>
+	
+			...
+		const styles = {
+			cardSectionStyle: {
+				justifyContent: 'center'
+			},
+			textStyle: {
+				flex: 1,
+				fontSize: 18,
+				textAlign: 'center',
+				lineHeight: 40
+			},
+			containerStyle: {
+				backgroundColor: 'rgba(0, 0, 0, 0,75)'
+				position: 'relative',
+				flex: 1,
+				justifyContent: 'center'
+			}
+		}
+
+2. EmployeeEdit.js
+
+		import { ..., Confirm } from './common';
+		...
+
+		class ... {
+			state = { showModal: false };
+
+			<Card>
+				...
+
+				<CardSection>
+					<Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
+						Fire Employee
+					</Button>
+				</CardSection>
+
+				<Confirm
+					visible={this.state.showModal}
+				>
+					Are you sure you want to delete this?
+				</Confirm>
+			</Card>
+
+	1. We need only component level state (since it is used only in this scene)
+
+### Employee Delete Action Creation ###
+1. EmployeeEdit.js
+
+		onAccept() {
+			
+		}
+
+		onDecline() {
+			this.setState({ showModal: false });
+		}
+
+		render() {
+			...
+			<Confirm
+				...
+				onAccept={this.onAccept.bind(this)}
+				onDecline={this.onDecine.bind(this)}
+			>
+
+2. EmployeeAction.js
+
+		export const employeeDelete = ({ uid }) => {
+			const { currentUser } = firebase.auth();
+
+			return () => {
+				firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+					.remove()
+					.then(() => {
+						Actions.employeeList({ type: 'reset' });
+					});
+			};
+		};
+
+	1. `dispatch` is not required because list update is automated already
+
 ### Wiring up Employee Delete ###
+1. EmployeeEdit.js
+
+		import { ..., employeeDelete } from '../actions';
+		...
+			onAccept() {
+				const { uid } = this.props.employee;
+
+				this.props.employeeDelete({ uid });
+			}
+		...
+		connect(..., {
+			...
+			employeeDelete
+		})(...);
 
 ## Bonus! ##
 ### Bonus? Bonus! ###
+1. ES6 Javascript: The Complete Developer's Guide: [https://www.udemy.com/javascript-es6-tutorial/?couponCode=RNCOMPLETE_10](https://www.udemy.com/javascript-es6-tutorial/?couponCode=RNCOMPLETE_10)
+2. Meteor and React for Realtime Apps: [https://www.udemy.com/meteor-react-tutorial/?couponCode=RNCOMPLETE_10](https://www.udemy.com/meteor-react-tutorial/?couponCode=RNCOMPLETE_10)
+3. Modern React with Redux: [https://www.udemy.com/react-redux/?couponCode=RNCOMPLETE_10](https://www.udemy.com/react-redux/?couponCode=RNCOMPLETE_10)
+4. Advanced React with Redux: [https://www.udemy.com/react-redux-tutorial/?couponCode=RNCOMPLETE_10](https://www.udemy.com/react-redux-tutorial/?couponCode=RNCOMPLETE_10)
