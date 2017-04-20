@@ -1,4 +1,4 @@
-### Certified Developer - Associate
+## Certified Developer - Associate
 1. AWS: Amazon Web Services
 	1. Fastest growing cloud platform
 	2. Largest public cloud computing platform
@@ -44,7 +44,11 @@
 		4. Optionally domain name (GoDaddy)
 		5. Route53?
 
-#### History of AWS
+### How to get development experience with AWS ###
+### What you'll Need to Do This Course ###
+### The Free Alexa Skill for Amazon Echo ###
+
+## History of AWS
 1. SQS was launched in 2004
 2. Jeff Bass blog
 3. AWS officially launched in 2006
@@ -267,8 +271,11 @@
 		3. WorkMail:
 			1. Like Exchange: email service
 	2. Internet of Things:
+
+### My Console Looks Different! Help! ###
 	
-### Indentity Access Management 101
+## Indentity Access Management 101 ##
+
 1. What is it?
 	1. Setting up users and granting access to users to AWS console
 	2. It is used to manage users and their level of access to the AWS console
@@ -441,7 +448,10 @@
 	1. EC2: we cannot switch roles for running instance, we can change permissions for that role
 	2. AssumeRoleWithSAML*
 	
-### EC2
+## EC2
+### EC2 101 - Part 1 ###
+### EC2 101 - Part 2 ###
+
 1. Web service that provides resizable compute capacity in cloud. Recudes time required to obtain boot new server instances to minutes allowing scaling capacity up and down quickly.
 2. Pricing models:
 	1. On demand: Fixed pay by hour with no commitment.
@@ -693,7 +703,7 @@
 	2. Amazon SES Support for ActionMailer
 	3. Logging
 
-##### Hellow World Tutorial
+##### Hello World Tutorial
 1. Using AWS SDK for Ruby in Program
 	1. Add `require 'aws-sdk'` to use AWS SDK for Ruby classes and methods
 2. Creation of Amazon S3 Resource
@@ -775,9 +785,289 @@
 7. Running the program
 8. Next Steps
 
+### Launch Our First EC2 Instance - Part 2 ###
+### How to use Putty (Windows Users Only) ###
+### Securty Groups ###
+### Volumns vs Snapshots ###
+### CLI Commands For The Developer Exam ###
+### Bash Scripting ###
+### Lambda ###
+### EC2 Instance Meta-data ###
+1. `curl http://169.254.169.254/latest/meta-data`
+	1. list of resources
+2. `curl http://169.254.169.254/latest/meta-data/public-ipv4`
+3. `yum install httpd php php-mysql -y`
+	1. `service httpd start`
+4. `yum install git`
+5. `cd /var/www/html`
+	1. `git clone https://github.com/acloudguru/metadata`
+6. `cd metadata`
+	1. PHP code for getting Public IP address
 
-	
+### Elastic Load Balancers - Exam Tips ###
+1. Lab:
+	1. It spreads load across different web servers
+2. Open EC2 Service
+	1. Click Running Instances
+	2. Actions > Instance State > Start
+3. `ssh ec2-user@<public-ip> -i <file>.pem`
+	1. `service httpd status` (`service httpd start`)
+	2. `chkconfig httpd on` (httpd starts everytime ec2 instance starts)
+4. `cd /var/www/html`
+	1. `nano index.html`
+	1. `nano healthcheck.html`
+		
+			This instance is healty
 
+5. Goto Console:
+	1. Services > EC2
+6. Goto Load Balancers
+	1. Click Create
+	2. Two types of load balancers:
+		1. Application load balancer: They work at application layer (layer 7) - for http and https say
+		2. Classic load balancer (most exam questions)
+			1. Does routing at TCP layer and can do some load balancing at application layer (layer 4 load balancer)
+	3. Click `Classic Load Balancer` (costs money)
+		1. Load Balancer name: MyClassicELB
+		2. LB Inside: Default VPC
+		3. Create an internal load balancer? (no)
+		4. Enable advanced VPC configuration? (no)
+		5. Listener Configuration:
+			1. Load Balancer Protocol: HTTP on 
+			2. Load Balancer Port: 80 
+			3. Instance Protocol: HTTP (where it is passed on)
+			4. Instance Port: 80
+	4. Select a security group
+		1. Ignore warning about using HTTPs instead of HTTP
+	5. Configure Health Check
+		1. Ping Protocol: HTTP
+		2. Ping Port: 80
+		3. Ping Path: /healthcheck.html
+		4. Advanced Details:
+			1. Response Timeout: 2 seconds - amount time it waits to recieve response from health check
+			2. Interval: 5 - Time between health checks
+			3. Unhealthy threshold: 2 - Number of consecutive health check failures before declaring an EC2 instance is unhealthy
+			4. Healthy threshold: 3 - Number of health checks it has to pass to be considered healthy again
+		5. Add EC2 instances
+		6. Key - value pair
+			1. Key: ProductELB
+			2. Value: ON
+		7. Review and Create
+		8. Create
+7. Configuration:
+	1. Name:
+	2. DNS Name (copy it)
+	3. VPC ID
+	4. Availability zones
+	5. Type: Classic
+8. Health Check
+9. Simulating Health Check failure:
+	1. Delete `healthcheck.html` from EC2 instance
+	2. Check `Instance` (OutOfService)
+		1. EC2 will not receive any more traffic from the load balancer
+10. `echo 'I am healthy cloud gurus' > healthcheck.html`
+11. Open the ELB DNS link in browser: Points to index.html
+	1. We don't get Public IP address for ELBs
+		1. Since public IP address changes
+12. Second type of load balancer: Application load balancer:
+	1. There is a course on acloudguru platform
+	2. Select and continue:
+		1. Name: MyApplicationELB
+		2. Scheme: Inernet-facing
+		3. Listeners:
+			1. HTTP
+		4. Availability zones:
+			1. VPC: default
+			2. Subnets:
+				1. One subnet per availability zone
+				2. Add both
+		5. Next
+	3. Use HTTP
+	4. Security Group
+	5. Configure Routing:
+		1. Target Group: New Target Group
+		2. Name: MyAppELBTG
+		3. Protocol: HTTP
+		4. Port: 80
+		5. Health Checks: (on)
+			1. Protocol: HTTP
+			2. Path: /healthcheck.html
+		6. Advanced health check settings:
+			1. Port: traffic port
+			2. Healthy threshold: 2
+			3. Unhealthy threshold: 2
+			4. Timeout: 2
+			5. Interval: 5 seconds
+			6. Success codes: (can be multiple values) - 200-209
+	6. Register Targets:
+		1. Click **Add to registered** on port 80
+	7. Click **Create**
+	8. Copy DNS (no Public IP)
+	9. Listeners:
+		1. Port 80
+	10. Monitoring
+		1. Errors
+	11. Paste the DNS in browser
+13. Summary:
+	1. Instances monitored by ELB are reported as:
+		1. InService, or OutOfService
+	2. Health checks check the instance health by talking to it (HTTP/HTTPS and look at individual files)
+	3. Have their own DNS name. You are never given an IP address
+	4. Read the ELB FAQ for Classic Load Balancers (very important)
+	5. What to deep dive on application load balancers? Check out deep dive course!
+
+### SDK's - Exam Tips ###
+1. Exam Tips:
+	1. Available SDK's [https://aws.amazon.com/tools/](https://aws.amazon.com/tools/)
+		1. Android, iOS, JavaScript (Browser)
+		2. Java
+		3. .Net
+		4. Node.js
+		5. PHP
+		6. Python
+		7. Ruby
+		8. Go
+		9. C++
+	2. Default regions:
+		1. US-EAST-1: some SDK's have this (Java)
+		2. Some do not have default region: (Node.js)
+
+### Summary of EC2 Section ###
+1. Very important module (Read EC2 FAQ for exam)
+2. Summary:
+	1. Know the differences between:
+		1. On Demand
+		2. Spot
+		3. Reserved
+		4. Dedicated Hosts
+	2. For spot instances:
+		1. If you terminate, pay for the hour (if usage is for 2 1/2 hours, I pay for 3 hours)
+		2. If AWS terminates, when bid price is lower then I pay for 2 hours since third hour is free
+	3. Instance Types:
+		1. Need to know them (not for exam)
+			1. D2: Dense storage - fileservers/data warehousing/hadoop
+			2. R4: Memory optimized - memory intensive apps/dbs
+			3. M4: General purpose - application servers
+			4. C4: Compute optimized - CPU intensive apps/DBs
+			5. G2: Graphics intensive - Video encoding/ 3D application streaming
+			6. I2: Hish speed storage - NoSQL, DBs, Data warehousing, ...
+			7. F1: Field Programmable Gate Array: Hardware acceleration for code
+			8. T2: Lower cost, general purpose - Web servers/ small DBs
+			9. P2: Graphics/GPU - Machine learning, Bit coin mining ...
+			10. X1: Memory optimized - SAP HANA/Apache Spark ...
+		2. DR MC GIFT PX
+	4. EBS:
+		1. SSD, General Purpose - GP2 - (Up to 10,000 IOPS)
+		2. SSD, Provisioned IOPS, IO1 - (More than 10,000 IOPS)
+		3. HDD, Throughput Optimized - ST1 - frequently accessed workloads (cannot be used as root volumes)
+		4. HDD, Cold - SC1 - less frequently accessed data (cannot be used as root volumes)
+		5. HDD, Magnetic - Standard - cheap, infrequently accessed storage (can be used as boot volumes)
+		6. We cannot mount 1 EBS volume to multiple EC2 instances, instead we can use EFS
+	5. EC2 Lab Exam:
+		1. Termination Protection is turned off by default, you must turn it on
+		2. On an EBS-backed instance, default action is for root EBS volume to be deleted when instance is terminated (root EBS volume - deleted):
+			1. We can turn it off
+		3. Root volumes cannot be encrypted by default, you need third party tool (bit locker) to ancrypt root volume
+		4. Additional volumes can be encrypted
+	6. Volumes vs Snapshots
+		1. Volumes exist on EBS
+			1. Virtual harddisk
+		2. Snapshots exist on S3
+		4. We can take snapshot of volume and this will store the volume on S3
+		5. Snapshots are point in time copies of volumes
+		6. Snapshots are incremental, (only blocks that have changed since that last snapshot are moved to S3)
+
+### EC2 Quiz ###
+
+## S3 ##
+### S3 Essentials ###
+### Creation of an S3 Bucket Using The Console ###
+### Creation of an S3 Website ###
+### CORS Configuration ###
+### S3 Version Control ###
+### Cross Region Replication ###
+### S3 Lifecycle Management & Glacier ###
+### Cloud Front Overview ###
+### Creation of CDN ###
+### S3 - Security & Encryption ###
+### Storage Gateway ###
+### Snowball ###
+### S3 Transfer Acceleration ###
+### S3 Summary ###
+### S3 Quiz ###
+
+## Databases Overview & Concepts ##
+### Database Essentials ###
+
+## DynamoDB ##
+### Introduction to DynamoDB ###
+### Creation of DynamoDB Table ###
+### DynamoDB Indexes ###
+### Scan vs Query API Calls ###
+### DynamoDB & Provisioned Throughput ###
+### Using Web Identity Providers To Connect To Authenticate To DynamoDB ###
+### Other important aspects of DynamoDB ###
+### DynamoDB Summary ###
+### Quiz 5: DynamoDB ###
+
+## Simple Queue Service (SQS) ##
+### What is SQS? ###
+### SQS Developer Exam Tips ###
+### Quiz 6: SQS Quiz ###
+
+## Simple Notification Services (SNS) ##
+### Introduction to SNS ###
+### Creation of SNS Topic ###
+### SNS Summary ###
+### SNS Quiz ###
+
+## Simple Workflow Service (SWF) ##
+### Introuction to SWF ###
+### Quiz 8: SWF Quiz ###
+
+## CloudFormation ##
+### Using Cloud Formation ###
+### Quiz 9: Cloud Formation Quiz ###
+
+## Elastic Beanstalk ##
+### Using Elastic Beanstalk ###
+### Quiz 10: Elastic Beanstalk Quiz ###
+
+## Virtual Private Cloud (VPC) ##
+### VPC Overview ###
+### Building our own custom VPC ###
+### Build A Custom VPC - Part 2 ###
+### Network Address Translation (NAT) ###
+### Access Control Lists (ACLs) ###
+### Custom VPC's and ELBs ###
+### NAT's vs Bastions ###
+### VPC Flow Logs ###
+### VPC Clean Up ###
+### VPC Summary ###
+### Quiz 11: VPC Quiz ###
+
+## Route53 & DNS ##
+### DNS 101 ###
+### Route53 - Register Your Domain Lab ###
+### Setup Our EC2 Instances ###
+### Simple Routing Policy Lab ###
+### Weighted Routing Policy Lab ###
+### Latency Routing Policy Lab ###
+### Failover Routing Policy Lab ###
+### Geolocation Routing Policy ###
+### DNS Summary ###
+
+## AWS Shared Responsibility ##
+### Shared Responsibility Model ###
+### Quiz 12: Shared Responsibility Quiz ###
+
+## The Exam ##
+### What to expect? ###
+### Quiz 13: Mega Quiz! ###
+
+## What's next? ##
+### Thank You and What's Next? ###
+### Questions? Check out our discussion forums! ###
 	
 
 				
