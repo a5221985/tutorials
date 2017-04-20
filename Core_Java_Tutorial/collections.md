@@ -572,8 +572,146 @@
 11. `lastIndexOfSubList`: returns index of the last sublist of one `List` that is equal to another sublist
 
 ##### The Queue Interface #####
+1. `Queue`: Collection to hold elements before processing.
+	1. Operations:
+		1. Collection operations
+		2. insertion, removal and inspection
+2. Interface:
+
+		public interface Queue<E> extends Collection<E> {
+			E element();
+			boolean offer(E e);
+			E peek();
+			E poll();
+			E remove();
+		}
+		
+3. Two types of methods:
+	1. Operation that throws an exception when operatoin fails
+	2. Operation returns a special value when operation fails (`null` or `false`)
+4. Structure:
+	1. Throws exceptions:
+		1. `add(e)`
+		2. `remove()`
+		3. `element()`
+	2. Returns special value:
+		1. `offer(e)
+		2. `poll()`
+		3. `peek()`
+5. Queues usually order elements in FIFO order (expection: priority queues - ordering is occording to their values)
+6. To remove elements:
+	1. `remove()`, `poll()`: return head of the queue (ordering policy determines the element that is removed)
+		1. When queue is empty, `remove` throws `NoSuchElementException` while `poll` returns `null`
+7. Every queue must specify its ordering properties
+8. bounded queues: restricts the number of elements
+	1. `Queue` implementations in `java.util.concurrent`
+	2. `Queue` implementations in `java.util` are unbounded
+9. Insertion:
+	1. `add()`: inserts unless queue capacity is violated (throws `IllegalStateException`)
+	2. `offer()`: for bounded queues, which indicates failure by returning `false`
+10. `element` and `peek` return head of the queue but do not remove any element.
+	1. If queue is empty, `element` throws `NoSuchElementException`
+	2. If queue is empty, `peek` returns `null`
+11. `Queue` implementations usually do not allow insertion of `null` except `LinkedList`
+	1. Don't insert `null` because it is a special value returned by `poll` and `peek`
+12. `Queue` implementations usually do not define element-based version of `equals` and `hashCode` but inherit identity based version from `Object`
+13. `Queu` does not define blocking queue methods.
+	1. Defined by `java.util.concurrent.BlockingQueue`
+14. Example:
+
+		import java.util.*;
+		
+		public class Countdown {
+			public static void main(String[] args) throws InterruptedException {
+				int time = Integer.parseInt(args[0]);
+				Queue<Integer> queue = new LinedList<Integer>();
+				
+				for (int i = time; i >= 0; i--)
+					queue.add(i);
+					
+				while (!queue.isEmpty()) {
+					System.out.println(queue.remove());
+					Thread.sleep(1000);
+				}
+			}
+		}
+		
+15. Using priority queue to sort a collection of elements:
+
+		static <E> List<E> heapSort(Collection<E> c) {
+			Queue<E> queue = new PriorityQueue<E>(c);
+			List<E> result = new ArrayList<E>();
+			
+			while(!queue.empty())
+				result.add(queue.remove());
+				
+			return result;
+		}
+
 ##### The Deque Interface #####
+1. Deque: It is a doubly ended queue.
+	1. It supports insertion and removal of elements at both end points
+	2. It is richer because it implements both stack and queue at the same time.
+	3. It implements method to access elements at both the ends.
+	4. There are methods to insert, remove and examine elements.
+2. Implementations:
+	1. `ArrayDeque`
+	2. `LinkedList`
+3. Three types of methods:
+	1. Insert:
+		1. `addFirst` **(M)**, `offerFirst` **(M)**: inserts at the beginning of `Deque` instance.
+		2. `addLast` **(M)**, `offerLast` **(M)**: insert at the end of `Deque` instance.
+		3. Use `offerFirst` and `offerLast` if capacity of `Deque` is restricted.
+	2. Remove: 
+		1. `removeFirst` **(M)**, `pollFirst` **(M)** remove elements from the beginning of `Deque`.
+		2. `removeLast` **(M)**, `pollLast` **(M)** remove elements from the end of `Deque`
+		3. `pollFirst` and `pollLast` return null if `Deque` instance is empty.
+		4. `removeFirst` and `removeLast` throw exception if `Deque` instance is empty
+	3. Retrieve:
+		1. `getFirst` **(M)**, `peekFirst` **(M)** retreive first element of `Deque` instance. they don't remove the element.
+		2. `getLast` **(M)**, `peekLast` **(M)** retreive last element.
+		3. `get*` methods throw exception if `Deque` instance is empty.
+		4. `peek*` methods return null if `Deque` instance is empty.
+4. Other methods:
+	1. `removeFirstOccurence`: removes first occurence of specified element if it exists. If not `Deque` remains unchanged.
+		1. Returns `boolean`
+	2. `removeLastOccurence`: removes last occurence of specified element if it exists. 
+		1. Returns `boolean`
+
 ##### The Map Interface #####
+1. `Map` maps keys to values.
+	1. it cannot container duplicate keys.
+	2. Each key can map to atmost 1 value
+2. It models mathematical *function*
+3. Basic methods supported:
+	1. `put`
+	2. `get`
+	3. `remove`
+	4. `containsKey`
+	5. `containsValue`
+	6. `size`
+	7. `empty`
+4. Bulk operations:
+	1. `putAll`
+	2. `clear`
+5. Collection set supported:
+	1. `keySet`
+	2. `entrySet`
+	3. `values`
+6. Three general-purpose implementations
+	1. `HashMap`
+	2. `TreeMap`
+	3. `LinkedHashMap`
+7. Collecting `Map`s using JDK 8 operations
+
+		// Group employees by department
+		Map<Department, List<Employee>> byDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+		
+8. Compute sum of all salaries by department:
+
+		// Compute sum of salaries by department
+		Map<Department, Integer> totalByDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.summingInt(Employee::getSalary)));
+
 ##### Object Ordering #####
 ##### The SortedSet Interface #####
 ##### The SortedMap Interface #####
