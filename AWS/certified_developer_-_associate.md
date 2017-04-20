@@ -793,7 +793,7 @@
 ### Bash Scripting ###
 ### Lambda ###
 ### EC2 Instance Meta-data ###
-1. `curl http://169.254.169.254/latest/meta-data`
+1. `curl http://169.254.169.254/latest/meta-data/`
 	1. list of resources
 2. `curl http://169.254.169.254/latest/meta-data/public-ipv4`
 3. `yum install httpd php php-mysql -y`
@@ -927,7 +927,7 @@
 		6. Python
 		7. Ruby
 		8. Go
-		9. C++
+		9. C++ (new)
 	2. Default regions:
 		1. US-EAST-1: some SDK's have this (Java)
 		2. Some do not have default region: (Node.js)
@@ -976,13 +976,243 @@
 		4. We can take snapshot of volume and this will store the volume on S3
 		5. Snapshots are point in time copies of volumes
 		6. Snapshots are incremental, (only blocks that have changed since that last snapshot are moved to S3)
-
-### EC2 Quiz ###
+	7. Volumes vs Snapshots - Security
+		1. Snapshots of encrypted volumes are encrypted automatically
+		2. Volumes restored from encrypted snapshots are encrypted automatically
+		3. You can share snapshots only if they are unencrypted
+			1. Can be shared with other AWS accounts or made public
+	8. Snapshots of Root Device Volumes:
+		1. For creation of Amazon EBS volumes that serve as root devices, you should stop the instance before taking the snapshot
+	9. EBS vs Instance Store -Exam Tips:
+		1. Instance Store volumes are also called ephemeral storage
+		2. Instance store volumes cannot be stopped. If host fails, the data is lost
+		3. EBS backed instances can be stopped. We do not lose data on the instance if it is stopped
+		4. Rebooting both will not lose data
+		5. Both root volumes will be deleted on termination but EBS volumes can be retained by explicitly requesting.
+			1. We can set a flag for EBS backed storage to not delete it on termination
+	10. How to take snapshot of a raid array?
+		1. Problem: Taking snapshot excludes data held in cache by applications and OS. For single volume it may not be an issue but for mutiple volumes in RAID array, it could cause problems due to interdependency of the array.
+		2. Solution: Take application consistent snapshot (?)
+			1. Stop the application from writing to disk
+			2. Flush all caches to the disk
+			3. How to achieve the above? (Three ways) - aim: prevent any IO before taking a snapshot of RAID array
+				1. Freeze the file system
+				2. Unmount the RIAD Array
+				3. Shut down the associated EC2 instance
+	11. Amazon Machine Images - Exam Tip
+		1. AMI's are regional. We can launch an AMI from the region in which it is stored.
+			1. Solution: Copy AMI to other regions using console/command line/Amazon EC2 API
+	12. Cloud Watch: (for performance monitoring)
+		1. Standard monitoring (5 minutes) is enabled by default for EC2
+		2. We can enable Detailed Monitoring (every 1 minute) - pay extra
+		3. What do I get with CloudWatch:
+			1. Dashboards - Custom dashboards to see what is happening with AWS environment
+			2. Alarms - they send notifications when particular thresholds are hit
+				1. Can be used for auto scaling events
+			3. Construct Events: Help to respond to state changes in AWS resources
+			4. Send Logs: help to aggregate, monitor, and store logs
+	13. CloudTrail: for auditing
+	14. Roles: more secure than storing access key and secret access key on individual EC2 instances
+		1. Roles are easier to manage
+		2. Roles can only be assigned only when EC2 instance is being provisioned
+			1. However, we can change permission later on
+		3. Roles are universal, we can use them in any region
+	15. Instance Meta-data
+		1. Used to get information about an instance (public ip ...)
+		2. `curl http://169.254.169.254/latest/meta-data/`
+		3. No user-data for an instance
+	16. EFS: Elastic File System
+		1. Supports Network file systm v4 (NFS v4) protocol
+		2. We pay only for the storage we use (no pre-provisioning required)
+			1. 30 c pre gig
+		3. Can scale up to petabytes
+		4. Can support thousands of concurrent NFS connections
+		5. Data is stored across multiple availability zones within a region
+		6. Read after write consistency
+			1. We can immediately read an object that was written last
+		7. Use case for file server: We can apply both file level and directory level permissions within EFS	
+	17. Exam Tips:
+		1. How to Use different terms
+			1. AWS EC2 DESCRIBE-INSTANCES
+			2. AWS EC2 DESCRIBE-IMAGES
+			3. AWS EC2 RUN-INSTANCES
+				1. START-INSTANCES: starts a stopped instance
+				2. RUN-INSTANCES: provisions a new instance
+	18. Lambda:
+		1. What is Lambda? AWS Lambda is a compute service where you can upload your code and build a Lambda function. AWS lambda takes care of provisioning and managing the servers that you use to run the code. You don't have to worry about OS, Patching, Scaling ...
+		2. Usage of lambda:
+			1. As an event-driven compute service where AWS Lambda runs your code in response to events. These events could be changes to data in an Amazon S3 bucket or an Amazon DynamoDB table.
+			2. As a compute service to run code in response to HTTP requests using Amazon API Gateway or API calls made using AWS SDKs. This is what is used at A Cloud Guru.
 
 ## S3 ##
 ### S3 Essentials ###
+1. Simple Storage Service:
+	1. Provides developers and IT teams with secure, durable, highly-scalable object storage. Amazon S3 is easy to use, with a simple web services interface to store and retrieve any amount of data from anywhere on the web.
+	2. Place to store files.
+	3. It is object based storage
+		1. Object: files, documents, flat files
+		2. Not used for installing OS or Database server (we have to use block based storage)
+	4. Data is spread across multiple devices and facilities
+		1. Designed to withstand failure
+2. Basics:
+	1. S3 is object based
+	2. Files can be from 0 bytes to 5TB
+	3. There is unlimited storage:
+		1. If more storage is required, new SAN is provisioned
+	4. Files are stored in Buckets
+		1. Bucket: folder
+	5. Universal namespace: names must be unique globally across users as well
+	6. Example: https://s3-eu-west-1.amazonaws.com/acloudguru
+		1. region
+		2. bucket name
+	7. If upload to S3 is successful, we receive HTTP code of 200
+3. Data consistency Model for S3:
+	1. Read after Write consistency for PUTS of new objects
+		1. We can read an object immediately after a write
+	2. Eventual consistency for overwrite PUTS and DELETES (can take some time to propagate)
+		1. Updates and deletes take some time before we can read
+	3. Updates to S3 are atomic: we get new data or old data (not partial or corrupted data)
+4. S3 is simple key value store:
+	1. Key: name
+	2. Value: data (sequence of bytes)
+	3. Version ID (versioning) *
+	4. Metadata (Data about data)
+		1. Date we have uploaded the file
+		2. Last time we updated a file
+5. S3 is designed to sort objects into alphabetical order
+	1. key: 
+	2. Subresources:
+		1. Underneath objects April 20,2017 13:02:43
+			1. Access Control Lists
+				1. Who can access this object
+				2. Individual file level
+				3. 
+	3. Supports Torrent protocol
+6. It is built for 99.99% availability
+	1. Amazon guarantees 99.9% availability (SLA: Service Level Agreement)
+	2. Amazon guarantees 99.999999999% durability for S3 information (how durable the data is)
+	3. Tiered Storage available
+	4. Lifecycle Management
+		1. First 90 days store here
+		2. Next 90 days store here
+		3. After that archive it
+	5. Versioning: one object, many versions
+	6. Encryption: 
+	7. Secure data using ACSs and Bucket Policies
+7. Storage tier classes:
+	1. S3 - 99.99% availability, 99.999999999% durability (11 9s), stored redundantly across multiple devices in multiple facilities and is designed to sustain loss of 2 facilities concurrently
+	2. S3 - IA (Infrequently accessed) for data that is accessed less frequently, but requires rapid access when needed. Lower fee than S3, but you are charged a retrieval fee.
+	3. Reduced Redundancy Storage: Designed to provide 99.99% durability and 99.99% availability of objects over a given year
+		1. cheaper
+		2. Use case: data that can be generated again (thumb nails of images)
+		3. Concurrent facility fault tolerance: 1
+		4. First byte latency: milliseconds
+		5. Lifecycle management policies: yes
+	4. Gacier: Very cheap, but used for archival only. It takes 3 - 5 hours to restore from Glacier
+8. Glacier: is extremely low-cost storage service for data archival. It stores data for as little as $0.01 per gigabyte per month. It is optimized for data that is infrequently accessed and for which retrieval times of 3 to 5 hours are sutable.
+	1. Durability: 99.999999999%
+	2. Availability: N/A
+	3. Availability: SLA: N/A
+	4. Miniumum object size: N/A
+	5. Maximum Storage Duration: 90 days
+	6. Per GB Retrieved
+	7. First byte latency: select minutes or hours
+	8. Storage class: object level
+	9. Lifecycle transitions: yes
+9. Charges:
+	1. For storage
+	2. No of requests
+	3. Storage Management Pricing:
+		1. We can tag data (for HR, Developers ...): track cost per tag
+	4. Data transfer pricing
+		1. In coming data is free
+		2. Moving data around, Replication say to another region is chargeable
+	5. Amazon S3 Transfer acceleration: enables fast, easy, and secure transfers of files over long distances between end users and an S3 bucket. It takes advantage of Amazon CloudFront's globally distributed edge locations. As data arrives at an edge location, data is routed to Amazon S3 over an optimized network path.
+		1. Upload is to edge locatoin (closer to user)
+		2. Superior network exists between AWS region and edge location
+10. Exam tips:
+	1. S3 is object based. Allows upload of files
+	2. Files can be from 0 bytes to 5 TB
+	3. Unlimited storage.
+	4. Files are stored in buckets
+	5. S3 is universal namespace (names must be unique globally)
+	6. Link: `https://s3-<regions>.amazonaws.com/<bucketname>`
+	7. Consistency models:
+		1. Read after write consistency
+		2. Eventual consistency for overwrite PUTS and DELETES
+	8. S3 Storage Classes/Tiers:
+		1. S3 (durable, immediately available, frequently accessed)
+		2. S3 - IA (durable, immediately available, infrequenty accessed)
+		3. S3 - Reduced Redundancy Storage
+		4. Glacier
+	9. Core fundamentals:
+		1. Key (name)
+		2. Value (data)
+		3. Version ID
+		4. Metadata
+		5. Subresources
+			1. ACL
+			2. Torrent
+	10. Success upload generates 200 HTTP code
+	11. S3 FAQ before taking the exam
+
 ### Creation of an S3 Bucket Using The Console ###
+1. AWS console:
+	1. Services:
+		1. S3
+	2. Create Bucket:
+		1. Bucket Name: acloudguru02017 (lowercase characters for any region)
+		2. Region: London
+2. Properties;
+	1. Click **Properties**
+3. Storage management:
+	1. Click **Opt-In** to try storage management (new console)
+		1. Click on Bucket > Properties
+			1. Versioning: Same object different versions
+			2. Static website hosting: plain html static (serverless) - scales automatically
+				1. Low cost
+			3. Logging:
+				1. Setup access log records: tells who is doing what with the bucket
+					1. access requests
+			4. Advanced settings:
+				1. Tags: used to track costs against projects or other criteria (HR tag, Developers tag ...)
+				2. Cross region replication: automating copying objects across different AWS regions
+			5. Events:
+				1. Receive notifications when specific events occur in bucket
+					1. File upload -> invoke lambda function (converts to thumbnail)
+		2. Lifecycle Management:
+			1. Moving data between storage types based on how old it is
+		3. Permissions:
+			1. ACL: Private by default for S3
+		4. Management:
+			1. Analytics: do analytics of storage classes (to decide on storage type)
+			2. Metrics: 
+			3. Inventory: Reports
+				1. Of what is in the bucket or subfolder in the bucket
+		5. Click **Objects**
+			1. Upload
+			2. Add File
+			3. Next
+			4. Permission: Default
+			5. Storage class: Standard
+			6. Encryption: None
+			7. Metadata
+			8. Upload
+		6. Click the file
+			1. Open link (access denied)
+			2. Click Permissions
+				1. Add grantee > Everyone
+				2. Read access
+			3. Overview > Open the link
+		7. Properties:
+			1. Storage class: standard IA
+			2. Encryption: AES-256
+			3. Metadata
+			4. Tags
+
 ### Creation of an S3 Website ###
+
+
 ### CORS Configuration ###
 ### S3 Version Control ###
 ### Cross Region Replication ###
