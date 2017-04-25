@@ -315,6 +315,39 @@
 
 ### Import ###
 1. We can build our own library and share
+2. Syntax:
+
+		@import 'import.css';
+		
+3. Syntax: SCSS file
+
+		@import '_MainMixins'; /* file extension is not required for SCSS and SASS */
+		
+		html {
+			background: $SCSSVariable;
+			@include boxShadow(1px 2px 3px rgba(0, 0, 0, .4), 1px 2px 3px red);
+			@include transition(bancground .2s, height .4s);
+		}
+		
+		@include keyframes(myAnim) {
+			0% { opacity: 0 }
+			100% { opacity: 1 }
+		}
+		
+4. Import SASS file:
+
+		@import '_import.sass';
+		
+		html {
+			@include properties(green);
+		}
+		
+	1. We can import SASS inside SCSS and vice versa
+	2. `_`: tells they are partials which are used in other files
+		1. Don't get exported as css files
+5. Convertion:
+	1. `sass --watch SASS_Import:CSS --style expanded --sourcemap=none`
+	2. Does not copy .css files
 
 ## Advanced API ##
 ### List Functions ###

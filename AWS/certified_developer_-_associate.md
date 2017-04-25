@@ -1211,7 +1211,12 @@
 			4. Tags
 
 ### Creation of an S3 Website ###
-
+1. Create Bucket
+	1. Bucket name: mys3websitelondon
+	2. Region: EU (London)
+2. Next
+3. Next
+4. Create Bucket
 
 ### CORS Configuration ###
 ### S3 Version Control ###
