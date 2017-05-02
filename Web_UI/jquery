@@ -1,0 +1,211 @@
+# jQuery #
+
+## jQuery Tutorial ##
+1. `jQuery` is a javascript library
+2. `jQuery` simplifies JavaScript programming
+3. `jQuery` is easy to learn
+
+### jQuery Home ###
+#### "Try it Yourself" Examples in Each Chapter ####
+
+
+		<!DOCTYPE html>
+		<html>
+			<head>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>\
+				<script>
+					$(document).ready(function() {
+						$('p').click(function() {
+							$(this).hide();
+						}
+					});
+				</script>
+			</head>
+			<body>
+				<p>If you click one me, I should disappear.</p>
+				<p>Click me away!</p>
+				<p>Click me too!</p>
+			</body>
+		</html>
+
+### jQuery Intro ###
+#### What You Should Already Know ####
+#### What is jQuery? ####
+#### Why jQuery? ####
+
+### jQuery Get Started ###
+#### Adding jQuery to Your Web Pages ####
+#### Downloading jQuery ####
+#### jQuery CDN ####
+
+### jQuery Syntax ###
+#### jQuery Syntax ####
+#### The Document Ready Event ####
+
+### jQuery Selectors ###
+#### jQuery Selectors ####
+#### The element Selector ####
+#### The `#id` Selector ####
+#### The `.class` Selector ####
+#### More Examples of jQuery Selectors ####
+#### Functions In a Separate File ####
+
+### jQuery Events ###
+#### What are Events? ####
+#### jQuery Syntax For Event Methods ####
+#### Commonly Used jQuery Event Methods ####
+#### The `on()` Method ####
+#### jQuery Event Methods ####
+
+## jQuery Effects ##
+### jQuery Hide/Show ###
+#### jQuery `hide()` and `show()` ####
+#### jQuery `toggle()` ####
+#### jQuery Effects Reference ####
+
+### jQuery Fade ###
+#### jQuery Fading Methods ####
+#### jQuery `fadeIn()` Method ####
+#### jQuery `fadeOut()` Method ####
+#### jQuery `fadeToggle()` Method ####
+#### jQuery `fadeTo()` Method ####
+#### jQuery Effects Reference ####
+
+### jQuery Slide ###
+#### jQuery Sliding Methods ####
+#### jQuery `slideDown()` Method ####
+#### jQuery `slideUp()` Method ####
+#### jQuery `slideToggle()` Method ####
+#### jQuery Effects Reference ####
+
+### jQuery Animate ###
+#### jQuery Animations - The `animate()` Method ####
+#### jQuery `animate()` - Manipulate Multiple Properties ####
+#### jQuery `animate()` - Using Relative Values ####
+#### jQuery `animate()` - Using Pre-defined Values ####
+#### jQuery `animate()` - Uses Queue Functionality ####
+#### jQuery Effects Reference ####
+
+### jQuery stop() ###
+#### jQuery `stop()` Method ####
+#### jQuery Effects Reference ####
+
+### jQuery Callback ###
+#### jQuery Callback Functions ####
+
+### jQuery Chaining ###
+#### jQuery Method Chaining ####
+
+## jQuery HTML ##
+### jQuery Get ###
+#### jQuery DOM Manipulation ####
+#### Get Content - `text()`, `html()`, and `val()` ####
+#### Get Attributes - `attr()` ####
+#### jQuery HTML Reference ####
+
+### jQuery Set ###
+#### Set Content - `text()`, `html()`, and `val()` ####
+#### A Callback Function for `text()`, `html()`, and `val()` ####
+#### Set Attributes - `attr()` ####
+#### A Callback Function for `attr()` ####
+#### jQuery HTML Reference ####
+
+### jQuery Add ###
+#### Add New HTML Content ####
+#### jQuery `append()` Method ####
+#### jQuery `prepend()` Method ####
+#### Add Several New Elements With `append()` and `prepend()` ####
+#### jQuery `after()` and `before()` Methods ####
+#### Add Several New Elements With `after()` and `before()` ####
+#### jQuery HTML Reference ####
+
+### jQuery Remove ###
+#### Remove Elements/ Content ####
+#### jQuery `remove()` Method ####
+#### jQuery `empty()` Method ####
+#### Filter the Elements to be Removed ####
+#### jQuery HTML Reference ####
+
+### jQuery CSS Classes ###
+#### jQuery Manipulating CSS ####
+#### Example Stylesheet ####
+#### jQuery `addClass()` Method ####
+#### jQuery `removeClass()` Method ####
+#### jQuery `toggleClass()` Method ####
+#### jQuery `css()` Method ####
+#### jQuery CSS Reference ####
+
+### jQuery css() ###
+#### jQuery `css()` Method ####
+#### Return a CSS Property ####
+#### Set a CSS Property ####
+#### Set Multiple CSS Properties ####
+#### jQuery CSS Reference ####
+
+### jQuery Dimensions ###
+#### jQuery Dimenstions Methods ####
+#### jQuery Dimensions ####
+#### jQuery `width()` and `height()` Methods ####
+#### jQuery `innerWidth()` and `innerHeight()` Methods ####
+#### jQuery `outerWidth()` and `outerHeight()` Methods ####
+#### jQuery More `width()` and `height()` ####
+#### jQuery CSS Reference ####
+
+## jQuery Traversing ##
+### jQuery Traversing ###
+#### What is Traversing? ####
+#### Traversing the DOM ####
+#### jQuery Traversing Reference ####
+
+### jQuery Ancestors ###
+#### Traversing Up the DOM Tree ####
+#### jQuery `parent()` Method ####
+#### jQuery `parents()` Method ####
+#### jQuery `parentsUntil()` Method ####
+#### jQuery Traversing Reference ####
+
+### jQuery Descendents ###
+#### Traversing Down the DOM Tree ####
+#### jQuery `children()` Method ####
+#### jQuery `find()` Method ####
+#### jQuery Traversing Reference ####
+
+### jQuery Siblings ###
+#### Traversing Sideways in The DOM Tree ####
+#### jQuery `siblings()` Method ####
+#### jQuery `next()` Method ####
+#### jQuery `nextAll()` Method ####
+#### jQuery `nextUntil()` Method ####
+#### jQuery `prev()`, `prevAll()` & `prevUtil()` Method ####
+#### jQuery Traversing Reference ####
+
+### jQuery Filtering ###
+#### Narrow Down The Search For Elements ####
+#### jQuery `first()` Method ####
+#### jQuery `last()` Method ####
+#### jQuery `eq()` Method ####
+#### jQuery `filter()` Method ####
+#### jQuery `not()` Method ####
+#### jQuery Traversing Reference ####
+
+## jQuery AJAX ##
+### jQuery AJAX Intro ###
+#### What is AJAX? ####
+#### What About jQuery and AJAX? ####
+#### jQuery AJAX Methods ####
+
+### jQuery Load ###
+#### jQuery `load()` Method ####
+#### jQuery AJAX Reference ####
+
+### jQuery Get/Post ###
+#### HTTP Request: GET vs. POST ####
+#### jQuery `$.get()` Method ####
+#### jQuery `$.post()` Method ####
+#### jQuery AJAX Reference ####
+
+## jQuery Misc ##
+### jQuery noConflict() ###
+#### jQuery and Other JavaScript Frameworks ####
+#### The jQuery no `noConflict()` Method ####
+#### jQuery Misc Reference ####

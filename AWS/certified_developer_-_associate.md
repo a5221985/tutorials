@@ -1217,12 +1217,405 @@
 2. Next
 3. Next
 4. Create Bucket
+5. Properties > Static Website hosting
+	1. Endpoint: (URL Pattern is important for exam)
+		1. `http://<bucket-name>.s3-website.<region>.amazonaws.com`
+	2. Check **Use this bucket to host a website**
+		1. Index document: index.html
+		2. Error document: error.html
+6. index.html
+
+		<html>
+			<head>
+				<title>Hello Cloud Gurus</title>
+			</head>
+			<body>
+					<h1>Hello Cloud Gurus</h1>
+					<h2>Welcome to my website</h2>
+			</body>
+		</html>
+		
+7. error.html
+
+		<html>
+			<head>
+				<title>Hello Cloud Gurus</title>
+			</head>
+			<body>
+					<h1>Hello Cloud Gurus</h1>
+					<h2>There has been an error</h2>
+			</body>
+		</html>
+
+8. Click **Upload**
+9. Click **Add files**
+10. Select `index.html` and `error.html`
+11. Next
+12. Set permissions
+	1. Any authenticated AWS user: nothing
+	2. Everyone: Objects - Read
+13. Next
+14. Click **Upload**
+15. Click **Properties**
+16. Click **Static website hosting**
+	1. Click on endpoint
+17. Change permissions of index.html
+	1. Click **Objects**
+	2. Select `index.html`
+	3. Click **Permissions**
+	4. Click **All Users**
+		1. Remove **Read**
+		2. Hit **Save**
+18. Hit the endpoint: error.html will be executed
+19. Important points:
+	1. It scales automatically (no worries about load balancers, servers)
+	2. It can handle any load
+	3. Only static websites
 
 ### CORS Configuration ###
+1. Cross origin Resource Sharing (CORS) Lab
+	1. JavaScript in one S3 bucket to share code in another S3 bucket
+2. New Bucket:
+	1. Bucket Name: myindexwebsitelondon
+	2. Region: London
+	3. Permissions:
+		1. Everyone: Object - Read
+	4. Properties:
+		1. Static website hosting
+		2. Use this bucket to host a website
+	5. Objects:
+		1. index.html
+		
+				<script>
+					$("#get-html-from-other-s3").load("loadpage.html")
+				</script>
+				
+	6. Click **Upload**
+	7. Select all three files
+	8. Permissions: Object - Read
+	9. Click on `index.html`
+	10. Delete `loadpage.html`
+		1. Check `loadpage.html`
+		2. More > Delete
+		3. Delete
+3. New bucket:
+	1. Bucket name: mycorstestbucketlondon
+	2. Region: EU (London)
+	3. Next
+	4. Permissions: Object - Read
+	5. Create
+	6. Properties:
+		1. Static website hosting
+		2. Use this bucket to host a website
+		3. Save
+	8. Objects > Upload > Add files
+		1. loadpage.html
+		2. Permissions: Objects - read
+		3. Next
+		4. Upload
+		5. Properties:
+			1. Click on link
+			2. <link>/loadpage.html
+			3. Copy the URL
+4. index.html
+
+		<script>
+			$(...).load("<paste-the-link>")
+		</script>
+		
+5. Objects
+	1. Check `index.html`
+	2. More > Delete
+	3. Upload
+		1. index.html
+	4. Permissions: objects -read
+	5. Click `index.html`
+	6. Click the link
+6. Configuration:
+	1. `myindexwebsitelondon` > Properties > Static website hosting
+	2. Copy the link
+	3. `mycorstestbucketlondon`
+		1. Permissions:
+			1. Access Control List > CORS configuration
+			
+					<AllowOrigin><link></AllowOrigin>
+					
+			2. Save
+	4. `myindexwebsitelondon` > index.html
+		1. Click the link (does not word)
+			1. Paste the copied url and hit enter
+	
 ### S3 Version Control ###
+1. Services > S3
+2. New Bucket
+	1. Bucket name: mylondonbucket
+	2. Region: London
+	3. Versioning:
+		1. Enable Versioning
+	4. Permissions:
+		1. User permissions: 
+			1. Objects:
+				1. Grant permissions to the user to list, create, overwrite, or delete objects in the bucket.
+				2. read and Write
+			2. Object permissions:
+				1. Grant permissions to the user to read or write to an access control list (ACL) for the bucket
+		2. Public permissions:
+			1. Any authenticated AWS user:
+			2. Everyone: 
+	5. Create bucket
+3. If versioning is turned on for bucket, the bucket can only be disabled but cannot be removed
+4. New file:
+	
+		Hello Cloud Gurus
+		
+5. Objects > Upload
+	1. Permissions:
+		1. Owner: Read, Write, Read, write
+		2. Everyone: Read
+	2. Next
+	3. Finish
+	4. Click the object
+	5. Click on the link
+6. Make a small change to the file
+
+		This is the second version
+		
+7. Upload
+	1. Permission:
+		1. Everyone: Read
+8. Click Latest version drop down
+	1. Select the version
+9. Note: It shows only the latest version under objects
+10. Deleting the latest version:
+	1. Click the latest version dropdown and click delete
+11. Restoring an object:
+	1. Upload the latest version
+	2. More > Delete
+	3. Amazon S3 > Switch to old console
+		1. Click the bucket
+		2. Show
+		3. Check the delete marker object
+			1. Actons > Delete
+		4. Hide
+			1. Restored object
+12. Goto the new console:
+	1. Click properties
+	2. Storage management
+	3. Opt-in
+	4. Click the bucket
+13. We can download by clicking the drop down
+14. Summary:
+	1. Stores all versions of an object (including all writes and even if you delete an object)
+	2. Great backup tool
+	3. Once enabled, versioning cannot be disabled, only suspended.
+	4. Integrates with Lifecycle rules
+	5. Versioning's MFA delete capability (multi-factor authentication to provide additional layer of security)
+		1. Security code may be required (complicated setup)
+
 ### Cross Region Replication ###
+1. Replicate objects from a bucket in one region to a bucket in another region.
+2. Services > S3
+3. New Bucket:
+	1. mysydneybucket-2
+	2. Asia Pacific
+	3. Next
+	4. Finish
+4. Select London Bucket
+	1. Advanced Settings
+	2. Cross-region replication (must enable versioning on both buckets)
+	3. Enable cross-region replication
+		1. Source: Whole bucket (Prefix in this bucket - subfolder)
+		2. Region: Asia Pacific (Sydney)
+		3. mysydneybucket-2
+		4. Destination storage class:
+			1. Standard - IA
+		5. Select role: (Enables AWS services to talk to each other)
+			1. Create new role
+		6. Save
+5. Enable versioning for mysydneybucket-2
+6. Repeat Cross-region replication procedure (select the created role)
+7. Note: Objects which are already in the buket are not replicated but only new objects
+8. Modify the file and save it:
+
+		This is version 3
+		
+9. Upload the file
+	1. Everyone: Read
+10. Open syndey bucket
+	1. If we update a verion, it replicates the older versions as well
+11. Old console:
+	1. New bucket
+	2. Bucket name: mydublinbucket
+	3. Region: Ireland
+	4. Select the new bucket
+		1. Click **Enable Versioning**
+		2. Click Enable Cross-Region Replication
+			1. Source: This bucket
+			2. Region: Tokyo
+			3. Destination bucket: mytokyobucket-1
+			4. Destination Storage class: S3 Standard - Infrequent Access
+		3. Click **Create/Select IAM Role**
+			1. Click on the role
+				1. Go through the policy
+		4. Allow
+		5. Save
+12. Upload file
+	1. Select ireland bucket > Click **Upload**
+	2. Add Files > hellocloudgurus.txt
+	3. Open Tokyo bucket (check if it replicated)
+		1. Click on **Versions** tab to see the different versions of the file
+
+13. We cannot push to multiple buckets and we cannot chain replication as well
+14. Update the file:
+	
+		This is version 5
+		
+15. Upload > Add Files > hellocloudgurus.txt
+	1. Go to Tokyo bucket (check for replication)
+16. Delete the file from dublin bucket:
+	1. Select the object
+	2. Actions > Delete
+		1. Click **Show** (the previous versions exist but the last version has a delete marker)
+	3. Open Tokyo bucket
+		1. Check if the object has got replicated
+17. Open dublin bucket
+	1. Click **Show**
+	2. Check the object with the delete marker
+	3. Click **Actions**
+	4. Click **Delete** (restores the object)
+	5. Goto Tokyo bucket and click **Show** (It does not replicate the deletion of delete marker)
+	6. Click **Actions** > **Delete** (deletes the delete marker)
+18. Delete the newest version in dublin bucket
+	1. **Show**
+	2. Check the newest version
+	3. **Actions**
+	4. **Delete**
+	5. Goto Tokyo bucket and click **Show** (it still has version 2)
+19. Note: When we delete an individual version or delete a delete marker, it does not get replicated. Only when we delete an object, it gets replicated in the destination bucket
+20. Summary:
+	1. Versioning must be enabled on both the source and destination buckets
+	2. Regions must be unique (we cannot use same region for cross region replication)
+	3. Files in an existing bucket are not replicated automatically. All subsequent updated files will be replicated automatically.
+		1. If we upload a newer version of an existing file, then all the versions of the file will get replicated
+	4. You cannot replicate to multiple buckets or use daisy chaining (at this time)
+	5. Delete markers are replicated
+	6. Deleting individual versions or delete markers will not be replicated
+	7. Exam: Understand what is Cross Region Replication is at a high level (how to architect it for disaster recovery)
+
 ### S3 Lifecycle Management & Glacier ###
+1. Topics: Lifecycle Management, IA S3 & Glacier Lab
+2. Log in to AWS console
+	1. Services > Storage > S3
+	2. Delete all buckets (if you want to)
+		1. Click on a bucket
+		2. Hit **Delete bucket**
+		3. Type the name of the bucket again
+		4. Click **Confirm**
+3. Switch to old console
+	1. Click on **Switch to the old console**
+	2. Click **Create bucket**
+		1. Bucket name: mylifecyclebucketlondon
+		2. Region: London
+		3. Click **Create**
+4. Goto Glacier:
+	1. Services > Storage > Glacier
+	2. Change the region (make sure the S3 bucket is not is Asia Pacific (Singapore) and South America (Sao Paulo) because glacier does not exist in those regions)
+5. Select the bucket
+	1. Click **Enable Versioning**
+	2. Click **Lifecycle**
+		1. Click **Add rule**
+			1. Choose rule target: While bucket (Prefix: it is a folder in bucket)
+			2. Rules:
+				1. Action on Current Version
+					1. Transition to the Standard - Infrequent Access Storage Class: 30 Days (after object's creation)
+					2. Archive to the Glacier Storage Class: 60 Days (after object's creation)
+					3. Expire (puts deleter marker): 61 days (after object's creation)
+				2. Action on Previous Versions (shown only when versioning is enabled on S3 bucket)
+					1. Transition to the Standard - Infrequent Access Storage Class: 30 days after becoming a previous version
+					2. Archive to the Glacier Storage Class: 60 Days after becoming a previous version
+					3. Permanently Delete: 150 (Objects archived to Glacier Storage Class incur costs for at least 90 days of storage even if they are deleted or overwritten earlier)
+				3. Action on Incomplete Multipart Uploads (will clean up multipart uploads that are not completed within a predefined number of days after initiation)
+					1. End and Clean up Incomplete Multipart Uploads: 7 days
+				3. Rule Name: mylifecyclerule
+				4. Click **Create and activate the rule**
+	3. Switch to new console
+		1. Storage Management
+			1. Opt-in
+		2. Hit **Create bucket**
+			1. Bucket name: mylifecyclebucketlondon2
+			2. Region: EU (London)
+			3. Hit **Next**
+		3. Click **Versioning**
+			1. Click **Enable versioning**
+			2. Click **Save**
+			3. Click **Next**
+			4. Click **Create bucket**
+		4. Click the new bucket
+		5. Click **Lifecycle**
+		6. Click **Add lifecycle rule**
+			1. Enter a rule name: lifecyclerule2
+			2. Add filter to limit scope to prefix/tags (blank applies to the entire bucket)
+			3. Click **Next**
+			4. Configure transition:
+				1. Check **Current version**
+				2. Check **Previous versions**
+				3. Click **Add transition**
+					1. Transition to Standard-IA after: 30 Days
+				4. Click **Add transition**
+					2. Transition to Glacier after: 60 Days
+			5. For Previous versions:
+				1. Click **Add transition**
+					1. Transition to Standard-IA after: 30 Days
+					2. Transition to Amazon Glacier after: 60 Days
+				2. Configure Expiration:
+					1. Check Current version
+					2. Check Previous versions
+					3. Expire current version of object
+						1. After: 61 Days from object creation
+					4. Permanently delete previous versions
+						1. After: 61 Days from becoming in pervious version
+					5. Clean up incomplete multipart uploads
+						1. After 7 Days from start of upload
+				3. Save
+		7. Select the bucket
+			1. Click **LIfecycle**
+			2. Click the rule
+			3. Click **Edit** (see transitions)
+6. Exam tips:
+	1. Can be used in conjunction with versioning
+	2. Can be applied to current versions and previous versions
+	3. Following actions can now be done:
+		1. Transition to the Standard - Infrequent Access Storage Class (128Kb and 30 days after the creation date).
+		2. Archive to the Glacier Storage Class (30 days after IA, if relevant)
+	4. Permanently Delete (objects using lifecycle management policies)
+
 ### Cloud Front Overview ###
+1. CDN: Content delivery Network is a system of distributed servers (network) that deliver webpages and other web content to a user based on the greographic locations of the user, the origin of the webpage and a content delivery server
+	1. Ordinarily there is difference of latencies when connecting to a server in a particular region from different parts of the world
+2. CloudFront: 
+	1. Edge location: Location where content will be cached. This is separate to an AWS Region/AZ (there may not be a region but there may be an edge location)
+	2. Origin: This is the origin of all the files that the CDN will distribute. This can be either an S3 Bucket, an EC2 Instance, an Elastic Load Balancer or Route53
+	3. Distribution: This is the name given to the CDN which consists of a collection of Edge Locations.
+3. A request would go to an edge location first
+	1. If the object is not cached, the edge location pulls it down from the S3 bucket (from Ireland) and caches it for TTL (Time To Live)
+	2. When second user accesses the file, it is downloaded from the edge location (speeds up delivery)
+4. Amazon CloudFront can be used to deliver your entire website, including dynamic, static, streaming, and interactive content using a global network of edge locations. Requests for your content are automatically routed to the nearest edge location, so content is delivered with the best possible performance.
+5. Amazon CloudFront is optimized to work with other Amazon Web Services, like Amazon Simple Storage Service (Amazon S3), Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Load Balancing, and Amazon Route 53. Amazon CloudFront also works seamlessly with any non-AWS origin server, which stores the original, definitive versions of your files.
+6. CloudFront Key Terminology:
+	1. Web Distribution: Typically used for Websites
+	2. RTMP: Used for Media Streaming
+7. Exam:
+	1. Edge Location: This is the location where content will be cached.
+		1. This is separate to an AWS Region/AZ
+	2. Origin: (Can also be custom location)
+	3. Distribution
+		1. Web Distribution: For Websites
+		2. RTMP: Media streaming
+	4. Edge Locations are not READ only, you can write to them too.
+	5. Objects are cached for the life of TTL (Time To Live)
+	6. You can clear cached objects, but you will be charged
+		1. If there are updates at the origin say
+
 ### Creation of CDN ###
 ### S3 - Security & Encryption ###
 ### Storage Gateway ###
