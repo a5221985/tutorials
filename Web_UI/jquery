@@ -29,47 +29,446 @@
 		</html>
 
 ### jQuery Intro ###
+1. It makes it easier to use JavaScript on website
+
 #### What You Should Already Know ####
+1. HTML
+2. CSS
+3. JavaScript
+
 #### What is jQuery? ####
+1. It is lightweight, "write less, do more", JavaScript library
+2. jQuery takes common tasks that require many lines of JS code and wraps them up into methods that can be called with single line of code
+3. jQuery simplifies complicated things like AJAX and DOM manipulation
+4. Features:
+	1. HTML/DOM manipulation
+	2. CSS manipulation
+	3. HTML event methods
+	4. Effects and animations
+	5. AJAX
+	6. Utilities
+	7. Plugins for other tasks
+
 #### Why jQuery? ####
+1. Most popular, most extendable
+2. Big companies use jQuery
+	1. Google
+	2. Microsoft
+	3. IBM
+	4. Netflix
+3. jQuery should run exactly the same in all major browsers including IE6
 
 ### jQuery Get Started ###
 #### Adding jQuery to Your Web Pages ####
+1. Different ways of using jQuery
+	1. Download jQuery library from jQuery.com
+	2. Include jQuery from a CDN, like Google
+
 #### Downloading jQuery ####
+1. Two versions of jQuery:
+	1. Production version: for live website (it is minified and compressed)
+	2. Development version: for testing and development (uncompressed and readable code)
+2. Download from [jQuery.com](http://jquery.com/download/)
+	1. It is a single JS file.
+3. How to include it in the website?
+	
+		<head>
+			<script src="jquery-3.2.1.min.js"></script>
+		</head>
+		
+	1. File should be in the same directory as the web page including it
+	2. `type="text/javascript" is not required because JS is the default scripting language in HTML5
+
 #### jQuery CDN ####
+1. CDN: Content Delivery Network
+2. Google CDN:
+
+		<head>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		</head>
+		
+3. Microsoft CDN:
+	
+		<head>
+			<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+		</head>
+		
+4. Advantages of using hosted jQuery:
+	1. Users usually download jQuery from Google or Microsoft when visiting another site. So it will be loaded from cache for our site (faster loading time)
+	2. CDNs usually make sure the file is served from the server that is closest to the requester (faster loading time)
 
 ### jQuery Syntax ###
+1. jQuery is used to select (query) HTML elements and perform "actions" on them
+
 #### jQuery Syntax ####
+1. Basic syntax: `$(selector).action()`
+	1. `$` is used to define/access jQuery
+	2. `(selector)`: to find or query HTML elements
+	3. `action()`: performed on selected elements
+2. Example:
+	1. `$(this).hide()` - hides the current element
+	2. `$("p").hide()` - hides all `<p>` elements
+	3. `$(".test").hide()` - hides all elements with `class="test"`
+	4. `$("#test").hide()` - hides all elements with `id=test`
+3. jQuery uses CSS syntax to select elements
+
 #### The Document Ready Event ####
+
+		$(document).ready(function () {
+			// jQuery methods go here
+		});
+		
+	1. prevents jQuery from running before document is finished loading (ready)
+		1. Good practice
+		2. Allows us to have jQuery code before `<body>` in the `<head>` section
+1. Actions that fail if jQuery is run before the document is fully loaded
+	1. Trying to hide element that is not created yet
+	2. Trying to get the size of an image that is not loaded yet
+2. Shorter version of document ready
+
+		$(function () {
+			// jQuery methods go here...
+		});
 
 ### jQuery Selectors ###
 #### jQuery Selectors ####
+1. Used to select HTML elements
+2. Selection is based on name, id, classes, types, attributes, values of attributes ...
+	1. It is based on existing CSS selectors + custom selectors
+3. Syntax: `$()`
+
 #### The element Selector ####
+1. Selects elements based on element name.
+2. Example: Select all `<p>` elements on a page
+
+		$("p")
+		
+3. Example: When user clicks on a button, all `<p>` elements will be hidden
+
+		$(document).ready(function () {
+			$("button").click(function () {
+				$("p").hide();
+			});
+		});
+
 #### The `#id` Selector ####
+1. `#id` uses `id` attribute of an HTML tag to find specific element
+2. Example:
+
+		$("#test")
+		
+3. Example: When user clicks on a button, hide element with `id = "test"`
+
+		$(document).ready(function () {
+			$("button").click(function () {
+				$("#test").hide();
+			})
+		});
+
 #### The `.class` Selector ####
+1. `.class`: finds elements with `class = "class"`
+2. Example:
+
+		$(".test")
+		
+3. Example: When user clicks on a button, the elements with `class = "test"` should be hidden
+
+		$(document).ready(function () {
+			$("button").click(function () {
+				$(".test").hide();
+			});
+		});
+
 #### More Examples of jQuery Selectors ####
+1. `$("*")`: selects all elements
+2. `$(this)`: selects the current HTML element
+3. `$("p.intro")`: selects all `<p>` elements with `class = "intro"`
+4. `$("p:first")`: selects the first `<p>` element
+5. `$("ul li:first")` **(M)**: selects the first `<li>` element of the first `<ul>`
+6. `$("ul li:first-child")`: selects the first `<li>` element in every `<ul>`
+7. `$("[href]")`: selects all elements with `href` attribute
+8. `$("a[target=_blank")`: selects all `<a>` elements with `target = "_blank"`
+9. `$("a[target!=_blank")` **(M)**: selects all `<a>` elements with `target` not equal to `_blank`
+10. `$(":button")` **(M)**: selects all `<button>` elements and all `<input>` elements of `type = "button"`
+11. `$("tr:even")` **(M)**: selects all even `<tr>` elements
+12. `$("tr:odd")` **(M)**: selects all odd `<tr>` elements
+13. [jQuery Selector Reference](https://www.w3schools.com/jquery/jquery_ref_selectors.asp)
+
 #### Functions In a Separate File ####
+1. If website has a lot of pages, put jQuery functions in a separate .js file
+2. Use `src` to refer to the js file
+
+		<head>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="my_jquery_functions.js"></script>
+		</head>
 
 ### jQuery Events ###
+1. jQuery is made to respond to events
+
 #### What are Events? ####
+1. Visitor's actions that web page can respond to are called events
+	1. A moment when something happens
+2. Examples:
+	1. Moving a mouse over an element
+	2. Selecting a radio button
+	3. Clicking on an element
+3. **fires/fired** used with events.
+	1. `keypress` event is fired when you press a key
+4. Common DOM events:
+	1. Mouse events
+		1. `click`
+		2. `dblclick`
+		3. `mouseenter`
+		4. `mouseleave`
+	2. Keyboard events
+		1. `keypress`
+		2. `keydown`
+		3. `keyup`
+	3. Form events
+		1. `submit`
+		2. `change`
+		3. `focus`
+		4. `blur`
+	4. Document/Window Events
+		1. `load`
+		2. `resize`
+		3. `scroll`
+		4. `unload`
+
 #### jQuery Syntax For Event Methods ####
+1. Most DOM events have an equivalent jQuery method
+2. Example: Assigning click event to all paragraphs in a page
+
+		$("p").click();
+		
+3. Example: Define what happens when the event fires
+
+		$("p").click(function () {
+			// action goes here!
+		});
+
 #### Commonly Used jQuery Event Methods ####
+1. `$(document).ready()`: method allows us to execute a function when document is fully loaded
+2. `click()`: attaches an event handler function to an HTML element
+	1. function is executed when user clicks on the HTML element
+	2. Example: When click event fires on `<p>` element, hide the current `<p>` element
+
+			$("p").click(function () {
+				$(this).hide();
+			});
+
+3. `dblclick()`: Attaches an event handler to an HTML element
+	1. Function is executed when user double clicks on an HTML element
+
+			$("p").dblclick(function () {
+				$(this).hide();
+			});
+			
+4. `mouseenter()`: Attaches an event handler to an HTML element
+	1. Function is executed when the mouse pointers enters the element
+	
+			$("#p1").mouseenter(function () {
+				alert("You entered p1!");
+			});
+			
+5. `mouseleave()`: Attaches an event handler to an HTML element
+	1. Function is executed when the mouse pointer leaves the element
+	
+			$("#p1").mouseleave(function() {
+				alert("Bye! You now leave p1!");
+			});
+			
+6. `mousedown()`: Attaches an event handler to an HTML element
+	1. Function is executed when left, middle or right mouse button is pressed down while the mouse is over the HTML element
+	
+			$("#p1").mousedown(function () {
+				alert("Mouse down over p1!");
+			});
+			
+7. `mouseup()`: Attaches an event handler to an HTML element
+	1. Function is executed when left, middle or right mouse button is released while the mouse is over the HTML element
+	
+			$("#p1").mouseup(function () {
+				alert("Mouse up over p1!");
+			});
+			
+8. `hover()`: combines `mouseenter()` and `mouseleave()` methods
+
+		$("#p1").hover(function () {
+			alert("You entered p1!");
+		},
+		function () {
+			alert("Bye! You now leave p1!");
+		});
+		
+	1. First function is executed when mouse enters and second function is executed when mouse leaves the HTML element respectively
+9. `focus()`: Attaches an event handler to an HTML form field
+	1. Function is executed when form field gets focus
+	
+			$("input").focus(function () {
+				$(this).css("background-color", "#cccccc");
+			});
+
+10. `blur()`: Attaches an event handler function to an HTML form field
+	1. Function is executed when form field loses focus
+	
+			$("input").focus(function () {
+				$(this).css("background-color", "#ffffff");
+			});
+
 #### The `on()` Method ####
+1. `on()`: method attaches one or more event handlers for selected elements
+
+		$("p").on("click", function () {
+			$(this).hide();
+		});
+		
+2. Attach multiple event handlers to an element
+
+		$("p").on({
+			mouseenter: function () {
+				$(this).css("background-color", "lighgray");
+			},
+			mouseleave: function () {
+				$(this).css("background-color", "lightblue");
+			},
+			click: function () {
+				$(this).css("background-color", "yellow");
+			}
+		});
+
 #### jQuery Event Methods ####
+1. [jQuery Events Reference](https://www.w3schools.com/jquery/jquery_ref_events.asp)
 
 ## jQuery Effects ##
 ### jQuery Hide/Show ###
+1. Hide, show, Toggle, Slide, fade, Animate
+
 #### jQuery `hide()` and `show()` ####
+1. `hide()`, `show()`: used to hide and show elements respectively
+
+		$("#hide").click(function () {
+			$("p").hide();
+		});
+		
+		$("#show").click(function () {
+			$("p").show();
+		});
+		
+2. Syntax:
+	
+		$(selector).hide(speed, callback);
+		$(selector).show(speed, callback);
+		
+	1. `speed`: speed of hiding or showing
+		1. values: `slow`, `fast`, or milliseconds
+	2. callback: function executed after `hide()` or `show()` method completes
+3. Example: Using speed
+
+		$("button").click(function () {
+			$("p").hide(1000);
+		});
+
 #### jQuery `toggle()` ####
+1. `toggle()` toggles between hide and show (shown elements are hidden and hidden elements are shown)
+2. Example:
+
+		$("button").click(function () {
+			$("p").toggle();
+		});
+		
+3. Syntax:
+	
+		$(selector).toggle(speed, callback);
+		
+	1. `speed` takes the values: `'slow'`, `'fast'`, in milliseconds
+	2. callback: optional callback function executed after `toggle()` completes
+
 #### jQuery Effects Reference ####
+1. [jQuery Effect Reference](https://www.w3schools.com/jquery/jquery_ref_effects.asp)
 
 ### jQuery Fade ###
+1. We can fade elements in and out of visibility
+
 #### jQuery Fading Methods ####
+1. Following fade methods exist:
+	1. `fadeIn()`
+	2. `fadeOut()`
+	3. `fadeToggle()`
+	4. `fadeTo()`
+
 #### jQuery `fadeIn()` Method ####
+1. `fadeIn()`: Used to fade in a hidden element:
+2. Syntax:
+
+		$(selector).fadeIn(speed, callback);
+		
+	1. speed: specifies duration of the effect
+		1. Values: `'slow'`, `'fast'`, in milliseconds
+	2. callback: optional callback executed after fade in completes
+3. Example:
+
+		$("button").click(function () {
+			$("#div1").fadeIn();
+			$("#div2").fadeIn("slow");
+			$("#div3").fadeIn(3000);
+		});
+
 #### jQuery `fadeOut()` Method ####
+1. `fadeOut()` is used to fade out a visible element
+2. Syntax:
+		
+		$(selector).fadeOut(speed, callback);
+		
+	1. speed values: `'slow'`, `'fast'`, in milliseconds
+	2. callback: optional callback executed after fading completes
+3. Example:
+
+		$("button").click(function () {
+			$("#div1").fadeOut();
+			$("#div2").fadeOut("slow");
+			$("#div3").fadeOut(3000);
+		});
+
 #### jQuery `fadeToggle()` Method ####
+1. `fadeToggle()` toggles between `fadeIn()` and `fadeOut()`
+	1. If elements are faded out, `fadeToggle()` will fade them in
+	2. If elements are faded in, `fadeToggle()` will fade them out
+2. Syntax:
+
+		$(selector).fadeToggle(speed, callback);
+	
+	1. speed: specifies duration of the effect
+		1. values: `'slow'`, `'fast'`, in milliseconds
+3. Example:
+
+		$("button").click(function () {
+			$("#div1").fadeToggle();
+			$("#div2").fadeToggle('slow');
+			$("#div3").fadeToggle(3000);
+		});
+
 #### jQuery `fadeTo()` Method ####
+1. `fadeTo()`: allows fading to a given opacity
+2. Syntax:
+	
+		$(selector).fadeTo(speed, opacity, callback);
+	
+	1. speed: specifies duration of the effect.
+		1. values: `'slow'`, `'fast'`, in milliseconds
+	2. opacity: 0 to 1
+	3. callback: optional callback function that is executed after fading completes
+3. Example:
+
+		$("button").click(function () {
+			$("#div1").fadeTo("slow", 0.15);
+			$("#div2").fadeTo("slow", 0.4);
+			$("#div3").fadeTo("slow", 0.7);
+		});
+
 #### jQuery Effects Reference ####
+1. [jQuery Effect Reference](https://www.w3schools.com/jquery/jquery_ref_effects.asp)
 
 ### jQuery Slide ###
 #### jQuery Sliding Methods ####

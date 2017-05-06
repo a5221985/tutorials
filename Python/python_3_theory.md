@@ -1381,45 +1381,964 @@
 		1. Fine for text files but may corrupt binary files like JPEG or EXE
 	
 #### Methods of File Objects ####
+1. `f.read(size)` **(M)**: reads some quantity of data and returns it as a string (in text mode) or in bytes (in binary mode).
+	1. `size`: optional numeric argument
+		1. If omitted, or -ve, entire file is read
+	2. If machine's memory is less than file size?
+		1. Problem that user must take care of
+	3. If end of file is reached?
+		1. `''`: empty string is returned
+	4. Example:
+	
+		f.read()
+		f.read() # returns ''
+	
+3. `f.readline()` **(M)**: reads a single line from a file
+	1. If file does not end in a newline: each line returned contains `\n` character except the last line
+		1. `\n` is omitted from the last line
+		2. If return value is `\n` it is returning a blank line
+		3. If return value is '', it is end of the file
+	2. Example:
+	
+			f.readline() # 'This is the first line of the file.\n'
+			f.readline() # 'Second line of the file\n'
+			f.readline() # ''
+	
+	3. Example: Looping over file object
+	
+			for line in f:
+				print(line, end='')
+
+4. `list(f)` **(M)**: reads all the lines into a list
+5. `f.readlines()` **(M)**: reads all the lines into a list
+6. `f.write(string)` **(M)**: writes contents of string to a file
+	1. Returns the number of characters written
+	2. Example:
+	
+			f.write('This is a test\n')
+
+	3. Other types of objects must be converted to either text or binary object before writing to a file
+	
+			value = ('the answer', 42)
+			s = str(value)
+			f.write(s)
+			
+7. `f.tell()` **(M)**: returns integer giving file object's current position in the file
+	1. Binary mode: number of bytes from the beginning of the file
+	2. Text mode: an opaque number (?)
+8. `f.seek(offset, from_what)` **(M)**: Changes position of the reference pointer
+	1. `offset`: added to the reference point
+	2. `from_what`:
+		1. 0: from beginning of the file (default)
+		2. 1: current position
+		3. 2: end of the file
+	3. Example:
+	
+			f = open('workfile', 'rb+')
+			f.write(b'0123456789abcdef')
+			f.seek(5) # Go to the 6rh byte in the file
+			f.read(1)
+			f.seek(-3, 2) # Go to the 3rd byte before the end
+			f.read(1)
+		
+	4. For text files (opened without `b`): seeks relative to begenning of the file are only allowed
+		1. Exception: seeking to end of file `seek(0, 2)`
+		2. Valid offset values: those returned from `f.tell()` or 0
+			1. Other offset values produce undefined behavior
+9. `f.close()` **(M)**: closes and frees up system resources
+	1. Further attempt to use file object results is failure
+	2. Example:
+	
+			f.close()
+			f.read()
+
+10. `with`: ensures file is properly closed even on exception and is shorter than `try` and `finally` block
+
+		with open('workfile', 'r') as f:
+			read_data = f.read()
+		f.closed()
+
+11. `isatty()`, `truncate()`
+
 #### Saving structured data with `json` ####
+1. Reading numbers:
+	1. convert using `int('123')`
+2. JSON: JavaScript Object Notation - Used instead of users writing complicated code to save data to files
+	1. `json`: module takes python data hierarchies and converts to strings (serializing)
+		1. deserializing: reconstructing data from string representation
+		2. `json.dumps(<object>)` **(M)**: converts an object to a JSON string
+		
+				json.dumps([1, 'simple', 'list'])
+		
+		3. `json.dump(<object>, f)` **(M)**: serializes to a text file `f`
+		4. `x = json.load(f)` **(M)**: decodes back to an object
+	2. Serialization of arbitrary class objects: [json](https://docs.python.org/3/library/json.html#module-json)
+		1. `pickle`: protocol which allows serialization of arbitrary complex Python objects.
+			1. It cannot be used to communicate with applications of other languages
+			2. It is insecure by default
 
 ## Errors and Exceptions ##
+1. There are two kinds of errors:
+	1. Syntax errors
+	2. Exceptions
+
 ### Syntax Errors ###
+1. Parser repeats offending line and displays an arrow pointing at earliest point in the line where the error was detected.
+	1. Error is caused by or detected at token preceding the arrow
+	2. File name and line number are also printed
+
 ### Exceptions ###
+1. Errors detected during execution are called exceptions
+	1. Last line or error message indicates what happened
+	2. Type of the exception is printed as part of the message
+		1. `ZeroDivisionError`
+		2. `NameError`
+		3. `TypeError`
+2. String printed as exception type is the name of the built in exception that occured
+3. Preceding part of error shows context where exception happened
+4. [Built-in Exceptions](https://docs.python.org/3/library/exceptions.html#bltin-exceptions)
+
 ### Handling Exceptions ###
+1. Example: asking a user for input until a valid integer is entered but allows user to interrupt the program (using ctrl + c)
+	1. KeyboardInterrupt: raised when user interrupts the program using ctrl/cmd + c
+	
+			while True:
+				try:
+					x = int(input("Please enter a number: "))
+					break
+				except ValueError:
+					print("Oops! That was no valid number. Try again...")
+					
+		1. First `try` clause (statement(s) between try and except) are executed
+		2. If no exception occurs, the except clause is skipped and execution of `try` statement is finished
+		3. If exception occurs during execution of `try` clause, rest of the clause is skipped.
+			1. If its type matches exception named after `except` keyword, except clause is executed. then execution continues after the `try` statement
+		4. If an exception occurs which does not match the exception named in except clause, it is passed to outer `try` statements.
+			1. If no handler is found, it is an unhandled exception and execution stops with a message
+2. `try` statement can have multiple `except` clauses to specify handlers for different exceptions
+	1. exceptions that occur only in `try` statement are handled (not in a handler statement).
+3. Multiple exceptions handler: specify as a paranthesized tuple
+
+		except (RuntimeError, TypeError, NameError):
+			pass
+			
+4. A class specified in `except` clause is compatible with an exception of its own type or of it's base class
+	1. An except clause listing a derived class is not compatible with exception of base class
+	2. Example:
+	
+			class B(Exception):
+				pass
+				
+			class C(B):
+				pass
+				
+			class D(C):
+				pass
+				
+			for cls in [B, C, D]:
+				try:
+					raise cls()
+				except D:
+					print("D")
+				except C:
+					print("C")
+				except B:
+					print("B")
+					
+		1. Output: B C D
+	
+	3. Example:
+	
+			...
+			for cls in [B, C, D]:
+				try:
+					raise cls()
+				except B:
+					print("B")
+				except C:
+					print("C")
+				except D:
+					print("D")
+					
+		1. Output: B B B (only first matching except clause is triggered)
+5. Last `except` clause may omit exception name(s) (serves as wildcard)
+	1. An exception can be re-raised
+6. Example:
+
+		import sys
+		
+		try:
+			f = open('myfile.txt')
+			s = f.readline()
+			i = int(s.strip())
+		except OSError as err:
+			print("OS error: {0}".format(err))
+		except ValueError:
+			print("Could not convert data to an integer.")
+		except:
+			print("Unexpected error:", sys.exc_info()[0])
+			raise
+			
+7. `else` clause: if present must follow all `except` clauses.
+	1. Executed if `try` clause does not raise exceptions
+	2. Example:
+	
+			for arg in sys.argv[1:]:
+				try:
+					f = open(arg, 'r')
+				except OSError:
+					print('cannot open', arg)
+				else:
+					print(arg, 'has', len(f.readlines()), 'lines')
+					f.close()
+	
+	3. Purpose: to prevent accidentally catching exception that wasn't raised by code protected by `try .. except` statement
+8. Exception's argument: value associated with an exception
+	1. `except` clause may specify a variable after exception name.
+	2. variable is bound to an exception instance with arguments stored in `<instance>.args`
+	3. `__str__()`: method of exception instance which returns arguments for printing without using `.args`
+	4. We can add attributes to exception before raising the exception
+	
+			try:
+				raise Exception('spam', 'eggs')
+			except Exception as inst:
+				print(type(inst))
+				print(inst.args)
+				print(inst)
+				
+				x, y = inst.args
+				print('x =', x)
+				print('y =', y)
+				
+	5. Unhandled exceptions: arguments are printed as last part of the message
+9. Exception handlers handle exceptions even those that occur inside functions called in `try` clause
+
+		def this_fails():
+			x = 1/0
+			
+		try:
+			this_fails()
+		except ZeroDivisionError as err:
+			print('Handling run-time error:', err)
+
 ### Raising Exceptions ###
+1. `raise`: forces a specified exception to occur.
+
+		raise NameError('HaiThere')
+		
+	1. Argument: The exception to be raised
+		1. Can be exception instance or exception class (Class that derives from `Exception`)
+			1. Exception Class: shorthand (instantiation happens implicitly by calling it's constructor with no arguments)
+			
+					raise ValueError # Shorthand for 'raise ValueError()'
+	2. To determine whether exception has occured but don't want to handle it:
+	
+			try:
+				raise NameError('HiThere')
+			except NameError:
+				print('An exception flew by!')
+				raise
+
 ### User-defined Exceptions ###
+1. User defined exceptions should be derived from `Exception` class (directly or indirectly)
+2. The classes are usually kept simple (with attributes)
+3. Design for module that can raise several distinct errors:
+	1. Construct a base class
+	2. Construct subclasses for specific exceptions
+	
+			class Error(Exception):
+				"""Base class for exceptions in this module."""
+				pass
+				
+			class InputError(Error):
+				"""Exception raised for errors in the input.
+				
+				Attributes:
+					expression -- input expression in which the error occured
+					message -- explanation of the error
+				"""
+				def __init__(self, expression, message):
+					self.expression = expression
+					self.message = message
+					
+			class TransitionError(Error):
+				"""Raised when an operation attempts a state transition that's
+				allowed.
+				
+				Attributes:
+					previous -- state at beginning of transition
+					next -- attempted new state
+					message -- explanation of why the specific transition is not allowed
+				"""
+				
+				def __init__(self, previous, next, message):
+					self.previous = previous
+					self.next = next
+					self.message = message
+					
+		1. Naming Convention: names end with "Error"
+		2. [Classes](https://docs.python.org/3/tutorial/classes.html#tut-classes)
+
 ### Defining Clean-up Actions ###
+1. `finally`: for definining clean-up actions and which is executed under all circumstances
+2. Example:
+
+		try:
+			raise KeyboardInterrupt
+		finally:
+			print('Goodbye, world!') # always executed whether exception has occured or not
+			
+	1. If exception has not been handled, or if exception occurs in `except` or `else` clause, it is automatically re-raised after `finally` has been executed
+	2. If `try` is left using `break`, `continue` or `return`, finally is executed on the way out
+3. Example:
+
+		def divide(x, y):
+			try:
+				result = x / y
+			except ZeroDivisionError:
+				print("division by zero!")
+			else:
+				print("result is", result)
+			finally:
+				print("executing finally clause")
+				
+		divide(2, 1)
+		divide(2, 0)
+		divide("2", "1") # TypeError is not handled using `except` clause
+4. Real use of finally:
+	1. Release external resources (files, network connections ...)
+
 ### Predefined Clean-up Actions ###
+1. Some objects define standard clean-up actions when it is no longer needed.
+2. Example: Bad code
+
+		for line in open('myfile.txt'):
+			print(line, end="")
+			
+	1. It leaves the file open of an indeterminate amount of time after the code is finished executing
+3. Example: Good code
+
+		with open('myfile.txt') as f:
+			for line in f:
+				print(line, end="")
+				
+	1. `f` is always closed automatically
+	2. Object file provided predefined clean-up action
 
 ## Classes ##
+1. It is a mixture of class mechanisms in C++ and Modula-3
+2. Class inheritance allows multiple base classes
+3. Classes are created at runtime and can be modified further after creation
+4. Built-in operators with special syntax can be redefined for class instances
+
 ### A Word About Names and Objects ###
+1. Multiple names can be bound to the same object.
+2. If mutable objects (lists, dictionaries ...) are involved, aliases behave like pointers
+	1. Passing a pointer is cheap as compared to passing an object
+	2. Function can modify the original object using the alias
+
 ### Python Scopes and Namespaces ###
+1. Scope rules:
+	1. namespace: mapping from names to objects
+		1. Most namesspaces are implemented as python dictionaries
+		2. Examples: built-in names containing functions (`abs()`)
+			1. built-in exception names
+			2. global names in a module
+			3. local names in function invocation
+		3. There is no relationship between names in different namespaces
+			1. Example: Two modules can have the same function name `maximize`
+	2. Attribute: `z.real` - `real` is an attribute of object `z`
+		1. References to names in modules are attribute references
+			1. `modname.funcname`: `modname` is module object, `funcname` is attribute of it
+		2. There is a straightforward mapping between the module's attributes and global names (they share the same namespace)
+		3. They can be read only or writable
+			1. Module attributes are writable: `modname.the_answer = 42`
+			2. Writable attributes can be deleted with `del`
+				1. `del modname.the_answer`: will remove `the_answer` from module `modname`
+	3. Namespaces get created at different moments and have different lifetimes
+		1. Namespace containing built-in names are created when Python interpreter starts up and is never deleted
+		2. Global namespace for a module is created when the module definition is read in
+			1. They usually last until interpreter quits
+		3. `__main__`: It is a module
+			1. Statements executed by top-level invocation of interpreter either read from script file or interactively, are considered part of the module
+			2. They have their own global namespace
+		4. built-in names live in a module called `builtins`
+		5. Local namespace for a function is created when the function is called
+			1. It is deleted when function returns or raises an exception that is not handled within the function
+			2. Recursive invocations have their own namespaces
+	4. Scope: It is a textual region of a program where a namespace is directly accessible (unqualified reference to a name attempts to find the name in the namespace)
+		1. Scopes are determined statically, but used dynamically
+		2. At any point in execution there are three nested scopes whose namespaces are directly accessible
+			1. Innermost scope: contains local names. It is searched first
+			2. Scopes of enclosing functions if any: contains non-local, but non-global names. Searched starting with nearest enclosing scope
+			3. Next-to-last scope: contains current module's global names
+			4. Outermost scope: contains built-in names. It is searched last
+		3. Consider a name declared global: references and assignments go to the middle scope (which contains module's global names).
+			1. If we want to rebind variables those found outside innermost scope:
+				1. Use `nonlocal`
+					1. If not, variables become read-only (cannot be written)
+					2. An attempt to write to a variable will construct a new local variable in innermost scope
+					3. Use `nonlocal` to indicate that particular variable lives in enclosing scope and should be rebound there
+		4. Local scope:
+			1. Reference is to local names in current function
+			2. Outside function, local scope references namespace in global scope
+		5. Class definition namespace: A new namespace in local scope
+		6. global scope of a function defined in a module: it is module's namespace
+	5. Namespace search (currently): done dynamically
+	6. `global`: If not used, assignments to names go into innermost scope
+		1. Assignments: do not copy data but just bind names to objects
+		2. `del x` removes only binding of x from the namespace referenced by local scope
+		3. Use `global` to indicate that particular variable lives in global scope and should be rebound in global scope
+	7. localscope: All operations that introduce new names use local scope (import, function definitions bind module/function name in local scope)
+
 #### Scopes and Namespaces Example ####
+1. Example: To see how `global` and `nonlocal` affect variable binding
+
+		def scope_test():
+			def do_local():
+				spam = "local spam"
+				
+			def do_nonlocal():
+				nonlocal spam
+				spam = "nonlocal spam"
+				
+			def do_global():
+				global spam
+				spam = "global spam"
+				
+			spam = "test spam"
+			do_local()
+			print("After local assignment:", spam) # test spam
+			do_nonlocal()
+			print("After nonlocal assignment:", spam) # nonlocal spam (changed scope_test's binding)
+			do_global()
+			print("After global assignment:", spam) # nonlocal spam (changed the module level binding)
+			
+		scope_test()
+		print("In global scope:", spam) # global spam
+
 ### A First Look at Classes ###
+1. Introduces new syntax, new object types, new semantics
+
 #### Class Definition Syntax ####
+1. Syntax:
+
+		class ClassName:
+			<statement-1>
+			.
+			.
+			.
+			<statement-N>
+			
+	1. Class definitions must be executed first
+		1. Can be even placed inside `if` statement or inside a function
+	2. When a class definition is entered, a new namespace gets created (used as local scope)
+		1. Assignments to local variables go into this new namespace
+		2. Function definitions bind the name of the new function here
+2. A class definition is parsed, a class object is created.
+	1. It is a wrapper around the contents of the namespace created by the class definition
+	2. Original local scope (before class definition was entered) is reinstated (re-stored)
+	3. Class object is bound to the original local scope to the class name (`ClassName`)
+
 #### Class Objects ####
+1. Operations supported by class objects:
+	1. Attribute references
+		1. `obj.name`
+		2. Valid attribute names: all the names that were in class's namespace when class object was created
+	2. Instantiation
+2. Example:
+
+		class MyClass:
+			"""A simple example class"""
+			i = 12345
+			
+			def f(self):
+				return 'hello world'
+				
+	1. `MyClass.i` and `MyClass.f` (returns a function object) are valid references
+	2. We can also assign values to class attributes:
+	
+			MyClass.i = 654321
+			
+	3. `__doc__`: it is an attribute that returns docstring ("A simple example class")
+3. Class instantiation: It uses function notation (A parameter less function that returns a new instance of the class)
+
+		x = MyClass() # new instance of class MyClass is created and it is assigned to local variable x
+	
+	1. An empty object gets created by default
+4. If an object needs to be created with instance customized to a specific initial state, define special method `__init__()` **(M)**
+
+		def __init__(self):
+			self.data = []
+			
+	1. Class instantiation automatically invokes `__init__()` for newly created class instance
+	2. If arguments are given to class instantiation operator, they are passed on to `__init__()`
+	3. Example:
+	
+			class Complex:
+				def __init__(self, realpart, imagpart):
+					self.r = realpart
+					self.i = imagpart
+					
+			x = Complex(3.0, -4.5)
+			x.r, x.i
+
 #### Instance Objects ####
+1. Only operations supported by instance objects is attribute references
+	1. Valid attribute names:
+		1. data attributes
+		2. methods
+2. data attributes:
+	1. They need not be declared first, they spring into existence when they are first assigned to
+	2. Example: `x` is the instance of `MyClass`, following will print 16
+	
+			x.counter = 1
+			while x.counter < 10:
+				x.counter = x.counter * 2
+			print(x.counter)
+			del x.counter
+
+3. method attributes:
+	1. Method is a function that belongs to an object.
+		1. Other types of objects can have methods as well (list has `append`, `insert`, `sort` ...)
+	2. Attributes that are function objects define corresponding instance methods.
+		1. `x.f` is a valid method reference, since `MyClass.f` is a function
+			1. `x.f` is not the same as `MyClass.f` since the former is method object and not function object
+		2. `x.i` is not a valid reference since, `MyClass.i` is not a function
+
 #### Method Objects ####
+1. `x.f()` returns 'hello world'
+2. `x.f` can be stored (since it is an object) in a variable and can be called later
+
+		xf = x.f
+		while True:
+			print(xf())
+			
+3. `x.f()` can be called without `self` argument.
+	1. Since, instance object is passed as the first argument of the function.
+	2. `x.f()` is equivalent to `MyClass.f(x)`
+		1. Calling a method with n arguments is equivalent to calling corresponding function with method's instance as the first argument followed by the other n arguments
+	3. How does it work?
+		1. When instance attribute is referenced and if it is not data attribute,
+			1. Class is searched
+			2. If name is a valid class attribute (function object), method object is created (by packing instance object and function object found together in an abstract object (method object).
+			3. If method is called with an argument list, new argument list is constructed from instance object and argument list and function object is called with new argument list
+
 #### Class and Instance Variables ####
+1. instance variables: unique to each instance
+2. class variables: shared by all instances
+
+		class Dog:
+		
+			kind = 'canine'	# class variable shared by all instances
+			
+			def __init__(self, name):
+				self.name = name	# instance variable unique to each instance
+				
+		d = Dog('Fido')
+		e = Dog('Buddy')
+		
+3. [A World About Names and Objects](https://docs.python.org/3/tutorial/classes.html#tut-object).
+	1. If using mutable objects as class variables, they may have surprising effects
+	
+			class Dog:
+			
+				tricks: []
+				
+				def __init__(self, name):
+					self.name = name
+					
+				def add_trick(self, trick):
+					self.tricks.append(trick)
+					
+			d = Dog('Fido')
+			e = Dog('Buddy')
+			d.add_trick('roll over')
+			e.add_trick('play dead')
+			d.tricks # ['roll over', 'play dead']
+			
+	2. Correct design: Use instance variable instead
+	
+			class Dog:
+			
+				def __init__(self, name):
+					self.name = name
+					self.tricks = []
+					
+				def add_trick(self, trick):
+					self.tricks.append(trick)
+					
+			d = Dog('Fido')
+			e = Dog('Buddy')
+			d.add_trick('roll over')
+			e.add_trick('play dead')
+			d.tricks # ['roll over']
+			e.tricks #['play dead']
+
 ### Random Remarks ###
+1. Data attributes override method attributes with the same name
+	1. Use conventions to avoid name conflicts
+		1. Capitalize method names
+		2. Prefix data attribute names with small string (_)
+		3. Verbs for methods, nouns for data attributes
+2. Data attributes can be referenced by:
+	1. methods
+	2. Ordinary users (data hiding cannot be enforced in Python)
+		1. Python implementation written in C can control access to an object if required
+3. Clients can add data attributes of their own to an instance object without affecting validity of methods (name conflicts must be avoided)
+4. There is no shorthand for referencing data attributes (methods) from within methods
+5. First argument to a method is called `self` (convention)
+	1. `self` has no special meaning
+6. Function definition need not textually be enclosed in a class definition.
+	1. We can assign function object to a local variable of the class as well
+	
+			# Function defined outside the class
+			def f1(self, x, y):
+				return min(x, x + y)
+				
+			class C:
+				f = f1
+				
+				def g(self):
+					return 'hello world'
+					
+				h = g
+				
+		1. `f`, `g`, `h` are attributes of class `C` and they refer to function objects (they are methods of instances of C as well)
+		2. `h` is equivalent to `g`
+7. Methods can call other methods using method attributes of `self` (which is passed as an argument)
+
+		class Bag:
+			def __init__(self):
+				self.data = []
+				
+			def add(self, x):
+				self.data.append(x)
+				
+			def addtwice(self, x):
+				self.add(x)
+				self.add(x)
+				
+8. Methods can reference global names as ordinary functions.
+	1. Global scope of a method: it is associated with the module enclosing the method's definition (class is never used as a global scope)
+	2. Uses: Functions and modules imported into global scope can be used my methods
+		1. Functions and classes defined in global scope can be used by methods
+		2. Class is usually defined in global scope (method may want to reference its own class)
+9. `object.__class__`: class of an object
+
 ### Inheritance ###
+1. Syntax:
+
+		class DerivedClassName(BaseClassName):
+			<statement-1>
+			.
+			.
+			.
+			<statement-N>
+			
+	1. `BaseClassName` must be defined in a scope containing derived class definition
+2. Syntax 2: If base class is defined in another module
+
+		class DerivedClassName(module.BaseClassName):
+		
+3. When a derived class object is constructed, the base class is remembered (for resolving attribute references)
+	1. If an attribute is not found in the derived class, the search proceeds to look in the base class (applied recursively)
+4. Resolution of method references:
+	1. Class attribute is searched
+	2. If not found, the search descends down the chain of base classes
+	3. If found, method reference yields a function object
+5. Derived objects can override methods of base classes
+	1. A method of a base class that calls another method defined in the same base class may end up calling a method of a derived class that overrides it (all methods in Python are effectively virtual)
+6. If an overriding method wants to extend the base class method:
+	1. `BaseClassName.methodname(self, arguments)` **(M)** (`BaseClassName` is in global scope)
+7. Built in functions:
+	1. `isinstance()`: to check an instance type: `isinstance(obj, int)` (`True` if `obj.__class__` is `int` or its derived class)
+	2. `issubclass()`: to check class inheritance: `issubclass(bool, int)` (`True` if `bool` is a subclass of `int`)
+
 #### Multiple Inheritance ####
+1. Search for attributes:
+	1. Depth first, left-to-right search:
+		1. If an attribute is not found in `DerivedClassName`, it is searched in `Base1`, then recursively in base classes of `Base1` and if not found there, it was searched for in `Base2`, ...
+	2. Calls to `super()`:
+		1. call-next-method - resolution order changes dynamically to support cooperative calls to `super()`
+2. Multiple inheritance exhibits one or more diamond releationships (one of the parents can be accessed through multiple paths)
+	1. Dynamic algorithm makes sure each base class is visited only once by linearizing search order to preserve left-to-right ordering specified in each class
+		1. It is monotonic: class can be subclassed without affecting precedence order of its parents
+
 ### Private Variables ###
+1. Private variables which are accessible only within an object does not exist in Python.
+2. A convention for private variables: Prefix with underscore (`_spam`)
+	1. It is treated as a non public part of the API
+	2. Consider it as implementation details with is subject to change without any notice
+3. Name mangling: an identifier of the form `__spam` (at least two leading underscores and at most one trailing underscore) is textually replaced with `_classname__spam` (`classname` is current class name with leading underscores stripped)
+	1. Done if the identifier occurs in the definition of a class
+	2. Name mangling helps sub classes override methods without breaking interclass method calls
+	
+			class Mapping:
+				def __init__(self, iterable):
+					self.items_list = []
+					self.__update(iterable)
+					
+				def update(self, iterable):
+					for item in iterable:
+						self.items_list.append(item)
+						
+				__update = update # private copy of original update method
+				
+			class MappingSubclass(Mapping):
+				def update(self, keys, values):
+					# provides new signature for update()
+					# but does not break __init__()
+					for item in zip(keys, values):
+						self.items_list.appen(item)
+						
+		1. Due to mangling, it is possible to access or modify variable that is considered private
+4. Code passed to `exec()` or `eval()` does not consider classname of invoking class as the current class
+	1. Same restriction applies to `getattr()`, `setattr()`, and `delattr()` and `__dict__`
+
 ### Odds and Ends ###
+1. Defining something similar to C "struct":
+
+		class Employee:
+			pass
+			
+		john = Employee() # An empty employee record
+		
+		# Fill the fields of the record
+		john.name = 'John Doe'
+		john.dept = 'computer lab'
+		john.salary = 1000
+		
+2. If a code expects object of a particular abstract data type, then we can pass a class that emulates the methods of that data type.
+	1. Example: Consider a function that formats data from file object. Then define a class with `read()` and `readline()` method. Get the data from string buffer instead of a file and pass it as argument.
+3. Instance method objects also have attributes:
+	1. Consider a method `m()`:
+		1. `m.__self__`: reference to instance object which consists of method `m()`
+		2. `m.__func__`: function object corresponding to method
+
 ### Iterators ###
+1. Container objects can be looped using `for`:
+
+		for element in [1, 2, 3]:
+			print(element)
+		for element in (1, 2, 3):
+			print(element)
+		for key in {'one': 1, 'two': 2}:
+			print(key)
+		for char in "123":
+			print(char)
+		for line in open("myfile.txt"):
+			print(line, end='')
+
+2. Behind the scenes:
+	1. `for` calls `iter()` on container object.
+	2. `iter()` returns an iterator object.
+		1. iterator object has method `__next__()` (accesses elements one at a time)
+			1. Raises `StopIteration` exception if there are no more elements (tells `for` to terminate)
+3. `next()`: built in function which can be called to invoke `__next__()` method
+
+		s = 'abc'
+		it = iter(s)
+		it
+		next(it)
+		next(it)
+		next(it)
+		
+4. Adding iterator behavior to user defined classes:
+	1. Define `__iter__()` method which returns an object which has a `__next()__` method
+	2. If `__next__()` is defined in the class, `__iter__()` can return `self` (since `self` has `__next__()` method)
+	3. Example:
+	
+			class Reverse:
+				def __init__(self, data):
+					self.data = data
+					self.index = len(data)
+					
+				def __iter__(self):
+					return self
+					
+				def __next__(self):
+					if next.index == 0:
+						raise StopIteration
+					self.index = self.index - 1
+					return self.data[self.index]
+					
+			rev = Reverse('spam')
+			iter(rev)
+			for char in rev:
+				print(char)
+
 ### Generators ###
+1. it is used for constructing iterators
+2. They are like regular funtions but use `yield` statement when data needs to be returned.
+	1. When `next()` is called on the generator, it resumes where it left off (remembers all data values and which statement was last executed)
+	2. Example:
+	
+			def reverse(data):
+				for index in range(len(data) - 1, -1, -1):
+					yield data[index]
+					
+			for char in reverse('golf'):
+				print(char)
+				
+3. Generators are compact because `__iter__()` and `__next()__` get created automatically
+	1. local variables and execution state are automatically saved between calls (more clear than `self.index` and `self.data`)
+4. When Generators terminate, they automatically raise `StopIteration` exception
+
 ### Generator Expressions ###
+1. Simple generators can be coded as expressions which are similar to list comprehensions but with `()`
+	1. Purpose: used when generators are required right away by enclosing function (more memory friendly than list comprehensions)
+	2. Example:
+	
+			sum(i*i for i in range(10))
+			xvec = [10, 20, 30]
+			yvec = [7, 5, 3]
+			sum(x*y for x, y in zip(xvec, yvec))
+			
+			from math import pi, sin
+			sine_table = {x: sin(x * pi / 180) for x in range(0, 91)}
+			
+			unique_words = set(word for line in page for word in line.split())
+			
+			data = 'golf'
+			list(data[i] for i in range(len(data) - 1, -1, -1))
 
 ## Brief Tour of the Standard Library ##
 ### Operating System Interface ###
+1. `os` **(M)**: module used to interact with the operating system which has functions
+
+		import os
+		os.getcwd() # Return the current working directory
+		os.chdir('/server/accesslogs') # change current working directory
+		os.system('mkdir today')
+		
+	1. Do not use `from os import *` because `os.open()` will shadow built in `open()` (used to open files)
+	2. `dir(os)`, `help(os)` **(M)**
+2. `shutil` **(M)**: module that makes it easy for file and directory management
+	1. Provides higher level interface
+	2. Examples:
+			
+			import shutil
+			shutil.copyfile('data.db', 'archive.db')
+			shutil.move('/build/executables', 'installdir')
+
 ### File Wildcards ###
+1. `glob`: module used for building file `list`s from directory wildcard searches
+	
+		import glob
+		glob.glob('*.py')
+
 ### Command Line Arguments ###
+1. `sys`: module that has `argv` attribute as a list
+2. Example: `python demo.py one two three`
+	
+		import sys
+		print(sys.argv) # ['demo.py', 'one', 'two', 'three']
+		
+3. `getopt` **(M)**: module that processes `sys.argv` using conventions of Unix `getopt()` function
+4. `argparse` **(M)**: module that provides powerful command line processing
+
 ### Error Output Redirection and Program Termination ###
+1. `sys` has `stdin`, `stdout`, and `stderr` attributes.
+	1. `stderr`: used to emit warnings or error messages
+2. `sys.exit()` **(M)**: terminates the script
+
 ### String Pattern Matching ###
+1. `re` **(M)**: module that provides regular expression tools
+2. Example:
+
+		import re
+		re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest') # ['foot', 'fell', 'fastest']
+		re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat') # 'cat in the hat'
+		
+3. String methods are used for simple capabilities:
+
+		'tea for too'.replace('too', 'two') # 'tea for two'
+
 ### Mathematics ###
+1. `math`: module that gives access to underlying `C` library functions for floating point math
+
+		import math
+		math.cos(math.pi / 4)
+		math.log(1024, 2)
+		
+2. `random` **(M)**: module that provides tools for making random selections
+
+		random.choice(['apple', 'pear', 'banana'])
+		random.sample(range(100), 10)
+		random.random()
+		random.randrange(6)
+		
+3. `statistics` **(M)**: module that can calculate mean, median, variance, ... of numeric data
+
+		import statistics
+		data = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
+		statistics.mean(data)
+		statistics.median(data)
+		statistics.variance(data)
+		
+4. SciPy project: Many other modules for numerical calculations
+
 ### Internet Access ###
+1. There are modules of accessing the internet and for processing internet protocols
+2. Two simple modules:
+	1. `urllib.request` **(M)**
+	2. `smtplib` **(M)**
+3. Example: receiving data
+
+		from urllib.request import urlopen
+		with urlopen('http://tycho.usno.navy.mil/cgi-bin/timer.pl') as response:
+			for line in response:
+				line = line.decode('utf-8') # Decoding the binary data to text
+				if 'EST' in line or 'EDT' in line: # look for Eastern Time
+					print(line)
+					
+4. Example: sending email (mail server should be running on localhost)
+
+		import smtplib
+		server = smtplib.SMTP('localhost')
+		server.sendmail('warrior@example.org', 'jceaser@example.org', 
+		"""To: jceaser@example.org
+		From: warrior@example.org
+		
+		Beware the enimies who are stronger than you.
+		""")
+		server.quit()
+
 ### Dates and Times ###
+1. `datetime` **(M)**: module that contains classes for manipulating dates and times.
+	1. Supports date and time arithmetic
+	2. It is efficient in member extraction for output formatting and manipulation
+	3. It supports objects that are timezone aware (?)
+2. Example:
+
+		from datetime import date
+		now = date.today()
+		now
+		now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")
+		
+		# dates support calendar arithmetic
+		birthday = date(1964, 7, 31)
+		age = now - birthday
+		age.days
+		
+### Data Compression ###
+1. Compression formats supported by modules:
+	1. `zlib`
+	2. `gzip`
+	3. `bz2`
+	4. `lzma`
+	5. `zipfile`
+	6. `tarfile`
+2. Example:
+
+		import zlib
+		s = b'hitch which has which hitches wrist watch'
+		len(s)
+		t = zlib.compress(s)
+		len(t)
+		zlib.decompress(t)
+
 ### Performance Measurement ###
 ### Quality Control ###
 ### Batteries Included ###
