@@ -679,55 +679,528 @@
 		1. Returns `boolean`
 
 ##### The Map Interface #####
+##### The Map Interface #####
 1. `Map` maps keys to values.
-	1. it cannot container duplicate keys.
-	2. Each key can map to atmost 1 value
-2. It models mathematical *function*
-3. Basic methods supported:
+2. It cannot contain duplicate keys
+3. Each key can map to atmost one value
+4. Model's mathematical *function*
+5. Interface methods:
 	1. `put`
 	2. `get`
 	3. `remove`
-	4. `containsKey`
-	5. `containsValue`
+	4. `containsKey` **(M)**
+	5. `containsValue` **(M)**
 	6. `size`
 	7. `empty`
-4. Bulk operations:
-	1. `putAll`
-	2. `clear`
-5. Collection set supported:
-	1. `keySet`
-	2. `entrySet`
-	3. `values`
-6. Three general-purpose implementations
+	8. Bulk operations:
+		1. `putAll` **(M)**
+		2. `clear` **(M)**
+6. Three general purpose map implementations:
 	1. `HashMap`
 	2. `TreeMap`
 	3. `LinkedHashMap`
-7. Collecting `Map`s using JDK 8 operations
+7. Collections to `Map`s using JDK 8 aggregate operations
+	1. Example: Grouping Employees by Department
 
-		// Group employees by department
-		Map<Department, List<Employee>> byDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+			// Group employees by department
+			Map<Department, List<Employee>> byDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+
+	2. Example: Compute sum of all salaries by department:
+
+			// Compute sum of salaries by department
+			Map<Department, Integer> totalByDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.summingInt(Employee::getSalary)));
+
+	3. Example: Group students by passing or failing grades:
+
+			// Partition students into passing and failing
+			Map<Boolean, List<Student>> passingFailing = students.stream().collect(Collectors.partitioningBy(s -> s.getGrade >= PASS_THREASHOLD));
+
+	4. Example: Group people by city
+
+			// Classify Person objects by city
+			Map<String, List<Person>> peopleByCity = personStream.collect(Collectors.groupingBy(Person::getCity));
+
+	5. Example: Cascade collectors to group people by state and city
+
+			// Cascade Collectors
+			Map<String, Map<String, List<Person>>> peopleByStateAndCity = personStream.collect(Collectors.groupingBy(Person::getState, Collectors.groupingBy(Person::getCity)));
+
+###### Map Interface Basic Operations ######
+1. Basic operations behave exactly like their counterparts in `Hashtable`.
+2. Example: Generate frequency table of words found in its argument list
+
+		import java.util.*;
+
+		public class Freq {
+			public static void main(String[] args) {
+				Map<String, Integer> m = new HashMap<String, Integer>();
+
+				for (String a: args) {
+					Integer freq = m.get(a);
+					m.put(a, (freq == null)? 1: freq + 1);
+				}
+
+				System.out.println(m.size() + " distinct words:");
+				System.out.println(m);
+			}
+		}
+
+	1. Run the program with: `java Freq if it is to be it is up to be to delegate`
+3. If we want to see the frequency table in alphabetical order, change `HashMap` to `TreeMap`
+4. If we want to see the words printed in the order they appear in commandline use `LinkedHashMap`
+5. Two `Map` objects regardless of their implementation can be compared for logical equality using `equals` and `hashCode` (they are equal if they represent same key-value pairs)
+6. All general-purpose implementations of `Map` provide constructors that take a `Map` object and initialize the new `Map` to contain all `key-value` mappings in the specified `Map`.
+	1. Source `Map` can be of different implementation than the destination `Map`
+		1. Example:
+
+				Map<K, V> copy = new HashMap<K, V>(m)
+
+###### Map Interface Bulk Operations ######
+1. `clear`: removes all mappings from the `Map`
+2. `putAll`: Dumps one map into another
+	1. Subtle use: Creation of attribute map with default values.
+
+			static <K, V> Map<K, V> newAttributeMap(Map<K, V> defaults, Map<K, V> overrides) {
+				Map<K, V> result = new HashMap<K, V>(defaults);
+				result.putAll(overrides);
+				return result;
+			}
+
+###### Collection Views ######
+1. Methods that make `Map` be viewed as `Collection`
+	1. `keySet`: `Set` of keys in `Map`
+	2. `values`: `Collection` of values contained in `Map`
+		1. Not a `Set` because multiple keys can map to same value
+	3. `entrySet`: `Set` of key-value pairs.
+		1. `Map.Entry`: Nested interface
+			1. It is the type of elements in this Set
+2. `Collection` views are only means of iterating over a `Map`
+3. Iterating over keys in a map
+
+		for (KeyType key: m.keySet())
+			System.out.println(key);
+
+4. Iterator:
+
+		for (Iterator<Type> it = m.keySet().iterator(); it.hasNext();)
+			if (it.next().isBogus())
+				it.remove();
+
+5. Iterating over key-value pairs:
+	
+		for (Map.Entry<KeyType, ValType> e: m.entrySet())
+			System.out.println(e.getKey() + ": " + e.getValue());
+
+6. When a `Map` is asked multiple times to return a `Collection` view, it efficiently returns the same view over and over.
+7. We can call `Map.Entry`'s `setValue` method to change value associated with a key.
+8. The three methods are the only safe way to modify `Map` during iteration
+9. Removal of elements:
+	1. `remove`
+	2. `removeAll`
+	3. `retainAll`
+	4. `clear`
+	5. `Iterator.remove`
+10. `Collection` views do not support element addition (because `put` and `putAll` exist)
+
+###### Fancy Uses of Collection Views: Map Algebra ######
+1. `containsAll`: used to check if one `Map` contains another `Map`
+
+		if (m1.entrySet().containsAll(m2.entrySet())) {
+			...
+		}
+
+2. `equals`: checks if two `Map`s have mappings for same keys
+
+		if (m1.keySet().equals(m2.keySet())) {
+			...
+		}
+
+3. Consider a `Map` with collection of attribute-value pairs. Two `Set`s with one containing required attributes and other containing permissible attributes (contains required attributes as well). The following checks if the constaints meet or print an error message
+
+		static <K, V> boolean validate(Map<K, V> attrMap, Set<K> requiredAttrs, Set<K> permittedAttrs) {
+			boolean valid = true;
+			Set<K> attrs = attrMap.keySet();
+
+			if (!attr.containsAll(requiredAttrs)) {
+				Set<K> missing = new HashSet<K>(requiredAttrs);
+				missing.removeAll(attrs);
+				System.out.println("Missing attributes: " + missing);
+				valid = false;	
+			}
+
+			if (!permittedAttrs.containsAll(attrs)) {
+				Set<K> illegal = new HashSet<K>(attrs);
+				illegal.removeAll(permittedAttrs);
+				System.out.println("Illegal attributes: " + illegal);
+				valid = false;
+			}
+			return valid;
+		}
+
+4. Example: Knowing all keys common to two `Map` objects
+
+		Set<KeyType> commonKeys = new HashMap<KeyType>(m1.keySet);
+		commonKeys.retainAll(m1.keySet());
+
+5. Example: Remove all key-value pairs that one `Map` has in common with another:
+
+		m1.entrySet().removeAll(m2.entrySet());
+
+6. Example: Remove from one `Map` all keys that have values in another `Map`
+
+		m1.keySet().removeAll(m2.keySet());
+
+7. Suppose we have a `Map` that maps each employee to his manager. Suppose we want to know who non managers are:
+
+		Set<Employee> individualContributors = new HashSet<Employee>(managers.keySet());
+		individualContributors.removeAll(managers.values());
+
+8. Example: Fire all employees who report to manager Simon
+
+		Employee simon = ...;
+		managers.values().removeAll(Collections.singleton(simon));
+	1. `Collections.singleton`: factory method that returns immutable `Set` with single, specified element
+
+9. Example: Tell which employees have managers who no longer works for the company
 		
-8. Compute sum of all salaries by department:
+		Map<Employee, Employee> m = new HashMap<Employee, Employee>(managers);
+		m.values().removeAll(managers.keySet());
+		Set<Employee> slackers = m.keySet();
 
-		// Compute sum of salaries by department
-		Map<Department, Integer> totalByDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.summingInt(Employee::getSalary)));
+	1. Make a temporary copy of the `Map`
+	2. Remove all entries from the temporary copy whose manager value is a key in original `Map` (remaining entries in temporary map contain managers who are no longer employees)
+	3. Keys in temporary `Map` are the values we are looking for
+
+###### Multimaps ######
+1. It can map each key to multiple values.
+2. There is no interface for multimap
+	1. Use a `Map` who values are `List` instances
+3. Example: Read a word list containing one word per line (all lowercase) and prints out all the anagram groups what meet a size criterion.
+	1. anagram group: bunch of words which contain exactly same letters in different order.
+	2. Program takes two arguments: name of ditionary file, minimum size of anagram group to print out.
+	3. Trick: Alphabetisize each word and use it as key and put an entry in multimap for the original word
+	4. Program:
+
+	5. [dictionary file](https://docs.oracle.com/javase/tutorial/collections/interfaces/examples/dictionary.txt)
 
 ##### Object Ordering #####
-##### The SortedSet Interface #####
-##### The SortedMap Interface #####
-##### Summary of Interfaces #####
+1. Sorting a `List` `l`:
 
-### Interfaces ###
-#### Overview ####
-1. Core collection interfaces (heart and soul of Java collections framework)
-2. General guidelines for effective use of the interfaces and when to use them
-3. Idioms for each interface
+		Collections.sort(l);
+
+	1. If `l` has `String` elements, alphabetical order would be used.
+	2. If `l` has `Date` elements, chronological order would be used.
+2. How does `Collections.sort` know how to sort data of different data types?
+	1. `String` and `Date` implement `Comparable` interface
+		1. Provides natural ordering of a class
+		2. This implementation automatically sorts the elements
+	2. Classes that implement `Comparable` interface
+		1. `Byte`
+		2. `Character`
+		3. `Long`
+		4. `Integer`
+		5. `Short`
+		6. `Double`
+		7. `Float`
+		8. `BigInteger`
+		9. `BigDecimal`
+		10. `Boolean`: `Boolean.FALSE` < `Boolean.TRUE`
+		11. `File`: System-dependent lexicographic on path name
+		12. `String`
+		11. `Date`
+		12. `CollationKey`: Locale-specific lexicographic
+3. If we try to sort a list whose type does not implement `Comparable`, `Collections.sort(list, comparator)` will throw `ClassCastException`
+	1. Elements that can be compared to one another are called mutually comparable.
+		1. Elements of different types can be mutually comparable (Standard Classes do no usually allow interclass comparison)
+
+###### Writing Your Own Comparable Types ######
+1. `Comparable` interface
+
+		public interface Comparable<T> {
+			public int compareTo(T o);
+		}
+
+	1. `compareTo` compares receiving object (on which it is called) and specified object (`o`) and returns:
+		1. `0`: Equal to specified object `o`
+		2. +ve integer: greater than to specified object `o`
+		3. -ve integer: less than specified object `o`
+		4. If objects are not comparable, the method `compareTo` throws `ClassCastException`
+2. Example: 
+
+		import java.util.*;
+
+		public class Name implements Comparable<Name> {
+			private final String firstName, lastName;
+
+			public Name(String firstName, String lastName) {
+				if (firstName == null || lastName == null)
+					throw new NullPointerException();
+				this.firstName = firstName;
+				this.lastName = lastName;
+			}
+
+			public String firstName() { return firstName; }
+			public String lastName() { return lastName; }
+
+			public boolean equals(Object o) {
+				if (!(o instanceof Name))
+					return false;
+				Name n = (Name) o;
+				return n.firstName.equals(firstName) && n.lastName.equals(lastName);
+			}
+
+			public int hashCode() {
+				return 31*firstName.hashCode() + lastName.hashCode();
+			}
+
+			public String toString() {
+				return firstName + " " + lastName;
+			}
+
+			public int compareTo(Name n) {
+				int lastCmp = lastName.compareTo(n.lastName);
+				return (lastCmp != 0 ? lastCmp : firstName.compareTo(n.firstName));
+			}
+		}
+
+3. Important points:
+	1. `Name` objects are immutable.
+		1. Elements which will be used in `Set`s and `Map`s (if we modify the elements while they are in collection, the collection will break)
+	2. Constructor checks its arguments for `null`. Makes sure `Name` object is well formed so that other methods do not throw `NullPointerException`
+	3. `hashCode` method is redefined. Essential for a class that redefines `equals` (equal objects must have equal hash codes)
+	4. `equals` method returns false if specified object is `null` or inappropriate type. (To avoid `compareTo` from throwing runtime exception)
+	5. `toString` is redefined to print `Name` in human readable form (good for objects which are going to be put into collections)
+		1. collection type's `toString` depends on `toString` methods of their elemetns, keys and values.
+4. `compareTo` implements standard name ordering algorithm (last names take precedence over first names)
+5. We can utilize the natural ordering of the individual part's type (`String`)
+	1. If most significant parts are equal, we compare the next most significant parts. If they are not equal, return the result
+6. Example: Program that builds list of names and sorts them:
+
+		import java.util.*;
+
+		public class NameSort {
+			public static void main(String[] args) {
+				Name nameArray[] = {
+					new Name("John", "Smith"),
+					new Name("Karl", "Ng"),
+					new Name("Jeff", "Smith"),
+					new Name("Tom", "Rich")
+				}
+
+				List<Name> names = Arrays.asList(nameArray);
+				Collections.sort(names);
+				System.out.println(names);
+			}
+		}
+
+7. There are 4 restrictions for classes that implement `Comparable` interface (Read documentation)
+	1. Restrictions ensure that natural ordering is a total order on objects of a class that implements it
+
+###### Comparators ######
+1. Used to sort elements in an order other than natural ordering or used to sort elements that do not use natural ordering.
+	1. Provide a `Comparator` to the `Collections.sort` method
+2. `Comparator` interface:
+
+		public interface Comparator<T> {
+			public boolean compare(T o1, T o2);
+		}
+
+	1. It compares it's two arguments and returns (usually):
+		1. -ve integer: if first argument is less than the second
+		2. 0: if first argument is equal to the second
+		3. +ve: if first argument is greater than the second
+	2. If either of the arguments have inappropriate types, `compare` method throws a `ClassCastException`
+	3. `compare` has to obey the same 4 restrictions of `compareTo`
+3. Example: Consider an `Employee` class
+
+		public class Employee implements Comparable<Employee> {
+			public Name name() { ... }
+			public int number() { ... }
+			publiv Date hireDate() { ... }
+				...
+		}
+
+	1. Natural ordering: `Name` ordering
+	2. Use case: Return a list of employees in the order of seniority
+
+			import java.util.*;
+			
+			public class EmpSort {
+				static final Comparator<Employee> SENIRITY_ORDER = new Comparator<Employee>() {
+					public int compare(Employee e1, Employee e2) {
+						return e2.hireDate().compareTo(e1.hireDate());
+					}
+				};
+
+				// Employee database
+				static final Collection<Employee> employees = ...;
+
+				public static void main(String[] args) {
+					List<Employee> e = new ArrayList<Employee>(employees);
+					Collections.sort(e, SENIORITY_ORDER);
+					System.out.println(e);
+				}
+			}
+		
+		1. `Comparator` relies on natural ordering of `Date` of `hireDate` accessor method.
+		2. `Employee` who hired most recently is the least senior
+			1. Another trick: negate the result of comparison while maintaining the argument order:
+
+					// Don't do this!!
+					return -r1.hireDate().compareTo(r2.hireDate()); // May not work since -Integer.MIN_VALUE = Integer.MIN_VALUE
+4. Restriction: It cannot be used to order a sorted collection (Like `TreeSet`) since it generates an ordering that is not compatible with equals (`Comparator` equates objects that `equals` method does not).
+	1. Example: If two employees who were hired on the same date will compare as equal, when using `Comparator` to order a sorted collection, it's not good.
+		1. If we use this `Comparator` to insert multiple employees hired on the same date into a `TreeSet`, only first will be added and the rest will be seen as duplicates and ignored.
+		2. Fix: Tweek `Comparator` so that it produces an ordering that is compatible with `equals` (so that if elements are equal using `compare`, they must be equal using `equals`). Do a two part comparison
+
+				static final Comparator<Employee> SENIORITY_ORDER = new Comparator<Employee>() {
+					public int compare(Employee e1, Employee e2) {
+						int dateCmp = e2.hireDate().compareTo(e1.hireDate());
+						if (dateCmp != 0)
+							return dateCmp;
+
+						return (e1.number() < e2.number()? -1: (e1.number() == e2.number()? 0: 1));
+					}
+				};
+
+			1. `return e1.number() - e2.number` may not work because, employee number can be -ve.
+			2. If i is large positive integer and j is large negative integer, `i - j` will overflow and return a -ve integer. (`Comparator` violates one of the 4 restrictions)
+
+##### The SortedSet Interface #####
+1. It is a `Set` that maintains elements in ascending order (sorting is according to natural ordering or according to `Comparator` provided during creation time)
+2. Operations in addition to `Set` operations
+	1. Range view: allows arbitrary range operations on the sorted set
+	2. Endpoints: returns the first or last element in the sorted set
+	3. Comparator access: returns `Comparator`, if any, used to sort the set
+3. Code:
+
+		public interface SortedSet<E> extends Set<E> {
+			// Range-view
+			SortedSet<E> subSet(E fromElement, E toElement);
+			SortedSet<E> headSet(E toElement);
+			SortedSet<E> tailSet(E fromElement);
+
+			// Endpoints
+			E first();
+			E last();
+
+			// Comparator access
+			Comparator<? super E> comparator();
+		}
+
+###### Set Operations ######
+1. Operations that are inherited from `Set` behave identically with two exceptions:
+	1. `Iterator` returned by `iterator()` traverses the sorted set in order
+	2. Array returned by `toArray()` contains sorted set's elements in order
+2. Implementation of `toString` returns all elements of sorted set in order
+
+###### Standard Constructors ######
+1. `SortedSet` has a conversion constructor that accepts any `Collection`
+	1. `TreeSet`: The constructor constructs an instance that sorts its elements according to their natural ordering (even if the collection is a `SortedSet`)
+
+###### Range-view Operations ######
+1. Range-view operations are valid even if the backing sorted set is modified directly.
+	1. range-view of a sorted set is a window onto whatever portion of the set lies in the designated part of the element space.
+	2. Changes to range-view write back to backing sorted set and vice versa
+2. Range-view operations:
+	1. `subSet`: takes two end points (end points are objects and must be comparable to elements in `SortedSet`)
+	2. range is half open (including low end point but excluding high end point)
+		1. Example:
+
+				int count = dictionary.subSet("doorbell", "pickle").size();
+
+		2. Example: Remove elements beginning with `f`
+
+				dictionary.subSet("f", "g").clear();
+		
+		3. Example: Tell how many words begin with each letter
+
+				for (char ch = 'a'; ch <= 'z'; ) {
+					String from = String.valueOf(ch++);
+					String to = String.valueOf(ch);
+					System.out.println(from + ": " + dictionary.subSet(from , to).size());
+				}
+
+		4. `successor(highEndpoint)`: calculates successor of `highEndpoint`.
+			1. successor of string `s` in `String`'s natural ordering is `s + "\0"`
+			2. Example: finding how many elements are between `"doorbell"` and `"pickle"` are including `"pickle"`
+
+					count = dictionary.subSet("doorbell", "pickle\0").size();
+			
+			3. Example: Excluding lower end point
+
+					count = dictionary.subSet("doorbell\0", "pickle").size();
+
+		5. Other range-view operations: `headSet`, `tailSet` - each takes a single `Object`
+			1. `headSet`: returns initial portion of backing `SortedSet` excluding the specified `Object`
+			2. `tailSet`: returns final portion of backing `SortedSet` beginning with the specified `Object` upto the end of the `SortedSet`
+		6. Examples:
+
+				SortedSet<String> volume1 = dictionary.headSet("n");
+				SortedSet<String> volume2 = dictionary.tailSet("n");
+
+###### Endpoint Operations ######
+1. `first`, `last`: These operations are used to return the first and last elements in a sorted set.
+	1. Iterating over a `SortedSet`: Go into interior of a `Set` and iterate forward or backward.
+		1. Example: Get the first element that is less than a specified object `o` in element space
+
+				Object predecessor = ss.headSet(o).last();
+
+###### Comparator Accessor ######
+1. `comparator`: An accessor method which returns `Comparator` used to sort the set or `null` of sorted according to natural ordering of the elements.
+	1. Purpose: So that sorted sets can be copied to another new sorted sets with the same ordering (used by `SortedSet` constructor)
+
+##### The SortedMap Interface #####
+1. `SortedMap` is a `Map` that maintains its elements in ascending order (sorted according to keys' natural ordering, or according to a `Comparator` provided at the time of creation of the `SortedMap`)
+2. Additional operations (other than `Set` operations)
+	1. Range view - performs arbitrary range operations on sorted map
+	2. Endpoints - returns first and last key in the sorted map
+	3. Comparator access - returns the `Comparator` used to sort the map
+3. `Map` analog of `SortedSet`
+
+		public interface SortedMap<K, V> extends Map<K, V> {
+			Comparator<? super K> comparator();
+			SortedMap<K, V> subMap(K fromKey, K toKey);
+			SortedMap<K, V> headMap(K toKey);
+			SortedMap<K, V> tailMap(K fromKey);
+			K firstKey();
+			K lastKey();
+		}
+
+###### Map Operations ######
+1. Two exceptions
+	1. `Iterator` returned by `iterator()` on sorted map's `Collection` views traverse the collections in order
+	2. Arrays returned by `Collection` view's `toArray` contains keys, values, or entries in order
+2. `SortedMap` impementations return a string containing all elements of view in order for `toString()`
+
+###### Standard Constructors ######
+1. Conversion constructor takes a `Map`
+
+###### Comparison to SortedSet ######
+1. Idioms and code examples in `SortedSet` section apply to `SortedMap` with trivial modifications.
+
+##### Summary of Interfaces #####
+1. Core collection interfaces are foundation of Java Collections Framework.
+2. Framework consists of two distinct framework trees:
+	1. First tree: Starts with `Collection` interface
+		1. Provides basic functionality used by all collections (`add`, `remove`)
+		2. `Set`, `List`, `Queue`: specialized subinterfaces
+	2. `Set` interface does not allow duplicates.
+		1. `SortedSet`: Sub-interface of `Set`
+	3. `List` interface is for ordered collection (to have control over where elements must be inserted)
+		1. Retrieval by exact position
+	4. `Queue` enables insertion, extraction, inspection operations (ordered in FIFO basis)
+	5. `Deque` enables insertion, extraction, inspection at both ends
+		1. For LIFO and FIFO
+	6. Second tree: `Map` interface which maps keys and values (like `Hashtable`)
+		1. `SortedMap` maintains key-value pairs in ascending order or in an order specified by `Comparator`
+3. Interfaces allow collections to be manipulated independently of the details of their representation
 
 ### Aggregate Operations ###
 #### Overview ####
 1. Iteration over collections on programmers behalf
 2. Enables to write efficient and concise code
-#### Aggreget Operations ####
+#### Aggregate Operations ####
 ##### Reduction #####
 ##### Parallelism #####
 ##### Q & A #####
