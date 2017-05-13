@@ -2338,31 +2338,436 @@
 		t = zlib.compress(s)
 		len(t)
 		zlib.decompress(t)
+		zlib.crc32(s)
 
 ### Performance Measurement ###
+1. Purpose: To compare performance of different approaches to the same problem.
+	1. Example: Tuple packing and unpacking vs traditional swapping.
+2. `timeit`: module used to know performance
+
+		from timeit import Timer
+		Timer('t=a; a=b; b=t', 'a=1; b=2').timeit()
+		Timer('a, b = b, a', 'a=1; b=2').timeit()
+
+3. `profile`, `pstats`: modules for identifying time critical sections in larger blocks of code
+
 ### Quality Control ###
+1. `doctest`: module for scanning module and validating tests embedded in docstrings
+2. Writing tests: Copying and pasting call along with results into docstring
+
+		def average(values):
+			"""Computes the arithmetic mean of a list of numbers.
+			
+			>>> print(average([20, 30, 70]))
+			40.0
+			"""
+			return sum(values) / len(values)
+			
+		import doctest
+		doctest.testmod() # automatically validate the embedded tests
+		
+3. `unittest`: module that allows tests to be maintained in separate file
+
+		import unittest
+		
+		class TestStatisticalFunctions(unitest.TestCase):
+			def test_average(self):
+				self.assertEqual(average([20, 30, 70]), 40.0)
+				self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
+				with self.assertRaises(ZeroDivisionError):
+					average([])
+				with self.assertRaises(TypeError):
+					average(20, 30, 70)
+				
+		unittest.main() # Calling from the command line invokes all tests
+
 ### Batteries Included ###
+1. Batteries included philosophy.
+	1. `xmlrpc.client` and `xmlrpc.server` modules for making remote procedure calls trivial. (No knowledge of XML is required)
+	2. `email`: package that can be used for building, decoding complex message structures (attachments also).
+		1. Supports internet encoding and header protocols
+	3. `json`: package for parsing json.
+		1. `csv`: module for reading and writing CSV files
+		2. `xml.etree.ElementTree`, `xml.dom`, `xml.sax` support XML processing
+	4. `sqlite3` module is wrapper for SQLite database library (slightly non standard SQL syntax)
+	5. `gettext`, `locale`, `codecs` support internationalization
 
 ## Brief Tour of the Standard Library - Part II ##
+1. Covers advanced modules for professional programming
+
 ### Output Formatting ###
+1. `reprlib`: module (a version of `repr()`) customized for
+	1. abbreviated displays of large or deeply nested containers
+	
+			import reprlib
+			reprlib.repr(set('supercalifragilisticexpialidocious'))
+			"{'a', 'c', 'd', 'e', 'f', 'g', ...}"
+			
+2. `pprint` **(M)**: module that offers control over printing built-in and user defined objects making it readable by interpreter (adds indentation and line breaks)
+
+		import pprint
+		t = [[[['black', 'cyan'], 'white', ['green', 'red']], [['magenta', 'yellow'], 'blue']]]
+		pprint.pprint(t, width=30)
+		
+3. `textwrap`: module. It formats paragraphs to fit a screen width
+
+		import textwrap
+		doc = """The wrap() method is just like fill() except that it returns a list of strings instead of one big string with newlines to separate the wrapped lines."""
+		print(textwrap.fill(doc, width=40))
+		
+4. `locale`: module. accesses database of culture specific data formats
+	1. `grouping`: attribute used to format numbers with group separators (`,`)
+	2. `format`: function
+	
+			import locale
+			locale.setlocale(locale.LC_ALL, 'English_United States.1252')
+			conv = locale.localeconv() # get a mapping of conventions
+			x = 1234567.8
+			local.format("%d", x, grouping=True)
+			locale.format_string("%s%.*f", (conv['currency_symbol'], conv['frac_digits'], x), grouping=True)
+
 ### Templating ###
+1. `string` module has `Template` class (end users can edit the syntax)
+2. `${name}` is used for placeholder names
+3. `$$` generates escaped `$`
+
+		from string import Template
+		t = Template('${village}folk send $$10 to $cause.')
+		t.substitute(village='Nottingham', cause='the ditch fund')
+		
+	1. `substitute` raises `KeyError` when placeholder is not supplied (in dictionary or keyword argument)
+		1. `safe_substitute`: use if data supplied is incomplete and placeholders must be left unchanged (if data is not passed)
+		
+				t = Template('Return the $item to $owner.')
+				d = dict(item='unladen swallow')
+				t.safe_substitute(d)
+				
+4. Subclass to `Template` can use custom delimiter.
+
+		import time, os.path
+		photofiles = ['img_1074.jpg', 'img_1076.jpg', 'img_1077.jpg']
+		class BatchRename(Template):
+			delimiter = '%'
+		fmt = input('Enter rename style (%d-date %n-seqnum %f-format): ')
+		t = BatchRename(fmt)
+		date = time.strftime('%d%b%y')
+		for i, filename in enumerate(photofiles):
+			base, ext = os.path.splitext(filename)
+			newname = t.substitute(d=date, n=i, f=ext)
+			print('{0} --> {1}'.format(filename, newname))
+			
+	1. Another application: separating program logic from multiple output formats
+		1. We can use templates for XML files, plain text reports, HTML web reports
+
 ### Working with Binary Data Record Layouts ###
+1. `struct`: module
+	1. `pack()`, `unpack()`: used for variable length binary record formats
+		1. "H", "I" represent two and four byte unsigned numbers, "<" says thay are standard size and little endian byte order
+		2. Looping through header infomation in zip file without using `zipfile` module
+		
+				import struct
+				
+				with open('myfile.zip', 'rb') as f:
+					data = f.read()
+					
+				start = 0
+				for i in range(3): # show the first 3 file headers
+					start += 14
+					fields = struct.unpack('<IIIHH', data[start:start+16])
+					crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
+					
+					start += 16
+					filename = data[start:start+filenamesize]
+					start += filenamesize
+					extra = data[start:start+extra_size]
+					print(filename, hex(crc32), comp_size, uncomp_size)
+					
+					start += extra_size + comp_size # skip to the next header
+
 ### Multi-threading ###
+1. Usecase: Running IO in parallel with computations in another thread
+2. `threading`: module
+
+		import threading, zipfile
+		
+		class AsyncZip(threading.Thread):
+			def __init__(self, infile, outfile):
+				threading.Thread.__init__(self)
+				self.infile = infile
+				self.outfile = outfile
+				
+			def run(self):
+				f = zipfile.ZipFile(self.outfile, 'w', zipfile.ZIP_DEFLATED)
+				f.write(self.infile)
+				f.close()
+				print('Finished background zip of:', self.infile)
+				
+		background = AsyncZip('mydata.txt', 'myarchive.zip')
+		background.start()
+		print('The main program continues to run in foreground.')
+		
+		background.join()
+		print('Main program waited until background was done.')
+		
+	1. Challenge: coordinating threads that share data or resources.
+		1. `threading` module has synchronization primitives (locks, events, condition variables, semaphores)
+			1. Difficult to reproduce errors
+		2. Solution: use one thread to access resource, use `queue` module to feed the thread with requests from other threads
+			1. `Queue` object makes it more manageable
+
 ### Logging ###
+1. `logging` module: full features and flexible
+	1. Log messages being sent to file or `sys.stderr`
+	
+			import logging
+			logging.debug('Debug information')
+			logging.info('Information message')
+			logging.warning('Warning:config file %s no found', 'server.conf')
+			logging.error('Error occurred')
+			logging.critical('Critical error -- shutting down')
+			
+	2. Default: info and debug are suppressed and output sent to standard error
+		1. Other options: routing messages through email, datagrams, sockets, to HTTP server
+			1. Filters can select routing based on message priority: DEBUG, INFO, WARNING, ERROR, CRITICAL
+2. Logging can be configured directly in Python or loaded from configuration file (for customized logging) (does not alter the application)
+
 ### Weak References ###
+1. Python uses reference counting and Garbage collection to automate memory management
+	1. Memory is freed after last reference is eliminated
+2. Scenario: we want to track objects only for as long as they are used
+	1. Problem: Tracking object creates a reference (permanent object)
+	2. Solution: `weakref` module has tools to track objects without a reference getting created
+		1. If an object is not needed anymore, it is removed from weakref table. A callback is also triggered for weakref objects
+	3. Applications: Caching objects that are expensive for creation
+	
+			import weakref, gc
+			class A:
+				def __init__(self, value):
+					self.value = value
+				def __repr__(self):
+					return str(self.value)
+					
+			a = A(10)
+			d = weakref.WeakValueDictionary()
+			d['primary'] = a # does not create a reference
+			d['primary']
+			del a # remove the one reference
+			gc.collect() # run garbage collection right away
+			d['primary'] # entry was automatically removed
+			
+
 ### Tools for Working with Lists ###
+1. `array` module has `array()` object:
+	1. It is like a list that stores only homogeneous data and compactly
+	2. Example: Storing array of numbers as two byte unsigned binary numbers (typecode: "H") (Instead of 16 bytes per entry in list)
+	
+			for array import array
+			a = array('H', [4000, 10, 700, 22222])
+			sum(a)
+			a[1:3]
+			
+2. `collections`: module
+	1. Provides `deque` object which is like list with faster appends and pops at left side but slower lookup in the middle
+		1. Uses: Queues, breadth first searches
+		
+				from collections import deque
+				d = deque(['task1', 'task2', 'task3'])
+				d.append('task4')
+				print('Handling', d.popleft())
+				
+				unsearched = deque([starting_node])
+				def breadth_first_search(unsearched):
+					node = unsearched.popleft()
+					for m in gen_moves(node):
+						if is_goal(m):
+							return m
+						unsearched.append(m)
+						
+3. `bisect`: module
+	1. offers functions for manipulating sorted lists
+	
+			import bisect
+			scores = [(100, 'perl'), (200, 'tcl'), (400, 'lua'), (500, 'python')]
+			bisect.insort(scores, (300, 'ruby'))
+			print(scores)
+			
+4. `heapq`: module
+	1. has functions to implement heaps (based on lists)
+		1. lowest value is always kept at position zero (good for apps which repeatedly access smallest lement but do not want to run full list sort)
+		
+				from heapq import heapify, heappop, heappush
+				data = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
+				heapify(data)
+				heappush(data, -5)
+				[heappop(data) for i in range(3)]
+
 ### Decimal Floating Point Arithmetic ###
+1. `decimal`: module:
+	1. Has `Decimal` datatype used for decimal floating point arithmetic
+	2. Useful for:
+		1. financial apps which require exact decimal representation
+		2. Control over precision
+		3. Control over rounding to meet legal or regulatory requirements
+		4. Tracking of significant decimal places
+		5. apps where user expects results to match calculations done by hand
+	3. Example:
+	
+			from decimal import *
+			round(Decimal('0.70') * Decimal('1.05'), 2)
+			round(.70 * 1.05, 2)
+		
+		1. `Decimal` keeps trailing 0: four place significance from two place significance of multiplicands
+			1. It reproduces mathematics as done by hand
+		2. Module calculations:
+		
+				Decimal('1.00') % Decimal('.10') # Decimal('0.00')
+				1.00 % 0.10 # 0.099999999...5
+				
+				sum([Decimal('0.1')]*10) == Decimal('1.0') # True
+				sum([0.1]*10) == 1.0 # False
+				
+		3. As much precision as we need
+		
+				getcontext().prec = 36
+				Decimal(1) / Decimal(7)
+				
 
 ## Virtual Environments and Packages ##
 ### Introduction ###
+1. Applications may need a specific version of a library (obsolete version, bug fixed version)
+2. If app A needs version 1.0 of a module but app B needs version 2.0.
+3. Solution: Virtual environment
+	1. Self contained directory tree that contains Python installation of a particular version + additional packages
+
 ### Creation of Virtual Environments ###
+1. `venv`: module used for creation and management of virtual environments
+2. Directory where we want to place it:
+
+		python3 -m venv tutorial-env
+		
+	1. `tutorial-env` directory gets created if it does not exist
+		1. Subdirectories containing copy of python interpreter, standard library, supporting files get created
+		
+3. Activate the virtual environment:
+
+		source tutorial-env/bin/activate
+		
+4. Activating an environment will display the envrionment in command prompt
+
+		source ~/envs/tutorial-env/bin/activate
+		python3
+		import sys
+		sys.path
+
 ### Managing Packages with pip ###
+1. `pip`: It is used to install, upgrade and remove packages (package manager)
+	1. Installs packages from Python package index [https://pypi.python.org/pypi](https://pypi.python.org/pypi)
+		1. Visit it in web browser for packages
+	2. Search package using `pip`:
+	
+			pip search astronomy
+			
+	2. Sub-commands: [Installing Python Modules](https://docs.python.org/3/installing/index.html#installing-index)
+		1. `install`
+		2. `uninstall`
+		3. `search`
+		4. `freeze`
+		5. ...
+	3. Installing latest version of a package:
+	
+			pip install novas
+			
+	4. Installing specific version of a package: (`<package-name>==<version>`)
+	
+			pip install requests==2.6.0
+			
+	5. Upgrade a package to the latest version:
+	
+			pip install --upgrade requests
+			
+	6. Un-installing a package:
+	
+			pip uninstall <package-name> [<package-name> ...]
+			
+	7. Display information about particular package:
+	
+			pip show requests
+			
+	8. Display list of packages installed in virtual environment:
+	
+			pip list
+			
+	9. Get list of packages installed in a format expected by `pip install`
+	
+			pip freeze > requirements.txt
+			cat requirements.txt
+			
+		1. `requirements.txt` can be committed to version control and shipped with the application
+		2. Users can install all required packages using the following:
+		
+				pip install -r requirements.txt
+				
+2. To make package written avialable on Python Package index: [Distributing Python Modules](https://docs.python.org/3/distributing/index.html#distributing-index)
 
 ## What Now? ##
-
+1. [The Python Standard Library](https://docs.python.org/3/library/index.html#library-index)
+	1. Complete reference material about types, functions, modules in standard library
+		1. Modules for: reading Unix mailboxes, retrieve documents via HTTP, generante random numbers, parse command-line options, write CGI programs, compress data, ...
+2. [Installing Python Modules](https://docs.python.org/3/installing/index.html#installing-index)
+	1. How to install additional modules written by other Python users
+3. [The Python Language Reference](https://docs.python.org/3/reference/index.html#reference-index)
+	1. Detailed explanation of Python's syntax, semantics
+4. More Python resources:
+	1. [https://www.python.org](https://www.python.org)
+		1. Python website
+		2. Contents: Code, documentation, pointers to Python-related pages in web
+	2. [https://docs.python.org](https://docs.python.org/): Fast access to Python's documentation
+	3. [https://pypi.python.org/pypi](https://pypi.python.org/pypi)
+		1. Python package index
+			1. Index of user constructed Python modules
+			2. We can register our code here (for others)
+	4. [https://code.activestate.com/recipes/langs/python/](https://code.activestate.com/recipes/langs/python/)
+		1. Python cookbook: collection of 
+			1. code examples
+			2. larger modules
+			3. useful scripts
+		2. Also a book form exists
+	5. [http://www.pyvideo.org](http://www.pyvideo.org)
+		1. Links to Python related videos from conferences and user-group meetings
+	6. [https://scipy.org](https://scipy.org)
+		1. Scientific Python project
+			1. Modules for fast array computations and manipulations
+			2. Packages for 
+				1. linear algebra
+				2. Fourier transforms
+				3. non-linear solvers
+				4. random number distributions
+				5. statistical analysis
+				6. ...
+	7. Mailing lists: [python-list@python.org](python-list@python.org)
+		1. Archives: [https://mail.python.org/pipermail/](https://mail.python.org/pipermail/)
+	8. [Frequency Asked Questions](https://docs.python.org/3/faq/index.html#faq-index)
+			
 ## Interactive Input Editing and History Substitution ##
+1. [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html): Supports different styles and editing
+	1. A few Python interpreters support editing of current input line (?) and history substitution (?)
+
 ### Tab Completion and History Editing ###
+1. variable and module name completion is enabled at interpreter startup (`tab` can be used)
+	1. for dotted expressions: `string.a` - evalues upto final `.` and suggests completion from attributes of the object (evaluated)
+	2. executes code if `__getattr__()` method is part of the expression
+2. History is saved in file `.python_history` in user directory (available in next interactive session)
+
 ### Alternatives to the Interactive Interpreter ###
+1. Proper indentation should be suggested on continuation lines
+2. Completion mechanism can use interpreter's symbol table
+3. Check and suggest matching parantheses, quotes, ...
+4. Alternative: `IPython`:
+	1. Has tab comletion
+	2. Object exploration
+	3. Advanced history management
+	4. Can be embedded into other apps
+5. Alternative: `bpython`
 
 ## Floating Point Arithmetic: Issues and Limitations ##
 ### Representation Error ###
@@ -2370,6 +2775,55 @@
 ## Appendix ##
 ### Interactive Mode ###
 #### Error Handling ####
+1. If error occurs,
+	1. Interpreter prints error message and stack trace
+	2. If input is from a file, it prints stack trace and exits with nonzero exit status
+	3. If fatal (internal inconsistencies, memory has run out): exits with nonzero exit status
+2. All error messages are written to standard error stream
+3. When command is executing, `ctr+c` raises `KeyboardInterrupt` exception (can be handled by `try`)
+
 #### Executable Python Scripts ####
+1. To make a script executable:
+
+		#!/usr/bin/env python3.5
+		
+	1. `#!` must be first two characters of the file
+2. Script can be made executable as follows:
+
+		chmod +x myscript.py
+		
+	1. Windows: Python installer automatically associates `.py` file to `python.exe`
+		1. If `.pyw` console window is suppressed
+
 #### The Interactive Startup File ####
+1. `PYTHONSTARTUP`: environment variable that holds the name of file with start-up commands
+	1. Executed when interpreter is started
+	2. Works only in interactive sessions (not when script is executed)
+	3. Executed in the namespace of the interactive commands
+2. For running additional startup files:
+	1. Add the following to global startup file
+	
+			os.path.isfile('.pythonrc.py'): exec(open('.pythonrc.py').read())
+			
+3. To use startup file in a script:
+
+		import os
+		filename = os.environ.get('PYTHONSTARTUP')
+		if filename and os.path.isfile(filename):
+			with open(filename) as fobj:
+				startup_file = fobj.read()
+			exec(startup_file)
+
 #### The Customization Modules ####
+1. Hooks for customization:
+	1. `sitecustomize`
+	2. `usercustomize`
+2. First find user site-packages directory.
+
+		import site
+		site.getusersitepackages()
+		
+3. Construct a file `usercustomize.py` in the directory (put whatever you want in it)
+	1. affects every python invocation (can be suppressed with `-s`)
+4. `sitecustomize`: works similar to `usercustomize` but is constructed by administrator of the computer in global site-packages directory (gets imported before `usercustomize`)
+	1. [site](https://docs.python.org/3/library/site.html#module-site): module
