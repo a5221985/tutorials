@@ -2770,8 +2770,151 @@
 5. Alternative: `bpython`
 
 ## Floating Point Arithmetic: Issues and Limitations ##
-### Representation Error ###
+1. Represented as base 2 (binary) fractions
+2. Certain decimal fractions cannot be represented exactly as binary fractions
+	1. decimal floating-point numbers are approximated by binary floating-point numbers
+		1. Example: 1/3 ~ 0.3 (approximation) ~ 0.33 (better approximation) ...
+			1. Value can never be 1/3 but increasingly closer
+		2. Exmaple: 1/10 = 0.1 cannot be represented exactly as base 2 fraction
+			
+				0.0001100110011... (infinitely repeating)
 
+3. Approximation of floats on modern machines:
+	1. numerator using first 53 bits and denominator is a power of 2
+	
+		3602879701896397 / 2 ** 55 ~ 1/ 10
+		
+4. Python prints only decimal approximation to true decimal value of binary approximation (stored)
+	1. Python should display the following:
+	
+			>>> 0.1
+			0.1000000...05551115123...25 (which is the actual value stored in binary form)
+
+	2. But python displays rounded value (0.1)
+5. Multiple values share the same binary approximation:
+	1. 0.1 & 0.10000000000000001 share 3602879701896397 / 2 ** 55
+6. Before, Python prompt and `repr()` would choose that with 17 digits 0.10000000000000001 but now, it chooses the shortest one
+7. Solution: Use string formatting to display limitted number of significant digits
+
+		format(math.pi, '.12g') # 12 significant digits
+		format(math.pi, '.2f') # 2 digits after the point
+		repr(math.pi)
+		
+	1. The functions only round the true machine value
+8. Since 0.1 is not exactly 1/10, summing three values of 0.1 may not yield 0.3
+9. solution: Pre-rounding does not help
+
+		round(.1, 1) + round(.1, 1) + round(.1, 1) == round(.3, 1)
+		False
+		
+	1. Post-rounding helps
+	
+			round(.1 + .1 + .1, 10) == round(.3, 10)
+			True
+
+10. [The Perils of Floating Point](http://www.lahey.com/float.htm): More issues with floating point numbers
+11. `str()` may suffice but for more finer control look into `str.format()` method's flormat specifiers [Format String Syntax](https://docs.python.org/3/library/string.html#formatstrings)
+12. For exact decimal representation, try using `decimal` module
+13. Exact arithmetic is also supported by `fractions` module (1/3 can be represented exactly)
+14. For heavy floating point operations, use numerical python packages like SciPy
+15. To know the exact value of float:
+
+		float.as_integer_ratio()
+		
+	1. It can be used to reconstruct the original value losslessly
+	
+			x = 3.14159
+			x.as_integer_ratio()
+			(3537115888337719 / 1125899906842624)
+	
+			x == 3537115888337719 / 1125899906842624
+			True
+			
+16. Getting hex values of floating point numbers stored in the computer:
+
+		x.hex()
+		
+	1. It can be used to reconstruct float value exactly:
+	
+			x == float.fromhex('0x1.921f9f01b866ep+1')
+			
+		1. Can be used to port to different versions of python and to other languages that use the same format
+17. `math.fsum()`: mitigates loss of precision during summation (tracks lost digits as values are added to total so that errors do not accumulate to affect the total)
+
+		sum([0.1]*10) == 1.0
+		False
+		
+		math.fsum([0.1] * 10) == 1.0
+		True
+
+### Representation Error ###
+1. Refers to the fact that some decimal fractions cannot be represented accurately as binary fractions.
+2. Why? 1/10 cannot be exactly represented as binary fraction
+	1. Computer tries to convert 0.1 to closest fraction of the form `J/2**N` where `J` is integer containing exactly 53 bits
+	2. Rewriting `J`:
+	
+			1 / 10 ~= J / (2 ** N)
+
+			J ~= 2 ** N / 10
+			
+	3. Since `J` has exactly 53 bits, (it is `>= 2**52` but `< 2**53), the best value of `N` is 56
+	
+			2**52 <= 2**56 // 10 < 2**53
+			True
+			
+	4. 56 is the only value of `N` that leaves `J` with 53 bits. The best possible value of `J` is rounded quotient
+	
+			q, r = divmod(2**56, 10)
+			r # 6
+			
+	5. Since `r` is > 1/2 of 10, we can round `J` to the next value
+	
+			q + 1
+			7205759403792794
+			
+	6. The best possible approximation of `1/10` in double precision is:
+	
+			7205759403792794 / 2 ** 56
+			
+	7. dividing numerator and denominator by 2 gives the following:
+	
+			3602879701896397 / 2 ** 55
+			
+		1. It is little bit larger than `1/10` (due to rounding)
+		2. If we do not round it up it is < `1/10`
+		
+	8. Computer sees only the fraction given above but never the value of `1/10`
+	
+			0.1 * 2 ** 55
+			
+	9. We can get the value upto 55 decimal digits by multiplying the fraction by 10**55
+	
+			3602879701896397 * 10 ** 55 // 2 ** 55
+			1000000000000000055511151231257827021181583404541015625
+			
+		1. Actual number stored in the computer
+	10. Languages usually display upto 17 significant digits
+	
+			format(0.1, '.17f')
+			0.10000000000000001
+			
+3. `fractions` and `decimal` modules: they make the above calculations easy
+
+		from decimal import Decimal
+		from fractions import Fraction
+		
+		Fraction.from_float(0.1)
+		Fraction(3602879701896397, 36028797018963968) # 36028797018963968 = 2 ** 55
+		
+		(0.1).as_integer_ratio()
+		(3602879701896397, 36028797018963968)
+		
+		Decimal.from_float(0.1)
+		Decimal('0.1000000000000000055511151231257827021181583404541015625')
+		
+		format(Decimal.from_float(0.1), '.17')
+		'0.10000000000000001'
+	
 ## Appendix ##
 ### Interactive Mode ###
 #### Error Handling ####
