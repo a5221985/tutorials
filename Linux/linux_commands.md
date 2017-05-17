@@ -109,7 +109,7 @@
 3. `date` **(M)**
 4. `ifconfig` **(M)**
 5. `ifdown eth0` **(M)** 
-6. `ifup etho0`
+6. `ifup eth0`
 
 #### Setting hostname ####
 1. `hostname <name>` **(M)**
@@ -312,8 +312,9 @@
 	1. `!<command-characters>:s/<string1>/<string2>/`
 
 ## File Globbing ##
-1. `[!<character(s)]`: excludes characters
+1. `[!<character(s)>]`: excludes characters
 2. `echo *` **(M)**: lists all files in current directory
+3. `File?`: ? is matched exactly with one character 
 
 ## I/O Redirection ##
 1. Streams: stdin, stdout, stderr
