@@ -1210,37 +1210,506 @@
 1. JDK's general-purpose collection implementations and teaches when to use which collection
 2. Wrapper implementations: add functionality to general purpose implementations
 #### Implementations ####
+1. Implementations: data objects used to store collections which implement interfaces.
+2. Kinds of implementations:
+	1. **General-purpose implementations**: most commonly used implementations for everyday use.
+	2. **Special-purpose implementations**: for special situations.
+		1. Display nonstandard performance characteristics
+		2. Display nonstandard usage restrictions
+		3. Display nonstandard behavior
+	3. **Concurrent implementations**: Designed for high concurrency (at the expense of single-threaded performance. They are in `java.util.concurrent`)
+	4. **Wrapper implementations**: Are used in combination with other implementations (general purpose ones usually) for added or restricted functionality
+	5. **Convenience implementations**: min-implementations, usually available through static factory methods (efficient alternatives to general-purpose implementations for special collections (singleton sets))
+	6. **Abstract implementations**: skeletal implementations that facilitate construction of custom implementations. Few people need this
+3. General purpose implementations:
+	1. Interface: `Set`
+		1. `HashSet`, `TreeSet`, `LinkedHashSet` (Hash table + Linked list)
+	2. Interface: `List`
+		1. `ArrayList`, `LinkedList`
+	3. Interface: `Queue`
+		1. None
+	4. Interface: `Deque`
+		1. `ArrayDeque`, `LinkedList`
+	5. Interface: `Map`
+		1. `HashMap`, `TreeMap`, `LinkedHashMap` (Hash table + Linked list)
+4. `HashSet`, `ArrayList`, `HashMap`: used by most applications
+5. No `SortedSet` and `SortedMap` general purpose implementations (`TreeSet`, `TreeMap` respectively)
+6. `Queue` has `LinkedList`
+7. General purpose implementations 
+	1. permit `null` as keys and values
+	2. Not thread safe
+	3. Have fail-fast iterations (detect illegal concurrent modifications during iteration and fail quickly and cleanly rather than at an undeterministic behavior at undetermined time)
+	4. `Serializable`
+	5. Support public `clone`
+8. Why not synchronized?
+	1. Used when synchronization is of no benefit (single threaded use, read only use, used as part of larger data object that itself is synchronized)
+		1. May result in deadlock if synchronized
+9. For thread-safe collections, use synchronization wrappers to transform into synchronized collection.
+10. `BlockingQueue`: concurrent implementation which extends `Queue`
+11. `ConcurrentMap`: concurrent implementation which extends `Map`
+12. Implementations:
+	1. Choice affects performance
+	2. Style: Assign a new collection to variable of corresponding interface type (pass collection to a method expecting an argument of interface type)
+		1. Program becomes independent of added methods in an implementation
+
 ##### Set Implementations #####
+1. There are general-purpose and special-purpose implementations
+
+###### General-Purpose Set Implementations ######
+1. `HashSet`, `TreeSet`, `LinkedHashSet`
+	1. `HashSet`: much faster than `TreeSet` (contant time vs log time for most operations)
+		1. No ordering guarantees
+		2. Iteration is linear with sum of number of entries and number of buckets (?) (capacity) (do not choose too high initial capacity which wastes space and time) (do not choose too low capacity which wastes time copying the entire data structure each time it's forced to increase its capacity)
+			1. Default capacity: 16
+			2. Specifying capacity: `Set<String> s = new HashSet<String>(64);`
+			3. LoadFactor: pick a number so that the size becomes twice
+	2. `TreeSet`: has operations of `SortedSet` interface
+		1. It has no tuning parameters
+	3. `LinkedHashSet`: Implemented as hash table with linked list running through it
+		1. provides insertion ordering iteration (least recently inserted to most recently inserted)
+		2. Nearly as fast as `HashSet`
+		3. Intermediate between `HashSet` and `TreeSet`
+		4. Iteration time: Not affected by capacity
+
+###### Special-Purpose Set Implementations ######
+1. Two implementations:
+	1. `EnumSet`: high performance implementation for enum types (all entries must be enum)
+		1. Internal representation: Bit vector of type single `long`
+		2. Supports iteration over range of enum types
+			1. Static factor method exists
+
+					for (Day d: EnumSet.range(Day.MONDAY, Day.FRIDAY))
+						System.out.println(d);
+	
+		3. Provides typesafe replacement for bit flags
+
+				EnumSet.of(Style.BOLD, Style.ITALIC)		
+	2. `CopyOnWriteArraySet`: Set implementation backed by copy-on-write-array
+		1. copy-on-write-array: Mutative operations (`add`, `set`, `remove`) makes a new copy of the array (concurrent operations are supported safely)
+		2. `add`, `remove`, `contains` require time proportional to size of set
+		3. Uses: For sets that are frequently iterated but rarely modified
+			1. Event handler lists that must prevent duplicates
+
 ##### List Implementations #####
+1. There are general-purpose and special-purpose implementations
+
+###### General-Purpose List Implementations ######
+1. Two implementations: `ArrayList`, `LinkedList`
+	1. `ArrayList`: Used mostly
+		1. Access time: constant positional access time (No allocation of node object in the `List`)
+		2. Uses `System.arraycopy` to move multiple items at once
+		3. `Vector` without synchronization overhead
+		4. adding elements to beginning, iterate over elements to delete from interior (Linear time)
+		5. Tuning parameter: initial capacity (number of elements it can hold before it grows)
+	2. `LinkedList`: For adding elements to beginning, iterate over elements to delete from interior (Constant time)
+		1. Access time:  positional access time is linear
+		2. No tuning parameters
+		4. Optional operations: `clone`, `addFirst`, `getFirst`, `removeFirst`, `addLast`, `getLast`, `removeLast` (`Queue` interface is implemented)
+
+###### Special-Purpose List Implementations ######
+1. `CopyOnWriteArrayList`: `List` implementation backed by copy-on-write array.
+	1. Synchronization is not necessary (iterators never throw `ConcurrentModificationException`)
+	2. Uses: for event-handler lists (change is infrequent, traversal is frequent)
+2. `Vector` is faster than `ArrayList` synchronized with `Collections.synchronizedList`
+	1. `Vector` has legacy operations so manipuate it with `List` interface (otherwise not easy to change it later)
+3. `Arrays.asList`: Good for fixed size `List`
+
 ##### Map Implementations #####
+1. There are general-purpose, special-purpose and concurrent implementations
+
+###### General-Purpose Map Implementations ######
+1. Three implementations: `HashMap`, `TreeMap`, `LinkedHashMap`
+	1. `HashMap`: For maximum speed and no ordering
+	2. `TreeMap`: has `SortedMap` operations
+		1. For key-ordered `Collection`-view iteration
+	3. `LinkedHashMap`: Near `HashMap` performance and insertion order iteration
+		1. Two capabilities in addition to `LinkedHashSet`
+			1. We can order it based on key access instead of insertion order (looking up a key brings the key to the end of the map)
+			2. `removeEldestEntry`: method. It can be overridden to remove stale mappings automatically when new mappings are added
+				1. Use: Custom cache
+				2. Example:
+
+						private static final int MAX_ENTRIES = 100;
+
+						protected boolean removeEldestEntry(Map.Entry eldest) {
+							return size() > MAX_ENTRIES;
+						}
+
+###### Special-Purpose Map Implementations ######
+1. `EnumMap`: implemented as an array (high performance implementation for enum keys)
+	1. Speed approaches that of array
+	2. Use for mapping enum to value
+2. `WeakHashMap`: stores only weak references to its keys. Garbage collector removes the key when the only reference to the key is in `WeakHashMap` and not referenced anywhere outside
+	1. Use: To implement registry-like data structures (utility of a key vanishes when its key is no longer reachable by any thread)
+3. `IdentityHashMap`: It is an identity-based `Map`. It is based on a hash table.
+	1. Used for topology-preserving object graph transformations (serialization, deep copying)
+		1. Can keep track of objects already seen
+	2. Used for object to meta-information mapping in dynamic debuggers
+	3. Used for thwarting spoof attacks (intentionally perverse `equals` method)
+		1. It does not use `equals` on keys
+	4. It is fast
+
+###### Concurrent Map Implementations ######
+1. `java.util.concurrent` contains `ConcurrentMap` interface
+	1. extends `Map` with atomic operations:
+		1. `putIfAbsent`
+		2. `remove`
+		3. `replace`
+	2. `ConcurrentHashMap`: Implementation of `ConcurrentMap`
+		1. hightly concurrent
+		2. High performance implementation backed by hash table
+		3. Does not block for retrievals
+		4. Client can select concurrency level for updates
+		5. Replacement for `Hashtable` and supports `Hashtable` operations
+			1. If legacy operations are not to be used, used `ConcurrentMap` interface for manipulations
+
 ##### Queue Implementations #####
+1. There are general-purpose and concurrent implementations
+
+###### General-Purpose Queue Implementations ######
+1. `LinkedList` implements `Queue`
+	1. Provides FIFO operations like `add`, `poll` ...
+2. `PriorityQueue`: based on heap data structure
+	1. elements are ordered according to ordering specified at construction time (natural ordering or imposed by `Comparator`)
+	2. Implements optional methods of `Collection` and `Iterator`
+		1. `Iterator` returned does not guarantee traversal in a particular order
+			1. Use `Arrays.sort(pq.toArray())`
+3. `poll`, `peek`, `remove`, `element` access the element at the head of the queue.
+	1. If multiple elements are tied for head, one of the elements is head (ties broken arbitrarily)
+
+###### Concurrent Queue Implementations ######
+1. `java.util.concurrent` contains synchronized `Queue` interfaces and classes.
+2. `BlockingQueue`: extends `Queue`
+	1. Operations:
+		1. wait for queue to become non-empty during retrieval
+		2. wait for queue to have space during storage
+	2. Implementations:
+		1. `LinkedBlockingQueue`: (optionally bounded) FIFO blocking queue backed by linked nodes.
+		2. `ArrayBlockingQueue`: (bounded) FIFO blocking queue backed by array
+		3. `PriorityBlockingQueue`: unbounded blocking priority queue backed by heap
+		4. `DelayQueue`: time-based scheduling queue backed by heap
+		5. `SynchronousQueue`: simple rendezvous mechanism that implements `BlockingQueue`
+			1. rendezvous call takes a `tag` and `value`
+			2. Procedure:
+				1. Calling rendezvous causes process to sleep
+				2. When second rendezvous call with same tag occurs, values are excahanged and both processes are awakened
+	3. `TransferQueue`: specialized `BlockingQueue` in JDK 7
+		1. code that adds element to queue has the option of waiting for another code in another thread to retrieve the element
+		2. Implementation:
+			1. `LinkedTransferQueue`: unbounded `TransferQueue` based on linked nodes
+
 ##### Deque Implementations #####
+1. There are general-purpose and concurrent implementations
+
+###### General-Purpose Deque Implementations ######
+1. `LinkedList`:
+	1. List implementation of `Deque` interface
+	2. More flexible than `ArrayDeque` (implements all optional list operations, `null` elements are allowed)
+	3. More efficient than `ArrayDeque` for removing current element during iteration
+	4. Consumes more memory than `ArrayDeque`
+2. `ArrayDeque`:
+	1. Resizable array implementation of `Deque` interface
+	2. `null` elements are not allowed
+	3. More efficient than `LinkedList` for add and remove operations at both ends
+	4. Traversal:
+		1. **foreach**
+
+				ArrayDeque<String> aDeque = new ArrayDeque<String>();
+				...
+				for (String str: aDeque) {
+					System.out.println(str)
+				}
+
+		2. **iterator**: Used for forward traversal for all kinds of lists
+
+				ArrayDeque<String> aDeque = new ArrayDeque<String>();
+				...
+				for (Iterator<String> iter = aDeque.iterator(); iter.hasNext();) {
+					System.out.println(iter.next());
+				}
+
+3. Support insertion, removal and retrieval at both ends.
+	1. `addFirst`: adds element at head
+	2. `addLast`: adds element at tail
+	3. `removeFirst`
+	4. `removeLast`
+	5. `getFirst`
+	6. `getLast`
+4. Both `LinkedList` and `ArrayDeque` do not support concurrent access by multiple threads.
+
+###### Concurrent Deque Implementations ######
+1. `LinkedBlockingDeque`: concurrent implementation of `Deque`.
+	1. `takeFirst` and `takeLast` wait when deque is empty until element becomes available. When the element becomes available, it retrieves and removes the element
+
 ##### Wrapper Implementations #####
-##### Convenience #####
-###### Implementations ######
-##### Summary of #####
-###### Implementations ######
-##### Questions and Exercises #####
+1. Delegates work to specified collection but adds extra functionality on top of that which the collection has.
+	1. Based on decorator pattern
+2. They are built using static factory method in `Collections` class
+
+###### Synchronization Wrappers ######
+1. They add synchronization (thread-safety) to arbitrary collection.
+2. Each of `Collection`, `Set`, `List`, `Map`, `SortedSet` and `SortedMap` have static factory method
+
+		public static <T> Collection<T> synchronizedCollection(Collection<T> c);
+		public static <T> Set<T> synchronizedSet(Set<T> s);
+		public static <T> List<T> synchronizedList(List<T> s);
+		public static <K, V> Map<K, V> synchronizedMap(Map<K, V> m);
+		public static <T> SortedSet<T> synchronizedSortedSet(SortedSet<T> s);
+		public static <K, V> SortedMap<K, V> synchronizedSortedMap(SortedMap<K, V> m);
+	
+3. Methods return synchronized `Collection`.
+4. All access should be through returned collection.
+
+		List<Type> list = Collections.synchronizedList<Type>(new ArrayList<Type>());
+
+	1. It is as safe as `Vector`
+5. Manual synchronization is required when iterating over the collection (reason: multiple calls are used into collection each iteration)
+
+		Collection<Type> c = Collections.synchronizedCollection(myCollection);
+		synchronized(c) {
+			for (Type e: c)
+				foo(e);
+		}
+
+6. When using `iterator`, it must be called from within `synchronized` block.
+	1. Similar for `Collection` view of synchronized `Map` (synchronize on `Map` rather than on `Collection` view)
+
+			Map<KeyType, ValType> m = Collections.synchronizedMap(new HashMap<KeyType, ValType>());
+			...
+			Set<KeyType> s = m.keySet();
+			...
+			// Synchronizing on m, not s!
+			synchronized(m) {
+				while (KeyType k : s)
+					foo(k);
+			}
+
+7. Downside: cannot call noninterface operations of wrapped implementation
+	1. `ArrayList`'s `ensureCapacity` cannot be called on wrapped `ArrayList`
+
+###### Unmodifiable Wrappers ######
+1. They take away the ability to modify the collection by intercepting modification operations by throwing `UnsupportedOperationException`
+2. Two main uses:
+	1. Makes a `Collection` immutable after it has been built: (Do not maintain reference to backing collection)
+	2. Give read only access to certain clients to the data structures.
+		1. Only a reference to wrapper is hander over
+3. A static factory method exists for each of the `Collection`s
+
+		public static <T> Collection<T> unmodifiableCollection(Collection<? extends T> c);
+		public static <T> Set<T> unmodifiableSet(Set<? extends T> s);
+		public static <T> List<T> unmodifiableList(List<? extends T> l);
+		public static <K, V> Map<K, V> unmodifiableMap(Map<? extends K, ? extends V> m);
+		public static <T> SortedSet<T> unmodifiableSortedSet(SortedSet<? extends T> s);
+		public static <K, V> SortedMap<K, V> unmodifiableSortedMap(SortedMap<? extends K, ? extends V> m);
+
+###### Checked Interface Wrappers ######
+1. `Collections.checked`: interface wrappers.
+	1. Used with generic collections
+	2. They return dynamically type-safe view of collection (throws `ClassCastException` if client attempts to add an element of the wrong type)
+		1. This is a mechanism that is against operations that defeat compile-time type-checking.
+
+##### Convenience Implementations #####
+1. Mini-implementations: more convenient and more efficient than general-purpose implementations
+2. Available through static factory methods
+
+###### List View of an Array ######
+1. `Arrays.asList`: Returns `List` view of array argument.
+	1. Changes to `List` affect array and vice-versa
+	2. Size cannot be changed (it is same as that of array)
+	3. `add`, `remove` throw `UnsupportedOperationException`
+2. Uses: it is a bridge between array based and collection based API
+	1. We can pass array to a method expecting `Collection` or `List`
+	2. Getting a fixed size `List` more efficiently
+
+			List<String> list = Arrays.asList(new String[size]);
+
+###### Immutable Multiple-Copy List ######
+1. `Collections.nCopies` **(M)**: returns immutable `List` with multiple copies of same element.
+	1. Use: Initialization
+
+			List<Type> list = new ArrayList<Type>(Collections.nCopies(1000, (Type)null));
+
+	2. Use: Grow an existing `List`
+	
+			lovablePets.addAll(Collections.nCopies(69, "fruit bat"));
+
+		1. We can use index to add new elements to the middle of the `List`
+
+###### Immutable Singleton Set ######
+1. `Collections.singleton`: Returns immutable singleton `Set` which consists of single element.
+	1. Use: To remove all occurrences of a specified element from a `Collection`
+
+			c.removeAll(Collections.singleton(e));
+
+	2. Use: Remove elements with specified value from a `Map`
+
+			job.values().removeAll(Collections.singleton(LAWYER));
+
+	3. Use: Provide single input value to a method that accepts a collection of values.
+
+###### Empty Set, List, and Map Constants ######
+1. `Collections.emptySet`: returns an empty `Set`
+2. `Collections.emptyList`: returns an empty `List`
+3. `Collections.emptyMap`: returns an empty `Map`
+4. Use:
+	1. Input to methods that take `Collection` of values that is required but we don't want to provide any values.
+
+			tourist.declarePurchases(Collections.emptySet());
+
+##### Summary of Implementations #####
+1. Implementations: data objects used to store collections (they implement the interfaces)
+2. General purpose implementations:
+	1. `HashSet` for `Set`
+	2. `ArrayList` for `List`
+	3. `HashMap` for `Map`
+	4. `LinkedList` for `Queue`
+	5. `ArrayDeque` for `Deque`
+3. General implementations provide all optional operations contained in its interface
+4. There are special purpose implementations:
+	1. Non-standard
+	2. Performance
+	3. Usage restrictions
+	4. Unusual behavior
+5. `java.util.concurrent` contains thread safe collections implementations (not governed by single exclusion lock)
+6. `Collections`: has static methods that operate on or return collections (Wrapper implementations)
+7. Convenience implementations may be more efficient than general-purpose implementations when limited power is needed.
+	1. Available through static factory methods
 
 ### Algorithms ###
 #### Overview ####
 1. Polymorphic algorithms provided by JDK to operate on collections
 #### Algorithms ####
+1. They are reusable
+2. The methods are static and are in `Collections` class
+	1. First argument: collection on which operation must be performed
+		1. `List` or other `Collection` instances
+3. Algorithms:
+	1. Sorting
+	2. Shuffling
+	3. Routine Data Manipulation
+	4. Searching
+	5. Composition
+	6. Finding Extreme Values
+
 ##### Sorting #####
+1. It reorders `List` from ascending to descending order according to ordering relationship.
+2. There are two forms:
+	1. Takes `List` and sorts it according to element's natural ordering
+3. Algorithm: slightly optimized merge sort
+	1. Fast: guaranteed to run in `nlog(n)` time
+		1. Runs faster on nearly sorted lists.
+		2. Runs as fast as highly optimized quicksort (faster but is not stable and does not guarantee `nlog(n) performance`)
+	2. Stable: Does not re-order equal elements. (Important if the list is sorted multiple times on different attributes)
+4. Example:
+
+		import java.util.*;
+
+		public class Sort {
+			public static void main(String[] args) {
+				List<String> list = Arrays.asList(args);
+				Collections.sort(list);
+				System.out.println(list);
+			}
+		}
+
+		java Sort I walk the line
+
+5. Example: Using `Comparator` to print anagrams in reverse order of size
+
+		// Make a List of all anagram groups above size threshold.
+		List<List<String>> winners = new ArraysList<List<String>>();
+		for (List<String> l : m.values())
+			if (l.size() >= minGroupSize)
+				winners.add(l);
+
+		// Sort anagram groups according to size
+		Collections.sort(winners, new Comparator<List<String>>() {
+			public int compare(List<String> o1, List<String> o2) {
+				return o2.size() - o1.size();
+			}
+		});
+
+		// Print anagram groups.
+		for (List<String> l : winners)
+			System.out.println(l.size() + ": " + l);
+
 ##### Shuffling #####
+1. It reorders `List` based on input from a source of randomness (permutations occur with equal likelihood)
+	1. Applications: Shuffle `List` of `Card` objects representing a deck.
+		1. Generating test cases
+2. Two forms:
+	1. First one: Takes a `List` and uses default source of randomness
+	2. Second one: Takes a second `Random` object which is used as the source of randomness.
+
 ##### Routine Data Manipulation #####
+1. 5 Algorithms:
+	1. `reverse`: reverses the order of elements in a `List`
+	2. `fill`: overwrites every element in a `List` with specified value (good for reinitializing a list)
+	3. `copy`: Takes 2 arguments (destination `List` and source `List`)
+		1. Copies elements in source to the destination
+		2. Destination list must be atleast as long as the source (remaining elements remain un affected)
+	4. `swap`: swaps elements at specified postions in a `List`
+	5. `addAll`: adds all the specified elements to a `Collection`.
+		1. Specify the elements individually or as an array
+
+##### Searching #####
+1. `binarySearch` searches for a specified element in a sorted `List`.
+	1. Two forms:
+		1. Takes a `List` and an element to search for (search key).
+			1. Assumes that `List` is sorted in ascending order according to natural ordering.
+		2. Takes a `List`, an element to search for and a `Comparator` (algorithm assumes that the `List` is sorted in ascending order according to the `Comparator`)
+	2. Return values:
+		1. index of search key is returned if found
+		2. `(-(insertion point) - 1)` is returned if not found
+			1. `insertion point`: point at which value could be inserted into the `List` or index of first element greater than `list.size()` if all elements are less than the search key.
+2. Example: Look for specified search key and insert it if not found
+
+		int pos = Collections.binarySearch(list, key);
+		if (pos < 0)
+			list.add(-pos - 1, key);
+
 ##### Composition #####
+1. `frequency` **(M)**: counts number of times a specified element occurs in a specified `Collection`
+2. `disjoint` **(M)**: Determines whether two `Collection`s are disjoint (no elements in common)
+
 ##### Finding Extreme Values #####
+1. `min`, `max` return minimum and maximum element contained in a `Collection`
+	1. Two forms:
+		1. Simple form: Takes `Collection` and returns minimum or maximum according to natural ordering
+		2. Second form: Takes `Comparator` also and returns minimum or maximum according to the `Comparator`
 
 ### Custom Implementations ###
 1. Why do we need to write our own collection implementation?
 2. How to write our own collection implementations (usage of abstract collection implementations)?
+3. It is easy to write custom implementations using abstract implementations provided by Java platform.
+
 #### Reasons to Write an Implementation ####
+1. Typs of custom `Collections`
+	1. **Persistent**
+	2. **Application-specific**
+	3. **High-performance, special-purpose**
+	4. **High-performance, general-purpose**
+	5. **Enhanced functionality**
+	6. **Convenience**
+	7. **Adapter**
+
+
 #### How to Write a Custom Implementation ####
 
 ### Interoperability ###
 1. How Collections framework interoperates with older APIs?
 2. How to design new APIs that will interoperate seamlessly with other new APIs
+
 #### Interoperability ####
+1. Two aspects of Interoperability:
+	1. `Compatibility`: How collections can be made to work with older APIs that predate addition of `Collections`
+	2. `API Design`: How to design new APIs so that they will interoperate seamlessly with one another
+
 ##### Compatability #####
 ##### API Design #####
+1. Guidelines that allow API to interoperate seamlessly with other APIs that follow the guidelines.
+
+###### Parameters ######
+###### Return Values ######
+###### Legacy APIs ######
+

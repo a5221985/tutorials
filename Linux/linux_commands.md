@@ -109,7 +109,7 @@
 3. `date` **(M)**
 4. `ifconfig` **(M)**
 5. `ifdown eth0` **(M)** 
-6. `ifup etho0`
+6. `ifup eth0`
 
 #### Setting hostname ####
 1. `hostname <name>` **(M)**
@@ -314,6 +314,7 @@
 ## File Globbing ##
 1. `[!<character(s)>]`: excludes characters
 2. `echo *` **(M)**: lists all files in current directory
+<<<<<<< HEAD
 3. `?`: used to match single character
 	1. `File?`: Matches `File1`, `FileA`, ...
 4. `[...]`: matches any one of the characters in between `[` and `]`
@@ -326,6 +327,9 @@
 		2. `echo \*` **(M)**
 		3. `echo '*'`
 		4. `echo "*"`
+=======
+3. `File?`: ? is matched exactly with one character 
+>>>>>>> 52cd4573553d9a0c8bd6bbf2cb665d4081eb901e
 
 ## I/O Redirection ##
 1. Streams: stdin, stdout, stderr
