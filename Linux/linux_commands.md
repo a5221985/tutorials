@@ -287,7 +287,7 @@
 		1. `env -i <VARIABLES> bash -c '<command>'`
 8. `$PS1` **(M)**
 	1. `PS1='\u@\h:\w# '`
-9. `export <variable-name>`: exports variable to child shell but not to parent shell
+9. `export <variable-name>`: exports variable to child shell but not to parent shell (child process inherits the variable)
 10. `set -u`: displays error when shell variable does not exist
 	1. `set +u`: unsets shell from displaying error message when shell variable does not exist
 11. `set -o posix; set` **(M)**: displays all shell variables
@@ -312,8 +312,20 @@
 	1. `!<command-characters>:s/<string1>/<string2>/`
 
 ## File Globbing ##
-1. `[!<character(s)]`: excludes characters
+1. `[!<character(s)>]`: excludes characters
 2. `echo *` **(M)**: lists all files in current directory
+3. `?`: used to match single character
+	1. `File?`: Matches `File1`, `FileA`, ...
+4. `[...]`: matches any one of the characters in between `[` and `]`
+	1. `[a-z]`
+	2. `[0-9]`
+5. `$LANG`: some languages include lower case letters in upper case range
+6. Preventing file globbing:
+	1. Escape using special characters
+		1. `echo *`
+		2. `echo \*` **(M)**
+		3. `echo '*'`
+		4. `echo "*"`
 
 ## I/O Redirection ##
 1. Streams: stdin, stdout, stderr
@@ -328,9 +340,9 @@
 6. `2>` **(M)**: redirecting error messages
 7. `ls > dirlist 2>&1`: redirects both stdout and stderr to the file `dirlist`
 	1. `ls 2>&1 > dirlist`: stderr makes a copy of stdout and then only stdout is redirected to dirlist
-8. `&>`: joins stdout and stderr
+8. `&>`: joins stdout and stderr to a file
 	1. `rm file42 &> out_and_err`
-9. `<` or `0<`:
+9. `<` or `0<`: redirecting stding
 10. `<<`: heredoc
 
 		cat <<EOF > text.txt
@@ -339,7 +351,7 @@
 		> three
 		> EOF
 11. `<<<` **(M)**: herestring
-	1. `base64 <<< linux-training.be`
+	1. `base64 <<< linux-training.be`: directly passing string to a command
 
 ## Filters ##
 1. `tac count.txt|cat|cat`
@@ -429,15 +441,329 @@
 	4. `o{m,n}` **(M)**: between m and n times
 12. `!!:s/<pattern>/<string>/`
 
+## Bash History ##
+1. `!l`: runs the last ran `ls` command
+2. `history 6`: shows the last 6 commands ran
+	1. `!<number>`: runs the numbered cmmand (number is returned by `history` command)
+
 ## Scripting Introduction ##
 1. `source`: forces script to run in the same shell
-2. `bash -x`: see commands running after expansion
+	
+		./vars.sh
+		
+		#!/bin/bash
+		#
+		# simple variable in script
+		#
+		var1=4
+		echo var1 = $var1
+		
+		source ./vars
+		echo $var1
+		
+	1. Another way: `. ./vars.sh`
+	
+2. `bash -x`: see commands running (after expansion of variables)
+3. `#!`: instructs shell to run the script in a particular shell
+	1. `/etc/shells`: contains list of shells
+4. `#!/bin/bash -` or `#!/bin/bash --`: shell will not accept any options
 
 ## Scripting Loops ##
+1. test []
+	1. `test` tests whether something is true or false
+		
+		`test 10 -gt 55; echo $?
+		
+2. []: test command
+
+		[ 10 -gt 55 ] && echo true || echo false
+
+4. Tests:
+
+		[ -d foo] # does directory exist
+		[ -e bar ] # does file exist
+		[ '/etc' = $PWD ]
+		[ $1 != 'secret' ]
+		[ 55 -lt $bar ]
+		[ $foo -ge 1000 ]
+		[ "abc" < $bar ] # does abc sort before the value in $bar?
+		[ -f foo ] # is foo a regular file?
+		[ -r bar ] # is bar a readable file?
+		[ foo -nt bar ] # is file foo newer than bar?
+		[ -o nounset ] # is the option nounset set?
+		[ -s foo ] # file is not zero size
+		[ -d foo ] # file is a directory
+		[ -b foo ] # file is a block device
+		[ -c foo ] # file is a character device
+		[ -p foo ] # file is a pipe
+		[ -h foo ] # file is a symbolic link
+		[ -L foo ] # file is a symbolic link
+		[ -S foo ] # file is a socket
+		[ -t foo ] # file descriptor (handle used to access file/socket/pipe) is associated with a terminal device
+		[ -w foo ] # file has write permission (for the user who is running this test)
+		[ -x foo ] # file has execute permission (for the user who is running this test)
+		[ -s foo ] # set-group-id flag is set on the file or directory
+		[ -u foo ] # set-user-id flag is set on the file or directory
+		[ -k foo ] # sticky bit is set
+		[ -O foo ] # i am owner of the file
+		[ -G foo ] # group-id of file is same as mine
+		[ -N foo ] # file modified since last read
+		[ foo -ot bar ] # file foo is older than bar
+		[ foo -ef bar ] # both foo and bar are hard links to the same file
+		
+		! # not - reverses the above tests
+		[ ! -e foo ]
+
+	![file_structure.jpg](file_structure.jpg)
+		
+5. Logical and or or:
+
+		[ 66 -gt 55 -a 66 -lt 500 ] && echo true || echo false
+		[ 66 -gt 55 -o 660 -lt 500 ] && echo true || echo false
+	
+2. if then else
+
+		#!/bin/bash
+		
+		if [ -f isit.txt ]
+		then echo isit.txt exists!
+		else echo isit.txt not found!
+		fi
+
+3. if then elif
+
+		#!/bin/bash
+		count=42
+		if [ $count -eq 42 ]
+		then
+			echo "42 is correct."
+		elif [ $count -gt 42 ]
+		then
+			echo "Too much."
+		else
+			echo "Not enough."
+		fi
+
+4. for loop
+
+		for i in 1 2 4
+		do
+			echo $i
+		done
+		
+	1. for loop with embedded shell
+	
+			#!/bin/bash
+			for counter in `seq 1 20`
+			do
+				echo counting from 1 to 20, now at $counter
+				sleep 1
+			done
+			
+	2. Using `{from..to}` shorthand
+	
+			#!/bin/bash
+			for counter in {1..20}
+			do
+				echo counting from 1 to 20, now at $counter
+			done
+			
+	3. file globbing with for
+	
+			for file in *.ksh ; do cp $file $file.backup ; done
+
+5. while loop
+
+		i=100;
+		while [ $i -gt 100 ] ;
+		do
+			echo Counting down, from 100 to 0, now at $i;
+			let i--;
+		done
+		
+	1. Endless loops with `while true` or `while :` (`:` means no operation)
+	
+			#!/bin/bash
+			# endless loop
+			while :
+			do
+				echo hello
+				sleep 1
+			done
+
+6. until loop
+
+		let i=100
+		until [ $i -le 0 ]
+		do
+			echo Counting down, from 100 to 1, now at $i
+			let i--;
+		done
 
 ## Scripting Parameters ##
+1. Script parameters
+	
+		#!/bin/bash
+		echo The first argument is $1
+		echo The second argument is $2
+		echo The third argument is $3
+	
+		echo \$ $$ PID of the script
+		echo \$ $# count arguments
+		echo \$ $? last return code
+		echo \$ $* all the arguments as a string
+
+2. Shift through parameters
+1. `shift` can parse parameters one by one
+
+		#!/bin/ksh
+		
+		if [ "$#" == "0" ]
+		then
+			echo You have to give at least one parameter
+			exit 1
+		fi
+		
+		while  (( $# ))
+		do
+			echo You gave me $1
+			shift
+		done
+
+3. Runtime input
+	1. Use `read` command to ask input
+	
+			#!/bin/bash
+			echo -n Enter a number:
+			read number
+
+4. Sourcing a config file
+	1. one script can be sourced inside another and values of first script can be used in another
+	
+			#/bin/bash
+			#
+			# Welcome to the myApp application
+			#
+			
+			. ./myApp.conf
+			
+			echo There are $quines quines
+
+5. Get script options with getopts
+	1. `getopts`: used to parse options given in commandline
+	
+			#!/bin/bash
+			
+			while getopts ":afz" option
+			do
+				case $option in
+					a)
+						echo received -a
+						;;
+					f)
+						echo received -f
+						;;
+					z)
+						echo received -z
+						;;
+					*)
+						echo "invalid argument -$OPTARG"
+						;;
+				esac
+			done
+			
+		1. Option that needs an argument
+		
+				
+
+6. Get shell options with shopt
+	1. `shopt`: used to toggle values of variables (which control behavior of shell)
+	
+			shopt -q cdspell ; echo $?
+			shopt -s cdspell
+			shopt -q cdspell ; echo $?
+			cd /Etc
+			
+		1. first command checks if `cdspell` is set
+		2. second command actually sets `cdspell`
+		3. third command checks again if `cdspell` is set
+		4. fourth command allows spelling mistake in `cd` command
 
 ## More Scripting ##
+1. eval
+	1. `eval` passing arguments to the shell (the command is executed)
+		
+			lastweek=date --date="1 week ago"
+			eval $lastweek
+
+2. (()): used for evaluation of numerical expressions
+
+		(( 42 > 33 )) && echo true || echo false
+		var42=42
+		(( 42 == var42 )) && echo true || echo false
+
+3. let
+	1. evaluates an arithmetic expression
+	
+			let x="3 + 4" ; echo $x
+			let x="10 + 100/10" ; echo $x
+			
+	2. Can convert between different bases
+	
+			let x="0xFF" ; echo $x
+			let x="0#77" ; echo $x
+			
+			# x="0xFF" does not evaluate the expression but simply assigns the value given
+
+4. case
+
+		#!/bin/bash
+		#
+		# Wild Animals Helpdesk Advice
+		#
+		echo -n "What animal did you see ?"
+		read animal
+		case $animal in
+			"lion" | "tiger")
+				echo "You better start running fast!"
+				;;
+			"cat")
+				echo "Let that mouse go..."
+				;;
+			"dog")
+				echo "Don't worry, give it a cookie."
+				;;
+			"chicken" | "goose" | "duck")
+				echo "Eggs for breakfast!"
+				;;
+			"liger")
+				echo "Approach and say 'Ah you big fluffly kitty...'."
+				;;
+			"babelfish")
+				echo "Did it fall out your ear ?"
+				;;
+			*)
+				echo "You discovered an unknown animal, name it!"
+				;;
+		esac	
+
+5. shell functions
+
+		#!/bin/bash
+		
+		function greetings {
+			echo Hello World!
+			echo and hello to $USER too!
+		}
+		
+	1. function can receive parameters
+	
+			function plus {
+				let result="$1 + $2"
+				echo $1 + $2 = $result
+			}
+			
+			plus 4 6
 
 ## Introduction to Users ##
 1. `whoami`: my username
@@ -458,22 +784,60 @@
 ## User Passwords ##
 1. `passwd <user>` **(M)**
 	1. password is encrypted and kept in `/etc/shadow` **(M)**
+2. Generating encrypted password:
+
+		openssl passwd hunter2 # uses different salt for each run
+		openssl passwd -salt 42 hunter2 # uses only one salt value given
+3. Adding user with encrypted password:
+
+		useradd -m -p $(openssl passwd hunter2) mohamed
+4. `chage -E <expiration-date> -m <min-password-age> -M <max-password-age>`: sets expiration date for user account
+	1. `chage -l <username>`
+5. Disabling password:
+	1. Put `!` in front of second field in `/etc/shadow` for the user
+
+			laura:!$6$JYj4JZqp$stwwWACp3OtE1R2aZuE87j.nbW.puDkNUYVk7mCHfCVMa3CoDUJ
 
 ## User Profiles ##
 1. `/etc/profile` is sourced if it exists first
 2. `~/.bash_profile` bash will source it
+	1. CentOS7: checks for `~/.bashrc` and sources it
+	2. For bash shell only
+3. `~/.bash_login` bash will source it if `~/.bash_profile` does not exist
+4. `~/.profile` bash will execute it if `~/.bash_profile` and `~/.bash_login` do not exist
+	1. In Debian, it executes `~/.bashrc`
+	2. For original bourne shell
+5. `~/.bashrc` often sourced by other scripts
+6. `~/.bash_logout` executed by bash during logout
 
 ## Groups ##
-1. `usermod -a -G <groupname>`
-2. `groupmod`: modify group
-3. `groupdel`: delete a group
+1. `groupadd <groupname>` 
+2. `usermod -a -G <groupname>`
+3. `groupmod`: modify group
+4. `groupdel`: delete a group
+5. `groups`: displays groups the user belongs to
 
 ##  Standard File Permissions ##
 1. `chgrp` **(M)**
 
 ##  Advanced File Permissions ##
-1. sticky bit: only owner can remove or rename the file
+1. sticky bit: only owner of the file or directory can remove or rename the file
 	1. `chmod +t`
+		1. `rwxrwxrwT`
+			1. `T` if execute permission does not exist
+			2. `t` if execute permission exists
+2. setgid bit (on directory):
+	1. makes sure files in a particular directory are owned by the group owner of the directory
+
+		sudo chmod +s tom_dir/
+		> tom_dir/file1
+		ls -lrt tom_dir/
+
+		-rw-rw-r-- 1 am tom 0 May 18 22:15 file1
+
+3. setgit bit (on file):
+	1. File is executed with permissions of file owner (not executing owner)
+		1. If any user executes a file that belongs to root with setuid bit set, will execute as root 
 
 ##  Access Control Lists ##
 

@@ -1617,6 +1617,46 @@
 		1. If there are updates at the origin say
 
 ### Creation of CDN ###
+1. Log into AWS console
+2. Take note of region
+3. Open S3
+	1. Click **Create bucket**
+	2. Fill out the form:
+		1. Bucket name: mysydneycloudfrontdist (farthest region possible)
+		2. Region: Asia Pacific (Sydney)
+	3. Next
+	4. Click **Create bucket**
+4. Click the new bucket
+	1. Click **Upload**
+	2. Click **Add files**
+	3. Select `logo-large`
+	4. Next
+	5. Manage public permissions:
+		1. Everyone: Objects -> Read
+	6. Next
+	7. Click **Upload**
+5. click on object name
+	1. Click on the Link (image takes time to load)
+6. Services -> CloudFront
+	1. Click **Create distribution**
+		1. Two types:
+			1. Web: for websites (html, css, php, graphics)
+				1. Distribute media files using HTTP or HTTPS
+				2. Add, update, or delete objects, and submit data from web forms
+				3. Use live streaming to stream an event in real time
+				4. Store files in an origin (S3 or web server). Can add more origins after distribution is created
+			2. RTMP:
+				1. For speeding up distribution of streaming media files using Adobe Flash Media Server's RTMP protocol
+				2. Allows end user to begin playing a media file before the file has finished downloading from CloudFront edge location.
+					1. Store media file in Amazon S3 bucket
+					2. Build a web distribution to use CloudFront for live streaming
+	2. Click **Get Started** under Web
+	3. Options:
+		1. Origin Domain Name: AWS resource - Amazon S3 Bucket/ Elastic load balancer
+		2. Origin Path (sub folder within origin)
+		3. Origin ID: 
+		4. Restrict Bucket Access: Yes (prevent accessing S3 URL) 
+
 ### S3 - Security & Encryption ###
 ### Storage Gateway ###
 ### Snowball ###
