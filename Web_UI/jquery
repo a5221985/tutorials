@@ -1237,14 +1237,50 @@
 		});
 
 #### jQuery `filter()` Method ####
+1. `filter()` used to specify a criteria. Elements that do not match criteria are removed from selection
+2. Example: Return all `<p>` with `class="intro"`
+
+		$(document).ready(function () {
+			$('p').filter('.intro');
+		}
+
 #### jQuery `not()` Method ####
+1. Returns all elements that do not match the criteria
+	1. Opposite of `filter()`
+2. Example:
+
+		$(document).ready(function () {
+			$('p').not('.intro');
+		});
+
 #### jQuery Traversing Reference ####
+1. [jQuery Traversing Reference](https://www.w3schools.com/jquery/jquery_ref_traversing.asp)
 
 ## jQuery AJAX ##
 ### jQuery AJAX Intro ###
+1. It is the exchange of data with server updating parts of webpage without reloading the entire page.
+2. Example:
+	
+		$(document).ready(function () {
+			$('button').click(function () {
+				$('#div1').load('demo_test.txt');
+			});
+		});
+
 #### What is AJAX? ####
+1. AJAX: Asynchronous JavaScript and XML
+	1. Loading data in the background and displaying it on webpage without reloading the whole page
+2. [AJAX tutorial](https://www.w3schools.com/xml/ajax_intro.asp)
+
 #### What About jQuery and AJAX? ####
+1. jQuery has methods for AJAX
+2. Methods can request text, HTML, XML, JSON from remote server using GET and POST.
+3. External data can be directly loaded into any element of HTML page
+4. Simplifies implementing AJAX
+	1. Regular AJAX code may differ from browser to browser but jQuery takes care of this internally
+
 #### jQuery AJAX Methods ####
+1. Next chapter
 
 ### jQuery Load ###
 #### jQuery `load()` Method ####

@@ -114,7 +114,7 @@
 #### Setting hostname ####
 1. `hostname <name>` **(M)**
 2. `cat /etc/hostname` **(M)**
-3. `dnsdomainname` **(M)**
+3. `dnsdomainname` **(M)**: Show system's DNS domain name
 
 #### Adding a static ip address ####
 1. `ifconfig eth0:0 10.104.33.39` **(M)**
@@ -150,7 +150,7 @@
 ## Working with Files ##
 1. `file <file-name>` **(M)**: determines file type
 2. `file -s /dev/sda` **(M)**
-	1. `file -s /proc/cpuinfo`
+	1. `file -s /proc/cpuinfo`: `-s` special file(s)
 3. `touch <filename>`
 4. `touch -t <timestamp> <filename>` **(M)**
 	1. `touch -t 200505050000 SinkoDeMayo`
