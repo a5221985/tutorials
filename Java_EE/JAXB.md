@@ -78,7 +78,128 @@
 		2. `ObjectFactory` class: Factory used to return instances of bound Java class.
 
 ## Binding XML Schemas ##
+1. Default XML-to-Java bindings sued by JAXB.
+	1. Custom binding declarations: used to override them globally or case by case
+	2. [JAXB Specification](http://jaxb.java.net/)
+
+### Simple Type Definitions ###
+1. Schema component (using simple type definition) typically binds to Java property.
+2. Java properties attributes include:
+	1. Base type
+	2. Collection type, if any
+	3. Predicate
+
+### Default Data Type Bindings ###
+1. Schema to java (JAXBElement) and java to schema bindings:
+
+#### Schema-to-Java Mapping ####
+1. Mapping of XML data types to Java data types in JAXB
+	1. `xsd:string`: `java.lang.String`
+	2. `xsd:integer`: `java.math.BigInteger`
+	3. `xsd:int`: `int`
+	4. `xsd:long`: `long`
+	5. `xsd:short`: `short`
+	6. `xsd:decimal`: `java.math.BigDecimal`
+	7. `xsd:float`: `float`
+	8. `xsd:double`: `double`
+	9. `xsd:boolean`: `boolean`
+	10. `xsd:byte`: `byte`
+	11. `xsd:QName`: `javax.xml.namespace.QName`
+	12. `xsd:dateTime`: `javax.xml.datatype.XMLGregorianCalendar`
+	13. `xsd:base64Binary`: `byte[]`
+	14. `xsd:hexBinary`: `byte[]`
+	15. `xsd:unsignedInt`: `long`
+	16. `xsd:unsignedShort`: `int`
+	17. `xsd:unsignedByte`: `short`
+	18. `xsd:time`: `javax.xml.datatype.XMLGregorianCalendar`
+	19. `xsd:date`: `javax.xml.datatype.XMLGregorianCalendar`
+	20. `xsd:g`: `javax.xml.datatype.XMLGregorianCalendar`
+	21. `xsd:anySimpleType`: `java.lang.Object`
+	22. `xsd:anySimpleType`: `java.lang.String`
+	23. `xsd:duration`: `javax.xml.datatype.Duration`
+	24. `xsd:NOTATION`: `javax.xml.namespace.QName` 
+
+#### JAXBElement Object ####
+1. `JAXBElement`: An object of the class is provided when XML element info cannot be inferred by derived Java representation
+	1. It has methods to get and set object anme and object value
+
+#### Java-to-Schema Mapping ####
+1. Default mapping of Java classes to XML data types
+	1. `java.lang.String`: `xs:string`
+	2. `java.math.BigInteger`: `xs:integer`
+	3. `java.math.BigDecimal`: `xs:decimal`
+	4. `java.util.Calendar`: `xs:dateTime`
+	5. `java.util.Date`: `xs:dateTime`
+	6. `javax.xml.namespace.QName`: `xs:QName`
+	7. `java.net.URI`: `xs:string`
+	8. `javax.xml.datatype.XMLGregorianCalendar`: `xs:anySimpleType`
+	9. `javax.xml.datatype.Duration`: `xs:duration`
+	10. `java.lang.Object`: `xs:anyType`
+	11. `java.awt.Image`: `xs:base64Binary`
+	12. `javax.activation.DataHandler`: `xs:base64Binary`
+	13. `javax.xml.transform.Source`: `xs:base64Binary`
+	14. `java.util.UUID`: `xs:string`
+
 ## Customizing Generated Classes and java Program Elements ##
+1. How to customize generated JAXB classes and Java program elements.
+
+### Schema-to-Java ###
+1. Custom JAXB binding declarations: Used to customize generated JAXB classes
+	1. It is done beyond XML-specific constraints in XML Schema to include java-specific refinements (like class and packagge name mappings)
+2. Two ways to customize XML Schema:
+	1. Inline annotations in source XML schema
+	2. Declarations in external binding [customization] file that is passed to JAXB binding compiler
+
+### Java-to-Schema ###
+1. `javax.xml.bind.annotation`: JAXB annotations are defined in this package which can be used to customize Java program elements to XML schema mapping.
+2. JAXB annotations that can be used with Java package:
+	1. `@XmlSchema`: Maps package to XML target namespace. Default settings:
+
+			@XmlSchema (
+				xmlns = {},
+				namespace = "",
+				elementFormDefault = XmlNsForm.UNSET,
+				attributeFormDefault = XmlNsForm.UNSET
+			)
+
+	2. `@XmlAccessorType`: Controls default serialization of fields and properties. Default settings:
+
+			@XmlAccessorType (
+				value = AccessType.PUBLIC_MEMBER
+			)
+
+	3. `@XmlAccessorOrder`: Controls default ordering of properties and fields mapped to XML elements. Default settings:
+	
+			@XmlAccessorOrder (
+				value = AccessorOrder.UNDEFINED
+			)
+
+	4. `@XmlSchemaType`: Allows customized mapping to XML schema built-in type. Default settings:
+
+			@XmlSchemaType (
+				namespace = "http://www.w3.org/2001/XMLSchema",
+				type = DEFAULT.class
+			)
+
+	5. `@XmlSchemaTypes`: Container annotation for defining multiple `@XmlSchemaType` annotations. Default settings: None
+3. JAXB annotations that can be used with Java classes:
+	1. `@XmlType`: Maps Java class to schema type. Default settings:
+
+			@XmlType (
+				name = "##default",
+				propOrder = {""},
+				namespace = "##default",
+				factoryClass = DEFAULT.class,
+				factoryMethod = ""
+			)
+
+	2. `@XmlRootElement`: Associates global element with schema type to which class is mapped. Default settings:
+
+			@XmlRootElement (
+				name = "##default",
+				namespace = "##default"
+			)
+
 ## Basic Examples ##
 ## Customizing JAXB Bindings ##
 ## Java-to-Schema Examples ##
