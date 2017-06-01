@@ -241,6 +241,9 @@
 				namespace = "##default"
 			)
 
+5. JAXB annotations that can be used with Java properties and fields.
+
+
 ## Basic Examples ##
 ## Customizing JAXB Bindings ##
 ## Java-to-Schema Examples ##
