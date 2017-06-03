@@ -6,7 +6,7 @@
 4. Elegant syntax, dynamic typing
 5. Interpreted
 6. For scripting and rapid app development
-7. Python interpreted and standard library are free [https://www.python.org/](https://www.python.org)
+7. Python interpreter and standard library are free [https://www.python.org/](https://www.python.org)
 	1. Source
 	2. Binaries
 	3. Pointers to free third party Python modules, programs, tools, documentation
@@ -99,7 +99,7 @@
 #### Argument Passing ####
 1. Arguments passed are turned into a list of strings and assigned to `argv` variable in `sys` module.
 2. Access the argument list using `import sys` **(M)**
-	1. length of `argv` is atleast one `sys.argv[0]` is empty string.
+	1. length of `argv` is atleast one `sys.argv[0]` is filename.
 	2. `-c` is in `sys.argv[0]`, `-m` sets `sys.argv[0]` to full name of located module.
 
 #### Interactive Mode ####
@@ -151,9 +151,9 @@
 5. `%`: modulus operator
 6. `**`: power
 
-		>>> 5 *** 2
+		>>> 5 ** 2
 		25
-		>>> 2 *** 7
+		>>> 2 ** 7
 		128
 
 7. `=`
@@ -205,7 +205,7 @@
 		>>> '"Isn\'t," she said.'
 		'"Isn\'t," she said.'
 4. Output: string is eclosed in quotes and special characters are escaped
-	1. If string contains quots, it is enclosed in double quotes
+	1. If string contains quotes, it is enclosed in double quotes
 5. `print(<input>)`: produces readable output
 
 #### Lists ####
@@ -275,7 +275,7 @@
 		4. comparison operators are same as in C
 	4. body of the loop is indented: for grouping statements
 		1. type tab or space for indentation
-		2. Blank like indicates completion of the statement
+		2. Blank line indicates completion of the statement
 	5. `print()` outputs value of the args given
 		1. strings are printed out without quotes
 		2. space is inserted between items
@@ -288,8 +288,8 @@
 		
 				>>> a, b = 0, 1
 				>>> while b < 1000:
-				...		print(b, end=',')
-				...		a, b = b, a + b
+				...	print(b, end=',')
+				...	a, b = b, a + b
 				...
 
 ## More Control Flow Tools ##
@@ -384,7 +384,7 @@
 			while b < n:
 				print(b, end=' ')
 				a, b = b, a + b
-		print()
+			print()
 		
 2. `def`: defines a function
 3. Syntax: `def <function-name>(<list-of-params>):`
@@ -444,7 +444,7 @@
 #### Default Argument Values ####
 1. Function that can be called with fewer arguments than it is defined to allow
 
-		def ask_ok(prompt, retires=4, reminder='Please try again!'):
+		def ask_ok(prompt, retries=4, reminder='Please try again!'):
 			while True:
 				ok = input(prompt)
 				if ok in ('y', 'ye', 'yes'):
@@ -514,7 +514,7 @@
 
 		parrot(220, voltage=5.0) # invalid
 		
-4. `**keywords`: parameter that receives a dictionary containing all keyword arguments except format parameters
+4. `**keywords`: parameter that receives a dictionary containing all keyword arguments except formal parameters
 5. `*name`: receives a tuple containing positional arguments beyond formal parameter list (must appear before `**keywords`)
 
 		def cheeseshop(kind, *arguments, **keywords):
@@ -548,7 +548,7 @@
 2. Example:
 
 		args = (2, 7)
-		list(range(*args) # call with arguments unpacked from a list
+		list(range(*args)) # call with arguments unpacked from a list
 		
 3. Dictionaries can deliver keyword arguments with `**` operator
 
@@ -561,7 +561,7 @@
 		lambda a, b: a + b
 		
 2. It can be used wherever function objects are required
-3. Lambda expressions can reference variables frm containing scope
+3. Lambda expressions can reference variables from containing scope
 
 		def make_incrementor(n):
 			return lambda x: x + n
@@ -583,7 +583,7 @@
 2. Second line: Blank (if there are more lines)
 3. Subsequent lines: paragraphs describing object's calling conventions and side effects
 4. Tools that have to process documentation must strip indentation if required (Python does not strip indentation of multiline string literal)
-	1. Whitespace equivalent to the indentation of second blank line is stripped fro the start of all lines of the string
+	1. Whitespace equivalent to the indentation of second blank line is stripped from the start of all lines of the string
 5. Example:
 
 		def my_function():
@@ -642,7 +642,7 @@
 	5. `list.pop([i])`: Removes item at the given position in the list and return it. `list.pop()`: removes and returns the last element from the list.
 	6. `list.clear()`: Removes all items from the list (`del a[:]`)
 	7. `list.index(x[, start[, end]])`: return index of the first item whose value is x (`ValueError` if there is no such item)
-		1. `start`, `end`: limit to search to a slice of the list
+		1. `start`, `end`: limit search to a slice of the list
 			1. Index is relative to the full list only
 	8. `list.count(x)`: Returns the number of times, x appears in the list
 	9. `list.sort(key=None, reverse=False)`:
@@ -689,6 +689,8 @@
 		queue.append('Graham')
 		queue.popleft()
 		queue.popleft()
+		queue.appendleft('Balak')
+		queue.pop()
 		queue
 
 #### List Comprehensions ####
@@ -881,7 +883,7 @@
 		sorted(d.keys())
 		
 9. Check if a key is in dictionary: use `in`
-10. Exampe:
+10. Example:
 
 		tel = {'jack': 4098, 'sape': 4139}
 		tel['guido'] = 4127
@@ -956,13 +958,13 @@
  
 ### More on Conditions ###
 1. `in`, `not in`: check if a value occurs or does not occur in a sequence
-2. `is`, `is no`: checks if two objects are really the same objects or not (for mutable objects)
+2. `is`, `is not`: checks if two objects are really the same objects or not (for mutable objects)
 3. Comparison operators have lower priority than all numerical operators
 4. Comparisons can be chained:
 
 		a < b == c
 		
-5. Comparisons may be combined used boolean operators such as `and`, `or`
+5. Comparisons may be combined using boolean operators such as `and`, `or`
 	1. `not` negates the outcome of boolean expressions
 	2. The operators have lower priorities than comparison operators
 	3. `not` has highest priority and `or` the lowest among them
@@ -979,7 +981,7 @@
 		not_null = string1 or string2 or string3
 		not_null # Trondeim
 		
-8. Note: Assignments cannot occur inside expressions (Unline in C)
+8. Note: Assignments cannot occur inside expressions (Unlike in C)
 
 ### Comparing Sequences and Other Types ###
 1. Sequence objects of same sequence types can be compared with each other
@@ -1081,14 +1083,14 @@
 
 #### The Module Search Path ####
 1. Interpreter first searches for a built in module with the name
-2. If not found, it searches for a file named <module>.py in a list of directories given by variable `sys.path`
+2. If not found, it searches for a file named `<module>.py` in a list of directories given by variable `sys.path`
 	1. `sys.path`:
 		1. Directory containing input script (or current directory when no file is specified)
 		2. `PYTHONPATH`: list of directory names (with `PATH` syntax)
 		3. Installation dependent default
 		4. symlinks are expanded to actual directories
 3. After initialization, python programs can modify `sys.path`
-4. Since the direcotry containing the script is placed at the beginning of the search path, modules in the directory will be loaded instead of those in the library with the same names
+4. Since the directory containing the script is placed at the beginning of the search path, modules in the directory will be loaded instead of those in the library with the same names
 
 #### "Compiled" Python files ####
 1. Compiled version of each module is stored in the directory `__pycache__` under the name `<module>.<version>.pyc`
@@ -1127,7 +1129,7 @@
 						sys.path.append('/ufs/guido/lib/python')
 
 ### The `dir()` ###
-1. `dir()`: build in function
+1. `dir()`: built in function
 	1. Used to get the names defined by a module (variables, modules, functions)
 	2. Example:
 	
@@ -1214,7 +1216,7 @@
 		__all__ = ['echo', 'surround', 'reverse'] # the three submodules may be imported
 		
 3. If `__all__` is not defined, the statement `from sound.effects import *` does not import all submodules from `sound.effects` but only `sound.effects` is imported.
-	1. runs initializatoin code in `__init__.py`
+	1. runs initialization code in `__init__.py`
 	2. Imports names defined in package
 		1. names defined by any submodules explicitly loaded by `__init__.py`
 	3. Includes submodules of package explicitly loaded by previous `import` statements.
@@ -1306,7 +1308,7 @@
 
 		print('We are the {} who say "{}!"'.format('knights', 'Ni'))
 		
-	1. Number in the braces indicates position of the object passted into `str.format`
+	1. Number in the braces indicates position of the object passed into `str.format`
 	
 			print('{0} and {1}'.format('spam', 'eggs'))
 			print('{1} and {0}'.format('spam', 'eggs'))
@@ -1436,7 +1438,7 @@
 	
 			f = open('workfile', 'rb+')
 			f.write(b'0123456789abcdef')
-			f.seek(5) # Go to the 6rh byte in the file
+			f.seek(5) # Go to the 6th byte in the file
 			f.read(1)
 			f.seek(-3, 2) # Go to the 3rd byte before the end
 			f.read(1)
@@ -1715,7 +1717,7 @@
 		for line in open('myfile.txt'):
 			print(line, end="")
 			
-	1. It leaves the file open of an indeterminate amount of time after the code is finished executing
+	1. It leaves the file open for an indeterminate amount of time after the code is finished executing
 3. Example: Good code
 
 		with open('myfile.txt') as f:
@@ -1740,7 +1742,7 @@
 ### Python Scopes and Namespaces ###
 1. Scope rules:
 	1. namespace: mapping from names to objects
-		1. Most namesspaces are implemented as python dictionaries
+		1. Most namespaces are implemented as python dictionaries
 		2. Examples: built-in names containing functions (`abs()`)
 			1. built-in exception names
 			2. global names in a module
@@ -1895,6 +1897,7 @@
 			x.counter = 1
 			while x.counter < 10:
 				x.counter = x.counter * 2
+
 			print(x.counter)
 			del x.counter
 
@@ -1943,7 +1946,7 @@
 	
 			class Dog:
 			
-				tricks: []
+				tricks = []
 				
 				def __init__(self, name):
 					self.name = name
@@ -2021,7 +2024,7 @@
 				
 8. Methods can reference global names as ordinary functions.
 	1. Global scope of a method: it is associated with the module enclosing the method's definition (class is never used as a global scope)
-	2. Uses: Functions and modules imported into global scope can be used my methods
+	2. Uses: Functions and modules imported into global scope can be used by methods
 		1. Functions and classes defined in global scope can be used by methods
 		2. Class is usually defined in global scope (method may want to reference its own class)
 9. `object.__class__`: class of an object
@@ -2052,8 +2055,8 @@
 6. If an overriding method wants to extend the base class method:
 	1. `BaseClassName.methodname(self, arguments)` **(M)** (`BaseClassName` is in global scope)
 7. Built in functions:
-	1. `isinstance()`: to check an instance type: `isinstance(obj, int)` (`True` if `obj.__class__` is `int` or its derived class)
-	2. `issubclass()`: to check class inheritance: `issubclass(bool, int)` (`True` if `bool` is a subclass of `int`)
+	1. `isinstance()` **(M)**: to check an instance type: `isinstance(obj, int)` (`True` if `obj.__class__` is `int` or its derived class)
+	2. `issubclass()` **(M)**: to check class inheritance: `issubclass(bool, int)` (`True` if `bool` is a subclass of `int`)
 
 #### Multiple Inheritance ####
 1. Search for attributes:
@@ -2069,7 +2072,7 @@
 1. Private variables which are accessible only within an object does not exist in Python.
 2. A convention for private variables: Prefix with underscore (`_spam`)
 	1. It is treated as a non public part of the API
-	2. Consider it as implementation details with is subject to change without any notice
+	2. Consider it as implementation details which is subject to change without any notice
 3. Name mangling: an identifier of the form `__spam` (at least two leading underscores and at most one trailing underscore) is textually replaced with `_classname__spam` (`classname` is current class name with leading underscores stripped)
 	1. Done if the identifier occurs in the definition of a class
 	2. Name mangling helps sub classes override methods without breaking interclass method calls
@@ -2090,7 +2093,7 @@
 					# provides new signature for update()
 					# but does not break __init__()
 					for item in zip(keys, values):
-						self.items_list.appen(item)
+						self.items_list.append(item)
 						
 		1. Due to mangling, it is possible to access or modify variable that is considered private
 4. Code passed to `exec()` or `eval()` does not consider classname of invoking class as the current class

@@ -1284,11 +1284,60 @@
 
 ### jQuery Load ###
 #### jQuery `load()` Method ####
+1. `load()`: loads data from server and puts returned data in selected element
+2. Syntax:
+
+		$(selector).load(URL, data, callback);
+		
+	1. `URL`: URL we want to load
+	2. `data`: set of querystring key/value pairs sent with request
+	3.  `callback`: executed after `load` has completed
+3. Example: `demo_test.txt`:
+
+		<h2>jQuery and AJAX is FUN!!!</h2>
+		<p id="p1">This is some text in a paragraph.</p>
+		
+	1. Load the content into `<div>` element:
+	
+			$("#div1").load("demo_test.txt");
+			
+4. We can add jQuery selector to URL pattern:
+	1. Example: Load content of element with `id="p1"` inside `demo_test.txt` into `<div>` element
+	
+			$('#div1').load('demo_test.txt #p1');
+			
+5. Callback function parameters:
+	1. `responseText` - contains resulting content if call succeeds
+	2. `statusTxt` - contains status of call
+	3. `xhr` - contains XMLHttpRequest object
+6. Example:
+
+		$('button').click(function () {
+			$('#div1').load('demo_test.txt', function (responseTxt, statusTxt, xhr) {
+				if (statusTxt == "success")
+					alert("External content loaded successfully!");
+				if (statusTxt == "error")
+					alert("Error: " + xhr.status + ": " + xhr.statusTxt);
+			});
+		});
+
 #### jQuery AJAX Reference ####
+1. [jQuery AJAX Reference](https://www.w3schools.com/jquery/jquery_ref_ajax.asp)
 
 ### jQuery Get/Post ###
+1. `get()`, `post()` are used to request data from server with HTTP GET or POST
+
 #### HTTP Request: GET vs. POST ####
+1. Common methods: GET, POST
+	1. **GET**: Requests data from specified resource
+		1. Used to retrieve data from server (may return cached data)
+	2. **POST**: Submits data to be processed to specified resource
+		1. Can be used to get data from server but it never caches data and is usually used to send data along with request
+2. [HTTP Methods GET vs POST](https://www.w3schools.com/tags/ref_httpmethods.asp)
+
 #### jQuery `$.get()` Method ####
+1. Syntax: 
+
 #### jQuery `$.post()` Method ####
 #### jQuery AJAX Reference ####
 
