@@ -170,7 +170,7 @@
 1. `.pl` or `.PL` (convention)
 2. Filenames: can have numbers, symbols, letters but not space (use `_` in place of space)
 
-#### Commends in Perl ####
+#### Comments in Perl ####
 1. Comments are skipped by interpreter
 2. Comments start with `#` and run till the end of the line
 
@@ -233,8 +233,8 @@
 2. Syntax:
 
 		$<var> = <<"<identifier>"; # variables will be interpolated
-		<any text except EOF>
-		EOF
+		<any text except <identifier>>
+		<identifier>
 
 3. Example:
 
@@ -369,6 +369,24 @@
 					1. In contrast to lexical variables which are reinitialized each time their enclosing block is entered.
 				4. `use vars`
 			2. `local`: just modifies variable(s) to be local to enclosing block/file/eval
+
+					use vars qw/$x, @y, %z/;
+					{
+						# ...
+						local ($x, @y, %z);     # (5)
+						# ...
+						sub baz { # ...
+						}
+						# ...
+						baz(17);                # (6) sees all local versions of variables
+						quux($x,29);            # (7) sees all local versions of variables
+						# ...
+					}                        	# (8)
+					# ...
+					sub quux { # ...			sees all global versions of veriables
+					}
+					# ...
+					baz(29);                  	# (9) sees all global versions of veriables
 
 		4. [strict refs, strict vars, strict subs](http://perldoc.perl.org/strict.html)
 3. Examples:
@@ -1074,7 +1092,7 @@
 		}
 
 4. `redo [LABEL]`: restarts loop block without evaluating the conditional statement.
-	1. `LABEL`: Lavel for loop
+	1. `LABEL`: Label for loop
 		1. If not specified, `redo` is applicable to the nearest loop
 	2. `continue` block will be skipped if there is one
 	3. Example:
@@ -1508,7 +1526,23 @@
 ### Define a Report Footer ### 
 
 ## Perl - File I/O ##
+1. Associate a filehandle with external entity (file) and use variety of operators and functions in Perl to read and update data stored in data stream associated with filehandle.
+2. filehandle: internal structure that associates physical file with a name
+3. When associating file handle, specify the mode in which filehandle is opened.
+4. Basic filehandles: `STDIN`, `STDOUT`, `STDERR` (represent standard input, standard output and standard error devices)
+
 ### Opening and Closing Files ###
+1. 2 functions with multiple forms used to open new or existing file
+
+		open FILEHANDLE, EXPR
+		open FILEHANDLE
+
+		sysopen FILEHANDLE, FILENAME, MODE, PERMS
+		sysopen FILEHANDLE, FILENAME, MODE
+
+	1. `FILEHANDLE`: filehandle returned by open
+	2. `EXPR`: expression having file name and mode
+
 ### Open Function ###
 1. `open FILEHANDLE, EXPR`
 	1. FILEHANDLE: file handle returned by `open`
@@ -1526,8 +1560,38 @@
 2. `open FILEHANDLE`
 3. `sysopen FILEHANDLE, FILENAME, MODE, PERMS`
 4. `sysopen FILEHANDLE, FILENAME, MODE`
+5. Opening file in write mode:
+
+		open(DATA, ">file.txt") or die "Couldn't open file file.txt, $!";
+
+	1. Truncates the file first before opening it for writing.
+6. Opening file in read and write mode:
+
+		open(DATA, "+<file.txt"); or die "Couldn't open file file.txt, $!";
+
+7. To truncate the file first:
+
+		open(DATA, "+>file.txt") or die "Couldn't open file file.txt, $!";
+
+8. Opening file in append mode:
+
+		open(DATA, ">>file.txt") || die "Couldn't open file file.txt, $!";
+
+9. Opening file in append and read mode:
+
+		open(DATA, "+>>file.txt") || die "Couldn't open file file.txt, $!";
+
+10. Different modes:
+	1. `<` or `r`: read only access
+	2. `>` or `w`: writes, and truncates
+	3. `>>` or `a`: writes, appends
+	4. `+<` or `r+`: reads, writes
+	5. `+>` or `w+`: writes, reads, truncates
+	6. `+>>` or `a+`: reads, writes, appends
 
 ### Sysopen Function ###
+1. Similar to main open function, but uses system `open()` function. The parameters supplied to it are parameters for system function
+
 ### Close Function ###
 1. `close FILEHANDLE`: fulshes filehandle's buffers and closes system's file descriptor
 2. Example:
@@ -1535,7 +1599,9 @@
 		close(DATA) || die "Couldn't close file properly";
 
 ### Reading and Writing Files ###
-### The <FILEHANDL> Operator ###
+1. There are different ways of reading and writing data into file.
+
+### The <FILEHANDLE> Operator ###
 1. `<FILEHANDLE>` returns
 	1. single line in scalar context
 		1. Example:
@@ -1557,7 +1623,8 @@
 
 ### getc Function ###
 1. `getc FILEHANDLE`: reads single character from FILEHANDLE
-2. `getc`
+2. `getc`: reads single character from STDIN
+	1. undef is returned if error or filehandle is at end of file
 
 ### read Function ###
 1. `read()`: reads a block of information from buffered filehandle
@@ -1569,15 +1636,111 @@
 
 ### print Function ###
 1. `print FILEHANDLE LIST` **(M)**: Prints evaluated value of LIST to FILEHANDLE or to STDOUT (default)
+2. `print LIST` **(M)**: Prints evaluated value of LIST to STDOUT
+	1. `print "Hello World!\n";`
 
 ### Copying Files ###
+1. Example:
+	
+		#!/usr/bin/perl
+
+		# Open file to read
+		open(DATA1, "<file1.txt");
+
+		# Open new file to write
+		open(DATA2, ">file2.txt");
+
+		# Copy data from one file to another.
+		while(<DATA1>) {
+			print DATA2 $_;
+		}
+		close(DATA2);
+		close(DATA1);
+
 ### Renaming a file ###
+1. Example:
+
+		#!/usr/bin/perl
+
+		rename ("/usr/test/file1.txt", "/usr/test/file2.txt");
+
 ### Deleting an Existing File ###
+1. Example:
+
+		#!/usr/bin/perl
+
+		unlink ("/usr/test/file1.txt");
+
 ### Positioning inside a File ###
+#### tell Function ####
+1. `tell FILEHANDLE`
+2. `tell`
+	1. Returns position of file pointer in bytes in FILEHANDLE
+	2. Returns current default filehandle (if not specified)
+
+#### seek Function ####
+1. Positions file pointer to specified number of bytes in file
+
+		seek FILEHANDLE, POSITION, WHENCE
+
+	1. Uses system's `fseek`
+	2. Relative to start, end or current position.
+		1. WHENCE: value of offset
+			1. 0: start of file
+2. Example:
+
+		seek DATA, 256, 0;
+
 ### File Information ###
 1. Operators: (many defined for bash)
 	1. `-e $file`
 	2. `-f $file`
+2. Example:
+
+		#!/usr/bin/perl
+
+		my $file = "/usr/test/file1.txt";
+		my (@description, $size);
+		if (-e $file) {
+			push @description, 'binary' if (-B _);
+			push @description, 'a socket' if (-S _);
+			push @description, 'a text file' if (-T _);
+			push @description, 'a block special file' if (-b _);
+			push @description, 'a character special file' if (-c _);
+			push @description, 'a directory' if (-d _);
+			push @description, 'executable' if (-X _);
+			push @description, (($size = -s _)) ? "$size bytes" : 'empty';
+			print "$file is ", join(', ', @description), "\n";
+		}
+
+3. Operator & Definition:
+	1. `-A`: script start time minus file last access time (in days)
+	2. `-B`: is it binary file?
+	3. `-C`: Script start time minus file last inode change time, in days
+	4. `-M`: script start time minus file modification time, in days
+	5. `-O`: file owned by real user ID?
+	6. `-R`: file readable by real user ID or real group?
+	7. `-S`: Is the file socket?
+	8. `-T`: Is it text file?
+	9. `-W`: Is file writable by real user ID or real group?
+	10. `-X`: Is file executable by real user ID or real group?
+	11. `-b`: Is it block special file?
+	12. `-c`: Is it character special file?
+	13. `-d`: Is the file directory?
+	14. `-e`: Does file exist?
+	15. `-f`: Is it plain file?
+	16. `-g`: Does file have setgid bit set?
+	17. `-k`: Does file have sticky bit set?
+	18. `-l`: Is file a symbolic link?
+	19. `-o`: Is file owned by effective user ID?
+	20. `-p`: Is file named pipe?
+	21. `-r`: Is file readable by effective user or group ID?
+	22. `-s`: Returns size of file, zero size = empty file.
+	23. `-t`: Is filehandle opened by TTY (terminal)?
+	24. `-u`: Does file have setuid bit set?
+	25. `-w`: Is file writable by effective user or group ID?
+	26. `-x`: Is file executable by effective user or group ID?
+	27. `-z`: Is file size zero?
 
 ## Perl - Directories ##
 1. Functions:
@@ -1604,13 +1767,15 @@
 ## Perl - Coding Standard ##
 
 ## Perl - Regular Expressions ##
-1. `=~`: test and assignment operator, `!~`
-2. Three regular expression operators:
+1. Similar to `sed`, `grep`, `awk`
+2. Pattern binding operators: `=~`: test and assignment operator, `!~`
+3. Three regular expression operators:
 	1. Match Regular expression: `m//`
 		1. `m{}`, `m()`, `m><`, ... are all valid
 	2. Substitute Regular expression: `s///`
 	3. Transliterate Regular expression: `tr///`
-3. Example:
+	4. Other delimiters can be used in place of `/`
+4. Example:
 
 		$bar = "This is foo and again foo";
 		if ($bar =~ /foo/) {
@@ -1626,34 +1791,232 @@
 			print "Second time is not matching\n";
 		}
 
-4. Returning contents of grouped `(...)` expression in list context:
+5. Returning contents of grouped `(...)` expression in list context:
 
 		my ($hours, $minutes, $seconds) = ($time =~ m/(\d+):(\d+):(\d+)/);
 
 ### The Match Operator ###
+1. `m//` is used to match string of statement to regular expression.
+2. Example:
+
+		#!/usr/bin/perl
+
+		$bar = "This is foo and again foo";
+		if ($bar =~ /foo/) {
+			print "First time is matching\n";
+		} else {
+			print "First time is not matching\n";
+		}
+
+		$bar = "foo";
+		if ($bar =~ /foo/) {
+			print "Second time is matching\n";
+		} else {
+			print "Second time is not matching\n";
+		}
+
+3. `m{}`, `m()` or `m><` can be used
+
+		$bar =~ m[foo]
+		$bar =~ m{foo}
+
+4. `m` can be omitted for `m//` but need to use for other delimiters.
+5. `$true = ($foo =~ m/foo/)`: set to 1 if there is match or 0 otherwise
+6. In list context, match returns contexts of grouped expressions.
+	1. Example: To extract strings
+
+			my ($hours, $minutes, $seconds) = ($time =~ m/(\d+):(\d+):(\d+)/);
+
+### Match Operator Modifiers ###
 1. Modifiers:
 	1. `i`: case insensitive
 	2. `g`: globally finds all matches
+	3. `m`: if string has newline or carriage return, ^ and $ match against newline boundary instead of string boundary
+	4. `o`: evaluates expression only once
+	5. `s`: Allows use of `.` to match newline character
+	6. `x`: Allows use of whitespace in expression for clarity
+	7. `cg`: search continues even if global match fails
 
-### Match Operator Modifiers ###
 ### Matching Only Once ###
+1. `?PATTERN?` is similar to `//` but will match only once (in string between call to reset)
+2. Example:
+
+		#!/usr/bin/perl
+
+		@list = qw/food foosball subeo footnote terfoot canic footbridge/;
+	
+		foreach (@list) {
+			$first = $1 if ?(foo.*)?;
+			$last = $1 if /(foo.*)/;
+		}
+		print "First: $first, Last: $last\n";
+
 ### Regular Expression Variables ###
+1. `$` contains that which last grouping match matched.
+2. `$&` contains entire matching string
+3. $&#96;: contains everything before matching string
+4. `$'`: contains everything after matching string
+5. Example:
+
+		#!/usr/bin/perl
+
+		$string = "The food is in the salad bar";
+		$string =~ m/foo/;
+		print "Before: $`\n";
+		print "Matched: $&\n";
+		print "After: $'\n"; 
+
 ### The Substitution Operator ###
-1. `$string =~ s/cat/dog/`; - replaces all occurrances of `cat` with `dog`
+1. Syntax: `s/PATTERN/REPLACEMENT/;`
+2. `$string =~ s/cat/dog/`; - replaces all occurrances of `cat` with `dog`
+3. Example:
+
+		#!/usr/bin/perl
+
+		$string = "The cat sat on the mat";
+		$string =~ s/cat/dog/;
+
+		print "$string\n";
 
 ### Substitution Operator Modifiers ###
+1. `i`: case insensitive match
+2. `m`: ...
+3. `o`: evaluates expression only once
+4. `s`: allows use of `.` to match newline character
+5. `x`: Allows usage of whitespace in expression for clarity
+6. `g`: replaces all occurrences of found expression with replacement text
+7. `e`: Evaluates replacement as if it were perl statement and uses return value as replacement text
+
 ### The Translation Operator ###
 1. `$string =~ tr/a-z/A-Z/;` - converts lowercase letters to uppercase letters
+2. Translation does not use regular expressions.
+3. Syntax:
+
+		tr/SEARCHLIST/REPLACEMENTLIST/cds
+		y/SEARCHLIST/REPLACEMENTLIST/cds
+
+	1. Replaces all occurrences of characters in SEARCHLIST with characters in REPLACEMENTLIST.
+4. Example:
+
+		#!/usr/bin/perl
+
+		$string = 'The cat sat on the mat';
+		$string =~ tr/a/o/;
+
+		print "$string\n";
+
+5. Ranges can be used:
+
+		$string =~ tr/[a-z]/[A-Z]/;
 
 ### Translation Operator Modifiers ###
+1. `c`: Complements SEARCHLIST
+2. `d`: deletes found but unreplaced characters
+	1. Deletes characters matching SEARCHLIST that do not have corresponding entry in REPLACEMENTLIST.
+3. `s`: Squashes duplicate replaced characters
+	1. Removes duplictes of characters that were replaced
+4. Example:
+
+		#!/usr/bin/perl
+
+		$string = 'the cat sat on the mat.';
+		$string =~ tr/a-z/b/d;
+
+		print "$string\n"; # prints b b   b.
+
+5. Example: `/s`
+
+		#!/usr/bin/perl
+
+		$string = 'food';
+		$string =~ tr/a-z/a-z/s;
+
+		print "$string\n";
+
 ### More Complex Regular Expressions ###
 1. `\d`: equivalent to `[0-9]`
 2. `\s`: matches whitespace
 3. `\w`: matches word characters
+4. `^`: Beginning of line
+5. `$`: End of line
+6. `.`: Matches a single character except newline (`m` matches newline as well)
+7. `[...]`: matches any single character in brackets
+8. `[^...]`: Matches any single character not in brackets
+9. `*`: Matches 0 or more occurrences of preceding expression
+10. `+`: Matches 1 or more occurrences of preceding expression
+11. `?`: Matches 0 or 1 occurrence of preceding expression
+12. `{n}`: Matches exactly n number of occurrences of preceding expression
+13. `{n,}`: Matches n or more occurrences of preceding expression
+14. `{n,m}`: Matches atleast n and at most m occurrences of preceding expression
+15. `a|b`: Matches a or b
+16. `\w`: Matches word characters
+17. `\W`: Matches non word characters
+18. `\s`: Matches whitespace (`[\t\n\r\f]`)
+19. `\S`: Matches nonwhitespace
+20. `\d`: Matches digits `[0-9]`
+21. `\D`: Matches non digits
+22. `\A`: Matches beginning of string
+23. `\Z`: Matches end of string (If newline exists, matches just before newline)
+24. `\z`: matches end of string
+25. `\G`: Matches point where last match finished
+26. `\b`: Matches word boundaries when outside brackets. Matches backspace when inside brackets
+27. `\B`: Matches nonword boundaries
+28. `\n`, `\t`: Matches newline, tabs, ...
+29. `\1`...`\9`: Matches nth grouped subexpression
+30. `10`: Matches nth grouped subexpression if it matched already. Otherwise refers to octal representation of character code
+31. `[aeiou]`: Matches a single character in given set
+32. `[^aeiou]`: Matches a single character outside given set
+33. Example:
+
+		# nothing in the string (start and end are adjacent)
+		/^$/
+
+		# a three digits, each followed by a whitespace
+		# character (eg "3 4 5 ")
+		/(\d\s){3}/
+
+		# matches a string in which every
+		# odd-numbered letter is a (eg "abacadaf")
+		/(a.)+/
+
+		# string starts with one or more digits
+		/^\d+/
+
+		# string that ends with one or more digits
+		/\d+$/
+
+34. Example:
+
+		#!/usr/bin/perl
+
+		$string = "Cats go Catatonic\nWhen given Catnip";
+		($start) = ($string =~ /\A(.*?) /);
+		@lines = $string =~ /^(.*?) /gm;
+		print "First word: $start\n","Line starts: @lines\n";
 
 ### Matching Boundaries ###
+1. `\b`: word boundary
+2. `\B`: any position that is not word boundary
+3. Example:
+	
+		/\bcat\b/ # Matches 'the cat sat' but not 'cat on the mat'
+		/\Bcat\B/ # Matches 'verification' but not 'the cat on the mat'
+		/\bcat\B/ # Matches 'catatonic' but not 'polecat'
+		/\Bcat\b/ # Matches 'polecat' but not 'catatonic'
+
 ### Selecting Alternatives ###
+1. `|` or
+2. Example: Match cat or dog
+
+		if ($string =~ /cat|dog/)
+
+3. Example: Searching for two names
+
+		if ($string =~ /(Martin|Sharon) Brown/)
+
 ### Grouping Matching ###
+1. It is used to extract a sequence from a regular expression
+
 ### The \G Assertion ###
 ### Regular-expression Examples ###
 #### Literal Characters ####
@@ -1668,15 +2031,549 @@
 #### Special Syntax with Parantheses ####
 
 ## Perl - Sending Email ##
+### Using sendmail Utility ###
+#### Sending a Plain Message ####
+#### Sending an HTML Message ####
+### Using MIME::Lite Module ###
+#### Sending a Plain Message ####
+#### Sending an HTML Message ####
+#### Sending an Attachment ####
+### Using SMTP Server ###
 
 # Perl Advanced #
 ## Perl - Socket Programming ##
-## Perl - Object Oriented ##
-## Perl - Database Access ##
-## Perl - CGI Programming ##
-## Perl - Packages & Modules ##
+### What is a Socket? ###
+### To Construct a Server ###
+### To Construct a Client ###
+### Server Side Socket Calls ###
+#### The `bind()` call ####
+#### The `listen()` call ####
+#### The `accept()` call ####
+### Client Side Socker Calls ###
+#### The `connect()` call ####
+### Client - Server Example ###
+#### Script to Construct a Server ####
+#### Script to Construct a Client ####
 
+## Perl - Object Oriented ##
+1. Dealt with references in Perl and Perl anonymous arrays and hashes.
+	1. Object Oriented concept in Perl is based on references and anonymous array and hashes.
+
+### Object Basics ###
+1. Three main terms (perspective of how perl handles objects)
+	1. **Object**: It is a reference to a datatype which knows what class it belongs to. Object is stored as reference in a scalar variable.
+		1. Same reference can hold different objects in different classes
+	2. **Class**: A package that contains corresponding methods required for creation and manipulation of objects.
+	3. **Method**: It is a subroutine defined with the package. First argument is object reference or package name (depends on whether method affects current object or class)
+2. `bless()` function: used to return a reference which becomes an object
+
+### Defining a Class ###
+1. Class corresponds to Perl Package.
+	1. First build a package.
+		1. Package: self contained unit of user-defined variables and subroutines (reusable)
+			1. They provide separate namespace in Perl program (keeps subroutines and variables from conflicting with those in other packages)
+2. Example: Person class
+
+		package Person;
+
+	1. Scope of package extends upto end of file or until another package keyword is encountered.
+
+### Creation of and Using Objects ###
+1. For creation of object, an object constructor is required
+2. Constructor: method defined within package (call it `new` but we can call it anything else)
+3. We can use any kind of Perl variable as object (but Perl programmers usually use references to arrays or hashes)
+4. Object reference is obtained by blessing a reference to package's class
+5. Example:
+
+		package Person;
+		sub new {
+			my $class = shift;
+			my $self = {
+				_firstName => shift,
+				_lastName => shift,
+				_ssn => shift,
+			};
+			# Print all the values just for clarification.
+			print "First Name is $self->{_firstName}\n";
+			print "Last Name is $self->{_lastName}\n";
+			print "SSN is $self->{_ssn}\n";
+			bless $self, $class;
+			return self;
+		}
+
+6. Object creation:
+
+		$object = new Person("Muhammad", "Saleem", 23234345);
+
+7. Use simple hash in construtor if value must not be assigned to class variable.
+
+		package Person;
+		sub new {
+			my $class = shift;
+			my $self = {};
+			bless $self, $class;
+			return $self;
+		}
+
+### Defining Methods ###
+1. Perl does not have private variables. But we can use helper methods to manipulate object data
+2. Example: helper to get first name
+
+		sub getFirstName {
+			return self->{_firstName};
+		}
+
+3. Example: Set first name
+
+		sub setFirstName {
+			my ($self, $firstName) = @_;
+			$self->{_firstName} = $firstName if defined($firstName);
+			return $self->{_firstName};
+		}
+
+4. Keep Person package and helper into `Person.pm`
+5. Using `Person` object in `employee.pl`:
+
+		#!/usr/bin/perl
+
+		use Person;
+
+		$object = new Person("Mohammad", "Saleem", 343532432);
+		# Get first name which is set using constructor.
+		$firstName = $object->getFirstName();
+
+		print "Before Setting First Name is : $firstName\n";
+
+		# Now Set first name using helper function
+		$object->setFirstName("Mohd.");
+
+		# Now get first name set by helper function.
+		$firstName = $object->getFirstName();
+		print "Before Setting First Name is : $firstName\n";
+
+### Inheritance ###
+1. Means properties and methods of parent class will be available to child classes. (Avoids code duplication)
+2. Example: Employee inherits from Person. (This is "isa" relationship).
+	1. `@ISA`: special variable that governs inheritance
+3. Important points:
+	1. Perl searches class of specified object for given method or attribute (variable)
+	2. If no method is found, Perl searches classes defined in object class's `@ISA` array
+	3. If no method is found, then Perl uses `AUTOLOAD` subroutine (if found in `@ISA` tree)
+	4. If no method is found, then Perl searches for method in `UNIVERSAL` class (package) that comes as part of standard Perl library
+	5. If no method is found, Perl gives up and raises runtime exception
+4. Example: Employee.pm
+
+		#!/usr/bin/perl
+
+		package Employee;
+		use Person;
+		use strict;
+		our @ISA = qw(Person); #inherits from Person
+
+5. `Employee` class has all methods and attributes inherited from `Person`
+	1. Example: `main.pl`
+
+			#!/usr/bin/perl
+
+			use Employee;
+
+			$object = new Employee("Mohammad", "Saleem", 325324234);
+			# Get first name which is set using constructor.
+			$firstName = $object->getFirstName();
+
+			print "Before Setting First Name is : $firstName\n";
+
+			# Now Set first name using helper function.
+			$object->setFirstName("Mohd.");
+
+			# Now get first name set by helper function.
+			$firstName = $object->getFirstName();
+			print "After Setting First Name is : $firstName\n";
+
+### Method Overriding ###
+1. We can add additional functions in child class or modify functionality of existing methods in parent class.
+2. Example: `Employee.pm`
+
+		#!/usr/bin/perl
+
+		package Employee;
+		use Person;
+		use strict;
+		our @ISA = qw(Person); # inherits from Person
+
+		# Override constructor
+		sub new {
+			my ($class) = @_;
+
+			# Call the constructor of the parent class, Person.
+			my $self = $class->SUPER::new($_[1], $_[2], $_[3]);
+			# Add few more attributes
+			$self->{_id} = undef;
+			$self->{_title} = undef;
+			bless $self, $class;
+			return $self;
+		}
+
+		# Override helper function
+		sub getFirstName {
+			my ($self) = @_;
+			# This is child class function.
+			print "This is child class helper function\n";
+			return $self->{_firstName};
+		}
+
+		# Add more methods
+		sub setLastName {
+			my ($self, $lastName) = @_;
+			$self->{_lastName} = $lastName if defined($lastName);
+			return $self->{_lastName};
+		}
+
+		sub getLastName {
+			my ($self) = @_;
+			return $self->{_lastName};
+		}
+
+		1;
+
+3. `main.pl`
+
+		#!/usr/bin/perl
+
+		use Employee;
+
+		$object = new Employee("Mohammad", "Saleem", 234324324);
+		# Get first name which is set using constructor
+		$firstName = $object->getFirstName();
+
+		print "Before Setting First Name is : $firstName\n";
+
+		# Now Set first name using helper function
+		$object->setFirstName("Mohd.");
+
+		# Now get first name set by helper function
+		$firstName = $object->getFirstName();
+		print "After Setting First Name is : $firstName\n";
+
+### Default Autoloading ###
+1. Unique feature in Perl - default subroutine.
+	1. If we define `AUTOLOAD()` function then any calls to undefined subroutines will call `AUTOLOAD()` automatically.
+		1. Name of the missing subroutine is accessible in this as `$AUTOLOAD`
+2. Purpose: Error handling.
+3. Example:
+
+		sub AUTOLOAD {
+			my $self = shift;
+			my $type = ref ($self) || croak "$self is not an object";
+			my $field = $AUTOLOAD;
+			$field =~ s/.*://;
+			unless (exists $self->{$field}) {
+				croak "$field does not exist in object/class $type";
+			}
+			if (@_) {
+				return $self->($name) = shift;
+			} else {
+				return $self->($name);
+			}
+		}
+
+### Destructors and Garbage Collection ###
+1. Destructor is used to free memory allocated to object when you have finished using it.
+	1. Perl does it automatically as soon as object goes out of scope
+2. To implement a destructor, define method called `DESTROY`
+	1. The method will be called on object before Perl frees memory allocated to it.
+	2. It is only a member function (subroutine) which is called in following cases:
+		1. When object reference's variable goes out of scope
+		2. When object reference's variable is undef-ed
+		3. When script terminates
+		4. When Perl interpreter terminates
+3. Syntax:
+
+		package MyClass;
+		...
+		sub DESTROY {
+			print "MyClass::DESTROY called\n";
+		}
+
+### Object Oriented Perl Example ###
+1. Example:
+
+		#!/usr/bin/perl
+
+		# Following is the implementation of simple Class.
+		package MyClass;
+
+		sub new {
+			print "MyClass::new called\n";
+			my $type = shift; # The package/type name
+			my $self = {}; # Reference to empty hash
+			return bless $self, $type;
+		}
+
+		sub DESTROY {
+			print "MyClass::DESTROY called\n";
+		}
+
+		sub MyMethod {
+			print "MyClass::MyMethod called!\n";
+		}
+
+		# Following is the implementation of Inheritance.
+		package MySubClass;
+
+		@ISA = qw(MyClass);
+
+		sub new {
+			print "MySubClass::new called\n";
+			my $type = shift;
+			my $self = MyClass->new; # Reference to empty hash
+			return bless $self, $type;
+		}
+
+		sub DESTROY {
+			print "MySubClass::DESTROY called\n";
+		}
+
+		sub MyMethod {
+			my $self = shift;
+			$self->SUPER::MyMethod();
+			print " MySubClass::MyMethod called!\n";
+		}
+
+		# Here is the main program using above classes.
+		package main;
+	
+		print "Invoke MyClass method\n";
+		$myObject = MyClass->new();
+		$myObject->MyMethod();
+
+		print "Invoke MySubClass method\n";
+
+		$myObject2 = MySubClass->new();
+		$myObject2->MyMethod();
+
+		print "Creation of a scoped object\n";
+		{
+			my $myObject2 = MyClass->new();
+		}
+		# Destructor is called automatically here
+
+		print "Creation and undef an object\n";
+		$myObject3 = MyClass->new();
+		undef $myObject3;
+
+		print "Fall off the end of the script...\n";
+		# Remaining destructors are called automatically here
+
+## Perl - Database Access ##
+### Architecture of a DBI Application ###
+### Notation and Conventions ###
+### Database Connection ###
+### INSERT Operation ###
+### Using Bind Values ###
+### READ Operation ###
+### Using Bind Values ###
+### UPDATE Operation ###
+### Using Bind Values ###
+### DELETE Operation ###
+### Using do Statement ###
+### COMMIT Operation ###
+### ROLLBACK Operation ###
+### Begin Transaction ###
+### AutoCommit Option ###
+### Automatic Error Handling ###
+### Disconnecting Database ###
+### Using NULL Values ###
+### Some Other DBI Functions ###
+#### installed_drivers ####
+#### data_sources ####
+#### quote ####
+### Methods Common to All Handles ###
+#### err ####
+#### errstr ####
+#### rows ####
+#### trace ####
+### Interpolated Statements are Prohibited ###
+
+## Perl - CGI Programming ##
+### What is CGI? ###
+### Web Browsing ###
+### CGI Architecture Diagram ###
+### Web Server Support and Configuration ###
+### First CGI Program ###
+### Understanding HTTP Header ###
+### CGI Environment Variables ###
+### Raise a "File Download" Dialog Box? ###
+### GET and POST Methods ###
+### Passing Information using GET Method ###
+### Simple URL Example: Get Method ###
+### Simple FORM Example: GET Method ###
+### Passing Information using POST Method ###
+### Passing Checkbox Data to CGI Program ###
+### Passing Radio Button Data to CGI Program ###
+### Passing Text Area Data to CGI Program ###
+### Passing Drop Down Box Data to CGI Program ###
+### Using Cookies in CGI ###
+### How It Works ###
+### Setting up Cookies ###
+### Retrieving Cookies ###
+### CGI Modules and Libraries ###
+
+## Perl - Packages & Modules ##
+### What are Packages? ###
+1. `package` switches current naming context to a specified namespace (symbol table).
+	1. Package is a collection of code which lives in its own namespace
+	2. Namespace is a named collection of unique variable names (called symbol table)
+	3. Namespaces prevent variable name collitions between packages
+	4. Packages enable construction of modules
+		1. Does not clobber variables and functions outside of module's own namespace
+	5. Package stays in effect until either another package statement is invoked or until end of current block or file.
+	6. `::` used to explicitly refer to variables in package
+2. Example: `__PACKAGE__` is used to print package name
+
+		#!/usr/bin/perl
+
+		# This is main package
+		$i = 1;
+		print "Package name : ", __PACKAGE__, " $i\n";
+
+		package Foo;
+		# This is Foo package
+		$i = 10;
+		print "Package name : ", __PACKAGE__, " $i\n";
+
+		pakcage main;
+		# This is again main package
+		print "Package name : ", __PACKAGE__, " $i\n";
+		print "Package name : ", __PACKAGE__, " $Foo::i\n";
+
+### BEGIN and END Blocks ###
+1. They are used to define code blocks.
+	1. They act as constructors and destructors respectively
+
+			BEGIN { ... }
+			END { ... }
+
+2. `BEGIN` block is executed when perl script is loaded and compiled but before any other statement is executed
+3. `END` block is executed just before perl interpreter exits
+4. Used when defining perl modules
+5. Example:
+
+		#!/usr/bin/perl
+
+		package Foo;
+		print "Begin and Block Demo\n";
+
+		BEGIN {
+			print "This is BEGIN Block\n"
+		}
+
+		END {
+			print "This is END Block\n"
+		}
+
+		1;
+
+### What are Perl Modules? ###
+1. It is a reusable package defined in library file whose name is same as package with a `.pm` extension.
+2. Example: `Foo.pm`
+
+		#!/usr/bin/perl
+
+		package Foo;
+		sub bar {
+			print "Hello $_[0]\n"
+		}
+
+		sub blat {
+			print "World $_[0]\n"
+		}
+		1;
+
+	1. `require` and `use` will load a perl module
+	2. They use search paths in `@INC` to find module
+	3. Both `require` and `use` call `eval` function to process code
+	4. `1;` causes `eval` to evaluate to TRUE (so that it does not fail)
+
+### The Require Function ###
+1. Example:
+
+		#!/usr/bin/perl
+
+		require Foo;
+
+		Foo::bar("a");
+		Foo::blat("b");
+
+	1. Fully qualified name must be used
+
+### The Use Function ###
+1. `use` load module
+2. Example:
+
+		#!/usr/bin/perl
+
+		use Foo;
+
+		bar("a");
+		blat("b");
+
+	1. Fully qualified name need not be used
+3. Adding a few statements inside module will make `use` function export a list of symbols from module
+
+		require Exporter;
+		@ISA = qw(Exporter);
+
+4. Provide a list of symbols (scalars, lists, hashes, subroutines, ...) by filling list variable named `@EXPORT`. Example:
+
+		package Module;
+
+		require Exporter;
+		@ISA = qw(Exporter);
+		@EXPORT = qw(bar blat);
+
+		sub bar { print "Hello $_[0]\n" }
+		sub blat { print "World $_[0]\n" }
+		sub splat { print "Not $_[0]\n" } # Not exported!
+
+### Creation of Perl Module Tree ###
+1. For shipping perl modules.
+2. `h2xs`: utility
+
+		$h2xs -AX -n ModuleName
+
+	1. `-A`: omit Autoloader code (used by modules that defined large number of infrequently used subroutines)
+	2. `-X`: omits XS elements (eXternal Subroutine, where eXternal means external to Perl (ie C))
+	3. `-n`: name of module
+3. The following structure gets created:
+	1. Changes
+	2. Makefile.PL
+	3. MANIFEST (contains list of all files in the package)
+	4. README
+	5. t/ (test files)
+	6. lib/ (actual source code here)
+4. Tar the directory structure into `Person.tar.gz` which can be shipped.
+	1. Update README with proper instructions
+	2. `t/`: can contain test example files
+
+### Installing Perl Module ###
+1. Steps:
+	
+		tar xvfz Person.tar.gz
+		cd Person
+		perl Makefile.PL
+		make 
+		make install
 
 ## Perl - Process Management ##
+### Backstick Operator ###
+### The `system()` Function ###
+### The `folk()` Function ###
+### The `kill()` Function ###
+
 ## Perl - Embedded Documentation ##
+### What is POD? ###
+### POD Examples ###
+### Copyright 2005 [TUTORIALSOPOINT]. ###
+
 ## Perl - Functions Reference ##

@@ -711,7 +711,7 @@
 	2. Can convert between different bases
 	
 			let x="0xFF" ; echo $x
-			let x="0#77" ; echo $x
+			let x="077" ; echo $x
 			
 			# x="0xFF" does not evaluate the expression but simply assigns the value given
 

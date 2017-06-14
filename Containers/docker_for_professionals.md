@@ -781,23 +781,445 @@
 		docker inspect -f "{{json .Mounts}}" csvContainer
 
 ### Sharing Volumes - The Host-Dependent Way ###
+#### Sharing volumes the host-dependent way ####
+1. If we need to share volumes across multiple containers.
+	1. Example: Say mysql1 container has access to INSERT commands that csv container generated
+2. How to do that? Using host-dependent volumes (one or more volumes on host are shared among different containers)
+
+		docker run --name csv -d -v /share:/csv --rm afakharany/csv
+		docker start mysql1
+		docker run -it -v /share:/mnt --rm --name mysql-client --link mysql1:mysqldb mysql mysql -u root -padmin -h mysqldb
+		mysql> use myDB;
+		mysql> select * from Persons;
+		mysql> source /mnt/insert.sql;
+
+3. There are three containers
+	1. csv for running Python script against csv file and generating SQL file
+	2. mysql1 container (already created so starting it)
+	3. The mysql-client container is just used for connecting to mysql1 database. But here we mounted `/csv` on `/mnt` so that we can use `insert.sql` inside container
+4. `/share` is shared among containers.
+	1. First one generated SQL file
+	2. Second one used the SQL file to feed database
+
 ### Generalized Volume Sharing ###
+#### Generalized volume sharing ####
+1. host-dependent sharing is fine if we are using a couple of volumes and no docker-managed volumes. If number of volumes increase and if we are mixing between docker-managed and bind volumes, it is difficult to use host-dependent sharing. (More typing and need to use inspect command to determine physical locations of mount points on host system)
+2. Easier option: `--volumes-from` option
+	1. Consider another filesystem `/csv2` containing data which will be needed while working with `mysql1`. This filesystem is not shared with the host:
+
+			docker run --name csv -d -v /share:/csv -v /csv2 --rm afakharany/csv
+
+3. To use both filesystems, we can either inspect csv container to see where `/csv2` points, or we can use the following:
+
+		docker run -it -volumes-from csv --rm --name mysql-client --link mysql1:mysqldb mysql mysql -u root -padmin -h mysqldb
+
+	1. all volumes used by `csv` container should be available to `mysql-client`
+4. Even if csv container was inheriting volumes from another parent container, all volumes (current and inherited) should be available to `mysql-client`
+5. `--volumes-from` works in recursive mode
+	1. If we are inheriting from more than one container and if the containers are inheriting from each other, all volumes will be available to child container
+
+#### When NOT to use `--volumes-from`? ####
+1. Inherited volumes maintain the same mount point. If container needs to find data on specific mount point name that is different than that in parent container, this does not work. Example: if `mysql-client` was expecting to find data at `/share2` instead of `/csv2` using `--volumes-from` won't benefit.
+2. When more than one mount point have the same name.
+	1. Example: if we have a container against which we used `--volumes-from` and it happened to have file system under `csv` (two file systems with same name). Only one of them will be available to consuming container.
+3. IF we are planning to change read/write access permissions of inherited volumes `--volumes-from` wont work.
+		1. The first one that is mounted would have the files (race mode)
+	1. Example: If we need to make `/csv2` read-only (the volume was exposed in parent container with read-write permissions which cannot be changed in consuming container)
+
+#### Referencing managed volumes ####
+1. Managed volumes are mounted on host that is managed by Docker. These volumes can be shared only by using `--volumes-from` (owning container identifies them). They cannot be removed except owning container is removed.
+	1. We can use inspect and get the physical location and use it with `-v`
+2. Common practice: One container per managed volume. (makes sharing and deleting easy)
+3. Removing container does not remove managed volume.
+	1. `-v`: option used to override the behavior
+		1. Example: `docker rm -v afakharany/csv`
+4. Multiple containers are using the volume, volume will not be deleted (even with `-v`) unless last container using the volume is removed
+5. If `-v` flag is not used, the volume becomes orphaned. (deleted using several manual steps)
+6. Bind volumes cannot be deleted (Because they are not managed by Docker). They are managed by host OS.
 
 ## Networking in Docker ##
 ### Networking in Docker ###
+#### A networking quick refresher ####
+1. Quick refresher about important networking concepts used in the section
+	1. Network protocol: agreed-upon method of communication between two or more nodes on a network. Example: Hyper Text Transfer Protocol (HTTP) (used for browsing web pages as well as other tasks). File Transfer Protocol (FTP) for uploading and downloading files.
+	2. Network interface: Device that a given host uses to communicate with other hosts on network. An interface must have an IP address (set of numbers separated by dots used to uniquely identify a device on a network). IP addresses use the Internet Protocol (IP)
+	3. The loopback interface: We often use Ethernet interface. This has the IP address and is used to communicate over the network. Computer has another special type of interface called loopback. It is not connected to any network and it has a special type of IP address (127.0.0.1). It is used by internal applications on OS to communicate with each other using networking protocols.
+	4. Network port: Unique number (per host) that identifies which app will be receiving the network traffic arriving at network interface.
+		1. Example: Web server usually on port 80
+			1. HTTP traffic received by the interface need to be redirected (by OS) to appropriate app (web server) using it's designated port (80)
+	5. Using protocol, IP address (or hostname) and network port, we can specify meaningful network address.
+		1. Example: To connect to web server running on 192.168.1.100 on port 8080 and using HTTP protocol. Give the address `http://192.168.1.100:8080`
+
 ### Docker Network Model - Illustration ###
+1. Container has loopback and private interface
+2. There is a host virtual network interface (this communicates with container's private interface)
+	1. The computer on which docker daemon is installed, a virtual network interface gets created on it
+3. Virtual network interface is connected to a bridge called `docker0` (default)
+	1. It is a network card that acts as bridge between host network interface and virtual network interface
+	2. Directs traffic from outside network to virtual network interface
+4. `ifconfig -a`
+
+#### Routing and NATing ####
+1. Since networks get extremely large, they are divided into logical segments called "subnets"
+2. In a single network subnet, hosts can connect and communicate with each other without a problem. If one host in a subnet wants to connect to another host in another subnet, intermediary device (called router) must be used.
+3. Router contains "routing tables". It is information about how to reach different hosts on the networks to which router is connected. Router is responsible for connecting hosts on different subnets.
+	1. Home network need to connect to ISP network and then to backbone and then to a network in the country in which gmail server resides and then to the gmail server (many routers are used usually)
+4. In Docker's network topology, docker0 interface is like the router of an outside network. It is used to connect containers with each other in an internal network. It is also used to connect containers to the outside world.
+	1. Internal network of a container are connected to outside network or to another container internal network
+5. Docker provides 4 different ways to build and connect containers.
+	1. We can make educated decision when choosing which model to use during creation of containers.
+
 ### Closed Container ###
+#### Closed container ####
+1. This container does not have any access to the outside world
+2. It uses the loopback interface of the host to allow programs inside container to cummunicate internally
+3. Maximum level of network protection. This container will not be reachable from outside the host
+4. Containers cannot connect to the outside network. If we need network connection ex download packages before it can function.
+5. For building a closed container, use `--net none` option during creation.
+
+		docker run --rm --net none busybox ifconfig -a
+
+6. Use cases:
+	1. Where app requires maximum security level
+	2. Where access is not a requirement
+	3. If container runs only a python script which does not require outside network access
+
+#### Bridged containers ####
+1. Default type of networks in Docker containers
+2. Reduces level of network isolation in favor of providing outside connectivity
+3. In this mode, container has two interfaces
+	1. loopback interface
+	2. private interface (connected to host's virtual interface and bridge (docker0))
+4. Bridged containers can communicate with each other as they are connected to same virtual network
+5. Bridged containers can communicate with outside network (internet depending on configuration) through host's bridge interface.
+6. Common type of network model in Docker.
+7. Example: `docker run --name bridgedcontainer -d busybox nc -l 0.0.0.0:10000`
+	
+		docker exec closedcontainer ping 8.8.8.8
+		docker exec bridgedcontainer ping 8.8.8.8
+
+#### Running a brided container ####
+1. Bridged network model is default in Docker. It is the model that is automatically chosen for you if you did not specify `--net`
+2. In bridged container, apps have access to two network interfaces: loopback device (used for internal communication) and private interface (connected to virtual interface of host. Used to connect to outside network. Uses host's bridge device to connect to outside network)
+3. A container can be run in bridged networking mode by either running container without any flags or specifying `--net bridge`
+	1. Example: `docker run --rm --net bridge busybox`
+4. A container in bridge mode can connect to other containers on same host using internal network. It can connect to outisde network (Internet, depending on configuration) using host's bridge device
+5. All communications are done through IP address. If container needs to be identified by hostname, modify creation command as follows...
+
 ### Containers' Name Resolution - Part A ###
+#### Containers' name resolution ####
+1. To communicate with other nodes using hostnames other than IP addresses, use service/server called the DNS (Domain Name Service). It's role is to translate hostnames to IP addresses and vice versa.
+2. To assign a hostname to container during its creation, we have two options:
+	1. Specify hostname using `--hostname` flag.
+		
+			docker run --rm --hostname helloDocker busybox nslookup helloDocker
+
+		1. Docker overrides DNS by manually assigning hostname to container. The hostname is used by container internally. No other containers can connect to this container by it's hostname as it is not known to them.
+	2. Specify one or more DNS servers that will be used for name resolution.
+
+			docker run --rm --dns=8.8.8.4 --dns=8.8.8.8 busybox nslookup google.com
+
+3. DNS options consideration
+	1. Specify it as IP address
+	2. `--dns`: option can be set when service is starting (Doesn't need specifying DNS server for new containers since they will be assigned one)
+		1. If DNS server is changed, only containers will be affected (containers that were running before the change occured will continue to use old DNS)
+			1. Need manual assignment of DNS address
+4. Containers can be instructed to use domain name by default (if they want to resolve a hostname that does not contain domain part)
+	1. Example:
+		1. `myserver.example.com`. If `myserver` is used for hostname, it may not be resolvable unless client appends `.example.com` by default if containers do not have FQDNs. We can do this using `--dns-search`
+			1. `docker run --rm -dns-search google.com busybox nslookup mail`
+
+		1. container will resolve `mail.google.com` to IP address using `nslookup` though hostname used was `mail`. Multiple search domains can be added during container creation. Option can also be configured during daemon startup.
+5. Another feature: to manually assign hostnames to IP addresses (done using `--add-host` flag)
+	1. Example: `docker run --rm -add-host www.google.com:127.0.0.1 busybox ping www.google.com`
+		1. If any application tries to access `www.googl.com`, answer will come from localhost loopback address (127.0.0.1).
+			1. Purpose: To block some outside connections or want to re-route unsecure traffic through a secure channel like SSH. (Cannot be set at daemon startup)
+6. Example: `docker run --name webserver --hostname httpserver httpd`
+	1. `docker exec webserver hostname`
+		1. hostname is used to connect to the container over the network instead of IP address
+		2. `httpserver` is available only to apps in container
+	2. `docker exec webserver nslookup httpserver`
+	3. `docker run -d --name bbox --hostname bbox busybox nc -l 0.0.0.0:7000`
+		1. `docker exec bbox nslookup bbox` (Gives Public DNS server used to query but actually consulted local DNS server in the container to give IP address of `bbox`)
+	4. `nslookup`: it can be used to query DNS server and bring IP address of the machine given it's name
+	5. `docker run --name test --rm -it --dns 8.8.4.4 --dns 8.8.8.8 busybox nslookupup www.google.com`
+		1. Uses `8.8.4.4` to resolve `www.google.com`
+7. DNS can be specified in daemon configuration file (--dns need not be used during creation)
+	1. If change occurs in DNS server configuration in daemon configuration file, it will not affect running containers. If running containers have to be configured, shutdown and start them again.
+8. Resolving hostname:
+	1. `mail.google.com`: fully qualified domain name
+	2. `development.mycompany.com`: fully qualified domain name
+		1. `development`
+	3. `docker run --name test --rm -it --dns 8.8.4.4 --dns 8.8.8.8 --dns-search google.com busybox nslookup www`
+	4. `docker run --name test --rm -it --dns 8.8.4.4 --dns 8.8.8.8 --dns-search google.com busybox nslookup mail`
+		1. If only hostname is specified, docker will append domain name to it
+9. Adding hostnames to IP addresses
+	1. `docker --dns 8.8.8.8 -it --add-host www.google.com:127.0.0.1 busybox ping www.google.com`
+		1. a hostname is resolved to the IP address specified
+
 ### Controlling Connections to the Container ###
+#### Controlling connections to the container ####
+1. How to control traffic arriving to the container. Done through port-forwarding.
+2. Bridged containers cannot be reached from outside the host by default (security measure). Specific ports can be made accessible from outside network using port forwarding (using `-p` flag)
+3. `-p` has 4 possible use cases
+	1. `-p N`: where `N` is container's port number. It is bound to a random port on all host's interface
+	2. `-p N:n`: `n` is host's port where `N` is bound to. Example: `-p 8080:80` (traffic arriving at host's port 80 will be automatically routed through Docker to container listening on port 8080)
+	3. `-p ip_address:N`: binds container's port `N` to random port on host but only on interface specified by IP address
+	4. `-p ip_address:n:N`: binds container's port `N` to port `n` on host but only on the interface indicated by IP address
+4. We can assign random host ports to all ports exposed by a given container using `-P` flag
+	1. `docker run -P httpd` binds port 80 exposed by webserver to random host port
+5. To see which ports on host are mapped use
+	1. `docker ps`
+	2. `docker inspect`
+	3. `docker port`
+
+#### Examples ####
+1. `docker run -d --name webserver1 -p 80 httpd`
+	1. Maps random port to port 80
+		1. Connect using random port (localhost:32768)
+2. `docker run -d --name webserver2 -p 8080:80 httpd`
+	1. `0.0.0.0:8080->80/tcp`: all interfaces
+3. `docker run -d --name webserver3 -p 127.0.0.1::80 httdd`
+	1. Only gets redirected 
+4. `docker run -d --name webserver4 -p 127.0.0.1:9090 httpd`
+5. `docker stop webserver1`
+6. `docker stop webserver2` 
+7. `docker stop webserver`
+8. `wget 127.0.0.1:9090` - works
+9. `wget <host-public-ip>:9090` - throws an error
+10. `docker port webserver3` - ports open on container and its mapping
+11. `docker inspect webserver3`
+
 ### Joined Containers ###
+1. If more than one container shares the same network interface
+2. Similar to volume sharing
+
+		docker run -d --name server1 --net none busybox nc -l 127.0.0.1:8888
+		docker run -it --rm --net container:server1 busybox netstat -al
+
+	1. `netstat -al` will show port 8888 listening on local interface 127.0.0.1
+	2. `none`: using loopback interface
+3. Both containers maintain network isolation
+4. Used for two containers to communicate with each other but don't want any external access (not even from host).
+	1. It can be used in the absence of network discovery tools (DNS) as well.
+5. If programs running on same port numbers exist in joined containers, there may be conflicts
+
+#### Examples ####
+1. `docker run -d --name server1 --net none busybox nc -l 127.0.0.1:8000`
+2. `docker run -it --net container:server1 busybox netstat -al`
+3. `docker exec server1 netstat -al`
+
+#### Open containers ####
+1. Most unprotected sort of network models in Docker
+2. They have full access to host's interface. They can use ports numbered lower than 1024.
+3. Use it only if it is the only valid option.
+		
+		docker run -it --net host busybox ifconfig -a
+
+	1. shows network interfaces on host
+		1. Also the bridge interface
+4. No isolation performed on this type of container
+
+##### Examples #####
+1. `docker run --rm --net host busybox ifconfig -a`
+2. `docker run --rm --net host busybox ip addr` (full access to network on host)
+3. `docker run -d --name openwebserver --net host httpd` (`localhost`: port 80 is mapped to port 80)
+
 ### How do Containers "Know" About Each Other? ###
+#### How do containers "know" about each other? ####
+1. If a container is running a webserver, how does another container communicate with it?
+2. Options:
+	1. Simple network scan to see which nodes on the network are listening on port 80.
+	2. We can use local DNS server and make necessary configuration so that container register themselves the moment they start.
+	3. linking: easier option
+3. When we link containers, an entry will be added to DNS override (`/etc/hosts`) specifying hostname and IP address of target machine. (`/etc/hosts` is consulted before the DNS is consulted)
+	1. Example:
+
+			docker run -d --name webserver1 httpd
+			docker run -it --rm --link webserver1:web busybox wget web
+
+		1. A second container has link to container nemed `webserver1` which is inernally reffered to as `web`.
+			1. `wget` can be used to download `index.html` from webserver container
+4. There is no easy way to link a container to other containers serving its required service.
+	1. Example: An application is expecting to find a webserver named http101.
+
+#### Examples ####
+1. `docker run -it --hostname hellodocker busybox cat /etc/hosts`
+	1. An entry is added in `/etc/hosts`
+2. `docker start webserver`
+3. `docker stop openwebserver`
+4. `docker run -it --rm --name client --link webserver:web busybox wget web`
+	1. `web` the name that will be used internally in this container
+5. `docker run -it -d --name client --link webserver:web busybox nc -l 127.0.0.1:7070`
+	1. Entries in `/etc/hosts`
+
+			172.17.0.3		web httpserver webserver
+			172.17.0.5		76.....
+
+6. `docker run -it -d --name client --hostname client --link webserver:web busybox wget web`
+7. `docker run -it --rm --name client1 busybox wget web`
+	1. `web` is not known
+
+#### Environment variables creation ####
+1. Consider the following:
+
+		docker run -d --name baseserver --expose 8080 -expose 9090 busybox nc -l 0.0.0.0:8080
+		docker run --rm -it --link baseserver:server busybox env
+
+	1. A list of environment variables will be printed that were automatically created when container was linked.
+2. One environment variable with alias followed by `NAME` (`<SERVER>_NAME`), then value of container's name and link alias separated by a slash
+3. Other environment variables are:
+	1. `ALIAS_<PORT>_PORT_NUMBER_PROTOCOL_PORT`
+	2. `ALIAS_<PORT>_PORT_NUMBER_PROTOCOL_ADDR`: refers to interface IP address on which port is bound
+	3. `ALIAS_<PORT>_PORT_NUMBER_PROTOCOL_PROTO`: name of protocol (TCP and UDP)
+	4. `ALIAS_<PORT>_PORT_NUMBER_PROTOCOL`: will have all previous information encoded in one URL.
+4. Environment variables can be used in a shell script that is run inside the container.
+
+#### Examples ####
+1. `docker run -d --name baseserver --expose 1111 --expose 2222 busybox nc -l 0.0.0.0:1111`
+	1. `--expose`: making ports available to other containers running on same host (same host)
+2. `docker -it --name client2 --link baseserver:server busybox env`
 
 ## Using Isolation to Mitigate Risks ##
 ### Security and Isolation ###
+#### Resource limits ####
+1. A container has to execute some app/command to stay running. This instantiates one or more processes that consumes hosts memory and CPU
+2. If amount of available resources (CPU and Memory) runs out, this will cause severe performance degradation for the process and it may eventually crash
+3. Using up all resources on system not only affects process inside container, but also other processes owned by other users on system. This may affect overall performance of the machine
+4. Solution: Docker provides some controls that can be used to limit amount of resources used by given container when it starts up.
+
+#### Memory allowance ####
+1. Amount of memory used by the container can be limited using `-m` or `--memory` flag
+	1. Example: `docker run --name webserver -m 512m httpd` (can consume only upto 512 MB of RAM)
+2. Amount of memory can be specified in byts (b), kilobytes (k), megabytes (m) or gigabytes (g)
+3. The amount specified only prevents container for exceeding that amount (does not guarantee that much memory)
+4. Assigning memory needs careful planning:
+	1. Can the application function properly within assigned memory limits?
+	2. Can host avail that amount of memory?
+5. It is difficult at times to determine the requirements of open-source programs.
+	1. For databases, memory can be calculated by system admins (may be overestimated and trial and error may be required to reach the optimum)
+6. If an app runs out of memory, it may start writing error messages indicating that in logs and it may crash.
+	1. Precaution: use `--restart`
+
+#### Examples ####
+1. `docker run -d --name webserver --memory 512m httpd`
+2. `docker ps`
+
 ### CPU Allowance ###
+1. Running out of CPU has different consequences as compared to running out of memory.
+	1. Memory: process can run slower and can crash
+	2. CPU: process may wait indefinitely until some cycles get free to serve it
+		1. each cycle processes only one task
+2. Sometimes it is better that process crashes and restarts instead of waiting and freezing the thread.
+3. Two ways of specifying CPU limit:
+	1. Assign relative weight to container. Percentage of CPU cycles the container will use relative to sum of all computing cycles available to the other containers
+	2. Restricting container to work on only a set of CPU cores
+
+#### Assiging a percentage of cycles to the container ####
+1. `--cpu-shares`: used to assign number of cycles to container
+
+		docker run -d --cpu-shares 1024 -name hogger1 afakharany/hogger
+		docker run -d --cpu-shares 2048 -name hogger2 afakharany/hogger
+
+	1. The above run CPU intensive commands called `stress`.
+	2. `hogger1` should get half the number of cycles available to `hogger2`
+2. If more containers are added, the number specified controls percentage of CPU assigned to container relative to other containers that are currently running
+3. If a container needs more CPU than assigned to it and if the amount of CPU cycles is available on the host, container will just break the limit and use extra cycles. However, if the cycles were originally assigned to another container, which demanded them back, they will be assigned to it. This ensures that all containers use maximum possible CPU resources.
+
+#### Examples ####
+1. `stress --cpu 1 --timeout 30s &`
+2. `htop`
+3. `docker run --name hogger1 -d --cpu-shares 512 afakharany/hogger --cpu 1`
+4. `docker run --name hogger2 -d --cpu-shares 1024 afakharany/hogger --cpu 1`
+5. `docker run --name hogger3 -d --cpu-shares 256 afakharany/hogger --cpu 1`
+
 ### Assigning a CPU Set to the Container ###
+#### Assigning a CPU set to the container ####
+1. Assigning a group of CPUs to the container
+2. Most computers nowadays have more than one core. We can specify number of CPUs on which containers will run using `--cpu-set` flag.
+	1. Example:
+	
+			`docker run -d --name hogger --cpuset-cpus 0 afakharany/hogger -c 1`
+
+		1. `--cpu-set 0`: using only first CPU of host
+		2. `--cpu-set 0-2`: using first, second and third CPUs
+		3. `--cpu-set 0,2`: using first and third processors
+
+#### Examples ####
+1. `docker run --name hogger3 -d --cpuset-cpus 0 afakharany/hogger --cpu 1`
+2. `docker run --name hogger3 -d --cpuset-cpus 0-1 afakharany/hogger --cpu 1`
+
+#### Controlling access to devices ####
+1. Not limiting container's access to host devices but control it.
+2. Some resources are automatically mapped to docker but some aren't.
+3. To map a device to container, use `--device` flag.
+	1. Example: `docker run -it --rm --privileged --device /dev/sr0:/dev/sr0 busybox mkdir /media && mount /dev/sr0 /media && ls -l /media`
+		1. maps cd-rom device on host to device with same name on container.
+
+#### Examples ####
+1. `docker run -it --rm --privileged --device --device /dev/sr0:/dev/sr0 busybox mkdir /cdrom && mount /dev/sr0 /cdrom && ls -l /cdrom`
+	1. `--privileged`: enables access to host devices
+2. `mount /dev/sr0 /media/`
+
 ### Docker Users ###
+1. By default, Docker containers run as root user account. May be a potential security threat (All daemons will be running using admin privileges). If there is a bug in the app running inside container, the consequences may be disastrous.
+2. Sometimes, we may need to run container running under root account powers to perform some essential system admin tasks.
+3. Sometimes, we may need root/admin access to host OS to perform some security related tasks.
+
+#### Determining the container's user account ####
+1. If we need to know which user account will be used inside a container, such info is not available on the image (there is no way to examine image's metadata)
+2. To inspect container for user and UID it is going to be using before you start running it, use docker inspect command:
+
+		docker create -name myUser busybox sleep 3000
+		docker inspect --format="{{ .Config.User }}" myUser
+
+	1. If result is nothing, user is root with UID 0. Otherwise, author of image has chosen to make it "run-as" a specific user
+3. Two problems with the method:
+	1. User can be changed in any script the container uses
+	2. Container has to be created before we can acquire the information. (May cause potential threats)
+4. Solution for first problem:
+
+		docker run --rm --entrypoint "" busybox:latest id
+
+	1. Runs quicks test on busybox image to determine user account by which container will be run.
+	2. `--entrypoint ""`: ommits default `sh -c`
+	3. `id`: it will be the only command to run on the container (displays UID and username of current user)
+
+#### Examples ####
+1. `docker create --name myUser busybox sleep 3000`
+2. `docker inspect --format="{{.Config.User}}" myUser`
+3. `docker run --rm --entrypoint "" busybox id`
+
+#### Changing the default user ####
+1. We can change the default user to run the container when running or during creation of it.
+	1. We need to select the user that is already available in container.
+	2. To list available users:
+
+			docker run --rm -it --entrypoint "" busybox cat /etc/passwd | cut -d : -f 1,3,4,5
+	3. The following command runs container with a different user:
+
+			docker run --user nobody busybox id
+
+		1. UID may or may not differ
+	4. Specifying user id:
+
+			docker run --user 99 busybox id
+
+	5. Specifying group:
+
+			docker run --user www-data:www-data busybox id
+	
+		1. `www-data` (Apache) user and `www-data` group
+	6. A user can easily promote itself to root account on some week images like BusyBox which has a root account without a password. Ubuntu (stronger image) has this account locked by default.
+
+#### Examples ####
+1. `docker run --rm -it --entrypoint "" busybox cat /etc/passwd | cut -d : -f 1,3,4,5`
+2. `docker run --user nobody busybox id`
+3. `docker run --user www-data:www-data busybox id`  
+
 ### LAB - Handling Permissions ###
+#### LAB - Handling permission on volumes ####
+1. 
 
 ## Packaging Software in Images ##
 ### Software Packaging ###

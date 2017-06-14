@@ -11,7 +11,7 @@
 	5. `system`: similar to provided but the JAR has to be provided explicitly (not looked up in repository)
 
 ### Dependency Version Requirement Specification ###
-1. `version` element defines the version requirement of the depencency.
+1. `version` element defines the version requirement of the dependency.
 2. Synatx:
 	1. `1.0`: "Soft" requirement on 1.0 (recommendation)
 	2. `[1.0]`: "Hard" requirement (it must be `1.0`)
@@ -23,7 +23,7 @@
 	8. `(,1.1),(1.1,)`: `x` != `1.1`
 
 ### Exclusions ###
-1. tels maven not to include specified project that is a dependency of this dependency (transitive dependency)
+1. tells maven not to include specified project that is a dependency of this dependency (transitive dependency)
 	1. `maven-embedder` requires `maven-core` (this can be excluded using `<exclusion>` element)
 
 			<dependencies>
@@ -85,7 +85,7 @@
 			2. `<version>`
 			3. `<description>`
 			4. `<url>`
-			5. `<inceptionYear`
+			5. `<inceptionYear>`
 			6. ...
 		3. Elements which are not inherited:
 			1. `artifactId`
@@ -104,7 +104,7 @@
 		3. If a project needs `dep1` and `dep2` but `dep2` already has dependency on atleast some minimum version of `dep1`. If we specify an older version for `dep1`, `dep2` will be forced to use older version of `dep1` and will fail.
 			1. Solution: `mvn dependency:tree`: study the entire dependency tree
 
-### Aggregation (Multi-Modue) ###
+### Aggregation (Multi-Module) ###
 1. Aggregator project? project with multiple modules
 	1. Modules are listed in the project's POM
 
@@ -318,6 +318,6 @@
 
 ## Maven Dependency Search Sequence [https://www.tutorialspoint.com/maven/maven_repositories.htm](https://www.tutorialspoint.com/maven/maven_repositories.htm) ##
 1. Step 1: Search dependencies in local repository, if not found, move to step 2
-2. Step 2: Search dependencies in central repository, if not found and remote repository/repositories is/are mentioned then move to setp 4, if found, then downloaded to local repository for future reference
+2. Step 2: Search dependencies in central repository, if not found and if remote repository/repositories is/are mentioned then move to setp 4, if found, then downloaded to local repository for future reference
 3. Step 3: If a remote repository has not been mentioned, maven simply stops the processing and throws error (unable to find dependency)
 4. Step 4: Search dependency in remote repository/repositories. If found, downloaded to local respository for future reference. If not found, maven throws an error (unable to find dependency)

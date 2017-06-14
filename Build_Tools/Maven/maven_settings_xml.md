@@ -42,16 +42,16 @@
 		</settings>
 
 1. `localRepository`: path of the build system's local repository
-2. `interaciveMode`:
+2. `interactiveMode`:
 	1. `true`: maven should interact with user for input
 	2. `false`: maven should not interact
 3. `usePluginRegistry`:
-	1. `true`: maven will use `${user.home}/.m2/plugin-registry.xml` to manage plugin versions (dorman for maven 2.0)
+	1. `true`: maven will use `${user.home}/.m2/plugin-registry.xml` to manage plugin versions (dormant for maven 2.0)
 4. `offline`:
 	1. `true`: if the build system should operate in offline mode (for servers which cannot connect to remote repository)
 
 ### Plugin Groups ###
-1. `<pluginGroups`> contains `<pluginGroup>` elements:
+1. `<pluginGroups>` contains `<pluginGroup>` elements:
 	1. `<pluginGroup>` contains groupId
 		1. If group id is not provided in commandline, the `<pluginGroups>` list is searched for the `groupId`
 		2. automatically contains `org.apache.maven.plugins` and `org.codehaus.mojo`
