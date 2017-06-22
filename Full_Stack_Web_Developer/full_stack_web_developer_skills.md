@@ -92,3 +92,62 @@
 5. **Caching**
 	1. In-memory vs Disk storage
 6. **Queues and Stacks**
+
+## Front End Tools & Technologies Missing ##
+
+### Libraries and Plugins ###
+1. [Backbone.js](http://backbonejs.org/): Lightweight JS library
+	1. MVC framework
+		1. Abstracts data into models
+		2. DOM into views
+		3. Binds both with events
+		4. API connection is using RESTful JSON interface
+2. [Alertify.js](http://alertifyjs.com/)
+	1. Javascript framework
+	2. For alerts and notifications (alerts, dialogs and prompt and log messages)
+3. [HTML5 Bolerplate](https://html5boilerplate.com/):
+	1. Professional front-end template
+
+### Templates and Themes ###
+1. [Wrap Bootstrap](https://wrapbootstrap.com/):
+	1. Marketplace for selling themes and templates (based on Bootstrap)
+2. [ThemeForest](https://themeforest.net/?ref=FredSarmento)
+	1. Marketplace for buying and selling HTML templates and themes for CMS (Wordpress, Joomla, Drupal)
+
+### HTML5 Editors ###
+1. [Aloha Editor](http://www.alohaeditor.org/):
+	1. HTML5 editor (for HTML and DOM)
+2. [Prism](http://prismjs.com/download.html)
+	1. Syntax highlighter
+
+### CSS and HTML5 Frameworks ###
+1. [Foundation](http://foundation.zurb.com/):
+	1. Most advanced responsive front-end framework
+2. [Framework 7](http://framework7.io/#.Vd7TmPmqqko):
+	1. Free and Open source mobile HTML framework for hybrid mobile apps or web apps (look and feel of iOS/Android native apps)
+
+### Browser Add-Ons ###
+1. [Window Resizer](https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh):
+	1. Emulates various resolutions
+2. [ColorZilla](http://www.colorzilla.com/firefox/)
+	1. Used to get color reading from any point in browser
+3. [LiveReload](http://livereload.com/)
+	1. Monitors changes in filesystem and preprocesses them
+
+### Debugging and Testing ###
+1. [CSS Lint](http://csslint.net/):
+	1. Open source CSS code quality tool
+2. [Responsive Design Testing Tool](http://mattkersley.com/responsive/)
+	1. Used to test responsive websites
+
+### Versioning and Cloud Storage ###
+1. [Team Foundation Server](https://www.visualstudio.com/tfs/):
+	1. Windows version of GitHub & Bitbucket
+
+### Learning and Education ###
+1. [Codecademy](https://www.codecademy.com/):
+	1. Online interactive platform for free coding classes in 12 programming languages (Python, Java, PHP, JavaScript (jQuery, AngularJS, React.js), Ruby, SQL, Sass, HTML, CSS)
+2. [Treehouse](https://teamtreehouse.com/):
+	1. Beginner to advanced courses in web design, web development, mobile development, game development
+3. [Lynda](https://www.lynda.com/):
+	1. Video courses in software, creative and business skills
