@@ -1336,13 +1336,96 @@
 2. [HTTP Methods GET vs POST](https://www.w3schools.com/tags/ref_httpmethods.asp)
 
 #### jQuery `$.get()` Method ####
-1. Syntax: 
+1. Syntax: `$.get(URL, callback);`
+	1. callback: executed if request succeeds
+2. Example: Retrieve data from file on a server
+
+		$('button').click(function ) {
+			$.get('demo_tst.asp', function (data, status) {
+				alert('Data: ' + data + '\nStatus: ' + status);
+			});
+		});
+		
+	1. data: conetnt of page requested
+	2. status: status of request
+3. `demo_test.asp`:
+
+		<%
+		response.write("This is some text from an external ASP file.")
+		%>
 
 #### jQuery `$.post()` Method ####
+1. Requests data from server using HTTP POST method
+2. Syntax:
+
+		$.post(URL, data, callback);
+		
+	1. data: data to send along with request
+	2. callback: function executed if request succeeds
+3. Example:
+
+		$('button').click(function () {
+			$.post('demo_test_post.asp',
+			{
+				name: 'Donald Duck',
+				city: 'Duckburg'
+			},
+			function (data, status) {
+				alert('Data: ' + data + '\nstatus: ' + status);
+			});
+		});
+		
+4. ASP script `demo_test_post.asp`:
+
+		<%
+		dim fname,city
+		fname=Request.Form("name")
+		city=Request.Form("city")
+		Response.Write("Dear " & fname & ". ")
+		Response.Write("Hope you live well in " & city & ".")
+		%>
+
 #### jQuery AJAX Reference ####
+1. [jQuery AJAX Reference](https://www.w3schools.com/jquery/jquery_ref_ajax.asp)
 
 ## jQuery Misc ##
 ### jQuery noConflict() ###
+1. If we want to use other frameworks along with jQuery.
+
 #### jQuery and Other JavaScript Frameworks ####
+1. Angular, Backbone, Ember, Knockout, ... may use `$` sign as shortcut?
+	1. One of them might stop working
+	2. Solution: `noConflict()`
+
 #### The jQuery no `noConflict()` Method ####
+1. `noConflict()`: releases hold on `$` identifier
+	1. We can use `jQuery` full name instead of shortcut:
+	
+			$.noConflict();
+			jQuery(document).ready(function () {
+				jQuery('button').click(function () {
+					jQuery('p').text('jQuery is still working!');
+				});
+			});
+			
+	2. We can have custom shortcut.
+		1. `noConflict()` returns a reference to jQuery which can be saved in a variable
+		
+				var jq = $.noConflict();
+				jq(document).ready(function () {
+					jq('button').click(function () {
+						jq('p').text('jQuery is still working!');
+					});
+				});
+				
+	3. If we don't want to change `$`, we can pass `$` to `ready` function (we can use `$` inside function but outside we have to use `jQuery`)
+	
+			$.noConflict();
+			jQuery(document).ready(function ($) {
+				$('button').click(function () {
+					$('p').text('jQuery is still working!');
+				});
+			});
+
 #### jQuery Misc Reference ####
+1. [jQuery Misc Reference](https://www.w3schools.com/jquery/jquery_ref_misc.asp)

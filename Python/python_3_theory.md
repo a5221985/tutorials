@@ -936,7 +936,7 @@
 			
 4. Looping over a sequence in reverse: specify sequence in the forward direction and then use `reversed()` function
 
-		for i in reversed(range(1, 10, 2):
+		for i in reversed(range(1, 10, 2)):
 			print(i)
 			
 5. Looping over a sequence in sorted order using `sorted()` function (returns a new sorted list)
@@ -2201,7 +2201,7 @@
 			from math import pi, sin
 			sine_table = {x: sin(x * pi / 180) for x in range(0, 91)}
 			
-			unique_words = set(word for line in page for word in line.split())
+			unique_words = set('word for line in page for word in line'.split())
 			
 			data = 'golf'
 			list(data[i] for i in range(len(data) - 1, -1, -1))
@@ -2661,6 +2661,10 @@
 		python3
 		import sys
 		sys.path
+		
+5. Deactivating virtual environment:
+
+		deactivate **(M)**
 
 ### Managing Packages with pip ###
 1. `pip`: It is used to install, upgrade and remove packages (package manager)

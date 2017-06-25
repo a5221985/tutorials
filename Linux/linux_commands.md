@@ -29,7 +29,7 @@
 	1. stable
 	2. testing
 	3. Unstable
-6. Release is nambed after a character in toy story
+6. Release is named after a character in toy story
 
 ### Other ###
 1. CentOS, Oracle Enterprise Linux, Scientific Linux
@@ -216,13 +216,13 @@
 	2. `/proc` **(M)**: It is a view of kernel or what kernel manages.
 		1. Means to interact with kernel directly
 		2. `mount -t proc`
-		3. `/proc/interrupts`: displayes interrupts
+		3. `/proc/interrupts`: displays interrupts
 		4. `/proc/kcore`: physicial memory representation
 			1. File size is same as physical memory + 4 bytes
 		5. `/sys`: kernel info about hardware
 	3. `/usr` **(M)**: Unix System Resources (not User)
 		1. Contains shareable read only data
-		2. `/usr/bin`: contians commands
+		2. `/usr/bin`: contains commands
 			1. `ls /usr/bin | wc -l`
 		3. `/usr/include`: General include files for C
 		4. `/usr/lib`: libraries not directly executed by users or scripts
@@ -343,6 +343,9 @@
 8. `&>`: joins stdout and stderr to a file
 	1. `rm file42 &> out_and_err`
 9. `<` or `0<`: redirecting stding
+	
+		myprog < input_file > output_file (myprog expects input from STDIN)
+	
 10. `<<`: heredoc
 
 		cat <<EOF > text.txt

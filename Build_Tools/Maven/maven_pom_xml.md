@@ -303,7 +303,89 @@
 1. Specifies remote location where maven can find plugins
 
 ### Distribution Management ###
+1. Manages distribution of artifact (and supporting files) generated during build process.
+2. Example:
+
+		<project ...>
+		
+			<distributionManagement>
+				...
+				<downloadUrl>http://mojo.codehaus.org/my-project</downloadUrl>
+				<status>deployed</status>
+			</distributionManagement>
+			...
+		</project>
+		
+	1. `downloadUrl`: url of repo from where another POM may point to in order to grab this POM's artifact
+		1. POM uploads it and public can download from this link
+	2. `status`: do not change (status of project is set when it is transported to repo)
+		1. Valid types:
+			1. `none`: default (no special status)
+			2. `converted`: Manager of repo converted this POM from earlier version of Maven to Maven 2
+			3. `partner`: synched. artifact is synched with partner repo
+			4. `deployed`: common status. artifact is deployed from a Maven 2 or Maven 3 instance (when deployed from commandline)
+			5. `verified`: project is verified (finalized)
+
 #### Repository ####
+1. Where and how project will get to remote repository when artifact is deployed.
+	1. `repository`: used for snapshot distribution if `snapshotRepository` is not defined
+2. Example:
+
+		<distributionManagement>
+			<repository>
+				<uniqueVersion>false</uniqueVersion>
+				<id>corp1</id>
+				<name>Corporate Repository</name>
+				<url>scp://repo/maven2</url>
+				<layout>default</layout>
+			</repository>
+			<snapshotRepository>
+				<uniqueVersion>true</uniqueVersion>
+				<id>propSnap</id>
+				<name>Propellors Snapshots</name>
+				<url>sftp://propellers.net/maven</url>
+				<layout>legacy</layout>
+			</snapshotRepository>
+			...
+		</distributionManagement>
+		...
+		
+	1. `id`, `name`: `id` uniquely identifies repository. `name` is human readable form
+	2. `uniqueVersion`: `true` - artifact generated gets unique version number. `false`: artifact does not get a unique version number (uses version number defined as part of address)
+	3. `url`: location and transport protocol used to transfer built artifact (+ POM file + checksum data) to repo.
+	4. `layout`: `default` or `legacy`
+
+#### Site Distribution ####
+1. To define how to deploy project's site and documentation
+1. Example:
+
+		<distributionManagement>
+			...
+			<site>
+				<id>mojo.website</id>
+				<name>Mojo Website</name>
+				<url>scp://beaver.codehaus.org/home/projects/mojo/public_html/</url>
+			</site>
+			...
+		</distributionManagement>
+		
+	1. `id`, `name`, `url`: similar to above
+	
+#### Relocation ####
+1. Example:
+
+		<distributionManagement>
+			...
+			<relocation>
+				<groupId>org.apache</groupId>
+				<artifactId>my-project</artifactId>
+				<version>1.0</version>
+				<message>We have moved the Project under Apache</message>
+			</relocation>
+			...
+		</distributionManagement>
+		
+	1. As projects grow they are forced to move to suitable quarters. (a successful project moving under Apache umbrella). Users are given information that project is being renamed to `org.apache:my-project:1.0` and a message explaining the reason
 
 ### Profiles ###
 1. Used for changing settings based on the environment in which it is built.
