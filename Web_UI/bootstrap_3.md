@@ -1386,41 +1386,559 @@
 
 ## BS Collapse ##
 ### Basic Collapsible ###
+1. Used to hide or show large amount of contents
+2. Example:
+
+		<button data-toggle="collapse" data-target="#demo">Collapsible</button>
+		<div id="demo" class="collapse">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		</div>
+
 #### Example Explained ####
+1. `.collapse`: indicates collapsible element
+	1. content that is hidden or shown with click
+2. `data-toggle="collapse"`: to control (show/hide)
+	1. Add it to `<a>` or `<button>`
+3. `data-target="#id"`: connects button with collapsible content (`<div id="demo">`)
+	1. For `<a>` use `href` instead of `data-target`
+
+			<a href="#demo" data-toggle="collapse" class="btn btn-info">Collapsible</a>
+
+			<div id="demo" class="collapse">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</div>
+
+4. Use `.in` class to show content by default
+
+		<div id="demo" class="collapse in">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		</div>
+
 ### Collapsible Panel ###
+1. Example:
+
+		<div class="panel-group">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" href="#collapse1">Collapsible panel</a>
+					</h4>
+				</div>
+				<div id="collapse1" class="panel-collapse collapse">
+					<div class="panel-body">Panel body</div>
+					<div class="panel-footer">Panel Footer</div>
+				</div>
+			</div>
+		</div>
+
 ### Collapsible List Group ###
+1. Example:
+
+		<div class="panel-group">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" href="#collapse1">Collapsible list group</a>
+					</h4>
+				</div>
+				<div id="collapse1" class="panel-collapse collapse">
+					<ul class="list-group">
+						<li class="list-group-item">One</li>
+						<li class="list-group-item">Two</li>
+						<li class="list-group-item">Three</li>
+					</ul>
+					<div class="panel-footer">Footer</div>
+				</div>
+			</div>
+		</div>
+
 ### Accordion ###
+1. `data-parent`: all collapsible elements under specified parent will be closed when on of the collapsible item is shown
+2. Example:
+
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Collapsible Group 1</a>
+					</h4>
+				</div>
+				<div id="collapse1" class="panel-collapse collapse in">
+					<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Collapsible Group 2</a>
+					</h4>
+				</div>
+				<div id="collapse2" class="panel-collapse collapse">
+					<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Collapsible Group 3</a>
+					</h4>
+				</div>
+				<div id="collapse3" class="panel-collapse collapse">
+					<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Collapsible Group 4</a>
+					</h4>
+				</div>
+				<div id="collapse4" class="panel-collapse collapse">
+					<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				</div>
+			</div>
+
 ### Complete Bootstrap Collapse Reference ###
+1. [Bootstrap JS Collapse Reference](https://www.w3schools.com/bootstrap/bootstrap_ref_js_collapse.asp)
 
 ## BS Tabs/Pills ##
 ### Menus ###
+1. Defined as unordered list `<ul>`
+
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Menu 1</a></li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+		</ul>
+
+2. Add `.list-inline` to `<ul>` for horizontal menu
+
+		<ul class="list-inline">
+
 ### Tabs ###
+1. `<ul class="nav nav-tabs">`
+2. `<li class="active">`: used to mark current page
+3. Example:
+
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">Menu 1</a></li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+		</ul>
+
 ### Tabs With Dropdown Menu ###
+1. Example:
+
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">Home</a></li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 1 <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">Submenu 1-1</a></li>
+					<li><a href="#">Submenu 1-2</a></li>
+					<li><a href="#">Submenu 1-3</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+		</ul>
+
 ### Pills ###
+1. `<ul class="nav nav-pills">`
+2. `<li class="active">`: marks current page
+3. Example:
+
+		<ul class="nav nav-pills">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">Menu 1</a></li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+		</ul>
+
 ### Vertical Pills ###
+1. Add `.nav-stacked` to `<ul>`
+2. Example:
+
+		<ul class="nav nav-pills nav-stacked">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">Menu 1</a></li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+		</ul>
+
 ### Vertical Pills in a Row ###
+1. Displaying vertical pill menu on the right on large screen and in single column in small screen
+2. Example:
+
+		<div class="col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Menu 1</a></li>
+				<li><a href="#">Menu 2</a></li>
+				<li><a href="#">Menu 3</a></li>
+			</ul>
+		</div>
+
 ### Pills With Dropdown Menu ###
+1. Example:
+
+		<ul class="nav nav-pills nav-stacked">
+			<li class="active"><a href="#">Home</a></li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 1 <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">Submenu 1-1</a></li>
+					<li><a href="#">Submenu 1-2</a></li>
+					<li><a href="#">Submenu 1-3</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+		</ul>
+
 ### Centered Tabs and Pills ###
+1. To center/justify tabs and pills use `.nav-justified`
+	1. List items are stacked for screens less than 768px
+2. Example: Centered tabs
+
+		<!-- Centered Tabs -->
+		<ul class="nav nav-tabs nav-justified">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">Menu 1</a></li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+		</ul>
+
+		<!-- Centered Pills -->
+		<ul class="nav nav-pills nav-justified">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">Menu 1</a></li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+		</ul>
+
 ### Toggleable / Dynamic Tabs ###
+1. Add `data-toggle="tab"` to each link
+2. Add `.tab-pane` class with a unique ID for every tab and wrap them inside `<div>` with class `.tab-content`
+3. If we want them to fade in and out, add `.fade` class to `.tab-pane`
+4. Example:
+
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+			<li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+			<li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div id="home" class="tab-pane fade in active">
+				<h3>HOME</h3>
+				<p>Some content.</p>
+			</div>
+			<div id="menu1" class="tab-pane fade">
+				<h3>Menu 1</h3>
+				<p>Some content in menu 1.</p>
+			</div>
+			<div id="menu2" class="tab-pane fade">
+				<h3>Menu 2</h3>
+				<p>Some content in menu 2.</p>
+			</div>
+		</div>
+
 ### Toggleable / Dynamic Pills ###
+1. Change to `data-toggle="pill"`
+2. Example:
+
+		<ul class="nav nav-pills">
+			<li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+			<li><a data-toggle="pill" href="#menu1">Menu 1</a></li>
+			<li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div id="home" class="tab-pane fade in active">
+				<h3>HOME</h3>
+				<p>Some content.</p>
+			</div>
+			<div id="menu1" class="tab-pane fade">
+				<h3>Menu 1</h3>
+				<p>Some content in menu 1.</p>
+			</div>
+			<div id="menu2" class="tab-pane fade">
+				<h3>Menu 2</h3>
+				<p>Some content in menu 2.</p>
+			</div>
+		</div>
+
 ### Complete Bootstrap Navigation Reference ###
+1. [Bootstrap Navigation Reference](https://www.w3schools.com/bootstrap/bootstrap_ref_comp_navs.asp)
+2. [Bootstrap JS Tab Reference](https://www.w3schools.com/bootstrap/bootstrap_ref_js_tab.asp)
 
 ## BS Navbar ##
 ### Navigation Bars ###
+1. It is navigation header placed at the top of the page
+2. It can expand or collapse (depends on screen size)
+3. `<nav class="navbar navbar-default">`
+4. Example:
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Page 1</a></li>
+					<li><a href="#">Page 2</a></li>
+					<li><a href="#">Page 3</a></li>
+				</ul>
+			</div>
+		</nav>
+
+	1. A navigation bar can expand or collapse based on screen size.
+	2. `<nav class="navbar navbar-default">`: it is for standard navigation bar
+
 ### Inverted Navigation Bar ###
+1. It is a black navigation bar
+	1. Change `.navbar-default` to `.navbar-inverse`
+2. Example: Adding a navbar to the top of the page
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Page 1</a></li>
+					<li><a href="#">Page 2</a></li>
+					<li><a href="#">Page 3</a></li>
+				</ul>
+			</div>
+		</nav>
+
 ### Navigation Bar With Dropdown ###
+1. Navigation bars can hold dropdown menus
+2. Example:
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li>
+						<a class="dropdown" data-toggle="dropdown" href=#>Page 1 <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Page 1-1</a></li>
+							<li><a href="#">Page 1-2</a></li>
+							<li><a href="#">Page 1-3</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Page 2</a></li>
+					<li><a href="#">Page 3</a></li>
+				</ul>
+			</div>
+		</nav>
+
 ### Right-Aligned Navigation Bar ###
+1. `.navbar-right`: to right align navigation bar buttons
+2. Example:
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Page 1</a></li>
+					<li><a href="#">Page 2</a></li>
+					<li><a href="#">Page 3</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+			</div>
+		</nav>
+
 ### Navbar Buttons ###
+1. Add `.navbar-btn` on button
+2. Example:
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+				</ul>
+				<button class="btn btn-danger navbar-btn">Button</button>
+			</div>
+		</nav>
+
 ### Navbar Forms ###
+1. `.navbar-form` adds form inside navigation bar
+	1. `.navbar-left`
+2. `.form-group`: added to `<div>` container input(s)
+	1. Adds proper padding if we have multiple inputs
+3. Example:
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Page 1</a></li>
+					<li><a href="#">Page 2</a></li>
+				</ul>
+				<form class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+		</nav>
+
+4. Use `.input-group` and `.input-group-addon` to attach an icon or help text to input field
+	1. Example:
+
+			<form class="navbar-form navbar-left">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+
 ### Navbar Text ###
+1. `.navbar-text` aligns any element vertically inside navbar that are not links (for proper padding and text color)
+2. Example:
+
+		<nav class="navbar navbar-inverse">
+			<ul class="nav navbar-nav">
+				<li><a href="#">Link</a></li>
+				<li><a href="#">Link</a></li>
+			</ul>
+			<p class="navbar-text">Some text</p>
+		</nav>
+
 ### Fixed Navigation Bar ###
+1. Navbar can be fixed at the top or bottom of the page
+2. `.navbar-fixed-top`: fixed at the top
+3. Example:
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Page 1</a></li>
+					<li><a href="#">Page 2</a></li>
+					<li><a href="#">Page 3</a></li>
+				</ul>
+			</div>
+		</nav>
+
+4. `.navbar-fixed-bottom`: makes navbar stay at the bottom
+5. Example:
+
+		<nav class="navbar navbar-inverse navbar-fixed-bottom">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Page 1</a></li>
+				<li><a href="#">Page 2</a></li>
+				<li><a href="#">Page 3</a></li>
+			</ul>
+		</nav>
+
 ### Collapsing The Navigation Bar ###
+1. We should hide navigation bar on small screens and show it on big screens
+	1. Replace navbar with button on top right corner (navbar is displayed when button is clicked)
+2. Example:
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#">Page 1</a></li>
+						<li><a href="#">Page 2</a></li>
+						<li><a href="#">Page 3</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a href="#"><span class="glyphiocn glyphicon-log-in"></span> Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
 ## BS Forms ##
 ### Bootstrap's Default Settings ###
+1. Form controls receive global styling with Bootstrap
+2. `<input>`, `<textarea>`, `<select>` elements with class `.form-control` have width of 100%
+
 ### Bootstrap Form Layouts ###
+1. Three types of form layouts
+	1. Vertical form (default)
+	2. Horizontal form
+	3. Inline form
+2. Standard rules for all three form layouts
+	1. Wrap labels and form controls in `<div class="form-group">` (for optimum spacing)
+	2. Add class `.form-control` to all text `<input>`, `<textarea>`, and `<select>` elements
+
 ### Bootstrap Vertical Form (default) ###
+1. Example: Vertical form
+
+		<form>
+			<div class="form-group">
+				<label for="email">Email address:</label>
+				<input type="email" class="form-control" id="email">
+			</div>
+			<div class="form-group">
+				<label for="pwd">Password:</label>
+				<input type="password" class="form-control" id="pwd">
+			</div>
+			<div class="checkbox">
+				<label><input type="checkbox"> Remember me</label>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+
 ### Bootstrap Inline Form ###
+1. All elements are inline, left aligned and labels are alongside
+	1. For viewports of atleast 768px wide
+2. Additional rule:
+	1. Add `.form-inline` to `<form>`
+
 ### Bootstrap Horizontal Form ###
 
 ## BS Inputs ##
