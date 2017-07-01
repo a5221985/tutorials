@@ -1938,25 +1938,328 @@
 	1. For viewports of atleast 768px wide
 2. Additional rule:
 	1. Add `.form-inline` to `<form>`
+3. Example:
+
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="email">Email address:</label>
+				<input type="email" class="form-control" id="email">
+			</div>
+			<div class="form-group">
+				<label for="pwd">Password:</label>
+				<input type="password" class="form-control" id="pwd">
+			</div>
+			<div class="checkbox">
+				<label><input type="checkbox"> Remember me</label>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
 
 ### Bootstrap Horizontal Form ###
+1. Labels are aligned next to input field (on large or medium screens).
+	1. It is a vertical form on small screens (labels appear on top of each input)
+2. Additional rules:
+	1. Add class `.form-horizontal` to `<form>`
+	2. Add class `.control-label` to all `<label>`s
+3. We can use grid classes to align labels and groups of form controls in horizontal layout
+4. Example:
+
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">Email:</label>
+				<div class="col-sm-10">
+					<input type="email" class="form-control" id="email" placeholder="Enter email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="pwd">Password:</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" id="pwd" placeholder="Enter password">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<label><input type="checkbox"> Remember me</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</div>
+		</form>
 
 ## BS Inputs ##
 ### Supported Form Controls ###
+1. Form controls supported
+	1. `input`
+	2. `textarea`
+	3. `checkbox`
+	4. `radio`
+	5. `select`
+
 ### Bootstrap Input ###
+1. All HTML5 input types are supported:
+	1. `text`
+	2. `password`
+	3. `email`
+	4. `url`
+	5. `search`
+	6. `tel`
+	7. `color`
+2. Example:
+
+		<div class="form-group">
+			<label for="usr">Name:</label>
+			<input type="text" class="form-control" id="usr">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label>
+			<input type="password" class="form-control" id="pwd">
+		</div>
+
 ### Bootstrap Textarea ###
+1. Example:
+
+		<div class="form-group">
+			<label for="comment">Comment:</label>
+			<textarea class="form-control" rows="5" id="comment"></textarea>
+		</div>
+
 ### Bootstrap Checkboxes ###
+1. Used to select any number of options from given options.
+2. Example:
+
+		<div class="checkbox">
+			<label><input type="checkbox" value="">Option 1</label>
+		</div>
+		<div class="checkbox">
+			<label><input type="checkbox" value="">Option 2</label>
+		</div>
+		<div class="checkbox disabled">
+			<label><input type="checkbox" value="" disabled>Option 3</label>
+		</div>
+
+3. Use `.checkbox-inline` for making checkboxes appear on same line
+
+		<label class="checkbox-inline">
+			<input type="checkbox" value="">Option 1
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" value="">Option 2
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" value="">Option 3
+		</label>
+
 ### Bootstrap Radio Buttons ###
+1. Example:
+
+		<div class="radio">
+			<label><input type="radio" name="optradio">Option 1</label>
+		</div>
+		<div class="radio">
+			<label><input type="radio" name="optradio">Option 2</label>
+		</div>
+		<div class="radio disabled">
+			<label><input type="radio" name="optradio" disabled>option 3</label>
+		</div>
+
+2. `.radio-inline`: if you want radio buttons to appear inline
+
+		<label class="radio-inline"><input type="radio" name="optradio">Option 1</input></label>
+		<label class="radio-inline"><input type="radio" name="optradio">Option 2</input></label>
+		<label class="radio-inline"><input type="radio" name="optradio">Option 3</input></label>
+
 ### Bootstrap Select List ###
+1. Options:
+	1. Select one
+	2. Multiple select
+2. Example:
+
+		<div class="form-group">
+			<label for="sel1">Select list:</label>
+			<select class="form-control" id="sel1">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+			</select>
+			<label for="sel2">Multiple select list (hold shift to select more than one):</label>
+			<select multiple class="form-control" id="sel2">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+		</div>
 
 ## BS Inputs 2 ##
 ### Static Control ###
+1. To insert plain text next to form label in horizontal form, use `.form-control-static` in `<p>`
+2. Example:
+
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">Email:</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">someone@example.com</p>
+				</div>
+			</div>
+		</form>
+
 ### Bootstrap Input Groups ###
+1. `.input-group`: it is a container to enhance input by adding an icon, text or button in from or behind it as a "help text"
+2. `.input-group-addon`: attaches icon or help text to input field
+3. Example:
+
+		<form>
+			<div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i><span>
+				<input id="email" type="text" class="form-control" name="email" placeholder="Email">
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				<input id="password" type="password" class="form-control" name="password" placeholder="Password">
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">Text</span>
+				<input id="msg" type="text" class="form-control" name="msg" placeholder="Additional info">
+			</div>
+		</form>
+
+4. `.input-group-btn`: attaches button next to input. (used with search)
+5. Example:
+
+		<form>
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search">
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="submit">
+						<i class="glyphicon glyphicon-search"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+
 ### Bootstrap Form Control States ###
+1. **INPUT FOCUS**: Outline of input is removed and box-shadow is applied on focus
+2. **DISABLED INPUTS**: Add a `disabled` attribute to disable an input field
+3. **DISABLED FIELDSETS**: Add a `disabled` attribute to a fieldset to disable all controls within
+4. **READONLY INPUTS**: Add a `readonly` attribute to an input to prevent user input
+5. **VALIDATION STATES**: Bootstrap includes validation styles for error, warning, success messages. To use, add `.has-warning`, `.has-error`, or `.has-success` to parent element
+6. **ICONS**: Add feedback icons with `.has-feedback` class and an icon
+7. **HIDDEN LABELS**: `.sr-only` on non-visible labels
+8. Example:
+
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Focuses</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="focusedInput" type="text" value="Click to focus">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPassword" class="col-sm-2 control-label">Disabled</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="disabledInput" type="text" disabled>
+				</div>
+			</div>
+			<fieldset disabled>
+				<div class="form-group">
+					<label for="disabledTextInput" class="col-sm-2 control-label">Fieldset disabled</label>
+					<div class="col-sm-10">
+						<input type="text" id="disabledTextInput" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="disabledSelect" class="col-sm-2 control-label"></label>
+					<div class="col-sm-10">
+						<select id="disabledSelect" class="form-control">
+							<option>Disabled select</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-group has-success has-feedback">
+				<label class="col-sm-2 control-label" for="inputSuccess">Input with success and icon</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="inputSuccess">
+					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				</div>
+			</div>
+			<div class="form-group has-warning has-feedback">
+				<label class="col-sm-2 control-label" for="inputWarning">
+					Input with warning and icon
+				</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="inputWarning">
+					<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				</div>
+			</div>
+			<div class="form-group has-error has-feedback">
+				<label class="col-sm-2 control-label" for="inputError">Input with error and icon</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="inputError">
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				</div>
+			</div>
+		</form>
+
+9. Inline form:
+
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="focusedInput">Focused</label>
+				<input class="form-control" id="focusedInput" type="text">
+			</div>
+			<div class="form-group">
+				<label for="inputPassword">Disabled</label>
+				<input class="form-control" id="disabledInput" type="text" disabled>
+			</div>
+			<div class="form-group has-success has-feedback">
+				<label class="inputSuccess2">Input with success</label>
+				<input type="text" class="form-control" id="inputSuccess2">
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+			</div>
+			<div class="form-group has-warning has-feedback">
+				<label for="inputWarning2">Input with warning</label>
+				<input type="text" class="form-control" id="inputWarning2">
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+			</div>
+			<div class="form-group has-error has-feedback">
+				<label for="inputError2">Input with error</label>
+				<input type="text" class="form-control" id="inputError2">
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+			</div>
+		</form>
 
 ## BS Input Sizing ##
 ### Input Sizing in Forms ###
+1. `.input-lg`: large height
+2. `.input-sm`: small height
+3. `.col-lg-*`: large width
+4. `.col-sm-*`: small width
+
 ### Height Sizing ###
+1. Example:
+
+		<form>
+			<div class="form-group">
+				<label for="inputsm">Small input</label>
+				<input class="form-control input-sm" id="inputsm" type="text">
+			</div>
+			<div class="form-group">
+				<label for="inputdefault">Default input</label>
+				<input class="form-control" id="inputdefault" type="text">
+			</div>
+			<div class="form-group">
+				<label for="inputlg">Large input</label>
+				<input class="form-control input-lg" id="inputlg" type="text">
+			</div>
+		</form>
+
 ### Column Sizing ###
 ### Help Text ###
 

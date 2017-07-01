@@ -2,7 +2,7 @@
 ## HTML/CSS ##
 1. Semantic HTML
 2. CSS Box Model
-3. CSS preprocessors
+3. **CSS preprocessors**
 4. CSS Media Queries
 5. **Bootstrap**
 
