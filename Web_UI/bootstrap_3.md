@@ -2260,55 +2260,566 @@
 			</div>
 		</form>
 
+2. For sizing labels and form controls:
+	1. Add `.form-group-*` to `<div class="form-group">`
+		1. Example: `<div class="form-group form-group-lg">`
+3. Sizing inputs:
+	1. Add `.input-group-*` to `<div class="input-group">`
+		1. Example: `<div class="input-group input-group-lg">`
+
 ### Column Sizing ###
+1. `.col-xs-*`
+2. Example:
+
+		<div class="form-group row">
+			<div class="col-xs-2">
+				<label for="ex1">col-xs-2</label>
+				<input class="form-control" id="ex1" type="text">
+			</div>
+			<div class="col-xs-3">
+				<label for="ex2">col-xs-3</label>
+				<input class="form-control" id="ex2" type="text">
+			</div>
+			<div class="col-xs-4">
+				<label for="ex3">col-xs-4</label>
+				<input class="form-control" id="ex3" type="text">
+			</div>
+		</div>
+
 ### Help Text ###
+1. `.help-block`: adds block level help text in forms
+2. Example:
+
+		<div class="form-group">
+			<label for="pwd">Password:</label>
+			<input type="password" class="form-control" id="pwd" placeholder="Enter password">
+			<span class="help-block">This is some help text...</span>
+		</div>
 
 ## BS Media Objects ##
+
 ### Media Objects ###
+1. BS can align media objects to left or right of content.
+	1. For blog comments, tweets, ...
+
 ### Basic Media Object ###
+1. Example:
+
+		<!-- Left-aligned -->
+		<div class="media">
+			<div class="media-left">
+				<img src="img_avatar1.png" class="media-object" style="width: 60px">
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">John Doe</h4>
+				<p>Lorem ipsum...</p>
+			</div>
+		</div>
+
+		<!-- Right-aligned -->
+		<div class="media">
+			<div class="media-body">
+				<h4 class="media-heading">John Doe</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="media-right">
+				<img class="img_avatar1.png" class="media-object" style="width: 60px">
+			</div>
+		</div>
+
 #### Example Explained ####
+1. `<div>` with `.media`: container for media objects
+2. `.media-left`: aligns media object to the left
+3. `.media-right`: aligns media object to the right
+4. `<div>` with `.media-body`: contains text that must appear next to the image
+5. `.media-heading`: for headings
+
 ### Top, Middle or Bottom Alignment ###
+1. `.media-top`: top aligns media object
+2. `.media-middle`: middle aligns media object
+3. `.media-bottom`: bottom aligns media object
+4. Example:
+
+		<!-- Media top -->
+		<div class="media">
+			<div class="media-left media-top">
+				<img src="img_avatar1.png" class="media-object" style="width: 60px">
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">Media Top</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
+
+		<!-- Media middle -->
+		<div class="media">
+			<div class="media-left media-middle">
+				<img class="media-object" src="avatar1.png" style="width: 60px">
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">Media Middle</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
+
+		<!-- Media bottom -->
+		<div class="media">
+			<div class="media-left media-bottom">
+				<img class="media-object" src="avatar1.png" style="width: 60px">
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">Media Bottom</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
+
 ### Nested Media Objects ###
+1. Example:
+
+		<div class="media">
+			<div class="media-left">
+				<img class="media-object" src="https://www.w3schools.com/bootstrap/img_avatar1.png" style="width: 60px">
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">John Doe <small><i>Posted on July 04, 2017</i></small></h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<div class="media">
+					<div class="media-left">
+						<img class="media-object" src="https://www.w3schools.com/bootstrap/img_avatar2.png" style="width: 60px">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">John Doe <small><i>Posted on July 04, 2017</i></small></h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<div class="media">
+							<div class="media-left">
+								<img class="media-object" src="https://www.w3schools.com/bootstrap/img_avatar3.png" style="width: 60px">
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">John Doe <small><i>Posted on July 04, 2017</i></small></h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 ### Another Example of Nesting ###
+1. Similar
 
 ## BS Carousel ##
 ### The Carousel Plugin ###
+1. Component for cycling through elements
+2. To include the plugin, use individual `carousel.js` or `bootstrap.min.js`
+
 ### Carousel Example ###
+1. Not supported in browser `<=` IE-9
+
 ### How To Build a Carousel ###
+1. Example:
+
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="la.jpg" alt="Los Angeles" style="width: 100%">
+				</div>
+
+				<div class="item">
+					<img src="chicago.jpg" alt="Chicago" style="width: 100%">
+				</div>
+
+				<div class="item">
+					<img src="ny.jpg" alt="New York" style="width: 100%">
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+
 #### Example Explained ####
+1. `id="myCarousel"`: id needed for controls to function properly
+2. `class="carousel"`: tells that the `<div>` contains a carousel
+3. `.slide`: adds CSS transition and animation effect
+4. `data-ride="carousel"`: tells bootstrap to begin animation as soon as page loads
+5. Indicators: little dots at the bottom of each slide
+	1. `.carousel-indicators`: added to `<ol>`
+	2. `data-target`: points to id of carousel
+	3. `data-slide-to`: specifies which slide to go to when a dot is clicked
+6. Wrapper for slides:
+	1. Slides are specified in `<div>` with class `.carousel-inner`
+	2. Content of each slide is defined in a `<div>` with class `.item`
+		1. Can be text or image
+	3. `.active` added to one of the slides
+7. The "Left and right controls" part:
+	1. Left and right buttons are added
+	2. `data-slide`: `"prev"` or `"next"` - alter slide position relative to current position
+
 ### Add Captions to Slides ###
+1. Add `<div class="carousel-caption">` in each `<div class="item">` for captions to each slide
+2. Example:
+
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="la.jpg" alt="Chania">
+					<div class="carousel-caption">
+						<h3>Los Angeles</h3>
+						<p>LA is always so much fun!</p>
+					</div>
+				</div>
+
+				<div class="item">
+					<img src="chicago.jpg" alt="Chicago">
+					<div class="carousel-caption">
+						<h3>Chicago</h3>
+						<p>Thank you, Chicago!</p>
+					</div>
+				</div>
+
+				<div class="item">
+					<img src="ny.jpg" alt="New York">
+					<div class="carousel-caption">
+						<h3>New York</h3>
+						<p>We love the Big Apple!</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+
 ### Complete Bootstrap Carousel Reference ###
+1. [Bootstrap JS Carousel Reference](https://www.w3schools.com/bootstrap/bootstrap_ref_js_carousel.asp)
 
 ## BS Modal ##
 ### The Modal Plugin ###
+1. Modal plugin: dialog box/popup window displayed on top of current page
+2. Can be included using individual "modal.js" or using "bootstrap.min.js"
+
 ### How to Build a Modal ###
+1. Example:
+
+		<!-- Trigger the modal with a button -->
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				
+				<!-- Modal content -->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Modal Header</h4>
+					</div>
+					<div class="modal-body">
+						<p>Some text in the modal.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
 #### Example Explained ####
+1. Trigger part:
+	1. Include `data-toggle="modal"` - opens modal window
+	2. Include `data-target="#myModal"` - points to the id of modal
+2. Modal part:
+	1. Parent `<div>` of modal must have ID that is same as value of `data-target` attribute
+	2. `.modal`: identifies content of `<div>` as modal and brings focus to it
+	3. `.fade`: adds transition effect which fades modal in and out
+	4. `role="dialog"`: improves accessibility for people using screen readers
+	5. `.modal-dialog`: sets proper width and margin of the modal
+3. Modal content part:
+	1. `<div>` with `class="modal-content"` styles the modal (border, background-color, ...)
+		1. Add modal's header, body and footer in it
+	2. `.modal-header`: Defines style for header of modal
+		1. `<button>` in it has `data-dismiss="modal"`: closes modal if you click on it.
+	3. `.close`: styles close button
+	4. `.modal-title`: styles header with proper line-height
+	5. `.modal-body`: defines style for body of modal
+		1. Can contain any markup
+	6. `.modal-footer`: defines style for footer of modal
+
 ### Modal Size ###
-### Complete Bootstrap Modal Reference ### 
+1. Modal size can be changed by adding `.modal-sm` or `.modal-lg`
+	1. Add it to `<div>` with class `.modal-dialog`
+	2. Exmaple: `<div class="modal-dialog modal-sm">`
+	2. Example: `<div class="modal-diaolog modal-lg">`
+
+### Complete Bootstrap Modal Reference ###
+1. [Bootstrap JS Modal Reference](https://www.w3schools.com/bootstrap/bootstrap_ref_js_modal.asp)
 
 ## BS Tooltip ##
 ### The Tooltip Plugin ###
+1. Small popup box that appears when user moves mouse pointer over an element
+2. Can be included individually using "tooltip.js" or at once using "bootstrap.min.js"
+
 ### How To Build a Tooltip ###
+1. Add `data-toggle="tooltip"` to an element
+2. Add `title` containing text to display in tooltip
+3. Example:
+
+		<a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>
+
+4. Initialize tooltips with jQuery:
+	1. Select the element and call `tooltip()` method
+	2. Example:
+
+			<script>
+				$(document).ready(function () {
+					$('[data-toggle="tooltip"]').tooltip();
+				});
+			</script>
+
 ### Positioning Tooltips ###
+1. `data-placement` can be used to set position of tooltip (top, bottom, left, right)
+2. Example: 
+
+		<a href="#" data-toggle="tooltip" data-placement="top" title="Hooray!">Hover</a>
+		<a href="#" data-toggle="tooltip" data-placement="bottom" title="Hooray!">Hover</a>
+		<a href="#" data-toggle="tooltip" data-placement="left" title="Hooray!">Hover</a>
+		<a href="#" data-toggle="tooltip" data-placement="right" title="Hooray!">Hover</a>
+
+3. `data-placement="auto"`: browser decides the position
+	1. Exmaple: `auto left`: displays on left when possible, or on the right
+
 ### Complete Bootstrap Tooltip Reference ###
+1. [Bootstrap JS Tooltip Reference](https://www.w3schools.com/bootstrap/bootstrap_ref_js_tooltip.asp)
 
 ## BS Popover ##
 ### The Popover Plugin ###
+1. Similar to tooltip. pop-up box that appears when user clicks on element.
+2. It can contain more content than tooltip
+3. Include "popover.js" or "bootstrap.min.js"
+
 ### How To Build a Popover ###
+1. Add `data-toggle="popover"` to an element
+2. Add `title` to specify header text of popover
+3. Add `data-content` to specify body text of popover
+4. Example:
+
+		<a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a>
+
+5. Initialize with jQuery by selecting element and calling `popover()` method on it.
+	1. Example:
+
+			<script>
+				$(document).ready(function () {
+					$('[data-toggle="popover"]').popover();
+				});
+			</script>
+
 ### Positioning Popovers ###
+1. Use `data-placement` to set position of popover on top, bottom, left or right side
+2. Example:
+
+		<a href="#" title="Header" data-toggle="popover" data-content="Content" data-placement="top">Click</a>
+		<a href="#" title="Header" data-toggle="popover" data-content="Content" data-placement="bottom">Click</a>
+		<a href="#" title="Header" data-toggle="popover" data-content="Content" data-placement="left">Click</a>
+		<a href="#" title="Header" data-toggle="popover" data-content="Content" data-placement="right">Click</a>
+
+3. `data-placement="auto"`: lets browser decide the position of popover
+	1. Example: `auto left` - popover will display on left side when possible otherwise on right
+
 ### Closing Popovers ###
+1. `data-trigger="focus"`: closes popover when clicking outside the element
+2. Example:
+
+		<a href="#" title="Dismissible popover" data-toggle="popover" data-trigger="focus" data-content="Click anywhere in the document to close this popover">Click me</a>
+
+3. `data-trigger="hover"` - popover is displayed when you move mouse over element
+
 ### Complete Bootstrap Popover Reference ###
+1. [Bootstrap JS Popover Reference](https://www.w3schools.com/bootstrap/bootstrap_ref_js_popover.asp)
 
 ## BS Scrollspy ##
 ### The Scrollspy Plugin ###
+1. Used to update links in navigation list based on scroll position
+
 ### How To Build a Scrollspy ###
+1. Example:
+
+		<style>
+			body {
+				position: relative;
+			}
+			#section1 { padding-top: 50px; height: 500px; color: #fff; background-color: #1E88E5; }
+			#section2 { padding-top: 50px; height: 500px; color: #fff; background-color: #673ab7; }
+			#section3 { padding-top: 50px; height: 500px; color: #fff; background-color: #ff9800; }
+			#section41 { padding-top: 50px; height: 500px; color: #fff; background-color: #00bcd4; }
+			#section42 { padding-top: 50px; height: 500px; color: #fff; background-color: #009688; }
+		</style>
+		...
+		<!-- The scrollable area -->
+		<body data-spy="scroll" data-target=".navbar" data-offset="50">
+			<!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">WebSiteName</a>
+					</div>
+					<div>
+						<div class="collapse navbar-collapse" id="myNavbar">
+							<ul class="nav navbar-nav">
+								<li><a href="#section1">Section 1</a></li>
+								<li><a href="#section2">Section 2</a></li>
+								<li><a href="#section3">Section 3</a></li>
+								<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#section41">Section 4-1</a></li>
+										<li><a href="#section42">Section 4-2</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<div id="section1" class="container-fluid">
+				<h1>Section 1</h1>
+				<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+				<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+			</div>
+			<div id="section2" class="container-fluid">
+				<h1>Section 2</h1>
+				<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+				<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+			</div>
+			<div id="section3" class="container-fluid">
+				<h1>Section 3</h1>
+				<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+				<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+			</div>
+			<div id="section41" class="container-fluid">
+				<h1>Section 4 Submenu 1</h1>
+				<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+				<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+			</div>
+			<div id="section42" class="container-fluid">
+				<h1>Section 4 Submenu 2</h1>
+				<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+				<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+			</div>
+		</body>
+
 #### Example Explained ####
+1. Add `data-spy="scroll"` to scrollable area (oftend in `<body>`)
+2. Add `data-target` with value equal to id or class name of navigation bar (`.navbar`)
+	1. Navbar gets connected to scrollable area
+3. Scrollable elements must match ID of links inside navbar's list items (`<div id="section1">` matches `<a href="#section1">`)
+4. `data-offset` specifies number of pixels to offset from top when calculating the position of scroll.
+	1. To avoid changing links in navbar too soon when jumping to scrollable elements (Default is 10 pixels)
+5. `data-spy` requires `position` property set to `relative` for the element to work properly
+
 ### Scrollspy Vertical Menu ###
+1. Example:
+
+		<style>
+			body {
+				position: relative;
+			}
+			ul.nav-pills {
+				top: 20px;
+				position: fixed;
+			}
+			div.col-sm-9 div {
+				height: 250px;
+				font-size: 28px;
+			}
+			#section1 {color: #fff; background-color: #1E88E5;}
+			#section2 {color: #fff; background-color: #673ab7;}
+			#section3 {color: #fff; background-color: #ff9800;}
+			#section41 {color: #fff; background-color: #00bcd4;}
+			#section42 {color: #fff; background-color: #009688;}
+			@media screen and (max-width: 810px) {
+				#section1, #section2, #section3, #section41, #section42  {
+					margin-left: 150px;
+				}
+			}
+		</style>
+		...
+		<body data-spy="scroll" data-target="#myScrollSpy" data-offset="20">
+			<div class="container">
+				<div class="row">
+					<nav class="col-sm-3" id="myScrollspy">
+						<ul class="nav nav-pills nav-stacked">
+							<li><a href="#section1">Section 1</a></li>
+							...
+						</ul>
+					</nav>
+					<div class="col-sm-9">
+						<div id="section1">
+							<h1>Section 1</h1>
+							<p>Try to scroll this page and look at the navigation list while scrolling!</p>
+						</div>
+						...
+					</div>
+				</div>
+			</div>
+		</body>
+
 ### Complete Bootstrap Scrollspy Reference ###
+1. [Bootstrap JS Scrollspy Reference](https://www.w3schools.com/bootstrap/bootstrap_ref_js_scrollspy.asp)
 
 ## BS Affix ##
 ### The Affix Plugin ###
+1. Allows an element to become affixed (locked) to an area on the page.
+	1. Example: Navigation menus, social icons (they stick at a specific area while scrolling up and down the page)
+2. Plugin toggles the behavior on and off
+	1. changes the value of `position` from `static` to `fixed` depending on scroll position
+
 ### How To Build an Affixed Navigation Menu ###
+1. Example:
+
+		<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+
 #### Example Explained ####
 ### Scrollspy & Affix ###
 ### Complete Bootstrap Affix Reference ###

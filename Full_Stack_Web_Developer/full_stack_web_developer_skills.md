@@ -28,7 +28,7 @@
 8. jQuery
 9. **Testing frameworks**
 	1. Importance
-10. **ES6 features**
+10. ES6 features
 
 ## Back-End Language ##
 1. One of the following:
