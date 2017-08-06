@@ -342,7 +342,6 @@
 	1. `get`: takes index
 
 ## Groovy - Loops ##
-### Loop Control Statements ###
 1. **While statement**
 	1. Syntax:
 
@@ -429,7 +428,214 @@
 				}
 			}
 
+### Loop Control Statements ###
+1. **Break Statement**
+	1. Used to alter flow of control inside loops and switch statments
+	2. It causes termination of the innermost enclosing loop
+	3. Example:
+
+			class Example {
+				static void main(String[] args) {
+					int[] array = [0, 1, 2, 3];
+
+					for(int i in array) {
+						println(i);
+						if(i == 2)
+							break;
+					}
+				}
+			}
+
+2. **Continue Statement**
+	1. Use is restricted to while and for loops
+	2. When executed, control is immediately be passed to test condition of nearest enclosing loop to determine whether loop will continue
+	3. Example:
+
+			class Example {
+				static void main(String[] args) {
+					int[] array = [0, 1, 2, 3]
+
+					for (i in array) {
+						if (i == 2)
+							continue
+						println(i)
+					}
+				}
+			}
+
 ## Groovy - Decision Making ##
+1. **If Statement**
+	1. Syntax:
+
+			if(condition) {
+				statement #1
+				statement #2
+				...
+			}
+
+	2. Example:
+
+			class Example {
+				static void main(String[] args) {
+					// Initializing a local variable
+					int a = 2
+
+					// Check for the boolean condition
+					if (a < 100) {
+						// If the condition is true print the following statement
+						println("The value is less than 100")
+					}
+				}
+			}
+
+2. **If/else Statement**
+	1. Syntax:
+
+			if(condition) {
+				statement #1
+				statement #2
+				...
+			} else {
+				statement #3
+				statement #4
+			}
+
+	2. Example:
+
+			class Example {
+				static void main(String[] args) {
+					// Initializing a local variable
+					int a = 2
+
+					// Check for the boolean condition
+					if (a < 100) {
+						// If the condition is true print the following statement
+						println("The value is less than 100")
+					} else {
+						// If the condition is false print the following statement
+						println("The value is greater than 100")
+					}
+				}
+			}
+
+3. **Nested If Statement**
+	1. Syntax:
+
+			if(condition) {
+				statement #1
+				statement #2
+				...
+			} else if(condition) {
+				statement #3
+				statement #4
+			} else {
+				statement #5
+				statement #6
+			}
+
+	2. Example:
+
+			class Example {
+				static void main(String[] args) {
+					// Initializing a local variable
+					int a = 12
+
+					// Check for the boolean condition
+					if (a > 100) {
+						// If the condition is true print the following statement
+						println("The value is less than 100")
+					} else if (a > 5) {
+						// If the condition is true print the following statement
+						println("The value is greater than 5 and greater than 100")
+					} else {
+						// If the condition is false print the following statement
+						println("The value of a is less than 5")
+					}
+				}
+			}
+
+4. **Switch Statement**
+	1. Syntax:
+
+			switch(expression) {
+				case expression #1:
+				statement #1
+				...
+				case expression #2:
+				statement #2
+				...
+				case expression #N:
+				statement #N
+				...
+				default:
+				statement #Default
+				...
+			}
+
+	2. Example:
+
+			class Example {
+				static void main(String[] args) {
+					// Initializing a local variable
+					int a = 2
+
+					// Evaluating the expression value
+					switch(a) {
+						// There is case statement defined for 4 cases
+						// Each case statement section has a break condition to exit the loop
+
+						case 1:
+							println("The value of a is One")
+							break
+						case 2:
+							println("The value of a is Two")
+							break
+						case 3:
+							println("The value of a is Three")
+							break
+						case 4:
+							println("The value of a is Four")
+							break
+						default:
+							println("The value of a is unknown")
+							break
+					}
+				}
+			}
+
+5. **Nested Switch Statement**
+	1. Example:
+
+			class Example {
+				static void main(String[] args) {
+					// Initializing 2 variables i and j
+					int i = 0
+					int j = 1
+
+					// First evaluating the value of variable i
+					switch(i) {
+						case 0:
+							// Next evaluating the value of variable j
+							switch(j) {
+								case 0:
+									println("i is 0, j is 0")
+									break
+								case 1:
+									println("i is 0, j is 1")
+									break
+								
+								// The default condition for the inner switch statement
+								default:
+								println("nested default case!!")
+							}
+						break
+						
+						// The default condition for the outer switch statement
+						default:
+							println("No matching case found!!")
+					}
+				}
+			}
 
 ## Groovy - Methods ##
 ### Method Parameters ###

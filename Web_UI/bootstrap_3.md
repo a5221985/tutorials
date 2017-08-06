@@ -2820,43 +2820,420 @@
 
 		<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
 
+2. Full Example:
+
+		<!DOCTYPE html>
+		<html>
+			<head>
+				<title>Bootstrap Example</title>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, intitial-scale=1">
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				<style>
+					/* Note: Try to remove the following lines to see the effect of CSS positioning */
+					.affix {
+						top: 0;
+						width: 100%;
+					}
+
+					.affix + .container-fluid {
+						padding-top: 70px;
+					}
+				</style>
+			</head>
+			<body>
+				<div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;">
+					<h1>Bootstrap Affix Example</h1>
+					<h3>Fixed (sticky) navbar on scroll</h3>
+					<p>Scroll this page to see how the navbar behaves with data-spy="affix".</p>
+					<p>The navbar is attached to the top of the page after you have scrolled a specified amount of pixels.</p>
+				</div>
+
+				<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Basic Topnav</a></li>
+						<li><a href="#">Page 1</a></li>
+						<li><a href="#">Page 2</a></li>
+						<li><a href="#">Page 3</a></li>
+					</ul>
+				</nav>
+
+				<div class="container-fluid" style="height:1000px">
+					<h1>Some text to enable scrolling</h1>
+					<h1>Some text to enable scrolling</h1>
+					<h1>Some text to enable scrolling</h1>
+					<h1>Some text to enable scrolling</h1>
+					<h1>Some text to enable scrolling</h1>
+					<h1>Some text to enable scrolling</h1>
+					<h1>Some text to enable scrolling</h1>
+					<h1>Some text to enable scrolling</h1>
+					<h1>Some text to enable scrolling</h1>
+					<h1>Some text to enable scrolling</h1>
+					<h1>Some text to enable scrolling</h1>
+				</div>
+			</body>
+		</html>
+
+3. Vertical affixed navigation menu
+
+		<!DOCTYPE html>
+		<html lang="en">
+			<head>
+				<title>Bootstrap Example</title>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				<style>
+				/* Note: Try to remove the following lines to see the effect of CSS positioning */
+				.affix {
+					top: 20px;
+				}
+				</style>
+			</head>
+			<body>
+				<div class="container-fluid" style="background-color:#2196F3;color:#fff;height:200px;">
+					<h1>Bootstrap Affix Example</h1>
+					<h3>Fixed (sticky) vertical sidenav on scroll</h3>
+					<p>Scroll this page to see how the left navigation menu behaves with data-spy="affix".</p>
+					<p><strong>The left menu sticks to the page when you have scrolled a specified amount of pixels.</strong></p>
+				</div>
+
+				<div class="containder">
+					<div class="row">
+						<nav class="col-sm-3">
+							<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+								<li class="active"><a href="#section1">Section 1</a></li>
+								<li><a href="#section2">Section 2</a></li>
+								<li><a href="#section3">Section 3</a></li>
+							</ul>
+						</nav>
+						<div class="col-sm-9">
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+							<h1>Some text to enable scrolling</h1>
+						</div>
+					</div>
+				</div>
+			</body>
+		</html>
+
 #### Example Explained ####
+1. `data-spy="affix"` - added to element we want affixed
+2. `data-offset-top|bottom` - optional, to calculate position of scroll
+
+##### How it works #####
+1. Affix plugin toggles between three classes: `.affix`, `.affix-top` and `.affix-bottom`
+	1. Each class represents a particular state
+	2. Add CSS properties to handle actual positions (exception: `position:fixed`) on `.affix`
+		1. Plugin adds `.affix-top` and `.affix-bottom` to indidicate element is in top-most or bottom-most position. (CSS is not required at this point)
+		2. Scrolling past affixed element triggers actual affixing - At this point, plugin replaced `.affix-top` or `.affix-bottom` with `.affix` class (sets `position:fixed`)
+			1. At this point we must add CSS `top` or `bottom` property to position the affixed element in the page
+		3. If bottom offset is defined, scrolling past it replaced `.affix` class with `.affix-bottom`
+			1. Offset is optional. If set it requires CSS property `position:absolute` when necessary
+2. Example explained:
+	1. Affix plugin adds `.affix` class `position:fixed` to `<nav>` when we have scrolled 197 pixels from the top.
+		1. `top` is set to `0` to `.affix` - Makes navbar stay at the top of the page at all time when we scrolled 197 pixels from the top
+
 ### Scrollspy & Affix ###
+1. Using Affix plugin with [Scrollspy](https://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp) plugin
+2. [Example](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_scrollspy_affix&stacked=h)
+
+		<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+			<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+			...
+			</nav>
+			...
+		</body>
+
+3. [Example](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_scrollspy_affix2&stacked=h)
+
+		<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
+
+			<nav class="col-sm-3" id="myScrollspy">
+				<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+				...
+			</nav>
+			...
+		</body>
+
 ### Complete Bootstrap Affix Reference ###
+1. [Bootstrap JS Affix Reference](https://www.w3schools.com/bootstrap/bootstrap_ref_js_affix.asp)
 
 ## Bootstrap Grids ##
 ### BS Grid System ###
+
 #### Bootstrap Grid System ####
+1. Allows upto 12 columns across the page
+2. We can group columns for wider columns
+3. Bootstrap's grid system is responsive (columns will re-arrange depending on screen size)
+	1. Bigger screens may have 3 columns
+	2. Smaller screens may have columns stacked on top of each other
+4. Grid columns should add upto 12, if `>` 12, columns will stack irrespective of the viewport
+
 #### Grid Classes ####
+1. 4 Classes
+	1. xs (for phones)
+	2. sm (for tablets)
+	3. md (for desktops)
+	4. lg (for large desktops)
+2. Each class scales up - if we want to set same widths for xs and sm, specify only xs
+
 #### Grid System Rules ####
+1. Rules
+	1. Rows must be placed within `.container` (fixed-width) or `.container-fluid` (full-width) for proper alignment and padding
+	2. Rows must be created for horizontal groups of columns
+	3. Content should be placed in columns and only columns must be immediate children of rows
+	4. Predefined classes like `.row` and `.col-sm-4` are available for quickly making grid layouts
+	5. Columns contain gutters (gaps between column content) via padding. Padding is offset in rows for first and last column via negative margin on `.rows`
+	6. Grid columns are created by specifying number of 12 available columns we wish to span.
+		1. `.col-sm-4` is used for tree equal columns
+
 #### Basic Structure of a Bootstrap Grid ####
+1. Structure:
+
+		<div class="container">
+			<div class="row">
+				<div class="col-*-*"></div>
+			</div>
+			<div class="row">
+				<div class="col-*-*"></div>
+				<div class="col-*-*"></div>
+				<div class="col-*-*"></div>
+			</div>
+			<div class="row">
+				...
+			</div>
+		</div>
+
+2. First container must be created: `<div class="container">`
+3. A row must be created: `<div class="row">`
+4. Columns must be added: tags with `.col-*-*` (numbers in them should add upto 12)
+
 #### Grid Options ####
+1. Extra small devices Phones (`<768px`): Grid behavior - Horizontal at all times, Container width - None (auto), Class prefix - `.col-xs-`, Number of columns - `12`, column width - Auto, Gutter width - 30px (15px on each side of a column), Nestable - Yes, Offsets - Yes, Column ordering - Yes
+2. Small devices Tables (`>=768px`): Grid behavior - Collapsed to start, horizontal above breakpoints, Container width - 750px, Class prefix - `.col-sm-`, Number of columns - 12, Column width - `~62px`, Gutter width - 30px (15px on each side of a column), Nestable - Yes, Offsets - Yes, Column ordering - Yes
+3. Medium devices Desktops (`>=992px`): Grid behavior - Collapsed to start, horizontal above breakpoints, Container width - 970px, Class prefix - `.col-md-`, Number of columns - 12, Column width - `~81px`, Gutter width - 30px (15px on each side of a column), Nestable - Yes, Offset - Yes, Column ordering - Yes
+4. Large devices Desktops (`>=1200px`): Grid behavior - Collapsed to start, horizontal above breakpoints, Container width - 1170px, Class prefix - `.col-lg-`, Number of columns - 12, Column width - `~97px`, Gutter width - 30px (15px on each side of a column), Nestable - Yes, Offsets - Yes, Column ordering - Yes
+
 #### Examples ####
+1. [Stacked-to-horizontal](https://www.w3schools.com/bootstrap/bootstrap_grid_stacked_to_horizontal.asp)
+2. [Small devices](https://www.w3schools.com/bootstrap/bootstrap_grid_small.asp)
+3. [Medium devices](https://www.w3schools.com/bootstrap/bootstrap_grid_medium.asp)
+4. [Large devices](https://www.w3schools.com/bootstrap/bootstrap_grid_large.asp)
 
 ### BS Stacked/ Horizontal ###
 #### Bootstrap Grid Example: Stacked-to-horizontal ####
+1. Basic grid system that starts out stacked on mobiles/tablets (small devices) before becoming horizontal on desktops (medium/large devices)
+2. Example: `col-sm-6` - Two column layout which will result in 50%/50% split on all screens except for extra small screens which it will automatically stack (100%)
+
+		<div class="container">
+			<h1>Hello World!</h1>
+			<div class="row">
+				<div class="col-sm-6" style="background-color:yellow;">
+					<p>Lorem ipsum...</p>
+				</div>
+				<div class="col-sm-6" style="background-color:pink;">
+					<p>Sed ut perpiciatis...</p>
+				</div>
+			</div>
+		</div>
+
+3. Numbers in `.col-sm-*` indicate the number of columns div should span (out of 12)
+4. To change fixed width layout to full width layout by changing `.container` to `.container-fluid`
+5. Fluid container:
+
+		<div class="container-fluid">
+			<h1>Hello World!</h1>
+			<div class="row">
+				<div class="col-sm-6" style="background-color:yellow;">
+					<p>Lorem ipsum...</p>
+				</div>
+				<div class="col-sm-6" style="background-color:pink;">
+					<p>Sed ut perspiciatis...</p>
+				</div>
+			</div>
+		</div>
 
 ### BS Grid Small ###
 #### Bootstrap Grid Example: Small Devices ####
+1. For columns to be 25% and 75% for small devices (768 pixels to 991 pixels)
+2. Use `.col-sm-*`
+	1. At small size, look for classes with `-sm-` in then and use those
+	2. Split on small (and medium and large) devices and stack on extra small devices
+3. Example:
+
+		<div class="container-fluid">
+			<h1>Hello World!</h1>
+			<div class="row">
+				<div class="col-sm-3" style="background-color:yellow;">
+					<p>Lorem ipsum...</p>
+				</div>
+			</div>
+			<div class="col-sm-9" style="background-color:pink;">
+				<p>Sed ut perspiciatis...</p>
+			</div>
+		</div>
 
 ### BS Grid Medium ###
 #### Bootstrap Grid Example: Medium Devices ####
+1. For a 50%/50% split
+2. They have screen width from 992 pixels to 1199 pixels
+3. We must use `.col-md-*` classes
+4. Example:
+
+		<div class="col-sm-3 col-md-6">...</div>
+		<div class="col-sm-9 col-md-6">...</div>
+
+	1. For small size, look at classes with `-sm-` and use those.
+	2. For medium size, look at classes with `-md-` and use those.
+
 #### Using Only Medium ####
+1. Only `-md-`
+
+		<div class="col-md-6">...</div>
+		<div class="col-md-6">...</div>
 
 ### BS Grid Large ###
 #### Bootstrap Grid Example: Large Devices ####
+1. Large devices have screen width from 1200 pixels and above
+2. Use `.col-lg-*` classes
+
+		<div class="col-sm-3 col-md-6 col-lg-4">...</div>
+		<div class="col-sm-3 col-md-6 col-lg-8">...</div>
+
+	1. At small size look at classes with `-sm-`
+	2. At medium size look at classes with `-md-`
+	4. At large size look at classes with `-lg-`
+
 #### Using Only Large ###
+1. `.col-lg-6` will split for large devices by 50%/50% but for medium and small devices it will be stcked
 
 ### BS Grid Examples ###
-#### Threee Equal Columns ####
+#### Three Equal Columns ####
+1. Example:
+
+		<div class="row">
+			<div class="col-sm-4">.col-sm-4</div>
+			<div class="col-sm-4">.col-sm-4</div>
+			<div class="col-sm-4">.col-sm-4</div>
+		</div>
+
 #### Three Unequal Columns ####
+1. Example:
+
+		<div class="row">
+			<div class="col-sm-3">.col-sm-3</div>
+			<div class="col-sm-6">.col-sm-6</div>
+			<div class="col-sm-3">.col-sm-3</div>
+		</div>
+
 #### Two Unequal Columns ####
+1. Example:
+
+		<div class="row">
+			<div class="col-sm-4">.col-sm-4</div>
+			<div class="col-sm-8">.col-sm-8</div>
+		</div>
+
 #### Two Columns With Two Nested Columns ####
+1. Example:
+
+		<div class="row">
+			<div class="col-sm-8">
+				.col-sm-8
+				<div class="row">
+					<div class="col-sm-6">.col-sm-6</div>
+					<div class="col-sm-6">.col-sm-6</div>
+				</div>
+			</div>
+			<div class="col-sm-4">.col-sm-4</div>
+		</div>
+
 #### Mixed: Mobile And Desktop ####
+1. Classes can be combined for flexible layouts
+2. Example:
+
+		<div class="row">
+			<div class="col-xs-9 col-md-7">.col-xs-9 .col-md-7</div>
+			<div class="col-xs-3 col-md-5">.col-xs-3 .col-md-5</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-6 col-md-10">.col-xs-6 .col-md-10</div>
+			<div class="col-xs-6 col-md-2">.col-xs-6 .col-md-2</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-6">.col-xs-6</div>
+			<div class="col-xs-6">.col-xs-6</div>
+		</div>
+
 #### Mixed: Mobile, Tablet And Desktop ####
+1. Example:
+
+		<div class="row">
+			<div class="col-xs-7 col-sm-6 col-lg-8">.col-xs-7 .col-sm-6 .col-lg-8</div>
+			<div class="col-xs-5 col-sm-6 col-lg-4">.col-xs-5 .col-sm-6 .col-lg-4</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-6 col-sm-8 col-lg-10">.col-xs-6 .col-sm-8 .col-lg-10</div>
+			<div class="col-xs-6 col-sm-4 col-lg-2">.col-xs-6 .col-sm-4 .col-lg-2</div>
+		</div>
+
 #### Clear Floats ####
+1. `.clearfix`: if inserted at specific breakpoints to prevent strange wrapping with uneven content
+2. Example:
+
+		<div class="row">
+			<div class="col-xs-6 col-sm-3">
+				Column 1
+				<br />
+				Resize the browser window to see the effect.
+			</div>
+			<div class="col-xs-6 col-sm-3">Column 2</div>
+			<!-- Add clearfix for only the required viewport -->
+			<div class="clearfix visible-xs"></div>
+			<div class="col-xs-6 col-sm-3">Column 3</div>
+			<div class="col-xs-6 col-sm-3">Column 4</div>
+		</div>
+
 #### Offsetting Columns ####
+1. `.col-md-offset-*`: moves columns to the right by increasing left margin by * columns
+2. Example:
+
+		<div class="row">
+			<div class="col-sm-5 col-sm-6">.col-sm-5 .col-md-6</div>
+			<div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0">.col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0</div>
+		</div>
+
 #### Push And Pull - Change Column Ordering ####
+1. `.col-md-push-*` - pushes the column by * pixels
+2. `.col-md-pull-*` - pulls the column by * pixels
+3. Example:
+
+		<div class="row">
+			<div class="col-sm-4 col-sm-push-8">.col-sm-4 .col-sm-push-8</div>
+			<div class="col-sm-8 col-sm-pull-4">.col-sm-8 .col-sm-pull-4</div>
+		</div>
 
 ## Bootstrap Themes ##
 ### BS Templates ###
