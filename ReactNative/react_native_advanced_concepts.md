@@ -3,11 +3,59 @@
 ### Introduction - Start Here! ###
 ### Github Links ###
 ### Creation of Native Apps ###
+1. Different ways of using Expo:
+	1. React Native CLI - install generate and run projects
+	2. Expo XDE, Create React Native App - 
+	3. Sketch -
+
 ### Why Expo? ###
+1. Download Expo XDE -
+	1. [http://expo.io](http://expo.io)
+2. Why:
+	1. React Native CLI -> React Native App -installed onto-> RN App
+	2. Our JS Code -> JS Packager (hosted by React Native CLI) -fed into-> Phone
+3. Expo ensures we can run on actual device
+	1. Expo XDE -> JS Packager -> Expo App -log Output-> Expo XDE
+	2. Our App Code ->
+4. Vanilla React Native:
+	1. Basic Components
+	2. Basic Device APIs - Reading photos, getting location
+	3. Nasty Setup on Simulators
+5. Expo: (gives APIs that we do with hand in Vanilla React Native)
+	1. Everything React Native Does
+	2. Extra Device APIs - direct access to Camera
+	3. Easy Push Notifications
+	4. Easy On Device Testing
+	5. Common Extra Components - Map a user can interact with
+
 ### Creation of Our First App ###
+1. Open Expo XDE
+2. Generate a project
+3. New Project
+	1. Blank
+	2. swipe
+	3. Save it
+4. Install Expo app on device:
+	1. App Store -> Expo Client -> Get
+5. Click Send Link
+6. Opening an emulator/simulator
+	1. Click on Device
+	2. Open an iOS Simulator
 
 ## Animations with React Native ##
 ### Animation Systems ###
+1. Single component that demos animation
+	1. A card that rotates
+2. Animation systems in React Native
+	1. LayoutAnimation
+		1. Easy to setup!
+		2. Not much control
+		3. Some things might get animated that we don't want to be
+	2. Animated - more control
+		1. Far more complicated to set up
+		2. Allows for more complicated animations
+		3. You probably need this if you want to handle gesture animations
+
 ### The Animation Module ###
 ### Animation from Square One ###
 ### Moving a Ball ###

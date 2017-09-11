@@ -498,6 +498,8 @@
 	9. HTML is rendered back to client
 
 ### Configuring Spring Controllers ###
+
+
 ### Thymeleaf Templates ###
 ### Assignment - Display List of Authors ###
 ### Assignment Review - Display List of Authors ###

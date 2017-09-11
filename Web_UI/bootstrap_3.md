@@ -3238,23 +3238,235 @@
 ## Bootstrap Themes ##
 ### BS Templates ###
 #### W3Schools' Bootstrap Templates ####
+1. Responsive HTML Templates which are free
+2. [Blog](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_blog&stacked=h)
+3. [Portfolio](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_portfolio&stacked=h)
+4. [Webpage](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked=h)
+5. [Social](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_social&stacked=h)
+6. [Marketing](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_marketing&stacked=h)
+7. [Marketing 2](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_marketing2&stacked=h)
+8. [Analytics](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_analytics&stacked=h)
+9. [Online Store](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_store&stacked=h)
 
 ### BS Theme "Simply Me" ###
 #### Creation of a Theme: "Simply Me" ####
+1. A bootstrap theme
+
 #### HTML Start Page ####
+1. HTML page
+
+		<!DOCTYPE html>
+		<html lang="en">
+			<head>
+				<title>Bootstrap Theme Simply Me</title>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+			</head>
+			<body>
+				<h3>Who Am I?</h3>
+				<img src="bird.jpg" alt="Bird">
+				<h3>I'm an adventurer</h3>
+			</body>
+		</html>
+
 #### Add Bootstrap CDN and Put Elements in Container ####
+1. Add Bootstrap CDN and a link to jQuery and put HTML elements inside a container:
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		...
+		<div class="container-fluid">
+			<h3>Who Am I?</h3>
+			<img src="bird.jpg" alt="Bird">
+			<h3>I'm an adventurer</h3>
+		</div>
+
 #### Add Background Color and Center Text ####
+1. Add custom class `.bg-1` to container to add a background color
+2. Add `.text-center` class to center the text inside container
+
+		<style>
+			bg-1 {
+				background-color: #1abc9c;	/* Green */
+				color: #ffffff;
+			}
+		</style>
+		...
+		<body>
+			<div class="... bg-1 text-center">
+				...
+			</div>
+		</body>
+
 #### Circle Image ####
+1. Shape image to circle with `.img-circle` class
+
+		<img src="bird.jpg" class="img-circle" alt="Bird">
+
 #### More Content ####
+1. Add more content and put it inside new containers
+
+		<style>
+			...
+			.bg-2 {
+				background-color: #474e5d;	/* Dark Blue */
+				color: #ffffff;
+			}
+			.bg-3 {
+				background-color: #ffffff;	/* White */
+				color: #555555;
+			}
+		</style>
+		...
+		<body>
+			...
+			<div class="container-fluid bg-2 text-center">
+				<h3>What Am I?</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+		
+			<div class="container-fluid bg-3 text-center">
+				<h3>Where To Find Me?</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+
 #### Add Padding ####
+1. Makes containers look good with padding:
+
+		<style>
+			.container-fluid {
+				padding-top: 70px;
+				padding-bottom: 70px;
+			}
+			...
+		</style>
+
 #### Add a Button ####
+1. Add button to mid container:
+
+		<div class="container-fluid bg-2 text-center">
+			<h3>What Am I?</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<a href="#" class="btn btn-default btn-lg">Search</a>
+		</div>
+
 #### Add an Icon ####
+1. Add search icon on "Search" button
+
+		<a ...>
+			<span class="glyphicon glyphicon-search"></span>
+			...
+		</a>
+
 #### Modify The Third Container (Add Grid) ####
+1. Add three columns of equal width inside third container (`.col-sm-4`)
+
+		<div class="container-fluid bg-3 text-center">
+			<h3>Where To Find Me?</h3>
+			<div class="row">
+				<div class="col-sm-4">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<img src="https://www.w3schools.com/bootstrap/birds1.jpg" alt="Image">
+				</div>
+				<div class="col-sm-4">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<img src="https://www.w3schools.com/bootstrap/birds2.jpg" alt="Image">
+				</div>
+				<div class="col-sm-4">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<img src="https://www.w3schools.com/bootstrap/birds3.jpg" alt="Image">
+				</div>
+			</div>
+		</div>
+
 #### Make The Images Responsive ####
+1. Add `.img-responsive` to all images
+2. Add `display:inline` to first image to force it to be centered (`.img-responsive` adds `display:block` to image which makes it jump to left of the screen)
+	1. When image begins to stack we can make it to span entire width with `width:100%`
+3. Example:
+
+		<!-- The circular bird -->
+		<img src="https://www.w3schools.com/bootstrap/bird.jpg" class="img-responsive img-circle" style="display:inline" alt="Bird">
+
+		<!-- The birds in our grid: -->
+		<img src="https://www.w3schools.com/bootstrap/birds1.jpg" class="img-responsive" style="width:100%" alt="Image">
+		<img src="https://www.w3schools.com/bootstrap/birds2.jpg" class="img-responsive" style="width:100%" alt="Image">
+		<img src="https://www.w3schools.com/bootstrap/birds3.jpg" class="img-responsive" style="width:100%" alt="Image">
+
 #### Add a Navbar ####
+1. Add navigation bar at the top of the page and make it collapsible on smaller screens
+
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Me</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">WHO</a></li>
+						<li><a href="#">WHAT</a></li>
+						<li><a href="#">WHERE</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
 #### Style The Navbar ####
+1. CSS to customize navigation bar
+
+		.navbar {
+			padding-top: 15px;
+			padding-bottom: 15px;
+			border: 0;
+			border-radius: 0;
+			margin-bottom: 0;
+			font-size: 12px;
+			letter-spacing: 5px;
+		}
+
+		.navbar-nav li a:hover {
+			color: #1abc9c !important;
+		}
+
 #### Add a Footer ####
+1. Add footer and use CSS to style it:
+
+		<style>
+			.bg-4 {
+				background-color: #2f2f2f;
+				color: #ffffff;
+			}
+		</style>
+
+		<footer class="container-fluid bg-4 text-center">
+			<p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p>
+		</footer>
+
 #### Final Touch ####
+1. Personalize by adding font of choice: "Montserrat" from Google's Font Library
+
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+2. Use it in the page:
+
+		body {
+			font: 20px "Montserrat", sans-serif;
+			line-height: 1.8;
+			color: #f5f6f7;
+		}
+
+		p { font-size: 16px; }
+
+3. Helper margin class to add extra space where it may be needed
+
+		.margin { margin-bottom: 45px; }
+
 #### Complete "Simply Me" Theme ####
 
 ### BS Theme "Company" ###
