@@ -700,6 +700,8 @@
 1. Replace `collapse navbar-collapse` with `navbar-default` for hamburger menu
 
 ### Creation of a "Recipe" Model ###
+
+
 ### Adding Content to the Recipes Components ###
 ### Outputting a List of Recipes with ngFor ###
 ### Displaying Recipe Details ###

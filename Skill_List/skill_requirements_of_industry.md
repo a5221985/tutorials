@@ -6,31 +6,34 @@
 		3. Collections
 		4. Exception Handling
 		5. **Java EE**
-			1. Web Services:
+			1. **Web Services**:
 				1. JAX-RS 2.0
 				2. SOA
-			2. JPA
-			3. JMS
+			2. **JPA**
+			3. **JMS**
 		6. Lambda functions
 		8. Perl
 		9. Shell
 		10. Spring
 			1. Spring Boot
-			2. Spring Batch
+			2. **Spring Batch**
 			3. Spring Security
-			4. Spring Integration
+			4. **Spring Integration**
 			5. Spring Data
 		11. Hibernate
-		12. RestEasy
-		13. Jersey
-		14. Apache CXF
-		15. JSP
-		16. Servlet
+		12. **RestEasy**
+		13. **Jersey**
+		14. **Apache CXF**
+		15. **JSP**
+		16. **Servlet**
 		17. Struts
 		18. JDBC
+		19. JUnit
+		20. **Swing**
 	2. **Scala**
 	3. HTML5
 		1. **Jade**
+		2. **EJS**
 	4. CSS
 		1. **LESS**
 		2. **SASS**
@@ -53,6 +56,8 @@
 	5. **Microservices**
 5. JavaScript
 	1. Node.JS
+		1. Express
+		2. StrongLoop
 	2. Concepts:
 		1. Closures
 		2. ES6

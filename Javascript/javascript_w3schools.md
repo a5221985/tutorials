@@ -6290,92 +6290,714 @@
 		</html>
 
 ## JS History ##
+1. `window.history` **(M)** contains browser's history
+
 ### Window History ###
+1. There are limitations to how JS can access this object due to protect privacy of users
+2. Methods (few):
+	1. `history.back()` - same as back click in browser
+	2. `history.forward()` - same as forward click in browser
+
 ### Window History Back ###
+1. `history.back()` loads previous URL in history list
+2. Example:
+
+		<html>
+			<head>
+				<script>
+					function goBack() {
+						window.history.back();
+					}
+				</script>
+			</head>
+			<body>
+				<input type="button" value="Back" onclick="goBack()">
+			</body>
+		</html>
+
 ### Window History Forward ###
+1. `history.forward()` loads next URL in the history list
+2. Example:
+
+		<html>
+			<head>
+				<script>
+					function goForward() {
+						window.history.forward();
+					}
+				</script>
+			</head>
+			<body>
+				<input type="button" value="Forward" onclick="goForward()">
+			</body>
+		</html>
 
 ## JS Navigator ##
+1. `window.navigator` object - contains information about browser
+
 ### Window Navigator ###
+1. Examples:
+	1. `navigator.appName` **(M)**
+	2. `navigator.appCodeName` **(M)**
+	3. `navigator.platform` **(M)**
+
 ### Browser Cookies ###
+1. `navigator.cookieEnabled` - true if cookies are enabled otherwise false
+2. Example:
+
+		<p id="demo"></p>
+
+		<script>
+			document.getElementById('demo').innerHTML = "cookiesEnabled is " + navigator.coolieEnabled;
+		</script>
+
 ### Browser Application Name ###
+1. `navigator.appName` - application name of browser
+2. Example:
+
+		<p id="demo"></p>
+
+		<script>
+			document.getElementById('demo').innerHTML = 'navigator.appName is ' + navigator.appName;	// It is "Netscape" for IE11, Chrome, Firefox and Safari
+		</script>
+
 ### Browser Application Code Name ###
+1. `navigator.appCodeName` - application code name of browser
+2. Example:
+
+		<p id="demo"></p>
+
+		<script>
+			document.getElementById('demo').innerHTML = 'navigator.appCodeName is ' + navigator.appCodeName;	// "Mozilla" is application code name for Chrome, Firefox, IE, Safari, and Opera
+		</script>
+
 ### The Browser Engine ###
+1. `navigator.product` - returns product name of browser engine
+2. Example:
+
+		<p id="demo"></p>
+
+		<script>
+			document.getElementById('demo').innerHTML = 'navigator.product is ' + navigator.product;	// Cannot be relied on
+		</script>
+
 ### The Browser Version ###
+1. `navigator.appVersion` **(M)** - returns version info about browser
+2. Example:
+
+		<p id="demo"></p>
+
+		<script>
+			document.getElementById('demo').innerHTML = navigator.appVersion;
+		</script>
+
 ### The Browser Agent ###
+1. `navigator.userAgent` **(M)** - returns user-agent header sent by browser to server
+2. Example:
+
+		<p id="demo"></p>
+
+		<script>
+			document.getElementById('demo').innerHTML = navigator.userAgent;
+		</script>
+
 ### Warning !!! ###
+1. Info from navigator object can be misleading. Do not use it to detect browser versions because:
+	1. Different browsers can use same name
+	2. Navigator data can be changed by browser owner
+	3. Some browsers misidentify themselves to bypass site tests
+	4. Browsers cannot report new OSs, released later than the browser
+
 ### The Browser Platform ###
+1. `navigator.platform` - returns browser platform (OS)
+2. Example:
+
+		<p id="demo"></p>
+
+		<script>
+			document.getElementById('demo').innerHTML = navigator.platform;
+		</script>
+
 ### The Browser Language ###
+1. `navigator.language` **(M)** - returns browser's language
+2. Example:
+
+		<p id="demo"></p>
+
+		<script>
+			document.getElementById('demo').innerHTML = navigator.langauge;
+		</script>
+
 ### Is The Browser Online? ###
+1. `navigator.onLine` **(M)** - true if browser is online
+2. Example:
+
+		<p id="demo"></p>
+
+		<script>
+			document.getElementById('demo').innerHTML = navigator.onLine;
+		</script>
+
 ### Is Java Enabled? ###
+1. `navigator.javaEnabled()` **(M)** - true if Java is enabled
+2. Example:
+
+		<p id="demo"></p>
+		
+		<script>
+			document.getElementById('demo').innerHTML = navigator.javaEnabled();
+		</script>
 
 ## JS Popup Alert ##
+1. Three types of popup boxes:
+	1. Alert box
+	2. Confirm box
+	3. Prompt box
+
 ### Alert Box ###
+1. Use must click `OK` to proceed
+
+#### Syntax ####
+1. `window.alert("sometext");`
+
 ### Confirm Box ###
+1. Used if user has to verify or accept something
+2. User has to click either `OK` or `Cancel` to proceed
+	1. If user clicks `OK`, box returns true
+	2. If user clicks `Cancel`, box returns false
+3. Syntax: `window.confirm("sometext");`
+4. Example:
+
+		if (confirm("Press a button!") == true) {
+			txt = "You pressed OK!";
+		} else {
+			txt = "You pressed Cancel!";
+		}
+
 ### Prompt Box ###
+1. Used if user must enter a value before netering a page
+2. User can click on `OK` or `Cancel` to proceed after entering input value
+3. If `OK` is clicked, box returns input value. If `Cancel` is clicked, box returns `null`
+
+#### Syntax ####
+1. `window.prompt("sometext", "defaultText");`
+2. Example:
+
+		var person = prompt("Please enter your name", "Harry Potter");
+
+		if (person == null || person == "") {
+			txt = "User cancelled the prompt.";
+		} else {
+			txt = "Hello " + person + "! How are you today?";
+		}
+
 ### Line Breaks ###
+1. To display line breaks inside popup box, use `\n`
+2. Example:
+
+		alert("Hello\nHow are you?");
 
 ## JS Timing ##
+1. JS can be executed at time intervals - called timing events
+
 ### Timing Events ###
+1. `window` object allows execution of code at specified time intervals
+	1. timing events - time intervals
+	2. Methods used:
+
+			setTimeout(function, milliseconds) // executes function after waiting for specified number of milliseconds
+			setInterval(function, milliseconds) // repeats execution of function after waiting for specifid number of milliseconds
+
 ### The `setTimeout()` Method ###
+1. `window.setTimeout(function, milliseconds)`
+	1. `function` - function that is executed
+	2. `milliseconds` - number of milliseconds before execution
+2. Example:
+
+		<button onclick="setTimeout(myFunction, 3000)">Try it</button>
+
+		<script>
+			function myFunction() {
+				alert('Hello');
+			}
+		</script>
+
 ### How to Stop the Execution? ###
-### The `setInternal()` Method ###
+1. `window.clearTimeout(timeoutVariable)` - stops execution of function specified in `setTimeout()`
+	1. `timeoutVariable` - returned by `setTimeout()`
+
+			myVar = setTimeout(function, milleseconds);
+			clearTimeout(myVar);
+
+2. Example:
+
+		<button onclick="myVar = setTimeout(myFunction, 3000)">Try it</button>	<!-- Defines a global variable -->
+
+		<button onclick="clearTimeout(myVar)">Stop it</button>
+
+### The `setInterval()` Method ###
+1. Syntax: `window.setInterval(function, milliseconds);`
+	1. function - function to be executed
+	2. milliseconds - length of time interval between each execution
+2. Example:
+
+		setInterval(myTimer, 1000);
+
+		function myTimer() {
+			var d = new Date();
+			document.getElementById('demo').innerHTML = d.toLocalTimeString();
+		}
+
 ### How to Stop the Execution? ###
+1. Syntax: `window.clearInterval(timerVariable)`
+2. Example:
+
+		myVar = setInterval(function, milliseconds);
+		clearInterval(myVar);
+
+3. Example:
+
+		<p id="demo"></p>
+
+		<button onclick="clearInterval(myVar)">Stop watch</button>
+
+		<script>
+			var myVar = setIneterval(myTimer, 1000);
+			function myTimer() {
+				var d = new Date();
+				document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+			}
+		</script>
+
 ### More Examples ###
+1. [Another simple timing](https://www.w3schools.com/js/tryit.asp?filename=tryjs_timing2)
+2. [A clock created with a timing event](https://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock)
 
 ## JS Cookies ##
+1. Cookies let us store user information in web pages
+
 ### What are Cookies? ###
+1. Cookies are data stored in small text files on computer
+2. When web server has sent a web page to browser, connection is shut down and server forgets everything about the user
+3. Utility:
+	1. When user visits a web-page, name can be stored in a cookie
+	2. Next time user visits the page, cookie "remembers" his name
+4. Cookies are saved in name-value pairs:
+
+		username = John Doe
+
+5. When browser requests a web page from server, cookies belonging to page is added to request
+	1. Server gets the data to "remember" information about users
+
 ### Creation of a Cookie with JavaScript ###
+1. `document.cookie` **(M)** - property used for creation, reading and deleting cookies
+2. Creation:
+
+		document.cookie = "username=John Doe";
+
+3. Adding expiry time: (Default: cookie is deleted when browser is closed)
+
+		document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+
+4. Specify path to which the cookie belongs to:
+
+		document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+
 ### Read a Cookie with JavaScript ###
+1. Example:
+
+		var x = document.cookie;	// all cookies are returned in one string cookie1=value; cookie2=value; cookie3=value;
+
 ### Change a Cookie with JavaScript ###
+1. Save as creation:
+2. Example:
+
+		document.cookie = "username=John Smith; expires=THu, 18 Dec 2013 12:00:00 UTC; path=/";
+
 ### Delete a Cookie with JavaScript ###
+1. Set `expires` parameter to past date
+2. Example:
+
+		document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
 ### The Cookie String ###
+1. `document.cookie` is not a normal string
+	1. When we read it, only name-value pairs are returned
+	2. If we set new cookie, older cookies are not overwritten
+2. To get a specific cookie, write a JS function that searches for the cookie value in cookie string
+
 ### JavaScript Cookie Example ###
+1. Storing name of visitor in a cookie
+	1. First time visit stores the name of visitor in a cookie
+2. Next time the same visitor visits, he gets welcome page
+3. Three JS functions will be used:
+	1. Function to set cookie value
+	2. Function to get cookie value
+	3. Function to check a cookie value
+
 ### A Function to Set a Cookie ###
+1. Example:
+
+		function setCookie(cname, cvalue, exdays) {
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			var expires = "expires=" + d.toUTCString();
+			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
 ### A Function to Get a Cookie ###
+1. Example:
+
+		function getCookie(cname) {
+			var name = cname + "=";
+			var decodedCookie = decodeURIComponent(document.cookie);	// Decodes cookies to handle special characters e.g. '$'
+			var ca = decodedCookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+
 ### A Function to Check a Cookie ###
+1. If cookie is set it will display a greeting.
+2. If cookie is not set, it displays a prompt box asking for name of user and stores username cookie for 365 days calling `setCookie`
+3. Example:
+
+		function checkCookie() {
+			var username = getCookie("username");
+			if (username != "") {
+				alert("Welcome again " + username);
+			} else {
+				username = prompt("Please enter your name:", "");
+				if (username != "" && username != null) {
+					setCookie("username", username, 365);
+				}
+			}
+		}
+
 ### All Together Now ###
+1. Run `checkCookie()` function when page loads
 
 # JS AJAX #
 ## AJAX Intro ##
+1. We can:
+	1. Read data from web server - after page has loaded
+	2. Update web page without reloading page
+	3. Send data to web server - in background
+2. Example:
+
+		<!DOCTYPE html>
+		<html>
+			<body>
+
+				<div id="demo">
+					<h2>The XMLHttpRequest Object</h2>
+					<button type="button" onclick="loadDoc()">Change Content</button>
+				</div>
+
+				<script>
+					function loadDoc() {
+						var xhttp = new XMLHttpRequest();
+						xhttp.onreadystatechange = function () {
+							if (this.readyState == 4 && this.status == 200) {
+								document.getElementById("demo").innerHTML = this.responseText;
+							}
+						};
+						xhttp.open("GET", "ajax_info.txt", true);
+						xhttp.send();
+					}
+				</script>
+			</body>
+		</html>
+
 ### AJAX Example Explained ###
+1. function requests data from a web server and displays it
+
 ### What is AJAX? ###
+1. AJAX = Asynchronous JavaScript And XML
+2. It is not a programming language
+3. It uses a combination of 
+	1. Browser built in XMLHttpRequest object (to request data from web server)
+	2. JavaScript and HTML DOM (to display or use data)
+4. AJAX might use XML to transport data but we can use plain text or JSON text
+5. It allows web pages to be updated asynchronously by exchanging data with web server behind the scenes
+	1. We can update parts of web page without reloading the page
+
 ### HOW AJAX Works ###
+
+	![pic_ajax](pic_ajax.gif)
+
+1. An event occurs in web page (page is loaded, button is clicked)
+2. An `XMLHttpRequest` object is created in JS
+3. The `XMLHttpRequest` object sends a request to a web server
+4. The server processes the request
+5. The server sends a response back to the web page
+6. The response is read by JS
+7. Proper action (like page update) is performed by JS
 
 ## AJAX XMLHttp ##
 ### The XMLHttpRequest Object ###
+1. All modern browsers (supposedly) support `XMLHttpRequest` object
+2. It is used to exchange data with web server behind the schenes
+	1. Parts of web-page can be updated without reloading the entire page
+
 ### Creation of XMLHttpRequest Object ###
+1. Modern browsers (Chrome, Firefox, IE7+, Edge, Safari, Opera) have built-in `XMLHttpRequest` object
+2. Creation of `XMLHttpRequest` object
+
+		variable = new XMLHttpRequest();
+
 ### Access Across Domains ###
+1. For security reasons modern browsers do no allow access across domains.
+	1. Both web page and XML file it tries to load must be located on same server
+2. XML files must be located on own server (If server does not support CORS)
+
 ### Older Browsers (IE5 and IE6) ###
+1. They use `ActiveX` object instead of `XMLHttpRequest` object
+
+		variable = new ActiveXObject("Microsoft.XMLHTTP");
+
+2. To handle old browsers:
+
+		if (window.XMLHttpRequest) {
+			// code for modern browsers
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			// code for old IE browsers
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
 ### XMLHttpRequest Object Methods ###
+1. `new XMLHttpRequest()` - Builds new `XMLHttpRequest` object
+2. `abort()` - Cancels current request
+3. `getAllResponseHeaders()` **(M)** - Returns header information
+4. `getResponseHeader()` **(M)** - Returns specific header info
+5. `open(method, url, async, user, psw)` **(M)** - Specifies request
+	1. `method`: GET or POST
+	2. `url`: file location
+	3. `async`: `true` (asynchronous) or `false` (synchronous)
+	4. `user`: optional username
+	5. `psw`: optional password
+6. `send()` **(M)** - sends request to server used for GET request
+7. `send(string)` **(M)** - sends request to server used for POST request
+8. `setRequestHeader()` **(M)** - Adds label/value pair to header to be sent
+
 ### XMLHttpRequest Object Properties ###
+1. `onreadystatechange` - defines function called when `readyState` property changes
+2. `readyState` **(M)** - Holds status of `XMLHttpRequest`
+	1. 0 - Request not initialized
+	2. 1 - Server connection established
+	3. 2 - Request received
+	4. 3 - Processing request
+	5. 4 - Request finished and response is ready
+3. `responseText` **(M)** - Returns response data as a string
+4. `responseXML` **(M)** - Returns response data as XML string
+5. `status` **(M)** - Status number of request
+	1. 200 - "OK"
+	2. 403 - "Forbidden"
+	3. 404 - "Not Found"
+	4. [Http Messages Reference](https://www.w3schools.com/tags/ref_httpmessages.asp)
+6. `statusText` **(M)** - status text
+	1. "OK"
+	2. "Not Found"
 
 ## AJAX Request ##
 ### Send a Request To a Server ###
+1. Use `open()` and `send()` methods of `XMLHttpRequest` object
+
+		xhttp.open("GET", "ajax_info.txt", true);
+		xhttp.send();
+
 ### GET or POST? ###
+1. GET - simpler and faster than POST (Can be used in most cases)
+2. POST - used when
+	1. Cached file is not an option (update a file or database on server)
+	2. Sending large amount of data to server (POST has no size limitations)
+	3. Sending user input (which can contain unknown characters), POST is more robust and secure than GET
+
 ### GET Requests ###
+1. To avoid chached result add unique ID to URL:
+
+		xhttp.open('GET', 'demo_get.asp?t=' + Math.random(), true);
+		xhttp.send();
+
+2. If we want to send information using GET method, add it to URL
+
+		xhttp.open('GET', 'demo_get2.asp?fname=Henry&lname=Ford', true);
+		xhttp.send();
+
 ### POST Requests ###
+1. Simple POST request:
+
+		xhttp.open("POST", "demo_post.asp", true);
+		xhttp.send();
+
+2. To POST data, add HTTP heder with `setRequestHeader()` and specify data in `send()`
+
+		xhttp.open('POST', 'ajax_text.asp', true);
+		xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhttp.send('fname=Henry&lname=Ford');
+
+	1. `setRequestHeader(header, value)`
+
 ### The url - A File On a Server ###
+1. URL parameter of `open` is a file on server
+	1. `.txt`
+	2. `.xml`
+	3. server script like `.asp` and `.php`
+
 ### Asynchronous - True or False? ###
+1. JS does not have to wait for server response but
+	1. execute other scripts while waiting for server response
+	2. deal with response after response is ready
+
 ### The `onreadystatechange` Property ###
+1. The function to be executed when request receives an answer can be defined in `onreadystatechange` property of `XMLHttpResponse`
+
 ### Synchronous Request ###
+1. Set third parameter in `open` to false
+2. No need for `onreadystatechange`
+
+		xhttp.open('GET', 'ajax_info.txt', false);
+		xhttp.send();
+		document.getElementById('demo').innerHTML = xhttp.responseText;
+
+	1. If server is busy or app is slow, app will hang or stop
+	2. Developer tools may throw `InvalidAccessError` exception when it occurs
 
 ## AJAX Response ##
 ### The `onreadystatechange` Property ###
+1. `readyState` property holds status of XMLHttpRequest
+2. `onreadystatechange` - defines function to be executed when `readyState` changes
+	1. Triggered 4 times one time for each change in `readyState`
+3. `status` and `statusText` hold status of XMLHttpRequest object
+
 ### Using a Callback Function ###
+1. Callback function - a function passed as parameter to another function
+2. Design: For multiple AJAX tasks, define a callback function for each task and a fucntion for executing XMLHttpRequest
+
+		loadDoc("url-1", myFunction1);
+
+		loadDoc("url-2", myFunction2);
+
+		function loadDoc(url, cFunction) {
+			var xhttp;
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function () {
+				if (readyState == 4 && status == 200) {
+					cFunction(this);
+				}
+			};
+		}
+
+		function myFunction1(xhttp) {
+			// action goes here
+		}
+
+		function myFunction2(xhttp) {
+			// action goes here
+		}
+
 ### Server Response Properties ###
+1. `responseText` - response data as a string
+2. `responseXML` - response data as XML data
+
 ### Server Response Methods ###
+1. `getResponseHeader()` - returns specific header info from server resource
+2. `getAllResponseHeaders()` - returns all header info from server resource
+
 ### The `responseText` Property ###
+1. returns response as JS string
+
 ### The `responseXML` Property ###
+1. XMLHttpRequest has built-in XML parser
+2. `responseXML` property returns server response as XML DOM object
+3. Parse the response as XML DOM object
+
+		xmlDoc = xhttp.responseXML;
+		txt = '';
+		x = xmlDoc.getElementsByTagName("ARTIST");
+		for (var i = 0; i < x.length; i++) {
+			txt += x[i].childNodes[0].nodeValue + '<br/>';
+		}
+		document.getElementById('demo').innerHTML = txt;
+		xhttp.open('GET', 'cd_catalog.xml', true);
+		xhttp.send();
+
 ### The `getAllResponseHeader()` Method ###
+1. `getAllResponseHeaders()` returns all header information from server response
+
+		document.getElementById('demo').innerHTML = this.getAllResponseHeaders();
+
 ### The `getResponseHeader()` Method ###
+1. `getResponseHeader()` returns specific header information from server response
+
+		document.getElementById('demo').innerHTML = this.getResponseHeader('Last-Modified');
 
 ## AJAX XML File ##
+1. AJAX can be used for interactive communication with XML file
+
 ### AJAX XML Example ###
+1. Example: Fetching information from XML file with AJAX:
+
+		<!DOCTYPE html>
+		<html>
+			<style>
+				table, th, td {
+					border: 1px solid black;
+					border-collapse: collapse;
+				}
+				th, td {
+					padding: 5px;
+				}
+			</style>
+			<body>
+				<h2>The XMLHttpRequest Object</h2>
+
+				<button type="button" onclick="loadDoc()">Get my CD collection</button>
+				<br><br>
+				<table id="demo"></table>
+
+				<script>
+					function loadDoc() {
+						var xhttp = new XMLHttpRequest();
+						xhttp.onreadystatechange = function () {
+							if (this.readyState == 4 && this.status == 200) {
+								myFunction(this);
+							}
+						};
+						xhttp.open("GET", "cd_catalog.xml", true);
+						xhttp.send();
+					}
+
+					function myFuntion(xml) {
+						var i;
+						var xmlDoc = xml.responseXML;
+						var table = "<tr><th>Artist</th><th>Title</th></tr>";
+						var x = xmlDoc.getElementsByTagName("CD");
+						for (i = 0; i < x.length; i++) {
+							table += "<tr><td>" + x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue + "</td><td>" + x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue + "</td></tr>";
+						}
+						document.getElementById("demo").innerHTML = table;
+					}
+				</script>
+			</body>
+		</html>
+
 ### Example Explained ###
 ### The XML File ###
+1. [cd_catalog.xml](https://www.w3schools.com/js/cd_catalog.xml)
 
 ## AJAX PHP ##
 ### AJAX PHP Example ###
+
+
 ### Example Explained ###
 ### The PHP File - "gethint.php" ###
 
@@ -6385,13 +7007,184 @@
 ### The ASP File - "gethint.asp" ###
 
 ## AJAX Database ##
+1. AJAX can be used for interactive communication with a database
+
 ### AJAX Database Example ###
-### Example Explained - The `showCustomer()` Function ###
-### The AJAX Server Page ###
+1. Example: When a name is selected, details are displayed
+
+### Example Explained - The MySQL Database ###
+1. Database table:
+	1. **id**, **FirstName**, **LastName**, **Age**, **Hometown**, **Job**
+	2. Peter, Griffin, 41, Quahog, Brewery
+	3. Lois, Griffin, 40, Newport, Piano Teacher
+	4. Joseph, Swanson, 39, Quahog, Police Officer
+	5. Glenn, Quagmire, 41, Quahog, Pilot
+
+### Example Explained ###
+1. When a user selects a person in dropdown list, function called "showUser()" is executed.
+2. Function is triggered by `onchange` event
+3. Example:
+
+		<html>
+			<head>
+				<script>
+					function showUser(str) {
+						if (str == "") {
+							document.getElementById('txtHint').innerHTML = '';
+							return;
+						} else {
+							if (window.XMLHttpRequest) {
+								// code for IE7+, Firefox, Chrome, Opera, Safari
+								xmlhttp = new XMLHttpRequest();
+							} else {
+								// code for IE6, IE5
+								xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+							}
+							xmlhttp.onreadystatechange = function () {
+								if (this.readyState == 4 && this.status == 200) {
+									document.getElementById('txtHint').innerHTML = this.responseText;
+								}
+							};
+							xmlhttp.open('GET', 'getuser.php?q=' + str, true);
+							xmlhttp.send();
+						}
+					}
+				</script>
+			</head>
+			<body>
+				<form>
+					<select name="users" onchange="showUser(this.value)">
+						<option value="">Select a person:</option>
+						<option value="1">Peter Griffin</option>
+						<option value="2">Lois Griffin</option>
+						<option value="3">Joseph Swanson</option>
+						<option value="4">Glenn Quagmire</option>
+					</select>
+				</form>
+				<br/>
+				<div id="txtHint"><b>Person info should be listed here...</b></div>
+			</body>
+		</html>
+
+	1. Code explanation:
+		1. If no person is selected, clear the content of text and exit the function
+		2. If a person is selected,
+			1. Build XMLHttpRequest object
+			2. Construct the function to be executed when server response is ready
+			3. Send request off to a file on server
+			4. `q` contains content of dropdown list
+
+### The PHP File ###
+1. `getuser.php` runs a query against MySQL database and returns result in HTML table
+
+		<!DOCTYPE html>
+		<html>
+			<head>
+				<style>
+					table {
+						width: 100%;
+						border-collapse: collapse;
+					}
+
+					table, td, th {
+						border: 1px solid black;
+						padding: 5px;
+					}
+
+					th { text-align: left; }
+				</style>
+			</head>
+			<body>
+				<?php
+					$q = intval($_GET['q']);
+
+					$con = mysqli_connect('127.0.0.1', 'peter', 'abc123', 'my_db');
+					if (!$con) {
+						die('Could no connect: ' . mysqli_error($con));
+					}
+
+					mysqli_select_db($con, "ajax_demo");
+					$sql = "SELECT * FROM user WHERE id = '" . $q . "'";
+					$result = mysqli_query($con, $sql);
+
+					echo "<table
+							<tr>
+								<th>Firstname</th>
+								<th>Lastname</th>
+								<th>Age</th>
+								<th>Hometown</th>
+								<th>Job</th>
+							</tr>";
+					while ($row = mysqli_fetch_array($result)) {
+						echo "<tr>";
+						echo "<td>" . $row['FirstName'] . "</td>";
+						echo "<td>" . $row['LastName'] . "</td>";
+						echo "<td>" . $row['Age'] . "</td>";
+						echo "<td>" . $row['Hometown'] . "</td>";
+						echo "<td>" . $row['Job'] . "</td>";
+						echo "</tr>";
+					}
+					echo "</table>";
+					mysqli_close($con);
+					?>
+				</body>
+			</html>
+
+		1. PHP opens connection to MySQL server
+		2. Correct person is found
+		3. HTML table is created, filled with data, sent back to 'txtHint' placeholder
 
 ## AJAX Applications ##
+1. Some HTML applications using XML, HTTP, DOM, and JavaScript
+
 ### The XML Document Used ###
+1. [cd_catalog.xml](https://www.w3schools.com/js/cd_catalog.xml)
+
 ### Display XML Data in an HTML Table ###
+1. Eample:
+
+		<html>
+			<head>
+				<style>
+					table, th, td {
+						broder: 1px solid black;
+						border-collapse: collapse;
+					}
+					th, td {
+						padding: 5px;
+					}
+				</style>
+			</head>
+			<body>
+				<table id="demo"></table>
+
+				<script>
+					function loadXMLDoc() {
+						var xmlhttp = new XMLHttpRequest();
+						xmlhttp.onreadystatechange = function () {
+							if (this.readyState == 4 && this.status == 200) {
+								myFunction(this);
+							}
+						};
+						xmlhttp.open('GET', 'cd_catalog.xml', true);
+						xmlhttp.send();
+					}
+
+					function myFunction(xml) {
+						var i;
+						var xmlDoc = xml.responseXML;
+						var table = '<tr><th>Artist</th><th>Title</th></tr>';
+						var x = xmlDoc.getElementsByTagName('CD');
+						for (i = 0; i < x.length; i++) {
+							table += '<tr><td>' +
+							x[i].getElementsByTagName('ARTIST')[0].childNodes[0].nodeValue +
+							'</td><td>' +
+							x[i].getElementsByTagName('TITLE')[0].childNodes[0].nodeValue +
+							'</td></tr>';
+						}
+						document.getElementById('demo').innerHTML = table;
+					}
+
 ### Display the First CD in an HTML div Element ###
 ### Navigate Between the CDs ###
 ### Show Album Information When Clicking On a CD ###
