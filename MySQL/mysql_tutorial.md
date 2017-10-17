@@ -178,7 +178,7 @@
 
 2. New module `python_mysql_dbconfig.py` reads database configuration from `config.ini` and returns dictionary
 
-		from configparser import ConfigParser
+		from ConfigParser import ConfigParser
 
 		def read_db_config(filename='config.ini', section='mysql'):
 			""" Read database configuration file and return a dictionary object
@@ -243,7 +243,166 @@
 		python python_mysql_connect2.py
 
 ### Python MySQL Query ###
+1. To query data using MySQL Connector/Python API
+	1. `fetchone()`
+	2. `fetchmany()`
+	3. `fetchall()`
+2. Steps:
+	1. Connect to MySQL database and you get `MySQLConnection` object
+	2. Instantiate `MySQLCursor` object from `MySQLConnection` object
+	3. Use cursor to execute a query by calling its `execute()` method
+	4. Use `fetchone()`, `fetchmany()` or `fetchall()` method to fetch data from result set
+	5. Close the cursor as well as database connection by calling `close()` method of corresponding object
+
+#### Querying data with fetchone ####
+1. Example:
+
+		from mysql.connector import MySQLConnection, Error
+		from python_mysql_dbconfig import read_db_config
+
+		def query_with_fetchone():
+			try:
+				dbconfig = read_db_config()
+				conn = MySQLConnection(**dbconfig)
+				cursor = conn.cursor()
+				cursor.execute('SELECT * FROM books')
+
+				row = cursor.fetchone()
+
+				while row is not None:
+					print(row)
+					row = cursor.fetchone()
+
+			except Error as e:
+				print(e)
+
+			finally:
+				cursor.close()
+				conn.close()
+
+		if __name__ == '__main__':
+			query_with_getchone()
+
+	1. Connected to db using `MySQLConnection` object
+	2. Instantiated new `MySQLCursor` object from `MySQLConnection` object
+	3. Executed query that selects all rows from `books` table
+	4. Called `fetchone()` to fetch next row in result set
+	5. Closed connection object by invoking `close()` method of corresponding object
+
+#### Querying data with fetchall ####
+1. `fetchall()` usually used if number of rows is small
+	1. Fetches all rows from database
+
+			from mysql.connector import MySQLConnection
+			from python_mysql_dbconfig import read_db_config
+
+			def query_with_fetchall():
+				try:
+					dbconfig = read_db_config()
+					conn = MySQLConnection(**dbconfig)
+					cursor = conn.cursor()
+					cursor.execute('SELECT * FROM books')
+					rows = cursor.fetchAll()
+	
+					print('Total rows(s):', cursor.rowcount)
+					for row in rows:
+						print(row)
+
+				except Error as e:
+					print(e)
+
+				finally:
+					cursor.close()
+					conn.close()
+
+			if __name__ == '__main__':
+				query_with_fetchall()
+
+		1. All rows are fetched into memory
+
+#### Querying data with fetchmany ####
+1. `fetchmany()` returns next number of rows (n) of result set - allows balance between time and space
+
+		def iter_row(cursor, size=10):
+			while True:
+				rows = cursor.fetchmany(size)
+				if not rows:
+					break
+				for row in rows:
+					yield row
+
+		def query_with_fetchmany():
+			try:
+				dbconfig = read_db_config()
+				conn = MySQLConnection(**dbconfig)
+				cursor = conn.cursor()
+
+				cursor.execute('SELECT * FROM books')
+
+				for row in iter_row(cursor, 10):
+					print(row)
+
+			except Error as e:
+				print(e)
+
+			finally:
+				cursor.close()
+				conn.close()
+
 ### Python MySQL Insert Data ###
+1. Steps to insert rows:
+	1. Connect to MySQL database server by instantiating `MySQLConnection` object
+	2. Initiate `MySQLCursor` object from `MySQLConnection` object
+	3. Execute `INSERT` statement to insert data into intended table
+	4. Close database connection
+2. We can insert one or many rows at a time
+
+#### Insert one row into a table ####
+1. Example: New book into books table
+
+		from mysql.connector import MySQLConnection, Error
+		from python_mysql_dbconfig import read_db_config
+
+		def insert_book(title, isbn):
+			query = 'INSERT INTO books (title, isbn) ' \
+					'VALUES (%s, %s)'
+			args = (title, isbn)
+
+			try:
+				db_config = read_db_config()
+				conn = MySQLConnection(**db_config)
+
+				cursor = conn.cursor()
+				cursor.execute(query, args)
+
+				if cursor.lastrowid:
+					print('last insert id', cursor.lastrowid)
+				else:
+					print('last insert id not found')
+
+				conn.commit()
+			except Error as error:
+				print(error)
+
+			finally:
+				cursor.close()
+				conn.close()
+
+		def main():
+			insert_book('A Sudden Light', '9781439187036')
+
+		if __name__ == '__main__':
+			main()
+
+	1. `insert_book()` accepts title and isbn
+		1. We prepare `INSERT` statement (query) and data (args)
+			1. Data is passed as a tuple
+	2. `commit()` - called explicitly to make changes to database
+	3. `lastrowid` - gets the last insert id of AUTO_INCREMENT column
+	4. Call `insert_book()` and pass `title` and `isbn`
+
+#### Insert multiple rows into a table ####
+
 ### Python MySQL Update Data ###
 ### Python MySQL Delete Data ###
 ### Calling MySQL Stored Procedures in Python ###
