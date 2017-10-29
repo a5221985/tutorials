@@ -7156,6 +7156,8 @@
 				</style>
 			</head>
 			<body>
+				<button type="button" onclick="loadXMLDoc()">Get my CD collection</button>
+				<br/><br/>
 				<table id="demo"></table>
 
 				<script>
@@ -7184,6 +7186,9 @@
 						}
 						document.getElementById('demo').innerHTML = table;
 					}
+				</script>
+			</body>
+		</html>
 
 ### Display the First CD in an HTML div Element ###
 ### Navigate Between the CDs ###

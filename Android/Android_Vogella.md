@@ -5,19 +5,138 @@
 ## Android development starter tutorials ##
 ### Introduction to Android development with Android Studio ###
 #### High-level overview of Android development ####
+##### The Android operating system #####
+1. Android is OS based on Linux kernel
+	1. Developed in Android Open Source Project (AOSP) lead by Google
+	2. Divided into four areas
+	
+		![xandroidsoftwarelayer10.png.pagespeed.ic.DzKZNZsgEE](xandroidsoftwarelayer10.png.pagespeed.ic.DzKZNZsgEE.webp)
+
+	1. Applications - Contains apps, like browser, camera, gallery, music and phone
+	2. Application framework - API which allows high-level interactions with Android system
+	3. Libraries and runtime - libraries for common framework functions (graphic rendering, data storage, web browsing)
+		1. Android runtime + core Java libraries for running Android apps
+	4. Linux kernel - communication layer for underlying hardware
+
+##### Android versions #####
+1. Available versions:
+	1. Oreo - 8.0 - API level 26
+	2. Nougat - 7.0 - 7.1.1 - 24-25
+	3. Marshmallow - 6.0 - 23
+	4. Lollipop - 5.1 - 22
+	5. Lollipop - 5.0 - 21
+	6. KitKat - 4.4 - 4.4.4 - 16-18
+	7. Ice Cream Sandwitch - 4.0.1 - 4.0.4 - 14-15
+	8. Honeycomb - 3.2.x - 13
+	9. Honeycomb - 3.0 - 3.1 - 11-12
+	10. Gingerbread - 2.3 - 2.3.7 - 9-10
+	11. Froyo - 2.2.x - 8
+	12. Eclair - 2.1 - 7
+	13. Donut - 1.6 - 4
+	14. Cupcake - 1.5 - 3
+	15. (no code name) - 1.1 - 2
+	16. (no code name) - 1.0 - 1
+
+##### Android application #####
+1. Android application - single installable unit (used independently)
+	1. It has
+		1. Configuration files
+		2. Java source
+		3. Java resource files
+	2. Components of configuration files
+		1. 
+
+##### Configuration via the manifest file #####
+
 #### Using Android devices for testing ####
+##### Using a real Android device for testing #####
+##### Using the Android emulator and Android Virtual Device #####
+
 #### Android Studio overview and installation ####
+##### Android Developer Tools and Android Studio #####
+##### System requirements #####
+##### Download and intallation of Android Studio #####
+###### Installation of the Intel emulator on Windows ######
+###### Installation of the Intel emulator on Linux ######
+##### Installation of Android SDKs #####
+
 #### Exercise: Getting started with Android Studio ####
+##### Creation of a new Android project #####
+##### Review the generated project #####
+##### Creation of virtual device (AVD) #####
+##### Start the application on your virtual device #####
+
 #### Using views and view groups to design the user interface ####
+##### Views - The widgets in Android #####
+##### Overview of Android layout managers #####
+###### ConstraintLayout ######
+###### FrameLayout ######
+###### LinearLayout ######
+###### RelativeLayout ######
+###### GridLayout ######
+##### ScrollView #####
+
 #### Resources ####
+##### Resource files #####
+##### Resource files and R.java #####
+##### Layout files #####
+##### Performance considerations with layouts #####
+##### Good practices for resources IDs #####
+##### System resources #####
+##### References to resources in code #####
+##### Accessing views from the layout in an activity #####
+##### Reference to resources in XML files #####
+##### Using assets? #####
+
 #### Exercise: Your first view interaction ####
+##### Review generated layout #####
+##### Adjust views #####
+##### Display text from your user field as a popup #####
+
 #### Exercise: Adding radio buttons ####
+##### Add radio group and radio buttons to you layout #####
+##### Add the selected button on your Toast #####
+##### Validating #####
+
 #### Exercise: Using resources in XML files and in code ####
+##### Add images to your application #####
+##### Add widgets to display images to your layout #####
+##### Replace images via radio button selection #####
+##### Validating #####
+
 #### Exercise: Creation of temperature converter ####
+##### Creation of Project #####
+##### Creation of attributes #####
+##### Creation of layout #####
+##### Edit view properties #####
+##### Creation of utility class #####
+##### Change the activity code #####
+##### Start the application #####
+
 #### Deployment ####
+##### How to deploy #####
+##### Defining software and hardware requirements for the application #####
+##### Signing your application for the release #####
+##### Export your application via Android Studio #####
+##### Export your application via the Eclipse IDE #####
+##### Via external sources #####
+##### Google Play #####
+
 #### Appendix Important entries in the Android manifest file ####
+##### Declaration of version, package and Android components #####
+##### Minimum and target SDK #####
+##### Permissions #####
+##### Required device configuration #####
+##### Installation location #####
+##### More info #####
+
 #### About this website ####
 #### Android online resources ####
+##### Android core resources #####
+##### Android learning resources #####
+##### Android tools #####
+##### vogella GmbH training and consulting support #####
+
 #### Appendix A: Copyright and License ####
 
 ### Android Development with Android Studio ###
