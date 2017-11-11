@@ -7192,6 +7192,8 @@
 
 ### Display the First CD in an HTML div Element ###
 ### Navigate Between the CDs ###
+1. Define `next()` and `previous()`
+
 ### Show Album Information When Clicking On a CD ###
 
 ## AJAX Examples ##
