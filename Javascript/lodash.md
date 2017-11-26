@@ -53,8 +53,36 @@
 ## Documentation ##
 ### Array ###
 #### _.chunk ####
+1. Syntax: `_.chunk(array, [size=1])`
+2. splits array into sub arrays of length `size`.
+	1. If array cannot be split evenly, final chink will be ramaining elements
+3. Example:
+
+		_.chunk(['a', 'b', 'c', 'd'], 2);
+		// => [['a', 'b'], ['c', 'd']]
+
+		_.chunk(['a', 'b', 'c', 'd'], 3);
+		// => [['a', 'b', 'c'], ['d']]
+
 #### _.compact ####
+1. Example:
+	
+		_.compact([0, 1, false, 2, '', 3]);
+		// => [1, 2, 3]
+
 #### _.concat ####
+1. Syntax: `_.concat(array, [values])`
+2. Example:
+
+		var array = [1];
+		var other = _.concat(array, 2, [3], [[4]]);
+	
+		console.log(other)
+		// => [1, 2, 3, [4]]
+
+		console.log(array)
+		// => [1]
+
 #### _.difference ####
 #### _.differenceBy ####
 #### _.differenceWith ####
@@ -296,3 +324,105 @@
 #### _.setWith ####
 #### _.toPairs ####
 #### _.toPairsIn ####
+#### _.transform ####
+#### _.unset ####
+#### _.update ####
+#### _.updateWith ####
+#### _.values ####
+#### _.valuesIn ####
+
+### Seq ###
+#### _ ####
+#### _.chain ####
+#### _.tap ####
+#### _.thru ####
+#### _.prototype[Symbol.iterator] ####
+#### _.prototype.at ####
+#### _.prototype.chain ####
+#### _.prototype.commit ####
+#### _.prototype.next ####
+#### _.prototype.plant ####
+#### _.prototype.reverse ####
+#### _.prototype.toJSON -> value ####
+#### _.prototype.value ####
+#### _.prototype.valueOf -> value ####
+
+### String ###
+#### _.camelCase ####
+#### _.capitalize ####
+#### _.deburr ####
+#### _.endsWith ####
+#### _.escape ####
+#### _.escapeRegExp ####
+#### _.kebabCase ####
+#### _.lowerCase ####
+#### _.lowerFirst ####
+#### _.pad ####
+#### _.padEnd ####
+#### _.padStart ####
+#### _.parseInt ####
+#### _.repeat ####
+#### _.replace ####
+#### _.snakeCase ####
+#### _.split ####
+#### _.startCase ####
+#### _.startsWith ####
+#### _.template ####
+#### _.toLower ####
+#### _.toUpper ####
+#### _.trim ####
+#### _.trimEnd ####
+#### _.trimStart ####
+#### _.truncate ####
+#### _.unescape ####
+#### _.upperCase ####
+#### _.upperFirst ####
+#### _.words ####
+
+### Util ###
+#### _.attempt ####
+#### _.bindAll ####
+#### _.cond ####
+#### _.conforms ####
+#### _.constant ####
+#### _.defaultTo ####
+#### _.flow ####
+#### _.flowRight ####
+#### _.identity ####
+#### _.iteratee ####
+#### _.matches ####
+#### _.matchesProperty ####
+#### _.method ####
+#### _.methodOf ####
+#### _.mixin ####
+#### _.noConflict ####
+#### _.noop ####
+#### _.nthArg ####
+#### _.over ####
+#### _.overEntry ####
+#### _.overSome ####
+#### _.property ####
+#### _.propertyOf ####
+#### _.range ####
+#### _.rangeRight ####
+#### _.runInContext ####
+#### _.stubArray ####
+#### _.stubFalse ####
+#### _.stubObject ####
+#### _.stubString ####
+#### _.stubTrue ####
+#### _.times ####
+#### _.toPath ####
+#### _.uniqueId ####
+
+### Properties ###
+#### _.VERSION ####
+#### _.templateSettings ####
+#### _.templateSettings.escape ####
+#### _.templateSettings.evaluate ####
+#### _.templateSettings.imports ####
+#### _.templateSettings.interpolate ####
+#### _.templateSettings.variable ####
+
+### Methods ###
+#### _.templateSettings.imports.\_ ####

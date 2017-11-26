@@ -10,22 +10,145 @@
 5. Triggers
 
 ## Basic MySQL Tutorial ##
+1. Querying data, updating data, managing databases and creation of tables
+2. MySQL dialect
+
 ### Getting started with MySQL ###
+1. Installing MySQL, downloading [sample data](http://www.mysqltutorial.org/mysql-sample-database.aspx), loading data into MySQL server
+
+#### Installing MySQL database server ####
+#### Downloading MySQL sample database ####
+1. `classicmodels` - database
+	1. Retailer of scale models of classic cars database
+	2. Contains following business data
+		1. Customers
+		2. Products
+		3. Sales Orders
+		4. Sales Order Line Items
+2. [MySQL Sample Database](http://www.mysqltutorial.org/download/2)
+3. [how to load sample database into MySQL database server tutorial](http://www.mysqltutorial.org/how-to-load-sample-database-into-mysql-database-server.aspx)
+	1. Test
+	
+			USE classicmodels;
+			SELECT * FROM customers;
+
+4. MySQL Sample Database Schema
+	1. **Customers**: stores customer's data
+	2. **Products**: stores a list of scale model cars
+	3. **ProductLines**: stores a list of product line categories
+	4. **Orders**: stores sales orders placed by customers
+	5. **OrderDetails**: stores sales order line items for each sales order
+	6. **Payments**: stores payments made to customers based on their accounts
+	7. **Employees**: stores all employee information as well as the organization structure such as who reports to whom
+	8. **Offices**: stores sales office data
+
+#### Loading the sample database into your own MySQL database server ####
+1. [how to load sample database into MySQL database server tutorial](http://www.mysqltutorial.org/how-to-load-sample-database-into-mysql-database-server.aspx)
+
 ### Querying data ###
+#### SELECT ####
+##### SELECT DISTINCT ####
+
 ### Filtering data ###
+#### WHERE ####
+#### AND ####
+#### OR ####
+#### IN ####
+#### BETWEEN ####
+#### LIKE ####
+#### **LIMIT** ####
+#### **IS NULL** ####
+
 ### Sorting data ###
+#### **ORDER BY** ####
+#### Natural sorting using ORDER BY clause ####
+
 ### Joining tables ###
+#### MySQL alias ####
+#### MySQL Join ####
+#### INNER JOIN ####
+#### LEFT JOIN ####
+#### RIGHT JOIN ####
+#### **CROSS JOIN** ####
+#### **Self-join** ####
+
 ### Grouping data ###
+#### **GROUP BY** clause ####
+#### **HAVING** ####
+
 ### MySQL subquery, derived table, and CTE ###
+#### **MySQL subquery** ####
+#### **MySQL derived table** ####
+#### **MySQL CTE** ####
+#### **Recursive CTE** ####
+
 ### Using Set operators ###
+#### **UNION** and **UNION ALL** ####
+#### **INTERSECT** ####
+#### **MINUS** ####
+
 ### Modifying data in MySQL ###
+#### INSERT ####
+#### **INSERT IGNORE** ####
+#### UPDATE ####
+#### **UPDATE JOIN** ####
+#### DELETE ####
+#### **ON DELETE CASCADE** ####
+#### **DELETE JOIN** ####
+#### **REPLACE** ####
+#### **Prepared Statement** ####
+
 ### MySQL transaction ###
+#### **MySQL transaction** ####
+#### **MySQL table locking** ####
+
 ### Managing MySQL databases and tables ###
+#### **Managing database in MySQL** ####
+#### **Understanding MySQL Table Types** ####
+#### CREATE TABLE ####
+#### **MySQL sequence** ####
+#### ALTER TABLE ####
+#### **Renaming table** ####
+#### Removing a column from a table ####
+#### Adding a new column to a table ####
+#### DROP TABLE ####
+#### **MySQL temporary table** ####
+#### **TRUNCATE TABLE** ####
+
 ### MySQL indexes ###
+#### **Managing MySQL database indexes** ####
+#### **UNIQUE index** ####
+
 ### MySQL data types ###
+#### MySQL data types ####
+#### INT ####
+#### **DECIMAL** ####
+#### **BIT** ####
+#### BOOLEAN ####
+#### CHAR ####
+#### VARCHAR ####
+#### TEXT ####
+#### DATE ####
+#### TIME ####
+#### **DATETIME** ####
+#### **TIMESTAMP** ####
+#### **JSON** ####
+#### **ENUM** ####
+
 ### MySQL constraints ###
+#### NOT NULL constaint ####
+#### Primary key constraint ####
+#### Foreign key constraint ####
+#### UNIQUE constraint ####
+#### **CHECK** constraint ####
+
 ### MySQL globalization ###
+#### **MySQL character set** ####
+#### **MySQL collation** ####
+
 ### MySQL import & export ###
+#### **Import CSV File Into MySQL Table** ####
+#### **MySQL Export Table to CSV** ####
 
 ## MySQL Stored Procedure ##
 ### Introduction to MySQL Stored Procedures ###

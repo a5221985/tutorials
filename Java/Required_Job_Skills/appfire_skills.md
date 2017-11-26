@@ -2,7 +2,7 @@
 ## Java ##
 
 ## J2EE ##
-### **Java RESTful services** ###
+### Java RESTful services ###
 #### **Authentication and Security** ####
 
 ## Automation Frameworks ##
@@ -21,6 +21,7 @@
 
 ## Test Automation Frameworks ##
 ### **Selenium - Web Browser Automation** ###
+1. Basics - done
 ### Robot Framework ###
 1. A generic test automation framework for acceptance testing and acceptance test-driven development (ATDD).
 2. Uses easy to use tabular test data syntax
@@ -40,6 +41,7 @@
 
 #### RSpec ####
 #### **Cucumber** ####
+1. Basics - done
 
 ## RDBMS ##
 ### MySQL ###
