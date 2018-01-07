@@ -2839,6 +2839,33 @@
 		}
 
 ### Insert Operation ###
+1. Example: Transaction
+
+		import java.sql.*;
+		import groovy.sql.Sql
+
+		class Example {
+			static void main(String[] args) {
+				// Creation of connection to the database
+				def sql = Sql.newInstance('jdbc:mysql://localhost:3306/TESTDB', 'testuser', 'test123', 'com.mysql.jdbc.Driver')
+
+				sql.connection.autoCommit = false
+
+				def sqlstr = """INSERT INTO EMPLOYEE(FIRST_NAME, LAST_NAME, AGE, SEX, INCOME) VALUES ('Mac', 'Mohan', 20, 'M', 2000)"""
+
+				try {
+					sql.execute(sqlstr);
+					sql.commit()
+					println("Successfully committed")
+				} catch (Exception ex) {
+					sql.rollback()
+					println("Transaction rollback")
+				}
+
+				sql.close()
+			}
+		}
+
 ### READ Operation ###
 ### Update Operation ###
 ### DELETE Operation ###
@@ -2848,7 +2875,59 @@
 ### Disconnecting Databases ###
 
 ## Groovy - Builders ##
+1. Creation of
+	1. Data structures
+	2. Domain classes
+	3. XML
+	4. GUI Layouts
+	5. Output streams
+2. Code snippets get repeated traditionally
+3. Groovy builders
+	1. Used for standard objects and structures
+
 ### Swing Builder ###
+1. GUI interfaces using swing builders in groovy
+	1. SwingBuilder - class to build swing components
+		1. Methods:
+			1. JFrame - for creation of frame element
+			2. JTextField - for creation of textfield component
+2. Example:
+	1. Steps:
+		1. Import `groovy.swing.SwingBuilder` and `javax.swing.*`
+		2. All components displayed in Swing application are part of SwingBuilder class
+		3. For frame, specify initial location and size of frame
+		4. Set `Visibility` property to be true to show the frame
+	2. Implementation
+		
+			import groovy.swing.SwingBuilder
+			import javax.swing.*
+
+			// Creation of a builder
+			def myapp = new SwingBuilder()
+
+			// Compose the builder
+			def myframe = myapp.frame(title: 'Tutorials Point', location: [200, 200], size: [400, 300], defaultCloseOperation: WindowConstants.EXIT_ON_CLOSE) {
+				label(text: 'Hello world')
+			}
+
+			// The following statement is used for displaying the form
+			myframe.setVisible(true)
+
+3. Example: Text boxes for student name, subject and school name:
+	1. Using Grid layout
+	2. Using alignment property for labels
+	3. Using textField method for displaying textboxes on screen
+4. Implementation:
+
+		import groovy.swing.SwingBuilder
+		import javax.swing.*
+		import java.awt.*
+
+		// Creation of a builder
+		def myapp = new SwingBuilder()
+
+		// Compose the builder
+
 ### Event Handlers ###
 ### DOM Builder ###
 ### JsonBuilder ###
@@ -2856,21 +2935,255 @@
 ### FileTreeBuilder ###
 
 ## Groovy - Command Line ##
+1. groovysh - groovy shell
+	1. to run simple programs
+	2. Installed when groovy is installed
+2. Parameters
+	1. -C: --color[=FLAG]: enabled or disable use of ANSI colors
+	2. -D: --define=NAME=VALUE: define system property
+	3. -T: --terminal=TYPE: terminal TYPE to use
+	4. -V: --version: display version
+	5. -classpath: specify where to find class files (first argument)
+	6. -cp: --classpath: aliases for -classpath
+	7. -d: --debug: --debug Enable debug output
+	8. -e: --evaluate=arg: evaluate option first when starting interactive session
+	9. -h: --help: Display this help message
+	10. -q: --quiet: Suppress superfluous output
+	11. -v: --verbose: Enable verbose output
+
 ### Classes and Functions ###
 ### Commands ###
+1. Shell has different commands
+	1. :help, :h - help message
+	2. ?, :? - alias to :help
+	3. :exit, :x - exit shell
+	4. :quit, :q - alias to :exit
+	5. import, :i - import a class into namespace
+	6. :display, :d - display the current buffer
+	7. :clear, :c - clear the buffer and reset the prompt counter
+	8. :show, :S - show variables, classes or imports
+	9. :inspect, :n - Inspect a variable or last result with GUI object browser
+	10. :purge, :p - Purge variables, classes, imports or preferences
+	11. :edit, :e - Edit the current buffer
+	12. :load, :l - Load a file or URL into the buffer
+	13. ., :. - Alias to :load
+	14. .save, :s - save the current buffer to a file
+	15. .record, :r - record the current session to a file
+	16. :alias, :a - alias
+	17. :set, := - set or list preferences
+	18. :register, :rc - registers a new command with the shell
+	19. :doc, :D - opens a browser window displaying doc for the argument
+	20. :history, :H - display, manage and recall edit-line history
 
 ## Groovy - Unit Testing ##
+1. Unit testing - fundamental unit is class hence testing the class
+2. Approach:
+	1. Object is created which is under test
+	2. Check selected methods to see if they execute as expected
+	3. Do it for key and critical methods
+3. JUnit - testing framework for automated unit testing of Java code
+	1. It can be used for Groovy classes as well
+		1. Extend `GroovyTestCase` class (part of standard Groovy environment)
+			1. It is based on JUnit test case
+
 ### Writing a Simple Junit Test Case ###
+1. Example:
+
+		class Example {
+			static void main(String[] args) {
+				Student mst = new Student()
+				mst.name = "Joe"
+				mst.ID = 1;
+				println mst.Display()
+			}
+		}
+
+		public class Student {
+			String name
+			int ID
+
+			String Display() {
+				return name + ID
+			}
+		}
+
+2. Writing test case for Student class
+	1. assert statement ensures Display method returns right string
+
+			class StudentTest extends GroovyTestCase {
+				void testDisplay() {
+					def stud = new Student(name: 'Joe', ID: '1')
+					def expected = 'Joe1'
+					assertToString(stud.Display(), expected)
+				}
+			}
+
 ### The Groovy Test Suite ###
+1. Test suite - encapsulates all test cases as a logical unit
+	1. `GroovyTestSuite` is used to encapsulate all test cases into one
+	2. Two test case files:
+		1. StudentTest
+		2. EmployeeTest
+	3. Example:
+
+			import groovy.util.GroovyTestSuite
+			import junit.framework.Test
+			import junit.textui.TestRunner
+
+			class AllTests {
+				static Test suite() {
+					def allTests = new GroovyTestSuite()
+					allTests.addTestSuite(StudentTest.class)
+					allTests.addTestSuite(EmployeeTest.class)
+					return allTests;
+				}
+			}
+
+			TestRunner.run(AllTests.suite())
 
 ## Groovy - Template Engines ##
+
+
 ### Simple Templating in Strings ###
 ### Simple Template Engine ###
 ### StreamingTemplateEngine ###
 ### XMLTemplateEngine ###
 
 ## Groovy - Meta Object Programming ##
+1. Invoke methods dynamically
+2. Creation of classes on the fly
+3. Creation of methods on the fly
+4. Example: Student is an empty class
+
+		Def myStudent = new Student()
+		myStudent.Name = "Joe"
+		myStudent.Display()
+
+	1. Code works
+		1. How?
+			1. `GroovyInterceptable` interface has to be implemented to hook into the execution process of Groovy
+
+					public interface GroovyInterceptable {
+						public Object invokeMethod(String methodName, Object args)
+						public Object getProperty(String propertyName)
+						public void setProperty(String propertyName, Object newValue)
+						public MetaClass getMetaClass()
+						public void setMetaClass(MetaClass metaClass)
+					}
+
+				1. If `invokeMethod` is implemented, it is called for every method which exists or does not exist
+
 ### Missing Properties ###
+1. Keys
+	1. Student has no Name or ID
+	2. Student implements GroovyInterceptable
+	3. parameter `dynamicProps` holds value of member variables which are created on the fly
+	4. `getProperty` and `setProperty` are used to get and set values of properties of class at runtime
+2. Example:
+
+		class Example {
+			static void main(String[] args) {
+				Student mst = new Student()
+				mst.Name = 'Joe'
+				mst.ID = 1
+
+				println(mst.Name)
+				println(mst.ID)
+			}
+		}
+
+		class Student implements GroovyInterceptable {
+			protected dynamicProps = [:]
+
+			void setProperty(String pName, val) {
+				dynamicProps[pName] = val
+			}
+
+			def getProperty(String pName) {
+				dynamicProps[pName]
+			}
+		}
+
 ### Missing methods ###
+1. Example:
+	1. Student called irrespective of whether method exists
+
+			class Example {
+				static void main(String[] args) {
+					Student mst = new Student()
+					mst.name = "Joe"
+					mst.id = 1
+
+					println(mst.name)
+					println(mst.id)
+					mst.addMarks()
+				}
+			}
+
+			class Student implements GroovyInterceptable {
+				protected dynamicProps = [:]
+
+				void setProperty(String pName, val) {
+					dynamicProps[pName] = val
+				}
+
+				def getProperty(String pName) {
+					dynamicProps[pName]
+				}
+
+				def invokeMethod(String name, Object args) {
+					return "called invokeMethod $name $args"
+				}
+			}
+
 ### Metaclass ###
+1. `MetaClass` can be used to change value of private variable in a class
+2. Example:
+
+		class Example {
+			static void main(String[] args) {
+				Student mst = new Studnet()
+				println mst.getName()
+				mst.metaClass.setAttribute(mst, 'name', 'Mark')
+				printnln mst.getName()
+			}
+		}
+
+		class Student {
+			private String name = "Joe"
+
+			public String getName() {
+				return this.name
+			}
+		}
+
 ### Method Missing ###
+1. `methodMissing` - invoked on failed method dispatch (no method can be found for given name and/or arguments)
+
+		class Example {
+			static void main(String[] args) {
+				Student mst = new Student()
+				mst.name = "Joe"
+				mst.id = 1
+
+				println(mst.name)
+				println(mst.id)
+				mst.addMarks()
+			}
+		}
+
+		class Student implements GroovyInterceptable {
+			protected dynamicProps = [:]
+
+			void setProperty(String pName, val) {
+				dynamicProps[pName] = val
+			}
+
+			def getProperty(String pName) {
+				dynamicProps[pName]
+			}
+
+			def methodMissing(String name, def args) {
+				println "Missing method"
+			}
+		}
