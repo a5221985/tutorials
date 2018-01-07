@@ -1,0 +1,889 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    margin: 10px 10px 10px 20px;
+}
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #aaa;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    padding: 0 3px 2px;
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px dashed #ccc;
+    border: 1px dashed rgba(0, 0, 0, 0.15);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fdfdfd;
+    color:#737373;
+    font-size: 11px;
+}
+@media screen and (min-width: 768px) {
+    body {
+        width: 748px;
+        margin:10px auto;
+    }
+}
+</style>
+<title>junit_and_mockito_crash_course.html</title>
+</head>
+<body>
+<h2>JUnit and Mockito Crash Course</h2>
+
+<ol>
+<li>Skill + Practice = Expert</li>
+</ol>
+
+
+<h4>Introduction</h4>
+
+<ol>
+<li>Unit Testing: Unit or class level testing
+
+<ol>
+<li>Test public methods for positive and exceptional scenarios</li>
+<li>Example:
+
+<ol>
+<li><code>public int createOrder(Order order)</code>
+
+<ol>
+<li>pass order</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Mocking:
+
+<ol>
+<li>Ex: OrderProcessor &ndash;> OrderService &ndash;> OrderDAO &ndash;> Database
+
+<ol>
+<li>To unit test OrderProcessor, we can mock <code>OrderServcie</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Advantages:
+
+<ol>
+<li>Assure Quality: a developer can catch defects which coding</li>
+<li>Run Fast: Tests run fast since dependencies are mocked</li>
+<li>Regression Suite: Unit tests become regression suite since we can run all unit tests</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h4>JUnit Testing</h4>
+
+<ol>
+<li>Framework:
+
+<ol>
+<li>Easy to use API</li>
+<li>Way to compare or assert results</li>
+<li>Run and report results</li>
+</ol>
+</li>
+<li>JUnit 3: <code>junit.framework.TestCase</code> class must be extended</li>
+<li>JUnit 4: We use <code>@Test</code> <strong>(M)</strong> annotation
+
+<ol>
+<li><code>@Before</code> <strong>(M)</strong>: to mark setup methods, creation of all objects required and data for testing</li>
+<li><code>@After</code> <strong>(M)</strong>: run after every tests:
+
+<ol>
+<li>for cleanup</li>
+</ol>
+</li>
+<li><code>@BeforeClass</code> <strong>(M)</strong>: Run only once for test class at the beginning</li>
+<li><code>@Ignore</code> <strong>(M)</strong>: Test is ignored</li>
+</ol>
+</li>
+<li><code>import static org.junit.Assert.*;</code> <strong>(M)</strong>
+
+<ol>
+<li><code>assertNotNull</code></li>
+<li><code>assertSame</code></li>
+<li><code>assertEquals</code>: compares values</li>
+</ol>
+</li>
+<li><code>BlockJunit4ClassRunner.class</code>:
+
+<ol>
+<li>To run tests and report</li>
+<li>run from command line and pass test class and run all tests and reports results</li>
+</ol>
+</li>
+<li><code>@RunWith(SpringJUnit4ClassRunner.class)</code>: Extends <code>BlockJunit4ClassRunner.class</code></li>
+</ol>
+
+
+<h4>HelloJUnit</h4>
+
+<ol>
+<li>Start a new project in eclipse</li>
+<li>Right click on project and add new source folder called <code>test</code></li>
+<li>Right click on implementation class and select JUnit Test Case</li>
+<li>Change source folder to <code>test</code></li>
+<li>Click Finish</li>
+<li><p>Add the following test</p>
+
+<pre><code> @Test
+ public void greetShouldReturnAValidResult() {
+     Greeting greeting = new GreetingImpl();
+     String result = greeting.greet("JUnit");
+     assertNotNull(result);
+     assertEuals()
+ }
+</code></pre></li>
+</ol>
+
+
+<h4>Exceptional Cases</h4>
+
+<ol>
+<li><p>Consider the following class</p>
+
+<pre><code> public GreetingImpl implements Greeting {
+     public String greet(String name) {
+         if(name == null || name.equals("")) {
+             throw new IllegalArgumentException();
+         }
+         return "Hello " + name;
+     }
+ }
+</code></pre></li>
+<li><p>Excepitonal Unit tests for the class are as follows:</p>
+
+<pre><code> @Test(Expected = IllegalArgumentException.class)
+ public void greetShouldThrowAnExceptionForNameIsNull() {
+     Greeting greeting = new GreetingImpl();
+     greeting.greet(null);
+ }
+
+ @Test(Expected = IllegalArgumentException.class)
+ public void greetShouldThrowAnExceptionForNameIsBlank() {
+     Greeting greeting = new GreetingImpl();
+     greeting.greet("");
+ }
+</code></pre></li>
+</ol>
+
+
+<h4><code>@Before</code> and <code>@After</code> Methods</h4>
+
+<ol>
+<li><p><code>@Before</code> annotated method runs once for each <code>@Test</code> method before executing the @Test method</p>
+
+<pre><code> @Before
+ public void setUp() {
+     greeting = new GreetingImpl();
+ }
+</code></pre></li>
+<li><p><code>@After</code> annotated method runs once for each <code>@Test</code> method after executing the <code>@Test</code> method</p>
+
+<pre><code> @After
+ public void tearDown() {
+     greeting = null;
+ }
+</code></pre></li>
+</ol>
+
+
+<h4>Mocking</h4>
+
+<ol>
+<li>To mimic</li>
+<li>For isolated testing</li>
+<li>Purpose:
+
+<ol>
+<li>If A depends on B, then we mock out B so that only A is tested without testing B</li>
+</ol>
+</li>
+<li>Example:
+
+<ol>
+<li>ReservationController &ndash;> ReservationBO &ndash;> ReservationDAO &ndash;> DB</li>
+</ol>
+</li>
+<li>Mocking steps:
+
+<ol>
+<li>Stubbing
+
+<ol>
+<li><code>@Mock</code></li>
+</ol>
+</li>
+<li>Setting expectations
+
+<ol>
+<li><code>when</code>, <code>thenReturn</code>, <code>thenThrow</code></li>
+</ol>
+</li>
+<li>Verifying
+
+<ol>
+<li><code>verify</code>, <code>matchers</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Example:
+
+<ol>
+<li>Order Processing:
+
+<ol>
+<li>Client places and Order, or Cancel Order or delete an order</li>
+<li>OrderBO: Business Logic
+
+<ol>
+<li><code>placeOrder()</code></li>
+<li><code>cancelOrder()</code></li>
+<li><code>deleteOrder()</code></li>
+</ol>
+</li>
+<li>OrderDAO: Database access methods
+
+<ol>
+<li><code>create()</code></li>
+<li><code>read()</code></li>
+<li><code>update()</code></li>
+<li><code>delete()</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Classes:
+
+<ol>
+<li><code>OrderDAO</code>: Interface</li>
+<li><code>OrderDAOImpl</code>: Implementation class</li>
+<li><code>OrderBO</code>: interface</li>
+<li><code>OrderBOImpl</code>: Implementation class</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Download Mockito:
+
+<ol>
+<li>Search for mockito download</li>
+<li>click <strong>mockito-<version>.zip</strong></li>
+<li>Unzip the contents</li>
+<li>select <strong>mockito-all-&lt;version>.jar</strong></li>
+<li>In eclipse add a new folder
+
+<ol>
+<li>name: lib</li>
+<li>Hit finish</li>
+</ol>
+</li>
+<li>Paste the jar file under the lib folder</li>
+<li>Right click on project goto properties, libraries add jars, select <code>mockito-all-&lt;version&gt;.jar</code></li>
+</ol>
+</li>
+</ol>
+
+
+<h4>CodeCoverage</h4>
+
+<ol>
+<li>Install <strong>EclEmma</strong> (Eclipse Emma)
+
+<ol>
+<li>Uses JaCoCo library</li>
+<li>Installation:
+
+<ol>
+<li>Goto Eclipse MarketPlace</li>
+<li>Search EclEmma</li>
+<li>Click <strong>Install</strong></li>
+<li>Hit <strong>Confirm</strong></li>
+<li>Accept licence</li>
+<li>Hit <strong>Finish</strong></li>
+<li>Restart Eclipse</li>
+</ol>
+</li>
+<li>Checking:
+
+<ol>
+<li>Right click on a project</li>
+<li>Check if <strong>Coverage As</strong> option exists</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Code Coverage:
+
+<ol>
+<li>The lines of code tested when tests are run against the source code
+
+<ol>
+<li>Source Code lines:
+
+<ol>
+<li>Conditionals, loops</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Cobertura:
+
+<ol>
+<li>Has Eclipse plugins</li>
+</ol>
+</li>
+<li>JTest</li>
+<li>Running EclEmma:
+
+<ol>
+<li>Right click on <code>test</code> directory</li>
+<li>Select <strong>Coverage As</strong></li>
+<li>Select <strong>JUnit Test</strong></li>
+</ol>
+</li>
+</ol>
+
+
+<h4>Matchers, Verify, Spy &hellip;</h4>
+
+<ol>
+<li>verify(mockobject, times(1)).method(argument);</li>
+<li>verify(mockobject, atleast(2)).method(argument);
+
+<ol>
+<li>verify(mockobject, verificationMethod).method(argument); <strong>(M)</strong></li>
+</ol>
+</li>
+<li>Matchers API:
+
+<ol>
+<li><code>anyInt()</code> <strong>(M)</strong></li>
+<li><code>any(Class.class)</code> <strong>(M)</strong></li>
+</ol>
+</li>
+</ol>
+
+
+<h4>Mocking Void Methods</h4>
+
+<ol>
+<li>Requirements:
+
+<ol>
+<li>Class A has <code>usesVoidMethod</code> uses Class B&rsquo;s <code>voidMethod</code></li>
+</ol>
+</li>
+<li>Mocking a void method:
+
+<ol>
+<li><code>doNothing().when(b).voidMethod();</code> <strong>(M)</strong></li>
+</ol>
+</li>
+<li><p>Mocking consecutive calls of void method:</p>
+
+<pre><code> doNothing().doThrow(Exception.class).when(b).voidMethod();
+ a.usesVoidMethod();
+ verify(b).voidMethod();
+ a.usesVoidMethod();
+</code></pre></li>
+</ol>
+
+
+<h4>F.I.R.S.T Principle</h4>
+
+<ol>
+<li>F: Fast unit tests (each test in milliseconds)</li>
+<li>I: Independent tests
+
+<ol>
+<li>none of the tests should depend on another test for its working</li>
+</ol>
+</li>
+<li>R: Repeatable tests
+
+<ol>
+<li>Work across environments (QA, staging, Prod)</li>
+</ol>
+</li>
+<li>S: Self-Validating tests
+
+<ol>
+<li>Either fail or succeed directly not write into log files etc&hellip; and use another method to validate results</li>
+</ol>
+</li>
+<li>T: Timely tests
+
+<ol>
+<li>As soon as we write code (follow TDD)</li>
+</ol>
+</li>
+</ol>
+
+
+<h4>Test Doubles</h4>
+
+<ol>
+<li>Common Design Patterns across unit testing frameworks
+
+<ol>
+<li>Mock out like stunt doubles</li>
+</ol>
+</li>
+<li>Commonly used test doubles
+
+<ol>
+<li>Dummy
+
+<ol>
+<li>Objects passed as parameters but are not required for the tests
+
+<ol>
+<li><code>any(Order.class)</code>: we don&rsquo;t care for the object</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Stubs
+
+<ol>
+<li>Provide fixed answers and return values</li>
+<li><code>when().thenReturn()</code></li>
+</ol>
+</li>
+<li>Mocks
+
+<ol>
+<li>Can throw exceptions and verify results</li>
+<li><code>ThenThrow()</code></li>
+<li><code>verify()</code></li>
+<li>Expectations form specification of calls mock objects are expected to receive.</li>
+</ol>
+</li>
+<li>Fake
+
+<ol>
+<li>Objects having working implementation but do not make it to the production (they use shortcuts)
+
+<ol>
+<li>In memory databases used for unit testing instead of real databases</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Spies
+
+<ol>
+<li>Spy or record any side effects of a test method</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Differences between stub and mock
+
+<ol>
+<li>Stub uses state verification but mock uses behavior verification
+
+<ol>
+<li>Behavior verification:
+
+<ol>
+<li>Check to see if correct calls were made.</li>
+<li>Implementation:
+
+<ol>
+<li>Tell mock object what to expect during setup (setup of data and setup of expectations)</li>
+<li>Ask mock object to verify itself during verification phase.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h4>Spy</h4>
+
+<ol>
+<li>For partial mocking
+
+<ol>
+<li>Only those methods which are stubbed out behave as stubbed but rest of the methods behave as defined by the class.</li>
+</ol>
+</li>
+<li><p>Example:</p>
+
+<pre><code> @Spy
+ List&lt;String&gt; myList = new ArrayList();
+ ...
+ doReturn(3).when(myList).size();
+</code></pre></li>
+<li><p>Syntax: <strong>(M)</strong></p>
+
+<pre><code> @Spy
+ Type object = new Type();
+ ...
+ doReturn(&lt;value&gt;).when(object).method();
+</code></pre>
+
+<ol>
+<li>Mocked objects need stubbing out all those methods which will be called during unit testing.</li>
+</ol>
+</li>
+<li>Spy using <code>@Mock</code>
+
+<ol>
+<li><code>when(myList.size()).thenCallRealMethod();</code></li>
+</ol>
+</li>
+</ol>
+
+
+<h4>Writing Tests for Maven Project</h4>
+
+<ol>
+<li><p>Add dependency in pom.xml</p>
+
+<pre><code> &lt;dependency&gt;
+     &lt;groupId&gt;junit&lt;/groupId&gt;
+     &lt;artifactId&gt;junit&lt;/artifactId&gt;
+     &lt;version&gt;4.11&lt;/version&gt;
+     &lt;scope&gt;test&lt;/scope&gt;
+ &lt;/dependency&gt;
+</code></pre></li>
+<li>Run tests as follows:
+
+<ol>
+<li><code>mvn clean install</code>
+
+<ol>
+<li><code>clean</code>: clears <code>target</code> directory</li>
+</ol>
+</li>
+<li><code>mvn clean test</code></li>
+</ol>
+</li>
+</ol>
+
+
+<h4>Parameterized JUnit (v4)</h4>
+
+<ol>
+<li>Write single method and pass multiple data sets as parameters and assert for multiple results</li>
+<li>Steps
+
+<ol>
+<li><p>Identify the Input Data and Results</p>
+
+<ol>
+<li>num1</li>
+<li>num2</li>
+<li>result</li>
+</ol>
+</li>
+<li><p>Creation of Fields in the test class</p>
+
+<pre><code> int num1;
+ int num2;
+ int expectedResult;
+
+ public CalculatorImplTest(int num1, int num2, int result) {
+     this.num1 = num1;
+     this.num2 = num2;
+     this.expectedResult = expectedResult;
+ }
+</code></pre></li>
+<li><p>Creation of constructor</p>
+
+<ol>
+<li>It accepts inputs and outputs</li>
+</ol>
+</li>
+<li><p>Creation fo static method to feed data (<code>@Parameters</code> <strong>(M)</strong>)</p>
+
+<pre><code> @Parameters
+ public static Collection&lt;Integer[]&gt; data() {
+     return Arrays.asList(new Integer[][]{{-1,2,1},{1,2,3},{6,7,13}});
+ }
+</code></pre></li>
+<li><p>Creation or Updation of Test Method</p>
+
+<pre><code> c.add(num1, num2);
+ assertEquals(expectedResult, result);
+</code></pre></li>
+<li><p>Mark the Test class With <code>@RunWith(Parameterized.class)</code> <strong>(M)</strong></p>
+
+<ol>
+<li><p>It is a Test runner</p>
+
+<pre><code> @RunWith(Parameterized.class)
+ public class CalculatorImplTest {
+ ...
+</code></pre>
+
+<p> }</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h4>PowerMock</h4>
+
+<ol>
+<li>Limitations of Mockito: It cannot mock the followin:
+
+<ol>
+<li>Static methods</li>
+<li>Final methods</li>
+<li>Constructors</li>
+<li>Private methods</li>
+<li>Enums</li>
+<li>&hellip;</li>
+</ol>
+</li>
+<li>PowerMock can be used to mock the above methods and data</li>
+<li>Reasons for Mockito not able to mock the above methods
+
+<ol>
+<li>Mockito uses proxy pattern:
+
+<ol>
+<li>If A uses B, then we mock B which inherits B</li>
+<li>Since final classes cannot be inherited, we cannot mock B</li>
+<li>Since private methods cannot be inherited we cannot mock B</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>PowerMock uses Bytecode manipulation and Custom Class Loader to mock class B</li>
+<li>Syntax:
+
+<ol>
+<li>Similar to Mockito</li>
+</ol>
+</li>
+<li>Example:
+
+<ol>
+<li><code>UserAdminService</code>
+
+<ol>
+<li><code>UserDAO</code> &ndash;> <code>final IDGenerator</code></li>
+<li><code>create(User user)</code> &ndash;> <code>static final generateId</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Download and add powermock dependency:
+
+<ol>
+<li>Search for powermock download</li>
+<li><code>powermock-mockito-junit-&lt;version&gt;.zip</code></li>
+<li>Unzip</li>
+<li>Copy
+
+<ol>
+<li><code>javaassist-&lt;version&gt;.jar</code></li>
+<li><code>mockito-all-&lt;version&gt;.jar</code></li>
+<li><code>powermock-mockito-&lt;version&gt;.jar</code></li>
+</ol>
+</li>
+<li>Right click on the project
+
+<ol>
+<li>lib folder</li>
+</ol>
+</li>
+<li>Paster the jars in lib</li>
+<li>Add jars to the classpath</li>
+<li>If using version 1.6.5, download and copy <code>powermock-api-mockito-common-1.6.5.jar</code> to the lib folder and add it to the classpath</li>
+</ol>
+</li>
+<li>Annotations: <strong>(M)</strong>
+
+<ol>
+<li><code>@RunWith(PowerMockRunner.class)</code></li>
+<li><code>@PrepareForTest(&lt;class-with-static-methods&gt;)</code></li>
+<li><code>mockStatic(&lt;class-with-static-methods&gt;)</code></li>
+<li><code>verifyStatic()</code></li>
+</ol>
+</li>
+</ol>
+
+
+<h4>Spring</h4>
+
+<ol>
+<li>It is a dependency injection engine
+
+<ol>
+<li>If A depends on B, then Spring will inject and instance of B into the instance of A through</li>
+<li>Constructor</li>
+<li>Setter methods</li>
+</ol>
+</li>
+<li>It is an IOC (Inversion of Control) container
+
+<ol>
+<li>Spring took up control onto itelf</li>
+</ol>
+</li>
+<li>Wiring:
+
+<ol>
+<li>Spring wires UI, Service, DAO etc&hellip;</li>
+<li>Autowiring</li>
+</ol>
+</li>
+<li>Spring JDBC:
+
+<ol>
+<li>A layer over JDBC</li>
+<li>Spring MVC (easier than struts)</li>
+<li>Spring ORM Support (Hybernate, JPA)</li>
+<li>Spring Integration (Messages onto ques)</li>
+<li>Spring Web Services (SOAP based services)</li>
+</ol>
+</li>
+<li>Example application:
+
+<ol>
+<li>Ticketing Service:
+
+<ol>
+<li><code>TicketingDAO</code> &lt;&ndash; <code>TicketingDAOImpl</code> (<code>createTicket(Ticket)</code>)</li>
+<li><code>TicketingService</code> &lt;&ndash; <code>TicketingServiceImpl</code> (<code>buyTicket(name, phone)</code>)</li>
+</ol>
+</li>
+<li>Project:
+
+<ol>
+<li>File > New > Other > Maven Project</li>
+<li>Select <code>maven-archetype-quickstart</code></li>
+<li>Set groupId, artifactId</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h4>Differences Between Unit Testing and Integration Testing</h4>
+</body>
+</html>

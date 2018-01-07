@@ -107,6 +107,7 @@
 1. [OpenShift](https://www.openshift.com)
 2. [Google App Engine](https://console.cloud.google.com/projectselector/appengine?src=ac)
 
+## Nuts and Bolts ##
 #### Passing Parameters
 1. `http://localhost:8080/Scriptlets/index.jsp?name=bla&id=123456`
 2. URLParams.java
@@ -166,7 +167,7 @@
 				</body>
 			</html>
 
-#### Inclucing other pages in a JSP
+#### Including other pages in a JSP
 1. include directive
 	1. `<%@ include file="<file-path>" %>`: like inline copy paste
 	2. `<jsp:include page="<file-path>" />`: included only at runtime (variables will not be avialable at compile time)
@@ -174,3 +175,109 @@
 			<% 
 			String id = request.getParameter("id"); 
 			%>
+
+2. Including headers, footers (reusable)
+	1. New JSP includes.jsp
+
+			<body>
+				<%@ include file="copyright.txt" %> <!-- including during translation of JSP into servlet -->
+			</body>
+
+	2. New file > copyright.txt
+
+			Copyright caveofprogramming.com
+
+		2. `include` if file doesn't change very often
+		3. Run
+	3. Dynamic include: New file > updates.txt
+
+			Today's weather is: sunny (changes frequently)
+
+		1. includes.jsp
+
+				<body>
+					<p>
+						<!-- Dynamic include: content changes a lot -->
+						<jsp:include page="updates.txt" /> <!-- when jsp is served, browser sends another request for this -->
+					</p>
+				</body>
+
+3. New JSP: variables.jsp
+
+		<%
+		String name = "Sue";	
+		%>
+
+	1. To include this use `<%@ include ...>` for variables (Java code) to be accessible
+
+			<%@ include file="variables.jsp" %> <!-- like copy and paste -->
+			<%= name %>
+
+### Forwarding and Redirecting ###
+### The Declaration Tag ###
+### JSP Tags Summary ###
+### Model 1 vs. Model 2 Architecture ###
+### Using External APIs in Web Applications ###
+### The Servlet Lifecycle ###
+
+## Beans and Forms ##
+### JSP Beans ###
+### Beans and Scope ###
+### Setting Bean Properties Using Parameters ###
+### Forms ###
+### HTTP Posts ###
+### Using Beans to Store Form Data ###
+### Adding Validation to Beans ###
+### Self-Validating Forms ###
+### Validating Forms Using MVC Architecture ###
+
+## Some Useful Objects ##
+### The Session Object ###
+### URL Rewriting: Supporting Sessions Without Cookies ###
+### The Servlet Context Object ###
+### Getting Initialisation Parameters from web.xml ###
+### Scoped Objects Review ###
+### Cookies ###
+
+## Databases ##
+### Connecting to a Database ###
+### Setting Up a JNDI Data Source ###
+### Querying Databases ###
+### Inserting Data Into Databases ###
+
+## Sending Emails ##
+### Sending Emails: Prerequisites ###
+### Sending Emails with the Mail API ###
+
+## Simplify Your Code With JSTL ##
+### Beginning JSTL: Hello World JSTL ###
+### Accessing Bean Values in JSTL ###
+### Getting URL Parameters in JSTL ###
+### The JSTL "if" Statement ###
+### The Choose Tag in JSTL ###
+### The foreach loop in JSTL ###
+### Referencing Java Objects in JSTL ###
+### JSTL Implicit Objects ###
+### Using Maps in EL ###
+### Outputting Variables: The c:out Tag vs. Using EL Directly ###
+### forEach: Iterating Through Lists ###
+### Using External Files: Graphics, CSS, etc ###
+### Reusable Fragments Using JSTL c:import ###
+### SQL Queries with JSTL ###
+### Setting Variables in JSTL ###
+### Expressions in EL ###
+### Creation of URLs With JSTL ###
+### Wildcards and Getting a Single Row in JSTL ###
+### JSTL Functions ###
+### SQL Updates and Transactions in JSTL ###
+### Formatting Using JSTL ###
+### Custom Tags ###
+
+## Source Code ##
+### Source Code ###
+
+## Where Now? ##
+### Some Final Worlds ... ###
+
+## Extra! ##
+### Uploading Files: Allowing the User to Upload Images and Other STuff ###

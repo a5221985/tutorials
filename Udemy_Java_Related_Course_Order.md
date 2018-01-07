@@ -1,8 +1,7 @@
 High Priority:
-Java EE Made Easy - Patterns, Architecture and Frameworks
-Servlets and JSPs Tutorial: Learn Web Applications With...
 Basics of Software Architecture & Design in Java
 Master Object Oriented Design in Java - Homework + ...
+Servlets and JSPs Tutorial: Learn Web Applications With...
 Spring Framework 5: Beginner to Guru
 
 Essential:	

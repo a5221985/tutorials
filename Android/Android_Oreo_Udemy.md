@@ -419,7 +419,7 @@
 	4. Build and run the app on a device or emulator
 
 ### Step 1: Import the Project from GitHub and Open it in Android Studio ###
-1. GitHub account
+1. GitHub account [https://github.com/londonappbrewery/I-Am-Poor-Android](https://github.com/londonappbrewery/I-Am-Poor-Android), [https://education.github.com](https://education.github.com)
 	1. Click on Assignment link
 	2. Accept this assignment
 	3. Navigate to assignment link
@@ -446,15 +446,133 @@
 ### Step 3: Add an ImageView ###
 ### Step 4: Run the App ###
 ### Step 5: How to Submit Your Assignment on Github [Optional] ###
+1. Update repository
+	1. Commit changes to project
+	2. Push to repository
+		1. VCS
+		2. Commit Changes
+		3. Enter commit message
+		4. Commit and Push
+		5. Push
+		6. Refresh in Github
+
 ### I am Poor Challenge Solution ###
 
 ## Build a Dice App to Learn Java & XML Fundamentals [Tutorial] ##
 ### What Will We Make? ###
+1. Roll dice
+	1. Layout editor
+	2. XML manipulation
+	3. Coding
+
 ### Start a New Project and Style the App with the Theme Editor ###
+1. Start new project
+	1. App name: Dicee
+	2. Company domain: londonappbrewery.com
+	3. Projec Location: Projects folder
+	4. Minimum SDK: API 16 (default)
+	5. Empty Activity
+	6. Backwards Compatibility (older device compatability)
+		1. AppCompat (Components that are backwards compatible have this in their name)
+2. app/res/layout/activity_main.xml (layout template may change with version)
+	1. values/styles.xml
+		1. Tools/Android/Theme Editor (styling of various android components in the app)
+			1. Theme on right hand side
+				1. Parent Theme can be changed
+					1. NoActionBar -> AppCompat.... (for app compatibility)
+						1. AppCompat.Light...
+	2. styles.xml reflects the changes
+3. [Download Dicee Assets](http://goo.gl/gGq4FD)
+	1. Extract the contents
+		1. C:\...\Downloads
+
 ### Generating App Icons and Adding Graphics to a Project ###
+1. res/mipmap
+	1. ic_launcher.png (xxxhdpi) (dpi = dots per inch)
+		1. h - high
+		2. x - extra
+	2. Documentation: xxxhdpi - 192 x 192 px
+		1. ldpi - 36 x 36 px
+2. App might run on screens of any resolution
+3. Right click on res
+	1. New > Image Asset
+	2. Launcher Icons
+		1. Asset Type: Image
+			1. Select Dicee-Launch-....png (large version is base)
+		2. Next (where they are going to go)
+			1. Replaces the icons
+	3. Double click launcher icons
+4. If we did not replace, click on AndroidManifest.xml and change `android:icon="@mipmap/ic_launcher"`
+5. Open `Dicee Android Assets`
+	1. Add drawable-... to App
+		1. Right click on res
+			1. Reveal in Finder
+				1. Drag and drop all drawable folders
+
 ### Designing a Screen with Nested Layouts ###
+1. Select Design and/or blueprint
+2. Copy source code in the description of the video and place it in activity_main.xml
+3. Pic Nexus 6
+	1. gsmarena.com
+4. Drag Button to center of screen
+	1. strings.xml
+
+			<string name="button_text">Roll</string>
+
+5. activity_main.xml
+
+		android:text="@string/button_text"
+
+6. id
+
+		android:id="@+id/rollButton"
+
+7. Challenge: blue button text white
+8. Drag RelativeLayout to ComponentTree
+	1. Drag rollButton to into RelativeLayout
+9. Change root element to LinearLayout (arranges vertically or horizontally)
+
+		android:orientation="vertical"
+		android:background="@drawable/newbackground"
+
+10. Add RelativeLayout to LinearLayout
+
+		RelativeLayout
+			imageView (Dicee Image)
+
+11. First RelativeLayout
+	1. layout_height - wrap_content (as big as what it contains)
+12. Drag LinearLayout to LinearLayout
+	1. layout_height - wrap_content
+13. Drag and drop two imageViews (dice1 and dice2) into LinearLayout
+14. Put RelativeLayout at the top
+	1. layout_height - 250dp
+	2. layout_centerHorizontal - check
+15. gravity > center_horizontal (another option)
+16. activity_main.xml
+
+		android:id="@+id/image_logo"
+
+		android:id="@+id/image_leftDice"
+
+		android:id="@+id/image_rightDice"
+
 ### Using Variables and Linking Layout Elements to Java Code ###
+1. Java Code
+	1. MainActivity.java
+		1. Steps:
+			1. A variable for layout element
+			2. Store layout element in variable
+
+					Button rollButton;
+					rollButton = (Button) findViewById(R.id.rollButton);
+					
+					ImageView leftDice = (ImageView) findViewById(R.id.image_leftDice);
+					ImageView rightDice = (ImageView) findViewById(R.id.image_rightDice);
+
 ### Use the Logcat and a Listener to Check if a Button is Pressed ###
+
+
 ### Creation of Random Numbers in Java ###
 ### Java Arrays and How to Use Them ###
 ### Why did the programmer quit his job? ###

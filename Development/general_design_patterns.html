@@ -1,0 +1,3912 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    margin: 10px 10px 10px 20px;
+}
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #aaa;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    padding: 0 3px 2px;
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px dashed #ccc;
+    border: 1px dashed rgba(0, 0, 0, 0.15);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fdfdfd;
+    color:#737373;
+    font-size: 11px;
+}
+@media screen and (min-width: 768px) {
+    body {
+        width: 748px;
+        margin:10px auto;
+    }
+}
+</style>
+<title>general_design_patterns.html</title>
+</head>
+<body>
+<h3>General Design Patterns</h3>
+
+<h5>Abstract Factory Pattern</h5>
+
+<p><img src="abstractfactory_pattern_uml_diagram.jpg" alt="abstractfactory_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Super factory is used to create other factories</li>
+<li>It is a creational pattern</li>
+<li>Interface is used for creating factory of related objects without specifying classes</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li>Shape: <em>Interface</em></li>
+<li>Color: <em>Interface</em></li>
+<li>AbstractFactory: <em>Abstract Factory Class</em></li>
+<li>ShapeFactory: Extends AbstractFactory</li>
+<li>FactoryProducer: Return AbstractFactory object</li>
+<li>AbstractFactoryPatternDemo: Uses FactoryProducer to get AbstractFactory object</li>
+</ol>
+</li>
+<li><p><code>Shape.java</code></p>
+
+<pre><code> public interface Shape {
+     void draw();
+ }
+</code></pre></li>
+<li><p><code>Rectangle.java</code></p>
+
+<pre><code> public class Rectangle implements Shape {
+     @Override
+     public void draw() {
+         System.out.println("Inside Rectangle::draw() method.");
+     }
+ }
+</code></pre></li>
+<li><p><code>Square.java</code></p>
+
+<pre><code> public class Square implements Shape {
+     @Override
+     public void draw() {
+         System.out.println("Inside Square::draw() method.");
+     }
+ }
+</code></pre></li>
+<li><p><code>Circle.java</code></p>
+
+<pre><code> public class Circle implements Shape {
+     @Override
+     public void draw() {
+         System.out.println("Inside Circle::draw() method.");
+     }
+ }
+</code></pre></li>
+<li><p><code>Color.java</code></p>
+
+<pre><code> public interface Color {
+     void fill();
+ }
+</code></pre></li>
+<li><p><code>Green.java</code></p>
+
+<pre><code> public class Green implements Color {
+     @Override
+     public void fill() {
+         System.out.println("Inside Green::fill() method.");
+     }
+ }
+</code></pre></li>
+<li><p><code>Blue.java</code></p>
+
+<pre><code> public class Blue implements Color {
+     @Override
+     public void fill() {
+         System.out.println("Inside Blue::fill() method.");
+     }
+ }
+</code></pre></li>
+<li><p>Abstract class to get factories for <code>Color</code> and <code>Shape</code></p>
+
+<pre><code>public abstract class AbstractFactory {
+    abstract Color getColor(String color);
+    abstract Shape getShape(String shape);
+}
+</code></pre></li>
+<li><p>Factory classes which extend AbstractFactory for Shape type objects and Color type objects</p>
+
+<pre><code>public class ShapeFactory extends AbstractFactory {
+    @Override
+    public Shape getShape(String shapeType) {
+        if(shapeType == null) {
+            return null;
+        }       
+
+        if(shapeType.equalsIgnoreCase("CIRCLE")) {
+            return new Circle();
+        } else if(shapeType.equalsIgnoreCase("RECTANGLE")) {
+            return new Rectangle();
+        } else if(shapeType.equalsIgnoreCase("SQUARE")) {
+            return new Square();
+        }
+
+        return null;
+    }
+
+    @Override
+    Color getColor(String color) {
+        return null;
+    }
+}
+
+public class ColorFactory extends AbstractFactory {
+    @Override
+    public shape getShape(String shapeType) {
+        return null;
+    }
+
+    @Override
+    Color getColor(String color) {
+        if(color == null) {
+            return null;
+        }
+
+        if(color.equalsIgnoreCase("RED")) {
+            return new Red();
+        } else if(color.equalsIgnoreCase("GREEN")) {
+            return new Green();
+        } else if(color.equalsIgnoreCase("BLUE")) {
+            return new Blue();
+        }
+
+        return null;
+    }
+}
+</code></pre></li>
+<li><p>FactoryProducer that produces Factory based on Shape or Color</p>
+
+<pre><code>public class FactoryProducer {
+    public static AbstractFactory getFactory(String choice) {
+        if(choice.equalsIgnoreCase("SHAPE")) {
+            return new ShapeFactory();
+        } else if(choice.equalsIgnoreCase("COLOR")) {
+            return new ColorFactory();
+        }
+
+        return null;
+    }
+}
+</code></pre></li>
+<li><p>AbstractFactoryPatternDemo.java</p>
+
+<pre><code>public class AbstractFactoryPatternDemo {
+    public static void main(String[] args) {
+        //get shape factory
+        AbstractFactory shapeFactory = FactoryProducer.getFactory("SHAPE");
+
+        //get an object of Shape Circle
+        Shape shape1 = shapeFactory.getShape("CIRCLE");
+
+        //call draw method of Shape Circle
+        shape1.draw();
+
+        //get an object of Shape Rectangle
+        Shape shape2 = shapeFactory.getShape("RECTANGLE");
+
+        //call draw method of Shape Rectangle
+        shape2.draw();
+
+        //get an object of Shape Square
+        Shape shape3 = shapeFactory.getShape("SQUARE");
+
+        //call draw method of Shape Square
+        shape3.draw();
+
+        //get color factory
+        AbstractFactory colorFactory.getFactory("COLOR");
+
+        //get an object of Color Red
+        Color color1 = colorFactory.getColor("RED");
+
+        //call fill method of Red
+        color1.fill();
+
+        //get an object of Color Green
+        Color color2 = colorFactory.getColor("GREEN");
+
+        //call fill method of Green
+        color2.fill();
+
+        //get an object of Color Blue
+        Color color3 = colorFactory.getColor("BLUE");
+
+        //call fill method of Color Blue
+        color3.fill();
+    }
+}
+</code></pre></li>
+</ol>
+
+
+<h5>Singleton Pattern</h5>
+
+<p><img src="singleton_pattern_uml_diagram.jpg" alt="singleton_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>It is a creational pattern</li>
+<li>A single class used to create object and makes sure only one object is created.</li>
+<li>We can access the class&rsquo;s only object without explicit instantiation</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li><code>SingleObject</code>: has a static method that provides its own static instance.</li>
+</ol>
+</li>
+<li>Steps:
+
+<ol>
+<li><p><code>SingleObject.java</code></p>
+
+<pre><code> public class SingleObject {
+     //creation of an object of SingleObjet
+     private static SingleObject instance = new SingleObject();
+
+     //make the constructor private so that this class cannot be
+     //instantiated
+     private SingleObject() {}
+
+     //Get the only object available
+     public static SingleObject getInstance() {
+         return instance;
+     }
+
+     public void showMessage() {
+         System.out.println("Hello World!");
+     } 
+
+ }
+</code></pre></li>
+<li><p><code>SingletonPatternDemo.java</code></p>
+
+<pre><code> public class SingletonPatternDemo {
+     public static void main(String[] args) {
+         //illegal construct
+         //Compile Time Error: The constructor SingleObject() is not visible
+         //SingleObject object = new SingleObject();
+
+         //Get the only object available
+         SingleObject object = SingleObject.getInstance();
+
+         //show the message
+         object.showMessage();
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Builder Pattern</h5>
+
+<p><img src="builder_pattern_uml_diagram.jpg" alt="" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Used to build complex objects from simple objects step by step</li>
+<li>It is a creational pattern</li>
+<li>Builder class is used to build object step by step</li>
+<li>Builder class is independent of other objects</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li>Example:
+
+<ol>
+<li>Consider a meal in fast food restaurant which is burger and cold drink.</li>
+<li>Burger can be veg or Chicken and is packed by a wrapper</li>
+<li>Cold drink is coke or pepsi and will be packed in bottle</li>
+<li>Implementation:
+
+<ol>
+<li>Item: Interface which represents food item (burger or cold drink)</li>
+<li>Packing: Interface which represents packing for food item</li>
+<li>Meal: Class having ArrayList of Item</li>
+<li>MealBuilder: Class to build different types of Meal objects by combining Item</li>
+<li>BuilderPatternDemo: Demo class that used MealBuilder to build Meal</li>
+</ol>
+</li>
+<li>Actual Classes:
+
+<ol>
+<li><p>Item.java</p>
+
+<pre><code> public interface Item {
+     public String name();
+     public Packing packing();
+     public float price();
+ }
+</code></pre></li>
+<li><p>Packing.java</p>
+
+<pre><code> public interface Packing {
+     public String pack();
+ }
+</code></pre></li>
+<li><p>Wrapper.java</p>
+
+<pre><code> public class Wrapper implements Packing {
+     @Override
+     public String pack() {
+         return "Wrapper";
+     }
+ }
+</code></pre></li>
+<li><p>Bottle.java</p>
+
+<pre><code> public class Bottle implements Packing {
+     @Override
+     public String pack() {
+         return "Bottle";
+     }
+ }
+</code></pre></li>
+<li><p>Burger.java</p>
+
+<pre><code> public abstract class Burger implements Item {
+     @Override
+     public Packing packing() {
+         return new Wrapper();
+     }
+
+     //forces subclasses to provide an implementation for price()
+     @Override
+     public abstract float price();
+ }
+</code></pre></li>
+<li><p>ColdDrink.java</p>
+
+<pre><code> public abstract class ColdDrink implements Item {
+     @Override
+     public Packing packing() {
+         return new Bottle();
+     }
+
+     @Override
+     public abstract float price();
+ }
+</code></pre></li>
+<li><p>VegBurger.java</p>
+
+<pre><code> public class VegBurger extends Burger {
+     @Override
+     public float price() {
+         return 25.0f;
+     }
+
+     @Override
+     public String name() {
+         return "Veg Burger";
+     }
+ }
+</code></pre></li>
+<li><p>ChickenBurger.java</p>
+
+<pre><code> public class ChickenBurger extends Burger {
+     @Override
+     public float price() {
+         return 50.0f;
+     }
+
+     @Override
+     public String name() {
+         return "Chicken Burger";
+     }
+ }
+</code></pre></li>
+<li><p>Coke.java</p>
+
+<pre><code> public class Coke extends ColdDrink {
+     @Override
+     public float price() {
+         return 30.0f;
+     }
+
+     @Override
+     public String name() {
+         return "Coke";
+     }
+ }
+</code></pre></li>
+<li><p> Pepsi.java</p>
+
+<pre><code> public class Pepsi extends ColdDrink {
+     @Override
+     public float price() {
+         return 35.0f;
+     }
+
+     @Override
+     public String name() {
+         return "Pepsi";
+     }
+ }
+</code></pre></li>
+<li><p> Meal.java</p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class Meal {
+     private List&lt;Item&gt; items = new ArrayList&lt;Item&gt;();
+
+     public void addItem(Item item) {
+         items.add(item);
+     }
+
+     public float getCost() {
+         float cost = 0.0f;
+         for(Item item: items) {
+             cost += item.price();
+         }
+
+         return cost;
+     }
+
+     public void showItems() {
+         for(Item item: items) {
+             System.out.println("Item: " + item.name());
+             System.out.println(", Packing: " + item.packing().pack());
+             System.out.println(", Price: " + item.price());
+         }
+     }
+ }
+</code></pre></li>
+<li><p> MealBuilder.java</p>
+
+<pre><code> public class MealBuilder {
+     public Meal prepareVegMeal() {
+         Meal meal = new Meal();
+         meal.addItem(new VegBurger());
+         meal.addItem(new Coke());
+         return meal
+     }
+
+     public Meal prepareNonVegMeal() {
+         Meal meal = new Meal();
+         meal.addItem(new ChickenBurger());
+         meal.addItem(new Pepsi());
+         return meal;
+     }
+ } 
+</code></pre></li>
+<li><p> BuilderPatternDemo.java</p>
+
+<pre><code> public class BuilderPatternDemo {
+     public static void main(String[] args) {
+         MealBuilder mealBuilder = new MealBuilder();
+
+         Meal vegMeal = mealBuilder.prepareVegMeal();
+         System.out.println("Veg Meal");
+         vegMeal.showItems();
+         System.out.println("Total Cost: " + vegMeal.getCost());
+
+         Meal nonVegMeal = mealBuilder.prepareNonVegMeal();
+         System.out.println("\n\nNon-Veg Meal");
+         nonVegMeal.showItems();
+         System.out.println("Total Cost: " + nonVegMeal.getCost());
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Prototype Pattern</h5>
+
+<p><img src="prototype_pattern_uml_diagram.jpg" alt="prototype_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Creation of duplicate objects taking care of performance.</li>
+<li>It is a creational pattern</li>
+<li>Prototype interface: used for creating a clone of existing object.</li>
+<li>Purpose: Creation of objects is costly (time consuming)</li>
+<li>Example:
+
+<ol>
+<li>Consider a costly database operation.</li>
+<li>The object can be cached and a clone of the object can be returned on next request.</li>
+<li>Database is updated when needed (reduces database calls)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li><p><code>Shape.java</code>: abstract class implementing <code>Cloneable</code> interface</p>
+
+<pre><code> public abstract class Shape implements Cloneable {
+     private String id;
+     protected String type;
+
+     abstract void draw();
+
+     public String getType() {
+         return type;
+     }
+
+     public String getId() {
+         return id;
+     }
+
+     public void setId(int id) {
+         this.id = id;
+     }
+
+     public Object clone() {
+         Object clone = null;
+
+         try {
+             clone = super.clone();
+         } catch(CloneNotSupportedException e) {
+             e.printStackTrace();
+         }
+
+         return clone;
+     }
+ } 
+</code></pre></li>
+<li><p><code>Rectangle.java</code></p>
+
+<pre><code> public class Rectangle extends Shape {
+     public Rectangle() {
+         type = "Rectangle";
+     }
+
+     @Override
+     public void draw() {
+         System.out.println("Inside Rectangle::draw() method.");
+     }
+ }
+</code></pre></li>
+<li><p><code>Square.java</code></p>
+
+<pre><code> public class Square extends Shape {
+     public Square() {
+         tepe = "Square";
+     }
+
+     @Override
+     public void draw() {
+         System.out.println("Inside Square::draw() method.");
+     }
+ }
+</code></pre></li>
+<li><p><code>Circle.java</code></p>
+
+<pre><code> public class Circle extends Shape {
+     public Circle() {
+         type = "Circle";
+     }
+
+     @Override
+     public void draw() {
+         System.out.println("Inside Circle::draw() method.");
+     }
+ }
+</code></pre></li>
+<li><p><code>ShapeCache.java</code>: Class to get concrete classes from database and story them in Hashtable</p>
+
+<pre><code> import java.util.Hashtable;
+
+ public class ShapeCache {
+     private static Hashtable&lt;String, String&gt; shapeMap = new Hashtable&lt;String, Shape&gt;();
+
+     public static Shape getShape(String shapeId) {
+         Shape cachedShape = shapeMap.get(shapeId);
+         return (Shape) cachedShape.clone();
+     }
+
+     // for each shape run database query and create shape
+     // shapeMap.put(shapeKey, shape);
+     // for example, we are adding three shapes
+
+     public static void loadCache() {
+         Circle circle = new Circle();
+         circle.setId("1");
+         shapeMap.put(circle.getId(), circle);
+
+         Square square = new Square();
+         square.setId("2");
+         shapeMap.put(square.getId(), square);
+
+         Rectangle rectangle = new Rectangle();
+         rectangle.setId("3");
+         shapeMap.put(rectangle.getId(), rectangle);
+     }
+ }
+</code></pre></li>
+<li><p>PrototypePatternDemo.java</p>
+
+<pre><code> public class PrototypePatternDemo {
+     public static void main(String[] args) {
+         ShapeCache.loadCache();
+
+         Shape clonedShape = (Shape) ShapeCache.getShape("1");
+         System.out.println("Shape: " + clonedShape.getType());
+     }
+
+         Shape clonedShape2 = (Shape) ShapeCache.getShape("2");
+         System.out.println("Shape: " + clonedShape2.getType());
+
+         Shape clonedShape3 = (Shape) ShapeCache.getShape("3");
+         System.out.println("Shape: " + clonedShape3.getType());
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Adapter Pattern</h5>
+
+<p><img src="adapter_pattern_uml_diagram.jpg" alt="adapter_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>It is a bridge between two incompatible interfaces.</li>
+<li>It is a structural pattern</li>
+<li>A single class combines functionalities of independent/incompatible interfaces.</li>
+<li>Example: Card reader is adapter between memory card and laptop</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li>MediaPlayer: Interface</li>
+<li>AudioPlayer: Implements MediaPlayer.
+
+<ol>
+<li>It can play mp3 format audio files by default</li>
+</ol>
+</li>
+<li>AdvancedMediaPlayer: Interface.</li>
+<li>Concrete class of AdvancedMediaPlayer: Can play mp4, vlc format</li>
+<li>Requirement: Make AudioPlayer to play other formats.</li>
+<li>MediaAdaper: implements MediaPlayer interface and uses AdvancedMediaPlayer objects to play the required format.</li>
+<li>AudioPlayer passes desired audio type to MediaAdapter (does not know the type of class that can play it)</li>
+</ol>
+</li>
+<li>Example implementation
+
+<ol>
+<li><p><code>MediaPlayer.java</code></p>
+
+<pre><code> public interface MediaPlayer {
+     public void play(String audioType, String fileName);
+ }
+</code></pre></li>
+<li><p><code>AdvancedMediaPlayer.java</code></p>
+
+<pre><code> public interface AdvancedMediaPlayer {
+     public void playVlc(String fileName);
+     public void playMp4(String fileName);
+ }
+</code></pre></li>
+<li><p><code>VlcPlayer.java</code></p>
+
+<pre><code> public class VlcPlayer implements AdvancedMediaPlayer {
+     @Override
+     public void playVlc(String fileName) {
+         System.out.println("Playing vlc file. Name: " + fileName);
+     }
+
+     @Override
+     public void playMp4(String fileName) {
+         //do nothing
+     }
+ }
+</code></pre></li>
+<li><p><code>Mp4Player.java</code></p>
+
+<pre><code> public class Mp4Player implements AdvancedMediaPlayer {
+     @Override
+     public void playVlc(String fileName) {
+         //do nothing
+     }
+
+     @Override
+     public void playMp4(String fileName) {
+         System.out.println("Playing mp4 file. Name: " + fileName);
+     }
+ }
+</code></pre></li>
+<li><p><code>MediaPlayer.java</code></p>
+
+<pre><code> public class MediaAdapter implements MediaPlayer {
+     AdvancedMediaPlayer advancedMusicPlayer;
+
+     public MediaAdapter(String audioType) {
+         if(audioType.equalsIgnoreCase("vlc")) {
+             advancedMusicPlayer = new VlcPlayer();
+         } else if(audioType.equalsIgnoreCase("mp4")) {
+             advancedMusicPlayer = new Mp4Player();
+         }
+     }
+
+     @Override
+     public void play(String audioType, String fileName) {
+         if(audoType.equalsIgnoreCase("vlc")) {
+             advancedMusicPlayer.playVlc(fileName);
+         }
+         else if(audioType.equalsIgnoreCase("mp4")) {
+             advancedMusicPlayer.playMp4(fileName);
+         }
+     }
+ }
+</code></pre></li>
+<li><p><code>AudioPlayer.java</code></p>
+
+<pre><code> public class AudioPlayer implements MediaPlayer {
+     MediaAdapter mediaAdapter;
+
+     @Override
+     public void play(String audioType, String fileName) {
+
+         //inbuilt support to play mp3 music files
+         if(audioType.equalsIgnoreCase("mp3")) {
+             System.out.println("Playing mp3 file. Name: " + fileName);
+         }
+
+         //mediaAdapter is providing support to play other file formats
+         else if(audioType.equalsIgnoreCase("vlc") || audioType.equalsIgnoreCase("mp4")) {
+             mediaAdapter = new MediaAdapter(audioType);
+             mediaAdapter.play(audioType, fileName);
+         }
+
+         else {
+             System.out.println("Invalid media. " + audioType + " format not supported.");
+         }
+     }
+ }
+</code></pre></li>
+<li><p><code>AdpaterPatternDemo.java</code></p>
+
+<pre><code> public class void main(String[] args) {
+     AudioPlayer audioPlayer = new AudioPlayer();
+
+     audioPlayer.play("mp3", "beyong the horizon.mp3");
+     audioPlayer.play("mp4", "alone.mp4");
+     audioPlayer.play("vlc", "far far away.vlc");
+     audioPlayer.play("avi", "mind me.avi");
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Bridge Pattern</h5>
+
+<p><img src="bridge_pattern_uml_diagram.jpg" alt="bridge_pattern_uml_diagram" /></p>
+
+<p><img src="Bridge_UML_class_diagram.svg" alt="Bridge_UML_class_diagram" />
+1. Introduction</p>
+
+<pre><code>1. Used to decouple abstraction from its implementation (two can vary independently).
+2. It is a structural pattern.
+3. A bridge structure is provided between abstract class and implementation class.
+    1. Interface is the bridge.
+    2. Interface implemnter classes are independent of concrete classes
+4. It is used when class and what it can do vary often.
+    1. Class: abstraction
+    2. What class can do: implementation
+5. It is two layers of abstraction
+</code></pre>
+
+<ol>
+<li>Implementation
+
+<ol>
+<li>DrawAPI: bridge
+
+<ol>
+<li>RedCircle: Concrete class</li>
+<li>GreenCircle: Concrete class</li>
+</ol>
+</li>
+<li>Shape: Abstract class. Uses DrawAPI object.</li>
+<li>BridgePatternDemo</li>
+<li>Implementation Steps:
+
+<ol>
+<li><p><code>DrawAPI.java</code></p>
+
+<pre><code> public interface DrawAPI {
+     public void drawCircle(int radius, int x, int y);
+ }
+</code></pre></li>
+<li><p><code>RedCircle.java</code></p>
+
+<pre><code> public class RedCircle implements DrawAPI {
+     @Override
+     public void drawCircle(int radius, int x, int y) {
+         System.out.println("Draw Circle[ color: red, radius: " + radius + ", x: " + x + ", " + y + "]");
+     }
+ }
+</code></pre></li>
+<li><p><code>GreenCircle.java</code></p>
+
+<pre><code> public class GreenCircle implements DrawAPI {
+     @Override
+     public void drawCircle(int radius, int x, int y) {
+         System.out.println("Drawing Circle[ color: green, radius: " + radius + ", x: " + x + ", " + y + "]");
+     }
+ }
+</code></pre></li>
+<li><p><code>Shape.java</code></p>
+
+<pre><code> public abstract class Shape {
+     protected DrawAPI drawAPI;
+
+     protected Shape(DrawAPI drawAPI) {
+         this.drawAPI = drawAPI;
+     }
+
+     public abstract void draw();
+ }
+</code></pre></li>
+<li><p><code>Circle.java</code></p>
+
+<pre><code> public class Circle extends Shape {
+     private int x, y, radius;
+
+     public Circle(int x, int y, int radius, DrawAPI drawAPI) {
+         super(drawAPI);
+         this.x = x;
+         this.y = y;
+         this.radius = radius;
+     }
+
+     public void draw() {
+         drawAPI.drawCircle(radius, x, y);
+     }
+ }
+</code></pre></li>
+<li><p><code>BridgePatternDemo.java</code></p>
+
+<pre><code> public class BridgePatternDemo {
+     public static void main(String[] args) {
+         Shape redCircle = new Circle(100, 100, 10, new RedCircle());
+         Shape greenCircle = new Circle(100, 100, 10, new GreenCircle());
+
+         redCircle.draw();
+         greenCircle.draw();
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Filter Pattern</h5>
+
+<p><img src="filter_pattern_uml_diagram.jpg" alt="filter_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Also called criteria pattern</li>
+<li>Used to filter objects using certain criteria.</li>
+<li>Filters are chained using logical operations.</li>
+<li>It is a structural pattern. (combines multiple patterns to obtain a single pattern)</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li>Person: Object on which Criteria is applied</li>
+<li>Criteria: Interface to list of persons</li>
+<li>Implementation classes: Implement Criteria</li>
+<li>Steps:
+
+<ol>
+<li><p><code>Person.java</code></p>
+
+<pre><code> public class Person {
+     private String name;
+     private String gender;
+     private String maritalStatus;
+
+     public Person(String name, String gender, String maritalStatus) {
+         this.name = name;
+         this.gender = gender;
+         this.maritalStatus = maritalStatus;
+     }
+
+     public String getName() {
+         return name;
+     }
+
+     public String getGender() {
+         return gender;
+     }
+
+     public String getMaritalStatus() {
+         return maritalStatus;
+     }
+ }
+</code></pre></li>
+<li><p><code>Criteria.java</code></p>
+
+<pre><code> import java.util.List;
+
+ public interface Criteria {
+     public List&lt;Person&gt; meetCriteria(List&lt;Person&gt; persons);
+ }
+</code></pre></li>
+<li><p><code>CriteraMale.java</code></p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class CriteriaMale implements Criteria {
+     @Override
+     public List&lt;Person&gt; meetCriteria(List&lt;Person&gt; persons) {
+         List&lt;Person&gt; malePersons = new ArrayList&lt;Person&gt;();
+
+         for(Person person: persons) {
+             if(person.getGender().equalsIgnoreCase("MALE")) {
+                 malePersons.add(person);
+             }
+         }
+
+         return malePersons;
+     }
+ }
+</code></pre></li>
+<li><p><code>CriteriaFemale.java</code></p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class CriteriaFemale implements Criteria {
+     @Override
+     public List&lt;Person&gt; meetCriteria(List&lt;Person&gt; persons) {
+         List&lt;Person&gt; femalePersons = new ArrayList&lt;Person&gt;();
+
+         for(Person person: persons) {
+             if(person.getGender().equalsIgnoreCase("FEMALE")) {
+                 femalePersons.add(person);
+             }
+         }
+
+         return femalePersons;
+     }
+ }
+</code></pre></li>
+<li><p><code>CriteriaSingle.java</code></p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class CriteriaSingle implements Criteria {
+     @Override
+     public List&lt;Person&gt; meetCriteria(List&lt;Person&gt; persons) {
+         List&lt;Person&gt; singlePersons = new ArrayList&lt;Person&gt;();
+
+         for(Person person: persons) {
+             if(person.getMaritalStatus().equalsIgnoreCase("SINGLE")) {
+                 singlePersons.add(person);
+             }
+         }
+
+         return singlePersons;
+     }
+ }
+</code></pre></li>
+<li><p><code>AndCriteria.java</code></p>
+
+<pre><code> import java.util.List;
+
+ public class AndCriteria implements Criteria {
+     private Criteria criteria;
+     private Criteria otherCriteria;
+
+     public AndCriteria(Criteria criteria, Criteria otherCriteria) {
+         this.criteria = criteria;
+         this.otherCriteria = otherCriteria; 
+     }
+
+     @Override
+     public List&lt;Person&gt; meetCriteria(List&lt;Person&gt; persons) {
+         List&lt;Person&gt; firstCriteriaPersons = critiria.meetCriteria(persons);
+         return otherCriteria.meetCriteria(firstCriteriaPersons);
+     }
+ }
+</code></pre></li>
+<li><p><code>OrCriteria.java</code></p>
+
+<pre><code> import java.util.List;
+
+ public class OrCriteria implements Criteria {
+     private Criteria criteria;
+     private Criteria otherCriteria;
+
+     public OrCriteria(Criteria criteria, Criteria otherCriteria) {
+         this.criteria = criteria;
+         this.otherCriteria = otherCriteria;
+     }
+
+     @Override
+     public List&lt;Person&gt; meetCriteria(List&lt;Person&gt; persons) {
+         List&lt;Person&gt; firstCriteriaItems = criteria.meetCriteria(persons);
+         List&lt;Person&gt; otherCriteriaItems = otherCriteria.meetCriteria(persons);
+
+         for(Person person: otherCriteriaItems) {
+             if(!firstCriteriaItems.contains(person)) {
+                 firstCriteriaItems.add(person);
+             }
+         }
+
+         return firstCriteriaItems;
+     }
+ }
+</code></pre></li>
+<li><p><code>CriteriaPatternDemo.java</code></p>
+
+<pre><code> public class CriteriaPatternDemo {
+     public static void main(String[] args) {
+         List&lt;Person&gt; persons = new ArrayList&lt;Person&gt;();
+
+         persons.add(new Person("Robert", "Male", "Single"));
+         persons.add(new Person("John", "Male", "Married"));
+         persons.add(new Person("Laura", "Female", "Married"));
+         persons.add("Diana", "Female", "Single");
+         persons.add(new Person("Mike", "Male", "Single"));
+         persons.add(new Person("Bobby", "Male", "Single"));
+
+         Criteria male = new Criteria();
+         Criteria female = new CriteriaFemale();
+         Criteria single = new CriteriaSingle();
+         Criteria singleMale = new AndCriteria(single, male);
+         Criteria singleOrFemale = new OrCriteria(single, female);
+
+         System.out.println("Males: ");
+         printPersons(male.meetCriteria(persons));
+         System.out.println("\nFemales: ");
+         printPersons(female.meetCriteria(persons));
+
+         System.out.println("\nSingle Males: ");
+         printPersons(singleMale.meetCriteria(persons));
+
+         System.out.println("\nSingle Or Females: ");
+         printPersons(singleOrFemale.meetCriteria(persons));
+     }
+
+     public static void printPersons(List&lt;Person&gt; persons) {
+         for(Person person: persons) {
+             System.out.println("Person : [ Name: " + person.getName() + ", Gender : " + person.getGender() + ", Marital Status : " + person.getMaritalStatus() + " ]");
+         }
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Composite Pattern</h5>
+
+<p><img src="composite_pattern_uml_diagram.jpg" alt="composite_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Group of objects are treated as single object.</li>
+<li>Composite pattern composes of objects as tree structure.</li>
+<li>It is a structural pattern (tree structure)</li>
+<li>Class contains group of its own objects. Class has methods to modify its group of objects</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li>Employee: composite pettern actor class</li>
+<li>CompositePatternDemo: uses Employee to add department level hierarchy</li>
+<li><p>Steps:</p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class Employee {
+     private String name;
+     private String dept;
+     private int salary;
+     private List&lt;Employee&gt; subordinates;
+
+     // constructor
+     public Employee(String name, String dept, int salary) {
+         this.name = name;
+         this.dept = dept;
+         this.salary = salary;
+         subordinates = new ArrayList&lt;Employee&gt;();
+     }
+
+     public void add(Employee employee) {
+         subordinates.add(employee);
+     }
+
+     public void remove(Employee employee) {
+         subordinates.remove(employee);
+     }
+
+     public List&lt;Employee&gt; getSubordinates() {
+         return subordinates;
+     }
+
+     public String toString() {
+         return ("Employee :[ Name: " + name + ", dept : " + dept + ", salary : " + salary + " ]");
+     }
+ }
+</code></pre></li>
+<li><p>CompositePatternDemo:</p>
+
+<pre><code> public class CompositePatternDemo {
+     public static void main(String[] args) {
+         Employee CEO = new Employee("John", "CEO", 30000);
+
+         Employee headSales = new Employee("Robert", "Head Sales", 20000);
+         Employee headMarketing = new Employee("Michel", "Head Marketing", 20000);
+
+         Employee clerk1 = new Employee("Laura", "Marketing", 10000);
+         Employee clerk2 = new Employee("Bob", "Marketing", 10000);
+
+         Emploee salesExecutive1 = new Employee("Richard", "Sales", 10000);
+         Employee salesExecutive2 = new Employee("Rob", "Sales", 10000);
+
+         CEO.add(headSales);
+         CEO.add(headMarketing);
+
+         headSales.add(salesExecutive1);
+         headSales.add(salesExecutive2);
+
+         headMarketing.add(clerk1);
+         headMarketing.add(clark2);
+
+         //print all employee of the organization
+         System.out.println(CEO);
+
+         for(Employee headEmployee : CEO.getSubordinates()) {
+             System.out.println(headEmployee);
+
+             for(Employee employee : headEmployee.getSubordinates()) {
+                 System.out.println(employee);
+             }
+         }
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Decorator Pattern</h5>
+
+<p><img src="decorator_pattern_uml_diagram.jpg" alt="decorator_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Adds new functionality to existing object without altering its structure.</li>
+<li>It is a structural pattern</li>
+<li>It is a wrapper to existing class.</li>
+<li>Keeps class methods signature intact</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li><code>Shape</code>: Interface</li>
+<li><code>ShapeDecorator</code>: abstract decorator class. Implements <code>Shape</code> interface.
+
+<ol>
+<li><code>Shape</code>: instance variable</li>
+</ol>
+</li>
+<li><code>RedShapeDecorator</code>: Implements <code>ShapeDecorator</code></li>
+<li><code>DecoratorPatternDemo</code>: demo class</li>
+<li>Steps:
+
+<ol>
+<li><p><code>Shape.java</code></p>
+
+<pre><code> public interface Shape {
+     void draw();
+ }
+</code></pre></li>
+<li><p><code>Rectangle.java</code></p>
+
+<pre><code> public class Rectangle implements Shape {
+     @Override
+     public void draw() {
+         System.out.println("Shape: Rectangle");
+     }
+ }
+</code></pre></li>
+<li><p><code>Circle.java</code></p>
+
+<pre><code> public class Circle implements Shape {
+     @Override
+     public void draw() {
+         System.out.println("Shape: Circle");
+     }
+ }
+</code></pre></li>
+<li><p><code>ShapeDecorator.java</code></p>
+
+<pre><code> public abstract class ShapeDecorator implements Shape {
+     protected Shape decoratedShape;
+
+     public ShapeDecorator(Shape decoratedShape) {
+         this.decoratedShape = decoratedShape;
+     }
+
+     public void draw() {
+         decoratedShape.draw();
+     }
+ }
+</code></pre></li>
+<li><p><code>RedShapeDecorator.java</code></p>
+
+<pre><code> public class RedShapeDecorator extends ShapeDecorator {
+     public RedShapeDecorator(Shape decoratedShape) {
+         super(decoratedShape);
+     }
+
+     @Override
+     public void draw() {
+         decoratedShape.draw();
+         setRedBorder(decoratedShape);
+     }
+
+     private void setRedBorder(Shape decoratedShape) {
+         System.out.println("Border Color: Red");
+     }
+ }
+</code></pre></li>
+<li><p><code>DecoratorPatternDemo.java</code></p>
+
+<pre><code> public class DecoratorPatternDemo {
+     public static void main(String[] args) {
+         Shape circle = new Circle();
+
+         Shape redCircle = new RedShapeDecorator(new Circle());
+         System.out.println("Circle with normal border");
+         circle.draw();
+
+         System.out.println("\nCircle of red border");
+         redCircle.draw();
+
+         System.out.println("\nRectangle of red border");
+         redRectangle.draw();
+
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Facade Pattern</h5>
+
+<p><img src="facade_pattern_uml_diagram.jpg" alt="facade_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Facade pattern provides simple interface to a system by hiding the complexities.</li>
+<li>It is a structural pattern (adds interface to existing system)</li>
+<li>Single class provides simplified methods. The methods dedicate calls to existing system classes.</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li>Steps:
+
+<ol>
+<li><p><code>Shape</code>:</p>
+
+<pre><code> public interface Shape {
+     public void draw();
+ }
+</code></pre></li>
+<li><p><code>Circle</code>:</p>
+
+<pre><code> public class Circle extends Shape {
+     @Override
+     public void draw() {
+         System.out.println("Circle::draw()");
+     }
+ }
+</code></pre></li>
+<li><p><code>Rectangle</code>:</p>
+
+<pre><code> public class Rectangle extends Shape {
+     @Override
+     public void draw() {
+         System.out.println("Rectangle::draw()");
+     }
+ }
+</code></pre></li>
+<li><p><code>Square</code>:</p>
+
+<pre><code> public class Square extends Shape {
+     @Override
+     public void draw() {
+         System.out.println("Square::draw()");
+     }
+ }
+</code></pre></li>
+<li><p><code>ShapeMaker</code>:</p>
+
+<pre><code> public class ShapeMaker {
+     private Circle circle;
+     private Rectangle rectangle;
+     private Square square;
+
+     public ShapeMaker() {
+         circle = new Circle();
+         rectangle = new Rectangle();
+         square = new Square();
+     }
+
+     public void drawCircle() {
+         circle.draw();
+     }
+
+     public void drawRectangle {
+         rectangle.draw();
+     }
+
+     public void drawSquare {
+         square.draw();
+     }
+ }
+</code></pre></li>
+<li><p><code>FacadePatternDemo</code>:</p>
+
+<pre><code> public class FacadePatternDemo {
+     public static void main(String[] args) {
+         ShapeMaker shapeMaker = new ShapeMaker();
+
+         shapeMaker.drawCircle();
+         shapeMaker.drawRectangle();
+         shapeMaker.drawSquare();
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Flyweight Pattern</h5>
+
+<p><img src="flyweight_pattern_uml_diagram.jpg" alt="flyweight_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Purpose: reduce number of objects thus decrease memory footprint and increase performance (?).</li>
+<li>It is a structural patern (improves object structure of app).</li>
+<li>Strategy:
+
+<ol>
+<li>If similar object is exists then reuse it else object is initalized and used.</li>
+<li>Example: Draw 20 circles with only five objects. Each object represents a particular color out of five colors.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li><code>Shape</code>: Interface</li>
+<li><code>Circle</code>: Concrete class</li>
+<li><code>ShapeFactory</code>: Factory class:
+
+<ol>
+<li>If a request comes for creation of Circle, it checks HashMap. If object of Circle is found, returns it or else new object gets created, stored in HashMap and returned.</li>
+</ol>
+</li>
+<li><code>FlyweightPatternDemo</code>:
+
+<ol>
+<li>Uses <code>ShapeFactory</code> to get <code>Shape</code> object.</li>
+<li>Passes color as input out of: red/green/blue/black/white to <code>ShapeFactory</code></li>
+</ol>
+</li>
+<li>Steps:
+
+<ol>
+<li><p><code>Shape.java</code></p>
+
+<pre><code> public interface Shape {
+     void draw();
+ }
+</code></pre></li>
+<li><p><code>Circle.java</code></p>
+
+<pre><code> public class Circle implements Shape {
+     private String color;
+     private int x;
+     private int y;
+     private int radius;
+
+     public Circle(String color) {
+         this.color = color;
+     }
+
+     public void setX(int x) {
+         this.x = x;
+     }
+
+     public void setY(int y) {
+         this.y = y;
+     }
+
+     public void setRadius(int radius) {
+         this.radius = radius;
+     }
+
+     @Override
+     public void draw() {
+         System.out.println("Circle: Draw() [Color : " + color + ", x : " + x + ", y : " + y + ", radius :" + radius);
+     }
+ }
+</code></pre></li>
+<li><p><code>ShapeFactory.java</code></p>
+
+<pre><code> import java.util.HashMap;
+
+ public class ShapeFactory {
+     private static final HashMap&lt;String, Shape&gt; circleMap = new HashMap();
+     public static Shape getCircle(String color) {
+         Circle circle = (Circle)circleMap.get(color);
+
+         if(circle == null) {
+             circle = new Circle(color);
+             circleMap.put(color, circle);
+             System.out.println("Creation of Circle of color: " + color);
+         }
+         return circle;
+     }
+ }
+</code></pre></li>
+<li><p><code>FlyweightPatternDemo.java</code>:</p>
+
+<pre><code> public class FlyweightPatternDemo {
+     private static final String colors[] = {"Red", "Green", "Blue", "White", "Black"};
+     public static void main(String[] args) {
+         for(int i = 0; i &lt; 20; i++) {
+             Circle circle = (Circle)ShapeFactory.getCircle(getRandomColor());
+             circle.setX(getRandomX());
+             circle.setY(getRandomY());
+             circle.setRadius(100);
+             circle.draw();
+         }
+     }
+
+     private static String getRandomColor() {
+         return colors[(int)(Math.random()*colors.length)];
+     }
+
+     private static int getRandomX() {
+         return (int)(Math.random()*100);
+     }
+
+     private static int getRandomY() {
+         return (int)(Math.random()*100);
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Proxy Pattern</h5>
+
+<p><img src="proxy_pattern_uml_diagram.jpg" alt="proxy_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>A class represents functionality of another class</li>
+<li>It is a structural pattern</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li><code>Image</code>: interface</li>
+<li><code>ProxyImage</code>: proxy class. Reduces memory footprint.</li>
+<li><code>RealImage</code>: Real class</li>
+<li><code>ProxyPatternDemo</code>: demo class which used <code>ProxyImage</code> to get <code>Image</code> object</li>
+<li>Steps:
+
+<ol>
+<li><p><code>Image.java</code>:</p>
+
+<pre><code> public interface Image {
+     public void display();
+ }
+</code></pre></li>
+<li><p><code>RealImage.java</code>:</p>
+
+<pre><code> public class RealImage implements Image {
+     private String fileName;
+
+     public RealImage(String fileName) {
+         this.fileName = fileName;
+         loadFromDisk(fileName);
+     }
+
+     @Override
+     public void display() {
+         System.out.println("Displaying " + fileName);
+     }
+
+     private void loadFromDisk(String fileName) {
+         System.out.println("Loading " + fileName);
+     }
+ }
+</code></pre></li>
+<li><p><code>ProxyImage.java</code>:</p>
+
+<pre><code> public class ProxyImage implements Image {
+     private RealImage realImage;
+     private String fileName;
+
+     public ProxyImage(String fileName) {
+         this.fileName = fileName;
+     }
+
+     @Override
+     public void display() {
+         if(realImage == null) {
+             realImage = new RealImage(fileName);
+         }
+         realImage.display();
+     }
+ }
+</code></pre></li>
+<li><p><code>ProxyPatternDemo.java</code>:</p>
+
+<pre><code> public class ProxyPatternDemo {
+     public static void main(String[] args) {
+         Image image = new ProxyImage("test_10mb.jpg");
+
+         //image will be loaded from disk
+         image.display();
+         System.out.println("");
+
+         //image will not be loaded from disk
+         image.display();
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Command Pattern</h5>
+
+<p><img src="command_pattern_uml_diagram.jpg" alt="command_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Data driven design pattern</li>
+<li>It is behavioral pattern</li>
+<li>Request is wrapped as command in an object and passed to invoker object. Invoker object looks for an object that can handle the command and passes the command to corresponding object.</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li><code>Order</code>: Interface that acts as command.</li>
+<li><code>Stock</code>: request object</li>
+<li><code>BuyStock</code>, <code>SellStock</code>: command classes that implement <code>Order</code>. These classes do actual command processing.</li>
+<li><code>Broker</code>: Invoker object. It takes orders and places orders.</li>
+<li>Steps:
+
+<ol>
+<li><p><code>Order.java</code>:</p>
+
+<pre><code> public interface Order {
+     public void execute();
+ }
+</code></pre></li>
+<li><p><code>Stock.java</code>: Request class</p>
+
+<pre><code> public class Stock {
+     private String name = "ABC";
+     private int quantity = 10;
+
+     public void buy() {
+         System.out.println("Stock [ Name: " + name + ", Quatity: " + quantity + "] bought");
+     }
+
+     public void sell() {
+         System.out.println("Stock [ Name: " + name + ", Quantity: " + quantity + "] sold");
+     }
+ }
+</code></pre></li>
+<li><p><code>BuyStock.java</code>:</p>
+
+<pre><code> public class BuyStock implements Order {
+     private Stock abcStock;
+
+     public BuyStock(Stock abcStock) {
+         this.abcStock = abcStock;
+     }
+
+     public void execute() {
+         abcStock.buy();
+     }
+ }
+</code></pre></li>
+<li><p><code>SellStock.java</code>:</p>
+
+<pre><code> public class SellStock implements Order {
+     private Stock abcStock;
+     public SellStock(Stock abcStock) {
+         this.abcStock = abcStock;
+     }
+
+     public void execute() {
+         abcStock.sell();
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Interpreter Pattern</h5>
+
+<p><img src="interpreter_pattern_uml_diagram.jpg" alt="interpreter_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>It is used to evaluate language grammar/ expression.</li>
+<li>It is behavioral pattern</li>
+<li>Uses:
+
+<ol>
+<li>SQL Parsing, symbol processing engine</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li><code>Expression</code>: Interface</li>
+<li><code>TerminalExpression</code>: main interpreter of context</li>
+<li><code>OrExpression</code>, <code>AndExpression</code>: used for creation of combinational expressions</li>
+<li><code>InterpreterPatternDemo</code>: Uses <code>Expression</code> class for creation of rules, parsing expressions.</li>
+<li>Steps:
+
+<ol>
+<li><p><code>Expression.java</code></p>
+
+<pre><code> public interface Expression {
+     public boolean interpret(String context);
+ }
+</code></pre></li>
+<li><p><code>TerminalExpression.java</code></p>
+
+<pre><code> public class TerminalExpression implements Expression {
+     private String data;
+
+     public TerminalExpression(String data) {
+         this.data = data;
+     }
+
+     @Override
+     public boolean interpret(String context) {
+         if(context.contains(data)) {
+             return true;
+         }
+         return false;
+     }
+ }
+</code></pre></li>
+<li><p><code>OrExpression.java</code></p>
+
+<pre><code> public class OrExpression implements Expression {
+     private Expression expr1 = null;
+     private Expression expr2 = null;
+
+     public OrExpression(Expression expr1, Expression expr2) {
+         this.expr1 = expr1;
+         this.expr2 = expr2;
+     }
+
+     @Override
+     public boolean interpret(String context) {
+         return expr1.interpret(context) || expr2.interpret(context);
+     }
+ }
+</code></pre></li>
+<li><p><code>AndExpression.java</code></p>
+
+<pre><code> public class AndExpression implements Expression {
+     private Expression expr1 = null;
+     private Expression expr2 = null;
+
+     public AndExpression(Expression expr1, Expression expr2) {
+         this.expr1 = expr1;
+         this.expr2 = expr2;
+     }
+
+     @Override
+     public boolean interpret(String context) {
+         return expr1.interpret(context) &amp;&amp; expr2.interpret(context);
+     }
+ }
+</code></pre></li>
+<li><p><code>InterpreterPatternDemo.java</code></p>
+
+<pre><code> public class InterpreterPatternDemo {
+     //Rule: Robert and John are male
+     public static Expression getMaleExpression() {
+         Expression robert = new TerminalExpression("Robert");
+         Expression john = new TerminalExpression("John");
+         return new OrExpression(robert, john);
+     }
+
+     //Rule: Julie is a married women
+     public static Expression getMarriedWomanExpression() {
+         Expression julie = new TerminalExpression("Julie");
+         Expression married = new TerminalExpression("Married");
+         return new AndExpression(jilie, married);
+     }
+
+     public static void main(String[] args) {
+         Expression isMale = getMaleExpression();
+         Expression isMarriedWoman = getMarriedWomanExpression();
+
+         System.out.println("John is a male? " + isMale.interpret("John"));
+         System.out.println("Julie is a married woman? " + isMarriedWoman.interpret("Married Julie"));
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Iterator Pattern</h5>
+
+<p><img src="iterator_pattern_uml_diagram.jpg" alt="iterator_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Used to access elements of a collection in sequential manner without knowing the underlying representation.</li>
+<li>It is a behavioral pattern</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li><code>Iterator</code>: Interface. Gives a navigation method.</li>
+<li><code>Container</code>: Interface. Returns an <code>Iterator</code></li>
+<li>Concrete classes of <code>Container</code>: Implement <code>Iterator</code> and use it.</li>
+<li><code>IteratorPatternDemo</code>: Uses <code>NamesRepository</code> to print names stored as a collection.</li>
+<li>Steps:
+
+<ol>
+<li><p><code>Iterator.java</code></p>
+
+<pre><code> public interface Iterator {
+     public boolean hasNext();
+     public Object next();
+ }
+</code></pre></li>
+<li><p><code>Container.java</code></p>
+
+<pre><code> public interface Container {
+     public Iterator getIterator();
+ }
+</code></pre></li>
+<li><p><code>NameRepository.java</code>:</p>
+
+<pre><code> public class NameRepository implements Container {
+     public String names[] = {"Robert", "John", "Julie", "Lora"};
+
+     @Override
+     public Iterator getIterator() {
+         return new NameIterator();
+     }
+
+     private class NameIterator implements Iterator() {
+         int index;
+
+         @Override
+         public boolean hasNext() {
+             if(index &lt; names.length) {
+                 return true;
+             }
+             return false;
+         }
+
+         @Override
+         public Object next() {
+             if(this.hasNext()) {
+                 return names[index++];
+             }
+             return null;
+         }
+     }
+ }
+</code></pre></li>
+<li><p><code>IteratorPatternDemo.java</code></p>
+
+<pre><code> public class IteratorPatternDemo {
+     public static void main(String[] args) {
+         NameRepository namesRepository = new NameRepository();
+
+         for(Iterator iter = namesRepository.getIterator(); iter.hasNext();) {
+             String name = (String)iter.next();
+             System.out.println("Name: " + name);
+         }
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Mediator Pattern</h5>
+
+<p><img src="mediator_pattern_uml_diagram.jpg" alt="mediator_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Used to reduce communication complexity between multiple objects or classes.</li>
+<li>Mediator class handles communications between different classes. (Lose coupling)</li>
+<li>It is behavioral pattern category.</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li><code>ChatRoom</code>: used to share messages.</li>
+<li><code>User</code>: Multiple users can send messages to <code>ChatRoom</code>.</li>
+<li><code>MediatorPatternDemo</code>: Shows communication between different <code>User</code>s</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Memento Pattern</h5>
+
+<p><img src="memento_pattern_uml_diagram.jpg" alt="memento_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Used to restore an object&rsquo;s state to previous state.</li>
+<li>It is a behavioral pattern.</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li>Three actor classes are used.
+
+<ol>
+<li><code>Memento</code>: contains state of an object stored.</li>
+<li><code>Originator</code>: Responsible for creation and storage of state into <code>Memento</code></li>
+<li><code>Caretaker</code>: Responsible for restoring object state from <code>Memento</code></li>
+</ol>
+</li>
+<li><code>MementoPatternDemo</code>: Uses <code>CareTaker</code> and <code>Originator</code> to show restoration of objects.</li>
+<li>Steps:
+
+<ol>
+<li><p><code>Mememto.java</code></p>
+
+<pre><code> public class Memento {
+     private String state;
+
+     public Memento(String state) {
+         this.state
+     }
+
+     public String getState() {
+         return state;
+     }
+ }
+</code></pre></li>
+<li><p><code>Originator.class</code></p>
+
+<pre><code> public class Originator {
+     private String state;
+
+     public void setState(String state) {
+         this.state = state;
+     }
+
+     public String getState() {
+         return state;
+     }
+
+     public Memento saveStateToMemento() {
+         return new Memento(state);
+     }
+
+     public void getStateFromMemento(Memento memento) {
+         state = memento.getState();
+     }
+ }
+</code></pre></li>
+<li><p><code>CareTaker.java</code></p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class CareTaker {
+     private List&lt;Memento&gt; mementoList = new ArrayList&lt;Memento&gt;();
+
+     public void add(Memento state) {
+         mementoList.add(state);
+     }
+
+     public Memento get(int index) {
+         return mementoList.get(index);
+     }
+ }
+</code></pre></li>
+<li><p><code>MementoPatternDemo.java</code></p>
+
+<pre><code> public class MementoPatternDemo {
+     public static void main(String[] args) {
+         Originator originator = new Originator();
+         CareTaker careTaker = new CareTaker();
+
+         originator.setState("State #1");
+         originator.setState("State #2");
+         careTaker.add(originator.saveStateToMemento());
+
+         originator.setState("State #3");
+         careTaker.add(originator.saveStateToMemento());
+
+         originator.setState("Sate #4");
+         System.out.println("Current State: " + originator.getState());
+
+         originator.getStateFromMemento(careTaker.get(0));
+         System.out.println("First saved State: " + originator.getState());
+         originator.getStateFromMemento(careTaker.get(1));
+         System.out.println("Second saved State: " + originator.getState());
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Observer Pattern</h5>
+
+<p><img src="observer_pattern_uml_diagram.jpg" alt="observer_pattern_uml_diagram" /></p>
+
+<ol>
+<li>Introduction
+
+<ol>
+<li>Used if there is one-to-many relationship between objects</li>
+<li>If one object is modified, other  dependent objects must be notified
+automatically.</li>
+<li>It is a behavioral pattern</li>
+</ol>
+</li>
+<li>Implementation
+
+<ol>
+<li>Three actor classes:
+
+<ol>
+<li><code>Subject</code>: has methods to attach and detach observers to <code>Client</code></li>
+<li><code>Observer</code>: Abstract class</li>
+<li><code>Client</code>:</li>
+</ol>
+</li>
+<li><code>ObserverPatternDemo</code>: Uses <code>Subject</code> and concrete class object.</li>
+<li><p><code>Subject.java</code></p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class Subject {
+     private List&lt;Observer&gt; observers = new ArrayList&lt;Observer&gt;();
+     private int state;
+
+     public int getState() {
+         return state;
+     }
+
+     public void setState(int state) {
+         this.state = state;
+         notifyAllOberservers();
+     }
+
+     public void attach(Observer observer) {
+         observers.add(observer);
+     }
+
+     public void notifyAllObservers() {
+         for(Observer observer: observers) {
+             observer.update();
+         }
+     }
+ }
+</code></pre></li>
+<li><p><code>Observer.java</code></p>
+
+<pre><code> public abstract class Observer {
+     protected Subject subject;
+     public abstract void update();
+ }
+</code></pre></li>
+<li><p><code>BinaryObserver.java</code></p>
+
+<pre><code> public class BinaryObserver extends Observer {
+     public BinaryObserver(Subject subject) {
+         this.subject = subject;
+         this.subject.attach(this);
+     }
+
+     @Override
+     public void update() {
+         System.out.println("Binary String: " + Integer.toBinaryString(subject.getState()));
+     }
+ }
+</code></pre></li>
+<li><p><code>OctalObserver.java</code></p>
+
+<pre><code> public class OctalObserver extends Observer {
+     public OctalObserver(Subject subject) {
+         this.subject = subject;
+         this.subject.attach(this);
+     }
+
+     @Override
+     public void update() {
+         System.out.println("Octal String: " + Integer.toOctalString(subject.getState()));
+     }
+ }
+</code></pre></li>
+<li><p><code>HexaObserver.java</code></p>
+
+<pre><code> public class HexaObserver extends Observer {
+     public HexaObserver(Subject subject) {
+         this.subject = subject;
+         this.subject.attach(this);
+     }
+
+     @Override
+     public void update() {
+         System.out.println("Hex String: " + Integer.toHexString(subject.getState()).toUpperCase());
+     }
+ }
+</code></pre></li>
+<li><p><code>ObserverPatternDemo.java</code></p>
+
+<pre><code> public class ObserverPatternDemo {
+     public static void main(String[] args) {
+         Subject subject = new Subject();
+
+         new HexaObserver(subject);
+         new OctalObserver(subject);
+         new BinaryObserver(subjet);
+
+         System.out.println("First state change: 15");
+         subject.setState(15);
+         System.out.println("Second state change: 10");
+         subject.setState(10);
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+
+
+<h5>State Pattern</h5>
+
+<ol>
+<li>Class behavior changes based on its state.</li>
+<li>It is a behavior pattern</li>
+<li>Objects represent various states</li>
+<li>Context object&rsquo;s behavior changes as its state object changes</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>State</code>: Interface which has an action</li>
+<li>Concrete state classes: implement <code>State</code> interface</li>
+<li><code>Context</code>: Carries a state</li>
+<li><p><code>StatePatternDemo</code>: Demo class</p>
+
+<p> <img src="state_pattern_uml_diagram.jpg" alt="state_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>State.java</code></p>
+
+<pre><code> public interface State {
+     public void doAction(Context context);
+ }
+</code></pre></li>
+<li><p><code>StartState.java</code></p>
+
+<pre><code> public class StartState implements State {
+     public void doAction(Context context) {
+         System.out.println("Player is in start state");
+         context.setState(this);
+     }
+
+     public String toString() {
+         return "Start State";
+     }
+ }
+</code></pre></li>
+<li><p><code>StopState.java</code></p>
+
+<pre><code> public class StopState implements State {
+     public void doAction(Context context) {
+         System.out.println("Player is in stop state");
+         context.setState(this);
+     }
+
+     public String toString() {
+         return "Stop State";
+     }
+ }
+</code></pre></li>
+<li><p><code>Context.java</code></p>
+
+<pre><code> public class Context {
+     private State state;
+
+     public Context() {
+         state = null;
+     }
+
+     public void setState(State state) {
+         this.state = state;
+     }
+
+     public State getState() {
+         return state;
+     }
+ }
+</code></pre></li>
+<li><p><code>StatePatternDemo.java</code></p>
+
+<pre><code> public class StatePatternDemo {
+     public static void main(String[] args) {
+         Context context = new Context();
+
+         StartState startState = new StartState();
+         startState.doAction(context);
+
+         System.out.println(context.getState().toString());
+
+         StopState stopState = new StopState();
+         stopState.doAction(context);
+
+         System.out.println(context.getState().toString());
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>Null Object Pattern</h5>
+
+<ol>
+<li>Null object replaces check of NULL object instance.</li>
+<li>Instead of checking for null value, Null object reflects do nothing relationship.</li>
+<li>Null object can provide default behavior if data is not available.</li>
+<li>Abstract class specifies various operations
+
+<ol>
+<li>Concrete classes extend the class</li>
+<li>Null object class is a do nothing implementation of the class (used where we need to check null value)</li>
+</ol>
+</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>AbstractCustomer</code>: abstract class with operations</li>
+<li><code>CustomerFactory</code>: Factory class returns on of the following based on customer name:
+
+<ol>
+<li>Returns RealCustomer</li>
+<li>Returns NullCustomer</li>
+</ol>
+</li>
+<li><p><code>NullPatternDemo</code>: Demo class</p>
+
+<p> <img src="null_pattern_uml_diagram.jpg" alt="null_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>AbstractCustomer.java</code></p>
+
+<pre><code> public abstract class AbstractCustomer {
+     protected String name;
+     public abstract boolean isNil();
+     public abstract String getName();
+ }
+</code></pre></li>
+<li><p><code>RealCustomer.java</code></p>
+
+<pre><code> public class RealCustomer extends AbstractCustomer {
+     public RealCustomer(String name) {
+         this.name = name;
+     }
+
+     @Override
+     public String getName() {
+         return name;
+     }
+
+     @Override
+     public boolean isNil() {
+         return false;
+     }
+ }
+</code></pre></li>
+<li><p><code>NullCustomer.java</code></p>
+
+<pre><code> public class NullCustomer extends AbstractCustomer {
+     @Override
+     public String getName() {
+         return "Not Available in Customer Database";
+     }
+
+     @Override
+     public boolean isNil() {
+         return true;
+     }
+ }
+</code></pre></li>
+<li><p><code>CustomerFactor.java</code></p>
+
+<pre><code> public class CustomerFactory {
+     public static final String[] names = {"Rob", "Joe", "Julie"};
+
+     public static AbstractCustomer getCustomer(String name) {
+         for (int i = 0; i &lt; names.length; i++) {
+             if (names[i].equalsIgnoreCase(name)) {
+                 return new RealCustomer(name);
+             }
+         }
+         return new NullCustomer();
+     }
+ }
+</code></pre></li>
+<li><p><code>NullPatternDemo.java</code></p>
+
+<pre><code> public class NullPatternDemo {
+     public static void main(String[] args) {
+         AbstractCustomer customer1 = CustomerFactory.getCustomer("Rob");
+         AbstractCustomer customer2 = CustomerFactory.getCustomer("Bob");
+         AbstractCustomer customer3 = CustomerFactory.getCustomer("Julie");
+         AbstractCustomer customer4 = CustomerFactory.getCustomer("Laura");
+
+         System.out.println("Customers");
+         System.out.println(customer1.getName());
+         System.out.println(customer2.getName());
+         System.out.println(customer3.getName());
+         System.out.println(customer4.getName());
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>Strategy Pattern</h5>
+
+<ol>
+<li>A class behavior or its algorithm can be changed at runtime</li>
+<li>It is a behavior pattern</li>
+<li>An object represents strategies and a context object whose behavior varies as per its strategy object</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>Strategy</code>: interface with one action</li>
+<li>Concrete strategy classes: implement <code>Strategy</code></li>
+<li><code>Context</code>: class that uses <code>Strategy</code></li>
+<li><code>StrategyPatternDemo</code>: Demo class that shows change in <code>Context</code> behavior with different strategies</li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>Strategy.java</code></p>
+
+<pre><code> public interface Strategy {
+     public int doOperation(int num1, int num2);
+ }
+</code></pre></li>
+<li><p><code>OperationAdd.java</code></p>
+
+<pre><code> public class OperationAdd implements Strategy {
+     @Override
+     public int doOperation(int num1, int num2) {
+         return num1 + num2;
+     }
+ }
+</code></pre></li>
+<li><p><code>OperationSubtract.java</code></p>
+
+<pre><code> public class OperationSubtract implements Strategy {
+     @Override
+     public int doOperation(int num1, int num2) {
+         return num1 - num2;
+     }
+ }
+</code></pre></li>
+<li><p><code>OperationMultiply.java</code></p>
+
+<pre><code> public class OperationMultiply implements Strategy {
+     @Override
+     public int doOperation(int num1, int num2) {
+         return num1 * num2;
+     }
+ }
+</code></pre></li>
+<li><p><code>Context.java</code></p>
+
+<pre><code> public class Context {
+     private Strategy strategy;
+
+     public Context(Strategy strategy) {
+         this.strategy = strategy;
+     }
+
+     public int executeStrategy(int num1, int num2) {        
+         return strategy.doOperation(num1, num2);
+     }
+ }
+</code></pre></li>
+<li><p><code>StrategyPatternDemo.java</code></p>
+
+<pre><code> public class StrategyPatternDemo {
+     public static void main(String[] args) {
+         Context context = new Context(new OperationAdd());
+         System.out.println("10 + 5 = " + context.executeStrategy(10, 5));
+
+         context = new Context(new OperationSubtract());
+         System.out.println("10 - 5 = " + context.executeStrategy(10, 5));
+
+         context = new Context(new OperationMultiply());
+         System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>Template Pattern</h5>
+
+<ol>
+<li>Abstract class exposes defined template(s) to execute its methods.</li>
+<li>Subclasses can override method implementations</li>
+<li>Invocation of the methods by subclasses must be in the same way as defined by abstract class.</li>
+<li>It is a behavior pattern</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>Game</code>: Abstract class which defines operations with a template method that is set to be final which cannot be overridden.</li>
+<li><code>Cricket</code>, <code>Football</code>: Concrete classes that extend <code>Game</code> and override its methods.</li>
+<li><p><code>TemplatePatternDemo</code>: Demo class</p>
+
+<p> <img src="template_pattern_uml_diagram.jpg" alt="template_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>Game.java</code></p>
+
+<pre><code> public abstract class Game {
+     abstract void initialize();
+     abstract void startPlay();
+     abstract void endPlay();
+
+     //template method
+     public final void play() {
+         // initialize the game
+         initialize();
+
+         // start game
+         startPlay();
+
+         // end game
+         endPlay();
+     }
+ }
+</code></pre></li>
+<li><p><code>Cricket.java</code></p>
+
+<pre><code> public class Cricket extends Game {
+     @Override
+     void endPlay() {
+         System.out.println("Cricket Game Finished!");
+     }
+
+     @Override
+     void initialize() {
+         System.out.println("Cricket Game Initialized! Start playing.");
+     }
+
+     @Override
+     void startPlay() {
+         System.out.println("Cricket Game Started. Enjoy the game!");
+     }
+ }
+</code></pre></li>
+<li><p><code>Football.java</code></p>
+
+<pre><code> public class Football extends Game {
+     @Override
+     void endPlay() {
+         System.out.println("Football Game Finished!");
+     }
+
+     @Override
+     void initialize() {
+         System.out.println("Football Game Initialized! Start playing.");
+     }
+
+     @Override
+     void startPlay() {
+         System.out.println("Football Game Started. Enjoy the game!");
+     }
+ }
+</code></pre></li>
+<li><p><code>TemplatePatternDemo.java</code>: Uses template <code>play()</code> which is a defined way to play the game</p>
+
+<pre><code> public class TemplatePatternDemo {
+     public static void main(String[] args) {
+         Game game = new Cricket();
+         game.play();
+         System.out.println();
+         game = new Football();
+         game.play();
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>Visitor Pattern</h5>
+
+<ol>
+<li>Visitor class changes the execution algorithm of an element class.</li>
+<li>As and when visitor varies, the execution algorithm of element class varies.</li>
+<li>It is a behavior pattern</li>
+<li>Element object must accept a visitor object which in turn handles the operation for the element object.</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>ComputerPart</code>: Interface with <code>accept</code> operation</li>
+<li><code>Keyboard</code>, <code>Mouse</code>, <code>Monitor</code>, <code>Computer</code>: concrete classes implementing <code>ComputerPart</code> interface</li>
+<li><code>ComputerPartVisitor</code>: Interface that defines visitor class operations</li>
+<li><code>ComputerPartDisplayVisitor</code>: concrete class implementing <code>ComputerPartVisitor</code></li>
+<li><p><code>VisitorPatternDemo</code>: Demo class</p>
+
+<p> <img src="visitor_pattern_uml_diagram.jpg" alt="visitor_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>ComputerPart.java</code></p>
+
+<pre><code> public interface ComputerPart {
+     public void accept(ComputerPartVisitor computerPartVisitor);
+ }
+</code></pre></li>
+<li><p><code>Keyboard.java</code></p>
+
+<pre><code> public class Keyboard implements ComputerPart {
+     @Override
+     public void accept(ComputerPartVisitor computerPartVisitor) {
+         computerPartVisitor.visit(this);
+     }
+ }
+</code></pre></li>
+<li><p><code>Monitor.java</code></p>
+
+<pre><code> public class Monitor implements ComputerPart {
+     @Override
+     public void accept(ComputerPartVisitor computerPartVisitor) {
+         computerPartVisitor.visit(this);
+     }
+ }
+</code></pre></li>
+<li><p><code>Mouse.java</code></p>
+
+<pre><code> public class Mouse implements ComputerPart {
+     @Override
+     public void accept(ComputerPartVisitor computerPartVisitor) {
+         computerPartVisitor.visit(this);
+     }
+ }
+</code></pre></li>
+<li><p><code>Computer.java</code></p>
+
+<pre><code> public class Computer implements ComputerPart {
+     ComputerPart[] parts;
+
+     public Computer() {
+         parts = new ComputerPart[] {new Mouse(), new Keyboard(), new Monitor()}
+     }
+
+     @Override
+     public void accept(ComputerPartVisitor computerPartVisitor) {
+         for (int i = 0; i &lt; parts.length; i++)
+             parts[i].accept(computerPartVisitor);
+         computerPartVisitor.visit(this);
+     }
+ }
+</code></pre></li>
+<li><p><code>ComputerPartVisitor.java</code></p>
+
+<pre><code> public interface ComputerPartVisitor {
+     public void visit(Computer computer);
+     public void visit(Mouse mouse);
+     public void visit(Keyboard keyboard);
+     public void visit(Monitor monitor);
+ }
+</code></pre></li>
+<li><p><code>ComputerPartDisplayVisitor.java</code></p>
+
+<pre><code> public class ComputerPartDisplayVisitor implements ComputerPartVisitor {
+     @Override
+     public void visit(Computer computer) {
+         System.out.println("Displaying computer.");
+     }
+
+     @Override
+     public void visit(Mouse mouse) {
+         System.out.println("Displaying Mouse.");
+     }
+
+     @Override
+     public void visit(Keyboard keyboard) {
+         System.out.println("Displaying Keyboard.");
+     }
+
+     @Override
+     public void visit(Monitor monitor) {
+         System.out.println("Displaying Monitor.");
+     }
+ }
+</code></pre></li>
+<li><p><code>VisitorPatternDemo.java</code></p>
+
+<pre><code> public class VisitorPatternDemo {
+     public static void main(String[] args) {
+         ComputerPart computer = new Computer();
+         computer.accept(new ComputerPartDisplayVisitor());
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>MVC Pattern</h5>
+
+<ol>
+<li>MVC: Model View Controller</li>
+<li>Separates app concerns into
+
+<ol>
+<li><strong>Model</strong>: Object or POJO carrying data
+
+<ol>
+<li>Can also have logic to update controller if data changes</li>
+</ol>
+</li>
+<li><strong>View</strong>: Visualization of data that model contains</li>
+<li><strong>Controller</strong>:
+
+<ol>
+<li>Acts on <strong>Model</strong> and <strong>View</strong></li>
+<li>Controls data flow into model</li>
+<li>Updates view when data changes</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>Student</code> object: Model</li>
+<li><code>StudentView</code>: view class that prints student details on console</li>
+<li><p><code>StudentController</code>:</p>
+
+<ol>
+<li>Stores data in <code>Student</code> object</li>
+<li>Updates view <code>StudentView</code> when data changes</li>
+</ol>
+
+
+<p> <img src="mvc_pattern_uml_diagram.jpg" alt="mvc_pattern_uml_diagram" /></p></li>
+<li><p>Steps</p>
+
+<ol>
+<li><p><code>Student.java</code></p>
+
+<pre><code> public class Student {
+     private String rollNo;
+     private String name;
+
+     public String getRollNo() {
+         return rollNo;
+     }
+
+     public void setRollNo(String rollNo) {
+         this.rollNo = rollNo;
+     }
+
+     public String getName() {
+         return name;
+     }
+
+     public String setName(String name) {
+         this.name = name;
+     }
+ }
+</code></pre></li>
+<li><p><code>StudentView.java</code></p>
+
+<pre><code> public class StudentView {
+     public void printStudentDetails(String studentName, String studentRollNo) {
+         System.out.println("Student: ");
+         System.out.println("Name: " + studentName);
+         System.out.println("Roll No: " + studentRollNo);
+     }
+ }
+</code></pre></li>
+<li><p><code>StudentController.java</code></p>
+
+<pre><code> public class StudentController {
+     private Student model;
+     private StudentView view;
+
+     public StudentController(Student model, StudentView view) {
+         this.model = model;
+         this.view = view;
+     }
+
+     public void setStudentName(String name) {
+         model.setName(name);
+     }
+
+     public String getStudentName() {
+         return model.getName();
+     }
+
+     public void setStudentRollNo(String rollNo) {
+         model.setRollNo(rollNo);
+     }
+
+     public String getStudentRollNo() {
+         return model.getRollNo();
+     }
+
+     public void updateView() {
+         view.printStudentDetails(model.getName(), model.getRollNo());
+     }
+ }
+</code></pre></li>
+<li><p><code>MVCPatternDemo.java</code></p>
+
+<pre><code> public class MVCPatternDemo {
+     public static void main(String[] args) {
+         // fetch student record based on his roll no from the database
+         Student model = retrieveStudentFromDatabase();
+
+         // Creation of view: to write student details to console
+         Student view = new StudentView();
+
+         StudentController controller = new StudentController(model, view);
+
+         controller.updateView();
+
+         // update model data
+         controller.setStudentName("John");
+
+         controller.updateView();
+     }
+
+     private static Student retrieveStudentFromDatabase() {
+         Student student = new Student();
+         student.setName("Robert");
+         student.setRollNo("10");
+         return student;
+     }
+ }
+</code></pre></li>
+</ol>
+</li>
+</ol>
+
+
+<h5>Business Delegate Pattern</h5>
+
+<ol>
+<li>Used to decouple business layer and presentation layer</li>
+<li>Reduces communication/ lookup of functionality in presentation tier code to business tier code</li>
+<li>Entities in Business Delegate Pattern:
+
+<ol>
+<li><strong>Client</strong>: Presentation tier code (JSP, Servlet or Java UI)</li>
+<li><strong>Business Delegate</strong>: Single entry point class for client entities (provide access to Business Service methods)</li>
+<li><strong>LookUp Service</strong>: Responsible to get business implementation and provide business object access to business delegate object (?)</li>
+<li><strong>Business Service</strong>: Interface. Concrete classes implement it to provide actual business implementation logic.</li>
+</ol>
+</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>Client</code></li>
+<li><code>BusinessDelegate</code></li>
+<li><code>BusinessService</code></li>
+<li><code>LookUpService</code></li>
+<li><code>JMSService</code></li>
+<li><code>EJBService</code></li>
+<li><p><code>BusinessDelegatePatternDemo</code>: Demo class</p>
+
+<p> <img src="business_delegate_pattern_uml_diagram.jpg" alt="business_delegate_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>BusinessService.java</code></p>
+
+<pre><code> public interface BusinessService {
+     public void doProcessing();
+ }
+</code></pre></li>
+<li><p><code>EJBService.java</code></p>
+
+<pre><code> public class EJBService implements BusinessService {
+     @Override
+     public void doProcessing() {
+         System.out.println("Processing task by invoking EJB Service");
+     }
+ }
+</code></pre></li>
+<li><p><code>JMSService.java</code></p>
+
+<pre><code> public class JMSService implements BusinessService {
+     @Override
+     public void doProcessing() {
+         System.out.println("Processing task by invoking JMS Service");
+     }
+ }
+</code></pre></li>
+<li><p><code>BusinessLookUp.java</code></p>
+
+<pre><code> public class BusinessLookup {
+     public BusinessService getBusinessService(String serviceType) {
+         if (serviceType.equalsIgnoreCase("EJB")) {
+             return new EJBService();
+         } else {
+             return new JMSService();
+         }
+     }
+ }
+</code></pre></li>
+<li><p><code>BusinessDelegate.java</code></p>
+
+<pre><code> public class BusinessDelegate {
+     private BusinessLookup lookupService = new BusinessLookup();
+     private BusinessService businessService;
+     private String serviceType;
+
+     public void setServiceType(String serviceType) {
+         this.serviceType = serviceType;
+     }
+
+     public void doTask() {
+         businessService = lookupService.getBusinessService(serviceType);
+         businessService.doProcessing();
+     }
+ }
+</code></pre></li>
+<li><p><code>Client.java</code></p>
+
+<pre><code> public class Client {
+     BusinessDelegate businessService;
+
+     public Client(BusinessDelegate businessService) {
+         this.businessService = businessService;
+     }
+
+     public void doTask() {
+         businessService.doTask();
+     }
+ }
+</code></pre></li>
+<li><p><code>BusinessDelegatePatternDemo.java</code></p>
+
+<pre><code> public class BusinessDelegatePatternDemo {
+     public static void main(String[] args) {
+         BusinessDelegate businessDelegate = new BusinessDelegate();
+         businessDelegate.setServiceType("EJB");
+
+         Client client = new Client(businessDelegate);
+         client.doTask();
+
+         businessDelegate.setServiceType("JMS");
+         client.doTask();
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>Composite Entity Pattern</h5>
+
+<ol>
+<li>Used in EJB persistence mechanism</li>
+<li>Composite entity: EJB entity bean which reperesents graph of objects.
+
+<ol>
+<li>If a composite entity is updated, internal descendent objects beans get updated automatically.</li>
+</ol>
+</li>
+<li>Participants:
+
+<ol>
+<li><strong>Composite Entity</strong> Primary entity bean. Can be coarse grained or contain coarse grained object used for persistence</li>
+<li><strong>Coarse-Grained Object</strong> Contains dependent objects
+
+<ol>
+<li>It has its lifecycle</li>
+<li>It manages lifecycle of dependent objects</li>
+</ol>
+</li>
+<li><strong>Dependent Object</strong> Depends on coarse grained object for its persistence lifecycle.</li>
+<li><strong>Strategies</strong> represents how to implement composite entity (?)</li>
+</ol>
+</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>CompositeEntity</code></li>
+<li><code>CoarseGrainedObject</code>: contains dependent objects</li>
+<li><code>CompositeEntityPatternDemo</code>: Demo class</li>
+<li><p><code>Client</code></p>
+
+<p> <img src="compositeentity_pattern_uml_diagram.jpg" alt="compositeentity_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>DependentObject1.java</code></p>
+
+<pre><code> public class DependentObject1 {
+     private String data;
+
+     public void setData(String data) {
+         this.data = data;
+     }
+
+     public String getData() {
+         return data;
+     }
+ }
+</code></pre></li>
+<li><p><code>DependentObject2.java</code></p>
+
+<pre><code> public class DependentObject2 {
+     private String data;
+
+     public void setData(String data) {
+         this.data = data;
+     }
+
+     public String getData() {
+         return data;
+     }
+ }
+</code></pre></li>
+<li><p><code>CoarseGrainedObject.java</code></p>
+
+<pre><code> public class CoarseGrainedObject {
+     DependentObject1 do1 = new DependentObject1();
+     DependentObject2 do2 = new DependentObject2();
+
+     public void setData(String data1, String data2) {
+         do1.setData(data1);
+         do2.setData(data2);
+     }
+
+     public String[] getData() {
+         return new String[] {do1.getData(), do2.getData()};
+     }
+ }
+</code></pre></li>
+<li><p><code>CompositeEntity.java</code></p>
+
+<pre><code> public class CompositeEntity {
+     private CoarseGrainedObject cgo = new CoarseGrainedObject();
+
+     public void setData(String data1, String data2) {
+         cgo.setData(data1, data2);
+     }
+
+     public String[] getData() {
+         return cgo.getData();
+     }
+ }
+</code></pre></li>
+<li><p><code>Client.java</code></p>
+
+<pre><code> public class Client {
+     private CompositeEntity compositeEntity = new CompositeEntity();
+
+     public void printData() {
+         for (int i = 0; i &lt; compositeEntity.getData().length; i++) {
+             System.out.println("Data: " + compositeEntity.getData()[i]);
+         }
+     }
+
+     public void setData(String data1, String data2) {
+         compositeEntity.setData(data1, data2);
+     }
+ }
+</code></pre></li>
+<li><p><code>CompositeEntityDesignPattern.java</code></p>
+
+<pre><code> public class CompositeEntityPatternDemo {
+     public static void main(String[] args) {
+         Client client = new Client();
+         client.setData("Test", "Data");
+         client.printData();
+         client.setData("Second Test", "Data1");
+         client.printData();
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>Data Access Object Pattern</h5>
+
+<ol>
+<li>Separates low level data accessing API/ operations from high level business services.</li>
+<li>Participants
+
+<ol>
+<li><strong>Data Access Object Interface</strong>: Defines standard operations performed on model object(s)</li>
+<li><strong>Data Access Object concrete class</strong>: Class implements DAO interface.
+
+<ol>
+<li>Responsible for getting data from data source (database/ xml/ other storage mechanism)</li>
+</ol>
+</li>
+<li><strong>Model Object</strong> or <strong>Value Object</strong>: Simple POJO containing get/set methods to store data retrieved using DAO class.</li>
+</ol>
+</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>Student</code>: Model object or Value object</li>
+<li><code>StudentDao</code>: Data access object interface</li>
+<li><code>StudentDaoImpl</code>: Concrete class implementing DAO interface</li>
+<li><p><code>DaoPatternDemo</code>: demo class</p>
+
+<p> <img src="dao_pattern_uml_diagram.jpg" alt="dao_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>Student.java</code></p>
+
+<pre><code> public class Student {
+     private String name;
+     private int rollNo;
+
+     Student(String name, int rollNo) {
+         this.name = name;
+         this.rollNo = rollNo;
+     }
+
+     public String getName() {
+         return name;
+     }
+
+     public void setName(String name) {
+         this.name = name;
+     }
+
+     public int getRollNo() {
+         return rollNo;
+     }
+
+     public void setRollNo(int rollNo) {
+         this.rollNo = rollNo;
+     }
+ }
+</code></pre></li>
+<li><p><code>StudentDao.java</code></p>
+
+<pre><code> import java.util.List;
+
+ public interface StudentDao {
+     public List&lt;Student&gt; getAllStudents();
+     public Student getStudent(int rollNo);
+     public void updateStudent(Student student);
+     public void deleteStudent(Student student);
+ }
+</code></pre></li>
+<li><p><code>StudentDaoImpl.java</code></p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class StudentDaoImpl implements StudentDao {
+     // List is working as a database
+     List&lt;Student&gt; students;
+
+     public StudentDaoImpl() {
+         students = new ArrayList&lt;Student&gt;();
+         Student student1 = new Student("Robert", 0);
+         Student student2 = new Student("John", 1);
+         students.add(student1);
+         students.add(student2);
+     }
+
+     @Override
+     public void deleteStudent(Student student) {
+         students.remove(student.getRollNo());
+         System.out.println("Student: Roll No " + student.getRollNo() + ", delete from database");
+     }
+
+     // retrieve list of students from the database
+     @Override
+     public List&lt;Student&gt; getAllStudents() {
+         return students;
+     }
+
+     @Override
+     public Student getStudent(int rollNo) {
+         return students.get(rollNo);
+     }
+
+     @Override
+     public void updateStudent(Student student) {
+         students.get(student.getRollNo()).setName(student.getName());
+         System.out.println("Student: Roll No " + student.getRollNo() + ", update in the database")
+     }
+ }
+</code></pre></li>
+<li><p><code>DaoPatternDemo.java</code></p>
+
+<pre><code> public class DaoPatternDemo {
+     public static void main(String[] args) {
+         StudentDao studentDao = new StudentDaoImpl();
+
+         // print all students
+         for (Student student: studentDao.getAllStudents()) {
+             System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+         }
+
+         // Update student
+         Student student = studentDao.getAllStudents().get(0);
+         student.setName("Michael");
+         studentDao.updateStudent(student);
+
+         // get the student
+         studentDao.getStudent(0);
+         System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>Front Controller Pattern</h5>
+
+<ol>
+<li>Provides centralized request handling mechanism
+
+<ol>
+<li>All requests will be handled by the single handler</li>
+</ol>
+</li>
+<li>It can do
+
+<ol>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Logging</li>
+<li>Request tracking</li>
+</ol>
+</li>
+<li>It passes request to corresponding handler</li>
+<li>Entities:
+
+<ol>
+<li><strong>Front Controller</strong>: Single handler for all requests coming from app</li>
+<li><strong>Dispatcher</strong>: Dispatcher can be used to dispatch request to specific handler</li>
+<li><strong>View</strong>: Object for which request is made</li>
+</ol>
+</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>FrontController</code></li>
+<li><code>Dispatcher</code></li>
+<li><code>HomeView</code>, <code>StudentView</code>: views</li>
+<li><p><code>FrontControllerPatternDemo</code>: demo class</p>
+
+<p> <img src="frontcontroller_pattern_uml_diagram.jpg" alt="frontcontroller_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>HomeView.java</code></p>
+
+<pre><code> public class HomeView {
+     public void show() {
+         System.out.println("Displaying Home Page");
+     }
+ }
+</code></pre></li>
+<li><p><code>StudentView.java</code></p>
+
+<pre><code> public class StudentView {
+     public void show() {
+         System.out.println("Displaying Student Page");
+     }
+ }
+</code></pre></li>
+<li><p><code>Dispatcher.java</code></p>
+
+<pre><code> public class Dispatcher {
+     private StudentView studentView;
+     private HomeView homeView;
+
+     public Dispatcher() {
+         studentView = new StudentView();
+         homeView = new HomeView();
+     }
+
+     public void dispatch(String request) {
+         if (request.equalsIgnoreCase("STUDENT")) {
+             studentView.show();
+         } else {
+             homeView.show();
+         }
+     }
+ }
+</code></pre></li>
+<li><p><code>FrontController.java</code></p>
+
+<pre><code> public class FrontController {
+     private Dispatcher dispatcher;
+
+     public FrontController() {
+         dispatcher = new Dispatcher();
+     }
+
+     private boolean isAuthenticUser() {
+         System.out.println("User is authenticated successfully.");
+     }
+
+     private void trackRequest(String request) {
+         System.out.println("Page requested: " + request);
+     }
+
+     public void dispatchRequest(String request) {
+         //log each request
+         trackRequest(request);
+
+         //authenticte the user
+         if(isAuthenticUser()) {
+             dispatcher.dispatch(request);
+         }
+     }
+ }
+</code></pre></li>
+<li><p><code>FrontControllerPatternDemo.java</code></p>
+
+<pre><code> public class FrontControllerPatternDemo {
+     public static void main(String[] args) {
+         FrontController frontController = new FrontController();
+         frontController.dispatchRequest("HOME");
+         frontController.dispatchRequest("STUDENT");
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>Intercepting Filter Pattern</h5>
+
+<ol>
+<li>Used for doing pre-processing/ post-processing with request or response of an app.</li>
+<li>Filter is applied to request before passing it to the actual target app.</li>
+<li>Applications:
+
+<ol>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Logging</li>
+<li>Request tracking</li>
+</ol>
+</li>
+<li>Entities
+
+<ol>
+<li><strong>Filter</strong>: Performs a task prior to or after execution of a request by request handler</li>
+<li><strong>Filter Chain</strong>: Carries multiple filters and helps to execute the filters in a defined order</li>
+<li><strong>Target</strong>: Request handler</li>
+<li><strong>Filter Manager</strong>: Manages filters and filter chain</li>
+<li><strong>Client</strong>: Sends request to Target object</li>
+</ol>
+</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>FilterChain</code></li>
+<li><code>FilterManager</code></li>
+<li><code>Target</code></li>
+<li><code>Client</code></li>
+<li><code>AuthenticationFilter</code>, <code>DebugFilter</code>: Concrete filter implementations</li>
+<li><p><code>InterceptingFilterDemo</code>: Demo class</p>
+
+<p> <img src="interceptingfilter_pattern_uml_diagram.jpg" alt="interceptingfilter_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>Filter.java</code></p>
+
+<pre><code> public interface Filter {
+     public void execute(String request);
+ }
+</code></pre></li>
+<li><p><code>AuthenticationFilter.java</code></p>
+
+<pre><code> public class AuthenticationFilter implements Filter {
+     @Override
+     public void execute(String request) {
+         System.out.println("Authenticating request: " + request);
+     }
+ }
+</code></pre></li>
+<li><p><code>DebugFilter.java</code></p>
+
+<pre><code> public class DebugFilter implements Filter {
+     @Override
+     public void execute(String request) {
+         System.out.println("request log: " + request);
+     }
+ }
+</code></pre></li>
+<li><p><code>Target.java</code></p>
+
+<pre><code> public class Target {
+     public void execute(String request) {
+         System.out.println("Executing request: " + request);
+     }
+ }
+</code></pre></li>
+<li><p><code>FilterChain.java</code></p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class FilterChain {
+     private List&lt;Filter&gt; filters = new ArrayList&lt;Filter&gt;();
+     private Target target;
+
+     public void addFilter(Filter filter) {
+         filters.add(filter);
+     }
+
+     public void execute(String request) {
+         for (Filter filter: filters) {
+             filter.execute(request);
+         }
+         target.execute();
+     }
+
+     public void setTarget(Target target) {
+         this.target = target;
+     }
+ }
+</code></pre></li>
+<li><p><code>FilterManager.java</code></p>
+
+<pre><code> public class FilterManager {
+     FilterChain filterChain;
+
+     public FilterManager(Target target) {
+         filterChain = new FilterChain();
+         filterChain.setTarget(target);
+     }
+
+     public void setFilter(Filter filter) {
+         filterChain.addFilter(filter);
+     }
+
+     public void filterRequest(String request) {
+         filterChain.execute(request);
+     }
+ }
+</code></pre></li>
+<li><p><code>Client.java</code></p>
+
+<pre><code> public class Client {
+     FilterManager filterManager;
+
+     public void setFilterManager(FilterManager filterManager) {
+         this.filterManager = filterManager;
+     }
+
+     public void sendRequest(String request) {
+         filterManager.filterRequest(request);
+     }
+ }
+</code></pre></li>
+<li><p><code>InterceptingFilterDemo.java</code></p>
+
+<pre><code> public class InterceptingFilterDemo {
+     public static void main(String[] args) {
+         FilterManager filterManager = new FilterManager(new Target());
+         filterManager.setFilter(new AuthenticationFilter());
+         filterManager.setFilter(new DebugFilter());
+
+         Client client = new Client();
+         client.setFilterManager(filterManager);
+         client.sendRequest("HOME");
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>Service Locator Pattern</h5>
+
+<ol>
+<li>Used to locate services using JNDI lookup.</li>
+<li>It makes of caching technique due to the cost associated with JNDI lookup.
+
+<ol>
+<li>First Service Locator looks up JNDI and caches the service object</li>
+<li>Subsequently Service Locator finds the service object in the cache</li>
+</ol>
+</li>
+<li>Entities
+
+<ol>
+<li><strong>Service</strong>: Service that processes request. Reference is lookup up in JNDI server</li>
+<li><strong>Context/ Initial Context</strong>: JNDI context that carries reference to service for lookup</li>
+<li><strong>Service Locator</strong>: Single point of contact to get services by JNDI lookup and caching</li>
+<li><strong>Cache</strong>: Used to store references of services for reuse</li>
+<li><strong>Client</strong>: Object that invokes service via Service Locator.</li>
+</ol>
+</li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>ServiceLocator</code></li>
+<li><code>InitialContext</code></li>
+<li><code>Cache</code></li>
+<li><code>Service</code>: Interface</li>
+<li><code>Service1</code> , <code>Service2</code>: concrete services</li>
+<li><p><code>ServiceLocatorPatternDemo</code>: Demo class</p>
+
+<p> <img src="servicelocator_pattern_uml_diagram.jpg" alt="servicelocator_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>Service.java</code></p>
+
+<pre><code> public interface Service {
+     public String getName();
+     public void execute();
+ }
+</code></pre></li>
+<li><p><code>Service1.java</code>: concrete service</p>
+
+<pre><code> public class Service1 implements Service {
+     @Override
+     public void execute() {
+         System.out.println("Executing Service1");
+     }
+
+     @Override
+     public String getName() {
+         return "Service1";
+     }
+ }
+</code></pre></li>
+<li><p><code>Service2.java</code>: concrete service</p>
+
+<pre><code> public class Service2 implements Service {
+     @Override
+     public void execute() {
+         System.out.println("Executing Service2");
+     }
+
+     @Override
+     public String getName() {
+         return "Service2";
+     }
+ }
+</code></pre></li>
+<li><p><code>InitialContext.java</code></p>
+
+<pre><code> public class InitialContext {
+     public Object lookup(String jndiName) {
+         if (jndiName.equalsIgnoreCase("SERVICE1")) {
+             System.out.println("Looking up and creation of a new Service1 object");
+             return new Service1();
+         } else if (jndiName.equalsIgnoreCase("SERVICE2")) {
+             System.out.println("Looking up and creation of a new Service2 object");
+             return new Service2();
+         }
+     }
+ }
+</code></pre></li>
+<li><p><code>Cache.java</code></p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class Cache {
+     private List&lt;Service&gt; services;
+
+     public Cache() {
+         services = new ArrayList&lt;Service&gt;();
+     }
+
+     public Service getService(String serviceName) {
+         for (Service service: services) {
+             if(service.getName().equalsIgnoreCase(serviceName)) {
+                 System.out.println("Returning cached " + serviceName + "object");
+                 return  service;
+             }
+         }
+         return null;
+     }
+
+     public void addService(Service newService) {
+         boolean exists = false;
+
+         for (Service service : services) {
+             if (service.getName().equalsIgnoreCase(newService.getName())) {
+                 exists = true;
+             }
+         }
+         if (!exists) {
+             services.add(newService);
+         }
+     }
+ }
+</code></pre></li>
+<li><p><code>ServiceLocator.java</code></p>
+
+<pre><code> public class ServiceLocator {
+     private static Cache cache;
+
+     static {
+         cache = new Cache();
+     }
+
+     public static Service getService(String jndiName) {
+         Service service = cache.getService(jndiName);
+
+         if(service != null) {
+             return service;
+         }
+
+         InitialContext context = new InitialContext();
+         Service service1 = (Service) context.lookup(jndiName);
+         cache.addService(service1);
+         return service1;
+     }
+ }
+</code></pre></li>
+<li><p><code>ServiceLocatorPatternDemo.java</code></p>
+
+<pre><code> public class ServiceLocatorPatternDemo {
+     public static void main(String[] args) {
+         Service service = ServiceLocator.getService("Service1");
+         service.execute();
+         service = ServiceLocator.getService("Service2");
+         service.execute();
+         service = ServiceLocator.getService("Service1");
+         service.execute();
+         service = ServiceLocator.getService("Service2");
+         service.execute();
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<h5>Transfer Object Pattern</h5>
+
+<ol>
+<li>Used to pass data with multiple attributes from client to server</li>
+<li>Also known as value object</li>
+<li>Transfer Object: simple POJO with getter/setter methods and is serializable to be transfered over the network.
+
+<ol>
+<li>It has no behavior</li>
+</ol>
+</li>
+<li>Server side business class fetches data from db and fills POJO and sends it to client or pass it by value.</li>
+<li>Transfer object is read only for client.</li>
+<li>Client can build a transfer object and pass it to server to update values in db in one shot.</li>
+<li>Entities:
+
+<ol>
+<li><strong>Business Object</strong>: Business service fills transfer object with data</li>
+<li><strong>Transfer Object</strong>: POJO that has set/get attributes only</li>
+<li><strong>Client</strong>: Requests or sends transfer object to business object</li>
+</ol>
+
+
+<p> <img src="transferobject_pattern_uml_diagram.jpg" alt="transferobject_pattern_uml_diagram" /></p></li>
+</ol>
+
+
+<h6>Implementation</h6>
+
+<ol>
+<li><code>StudentBO</code>: Business object</li>
+<li><code>Student</code>: transfer object</li>
+</ol>
+
+
+<h6>Steps</h6>
+
+<ol>
+<li><p><code>StudentVO.java</code></p>
+
+<pre><code> public class StudentVO {
+     private String name;
+     private int rollNo;
+
+     StudentVO(String name, int rollNo) {
+         this.name = name;
+         this.rollNo = rollNo;
+     }
+
+     public String getName() {
+         return name;
+     }
+
+     public void setName(String name) {
+         this.name = name;
+     }
+
+     public int getRollNo() {
+         return rollNo;
+     }
+
+     public void setRollNo(int rollNo) {
+         this.rollNo = rollNo;
+     }
+ }
+</code></pre></li>
+<li><p><code>StudentBO.java</code></p>
+
+<pre><code> import java.util.ArrayList;
+ import java.util.List;
+
+ public class StudentBO {
+     //list is working as a database
+     List&lt;StudentVO&gt; students;
+
+     public StudentBO() {
+         students = new ArrayList&lt;StudentVO&gt;();
+         StudentVO student1 = new StudentVO("Robert", 0);
+         StudentVO student2 = new StudentVO("John", 1);
+         students.add(student1);
+         students.add(student2);
+     }
+
+     public void deleteStudent(StudentVO student) {
+         students.remove(student.getRollNo());
+         System.out.println("Student: Roll No " + student.getRollNo() + ", deleted from datastore");
+     }
+
+     //retrive list of students from the database
+     public List&lt;StudentVO&gt; getAllStudents() {
+         return students;
+     }
+
+     public StudentVO getStudent(int rollNo) {
+         return students.get(rollNo);
+     }
+
+     public void updateStudent(StudentVO student) {
+         students.get(student.getRollNo()).setName(student.getName());
+         System.out.println("Student: Roll No " + student.getRollNo() + ", updated in datastore");
+     }
+ }
+</code></pre></li>
+<li><p><code>TransferObjectPatternDemo.java</code></p>
+
+<pre><code> public class TransferObjectPatternDemo {
+     public static void main(String[] args) {
+         StudentBO studentBusinessObject = new StudentBO();
+
+         //print all students
+         for (StudentVO student : studentBusinessObject.getAllStudents()) {
+             System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+         }
+
+         //update student
+         StudentVO student = studentBusinessObject.getAllStudents().get(0);
+         student.setName("Michael");
+         studentBusinessObject.updateStudent(student);
+
+         //get the student
+         student = studentBusinessObject.getStudent(0);
+         System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+     }
+ }
+</code></pre></li>
+</ol>
+
+</body>
+</html>

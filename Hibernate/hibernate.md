@@ -514,7 +514,7 @@
 	3. Component Mappings
 
 ### Collections Mappings: ###
-1. If a class has collection of values for a variable, then map the values using collction interfaces in java
+1. If a class has collection of values for a variable, then map the values using collection interfaces in java
 2. Mappings
 	1. [`java.util.Set`](https://www.tutorialspoint.com/hibernate/hibernate_set_mapping.htm) maps with `<set>` element and initialized with `java.util.HashSet`
 	2. [`java.util.SortedSet`](https://www.tutorialspoint.com/hibernate/hibernate_sortedset_mapping.htm) maps with `<set>` element and initialized with `java.util.TreeSet`
