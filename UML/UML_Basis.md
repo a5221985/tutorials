@@ -356,6 +356,10 @@
 		1. One message causes receiving participant to send out one or more messages
 
 ## UML 2.0 Communication Diagrams ##
+1. Example:
+
+	![UML-Communication-Diagram1](UML-Communication-Diagram1.png)
+
 1. Shows links between participants
 	1. Participants
 	2. Links
@@ -375,8 +379,308 @@
 
 2. Nested Messages
 	1. Not required return arrows
+3. Parallel messages
+
+		1a.messA()
+		----------|>
+
+		1b.messA()
+		----------|>
+
+4. Calling itself (box)
+
+		_____________
+		|part2:Class |
+		|			 |___
+		|____________|	 |
+			   |_________|
+				<|-------
+				  2. messC()
+
+5. Execute multiple times
+					
+						 1. messA()*[i=0..9]
+		|part1:partClass|--------------------|>|part2:partClass|
+		|_______________|----------------------|_______________|
+
+6. Guard conditions
+
+						 1. messA()[amt < bal]
+		|part1:partClass|--------------------|>|part2:partClass|
+
+						 1a.messA()[amt < bal]
+		|part1:partClass|--------------------|>|part2:partClass|
+		|				|----------------------|               |
+		|_______________|--------------------|>|_______________|
+						 1b.messA()[amt >= bal]
+
+	1. Use Object Constraint Language (OCL)
+		1. Data types: Boolean, Integer, Real, String
+		2. Arithmetic: +, -, *, /, a->mod(b), abs(), min(), max()
+		3. Comparison: <, >, <=, >=, =, <>
+		4. Boolean: and, or, xor, not
+7. Creation
+
+			   4.1. <<create>>
+		|part1|---------->|part2|
+
+8. Destruction
+
+			   <<destroy>>
+		|part1|---------->|part2|
+
+9. Ref, Critical from sequence diagrams can be used
+10. Message lost or message got back are same as sequence diagram
+11. Note: No return arrows
 
 ## UML 2.0 Timing Diagrams ##
+1. Find states for different participants
+	1. Customer Inserts Card
+		1. Card is invalid
+		2. Eject card
+	2. Card is valid
+	3. Customer enters PIN
+		1. PIN is invalid
+	4. PIN is validated
+	5. Account is selected
+	6. Amount is selected
+	7. Provide funds
+	8. Provide receipt
+	9. Eject card
+2. Figure out participants (from use case diagram)
+	1. Customer
+		1. Card in Hand (state)
+		2. Insert Card
+		3. Enter PIN
+		4. Select account
+		5. Select amount
+	2. Card Reader
+		1. No card
+		2. Receive Card
+		3. Card Valid
+		4. Card Invalid
+		5. Invalid Amount
+		6. Eject Money
+		7. Eject Receipt
+		8. Eject Card
+	3. Bank System
+		1. No Card
+		2. Valid Pin
+		3. Invalid Pin
+		4. Account Valid
+		5. Amount Valid
+		6. Amount Invalid
+		7. Account Invalid
+3. Transfer the above to timing diagram
+
+	![UML-Timing-Diagram-Cheat-Sheet](UML-Timing-Diagram-Cheat-Sheet.png)
+
+	1. bottom has increments of time (seconds say)
+	2. First column: Participant - name:class
+		1. Next column: states
+		2. Line diagram:
+			1. Insert Card triggers Receive Card in Card Reader
+				1. Receive Card to Card Valid (constraint can be placed)
+
+									   |{3s}| (t for relative time)
+										 | |
+						Card Valid		  /
+						Receive Card  ___/
+
+				2. Arrow that shows that an event triggering a state change
+4. Different types of constraints
+	1. {t}: Same as value of t
+	2. {3t}: 3 of time unit
+	3. {<3t}: less than 3
+	4. {>3s, <6s}: Greater than 3, Less than 6
+	5. {t..t*3}: Up to 3 times t
+	6. {3t..6t}: 3 to 6 t
+5. Description: similar to other diagrams
+6. Alternative timing diagram (conserves space)
+	1. Diamond like polygons
+
 ## UML 2.0 Component Diagrams ##
+1. Examples:
+
+	![UML-Component-Diagram-Cheat-Sheet](UML-Component-Diagram-Cheat-Sheet.png)
+
+2. Component diagram
+	1. For showing re-usable pieces of code
+	2. Components are combined to show the who program
+	3. Components perform operations, interact with classes and implement interfaces ... (more than a regular class)
+	4. Components must communicate through interfaces (loosely coupled and easily swappable)
+		1. Interfaces
+
+					LanguageIn					    LanguageOut
+				)-------------| <<Component>>	   |---------------o
+							  | LanguageTranslator |
+
+			1. LanguageIn (language input is required for component to function)
+				1. )--- : required interface
+				2. ---o : provided interface
+
+	5. Another representation
+
+			|	<<interface>>		  |		|	<<interface>>   |
+			|	  LanguageIn		  |		|	 LanguageOut    |
+			|_________________________|		|___________________|
+			|+setResult				  |		|+getResult():String|
+			|(String toTranslate):void|		|___________________|
+						 ^						  /_\
+						  \	(dependency arrow)	  / (realization arrow not required)
+						   \| <<Component>>  	|/
+							| LanguageTranslator|
+
+	6. Another representation
+
+			|	<<Component>>	     |
+			|   LanguageTranslator   |
+			|________________________|
+			| <<provided interfaces>>|
+			| LanguageOut			 |
+			|________________________|
+			| <<required interfaces>>|
+			| LanguageIn			 |
+			|________________________|
+			| <<artifacts>>			 | (files/ databases/datasheets)
+			| TranslationLookup		 |
+			|________________________|
+
+	7. Another representation (combining components)
+
+			|<<Component>>| --o - ->)---|<<Component>>| --o- ->)--|<<Component>>|
+												         (assembly connectors)
+
+3. Component: Combination of classes that do something pretty big
+4. Showing classes inside components:
+
+				 _____________________________________
+				|<<Component>>					      |
+				|LanguageTranslator				      |				|  ____________ 		  __________  |
+		)-------| |StrToConvert|---------|IndivWords| |---------o
+				|_____________________________________|
+
+	1. StrToConvert, IndivWords - classes (realizations) and how they are going to interact
+	2. Another way: Outside component
+	3. Another way: 
+
+				<<realizations>>
+				StrToConvert, IndivWords
+
+5. Ports
+	1. Port can shoot out different languages (GermanOut, SpanishOut)
+		1. Interface: LanguageOut
+	2. Delegation connectors: Arrows inside component (Shows flow inside component)
+6. Relationship arrows:
+	1. Inheritance: Implements of Extends "Is a"
+
+			<|----------
+
+	2. Dependence: Class depends on something, but it isn't a member of the class "Uses a"
+
+			<- - - - - -
+
+	3. Associations: Class contains a reference to another class "Has a"
+
+			<-----------
+
+	4. Aggregation: Class is a container for other classes, but if the container is destroyed the contained is not "Owns a"
+
+			<>----------
+
+		1. SportsTeam (if destroyed) - Player (would not be destroyed)
+
+	5. Composition: Class is a container for other classes and if the container is destroyed the contained is also "Part of"
+
+			<f>---------
+		
+		1. Window (if destroyed) - Component (destroyed)
+7. Composite structure
+	1. How objects work together (shows how pieces inside class work together)
+					
+										Connector
+									  1			 1
+			| |prodDesc: Description |------------| prodPic: Picture | |
+							\					    /
+						|   attachedFile: UserGuide    |
+ 
+						   Company : compName : String
+
+		1. <rollname> : <type of object>
+		2. Number of instances of the object - upper right corner (multiplicity)
+			1. `1..3`
+		3. Connectors - numbers on both ends - shows how many instances match up with other instances - each prod description would have one picture
+			1. Another
+
+					prodPic: Picture[1..3]
+
+		4. Properties: dashed boxes (attachedFile: UserGuide)
+		5. Singular instance: Company : compName : String (shared by every product)
+	2. Ports:
+		1. Similar to component diagram
+			1. Interface names
+			2. Port names
+	3. Collaborations: Shows how objects collaborate together to accomplish said tasks
+		1. Roles of objects may change in an application so collaboration diagram shows changing specific tasks that objects will have through the use of the system
+
+				| products : Product |---------| display : ProdList |
+
+									Show Products (what task is done through the collaboration)
+		2. Alternative:
+						
+						 _ _ _ _ _ _ _ _
+						( Show Products )
+				products/				\display
+				|  	Product 		|	|	ProdList       |
+				| +getProductInfo()	|	|+putProdOnScreen()|
+
 ## UML 2.0 State Machine Diagrams ##
+1. State machine diagrams and Package diagrams
+	1. State machine diagram
+		1. State
+		2. Transition arrow
+		3. Event (eject card) - triggers state changes
+2. Example:
+
+	![UML-State-Machine-Diagram-Cheat-Sheet](UML-State-Machine-Diagram-Cheat-Sheet.png)
+
+3. Table format:
+
+		State / Trigger | Card Entered | Eject Card |
+		No Card			| Has Card	   |    - 	    |
+		Has Card		|      -	   | No Card    |
+
+4. Initial State
+5. Final State
+6. Behavior: tells what is going on in the system when the system is in that state
+
+				Verify Funds (state)
+			------------------------
+			do/verify checking funds
+
+7. Transition arrows with description:
+	1. List trigger first
+	2. Then guard statement (boolean statement)
+		1. [request <= funds avial]
+		2. [card valid]
+	3. Finally transitional behavior (behavior that occurs as we transition to the next state)
+		1. Pass Request Amt (passing value)
+
+				Request [request <= funds avail] / Pass Request Amt
+
+8. State internal behavior (Actions performed when in the state)
+	
+			  Verify Card
+		-------------------------
+		entry / receive card
+		do / check if cards valid <----- Internal behavior
+		exit / informt cust.
+		- - - - - - - - - - - - - 
+		[card valid] / tell cust. <----- Internal Transitions
+
+	1. entry: what happens when we reach this state
+	2. exit: what happens at the end of the behavior (do not change the state)
+	3. [card valid] / tell cust. : behavior that does not change the state
+		1. Internal transition
+
 ## UML 2.0 Deployment Diagrams ##
