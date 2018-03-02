@@ -234,7 +234,7 @@
 	1. Step into Java system classes
 	2. Debug to learn about object references and equals methods
 2. Debugging into Java System Classes
-	1. Attaching source code allows us t browse source code but not debug into source code
+	1. Attaching source code allows us to browse source code but not debug into source code
 	2. To debug into Java classes, need special version of Java Runtime Engine (JRE)
 	3. Included with JDK 6 download (`jdk1.6.0\jre`)
 	4. Need to configure Eclipse to use this special JRE (Which is in JDK)
@@ -249,3 +249,15 @@
 
 ## Lesson 7 ##
 1. Use debugger to look at recursive method
+2. Recursive method: calls itself
+	1. Something should be changing inside otherwise we may loop infinitely
+3. Steps:
+	1. Put method breakpoint
+	2. Debug FactorialTest.java
+	3. Watch parameters
+	4. Look at the stack frames
+4. Recursion process:
+	1. Add stack frames for each method call until method stops calling itself
+	2. Return result from top frame to one below. remove top stack, and continue returning results until back to original calling method.
+5. Drop to frame:
+	1. We can select a stack frame and click drop to frame (we lose top frames)
