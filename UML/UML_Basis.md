@@ -635,6 +635,7 @@
 				| +getProductInfo()	|	|+putProdOnScreen()|
 
 ## UML 2.0 State Machine Diagrams ##
+### State Machine Diagrams ###
 1. State machine diagrams and Package diagrams
 	1. State machine diagram
 		1. State
@@ -663,6 +664,7 @@
 	2. Then guard statement (boolean statement)
 		1. [request <= funds avial]
 		2. [card valid]
+		3. [request > funds avial]
 	3. Finally transitional behavior (behavior that occurs as we transition to the next state)
 		1. Pass Request Amt (passing value)
 
@@ -682,5 +684,124 @@
 	2. exit: what happens at the end of the behavior (do not change the state)
 	3. [card valid] / tell cust. : behavior that does not change the state
 		1. Internal transition
+9. Example:
+
+		[card valid] / Ask for Valid Card		[PIN <> Correct PIN] / Ask for Valid PIN
+		|-------|				           	    |-----|
+		|	   \ /	 							|    \ /
+		|	Card Entered		PIN Entered		Card Entered     Request Funds
+		--- --------------- ------------------> --------------- ---------------> Process Funds 
+			do/ verify card						do/ verify card
+
+	![state_machine_diagram_example_1](state_machine_diagram_example_1.jpg)
+
+	![complex_state_example_1](complex_state_example_1.jpg)
+	
+	1. Internal transitions: happen internally but do not force us to leave the state
+	2. Internal behavior: 
+			1. `entry/ receive card` - what is going to happen when we enter the state
+			2. `do/ check if card is valid` - internal processing
+			3. `exit/ inform cust` - End action before proceeding with external transition
+
+10. Composite states: Two or more states active at a time
+
+	![composite_state_example_1](composite_state_example_1.jpg)
+
+	1. Regions exist
+	2. Preference: Draw two arrows out from each substate and fork them together or fork from into two arrows to the substates
+11. Choice Pseudostates: conditional transition - goes to onse state if a condition is met or goes to another state if not
+
+	![choice_pseudostates](choice_pseudostates.jpg)
+
+12. Diagramming Signals
+
+	![state_machine_receiver_sender_example_1](state_machine_receiver_sender_example_1.jpg)
+
+	1. Receiver: Trigger for the transition (when this signal occurs, the transition happens)
+	2. Sender: sends signal (when this signal is initiated, the transition happens)
+
+### Package Diagrams ###
+1. Packages group similar classes
+2. Package diagram shows dependencies between classes
+3. Simple package diagram
+
+	![package_diagram_example_1](package_diagram_example_1.jpg)
+
+4. Package with content
+
+	![package_diagram_package_with_content](package_diagram_package_with_content.jpg)
+
+5. Package inside package
+
+	![package_diagram_package_inside_package](package_diagram_package_inside_package.jpg)
+
+6. Package with reverse domain
+
+	![package_diagram_reverse_domain](package_diagram_reverse_domain.jpg)
+
+7. Class diagram with package name
+
+	![class_diagram_with_package_name](class_diagram_with_package_name.jpg)
+
+8. If one package depends on another package
+	1. Draw a dependency arrow to the dependent package from the depending package
+		1. Import
+		2. Import class from another package
+		3. Merge - for merging [related] packages into a single package
+		4. Access - for imported package to have private visibility
+
+	![package_dependencies](package_dependencies.jpg)
 
 ## UML 2.0 Deployment Diagrams ##
+1. Node - Hardware node
+	1. Hardware piece
+	2. Executable environment (Software application)
+
+		![execution_environment](execution_environment.jpg)
+			
+			 /-------------\
+			|\_____________/|
+			|  <<database>>	|
+			|   MySQL 5.5	|
+			\_______________/
+
+			<<database>>
+			{OS=Linux
+			vendor=MySQL
+			version=5.5}
+
+2. Depends on who uses them and how diagrams help build systems
+
+	![deployment_diagram_individual_servers](deployment_diagram_individual_servers.jpg)
+
+3. Node communication lines (line with label)
+
+	![node_communication_lines](node_communication_lines.jpg)
+
+	1. lines should just describe "how" the nodes communicate (not specific messages, ...)
+	2. Software is modelled as artifact: To model as software inside a piece of hardware
+	3. Artifact inside node
+
+		![artifact_inside_node](artifact_inside_node.jpg)
+
+4. Deployment diagram used to communicate how system is to be designed
+5. Dependency arrows:
+
+	![package_diagram_dependencies](package_diagram_dependencies.jpg)
+
+6. Relationship between software and component
+
+	![deployment_diagram_manifest](deployment_diagram_manifest.jpg)
+	
+	1. Manifest: to implement a component
+	2. Component(s): define requirements for software deployed to hardware
+7. Deployment specifications
+	1. Artifacts describing how another artifact is associated with a node
+
+	![deployment_specification](deployment_specification.jpg)
+
+9. ATM machine deployment diagram example:
+
+	![UML-Deployment-Diagram-Cheat-Sheet](UML-Deployment-Diagram-Cheat-Sheet.png)
+		
+	

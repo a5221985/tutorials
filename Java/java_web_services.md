@@ -816,41 +816,375 @@
 
 		public interface PassengerService {
 			List<Passenger> getPassengers();
-			Passenger addPassenger();
+			Passenger addPassenger(Passenger passenger);
 		}
 
 3. com.bharath.restws.PassengerServiceImpl
 
 ### Implement the REST layer ###
+1. Implementation
 
+		@Service // Spring
+		public class PassengerServiceImpl implements PassengerService {
+			List<Passenger> passengers = new ArrayList<>();
+			int currentId = 123;
+
+			@Override
+			public List<Passenger> getPassengers() {
+				return passengers;
+			}
+
+			@Override
+			public Passenger addPassenger(Passenger passenger) {
+				passenger.setId(currentId++);
+				passengers.add(passenger);
+				return passenger;
+			}
+		}
+
+2. Passenger.java
+
+		@XMLRootElement
+		public class Passenger {
+
+		}
+
+3. PassengerService
+
+		@Path("/passengerservice")
+		@Produces("application/xml")
+		@Consumes("application/xml")
+		public interface PassengerService {
+			@Path("/passengers")
+			@GET
+			List<Passenger> getPassengers();
+
+			@Path("/passengers")
+			@POST
+			Passenger addPassenger(Passenger passenger);
+		}
 
 ### Test the Passenger Service ###
+1. Example:
+
+		GET localhost:8080/restinjection/services/passengerservice/passengers
+
+	1. application.properties
+
+			cxf.jaxrs.component-scan=true
+	
+			server.context.path=/restinjection
+
+2. Example: Add passenger
+
+		POST localhost:8080/restinjection/services/passengerservice/passengers - application/xml
+
+		<passenger>
+			<name>Bob</name>
+		</passenger>
+
+		GET localhost:8080/restinjection/services/passengerservice/passengers
+
 ### Use @QueryParam ###
+1. Paging:
+
+		@Override
+		public List<Passenger> getPassengers(int start, int size) {
+			// ...
+		}
+
+2. Interface
+
+		List<Passenger> getPassengers(@QueryParam("start") int start, QueryParam("size") int size);
+
+3. Example:
+
+		localhost:8080/restinjection/services/passengerservice/passengers?start=1&size=25
+
 ### Use @FormParam ###
+1. Example:
+
+		Override
+		public void addPassenger(String firstName, String lastName) {
+			// ...
+			System.out.println(firstName);
+			System.out.println(lastName);
+		}
+
+	1. Interface
+
+			@Consumes("application/xml, application/x-www-form-urlencoded")
+			...
+
+			void addPassenger(@formParam("firstName") String firstName, @formParam("lastName") String lastName)
+
+2. Testing
+
+		localhost:8080/restinjection/services/passengerservice/passengers?start=1&size=25
+
+		x-www-form-urlencoded
+
+		firstName: Bharath
+		lastName: Thippireddy
+
 ### Use @HeaderParam ###
+1. Example: agent
+
+		void addPassenger(..., @HeaderParam("agent") String agent);
+
+		public void addPassenger(..., String agent) {
+			// ...
+			System.out.println(agent);
+		} 
+
+2. Testing:
+
+		Headers:
+		agent: United Airlines
+
 ### Use @Context ###
+1. We can read all the fields coming at once using `HttpHeaders`
+
+		void addPassenger(..., @Context HttpHeaders headers);
+
+		void addPassenger(..., @Context HttpHeaders headers) {
+			// ...
+			MultivalueMap<String, String> allHeaders = headers.getRequestHeaders();
+			Set<String> headerKeys = allHeaders.keySet();
+			for (String key: headerKeys) {
+				System.out.println(key);
+				System.out.println(headers.getHeaderString(key));
+			}
+		}
+
 ### Read Cookies ###
+1. HttpHeaders object has the cookies
+
+		Map<String, Cookie> cookies = headers.getCookies();
+		Set<String> cookieKeys = cookies.keySet();
+		for (String eachCookieKey: cookieKeys) {
+			System.out.println("---------- Cookies ----------");
+			System.out.println(eachCookiesKey);
+			System.out.println(cookies.get(eachCookiesKey).getValue());
+		}
+
+2. PostMan:
+	1. Cookies
+	2. Add Cookie
+	3. New key-value pair
+
 ### Section Summary ###
+1. `@PathParam` - to retrieve value of URI
+2. `@QueryParam`
+3. `@HeaderParam`
+4. `@CookieParam` - cookie injection
+5. `@FormParam`
 
 ## Asynchronous REST ##
 ### Introduction ###
+1. Synchronous:
+	1. Client sends request
+	2. Client waits for response
+	3. Server sends 200 response
+	4. Client processes the response
+2. Asynchronous:
+	1. Example: ATM, Bank Teller, Account Holder Mobile, Check Processor
+		1. Bank Teller sends checks to Check Processor (for processing) - asynchronous (by spawning multiple threads)
+			1. Immediately Check processor sends 202 (acceptance of request)
+			2. Check processor sends 200 response to client
+	2. Asynchronous RESTful Provider/Server
+	3. Asynchronous RESTful Client API
+		1. Method:
+			1. Polling - checks frequently if request has been processed
+			2. Callback - methods will be called when response comes (JAX-RS 2.0) back
+3. Implementation of Provider:
+	1. `@javax.ws.rs.container.Suspended`
+	2. `javax.ws.rs.container.AsyncResponse`
+4. Implementation of Client
+	1. `javax.ws.rs.client.AsyncInvoker`
+	2. `java.util.concurrent.Future` - to process response asynchronously
+	3. `javax.ws.rs.client.InvocationCallback` - to implement callback on client side
+
 ### Creation of the Async REST project ###
+1. New spring starter project: restwsasync
+	1. Description: Patient REST Async Services
+	2. `Apache CXF JaxRS`
+2. application.properties
+
+		cxf.jaxrs.component-scan = true
+		server.context-path=/restwsasync
+
 ### Creation of the Java classes ###
+1. Model class: `Check` (`com.bharath.restws.model`)
+
+		public class Check {
+			private String checkNumber;
+			private String accountNumber;
+			private Double amount;
+
+			// getters and setters
+		}
+
+2. Interface: CheckProcessor
+
+		@Path("/checkprocessingservice")
+		public interface CheckProcessor {
+			@POST
+			@Path("/checks")
+			public Boolean processChecks(ChecksList checksList);
+		}
+
+		package com.bharath.restws.model;
+
+		public class ChecksList { // Wrapper Class
+			private List<Check> checks;
+
+			// getter and setter
+		}
+
+		pubic class CheckProcessorImpl implements CheckProcessor {
+			@Override
+			public class CheckProcessorImpl implements CheckProcessor {
+				return null;
+			}
+		}
+
+		@XMLRootElement
+		public class ChecksList {
+			// ...
+		}
+
 ### Implement the Async method ###
+1. CheckProcessorImpl.java
+
+		@Override
+		public void processChecks(AsyncResponse response, ChecksList checksList) {
+			// logic
+			response.resume(true); // returns asynchronously
+		}
+
+		public void processChecks(@Suspended AsyncResponse response, ...); // the method should be asynchronous - CXF finds it out
+
 ### Use Threads ###
+1. Multiple threads
+
+		@Override
+		public void processChecks(AsyncResponse response, ChecksList checksList) {
+			// logic
+			new Thread() {
+				public void run() {
+					// processing
+					response.resume(true);
+				}
+			}.start();
+		}
+
 ### Creation of the client project ###
+1. New Spring startup project
+	1. pom.xml
+
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-rs-client</artifactId>
+				<version>3.2.1</version>
+			</dependency>
+
 ### Creation of the client class ###
+1. com.bharath.restws.client.CheckProcessingClient
+
+		public static void main(String[] args) {
+			Client client = ClientBuilder.newClient();
+			WebTarget target = client.target("http://localhost:8080/restwsasync/services/checkprocessingservice/checks");
+			AsyncInvoker invoker = target.request().async();
+
+			Future<Boolean> post = invoker.post(Enity.entity(new ChecksList(), MediaType.APPLICATION_XML), Boolean.class); // polls service for response to come back
+			try {
+				System.out.println(response.get()); // polls and waits
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				e.printStackTrace();
+			}
+			
+		}
+
 ### Run the Test ###
+1. CheckProcessorImpl.java
+
+		@Service
+		public class CheckProsessorImpl implements CheckProcessor {
+			// ...
+		}
+
 ### Throwing Exceptions ###
+1. CheckProcessorImpl.java
+
+		if (checksList == null || checksList.getChecks() == null || checksList.getChecks().size() == 0) {
+			response.resume(new BadRequestException()); // asynchronously throws exception
+		}
+
 ### Handling exceptions in the client ###
+1. CheckProcessingClient.java
+
+		} catch (ExecutionException e) {
+			if (e.getCause() instanceof BadRequestException) {
+				BadRequestException bre = (BadRequestException) e.getCause();
+				System.out.println("Please send a valid list of checks");
+			}
+		}
+
 ### Section Summary ###
+1. Client sends a request
+2. Provider sends 202 header
+3. Provider sends 200 response or 4xx response
+4. JAX-RS 2.0 provides Provider and Client
+	1. Client: Polling or Callback
+		1. `AsyncInvoker` - used to do polling
+		2. `InvocationCallback` - write our own callback
+		3. `Future` - used to handle async response
+	2. Provider: `@Suspended` - used to mark object of type `AsyncResponse` (used to send asynchronous response back to client)
+	
 
 ## Securing REST Web Services ##
-### HTTP Basic Authentiction ###
+### HTTP Basic Authentication ###
+1. It is part of HTTP standard (used by client and server to exchange authentication information in headers in a standard manner)
+	1. Works across platforms and languages
+2. Configuration: Refer to configuring-Basic-Security.rtf
+	1. Configuring security constraint
+		1. open `web.xml` under `WEB-INF`
+		2. Paste `<security-constraint>` and `<login-config>`
+			1. Security constraint: Used to specify constraints we want
+				1. `/*` - any uri pattern should be secure
+					1. `/*.html` - secures only html pages
+				2. `<http-method>` - to which method the security is applicable (`GET`, `PUT`, `POST`, `DELETE`)
+				3. `<auth-constraint>` - defines the role which use must have to access the endpoint(s)
+					1. Role: Defined in Tomcat's `tomcat-users.xml` (`conf` directory)
+						1. `<role rolename="tomcat"/>`
+						2. `<user username="tomcat" password="tomcat" roles="tomcat"/>`
+			2. `<login-config>` - what method of authentication are we using - `BASIC`
+	2. Run the app:
+		1. As soon as web app launches, browser prompts for basic authentication (browser also implements basic authentication)
+		2. If browser is closed and cache cleared, browser prompts again for basic authentication
 
 ## REST and Spring Security ##
 ### Introduction ###
+1. RESTful e-commerce website - handles products for customers
+	1. `getProducts` - user
+	2. `addProduct` - admin
+
+			/products
+
+			@GET
+			@POST
+
+2. Spring security
+	1. Authentication
+	2. Authorization
+
 ### Project Setup ###
+1. `spring-security-config` - dependency in pom
+2. `spring-security-web` - dependency in pom
+
 ### Implementing REST Resources ###
 ### Publishing the Endpoint ###
 ### Test REST ###
