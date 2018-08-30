@@ -1,17 +1,116 @@
 # Java Web Services #
 ## Software Setup and Troubleshooting ##
-### Installing Java, Eclipse and Tomcat ###
-### Configuring Tomcat in Eclipse ###
-### Testing Tools Setup ###
-### Downloading Projects from Lecture Contents ###
-### Importing and Running Projects ###
+### Install Java ###
+### Spring Tool Suite Installation ###
+### Configuring JDK in Spring Tool Suite ###
+### Install Postman ###
+### Download the completed projects ###
+### Install SoapUI ###
+1. Free open source tool to test SOAP webservices
+	1. Download soapui (free version)
+2. Open SOAPUI
+
 ### Troubleshooting ###
+1. Maven related errors
+	1. goto `.m2` folder
+2. Run `mvn clean`
+3. `mvn install` should install all dependencies afresh
+4. Run Maven > Update Project in Eclipse
+
+### Lecture Notes for download ###
+1. Download Java Web Services
+
+### If you want to Skip to REST Web Services ###
+1. Order for only RESTFul web services
+	1. Software Setup
+	2. Install everything except SOAPUI
+	3. XML and XML Schema Definition Crash Course (optional)
+	4. Apache CXF
+	5. Section 16 to the end
 
 ## Web Services - The Big Picture ##
 ### Course Introduction ###
+1. Refresh by refering to lectures once a week
+
 ### Web Services Introduction ###
+1. Topics:
+	1. What are web services?
+	2. Two types of web services
+	3. Java Standards for the types
+2. What?
+	1. Web services are client server/ consumer provider apps that communicate over the network through HTTP protocol and exchange messages/data in various formats
+	2. Advantages:
+		1. Interoperability: Software apps developed in different programming languages can communicate with each other (even if running on different platforms)
+		2. Loosely Coupled: Two or more apps can communicate in loosely coupled fashion
+			1. Any app can replace the other if the web services standard is maintained
+		3. Extensibility: We can integrate different apps easily
+			1. Web service producers can expose services, and consumers can come up with logic to consume the services
+		4. Mashups: Mashup apps can consume web services from multiple applications
+3. Types:
+	1. SOAP
+		1. XML based messages over HTTP POST request
+	2. RESTFul:
+		1. All HTTP methods can be used
+		2. Multiple data formats are supported
+4. Tools for SOAP and RESTFul web services:
+	1. JAX-WS: SOAP web services API
+	2. JAX-RS: RESTFul web services API
+		1. Java API for RESTFul web services
+
 ### SOA and Web Services ###
+1. Topics:
+	1. What is SOA?
+		1. Collection of architectural principles to design and implement software apps in such a way that they are composed of several software services that have simple well defined interfaces and that can use each other in a loosely coupled manner
+		2. Maintained by W3C and OASIS (architectural principles)
+			1. We can use them in Web services
+		3. SOA has two roles
+			1. Consumer
+			2. Provider
+				1. Can be consumer of another service
+		4. Example:
+			1. SOA definition:
+				1. Service: Implementation of business logic that operates in independence of state of another service
+			2. Appointment management consumes Patient service and Doctor Service
+			3. Doctor service consumes Clinical service
+			4. Clinical service consumes Patient service
+			5. Patient service consumes Bed management service
+		5. Contract should be intect
+			1. SOAP: WSDL
+			2. REST: WADL
+		6. SOA data format:
+			1. XML: It has data + metadata (what to do with that data)
+	2. Who uses SOA?
+	3. Why SOA?
+	4. Why Web Services? Implements SOA principles
+2. Advantages of SOA:
+	1. Platform independence
+	2. Focussed developer roles (per service)
+	3. Loosely coupled
+	4. Reusability (google mail, drive, docs)
+		1. Cost reduction
+	5. Scalability
+		1. If user base grows, we can deploy the services in multiple servers
+	6. Availability
+		1. More reliable because a server going down does not bring down services
+	7. Interoperability
+
 ### Section Summary ###
+1. Web services are consumer and provider applications that can be written in multiple languages running on different platforms which can communicate with each other
+	1. HTTP
+	2. XML
+2. Advantages:
+	1. Interoperability
+	2. Loosely Coupled
+	3. Extensibility
+	4. Mashups
+3. Two types of Web services:
+	1. SOAP
+		1. JAX-WS
+	2. REST
+		1. JAX-RS
+4. SOA: Architectural principles
+	1. Service: Implementation of business logic that operates on its own
+	2. Web services is one of ways in which SOA can be implemented
 
 ## XML and XML Schema Definition Crash Course ##
 ### Introduction ###
@@ -55,10 +154,170 @@
 
 ## Apache CXF ##
 ### Introduction ###
+1. Tools used to develop web services
+	1. Java Stacks:
+		1. Apache CXF (popular)
+		2. Apache AXIS
+		3. METRO
+		4. WebLogic
+		5. Web Sphere
+	2. .Net Stacks:
+		1. WCF
+
 ### Apache CXF Overview ###
-### Creation of CXF Web Service Project from Scratch ###
-### CXF Maven Web Application Project Structure and Components ###
+1. Popular Webservices stack in Java
+	1. Web services stack/engine provides with various tools to build and run web services
+		1. Developers can focus on business logic
+	2. CXF:
+		1. Implements both JAX-WS and JAX-RS standards
+		2. Can be used build producers and consumers
+		3. Comes with SOAP/REST Engine
+			1. Serializes and De-Serializes messages back and forth to Java objects
+			2. Publishes and dispatches request to service endpoint
+				1. XML <- SOAP/REST Engine -> Java Object <-> WS Endpoint Method
+		4. Implements almost all web service standards (just configuration is required using configuration files)
+			1. WS-Security
+			2. WS-Policy
+			3. WS-Transactions
+			4. ...
+		5. Tools
+			1. `wsdl2java` - generates code from WSDL code
+				1. Used to generate WS client using stubs generated
+			2. `java2wsdl` - code first development
+		6. Plugins for ant and maven
+			1. Include tools as ant tasks or maven plugin
+		7. Uses Spring Configuration to configure web services endpoints and other features
+			1. Annotations or config file
+		8. Interceptors or Handlers can be used to extend CXF (custom code)
+		9. Documentation and Samples
+		10. [http://cxf.apache.org/](http://cxf.apache.org/)
+
+### CXF and Spring Boot ###
+1. Add cxf spring boot dependency
+	1. When project gets created
+		1. `cxf-spring-boot-starter-jaxrs`
+			1. other jar files for RESTFul services and SOAP services are installed
+	2. Publishing RESTFul endpoints very easy
+		1. `application.properties`
+
+				cxf.jaxrs.component-scan=true
+				
+			1. Endpoints are automatically discovered and published
+			2. Web application context
+
+					server.context-path=/restws
+
+### Spring Boot ###
+1. Easy way to build Java apps
+	1. [Spring Framework in Easy Steps](https://www.udemy.com/springframeworkineasysteps/): Section 25
+
+### Creation of SOAP Project ###
+1. Open STS
+	1. Name: hellowebservice
+	2. Group: com.bharath.ws.soap
+	3. Description: Hello SOAP Service
+	4. Package: same as Groupname
+2. `pom.xml`
+	1. Search for `cxf spring boot jax ws maven dependency`
+	2. Pick latest version
+	3. Copy to `<dependencies>` section
+
+### Creation of Endpoint ###
+1. Right click on Package > New > Class
+	1. `HelloWS`
+
+
+			@WebService
+			public class HelloWS {	
+			
+				@WebMethod
+				public String hello() {
+					return "hello";
+				}
+				
+			}
+
+### Creation of Configuration Class ###
+1. New Java Class > `com.bharath.ws.soap.config.WebServiceConfig`
+
+		import javax.xml.ws.Endpoint;
+		
+		import org.apache.cxf.Bus;
+		import org.apache.cxf.jaxws.EndpointImpl;
+		import org.springframework.context.annotation.Configuration;
+
+		@Configuration
+		public class WebServiceConfig {
+		
+			@Autowired
+			private Bus bus;
+		
+			@Bean
+			public Endpoint endpoint() {
+				Endpoint endpoint = new EndpointImpl(bus, new HelloWS()); // bus - CXF runtime
+				endpoint.publish("/hello");
+				return endpoint;
+			}
+		}
+
+### Run the Application ###
+1. Right click on project > Run as > Spring Boot Application
+2. Open **http://localhost:8080/services** (cxf feature - services are exposed here)
+	1. Click on link to open WSDL
+
+### Change the Web Application Context ###
+1. Webservices name configuration
+	1. `application.properties`
+
+			server.servlet.context-path=/hellows
+			cxf.path=/ # don't use /services
+
+2. Open **http://localhost:8080/hellows**
+
+### Test using SOAP UI ###
+1. Open SoapUI
+2. File > New Soap Project
+	1. Initial WSDL: Paste WSDL URL
+	2. Project Name: hellows
+3. Open and double click the request
+4. Hit play button
+
+### Enable Logging Feature ###
+1. CXF has logging feature to log in coming SOAP requests and outgoing SOAP responses to log file or console
+2. One `HelloWS` class
+
+		@Features(featurs = "org.apache.cxf.feature.LoggingFeature")
+		public class HelloWS {
+			...
+
+3. Run as Spring boot application
+4. Re-run test in SOAP UI
+
+### Using Spring Boot 2.x ###
+1. Spring Boot version: 2.x
+2. CXF: 3.2.4
+3. Search for `spring boot 2 starter maven` in Google
+	1. Copy the version and paste in spring starter version
+	2. Change to 3.2.4
+4. Open `.m2` and remove `repositories` folder
+5. Run `mvn clean`
+6. Run `mvn install`
+7. Run Maven > Update Project
+
+### Change the Context Property ###
+1. Open `application.properties`
+	1. Use `server.servlet.context-path` instead for `server.context-path`
+
 ### Section Summary ###
+1. CXF implements JAX-WS and JAX-RS
+2. Code first web services
+3. SOAP Engine to serialize and desarialize requests
+4. Dispatches requests to appropriate methods
+5. WS-* standards are implemented
+	1. Security
+	2. Attachments
+	3. ...
+6. It has huge user base, docs and samples
 
 ## Developing Top Down Web Services ##
 ### Usecase ###
@@ -1182,20 +1441,216 @@
 	2. Authorization
 
 ### Project Setup ###
-1. `spring-security-config` - dependency in pom
-2. `spring-security-web` - dependency in pom
+1. Download the sample project and open in eclipse
+	1. `spring-security-config` - dependency in pom
+	2. `spring-security-web` - dependency in pom
+2. Open **src/main/webapp/WEB-INF/web.xml**
+	
+		<context-param>
+			<param-name>ContextConfigLocation</param-name>
+			<param-value>
+				WEB-INF/beans.xml
+				WEB-INF/security.xml
+			</param-value>
+		</context-param>
+		<listener>
+			<listener-class>
+				org.springframework.web.context.ContextLoaderListener
+			</listener-class>
+		</listener>
+		
+3. Important files: **src/main/webapp/WEB-INF/beans.xml** and **src/main/webapp/WEB-INF/security.xml**
 
 ### Implementing REST Resources ###
+1. Open `ProductServiceImpl` class
+
+		public List<Product> getProducts() {
+			return products;
+		}
+		
+		public int addProduct(Product product) {
+			product.setId(++productId);
+			products.add(product);
+			return productId;
+		}
+		
+2. Open `ProductService` interface
+
+		@GET
+		@Path("/products")
+		List<Product> getProducts();
+		
+		@POST
+		@Path("/products")
+		int addProduct(Product product);
+
 ### Publishing the Endpoint ###
+1. Open **beans.xml**
+
+		<jaxrs:server id="productws" address="/productService">
+			<jaxrs:serviceBeans>
+				<ref bean="productService" /> <!-- for CXF -->
+			</jaxrs:serviceBeans>
+		</jaxrs:server>
+
+		<bean id="productService" class="com.bharaththippireddy.tranings.jaxrs.ProductServiceImpl" />
+
 ### Test REST ###
+1. Run As > Maven Clean
+2. Run As > Maven Install
+3. Run As > Run on Server (Tomcat)
+4. Install Advanced REST client in Chrome
+	1. Drop down
+	2. Extensions
+	3. Advanced REST client
+	4. Options
+	5. Request
+5. Goto HOWTO.txt in project
+	1. Paste URL in Chrome
+		1. Send GET request
+		2. Send POST request
+
 ### Spring Security Introduction ###
+1. Spring provides following services
+	1. Authentication
+	2. Authorization
+2. Spring provides security at the following levels
+	1. URL level
+	2. Method level
+	3. Object level
+3. Steps:
+	1. Add dependencies in `pom.xml`
+		1. `spring-security-core`
+		2. `spring-security-config`
+		3. `spring-security-web`
+	2. Add Filter: Spring uses Filter Servlet (`DelegatingFilterProxy`)
+		1. In `web.xml`
+	3. `SpringConfiguration.xml`
+
+			<global-method-security /> <!-- for enabling security annotations -->
+			<http /> <!-- what type of security -->
+			<AuthenticationManger /> <!-- For users and roles -->
+			
+	4. `@Security("ROLE_NAME")`
+		1. `ROLE_NAME`: That can access RESTful methods
+
 ### Add the filter to Web.xml ###
+1. Open Eclipse
+2. Open `pom.xml`
+
+		spring-security-core
+		spring-security-config
+		spring-security-web
+		
+		spring-security-taglib (for MVC)
+		
+3. web.xml
+
+		<filter>
+			<filter-name>springSecurityFilterChain</filter-name> <!-- This name is used by spring to kick in the default security framework - always used this name -->
+			<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		</filter>
+		<filter-mapping>
+			<filter-name>springSecurityFilterChain</filter-name>
+			<url-pattern>/*</url-pattern> <!-- Secure entire web app -->
+		</filter-mapping>
+
 ### Configure Spring Security ###
+1. **security.xml**
+
+		<security:global-method-security secured-annotations="enable" /> <!-- Enables spring security annotations on method level -->
+		
+		<security:http>
+			<security:http-basic /> <!-- Enables basic security -->
+		</security:http>
+		
+		<security:authentication-manager>
+			<security:authentication-provider>
+				<security:user-service> <!-- One of the services, others LDAP, JDBC ... -->
+					<security:user name="customer" password="customer" authorities="ROLE_CUSTOMER" />
+					<security:user name="admin" password="admin" authorities="ROLE_CUSTOMER,ROLE_ADMIN" />
+				</security:user-service>
+			</security:authentication-provider>
+		</security:authentication-manager>
+
 ### Annotate the Resources ###
+1. `ProductService`
+
+		@Secured("ROLE_CUSTOMER")
+		@GET
+		@Path("...")
+		...
+
+		@Secured("ROLE_ADMIN")
+		@POST
+		@Path("...")
+		...
+
 ### Testing Security ###
+1. Right click on project
+	1. `mvn clean`
+	2. `mvn install`
+2. Right click and Run on Server
+3. Open `http://localhost:8080/springsecurity/services` in browser
+	1. **wadl** url exists
+4. Open Advanced REST Client in chrome
+	1. Open HOWTO.txt and paste URL
+	2. Login using customer/customer credentials
+5. Select POST and paste
+
+		<Product>
+			<description>Hibernate</description>
+		</Product>
+		
+	1. Change to `application/xml`
+	2. `403` forbidden exception
+		1. Console throws `Access is denied` exception
+
+6. Another way to authenticate
+	1. Open **Form** in Chrome
+
+			Authorization (click on construct link)
+			
+		1. Enter credentials (basic authentication header is generated)
+
 ### Creating an Exception Mapper ###
+1. Right click on package: New > Class
+	1. Name: `SecurityExceptionMapper`
+	2. Implements: `ExceptionMapper`
+
+			import org.springframework.security.access.AccessDeniedException;
+
+			public class ... ExceptionMapper<AccessDeniedException> {
+				@Override
+				public Response toResponse(AccessDeiniedException arg0) {
+					return Response.status(Response.Status.FORBIDDEN).build();
+				}
+			}
+			
+2. **beans.xml**
+
+		<jaxrs:server ...>
+			<jaxrs:providers>
+				<bean class="com.bharaththippireddy.trainings.jaxrs.SecurityExceptionMapper" />
+			</jaxrs:providers>
+		</jaxrs:server>
+		
+3. Test adding product using customer credentials
+	1. Customer error message can be sent in body
+
 ### Summary and Flow ###
+1. Publish Endpoints
+2. Configure Spring Security
+	1. Configure dependencies
+	2. Configure delegating proxy filter (loaded when we start server because they are context parameters - loaded even before the servlets)
+	3. Enable security annotations
+	4. Configure Basic authentication and authorization
+	5. Define roles, usernames and passwords
+	6. Map methods to the roles
+3. Test in Chrome REST plugin
+
 ### Section Summary ###
+1. Configured method level security
 
 ## OAuth Concepts ##
 ### What is OAuth ###
@@ -1357,15 +1812,160 @@
 
 ## Jersey Quick Start ##
 ### Introduction ###
+1. Jersey is open source stack from Oracle
+	1. Official reference implementation of JAX-RS API
+	2. Similar to CXF
+	3. Uses SERVLET implementation
+	4. Implementation of JAX-RS Client API
+	5. Custom tools
+		1. Security
+			1. OAuth
+			2. ...
+		2. Wadl generation
+		3. Bean validation
+		4. ...
+2. [jersey.java.net](jersey.java.net)
+
 ### Project Configuration ###
-### Creation of a REST Resource ###
-### Creation of a REST Client ###
+1. Import project
+2. **pom.xml**
+
+		<dependencyManagement>
+			<dependencies>
+				<dependency> <!-- Manages versions -->
+					<groupId>org.glassfish.jersey</groupId>
+					<artifactId>jersey-pom</artifactId>
+					<version>${jersey-version}</version>
+					<type>pom</type>
+					<scope>import</scope>
+				</dependency>
+			</dependencies>
+		</dependencyManagement>
+		
+		<dependencies>
+			<dependency>
+				<groupId>org.glassfish.jersey.containers</groupId>
+				<artifactId>jersey-container-servlet-core</artifactId>
+			</dependency>
+		</dependencies>
+		
+3. **web.xml**
+
+		<servlet>
+			<servlet-name>Jersey Web Application</servlet-name>
+			<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+			<init-param>
+				<param-name>jersey.config.server.provider.packages</param-name>
+				<param-value>todo</param-value> <!-- scanned by jersey for endpoints -->
+			</init-param>
+			<load-on-startup>1</load-on-startup>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>Jersey Web Application</servlet-name>
+			<url-pattern>/restapi/*</url-pattern>
+		</servlet-mapping>
+
+### Creation of REST Resource ###
+1. New class: `com.bharath.trainings.jersey.MyResource`
+
+		@Path("/myresource")
+		public class MyResource {
+		
+			@GET
+			public String hello() {
+				return "Hello Jersey";
+			}
+			
+		}
+		
+2. Tell Jersey about the package name to scan
+	1. **web.xml**
+
+			<init-param>
+				<param-name>jersey.config.server.provider.packages</param-name> <!-- tells jersey the end points -->
+				<param-value>com.bharath.trainings.jersey</param-value>
+			</init-param>
+			
+3. `mvn clean install`
+4. Run as > Run on Server
+
+### Creation of REST Client ###
+1. Consuming REST Service
+2. New package: `com.bharath.trainings.jersey.client`
+3. New class: `com.bharath.trainings.jersey.client.MyClient`
+
+		public static void main(String[] args) {
+			Client newClient = ClientBuilder.newClient();
+			String result = client.target("http://localhost:8080/jerseyws/restapi/myresource").request().get(String.class);
+			System.out.println(result);
+		}
 
 ## REST Using Spring MVC Quick Start ##
 ### Introduction ###
+1. Features:
+	1. Spring JDBC
+	2. Spring Messaging
+	3. Spring ORM
+	4. Spring MVC
+	5. Spring REST
+		1. Does not use JAX-RS but its own standards
+			1. `@RequestMapping` instead of `@Path`
+			2. `@PathVariable` instead of `@PathParam`
+2. App with JSON Response using Spring 4.0
+
 ### Spring MVC Flow ###
+1. Client sends HTTP Request
+2. Front Controller (Dispatcher Servlet) receives the request
+3. Front Controller reads Handler Mappings or scans through all controller classes
+4. Controllers return JSON response to Client
+	1. If Web app, controller returns view name to Dispatcher servlet and Dispatcher servlet invokes view resolver to return view
+	2. In RESTful app, the above step is skipped
+
 ### Project Configuration ###
+1. Download springrest app and import into Eclipse
+2. **pom.xml**
+
+		spring-webmvc
+		jackson-core
+		jackson-annotations
+		jackson-databind
+		
+3. **web.xml**
+
+		<servlet>
+			<servlet-name>rest</servlet-name>
+			<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>rest</servlet-name>
+			<url-pattern>/*</url-pattern>
+		</servlet-mapping>
+		
+4. **rest-servlet.xml** (`<servlet-name>-servlet.xml`) - automatically searches by default
+	1. Alternative: provide context path
+
 ### Hello Spring REST ###
+1. New class: `com.bharathtippireddy.trainings.controller.MyController`
+
+		@RestController // 4.x version, @Controller in 3.x
+		@RequestMapping("/greeting")
+		public class MyController {
+		
+			@RequestMapping(value = "/{name}", method = RequestMethod.GET)
+			public String sayHello(@PathVariable String name) { // @ResponseBody is required for 3.x
+				return "Hello" + name;
+			}
+		}
+		
+2. `rest-servlet.xml`
+
+		<context:component-scan base-package="com.bharaththippireddy.trainings.controller" />
+		<mvc:annotation-driven /> <!-- spring looks for annotations -->
+		
+3. `mvn clean install`
+4. Run As >  
+
 ### Returning JSON Response ###
 
 ## Interview Help and Wrap Up ##

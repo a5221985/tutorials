@@ -1210,6 +1210,39 @@
 
 ### Animations ###
 
+##### Tracking dynamic values #####
+1. Animated values can track other values. 
+	1. `toValue` must be set to another animated value instead of plain number
+		1. Example: "Chat Heads" like messenger on Android can be implemented with `spring()` pinned on another animated value
+			1. `timing()` and `duration` of 0 for rigid tracking
+			2. Composed with interpolations
+
+					Animated.spring(follower, {toValue: leader}).start();
+					Animated.timing(opacity, {
+						toValue: pan.x.interpolate({
+							inputRange: [0, 300],
+							outputRange: [1, 0],
+						}),
+					}).start();
+
+				1. `leader` and `follower` animated values would be implemented using `Animated.ValueXY`
+					1. `ValueXY`: Good for 2D interactions (panning, dragging)
+						1. Wrapper for two `Animated.Value` instances and some helper functions
+
+##### Tracking gestures #####
+1. 
+
+##### Responding to the current animation value #####
+##### Using the native driver #####
+###### Caveats ######
+##### Bear in mind #####
+##### Additional examples #####
+
+#### `LayoutAnimation` API ####
+#### Additional notes ####
+##### `requestAnimationFrame` #####
+##### `setNativeProps` #####
+
 ### Accessibility ###
 
 ### Improving User Experience ###
@@ -1233,6 +1266,26 @@
 ### Building For TV Devices ###
 
 ### Running On Device ###
+1. Good to test app on real device before releasing to users
+2. Steps to release app
+	1. Eject and install native code dependencies from [Getting Started guide](https://facebook.github.io/react-native/docs/getting-started)
+
+#### Running your app on iOS devices ####
+##### Plug in your device via USB #####
+1. Connect iOS device to Mac using a USB to lightning cable
+2. Navigate to `ios` folder in the project and open `.xcodeproj` or if using CocoaPods open `.xcworkspace` within it using Xcode
+
+##### Configure code signing #####
+##### Build and Run your app #####
+
+#### Connecting to the development server ####
+##### Troubleshooting #####
+
+#### Building your app for production ####
+##### Enable App Transport Security #####
+##### Configure release scheme #####
+##### Configure app to use static bundle #####
+##### Build app for release #####
 
 ### Upgrading to new React Native versions ###
 
