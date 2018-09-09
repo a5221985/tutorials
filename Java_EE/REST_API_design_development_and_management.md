@@ -79,6 +79,9 @@
 		1. Vision:
 			1. A fully automated vacation ecosystem driven by ACME APIs
 				1. Architecture
+	2. Web talks to web backend using HTTP/XML
+	3. Mobile talks to mobile backend using HTTP/JSON
+	4. Data is stored in MySQL
 
 ### Tools for Design, Development, Testing and Management of REST API ###
 ### Crash Course on MongoLabs ###

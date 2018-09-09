@@ -1244,26 +1244,684 @@
 ##### `setNativeProps` #####
 
 ### Accessibility ###
+#### Native App Accessibility (iOS and Android) ####
+#### Making Apps Accessible ####
+##### Accessibility Properties #####
+###### accessible (iOS, Android) ######
+###### accessibilityLabel (iOS, Android) ######
+###### accessibilityTraits (iOS) ######
+###### accesibilityViewIsModel (iOS) ######
+###### accessibilityElementsHidden (iOS) ######
+###### onAccessibilityTap (iOS) ######
+###### onMagicTap (iOS) ######
+###### accessibilityComponentType (Android) ######
+###### accessibilityLiveRegion (Android) ######
+###### ImportantForAccessibility (Android) ######
+##### Checking if a Screen Reader is Enabled #####
+##### Sending Accessibility Events (Android) #####
+#### Testing VoiceOver Support (iOS) ####
 
 ### Improving User Experience ###
+#### Configure Test Inputs ####
+1. Challenge: Entering text on touch screen
+	1. Small screen
+	2. Software keyboard
+2. Solution: Configure text inputs based on what data is required
+	1. Focus first field automatically
+	2. Use placeholder text as example expected data format
+	3. Enable or disable autocapitalization and autocorrect
+	4. Choose keyboard type (e.g. email, numeric)
+	5. Make sure return button focuses the next field or submits the form
+3. Check `TextInput` [docs](https://facebook.github.io/react-native/docs/textinput): More config options
+4. [Try it out](https://snack.expo.io/H1iGt2vSW)
+
+#### Manage Layout When Keyboard is Visible ####
+1. Software keyboard takes almost half of the screen
+2. If interactive elements get covered by keyboard make sure they are accessible by using `KeyboardAvoidingView` [component](https://facebook.github.io/react-native/docs/keyboardavoidingview)
+3. [Try it out](https://snack.expo.io/ryxRkwnrW)
+
+#### Make Tappable Areas Larger ####
+1. Difficult press buttons on mobile phones
+2. All interactive elements are 44x44 or larger
+	1. Leave enough space for element
+		1. `padding`
+		2. `minWidth`
+		3. `minHeight`
+3. Make use of style
+4. Use `hitSlop` [prop](https://facebook.github.io/react-native/docs/touchablewithoutfeedback#hitslop)
+5. [Try it on phone](https://snack.expo.io/rJPwCt4HZ)
+
+#### Use Android Ripple ####
+1. Material design ripple is used
+	1. Gives feedback when you touch an interactable area
+	2. Exposed with `TouchableNativeFeedback` [component](https://facebook.github.io/react-native/docs/touchablenativefeedback)
+2. Better than opacity or highlight
+3. Note: Doesn't work on iOS or Android API < 21
+	1. Implement fallback logic
+	2. [react-native-platform-touchable](https://github.com/react-community/react-native-platform-touchable)
+4. [Try it on phone](https://snack.expo.io/SJywqe3rZ)
+
+#### Screen Orientation Lock ####
+1. Multiple screen orientations should work by default unless using `Dimensions` API
+2. We can lock screen to either portrait or landscape
+	1. iOS: General tab > Deployment Info section of Xcode, enable Device Orientation (iPhone must be selected from Devices menu when making changes)
+	2. Android: Open AndroidManifest.xml
+		1. Inside activity element, add one of
+
+				'android:screenOrientation="portrait"'
+				'android:screenOrientation="landscape"'
+
+#### Learn More ####
+1. Learn design for mobile platforms:
+	1. [Material Design](https://material.io/)
+	2. [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/)
 
 ### Timers ###
+1. Important
+2. React Native implements [browser timers](https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Timers)
+
+#### Timers ####
+1. `setTimeout`, `clearTimeout`
+2. `setInterval`, `clearInterval`
+3. `setImmediate`, `clearImmediate`
+4. `requestAnimationFrame`, `cancelAnimationFrame`
+5. Explanation
+	1. `requestAnimationFrame(fn)` vs `setTimeout(fn, 0)`
+		1. First one fires after all frame has flushed
+		2. Second one fires asap (over 1000x per second on iPhone 5S)
+	2. `setImmediate`
+		1. Executed at the end of current JS execution block (before sending batched response back to native)
+			1. If nested, inner `setImmediate` is executed immediately without yielding to native
+6. `Promise` uses `setImmediate` as its asynchronicity primitive
+
+#### InteractionManager ####
+1. For smooth feel, avoid expensive operations during interactions and animations
+	1. Limitation in React Native: Only single JS execution thread
+2. Solution: `InteractionManager` is used to schedule long running work is started after interactions/animations have completed
+3. Example:
+
+		InteractionManager.runAfterInteractions(() => {
+			// ...long-running sychronous task...
+		});
+		
+4. Other scheduling alternatives:
+	1. `requestAnimationFrame()`: for code that animates view over time
+	2. `setImmediate`/`setTimeout`/`setInterval`: run code later (may delay animations)
+	3. `runAfterInteractions`: run code later, without delaying active animations
+5. Interactions:
+	1. Active touch
+		1. `runAfterInteractions` is delayed until all touches have ended or cancelled
+6. An interaction 'handle' can be built on animation start (registering of animations)
+	1. Cleared upon completion
+
+			var handle = InteractionManager.createInteractionHandle();
+			// run animation... (`runAfterInteractions` tasks are queued)
+			// later, on animation completion:
+			InteractionManager.clearInteractionHandle(handle);
+			// queued tasks run if all handles were cleared
+
+#### TimerMixin ####
+1. Problem: Timers firing after component was unmounted
+	1. Solution: `TimerMixin`
+		1. If included, can replace calls to `setTimeout(fn, 500)` with `this.setTimeout(fn, 500)` (prepend `this.`)
+			1. Proper cleanup will be done when component unmounts
+2. Library is separate
+
+		npm i react-timer-mixin --save
+		
+		import TimerMixin from 'react-timer-mixin';
+		
+		var Component = createReactClass({
+			mixins: [TimerMixin],
+			componentDidMount: function () {
+				this.setTimeout(() => {
+					console.log('I do not leak!');
+				}, 500);
+			},
+		});
+		
+3. [there is no built-in API for mixins](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#mixins): No default ES6 support
+	1. Alternative: [react-mixin](https://github.com/brigand/react-mixin)
 
 ### Debugging ###
+#### Enabling Keyboard Shortcuts ####
+1. React Native supports keyboard shortcuts in iOS Simulator
+2. Enabling
+	1. Hardware menu > keyboard > check "Connect Hardware Keyboard"
+
+#### Accessing the In-App Developer Menu ####
+1. Shake device for developer menu or select "Shake Gesture" inside Hardware menu in iOS simulator
+	1. Command+D (iOS simulator) on Mac OS
+	2. Command+M (Android emulator) on Mac OS
+2. Android: `adb shell input keyevent 82` to open dev menu (disabled in release/production builds)
+
+#### Reloading JavaScript ####
+1. Instant reloading of JS code
+	1. "Reload" from Developer Menu
+	2. Command+R in iOS Simulator
+	3. R twice on Android emulators
+
+##### Automatic Reloading #####
+1. Reload app automatically when code changes
+	1. Select "Enable Live Reload" from Developer Menu
+2. [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html): App keeps running as and when files are injected into JS bundle automatically
+	1. Run full reload if there are issues
+3. Rebuild app for changes to take effect
+	1. New resources added to native app's bundle (image in `Images.xcassets` on iOS or `res/drawable` on Android
+	2. Modified native code (Objective-C/Swift on iOS of Java/C++ on Android)
+
+#### In-App Errors and Warnings ####
+1. Errors are displayed inside app in dev builds
+
+##### Errors #####
+1. In-app errors displayed in full screen alert with red background inside app.
+	1. The screen is RedBox
+	2. Use `console.error()` to manually trigger one
+
+##### Warnings #####
+1. Warnings displayed with Yello background
+	1. YellowBoxes
+		1. Click on alerts to show more info or dismiss
+2. `console.warn()`: to trigger `YelloBox`
+3. Disable YellowBoxes using
+
+		import {YelloBox} from 'react-native';
+		YellowBox.ignoreWarnings(['Warning: ...']);
+		
+	1. in Xcode, it can be disabled by setting `IS_TESTING` environment variable
+	2. RexBoxes and YelloBoxes Automatically disabled for release
+
+#### Chrome Developer Tools ####
+1. Select "Debug JS Remotely" from Developer Menu. This opens [http://localhost8081/debugger-ui](http://localhost8081/debugger-ui)
+2. **Tools** > **Developer Tools** in Chrome Menu to open [Developer Tools](https://developer.chrome.com/devtools)
+	1. command + alt + I
+	2. ctrl + shift + I
+3. [Pause on Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511)
+4. [Standalone version of React Developer Tools](https://facebook.github.io/react-native/docs/debugging#react-developer-tools)
+
+##### Debugging Using a Custom JavaScript Debugger #####
+1. Set `REACT_DEBUGGER` environment variable to a command that will start custom debugger
+	1. Select "Debug JS Remotely" from Developer Menu
+		1. Starts debugging
+2. Debugger will recieve list of all project roots separated by space
+
+		REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"
+		
+	1. Command starts debugger
+		1. It must be short lived process
+		2. Must not produce > 200 kB output
+
+#### React Developer Tools ####
+1. [Standalone version of React Developer Tools](https://github.com/facebook/react-devtools/tree/master/packages/react-devtools)
+	1. Used to debug React component hierarchy
+
+2. Installation
+		
+		npm install --save-dev react-devtools
+			
+		yarn add -dev react-devtools
+		
+3. Usage
+
+		react-devtools
+		
+	1. Add the following in `scripts` section in `package.json`
+
+			"react-devtools": "react-devtools"
+			
+	2. Run `npm run`
+	3. Supposed to connect to simulator within few seconds
+
+##### Integration with React Native Inspector #####
+1. Open in-app developer menu and choose "Show Inspector"
+	1. Any UI element can be tapped and we can see info about it
+2. If `react-devtools` is running, Inspector will neter special collapsed mode (DevTools is used instead as primary UI)
+3. Choose "Hide Inspector" to exit
+
+##### Inspecting Component Instances #####
+1. To inspect props and state in React Components
+2. Top left corner in Chrome console must say `debuggerWorker.js` in dropdown
+3. Select a React component in React DevTools (we can search by name on top search box)
+	1. `$r` represents the selected element
+		1. It's props, state and instance properties can be inspected
+
+#### Performance Monitor ####
+1. Select "Perf Monitor" in Developer Menu to enable performance overlay
+
+#### Debugging in Ejected Apps ####
+##### Projects with Native Code Only #####
+1. Only applicable to projects built with `react-native init` or with Create React Native App which have ejected.
+	1. [Ejecting](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)
+
+#### Accessing Console Logs ####
+1. Displaying console logs
+
+		react-native log-ios
+		react-native log-android
+		
+2. Alternative:
+	1. **Debug** > **Open System Log ...** in iOS simulator
+	2. `adb logcat *:S ReactNative:V ReactNativeJS:V` in terminal while Android app is running on device or emulator
+3. Consle logs appear if using Create React Native App
+
+#### Debugging on a Device with Chrome Developer Tools ####
+1. Already configured if using Create React Native App
+2. Open file `RCTWebSocketExecutor.m` and change **localhost** to IP address of computer, then select "Debug JS Remotely" from Developer Menu
+3. Android 5.0+: [adb commandline tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from device to computer
+
+		adb reverse tcp:8081 tcp:8081
+		
+	1. Alternative: "Dev Settings" from Developer Menu, update "Debug server host for device" setting to match IP address of computer
+
+##### Debugging with [Stetho](http://facebook.github.io/stetho/) on Android #####
+1. Enabling Stetho for Debug mode
+	1. In `android/app/build.gradle`, add the following in `dependencies` section
+
+			debugCompile 'com.facebook.stetho:stetho:1.5.0'
+			debugCompile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+			
+		1. Check [http://facebook.github.io/stetho](http://facebook.github.io/stetho/) for newer version
+2. Following Java classes wrap the Stetho call
+
+		// android/app/src/release/java/com/{yourAppName}/StethoWrapper.java
+		
+		public class StethoWrapper {
+			public static void initialize(Context context) {
+				// NO_OP
+			}
+			
+			public static void addInterceptor() {
+				// NO_OP
+			}
+		}
+		
+		// android/app/src/debug/java/com/{yourAppName}/StethoWrapper.java
+		public class StethoWrapper {
+			public static void initialize(Context context) {
+				Stetho.initializeWithDefaults(context);
+			}
+			public static void addInterceptor() {
+				final OKHttpClient baseClient = OkHttpClientProvider.createClient();
+				OkHttpClientProvider.setOkHttpClientFactory(new OkHttpClientFactory() {
+					@Override
+					public baseClient.newBuilder()
+						.addNetworkInterceptor(new StethoInterceptor())
+						.build();
+				});
+			}
+		}
+		
+3. Open `android/app/src/main/java/com/{yourAppName}/MainApplication.java
+
+		public void onCreate() {
+			super.onCreate();
+			
+			if (BuildConfig.DEBUG) {
+				StethoWrapper.initialize(this);
+				StethoWrapper.addInterceptor();
+			}
+			
+			SoLoader.init(this, /* native exopackage */ false);
+		}
+		
+4. Open project in Android Studio and resolve any dependency issues
+	1. Hover over red lines to resolve the issues
+5. Run `react-native run-android`
+6. In new Chrome tab, open: `chrome://inspect`
+	1. Click on 'Inspect device' item next to 'Powered by Stetho'
+
+#### Debugging Native Code ####
+1. We can launch native app from Android Studio or Xcode
+	1. The tools have native debugging features (setting up breakpoints ...)
 
 ### Performance ###
+1. React native can achieve 60 frames per second (as opposed to Web View) and native look and feel
+	1. React native is designed to take care of performance issues
+		1. Developer does not have to worry about performance optimization in general
+2. Problem: Few areas miss this
+3. Problem: A few areas need manual intervention
+4. Solution: [troubleshoot performance issues](https://facebook.github.io/react-native/docs/performance#profiling) and [common sources of problems and their suggested solutions](https://facebook.github.io/react-native/docs/performance#common-sources-of-performance-problems)
+
+#### What you need to know about frames ####
+##### UI frame rate (main thread) #####
+#### Common sources of performance problems ####
+##### Running in development mode (`dev=true`) #####
+##### Using `console.log` statements #####
+##### `ListView` initial rendering is too slow or scroll performance is bad for large lists #####
+##### JS FPS plunges when re-rendering a view that hardly changes #####
+##### Dropping JS thread FPS because of doing a log of work on the JavaScript thread at the same time #####
+##### Moving a view on the screen (scrolling, translating, rotating) drops UI thread FPS #####
+##### Animating the size of an image drops UI thread FPS #####
+##### My TouchableX view isn't very responsive #####
+##### Slow navigator transitions #####
+#### Profiling ####
+##### Profiling Android UI Performance with `systrace` #####
+###### Collecting a trace ######
+###### Reading the trace ######
+###### Find your process ######
+###### Resolving JavaScript issues ######
+###### Resolving native UI Issues ######
+### Unbounding + inline requires ###
+#### Loading JavaScript ####
+#### Inline Requires ####
+##### VeryExpensive.js #####
 
 ### Gesture Responder System ###
+1. GRS manages lifecycle of gestures in the app
+2. Example: Touch can go through several phases as app determines what user's intention is
+	1. Is touch scrolling
+	2. Is touch sliding on a widget
+	3. Is touch tapping
+3. The intention may change during the duration of touch
+4. Multiple simultaneous touches can exist
+5. Touch responder system: needed to allow components to negotiate touch interactions without additional knowledge about parent or child components
+
+##### Best Practices #####
+1. For making app feel great, every action must have the following attributes
+	1. Feedback/highlighting - show user what is handling their touch, and what will happen when they release the gesture
+	2. Cancel-ability- when making an action, users should be able to abord it mid-touch by dragging their finger away
+2. Make users comfortable while using the app
+	1. No fear of making mistakes
+
+##### TouchableHighlight and Touchable* #####
+1. `Touchable` implementation for things that should be "tappable"
+	1. Uses responder system and allows configuring tap interactions declaratively
+2. `TouchableHighlight` can be used for button or link on web
+
+#### Responder Lifecycle ####
+1. View can be a touch responder
+	1. Implement correct negotiation methods
+		1. Two methods to ask view if it wants to become responder
+			1. `View.props.onStartShouldSetResponder: (evt) => true,` - Does this view want to become responder on start of a touch?
+			2. `View.props.onMoveShouldSetResponder: (evt) => true,` - Called for every touch move on View when it is not responder
+				1. Does this view want to "claim" touch responsiveness?
+2. If View returns true and attempts to become responder, one of the following will happen
+	1. `View.props.onResponderGrant: (evt) => {}` - View is now responding to touch events
+		1. Time to highlight and show user what is happening
+	2. `View.props.onResponderReject: (evt) => {}` - Something else is the responder right now and will not release it
+3. If view is responding, the following handlers can be called
+	1. `View.props.onResponderMove: (evt) => {}` - User is moving their finger
+	2. `View.props.onResponderRelease: (evt) => {}` - Fired at the end of the touch, ie "touchUp"
+	3. `View.props.onResponderTerminationRequest: (evt) => true` - Something else wants to become responder. Should this view release the responder? Returning true allows release
+	4. `View.props.onResponderTerminate: (evt) => {}` - Responder is taken from the View. (Might be by other views after a call to `onResponderTerminationRequest`) or might be taken by OS without asking (happens with control center/ notification center on iOS)
+3. `evt` - synthetic event with following form:
+	1. `nativeEvent`
+		1. `changedTouches` - Array of all touch events that have changed since last event
+		2. `identifier` - ID of touch
+		3. `locationX` - X position of touch, relative to element
+		4. `locationY` - Y position of touch, relative to element
+		5. `pageX` - X position of touch, relative to root element
+		6. `pageY` - Y position of touch, relative to root element
+		7. `target` - node id of element receiving touch event
+		8. `timestamp` - Time identifier for touch, useful for velocity calculation
+		9. `touches` - Array of all current touches on screen
+
+##### Capture ShouldSet Handlers #####
+1. `onStartShouldSetResponder` and `onMoveShouldSetResponder` are called with bubbling pattern
+	1. Deepest node is called first
+		1. Deepest component will become responder when multiple Views return true for `*ShouldSetResponder` handlers
+			1. Desirable in most cases - makes sure all controls and buttons are usable
+2. If parent want to ensure it becomes responder:
+	1. Use capture phase
+		1. Before responder system bubbles up from deepest component, it will do a capture phase, firing `on*ShouldSetResponderCapture`
+			1. If parent View wants to prevent child from becoming responder on touch start, it should have `onStartShouldSetResponderCapture` handler which returns true
+
+					View.props.onStartShouldSetResponderCapture: (evt) => true,
+					View.props.onMoveShouldSetResponderCapture: (evt) => true, 
+
+##### PanResponder #####
+1. Check [PanResponder](https://facebook.github.io/react-native/docs/panresponder) 
 
 ### JavaScript Environment ###
+#### JavaScript Runtime ####
+1. JS code will be running in two environments for ReactNative
+	1. [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore) in most cases used by ReactNative
+		1. JS engine that powers Safari
+			1. In iOS, JavaScriptCore does not use JIT due to absence of writable executable memory in iOS apps
+	2. Chrome: For chrome debugging
+		1. JS runs within chrome
+			1. Communicates with native code via WebSockets
+			2. Chrome uses [V8](https://code.google.com/p/v8/) as JS engine
+2. Problems: Inconsistencies may occur
+	1. Other JS engines are being considered by Facebook
 
-### Direct Maniplulation ###
+#### JavaScript Syntax Transformers ####
+1. Syntax transformers make writing code enjoyable
+	1. We can use new JS syntax without support on all interpreters
+2. ReactNative ships with [Babel JavaScript Compiler](https://babeljs.io/)
+	1. [Babel Documentation](https://babeljs.io/docs/plugins/#transform-plugins)
+3. [Full List of React Native's Enabled Transformations](https://github.com/facebook/react-native/blob/master/babel-preset/configs/main.js#L16)
+4. ES5: Reserverd Words - `promise.catch(function() { });`
+5. ES6:
+	1. [Arrow Functions](http://babeljs.io/docs/learn-es2015/#arrows)
+		1. `onPress = {() => this.setState({ pressed: true })}`
+	2. [Block Scoping](https://babeljs.io/docs/learn-es2015/#let-const)
+		1. `let greeting = 'hi';`
+	3. [Call spread](http://babeljs.io/docs/learn-es2015/#default-rest-spread)
+		1. `Math.max(...array);`
+	4. [Classes](http://babeljs.io/docs/learn-es2015/#classes)
+		1. `class C extends React.Component { render() { return <View />; } }`
+	5. [Constants](https://babeljs.io/docs/learn-es2015/#let-const)
+		1. `const answer = 42;`
+	6. [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring)
+		1. `var { isActive, style } = this.props;`
+	7. [for...of](http://babeljs.io/docs/learn-es2015/#destructuring)
+		1. `for (var num of [1, 2, 3]) {}`
+	8. [Modules](http://babeljs.io/docs/learn-es2015/#modules)
+		1. `import React, { Component } from 'react';`
+	9. [Computed Properties](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+		1. `var key = 'abc'; var obj = {[key]: 10};`
+	10. [Object Concise Method](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+		1. `var obj = { method() { return 10; } };
+	11. [Object Short Notation](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+		1. `var name = 'vjeux'; var obj = { name };`
+	12. [Rest Params](https://github.com/sebmarkbage/ecmascript-rest-spread)
+		1. `function(type, ...args) { }`
+	13. [Template Literals](http://babeljs.io/docs/learn-es2015/#template-strings)
+		
+			var who = 'world'; var str = `hello ${who}`;
+			
+6. ES8
+	1. [Function Trailing Comma](https://github.com/jeffmo/es-trailing-function-commas)
+		1. `function f(a, b, c) { }`
+	2. [Async Functions](https://github.com/tc39/ecmascript-asyncawait)
+		1. `async function doStuffAsync() { const foo = await doOtherStuffAsync(); };`
+7. Stage 3
+	1. [Object Spread](https://github.com/sebmarkbage/ecmascript-rest-spread)
+		1. `var extended = { ...obj, a: 10 };`
+8. Specific
+	1. [JSX](https://reactjs.org/docs/jsx-in-depth.html)
+		1. `<View style={{color: 'red'}} />`
+	2. [Flow](http://flowtype.org/)
+		1. `function foo(x: ?number): string {}`
+
+#### Polyfills ####
+1. Standard functions available on all supported JS runtimes
+2. Browser
+	1. [console.{log, warn, error, info, trace, table, group, groupEnd}](https://developer.chrome.com/devtools/docs/console-api)
+	2. [CommonJS require](https://nodejs.org/docs/latest/api/modules.html)
+	3. [XMLHttpRequest, fetch](https://facebook.github.io/react-native/docs/network#content)
+	4. [{set, clear}{Timeout, Interval, Immediate}, {request, cancel}AnimationFrame](https://facebook.github.io/react-native/docs/timers#content)
+	5. [navigator.geolocation](https://facebook.github.io/react-native/docs/geolocation#content)
+3. ES6
+	1. [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+	2. String.prototype.{[startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith), [endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith), [repeat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat), [includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)}
+	3. [Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+	4. Array.prototype.{[find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find), [findIndex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)}
+4. ES7
+	1. Array.prototype.{[includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)}
+5. ES8
+	1. Object.{[entries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries), [values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)]}
+6. Specific
+	1. `__DEV__`
+
+### Direct Manipulation ###
+#### `setNativeProps` with `TouchableOpacity` ####
+#### Composite Components and `setNativeProps` ####
+##### Forward `setNativeProps` to Child #####
+#### `setNativeProps` to clear `TextInput` Value ####
+#### Avoiding Conflicts with the Render Function ####
+#### `setNativeProps` & `shouldComponentUpdate` ####
+#### Other Native Methods ####
+##### `measure(callback)` #####
+##### `measureInWindow(callback)` #####
+##### `measureLayout(relativeToNativeNode, onSuccess, onFail)` #####
+##### `focus()` #####
+##### `blur()` #####
 
 ### Color Reference ###
+#### Red-green-blue ####
+#### Hue-saturation-lightness ####
+#### `transparent` ####
+#### Named Colors ####
 
 ### Integration with Existing Apps ###
+#### iOS (Objective-C) ####
+##### Key Concepts #####
+##### Prerequisites #####
+###### Set up Directory Structure ######
+###### Install JavaScript Dependencies ######
+###### Install CocoaPods ######
+##### Adding React Native to Your App #####
+###### Command Line Tools for Xcode ######
+###### Configuring CocoaPods Dependencies ######
+###### Code Integration ######
+###### Test Your Integration ######
+###### See the Code ######
+###### Now What? ######
+
+#### iOS (Swift) ####
+##### Key Concepts #####
+##### Prerequisites #####
+###### Set up Directory Structure ######
+###### Install JavaScript Dependencies ######
+###### Install CocoaPods ######
+##### Adding React Native to Your App #####
+###### Command Line Tools for Xcode ######
+###### Configuring CocoaPods Dependencies ######
+###### Code Integration ######
+###### Test Your Integration ######
+###### See the Code ######
+###### Now What? ######
+
+#### Android (Java) ####
+##### Key Concepts #####
+##### Prerequisites #####
+###### Set up Directory Structure ######
+###### Install JavaScript Dependencies ######
+###### Install CocoaPods ######
+##### Adding React Native to Your App #####
+###### Command Line Tools for Xcode ######
+###### Configuring CocoaPods Dependencies ######
+###### Code Integration ######
+###### Test Your Integration ######
+###### See the Code ######
+###### Now What? ######
 
 ### Building For TV Devices ###
+1. TV devices support is implemented
+	1. Existing React Native apps work on Apple TV and Android TV
+2. Few/No changes required in JS code
+
+#### iOS ####
+1. `RNTester` app supports Apple TV
+	1. `RNTester-tvOS` build target must be used
+
+##### Build Changes #####
+1. *Native Layer*: React Native Xcode projects
+	1. Apple TV targets are supported (`-tvOS`)
+2. *react-native init*:
+	1. This command constructs Apple TV target in Xcode project
+3. *JavaScript layer*: `Platform.ios.js` has Apple TV support
+	1. Check it on Apple TV running
+
+			var Platform = require('Platform');
+			var running_on_tv = Platform.isTV;
+			
+			// If you want to be more specific and only detect devices running tvOS
+			// (but no Android TV devices) you can use:
+			var running_on_apple_tv = Platform.isTVOS;
+
+##### Code Changes #####
+1. *General Support for tvOS*:
+	1. `TARGET_OS_TV` define wraps Apple TV specific changes
+		1. Changes to suppress APIs not supported on tvOS (web views, sliders, switches, status bar, ...)
+		2. Changes to support user input from TV remote/keyboard
+2. *Common Codebase*: tvOS and iOS share most Objective-C and JS code
+	1. Most docs for iOS apply to tvOS
+3. *Access to Touchable Controls*: Native view class for Apple TV is `RCTTVView`
+	1. Additional methods exist to use tvOS focus engine
+	2. `Touchable` mixin:
+		1. Can detect focus changes and use existing methods to style components properly and initiate proper actions when view is selected using TV remote
+			1. `TouchableHighlight` and `TouchableOpacity` work
+				1. `touchableHandleActivePressIn` - executed when touchable view goes into focus
+				2. `touchableHandleActivePressOut` - executed when touchable view goes out of focus
+				3. `touchableHandlePress` - executed when touchable view is selected by pressing "select" button on TV remote
+4. *TV remote/keyboard Input*
+	1. `RCTTVRemoteHandler`: native class
+		1. Sets gesture recognizers for TV remote events
+		2. If TV remote event occurs, the class fires notifications picked up by `RCTTVNavigationEventEmitter` (subclass of `RCTEventEmitter`)
+			1. It fires JS event
+				1. It is picked up by `TVEventHandler` JS Object
+					1. An instance is constructed to implement custom handling of TV remote events and listen for events
+	2. Example:
+
+			var TVEventHandler = require('TVEventHandler');
+			
+			class Game2048 extends React.Component {
+				_tvEventHandler: any;
+				
+				_enableTVEventHandler() {
+					this._tvEventHandler = new TVEventHandler();
+					this._tvEventHandler.enable(this, function (cmp, evt) {
+						if (evt && evt.eventType === 'right') {
+							cmp.setState({ board: cmp.state.board.move(2) });
+						} else if (evt && evt.eventType === 'up') {
+							cmp.setState({ board: cmp.state.board.move(1) });
+						} else if (evt && evt.eventType === 'left') {
+							cmp.setState({ board: cmp.state.board.move(0) });
+						} else if (evt && evt.eventType === 'playPause') {
+							cmp.restartGame();
+						}
+					});
+				}
+				
+				_disableTVEventHandler() {
+					if (this._tvEventHandler) {
+						this._tvEventHandler.disable();
+						delete this._tvEventHandler;
+					}
+				}
+				
+				componentDidMount() {
+					this._enableTVEventHandler();
+				}
+				
+				componentWillUnmount() {
+					this._disableTVEventHandler();
+				}
+			}
+
+5. *Dev Menu Support*: On simulator cmd-D brings up developer menu
+	1. On Apple TV: long press on play/pause button on remote
+6. *TV Remote Animations*: `RCTTVView` native code implements Apple-recommended parallax animations to help guide eye as user navigates through views
+	1. Can be disabled or adjusted with new optional view properties
+7. *Back Navigation with TV Remote Menu Button*:
+	1. `BackHandler` component
+		1. Supports back navigation of Android and Apple TV using menu button on TV remote
+8. *TabBarIOS Behavior*: `TabBarIOS` component
+	1. wraps native `UITabBar` API
+		1. To avoid jittery rendering of tab bar on tvOS
+			1. Selected tab bar item can only be set from JS on initial render
+				1. User controlls it through native code afterwards
+9. *Known Issues*:
+	1. [ListView Scrolling](https://github.com/facebook/react-native/issues/12793)
+		1. Work around: set `removeClippedSubviews` to false in `ListView` and similar components
+			1. [see this PR](https://github.com/facebook/react-native/pull/12944)
+
+#### Android ####
+##### Build Changes #####
+##### Code Changes #####
 
 ### Running On Device ###
 1. Good to test app on real device before releasing to users
@@ -1291,6 +1949,25 @@
 
 ### Troubleshooting ###
 
+### Native Modules Setup ###
+1. Usually distributed as npm packages
+	1. JS + some native code is inserted into the package(s)
+		1. [npm packages guide](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+2. [react-native-create-library](https://github.com/frostney/react-native-create-library): third party tool to setup project structure for native module
+
+		npm install -g react-native-create-library
+		react-native-create-library MyLibrary
+		
+	1. `MyLibrary`: name of new module
+3. `cd MyLibrary`
+
+		npm install
+		
+4. Go to root folder (created using `react-native init MyApp`)
+	1. Add newly created module as dependency in `package.json`
+	2. run `num install` to bring it along from local npm repo
+5. Goto `native-modules-ios` or `native-module-android` to add code
+	1. Read README.md in `MyLibrary` folder for platform specific instructions on how to include project
 
 ## Guides (iOS) ##
 
@@ -1306,19 +1983,91 @@
 
 ### App Extensions ###
 
-
 ## Guides (Android) ##
-
 ### Native Modules ###
+1. If app needs access to platform API that React Native doesn't have a module for
+	1. High performance multi-threaded code
+		1. Image processing
+		2. Database
+		3. Advanced extensions
+2. React Native is designed to enable writing real native code
+3. Used to build native feature that React Native does not provide yet
+
+#### Native Module Setup ####
+1. Native modules - usually distributed as npm packages
+	1. They also contain Android library project
+2. [Native Module Setup](https://facebook.github.io/react-native/docs/native-modules-setup) - scaffolding
+
+##### Enable Gradle #####
+1. [Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html) - enable it for Java code changes (speeds up builds)
+
+#### The Toast Module ####
+1. Example: [Toast](http://developer.android.com/reference/android/widget/Toast.html) - construct a toast message from JS
+2. Steps:
+	1. Construct a native module in Java that extends `ReactContextBaseJavaModule` class and implements functionality required by JS
+		1. `ToastExample.show('Awesome', ToastExample.SHORT);` - This is the requirement
+			1. It displays a short toast on screen
+	2. New class `ToastModule.java` inside `android/app/src/main/java/com/your-app-name/` folder with the following content
+
+			// ToastModule.java
+			
+			package com.your-app-name;
+			
+			import android.widget.Toast;
+			
+			import com.facebook.react.bridge.NativeModule;
+			import com.facebook.react.bridge.ReactApplicationContext;
+			import com.facebook.react.bridge.ReactContext;
+			import com.facebook.react.bridge.ReactContextBaseJavaModule;
+			import com.facebook.react.bridge.ReactMethod;
+			
+			import java.util.Map;
+			import java.util.HashMap;
+			
+			public class ToastModule extends ReactContextBaseJavaModule {
+				private static final String DURATION_SHORT_KEY = "SHORT";
+				private static final String DURATION_LONG_KEY = "LONG";
+				
+				public ToastModule(ReactApplicationContext reactContext) {
+					super(reactContext);
+				}
+			}
+
+##### Argument Types #####
+##### Register the Module #####
+#### Beyond Toasts ####
+##### Callbacks #####
+##### Promises #####
+##### Threading #####
+##### Sending Events to JavaScript #####
+##### Getting Activity Result from `startActivityForResult` #####
+#### Listening to LifeCycle Events ####
 
 ### Native UI Components ###
+#### ImageView Example ####
+#### Creation of the `ViewManager` Subclass ####
+#### Implement Method `createViewInstance` ####
+#### Expose View Property Setters Using `@ReactProp` (or `@ReactPropGroup`) Annotation ####
+#### Register the `ViewManager` ####
+#### Implement the JavaScript Module ####
+#### Events ####
 
 ### Headless JS ###
+#### The JS API ####
+#### The Java API ####
+#### Caveats ####
+#### Example Usage ####
 
 ### Generating Signed APK ###
+#### Generating a Signing Key ####
+#### Setting Up Gradle Variables ####
+#### Adding Signing Config to Your App's Gradle Config ####
+#### Generating the Release APK ####
+#### Testing the Release Build of Your App ####
+#### Split APKs by ABI to Reduce File Size ####
+#### Enabling Proguard to Reduce the Size of the APK (Optional) ####
 
 ### Removing Default Permissions ###
-
 
 ## Contributing ##
 ### How to Contribute ###

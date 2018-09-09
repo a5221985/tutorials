@@ -114,24 +114,310 @@
 
 ## XML and XML Schema Definition Crash Course ##
 ### Introduction ###
+1. XML is usually used in two places
+	1. For configuration
+		1. CXF uses spring configuration
+	2. For exchanging data
+		1. SOAP and REST
+2. Topics
+	1. How to construct XML document
+	2. What is well formed XML document
+	3. Contract for XML using XSD (XML Schema Definition)
+	4. Namespaces
+
 ### What is XML? ###
+1. eXtensible Markup Language
+	1. We can construct our own markup based on business requirement
+	2. HTML provides special meaning to it's elements
+2. XML does not have pre-defined set of elements
+	1. Example: `OrderML`
+		1. `OrderID`
+		2. `LineItems`
+		3. `ShippingAddress`
+	2. Example: `NewsML`
+		1. `Headlines`
+		2. `Politics`
+		3. `Sports`
+
 ### Why XML? ###
+1. Advantages:
+	1. Custom Markup
+
+			<Order>
+				<OrderId>123</OrderId>
+				<ShippingInfo>...</ShippingInfo>
+				...
+			</Order>
+
+	2. It carries both data and meta-data (tells what is the information for)
+		1. Amazon Web app - xml -> Amazon Shipping
+
+				OrderId
+				ShippingInfo - what to do with it (where to send)
+				
+	3. Well-Formedness rules - clean xml is only allowed or else rejected
+	4. Validation - schema files validate the xmls
+
 ### When to use XML? ###
+1. Three places it is mostly used
+	1. Data exchange
+		1. XML can be used for data and meta-data
+	2. Configuration
+		1. **web.xml**
+		2. **server.xml**
+		3. **pom.xml**
+		4. **build.xml**
+	3. Save and/or manipulate and present data
+		1. Client sent request to Portal which saves to repository
+		2. Portal fetched xml from repository and transforms into HTML and sends it to client
+
 ### What is XSD? ###
+1. XSD is grammar or blueprint for xml
+	1. Elements
+	2. Attributes
+	3. Namespaces
+	4. Order
+	5. Number of Occurrences
+	6. Restrictions (values)
+2. If XML follows XSD, then it is valid
+3. xsd file is also an xml file with .xsd extension
+4. Elements in xsd are provided by W3C
+5. Example: **order.xml** and **order.xsd**
+ 
 ### When to use XSD? ###
+1. Why and where?
+	1. It is a contract between applications
+2. Example: Employee management software
+	1. xml configuration file defines to the management software where the database is and how to use it
+		1. management software validates the config using xsd
+
 ### Namespaces ###
+1. Uniquely identify XML components
+2. Schema:
+	1. `targetNamespace` - for all elements in order
+		1. Use unique url as namespace `http://www.amazon.com/order`
+	2. `prefix` - represents namespace
+		1. `xmlns:amz="http://www.amazon.com/order"`
+		2. `xmlns:ebay="http://www.ebay.com/order"`
+3. xml doc:
+
+		<order xmlns:amz="http://www.amazon.com/order">
+			<amz:lineItem/>
+			<amz:shippingAddress/>
+			...
+			
+		<order xmlns:ebay="http://www.ebay.com/order">
+			<ebay:lineitem/>
+			<ebay:shippingAddress/>
+			...
+			
+4. Namespace is similar to package in Java
+
 ### XML Schema Hands On Usecase ###
+1. In built types and own complex and simple types
+2. Example: Hospital management site
+	1. Patient billing application
+		1. Patient checkout
+		2. Patient billing
+		3. Insurance
+	2. Patient Clinical application
+		1. x ray
+		2. blood test
+	3. Patient data is exchanged between apps
+3. Requirements:
+	1. Patient data
+		1. Name
+		2. Age
+		3. DOB
+		4. Email
+		5. Gender
+		6. Phone
+
 ### XML Schema Hands On ###
+1. Open Eclipse
+	1. File > New > Others > Project
+	2. Name; PatientXML
+	3. Right click on project > New > Other > XML > XML Schema File > patient.xsd
+
+			<schema ...> <!-- root element -->
+			
+			</schema>
+			
+		1. `xmlns`: namespace
+			1. w3c namespace: defines all elements that can be used in a schema file
+		2. `targetNamespace`: any xml should comply with this namespace
+
+				http://www.bharaththippireddy.com/Patient
+				
+			1. Domain name + business object
+		3. `xmlns:tns`: prefix for our namespace
+			1. Used to refer to elements in this namespace
+
+					http://www.bharaththippireddy.com/Patient
+					
+2. Code
+
+		<element name="patient" type="tns:Patient"/> <!-- case sensitive -->
+		<complexType name="Patient">
+			<sequence> <!-- gives order of elements -->
+				<element name="id" type="int" /> <!-- int defined by w3c -->
+				<element name="name" type="string" />
+				<element name="age" type="int" />
+				<element name="dob" type="date" />
+				<element name="email" type="string" />
+				<element name="gender" type="string" />
+				<element name="phone" type="string" />
+			</sequence>
+		</complexType>
+		
+3. xml: Right click on project > new > XML > Patient.xml
+	1. Create XML file from a XML schema file
+	2. Select Project > Patient.xsd
+		1. id: 1
+		2. name: bharath
+		3. age 33
+		4. dob: ...
+		5. email: bharath@bharath.com
+		6. gender: M
+	3. Uses target namespace defined in xsd
+	4. `xsd:schemaLocation`: namespace followed by schema filename
+4. Right click on xml and validate
+
 ### Creation of Simple Types ###
+1. How to use simple types and restrict values
+
+		<element name="id" type="tns:ID" />
+		<element name="name" type="tns:String15Chars" />
+		<element name="gender" type="tns:Gender" />
+
+		<simpleType name="ID">
+			<restriction base="int">
+				<pattern value="[0-9]*"></pattern>
+			</restriction>
+		</simpleType>
+		<simpleType name="String15Chars">
+			<retstriction base="string">
+				<maxLength balue="15" />
+			</restriction>
+		</simpleType>
+		<simpleType name="Gender">
+			<restriction base="string">
+				<enumeration value="M" />
+				<enumeration value="F" />
+			</restriction>
+		</simpleType>
+		
+2. Re-generate Patient.xml
+	1. Give invalid values and check
+
 ### Controlling the Order of Elements ###
+1. Adding complex type with complex type
+2. Controlling order
+
+		<complexType name="Patient">
+			...
+			<element name="payment" type="tns:PaymentType" />
+		</complexType>
+
+		<complextType name="PaymentType">
+			<choice>
+				<element name="cash" type="int" />
+				<element name="insurance" type="tns:Insurance" />
+			</choice>
+		</complexType>
+		
+		<complexType name="Insurance">
+			<all> <!-- all should appear but order does not matter -->
+				<element name="provider" type="string" />
+				<element name="limit" type="int" />
+			</all>
+		</complexType>
+		
+2. Re-generate xml
+	1. Use `insurance`
+
+			<tns:payment>
+				<tns:insurance>
+					<tns:provider>Blue Cross</tns:provider>
+					<tns:limit>1000</tns:limit>
+				</tns:insurance>
+			</tns:payment>
+
 ### Controlling the number of Elements ###
+1. How many times an element should occur
+
+		<element name="id" type="tns:ID" maxOccurs="2" />
+		
+2. Unbounded
+
+		<element name="email" type="string" minOccurs="0" maxOccurs="unbounded" />
+
 ### Meaning of the elementFormDefault attribute ###
+1. `elementFormDefault` - `qualified`
+	1. Any xml document following the schema must be qualified (`tns` in this case)
+	2. `unqualified` - `tns` can be removed
+
 ### Defining Attributes ###
+1. Attributes
+
+		<complextType name="Patent">
+			...
+			<attribute name="id" type="tns:ID" />
+		</complexType>
+		
+2. Patient.xml
+
+		<tns:patient ... id="123">
+			<!-- remove id element -->
+			...
+		</tns:patient>
+
 ### Section Summary ###
+1. XML: eXtensible Markup Language
+	1. Custom elements and tags
+	2. Data and meta data
+2. Config file or exchange info
+3. Well-formedness rules
+4. xsd can be used to validate xml
+5. xsd is contract between xml provider and consumer
+	1. xml document
+6. In-built type, simple types, complex type
+7. Namespaces
+8. Restrictions
+9. Order of elements
+10. Number of times an element can occur
+11. Attributes
 
 ## SOAP Web Services Concepts ##
 ### Introduction ###
+1. Advantages and disadvantages
+2. Building blocks
+	1. SOAP
+	2. WSDL
+	3. HTTP
+
 ### SOAP Web Services Overview ###
+1. Communication independent of language or platform app is running on
+2. Web services is implementation
+	1. loosely coupled and easy communication running on different platforms running different languages
+	2. English to this world is what web services are to computer world. A common communication medium
+3. Web apps were using http and html
+	1. Web services work with http and xml
+		1. xml can be read by any application and can be converted to langauge specific data types
+4. Example: Windows/.Net communicating with Linux/Java
+	1. Linux/Java communicates with legacy Mainframe services
+5. Data and metadata
+	
+		<customerName>Bharath</customerName> <!-- customerName is meta data and Bharath is data -->
+		
+		customer.name = "Bharath";
+		
+6. Example: Hospital management system
+	1. Patient Services
+	2. Clinical Services
+	3. Billing Services
+	4. Insurance Services (outsite hospital)
+
 ### SOAP Web Services Advantages and Disadvantages ###
 ### When to use SOAP Web Services? ###
 ### SOAP ###
@@ -337,7 +623,7 @@
 ### Flow and the Service Provider Mechanism ###
 ### Section Summary ###
 
-## Developing Bottom Up Web Services ##
+## Developping Bottom Up Web Services ##
 ### Payment Gateway Legacy Application Use Case ###
 ### The Project Setup ###
 ### Annotating the Beans ###
@@ -1803,12 +2089,52 @@
 		}
 
 ### Creation of the Client Project ###
+1. To upload file
+2. New Spring Starter Project
+	1. Name: **restattachementsclient**
+	2. Description: Rest Attachments Client
+3. **pom.xml**
 
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-client</artifactId>
+			<version>3.2.1</version>
+		</dependency>
 
 ### Code the Java client ###
+1. `com.bharath.restws.FileClient` with main method
+
+		WebClient client = WebClient.create("http://localhost:8080/restattachments/services/fileService/upload") // cxf class and not REST API class
+		client.type("multiparth/form-data"); // for attachments
+		
+		ContentDisposition cd = new ContentDisposition("attachment;filename=MAVEN.jpg"); // tells the file name
+		Attachement attachment = new Attachment("root", new FileInputStream(new File("/Users/bharaththippireddy/Documents/Images/MAVEN.jpg")), cd);
+		client.post(attachment);
+
 ### Test upload using java client ###
+1. Run as Java Application
+2. Open restattachments `FileService.java`
+
+		System.out.println("==================Inside Upload==================");
+		
+3. Switch console to restattachments
+
 ### Code the Download REST endpoint ###
-### Test the download ###
+1. `FileService.java`
+
+		@GET
+		@Path("/download")
+		public Response download() {
+			File file = new File(FILE_PATH);
+			ResponseBuilder responseBuilder = Response.ok(file);
+			responseBuilder.header("Content-Disposition", "attachment;filename=downloaded.jpg"); // file saved in this name
+			return responseBuilder.build();
+		}
+
+### Test the Download ###
+1. Go to web browser:
+
+		http://localhost:8080/restattachments/services/fileService/download
 
 ## Jersey Quick Start ##
 ### Introduction ###
@@ -1964,47 +2290,552 @@
 		<mvc:annotation-driven /> <!-- spring looks for annotations -->
 		
 3. `mvn clean install`
-4. Run As >  
+4. Run As > Run on Server
+5. Open **http://localhost:8080/sprigrest/greeting/bharath** 
 
 ### Returning JSON Response ###
+1. `StockQuoteResponse` class
+2. `MyController`
+
+		@RequestMapping(value = "/stockQuote/{firmName}", method = RequestMethod.GET)
+		public StockQuoteResponse getStockQuote(@PathVariable String firmName) {
+			StockQuoteResponse response = new StockQuoteResponse();
+			response.setFirmName(firmName);
+			response.setStockValue(1000);
+			return response;
+		}
+		
+	1. Jackson jars enables Spring to convert response to JSON (4.x)
+	2. Converters in **rest-servlet.xml** must be defined (3.x)
+3. Open from Google by grabbing URL from HOWTO.txt
+4. Custom converters must be listed in spring configuration file
+
+## REST and Database CRUD Operations ##
+### Usecase and Steps ###
+1. CRUD operations using database tables using RESTful API
+2. Expose RESTful API to perform CRUD operations against real DB table
+3. Setup:
+	1. Database (MySQL)
+	2. DB table
+	3. Spring DATA JPA (ORM)
+		1. Hibernate
+4. Software setup
+	1. Product
+	2. ProductRepository (extends interface in Spring)
+	3. ProductService
+	4. ProductServiceImpl
+
+### Install MySql and MySql Workbench ###
+1. MySQL and MySQL Workbench (client)
+2. Steps:
+	1. Download
+	2. Install (mention Workbench)
+	3. Configure (give root password)
+3. Instructions: How to Install MySQL Server 5.6 on Windows 7 Development Machine - https://corlewsolutions.xom/.../article...
+
+### Launch MySql Workbench and Construct a Database ###
+1. Connect to MySQL server on MySQLWorkbench
+2. Click on + for new connection
+	1. Give connection name `local`
+	2. Give root password
+3. Double click to open connection
+4. Construct a DB:
+
+		create database mydb
+		
+
+### Construct DB Table ###
+
+		use mydb;
+		
+		create table product(id int, name varchar(20), description varchar(20), price int);
+		
+		select * from product;
+
+### Construct the Spring Boot Project ###
+1. STS
+2. File > Spring Starter Project
+	1. Name: productcrud
+	2. Description: Product CRUD
+3. Select latest Spring boot
+	1. Search for cxf
+4. Open **pom.xml**
+	1. Add cxf dependency: search for cxf jax-rs spring boot maven
+	
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
+				<version><latest></version>
+			</dependency>
+			
+	2. Add mysql connector jar: search for mysql connector maven dependency
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version><latest></version>
+			</dependency>
+			
+5. Maven > Update Project (brings the latest dependencies required)
+
+### Construct the Model Class ###
+1. Model: `Product`
+2. Add new dependency: spring data jpa starter maven
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		
+3. Meven > Update project
+4. Model class: `com.bharath.restws.entities.Product`
+
+		@Entity
+		public class Product {
+		
+			@Id
+			private int id;
+			
+			private String name;
+			private String description;
+			private int price;
+			
+			// getters and setters
+		}
+		
+	1. It is automatically serializes and deserializes
+
+### Construct the Repository ###
+1. DAO: ProductRepository
+	1. New interface `com.bharath.restws.repos.ProductRepository` extends `JpaRepository` (child of `CRUDRepository`)
+
+			public interface ProductRepository extends JpaRepository<Product, Integer> {
+			
+			}
+
+### Construct the REST Web Services Layer ###
+1. New interface: `com.bharath.restws.ProductService`
+
+		List<Product> getProducts();
+		Product getProduct(int id);
+		Response createProduct(Product product); // jaxrs.ws.rs.core.Response
+		Response updateProduct(Product product);
+		// delete next
+		
+2. New class: `com.bharath.restws.ProductServiceImpl` implements `ProductService`
+
+### Use JAX-RS Annotations ###
+
+		@Consumes("application/json")
+		@Produces("application/json")
+		@Path("/productservice")
+		public interface ProductService {
+			
+			@Path("/products")
+			@GET
+			List<Product> getProducts();
+			
+			@Path("/products/{id}")
+			@GET
+			Product getProduct(@PathParam("id") id id);
+			
+			@Path("/products")
+			@POST
+			Response createProduct(Product product);
+			
+			@Path("/products")
+			@PUT
+			Response updateProduct(Product product);
+			
+		}
+		
+
+### Implement the ProductServiceImpl Methods ###
+1. `ProductServiceImpl`
+
+		@Autowired
+		private ProductRepository repository;
+		
+		@Override
+		public List<Product> getProducts() {
+			return repository.findAll();
+		}
+		
+		@Override
+		public Product getProduct(int id) {
+			return repository.findById(id).get(); // find returns Optional
+		}
+		
+		@Override
+		public Response createProduct(Product product) {
+			Product savedProduct = repository.save(product);
+			return Response.ok(savedProduct).build();
+		}
+		
+		@Override
+		public Response updateProduct(Product product) {
+			Product savedProduct = repository.save(product); // updates if product exists
+			return Response.ok(savedProduct).build();
+		}
+
+### Configure Spring Boot Properties ###
+1. Data source and other spring boot properties
+2. **application.properties**
+		
+		cxf.jaxrs.classes-scan=true
+		cxf.jaxrs.classes-scan-packages=org.codehaus.jackson.jaxrs,com.bharath.restws
+		server.servlet.context-path=/productcrud
+		
+		spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+		spring.datasource.username=root
+		spring.datasource.password=<password>
+
+### Add Jackson Dependency ###
+1. **pom.xml**
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-xc</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		
+2. Maven > Update project
+
+### Test CRUD ###
+1. Run as Spring Boot Application
+2. Open PostMan
+	1. POST: http://localhost:8080/productcrud/services/productservice/products
+	2. **raw** body
+
+			{
+				"id": 1,
+				"name": "IPhone",
+				"description": "It Rocks",
+				"price": 1500
+			}
+			
+	3. Headers
+
+			Content-Type: application/json
+			Accept: application/json
+			
+3. Check in Workbench
+4. Get product
+	1. GET: http://localhost:8080/productcrud/services/productservice/products
+5. Another create product
+6. Update product
+	1. PUT: http://localhost:8080/productcrud/services/productservice/products
+	2. **raw** body
+
+			{
+				"id": 1,
+				"name": "IPhone",
+				"description": "It Rocks",
+				"price": 1000
+			}
+			
+	3. Headers
+
+			Content-Type: application/json
+			Accept: application/json
+			
+7. Check in Workbench
+8. Get single product
+	1. GET: http://localhost:8080/productcrud/services/productservice/products/1
 
 ## Interview Help and Wrap Up ##
 ### SOAP VS REST ###
+1. When to use what?
+2. Key differences?
+	1. HTTP Methods and Caching
+		1. SOAP: HTTP POST for request and response
+			1. Operations/methods are defined separately which are exposed as business logic
+		2. REST: HTTP methods (GET, POST, PUT, DELETE)
+			1. Cacheing is possible with GET, PUT and DELETE (because they are idempotent)
+				1. POST cannot be cached (non idempotent) (changes state of app)
+				2. Other requests: same response can be cached and returned
+	2. Contract
+		1. SOAP Contract: WSDL is contract for both operations and data
+			1. Schema for requests and responses
+		2. REST Contract: WADL defines HTTP Methods and URIs (no data contract)
+			1. WADL 2.0: Data contract for RESTful services as well
+	3. WS-Standards - used to implement non-functional requirements
+		1. SOAP: It has (out of box - no additional coding, only config) - implemented by CXF, web-sphere, web-logic (app servers) 
+			1. WS-Realiable Messages - used to send messages reliably
+			2. WS-Transactions - to span transactions across web services
+			3. WS-Security - secures messages
+		2. REST: Application should handle non-functional requirements
+	4. SOAP Overhead:
+		1. SOAP: `<soap-env>` ... makes handling in mobile very memory intensive
+		2. RESTP: direct messages without any envelopes
+	5. Data formats:
+		1. SOAP: XML only
+		2. REST: XML (for two apps integration), JSON (for exposing to UI), TEST (for reporting), ...
+	6. Client Creation
+		1. SOAP: WSDL2JAVA - generates clients easily (no much coding)
+		2. REST: no such tools as of then (need to find out now)
+3. When to use what?
+	1. If there are a lot of NFRs (Security, Transactions, Reliable Messaging) - SOAP
+		1. If a lot of apps communicate with each other
+	1. If strict contract is required (if clients are unknown) - SOAP
+	2. High performance and easy scalability - REST
+		1. Cacheing can be implemented
+4. Today's market (as of then)
+	1. SOAP and REST co-exist and compliment each other
+
 ### Interview Questions (Updated Frequently) ###
+1. [file:///Users/am/Downloads/Web-Services-Interview-Questoins-and-Answers-Bharath-Thippireddy.pdf](file:///Users/am/Downloads/Web-Services-Interview-Questoins-and-Answers-Bharath-Thippireddy.pdf)
+
 ### Slides used in the course ###
+1. [https://www.udemy.com/java-web-services/learn/v4/t/lecture/6183614?start=0](https://www.udemy.com/java-web-services/learn/v4/t/lecture/6183614?start=0)
+	1. Keynote: for Mac
+	2. Powerpoint: for Windows
+
 ### My Other Courses and Discounts ###
+1. [Micro Services REST APIs using Spring Data REST](http://www.udemy.com/microservices-rest-apis-using-spring-data-rest/?couponCode=SPRINGDATAREST%E2%80%8B)
+2. [Java Web Services](https://www.udemy.com/java-web-services/?couponCode=WSDISCOUNT4ALL)
+3. [Java Web Services Part 2](https://www.udemy.com/javawebservicespart2/?couponCode=WSPART2FORALL)
+4. [Core Java Made Easy](https://www.udemy.com/corejavamadeeasy/?couponCode=COREJAVAFORALL)
+5. [Junit and Mockito Crash Course](https://www.udemy.com/junitandmockitocrashcourse/?couponCode=JUNITFORALL)
+6. [JDBC Servlets and JSP](https://www.udemy.com/jdbcservletsandjsp/?couponCode=JAVAWEBFORALL)
+7. [XML and XML Schema in Easy Steps](https://www.udemy.com/xml-and-xml-schema-definition-in-easy-steps/?couponCode=XMLANDXSDFORALL)
+8. [XSLT XPATH and XQuery Fundamentals](https://www.udemy.com/xslt-xpath-and-xquery-fundamentals/?couponCode=XSLTXPATHANDXQUERY)
+9. [Maven Crash Course](https://www.udemy.com/mavencrashcourse)
+10. [Free Java Script Fundamentals](https://www.udemy.com/javascriptfundamentals/?couponCode=JAVASCRIPTFORALL)
 
 ## Extras ##
 ### JSON Introduction ###
+1. JSON: JavaScript Object Notation
+	1. For storing and exchanging data between two apps or between front end and backend
+2. Easy to consume in JavaScript
+3. JS Example:
+
+		var customerOrder = {
+			customerName: "Bharath",
+			phone: 911,
+			items: [
+				laptop: "watch"
+			]
+		};
+		
+		customerOrder.customerName;
+		
+	1. [www.json.org](www.json.org): syntax description
+4. Rules:
+	1. keys in double quotes unline JS objects
+5. It can replace XML (Mobile apps)
+6. Implementation:
+
+		Java app serializes Java object into JSON string and sends it
+		JavaScript de-serializes JSON string into JS object
+		JavaScript serializes JS object into JSON string and sends it
+		Java app de-serializes JSON string into Java object
+		
+	1. JSON parsers serialize and de-serialize JSON
+
 ### JSON Hands On ###
+1. Example: CustomerOrder
+	1. customerName - String
+	2. phone - number
+	3. items - array
+2. Implementation: [jsfiddle.net](jsfiddle.net) - can save and share
+
+		var customerOrder = {
+			"customerName": "Bharath",
+			"phoneNumber": 123,
+			"items": [
+				"laptop"
+				"iphone"
+			]
+		}
+		
+		console.log(customerOrder.customerName);
+		
+	1. Open console to see output
+
 ### JSON Parsing ###
+1. Serialization:
+
+		var jsonString = JSON.stringify(customerOrder);
+		console.log(jsonString);
+		
+	1. Used in AJAX
+		1. POST body or PUT body must be string
+2. De-serialization:
+
+		var customerOrderDeSerialized = JSON.parse(jsonString);
+		console.log(customerOrderDeSerialized.items[0]);
 
 ## WSDL Creation ##
 ### Usecase ###
+1. WSDL for Customer Orders
+2. Example: CreateOrders
+	1. CreateOrdersRequest
+		1. customerId
+		2. Bunch or Orders
+	2. CreateOrdersResponse
+		1. true/false boolean response
+3. Example: GetOrders
+	1. GetOrdersRequest
+		1. customerId
+	2. GetOrdersResponse
+		1. Bunch of Orders
+4. Build WSDL Messages
+5. Build Operations using porttype
+	1. Tells what is the web service capable of doing
+6. Binding section
+	1. Defines WSDL binding for operations
+7. Service section
+	1. Tells what URL can be used and glues everything together
+
 ### Creation of the WSDL ###
+1. Download **wsdlfirstws**
+	1. delete `src/main/WEB-INF/wsdl/CustomerOrders.wsdl`
+2. Right click on `src/main/WEB-INF/wsdl`
+	1. `CustomerOrders.wsdl`
+	2. Namespace: `http://trainings.ws.bharath.com`
+3. ctrl + shift + f
+4. Change `name` to `CustomerOrdersService` in `<wsdl...` tag
+
 ### Define Schema Types ###
+1. XML schema types
+	1. Two complex types: Product, Order (orderID and products)
+
+			<xsd:schema ...>
+				<xsd:complexType name="product">
+					<xsd:sequence>
+						<xsd:element name="id" type="xsd:string" />
+						<xsd:element name="description" type="xsd:string" />
+						<xsd:element name="quantity" type="xsd:integer" />
+					</xsd:sequence>
+				</xsd:complexType>
+				<xsd:complexType name="order">
+					<xsd:sequence>
+						<xsd:element name="id" type="xsd:integer" />
+						<xsd:element name="product" type="tns:product" maxOccurs="unbounded"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:schema>
+
 ### Get Orders Request and Response ###
+1. XML elements for messages
+
+		<xsd:schema ...>
+			...
+			<xsd:complexType name="getOrdersRequest">
+				<xsd:sequence>
+					<xsd:element name="customerId" type="xsd:integer" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getOrdersResponse">
+				<xsd:sequence>
+					<xsd:element name="order" type="tns:order" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+
 ### Creation of Order Request and Response ###
+1. `CreateOrder` request and `CreateOrder` response
+
+		<xsd:schema ...>
+			...
+			<xsd:complexType name="createOrdersRequest">
+				<xsd:sequence>
+					<xsd:element name="customerId" type="xsd:integer" />
+					<xsd:element name="order" type="tns:order" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="createOrdersResponse">
+				<xsd:sequence>
+					<xsd:element name="result" type="xsd:boolean" />
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+
 ### The Four Elements ###
+1. Elements that use four types
+
+		<xsd:schema ...>
+			...
+			<xsd:element name="getOrdersRequest" type="tns:getOrdersRequest" />
+			<xsd:element name="getOrdersResponse" type="tns:getOrdersResponse" />
+			<xsd:element name="createOrdersRequest" type="tns:createOrdersRequest" />
+			<xsd:element name="createOrdersResponse" type="tns:createOrdersResponse" />
+		</xsd:schema>
+
 ### Define Messages ###
+
+		<wsdl:message name="getOrdersRequest">
+			<wsdl:port element="tns:getOrdersRequest" name="parameters" />
+		</wsdl:message>
+		<wsdl:message name="getOrdersResponse">
+			<wsdl:port element="tns:getOrdersResponse" name="parameters" />
+		</wsdl:message>
+		<wsdl:message name="createOrdersRequest">
+			<wsdl:port element="tns:createOrdersRequest" name="parameters" />
+		</wsdl:message>
+		<wsdl:message name="createOrdersResponse">
+			<wsdl:port element="tns:createOrdersResponse" name="parameters" />
+		</wsdl:message>
+
 ### Define Operations ###
+
+		<wsdl:portType name="CustomerOrdersPortType">
+			<wsdl:operation name="getOrders">
+				<wsdl:input message="tns:getOrdersRequest" />
+				<wsdl:output message="tns:getOrdersResponse" />
+			</wsdl:operation>
+			<wsdl:operation name="createOrders">
+				<wsdl:input message="tns:createOrdersRequest" />
+				<wsdl:output message="tns:createOrdersResponse" />
+			</wsdl:operation>
+		</wsdl:portType>
+
 ### Define Binding ###
+1. Binding connects the previously defined abstract portion to the physical portion of wsdl file			
+2. Binding definition
+
+		<wsdl:binding name="CustomerOrdersServiceSoapBinding" type="tns:CustomerOrdersPortType">
+			<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+			<wsdl:operation name="getOrders">
+				<wsdl:input name="getOrdersRequest">
+					<soap:body use="literal" /> <!-- what is this? -->
+				</wsdl:input>
+				<wsdl:output name="getOrdersResponse">
+					<soap:body use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			<wsdl:operation name="createOrders">
+				<wsdl:input name="createOrdersRequest">
+					<soap:body use="literal" />
+				</wsdl:input>
+				<wsdl:output name="createOrdersResponse">
+					<soap:body use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+		</wsdl:binding>
+
 ### Define Service ###
+1. Service: tells where the web service can be consumed and also connects the binding section
+
+		<wsdl:service name="CustomerOrders">
+			<wsdl:port binding="tns:CustomerOrdersServiceSoapBinding" name="CustomerOrderPort">
+				<soap:address location="http://localhost:8080/wsdlfirstws/services/customerOrdersService" />
+			</wsdl:port>
+		</wsdl:service>
+
 ### Resolve Errors ###
 
-## Database CRUD using REST ##
-### Usecase ###
-### Project and pom.xml ###
-### Creation of data access layer ###
-### Implement Creation Update and Delete Methods ###
-### Implement the find method ###
-### Wire the DAO Beans ###
-### Creation of the REST Interface ###
-### Annotate the beans ###
-### Implement the REST Service ###
-### Implement the READ Method ###
-### Wire the beans ###
-### web.xml ###
-### Deploy the application ###
-### Test Read and Create ###
-### Test Update and Delete ###
+		<wsdl:portType ...
+			...
+				<wsdl:input message="tns:getOrdersRequest" name="getOrdersResponse" />
+				<wsdl:output message="tns:getOrdersResponse" name="getOrdersResponse" />
+			...
+				<wsdl:input message="tns:createOrdersRequest" name="createOrdersResponse" />
+				<wsdl:input message="tns:createOrdersResponse" />
+			
