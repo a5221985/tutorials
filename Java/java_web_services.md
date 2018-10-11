@@ -419,24 +419,352 @@
 	4. Insurance Services (outsite hospital)
 
 ### SOAP Web Services Advantages and Disadvantages ###
+1. Advantages
+	1. Platform independent
+		1. Apps running in heterogenous environments can communicate
+			1. HTTP - transport independent
+			2. XML - Data independent (data + metadata)
+	2. Application tailoring/customization
+		1. Customers can customize and extend their products by re-using web services given to them
+		2. Legacy applications can be used if they support xml and http
+			1. A layer of web services can be built as a wrapper
+	3. WS opens door from new revenue/profit channels
+		1. ws can be offered as a payed service for clients
+	4. Firewalls like web services
+		1. Port 80 is usually not blocked
+2. Cons
+	1. Ambiguous Web Services Standards
+		1. Different companies
+	2. Performance Impact due to Serialization and De-Serialization (SOAP usually)
+		1. REST is light weight
+
 ### When to use SOAP Web Services? ###
+1. When?
+	1. Formal contract is required between client and server
+		1. WSDL
+			1. What is provided and how it is provided
+	2. Architecture has to address a lot of non functional requirements (SOAP has standards and out of the box - CXF ... provide implementation with minimum code)
+		1. Security
+		2. Transaction management
+		3. ...
+	3. WS needs reliable asynchronous processing
+		1. SOAP - Out of box - just configuration
+
 ### SOAP ###
+1. Simple Object Access Protocol
+	1. Spec from w3c
+		1. Current version: 1.2
+	2. Rules come in an xml doc
+
+			<soap:Envelope> <!-- root element in namespace -->
+				<soap:header/> <!-- meta info -->
+					<soap:Body> <!-- data -->
+						<creditcard>
+							...
+						</creditcard>
+					</soap:Body>
+			</soap:Envelope>
+			
+		1. Example: Bank integration
+			1. Bank exposes web service
+				1. Credit card info is accepted
+				2. Response is successful or failure
+		2. If transaction fails
+
+				<soap:Body>
+					<soap:Fault> <!-- optional, child of body, error info -->
+						<soap:code>soap:Server</soap:code> <!-- client side or server side error -->
+						<soap:Reason> <!-- What is the exact reason -->
+							<soap:text>
+								Card Expired
+							</soap:text>
+						</soap:Reason>
+					</soap:Fault>
+				</soap:Body>
+				
+			1. Exceptions are converted to SOAP faults
+		3. SOAP header
+
+				<soap:Header> <!-- meta info - security, ... standard - out of box implementation -->
+					<wsse:Security>
+						<wsse:UsernameToken>
+							<wsse:Username>...
+							<wsse:Password>...
+						</wsse:UsernameToken>
+					</wsse:Security>
+				</soap:Header>
+
 ### WSDL File Explained ###
+1. WSDL - Web Services Description Language
+	1. Contract
+		1. *.wsdl
+2. Two things it describes:
+	1. What the web service provides
+	2. How it provides it and how you can consume it
+		1. What request should consumer send
+		2. What response should go back
+3. WSDL is divided into two portions
+	1. Abstract portion
+		1. What is provided
+			1. Elements
+				1. types
+					1. Has all the datatypes which we need to exchange information - (XML Schema)
+				2. messages - like parameters and return types
+					1. Use types to define messages
+				3. operation - like methods in java
+					1. Operation name
+					2. Request message
+					3. Response message
+				4. porttype - it is a container of all the operations that web service is providing
+	2. Physical portion
+		1. How to consume the web service from the consumer
+			1. Elements
+				1. binding - how consumer can consume the service and how provider is going to send the response back
+					1. document-literal wrapped (CXF validates)
+					2. It defines binding between abstract section and physical section
+				2. service - how to access the web service
+					1. URL - replaced dynamically by apache CXF
+					2. Port
+
 ### WSDL Binding Styles ###
+1. SOAP binding styles
+
+		<binding style="document/literal">
+		
+	1. Three things impacted depending on style
+		1. How the SOAP payload looks like
+		2. Whether the SOAP body will be validated against the schema is determined
+		3. Whether the operation name (method) invoked is part of the SOAP body or not
+2. Search for "which wsdl style should I use"
+	1. RPC/encoded - can be used for both RPC and JAX-WS
+		1. Type info in included in request
+		2. Operation name appears in request (CXF can easily dispatch)
+		3. Weeknesses: overhead
+			1. Not ws-i compliant
+				1. Cannot be used across platforms
+			2. Request cannot be validated against the schema (operation name is matched with operation key)
+	2. RPC/literal - wsdl is same as RPC/encoded (but style)
+		1. request does not have encoding information - no type
+		2. Strength: operation name appears, type info is eliminated (performance)
+			1. WS-I compliant
+		3. Weeknesses: Cannot be validated against schema in wsdl (message is not from types section)
+	3. Document/encoded
+		1. Not WS-I compliant - skipped
+	4. Document/literal
+		1. Improves over RPC styles
+		2. Compliant with WS-I
+		3. Types are defined in `<types>` section
+			1. Inputs are defined here
+			2. Inputs are referred in message
+			3. Body will directly have the inputs
+		4. Strengths:
+			1. No encoding info
+			2. We can validate the soap body against schema defined in types section
+			3. WS-I compliant but has restrictions
+		5. Weeknesses
+			1. More complicated - schema, types
+				1. But can be overcome since tools are available to generate WSDL from java files
+			2. Operation name is gone
+				1. CXF has tough time figuring out the operation
+			3. Not WS-I compliant because only one child element is allowed in body but has multiple (no root element) - style is still document/literal
+	5. Document/literal wrapped - most used
+		1. Input parameter types are wrapped inside complex types - root element for schema
+			1. Name of the element is the name of the operation itself (key)
+			2. Element is used inside the message
+			3. Element is used inside the operation
+		2. Strengths:
+			1. data is wrapped inside operation
+			2. No encoding information
+			3. We can validate the entire soap body against the schema definition
+			4. Method name is used in request - CXF can use it to dispatch - the name matches the operation name in Java or .Net
+			5. WS-I compliant
+		3. Weeknesses:
+			1. Complicated WSDL
+			2. Overloaded methods cannot be used - two elements must be defined with same name but not allowed
+6. Document describes when to use which style and when not to use it
+
 ### Section Summary ###
+1. SOAP uses HTTP and XML
+2. Advantages
+	1. Platform independence
+	2. Extend application/ customize application
+	3. We can integrate legacy application
+	4. Easy to deal with fireall (port 80 is not blocked)
+3. Disadvantages
+	1. Ambiguous standards - different companies
+	2. Performance overhead due to serialization and deserialization
+4. When to use?
+5. SOAP
+	1. format
+6. WSDL
+	1. Contract
 
 ## SOAP Web Services Design and Implementation ##
 ### Introduction ###
+1. Topics
+	1. Top down
+	2. Bottom up
+	3. JAX-WS
+	4. Apache CXF - stack
+		1. Features
+
 ### SOAP Web Services Design Approaches ###
+1. Contract first: Top down - WSDL first
+	1. First WSDL file is defined - it has all the info about ws
+	2. Generate Java stubs using tools like wsdl2java
+	3. Implement web services endpoint (using stub)
+	4. Advantages:
+		1. Sign off contract with consumer upfront
+		2. Everyone will be on the same page
+		3. Improves inter operability
+			1. Code first approach disadvantage: If web service uses a new data structure but legacy consumer does not understand, ws is not useful
+			2. Consumers can ensure the availability
+		4. We can give to consumer right at the beginning
+			1. Parallel development
+			2. Faster integration
+2. Code first: Botton up
+	1. Write Java code and annotate with JAX-WS spec
+	2. Generate WSDL using java2wsdl (JAX-WS)
+	3. Advantages:
+		1. We can integrate legacy applications (to expose as web service)
+3. When to use which one?
+	1. Contract first as much as possible for scratch development
+	2. Code first when we want to expose out legacy applications as web services
+		1. For others to consume (sharing)
+
 ### Section Summary ###
+1. WSDL is easy to understand (technical and non-technical people)
+2. WSDL first: Faster integration
 
 ## JAX-WS AND JAXB ##
 ### JAX-WS ###
+1. Comprises of Specification and API
+	1. Specification: Consists of rules and guidelines
+		1. Glassfish: Reference implementation of the specification
+			1. CXF: Implementation
+	2. API: Consists of Annotations
+		1. Developers can mark classes with annotations (for providers and consumers)
+2. Core annotations:
+
+		@javax.jws.WebService
+		public class OrderService  // end point
+		
+		@javax.jws.WebMethod
+		@WebResult(name = "order") Order getOrder(@WebParam(name = "orderId") Long orderId)
+		
+		@javax.xml.ws.WebFault
+		
+	1. For custom exceptions which are converted to SOAP fault (extends `Exception`)
+
+3. Binding
+
+		@javas.jws.soap.SOAPBinding
+		
+	1. To specify type of binding
+		1. How SOAP message gets generated
+		2. Default: `document\literal`
+
+				@SOAPBinding(sytle = Style.RPC, use = Use.LITERAL)
+				
+	2. Incoming requests and outgoing responses can be mapped to java objects in a custome manner
+
+			@javax.xml.ws.RequestWrapper
+			@javax.xml.ws.ResponseWrapper
+			
+		1. JAX-WS standard does it well so not required usually
+
 ### JAXB Introduction ###
-### Generating java classes from xml schema ###
+1. Java Architecture for XML Binding
+	1. Easy way to map Java class and XML schema hiding the complexity
+		1. No need to deal with STAX parser or DOM parser
+	2. JAXB is for XML as Hibernate is for SQL
+2. Tools provided by JAXB - Three
+	1. XJC - XML Schema Compiler
+		1. Generates Java classes from a given XML Schema
+		2. Internally used for WSDL first development
+	2. SchemaGen - Generates XML Schema from Java classes
+	3. Runtime API:
+		1. Marshal Java objects into XML
+		2. Un-Marshal XML into Java objects
+3. Runtime API
+	1. Marshalling class
+	2. Unmarshalling class
+	3. Annotations
+4. Reference Implementation
+	1. CXF uses reference implementation
+	2. Current version of JaxB (as of then) 2.2
+
+### JAXB tools and plugins ###
+1. JAXB is part of JDK
+	1. `schemagen` and `xjc` commands exist
+	2. Real time, plugins are used
+		1. Maven jaxb plugin
+			1. `org.jvnet.jaxb2.maven2`
+
+					<dependency>
+						<groupId>org.jvnet.jaxb2.maven2</groupId>
+						<artifactId>maven-jaxb2-plugin</artifactId>
+						<version>0.14.0</version>
+					</dependency>
+
+### Steps to generate stubs from XML Schema ###
+1. New maven project
+	1. New schemas
+	2. Use JAXB Plugin
+	3. Generate the stubs and use them to serialize and deserialize
+2. `main/xsd`
+3. Download schemas from resources [https://www.udemy.com/java-web-services/learn/v4/t/lecture/2453636?start=0](https://www.udemy.com/java-web-services/learn/v4/t/lecture/2453636?start=0)
+	1. paste them under `xsd` folder
+
+### Generate the Stubs ###
+1. Open `pom.xml` from the download folder
+	1. Copy `build` section and paste
+2. New source folder `src/generated`
+3. Run as > Maven generate sources
+
+### Customize Generated Code Using Binding File ###
+1. Open `global.xjb` - configuration
+	1. `<bindingDirectory>` - where bincing file is present
+	2. Tells how java code should look like when generated
+		1. Root element: `jaxb:bindings`
+		2. `<xjc:simple>` - it includes `@XmlType(...)` - default even if removed
+		3. `<xjc:serializable uid="-1">` - `serialVersionUID`
+		4. `<jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime" ...` - Uses `java.util.Calendar` when generating date fields
+		5. `@XmlType` - used to define order of elements
+		6. `@XmlElement` - name can be defined
+		7. `@XmlAttribute` - specifies xml attribute
+
+### Stubs Walk Through ###
+1. `package-info` - used for java docs
+2. `ObjectFactory.java` - If data structures in xmls do not map to a Java class
+	1. For generating object of the data structure
+
 ### Marshalling and Unmarshalling ###
+1. Marshalling: Converting Java objects to xml
+2. Un-Marshalling: Converting xml to Java
+3. New class: `com.bharath.trainings.jaxb.JAXBDemo`
+
+		JAXBContext context = JAXContext.newInstance(Patient.class);
+		Marshaller marshaller = context.createMarshaller();
+		
+		Patient patient = new Patient();
+		patient.setId(123);
+		patient.setName("Bharath");
+		
+		StringWriter writer = new StringWriter()
+		marshaller.marshal(patient, writer);
+		
+		System.out.println(writer.toString());
+		
+		Unmarshaller unMarshaller = context.createUnmarshaller();
+		Patient patientResult = (Patient) unMarsheller.unmarshal(new StringReader(writer.toString());
+		
+		System.out.println(patientResult.getName());
+
 ### JAXWS Summary ###
-### JAXB Summary ###
+1. Java API for XML based web services
+	1. Spec: For stack implementation
+	2. API: Annotations
 
 ## Apache CXF ##
 ### Introduction ###

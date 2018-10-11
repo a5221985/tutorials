@@ -2348,17 +2348,1011 @@
 	2. Link
 
 			<link rel="stylesheet" href="css/font-awesome.min.css">
+			
+	3. Nav
+
+			<body>
+				...
+				<nav>
+					<li ...href="index.html">Home</li>
+					<li ...href="about.html">About</li>
+					<li ...href="blog.html">Blog</li>
+				...
+				<img src="img/logo.png"> <!-- copy from project files -->
+			</div>
+			
+		1. new folder img
+			1. Paste the logo
+
+	4. Jumbotron - keep it
+		1. Copy everything from jumbotron-narrow.css to style.css (open source code)
+			1. Remove comments
+		2. Remove media queries
+		3. Remove 
+
+				.header,
+				.marketing,
+				.footer {
+					...
+				}
+				
+		4. Add the following
+
+				.container {
+					max-width: 1020px;
+				}
+				
+6. index.html
+
+			...>Sign up today</a></p>
+		</div>
+
+		<section class="row marketing">
+			<div class="col-lg-4">
+				<i class="fa fa-bar-chart fa-3"></li>
+				<h3>Subheading</h3>
+				<p>...</p>
+			</div>
+		
+			<div class="col-lg-4">
+				<i class="fa fa-code fa-3"></li>
+				<h3>Subheading</h3>
+				<p>...</p>
+			</div>
+			
+			<div class="col-lg-4">
+				<i class="fa fa-desktop fa-3"></li>
+				<h3>Subheading</h3>
+				<p>...</p>
+			</div>
+		</section>
+		
+		<section class="row content-region-1 pt50 pb40">
+			<div class="container">
+				<div class="col-md-12">
+					<h1>Clean Bootstrap Wordpress Theme</h1>
+					<p class="lead">Lorem ...</p>
+				</div>
+			</div>
+		</section>
+		
+		<section class="row content-region-2 pt40 pb40">
+			<div class="container">
+				<div class="col-md-5">
+					<img src="img/pic1.jpg"> <!-- get it from project files -->
+				</div>
+				<div class="col-md-7">
+					<h3>Theme Features</h3>
+					<ul class="list-group">
+						<li class="list-group-item"><i class="fa fa-check" aria-hidden="true"></i> Clean Code</li>
+						<li class="list-group-item"><i class="fa fa-check" aria-hidden="true"></i> Clean Code</li>
+						<li class="list-group-item"><i class="fa fa-check" aria-hidden="true"></i> Clean Code</li>
+						<li class="list-group-item"><i class="fa fa-check" aria-hidden="true"></i> Clean Code</li>
+					</ul>					
+				</div>
+			</div>
+		</section>
+		
+		<footer>
+			<div class="container">
+				<div class="col-lg-4">
+					<h4>Heading</h4>
+					<p>Lorem...</p>
+				</div>
+			
+				<div class="col-lg-4">
+					<h4>Heading</h4>
+					<ul>
+						<li><a href="#">...</li>
+						<li><a href="#">...</li>
+						<li><a href="#">...</li>
+						<li><a href="#">...</li>
+					</ul>
+				</div>
+				
+				<div class="col-lg-4">
+					<h4>Contact Us</h4>
+					<form>
+						<div>
+							<input type="text" placeholder="Name">
+						</div>
+						<div>
+							<input type="text" placeholder="Email Address">
+						</div>
+						<div>
+							<textarea placeholder="Message"></textarea>
+						</div>
+						<input class="btn btn-primary" type="submit" value="Send">
+					</form>
+				</div>
+			</div>
+		</footer>
 
 ### Business Theme HTML & CSS Part B ###
+1. about.html
+	1. Copy from index and paste
+		1. Remove jumbotron
+		2. Remove next section `<section class="row marketing">`
+		3. Title bar area:
+			1. Copy `<section class="row content-region-1 pt50 pb40">...` to under `img/logo.png` section
+				1. Keep only `row title-bar` classes
+
+							<div class="col-md-12">
+								<h1>About Us</h1>
+							</div>
+						
+						<section class="row marketing">
+							<div class="container">
+								<div class="col-md-8">
+									<p>Lorem...</p>
+									<p>Lorem...</p>
+									<br>
+									<a class="btn btn-primary-reverse btn-block">Contact Us</a>
+								</div>
+								<div class="col-md-4">
+									<div class="side-widget">
+										<h3>Text Widget</h3>
+										<p>Lorem...</p>
+									</div>
+									
+									<div class="side-widget">
+										<h3>Categories</h3>
+										<ul class="list-group">
+											<li class="list-group-item"><a href="#">Business</a></li>
+											<li class="list-group-item"><a href="#">Technology</a></li>
+											<li class="list-group-item"><a href="#">Food</a></li>
+											<li class="list-group-item"><a href="#">Family</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</section>
+						
+			4. Remove `class="active"` from home `li` and put it on `about`
+
+2. blog.html
+	1. Copy from about page and paste
+		1. Change `About Us` to `Blog`
+	2. Change 8 column div
+
+			<div class="col-md-8">
+				<article class="post">
+					<div class="col-md-5">
+						<img src="img/blog1.jpg">
+						<a href="single.html" class="btn btn-primary btn-block">Read More</a>
+					</div>
+					<div class="col-md-7">
+						<ul class="meta">
+							<li>By <a href="#">Admin</a></li>
+							<li>May 11, 2016</li>
+							<li><a href="#">Business</a></li>
+						</ul>
+						<h3>Lorem Ipsum</h3>
+						<p>Lorem...</p>
+					</div>
+				</article>
+				<div class="clr"></div>
+				<article class="post">
+					<div class="col-md-5">
+						<img src="img/blog2.jpg">
+						<a href="single.html" class="btn btn-primary btn-block">Read More</a>
+					</div>
+					<div class="col-md-7">
+						<ul class="meta">
+							<li>By <a href="#">Admin</a></li>
+							<li>May 11, 2016</li>
+							<li><a href="#">Business</a></li>
+						</ul>
+						<h3>Lorem Ipsum</h3>
+						<p>Lorem...</p>
+					</div>
+				</article>
+				<article class="post">
+					<div class="col-md-5">
+						<img src="img/blog3.jpg">
+						<a href="single.html" class="btn btn-primary btn-block">Read More</a>
+					</div>
+					<div class="col-md-7">
+						<ul class="meta">
+							<li>By <a href="#">Admin</a></li>
+							<li>May 11, 2016</li>
+							<li><a href="#">Business</a></li>
+						</ul>
+						<h3>Lorem Ipsum</h3>
+						<p>Lorem...</p>
+					</div>
+				</article>
+				
+3. style.css
+
+		article.post img {
+			width: 100%;
+		}
+		
+4. single.html
+	1. Copy from blog and paste
+	2. Keep only one article (remove the other two)
+
+			<article...>
+				<img src="img/blog1.jpg">
+				<ul class="meta">
+					<li>By <a href="#">Admin</a></li>
+					<li>May 11, 2016</li>
+					<li><a href="#">Business</a></li>
+				</ul>
+				<hr>
+				<p>Lorem...</p>
+				<p>Lorem...</p>
+			</article>
+			
+5. Move active to blog li
+
 ### Business Theme HTML & CSS Part C ###
+1. style.css
+
+		body {
+			...
+			font-size: 15px;
+			color: #7a7a7a;
+			line-height: 1.7em;
+		}
+		
+		a {
+			color: #0faf97;
+		}
+		
+		.btn-primary {
+			backgroun: #0faf97;
+			color: #fff;
+			border-color: #fff;
+		}
+		
+		...
+		.nav-pills > li.active > a,
+		.nav-pills > li.active > a:hover,
+		.nav-pills > li.active > a:focus {
+			background: #0faf97;
+		}
+		
+		.jumbotron {
+			text-align: center;
+			border-bottom: 1px solid #e5e5e5;
+			padding-top: 90px;
+			padding-bottom: 90px;
+			background: url('../img/banner.jpg') 0 -80px;
+			color: #fff;
+		}
+		
+1. index.html
+	1. Remove top level `<div class="container">` in `body`
+	2. Remove `<script src="../../">` at the bottom
+	3. Add container to heading and box area
+
+			<div class="header clearfix">
+				<div class="container">
+					...
+			...
+			<section class="row marketing">
+				<div class="container">
+					<div class="col-lg-4">
+						...
+						
+			<div class="jumbotron">
+				<div class="container">
+					<h1>Jumbotron</h1>
+						...
+						<a class="btn btn-lg btn-primary" ...></a>
+	
+3. style.css
+
+		.btn-primary:hover {
+			background: #fff;
+			color: #0faf97;
+			border-color: #0faf97;
+		}
+		
+		.btn-primary-reverse {
+			background: #fff;
+			color: #0faf97;
+			border-color: #0faf97;
+		}
+		
+		.btn-primary-reverse:hover {
+			background: #0faf97;
+			border-color: #fff;
+		}
+		
+		...
+		
+		.block {
+			border: #ccc solid 1px;
+			padding: 20px 20px 30px 20px;
+			text-align: center;
+		}
+		
+		.block h3 {
+			color: #0faf97;
+		}
+		
+		.fa {
+			color: #0faf97;
+		}
+		
+		.fa-3 {
+			font-size: 4em !important;
+		}
+		
+		.marketing {
+			margin: 40px 0;
+		}
+		
+		.content-region-1 {
+			background: #0faf97;
+			color: #0faf97;
+			text-align: center;
+		}
+		
+		.content-region-2 {
+			background: #f4f4f4;
+			color: #333333;
+		}
+		
+		.content-region-3 {
+			background: #000000;
+			color: #ffffff;
+		}
+		
+		.content-region-2 img {
+			width: 100%:
+		}
+		
+		.content-regions-3 h4 {
+			border-left: 5px #0faf97 solid;
+			padding-left: 8px;
+			margin-bottom: 20px;
+		}
+		
+		.content-region-1 h1, .content-region-2 h1 {
+			margin: 0;
+			padding: 0;
+			padding-bottom: 15px;
+			font-size: 40px;
+		}
+		
+		.pt20 { padding-top: 20px; }
+		.pb20 { padding-bottom: 20px; }
+		.pt30 { padding-top: 30px; }
+		.pb30 { padding-bottom: 30px; }
+		.pt40 { padding-top: 40px; }
+		.pb40 { padding-bottom: 40px; }
+		.pt50 { padding-top: 50px; }
+		.pb50 { padding-bottom: 50px; }
+		.pt60 { padding-top: 60px; }
+		.pb60 { padding-bottom: 60px; }
+		
+4. Wrap in block class
+
+		<div class="block">
+			<i class="fa ...>
+		</div>
+		
+		<div class="block">
+			<i class="fa ...>
+		</div>
+		
+		<div class="block">
+			<i class="fa ...>
+		</div>
+		
+5. footer
+
+		<footer ... content-region-3 pt30 pb40">
+		
+6. style.css
+
+		body {
+			// remove padding-botton
+			...
+		}
+		...
+		.content-region-3 form input[type="text"], .content-region-3 form textarea {
+			width: 100%;
+			padding: 5px;
+			background: #333;
+			color: #fff;
+			margin-bottom: 10px;
+			border: 0;
+		}
+		
+7. About page: about.html
+	1. Remove top container
+	2. Remove bottom section
+	3. Header: Add container
+
+			<div class="container">
+				<nav>
+					...
+				</nav>
+			</div>
+			...
+			<footer class="footer content-region-3 pt30 pb40">
+			
+8. style.css
+
+		.side-widget {
+			margin-bottom: 40px;
+		}
+		
+		.side-widget h3 {
+			border-left: 5px #0faf97 solid;
+			padding-left: 10px;
+			margin-bottom: 15px;
+		}
+		
+9. blog.html, single.html
+
+		<footer class="footer content-region-3 pt30 pb40">
+			...
+			
+	1. Remove top level container
+	2. Remove bottom script
+	3. Add container to head
+
+			<div class="container">
+				<nav>
+					...
+					
+10. Title bar: style.css
+
+		.title-bar {
+			background: #0faf97;
+			color: #ffffff;
+			padding-bottom: 10px;
+			border-bottom: 6px #ddd solid;
+		}
+		
+		article.post {
+			border-bottom: 1px #ccc solid;
+			overflow: auto;
+			padding-bottom: 30px;
+			margin-bottom: 40px;
+		}
+		
+		article.post .meta {
+			border-top: #ccc solid 1px;
+			border-bottom: #ccc solid 1px;
+			overflow: auto;
+			list-style: none;
+			margin: 0;
+			padding: 5px 0;
+		}
+		
+		article.post .meta li {
+			float: left;
+			margin-right: 20px;
+		}
+		
+		article.post img {
+			width: 100px;
+			margin-bottom: 20px;
+		}
+		
+11. single.html
+	1. Remove top container
+	2. Remove bottom script
+
+			<body>
+				<div class="header...">
+					<div class="container">
+						<nav>
+							...
+
 ### Navigation and Custom Logo Upload ###
+1. wpthemes/themes/business
+	1. style.css
+
+			/* 
+				Theme Name: Business Theme
+				Author: Brad Traversy
+				Author URI: http://eduonix.com
+				Description: Simple Business Theme
+				Version: 1.0
+			*/
+			
+			/* paste everything for style.css */
+			
+	2. index.php
+		1. Copy from index.html
+	3. copy bootstrap.css and font-awesome.css into css folder in wordpress business theme
+	4. copy fonts js and img folders into wordpress business theme
+	5. Copy `screenshot.png` in root
+2. index.php
+
+		<html <?php language_attributes(); ?>>
+			<head>
+				<meta charset="<?php bloginfo('charset'); ?>">
+				...
+				<title><?php bloginfo('name'); ?></title>
+				
+				<link href="<?php bloginfo('template_url'); ?>/css/bootstrap.css" ...>
+				<link href="<?php bloginfo('template_url'); ?>/css/font-awesome.css" ...>
+				<link href="<?php bloginfo('stylesheet_url'); ?>" ...>
+				<?php wp_head(); ?>
+			</head>
+			
+			<body <?php body_class(); ?>>
+				...
+				<nav> <!-- remove this -->
+				<?php
+					wp_nav_menu(array(
+						'theme_location'	=> 'primary',
+						'depth'			=> 2,
+						'container'		=> false,
+						'menu_class'		=> 'nav nav-pills pull-right',
+						'fallback'		=> 'wp_bootstrap_navwalker::fallback',
+						'walker'			=> new wp_boostrap_navwalker()	
+					));
+				
+	
+	1. copy wp_bootstrap_navwalder.php from project folder into root
+3. functions.php
+
+		<?php 
+		require_once('wp_bootstrap_navwalker.php'); 
+		
+		// Theme Support
+		function business_theme_setup() {
+			// Logo Support
+			add_theme_support('custom-logo')
+			
+			register_nav_menus(array(
+				'primary'	=> __('Primary Menu')
+			));
+		}
+		
+		add_action('after_setup_theme', 'business_theme_setup');
+		
+4. In backend: Open Menus option
+	1. Theme locations: Primary menu (save)
+5. index.php
+
+		<img ...> <!-- remove -->
+		<?php if(has_custom_logo()) : ?>
+			<?php the_custom_logo(); ?>
+		<?php else : ?>
+			<h1><?php bloginfo('name'); ?></h1>
+		<?php endif; ?>
+		
+6. Customize/Site Identity/Logo
+	1. Select logo.png
+	2. Crop image
+	3. Save
+7. Admin menu: index.php
+
+		<?php wp_footer(); ?>
+		
+8. header.php
+	1. Cut from top to `div` above jumbotron from index.php
+
+			<?php get_header(); ?> <!-- index.php -->
+			
+	2. Paste in header.php
+9. footer.php
+	1. Cut from `footer` to bottom
+
+			<?php get_footer(); ?> <!-- index.php -->
+
 ### Adding Customizer Sections & Settings ###
+1. New file: front-page.php
+	1. Copy everything from index.php and paste
+2. Goto Customizer
+3. Goto pages:
+	1. Home
+	2. Blog
+4. Settings:
+	1. Front page displays: A static page (select below)
+	2. Front page: Home
+	3. Posts page: Blog
+5. functions.php
+
+		function business_customize_register($wp_customize) {
+			// Banner Section
+			$wp_customize->add_section('banner', array(
+				'title' => __('Banner', 'business'),
+				'description' => sprintf(__('Options for homepage banner', 'business')),
+				'priority' => 130
+			));
+			
+			// Heading Setting
+			$wp_customize->add_setting('banner_heading', array(
+				'default'			=> _x('Banner Heading', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Heading Control
+			$wp_customize->add_control('banner_heading', array(
+				'label'			=> __('Heading', 'business'),
+				'section'			=> 'banner',
+				'priority'		=> 20
+			));
+			
+			// Text Setting
+			$wp_customize->add_setting('banner_text', array(
+				'default'			=> _x('Welcome to the Wordpress Business Theme. This theme uses the Twitter Bootstrap 3 framework and can be customized to your liking', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Text Control
+			$wp_customize->add_control('banner_text', array(
+				'label'			=> __('Text', 'business'),
+				'section'			=> 'banner',
+				'priority'		=> 20
+			));
+			
+			// Button Setting
+			$wp_customize->add_setting('banner_btn_text', array(
+				'default'			=> _x('Sign Up', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Button Control
+			$wp_customize->add_control('banner_btn_text', array(
+				'label'			=> __('Button Text', 'business'),
+				'section'			=> 'banner',
+				'priority'		=> 20
+			));
+			
+			// Button URL Setting
+			$wp_customize->add_setting('banner_btn_url', array(
+				'default'			=> _x('http://test.com', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Button URL Control
+			$wp_customize->add_control('banner_btn_url', array(
+				'label'			=> __('Button URL', 'business'),
+				'section'			=> 'banner',
+				'priority'		=> 20
+			));
+			
+			// Button Image Setting
+			$wp_customize->add_setting('banner_btn_url', array(
+				'default'			=> get_bloginfo('template_directory').'/img/banner.jpg',
+				'type'				=> 'theme_mod'
+			));
+			
+			// Button Image Control
+			$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'banner_image', array(
+				'label'		=> __('Background Image', 'business'),
+				'section'		=> 'banner',
+				'settings'	=> 'banner_image' 
+			)));
+			
+			// Boxes Section
+			$wp_customize->add_section('boxes', array(
+				'title'		=> __('Boxes', 'business'),
+				'description'	=> sprintf(__('Options for homepage boxes', 'business')
+				),
+				'priority'	=> 130
+			));
+			
+			// BOX 1
+			// Box 1 Heading Setting
+			$wp_customize->add_setting('box1_heading', array(
+				'default'			=>	_x('Box 1 Heading', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Box 1 Heading Control
+			$wp_customize->add_control('box1_heading', array(
+				'label'			=> __('Box 1 Heading', 'business'),
+				'section'			=> 'boxes',
+				'priority'		=> 20
+			));
+			
+			// Box 1 Text Setting
+			$wp_customize->add_setting('box1_text', array(
+				'default'			=>	_x('Macenas sed diam eget risus varius bladit sit amet non magna.', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Box 1 Heading Control
+			$wp_customize->add_control('box1_text', array(
+				'label'			=> __('Box 1 Text', 'business'),
+				'section'			=> 'boxes',
+				'priority'		=> 20
+			));
+			
+			// Box 1 Icon Setting
+			$wp_customize->add_setting('box1_icon', array(
+				'default'			=>	_x('bar-chart', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Box 1 Icon Control
+			$wp_customize->add_control('box1_icon', array(
+				'label'			=> __('Box 1 Icon', 'business'),
+				'section'			=> 'boxes',
+				'priority'		=> 20
+			));
+			
+			// BOX 2
+			// Box 2 Heading Setting
+			$wp_customize->add_setting('box2_heading', array(
+				'default'			=>	_x('Box 2 Heading', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Box 2 Heading Control
+			$wp_customize->add_control('box2_heading', array(
+				'label'			=> __('Box 2 Heading', 'business'),
+				'section'			=> 'boxes',
+				'priority'		=> 20
+			));
+			
+			// Box 2 Text Setting
+			$wp_customize->add_setting('box2_text', array(
+				'default'			=>	_x('Macenas sed diam eget risus varius bladit sit amet non magna.', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Box 2 Heading Control
+			$wp_customize->add_control('box2_text', array(
+				'label'			=> __('Box 2 Text', 'business'),
+				'section'			=> 'boxes',
+				'priority'		=> 20
+			));
+			
+			// Box 2 Icon Setting
+			$wp_customize->add_setting('box2_icon', array(
+				'default'			=>	_x('icon', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Box 2 Icon Control
+			$wp_customize->add_control('box2_icon', array(
+				'label'			=> __('Box 2 Icon', 'business'),
+				'section'			=> 'boxes',
+				'priority'		=> 20
+			));
+			
+			// BOX 3
+			// Box 3 Heading Setting
+			$wp_customize->add_setting('box3_heading', array(
+				'default'			=>	_x('Box 3 Heading', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Box 3 Heading Control
+			$wp_customize->add_control('box3_heading', array(
+				'label'			=> __('Box 3 Heading', 'business'),
+				'section'			=> 'boxes',
+				'priority'		=> 20
+			));
+			
+			// Box 3 Text Setting
+			$wp_customize->add_setting('box3_text', array(
+				'default'			=>	_x('Macenas sed diam eget risus varius bladit sit amet non magna.', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Box 3 Heading Control
+			$wp_customize->add_control('box3_text', array(
+				'label'			=> __('Box 3 Text', 'business'),
+				'section'			=> 'boxes',
+				'priority'		=> 20
+			));
+			
+			// Box 3 Icon Setting
+			$wp_customize->add_setting('box3_icon', array(
+				'default'			=>	_x('desktop', 'business'),
+				'type'				=> 'theme_mod'
+			));
+			
+			// Box 1 Icon Control
+			$wp_customize->add_control('box3_icon', array(
+				'label'			=> __('Box 3 Icon', 'business'),
+				'section'			=> 'boxes',
+				'priority'		=> 20
+			));
+		}
+		
+		add_action('customize_regisiter', 'business_customize_register');
+		
+6. Cut everything from functions.php from business_customize... add_action and paste in
+	1. inc/customizer.php
+	2. functions.php
+
+			// Customizer File
+			require get_template_directory(). '/inc/customizer.php';
+
 ### Implementing Customizer Settings ###
+1. front-page.php
+
+		<h1><?php echo get_theme_mod('banner_heading', 'Banner Heading'); ?></h1>
+		<p class="lead"><?php echo get_theme_mod('banner_text', 'Welcome to the Wordpress Business Theme. This theme uses the Twitter Bootstrap 3 framework and can be customized to your liking'); ?></p>
+		<p><a ... href="<?php echo get_theme_mod('banner_btn_url', 'http://test.com'); ?>"><?php echo get_theme_mod('banner_btn_text', 'Sing Up Today'); ?></a></p>
+		
+2. If we change the text in backend, it changes
+3. style.css
+	1. Cut `background: url...` and paste in header.php as follows:
+
+			<style>
+				.jumbotron {
+					background: url(<?php echo get_theme_mod('banner_image', get_blog_info('template_url').'/img/banner.jpg'); ?>) ...;
+				}
+			</style>
+			
+4. Boxes:
+	1. front-page.php
+
+			<section class="row marketing">
+				<div ...>
+					<div ...>
+						<div ...>
+							<i class="fa fa-<?php echo get_theme_mod('box1_icon', 'bar-chart'); ?> ..."></i>
+							<h3><?php echo get_theme_mod('box1_heading', 'Box 1 Heading'); ?></h3>
+							<p><?php echo get_theme_mod('box1_text', 'Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.'); ?></p>
+				...
+				<div class="col-lg-4">
+					<div ...>
+						<i class="fa fa-<?php echo get_theme_mod('box2_icon', 'code'); ?> fa-3"></i>
+						<h3><?php echo get_theme_mod('box2_heading', 'Box 2 Heading'); ?></h3>
+						<p><?php echo get_theme_mod('box2_text', 'Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.'); ?></p>
+						
+				<div class="col-lg-4">
+					<div ...>
+						<i class="fa fa-<?php echo get_theme_mod('box3_icon', 'desktop'); ?> fa-3"></i>
+						<h3><?php echo get_theme_mod('box3_heading', 'Box 1 Heading'); ?></h3>
+						<p><?php echo get_theme_mod('box3_text', 'Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.'); ?></p>
+
 ### Theme Widget Positions ###
+1. Widgets:
+2. functions.php
+
+		// Widget Locations
+		function init_widgets($id) {
+			register_sidebar(array(
+				'name'				=> 'Content Region 1',
+				'id'				=> 'content-region-1',
+				'before_widget'	=> '',
+				'after_widget'	=> '',
+				'before_title'	=> '',
+				'after_title'		=> ''
+			));
+		}
+		
+3. cut the following from front-page.php
+
+		<section class="row content-region-1 pt50 pb40">
+			<div class="container">
+				<div class="col-md-12">
+				
+	1. Take the following from front-page.php (closing of the above)
+
+					</div>
+				</div>
+			</section>
+				
+	2. Paste it in functions.php
+
+			// Widget Locations
+			function init_widgets($id) {
+				...
+				'before_widget'	=> '<section class="row content-region-1 pt50 pb40"><div class="container"><div class="col-md-12">',
+				'after_widget'	=> '</div></div></section>',
+				'before_title'	=> '<h1>'
+			}
+			
+	3. Change the following in front-page.php
+
+			<h1>Clean Bootstrap Wordpress Theme</h1>
+			<p class="lead">Lorem ipsum ...</p>
+			
+		1. to
+
+				<?php if(is_active_sidebar('content-region-1')) : ?>
+					<?php dynamic_sidebar('content-region-1'); ?>
+				<?php endif; ?>
+				
+	4. Do the above for content-region-2
+
+			register_sidebar(array(
+				'name'					=> 'Content Region 2',
+				'id'					=> 'content-region-2',
+				'before-widget'		=>	'<section class="row content-region-1 pt50 pb40"><div class="container">',
+				'after_widget'		=> '</div></section>',
+				'before_title'		=> '<h1>',
+				'after_title'			=> '</h1>'
+			));
+			
+	5. front-page.php
+
+			<?php if(is_active_sidebar('content-region-2')) : ?>
+				<?php dynamic_sidebar('content-region-2'); ?>
+			<?php endif; ?>
+			
+	6. front-page.php
+		1. Replace the following
+
+				<div class="col-md-5">
+					<img src="img/pic1.jpg">
+				</div>
+				<div class="col-md-7">
+					<h3>Theme Features</h3>
+					<ul class="list-group">
+						...
+				</div>
+				
+			1. with
+
+					<?php if(is_active_sidebar('content-region-1')) : ?>
+						<?php dynamic_sidebar('content-region-1'); ?>	
+					<?php endif; ?>
+					
+					<?php if(is_active_sidebar('content-region-2')) : ?>
+						<?php dynamic_sidebar('content-region-2'); ?>	
+					<?php endif; ?>
+					
+4. functions.php
+
+		add_action('widgets_init', 'init_widgets');
+		
+5. Backend:
+	1. Content Region 1
+		1. Bring Text
+			1. Title: Clean Bootstrap WordPress Theme
+			2. Text: Paste lorem...
+	2. Content Region 2
+		1. Bring Text
+			1. Title: Nothing
+			2. Content: Paste the 5 column div with image and 7 column div with `Theme Features` section
+6. functions.php
+
+		register_sidebar(array(
+			'name'		=> 'Footer 1',
+			'id'		=> 'footer-1',
+			'before_widget'	=> '',
+			'after_widget'	=> '',
+			'before_title'	=> '<h4>',
+			'after_title'		=> '</h4>'
+		));
+		
+		register_sidebar(array(
+			'name'		=> 'Footer 2',
+			'id'		=> 'footer-2',
+			'before_widget'	=> '',
+			'after_widget'	=> '',
+			'before_title'	=> '<h4>',
+			'after_title'		=> '</h4>'
+		));
+		
+		register_sidebar(array(
+			'name'		=> 'Footer 3',
+			'id'		=> 'footer-3',
+			'before_widget'	=> '',
+			'after_widget'	=> '',
+			'before_title'	=> '<h4>',
+			'after_title'		=> '</h4>'
+		));
+		
+7. footer.php
+
+		
+
+### Blog Index Page ###
 ### Single Posts & Comments ###
 
 ## CleanCut Theme ##
 ### Project Intro ###
+1. animate.css
+	1. Toggle animation
+2. bootstrap
+3. Drop downs (wp-walker)
+	1. Animation effects
+4. Photo gallary
+5. A lot of customization
+
 ### Website HTML Template Part A ###
 ### Website HTML Template Part B ###
 ### CleanCut Theme Setup & Menu ###
@@ -2372,6 +3366,9 @@
 
 ## WPNews Theme ##
 ### Project Intro ###
+1. Template for news website
+	1. inc.css framework (similar to bootstrap and better - widgets, extra features)
+
 ### Ink HTML Template ###
 ### WPNews Theme Setup & Menu ###
 ### Main Post Loop ###
@@ -2381,7 +3378,20 @@
 
 ## FourCorners Theme ##
 ### Project Intro ###
+1. Elegent theme
+2. Font awesome
+3. Featured posts (different look)
+4. hover.css - library for hover effects
+5. Customization
+
 ### FourCorners HTML Template Part A ###
+1. Libraries
+	1. Foundation
+	2. Font Awesome
+	3. Hover.css
+2. Color scheme can be changed
+3. Color theme can be changed
+
 ### FourCorners HTML Template Part B ###
 ### FourCorners HTML Template Part C ###
 ### FourCorners Theme Setup ###
@@ -2392,6 +3402,12 @@
 
 ## Dynamo Theme ##
 ### Project Intro ###
+1. Technologies:
+	1. Slider - unslider
+	2. jQuery tabs - jQuery UI
+	3. gridism - responsive CSS grid (similar to bootstrap grids)
+		1. Lightweight
+
 ### Dynamo HTML Template Part A ###
 ### Dynamo HTML Template Part B ###
 ### Slideshow & Tabs JavaScript ###

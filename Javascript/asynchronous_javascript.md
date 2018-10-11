@@ -286,10 +286,21 @@ console.log("this gets printed first");
 	2. Promises
 	3. Async/Await (modern)
 	4. Generators (gone out of fassion)
-2. 
+2. Node is used (all of the above patterns are present)
+	1. Async functionality
+		1. setInterval(...) - executes a function once after every time interval
+		2. setTimeout(...) - calls only once
+		3. setImmediate(...) - node specific
+		4. process.nextTick(...) - node specific
+		5. readFile(...) - node specific
 
 ## Asynchronous Patterns - Callbacks ##
 ### Callbacks - Quiz #1 ###
+1. Github repo
+	1. node
+		1. callbacks.quizz.md
+			1. Try it before
+
 ### Callbacks - Handling Errors ###
 ### Callbacks - Quiz #2 ###
 ### Callbacks - Callback Hell ###
