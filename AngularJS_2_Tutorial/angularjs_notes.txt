@@ -1,0 +1,315 @@
+Angular 2:
+1. Framework used for creation of single page applications
+2. Single page application:
+	1. Traditinal application:
+		1. User raises a request to client,
+		2. client sends request to server
+		3. server sends response
+		4. client renders a page
+		5. user views it
+		
+		problem:
+			1. http://example.com/ -> request - response
+			2. http://example.com/about -> request - response
+			....
+			for every request, server is sent a request and server sends response which slows down the web application
+			
+	2. SPA
+		1. User sends request to client
+		2. Client renders page using javascript
+		3. Asynchronously client sends request and gets response from server
+			1. page is loaded and asynchronously data is loaded
+		4. Example:
+			1. http://example.com/ -> request - response (Single page)
+			2. http://example.com/about (javascript renders the response)
+			3. http://example.com/account -> request - javascript renders the page - response (asynchronously only data or some business logic stored in server runs)
+3. Angular 2 framework
+	1. handles incoming user "requests"/ events
+	2. parses the URL to route appropriately
+	3. renders a new page by changing parts of DOM which needs to be updated
+	
+4. First Application
+1. Download and install nodejs
+	1. Tiny little server to render angular application
+	2. we want to use angular cli: use npm to install it
+2. Install angular-cli
+	1. npm install -g angular-cli
+3. New angular application
+	1. mkdir angularjs2_course
+	1. ng new first-app (M)
+4. Run the app
+	1. ng serve (M)
+	
+5. Structure of app
+	1. dist (compiled and finished code)
+		vendor:
+			only required dependencies
+	2. src
+		app
+			first-app.component.ts: returns 
+				component: defines html components
+			first-app.component.html
+	3. public
+		files that need to to copied to dist folder
+	4. index.html
+		the only file that is technically served by server and is rendered
+	5. main.ts
+		for starting up the app
+	6. system.config.ts
+		can add third party packages
+	7. tsconfig.json
+	8. typings.d.ts
+	9. angular-cli.json: to change project structure
+	10. angular-cli-build.js
+	
+6. Why typescript?
+	1. superset of JS and adds some features to JS
+		1. Type
+		2. Classes
+		3. Modules
+		4. ...
+	2. TS is compiled to JS
+		1. TS compiler checks misuse of types and reports errors (extra layer of security)
+7. Why us typescript?
+	General:
+		1. strong typing
+			1. string type property should contain string values
+			2. Compile time errors
+		2. Next Gen JS features:
+			1. classes, imports, ...
+		3. Missing js features
+			1. interfaces, Generics (checked at compile time)
+	Angular 2 specific:
+		1. Documentation support is mostly in ts (examples, articles)
+		2. Angular 2 chose ts as main language (reasons are general)
+8. Install globally:
+	1. npm install typescript -g (M)
+	
+Components:
+1. Instructions that tell angular how to render certain pieces of code
+	1. App (main.ts)
+		1. Products
+		2. About
+		3. Header
+		4. Side bar component
+	2. HTML code, User events handling, loading data, ... incorporated
+	3. Each component may have references to other components, directives
+	
+2. first-app.component.ts
+	export class ... (available outside)
+	meta data to component:
+		1. tells angular what to do with the class:
+			1. @Component: decorator
+				1. moduleId:
+				2. selector: (like css selector) 'first-app-app' -> angular searches for the selector in html code and then renders this component at that place
+					1. Example: <first-app-app>Loading...</first-app-app>
+					2. selector: '[first-app-app]' -> attribute
+			2. bootstrap(first-app-app): main.ts
+			3. templateUrl= 'first-app.component.html'
+				1. template = `
+						<h1>Inline Template</h1>
+					`
+			4. styleUrls: ['first-app.component.css'] (list of css files which will style only the component)
+			
+3. Adding a new component
+	1. Open terminal and run: ng generate component other (M)
+	2. Nesting component inside default component:
+		1. add the following metadata in app.component.ts
+			@Component({
+				...
+				directives: [OtherComponent]
+			})
+	3. Add the element in app.component.html
+		1. <app-other></app-other>
+		
+3. Adding a new component without adding a new folder:
+	1. ng g c another --flat --inline-template --inline-styles (M)
+	2. import the component in index.ts
+		1. import { AnotherComponent } from './another.component';
+	3. Add the component to app.component.ts
+		import { OtherComponent, AnotherComponent } from './other';
+		
+		...
+		directives: [OtherComponent, AnotherComponent]
+		...
+	4. Use the new component in other.component.html
+		...
+		<app-another></app-another>
+		
+4. View Encapsulation
+	1. Shadow dom:
+		1. html element has a separate dom behind the scenes
+	2. angular 2 emulates shadow dom
+	
+			<component _nghost-pax-1>
+				<h1 _ngcontent-pax-1>Hello there!</h1>
+			</component>
+		
+5. Passing text into a component
+	1. Define the content in another.component.html
+		
+			<article>
+				<ng-content></ng-content>
+			</article>
+	
+	2. Define the actual content in other.component.html
+		
+			<app-another>
+				<div>
+					<h2>Hello</h2>
+					<p>World</p>
+				</div>
+			</app-another>
+	
+	3. Define styling for the new content in another.component.css
+	
+			article {
+				border: 1px black solid;
+			}
+		
+6. Data binding:
+
+	Component Body/logic ---- passes data ---> Component Template (View)
+	Component Body/logic <---- listens to events ---- Component Template (View)
+	
+	1. String interpolation
+		{{ Expression resolving to a string }} (expression should resolve to a string)
+	2. Property binding
+		<button [disabled] = "expression resolving to required value type"> (true|false here)
+	3. Event binding
+		<button (click)="expression handling the event"> (could be a method, or inline)
+	4. Two-way binding 
+		<input [(ngModel)]="bound model (e.g. object)"> (property binding and event binding)
+		
+			angular 1: two way data binding
+			angular 2: two way data binding does not exist by default
+			
+		how does it work?
+			1. if we edit text in view, then component body will be updated
+			2. if we edit data in component body then view will be updated
+			
+7. String interpolation
+	1. Generate a new component
+		1. ng g c stringbinding
+		
+8. Property & Event Binding
+	1. DOM Properties
+		<img [src]="...">
+		<ing (click)="...">
+	2. Directive Properties
+		<div [ngClass]="...">
+		<div (ngSubmit)="...">
+	3. Component Properties
+		<cmp [initObj]="...">
+		<cmp (rndEvent)="...">
+	4. To bind property:
+		1. @Input() propertyName: string; (M)
+	5. For event binding
+		1. @Output() eventName = new EventEmitter();
+	6. Open databinding.component.html:
+		<hr>
+		<h1>Property Binding</h1>
+		<input type="text" [value]="stringInterpolation"/>
+
+8. Event Binding
+9. Two way binding
+	1. ng g c two-way-binding --flat -it -is
+	2. In two-way-binding-component.ts
+		
+		@Component({
+			template: `
+				<input type="text" [(ngModel)] = "person.name"/>
+				<input type="text" [(ngModel)] = "person.name"/>
+			`
+		})
+		export class TwoWayBindingComponent {
+			person = {
+				name: 'Max',
+				age: 27
+			}
+		}
+		
+	3. In string-binding-component.ts
+	
+		import { TwoWayBindingComponent } from './two-way-binding-component';
+		
+		...
+		
+		@Component({
+			...
+			directives: [..., TwoWayBindingComponent]
+		})
+		
+	4. string-binding-component.html
+	
+		...
+		<app-two-way-binding></app-two-way-binding>
+
+10. Component Lifecycle
+	
+	Lifecycle Hook (code executed when a particular phase is reached)
+		1. Phases:
+			1. ngOnChanges: 
+				1. executed multiple times
+				2. when data-bound property value changes (looks properties to see if they have changed and re-renders the page)
+			2. ngOnInit: 
+				1. On component initialization (after first ngOnChanges)
+				2. we can use the properties here
+				3. Executed only once
+			3. ngDoCheck:
+				1. During every Angular 2 Change Detection Cycle (even if no change has occured)
+			4. ngAfterContentInit:
+				1. After inserting content (<ng-content>)
+			5. ngAfterContentChecked:
+				1. After every Check of inserted Content
+			6. ngAfterViewInit:
+				1. After initializing the component's view/child views
+			7. ngAfterViewChecked:
+				1. After every check of component's views/child views
+			8. ngOnDestroy:
+				1. Just before Angular 2 destroys the Directive/Component
+				
+		2. Example
+			1. From project root
+				1. ng g c lifecycle --flat -it -is
+			2. In lifecycle.component.ts
+				1. Each lifecycle hook has an interface
+				
+				import { ..., OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+				
+				...
+				export class LifecycleComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+				
+					ngOnChanges() {
+					
+					}
+					
+					ngOnInit() {
+					
+					}
+					
+					ngDoCheck() {
+					
+					}
+					
+					ngAfterContentInit() {
+					
+					}
+					
+					ngAfterContentChecked() {'
+					
+					}
+					
+					ngAfterViewInit() {
+					
+					}
+					
+					ngAfterViewChecked() {
+					
+					}
+					
+					ngOnDestroy() {
+					
+					}
+				}
+

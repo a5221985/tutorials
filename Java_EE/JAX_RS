@@ -1,0 +1,244 @@
+# Building RESTful Web Services with JAX-RS #
+1. What is covered:
+	1. REST Architecture
+	2. RESTful web services
+	3. Java API for RESTful services (JAX-RS)
+2. JAX-RS: makes it easy for developers to construct RESTful web services using Java
+3. Topics:
+	1. What Are RESTful Web Services?
+	2. Creation of a RESTful Root Resource Class
+	3. Example Application for JAX-RS
+	4. Further Information about JAX-RS
+
+## What Are RESTful Web Services? ##
+1. Loosely coupled, lightweight web services.
+2. They are suited for APIs for clients spread out across internet.
+3. REST: Representational state transfer:
+	1. Transfer of representations of resources through request and response
+		1. Resource: data, functionality
+			1. Accessed using URI
+		2. Representation: as documents
+			1. Acted on using simple well defined operations
+	2. Example:
+		1. Resource: weather condition for a city
+		2. Representation: XML document, image file, or HTML page
+		3. Operations: Retrieval, modification of resource by updation, deletion of resource
+	3. Uses stateless communication protocol (HTTP)
+		1. Clients and servers exchange representations of resources using standardized interface and protocol
+	4. Principles: That make RESTful web services simple, lightweight and fast
+		1. Resource identification through URI: RESTful web service exposes a set of resources. These are targets of interaction with clients.
+			2. URIs provide global addressing space for resource and service discovery
+		2. Uniform interface: Resources are manipulated using fixed set of CRUD operations: PUT, GET, POST, DELETE
+			1. PUT: New resource gets created
+			2. DELETE: Resouce gets deleted
+			3. POST: New state is transfered onto the resource
+			4. GET: Retrieves current state of the resource in some representation
+			5. [Responding to HTTP Methods and Requests](file:///home/am/Documents/tutorials/Java_EE/JEETT.pdf)
+		3. Self-descriptive messages: Resources are decoupled from their representation (because contents can be accessed in a variety of formats: HTML, XML, plain text, PDF, JPEG, JSON, ...)
+			1. Resource metadata: used to control caching, detect transmission authentication or access control
+				1. [Responding to HTTP Methods and Requests](file:///home/am/Documents/tutorials/Java_EE/JEETT.pdf)
+				2. [Using Entity Providers to Map HTTP Response and Request Entity Bodies](file:///home/am/Documents/tutorials/Java_EE/JEETT.pdf)
+		4. Stateful interaction through links: Every interaction with resource is stateless
+			1. For stateful interactions, explicit state transfer is performed
+				1. Techniques:
+					1. URI rewriting
+					2. Cookies
+					3. hidden form fields
+			2. State can be embedded in response messages
+			3. [Using Entity Providers to Map HTTP Response and Request Entity Bodies](file:///home/am/Documents/tutorials/Java_EE/JEETT.pdf)
+
+## Creation of RESTful Root Resource Class ##
+1. Root resource classes: Are POJOs either annotated with `@Path` or atleast one method annotated with it or **request method designator** (@GET, @PUT, @POST, @DELETE)
+2. Resouce methods: methods of a class annotated with request method designator
+
+### Developing RESTful Web Services with JAX-RS ###
+1. JAX-RS: Java API which makes it easy to develop apps that use REST architecture
+2. Decorate classes with JAX-RS annotations which define resources and the action that can be performed on the resources
+3. Annotations are runtime annotations
+	1. Runtime reflection generates helper classes and artifacts for the resource
+4. JAX-RS APIs [http://docs.oracle.com/javaee/7/api](http://docs.oracle.com/javaee/7/api)
+5. Summary of JAX-RS Annotations:
+	1. `@Path`: It's value is relative URI path indicating where the Java class will be hosted.
+		1. Example: `/helloword`
+		2. Variables can be embedded to make a path template: `/helloworld/{username}` (takes a username as variable value)
+	2. `@GET`: It is a request method designator.
+		1. Responds similar to HTTP GET method
+		2. Java method annotated with `@GET` will process HTTP GET requests
+		3. Method determines the behavior of the resource
+	3. `@POST`: It is a request method designator.
+		1. Responds similar to HTTP POST method
+		2. Java method annotated with `@POST` will process HTTP POST requests
+	4. `@PUT`: It is a request method designator
+		1. Responds similar to HTTP PUT method
+		2. Java method annotated with `@POST` will process HTTP PUT requests
+	5. `@DELETE`: It is a request method designator
+		1. Responds similar to HTTP DELETE method
+		2. Java method annotated with `@DELETE` will process HTTP DELETE requests
+	6. `@HEAD`: It is a request method designator
+		1. Responds similar to HTTP HEAD method
+		2. Java method annotated with `@HEAD` will process HTTP HEAD requests
+	7. `@PathParam`: It is a type of parameter that can be extracted for used in resource class
+		1. URI path parameters are extracted from request URI
+		2. Parameter names are the URI path template variable names (Specified in `@Path`)
+	8. `@QueryParam`: It is a type of prameter that can be extracted for use in resource class
+		1. Paramters can be extracted from request URI query parameters
+	9. `@Consumes`: It is used to specify MIME media types of representations which the resource can consume
+	10. `@Produces`: It is used to specify MIME media types of representations which a resource can produce
+		1. Example: `"text/plain"`
+	11. `@Provider`: Used for anything of interest to JAX-RS runtime
+		1. `MessageBodyReader`: Used to map HTTP request entity body to method parameters
+		2. `MessageBodyWriter`: Using which. return value is mapped to a HTTP response entity body
+		3. `Response.ResponseBuilder`: It can be used to build a response that wraps HTTP headers, status code and entity
+	12. `@ApplicationPath`: It is used to define URL mappings for the application
+		1. It defines base URI for all resource URIs specified by `@Path` in resource class.
+		2. This annotation is applicable only to a subclass of `javax.ws.rs.core.Application`
+
+### Overview of a JAX-RS Application ###
+1. Simple example of root resource class
+
+		package javaeetutorial.hello;
+		
+		import javax.ws.rs.Consumes;
+		import javax.ws.rs.GET;
+		import javax.ws.rs.PUT;
+		import javax.ws.rs.Path;
+		import javax.ws.rs.Produces;
+		import javax.ws.rs.core.Context;
+		import javax.ws.rs.core.UriInfo;
+		
+		/**
+		* Root resource (exposed at "helloworld" path)
+		*/
+		@Path("helloworld")
+		public class HelloWorld {
+			@Context
+			private UriInfo context;
+			
+			/** Used for creation of new instance of HelloWorld */
+			public HelloWorld() {
+			}
+			
+			/**
+			* Retrieves representation of an instance of helloWorld.HelloWorld
+			* @return an instance of java.lang.String
+			*/
+			@GET
+			@Produces("text/html")
+			public String getHtml() {
+				return "<html lang=\"en\"><body><h1>Hello, World!</h1></body></html>";
+			}
+		}
+		
+	1. `@Path`: Value is a relative URI path.
+		1. Java class is hosted at URI path `/helloworld`
+	2. `@GET`: Request method designator
+		1. Annotated Java method will process HTTP GET requests
+	3. `@Produces`: Specifies MIME media types a resource can produce.
+		1. Java method will produce representations identified by the MIME media type "text/html"
+	4. `@Consumes`: Specifies MIME media types a resource can consume sent by the client
+		1. Example:
+		
+				@POST
+				@Consumes("text/plain")
+				public void postHtml(String message) {
+					// Store the message
+				}
+
+### The `@Path` Annotation and URI Path Templates ###
+1. It is specified at class or method level of a resource.
+2. It's value is a partial URI path template relative to base URI of server on which resource is deployed
+3. It is the URL pattern to which JAX-RS runtime responds
+4. URI path template: URIs with variables embedded within the URI syntax
+	1. Variables are substituted at runtime
+		1. Syntax: Denoted by `{...}`
+		
+				@Path("/users/{username}")
+				
+			1. JAX-RS web service configured to respond to requests to this URI path template responds
+		2. Example: URI - http://example.com/users/Galileo
+		
+				@Path("/users/{username}")
+				public class UserResource {
+					@GET
+					@Produces("text/xml")
+					public String getUser(@PathParam("username") String userName) [
+						...
+					}
+				}
+				
+		3. URI variable must match the regular expression "[^/]+?" by default
+			1. Variable may be customized by defining a different regular expression
+				1. Example: Username must consist of only lowercase and uppercase alphanumeric characters:
+				
+						@Path("users/{username: [a-zA-Z][a-zA-Z_0-9]*}")
+						
+					1. If a username does not match the template, 404 response is sent to client
+	2. `@Path` need not have leading or trailing `/`s (they are processed the same way)
+	3. If we want to deploy a resource that responds to URI path template `http://example.com/myContextRoot/resources/{name1}/{name2}/` then
+		1. First deploy the application to Java EE server that responds to requests to `http://example.com/myContextRoot` URI and then decorate resource with `@Path` annotation
+		
+				@Path("/{name1}/{name2}/")
+				public class SomeResource {
+					...
+				}
+				
+			1. web.xml
+			
+					<servlet-mapping>
+						<servlet-name>javax.ws.rs.core.Application</servlet-name>
+						<url-pattern>/resources/*</url-pattern> <!-- pattern for JAX-RS helper servlet -->
+					</servlet-mapping>
+					
+		2. Variable name can be used more than once in URI path template
+		3. If a character in value of a variable would conflict with reserved characters of URI, replace the character with %encoding (example: %20 for space)
+		4. Examples of URI path templates:
+			1. `http://example.com/{question}/{question}/{question}/`
+			2. `http://example.com/maps/{location}` -> `http://example.com/maps/Main%20Street`
+			3. `http://example.com/{name3}/home/` -> `http://example.com//home/` 
+
+### Responding to HTTP Methods and Requests ###
+1. Behavior of resource depends on HTTP methods
+
+#### The Request Method Designator Annotations ####
+1. Request method designator annotations: runtime annotations
+	1. They correspond to simlarly named HTTP methods
+	2. HTTP methods are mapped to request Java methods using request method designator annotations.
+2. Custom request designator methods can be built.
+3. Example:
+
+		@PUT
+		public Response putContainer() {
+			System.out.println("PUT CONTAINER " + container);
+			
+			URI uri = uriInfo.getAbsolutePath();
+			Container c = new Container(container, uri.toString());
+			
+			Response r;
+			if (!MemoryStore.MS.hasContainer(c)) {
+				r = Response.created(uri).build();
+			} else {
+				r = Response.noContent().build();
+			}
+			
+			MemoryStore.MS.createContainer(c);
+			return r;
+		}
+
+#### Using Entity Providers to Map HTTP Response and Request Entity Bodies ####
+### Using `@Consumes` and `@Produces` to Customize Requests and Responses ###
+#### The `@Produces` Annotation ####
+#### The `@Consumes` Annotation ####
+### Extracting Request Parameters ###
+### Configuring JAX-RS Applications ###
+#### Configuring a JAX-RS Application Using a Subclass of Application ####
+#### Configuring the Base URI in web.xml ####
+
+## Example Applications for JAX-RS ##
+### Creation of Simple RESTful Web Service ###
+#### Creation of RESTful Web Service Using NetBeans IDE ####
+### The rsvp Example Application ###
+#### Components of the rsvp Example Application ####
+#### Running the rsvp Example Application ####
+### Real-World Examples ###
+
+## Further Information about JAX-RS ##

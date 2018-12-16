@@ -1,0 +1,16 @@
+Identify problem
+Identify solution to the problem
+Get requirements for the solution
+Analyze the requirements
+Translate requirements to technical specification
+
+LOOP:
+Design the application features
+Build infrastructure
+Develop MVP
+Launch MVP
+Market the product 
+If there are more features, then goto LOOP
+
+
+

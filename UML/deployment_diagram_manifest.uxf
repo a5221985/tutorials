@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>40</x>
+      <y>130</y>
+      <w>180</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>symbol=artifact
+&lt;&lt;artifact&gt;&gt;
+cardReaderSoftware.jar</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>140</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;manifest&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>310</x>
+      <y>130</y>
+      <w>150</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+&lt;&lt;component&gt;&gt;
+cardReader</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

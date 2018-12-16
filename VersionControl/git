@@ -1,0 +1,538 @@
+# Git #
+
+## What is a version control system? ##
+1. VCS: Used to track history of a collection of files.
+	1. Supports creation of different versions of the collection
+		1. Version: captures snapshot of files at a certain point in time
+	2. We can switch between different versions
+	3. Versions are stored in a repository
+	
+	![xvcs_state10.png.pagespeed.ic.mBoG0KsGsL.webp](xvcs_state10.png.pagespeed.ic.mBoG0KsGsL.webp)
+	
+	4. Used to track changes in text files (source code, HTML, config files)
+	5. Also used for other types of files (ex: png)
+
+## Localized and centralized version control systems ##
+1. Localized VCS:
+	1. Keeps local copies of files.
+2. Centralized VCS:
+	1. Provides server software component (stores and manages different versions of files)
+	2. Developer can checkout (copy) certain version from central server onto individual computer
+3. Disadvantages of both:
+	1. Single point of failure
+		1. Localized - individual computer
+		2. Centralized - server machine
+	2. Difficult to work in parallel for different features
+
+## Distributed version control system ##
+1. Each user has a local copy of repo on individual computer.
+2. Copying an existing repository is called cloning. Resulting repo is called a clone
+3. A clone has full history of collection of files and cloned repo has same functionality as original repo
+4. Repos can exchange versions of files typically via repo running on server
+	1. Each cloned repo is full copy of central repo
+5. Decision that which copy is central is convention.
+
+	![xsharedrepo10.png.pagespeed.ic.C1ZPfVgen-.webp](xsharedrepo10.png.pagespeed.ic.C1ZPfVgen-.webp)
+
+## What is Git? ##
+1. Core of Git was originally written in _C, but Git has also been implemented in other languages (Java, Ruby, Python)
+
+## Git repositories ##
+1. After cloning repo, user has complete repo with its history on local machine.
+2. To delete a git repo, delete the folder which contains git repo
+3. When we clone a git repo, Git assumes that we want to work in repo as a user.
+4. bare repositories:
+	1. Used on server for sharing changes coming from developers.
+	2. They do not allow user to modify locally files and to create new versions for repo based on the modifications
+5. non-bare repositories: They allow new changes through modification of files and new versions in repo.
+	1. This gets created if we do not specify a parameter during cloning operation.
+	2. It is called local repository
+
+## Working tree ##
+1. Working tree: It is a collection of files provided by local repo originating from certain version of repo. It is the collection of files checked out.
+	1. User can change files in working tree.
+		1. Modifying exisiting files
+		2. Adding new files
+		3. Removing files
+2. File in Git repo can have different states.
+	1. untracked: not tracked by Git repo. (neither staged nor committed)
+	2. tracked: committed and not staged
+	3. staged: staged to be included in next commit
+	4. dirty/modified: file has changed but change is not staged
+
+## Adding to a Git repository via staging and committing ##
+1. When a working tree is modified, the following needs to be done to persist the changes in local repo:
+	1. add selected changes to staging area (known as index) via `git add` command
+	2. commit staged changes into Git repo via `git commit` command
+	
+	![xcommittingprocess10.png.pagespeed.ic.6kbEnq6qMZ.webp](xcommittingprocess10.png.pagespeed.ic.6kbEnq6qMZ.webp)
+	
+2. `git add`: stores snapshot of specified files in staging area.
+	1. Allows incremental modification of files, staging them, modify and stage ...
+3. After adding files to staging area, they can be committed to add them to Git repo
+	1. A new persistent snapshot of staging area gets created in repo. (commit object - it is immutable)
+4. staging area keeps snapshots of files until they are committed
+5. `git commit`: commits staged changes (a new commit object gets created in git repo)
+
+## Synchronizing with other Git repositories (remote repositories) ##
+1. Local changes can be synchronized with other repos
+2. `push`: sends new version in local repo to remote repo
+3. `fetch`, `pull`: used to integrate changes from other repos into local repo
+
+## The concept of branches ##
+1. Branching: used to work on different versions of collection of files
+2. Example: Making changes to a branch does not affect state of files in other branches.
+3. Branches are local which can have a tracking branch in remote repo
+4. Git supports combining changes from different branches.
+
+## Summary of the core Git terminology ##
+1. Branch:
+	1. a named pointer to a commit.
+	2. Checkout branch to select it
+	3. New commit advances the pointer to newly created commit
+	4. Each commit knows its parents
+	5. How to retrieve successors:
+		1. By traversing commit graph starting from branches or other refs, symbolic refs (ex: HEAD) or explicit commit objects.
+	6. A new branch can be created from exisiting branch and code can be changed independently
+	7. master: default branch
+		1. When repository is cloned, a local branch is created automatically for it
+2. Commit:
+	1. Commit object uniquely identifies new version of content of repo
+	2. Each commit object contains author and committer.
+		1. Author: who did the change
+		2. Committer: who applied changes to repo (common for open source projects)
+3. HEAD:
+	1. symbolic reference mostly pointing to currently checked out branch
+	2. If HEAD points to a commit object directly, it is called detached HEAD mode
+		1. Creation of commit does not move the branch
+		2. `git checkout <hash-of-a-commit>`: state when specific commit is checked out instead of branch called 'detached HEAD'
+		3. Problem:
+			1. HEAD usually points to current working revision
+			2. When checking out branch name, git automatically moves HEAD pointer along when new commit gets created (we are automatically on new commit)
+			3. If a commit hash is checked out, Git does not move the HEAD automatically to the newest commit => when a commit is made, changes do not belong to any branch (the way to access the commit is through commit hash)
+	3. If branch is switched, HEAD pointer points to branch pointer which points to commit.
+	4. If a commit is checked out, HEAD points to the commit directly
+4. Index: alternative term for staging area
+5. Repository:
+	1. Contains history
+	2. Contains different versions over time and all different branches and tags
+	3. Bare repositories can be changed only by transporting changes from other repositories
+6. Revision:
+	1. A version of source code
+	2. Implemented as commit objects (identified by hash)
+7. Staging area:
+	1. It is a place to store changes in working tree before commit
+	2. It contains snapshot of changes in working tree (changed files or new files) and stores their mode (file type, executable bit)
+8. Tag:
+	1. Points to a commit which uniquely identifies a version of Git repo
+	2. It is a named point to which we can revert to (it just makes it easier)
+	3. Purpose: To mark with a reason (ex: release)
+	4. Difference between branch and tag:
+		1. Branch moves when new commits get created
+		2. Tags always point to the same commit
+	5. Can have timestamp and a message associated with it
+9. URL: determines location of the repository.
+	1. fetchurl: for getting new data from other repositories
+	2. pushurl: for pushing data to another repo
+10. Working tree: Contains set of working files for repo
+	1. Contents can be modified and committed as new changes to repo
+
+## The details of the commit objects ##
+### Commit object (commit)
+1. It represents a version of all files tracked in repo at the time commit was created.
+2. Commits know their parents and can capture version history of repo
+
+### Technical details of a commit object ###
+1. Addressable via hash
+	1. Hash: calculated based on contents of the files, directories, complete history of up to commit, committer, commit message, ...
+	2. Git is safe: file or commit message cannot be manipulated without Git noticing that hash does not fit
+2. Commit object points to individual files in the commit via a tree object
+	1. files are stored in repo as blob objects (may be packed by git for better performance and compact storage)
+		1. blob: addressed via SHA-1 hash
+	2. Packing: storing changes as delta, compression, storing many objects in single pack file
+		1. Pack file: accompanied by index files to speed up access to individual objects stored in them
+		
+	![xcommit_object.png.pagespeed.ic.b2yqCFmUCC.webp](xcommit_object.png.pagespeed.ic.b2yqCFmUCC.webp)
+	
+3. Tree objects point to other tree objects and file blobs (because objects that didn't change between commits are re-used by multiple commits)
+
+### Hash and abbreviated commit hash ###
+1. Commit object id is hash (SHA-1 checksum).
+	1. SHA-1 produces 160-bit (20-byte) hash value.
+		1. Typically rendered as hex value (40 digits - 2 digits (1 byte) * 20 bytes)
+2. We need fewer characters to uniquely identify a commit (min 4)
+	1. 5-6 will suffice
+	2. It is called abbreviated hash
+3. `git log` can used shortened SHA-1 or abbreviated SHA-1 for output
+
+## Commit references ##
+### Predecessor commits, parents and commit references ###
+1. Each commit has 0 or more direct predecessor commits
+	1. first commit: 0 parents
+	2. merge commit: two or more parents
+	3. most commits: 1 parent
+	
+	![xcommitreference10.png.pagespeed.ic.DgwyoJ3t80.webp](xcommitreference10.png.pagespeed.ic.DgwyoJ3t80.webp)
+	
+2. Commit reference: addresses commit
+	1. can be simple reference: points directly to commit
+		1. commit hash or tag
+	2. symbolic reference: points to another reference (simple or symbolic).
+		1. HEAD - symbolic reference to branch (if it points to branch)
+			1. It points to branch pointer
+			2. branch pointer points to commit
+
+### Branch references and the HEAD reference ###
+1. branch points to specific commit.
+2. branch name can be used as reference to correpsonding commit
+3. HEAD can be used to reference corresponding commit
+
+### Parent and ancestor commits ###
+1. `^` and `~` can be used to reference predecessor commit objects from other references
+	1. They can be combined too [Using caret and tilde for commit references](http://www.vogella.com/tutorials/Git/article.html#commitreference_carettilde)
+	2. `^`: parent
+	2. `~`: ancestor
+
+### Using caret and tilde for commit references ###
+1. `[reference]~1` **(M)**: first predecessor of commit object accessed via `[reference]`
+	1. `[reference]~` is abbreviation
+	2. Ex: `HEAD~1` or `HEAD~` to access first parent of commit to which `HEAD` pointer currently points.
+2. `[reference]~2`: first predecessor of first predecessor of `[reference]`
+3. `[reference]~3`: first predecessor of first predecessor of first predecessor of `[reference]`
+4. `[reference]^1`: first predecessor of `[reference]`
+	1. `[reference]^`: abbreviation
+5. `[reference]^2`: refers to second parent of `[reference]` (if there are multiple parents as in a merge)
+	1. `HEAD^3`: third parent of a merge
+
+	![xcommitreference20.png.pagespeed.ic.2BJD0uGDHf.webp](xcommitreference20.png.pagespeed.ic.2BJD0uGDHf.webp)
+
+### Commit ranges with the double dot operator ###
+1. Specifying ranges of commits (ex: seeing changes in series of commits)
+	1. `c1..c2` **(M)**: from `c1` (excluded) to `c2`
+	2. Example: All commits which happened between `HEAD` and `HEAD~4`
+	
+			git log HEAD~4..HEAD
+			
+2. Between branches:
+	1. Example: list all commits in master branch but not in testing branch
+	
+			git log testing..master (all master branch commits - all testing branch commits (exclusion))
+			
+	2. Example: list all commits in testing branch but not in master branch
+	
+			git log master..testing
+
+### Commit ranges with the tripple dot operator ###
+1. To select all commits reachable either from `c1` or `c2` but not both
+	1. Purpose: show all commits in two branches which are not combined
+	2. Example:
+	
+			# show all commits which
+			# can be reached by master or testing
+			# but not both
+			git log master..testing
+
+## Git tooling ##
+### The Git command line tools ###
+1. `git` command:
+	1. lists options and common commands if no arguments
+	
+			git help [command to get help for]
+			git help --all **(M)**
+			
+2. Short and long versions of commands:
+
+		git commit -m "This is a message"
+		git commit --message "This is a message"
+
+### Separating parameters and file arguments in Git commands ###
+1. `--`: separates references or other options from path
+	1. Since HEAD has special meaning using `--` distinguishes between looking at file HEAD from git commit reference HEAD
+2. Example:
+
+		# seeing the git log for the HEAD file
+		git log -- HEAD
+		
+		# seeing the git log for the HEAD reference
+		git log HEAD --
+		
+		# if there is no HEAD file you can use HEAD as commit reference
+		git log HEAD
+
+### Graphical tools for Git ###
+1. [Eclipse IDE support](https://www.eclipse.org/downloads/)
+2. [GUI Clients](http://git-scm.com/downloads/guis)
+
+## Installation of the Git command line tooling ##
+### On Ubuntu, Debian, ... ###
+
+		sudo apt-get install git
+
+### On Fedora, Red Hat ... ###
+
+		dnf install git
+		
+### Other linux ###
+
+		# Arch Linux
+		sudo pacman -S git
+		
+		# Gentoo
+		sudo merge -av git
+		
+		# SUSE
+		sudo zypper install git
+		
+### Windows ###
+1. [Git download page](http://git-scm.com/downloads)
+
+### Mac OS ###
+2. [Git download page](http://git-scm.com/downloads)
+3. Installed by default with Apple Developer Tools
+
+## Git configuration ##
+### Git configuration levels ###
+1. `git config`: to configure git settings.
+	1. system wide settings
+	2. user settings (overwrites in previous level)
+	3. repository specific settings (overwrites in previous level)
+
+#### Git system-wide configuration ####
+1. Unix based systems: `/etc/gitconfig` **(M)**: holds system wide configuration
+	1. Needs root prvileges
+	2. `--system` option must be used
+
+#### Git user configuration ####
+1. User settings are stored in `.gitconfig` under user home directory
+	1. It is global git configuration
+	2. Example: committer, author of change
+	3. `--global` option
+
+#### Repository specific configuration ####
+1. Stored in `.git/config` file
+2. `--local` or no options
+
+### User credential configuration ###
+1. To commit, git needs atleast user and email address (info is stored in each commit)
+
+		# configure the user which will be used by Git
+		# this should be no an acronym but you full name
+		git config --global user.name "Firstname Lastname"
+		
+		# configure the email address
+		git config --global user.email "your.email@example.org"
+
+### Push configuration ###
+1. If Git < `2.0`, execute
+
+		# see default so that only the current branch is pushed
+		git config --global push.default simple
+		
+	1. Only active branch will be pushed with this
+
+### Avoid merge commits for pulling ###
+1. `git pull` is `git fetch` and `git merge` (default)
+2. Setting `git rebase` instead of `git merge` for `git pull`
+
+		# set default so that you avoid unnecessary commits
+		git config --global branch.autosetuprebase always
+
+### Allow rebasing with uncommited changes ###
+1. Activate `autoStash` for automatically saving uncommited changes before a rebase
+	1. After rebase, changes will be re-applied
+	
+			git config --global rebase.autoStash true
+
+### Color Highlighting ###
+1. To enable color highlighting for Git in console
+
+		git config --global color.ui auto
+
+### Setting the default editor ###
+1. System default editor is used (taken from VISUAL or EDITOR env variable)
+2. Change to a different one
+
+		# setup vim as default editor for Git (Linux)
+		git config --global core.editor vim
+
+### Setting the default merge tool ###
+1. Configuring a merge tool to resolve conflicts.
+	1. tortoisemerge, p4merge, kdiff3, ...
+	2. Configuration:
+	
+			# setup kdiff3 as default merge tool (Linux)
+			git config --global merge.tool kdiff3
+			
+			# to install it under Ubuntu use
+			sudo apt-get install kdiff3
+
+### More settings ###
+1. [git-config manual page](https://www.kernel.org/pub/software/scm/git/docs/git-config.html)
+
+### Query Git settings ###
+1. `git config --list`
+2. To list global settings:
+
+		git config --global --list
+
+## Configure files and directories to ignore ##
+### Ignoring files and directories with a .gitignore file ###
+### Stop tracking files based on the .gitignore file ###
+### Global (cross-repository) .gitignore settings ###
+### Local pre-repository ignore rules ###
+### Tracking empty directories with Git ###
+
+## Exercise - Setting up Git ##
+## Exercise: Performing a local Git workflow ##
+## Remote repositories ##
+## Exercise: Working with a (local) remote repository ##
+## Using Branches ##
+## Using tags in Git ##
+## Using Tags ##
+## Comparing changes ##
+## Analyzing the commit history with git log ##
+## Viewing changes with git diff and git show ##
+## Using the Git blame command ##
+## Commit history of a repository or certain files ##
+## git shortlog for release announcements ##
+## Stashing changes in Git ##
+## Remove untracked files with git clean ##
+## Revert uncommitted changes in tracked files ##
+## Using Git reset ##
+## Resetting changes with git reset ##
+## Deleting changes in the working tree and staging area for tracked files ##
+## Retrieving files from the history ##
+## See which commit deleted a file ##
+## Revert commits ##
+## Resetting the working tree based on a commit ##
+## Recovering lost commits ##
+## Remote and local tracking branches ##
+## Updating your remote-tracking branches with git fetch ##
+## Merging ##
+## Rebasing branches ##
+## Editing history with the interactive rebase ##
+## Using the Git cherry-pick command ##
+## Solving merge conflicts ##
+## Keep a version of a file during a merge conflict ##
+## Exercise: Solving a conflict during a merge operation ##
+## Solving rebase conflicts ##
+## Handling a conflict during a rebase operation ##
+## Aborting a rebase operation ##
+## Picking theirs or ours for conflicting file ##
+## Define alias ##
+## Error search with git bisect ##
+## Rewriting commit history with git filter-branch ##
+## Working with patch files ##
+## Git commit and other hooks ##
+## Handling line endings on different platforms ##
+## Migrating from SVN ##
+## Frequently asked questions ##
+## Further reading on Git ##
+## Get this tutorial as book ##
+## Links and Literature ##
+
+## Setup and Config ##
+### git ###
+### config ###
+### help ###
+
+## Getting and Creation of Projects ##
+### init ###
+### clone ###
+
+## Basic Snapshotting ##
+### add ###
+### status ###
+### diff ###
+### commit ###
+### reset ###
+### rm ###
+### mv ###
+
+## Branching and Merging ##
+### branch ###
+### checkout ###
+### merge ###
+### mergetool ###
+### log ###
+### stash ###
+### tag ###
+
+## Sharing and Updating Projects ##
+### fetch ###
+### pull ###
+### push ###
+### remote ###
+### submodule ###
+
+## Inspection and Comparison ##
+### show ###
+### log ###
+### diff ###
+### shortlog ###
+### describe ###
+
+## Patching ##
+### apply ###
+### cherry-pick ###
+### diff ###
+### rebase ###
+### revert ###
+
+## Debugging ##
+### bisect ###
+### blame ###
+### grep ###
+
+## Guides ##
+### gitattributes ###
+### Everyday Git ###
+### gitignore ###
+### gitmodules ###
+### Revisions ###
+### Workflows ###
+
+## Email ##
+### am ###
+### apply ###
+### format-patch ###
+### send-email ###
+### request-pull ###
+
+## External Systems ##
+### svn ###
+### fast-import ###
+
+## Administration ##
+### clean ###
+### gc ###
+### fsck ###
+### reflog ###
+### filter-branch ###
+### instaweb ###
+### archive ###
+### bundle ###
+
+## Server Admin ##
+### daemon ###
+### update-server-info ###
+
+## Plumbing Commands ##
+### cat-file ###
+### check-ignore ###
+### commit-tree ###
+### count-object ###
+### diff-index ###
+### for-each-ref ###
+### hash-object ###
+### ls-files ###
+### merge-base ###
+### read-tree ###
+### rev-list ###
+### rev-parse ###
+### show-ref ###
+### symbolic-ref ###
+### update-index ###
+### update-ref ###
+### verify-pack ###
+### write-tree ###

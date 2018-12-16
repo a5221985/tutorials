@@ -1,0 +1,136 @@
+Company:
+  1. Technical
+	1. R&D
+		1. Responsibilities
+			1. Innovation for new products
+			2. Innovation for improving existing products
+	2. Product Owner
+		1. Responsibilities:
+			1. Expresses backlog items
+			2. Orders items in backlog
+			3. Optimizes value of work performed by development team
+			4. Ensures good visibility and transparency of backlog items to team
+			5. Ensures understanding of items by development team to level required			
+	3. Scrum Master
+		1. Responsibilities:
+			1. Remove blockers
+			2. Help team reach consensus on work for sprint + daily meeting
+			3. Remove distractions
+			4. Helps team stay focussed on agreed upon rules
+	4. Architect
+		1. Responsibilities:
+			1. Identify requirements
+			2. Design entire system
+			3. Choose technologies for implementation
+			4. Review Architecture
+			5. Review Code
+			6. Documentation
+			7. Develop standards
+	5. Developer
+		1. Responsibilities:
+			1. Feature Analysis
+			2. Feature Design
+			3. Feature Implementation
+			4. Feature Unit Testing
+			5. Feature Integration Testing
+			6. Bug fixing
+			7. Code review
+	6. Tester
+		1. Responsibilities:
+			1. Defines test designs, test processes, test cases and test data
+			2. Carries out testing
+			3. Prepare reports and submit to development team
+			4. Documentation
+	7. DevOps Engineer/ Architect
+		1. Responsibilities:
+			1. Branching and merging strategy
+			2. Design and implement CI-CD pipelines
+			3. Automate implementation of infrastructure
+			4. Automate repetitive tasks that can be automated
+			5. Setup monitoring
+	8. System Administrator
+		1. Responsibilities
+			1. Ensures uptime of system (within budget constraints)
+			2. Ensures enough resources are available to serve users' needs
+			3. Ensures security needs of users are met
+			4. Ensures performance meets users needs
+			5. Acquires, installs and upgrades computer components and software (can be taken over by DevOps engineer)
+			6. Maintains security policies
+			7. Troubleshoots
+			8. Technical support
+	9. Database Administrator
+		1. Responsibilities
+			1. Ensures integrity of data
+			2. Ensures efficiency
+			3. Ensures performance
+	10. Network Administrator
+		1. Responsibilities
+			1. Maintains network infrastructure (switches, routers)
+			2. Troubleshoots
+  2. Finance
+  3. Economics
+  4. Marketing
+	1. Sales
+	2. Promotion
+  5. HR
+  6. Executive
+	1. CEO
+	2. CTO
+
+Step 1:
+Startup:
+	1. Technical
+		1. R&D personnel
+		2. Product Owner
+		3. Architect
+		4. Developer
+		5. Tester
+		6. DevOps Engineer/ Architect
+		7. System Administrator
+	2. Finance
+	3. Marketing
+		1. Sales
+
+Step 2:
+Mid-level:
+	1. Technical
+		1. R&D personnel
+		2. Product Owner
+		3. Architect
+		4. Developer
+		5. Tester
+		6. DevOps Engineer/ Architect
+		7. System Administrator
+		8. Database Administrator
+	2. Finance
+	3. Marketing
+		1. Sales
+		2. Promotion
+	4. HR
+	5. Executive
+		1. CEO
+
+Step 3:
+Giant
+	1. Technical
+		1. R&D personnel
+		2. Product Owner
+		3. Architect
+		4. Developer
+		5. Tester
+		6. DevOps Engineer/ Architect
+		7. System Administrator
+		8. Database Administrator
+		9. Network Administrator
+	2. Finance
+		1. R&D personnel
+	3. Economics
+		1. R&D personnel
+	4. Marketing
+		1. R&D personnel
+	5. HR
+		1. R&D personnel
+	6. Executive
+		1. CEO
+		2. CTO
+	7. Legal

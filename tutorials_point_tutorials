@@ -1,0 +1,161 @@
+Java Technologies:
+7. Learn Jackson: Serialize or map java objects to and from JSON
+16. Spring Boot CLI
+8. Learn Java RMI: An object residing in one JVM to access/invoke object running on another JVM
+15. Learn Spring Batch:
+	1. Batch processing: execution of series of automated complex jobs without user interaction (handles bulk data and executes for long time)
+17. Learn TestNG: More powerful than JUnit
+	1. Unit testing
+	2. Functional testing
+	3. End-to-end testing
+	4. Integration testing
+1. Apache Commons DBUtils: Makes JDBC call processing easier without resource lead and to have cleaner code
+2. Learn Eclipse: 
+3. Learn Guava: Facilitates best coding practices and helps reduce coding errors. Utility methods for
+	1. Collections
+	2. Caching
+	3. Primitives support
+	4. Concurrency
+	5. Common annotations
+	6. String processing
+	7. I/O
+	8. Validations
+9. java.reflect Package:
+4. Learn GWT Google Charts:  JS charting library with interactive charting capabilities
+5. Learn GWT Highcharts: JS charting library with interactive charting capabilities
+6. Learn IntelliJ Idea:
+10. Learn Java XML: Basic XML concepts and usage of XML parsers in simple and intuitive way
+11. Learn Jbpm5: Java Business Process Management -
+	1. Business process: Sequence of tasks that take place in a repeatable order (executed by humans and/or systems to achieve a business goal)
+		1. Has a flowchart
+	2. Jbpm: Used to manage business process in an efficient way (how?)
+		1. executes business processes
+12. Learn JDB: Used to detect bugs in a program
+13. Learn jMeter: Used for following types of testing:
+	1. Load
+	2. Functional
+	3. Performance
+	4. Regression
+	5. ...
+14. Learn PDFBox: Development and conversion of PDF documents
+	1. Can build
+	2. Can convert
+	3. Can manipulate
+
+Embedded Systems:
+1. Learn Arduino (Very detailed and advanced)
+
+Technologies:
+1. Learn OAuth2.0 (theory)
+2. Learn Socket.io
+3. Learn Elastic Search
+
+Mobile Development:
+1. Learn Android
+
+Python:
+1. Learn Concurrency with Python
+2. Machine Learning with Python
+3. Learn Numpy
+4. Learn PyQT
+5. Learn PyCharm: IDE
+6. Python Deep Learning
+7. Artificial Intelligence with Python
+8. Learn Python Panda
+9. Learn Scipy: For mathematics, science and engineering
+10. Learn WxPython: GUI programming
+
+Telecom:
+1. Learn 5G
+2. Learn LTE
+3. Learn Wi-Fi
+
+Web Development:
+1. Learn Angular4
+2. Learn cPanel: Web hosting control panel
+3. Learn Firebase: Backend for Web, Android and iOS apps
+	1. DB
+	2. APIs
+	3. Authentication types
+	4. Hosting platform
+4. Learn Flexbox: Layout mode of CSS3
+5. Learn Google Maps: Has JS API to customize maps and display them on webpage
+6. Web Developer's Guide
+7. Learn Web Icons: Icon Fonts (libraries) that can be used in HTML pages
+	1. Font Awesome
+	2. Bootstrap Glyphicons
+	3. Google's Material Icons
+8. Learn WebGL: Web Graphics Library
+	1. 2D and 3D graphics on the web (interactive)
+9. Learn WebRTC: Real Time Communication on Web
+
+Academic:
+1. Adaptive Software Development: Using adaptive practices instead of deterministic practices (for complex systems and complex environments)
+	1. High speed, high-change projects
+	2. Improve performance
+	3. Moderate burnout
+	4. For growing complexity and size
+	5. For distributed teams
+2. Learn Artificial Neural Network
+3. Design and Analysis of Algorithms
+4. Learn Estimation Techniques: Time required to complete a particular task is estimated before project begins
+	1. Even if input data is incomplete, uncertain, unstable
+	2. Techniques
+		1. Function points
+		2. Use case points
+		3. Wideband Delphi technique
+		4. PERT
+		5. Analogy
+		6. ...
+5. Learn functional programming: Fundamental concepts of functional programming
+	1. vs OOP
+6. Learn Human Computer Interface: Knowledge of Human Computer Interface and designing
+	1. Tools and practices
+	2. Future aspects of HCI designing
+7. Internet of Things (IOT): Thorough introduction to IoT
+	1. Key concepts of IoT (for using and deploying IoT systems)
+8. Microservice Architecture: Special design pattern of SOA
+	1. Functionalities of Microservice architecture
+	2. Examples
+9. Programming Methodologies - Introduction:
+	1. Analyzing complex problems, planning for software development and controlling development process
+10. SDLC:
+	1. SDLC basics
+	2. SDLC models and application in industry
+	3. Agile, RAD, Prototyping
+11. Learn SEO Techniques:
+	1. Make web pages, search engine friendly (higher positions in search results)
+
+Software Quality:
+1. Learn Balsamic Mockups
+
+Advanced Topics:
+1. Modelling and Simulation
+2. OpenNLP: Open source Java Library for Natural language processing (text processing service)
+	1. Tokenization
+	2. Sentence segmentation
+	3. Part-of-speech tagging
+	4. named entity extraction
+	5. chunking	
+	6. parsing
+	7. co-reference resolution
+3. QUnit: JS Unit Testing Framework
+4. Learn SoapUI
+
+Management:
+1. Entrepreneurship Development
+2. Entrepreneurship Skills
+3. Learn Kanban
+4. Learn Scrum
+
+Soft Skills:
+1. Learn Anger Management
+2. Learn Assertiveness
+3. Spoken English Errors
+4. Learn Work Life Balance
+
+Select:
+1. Developer's Best Practices
+
+DevOps:
+1. Learn SVN

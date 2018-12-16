@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1000" height="500" xmlns="http://www.w3.org/2000/svg">
+  <title>Bridge Pattern</title>
+  <defs>
+    <style type="text/css">
+      <![CDATA[
+        g{
+          stroke : #000;
+        }
+        rect, path, circle{
+          fill         : #fff;
+          fill-opacity : 0;
+        }
+        rect{
+          stroke-width : 6;
+        }
+        path, circle, line{
+          stroke-width : 2;
+        }
+        text{
+          font-family  : sans-serif;
+          stroke-width : 0;
+        }
+        text.name{
+          font-size    : 25px;
+          font-weight  : bold;
+          text-anchor  : middle;
+        }
+        text.item{
+          font-size    : 25px;
+        }
+        text.visibility{
+          font-size   : 28px;
+          font-weight : bold;
+          font-family : monospace;
+        }
+        text.abstract{
+          font-size   : 25px;
+          font-style  : italic;
+        }
+        text.relation{
+          font-size   : 20px;
+          text-anchor : middle;
+        }
+        text.note{
+          font-size    : 20px;
+        }
+      ]]>
+    </style>
+  </defs>
+  <g transform="translate(40,40)">
+    <rect width="320" height="162" />
+    <line x1="0" x2="320" y1="60"  y2="60" />
+    <line x1="0" x2="320" y1="110" y2="110" />
+    <text x="160" y="45"  class="name">Abstraction</text>
+    <text x="30"  y="95"  class="visibility">-</text>
+    <text x="60"  y="95"  class="item">impl : Implementor</text>
+    <text x="30"  y="145" class="visibility">+</text>
+    <text x="60"  y="145" class="item">function()</text>
+  </g>
+  <g transform="translate(40,330)">
+    <rect width="320" height="132" />
+    <line x1="0" x2="320" y1="60" y2="60" />
+    <line x1="0" x2="320" y1="80" y2="80" />
+    <text x="160" y="45"  class="name">RefinedAbstraction</text>
+    <text x="30"  y="115" class="visibility">+</text>
+    <text x="60"  y="115" class="item">refinedFunction()</text>
+  </g>
+  <g transform="translate(560,40)">
+    <rect width="400" height="132" />
+    <line x1="0" x2="400" y1="60" y2="60" />
+    <line x1="0" x2="400" y1="80" y2="80" />
+    <text x="200" y="45"  class="name abstract">Implementor</text>
+    <text x="30"  y="115" class="visibility">+</text>
+    <text x="60"  y="115" class="item">implementation()</text>
+  </g>
+  <g class="class" transform="translate(560,330)">
+    <rect width="400" height="132" />
+    <line x1="0" x2="400" y1="60" y2="60" />
+    <line x1="0" x2="400" y1="80" y2="80" />
+    <text x="200" y="45"  class="name">ConcreteImplementor</text>
+    <text x="30"  y="115" class="visibility">+</text>
+    <text x="60"  y="115" class="item">implementation()</text>
+  </g>
+  <g transform="translate(200,205)">
+    <desc>class RefinedAbstraction extends Abstraction</desc>
+    <path d="M 0 2 l -15 30 l 30 0 z" />
+    <line x1="0" y1="32" x2="0" y2="125" />
+  </g>
+  <g transform="translate(760,175)">
+    <desc>class ConcreteImplementor extends Implementor</desc>
+    <path d="M 0 2 l -15 30 l 30 0 z" />
+    <line x1="0" y1="32" x2="0" y2="155" />
+  </g>
+  <g transform="translate(360,105)">
+    <desc>Abstraction has Implementor</desc>
+    <path d="M 5 0 l 20 -10 l 20 10 l -20 10 z" />
+    <line x1="45" y1="0" x2="200" y2="0" />
+  </g>
+  <g transform="translate(360,230)">
+    <!-- paper frame with a dog ear -->
+    <path d="M 300 20 l 0 50 l -300 0 l 0 -70 l 280 0 c 5 5 5 15 0 20 c 5 2 15 2 20 0" />
+    <!-- folding line -->
+    <path d="M 280 0 l 20 20" stroke-linecap="round" />
+    <!-- connector -->
+    <path d="M 0 35 L -35 35 L -35 -43" stroke-dasharray="6,3" />
+    <circle cx="-35" cy="-50" r="8" />
+    <text x="20" y="40" class="note">this.impl.implementation();</text>
+  </g>
+</svg>

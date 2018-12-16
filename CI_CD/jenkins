@@ -1,0 +1,16 @@
+# Jenkins #
+## Configure Maven ##
+1. Install Maven in Server
+	1. [Maven Download Page](https://maven.apache.org/download.cgi)
+	2. Download [apache-maven-3.5.0-bin.tar.gz](http://mirror.fibergrid.in/apache/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz)
+	3. Click on **Manage Jenkins**
+	4. Click on **Global Tool Configuration**
+	5. Click on **Maven installations** under **Maven**
+	6. Enter the following details:
+		1. Name: Maven
+		2. MAVEN_HOME: `/home/am/Documents/Softwares/apache-maven-3.5.0`
+		3. Uncheck **Install automatically** option
+	7. Click **Save**
+2. New project with Maven:
+	1. Click **New Item**
+	2. Select **Maven project**
