@@ -2116,9 +2116,328 @@
 
 ## APIs ##
 ### AccessibilityInfo ###
+1. To know if a screen reader is currently active?
+2. `AccessibilityInfo` API can be used
+	1. Used to query current state of screen reader
+	2. Used to register notification when screen reader state changes
+3. Example:
+
+		class ScreenReaderStatusExample extends React.Component {
+			state = {
+				screenReaderEnabled: false,
+			};
+
+			componentDidMount() {
+				AsseccibilityInfo.addEventListener(
+					'change',
+					this._handleScreenReaderToggled,
+				);
+				AccessibilityInfo.fetch().then((isEnabled) => {
+					this.setState({
+						screenReaderEnabled: isEnabled,					
+					});
+				});
+			}
+
+			componentWillUnmount() {
+				AccessibilityInfo.removeEventListener(
+					'change',
+					this._handleScreenReaderToggled,
+				);
+			}	
+
+			_handleScreenReaderToggled = (isEnabled) => {
+				this.setState({
+					screenReaderEnabled: isEnabled,
+				});
+			};
+
+			render() {
+				return (
+					<View>
+						<Text>
+							This screen reader is{' '}
+							{this.state.screenReaderEnabled ? 'enabled' : 'disabled' }.
+						</Text>
+					</View>
+				);
+			}
+		}
+
+#### Methods ####
+1. `fetch`
+2. `addEventListener`
+3. `setAccessibilityFocus`
+4. `announceForAccessibility`
+5. `removeEventListener`
+
+#### Reference ####
+##### Methods #####
+###### `fetch()` ######
+
+		static fetch()
+
+	1. Query whethr a screen reader is currently enabled
+	2. Returns a promise which resolves to boolean
+		1. `true` when screen reader is enabled
+		2. `false` otherwise
+
+###### `addEventListener()` ######
+
+		static addEventListener(eventName, handler)
+
+1. Add an event handler. Supported events
+	1. `change`: Fired when state of screen reader changes
+		1. Argument to event handler: boolean
+			1. `true`: when screen reader is enabled
+			2. `false`: otherwise
+	2. `accouncementFinished`: iOS - only event.
+		1. Fired when screen reader has finished making announcement
+		2. Argument to event handler: dictionary with following keys
+			1. `announcement`: string announced by screen reader
+			2. `success`: boolean indicating whether announcement was successfully made
+
+###### `setAccessibilityFocus()` ######
+
+		static setAccessibilityFocus(reactTag)
+
+1. Set accessibility focus to a React component
+2. On Android this is equivalent to: `UIManager.sendAccessibilityEvent(reactTag, UIManager.AccessibilityEventTypes.typeViewFocused);`
+
+###### `accounceForAccessibility()` ######
+
+		static announceForAccessibility(announcement)
+
+1. iOS-only. Post a string to be announced by screen reader
+
+###### `removeEventListener()` ######
+
+		static removeEventListener(eventName, handler)
+
+1. Remove an event handler
+
 ### ActionSheetIOS ###
+#### Methods ####
+1. `showActionSheetWithOptions`
+2. `showShareActionSheetWithOptions`
+
+#### `showActionSheetWithOptions()` ####
+
+		static showActionSheetWithOptions(options, callback)
+
+1. Display iOS action sheet. `options` must contain one or more of
+	1. `options` (array of strings) - list of button titles (required)
+	2. `cancelButtonIndex` (int) - index of cancel button in `options`
+	3. `destructiveButtonIndex` (int) - index of destructive button in `options`
+	4. `title` (string) - title to show above action sheet
+	5. `message` (string) - message to show below the title
+	6. `tintColor` (string) - color used for non-destructive button titles
+
+2. Callback: Takes one parameter (zero-based index of selected item)
+3. Example:
+
+		ActionSheetIOS.showActionSheetWithOptions({
+			options: ['Cancel', 'Remove'],
+			destructiveButtonIndex: 1,
+			cancelButtonIndex: 0,
+		},
+		(buttonIndex) => {
+			if (buttonIndex === 1) { /* destructive action */ }
+		});
+
+#### `showShareActionSheetWithOptions()` ####
+
+		static showShareActionSheetWithOptions(options, failureCallback, successCallback)
+
+1. Display iOS share sheet.
+2. `options` should contain one or both of `message` and `url` and can additionally have `subject` or `excludedActivityTypes`:
+	1. `url` (string) - URL to share
+	2. `message` (string) - message to share
+	3. `subject` (string) - subject for message
+	4. `excludedAcitivityTypes` (array) - activities to exclude from ActionSheet
+3. If `url` points to local file or base64-encoded uri, file it points to will be loaded and shared directly
+	1. Applicable for
+		1. images
+		2. videos
+		3. pdf files
+		4. ...
+4. `failureCallback` takes one parameter (error object)
+5. Optional property: `stack` of type `string`
+6. `successCallback` takes two parameters
+	1. boolean value signifying success or failure
+	2. string that in case of success indicates method of sharing
+
 ### Alert ###
+1. Launches alert dialogue with specified title and message
+2. Optional: list of buttons
+	1. Tapping button will fire `onPress` callback and dismiss alert
+	2. `OK`: default button
+3. Works on iOS and Android (static alerts)
+	1. `AlertIOS`: Shows alert that prompts user to enter something
+		1. Text is common on iOS only
+
+#### iOS ####
+1. On iOS, any number of buttons can be specified
+	1. Each button can have style
+	2. `default`, `cancel` or `destructive`
+
+#### Android ####
+1. At most 3 buttons
+	1. Neutral
+	2. Negative
+	3. Positive
+2. If one button: positive (OK)
+3. Two buttons: (Cancel, OK)
+4. Three buttons - neutral, negative, positive (Later, Cancel, OK)
+5. Alerts can be dismissed by typing outside alert box
+	1. Event handling: optional `options` parameter
+		1. `onDismiss` - property
+
+				{ onDismiss () => {} }
+
+6. Disabling dismiss behavior:
+	1. `options` parameter with `cancelable` property set to `false`
+
+			{ cancelable: false }
+
+7. Example usage:
+
+		// Works on both iOS and Android
+		Alert.alert(
+			'Alert Title',
+			'My Alert Msg',
+			[
+				{text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+				{text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+				{text: 'OK', onPress: () => console.log('OK Pressed')},
+			],
+			{ cancelable: false }
+		)
+
+##### Methods #####
+1. `alert`
+
+		static alert(title, message?, buttons?, options?, type?)
+
+#### Reference ####
+##### Methods #####
+1. `alert()`
+
 ### AlertIOS ###
+1. `AlertIOS`: Has functionality to construct iOS alert dialog with a message or construct a prompt for user input
+2. Example:
+
+		AlertIOS.alert(
+			'Sync Complete',
+			'All your data belong to us.'
+		);
+
+3. iOS Prompt
+
+		AlertIOS.prompt(
+			'Enter a value',
+			null,
+			text => console.log("You entered " + text)
+		);
+
+	1. `Alert.alert` is for cross platform support
+4. Methods
+
+		alert
+		prompt
+
+5. Type definitions
+
+		AlertType
+		AlertButtonStyle
+		ButtonsArray
+
+#### Reference ####
+1. `alert()`
+
+		static alert(title: string, [message]: string, [callbackOrButtons]: ?(() => void), ButtonsArray, [type]: alertType): [object Object]
+
+	1. Parameters:
+		1. `title`: string (type) - required field
+			1. Dialog's title.
+			2. null or '' will hide the title
+		2. `message`: string (type) - optional
+			1. Message that appears below dialog's title
+		3. `callbackOrButtons`: `?(() => void), ButtonsArray` - optional
+			1. It is a single argument function or
+				1. Called when user taps 'OK'
+			2. Array of buttons
+				1. Each button should include `text` key and optional `onPress` and `style` keys
+					1. `style`: one of
+						1. `default`
+						2. `cancel`
+						3. `destructive`
+		4. `type`: `AlertType` - optional
+			1. Deprecated, do not use
+2. Example with custom buttons:
+
+		AlertIOS.alert(
+			'Update available',
+			'Keep your app up to date to enjoy the latest features',
+			[
+				{
+					text: 'Cancel',
+					onPress: () => console.log('Cancel Pressed'),
+					style: 'cancel',
+				},
+				{
+					text: 'Install',
+					onPress: () => console.log('Install Pressed'),
+				},
+			],
+		);
+
+3. `prompt()`
+
+		static prompt(title: string, [message]: string, [callbackOrButtons]: ?((text: string) => void), ButtonsArray, [type]: AlertType, [defaultValue]: string, [keyboardType]: string): [object Object]
+
+	1. Construct and display a prompt to enter some text
+		1. `title`: `string` - required
+			1. dialog's title
+		2. `message`: `string` - optional
+			1. optional message that appears above text input
+		3. `callbackOrButtons`: `?((text: string) => void), ButtonsArray` - optional
+			1. It is either single argument function or array of buttons
+				1. If function: called with prompt's value when user taps 'OK'
+				2. If array of button configurations: each button should include
+					1. `text` key
+					2. `style` (optional)
+						1. `default`
+						2. `cancel`
+						3. `destructive`
+		4. `type`: `AlertType` - optional
+			1. Configures text input
+			2. Input
+				1. `plain-text`
+				2. `secure-text`
+				3. `login-password`
+		5. `defaultValue`: `string` - optional
+			1. Default text in text input
+		6. `keyboardType`: `string` - optional
+			1. keyboard type of first text field (if exists)
+				1. `default`
+				2. `email-address`
+				3. `numeric`
+				4. `phone-pad`
+				5. `ascii-capable`
+				6. `numbers-and-punctuation`
+				7. `url`
+				8. `number-pad`
+				9. `name-phone-pad`
+				10. `decimal-pad`
+				11. `twitter`
+				12. `web-search`
+	2. Example:
+
+			AlertIOS.prompt(
+				
+			);
+
 ### Animated ###
 ### AppRegistry ###
 ### AppState ###
