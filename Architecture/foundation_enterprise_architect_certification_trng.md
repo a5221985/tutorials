@@ -1452,52 +1452,936 @@
 2. The steps are continuous
 3. So the steps are assigned to either "requirements management" or "ADM phase"
 
+#### Steps (Summary) ####
+1. Identify/ document requirements (from ADM phases)
+	1. During BCD phases
+2. Baseline requirements: Determine priorities, confirm stakeholder buy-in, place in requirements repository
+	1. At the end of BDAT (that needs to be approved)
+3. Monitor baseline requirements
+	1. Keep track of changes in the architecture that gets introduced in the environment
+4. Identify changed requirements, remove/add/modify (from ADM phases) the priorities
+5. Identify changed requirements; record new priorities (from other places)
+	1. These are from non ADM sources
+		1. At any of the phases of ADM cycle, any new requirement comes in, put that down and decide what do you do with it
+6. Assess impact of changed requirements (from ADM phases)
+	1. Do we have to act on it right away
+	2. Do we have to stop what we are doing
+	3. Do we have to go back to phase B
+	4. Can we finish this and deal with it later
+	5. Do not have to do anything?
+7. Implement requirements arising from Phase H (from ADM phases)
+	1. If the architecture needs to be changed, that is fed into requirements management phase
+8. Update the requirements repository
+	1. Requirements are recommended to be stored in a repository (different from architecture repo)
+		1. This is the storage for business requirements and technology requirements (Baseline and target)
+	2. Maintain them
+9. Implement change in the current phase (from ADM)
+	1. If a requirement comes in we have to deal with it
+10. Assess and revise gap analysis for past phases B-D (from ADM)
+	1. If gaps are identified between baseline and target
+		1. If something, do gap analysis again
+
+#### Outputs (usually documents) ####
+1. Requirements impact assessment
+2. Architecture requirements specification, if necessary
+
+#### Artifacts ####
+1. None
+
+#### Assignment ####
+1. Review Chapter 17 on ADM architecture requirements management
+2. Particularly the list of steps
+3. Review chapter 41.6, on the requirements repository
+4. Or check out section 19 of this course which goes through the steps in more detail
+
 ## Wrapping It Up ##
 ### The Enterprise Continuum ###
+1. Second most important concept
+2. Enterprise continuum in TOGAF:
+	1. A view of the architecture repository that provides methods for classifying architecture and solution artifacts as they evolve from generic foundation architecture to organization specific architecture"
+3. Enterprise continuum comprises of Complementary concepts:
+	1. Architecture continuum
+	2. Solution continuum
+4. Enterprise continuum is:
+	1. A view of the architecture repository
+		1. A place where we store all of our architecture documents and artifacts
+			1. Folder
+			2. Website
+			3. Binder
+		2. All reference material
+			1. Generic reference models
+			2. Common technical models
+			3. Industry specific stuff
+	2. Classifying architecture and solution artifacts
+	3. From generic to specific
+	4. Architecture continuum and solutions continuum
+5. Architecture repository (if file folder on network)
+	1. Contains all building blocks that go into your architecture
+	2. An empty box that you can fill with architecture output
+6. Continuum is a tool that enables us to classify documents (artifacts): 
+	1. The view can be used to identify if which ones are reference documents and which ones are specific to the business
+	2. The enterprise continuum uses a scale from generic to specific
+		1. Most generic documents on the left and most specific documents on the right
+	3. Further divided between architecture continuum and solutions continuum
+		1. Architecture continuum: Contains architecture documents that are not tied to a specific implementation
+		2. Solutions continuum: Provides technical and implementation details for those components
+	4. Both continuums support each other
+7. ABB: Architecture Building Blocks
+	1. Are building blocks that exist in the architecture continuum
+8. SBB: Solutions Building Blocks
+	1. SSOs used across apps say
+
+#### Architecture Continuum ####
+1. Foundation Architecture (Most Generic) - can be applied to almost any business or any industry
+	1. Extremely generic services and functions
+		1. Like the TRM (Technical Reference Model) or SIB (Standards Information Base)
+			1. TRM cannot be directly implemented because it does not contain implementation or technical details
+		2. Foundation upon which other architectures are built
+2. Common Systems Architecture (still discuss a wide range of businesses)
+	1. Still generic, but contains some details
+		1. Like III-RM
+			1. Describes an application architecture of data providers, data brokers and data consumers 
+				1. It is just one of the ways one can organize business application
+		2. Security architecture
+		3. Network architecture
+3. Industry Architecture (Each industry has a set of standards applicable to those businesses - Banking, retail, education, manufacturing, real-estate)
+	1. Industry specific services and functions
+	2. Managed by an industry group
+		1. Like credit-card processing in retail industry
+		2. Those are building blocks specialized to the type of business (not just for single business)
+4. Organization Specific Architecture (Customizations of higher level architectures to the business)
+	1. Most specific to only your business
+	2. Your business services and functions
+	3. Going through ADM, we end up with very specific architecture definition document that cannot be easily implemented by any other company
+
+#### Solutions Continuum ####
+1. Mirrors the architecture continuum
+2. Foundation Solutions:
+	1. Extremely generic solutions (tools, products and components that can be used to build a solution)
+	2. Programming languages, operating systems, ITIL (most generic tools)
+	3. Example: Open source product in Linux (foundation solution)
+		1. It is applicable to any solution
+3. Common systems solutions: (Products that run on top of generic solutions)
+	1. Still generic, but contains some details
+	2. Enterprise management systems, security systems (Software as a service - these are applicable to many businesses)
+	3. Software as a service vendors (like, MS Office) - (more specific technologies)
+		1. MySQL database
+		2. Broker service
+		3. Firewall software
+4. Industry Solutions:
+	1. Industry-specific solutions and implementations
+	2. Implementations of an industry architecture
+		1. Off the shelf merchant solution for handling credit cards (retail industry)
+		2. Specific to industry but not specific to business
+5. Organization-Specific Solutions: (Custom implementations - customized call center software, program that we need to write to capture some data from one system to other say)
+	1. Most specific to only your business
+	2. Implementation of your organization architecture
+
+#### Summary ####
+1. It is a view of architecture repository that categorizes documents and artifacts
+2. Architecture continuum and Solutions continuum work hand in hand to support each other
+
 ### Capability Assessment ###
+1. Capability Assessment, includes: (Before we start architecture definition we can understand the baseline and target level of the enterprise)
+	1. Business capability
+	2. IT capability
+	3. Architecture maturity capability
+	4. Business transformation readiness assessment
+2. First defined in Phase A and updated in Phase E
+3. Results of capability assessment are stored in Governance log: (artifacts)
+	1. Decision log
+	2. Compliance assessments
+	3. Capability assessments
+	4. Calendar (dates and times)
+	5. Project portfolio (list of all projects going on)
+	6. Performance measurement
+4. Capability assessments are tracked, and updated occasionally to ensure progress made from baseline to target capabilities
+	1. Every few months go over and update
+
+#### Business Capability Assessment ####
+1. Capabilities of the business
+	1. Business has certain products and services, functions it needs to perform on a daily basis to sustain the business
+		1. Show manufacturer
+			1. Manufacturing - capability
+			2. Sales - capability
+			3. Logistics of shipping boxes to retail outlets - capability
+			4. IT - capability
+			5. Accounting - capability
+			6. Stratigic capability
+			7. Designers of fasion and styling - capabilities
+2. Baseline state assessment of performance
+	1. Manufacturer (say)
+		1. How well are you manufacturing performance wise (scale of 1 to 10)
+3. Future state aspiration of performance
+4. Baseline state assessment of how each capability is realized
+	1. If manufacturing is making a lot of mistakes:
+		1. Wastage of materials
+		2. Quality is not good
+		3. Lot of manual effort
+			1. Putting shoe laces into the holes
+			2. Sowing the soles
+	2. Ability to do it and how we do it
+5. Future state aspiration of how each capability is realized
+6. Assessment of likely impacts to the business if the Target Architecture is realized
+	1. Automation
+		1. More shoes per day
+		2. Quality is better
+		3. Less mistakes
+		4. ...
+
+#### IT Capability Assessment ####
+1. Baseline and target maturity level of change process
+	1. How do we handle change?
+		1. If new application is developed
+			1. Is there a ticketing process for prod deployment
+			2. Development team and deployment team
+2. Baseline and target maturity level of operational processes
+	1. Operational process
+		1. Cloud or server
+		2. Backups
+3. Baseline capability and capacity assessment
+	1. Is IT department able to handle requests? Are they competent? Are there enough servers (if business grows)
+4. Assessment of the likely impacts to the IT organization resulting from the successful deployment of the Target Architecture
+	1. What do we need to change on the IT organization to handle that type of growth and that type of change
+
+#### Architecture Maturity Assessment ####
+1. Architecture governance processes, organization, roles, and responsibilities
+	1. Ad-hoc to standard
+	2. Assess that
+2. Architecture skills assessment
+3. Breadth, depth, and quality of landscape definition with the Architecture repository
+4. Breadth, depth, and quality of standards definition with the architecture repository
+	1. Settle on a single OS version
+5. Breadth, depth, and quality of reference model definition with the Architecture repository (assess how clearly we have defined the customization to the organization)
+	1. TRM
+	2. SOA
+	3. ...
+6. Assessment of re-use potential
+	1. Having BBs
+		1. Standard way of doing things
+
+#### Business Transformation Readiness Assessment ####
+1. Readiness factors
+	1. How ready is company for change?
+		1. Slow company
+		2. Is it easy or super difficult
+		3. How many people are affected?
+		4. What are the risks
+		5. Is there going to be pushback
+2. Vision for each readiness factor
+3. Current and target readiness ratings
+4. Readiness risks
+
 ### Stakeholders and Views ###
+1. Related concepts to TOGAF
+	1. Exam synopsys has it
+2. Stakeholder:
+	1. "An individual, team, or organization (or classes thereof) with interests in, or concerns relative to, the outcome of the architecture. Different stakeholders with different roles will have different concerns"
+		1. Chapter 3, definitions
+		2. Based on roles
+			1. Business people
+			2. Technical people
+			3. Financial people
+3. Stakeholder examples:
+	1. Architect (You)
+	2. Accounting/Finance
+	3. The customer
+	4. User of the solution
+	5. Business unit
+	6. Partners/Implementers
+	7. External Suppliers
+	8. Customer Service Group
+	9. IT Group
+	10. HR Group
+	11. QA Group
+	12. Security Group
+4. TOGAF:
+	1. Corporate Functions
+		1. CEO
+			1. Enterprise Security
+			2. Program Managment Office
+			3. QA Standards Group
+			4. Procurement
+			5. HR
+			6. Below:
+				1. End-user Organization
+					1. Executives
+					2. Line Management
+					3. Business Domain Expert
+					4. Data Owners
+				2. Project Organization
+					1. Executives
+					2. Line Management
+					3. Business Process/Functional Expert
+					4. Product Specialist
+					5. Technical Specialist
+				3. System Operations
+					1. IT Service Management
+					2. Service Desk
+					3. Application Management
+					4. Infrastructure Management
+					5. Data/Voice Communications
+				4. Below: External
+					1. Suppliers
+					2. Regulatory Bodies
+5. View
+	1. "The representation of a related set of concerns. A view is what is seen from a viewpoint. An architecture view may be represented by a model to demonstrate to stakeholders their areas of interest in the architecture. A view does not have to be visual or graphical in nature."
+		1. Business people say may be interested in certain bits of information but not the others, so view extracts interested pieces of information
+	2. Chapter 3, definitions
+	3. View examples:
+		1. People view
+		2. Workflow view
+		3. Business objectives view
+		4. Data entity view
+			1. Database and app level interests
+		5. Enterprise security view
+		6. Cost view
+			1. For business people
+		7. Standards view
+		8. Hardware view
+		9. Data flow view
+6. Viewpoint:
+	1. "A definition of the perspective from which a view is taken. It is a specification of the conventions for constructing and using a view (often by means of an appropriate schema or template). A view is what you see; a viewpoint is where you are looking from - the vantage point or perspective that determines what you see."
+		1. It is where you are looking from (Perspective)
+	2. Chapter 3, definitions
+	3. Examples:
+		1. Business stakeholders see the architecture in terms of up-front and recurring cost, value delivered, services offered, flexibility for future business decisions, etc.
+		2. Technical stakeholders see the same architecture in terms of number of applications, number of servers, number of users, size of database, etc.
+			1. Load
+			2. Performance
+			3. ...
+7. Assignment:
+	1. Review chapter 3 on definitions
+	2. Review chapter 24, on the stakeholder management
+
 ### Architecture Governance ###
+1. Architecture Governance: "The practice and orientation by which enterprise architectures and other architectures are managed and controlled at an enterprise-wide level. It is concerned with change processes (design governance) and operation of product systems (operational governance)."
+	1. From definitions, chapter 3:
+		1. [http://pubs.opengroup.org/architecture/togaf9-doc/arch/chap03.html](http://pubs.opengroup.org/architecture/togaf9-doc/arch/chap03.html)
+2. Hierarchy of Governance:
+	1. Any organization has multiple layers of governance
+		1. Corporate governance (Executive team & board of directors)
+			1. Managing change and organization as a whole
+	2. Technology governance (CIO/CTO, how they use technology, broader)
+		1. Broader scope
+	3. IT governance (IT resources linked to business goals, best practices)
+		1. IT management function
+			1. Practices
+			2. Backups
+			3. Security
+	4. Architecture Governance
+#### Characteristics of Governance (general) ####
+1. **Discipline**: adhere to authority, policies and procedures
+2. **Transparency**: all actions available for inspection
+	1. Make decisions openly and are not made in secret
+3. **Independence**: minimize conflicts of interest
+	1. Technology team should not be running architecture governance because we may have technology requirements over the other requirements
+4. **Accountability**: authorized and accountable for their actions
+	1. Identifiable groups of people who are accountable for their actions
+5. **Responsibility**: required to act responsibly
+6. **Fairness**: not allowed an unfair advantage (for one group over another group)
+
+#### Architecture Governance ####
+1. System of controls over all architecture components and activities
+	1. Approving architecture
+	2. Reviewing architecture
+	3. Monitoring architecture
+2. System to ensure compliance with internal and external standards and legal obligations
+	1. Legal bits change
+	2. Industry standards (need to be compliant)
+3. Process to support effective management of the above two
+4. Practices that ensure accountability
+
+#### Architecture Governance ####
+1. Phase G (Implementation Governance) covers just one aspect of governance, dedicated to ensuring a solution being implemented adheres to the architecture
+2. Context (Drivers (business, technology, regulatory) Organizational forms) - Diagram in TOGAF spec
+	1. Process
+		1. Policy Management & Take-on
+		2. Compliance
+		3. Desperation
+		4. Monitoring & Reporting
+		5. Business Control
+		6. Environment Management
+	2. Content
+		1. Requirements
+		2. SLAs and OLAs
+		3. Authority Structures
+		4. Organizational Standards
+		5. Solutions
+		6. Architectures
+	3. Repository
+	4. Process Flow control
+
+#### Architecture Governance Processes ####
+1. Policy Management and Take-On
+2. Compliance
+3. Dispensation
+	1. If there is no compliance then give temporary reprieve (6 months say) to stay non-compliant but eventually come back to be compliant
+		1. Security requirements
+			1. Admin system is accessible from outside but needs login
+				1. Get it behind VPN
+4. Monitoring and Reporting
+5. Business Control
+6. Environment Management
+
+#### Architecture Governance Organization ####
+1. In a large enterprise, you're likely to have many layers and levels of governance. You have those that developed the architecture (architects), those that implement it (developers), and those that maintain it (IT/operations). They all can have their own local governance to ensure compliance. And it could be split along geographical lines as well.
+2. The teams may monitor themselves
+	1. Self governance
+
+#### Assignment ####
+1. Review Chapter 50, on the architecture Governance
+	1. Exam is not going to dive into this too much
+
 ### Reference Models ###
+1. Not much about reference models on the exam. They are optional parts of TOGAF
+2. Except you should know where they fit on the enterprise continuum
+3. Where do they fit?
+	1. TOGAF has two reference models
+		1. TRM - Technical Reference Model
+			1. "The TRM is universally applicable and, therefore, can be used to build any system architecture."
+			2. TRM is foundation architecture, the most generic it can be
+			3. It is on the left-side of Enterprise Continuum and the Architecture Continuum
+			4. Diagram from TOGAF
+				1. Qualities (Symbolizes a computer)
+					1. Infrastructure Applications
+					2. Business Applications
+					3. Application Platform Interface
+						1. Qualities:
+							1. Graphics & Image
+							2. Data Management
+							3. Data Interchange
+							4. User Interface
+							5. International Operations
+							6. Location & Directory
+							7. Transaction Processing
+							8. Security
+							9. Software Engineering
+							10. System and Network Management
+					4. Operating System Services
+					5. Network Services
+					6. Communications Infrastructure Interface
+					7. Communications Infrastructure
+		2. III-RM - Integrated Information Infrastructure Reference Model
+			1. III-RM - Common Systems Architecture (focuses on the application software and not underlying network/hardware)
+			2. It is on the middle-left of the Enterprise Continuum and the Architecture Continuum (no OS, ...)
+			3. Graphic
+				1. Qualities (Security, Mobility, Performance SLAs, Management Policy) - doesn't specify what consumer is, is it a web app or not, neither windows service or not
+					1. Application platform
+						1. Information Consumer Applications
+							1. Development tools
+							2. Brokering Applications
+							3. Management Utilities
+						2. Information Provider Applications
+
+#### Assignment ####
+1. Review chapter 43 & 44, on the TRM and III-RM: [http://pubs.opengroup.org/architecture/togaf9-doc/arch/chap43.html](http://pubs.opengroup.org/architecture/togaf9-doc/arch/chap43.html)
+2. Don't spend much time on it
 
 ## Conclusion ##
 ### Booking the Exam ###
+1. [prometric.com](prometric.com)
+	1. Home page
+		1. Search for open group
+	2. Click Start here
+	3. Locate a test center
+	4. Next
+	5. Policies
+		1. Close book for part 1
+		2. Open book for part 2
+	6. Select TOGAF 9 Part 1
+	7. Test sites
+		1. Select and check if the site offers
+		2. Select date (24 hours in advance)
+	8. Reschedule/ Cancel an Exam (1 year validity)
+
+#### Assignment ####
+1. Book the exam
+
 ### What to Expect for Level 2 ###
+1. It is a scenario based exam
+	1. 8 questions (lengthy)
+		1. Multiple answers (lengthy)
+	2. 90 minutes
+		1. over 10 minutes per question
+		2. 60% to pass (24 out of 40 points)
+		3. Partial points for close answers
+	3. Open book exam
+		1. Button can open TOGAF 9 spec (it is not an easy read)
+			1. It is a quick look up only
+	4. Part I is mandatory
+	5. Price is same
+2. Udemy course: TOGAF Architecture Framework Exam Preparation Level 2
+	1. Joost Bleijenberg
+
 ### Finale ###
+1. May need iterative process of reading and going through video lessons (going back and forth)
+
 ### More Resources ###
+1. Official from the Open Group
+	1. [TOGAF 9.1 Specification](http://pubs.opengroup.org/architecture/togaf9-doc/arch/)
+		1. Root of all knowledge
+	2. [TOGAF 9.1 Level 1 Certification Information](http://www.opengroup.org/togaf9/cert/docs/og91.html)
+		1. Free PDF download with ADM and all phases
+	3. [Official TOGAF 9.1 Part 1 Partice Test](https://www2.opengroup.org/ogsys/catalog/B092)
+		1. Only 99 cents
+	4. [Official TOGAF 9.1 Document Templates](https://www2.opengroup.org/ogsys/jsp/publications/PublicationDetails.jsp?catalogno=i093)
+		1. Free downloads of some TOGAF documents
+2. Third party YouTube Videos
+	1. Orbus Software TV - [TOGAF Distilled](https://www.youtube.com/playlist?list=PLrAWWpbaj-7KM0uNkxKAf2t4Kzyqr_pYy)
+	2. Enterprise Architects - [Introduction to Enterprise Architecture](https://www.youtube.com/watch?v=UnhC9xk9wiE)
+3. Other Third-Party Sites
+	1. TheOpenArch.com - [Three Free TOGAF 9 Foundation Sample Tests](http://theopenarch.com/81-tests/72-togaf-9-exam-tests.html)
+		1. This is TOGAF 9 and not 9.1 (slight differences exist)
+	2. StudyDroid.com - [This is a cool "flashcard" site](http://studydroid.com/)
+		1. TOGAF flashcards
+		2. Used 2 days before exam
+			1. To identify gaps
 
 ## Bonus Lectures ##
 ### Q&A - Your Questions ###
 ### $117 per hour as an Enterprise Architect ###
+1. [indeed.com](indeed.com) - what: togaf, where: India
+	1. Senior technology architect - $117/hr ~ $200k per year
+	2. Technical Architect, L3 (Government) - long contracts
+		1. Needs government experience - $110/hour ~ $170k per year
+2. [PayScale.com](PayScale.com)
+	1. Avg: $103,138
+	2. Max: $174,000
+	3. Pace of increase is higher
+3. [glassdoor.com](glassdoor.com)
+4. CIO magazine
+5. [wowjobs.com](wowjobs.com)
+6. [salary.com](salary.com) 
+7. The Open Group: List of members
+	1. Places to look for work
+		1. Dell
+		2. Boeng
+		3. Fujitsu
+		4. Nasa
+		5. Microsoft
+	2. What to look for
+		1. Look at career section
+		2. Send resumes
+		3. Talk to HR department
+		4. Try to find people
+8. Complementary skills (related skills can be learnt - ITIL ...)
+	1. SQL server
+	2. Data modeling
+	3. Oracle
+	4. SOA
+	5. IaaS
+	6. ...
+
 ### TOGAF 9.1 Cheat Sheet Download ###
+1. Downloaded
+
 ### TOGAF Part 1 Study Course - Audio Files ###
+1. [https://www.udemy.com/togaf-enterprise-architect/learn/v4/t/lecture/1948494?start=0](https://www.udemy.com/togaf-enterprise-architect/learn/v4/t/lecture/1948494?start=0)
+
 ### TOGAF Part 1 Study Course - PDF Files ###
+1. Downloaded
 
 ## Preliminary Phase In Detail: Step by Step ##
 ### Phases and Steps Bonus Videos ###
+1. These are in-depth and not essential to pass the exam
+2. ADM phase by phase and step by step
+
 ### Preliminary Phase, Step 1 ###
+1. Preliminary Phase
+	1. Preparation and initiation activities
+	2. Defining "the enterprise"
+	3. Choosing frameworks
+	4. Evaluate enterprise maturity and capability
+	5. Defining architecture principles
+2. Step 1: Define the scope of the enterprise organizations impacted
+	1. To know what exactly our job is going to be
+		1. Define Core enterprise (Units) - which are most affected and achieve most value
+			1. Technology groups
+			2. Developments groups
+			3. ...
+		2. Define Soft enterprise (Units) - which see the change but are not directly affected
+			1. People who may use the system but the system itself is not changing - need to make them aware
+		3. Define Extended Enterprise (Units) - Which are outside the scoped enterprise that will see the change
+			1. May be aware - may be the order form is a little different
+		4. Define Communities (Enterprises) - These are stakeholders (who are affected) who can be in groups
+			1. Customers
+			2. Sales staff
+			3. Vendors
+			4. Suppliers
+			5. ...
+		5. Governance - legal frameworks, geographies, etc...
+			1. Are the units across states? across countries
+				1. Are there different laws
+				2. Privacy laws
+				3. Certain laws affect it
+
 ### Preliminary Phase, Step 2 ###
+1. Step 2: Confirm **Governance** and support frameworks
+	1. Determine how architecture documents are brought under governance
+		1. Come up with documents
+		2. They are going to assess if the architecture is worth being done? Whether it kicks off a new ADM cycle? Whether they fall into architecture principles? Whether logging will be done?
+	2. Process that we are about to undertake, ADM, architecture, definitions, artifacts can be brought under governance
+		1. TOGAF has a governance model
+		2. We may have an existing governance
+	3. Likely require changes to how governance works in the organization
+	4. Assess the current governance models
+	5. Establish proper governance
+
 ### Preliminary Phase, Step 3 ###
+1. Step 3: Define and establish **architecture team**
+	1. Critical in startup phase
+		1. Business experts
+		2. Software experts
+	2. Determine existing enterprise and business capabilities (in the areas)
+	3. Maturity assessments
+		1. What kind of architecture do we want?
+		2. What kind of team do we want?
+		3. How much are we willing to spend?
+		4. Size of the team
+	4. Identify gaps (from where we are to where we want to be)
+	5. Allocate key roles (architecture team, governance team, ...)
+		1. Individual people
+			1. Who is going to lead the architecture
+			2. Who is business architect
+			3. Who is technical architect
+			4. ...
+	6. Requests for change of existing processes
+		1. The existing processes must be documented
+		2. We need to sell by showing the need to modify the way we do things
+		3. Assess the impacts of ongoing projects on the proposed architecture
+		4. Find areas of interest and conflict of interests
+		5. Determine constraints on architecture work
+			1. IBM solutions are used with long contracts
+			2. Budget
+			3. Time
+			4. New Law
+		6. Review and agree with sponsors and board
+		7. Assess budget for architecture work
+			1. Estimates are required
+
 ### Preliminary Phase, Step 4 ###
+1. Step 4: Identify and establish **architecture principles**
+	1. Principles are the rules you live by when designing an architecture
+		1. Things that do not change (thoughtfully come up with this)
+		2. OS (uniform across servers)
+	2. They don't change often
+	3. They set the foundation for architecture governance
+		1. Changing a few servers to latest OS is not allowed
+	4. Permission to say no to things that fall outside the principles
+
 ### Preliminary Phase, Step 5 ###
+1. Step 5: **Tailor TOGAF** and other frameworks
+	1. TOGAF is designed to be modified to the needs of the enterprise
+	2. Modify terminology as needed, if you already have existing terms for things
+		1. Can modify TOGAF and tailor it
+			1. Tailored TOGAF uses company's terms
+	3. Modify the ADM process to integrate into other existing processes in your enterprise
+		1. Kinds of processes:
+			1. ADM process say
+			2. Project management processes
+			3. Operation processes
+			4. ...
+		2. Suppose we want to setup a kickoff meeting as early as phase E and not phase F involving all stakeholders
+	4. Modify the Architecture Content Framework templates and organization as needed
+		1. Tweeking existing templates is possible (as necessary only)
+
 ### Preliminary Phase, Step 6 ###
+1. Step 6: Implement **architecture tools**
+	1. Based on the scale and architecture maturity of your organization
+		1. Different tools for different needs
+		2. Open tools vs proprietary tools (bigger organizations)
+	2. May want to get software tools to help organize the architecture repository
+		1. Searching for tools
+		2. Demo
+	3. Could be as simple as MS Office, Sharepoint, or as sophisticated as specialized tools for enterprise architecture
+		1. Simple tools like Wiki
+		2. Sophisticated tools for TOGAF
+		3. Weak or two process ...
+2. Summary:
+	1. Preliminary phase involves setup
+		1. Defining what we want to be
+		2. Defining what the target maturity is
+		3. Defining scope
+		4. Definging the gaps
+		5. Governance in place
+		6. Setting up software
+		7. Setting right people in right roles
 
 ## Phase A In Detail: Step by Step ###
 ### Phase A, Architecture Vision, Step 1 ###
+1. Architecture Vision (Phase A)
+	1. Develop a high-level vision to be delivered
+	2. Obtain approval for a Statement of Architecture Work
+		1. Define scope
+		2. Estimate resources needed
+		3. Develop a roadmap and schedule
+		4. Define KPIs and metrics
+		5. Communications plan
+2. Step 1: Establish **architecture project**
+	1. A project within the existing project management framework of the enterprise
+		1. Timelines
+		2. Budget
+		3. Project manager
+		4. Steps
+		5. Frameworks (scrum, kanban, ...)
+	2. Planned and managed using accepted practices
+	3. Secure recognition and endorsement for the project
+		1. From stakeholders
+			1. IT group impacted
+			2. Sales group impacted
+
 ### Phase A, Architecture Vision, Step 2 ###
+1. Step 2: **Identify stakeholders**, concerns and business requirements
+	1. Requirements gathering phase
+		1. Interview people
+		2. BA like
+		3. Find out problems
+		4. Dig down deeper on problems
+	2. Identify the key stakeholders and their concerns, using Stakeholder Management
+	3. Develop a stakeholder map, showing which stakeholders are involved, their level, and their key concerns
+		1. Map those who need regular communication
+		2. Those that needs only email
+		3. Those whose concerns can be documents but need not be solved (less important)
+	4. Which architecture views and viewpoints need to be developed
+		1. They are different ways of looking at the architecture
+			1. IT department
+			2. Sales
+			3. Executive team
+			4. Finance team (profits, losses)
+		2. Information presented must be specific to their view
+
 ### Phase A, Architecture Vision, Step 3 ###
+1. Step 3: Confirm **business goals**, drivers and constraints
+	1. Identify the business goals and strategic drives of the organization
+		1. Where does the business want to go (1 year, 3 years, 5 years ...)
+		2. What are the growth areas
+		3. Where does it see doubling of growth
+		4. Where does it see slowdown
+		5. Architects have to see how the business is growing and accomodate for that
+		6. We are invited to solve certain problems
+			1. What are the drivers cousing them to say, we need a better architecture now
+				1. May be a disaster
+				2. Complaints from customers
+				3. Business stalled
+				4. Expenses increased
+	2. Ensure the existing definitions are up to date and clarify any vague parts
+	3. Define constraints that must be dealt with (i.e time, budget, resources)
+		1. Break down on paper and understand what are the constraints that we are dealing with
+			1. Contract that has got locked for next x years
+			2. Big project that kicks off and we need to finish before then
+			3. Time of the year (festival season)
+		2. Accomodate for those
+
 ### Phase A, Architecture Vision, Step 4 ###
+1. Step 4: Evaluate **business capabilities**
+	1. There are two: One, ability of the enterprise to develop and use the architecture
+	2. And baseline and target capability level of the enterprise itself
+		1. If business is struggling with finances
+		2. If we need to deploy quickly
+		3. History of failed projects
+	3. Identify any gaps in architecture capability, and go back to prelim phase if needed to address
+		1. We may need proper BA
+		2. Iterate through ADM (preliminary phase)
+			1. Go back
+	4. Gaps or limitations in the enterprise itself inform the design of the architecture
+		1. Focus organization on single change
+		2. Build up some successes
+		3. Then increase the number of projects
+		4. Size of work packages
+
 ### Phase A, Architecture Vision, Step 5 ###
+1. Step 5: Assess **readiness** for transformation
+	1. Use Business Transformation Readiness Assessment to evaluate the organization's ability to adapt to changes, like the ones to be proposed
+		1. Identify risks and communicate them
+		2. Get executives involved
+	2. The result are part of the capability (step 4) and inform the architect function when designing target architecture and identifying risks
+		1. Need to work around people and problems
+
 ### Phase A, Architecture Vision, Step 6 ###
+1. Step 6: Define **scope** (what is going to be in the baseline architecture and what is out)
+	1. IT group: How things are tracked, deployed, compliance with government
+	2. Sales functions and customer service functions in next rounds
+	3. Points
+		1. This is the scope of the architecture effort itself: what is in and what is out
+		2. Baseline and target are often different levels of detail; target more detailed
+			1. Baseline can be kept light
+			2. Target architecture can be deep
+		3. Covers breadth of the enterprise, level of detail required, partitioning, the architecture domains, the time period to cover, existing architecture assets that can be leveraged
+			1. How far of the enterprise is this project going to cover
+			2. Partitioning: One architecture group working on this and other working on that
+				1. We start off together and we separate and then merge them off together
+				2. If application architecture, then we don't have to go very deep into business domain
+			3. If long term architecture plan, come up with transition architectures (target is very massive may be)
+
 ### Phase A, Architecture Vision, Step 7 ###
+1. Step 7: Confirm **architecture principles**, including business principles
+	1. Ensure that existing definitions are current
+	2. Clarify any ambiguity
+	3. Secure endorsement for new items
+		1. From right people
+
 ### Phase A, Architecture Vision, Step 8 ###
+1. Step 8: Develop architecture **vision**
+	1. Based on the stakeholder concerns, business capability, scope, constraints and architecture principles
+	2. Construct high-level (version 0.1) view of the Baseline and Target Architectures
+		1. Very high level
+	3. For instance, draw simple solution concept diagrams
+		1. Problems and high level solutions
+	4. The first, very high-level definitions of the baseline and target environments
+		1. Technology hosting say
+		2. Find a system that scales with demand say
+
 ### Phase A, Architecture Vision, Step 9 ###
+1. Step 9: Define the target **architecture value** and KPIs
+	1. Develop the business case (for architecture and changes required)
+		1. Make an easy case for spending money to make the changes
+		2. What the cost is going to be and what the savings are going to be
+	2. Review the value propositions with each of the stakeholder groups
+		1. We are dealing with executives, the sales group, IT group, customer service
+			1. This plan is going to save you money
+			2. This is going to save you customer time
+			3. It is going to make your jobs easier
+			4. It is going to turn around response time
+	3. Define the performance metrics and measures to be built in
+		1. Need to measure metric
+			1. Current value is x then future value is 1/2 x ...
+			2. Start to get the metrics atleast
+	4. Assess business risk
+		1. Risk management in TOGAF
+
 ### Phase A, Architecture Vision, Step 10 ###
+1. Step 10: Identify **transformation risks** and mitigation activities
+	1. Identify any risks associated with the architecture vision and assess initial level of risk
+		1. What is the worst case scenario
+		2. How likely is it going to occure
+		3. What is the mitigation strategy
+	2. TOGAF defines two levels of risk that should be considered
+		1. Initial level of Risk: assessment **prior** to implementing mitigations
+			1. Example order entry system
+				1. Risk: Orders can get lost, customer records can get misplaced
+				2. Mitigation: Proper backup, run systems in parallel, pilot program (prove system is fail proof)
+		2. **Residual Level of Risk:** assessment **after** implementing mitigations
+	3. Risk mitigation activities can optionally be included in the Statement of Work
+		1. Like pilot projects ...
+
 ### Phase A, Architecture Vision, Step 11 ###
+1. Step 11: Develop **Statement of Architecture Work**, secure approval
+	1. Assess the work products that are required to be produced by the architecture project
+		1. Deliverables
+			1. Artifacts
+			2. Documents
+	2. Ensure that:
+		1. Performance metrics are built into the work products
+		2. Specific performance related work products are available
+	3. Identify new work products that will need to be created
+		1. Documentation that does not exist yet may be required
+	4. Identify existing work products (i.e. building blocks) that will need to be changed
+		1. Technology changes
+	5. Identify the impact of change on other work products
+	6. Determine which architecture domains should be developed (BDAT), to what level of detail, and which views
+		1. If IT focused project
+			1. Only underlying technology (Technology domain and light on business)
+		2. Views: targetted at specific stakeholders
+	7. Assess the resource requirements to perform the work in the time req'd
+	8. Estimate resources needed, develop roadmap, and schedule
+		1. 2 months, 4 months, ... like a normal project
+	9. Define performance metrics to be met during this cycle of the ADM
+	10. Develop communications plan
+		1. Certain stakeholders need frequent communication
+		2. Certain fewer times
+	11. Review and agree the plans with the sponsors, and secure formal approval for the statement of Architecture Work
+	12. Gain sponsor's sign-off to proceed
 
 ## Phase B In Details: Step by Step ##
 ### Phase B, Business Architecture, Step 1A ###
+1. Business Architecture (Phase B)
+	1. B in BDAT
+	2. Develop the baseline business architecture v1.0 (could be bottom-up, based on what exists)
+	3. Develop the target business architecture v1.0 (top-down normally)
+	4. Identify gaps between baseline and target
+2. Step 1: Select **Reference Models, Viewpoints, and Tools**
+	1. Select relevant business architecture reference models and patterns from the architecture repository based on the known drivers and concerns
+	2. Select relevant business architecture viewpoints to be used to demonstrate later how their concerns are being addressed in the architecture
+		1. For demonstrating concerns to stakeholders being addressed
+			1. CFO: His concerns (financials)
+	3. Identify appropriate tools and techniques for capturing, modeling, analyzing, and documenting the architecture
+		1. Evernote
+		2. Microsoft Word
+		3. IBM Rational
+		4. ...
+	4. Step 1.1: Determine overall **modelling** process
+		1. The level of detail of this will be highly dependent on the standards of the organaization. Yours might require extensive analysis and modelling, including use-cases, activities and classes.
+			1. UML
+			2. ...
+	5. Step 1.2: Identify required **service granularity** level, boundaries and contracts
+		1. **Micro-level functions:** has boundaries, without specific governance
+			1. Just a process; like your process for sending out monthly invoices
+				1. Has specific start and specific end
+				2. We know whose job it is
+		2. **Services:** has boundaries and specific governance
+			1. Customer wants a website built
+				1. Project starts and ends
+				2. How to bill the customer
+				3. We have price list
+				4. We have processes in place
+		3. **Macro-level functions:** has no boundaries, but specifically governed
+			1. Human resources function (whole department)
+				1. Crosses the entire company
+				2. Involved in everything
+					1. Management of employees
+					2. Raises
+					3. Benefits
+		4. Services are business functions that have a service contract.
+	6. Step 1.3: Identify required **catalogs** of business building blocks
+		1. Inventories of the core assets of the business
+		2. Raw material for metrices and views
+		3. Such as:
+			1. Organization/ actor catalog
+			2. Location catalog
+			3. Process/ event/ control/ product catalog 
+
 ### Phase B, Business Architecture, Step 1B ###
+1. Step 1.4: Identify required **matrices**
+	1. Matrices show the relationships between things
+	2. Raw material for the development of views
+	3. Such as:
+		1. Business interaction matrix
+		2. Actor role matrix
+2. Step 1.5: Identify required **diagrams**
+	1. Diagrams present information from a set of viewpoints
+	2. Such as:
+		1. Use-case diagram
+		2. Process flow diagram
+		3. Functional decomposition diagram
+		4. Organization decomposition diagram
+	5. Different diagrams for different stakeholders
+3. Step 1.6: Identify **types of requirements** to be collected
+	1. Time to dig into the actual business requirements
+	2. The requirements are, what would the target architecture have to do to satisfy the concerns of the stakeholders
+	3. These requirements often get reflected in the data, application and technical requirements too
+	4. Requirements: What the target architecture have to do, in order the satisfy the concerns of the stakeholders
+
 ### Phase B, Business Architecture, Step 2 ###
+1. Step 2: Define and Develop **Baseline** Business Architecture Description
+	1. Baseline is what currently exists
+		1. Business architecture
+		2. Lines of businesses we are in
+		3. The services
+		4. The way we interact with customers
+		5. The way businesses pass data between each other
+2. Bottom-up
+	1. Go out and talk to people
+	2. Research
+	3. Investigate
+	4. Contact IT and send a list of it
+	5. Contact each department and what software do they use
+	6. Figure out everything that currently exists
+3. The baseline description of the existing business architecture to the level needed
+	1. We don't have to go to the maximum level of detail on every single domain
+		1. Expensive
+	2. 
+
 ### Phase B, Business Architecture, Step 3 ###
 ### Phase B, Business Architecture, Step 4 ###
 ### Phase B, Business Architecture, Step 5 ###

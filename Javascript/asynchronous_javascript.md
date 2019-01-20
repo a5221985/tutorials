@@ -442,40 +442,737 @@ console.log("this gets printed first");
 
 ### Promises - Quiz #1 ###
 ### Promises - Chaining ###
+1. Immediate resolution or rejection
+
+		let promise = Promise.resolve("done"); // parameter is any resolve function
+
+		let promise = Promise.reject("fail"); // parameter is any reject function
+
+	1. Useful when a function returns a promise but we already know that the promise is going to be rejected
+	2. If `then` is called after the fact that it is resolved, it works
+
+			promise.then(val => console.log(val)); // 'done'
+
+	3. Example:
+
+			function doAsyncTask() {
+				return Promise.resolve();
+			}
+
+			doAsyncTask().then(_ => console.log(message));
+
+			let message = "Promise Resolved";
+
+2. We can attach `then` handlers in a chain
+
+		const prom = Promise.resolve("done");
+		prom
+			.then(val => {
+				console.log(val);
+				return "done2"; // We have to return something, or else it does not get passed to next then
+			})
+			.then(val => console.log(val));
+
+		const prom = Promise.resolve("done");
+
+		prom.then(val => {
+			console.log();
+			return "done2";
+		});
+
+		prom.then(val => console.log(val)); // doesn't get passed the result of previous then - forking and not chaining
+
+2. Callbacks can be synchronous or asynchronous but promises are always synchronous
+
 ### Promises - Quiz #3 ###
+1. Chain reading file and then zipping and then displaying it on screen
+
+		const fs = require('fs');
+		const zlib = require('zlib');
+
+		function gzip(data) {
+			return new Promise((resolve, reject) => {
+				zlib.gzip(data, (err, result) => {
+					if (err) reject(err);
+					resolve(result);
+				});
+			});
+		}
+
+		function readFile(filename, encoding) {
+			return new Promise((resolve, reject) => {
+				fs.readFile(filename, encoding, (err, data) => {
+					if (err) reject(err);
+					resolve(data);
+				});
+			});
+		}
+
+		readFile("./files/demofile.txt", "utf-8")
+			.then(data => gzip(data))
+			.then(zippedData => console.log(zippedData));
+
 ### Promises - Returning Promises ###
+
+		Promise.resolve("done")
+			.then(val => {
+				console.log(val);
+
+				return new Promise(resolve => {
+					setTimeout(() => resolve("done2"), 1000);
+				});
+			})
+			.then(val => console.log(val));
+
 ### Promises - Quiz #4 ###
+
+		readFile("./files/demofile.txt", "utf-8")
+			.then(
+				data => {
+					return gzip(data);
+				},
+				err => console.error("Failed to Read", err);
+			)
+			.then(
+				data => {
+					return console.log(data);
+				},
+				err => console.error("Failed to Gzip", err);
+			)
+
 ### Promises - Error Handling ###
+1. Errors are propagated down the chain
+2. Example:
+
+		Promise.reject("fail")
+			.then(val => console.log(val)) // no error handler
+			.then(val => cossole.log(val), err => console.error(err));
+
+	1. Second error handler catches it
+3. If we throw inside a promise body, it gets caught in the catch
+
+		new Promise((resolve, reject) => {
+			throw "fail";
+		})
+			.then(val => {
+				console.log(val);
+			})
+			.then(val => console.log(val), err => console.error(err)); // catch all error handler
+
+4. Catching
+
+		Promise.resolve("done")
+			.then(val => {
+				throw "fail";
+			})
+			.then(val => vonsole.log(val))
+			.catch(err => console.error(err));
+
+		Promise.reject("fail")
+			.then(val => console.log(val))
+			.catch(err => console.error(err));
+
 ### Promises - Quiz #5 ###
+
+		readFile("./files/demofile.txt", "utf-8")
+			.then(data => gzip(data))
+			.then(zippedData => console.log(zippedData))
+			.catch(err => console.error(err));
+
 ### Promises - Finally ###
+1. `finally` gets called irrespective of whether promise is resolved or error occurs (useful for cleaning up resources)
+
+		Promise.resolve("done")
+			.then(val => {
+				throw new Error("fail");
+			})
+			.then(val => console.log(val))
+			.catch(err => console.error(err))
+			.finally(_ => console.log("Cleaning Up")); // coming soon in official node
+
 ### Promises - All ###
+1. `Promise.all` - performance wise useful
+2. Finally is supported in certain other browsers
+	1. Current version of node does not have
+
+			const util = require('util');
+			const fs = require('fs');
+			const readFile = util.promisify(fs.readFile);
+
+			const files = ['./files/demofile.txt', './files/demofile.other.txt'];
+
+			let promises = files.map(name => readFile(name, 'utf-8'));
+			Promise.all(promises).then(values => {
+				console.log(values); // array
+			});
+
+		1. `.all` waits until all promises (series of promises) are resolved before calling it's own `then` handler
+		2. If a few promises do not resolve, then `catch` handler will catch the first promise that was rejected
+
 ### Promises - Race ###
+1. It is just an API
+2. `Promise.race`: Resolves or rejects when the first promise in the array resolved or rejects
+3. Example:
+
+		let car1 = new Promise(resolve => setTimeout(resolve, 1000, "Car 1"));
+		let car2 = new Promise(resolve => setTimeout(resolve, 2000, "Car 2"));
+		let car3 = new Promise(resolve => setTimeout(resolve, 3000, "Car 3"));
+
+		Promise.race([car1, car2, car3]).then(value => {
+			console.log("Promise Resolved", value);
+		});
+
+4. Example: Reject
+
+		let car1 = new Promise((_, reject) => setTimeout(reject, 1000, "Car 1 Crashed."));
+		let car2 = new Promise(resolve => setTimeout(resolve, 2000, "Car 2."));
+		let car3 = new Promise(resolve => setTimeout(resolve, 3000, "Car 3."));
+
+		Promise.race([car1, car2, car3])
+			.then(values => {
+				console.log("Promise Resolved", values);
+			})
+			.catch(errs => {
+				console.log("Promise Rejected", errs);
+			});
+
 ### Promises - Quiz #6 ###
+
+		function readFileFake(sleep) {
+			return new Promise(resolve => setTimeout(resolve, sleep, "read"));
+		}
+
+		function timeout(sleep) {
+			return new Promise((_, reject) => setTimeout(reject, 1000, "Timeout"));
+		}
+
+		let file = readFileFake(5000);
+		let timeout = timeout(1000);
+
+		Promise.race([timeout, file])
+			.then(data => {
+				console.log(data);
+			})
+			.catch(err => {
+				console.err(err);
+			}); 
+
 ### Promises - Quiz #7 ###
+
+		function authenticate() {
+			console.log("Authenticating");
+			return new Promise(resolve => setTimeout(resolve, 2000, { status: 200 }));
+		}
+
+		function publish() {
+			console.log("Publishing");
+			return new Promise(resolve => setTimeout(resolve, 2000, { status: 403 }));
+		}
+
+		function timeout() {
+			return new Promise((resolve, reject) => setTimeout(reject, sleep, "timeout"));
+		}
+
+		Promise.race([publish(), timeout(3000)])
+			.then(...)
+			.then(...)
+			.catch(...);
 
 ## Asynchronous Patterns - Async/Await ##
 ### Async/Await - Basics ###
+1. Came in 2017
+2. What is it? When do we want to use it?
+3. Async
+
+		const doAsyncTask = () => Promise.resolve("done");
+		async function asim() {
+			// mark it as `async`
+			let value = await doAsyncTask(); // Don't need to call .then
+			console.log(value);
+		}
+		asim();
+
+4. Immediately invoked function
+
+		const doAsyncTask = () => Promise.resolve("done");
+		(async function() {
+			// IIFE, note the async
+			let value = await doAsyncTask(); // this is blocking call
+			console.log(value); // waits for previous line to complete
+			console.log("2"); // this waits before it's printed
+		})();
+
+5. To make it behave as before
+
+		const doAsyncTask = () => Promise.resolve("1");
+		(async function() {
+			doAsyncTask().then(console.log); // gets called after next statement
+			console.log("2");
+		})();
+
+6. Within async function we can have blocking semantics 
+	1. With promises, there is no blocking
+
+			const doAsyncTask = () => Promise.resolve("1");
+			(async function() {
+				doAsyncTask().then(console.log);
+				console.log("2");
+			})();
+
+7. `async` keyword returns a `Promise`
+
+		const doAsyncTask() = () => Promise.resolve("1");
+		let asyncFunction = async function() {
+			let value = await doAsyncTask();
+			console.log(value);
+			console.log("2");
+			return "3"; // whatever we return is like a resolve
+		}
+		asyncFunction().then(v => console.log(v)); // we can attach a then to it
+
+8. Within `async` function we have synchronous code so we can use `try`, `catch` block
+
+		const doAsyncTask = () => Promise.reject("error");
+		const asyncFunction = async function() {
+			try {
+				const value = await doAsyncTask();
+			} catch(e) {
+				console.error(e);
+				return;
+			}	
+		};
+		asyncFunction();
+
 ### Async/Await - Quiz #1 ###
+
+
 ### Async/Await - No Await ###
+1. `async` alone does not turn the body of the function asynchronous
+	1. Need other async functions
+2. It is useful only for `await`
+
 ### Async/Await - Async Iterators ###
+1. This feature is still experimental phases, it hasn't been fully rolled out to all browsers and it's only available in node at least 9.1 behind a flag. It's a subtle difference, but now you can interate over iterators that return promises, like so.
+	1. Node 10
+	2. Node 9: `node --harmony-asyn-iteration working.js`
+2. Example:
+
+		(async () => {
+			const util = require("util");
+			const fs = require("fs");
+			const readFile = util.promisify(fs.readFile);
+
+			const files = ["./files/demofile.txt", "./files/demofile.other.txt"];
+			const promises = files.map(name => readFile(name, "utf8"));
+			for await (let file of promises) { // waits for each promise to resolve before moving on to the block of code
+				// see the await is on the for
+				console.log(file);
+			}
+		})();
+
+	1. How custom iterator can be defined:
+		1. We can loop over a pre-built array of promises with `for-await-of`
+		2. Array is an iterator, which just means that it's an object that has a property with name `Symbol.iterator` that points to an object with a `next()` function that returns an object with `{ done: false, value: ?}` for each value. When you want the iterator to complete just return `done: true` instead
+
+				const customIterator = () => ({
+					[Symbol.iterator]: () => ({
+						x: 0,
+						next() {
+							if (this.x > 100) {
+								return {
+									done: true,
+									value: this.x
+								};
+							}
+							return {
+								done: false,
+								value: this.x++
+							};
+						}
+					})
+				}); // what is wrapped within {...} is returned as an object
+
+				for (let x of customIterator()) {
+					console.log(x);
+				}
+
+	2. How custom async iterator can be defined:
+
+			const customAsyncIterator = () => ({
+				[Symbol.asyncIterator]: () => ({
+					x: 0,
+					next() {
+						let y = this.x++; // should be done at this time and not later
+
+						if (this.x > 100) {
+							return Promise.resolve({ // can be any async task and need not be resolved
+								done: true,
+								value: this.x
+							});
+						}
+
+						return Promise.resolve({
+							done: false,
+							value; y
+						});
+					}
+				})
+			});
+
+			(async() => {
+				for await (let x of customAsyncIterator()) {
+					console.log(x);
+				}
+			})();
+
 ### Async/Await - Quiz #2 ###
+1. Custom async iterator
+		
+		const util = require('util');
+		const fs = require('fs');
+		const readFile = util.promisify(fs.readFile);
+
+		const fileIterator = files => ({
+			[Symbol.asyncIterator]: () => ({
+				x: 0,
+				next() {
+					if (this.x > (files.length - 1)) {
+						return Promise.resolve({
+							done: true
+						});
+					}
+
+					let file = files[this.x++];
+					return readFile(file, "utf-8").then(data => ({
+						done: false,
+						value: data
+					}));
+				}
+			})
+		});
+
+		(async () => {
+			for await (let x of fileIterator([
+				"./files/demofile.txt",
+				"./files/demofile.other.txt"
+			])) {
+				console.log(x);
+			}
+		})();
+
 ### Async/Await - Warning ###
+1. Converts asynchronous code into synchronous code
+	1. waiting or blocking for io
+	2. Async function as a block is asynchronous but the contents of it are synchronous
+		1. Write small blocks of synchronous code and use a lot of async functions
+	3. Need to think deeply and use is carefully
 
 ## Asynchronous Patterns - Generators ##
 ### Generators - Understanding Generators ###
+1. Run to completion vs run stop run
+	1. We have assumed something fundamental, once a function starts running it will complete/error/return before any other JS code can run.
+	2. A _generator_ is a function that can be paused in the middle of running, let you do something else, and then resumed later on from exactly the point it was paused.
+	3. Nothing can pause a generator from the outside, only a generator can pause itself by using the `yield` keyword.
+	4. Once it's yielded though only the code it yielded to can resume it's function.
+2. Example:
+
+		function* demo() {
+			console.log("1");
+			yield;
+			console.log("2");
+		}
+
+		console.log("start");
+		console.log("before iteration");
+		it = demo(); // doesn't execute demo but just returns an iterator
+		console.log(it.next());	// executes upto next yield and returns { value: undefined, done: false }
+		console.log(it.next()); // executes upto end of function and returns { value: undefined, done: true }
+		console.log(it.next()); // returns { value: undefined, done: true }
+		console.log("after iteration");
+
 ### Generators - Using yield to communicate ###
+1. How to pass data out of generator?
+2. Example:
+
+		function* range() {
+			for (let i = 0; i < 4; i++) {
+				yield i; // we can return data from yield
+			}
+			yield "moo";
+			return "foo";
+		}
+
+		const it = range();
+		console.log(it.next()); // { value: 0, done: false }
+		console.log(it.next()); // { value: 1, done: false }
+		console.log(it.next()); // { value: 2, done; false }
+		console.log(it.next()); // { value: 3, done; false }
+		console.log(it.next()); // { value: "moo", done: false }
+		console.log(it.next()); // { value: "foo", done: true }
+		console.log(it.next()); // { value: undefined, done: true }
+
+3. Example:
+
+		function* range() {
+			for (let i = 0; i < 10; i++) {
+				yield i;
+			}
+		}
+
+		for (let x of range()) {
+			console.log(x); // Just prints the value
+		}
+
+4. Yield can be used to communicate both ways
+
+		function* sayWhat() {
+			console.log(yield);
+			console.log("World");
+		}
+		const it = sayWhat();
+		it.next(); // First yield, pauses
+		it.next("Hello"); // Can pass in data again
+
 ### Generators - Async Generators ###
+1. Custom async generators
+2. We can combine `generators` and `for-await-of` into new interesting constructs like so:
+
+		function* range() {
+			for (let i = 0; i < 10; i++) {
+				yield Promise.resolve(i);
+			}
+		}
+
+		(async () => {
+			for await (let x of range()) {
+				console.log(x); // This just prints out the promise
+			}
+		})();
+
 ### Generators - Quiz #1 ###
+
+		const util = require("util");
+		const fs = require("fs");
+		const readFile = util.promisify(fs.readFile);
+
+		function* fileLoader(files) {
+			for (let file of files)
+				yield readFile(file, "utf-8");
+		}
+
+		(async () => {
+			for await (let contents of fileLoader([
+				"./files/demofile.txt",
+				"./files/demofile.other.txt"
+			])) {
+				console.log(contents);
+			}
+		})();
 
 ## Event Loops ##
 ### Introduction ###
+1. Understand how different containers work?
+	1. node
+	2. chrome
+2. They implement event loops (slightly differently)
+
 ### Node Event Loop ###
+1. Talk of Bert Belder - Node co-author
+	1. If there is nothing asynchronous, node would execute the sequence of instructions and exit
+	2. If any asynchronous operation exists (snippet code)
+		1. Event loop
+			1. Takes little snippets which are queued
+			2. I/O is different for different OSs (Node abstracts away this)
+			3. `setImmediate`: gets added to queue
+			4. `close`: code on close event
+			5. If there are multiple snippets that need to run on timeout, then all are popped off (there is a maximum number)
+				1. All items in the queue are popped off for a given type
+			6. Order of loop:
+				1. `setInterval`, `setTimeout`
+				2. I/O
+				3. `setImmediate`
+				4. `close`
+2. Macro and micro tasks
+	1. Macro tasks: callbacks
+	2. Micro tasks: `process.nextTick` (callback), `Promises` (then handlers)
+3. Each queue has certain micro tasks and certain macro tasks
+	1. We go through all macrotasks and then go through all micro tasks
+	2. If new macro task comes along, the event loop moves on to the next type of task (I/O say)
+4. Node exits if there are no pending events (no code snippets to execute)
+
 ### Node Event Loop Example ###
+1. Example:
+
+		console.log("script start");
+
+		const internal = setInterval(() => console.log("setInterval"), 0);
+		
+		setTimeout(() => {
+			console.log("setTimeout 1");
+			Promise.resolve()
+				.then(() => console.log("promise 3"))
+				.then(() => console.log("promise 4"))
+				.then(() => {
+					setTimeout(() => {
+						console.log("setTimeout 2");
+						Promise.resolve()
+							.then(() => console.log("promise 5"))
+							.then(() => console.log("promise 6"))
+							.then(() => clearInterval(interval));
+					}, 0)
+				});
+		}, 0);
+
+		Promise.resolve()
+			.then(() => console.log("promise 1"))
+			.then(() => console.log("promise 2"));
+
+2. Output
+
+		script start
+		promise 1
+		promise 2
+		setInterval
+		setTimeout 1
+		promise 3
+		promise 4
+		setInterval
+		setTimeout 2
+		promise 5
+		promise 6
+
 ### Node Event Loop Live Demo ###
+1. `debugger` - statement where execution pauses
+
 ### Node Event Loop Quiz #1 ###
+1. Write a program which prints out the below. If a log line mentions `setInterval` it must be printed inside a `setInterval` ...
+	1. start
+	2. end
+	3. setInterval 1
+	4. promise 1
+	5. promise 2
+2. Code
+
+		console.log("start");
+		const interval = setInterval(() => {
+			setTimeout(() => {
+				console.log("promise 1");
+				console.log("promise 2");
+			}, 0);
+			console.log("setInterval 1");
+			clearInterval(interval);
+		}, 0);
+		console.log("end");
+
+		console.log("start");
+		const interval = setInterval(() => {
+			console.log("setInterval 1");
+			Promise.resolve()
+				.then(() => console.log("promise 1"))
+				.then(() => console.log("promise 2"));
+			clearInterval(interval);
+		}, 0);
+		console.log("end");
+
 ### Node Event Loop Quiz #2 ###
+1. Print the following
+
+		start
+		end
+		setInterval 1
+		promise 1
+		promise 2
+		processNextTick 1
+		setImmediate 1
+		promise 3
+		promise 4
+
+2. Example:
+
+		console.log("start");
+		const interval = setInterval(() => {
+			setTimeout(() => {
+				console.log("promise 1");
+				console.log("promise 2");
+				setImmediate(() => {
+					console.log("setImmediate 1");
+					Promise.resolve()
+					.then(() => console.log("promise 3"))
+					.then(() => console.log("promise 4"));
+				}); // This is a macrotask
+				process.nextTick(() => console.log("processNextTick 1")); // but this is microtask which will get added to the existing list
+			}, 0);
+			console.log("setInterval 1");
+			clearInterval(interval);
+		}, 0);
+		console.log("end");
+
 ### Chrome Event Loop ###
+1. Similar to node event loop
+	1. tasks Q
+	2. Microtasks Q
+	3. Render Q
+		1. Rendering things on page
+
+				while(true) {
+					task = eventLoop.nextTask();
+					if (task) {
+						task.execute();
+					}
+					eventLoop.executeMicrotasks();
+					if (eventLoop.needsRendering())
+						eventLoop.render();
+				}
+
+			1. Executes only ony macrotask
+			2. Executes all microtasks
+			3. It may or may not render (this is slower than other tasks)
+		2. raf: Request animation frame (like setTimeout or setImmediate)
+			1. It is saying add a callback to the render step
+				1. raf > style > layouts > pixel
+					1. Computes style
+					2. Computes layout
+					3. Figures out pixel
+2. setTimeout vs rAF
+
+		var raf_counter = 0;
+		var st_counter = 0;
+
+		function render() {
+			document.getElementById("raf_counter").textContent = raf_counter;
+			document.getElementById("st_counter").textContent = st_counter;
+		}
+
+		function log() {
+			console.log(`st ${st_counter} raf ${raf_counter}`);
+		}
+
+		function raf_loop() {
+			raf_counter++;
+			log();
+			render();
+			requestAnimationFrame(raf_loop); // browser based
+		}
+
+		function st_loop() {
+			st_counter++;
+			log();
+			render();
+			setTimeout(st_loop, 0);
+		}
+
+		function main() {
+			st_loop();
+			raf_loop();
+		}
 
 ## Summary ##
 ### Closing Words ###
+1. V8 is a JS engine
+2. Node and Chrome are extension of JS engine
+	1. Edge is using chakra engine
+	2. Node chakra is available
+3. Event based asynchronicity
+
 ### Feedback Form ###
+1. [https://docs.google.com/forms/d/e/1FAIpQLSfuMlkLsyc2tjByEaXs1a87cVYBGEGd-d1XTVxxCRoVVEiNMw/viewform](https://docs.google.com/forms/d/e/1FAIpQLSfuMlkLsyc2tjByEaXs1a87cVYBGEGd-d1XTVxxCRoVVEiNMw/viewform)
