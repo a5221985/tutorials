@@ -185,9 +185,121 @@
 		python3 -m pip install jupyter
 		jupyter notebook
 
+3. Windows setup:
+	1. Install CUDA nad CUDNN: https://medium.com/@akshaysin_86681/installing-cuda-and-cudnn-on-windows-10-f735585159f7 (downloaded to the folder)
+
+		%APPDATA%\pip\pip.ini
+
+		[global]
+		trusted-host = pypi.python.org
+                pypi.org
+                files.pythonhosted.org
+                storage.googleapis.com
+
+		python -m pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.0-py3-none-any.whl
+		python -m pip install --upgrade https://storage.googleapis.com/tensorflow/mac/gpu/tensorflow_gpu-0.12.0-py3-none-any.whl
+
 ## ML Lifecycle & TensorBoard ##
 ### The Machine Learning Lifecycle Part 1 ###
+1. Contents:
+	1. Machine Learning Lifecycle
+	2. Simple ML Lifecycle Example
+	3. Saving Model Summaries for TensorBoard
+	4. Viewing Model Summaries in TensorBoard
+	5. Exploring Graphs in TensorBoard
+2. Machine Learning Lifecycle
+	1. Define Objective -> 2
+		1. Outlining the goals of the project
+			1. May need step 2 for this
+	2. Collect Data -> 3
+		1. External sources may be needed
+		2. Collect remaining data not yet collected for step 1
+	3. Data Cleaning -> 4
+		1. Handling missing values, extreme values, ...
+	4. EDA -> 5
+		1. Exploratory Data Analysis
+			1. Summary statistics
+			2. Plotting a lot
+			3. Trying to gain an understanding of relationships within data
+		2. To determine what type of model to use
+		3. To capture any features that are important
+	5. Data Processing -> 6
+		1. Structure the data for the models that we would be training
+			1. Feature engineering
+				1. Constructing new features from features we already have
+					1. Combining them
+					2. Stripping them down
+					3. Removing certain components
+					4. ...
+	6. Train/Eval Models -> 7 (repeated a number of times to get the best model possible)
+		1. Building up the model
+		2. Training it
+		3. Evaluating the performance
+		4. Steps 5 and 6 can be cyclical (may be going back and forth between them)
+	7. Deploy -> 1 or 8
+		1. Either to servers or to particular apps
+	8. Monitor Results
+		1. See how the models are performing over time
+		2. Cycle back and iterate and update model if necessary
+3. Example:
+	1. Define Objective
+		1. Objective: Infer how IQ, Years Experience, and Age affects income using a linear model.
+	2. Collect Data
+
+			import tensorflow as tf
+			import numpy as np
+
+			import pandas as pd
+			from pandas import DataFrame as DF
+
+			# construct dataset
+			np.random.seed(555) # we get same output
+			X1 = np.random.normal(100, 15, 200).astype(int)
+			X2 = np.random.normal(10, 4.5, 200)
+			X3 = np.random.normal(32, 4, 200).astype(int)
+			dob = np.datetime64('2017-10-31') - 365 * X3
+			b = 5
+			er = np.random.normal(0, 1.5, 200)
+
+			Y = np.array([0.3 * x1 + 1.5 * x2 + 0.83 * x3 + b + e for x1, x2, x3, e in zip(X1, X2, X3, er)])
+
+	3. Data Cleaning
+		1. Remove negative years of experience
+
+				cols = ['iq', 'years_experience', 'dob']
+				df = DF(list(zip(X1, X2, dob)), columns=cols)
+				df['income'] = Y
+				df.info() # brief description
+				df.describe()
+
+				df = df[df.years_experience >= 0]
+				df.describe()
+
+	4. EDA - `pip install --upgrade matplotlib`
+		
+			df.describe(include=['datetime64']) # dob
+
+			import matplotlib.pyplot as plt
+			%matplotlib inline # inside python notebook
+			pd.plotting.scatter_matrix(df, figsize=(16, 9))
+
 ### The Machine Learning Lifecycle Part 2 ###
+	
+			import seaborn as sns
+			plt.figure(figsize=(12, 9))
+			sns.heatmap(df.corr())
+
+	5. Data Processing/ Feature Engineering
+
+			from datetime import datetime as dt
+
+			df['age'] = df.dob.apply(lambda x: (dt.strptime('2017-10-31', '%Y-%m-%d') - x).days/365)
+			df.drop('dob', axis=1, inplace=True) # without returning a view
+			df.head()
+
+			# Replot
+
+	6. Train/ Evaluate Models
 
 ## The Machine Learning Lifecycle & Using TensorBoard ##
 ### Tensor Board - Part 1 ###
