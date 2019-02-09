@@ -184,10 +184,152 @@
 		python3 -m pip install --upgrade pip
 		python3 -m pip install jupyter
 		jupyter notebook
+		
+3. Example:
+
+		import tensorflow as tf
+		
+		# y = mx + b
+		m = tf.constant(3.0, name='m')
+		b = tf.constant(1.5, name='b')
+		x = tf.placeholder(dtype='float32', name='x')
+		
+		y = m * x + b
+		sess = tf.Session()
+		
+		y.eval({x: 2}, session=sess)
+		
+4. Python
+
+		mutthoju-MacBook-Pro-3:tutorials am$ python3
+		Python 3.6.0 (v3.6.0:41df79263a11, Dec 22 2016, 17:23:13) 
+		[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+		Type "help", "copyright", "credits" or "license" for more information.
+		>>> import tensorflow as tf
+		>>> M = tf.constant([[1,2], [3,4]], dtype='float32')
+		>>> v = tf.constant([5,6], dtype='float32')
+		>>> M + v
+		<tf.Tensor 'add:0' shape=(2, 2) dtype=float32>
+		>>> sess = tf.Session()
+		2019-01-21 01:18:41.866639: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+		>>> sess.run(M + v)
+		array([[ 6.,  8.],
+		       [ 8., 10.]], dtype=float32)
+		>>> sess.run(M * v)
+		array([[ 5., 12.],
+		       [15., 24.]], dtype=float32)
+		>>> sess.run(tf.matmul(M, tf.reshape(v, [2,1])))
+		array([[17.],
+		       [39.]], dtype=float32)
+		>>> quit()
+		
+5. iPython
+	1. `ipython`
+
+			mutthoju-MacBook-Pro-3:tutorials am$ ipython
+			Python 3.6.0 (v3.6.0:41df79263a11, Dec 22 2016, 17:23:13) 
+			Type "copyright", "credits" or "license" for more information.
+			
+			IPython 5.2.2 -- An enhanced Interactive Python.
+			?         -> Introduction and overview of IPython's features.
+			%quickref -> Quick reference.
+			help      -> Python's own help system.
+			object?   -> Details about 'object', use 'object??' for extra details.
+			
+			In [1]: import tensorflow as tf
+			
+			In [2]: sess = tf.Session()
+			2019-01-21 01:22:46.031858: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+			
+			In [3]: x = tf.constant([1, 3.])
+			
+			In [4]: y = tf.constant(5.)
+			
+			In [5]: sess.run(x + y)
+			Out[5]: array([6., 8.], dtype=float32)
+			
+			In [6]: 
 
 ## ML Lifecycle & TensorBoard ##
 ### The Machine Learning Lifecycle Part 1 ###
+1. Contents
+	1. Machine Learning Lifecycle
+	2. Simple ML Lifecycle Example
+	3. Saving Model Summaries for TensorBoard
+	4. Viewing Model Summaries in TensorBoard
+	5. Exploring Graphs in TensorBoard
+2. Machine Learning Lifecycle
+	1. Define Objective -> 2
+	2. Collect Data -> 3
+		1. External data sources sometimes
+	3. Data Cleaning -> 4
+		1. Missing values
+		2. Extreme values
+	4. EDA -> 5
+		1. Exploratory Data Analysis
+			1. Look at summary statistics
+			2. Plotting a lot
+			3. Trying to understand the structure and relationship within the data
+				1. Helps identify what type of model need to be used
+				2. To find any features that are important
+	5. Data Processing -> 6 (repeated) (5 and 6 back and forth)
+		1. Structure the data for the models that we need to train
+		2. Feature engineering
+			1. Constructing new features from features that we have
+				1. Combining them, stripping them down or removing some components
+	6. Train/ Eval models -> 7 (repeated)
+		1. To build up the model
+		2. Feeding data through the model
+		3. Training the model
+		4. Evaluating the performance of the model
+	7. Deploy -> 1 or 8
+		1. Servers or certain apps
+	8. Monitor results
+		1. How models are performing over time
+		2. Cycle and iterate and update model
+3. Example:
+	1. Define objective
+		1. Infer how IQ, Years experience, and Age affects income using a linear model
+	2. Collect Data
+	
+			import tensorflow as tf
+			import numpy as np
+			
+			import pandas as pd
+			from pandas import DataFrame as DF
+			
+			# construct dataset
+			np.random.seed(555)
+			X1 = np.random.normal(100, 15, 200).astype(int)
+			X2 = np.random.normal(10, 4.5, 200)
+			X3 = np.random.normal(32, 4, 200).astype(int)
+			dob = np.datetime64('2017-10-31') - 356 * x3
+			b = 5 # intercept
+			er = np.random.normal(0, 1.5, 200)
+			
+			Y = np.array({0.3 * x1 + 1.5 * x2 + 0.83 * x3 + b + e for x1, x2, x3, e in zip(X1, X2, X3, er)})
+	
+	3. Data Cleaning
+
+			cols = ['iq', 'years_experience', 'dob']
+			df = DF(list(zip(X1, X2, dob)), columns=cols)
+			df['income'] = Y
+			df.info() # gives a brief description
+			df.describe() # gives summary statistics
+			df = df[df.years_experience >= 0]
+			df.describe() # negative values are removed, works in numberic values by default
+	
+	4. EDA
+
+			df.describe(include=['datetime64'])
+			
+			import matplotlib.pyplot as plt
+			%matplotlib inline # inside the notebook
+			
+			pd.plotting.scatter_matrix(df, figsize=(16, 9))
+
 ### The Machine Learning Lifecycle Part 2 ###
+
 
 ## The Machine Learning Lifecycle & Using TensorBoard ##
 ### Tensor Board - Part 1 ###
