@@ -2380,7 +2380,10 @@
 3. The baseline description of the existing business architecture to the level needed
 	1. We don't have to go to the maximum level of detail on every single domain
 		1. Expensive
-	2. 
+		2. May take too much time
+	2. The company might have standards on this
+4. Depends how much will be carried over to target architecture
+5. 
 
 ### Phase B, Business Architecture, Step 3 ###
 ### Phase B, Business Architecture, Step 4 ###
