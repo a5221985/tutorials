@@ -294,6 +294,81 @@
 				1. G implies (B xor C)
 					1. G -> (B circle_with_plus C)
 						1. Adding two numbers mod 2
+
+## Binary Addition Circuit ##
+1. 1 + 1 + 1 = XOR(1, XOR(1, 1))
+2. OR(OR(AND(1, 1), AND(1,1), AND(1,1))
+	1. ((a_0 xor b_0) xor c_0)
+	2. a_0 and b_0 or a_0 and c_0 or b_0 and c_0
+3. Full adder: has carry
+	1. d ::= a XOR b (just definition)
+	2. c ::= a AND b
+4. Half adder: no carry
+	1. Two half adders:
+		1. s = a + b
+		2. d = cin + s
+		3. cout = (cin and s) or (a and b)
+	2. General case:
+		1. si ::= ai xor bi
+		2. di ::= ci-1 xor si
+		3. ci ::= (ci-1 and si) or (ai and bi)
+
+## Truth Tables Equivalence Validity ##
+1. A truth assignment assigns a value T or F to each propositional variable.
+	1. Environment: Computer scientists call assignment of value to variables an environment
+		1. If we know the environment, we can find the value of a propositional formula
+	2. Example: Suppose environment, v, assigns
+		1. v(P) = T, v(Q) = T, v(R) = F
+		2. Truth value of
+
+				(NOT(P AND Q)) OR (R XOR NOT(Q))
+					 T     T       F	  F  T
+				  F		T			  F
+							   F
+
+			1. Implementation is recursive top down
+2. Equivalence:
+	1. Two propositional formulas are equivalent iff they have the same truth value in all environments
+		1. No matter what the values of p, q and r are
+	2. Example: DeMorgan's Law - NOT(P OR Q) = NOT(P) AND NOT(Q)
+		1. Truth table - has 4 possible environments, one per row
+		
+				P Q NOT(P OR Q) NOT(P) AND NOT(Q)
+				T T	F			F
+				T F F			F	
+				F T F			F
+				F F T	  		T
+
+			1. Same final column, so equivalent
+				1. -- proof by Truth Table
+	3. Definition of IFF
+		1. The value of (P IFF Q) is T iff P and Q have the same truth value
+				
+				P Q P IFF Q
+				T T T
+				T F F
+				F T F
+				F F T
+
+## Satisfiability & Validity ##
+1. A formula is satisfiable iff it is true in some environment
+	1. Example: P, NOT(P)
+		1. T if P is T
+		2. T if P is F
+	2. Example: Not satisfiable formula
+		1. (P AND NOT(P))
+2. A formula is valid iff it is true in all environments
+	1. P OR NOT(P): Always true
+3. G and H are equivalent:
+	1. (G iff H) is valid
+		1. If G is T and H is T and there for the statement is T
+		2. If G is F and H is F and there for the statement is T
+		3. Hence (G iff H) is valid 
+
+### Checking if a formula is valid, satisfiable ###
+1. 
+				
+
 						
 
 					
