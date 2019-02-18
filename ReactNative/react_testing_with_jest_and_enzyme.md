@@ -359,7 +359,7 @@
 		</div>
 
 ### DRY Refactor ###
-
+1. Factory function 
 
 ### Test Initial State ###
 ### Acceptance Testing and Review ###

@@ -67,4 +67,16 @@
 	2. Attributes in paranthesis
 
 ## Compression ##
-1. [
+1. [https://compressor.io/compress](https://compressor.io/compress): drag image. Compresses. How much gets saved
+	1. Match the quality
+	2. Download
+2. [jpeg-optimizer.com](jpeg-optimizer.com):
+	1. Can choose compression level
+	2. Resize
+3. [https://tinypng.com](https://tinypng.com): for png
+
+## Validation & Compatibility ##
+1. [https://validator.w3.org](https://validator.w3.org):
+	1. site urls: Errors are displayed (tips to optimize)
+2. [css](https://jigsaw.w3.org/css-validator)
+	1. site urls
