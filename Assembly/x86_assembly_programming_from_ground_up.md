@@ -195,23 +195,648 @@
 ### Evolution of Intel Processors ###
 1. x386: Intel 80386
 	1. 1985
-	2. Extension of 16 bit predicessors (this is 32 bit)
+	2. Extension of 16 bit predecessors (this is 32 bit)
+		1. 32 bit wide registers and data types
+		2. flat memory model
+		3. 4 GB logical address space
+		4. Paged virtual memory
+2. x486: Intel 80486
+	1. Improved the performance of x386
+		1. Included on-chip memory caches
+		2. Optimized instructions
+	2. Included integrated x87 floating point unit
+3. Pentium processor:
+	1. 1993
+	2. Pentium P5 micro architecture
+	3. Performance improvement includes
+		1. Dual instruction execution pipelines
+		2. 64 bit external data bus
+		3. Separate On-chip code and data caches
+4. Micro-architecture:
+	1. Defines organization of a computer's internal components including register files, execution units, instruction pipelines, data buses, memory caches 
+	2. Often used by multiple processor product lines
+	3. Later versions of P5 incorporated a new computational resource called MMX technology
+		1. Supports single instruction multiple data operations
+			1. SIMD operations
+			2. For packed integers using 64 bit wide registers
+5. Intel P6 architecture:
+	1. Pentium Pro - 1995
+	2. Pentium II - 1997
+	3. Architecture:
+		1. Extended 32 bit platform using 3 way superscalar design
+			1. Processor is able to decode, dispatch and execute three distinct instructions during each clock cycle
+		2. Out of order instruction executions
+		3. Improved branch prediction
+		4. Speculative instruction execution
+	4. Pentium III - 1999
+		1. Included new SIMD technology called streaming SIMD extension (SSE)
+			1. Added 8 128 bit registers to x86 32 bit platform
+			2. Instructions that support packed single precision (32 bit) floating point arithmetic
+6. Intel Netburst micro architecture 
+	1. 2000
+	2. Included SSE2 - extended floating point capability of SSE to cover packed double precision (64 bit) values
+	3. Incorporated additional instructions that enabled 128 bit SSE registers to be used for packed integer calculations and scalar floating point operations
+	4. Several variations of pentium 4 are included in this architecture
+	5. 2004 - Upgraded to include SSE3 and hiperthreading technology
+		1. SSE3 - included packed integer and packed floating point instructions to x86 32 bit platform
+		2. Hiperthreading: Makes parallel the processor's front end pipeline in order to improve performance
+7. Intel Core micro architecture
+	1. 2006
+	2. x86 architecture was extended from 32 bit to 64 bit (After AMD had invented the first 64 bit micro processor)
+	3. Included redesign of many netburst front end pipelines and execution unit to improve performance and reduce power consumption
+	4. Incorporated x86 SSE enhancement (SSE3, SSE4.1)
+		1. Added new packed integer and new packed floating point instructions to the platform
+		2. No new registers or data types included
+	5. Processors included are
+		1. Core 2 Duo
+		2. Core 2 Quad
+8. Intel Nehalem micro architecture
+	1. 2008
+	2. Re-introduced hiperthreading to x86 architecture (it was excluded from core micro architecture)
+	3. Incorporates SSE4.2
+		1. Added many application specific accelerator instructions to x86 SSE instruction set
+		2. Included 4 new instructions that facilitate text string processing using 128 bit wide x86 registers
+	4. Processors:
+		1. Core i3
+		2. Core i5
+		3. Core i7
+9. Intel Sandy Bridge micro architecture
+	1. 2011
+	2. Introduced a new x86 SIMD technology - Advanced Vector eXtensions (AVX)
+		1. Adds packed floating point operations for both single precision and double precision using 256 bit wide registers
+		2. Supports new 3 operand instruction syntax
+			1. Reduces number of register to register data transfers that must be performed
+	3. Processors included
+		1. 2nd and 3rd generation core i3, core i5 and core i7 cpus
+10. Intel Haswell micro architecture
+	1. 2013
+	2. Includes AVX2 - extends AVX
+		1. Supports packed integer operations using 256 bit wide registers
+		2. Enhanced data transfer capabilities
+			1. Broadcast instruction
+			2. Cover instruction
+			3. Permute instruction
+		3. Fused Multiply Add operations (FMA)
+			1. softwares can perform successive product sum calculations using single floating point rounding operation
+		4. Several new general purpose register instructions
+	3. Processors included are
+		1. 4th generation core i3, core i5 and core i7 cpus
+11. Summary
+	1. core 2 - 1060-3333
+	2. core i7 - 1060-4400
 
 ### Harvard Architecture vs Von Neumann Architecture ###
+1. Von Neumann architecture
+	1. Universal computer
+		1. Has memory
+		2. Arithmetic logic unit
+		3. Control unit
+		4. Output devices
+		5. All parts are connected together by a bus
+		6. Computer structure is independent of the computed problem
+		7. Computer is programmed with the content of the memory
+	2. Diagram
+		1. ALU <- data - -> Control Unit
+		2. Control Unit <-control-- Memory
+		3. Memory <- - -> Control Unit
+		4. Input/Output <---> Input/Output
+		5. Memory <---> ALU
+	3. Modern architecture
+		1. CPU <-----> Memory
+		2. Memory <-----> Input/Output
+		3. CPU <-----> Input/Output
+4. Harward architecture
+	1. 1947
+	2. Slightly different
+	3. Separated memory for data and memory for instructions
+		1. Two buses connected to CPU
+			1. One for data
+			2. One for instructions
+			3. CPU <-----> Data Memory
+			4. CPU <-----> Input/Output
+			5. Data Memory <-----> Input/Output
+			6. Instruction Memory <-----> CPU
+			7. CPU <-----> Instruction Memory
+	4. Simplified Von Neuman structure as follows
+		1. CPU <-- Data & Instruction bus --> Memory
+		2. Advantages:
+			1. Single bus is simpler (control unit) design 
+			2. Single bus is cheaper (development of control unit is cheaper)
+			3. Common memory for data and instructions
+		3. Disadvantages:
+			1. Allows 2 simultaneous memory fetches
+	5. Simplified Harvard architecture
+		1. CPU <-- Data bus --> Memory
+		2. CPU <-- Instruction Bus --> Memory
+		3. Disadvantages:
+			1. Multi-bus is relatively complex
+			2. Multi-bus is relatively expensive
+		4. Advantages
+			1. Separate memory for data and instructions
+				1. Allows 2 simultaneous memory fetches
 
 ## The Computing Device ##
 ### Logic Gates ###
+1. Boolean algebra
+	1. Only two values
+		1. 0 and 1
+		2. Truth table list all possible combinations in the problem
+			1. Each combination is in a row
+2. AND Gate
+	1. x, y -> x.y
+		1. 0, 0 -> 0
+		2. 0, 1 -> 0
+		3. 1, 0 -> 0
+		4. 1, 1 -> 1
+3. OR Gate
+	1. x, y -> x + y
+		1. 0, 0 -> 0
+		2. 0, 1 -> 1
+		3. 1, 0 -> 1
+		4. 1, 1 -> 1
+	2. IC - 4 OR gates
+		1. If both switches are on, then led output will be on
+4. NOT Gate
+	1. Inverter
+	2. x -> x'
+		1. 0 -> 1
+		2. 1 -> 0
+5. XOR Gate
+	1. x, y -> x (+) y
+		1. 0, 0 -> 0
+		2. 0, 1 -> 1
+		3. 1, 0 -> 1
+		4. 1, 1 -> 0
+6. The logic gates can be put together to build different hardware functionality
+	1. (x.y') + (x'.y) + (x.y)
+	2. This is how microprocessor micro architecture is formed
+
 ### From Transistors to Operating Systems ###
+1. How software and hardware are related is called virtual machine concept
+2. Most basic function:
+	1. Execute programs
+		1. Written in native machine language
+		2. Can be executed relatively small number of electronic circuit
+			1. Let us call language L0
+				1. Programmers find it extremely difficult to write in L0
+					1. Enormously detailed
+					2. Consists of 1s and 0s
+			2. If a language L1 can be introducted which is easier to write
+				1. Programs can be written in L1
+				2. Much more readable
+				3. Two methods
+					1. Interpretation
+						1. Each instruction of L1 program must be decoded before it can run on L0
+					2. Translation
+						1. The entire L1 program must be converted into an L0 program by an L0 program specifically designed for the purpose
+						2. Result L0 program can be executed directly on the computer hardware
+3. Virtual machines
+	1. Software program which emulates the functions of some other physical or virtual computer
+		1. Virtual Machine VM1 can execute commands in language L1
+		2. Virtual Machine VM0 can execute commands in language L0
+	2. Each VM can be constructed using hardware or software
+		1. People can write programs for VM1 and if it is practical to implement VM1 using hardware, then programs can be executed directly on the hardware
+		2. OR
+		3. Programs written in L1 can be translated or interpreted to L0 to executed in VM0
+	2. VM1 cannot be radically different from VM0 because translation might be too time consuming
+	3. If VM1 is still not programmer friendly, then another VM (VM2) can be designed that is more easily understood and programmer friendly
+		1. This can be continued up to VMn (powerful and programmer friendly)
+	4. Java is based on Virtual Machine technology
+		1. Java program is translated into Byte Code by Java compiler
+		2. Java Byte Code is low level language quickly executed at runtime by Java Virtual Machine program (relatively system independent)
+		3. JVM is interpreted on many computer systems
+4. Computer stack
+	1. Applications/OS (Windows, Android, mbedSO)
+		1. Written using high level languages
+	2. Programming Language (C, C++, Java)
+	3. Instruction Set Architecture (ISA) (MOV R0, R1, LDR, BEQ) - set of instruction supported by the processor
+		1. Constructed based on the micro architecture
+		2. Micro architecture deals with how ISA is implemented
+		3. ISA: Assembly language (in loose terms)
+			1. x86 language must be written for x86 based micro architecture
+			2. Arm assembly language must be written based on arm based micro architecture 
+	4. Microarchitecture (logic gates put together)
+	5. Gates - Made up of transistors
+	6. Transistors
+
 ### Number Systems ###
+1. Computers operate internally with transistors acting as switches
+2. This is the combinational logic used to build the adders, multipliers, dividers etc...
+3. A switch understands only two states: on or off
+4. Binary system offers itself suitable for computer system
+	1. Base 2 system
+		1. Each digit represents a power of two
+		2. Two digits
+			1. 0, 1
+			2. 10, 11
+			3. 100, 101
+	2. Table
+		1. 0 - 0000
+		2. 1 - 0001
+		3. 2 - 0010
+		4. 3 - 0011
+		5. 4 - 0100
+		6. 5 - 0101
+		7. 6 - 0110
+		8. 7 - 0111
+		9. 8 - 1000
+		10. 9 - 1001
+		11. 10 - 1010
+		12. 11 - 1011
+		13. 12 - 1100
+		14. 13 - 1101
+		15. 14 - 1110
+		16. 15 - 1111
+5. Binary System
+	1. Subscript indicating base
+		1. 110101(2)
+			1. 1 * 2^5 + 1 * 2^4 + 1 * 2^2 + 1 * 2^0
+			2. 53(10)
+	2. Octal system was used
+	3. Base 16
+		1. 0, 1, 2, 3, ... A, B, C, D, E, F
+	4. 0xA5E9
+		1. 10 * 16^3 + 5 * 16^2 + 14 * 16^1 + 9 * 16^0 = 42473(10)
+	5. Base 16 is used to massively shorten the length of addresses of instructions
+		1. 4 binary digits represent one hex digit
+			1. 1111 - F
+	6. 0x: hex number prefix
 
 ## The Programmer's Model ##
 ### Overview of x86 Data Types ###
+1. byte: 8 bits
+	1. 0 to 255 (2^8 - 1)
+2. word: 16 bits
+	1. 0 to 65,535 (2^16 - 1) 
+3. doubeword: 32 bits
+	1. 0 to 4,294,967,295 (2^32 - 1)
+4. quadword: 64 bits (8 bytes)
+	1. 0 to 18,446,744,073,709,551,615 (2^64 - 1)
+
 ### Basic x86 Microcomputer Design ###
+1. Simplified design of an x86 microcomputer
+	1. CPU
+		1. ALU
+		2. CU
+		3. Clock
+	2. Memory Storage Unit
+	3. I/O Device #1
+	4. I/O Device #2
+
+		+--- Data and I/O Bus ---+-----------+-----------+-----
+		|						 | 			 |			 |
+		CPU						Memory		I/O Device	I/O Device
+			Registers			Storage		#1	|		#2	|
+			ALU					Unit		 |	|		 |	|
+			CU					 |	|		 |	|		 |	|
+			Clock				 |	|		 |	|		 |	|
+		+---------------Control Bus-|--------+--|--------+	|
+		+---------Address Bus-------+-----------+-----------+
+
+	1. Clock: synchronizes the internal operations of the CPU
+	2. Control Unit (CU): Coordinates the sequence of steps involved in execution of machine instructions
+	3. ALU (Arithmetic Logic Unit): Performs arithmetic operations (addition, subtractions, logical operations)
+	4. CPU pins connect to data bus, control bus and address bus
+	5. Memory storage unit: Holds instructions and data while a computer program is running
+		1. Receives request from the CPU
+		2. Transfers data from RAM to CPU
+		3. Transfers data from CPU to memory
+	6. Processing of data takes place in the CPU
+	7. Programs existing in memory must be copied to the CPU before they execute
+		1. One at a time
+		2. Groups of instructions
+	8. Bus: A group of parallel wires that transfer data from one part of the computer to another
+		1. 4 bus types
+			1. Data bus
+				1. Transfers instructions and data between CPU and memory
+			2. I/O bus
+				1. Transfers data between CPU and system I/O devices
+			3. Control bus
+				1. Uses binary signals to synchronize the actions of all devices attached to the system bus
+			4. Address bus
+				1. Holds the addressees of instructions and data
+
+#### Instruction Execution Sequence ####
+1. Single instruction execution can be divided into a sequence of individual operations called the instruction execution cycle
+2. Before execution, a program is loaded into memory
+3. Instruction pointer (IP) contains the address of the next instruction
+4. Instruction Queue holds a group of instructions about to be executed
+5. Executing a machine instruction requires 3 basic steps
+	1. Fetch (loads instruction from memory)
+		1. Increments the IP (also called program counter)
+	2. Decode (identifies the instruction)
+		1. Control unit does this
+		2. Instruction's input operands are passed to the ALU
+		3. Signals are sent to the ALU indicating the operations to be performed
+	3. Execute (processes instruction and writes result back to register or memory)
+		1. ALU executes the instruction using the named registers and internal registers (as operands)
+		2. Sends the output to the named registers or memory (or both)
+6. Two more steps are required when the instruction uses a memory operand
+	1. Fetch operand step
+		1. If the input operand is located in the memory
+			1. Control unit uses a read operation to retrieve the operand and copy it into the internal registers
+	2. Store output operand step
+		1. If the output operand is memory, the control unit uses write operation to store the data
+7. ALU updates status flags providing information about the processor state
+
+#### Data Flow Within a Typical x86 Processor ####
+	
+	![x86_data_flow](x86_data_flow.png)
+
+1. Shows components that interact during the instruction execution cycle
+2. To read instruction from memory:
+	1. An address is placed on the address bus
+	2. Memory controller places the requested code on the data bus
+		1. This makes code available inside the code cache
+	3. Instruction pointer value determines which instruction will be executed next
+	4. Instruction is analyzed by the instruction decoder, causing the digital signals to be sent to the control unit which coordinates the arithmetic logic unit and the floating point unit
+	5. Control bus:
+		1. It carries signals that use the system clock to coordinate the transfer of data between different CPU components
+
+#### Reading from Memory ####
+1. Program throughput is often dependent on the speed of memory access
+	1. CPU clock speed can be several Ghz
+	2. Access to memory occurs over a system bus running at much slower speed
+		1. CPU may have to wait one or more clock cycles until operands have been fetched from memory before the current instruction can complete its execution
+			1. Wasted clock cycles are called wait state
+	3. Several steps are required when reading instructions or data from memory
+2. Clock cycle: It begins when clock signal changes from high to low (changes are called trailing edges - indicates the time between transition states)
+3. Steps:
+	1. During cycle 1: Address bits of the memory operand are placed on the address bus ADDR
+		1. The address lines cross (this shows that some bits equal 1 while others equal 0)
+	2. During cycle 2: The Read line RD is set low to notify memory that a value is to be read
+	3. During cycle 3: The CPU waits 1 cycle to give memory time to respond
+		1. During this cycle, the memory controller places the operand on the data bus (Data)
+		2. Since memory is much slower than CPU, computers use high speed cache memory to host the most recently used instructions and data
+	4. Cache:
+		1. The first time a program reads a block of data, it leaves a copy in the cache 
+		2. If the program needs to read the data the second time, it looks for the data in cache
+		3. A cache hit indicates that the data is in the cache
+		4. A cache miss indicates that the data is not in the cache and must be read from conventional memory again
+		5. It has noticable effect on improving access to data (especially when the cache is large)
+
 ### x86 Operating Modes ###
+1. Has three primary operating modes
+	1. Protected Mode (Sub mode: Virtual - 8086 Mode)
+		1. It is the native state of the processor
+		2. All instructions and features are available
+		3. It includes virtual-8086 sub-mode
+			1. Allows processor to directly execute real-address mode software while in Protected Mode (in a safe, multi-tasking environment) - MS Dos
+				1. If an MS Dos program crashes, or attempts to write data into system memory area, it will not affect the other programs running at the same time
+		4. Projects are given separate memory areas called segments
+		5. Processor prevents program from referencing memory outside their assigned segment
+	2. Real - Address Mode
+		1. This implements the 8086 programming environment + few extra features
+			1. Extra features: Ability to switch to other modes
+		2. This mode is used to run MS Dos program that requires direct access to the system memory and hardware devices
+		3. Programs running in the real address mode can cause the OS to crash
+	3. System Management Mode (SMM): It provides an OS with system management mechanisms (a mechanism to implement functions such as power management and system security)
+		1. These functions are usually implemented by computer manufacturers who customize the processor for a particular setup
+
 ### Overview of the x86 Registers ###
+1. Register: A register is a storage unit inside the processor core which can be accessed at much higher speeds than conventional memory
+
+#### 8086 (16-bit) registers ####
+	1. All are 16 bit
+	2. Split into 4 categories
+		1. General purpose registers
+			1. Four GPRs (each has a recommended use)
+				1. AX - AH,AL
+					1. Used as an accumulator
+					2. Preferred for most operations
+				2. BX - BH,BL
+					1. Used as a base register
+						1. Typically used to hold the address of a procedure or variable
+				3. CX - CH,CL
+					1. Used as a counting register
+						1. Typically for looping
+				4. DX - DH,DL
+					1. Used as a data register
+						1. Typically used for multiplication and division
+			2. Each of them can be treated as a single 16 bit quantity or two 8 bit quantities
+				1. High byte referenced by H
+				2. Low byte referenced by L
+		2. Index registers - contain offset from a segment register
+			1. Four ISs
+				1. SI - Source Index register
+					1. Used for copying strings
+				2. DI - Destination Index register
+					1. Used for copying strings
+				3. BP - Base Pointer register
+					1. It is offset from the SS register (used to locate variables on the stack)
+				4. SP - Stack Pointer register
+					1. It is offset from the SS register (points to the stack top)
+		3. Status and Control registers
+			1. IP - Instruction Pointer register
+				1. It points to the next instruction to be executed
+			2. Flags - Flags register
+				1. Contains the status flags of the processor
+		4. Segment registers
+			1. Four SRs - used as base location for program instructions, data or the stack
+				1. CS - Code Segment register
+					1. It is the base location of program code
+				2. DS - Data Segment register
+					1. It is the base location of variables
+				3. ES - Extra Segment register
+					1. It is the additional base location for variables in memory
+				4. SS - Stack Segment
+					1. It is the base location for the stack
+
+#### 80386 (32-bit) ####
+1. General Purpose Registers (are 32-bit long)
+	1. Eight GPRs (similar to 8086 but E is prefixed)
+		1. EAX (32 bit)
+		2. EBX
+		3. ECX
+		4. EDX
+		5. EBP (32 bit) - Index registers are part of the GPRs
+		6. ESP
+		7. ESI
+		8. EDI
+2. Segment Registers (16-bit) - no E added (same length as 8086)
+	1. Six SRs
+		1. CS
+		2. DS
+		3. ES
+		4. SS
+		5. FS
+		6. GS
+3. Processor Status Flags Register (EFLAGS) - 32-bit
+	1. One PSFR
+		1. EFLAGS
+4. Instruction Pointer (EIP)
+	1. One IP
+		1. EIP
+
+#### Pentium 4 (x64) ####
+1. General Purpose Registers (64-bit)
+	1. 16 GPRs (R - indicates 64 bit)
+		1. RAX (R0)
+		2. RBX (R1)
+		3. RCX (R2)
+		4. RDX (R3)
+		5. RBP (R4)
+		6. RSP (R5)
+		7. RSI (R6)
+		8. RDI (R7)
+		9. R8 - Extra - Extension of counting order of the registers
+		10. R9
+		11. R10
+		12. R11
+		13. R12
+		14. R13
+		15. R14
+		16. R15
+2. Instruction Pointer: (64 bit)
+	1. RIP
+3. Flags Register (64 bit)
+	1. RFLAGS
+4. The naming conventions ensure backwards compatibility among processors
+	1. Consider RAX (64 bit)
+		1. We can access lower 32 bits with EAX
+		2. We can access lower 16 bits with AX
+		3. We can access higher 8 bits of AX with AH
+		4. We can access lowest 8 bits with AL (referenced)
+
 ### Coding: One Register to Rule Them All ###
+1. Open VS
+2. New project > Windows Console Application
+	1. BackwardCompat
+	2. Delete cpp files
+	3. New Assembly file
+		1. New Item > cpp
+			1. Main.asm
+	4. Right click on project > Build Dependencies > Build Customizations > Masm
+	5. Right click on Main.asm
+		1. Item Type: Microsoft Macro Assembler
+3. x64: no memory model or min processor directives required
+
+		.code 
+		main proc
+			mov rax, 2
+			mov rbx, 3
+			mov rcx, 4
+			ret
+		main endp
+		end
+
+	1. Right click on project > Properties > Linker > Advanced > Entry Point > main
+	2. Select x64
+	2. Build the solution
+	3. Select x86 (errors)
+	4. Put a break point
+	5. Start debugging
+	6. Open register view
+		1. 64 bit registers
+4. x86:
+
+		.386
+		.model flat
+		.code
+		main proc
+			mov eax, 2
+			mov ebx, 3
+			mov ecx, 4
+			ret
+		main endp
+		end
+
+	1. select x86
+	2. Rebuild solution
+	3. Put a breakpoint
+	4. Start debugging
+		1. Register view > shrunk to 32 bit
+5. This is same computer
+	1. It only switches between x86 and x64
+6. Comment: `;`
+7. 16 bit (x86 is backwards compatible)
+
+		.386
+		.model flat
+		.code
+		main proc
+			mov ax, 2
+			mov bx, 3
+			mov cx, 4
+			ret
+		main endp
+		end
+
+	1. Rebuild solution
+	2. Put break point
+	3. Start debugging
+		1. Lower 16 bits store the number (upper 16 bits are junk)
+
 ### Overview of the x86 Flags ###
+1. Flag states
+	1. 1 - set
+	2. 0 - reset/clear
+2. 2 groups of flags
+	1. Control flags
+		1. Control CPU operations
+			1. Break CPU after every instruction execution
+			2. Interrupt CPU when an arithmetic overflow is detected
+			3. Cause CPU to enter virtual 8086 mode
+			4. Cause CPU to enter protected mode
+		2. Programmers can set each individual bits in EFLAGS register
+			1. Direction flag
+			2. Interrupt flag
+	2. Status flags
+		1. Reflect outcome of arithmetic and logical operations performed by the CPU
+			1. Zero (ZF):
+				1. It is set when the result of an arithmetic or logical operation is zero
+			2. Sign (SF):
+				1. It is set when the result of an arithmetic or logical operation is negative
+			3. Carry (CF):
+				1. 
+			4. Overflow (OF):
+				1. It is set when the result of a signed arithmetic operation is too large to fit into the destination
+			5. Parity (PF):
+				1. It is set if the least-significant byte in the result contains an even number of 1 bits
+					1. Else it is cleared
+					2. Usually used for error checking when data might be altered or corrupted
+			6. Auxiliary Carry (AC):
+				1. It is set when an arithmetic operation causes a carry from bit 3 to bit 4 in an 8-bit operation
+
 ### Overview of the Floating Point Unit ###
+1. MMX Registers
+	1. Technology was added by intel in Pentium processors
+	2. This is to improve performance of advanced multimedia and communication applications
+	3. 8 64-bit MMX registers
+		1. They support special instructions called SIMD
+			1. SIMD: Single instrucion, multiple data
+			2. MMX Instructions operate in parallel on the data values contained in the MMX registers
+		2. They appear to be separate registers, MMX register names are aliases to the same registers used in the floating point unit
+2. x86 architecture also contains 8 128-bit registers (XMM registers)
+	1. Used by streaming SIMD extensions to the instruction set
+	2. FPU performs high performance floating point arithmetic
+		1. From 486 onwards, FPU was integrated into the main processor chip
+3. FPU: 
+	1. 80-bit Data registers
+		1. ST (0)
+		2. ST (1)
+		3. ST (2)
+		4. ST (3)
+		5. ST (4)
+		6. ST (5)
+		7. ST (6)
+		8. ST (7)
+	2. 48-bit pointer registers
+		1. FPU Instruction Pointer
+		2. FPU Data Pointer
+	3. 16 - bit control registers
+		1. Tag register
+		2. Control register
+		3. Status register
+	4. Opcode Register
+4. FPU is sometimes called x87 architecture
+	1. 8 data registers are organized as a stack
+	2. All arithmetic instructions are executed using either explicit or implicit operands (relative to top of the stack)
+5. Operand: Quantity on which the operation is performed
+	1. a + b (a is operand, b is operand)
+6. Different data types can be pushed onto or popped off the FPU register stack
+	1. Including signed integers of different sizes (16 bit, 32 bit and 64 bit)
+
 ### Overview of x86 Memory Modes ###
 
 ## Introduction to x86 Assembly Language ##

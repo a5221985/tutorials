@@ -57,14 +57,29 @@
 		3. You probably need this if you want to handle gesture animations
 
 ### The Animation Module ###
-1. Values: value valueXY (current position of element being animated)
-2. Types: Spring, Decay, Timing (how is animation changing)
-3. Components: View, Text, Image (Apply animation's current position to actual component)
-4. Simple example: Circle move from top left to bottom right
+1. Simple example: Circle move from top left to bottom right
 	1. Open the project in atom
-	2. 
+2. Three questions to answer:
+	1. Where is the item right now (at any given time)? Exact X, Y position on the screen
+	2. Where is the element moving to? (changing in size or color is considered)
+	3. Which element are we moving?
+3. Values (module): Value, ValueXY (current position of element being animated)
+4. Types (module): Spring, Decay, Timing (how is animation changing)
+5. Components (module): View, Text, Image (Apply animation's current position to actual component)
+6. Example:
+
+		import { Animated } from 'react-native';
+
+		Animated.Value.Animated // where
+		Animated.Types.Spring // how is it changing
+		Animated.Components.View // what element we are animating
 
 ### Animation from Square One ###
+1. Move ball across diagonally
+2. Expo project
+3. Using `Animated` module
+4. 
+
 ### Moving a Ball ###
 ### How Animations Work ###
 ### Animation from Another Angle ###

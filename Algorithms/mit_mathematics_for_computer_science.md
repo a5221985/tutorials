@@ -366,9 +366,79 @@
 		3. Hence (G iff H) is valid 
 
 ### Checking if a formula is valid, satisfiable ###
-1. 
-				
+1. Truth table approach
+	1. Truth table size doubles with each additional variable
+		1. Exponential growth
+			1. 100s of variables cannot be written in a truth table
+2. Fast Test for SAT?
+	1. The P = NP? question is equivalent to asking if there is an "efficient" (polynomial rather than exponential time) procedure to check satisfiability (SAT)
+3. To check that G is valid,
+	1. check that NOT(G) is not satisfiable
+	2. So checking for one is equally difficult (or easy) as checking for the other
 
-						
+## Predicate Logic, I ##
+1. Quatifiers (for all), (exists)
+2. Predicates:
+	1. P(x, y) ::= [x + 2 = y]
+		1. x = 1 and y = 3, P(1, 3) is true
+		2. x = 1 and y = 4, P(1, 4) is false
+			1. NOT(P(1, 4)) is true
+	2. For all is like AND
+		1. Let s range over 6.042 staff
+		2. P(s) ::= [s is Pumped about 6.042]
+			1. For all s. P(s)
+				1. Same as
+					1. P(Drew) AND P(Peter) AND P(Keshav) AND ... AND P(Michaela)
+	3. There exists is like OR
+		1. Let t range over 6.042 staff B(t) ::= [t took 6.042 Before]
+			1. there exists t. B(t) same as
+			2. B(Drew) OR B(Peter) OR B(Keshav) OR ... OR B(Michaela)
 
-					
+### Existential Quantifier ###
+1. Let x, y range over N
+	1. Q(y) ::= there exists x, x < y
+		1. Q(3) is T ([x < 3] is T for x = 1)
+		2. Q(1) is T ([x < 1] is T for x = 0)
+		3. Q(0) is F ([x < 0] is F for any x in N)
+
+### Universal Quantifier ###
+1. x, y range over N
+	1. R(y) ::= for all x, x < y
+		1. R(1) is F ([x < 1] is F for x = 5)
+		2. R(8) is F ([x < 8] is F for x = 12)
+		3. R(10^100) is F ([x < 10^100] is F for x = 10^100)
+	
+### Virus attack, I: for all there exists ###
+1. Predicate: for all v belongs to virus. there exists d belonging to defense
+	1. d protects against v
+2. For every visus, I have a defense
+	1. against MYDOOM, use Defender
+	2. against ILOVEYOU, use Norton
+	3. against BABLAS, use Zonealarm...
+3. This is expensive:
+	1. for all there exists is expensive! (too expensive for all softwares)
+4. Predicate: there exists a defense for all v belonging to virus.
+	1. d protects against v
+5. I have a defense good against every attack
+	1. Example: d is MITvirusscan, protects against all viruses
+	2. This is what we want (lot cheaper)
+
+### Alternating Quantifiers ###
+1. G ::= for all x, there exits y. x < y
+	1. x, y range over Domain of Discourse
+		1. Domain: N, G is T
+			1. There is no need of recipe (some integer exists)
+		2. ints < 0, G is F for x = -1
+		3. reals < 0, G is T (if x is negative, y = x/2 satisfies it)
+2. H ::= there exists a y for all x such that x < y
+	1. Domain: N, H is F (there is no biggest non-negative integer)
+	2. Domain: Z-, H is F (there is no biggest negative integer)
+	3. Domain: R-, H is F (there is no biggest negative real)
+	4. In general: Any y cannot be bigger than itself
+		1. Cannot find biggest y which is bigger than itself
+3. H ::= there exists a y for all x such that x <= y
+	1. Domain: N, H is F
+	2. Domain: Z-, H is T (x = -1)
+	3. Domain: R-, H is F
+
+## Predicate Logic, II ##
