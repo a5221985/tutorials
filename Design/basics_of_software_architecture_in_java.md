@@ -1439,6 +1439,9 @@
 		}
 
 		public class Milk extends BeverageDecorator {
+
+			private Beverage beverage;
+
 			public Milk(Beverage beverage) {
 				super(beverage);
 				this.beverage = beverage;
@@ -1455,36 +1458,410 @@
 			}
 		}
 
-		public class PlainBeverage extends BeverageDecorator {
+		public class PlainBeverage implements Beverage {
+			
+			private Beverage beverage;
+
 			public PlainBeverage(Beverage beverage) {
+				super(beverage);
+			}
+
+			@Override
+			public int getCost() {
+				return 5;
+			}
+
+			@Override
+			public String getDescription() {
+				return "Plain beverage ";
+			}
+		}
+
+		public class Sugar extends BeverageDecorator {
+			public Sugar (Beverage beverage) {
 				super(beverage);
 				this.beverage = beverage;
 			}
 
 			@Override
 			public int getCost() {
-				return this.beverage.getCost() + 3;
+				return this.beverage.getCost() + 1;
 			}
 
 			@Override
 			public String getDescription() {
-				return this.beverage.getDescription() + "milk";
+				return this.beverage.getDescription() + " Sugar";
 			}
 		}
 
+		public class App {
+			Beverage b = new Sugar (new Milk(new PlainBeverage()));
+
+			System.out.println(b.getCost());
+			System.out.println(b.getDescription());
+
+			Beverage b = new Sugar (new Sugar (new Milk(new PlainBeverage())));
+		}
+
+	1. Like this we can add additional features to the objects at runtime using decorator pattern
+		1. Adds all costs
+		2. Adds all items to description
+
 ### Facade Pattern Introduction ###
+1. Facade manager is going to hide all the implementation details and problematic parts of an application
+	1. It is an algorithm manager
+
 ### Facade Pattern Example ###
+
+		public interface Algorithm {
+			public void sort();
+		}
+
+		public class BubbleSort implements Algorithm {
+
+			@Override
+			public void sort() {
+				System.out.println("Using the BubbleSort");
+			}
+		}
+
+		public class MergeSort implements Algorithm {
+			
+			@Override
+			public void sort() {
+				System.out.println("Using the MergeSort");
+			}
+		}
+
+		public class QuickSort implements Algorithm {
+			
+			@Override
+			public void sort() {
+				System.out.println("Using the QuickSort");
+			}
+		}
+
+		public class SortingManager { // manages all sorting operations of all different types available
+			private Algorithm bubbleSort;
+			private Algorithm mergeSort;
+			private Algorithm quickSort;
+
+			public SortingManager() {
+				this.bubbleSort = new BubbleSort();
+				this.mergeSort = new MergeSort();
+				this.quickSort = new QuickSort();
+			}
+
+			public void doBubbleSort() {
+				this.bubbleSort.sort();
+			}
+
+			public void doMergeSort() {
+				this.mergeSort.sort();
+			}
+
+			public void doQuickSort() {
+
+			}
+		}
+
+		public class App {
+			SortingManager manager = new SortingManager(); // single instance is enough to handle different sorts
+	
+			manager.doBubbleSort();
+			manager.doMergeSort();
+			manager.doQuickSort();
+		}
+
 ### Adapter Pattern Introduction ###
+1. Converts interface an interface of a class into another interface the clients expect
+2. Helps two classes to work together which are not compatible
+3. Relies on composition
+	1. Favor composition over inheritance
+
 ### Adapter Pattern Example ###
+
+		public interface Vehicle {
+			public void accelerate();
+		}
+
+		public class Car implements Vehicle {
+			@Override
+			public void accelerate() {
+				System.out.println("Car is accelerated.");
+			}
+		}
+
+		public class Bus {
+			@Override
+			public void accelerate() {
+				System.out.println("Bus is accelerated.");
+			}
+		}
+
+		public class Bicycle {
+			public void go() {
+				System.out.println("Going by bicycle...");
+			}
+		}
+
+		public class BicycleAdapter implements Vehicle {
+			private Bicycle bicycle;
+
+			public BicycleAdapter(Bicycle bicycle) {
+				this.bicycle = bicycle;
+			}
+
+			@Override
+			public void accelerate() {
+				this.bicycle.go();
+			}
+		}
+
+		public class App {
+			public static void main(String[] args) {
+				Vehicle bus = new Bus();
+				Vehicle car = new Car();
+				Vehicle bicycle = new BicycleAdapter(new Bicycle());
+
+				bus.accelerate();
+				car.accelerate();
+				bicycle.accelerate();
+			}
+		}
 
 ## Model-View-Controller (MVC) Application ##
 ### Model-View-Controller Introduction ###
+1. We can separate application with model view controller pattern
+2. Why is it good?
+	1. We can add extra features easily
+3. Model: represents an object or a class carrying data.
+	1. It can also have logic to update controller if its data changes
+4. Controller: Acts on both model and view
+	1. Controls data flow into model object
+	2. Updates view whenever data changes in model
+	3. Keeps view and model separate
+5. View: Represents the visualization of data that model contains
+	1. MODEL <----> Controller <----> View
+		1. UI in desktop
+		2. Browser UI
+6. View should not communicate with model and vice versa directly
+7. Controller directly communicates with view and model
+	1. It delegates to model or view
+
 ### Model-View-Controller - Model ###
+1. Model:
+	1. Database
+
+			public class Database {
+				private List<Person> peopleDatabase;
+
+				public Database () {
+					this.peopleDatabase = new ArrayList<>();
+				}
+
+				public void addPerson(Person person) {
+					this.peopleDatabase.add(person);
+				}
+
+				public void removePerson(Person person) {
+					this.peopleDatabase.remove(person);
+				}
+
+				public List<Person> getPeopleDatabase() {
+					return this.peopleDatabase;
+				}
+			}
+
+	2. Person
+
+			public class Person {
+				private String name;
+				private String occupation;
+
+				// constructor ...
+				// getters and setters ...
+			}
+
 ### Model-View-Controller - View ###
+1. MainFrame: Application frame itself
+
+		public class MainFrame extends JFrame implements FormListener {
+			private static final long serialVersionUID = 1L;
+			private FormPanel formPanel;
+			private TextPanel textPanel;
+			private Controller controller;
+
+			public MainFrame() {
+				super(Constants.APPLICATION_TITLE);
+
+				initializeClass();
+				setLayout();
+			}
+
+			private void setLayout() {
+				add(this.formPanel, BorderLayout.WEST);
+				add(this.textPanel, BorderLayout.CENTER);
+				
+				setSize(700, 400);
+				setVisible(true);
+				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			}
+
+			private void initializeClass() {
+				this.controller = new Controller(this);
+				this.formPanel = new FormPanel();
+				this.formPanel.setFormPanel(this);
+				this.textPanel = new TextPanel();	
+			}
+		}
+
+		public class TextPanel extends JPanel {
+			private static final long serialVersionID = 1L;
+			private JTextArea textArea;
+	
+			public TextPanel() {
+				initializeClass();
+				setLayout();
+			}
+	
+			private void setLayout() {
+				setLayout(new BorderLayout());
+				textArea.setFont(new Font("Tahoma", Font.PLAIN, 14);
+				add(new JScrollPane(textArea), BorderLayout.CENTER); // scroll pane
+			}
+	
+			private void initializeClass() {
+				this.textArea = new JTextArea();
+			}
+	
+			public void addText(String text) {
+				this.textArea.append(text + "\n");
+			}
+	
+			public void clearText() {
+				this.textArea.setText("");
+			}
+		}
+
+		public class FormPanel extends JPanel implements ActionListener {
+			private static final long serialVersionUID = 1L;
+			private JTextField nameField;
+			private JTextField occupationField;
+			private JButton okButton;
+			private FormListener formListener;
+
+			public FormPanel() {
+				initializeClass();
+				setClassDimensions();
+				setupLayout();
+			}
+
+			private void setupLayout() {
+				setLayout(newe GridBagLayout());
+			
+				GridBagConstraints gc = new GridBagConstraints();
+
+				gc.gridy = 0;
+				gc.gridx = 0;
+				gc.weightx = 1;
+				gc.weighty = 0.3;
+				gc.fill = GridBagConstraints.NONE;
+				gc.anchor = GridBagConstraints.LINE_END;
+
+				add(new JLabel("Name: "), gc);
+
+				gc.gridx++;
+				gc.gridy = 0;
+				gc.anchor = GridBagConstraints.LINE_START;
+
+				// New row
+				gc.gridy++;
+				gc.gridx = 0;
+				gc.weightx = 1;
+				gc.weighty = 0.4;
+				gc.fill = GridBagConstraints.NONE;
+				gc.anchor = GridBagConstraints.LINE_END;
+				add(new JLabel("Occupation: "), gc);
+				
+				gc.gridx++;
+				gc.gridy = 1;
+				gc.anchor = GridBagConstraints.LINE_START;
+				add(occupationField, gc);
+
+				// new row
+				gc.gridy++;
+				gc.gridx = 0;
+				gc.weightx = 1;
+				gc.weighty = 10;
+				gc.fill = GridBagConstraints.NONE;
+
+				gc.anchor = GridBagConstraints.FIRST_LINE_END;
+				add(okButton, gc);
+			}
+
+			public void setFormListener(FormListener formListener) {
+				this.formListener = formListener;
+			}
+
+			private void setClassDimensions() {
+				Dimension dim = getPreferredSize();
+				dim.width = 300;
+				setPreferredSize(dim);
+				setMinimumSize(dim);
+			}
+
+			private void initializeClass() {
+				this.nameField = new JTextField(10);
+				this.occupationField = new JTextField(10);
+				this.okButton = new JButton("OK");
+				this.okButton.addActionListener(this);
+			}
+		}	
+
+		public interface FormListener {
+			public void okButtonClicked(String personName, String personOccupation);
+		}
+
 ### Model-View-Controller - Controller ###
+1. Controller
+
+		public class Controller {
+			private Database database;
+			private MainFrame mainFrame;
+
+			public Controller (MainFrame mainFrame) {
+				this.database = new Database();
+				this.mainFrame = mainFrame;
+			}
+	
+			public void addPerson(String personName, String personOccupation) {
+				Person person = new Person(personName, personOccupation);
+				this.database.addPerson(person);
+			}
+
+			public void removePerson(Person person) {
+				this.database.removePerson(person);
+			}
+
+			public List<Person> getPeopleDatabase() {
+				return this.database.getPeopleDatabase();
+			}
+
+			public void refreshScreen() {
+				List<Person> people = getPeopleDatabase();
+				this.mainFrame.clearText();
+				
+				for (Person person: people) {
+					this.mainFrame.refreshTextArea(person.getName(), person.getOccupation());
+				}
+			}
+		}
 
 ## Miscellaneous ##
 ### Service Locator Introduction ###
+
+
 ### Service Locator Pattern Implementation ###
 ### JNDI and Service Locator Pattern ###
 

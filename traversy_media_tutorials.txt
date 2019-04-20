@@ -1,0 +1,35 @@
+Traversy Videos:
+1. Starting a Serious Web Development Project
+2. 30 Blogs & Podcasts for Web Developers
+3. Creation of a Fake REST API with JSON-Server
+4. 10 Resources for Free Website & Web App Themes
+5. Visual Studio Code Intro & Setup
+6. Emmet for Faster HTML & CSS Workflow
+7. 12 Chrome Extensions for Web Developers & Web Designers
+8. JavaScript Higher Order Functions & Arrays
+9. JavaScript ES6 / ES2015 - Series
+10. Google Chrome Developer Tools Crash Course
+11. Fetch API Introduction
+12. Intro to JavaScript Unit Testing with Mocha JS & Chai
+13. Node.js Login System with Passport - Series
+14. Node.js with Passport Authentication | Full Project
+15. Node.js API Authentication with JWT
+16. Node.js Rest API with Restify, Mongoose, JWT - Series
+17. Build a Node.js App with Sequelize - Series
+18. Redis Crash Course Tutorial
+19. Build a Node.js & Redis App from Scratch
+20. Rust Crash Course
+21. JavaScript DOM Crash Course - Series
+22. Webpack Crash Course
+23. Google Geocode API & JavaScript Tutorial
+24. Google Maps JavaScript API Tutorial
+25. Introducing React Hooks
+26. Bootstrap Beginner Crash Course
+27. Python Face Recognition Tutorial
+28. Pipenv Crash Course
+29. Python Flask from Scratch - Series
+30. REST API With Flask & SQL Alchemy
+31. Serverless Lambda Functions
+32. Exporing Docker - Series
+33. Learning D3 - Series
+34. Bootstrap 4 Udemy Course Preview & Coupon

@@ -31,7 +31,7 @@
 8. How to drive drone using Arduino?
 	1. [https://www.instructables.com/id/DIY-Follow-Me-Drone-With-Camera-Arduino-Based/](https://www.instructables.com/id/DIY-Follow-Me-Drone-With-Camera-Arduino-Based/)	
 9. How to drive drone's rudder?
-	1. Yaw - Points the front of the copter in different directions and helps in changing directions while flying
+	1. Yaw - Points the front of the copter in different directions and helps in changing directions while flying - turns clockwise or counter clockwise
 		1. [https://uavcoach.com/how-to-fly-a-quadcopter-guide/](https://uavcoach.com/how-to-fly-a-quadcopter-guide/)
 10. How to use tensorflow for face detection?
 	1. [Face recognition](https://hackernoon.com/building-a-facial-recognition-pipeline-with-deep-learning-in-tensorflow-66e7645015b8)
@@ -42,3 +42,8 @@
 			2. OpenCV
 11. How to use tensorflow for human body detection?
 	1. [RPI-Tensorflow Object Detection](https://www.youtube.com/watch?v=npZ-8Nj1YwY)
+	2. [https://www.youtube.com/watch?v=4eIBisqx9_g](https://www.youtube.com/watch?v=4eIBisqx9_g) - YOLO by Siraj
+12. How to integrate gyro sensor?
+	1. [https://playground.arduino.cc/Main/MPU-6050](https://playground.arduino.cc/Main/MPU-6050)
+13. How to integrate electromagnet module with Arduino?
+	1. [https://www.instructables.com/id/How-to-Control-an-Electromagnet-with-an-Arduino/](https://www.instructables.com/id/How-to-Control-an-Electromagnet-with-an-Arduino/)

@@ -2383,15 +2383,91 @@
 		2. May take too much time
 	2. The company might have standards on this
 4. Depends how much will be carried over to target architecture
-5. 
 
 ### Phase B, Business Architecture, Step 3 ###
+1. Step 3: Develop **Target** Business Architecture Description
+	1. The target description of the business architecture to the level needed
+	2. To support the architecture vision
+	3. Use models developed in Step 1 to develop new target architecture content
+
 ### Phase B, Business Architecture, Step 4 ###
+1. Step 4: Perform **gap analysis**
+	1. Validate the architectures, including the different views against each other
+		1. Difference between baseline and target
+			1. What are added in target
+		2. Sanity check
+		3. Different views are not saying different things
+		4. Facts
+		5. All views should be in sync (relevant parts)
+	2. Ensure the architecture supports all principles, objectives and constraints
+		1. Understand them
+			1. Constraints: time, money
+		2. Principles
+			1. Way we do business
+	3. Test models for completeness against requirements
+		1. time, error rates ... are covered (against requirements)
+	4. Identify gaps between the target and baseline
+		1. List out the differences
+
 ### Phase B, Business Architecture, Step 5 ###
+1. Step 5: Identify **candidate roadmap** components
+	1. Extract the key differences from the gap analysis, and those become features to be added to the architecture over time
+		1. Transition and put them in work packages
+	2. A business roadmap is required to prioritize activities over the coming phases
+		1. Start building the roadmap
+			1. Important
+			2. Nice to have
+			3. Side benefit things
+	3. Used to feed into the Opportunities and Solutions phase
+		1. Pull the roadmaps together into one consolidated roadmap
+
 ### Phase B, Business Architecture, Step 6 ###
+1. Step 6: Resolve **impacts**
+	1. Understand wider implications
+		1. Busy people
+		2. Multiple projects
+		3. Project managers are busy
+		4. If we remove call center it may impact other project
+	2. Does it impact other architectures outside the scope?
+	3. Has there been any recent changes outside that need to be accounted for with this?
+		1. New technology purchased
+		2. New subsidiary (merged in)
+	4. Is there an opportunity to share this work with other architectures outside scope?
+		1. Other departments can benefit
+	5. Does it impact other projects already planned or underway? Or vice versa?
+		1. Already development? Any impact on them or on us?
+
 ### Phase B, Business Architecture, Step 7 ###
+1. Step 7: Conduct formal **stakeholder review** - Go back to stakeholders - showcase what you have done
+	2. Ensure the architecture confirms to the original purpose of the project and the Statement of Architecture Work if necessary
+	3. Present to stakeholders
+		1. Many meetings
+			1. Rethink assumptions
+			2. Quesitions from stakeholders and come up with answers
+
 ### Phase B, Business Architecture, Step 8 ###
+1. Step 8: Finalize **architecture**
+	1. Going back to the architecture repository and checking if there are standards for the new building blocks
+		1. Figure out if there are other building blocks that can be pulled into it
+	2. Complete all documentation
+	3. Cross-check against business goals
+		1. Revenue
+		2. Cutting costs
+	4. Finalize all work products
+		1. Lists
+		2. Catalogs
+
 ### Phase B, Business Architecture, Step 9 ###
+1. Step 9: Create **architecture defintion document**
+	1. Document rationale for building block decisions
+		1. Why are the departments where there are?
+	2. Prepare business architecture section of architecture definition document: (all these go into business documents)
+		1. Business footprint
+		2. Description of business functions
+		3. Management footprint
+		4. Standards, rules and guidelines
+		5. Skills matrix and job descriptions
+2. Phase B is iterative
 
 ## Phase C (Data) In Detail: Step by Step ##
 ### Phase C, Data Architecture, Step 1 ###

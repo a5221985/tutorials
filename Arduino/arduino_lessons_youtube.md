@@ -702,114 +702,59 @@
 		
 		String NMEA1; // Variable for first NMEA sentence
 		String NMEA2; // Variable for second NMEA sentence
-		char C; // to read characters coming from the GPS
+		char c; // to read characters coming from the GPS
 		
 		void setup() {
-			Serial.begin(115200); // Turn on serial monitor
-			GPS.begin(9600); // Turn on GPS at 9600 baud
-			GPS.sendCommand("$PGDMD,33,0*6D"); // turn off antenna update data
-			GPS.sendCommand(PMTK_SET_NMEA_UPDATE_10HZ); // Set update rate to 10 hz
-			GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA); // we want RMC and GGA sentences only
-			delay(1000);
+		  Serial.begin(115200); // Turn on serial monitor
+		  GPS.begin(9600); // Turn on GPS at 9600 baud
+		  GPS.sendCommand("$PGDMD,33,0*6D"); // turn off antenna update data
+		  GPS.sendCommand(PMTK_SET_NMEA_UPDATE_10HZ); // Set update rate to 10 hz
+		  GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA); // we want RMC and GGA sentences only
+		  delay(1000);
 		}
-
+		
 		void loop() {
-			readGPS();
-			delay(250);
+		  readGPS();
+		  delay(250);
 		}
-
+		
 		void readGPS() {
-			clearGPS();
-
-			while (!GPS.newNMEAReceived()) {
-				c = GPS.read();
-			} // drops out when we have one of the sentences
-
-			GPS.parse(GPS.lastNMEA()); // Parse that last good NMEA sentence
-			NMEA1 = GPS.lastNMEA();
-
-			while (!GPS.newNMEAreceived()) {
-				c = GPS.read();
-			} // drops out when we have one of the sentences
-
-			GPS.parse(GPS.lastNMEA()); // Parse that last good NMEA sentence
-			NMEA2 = GPS.lastNMEA();
-
-			Serial.println(NMEA1);
-			Serial.println(NMEA2);
-			Serial.println("");
-		}
-
-		void clearGPS() { // clear old and corrupted data from serial port
-			while (!GPS.newNMEAReceived()) {
-				c = GPS.read();
-			} // drops out when we have one of the sentences
-			GPS.parse(GPS.lastNMEA()); // Parse that last good NMEA
-
-			while (!GPS.newNMEAReceived()) {
-				c = GPS.read();
-			} // drops out when we have one of the sentences
-			GPS.parse(GPS.lastNMEA()); // Parse that last good NMEA
-
-			while (!GPS.newNMEAReceived()) {
-				c = GPS.read();
-			} // drops out when we have one of the sentences
-			GPS.parse(GPS.lastNMEA()); // Parse that last good NMEA
-		}
-
-## Arduino GPS with Data Logger ##
-1. Virtuobotix data logger:
-	1. Sd Card Reader Pin
-		1. GND - GND
-		2. 3.3 V - (NOT USED)
-		3. +5 - 5V (Power)
-		4. CS - 4 (Chip select)
-		5. MOSI - 11 (SPI Data)
-		6. SCK - 13 (Clock)
-		7. MISO - 12 (SPI Data)
-		8. GND - GND (Common Ground)
-2. Sketch
-
-		#include <SD.h>
-		#include <SPI.h>  // load the spi library
-
-		...
-
-		int chipSelect = 4;
-		File mySensorData;
+		  clearGPS();
 		
-		void setup() {
-			...
-			pinMode(10, OUTPUT); // must declare pin 10 an output to keep SD card reader happy
-			SD.begin(chipSelect); // connected to 4
-
-			if (SD.exists("NMEA.txt")) {
-				SD.remove("NMEA.txt");
-			}
-
-			if (SD.exists("GPSData.txt")) {
-				SD.remove("GPSData.txt");
-			}
+		  while (!GPS.newNMEAreceived()) {
+		    c = GPS.read();
+		  } // drops out when we have one of the sentences
+		
+		  GPS.parse(GPS.lastNMEA()); // Parse that last good NMEA sentence
+		  NMEA1 = GPS.lastNMEA();
+		
+		  while (!GPS.newNMEAreceived()) {
+		    c = GPS.read();
+		  } // drops out when we have one of the sentences
+		
+		  GPS.parse(GPS.lastNMEA()); // Parse that last good NMEA sentence
+		  NMEA2 = GPS.lastNMEA();
+		
+		  Serial.println(NMEA1);
+		  Serial.println(NMEA2);
+		  Serial.println("");
 		}
-
-		void loop() {
-			...
-			if (GPS.fix == 1) { // can see satellites or not
-				mySensorData = SD.open("NMEA.txt", FILE_WRITE);
-				mySensorData.println(NMEA1); // Write first sentence to the SD card
-				mySensorData.println(NMEA2); // Write first sentence to the SD card
-				mySensorData.close();
-
-				mySensorData = SD.open("GPSData.txt", FILE_WRITE);
-				mySensorData.print(GPS.latitude, 4); // 4 decimal places
-				mySensorData.print(GPS.lat); // hemisphere N or S
-				mySensorData.print(",");
-				mySensorData.print(GPS.longitude, 4);
-				mySensorData.print(GPS.lon); // which hemisphere E or W
-				mySensorData.print(",");
-				mySensorData.print(GPS.altitude);
-				mySensorData.close(); // close file
-			}
+		
+		void clearGPS() { // clear old and corrupted data from serial port
+		  while (!GPS.newNMEAreceived()) {
+		    c = GPS.read();
+		  } // drops out when we have one of the sentences
+		  GPS.parse(GPS.lastNMEA()); // Parse that last good NMEA
+		
+		  while (!GPS.newNMEAreceived()) {
+		    c = GPS.read();
+		  } // drops out when we have one of the sentences
+		  GPS.parse(GPS.lastNMEA()); // Parse that last good NMEA
+		
+		  while (!GPS.newNMEAreceived()) {
+		    c = GPS.read();
+		  } // drops out when we have one of the sentences
+		  GPS.parse(GPS.lastNMEA()); // Parse that last good NMEA
 		}
 
 	1. Using the data in google earth

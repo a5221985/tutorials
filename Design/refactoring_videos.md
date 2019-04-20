@@ -24,6 +24,7 @@
 	2. Bad design is normally unclear, complicated or duplicated
 5. Examples of bad smells?
 	1. Duplicated code
+		1. Subtle as well (slightly different code)
 	2. Long methods
 		1. small methods are easier to understand (<= 10 lines, ~ 5 lines average)
 	3. Complex conditional statements
@@ -51,7 +52,7 @@
 		1. Eliminated if they make system restrictive
 			1. Replace it with an object polymorphic solution
 	11. Combinatorial Explosions
-		1. Many methods to perform actions which could be done with one method
+		1. Many methods to perform actions which could be done with one method that isn't as specialized
 			1. Example: One method for each db query rather than one method for different queries
 	12. Oddball Solutions
 		1. Solving same problem in many different ways (use the best one and delete the others)
