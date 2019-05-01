@@ -369,15 +369,86 @@
 						public class Customer {
 							...
 							public void finalize() {
-								System.out.println("This object is being gced");
+								System.out.println("This object is being gc'd");
 							}
 						}
 
 					1. This is useless:
 						1. It may or may not run or may run at a different time
 						2. Do not close resources in this method - if not, we do not know when it may be closed
+						3. Even if gc runs, the object may not be garbage collected at that point in time
+						4. GC is needed to keep the heap nice and tidy while app is running
+						5. Finalize method is useful to check that all resources are being closed
+
+								public void closeFile() {
+									file.close();
+								}
+
+								public void finalize() {
+									if (file.isOpen()) { // no guarantee that this will run
+										logger.warn("It looks like this resource was not closed");
+									}
+								}
 
 ### Detecting soft leaks ###
+1. Garbage Eligibility
+	1. Java avoids memory leaks by:
+		1. Running on a virtual machine
+			1. Releases all of its memory to the OS automatically
+				1. It must be properly implemented
+		2. Adopts a Garbage Collection strategy
+2. Soft leak: An app or library keeps an object live even if we are not going to use it again
+	1. An object is referenced on the stack even though it will never be used again
+		1. When the program ends, the VM will execute `free()`
+			1. While program is running, the object will never be released
+				1. Risk of running out of memory
+	2. Example:
+
+			@Override
+			public void run() {
+				while (true) {
+					try {
+
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+					String name = new UUID(1l, 10l).toString();
+					Customer c = new Customer(name);
+					cm.addCustomer(c);
+					totalCustomerGenerated++;
+					cm.getNextCustomer();
+				}
+			}
+
+			public static void main(String[] args) {
+				CustomerManager cm = new CustomerManager();
+				GenerateCustomerTask task = new GenerateCustomerTask(cm);
+				for (int user = 0; user < 10; user++) {
+					Thread t = new Thread(task);
+					t.start();
+				}
+
+				while (true) {
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					cm.howManyCustomers();
+					System.out.println("Available memory: " + Runtime.getRuntime().freeMemory() / 1024 + "k");
+				}
+			}
+
+		1. Arguments
+			1. VM arguments:
+
+					-Xmx10m
+
+				1. Max heap size
+		2. `bin/jvisualvm.exe` - start
+			1. Shows apps using vm
+				1. Right click on Eclipse and choose open
 
 ## Generational Garbage Collection ##
 ### Mark and Sweep ###

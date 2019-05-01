@@ -69,3 +69,56 @@
 	2. console logging
 
 			clg + enter
+
+7. Turbo Console log
+	1. Fast console logging - debugging
+		1. select variable and cntrl + alt + L
+		2. settings
+			1. "OUTPUT"
+		3. option + shift + c (comment all logs) u (un-comment all)
+8. Indent Rainbow
+	1. Indents more readable (shade or color)
+9. Bracket Pair Colorizer:
+	1. different block braces can have different colors
+10. Code Spell Checker
+	1. Word mis-spelled is highlighted
+11. REST Client
+	1. Works like PostMan
+		1. `requests/api.http`
+
+				GET https://jsonplaceholder.typicode.com/posts
+
+				###
+				
+				POST https://jsonplaceholder.typicode.com/posts
+				Content-Type: application/json
+
+				{
+					"title": "My Post",
+					"body": "This is my post"
+				}
+
+			1. Click `Send Request`
+12. GitLens - Git supercharged
+	1. Lens into repository
+		1. shows branches, contributors, ..., prints in code (who updated what and when)
+	2. Example:
+		1. `git init`
+		2. `git add . && git commit -m 'Initial commit'`
+		3. Point on a line (tells who did the change)
+		4. Shows what has not been comitted
+		5. Hit check
+13. Auto-Open Markdown Preview
+	1. README.md
+		1. Immediate preview
+14. ES7 React/Redux/GraphQL/React-Native snippets
+	1. Generate components
+	2. Generate arrow functions
+	3. Generate regular functions
+	4. Exports, imports
+15. Vetur - Vue JS
+	1. Snippets
+	2. Linting
+	3. Emmet
+	4. Syntax highlighting
+16. Aungular v7 Snippets

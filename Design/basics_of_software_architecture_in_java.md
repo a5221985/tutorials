@@ -1860,10 +1860,139 @@
 
 ## Miscellaneous ##
 ### Service Locator Introduction ###
-
+1. Used for obtaining processes involved in obtaining a service with strong abstraction layer 
+	1. Like DI
+		1. Alternative for DI
+2. A central registry called service locator
+	1. Send a request to the service locator that we want an object that handle db related code
+	2. Service locator is going to instatiate a given class and going to send back the object
+		1. Example I want an object to handle web services
+	3. Advantages: Lose coupling
+		1. It is like runtime linker that allows code to be added at run-time without re-compiling source code
+		2. Optimization
+			1. Example: The application can detect it has a better database library than the default one -> alter the registry accordingly
+	4. Disadvantages:
+		1. black box: It is hard to detect and recover from error
+		2. Registry hides the dependencies: May cause runtime errors insted of compile time errors (not desirable)
+			1. That is the reason generics are introduced (to catch errors at compile time)
+3. Differences between service-locator and dependency injection
+	1. Both are just implementations of the dependency inversion principle
+		1. Depend on abstraction rather than concrete implementation
+			1. Losely coupled software design
+	2. Service locator: Application class asks for the object explicitly to the service locator
+	3. Dependency injection: No explicit request. The service appears in the application class (inversion of control)
+		1. Easier to test (than service locator)
+	4. Both are used mainly to separate service configuration from the use of the service in the application
+		1. Service locator: Application is depending on service locator instead of on the lower level objects (principle is important)
 
 ### Service Locator Pattern Implementation ###
+1. Example:
+
+		public interface Service {
+			public String getName();
+			public void execute();
+		}
+
+		public class DatabaseService implements Service {
+			public static final String NAME = "databaseService";
+
+			public String getName() {
+				return DatabaseService.NAME;
+			}
+
+			public void execute() {
+				System.out.println("Executing database service...");
+			}
+		}
+
+		public class MessagingService implements Service {
+			public static final string Name = "messagingService";
+
+			public String getName() {
+				return MessagingService.NAME;
+			}
+
+			public void execute() {
+				System.out.println("Executing messaging service...");
+			}
+		}
+
+		public class Cache {
+			private List<Service> listOfServices;
+
+			public Cache() {
+				listOfService = new ArrayList<>();
+			}
+
+			public Service getService(String jndiName) { // jndi uses service locator pattern
+
+				// O(n) complexity
+				for (Service s : listOfServices) {
+					if (s.getName().equals(jndiName)) {
+						return s;
+					}
+				}
+
+				return null;
+			}
+
+			public void addService(Service service) {
+				this.listOfServices.add(service);
+			}
+		}
+
+		public class InitialContext {
+			public Object lookup(String jndiName) {
+				switch (jndiName) {
+				case DatabaseService.NAME: 
+					return new DatabaseService();
+				case MessagingService.NAME:
+					return new MessagingService();
+				default:
+					return null;
+				}
+			}
+		}
+
+		public class ServiceLocator {
+			private static Cache cache = new Cache();
+
+			public static Service getService(String jndiName) {
+				Service service = cache.getService(jndiName);
+
+				if (service != null)
+					return service;
+
+				InitialContext context = new InitialContext();
+				Service s = (Service) context.lookup(jndiName);
+				cache.addService(s);
+
+				return s;
+			}
+		}
+
+		public static void main(String[] args) {
+			Service s = ServiceLocator.getService("databaseService");
+			s.execute();
+
+			s = ServiceLocator.getService("messagingService");
+			s.execute();
+		}
+
 ### JNDI and Service Locator Pattern ###
+1. JNDI: Java Naming and Naming Interface
+	1. Allows Java clients to discover data and objects according to names
+	2. It is an API
+		1. Independent of any implementation
+			1. Like JPA
+		2. It is a specification
+			1. Implemented using service locator pattern
+2. JBoss server:
+	1. JNDI: specify data source name and it returns data source
+		1. data source can be used to connect to database
+		2. We can connect to database with multiple threads
+			1. Scalable (facebook, webshop app)
+		3. We can cache the services and return it with a name
 
 ## BONUS ##
 ### DISCOUNT FOR OTHER COURSES! ###

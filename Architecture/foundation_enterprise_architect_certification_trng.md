@@ -2471,6 +2471,20 @@
 
 ## Phase C (Data) In Detail: Step by Step ##
 ### Phase C, Data Architecture, Step 1 ###
+1. Infrastructure systems architecture = data architecture + application architecture
+	1. No separate steps for information systems architecture
+2. Data Architecture (Phase C)
+	1. D in BDAT
+	2. Develop the baseline data architecture v1.0
+	3. Develop the target data architecture v1.0
+	4. Identify gaps between baseline and target
+3. Steps:
+	1. Step 1. Select **Reference Models, Viewpoints, and Tools**
+		1. Select relevant data architecture models and patterns from the architecture repository based on the known drivers and concerns
+		2. Select relevant data architecture viewpoints to be used to demonstrate later how their concerns are being addressed in the architecture
+		3. Identify appropriate tools and techniques for capturing, modeling, analyzing, and documenting the architecture
+	3. Data architecture deals with how data flows between departments, between applications, technology people are interested in (technology people and security team may be interested in this, business team needs to atleast understand that people in the department have access to these elements of a customer record and not that element - restrictions and constraints)
+
 ### Phase C, Data Architecture, Step 2 ###
 ### Phase C, Data Architecture, Step 3 ###
 ### Phase C, Data Architecture, Step 4 ###
