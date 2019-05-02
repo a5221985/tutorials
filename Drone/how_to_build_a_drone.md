@@ -273,7 +273,8 @@
 			1. Select ESC that has 20% higher current rating than max expected current draw of motor 
 
 ### RC and Telemetry ###
-
+1. RC transmitter
+2. RC receiver
 
 ### Propellers ###
 ### Frames ###
