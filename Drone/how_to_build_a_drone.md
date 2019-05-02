@@ -291,7 +291,20 @@
 #### RC ####
 1. Output of receiver can be 6 channel PWM
 	1. PPM encoder receives the 6 channel inputs and conglomorates and sends one input to flight controller
-2. 
+2. Used to control the drone when in a manual flight mode (that requies a pilot. There are autonomous flight modes that do NOT require an RC controller to fly drones)
+3. Price increases exponentially with the amount of channels RC setup has
+	1. 6 channels - $50
+	2. 8 channels - $120
+4. Minimum amount of channels for most drone applications: 6 channels
+	1. 1 channel - pitch (right stick)
+	2. 1 channel - roll (right stick)
+	3. 1 channel - throttle (left stick)
+	4. 1 channel - yaw (left stick)
+	5. 1 channel - potentiometer (flight mode)
+	6. 1 channel - control actuator like gripper (up/down switch)
+5. 4 channels are dedicated to Roll/Pitch/Yaw/Throttle
+6. Remaining channels can be used to control various things on the drone
+7. Channel 5 typically dedicated to switch flight modes of drone
 
 #### Telemetry ####
 1. Ground station is USB based connected to computer
