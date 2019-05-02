@@ -255,11 +255,26 @@
 		1. Low quality - buy one extra (more prone to fail)
 2. Overview:
 	1. Red and black wires connect to power distribution board
+		1. Draws current directly from lipo battery
 	2. Signal wire connects to the flight controller (FC)
-	3. Flight controller will output a PWM signal to the ESC
-	4. ESC then electronically digests the PWM sent from the FC output and produces an ESC output that will drive the motor's stator and spin the props
+	3. Flight controller will output a PWM signal to the ESC (servo type)
+	4. ESC then electronically digests the PWM sent from the FC output and produces an ESC output that will drive the motor's stator and spin the props - pwm values are between 1000 and 2000
+	5. Three output wires connected to motor
+		1. Alternating magnetic fields are caused - rotor cage is forced to align with it
+3. 4 pwm out pins from FCs connect to the 4 ESCs
+	1. Separate pwms can be sent to each ESC
+4. Special Units/Info
+	1. Specs
+		1. Voltage rating
+			1. ESCs specs will tell you what types of LiPos you can use with them (2-4S) - 2S, 3S or 4S lipos (cells - 7.4V to 14.8V safely)
+	2. Current rating:
+		1. ESCs can only handle so much current running through them
+		2. 30A - make sure motor does not draw more than 30A
+			1. Select ESC that has 20% higher current rating than max expected current draw of motor 
 
 ### RC and Telemetry ###
+
+
 ### Propellers ###
 ### Frames ###
 ### GPS and Optical Flow ###
