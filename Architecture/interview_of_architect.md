@@ -74,3 +74,5 @@
 	3. **Enterprise Architect** - Know all core areas, strong in Architecture Patterns & Construction
 	4. **Cloud Architect** - Know all core areas, strong in Architecture, Construction & Tiers
 	5. **Infrastructure Architect** - Construction Patterns
+	6. **System Architect** - Same as Solution Architect
+2. Relationship of solution architect to enterprise architect in FEA
