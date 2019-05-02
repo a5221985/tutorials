@@ -275,6 +275,28 @@
 ### RC and Telemetry ###
 1. RC transmitter
 2. RC receiver
+3. Telemetry:
+	1. Ground control station
+	2. Drone site
+
+#### Overview ####
+1. RC and Telemetry are used to communicate info wirelessly with drone
+	1. Telemetry is bi-directional - send info to and receive from drone
+	2. RC - unidirectional - send commands from RC transmitter and RC receiver receives
+2. Telemetry communication is bi-directional, RC communication is unidirectional (from RC controller to receiver)
+3. RC typically uses the 2.4 GHz band
+4. Telemetry typically uses 915 MHz band in US and 433 MHz band in Europe (different bands are regulated differently based on where we live)
+5. RC and Telemetry involve two pieces of hardware that are paired. One piece is drone-side, and the other is not (RC controller is off drone, and RC module is drone-side)
+
+#### RC ####
+1. Output of receiver can be 6 channel PWM
+	1. PPM encoder receives the 6 channel inputs and conglomorates and sends one input to flight controller
+2. 
+
+#### Telemetry ####
+1. Ground station is USB based connected to computer
+2. Drone site is UART based (4 - 5 wires)
+	1. Connects to UART port of FC
 
 ### Propellers ###
 ### Frames ###
