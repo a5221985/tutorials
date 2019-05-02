@@ -233,7 +233,6 @@
 		2. Cons:
 			1. Drone's require real-time computing (very dependable computing), and uC FCs are more dependable - not optimized for RTAs
 			2. Normal linux distributions are not real time, but can achieve it with the PREEMPT RT patch (relativly new development)
-				1. 
 			3. Very new and not widely seen in industrial applications
 	2. Pixhawk - Microcontroller
 		1. Pros:
@@ -251,6 +250,15 @@
 			4. uC boards are more difficult to interact with (no simple SSH)
 
 ### Electronic Speed Controllers (ESCs) ###
+1. Drone Anatomy: ESC
+	1. Different types and qualities
+		1. Low quality - buy one extra (more prone to fail)
+2. Overview:
+	1. Red and black wires connect to power distribution board
+	2. Signal wire connects to the flight controller (FC)
+	3. Flight controller will output a PWM signal to the ESC
+	4. ESC then electronically digests the PWM sent from the FC output and produces an ESC output that will drive the motor's stator and spin the props
+
 ### RC and Telemetry ###
 ### Propellers ###
 ### Frames ###
