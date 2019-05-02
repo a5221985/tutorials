@@ -76,3 +76,12 @@
 	5. **Infrastructure Architect** - Construction Patterns
 	6. **System Architect** - Same as Solution Architect
 2. Relationship of solution architect to enterprise architect in FEA
+
+		|Level|Scope|Detail|Impact|Audience|
+		|Enterprise Architecture|Agency/Organization|Low|Strategic Outcomes|All Stakeholders
+		|Segment Architecture|Line of Business|Medium|Business Outcomes|Business Owners|
+		|Solution Architecture|Function/ Process|High|Operational Outcomes|Users and Developers|
+		
+	1. The differences in architects is not the core skills but who the audience is, scope addressed in particular scenario
+
+## Reading Into an Interview Response ##
