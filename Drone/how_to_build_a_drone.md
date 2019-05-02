@@ -305,6 +305,11 @@
 5. 4 channels are dedicated to Roll/Pitch/Yaw/Throttle
 6. Remaining channels can be used to control various things on the drone
 7. Channel 5 typically dedicated to switch flight modes of drone
+8. PWM:
+	1. RC controllers use PWM for communication
+	2. 1000 is lowest and 2000 is highest
+		1. stick all the way up is 2000 PWM
+		2. stick all the way down is 1000 PWM
 
 #### Telemetry ####
 1. Ground station is USB based connected to computer
