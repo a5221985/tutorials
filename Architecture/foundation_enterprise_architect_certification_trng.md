@@ -2483,20 +2483,192 @@
 		1. Select relevant data architecture models and patterns from the architecture repository based on the known drivers and concerns
 		2. Select relevant data architecture viewpoints to be used to demonstrate later how their concerns are being addressed in the architecture
 		3. Identify appropriate tools and techniques for capturing, modeling, analyzing, and documenting the architecture
-	3. Data architecture deals with how data flows between departments, between applications, technology people are interested in (technology people and security team may be interested in this, business team needs to atleast understand that people in the department have access to these elements of a customer record and not that element - restrictions and constraints)
+			1. Data modeling tools like
+				1. Classes and diagrams
+				2. Data flow charts
+	3. Data architecture deals with how data flows between departments, between applications, technology people are interested in (technology people and security team may be very interested in this, business team needs to atleast understand that people in the department have access to these elements of a customer record and not that element - restrictions and constraints)
+	4. Step 1.1: Determine overall **modelling** process
+		1. Level of detail will depend on the standards of the organization. Yours might require extensive analysis and modelling, including use-cases, activities and classes
+			1. Data is usually well documented in an organization (stored in databases) - print out class diagrams and data diagrams
+			2. Reference is there so easier
+	5. Step 1.2: Identify required **catalogs** of data building blocks
+		1. Take business service/ information diagram from business architecture
+		2. Trace back from application to business function to data entity
+		3. Inventories of the data needed to be in place to support the vision
+		4. Raw material for matrices and views
+		5. Such as:
+			1. Data entity/ data component catalog
+	6. Step 1.3: Identify requierd **matrices** (spreadsheets)
+		1. Matrices show the relationships between things
+		2. Raw material for the development of views
+		3. Such as:
+			1. Data entity/ business function matrix
+			2. Business services/ information matrix
+			3. Application/ data matrix
+	7. Step 1.4: Identify required **diagrams**
+		1. Diagrams present information from a set of viewpoints
+		2. Such as:
+			1. Conceptual data diagram
+			2. Logical data diagram
+			3. Data security diagram
+			4. Data migration diagram
+			5. Data lifecycle diagram
+	8. Step 1.5: Identify **types of requirement** to be collected
+		1. Time to dig into the actual data requirements
+		2. Provides input to application and technology domains
+		3. Identify requirements that should be met by the architecture
+			1. Requirements coming from business and coming from the stakeholders
 
 ### Phase C, Data Architecture, Step 2 ###
+1. Step 2: Develop **Baseline** Data Architecture Description
+	1. The baseline description of the existing data architecture to the level needed
+		1. Understand data layer and how it is handled may be wrapped in security etc...
+	2. Depends how much will be carried over to target architecture
+		1. If data is not going to change too much (concept of customer, fields, product catalogue)
+			1. We may not have to do much
+	3. Identify the relevant data architecture building blocks, if exists in the architecture repository
+	4. Use models developed in Step 1 to develop baseline architecture content
+		1. Grab the models and find the baseline
+
 ### Phase C, Data Architecture, Step 3 ###
+1. Step 3: Develop **Target** Data Architecture Description
+	1. The target description of the data architecture to the level needed
+		1. New applications, lot of data changes, new web services, new windows services, get very detailed with the stuff
+	2. To support the architecture vision
+	3. Identify the relevant data architecture building blocks, if exists in the architecture repository
+	4. Use models developed in Step 1 to develop new target architecture content
+
 ### Phase C, Data Architecture, Step 4 ###
+1. Step 4: Perform **gap analysis**
+	1. Validate the architecture, including the different views against each other
+		1. Compare the baseline against the target architecture
+		2. Making sure it is complete and not missing data, objects and relevant entities within any of the diagrams
+		3. That gives full picture and not be blind to certain things
+	2. Ensure the architecture supports all data principles, objectives and constraints
+		1. How atomic the data structures are going to be
+		2. SOA
+		3. How things are served by web-services
+		4. Design and definitions should follow the objectives and principles
+	3. Test models for completeness against requirements
+		1. Compare against the requirements
+		2. Make sure that you have covered every requirement
+			1. Plans for new apps coming in
+			2. Plans for new business
+	4. Identify gaps between the target and baseline
+		1. What is the difference between baseline and target
+			1. New tables?
+			2. Web service between systems?
+
 ### Phase C, Data Architecture, Step 5 ###
+1. Step 5: Identify **candidate roadmap** components
+	1. Extract the key differences from the gap analysis, and those become features to be added to the architecture over time
+	2. A data roadmap is required to prioritize activities over the coming phases
+	3. Used to feed into the Opportunities and Solutions phase
+2. Pulling out gaps and listing them (Candidate roadmap components)
+
 ### Phase C, Data Architecture, Step 6 ###
+1. Step 6: Resolve **impacts**
+	1. Understand wider implications
+		1. If distributing data (each regional office has copies of data instead of storing in warehouse in head office)
+			1. Security implications
+			2. Partitioning of applications
+			3. Can application handle local data store
+			4. Are we going to feed into head office and feed it out to regions? Fed into local data ware house?
+				1. How does it impact other parts
+	2. Does it impact other architecture outside the scope?
+	3. Has there been any recent changes outside that need to be accounted for with this?
+		1. Has there been outside that need to be accounted for?
+		2. Other projects, more tables, upgrade to next version, decisions ...
+		3. Is there an opportunity to share this work with other architectures outside scope?
+			1. Data diagrams, data building blocks, solution building blocks (sharing with other projects)
+
 ### Phase C, Data Architecture, Step 7 ###
+1. Step 7: Conduct formal **stakeholder review**
+	1. Ensure the architecture confirms to the original purpose of the project and the Statement of Architecture Work if necessary
+		1. Need for services, systems to talk to each other, data to live, access to data all covered
+	2. Present to stakeholders
+		1. Get their feedback
+		2. May be we don't have answers to all of their questions
+		3. May need to tweek something
+		4. Get approval
+
 ### Phase C, Data Architecture, Step 8 ###
+1. Step 8: Finalize **architecture**
+	1. Going back to the architecture repository and checking if there are standards for the new building blocks
+	2. Complete all documentation
+		1. Building blocks
+	3. Cross-check against business requirements
+	4. Finalize all work products
+
 ### Phase C, Data Architecture, Step 9 ###
+1. Step 9: Creation of **data definition document**
+	1. Document rationale for building block decisions
+		1. Why are we putting things there, why is order entry system say contain those components
+	2. Prepare data architectuer section of architecture definition document:
+		1. Business data model
+		2. Logical data model
+		3. Data management process
+		4. Data entity/ business function matrix
 
 ## Phase C (Application) In Detail: Step by Step ##
 ### Phase C, Application Architecture, Step 1 ###
+1. Application Architecture (Phase C)
+	1. A in BDAT
+	2. Develop the baseline application architecture v1.0
+	3. Develop the target application architecture v1.0
+	4. Identify gaps between baseline and target
+2. Step 1: Select **Reference Models, Viewpoints, and Tools**
+	1. Select relevant application architecture reference models and patterns from the architecture repository based on the known drivers and concerns
+	2. Select relevant application architecture viewpoints to be used to demonstrate later how their concerns are being addressed in the architecture
+		1. Choose right views - how software talks to each other (diagrams)
+	3. Identify appropriate tools and techniques for capturing, modeling, analyzing, and documenting the architecture
+		1. Keep it consinstent with Business and Data techniques
+			1. Using same tool for all BDAT
+			2. Using same documenting repository for all BDAT
+	4. Step 1.1: Determine overall **modelling** process
+		1. The level of detail of this will be highly dependent on the standards of the organization. Yours might required extensive analysis and modeling, including use-cases, activities and classes.
+	5. Step 1.2: Identify required **catalogs** of application building blocks
+		1. Catalogs are hierarchical in nature: (catalogs go into various matrices and views)
+			1. Logical > physical > service
+		2. Raw material for matrices and views
+		3. Such as:
+			1. Application portfolio catalog
+			2. Interface catalog
+	6. Step 1.3: Identify required **matrices**
+		1. Matrices show the relationships between things
+			1. Example: Mapping applications to business services they deliver
+			2. Example: Identify user and organizational dependencies
+			3. Example: Matrices in TOGAF:
+				1. Application/ organization matrix
+				2. ...
+		2. Raw material for the development of diagrams
+		3. Map applications to business services (from business architecture)
+		4. Identify user and organizational dependencies
+		5. Such as:
+			1. Application/ organization matrix
+			2. Role/ application matrix
+			3. Application/ function matrix
+	7. Step 1.4: Identify required **diagrams**
+		1. Diagrams present information from a set of viewpoints
+		2. Once functionality is known, think about configuration and options
+		3. Such as:
+			1. Application communication diagram
+			2. Application and user location diagram
+			3. Enterprise manageability diagram
+			4. Process/ application realization diagram
+			5. Application migration diagram, etc
+	8. Step 1.5: Identify **types of requirement** to be collected (actual application requirements)
+		1. Time to dig into the actual application requirements
+		2. Provides input to data and technology domains
+			1. If we use SAP say, that may have implications on data design (SAP has a certain way of modeling data) which may in-turn have implications on technology - servers, and other infrastructure required by SAP
+		3. Identify requirements that should be met by the architecture
+
 ### Phase C, Application Architecture, Step 2 ###
+1. Step 2: Develop **Baseline** Application Architecture Description
+	1. The baseline description of the existing application architecture to the level needed
+	2. Depends how much will be carried over to target architecture
+		1. Depth depends on how much of the target is sticking around
+
 ### Phase C, Application Architecture, Step 3 ###
 ### Phase C, Application Architecture, Step 4 ###
 ### Phase C, Application Architecture, Step 5 ###
