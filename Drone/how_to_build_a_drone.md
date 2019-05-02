@@ -213,8 +213,25 @@
 		2. Unifying principles
 			1. FCs are control center of drone
 			2. Central hub that all electronics connect to (motors/ESCs, GPS, Telemetry, RCin)
+			3. Drone's firmware runs here (ArduPilot or PX4 for example)
+				1. Firmware - code that interacts with and commands hardware
+			4. Two basic kinds: Pixhawk=Microcontroller based, Navio2=Linux based
+				1. Microcontroller based FCs: have companion computers that are linux based. (microcontroller board for advanced functionality)
+					1. Raspberry Pi performing computer vision communicating with a Pixhawk
+	2. Anatory: FC is in center (equidistant from wires, reducing moment of inertia)
 
 ### Flight Controllers Part 2 ###
+1. Microcontroller vs Linux FC Comparison
+	1. NAVIO2 - With Raspberry PI
+	2. Pixhawk - Microcontroller
+		1. Pros:
+			1. Much faster computational speed
+			2. More dependable (if process must be done in 10 micro-seconds, uC FCs can consistently achieve this)
+			3. Designed for real-time applications (optimized for RTAs)
+			4. Dedicated computing power for flight control firmware
+			5. Can be supplemented with external computing power (like with R PI)
+			6. Mature technology (using uC for real time applications)
+
 ### Electronic Speed Controllers (ESCs) ###
 ### RC and Telemetry ###
 ### Propellers ###
