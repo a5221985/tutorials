@@ -223,14 +223,32 @@
 ### Flight Controllers Part 2 ###
 1. Microcontroller vs Linux FC Comparison
 	1. NAVIO2 - With Raspberry PI
+		1. Pros:
+			1. Drone's firmware runs on familiar linux environment
+			2. Unites uC FC functionality with companion computer functionality into one entity
+				1. uC functionality: real time dependability of linux board
+					1. If process needs to be done in 10 us, it will take care of getting it done in that time
+			3. Easy to setup and interact with (can SSH into your drone while its flying!) - fixing problem can be done on the fly
+			4. Can update the drone's firmware wirelessly (if by WiFi) - connects to internet and update firmware on the fly
+		2. Cons:
+			1. Drone's require real-time computing (very dependable computing), and uC FCs are more dependable - not optimized for RTAs
+			2. Normal linux distributions are not real time, but can achieve it with the PREEMPT RT patch (relativly new development)
+				1. 
+			3. Very new and not widely seen in industrial applications
 	2. Pixhawk - Microcontroller
 		1. Pros:
 			1. Much faster computational speed
 			2. More dependable (if process must be done in 10 micro-seconds, uC FCs can consistently achieve this)
-			3. Designed for real-time applications (optimized for RTAs)
-			4. Dedicated computing power for flight control firmware
+			3. Designed for real-time applications (uCs are optimized for RTAs)
+				1. Processes running on uC are time sensitive (they must be done within a particular window) - PWM running motors (if process does not run on time, drone may crash)
+			4. Dedicated computing power for flight control firmware - power is not shared (computing and power)
 			5. Can be supplemented with external computing power (like with R PI)
-			6. Mature technology (using uC for real time applications)
+			6. Mature technology (using uC for real time applications) - dependable and trust worthy
+		2. Cons:
+			1. Higher learning barrier of entry
+			2. Not as simple to switch firmware versions (linux boards are easier)
+			3. Have to manually setup companion computer <-> uC communication - relative to linux based
+			4. uC boards are more difficult to interact with (no simple SSH)
 
 ### Electronic Speed Controllers (ESCs) ###
 ### RC and Telemetry ###
