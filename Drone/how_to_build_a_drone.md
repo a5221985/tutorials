@@ -190,10 +190,30 @@
 		1. Don't have to worry about the current rating of the connector, sincle lipos come pre-soldered with connector on it
 2. Dean's Connector
 	1. Max current draw: ~60A
-		1. Depends on authenticity
+		1. Depends on authenticity (40A - 100A)
+			1. More authentic, higher the current
 	2. Female end typically on lipo battery side
+3. XT-60 Connector
+	1. Max continuous current rating: 60A
+	2. Male end typically on lipo battery side
+4. XT-90 Connector
+	1. Max continous current rating: 90A
+	2. Male end typically on the lipo battery side
+5. 4mm bullet connectors
+	1. Max continous current rating: ~80A
+6. What if PDB has a different connector?
+	1. Converters (Dean to XT-60)
+		1. Can modify any battery's connector
+		2. Be aware of max current rating
 
 ### Flight Controllers Part 1 ###
+1. FC
+	1. Many types
+		1. Distinctions
+		2. Unifying principles
+			1. FCs are control center of drone
+			2. Central hub that all electronics connect to (motors/ESCs, GPS, Telemetry, RCin)
+
 ### Flight Controllers Part 2 ###
 ### Electronic Speed Controllers (ESCs) ###
 ### RC and Telemetry ###
