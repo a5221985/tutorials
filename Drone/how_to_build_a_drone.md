@@ -183,7 +183,15 @@
 			3. Used to balance voltages between cells (such that the cells have same voltage) - no internal current
 
 ### Battery Connector Converters ###
-
+1. Overview:
+	1. Many types of battery connectors
+	2. All have 1 female end and 1 male end
+	3. Connectors have maximum current ratings
+		1. Don't have to worry about the current rating of the connector, sincle lipos come pre-soldered with connector on it
+2. Dean's Connector
+	1. Max current draw: ~60A
+		1. Depends on authenticity
+	2. Female end typically on lipo battery side
 
 ### Flight Controllers Part 1 ###
 ### Flight Controllers Part 2 ###
