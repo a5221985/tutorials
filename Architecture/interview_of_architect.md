@@ -91,5 +91,22 @@
 	3. Replies should use standard architecturally known terms in response - Use of non-standard terms or not providing references (known examples) indicates lack of knowledge
 	4. Replies can illustrate standard response vs minority response
 		1. Candidates should clearly state standard response to a design question
+			1. Thin client: browser is standard response
+				1. Firefox browser is not a standard response
 		2. Candidates may reply with a minority held position to further support an opinion
 		3. Interviewers should capture responses for review and follow-up ambiguous replies may be the fault of interviewer
+		4. Materials Vs. Exotic Materials selection - Candidate should elaborate why selection of technologies could be knowledge/ complexity/ cost prohibitive.
+			1. Technology selection and exotic technology selection 
+		5. Plasticity/ Continuity (Blending solution modules implies flexibility of design) - Candidate resplies should have undertone of flexibility/ simplicity in design
+			1. Each piece should be designed and working as it should
+
+## The Right Questions to Ask ##
+1. Software Architecture
+	1. Please explain Web Server Architecture?
+	2. Please explain Cloud Architecture?
+	3. Please explain SOA Architecture?
+2. Design Patterns
+	1. Please explain Creational, Structural and Behavioral Design Patterns?
+	2. Please explain Plug-ins?
+	3. Please explain Middle tier layering of application code?
+	4. 
