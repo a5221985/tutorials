@@ -85,3 +85,11 @@
 	1. The differences in architects is not the core skills but who the audience is, scope addressed in particular scenario
 
 ## Reading Into an Interview Response ##
+1. Evaluating a candidate
+	1. 'it depends' is also a valid answer
+	2. Most replies should be specific, opinionated but softly spoken -  candidates should have opinion and state it as such but recognize that other factors may influence outcomes
+	3. Replies should use standard architecturally known terms in response - Use of non-standard terms or not providing references (known examples) indicates lack of knowledge
+	4. Replies can illustrate standard response vs minority response
+		1. Candidates should clearly state standard response to a design question
+		2. Candidates may reply with a minority held position to further support an opinion
+		3. Interviewers should capture responses for review and follow-up ambiguous replies may be the fault of interviewer
