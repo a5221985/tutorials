@@ -103,10 +103,40 @@
 ## The Right Questions to Ask ##
 1. Software Architecture
 	1. Please explain Web Server Architecture?
+		1. Pipeline architectures
 	2. Please explain Cloud Architecture?
+		1. N-tier design architectures
 	3. Please explain SOA Architecture?
+		1. Component architectures
 2. Design Patterns
 	1. Please explain Creational, Structural and Behavioral Design Patterns?
+		1. Sections of the book from GoF that outline fundamental patterns used in the software design
+		2. Creational:
+			1. Factory
+			2. Abstract Factory
+			3. Builder
+			4. Prototype
+			5. Facade
+			6. Flyweight
+			7. Prototype
+		3. Behavioral:
+			1. Template
+			2. Strategy
+			3. Observer
 	2. Please explain Plug-ins?
+		1. Type of factory pattern implemented for inversion of control in a particular object
 	3. Please explain Middle tier layering of application code?
-	4. 
+		1. 
+	4. Looking at the code structure, how might you implement an Algorithm?
+3. Design Principles
+	1. Please tell me how a cell phone is an example of Abstraction?
+	2. How does Encapsulation benefit code reuse?
+	3. What effect does Cohesion have on module and layer implementation?
+	4. How does coupling effect scaling?
+	5. What the deal with Complexity?
+4. Construction Principles
+	1. Please contrast inheritance and Component Design
+	2. Describe a Data Layer and its attributes?
+	3. Describe a Data Tier and its attributes?
+	4. What Development Methodology do you prefer and why?
+	5. What are you going to do to hold-off architecture erosion?
