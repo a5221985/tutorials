@@ -2670,7 +2670,24 @@
 		1. Depth depends on how much of the target is sticking around
 
 ### Phase C, Application Architecture, Step 3 ###
+1. Step 2: Develop **Baseline** Application Architecture Description
+	1. The baseline description of the existing application architecture to the level needed
+	2. Depends how much will be carried over to target architecture
+		1. May be worried about apps that are going to live
+	3. Identify the relevant application architecture building blocks, if exists in the architecture repository
+	4. Use models developed in Step 1 to develop baseline architecture content
+		1. Use models to develop
+
 ### Phase C, Application Architecture, Step 4 ###
+1. Step 3: Develop **Target** Application Architecture Description
+	1. The target description of the application architecture to the level needed
+		1. To be developed to the level that the enterprise needs
+		2. If there are standards in the company follow those
+		3. If we are researching and finding applications that requires decision making then do a lot of documentation
+			1. Define the requirements
+			2. Decide if performance or cost or throughput or servers that we need to pick and choose, we can do it at this stage
+		4. To support the architecture vision, target business architecture, and target data architecture
+
 ### Phase C, Application Architecture, Step 5 ###
 ### Phase C, Application Architecture, Step 6 ###
 ### Phase C, Application Architecture, Step 7 ###
