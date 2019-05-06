@@ -1,0 +1,11 @@
+# Websites and Resources for Software Development #
+1. Hackr.io [Free and Paid courses]
+2. Coursera [Diploma/certification]
+3. Khan Academy [Free classes]
+4. Udemy, Udacity [Certification]
+5. Codechef [Programming challenges]
+6. HackerRank [Programming challenges]
+7. Codecademy [Diploma/certification]
+8. Topcoder [Freelance Coding Projects]
+9. W3Schools [Web development]
+10. Stack Overflow [for Jobs, and QA]

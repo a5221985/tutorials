@@ -310,18 +310,167 @@
 	2. 1000 is lowest and 2000 is highest
 		1. stick all the way up is 2000 PWM
 		2. stick all the way down is 1000 PWM
+9. PPM Encoder:
+	1. Most setups may use PPM encoder to connect to RC receiver to drone's FC
+	2. Takes multiple inputs, representative of each individual channel (Ex: Orange wire = Throttle = 1500 PWM, Blue = Yaw = 1302 PWM etc) and has 1 output
+	3. Single output uses a protocol to communicate all channel/value pairs on one wire to simplify wiring
 
 #### Telemetry ####
 1. Ground station is USB based connected to computer
 2. Drone site is UART based (4 - 5 wires)
 	1. Connects to UART port of FC
+3. Used by ground control stations to communicate with airborne drones (Ground control stations are basically off-drone computers that have a communication link with the drone via telemetry)
+	1. Ground control station:
+		1. Can gather info from drones (location, speed, battery voltage, system health, flight mode etc) - realtime
+		2. Can set variables (settings flight modes say)
+		3. Can control drone (Move to this waypoint)
 
 ### Propellers ###
+1. Props:
+	1. Overview:
+		1. Selecting props should be done with motor and battery selection in mind
+			1. Pick props with battery and motor together
+		2. Different prop specs can produce drastically different current draws and thrust
+2. Props: Diameter
+	1. Specs are provided in 4 digits of numbers.
+		1. Ex: 1045
+		2. First two digits: diameter in inches
+		3. Second two digits: Pitch of prop
+			1. Flat knife - 0 pitch
+			2. More aggressive pitch has more aggressive angle on the blade
+				1. Scooping more air as we spin the prop
+		4. Imagine a screw turning into wood
+			1. The more aggressive the pitch, farther the screw will turn into the wood in one turn
+		5. 4.5 inches in one complete turn if it were able to turn into a solid medium
+			1. Higher the pitch, more the torque you will generate
+3. Props: Current Draw
+	1. Different types of props can drastically affect the current draw of the setup
+		1. Holding lipo battery and motors constant, using 1045 props will draw much more current than 8045 props
+			1. 3S lipo
+			2. 930 kv motor
+			3. 8045 props
+		2. 1045 props will also produce more lift
+	2. Be careful not to over spec the props you are using
+		1. Make sure motors/escs can handle the amount of current the motors will draw with props being used
+	3. Most motors will tell suggested prop dimensions to use with their model
+
 ### Frames ###
+1. Overview
+	1. There are many different types of frames/ drone types
+		1. Frames can alter in motor counts, and different arm configurations for the same number of motors
+			1. X frame
+			2. Dead cat frame
+			3. H frame
+	3. Generally, having more motors means more lift (able to have heavier payloads)
+		1. Multirotor=multiple motors. Tri-copoter (3 motors), quadcopter (4), hexacopter (6), octocopter (8) ...
+2. Different types of Quad-copters
+	1. Quad = 4
+	2. Quadcopters have 4 motors
+	3. 3 main types of quad-copter frames
+		1. Deadcat frame - front two are wide open but back two are narrow
+			1. Pros:
+				1. It has a lot of mounting points on the frame
+					1. makes it easier to place all necessary components
+			2. Cons:
+				1. it is not optimized for aerodynamics
+					1. Little less efficient (lose in terms of flight time)
+				2. It wights more than other quadframe counterparts
+		2. H frame - Looks like H
+			1. Pros:
+				1. Simple configuration
+				2. Easy to make from scratch
+					1. DIY is possible
+				3. More aerodynamic than dead cat frames
+			2. Cons:
+				1. Mostly ligher than dead-cat frames, but heavier than X frames
+		3. X Frame
+			1. Pros:
+				1. Very aerodynamic
+				2. Lightest of the quadframes
+			2. Cons:
+				1. Less space for mounting drone components (like GPS, flight controller, battery etc
+3. Other drone types
+	1. Tri-Copters
+		1. Not very popular frame of multi-rotor but exist
+		2. Lightweight
+		3. No redundancy. If one motor fails, the tri-copter crashes
+4. Hexa and Octo copters
+	1. Hexa = 6 motors
+	2. Octo = 8 motors
+	3. More motors, more lift
+		1. more lift it can generate, heavier the potential payload
+			1. Applications that require heavy payloads should use higher motor multirotors
+				1. Package handling
+				2. Agricultural crop sprinkler (liquid is heavy)
+
 ### GPS and Optical Flow ###
+1. Overview
+	1. For autonomous drone missions, we need a way for drone to determine position in 3D space
+		1. Many different ways exist but following are two
+			1. GPS
+			2. Optical flow (With a height sensor)
+	2. In reality determining position in 3D space is very difficult process
+		1. It involves more than just GPS or an optical flow sensor
+			1. Many different sensors needed to be involved and many calculations
+				1. kalman filters more more complete overview
+					1. [Kalman filters](http://ardupilot.org/copter/docs/common-apm-navigation-extended-kalman-filter-overview.html)
+2. Basic required sensors for flight
+	1. We can fly using
+		1. Accelerometer
+		2. Gyroscope
+	2. This is practical for manual flight.
+		1. For autonomous missions, we need to combine the sensors with more robust methods and sensors for determining 3D space
+		2. The drone doesn't need to know where it is in 3D space because pilot is there to guide it
+3. For autonomous missions
+	1. GPS
+		1. Used in conjunction with magnetometer (to determine YAW operation)
+		2. Drone knows where it is in 3D space
+			1. To travel to another location, simply travel from known current position to target waypoint
+			2. Drone trajectory to waypoint is INDEPENDENT of the path traveled
+				1. Path can be erratic but will reach the position
+		3. Pros:
+			1. Self-adjusts it's errors (if a gust of wind blows the drone off course, a new reading will simply show where the new location of the drone is in 3D space)
+			2. Cheap
+		4. Cons:
+			1. Needs to be outside to access satellites
+				1. Indoor readings do not match
+			2. Can produce faulty readings from large structures (like if too close to a building)
+	2. Optical flow sensors
+		1. Used in conjunction with height determining sensors (sonar or barometer. This sensor is using sonar)
+		2. The drone does not know where it is in the 3D space
+			1. To travel to another location, drone has to measure how far it has traveled
+				1. It can tavel relative to were it currently is (good for indoors for both ground vehicles and flying vehicles)
+			2. Drone trajectory to waypoint is DEPENDENT of the path taveled
+		3. Pros:
+			1. Can fly indoors and by large structures
+				1. Not external communication
+		2. Cons:
+			1. Expensive
+				1. Newer technology
+			2. Does NOT self-adjust its errors (if a gust of wind blows the drone off course, the drone way may have lost where it was in 3D space)
 
 ## Designing a Drone Build ##
 ### Thrust to Weight Ratios ###
+1. Theory
+	1. AKS: TWR or T/W
+	2. It is fundamental to being able to design drones
+	3. If you get this wrong, the drone won't fly or parts wont be efficient
+	4. What are thrust and weight?
+		1. T - F_g = m a_y
+2. Forces
+	1. Thrust and weight are forces
+		1. Unit for force is Newtons (N) in metric system
+	2. Forces can cancel out each other
+		1. If car is push forward with 10N and someone pushes backward with 10N, car won't move
+			1. Force balance
+3. Weight
+	1. Particular kind of force
+	2. Weight of an object is its mass (grams) times gravity (9.81 m/s2 on earth)
+		1. Downward force
+			1. Drone must overcome its force in weight in the opposite direction in order to fly
+		2. Example: 800 g drone is
+			1. W = (0.8 kg) * (9.81 m/s2) = 7.9 N
+
 ### Estimating Weight of Drones Part 1 ###
 ### Estimating Weight of Drones Part 2 ###
 ### Drive-Train of Drones: Props+Motors+Batteries ###

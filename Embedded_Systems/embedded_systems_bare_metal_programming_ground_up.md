@@ -352,8 +352,299 @@
 
 ## Universal Asynchronous Receiver-Transmitter (UART) ##
 ### Overview of the UART Protocol ###
+1. UART: Universal Asynchronous Receiver/Transmitter
+	1. Serial Transfer - Sender -----> Receiver
+	2. Parallel Transfer - 8 or more wires are used to transfer data
+
+						------->
+						------->
+						------->
+				Sender	-------> Receiver
+						------->
+						------->
+						------->
+						------->
+
+			1. Preferred for short distances
+				1. Used to transfer multiple bits at the same time
+					1. Higher throughput
+			2. Technology advanced so Serial communication somtimes exceeds parallel communication
+				1. Parallel - size and cost of cable and connector are high
+					1. Difficulty of synchronizing the arrival time of data lines at longer distances
+	3. UART is common Serial communication protocol
+
+#### UART Protocol Summary ####
+1. The data coming to receiver on serial data line is all zeros and ones
+	1. It is difficult to understand this unless sender and receiver agree on a set of rules (protocol)
+		1. How many bits are packed?
+		2. How many bits constitute a character?
+		3. When data begins and ends?
+	2. Usually used for character transmission method
+2. Start and Stop Bit
+	1. Start bit = 0
+	2. Stop bit = 1
+3. ASCII characters are packed between start and stop bits
+	1. Framing
+		1. Start bit is one bit
+		2. Stop bit can be one or two bits
+	2. Example:
+		1. ASCII "A" = 0100 0001
+
+				11		0100 0001		0
+
+			stop bits		"A"		start bit
+
+		2. LSB is sent first
+	3. In Asynchronous serial communication, peripheral chips can be programmed for 5, 6 or 8 bits wide
+		1. Older systems had 7 bit characters
+		2. Modern systems can send non-ascii 8 bit data as well
+	4. Parity Bit:
+		1. To maintain integrity a parity bit is included in data frame
+
+				0 			100 0001
+
+				parity bit
+
+			1. Odd parity - number of data bits including the parity bit is odd
+			2. Even parity - number of data bits including the parity bit is even
+		2. UART allows us to program with even parity, odd parity or no parity
+	5. Data transfer: in baud rate
+		1. Baud rate = bps (bits per second)
+			1. They aren't necessarily equal
+				1. Baud rate is number of signal changes per second
+					1. Modems can transfer multiple bits of data per signal
+			2. In UART - baud rate and bps are same
+
 ### Coding: Developing the UART Driver Using Information from the Datasheet ###
+1. Task:
+	1. Write driver to configure UART
+	2. Access UART and transmit some data using UART
+2. Code:
+	1. Project > basic_uart (folder) > basic_uart (project name)
+	2. Device > stm32f411vet
+	3. CMSIS -> CORE
+	4. Device -> Startup
+	5. Target rename to stm32f4
+	6. Source group rename to app
+		1. Right click > Add new item
+			1. main
+	7. Target options:
+		1. 16.0
+		2. Debug
+			1. ST-LINK Debugger
+				1. Settings
+					1. Flash Download
+						1. Reset and Run
+3. Books:
+	1. Data sheet
+		1. Block diagram
+			1. Check bus it is connected to
+				1. USART1 connected to APB2 Bus
+				2. USART2 connected to APB1 Bus
+		2. Reference manual
+			1. `RCC_APB1ENR`
+				1. Reset value is 0x0000 0000
+					1. Access - 1/2 word or byte
+				2. Bit 17 corresponds to USART2
+	2. Set baud rate: (bps)
+		1. Reference Manual - search for USART
+			1. 548 page
+				1. `USART_BRR` - reset 0x0000 0000
+			2. Control register (`USART_CR1`)
+				1. To enable or disable UART
+					1. Bit 2 - RE (Receiver enable)
+						1. Enables receiver
+							1. 0 - disabled
+							2. 1 - enabled, begins searching for start bit
+					2. Bit 3 - TE (Trasmitter enable)
+						1. Enables transmitter
+							1. 0 - disabled
+							2. 1 - enabled
+				2. UE - 13 bit
+					1. UART Enable - enables UART module
+						1. 0 - USART prescalar and outputs disabled (at the end of current byte transfer?)
+						2. 1 - USART enabled
+			3. Control register 2 (`USART_CR2`)
+				1. Can be used to set clock polarity and clock phase
+					1. CPOL - (10) - polarity
+					2. CPHA - (9) - phase
+					3. STOP - (13, 12) - enable stop bit (2 bits)
+			4. Control register 3 (`USART_CR3`) - enable flow control
+				1. Reading and writing negative acknowledgement (one bit)
+					1. NACK - (4) - reading and writing negative ack
+	3. Set data size:
+	4. Enable stop bit (use or no)
+	5. Flow control (or no)
+4. For special purpose i/o, we need to enable alternate function
+	1. AF0 - AF15
+		1. AF7 - USART1,2
+			1. Alternate function low (AFL)
+				1. `GPIOx_AFL`
+5. Code:
+
+			// APB1 bit 17 : USART2
+			// USART connected to PA2
+
+			#include "stm32f4xx.h"
+		
+			void USART2_Init(void);
+			void USART_write(int ch);
+			void delayMs(int delay);
+
+			int main(void)
+			{
+				USART2_Init();
+				while (1) {
+					USART_write('H');
+					USART_write('i');
+					delayMs(10);
+				}	
+			}
+
+			void USART2_Init(void) {
+				RCC->APB1ENR |= 0x20000; // 0010 0000 0000 0000 0000
+				// Enable normal gpio clock first and then go to the gpio and enable alternate function
+				RCC->AHB1ENR |= 1; // USART is connected to PA2
+
+				GPIOA->AFR[0] |= 0x0700; // Enable Alternate function for USART2
+				GPIOA->MODER |= 0x0020; // Set PA2 to alternate function
+
+				USART2->BRR |= 0x0683; // 9600 @16Mhz
+				USART2->CR1 |= 0x0008; // Set 4th bit high, enable Tx
+				USART2->CR1 |= 0x2000; // Don't combine this with prev because Tx must be enabled first
+			}
+
+			// place data in USART register, check reference guide
+			void USART2_write(int ch) {
+				while (!(USART2->SR & 0x0080)) {} // Check if Tx buffer is empty and wait while it is empty
+				USART2->DR = (ch & 0xFF);
+			}
+
+			void delayMs(int delay)
+			{
+				int i;
+				for (; delay > 0; delay--)
+					for (i = 0; i < 3195; i++);
+			}
+
+		1. Data register (`USART_DR`)
+			1. DR[8:0]: Data value
+				1. contains received or transmitted data character.
+				2. DR performs double function (read and write) since it contains transmission (TDR) and one reception (RDR)
+					1. TDR - provides parallel interface between internal bus and output shift register
+					2. RDR - provides parallel interface between the input shift register and internal bus
+					3. When transmitted with parity enabled (PCE bit set to 1 in `USART_CR1`)
+						1. MSB (bit 7 or bit 8) has no effect because it is replaced by parity bit
+							1. If enabled, MSB is the parity bit
+6. Get Terra Term software for UART:
+	1. Search in google for terra term download
+		1. First link
+		2. Download page
+		3. Download exe
+	2. Install
+		1. Add to menu
+	3. Launch
+		1. Serial - COM3
+7. Rebuild and download to uc
+
 ### Coding: Receiving Data with the UART ###
+1. Add newline
+
+		USART_Write('\r');
+		USART_Write('\n');
+
+2. Receive data
+	1. New Project - UART_Receive
+		1. UART_Receive
+	2. uc - stm32f11vet
+	3. CMSIS - CORE
+	4. Devise - Startup
+	5. Target - stm32f4
+		1. Source Group - app
+	6. Target options
+		1. 16.0
+		2. Debug
+			1. ST-Link Debugger
+				1. Flash Download
+					1. Reset and Run
+	7. Right click on app
+		1. Add new item
+			1. C: main
+3. Enable Rx pin PA3
+
+		#include "stm32f4xx.h"
+
+		void USART_init(void);
+		char USART2_read(void);
+		void LED_play(int value);
+		void delayMs(int delay);
+
+		int main(void)
+		{
+			RCC->AHB1ENR |= 1; // Enable clock to PortA
+			GPIOA->MODER |= 0x400; // set pin as output
+			
+			USART_init();
+			char ch;
+
+			while (1)
+			{
+				ch = USART2_read();
+				LED_play(ch);
+			}
+		}
+
+		void USART_init(void)
+		{
+			RCC->AHB1ENR |= 1; // Enable GPIOA Clock
+			RCC->APB1ENR |= 0x20000; // Enable USART2 Clock
+
+			// Configure PA3 as USART RX
+			GPIOA->AFR[0] |= 0x7000; // Alt7 for USART2
+			GPIOA->MODER |= 0x0080; // Enable Alternate function at PA3
+
+			USART2->BRR = 0x008B; // 115200 baudrate @16Mhz
+			USART2->CR1 |= 0x0004; // Enables Rx
+			USART2->CR1 |= 0x2000; // Enables USART2
+		}
+
+		char USART2_read(void)
+		{
+			while (!(USART2->SR & 0x0020)) {} // check if Rx buffer is empty and if so wait
+			return USART2->DR;
+		}
+
+		void LED_Play(int value)
+		{
+			value %= 16;
+			for (; value > 0; value--)
+			{
+				GPIOA->BSRR |= 0x20; // Turns LED on
+				delayMs(100);
+				GPIOA->BSRR |= 0x00200000; // Turns LED off
+				delayMs(100);
+			}
+		}
+
+		void delayMs(int delay)
+		{
+			int i;
+			for (; delay > 0; delay--)
+				for (i = 0; i < 3195; i++);
+		}
+
+	1. Open Terra Term:
+		1. Serial: COM3
+			1. Default is 9600, we need to change
+				1. Setup > Setup Port
+					1. Speed: 115200
+	2. Press any key
+		1. numbers
+		2. letters
+3. Project:
+	1. Combine and build reader and writer with button input
+		1. When button is pressed, the number or key should appear on screen
+
 ### Coding: Two-way UART Communication ###
 
 ## System Tick and General Purpose Timers ##
