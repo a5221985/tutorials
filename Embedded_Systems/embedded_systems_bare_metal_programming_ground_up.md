@@ -646,12 +646,213 @@
 		1. When button is pressed, the number or key should appear on screen
 
 ### Coding: Two-way UART Communication ###
+1. Project
+	1. UART_RX_TX
+		1. uart_rx_tx
+	2. stm32f411vet
+	3. CMSIS - CORE
+	4. Device - Startup
+	5. Target 1 -> stm32f4
+	6. Source Group 1 -> app
+	7. Target options
+		1. 16.0
+		2. Debug
+			1. ST-LINK Debugger
+				1. Flash Download
+					1. Rest and Run
+2. Right click on app and add new item
+	1. C file
+		1. main
+3. Code
+
+		#include "stm32f4xx.h"
+		#include "stdio.h"
+
+		int main(void)
+		{
+			int n;
+			char str[100];
+
+			USART2_init();
+			printf("Hello from the other side\r\n");
+			fprintf(stdout, " test for stdout\r\n");
+			fprintf(stderr, " test for stderr\r\n";
+
+			while (1)
+			{
+				printf("How old are you?");
+				scanf("%d", &n);
+				printf("Your age is: " %d\r\n", n);
+				printf("Enter your first name: ");
+				gets(str);
+				printf("I like your style: ");
+				printf("\r\n");
+			}
+		}
+
+		void USART2_init(void)
+		{
+			RCC->AHB1ENR |= 1; // Enable GPIOA Clock
+			RCC->APB1ENR |= 0x20000; // Enable USART2 Clock
+
+			// Configure PA3 as USART RX
+			GPIOA->AFR[0] |= 0x7700; // Alt7 for USART2
+			GPIOA->MODER |= 0x00A0; // Enable Alternate function for PA2 and PA3
+
+			USART2->BRR = 0x0683; // 9600 baudrate @16Mhz
+			USART2->CR1 |= 0x000C; // Set 4th bit high to enable Tx and 8th high to enable Rx
+			USART2->CR1 |= 0x2000; // Enables USART2
+		}
+
+		int USART2_write(int ch)
+		{
+			// Wait for Tx Buffer empty
+			while (!(USART2->SR & 0x0080)) {}
+			USART2->DR = (ch & 0xFF);
+			return ch;
+		}
+
+		int USART2_read(void)
+		{
+			// Wait for Rx Buffer empty
+			while (!(USART2->SR & 0x0020)) {}
+			return USART2->DR;
+		}
+
+		struct __FILE
+		{
+			int handle;
+		};
+
+		FILE __stdin = {0};
+		FILE __stdout = {1};
+		FILE __stderr = {2};
+
+		int fgetc(FILE *f)
+		{
+			int c;
+			c = USART2_read();
+			if (c == '\r')
+			{
+				USART2_write(c);
+				c = '\n';
+			}
+			USART2_write(c);
+
+			return c;
+		}
+
+		int fputc(int c, FILE *f)
+		{
+			return USART2_write(c);
+		}
+
+	1. Open Terra Term
+		1. Connect to serial port
+	2. Using standard c console io to read and write characters
 
 ## System Tick and General Purpose Timers ##
 ### Overview of the System Tick Timer ###
+1. SysTick Timer
+	1. It is present in all arm cortext microcontrollers
+		1. STM32, ...
+	2. Used to initiate and action on a periodic basis
+		1. Done at fixed rate without external signal
+			1. Say reading sensor value every 200 ms
+	3. Widely used for real time OS
+	4. It can be used to control everything (scheduler)
+	5. SystemTick Timer
+		1. 24- bits down counter that runs at bus clock frequency (either driven by system clock or an internal oscillator)
+			1. Counts down from initial value to zero
+				1. When it reaches zero, in the next clock it underflows and it raises a flag known as count and re-lows the initial value to start all over again
+2. SysTick Registers
+	1. SysTick Control and Status Register
+	2. SysTick Reload Value Register
+	3. SysTick Current Value Register
+3. If we want an action to occur every second:
+	1. SysTick->LOAD = 16000000 - 1; // clock is 16Mhz
+		1. 16Mhz = 16000000 cycles = 1 second
+	2. Every one millisecond?
+		1. 1/1000 seconds = 16,000,000 / 1000 = 16,000 cycles (load 16,000 - 1)
+4. General purpose timers
+	1. Measure occurance of events
+	2. Delays
+
 ### Overview of General Purpose Timers ###
+1. Timer vs Counter - differences are in their clock source (internal - timer, external clock source - clock)
+	1. Timer
+		1. PLL
+		2. XTAL
+		3. RC
+	2. Counter
+		1. Clock fed to CPU
+2. Timer uses (interchangeable)
+	1. Creation of delays
+	2. Counting events
+	3. Measuring time between events
+		1. We can count the number of times a sensor crosses it's threshold (using timers)
+		2. Number of times a button is pressed
+			1. Any software triggered or hardware triggered events
+3. One - shot vs Periodic
+	1. One-shot: Timer stops counting once timeout reaches
+	2. Periodic: Timer continues counting after timeout (when reaches it's limit, restarts from beginning)
+4. Down-Counter vs Up-Counter
+	1. Down-Counter: Time counts from a set value to zero
+	2. Up-Counter: Timer counts from zero to a set value
+5. Converting bit size into seconds
+	1. Largest value = 2^16 = 65,536
+		1. 16Mhz = 16,000,000 clock cycles per second
+		2. 65536 / 16Mhz = 4.096 x 10^-3 = 4.096 milliseconds (maximum delay value) (5 second delay is not possible)
+	2. 32 bit timer: 268.435 seconds max delay
+	3. 16 + 8-bits (prescalar) = 24 bits = 1.048 seconds max
+
 ### Coding: Developing the System Tick Timer Driver ###
+1. New project
+	1. folder: systick_basic
+	2. name: systick_basic
+	3. sm32f411vet
+	4. CMSIS: core
+	5. Device: Startup
+	6. Target 1 - stm32f4
+	7. Source Group - app
+	8. Target options
+		1. 16.0
+		2. Debug
+			1. ST-LINK debugger
+				1. Settings
+					1. Flash Download
+						1. Reset and Run
+	9. New item: main
+
+			#include "stm32f4xx.h"
+
+			int main(void)
+			{
+				RCC->AHB1ENR |= 1; // Enable Clock to Port A
+				GPIOA->MODER |= 0x400; // PA5 is set as output
+
+				// Configure Systick
+				SysTick->LOAD = 3200000 - 1; // 200 ms
+				SysTick->VAL = 0;
+				SysTick->CTRL = 5;
+
+				while (1) {
+					// 
+					if (SysTick->CTRL & 0x10000)
+					{
+						GPIOA->ODR ^= 0x20;
+					}
+				}
+			}
+
+		1. 
+
 ### Coding: Creation of a Delay Function using the System Tick Timer ###
+1. Delay function which takes an argument
+2. New project - systick_delay
+	1. ...
+3. Delay function:
+
 ### Coding: Developing the General Purpose Timer (GPTM) Driver ###
 ### Coding: Configuring the General Purpose Timer for Input Capture ###
 ### Coding: Input Capture frequency measurement ###

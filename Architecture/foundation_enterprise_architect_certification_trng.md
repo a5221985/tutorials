@@ -2667,18 +2667,12 @@
 1. Step 2: Develop **Baseline** Application Architecture Description
 	1. The baseline description of the existing application architecture to the level needed
 	2. Depends how much will be carried over to target architecture
-		1. Depth depends on how much of the target is sticking around
-
-### Phase C, Application Architecture, Step 3 ###
-1. Step 2: Develop **Baseline** Application Architecture Description
-	1. The baseline description of the existing application architecture to the level needed
-	2. Depends how much will be carried over to target architecture
 		1. May be worried about apps that are going to live
 	3. Identify the relevant application architecture building blocks, if exists in the architecture repository
 	4. Use models developed in Step 1 to develop baseline architecture content
 		1. Use models to develop
 
-### Phase C, Application Architecture, Step 4 ###
+### Phase C, Application Architecture, Step 3 ###
 1. Step 3: Develop **Target** Application Architecture Description
 	1. The target description of the application architecture to the level needed
 		1. To be developed to the level that the enterprise needs
@@ -2688,35 +2682,429 @@
 			2. Decide if performance or cost or throughput or servers that we need to pick and choose, we can do it at this stage
 		4. To support the architecture vision, target business architecture, and target data architecture
 
+### Phase C, Application Architecture, Step 4 ###
+1. Step 4: Perform **gap analysis**
+	1. Validate the architectures, including the different views against each other
+		1. All views must be consistent
+			1. Nothing should be missing
+			2. Firewalls
+	2. Ensure the architecture supports all principles, objectives and constraints
+		1. Ensure they are consistent
+	3. Test models for completeness against requirements
+		1. Does the application architecture support the business architecture?
+	4. Identify gaps between the target and baseline
+		1. One app installation and removing 20 others
+		2. Adapters need to be created
+		3. Implications of moving to the target architecture
+
 ### Phase C, Application Architecture, Step 5 ###
+1. Step 5: Identify **candidate roadmap** components
+	1. Extract the key differences from the gap analysis, and those become features to be added to the architecture over time
+		1. We have not decided yet whether we are going to do all at once or step by step
+	2. An application roadmap is required to prioritize activities over the coming phases
+	3. Used to feed into the Opportunities and Solutions phase
+		1. We are not sure even the file formats are the same (defining impacts is next)
+		
 ### Phase C, Application Architecture, Step 6 ###
+1. Step 6: Resolve **impacts**
+	1. Understand wider implications
+		1. If we are shutting down or upgrading applications
+		2. Moving to new version doesn't support certain features
+	2. Does it impact other architectures outside the scope?
+	3. Has there been any recent changes outside that need to be accounted for with this?
+	4. Is there an opportunity to share this work with other architecture outside scope?
+		1. If we install a big work package, then other departments can benefit
+	5. Does it impact other projects already planned or underway? Or vice versa?
+
 ### Phase C, Application Architecture, Step 7 ###
+1. Step 7: Conduct formal **stakeholder review** - to present and get sign off
+	1. Ensure the architecture confirms to the original purpose of the project and the Statement of Architecture Work if necessary
+		1. Saving x amount of dollars
+		2. Increase revenue by x percent
+		3. How is what we have so far confirming with that?
+			1. if not stop at this point
+	2. Does business and data architectures need to change due to this layer
+		1. Purchasing enterprise systems
+			1. Needs x and y
+		2. How data gets pushed around
+		3. Is the data architecture possible or is it wise?
+		4. In the business process, we want to give morgage information instantly (people are waiting at counter)
+			1. Application layer:
+				1. Delays to get score
+					1. Introduced by external systems
+					2. Dependence on communication layers
+			2. Not feesible may be
+	3. Identify constraints on the technology architecture
+		1. Talk to tech architect (and talk to say we need to run for the following businesses)
+	4. Present to stakeholders
+		1. Take documents that they can understand
+		2. Present the viewpoints
+		3. Take their viewpoints
+
 ### Phase C, Application Architecture, Step 8 ###
+1. Step 8: Finalize **architecture**
+	1. Going back to the architecture repository and checking if there are standards for the new building blocks
+		1. Do the building blocks have industry or standards that are to the left side of the continuum (generic things that can be used instead of custom)
+	2. Complete all documentation
+		1. All documentation and architecture definition and requirements needs to be finalized
+	3. Cross-check against business requirements
+		1. Check if every business requirement is met
+	4. Finalize all work products
+		1. Diagrams
+		2. Matrices
+
 ### Phase C, Application Architecture, Step 9 ###
+1. Step 9: Create **architecture definition document**
+	1. Document rationale for building block decisions
+		1. Certain decisions
+			1. Internally
+			2. Overseas
+		2. How things are redisigned
+	2. Prepare application architecture section of architecture definition document
 
 ## Phase D In Detail: Step by Step ##
 ### Phase D, Technology Architecture, Step 1 ###
+1. Technology Architecture (Phase D)
+	1. T in BDAT
+	2. Develop the baseline technology architecture v1.0
+	3. Develop the target technology architecture v1.0
+	4. Identify gaps between baseline and target
+2. Step 1: Select **Reference Models, Viewpoints, and Tools**
+	1. Select relevant technology architecture reference models and patterns from the architecture repository based on the known drivers and concerns
+		1. Based on business drivers
+	2. Select relevant technology architecture viewpoints to be used to demonstrate later how their concerns are being addressed in the architecture
+		1. Technology people are concerned about how does it impact servers, networks, ...
+	3. Identify appropriate tools and techniques for capturing, modeling, analyzing, and documenting the architecture
+		1. There are tools that map out where the firewalls are where the servers are what the IP addresses are, what applications are running on those servers ...
+			1. Network people may have this map
+3. Step 1.1: Determine overall **modelling** process
+	1. The level of detail of this will be highly dependent on the standards of the organization. Yours might require extensive analysis and modeling, including use-cases, activities and classes
+		1. Say most of the changes will be focussed on applications and not on technology (no new servers, no new networks, no new connections, ...)
+4. Step 1.2: Identify required **catalogs** of technology building blocks
+	1. Catalogs are hierarchical in nature:
+		1. Logical > physical > service
+	2. Raw material for matrices and views
+		1. Such as
+			1. Technology standards
+			2. Technology portfolio
+5. Step 1.3: Identify required **matrices**
+	1. Matrices show the relationship between things
+	2. Raw material for the development of diagrams
+		1. Such as:
+			1. Application/ technology matrix (only matrix recommended by TOGAF)
+				1. How technology supports applications
+6. Step 1.4: Identify required **diagrams**
+	1. Diagrams present information from a set of viewpoints
+	2. Once functionality is known, think about configuration and options
+		1. Such as:
+			1. Environment and locations diagram
+			2. Platform decomposition diagram
+			3. Processing diagram
+			4. Networked computing/ hardware diagram
+			5. Communications engineering diagram
+7. Step 1.5: Identify **types of requirement** to be collected
+	1. Time to dig into the actual technology requirements
+	2. Take the catalogs, matrices and diagrams previously developed
+	3. Identify requirements that should be met by the architecture
+		1. Anything that technology team/ group needs to do that this new architecture is telling them to do
+8. Step 1.6: Select **Services**
+	1. Services are business functionality available to applications across your enterprise, supported by the IT department or outside vendor
+	2. Email service, printing service, authentication, credit card processing etc.
+		1. As a business unit, you do not develop your own emailing capability (calling smtp or other services)
+		2. As a business unit, we may not be building a credit card processing application (tie into existing one)
+	3. Do some things make sense to become services that are commonly managed by the business units?
+		1. What services does the company need to provide to the business units
+		2. Things that business units are doing inside their own applications that can be centralized and provided to everybody
+
 ### Phase D, Technology Architecture, Step 2 ###
+1. Step 2: Develop **Baseline** Technology Architecture Description
+	1. The baseline description of the existing technology architecture to the level needed
+		1. What servers, networks, firewalls already exist?
+			1. Technology teams are good at documenting what they have installed
+	2. Depends how much will be carried over to target architecture
+		1. How much the technology needs to be changing
+			1. If tech is not going to be changing or if there are no new requirements or are minimal, no much work on baseline technology architecture
+	3. Identify the relevant technology architecture building blocks, if exists in the architecture repository
+		1. Pull ABBs and SBBs that relate to technology architecture
+	4. Use models developed in Step 1 to develop baseline architecture content
+		1. Document
+
 ### Phase D, Technology Architecture, Step 3 ###
+1. Step 3: Develop **Target** Technology Architecture Description
+	1. The target description of the technology architecture to the level needed
+		1. If there are very few changes, it is going to match the baseline architecture
+		2. If there are radical changes, then get into a lot of detail about what's changing, what servers we need, how that's going to work
+	2. To support the architecture vision, target business architecture, and target data architecture
+	3. Identify the relevant technology architecture building blocks, if exists in the architecture repository
+		1. We may have to pull out BBs
+		2. We may have to build BBs if they don't exist
+	4. Use models developed in Step 1 to develop new target architecture content
+2. We have to be talking to relevant stakeholders
+	1. Develop the architecture to a level that we can explain to people
+
 ### Phase D, Technology Architecture, Step 4 ###
+1. Step 4: Perform **gap analysis**
+	1. Validate the architectures, including the different views against each other
+		1. Looking at them from different views (business view, technology view, stakeholder views) to make sure it is consistent
+	2. Ensure the architecture supports all principles, objectives and constraints
+		1. Not recommending technologies that go against the technology principles
+	3. Test models for completeness against requirements
+		1. Make sure the domains cover those requirements
+		2. What servers support that and what processes are needed for that
+	4. Identify gaps between the target and baseline
+		1. Gap analysis that togaf describes in Part 3, chapter 27 of togaf spec
+			1. Tells how to identify the gaps, differences and document those
+
 ### Phase D, Technology Architecture, Step 5 ###
+1. Step 5: Identify **candidate roadmap** components
+	1. Extract the key differences from the gap analysis, and those become features to be added to the architecture over time
+		1. The previous activities feed into technology roadmap
+			1. Those are features going to be developed over time
+	2. A technology roadmap is required to prioritize activities over the coming phases
+		1. If we need more environments and if we need multiple of them
+			1. DEV, QA, STAGE, PROD
+		2. They don't have to be provided at the same time
+			1. roadmap can have timelines
+	3. Used to feed into the Opportunities and Solutions phase
+		1. Opportunities and Solutions: Turning roadmap into work packages
+
 ### Phase D, Technology Architecture, Step 6 ###
+1. Step 6: Resolve **impacts** (across architecture landscapes)
+	1. Understand wider implications
+		1. How does it impact the wider business, what kind of implications does it have?
+	2. Does it impact other architecture outside the scope?
+		1. Is anything we are doing impacting the stuff that is outside our scope?
+		2. Bring those people into the loop
+	3. Has there been any recent changes outside that need to be accounted for with this?
+		1. Some other project has gone live
+			1. They might have cool features and we might start using them
+		2. Own internal cloud environment
+			1. It is a new option that we can take advantage of
+	4. Is there an opportunity to share this work with other architectures outside scope?
+		1. May be we can have this as a service that the entire company enjoys and what other opportunities are available for sharing
+	5. Does it impact other projects already planned or underway? Or vice versa?
+		1. Business may not stop other projects while in this process
+		2. Keep track of projects going live soon, or in the near future
+			1. Is anything that we are doing is impacting that?
+				1. If a project that is going needs complete re-vamp then there is no point going with the release
+
 ### Phase D, Technology Architecture, Step 7 ###
+1. Step 7: Conduct formal **stakeholder review**
+	1. Ensure the architecture confirms to the original purpose of the project and the Statement of Architecture Work if necessary
+		1. When we started, there were certain business drivers, there were certain things that were told to you that were high priority that were reasons for you to re-do that architecture.
+			1. Ensure that what we have got now is confirming to that
+	2. Present to stakeholders
+		1. Review
+		2. Stakeholders:
+			1. People of the company
+			2. VP of technology
+			3. CIO
+			4. ...
+		3. Present to them on a technical level
+			1. Technical architect has a big background in technology
+				1. Speak the language
+				2. Talk the talk
+				3. Trends within technology fields
+			2. Speak in the language that they understand and then get the approval
+		4. Get feedback and refine and re-present
+
 ### Phase D, Technology Architecture, Step 8 ###
+1. Step 8: Finalize **architecture**
+	1. Going back to the architecture repository and checking if there are standards for the new building blocks
+	2. Complete all documentation
+		1. Full documentation for building blocks
+	3. Cross-check against business requirements
+		1. Cross check of overall architecture against business goals
+		2. Document rationale for building block decisions in the architecture document
+		3. Document final requirements, traceability, mapping of the architecture within the architecture repository
+	4. Finalize all work products
+		1. Outputs
+			1. Gap analysis here
+
 ### Phase D, Technology Architecture, Step 9 ###
+1. Step 9: Creation of **architecture definition document**
+	1. Document rationale for building block decisions
+		1. Justifications for the BBs are written down and documented
+	2. Prepare technology architecture section of architecture definition document
+		1. Fundamental functionality of the technology
+		2. Dependent building blocks
+		3. Interfaces chosen
+		4. Third parties that we need to map into the environment
+		5. Mapping the technology to business entities etc...
+		6. Graphics and models
+			1. Network diagrams
+			2. App and server maps
 
 ## Phase E In Detail: Step by Step ##
 ### Phase E, Opportunities and Solutions, Step 1 ###
+1. Opportunities and Solutions (Phase E)
+	1. Initial complete version of the Architecture Roadmap, based on gap analysis of BDAT
+	2. Determine if incremental approach required
+		1. Or get to target architecture all in one go
+	3. Formulate implementation and migration strategy
+	4. Identify and group work packages
+2. Step 1: Determine/ Confirm key **Corporate Change** Attributes
+	1. How the architecture can be best implemented to take advantage of the business culture
+		1. Knowing what can know about the company
+		2. What can you do to make sure it is implemented the easiest way possible
+		3. Company might be slow to act or decisions take a long time
+			1. Try to get all the decisions at once and do it all at once approach
+		4. Getting stuff incrementally does not raise too many eye brows
+			1. We can do our own phase A..E deployments
+	2. Assessment of the business readiness for transformation
+		1. Process we can go through to assess how the company is ready for change 
+			1. Take Phase A as input and analyzing to say this is what we want to do and how do we do it and what is best for our company
+	3. Implementation Factor Assessment and Deduction matrix
+		1. Take all assessment of the company and put that into the deduction matrix
+			1. If organization has got a history of enterprise architecture, this is simple
+
 ### Phase E, Opportunities and Solutions, Step 2 ###
+1. Step 2: Determine **Business Constraints** for Implementation
+	1. Identify business drivers that would constrain implementation
+		1. These may cause a change in the implementation plan
+	2. Are the seasonal factors (end of year holiday rush), new product launches, budget issues (this year's budget vs next), new laws going into effect, etc.
+		1. Decisions must be made for implementations around the issues
+		2. Laws might be constraints
+
 ### Phase E, Opportunities and Solutions, Step 3 ###
+1. Step 3: Review and **Consolidate** Gap Analysis Results from Phases B-D
+	1. Creation of consolidated gaps, solutions and dependencies matrix
+		1. Chapter 28 says what goes into the matrix
+	2. Identify potential solution building blocks (SBBs) and associated (Architecture Building Blocks) ABBs
+		1. Say expecting traffic to tripple for the website so need bigger server, more of a farm
+			1. Pull out BBs associated with this kind of architecture
+	3. Consolidate the B, C and D gap analysis into a single list
+	4. Re-organize the matrix and group related items together
+		1. Put them together and we may find a single solution that can solve the problems
+		2. Re-organization may help us design the solution
+
 ### Phase E, Opportunities and Solutions, Step 4 ###
+1. Step 4: Review **Consolidated Requirements** (across related business functions)
+	1. Identify a minimal set of requirements whose implementation would lead to a more efficient and effective implementation of the Target Architecture
+		1. Single solution may satisfy multiple requirements
+	2. If different lines of business all have similar concerns, they can all be solved by a single shared solution
+		1. Opportunity could be that we could develop a solution across the company and enterprise
+			1. Authentication - centralized (usernames, passwords)
+				1. Reduces risk
+				2. Reduces cost
+
 ### Phase E, Opportunities and Solutions, Step 5 ###
+1. Step 5: Consolidate and Reconcile **Interoperability Requirements**
+	1. Consolidate inter-operability requirements from various phases
+		1. applications or systems or solution to be able to work with other solutions
+		2. What parts of the requirement needs interoperability
+	2. Minimize interoperability conflicts or address them
+		1. If system needs to access customer database
+			1. System B needs to read from Customer DB but no existing method (no API, protected, firewall, ...)
+				1. Interoperability conflict
+					1. Minimize this
+	3. Two basic approaches: Construct building blocks to work between the conflict (develop a public API with limited basis, very strong authentication, limited functionality with an application that runs inside the network (new BB) and other solutions can access the BB), or modify the existing building blocks to work together (System exports the database file to outside the bounds of the app and runs very often, the systems are modified to work together)
+
 ### Phase E, Opportunities and Solutions, Step 6 ###
+1. Step 6: Refine and Validate **Dependencies**
+	1. Refine the initial dependencies
+		1. Any constraints on implementation or migration plan are identified
+		2. Dependencies: Things which need to be in place before doing what we need to do
+	2. If implementing this one change is dependent on IT upgrading everyone's systems to include more memory and disk space, that should be noted
+		1. If desktop app that we want to develop needs this, this needs to be identified
+			1. Dependency on IT department
+		2. If company upgrading to SAP and it may be a dependency
+	3. Addressing dependencies is one of the main goals of migration planning
+
 ### Phase E, Opportunities and Solutions, Step 7 ###
+1. Step 7: **Confirm Readiness** and Risk for Business Transformation
+	1. Review Business Transformation Readiness Assessment conducted in Phase A
+		1. Chapter 30 of TOGAF 9.1 spec
+		2. There is a process to determine how ready is the company for transformation or change
+	2. Determine impact on roadmap and strategy
+		1. We may have aggressive plans to solve a lot of company's problems (Bold and challenging and ambitious)
+			1. If company has qualities that make the bold and ambitious plans risky, consider seriously
+	3. Identify, classify and mitigate risk (for transformation)
+		1. What are the qualities in the company that make the transformation risky?
+		2. If strong leader but week people in top level, that's business risk
+		3. Funding: If we have clear budget and clear source of funding, but if we don't, that is a risk
+		4. Strong governance: Really good governance, then good sign but if company makes arbitrary decisions, they don't have responsibility and they don't have capability then it is a risk
+	4. Risks listed in Consolidated Gaps, Solutions and Dependencies matrix
+		1. Some of the documents will appear in the steps that follow
+
 ### Phase E, Opportunities and Solutions, Step 8 ###
+1. Step 8: Formulate Implementation and Migration **Strategy**
+	1. Creation of overall strategy for implementation of the target architecture
+		1. And any transition architectures that are done before we get to the target architecture
+	2. Three basic strategic approaches: greenfield, revolutionary, evolutionary (how are we going to implement the solutions or how are we going to explore the opportunities)
+		1. Greenfield: Completely new implementation and there is nothing existing.
+			1. Get a software, install, play with it and when we are happy with it, release it to the users
+		2. Revolutionay: Radical change - there is an existing system and a new system is created that replaces it
+			1. Old system is shut is off and data migrated and new system is turned on
+				1. Risk is associated - new system doesn't work then hard to go back (needs fixing the new system)
+		3. Evolutionary: Phased in approach - adding new features to existing application (users don't have to install anything)
+			1. New menu and people start using
+			2. Parallel Systems: Old and new systems are running and data is synchronized
+				1. If new system is working as expected, then turn the old system off
+	3. Three basic mitigations: quick win, achievable targets, value chain method
+		1. Quick win: Analysis of the things that we want to deploy and then determine what is the easiest items to deploy that have the most benefit to the users
+			1. In a month from now we want to deploy A, B and C and what are those and what is going to provide the most value (those are quick wins)
+				1. Users see a lot of benefit in what we are trying to do very quickly
+			2. Less money and less time, not very risky
+		2. Achievable targets: If you have an ambitious goal, you can break it down into achievable targets (instead of changing 25 systems, replace 2, and next 2 and next 2 ...)
+		3. Value chain: Delivering value to the user incrementally
+			1. Performance:
+				1. Slow app to super quick in one go or phase by phase?
+	4. The basis of work packages
+		1. Stuff that comes out of strategy is what goes into the creation of work packages (Step 9) 
+			1. Quick wins: First work package
+			2. Achievable targets: Next set of work packages
+	5. Agreement reached on implementation and migration strategy
+		1. With stakeholders for implementation and migration
+			1. Deliver A, B and C first and then E and F which is half of the value in 2 months and next half in 6 months ...
+
 ### Phase E, Opportunities and Solutions, Step 9 ###
+1. Step 9: Identify and Group Major **Work Packages**
+	1. Key stakeholders to assess the missing capabilities
+		1. Identifies in vision and target, gap analysis and roadmap
+	2. Logically group the various activities into work packages
+		1. Using consolidated gaps, solutions and dependencies matrix
+			1. Some things make sense to be done together (strategy)
+	3. Fill in the "solution" column of Consolidated Gaps, Solutions, and Dependencies matrix
+		1. Proposed solution machanism
+			1. Approaches are documented
+	4. Classify every system: mainstream, contain, replace
+		1. Mainstream: Part of the future or target
+		2. Contain: Expected to be replaced or modified sometime in the next three years
+			1. Not going to a lot of work on a system that is going to reach the end of it's life
+		3. Replace: Existing set of work packages are going to replace the system
+2. Think about development team next and package them into portfolios within the BU
+
 ### Phase E, Opportunities and Solutions, Step 10 ###
+1. Step 10: Identify **Transition Architecture**
+	1. When there's an incremental approach
+		1. Determine if we need the incremental approach at all
+		2. If there is only one target architecture then we don't need the transition architectures
+		3. Transition architectures for incremental approach
+	2. Provide measurable business value
+		1. There is no use of having a transition architecture that does not provide any value
+			1. It should have business value
+				1. Hosted solution to cloud based solution has business value (though customers are not going to notice it)
+					1. Saves money
+	3. Implement difficult activities after the easier ones that deliver good business value (quick wins)
+		1. Don't worry about 6 months project first
+		2. Making it easier for the business
+
 ### Phase E, Opportunities and Solutions, Step 11 ###
+1. Step 11: Creation of the **Architecture Roadmap & Implementation and Migration Plan**
+	1. Consolidate work packages and transition architectures into Architecture Roadmap version 0.1
+		1. High level document that timeline
+	2. Timeline from baseline architecture to target architecture
+		1. 3 months, 6 months, ...
+	3. Each transition architecture must have a clear set of outcomes
+		1. There should be business benefits or be clear about that
+	4. Implementation plan demonstrates the activity necessary to realize Roadmap
+		1. Roadmap is going to promise features and functionality
+			1. In 6 months you can use phone to book appointment
+		2. Implementation plan, talk about teams,...
+			1. When you are going to start and when you are going to be done, project plan etc...
+2. Up:
+	1. Phase F, Implementation and Migration Planning
 
 ## Phase F In Detail: Step by Step ##
 ### Phase F, Migration Planning, Step 1 ###
