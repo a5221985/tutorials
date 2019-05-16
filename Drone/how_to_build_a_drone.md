@@ -470,8 +470,33 @@
 			1. Drone must overcome its force in weight in the opposite direction in order to fly
 		2. Example: 800 g drone is
 			1. W = (0.8 kg) * (9.81 m/s2) = 7.9 N
+4. Force Units in Drone Communities
+	1. Force is measured in N
+	2. N is a little less intuitive a unit compared to grams. Since gravity is constant on earch (or can be modeled as such for simplicity), the drone community discards it and uses mass and force as interchangeable.
+
+			F = m * g -> F = m
+			F =(N) -> F =(g)
+
+	3. While this is technically incorrect, it is more intuitive
+	4. If we have a weight of 800 g, you know you need an upward force that could lift more than 800 g to lift off.
+5. Thrust
+	1. For drone applications, you could think of thrust as the amount of mass that the motor/prop would be able to lift into the air
+6. Revisiting TWR
+	1. TWR ratio is just the maximum thrust of a drone divided by the weight
+	2. So if we could produce 3000 g of thrust with a drone weighing 1000 g, we would have a TWR ratio of D: TWR = 3000/1000 = 3:1
+7. Common TWR Ratios
+	1. For FPV/Racing multirotors, you want very high TWR ratios, typical ratios: 4:1 to 11:1
+	2. For most normal drones, having a TWR of 2:1 is a good number to aim for
+	3. You can still fly comfortably with a 1.5:1 ratio, but this leaves little room for additional payload should the need arise
+		1. If we want to add a camera? Then drone may not fly
+8. TWR Starting Point
+	1. You won't know what your Thrust will be until you select a motor/battery/prop combo, but you don't know how much thrust you need until you know how heavy your drone is
+		1. First step is designing/spec'ing out parts for a drone build is to estimate the weight of the drone
+	2. Then we seek out motor/prop/battery combinations that get us close to our TWR goals.
 
 ### Estimating Weight of Drones Part 1 ###
+
+
 ### Estimating Weight of Drones Part 2 ###
 ### Drive-Train of Drones: Props+Motors+Batteries ###
 ### Estimating Thrust and Current Draw ###

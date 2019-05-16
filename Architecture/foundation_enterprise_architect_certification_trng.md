@@ -3108,15 +3108,128 @@
 
 ## Phase F In Detail: Step by Step ##
 ### Phase F, Migration Planning, Step 1 ###
+1. Migration Planning (Phase F)
+	1. Finalize the Architecture Roadmap and Implementation and Migration Plan
+	2. Ensure that plan is coordinated with the enterprise's approach to change
+		1. Determine the business value and ensure it is understood by stakeholders
+			1. Think about implementation
+	3. Ensure the business value of the approach is understood by stakeholders
+	4. Start thinking about implementation: costs, resources, timing
+	5. Transition from developing the architecture to implementing 
+2. Step 1: Confirm **Management Framework** Interactions
+	1. Coordinating the Implementation and Migration Plan with management frameworks within the organization
+		1. Various parts of the organization have different management frameworks
+			1. Alternate to TOGAF
+				1. ZACHMAN
+	2. Four Typical Ones:
+		1. Business planning - Executive level (CEO, Vice President)
+			1. They may use a framework for business planning
+			2. We need to work within that
+				1. How they spend money
+				2. How they make decisions
+				3. Verious checkins they require
+				4. How resources are allocated
+				5. Procurement
+		2. Enterprise Architecture
+			1. Structure and context of 4 domains (BDAT)
+		3. Portfolio/ Project Management
+			1. Project management is about finding space (how to plan and implement projects) - work with PMs in terms of how we are going to fit as architect and how implementation plan will be implemented by implementors
+				1. Scrum
+				2. PMI
+				3. PMP
+		4. Operations Management - Group of people who deliver the service to the customers (keep servers running, keep phone lines open, keep the factory open)
+
 ### Phase F, Migration Planning, Step 2 ###
+1. Step 2: Assign a **Business Value** to Each Work Package
+	1. Establish and assign business values to all of the work packages
+		1. What is the benefit to the business and express it as a value
+			1. Is there reduced cost?
+			2. Is there increased revenue?
+			3. Gain efficiencies?
+			4. End of life scenarios?
+	2. Issues to be addressed: Performance evaluation, ROI, business value, critical success factors (CSF), measure of effectiveness (MOE), strategic fit
+		1. Think about success
+			1. Leveraging the business value
+			2. 100 K per month of savings
+				1. 75 K achievement is a success say
+				2. If not analyze what went wrong
+	3. Work packages are the basis of what gets implemented
+		1. Not at a stage where we cannot evaluate independent projects
+		2. Resource allocation is not done here (only work packages)
+	4. Assign risks to the projects
+		1. Is the savings guaranteed?
+			1. What can go wrong?
+			2. Outside factors?
+			3. Dependency on other projects
+				1. Competetors
+
 ### Phase F, Migration Planning, Step 3 ###
+1. Step 3: Estimate **Resource Requirements** and Project Timings
+	1. Determine the required resources and times for each project
+	2. Initial cost estimates
+		1. For each of the requirements, work packages and projects
+			1. Differentiate between capital costs and ongoing operation costs
+				1. Up-front cost
+				2. Maintenance cost
+	3. Capital cost vs ongoing operation cost
+
 ### Phase F, Migration Planning, Step 4 ###
+1. Step 4: **Prioritize** the Migration Projects
+	1. Prioritize projects delivering the most business value for lowest cost (low-hanging fruit, quick wins)
+		1. Low risk, low cost, can be done quickly and easily and deliver the most business value
+			1. Do them first
+	2. Review the risks, and ensure they have been mitigated as much as possible
+		1. If a competetor can launch before us with a better product or different product or same product
+			1. Benefits are taken away
+			2. Can we get the product out faster
+			3. Can we modify the existing products
+			4. ...
+	3. Have stakeholders agree on prioritization
+		1. Meet:
+			1. Tech leads
+			2. Business owners
+			3. Implementors
+			4. Owners
+		2. Agree on prioritization
+	4. Review the risk assessment and revise; residual risk
+		1. Revise planning
+		2. Revise definition document
+		3. Revise roadmap
+		4. Revise transition architectures
+		5. Residual risk?
+			1. Once mitigation is done, there may still be other risks
+				1. Left over risk (cannot mitigate any further)
+			2. Stakeholders should agree that the residual risk is acceptable
+
 ### Phase F, Migration Planning, Step 5 ###
+1. Step 5: Confirm **Architecture Roadmap** (Update the architecture definition document)
+	1. Update the architecture roadmap including transition architectures
+		1. Based on decisions of previous step
+		2. Review and update to the current transition architecture as needed
+	2. A Transition Architecture State Evolution Table can be used to show the proposed state of the domain architectures over time
+		1. Across BDAT architecture domains, we can map out how the domains progress over time
+	3. If approach changes, update Architecture Definition Document
+
 ### Phase F, Migration Planning, Step 6 ###
+1. Step 6: **Generate** the Implementation and Migration Plan
+	1. Generate the completed Implementation and Migration Plan
+	2. Mostly bringing together details from previous steps
+		1. Include all the other projects if there are dependencies
+		2. If we want to upgrade desktops
+			1. This is a dependeny (needs to be called out)
+	3. Capture external dependencies
+
 ### Phase F, Migration Planning, Step 7 ###
+1. Step 7: Complete the **Architecture Development Cycle**
+	1. Completing architecture development, and transitioning into implementation
+	2. Lessons learned, what went wrong and what can be done differently
+	3. This could be a spot for iteration back to Phase B to go a level deeper into details
+		1. Improve things (iteration is not on the test)
 
 ## Phase G In Detail: Step by Step ##
 ### Phase G, Implementation Governance, Step 1 ###
+
+
 ### Phase G, Implementation Governance, Step 2 ###
 ### Phase G, Implementation Governance, Step 3 ###
 ### Phase G, Implementation Governance, Step 4 ###

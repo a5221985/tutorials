@@ -35,3 +35,10 @@
 	10. DI Implementations
 	11. Spring Framework Integration
 	12. ...
+15. Install on own infra or use cloud offering
+	1. Integration
+	2. UAT
+	3. Production
+16. Deployment to environments from cloud cockpit
+17. mgnl.io/ce
+	1. Community edition is free and open source
