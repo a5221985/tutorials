@@ -3228,41 +3228,617 @@
 
 ## Phase G In Detail: Step by Step ##
 ### Phase G, Implementation Governance, Step 1 ###
-
+1. Implementation Governance (Phase G)
+	1. Ensure conformance with the target architecture
+	2. Governance duties
+		1. Making sure that the development and implementor teams are following target architecture and giving business value expected
+		2. Our job is to update the baseline architecture as the changes are implemented
+	3. Handling change requests from implementation team
+	4. Update baseline architecture as changes are implemented
+	5. Phase G ends when solutions are fully deployed
+2. Step 1: Confirm **Scope** and Priorities for Deployment
+	1. Produce recommendations for deployment
+		1. We would be meeting development and implementation management
+		2. Come up with recommendations for them
+	2. Identify enterprise architecture priorities for development team
+		1. Main thing that we want to get out of this is what?
+			1. SOA: Every backend piece of data is accessible to front end services
+				1. Express main priorities
+	3. Identify deployment issues and make recommendations
+		1. Complicated migration (data taken from one set of hosts to another, downtime for app, ...)
+	4. Identify building blocks that need replacement, update
+		1. Very clear about architecture and what we are expecting at the end of this
+	5. Perform gap analysis on enterprise architecture and solutions
+		1. Gaps:
+			1. New Software
+			2. New Hardware
+			3. Shut down
+			4. ...
 
 ### Phase G, Implementation Governance, Step 2 ###
+1. Step 2: Identify **Deployment Resources**
+	1. Identify system development methods required for solutions deployment
+		1. If inhouse team has a certain way to do development and this gets identified
+		2. If we hire outside company, we need to know how they do development
+	2. Ensure that system development method enables feedback to the architecture team on designs
+		1. Make sure what the approach is and monitor this and make sure you are available and get the conformance requirements that you have and it gets feedback to you on the designs
+			1. Suppose in-house development team does agile approach and they are expecting to do incremental deployments
+				1. Deploying small features rapidly (fine)
+					1. There are pros and cons to it
+		2. As an architect need to change governance rules to make sure the requirements are followed pretty closely
+			1. Attend milestone meeting
+				1. Especially at release point
+				2. Get feedback from team  
+
 ### Phase G, Implementation Governance, Step 3 ###
+1. Step 3: Guide **Development** (of solutions to deployment)
+	1. Formulate project recommendations re: impacts
+		1. Here things are down into individual projects because we are into actual development
+		2. My role is partly to manage impacts (not to resolve but at-least document)
+			1. If change request is coming through, that becomes an impact
+				1. If timeline changes (document)
+				2. If roadmap changes (document)
+	2. Define architecture contract, obtain signature
+		1. It is big deal in TOGAF
+			1. Agreement between business team, architecture team and development team
+				1. What we are developing
+				2. What does the solution need to do in terms of performance
+					1. Functionality
+		2. If dealing with internal project teams
+			1. Outline things
+			2. Internal team has to sign off for all the requirements
+	3. Update enterprise continuum
+		1. SBBs get put onto Continuum
+			1. Very organization specific BBs or Generalized (shared)
+	4. Guide development of service
+		1. Service: It is a function that IT department provides to the enterpise or atleast supported by the company
+			1. Email
+			2. File storage
+			3. Active directory
+			4. ...
+	5. Guide development of operational requirements
+		1. Costs of things and how they impact ongoing operations
+			1. If admin tools are required to manage things
+			2. STAGE, PROD environments
+	6. Produce implementation plan
+		1. Actual plan for rolling things out
+			1. How we are going to do development and deployment
+
 ### Phase G, Implementation Governance, Step 4 ###
+1. Step 4: Compliance **Reviews**
+	1. Review ongoing implementation governance and architecture compliance
+		1. When solutions are in testing or staging, make sure they are delivering the features and functions outlined
+	2. Conduct post-development reviews
+		1. Sign-off
+
 ### Phase G, Implementation Governance, Step 5 ###
+1. Step 5: Implement Business and IT **Operations**
+	1. Carry out the deployment projects (operations side)
+		1. Services should come online
+		2. Business services
+		3. Training and skills for end users (not our job)
+		4. Communications documentation (user manuals, distribute to right people) - make sure it gets done
+	2. Publish new baseline architectures
+		1. Keep architecture repository up to date (need not be our job but this is taken care off)
+			1. IP addresses
+			2. ...
+
 ### Phase G, Implementation Governance, Step 6 ###
+1. Step 6: Perform **Post-Implementation Review**
+	1. Conduct post-implementation reviews
+		1. Make sure there are no errors and everything is functioning as expected
+		2. Implementation team might have waranty period
+	2. Publish reviews and close projects
+		1. Go back to business owners
+			1. Target architecture is realized
+			2. Not into measuring business value yet
+	3. Phase G ends when all solutions are fully deployed **once**
+		1. Follow ups might be there and this is out of scope
+			1. Fixing bugs
+			2. Tweeking
+			3. ...
 
 ## Phase H In Detail: Step by Step ##
 ### Phase H, Architecture Change Management Steps ###
+1. Architecture Change Management (Phase H)
+	1. Keeping the architecture alive
+	2. Ensure Architecture Governance is happening
+	3. Ensure the enterprise Architecture Capability is maintained
+	4. Monitoring: changes to the business enterprise, changes to the industry, changes to technology, formal change requests
+		1. May kickoff another ADM cycle
+		2. Minor changes can be done inside this phase
+2. Step 1: Establish **Value Realization** Process
+	1. Influence business projects to exploit the enterprise architecture for value realization (outcomes)
+		1. We want to ensure the business is using the architecture to the maximum use that it can and get the maximum value that it can
+			1. Influence the business project to exploit the architecture
+			2. Example: Business services
+				1. Company wide time management
+					1. Influence all business units to use it
+3. Step 2: Deploy **Monitoring** Tools
+	1. Use of monitoring tools to enable: (architecture is delivering value and continuing to deliver value - architecture team must be on top of this to ensure processes are in place)
+		1. Monitor technology changes
+		2. Monitor business changes
+		3. Business value tracking
+		4. Monitor Architecture Capability maturity
+		5. Track asset management programs
+			1. Data assets
+			2. Technology assets
+		6. Track QoS (Quality of Service) performance
+			1. How we are delivering service to the customers
+			2. How departments are serving each other (within the company)
+			3. Find ways of measuring customer satisfaction
+4. Step 4: Manage **Risks**
+	1. Manage enterprise architecture risk
+		1. As we are monitoring company, quality, performance, changes, we are basically tracking risks
+			1. Certain software versions are falling behind
+				1. We need to keep up security risks
+					1. To IT stakeholder
+		2. Provide recommendations for IT strategy (they are driving the requirements and not you)
+			1. Competition is doing this
+			2. This is what I have observed
+			3. ...
+5. Step 4: Provide **Analysis** for Architecture Change Management
+	1. Provide analysis for architecture change management
+		1. Analyze performance (of the architecture)
+		2. Enterprise architecture performance review
+		3. Assess change requests
+			1. May come any time
+				1. Business may come up
+					1. This change is not working for us
+					2. We need to make this change
+					3. New enhancements
+		4. Undertake gap analysis
+			1. Do the changes coming through require a change in the architecture?
+			2. What are the gaps?
+		5. Ensure following proper governance process
+			1. For change to architecture
+				1. Decisions are Logged
+				2. Decisions are made properly
+6. Step 5: Develop **Change Requirements** to Meet Performance Targets
+	1. Make recommendations on change requirements to meet performance targets and development of position to act
+		1. If architecture is not delivering the value that it has promised
+			1. 1 million vs 3/4 million
+		2. Recommendations should made sure the target is reached
+7. Step 6: Manage **Governance** Process
+	1. Manage governance process and framework for architecture
+		1. Arrange meeting of Architecture Board
+			1. Not that often
+		2. Hold meeting of the Architecture Board to handle changes and dispensations
+			1. Dispensations: Approvals from architecture board that are out of compliance of architecture
+				1. Providing dispensations for architectures that have fallen apart
+				2. Dispensation: Meaning
+					1. Exemption from a rule or usual requirement
+					2. A political, religious, or social system prevailing at a particular time
+8. Step 7: Activate the Process to **Implement Change**
+	1. Activate the architecture process to implement change: (Architecture board has taken decision to activate the process of implementation)
+		1. Produce a new Request for Architecture Work
+			1. Starts new ADM cycle
+			2. Go ahead for implementation teams
+			3. Update architecture repository
+		2. Ensure any changes implemented in this phase are captured and documented in the Architecture Repository
 
 ## Requirements Management In Detail: Step by Step ##
 ### ADM Architecture Requirements Management, Steps 1-5 ###
+1. Requirements Management
+	1. Center of the hub
+	2. Operates continuously during the ADM process
+	3. Requirements change all the time
+	4. RM involves assessing impact of these changes
+	5. New competitor, new legislation, disproven assumption, new company policy
+2. It is operating during the entire architecture development
+3. It is the process by which changes can be taken into the process
+	1. If something happens, we have identified the requirement too late, we have already passed certain phases but new requirement comes in
+		1. Say
+			1. Legislation
+			2. Something missed
+			3. New company policy
+4. Note: 
+	1. These steps do not follow the typical pattern for the ADM cycle
+	2. Flips between Requirements Management Steps and ADM Phase Steps
+		1. Nexus of control passes from requirements management, feeds into each of the phases and work done in the phases feed back into the requirements management
+		2. It is a control hub (than actions where decisions are made)
+	3. I will indicate where control passes to at each step
+	4. Poorly defined in the TOGAF spec and in all related study books
+		1. "Note also that the Requirements Management process itself does not dispose of, address, or prioritize any requirements; this is done within the relevant phase of the ADM. It is merely the process for managing requirements througout the overall ADM"
+			1. It is just control hub
+5. By way of example:
+	1. Your're currently in the Phase G: Implementation Governance phase
+	2. This phase is expected to last 18 months as you are deploying a series of transition architectures
+	3. The request comes in from the IT department that they would like to get everyone on a "ticket system" for support requests, instead of the existing email system or phone calls
+	4. All employees of the company need to be set on this system and use it to log support requests
+		1. Need to be flexible to take in this
+6. Step 1: Identify/ Document Requirements (ADM Phase Steps)
+	1. Using business scenarios or another technique to document the actual requirements
+		1. Problem definition
+	2. Not yet received the changed requirements yet
+		1. Identifying the problem
+	3. Similar to Phases B-D
+7. Step 2: Prioritize Requirements (RM Steps)
+	1. Determine priorities on the current ADM cycle
+	2. Confirm stakeholder buy-in to those priorities
+		1. Similar to work pakages
+		2. Requirements and priorities
+	3. Record requirements priorities and place in Requirements Repository
+	4. Similar to Phase E and F 
+		1. Building work packages and finalizing implementation plan
+8. Step 3: Monitor Baseline Requirements (RM Steps)
+	1. Monitor baseline requirements
+		1. Example of TOGAF spec that says this
+		2. We want to see that there are no changes to the baseline (other than transition architectures)
+			1. Checking for changes
+9. Step 4: Identify Changed Requirements (ADM Phase Steps)
+	1. Remove or reassess priorities
+		1. Changes to priority
+	2. Add requirements and re-assess priorities
+	3. Modify existing requirements
+		1. 8GB to 16GB
+	4. Example: Identified the need for a ticketing system
+10. Step 5: Identify Changed Requirements (RM Steps)
+	1. Identify changed requirements and prioritize them (architect and stakeholders need to make decision)
+	2. Record new priorities in Requirements Repository
+	3. Ensure conflicts are identified and managed
+		1. If new changes impact other teams or projects or stakeholders
+			1. Handle these
+	4. Generate Requirements Impact Statement for steering the architecture team
+		1. If we decide to make the change, we must make a statement for the impact of the change which goes to the architecture team
+
 ### ADM Architecture Requirements Management, Steps 6-10 ###
+1. Step 6: Assess Impact (ADM Phase Steps)
+	1. What is the impact on the current phase?
+	2. What is the impact on previous phases?
+		1. Go back to baseline and target architectures
+		2. Will the new requirements overrule the processes?
+	3. Decide to implement or defer
+		1. Immediate or defer (Go or no go decision)
+			1. Low risk or not
+	4. Issue Requirements Impact Statement
+2. Step 7: Implement Requirements for Phase H (ADM Phase Steps)
+	1. Phase H is Architecture Change Management Phase
+		1. Monitoring phase
+			1. Certain drivers may cause change
+				1. These can be implemented in step 7 if we do not require a new round of the cycle
+	2. Changes that arise during this phase can be implemented, if they do not require a new round of ADM Cycle
+3. Step 8: Update Requirements Repository (RM Steps) - With information related to changes requested
+	1. Update requirements repository based on changes requested
+		1. Anything that changed target architecture, transition architectures, stakeholder views
+	2. Update target architecture and stakeholder views
+4. Step 9: Implement Change in Current Phase (ADM Phase Steps)
+	1. How does this change affect the current phase of the ADM?
+5. Step 10: Assess and Revise Gap Analysis (ADM Phase Steps)
+	1. Go back over the gap analysis (Phases B through D based on target architectures)
+		1. Ensure nothing is missed and not introducing any problems
+	2. Ensure nothing is missed with this new change
+	3. What else is affected?
+6. Since it is poorly defined, company needs to have a process
+	1. Can be customized or defined in more detail
+7. This phase is only used to monitor and update requirements
+
+#### Other Resources ####
+1. Articles and free videos about TOGAF and architecture:
+	1. [http://SoftwareArchitect.ca](http://SoftwareArchitect.ca)
+2. Connect on LinkedIn:
+	1. [http://sjd.ca/li](http://sjd.ca/li)
 
 ## Before We Start ##
 ### Start of TOGAF 9.2 Course ###
 ### Welcome to the Course! ###
+1. Introduced in 2018
+2. What this course covers
+	1. Preparation for the Part 1 exam for TOGAF Foundation
+	2. Structure of the TOGAF standard document
+	3. Definitions
+	4. Basic and core concepts of the TOGAF standard
+	5. The ADM
+
 ### About Your Instructor ###
+1. Certified to teach TOGAF commercially
+
 ### What is Enterprise Architecture? ###
+1. What is TOGAF standard?
+	1. Architecture framework for enterprise architecture
+		1. Architecture framework: Set of methods, tools and common definitions (language for creation, adoption and maintenance of enterprise architecture)
+		2. ADM: Architecture Development Method (iterative process)
+	2. Enterprise architecture:
+		1. 42010:2011 standard
+			1. The fundamental concepts or properties of a system in its environment embodied in its elements, relationships, and in the principles of its design and evolution
+				1. TOGAF agrees to it but adds
+					1. ISO definition + the following
+						1. The structure of components, their inter-relationships, and the principles and guidelines governing their design and evolution over time
+		2. Components and their relationships + principles (rules and guidelines) governing their design and evolution over time
+			1. Process put around to grow the architecture and change the architecture
+		3. TOGAF: Is about developing proper architecture capability in your organization
+			1. It has architecture governance
+			2. It has standard meta model for storing and organizing information
+			3. Principles for designing those documents
+			4. Standardizing process for evolving that architecture for months and years ahead
+		4. Architecture framework: It is how we do architecture
+
 ### The TOGAF Certification for People ###
+1. Level 1 and Level 2
+2. Part 1 and Part 2
+	1. Part 1: TOGAF foundation level certificate
+	2. Part 2: TOGAF certified level certificate
+3. TOGAF Part 1
+	1. A test of core knowledge of the standard
+	2. A multiple-choice test, only 1 correct answer
+	3. 40 questions
+	4. Need 55% to pass, or 22 correct out of 40
+		1. Closed book
+		2. Memorize contents
+		3. No negative marking
+	5. Each correct answer is worth 1 point
+4. TOGAF Part 2
+	1. A test of how you apply the TOGAF Standard
+	2. A scenario based test, scored using gradient scoring
+		1. Correct answer 5 points, second best is 3 points, third best 1 point, wrong answer 0 points
+	3. Open book exam
+		1. PDF version is provided
+	4. 8 questions
+	5. Need 60% to pass
+	6. Must have passed Part 1 to take Part 2
+5. Combined test option is available
+	1. $320 per test
+		1. 1 month to wait if failed
+	2. $495 for combined test
+	3. English (+ESL) - get more time to take for English as a Second Language (tell before hand)
+
 ### The TOGAF 9.2 Standard ###
+1. Read relevant chapter with each lesson
+2. Free HTML or PDF version on The Open Group website
+3. Standard:
+	1. Part I: Introduction
+		1. High level core concepts of TOGAF and key definitions (must)
+	2. Part II: ADM (Core)
+		1. Iterative process by which architects develop architecture
+	3. Part III: Guidelines and Techniques
+		1. To apply for your business
+			1. Tailor TOGAF for specific needs (this part tells how)
+	4. Part IV: Architecture Content Framework
+		1. Structured metamodel for building artefacts and Building Blocks in architecture deliverables
+			1. What goes into each document
+	5. Part V: Enterprise Continuum
+		1. Categorization model
+			1. Documents can be organized from general to specific
+				1. Architecture
+				2. Solutions
+	6. Part VI: Architecture Capability Framework
+		1. Discusses how to establish capability for the architecture
+4. + TOGAF Library
+	1. Materials pulled out of 9.1 standard + new materials
+		1. Set of materials that supports the use of the framework
 
 ## Core and Basic Concepts ##
 ### Overview of Core Concepts ###
+1. 7 Core Concepts
+	1. The definition of enterprise
+	2. The architecture domains, or BDAT
+	3. The architecture development method, or ADM
+	4. Deliverables, artifacts and building blocks
+		1. Outputs
+	5. The enterprise continuum
+		1. Categorization method
+	6. The architecture repository
+		1. Where work is stored
+	7. And, defining architecture capability
+
 ### Definition of Enterprise ###
+1. Highest level of description for an organization
+	1. Legal entity
+	2. Tight connection of businesses that operate together
+	3. Example: US Government
+		1. Branch
+			1. One defined group of people at the top who can set the direction for the way the business runs
+				1. Board of directors
+				2. Executive team
+				3. Deciders
+		2. Could be collection of organizations
+			1. Partners (contractors)
+				1. McDonalds - suppliers
+	4. Enterprise is the top level of the business
+		1. Everything operating below it are interconnected in some way
+			1. One or multiple organizations 
+2. Scope of enterprise architecture
+	1. May be you are an enterprise architect but not responsible for the whole enterprise
+		1. Only one business unit
+	2. Enterprise might be scoped differently for EA
+		1. Certain in scope or out of scope
+	3. Need to know where the scope is before we start
+
 ### The Four Architecture Domains - BDAT ###
+1. Architecture Domains
+	1. BDAT
+2. Business, Data, Application and Technology
+	1. Sub layers of enterprise architecture
+	2. Business Domain
+		1. Fundamental purpose of business
+			1. Why are you in business?
+			2. What are you hoping to achieve?
+			3. Business strategy that should be dictated by the owners represented by the executives and heads of the business units
+		2. Enterprise architecture tries to align all of the technical architecture of the business to the business architecture
+		3. Business architecture is defined first
+			1. DAT - Technical architecture is aligned with that
+		4. Defining current and future capabilities of business
+	3. Data Domain
+		1. Deals with logical and physical data assets
+			1. Data privacy
+			2. How data is handled
+			3. Data strategy
+			4. Resources
+		2. Deals with defining current structure and interaction of enterprise's major types and sources of data
+	4. Application Domain
+		1. Deals with how individual applications are developed and deployed
+		2. How the applications are related to the core business process
+		3. Deals with current and future structure and interaction of applications as groups of capabilities that provide key business functions
+	5. Technology Domain
+		1. Computers, networks, middleware are support system of business
+			1. Online age
+			2. Hackers are attacking
+			3. Spending has increased
+			4. Need to be strategic about this
+		2. Deals with defining the current and future structure and interaction of the technology services and technology components
+
 ### Architecture Development Method - ADM ###
+1. ADM: Established process that companies can use to define enterprise architecture
+	1. Tested and repeatable
+1. Phases:
+	1. Preliminary Phase - Here we establish the basic principles and setup architectural capability that will guide through the task and make decisions easier
+	2. Phase A: Vision (for the project) (ADM cycle phases from here)
+	3. Phase B,C,D: BDAT (stakeholders sign off here)
+	4. Phases E,F: Planning - Define a process for laying out a roadmap, a work plan and a series of transition architectures to get you from where you are to where you want to be
+	5. Phase G: Implementation
+		1. We work with development teams to get the work implemented and establish the architecture contract
+	6. Phase H: Change Management
+		1. This comes after the architecture is implemented
+			1. Whether we want to kick off a new ADM cycle or not
+	7. Requirements Management Phase Ongoing
+		1. When things come, we need to handle them here
+2. Examine things happening, changes in the industry, business requirements coming from executive team
+	1. We can decide when we should be starting the ADM cycle all over again 
+
 ### Architecture Work Products - Deliverables, Artifacts and Building Blocks ###
+1. Artifacts, Deliverables, and Building Blocks
+2. Work produces a lot of outputs
+	1. Outputs formats need not be invented
+	2. These can be built in accordance with Architecture Content Framework
+		1. ACF: Provides structural model for architectural content
+3. Artifacts: Work products that get produced during the architecture work
+	1. Lists
+	2. Matrices
+	3. Diagrams
+4. What artifact is defined in which phase? Exam
+	1. Understand what they are
+	2. Why it is defined in which phase
+5. Deliverables:
+	1. Contractually specified and in turn formally reviewed, agreed, and signed off by the stakeholders
+		1. A complete document - it must be reviewed, agreed upon and signed off by business owners and stakeholders
+	2. Building Blocks: Strive to generalize and re-use as much as you can of the architecture
+		1. Architecture Building Blocks (ABBs)
+			1. Named concepts (business processes) that can be reused in other places (between architecture diagrams)
+		2. Solution Building Blocks (SBBs)
+			1. These are implementations of the ABBs (technical solutions that can be re-used between architecture diagrams)
+				1. Supportive of ABBs
+	3. Example; Organization - need to lookup a customer profile (many different organizations need this capability for many reasons)
+		1. This is an ABB
+			1. This can be copied and pasted at the required spot of the diagram or requirements
+		2. SBB: CRM Customer Search Module
+			1. Solution to the ABB
+	4. ABBs and SBBs are deliverables
+
 ### Enterprise Continuum ###
+1. A way to classify items in the architecture repository
+	1. From extremely generic to extremely specific
+		1. Somewhere in middle as well
+2. It is a line
+	1. Foundation Architectures (Generic)
+		1. TOGAF contains TRM (Technical Reference Model)
+			1. Extremely generic
+				1. Describes a model that applies to a computer (applies to any company everywhere)
+	2. Common Systems Architectures (not every standard in this category applies to my company)
+		1. Focus is on service business say (SOA)
+		2. Focus is on product businesses
+		3. Focus is on manufacturing business
+		4. Focus is on public sector
+	3. Industry Architectures
+		1. Focus is on financial firm (financial standards for how data is passed between firms in the industry)
+			1. These apply to all companies in the industry
+		2. Focus is on education sector (education specific standards)
+	4. Organization-Specific Architectures
+		1. Ours
+		2. Proprietary generally
+		3. Specific to our company
+		4. We may taken from somewhere else and modified
+3. Enterprise continuum is divided into
+	1. Architecture Continuum
+		1. ABBs live here
+	2. Solutions Continuum
+		1. SBBs live here
+
 ### Architecture Repository ###
+1. It is a central storage for important architecture documents
+	1. Do not keep C:..\Documents as central storage (too many files)
+2. Most enterprises invest in an architecture repository system (a well organized file server) to store all work of architecture team
+	1. Well organized file server (folders, naming standards, ...)
+	2. Versioned file system like Git (for storing versioned files)
+	3. Knowledge management tool (purchased)
+		1. Specific tool could be
+3. TOGAF standard does not recommend how we store the documents
+	1. Each company can choose its own tool
+4. TOGAF talks about how we organize the documents
+	1. Architecture repository contains
+		1. Architecture Metamodel
+			1. Tailored to the organization
+				1. It contains our own version of the architecture framework
+		2. Architecture Capability
+			1. All of the rules around governance of architecture
+		3. Architecture Landscape
+			1. Represents all of the assets that are currently deployed in the organization
+				1. Systems
+				2. Business processes
+				3. ...
+		4. Standards Information Base (SIB)
+			1. Contains all standards not written by you (organization needs to keep handy and use when developing architecture)
+				1. Can include
+					1. Privacy standards (GDPR)
+					2. Health standards (HIPA)
+		5. Reference Library
+			1. Reference matarial that we can pull from when building architecture
+			2. As we are getting documents and other things we need
+		6. Governance Log
+			1. Record of architecture governance activity
+				1. What changes were requested
+				2. Whether they were approved or not
+				3. Justifications around that
+				4. Meeting Minutes
+				5. ...
+		7. Architecture Requirements Repository (*new in 9.2)
+			1. This consists of approved documents (signed off)
+		8. Solutions Landscape (*new in 9.2)
+			1. SBBs that support the architecture landscape
+
 ### Architecture Capability ###
+1. It is an evaluation of your ability to do enterprise architecture
+	1. You may have no capability currently
+		1. We are not trained on it
+		2. We have no one dedicated to it
+		3. We don't have processes in place
+		4. We don't have governance
+	2. Requires effort to grow architecture capability (the more we do it, the better we get at it)
+		1. Get trained
+		2. Start doing it
+		3. Hire someone to do it full time
+		4. Someone has experience in it
+		5. Put proper governance in place
+		6. Established framework that we are going to follow
+2. Preliminary Phase of ADM
+	1. We establish our current level of architecture capability
+	2. We decide on what level we want to be
+		1. 0 - 10 (we may not have the money, the more process, the longer it takes - not good for every company)
+	3. Challenge:
+		1. Get budget
+		2. Hier and train
+		3. Top levels of enterprise should be on-board with this 
+		4. Establishing a dedicated architecture group
+		5. Defining enterprise architecture for the enterprise
+3. Capability has a relationship to governance and repository
+	1. It is sandwitched between governance (top) and repository
+	2. Architecture capability: People and processes that establish the architecture.
+		1. Architecture goes into the repository 
+		2. Above people and processes that establish the architecture, is the governance model that sits on top establishing that the process runs according to the way we have defined it
+	3. Capability does not stop in the preliminary phase
+		1. Ability to establish architecture contract is part of the capability too
+			1. As we go through Phases A-F, the architecture team defining the architecture working with different leaders within the organization and put together a plan
+			2. In phase G we establish architecture contract
+				1. It is written and signed contract between the architecture team and implementation team
+					1. Implementation team agrees to implement the architecture as it is defined
+					2. During the implementation phase, we are going to monitor the implementations and make sure what we are developing and deploying matches the plan
+					3. We can hold them accountable if they deviate from the plan
+						1. If so they have to go to architecture governance and get a change request put through
 
 ## The ADM ##
 ### Introduction to the ADM ###
+1. Architecture Development Method
+	1. It is the process by which an architecture is defined
+
 ### ADM Cycle ###
 ### Preliminary Phase ###
 ### Phase A - Architecture Vision ###

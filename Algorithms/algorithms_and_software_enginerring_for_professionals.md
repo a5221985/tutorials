@@ -108,10 +108,106 @@
 		3. Iterator
 
 ### Iterations with Java Collections ###
+1. Learning Objectives
+	1. Transformations on sequences for the Java Programming Language
+	2. Iteration Loops for List, Sets and Maps
+	3. Collection Iterator How to use it
+	4. When to use the iterator
+2. Section 2 Guided Learning Tasks
+	1. Transformations on sequences
+	2. Enhanced for loop with lists
+	3. Iterator
+3. Fixed size array
 
+		Integer[] intArray = new Integer[] {0, 1, 2, 3, 4}
+		int[] intArray2 = new int[100]; // full of zero's
+
+		List<Integer> fixedSizeList = Arrays.asList(intArray); // fixed size and cannot add any elements
+
+		List<Integer> dynamicList = new ArrayList<>();
+
+		// streams with autoboxing
+		List<Integer> dynamicList3 = Arrays.stream(intArray3)
+										.boxed()
+										.collect(Collectors.toList());
+		dynamicList3.add(4);
+
+		// counting loop is inefficient for calling underlying sequence
+
+		// enhanced for loop
+		for (Integer index: dynamicList)
+			System.out.println(index);
+
+		// lambda loop
+		dynamicList3.forEach(s -> System.out.println(s));
+
+		// For underlying sequence
+		dynamicList.addAll(Arrays.asList(intArray));
+		dynamicList.add(1);
+
+		// this is safe but poor design
+		for (int k = 0; i < dynamicList.size(); k++) {
+			if (k == 1) {
+				dyamicList.remove(1);
+			}
+		}
+
+		// triggers the fail-fast ConcurrentModificationException (if unaligned sequence is transformed outside the loop, then iterator will throw this)
+		for (Integer i : dynamicList) {
+			if (i.intValue() == 1) {
+				dyamicList.remove(i);
+			}
+		}
+
+		// safe iterator remove with while and explicit iterator
+		Iterator itr = dynamicList.iterator();
+		while (itr.hasNext()) {
+			if (((Integer)itr.next() == 1)) {
+				// important we use 'remove' on the Iterator instance
+				itr.remove();
+			}
+		}
 
 ### Iterations Lab 2 LinkedList Unsafe iteration on Queues ###
+1. Queue
+
+		int len = 10000;
+
+		LinkedList<Integer> queue = new LinkedList<>();
+
+		for (int m = 0; m != len; m++) {
+			int x = (int) Math.random();
+			queue.add(x);
+		}
+
+		long t = System.currentTimeMillis();
+
+		for (int i = 0; i != len; i++) { // this is slow (use implicit for loop or explicit iterator)
+			queue.get(i);
+		}
+
+		t = System.currentTimeMillis() - t;
+		System.out.println("LinkedList -- get(index) takes " + t + " (ms)");
+
+		t = System.currentTimeMillis();
+		for (Iterator itr = queue.iterator(); itr.hasNext();) {
+			itr.next();
+		}
+		t = System.currentTimeMillis() - t;
+		System.out.println("LinkedList -- Iterator takes " + t + " (ms)"); // much faster
+
 ### Iterations with Java Maps and Streams ###
+1. Java Maps are not collections
+	1. They are made of key/value pairs of any type
+
+			Integer[] intKeys = new Integer[][0, 1, 2, 3, 4];
+			String[] stringValues = new String[] {"zero", "one", "two", "three", "four"};
+			Map<Integer, String> map = new HashMap<>();
+			int counter = 0;
+			for (Integer iBoxed : intKeys) {
+				map.put(iBoxed, stringValues[counter++]);
+			}
+
 ### Iterations lab 3 Matching Pattern Sequences with Iterations Part A ###
 ### Iterations Lab 3 Matching Pattern Sequences with Iterations Part B ###
 

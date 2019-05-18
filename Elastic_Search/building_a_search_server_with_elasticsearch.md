@@ -815,14 +815,19 @@
 3. search-app.js
 
 		$scope.searchTerms = null;
-		...
+		$scope.noResults = false;
+		$scope.isSearching = false;
+		$scope.resultsPage = 0;
 
 		$scope.results = {
-			searchTerms = null,
+			searchTerms: null,
+			documentCount: null,
 			documents: [];
 		}
 
 		$scope.search = function () {
+
+			resetResults();
 			var searchTerms = $scope.searchTerms;
 
 			if (searchTerms) {
@@ -834,12 +839,34 @@
 			getResults();
 		};
 
+		// Results
+		var resetResults = function () {
+			$scope.results.documents = [];
+			$scope.results.documentCount = null;
+
+			$scope.noResults = false;
+		}
+
 		var getResults = function () {
+			$scope.isSearching = true;
+
 			searchService.search($scope.results.searchTerms).then(function (es_return) {
-				$scope.results.documents = searchService.formatResults(es_return.hits.hits);
+				var total_hits = es_return.hits.total;
+
+				if (totalHits > 0) {
+					setTimeout(function() {
+						$scope.results.documentCount = totalHits;
+						$scope.results.documents = searchService.formatResults(es_return.hits.hits)
+					}, 30);
+				} else {
+					$scope.noResults = true;
+				}					
+
+				$scope.isSearching = false;
 			},
 			function (error) {
 				console.log('Error: ', error.message);
+				$scope.isSearching = false;
 			});
 		}
 		...
@@ -857,8 +884,26 @@
 			]);
 		}
 
+		...
+
+		<section class="results">
+			<h1 class="search-title">
+				Results for <strong>{{results.searchTerms}} ({{results.documentCount}})</strong>
+			</h1>
+
+			<p ng-if="noResults" class="no-results">No results were found for your search.</p>
+		
+			...
+		
+			<div class="throbber" ng-if="isSearching">
+				SEARCHING &hellip;
+			</div>
+
+
 ## The Advanced Search Functionality ##
 ### Highlighting ###
+1. 
+
 ### Sorting ###
 ### Aggregations ###
 

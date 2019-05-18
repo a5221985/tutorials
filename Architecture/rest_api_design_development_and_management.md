@@ -802,15 +802,704 @@
 
 ## REST API Specifications Using Swagger 2.0/OAI ##
 ### Requirements Analysis Process & Intro to REST Specifications ###
+1. Learning Objectives:
+	1. Specification development process
+	2. Specification standards
+		1. Multiple competing
+2. Application Programming Interface
+	1. A **user interface** to data and systems that is **consumed by applications** rather than humans
+	2. A well defined **contract** between API provider and consumer
+		1. REST API is an embodiment of that
+3. Contract Creation Approach
+	1. Contract Last
+		1. API developer develops code, annotates and puts comments
+		2. Tool is run on the code to output the specification document and another documentation (for reading)
+	2. Contract First
+		1. First specification is created
+		2. A tool is run on the specification to generate code (skeleton)
+			1. API developer adds logic to the skeleton
+			2. Generate documentation (for reading)
+		3. Recommended because the other approach makes it difficult to keep code and spec in sync
+4. Specifications
+	1. Collaboration between App Developer and API Developer
+		1. Get together for the following
+			1. Requirements gathering
+			2. Analysis
+			3. Specification definition
+			4. Mocking & Validation
+				1. Mock REST service is created using Spec (v1)
+		2. App Developer uses the mock to validate the function they are developing
+			1. If it works, that is the final version or else the above interative process continues til spec is agreeable to both
+		3. Final version (REST API Spec) is taken by API Developer to implement the API
+5. REST API Specification Standards
+	1. WADL - W3C standard - Web API Description Language (XML based standard)
+	2. apiblueprint
+	3. apiary
+	4. raml: Supported by mulesoft
+	5. Swagger: Becoming standard for REST API Spec across industry
+6. Swagger:
+	1. Open source projects adopted Swagger and supported by multiple vendors
+		1. apigee
+		2. API Management (IBM)
+		3. Mashery
+		4. Layer7 Technologies
+	2. Vibrant community
+		1. [https://github.com/swagger-api](https://github.com/swagger-api)
+7. Benefits
+	1. Swagger spec can be used for the following:
+		1. Generate Developer Documentation
+			1. Can be put on a website
+				1. App developer can search the APIs to select the API best for them
+	2. Swagger spec can be used to generate Proxy
+		1. Automated proxy creation
+		2. Server code generation
+	3. Swagger spec can be used to generate Client code (for app developer) using codegen tool
+		1. Java client code
+		2. ...
+	4. Swagger spec can be used for service virtualization (Mocking)
+
 ### Swagger/OAI Specifications Walkthrough ###
+1. Learning Objectives:
+	1. Introduction to Swagger & YML
+	2. Swagger tools (for creation and editing)
+2. [http://swagger.io/specification/](http://swagger.io/specification/)
+	1. OpenAPI initiative took over
+		1. Open API initiative (OAI) is focussed on creation, evolution and promotion of a vendor neutral API Description Format based on the Swagger Specification
+		2. Swagger spec is known as OpenAPI Spec - Version 2.0
+			1. Spec can be written in JSON or YML
+				1. YML is superset of JSON
+					1. We can mix both
+	2. [http://yaml.org/](http://yaml.org/)
+		1. Preferred because
+			1. Human consumption i.e, easily readable & understandable
+				1. Meant for human consumption
+		2. It is a serializatoin language like XML, JSON (may not replace XML or JSON)
+			1. Mostly used for configuration files
+		3. Superset of JSON
+			1. Uses indentation instead of symbols such as <> or {}
+3. JSON example:
+
+		"swagger": "2.0",
+		"info": {
+			"title": "Uber API",
+			"description": "Move your app forward with the Uber API",
+			"version": "1.0.0"
+		}
+
+4. YML example:
+
+		swagger: '2.0'
+		info:
+			title: Uber API
+			description: Move your app forward with the Uber API
+			version: 1.0.0
+
+5. Learn YML (it is easy)
+6. Editor tool
+	1. Any YML Editor is OK
+		1. Eclipse: YEdit
+	2. Online Editor
+		1. [https://editor.swagger.io](https://editor.swagger.io)
+			1. Left side editor
+			2. Right side spec
+		2. Import
+		3. Download
+		4. Generate Server code
+			1. Lot of languages
+		5. Generate Client code
+	3. Node tools
+		1. `swagger-editor`
+		2. `swagger` - collection of tools but framework for APIs
+			1. `swagger project create` - creation of project
+			2. Model it: opens swagger editor for YML
+				1. Provide YML spec
+			3. Try it:
+				1. API is live while we edit
+					1. Shows mock data
+		3. Quit faking: Write real code with Node.js
+		4. Publish the entire API project to any Node.js platform
+
 ### Swagger/OAI Specifications, Part 1 of 3 ###
+1. Learning Objectives:
+	1. Structure of the document
+	2. Meta data, URL endpoints
+		1. How to do this
+	3. Tags, External links to docs
+2. Swagger 2.0 - has 3 parts
+	1. Global information:
+		1. Metadata
+		2. External documentation links
+		3. Tags - makes spec developer friendly by making it searchable
+	2. Definitions: schemas for Requests and responses (applied to various resource operations)
+		1. definitions
+		2. parameters
+		3. securityDefinitions
+	3. Resource definitions: Refers to the previous two parts
+		1. request schema and response schema are defined under definitions
+		2. tags refers to tags in part 1
+3. Solution: [https://github.com/acloudfan/REST-API-Course-Swagger.git](https://github.com/acloudfan/REST-API-Course-Swagger.git)
+	1. Clone the repo
+	2. git branch rootdocument
+4. Metadata
+	1. Info
+		1. Version
+		2. Title
+		3. Description
+		4. Contact (optional)
+			1. name
+			2. url
+			3. email
+		5. License (optional)
+			1. name
+			2. url
+5. Example:
+
+		swagger: "2.0"
+
+		info:
+			version: "0.0.1"
+			title: ACME Vacations API
+			description: This specification is for the ACME Travel packages |
+				These specifications were used to teach the students how
+				to construct the Swagger specifications for their REST API
+
+			contact:
+				name: A Cloud Fan
+				url: http://www.acloudfan.com
+				email: raj@acloudfan.com
+			
+			license:
+				name: GNU
+				url: http://acloudfan.com
+
+	1. | is used for multiline description
+6. Root Document - used to define endpoint urls
+	1. host - `api.acme.com:3000`
+	2. basePath - `/v1` - prepended to resource name
+	3. schemas[string] - `http`, `https`
+	4. consumes[string] - content type header - indicates type of the request accepted (`application/json`, `application/xml`, `plain/text`)
+	5. produces[string] - content type header - indicates type of the request produced (`application/json`, `application/xml`, `plain/text`)
+	6. Example:
+
+			host: localhost:3000
+			basePath: /v1/
+			schemas:
+				- http
+				- https
+
+			consumes:
+				- application/json
+			produces:
+				- application/json
+			
+		1. `-` indicates each item in an array
+7. Tags:
+	1. Metadata - used by the developer portal tools - to generate filterable and searchable documentation for the API
+	2. Tag#1
+		1. name
+		2. description
+	3. Tag#2
+		1. name
+		2. description
+	4. These are referred in Paths or Operations sections
+		1. Third section
+	5. Example:
+
+			tags:
+				- name: vacations
+				  description: Refer to vacation packages that are offered by ACME travel
+				- name: hotels
+				  description: Refer to partner hotels through which ACME offers vacation |
+								deals.
+				- name: package
+				  description: Same as vacations. It refers to the vacation package.
+8. Spec does not have all the documentation so the developers need to get as much help as possible
+	1. externalDocs: Defined under root
+		1. Two parts:
+			1. description
+			2. url
+		2. Links to external document repository
+			1. FAQ - external web page
+		3. May be used in Path (not by $ref)
+			1. Can also be created for paths
+				1. Website is linked from the spec
+		4. Example:
+
+				externalDocs:
+					description: This is an external doc
+					url: http://developer.acmetravel.com/docs
+
 ### Swagger/OAI Specifications, Part 2 of 3 ###
+1. Learning Objectives:
+	1. Defining schema for request/response
+	2. Parameters - how request data is received
+	3. Security schemes - applied to various operations
+2. Solution:
+	1. [https://github.com/acloudfan/REST-API-Course-Swagger.git](https://github.com/acloudfan/REST-API-Course-Swagger.git)
+	2. Clone repo
+	3. `git branch definitions`
+3. Definitions:
+	1. Parts:
+		1. definitions: name schema for defining requests and responses for API operations - In path section references are made to the definitions
+			1. `$ref:"#/definitions"` from operation
+		2. parameters: how request data is received
+			1. Request/Input schema - operations make references to the parameters under Definitions section
+				1. `$ref:"#/parameters"` in operation parameters
+		3. securityDefinitions: Define different schemes supported by the API
+			1. Under operations, using `security` element we make references to `securityDefinitions` from the operation
+	2. Details:
+		1. definitions: have common schema that describe the messages for requests and responses
+			1. There can be multiple named schemas under the definitions
+			2. Each named schema has two parts
+				1. schema - JSON Schema (say) [http://json-schema.org](http://json-schema.org)
+				2. examples - (data examples)
+
+						Mime-type : {
+							example as per the
+							schema
+						}
+
+					1. Example with xml or with json
+					2. Used in **docs** or by **mocking tools**
+	3. Example:
+
+			# Definitions
+			definitions:
+				GeneralError:
+					required:
+						- message
+					properties:
+						message:
+							type: string
+
+		1. `GeneralError` - named schema and it has one property `message`
+		2. `message` is of type `string` and it is a required field
+			1. Any time there is an error, the operation will be able to send error message in this format
+	4. Example: for http status 404 along with a message with the following structure
+
+			# Not found error
+			NotFoundError:
+				required:
+					- message
+					- hint
+				properties:
+					message:
+						type: string
+					hint:
+						type: string
+
+	5. Example: Vacations schema
+
+			# Vacations
+			Vacations:
+				required:
+					- name
+					- description
+					- type
+					- numOfNights
+				properties:
+					name:
+						type: string
+					description:
+						type: string
+					type:
+						type: string
+						enum:
+							- resort
+							- cruise
+					destinations:
+						type: array
+						items:
+							$ref: "#/definitions/Location"
+						minItems: 1
+						maxItems: 12
+					numOfNights:
+						type: number
+						minimum: 1
+						maximum: 31
+
+		1. References to another schema
+
+				Location:
+					required:
+						- city
+						- country
+					properties:
+						city:
+							type: string
+						country:
+							type: string
+
+4. Parameters
+	1. Here we can define the common ways in which the API will receive request data or request message
+		1. Parameter:
+			1. name
+			2. description
+			3. in
+				
+					{
+						body,
+						query,
+						header,
+						path,
+						formData
+					}
+
+				1. If `n==body` then we must define the schema
+					1. We can define under this or we can make reference to the schema defined under definitions section
+
+			4. required
+	2. Example:
+
+			parameters:
+				IdInPath:
+					name: id
+					in: path
+					type: string
+					required: true
+
+		1. Body: No name needed but schema is needed
+		2. Query: name is needed
+		3. Path: name of path
+		4. header: custom header name
+
+6. SecurityDefinitions:
+	1. type - security scheme
+
+			{
+				basic,
+				apiKey,
+				oauth2
+			}		
+
+	2. name - Used for associating with operation
+	3. description
+	4. in - where the security credentials are received
+
+			{
+				query,
+				header
+			}
+
+	5. Example:
+
+			securityDefinitions:
+				KeySecurity:
+					type: apiKey
+					in: query
+					name: api_key
+
+		1. `apiKey` - scheme
+
 ### Swagger/OAI Specifications, Part 3 of 3 ###
+1. Learning Objectives:
+	1. How to construct the /paths
+	2. How to use *definitions* (in path parameters, responses and security)
+2. Parts:
+	1. paths
+		1. Multiple path definitions
+			1. `/vacations`, `/portals` paths
+		2. Each path can have one or more operations
+	2. Operation
+		1. get:, put:, post:
+		2. Summary - Short description for the operation
+		3. Description - Long description for the operation
+		4. Tags [] - Pre defined tags or new tags (first part or new tags)
+		5. External Documentation - link to external documentation specific to this operation
+3. Define Paths before the Definitions (recommended)
+
+		# Paths
+		paths
+			/vacations/{id}
+				get:
+					summary: this is a get op
+					description: Returns the vacation package identified by {id}
+					tags:
+						- vacations
+						- packages
+					externalDocs:
+						description: Link to the /vacations ops details & flow
+						url: http://www.acloudfan.com
+					consumes:
+						- application/json
+					produces:
+						- application/json
+					parameters:
+						- $ref : "#/parameters/IdInPath"
+
+					# 1 response per HTTP Status code
+					responses:
+						"200": 
+							description: Gets the specific hotel
+							schema:
+								$ref: "#/definitions/Vacation"
+					
+						"400":
+							description: When a vacation package is NOT found
+							schema:
+								$ref: "#/definitions/NotFoundError"
+
+						default: # all other http codes
+							description: Error
+							schema:
+								$ref: "#/definitions/GeneralError"
+
+					# security
+					security:
+						- keySecurity: [] # oauth only - scopes
+
+	1. Consumes - MIME type (array)
+	2. Produces - MIME type (array)
+	3. Parameters - decides how request data will be received by the operation
+		1. `$ref: "#/parameters"`
+		2. On the fly
+	4. For each status code, there should be a response
+		1. There can be multiple responses for an operation
+		2. Can reference from definitions
+		3. Can be created here
+	5. Security: refers to the security scheme defined under the securityDefinitions
+		1. Security: "#/securityDefinitions"
 
 ## API Management ##
 ### Introduction to API Management ###
+1. Learning Objectives:
+	1. API management scope
+		1. Activities related to API management
+	2. API management infrastructure
+		1. Two infrastructure models
+			1. High level
+2. API Management: API Management is the process of publishing, documenting and overseeing Application Programming Interfaces in a secure, scalable environment
+	1. Activities
+		1. Lifecycle management
+		2. Productivity enhancements for application developers
+		3. Securing the API
+		4. Traffic management
+		5. Analytics
+		6. Productization of the APIs
+		7. Monetization
+3. API management platforms
+	1. akana
+	2. apigee
+	3. IBM API Connect
+	4. 3scale
+	5. MuleSoft
+	6. Mashery
+	7. WSO2
+	8. ...
+4. Two API management models (Infrastructure)
+	1. Agent based
+		1. Enterprise network (secure env)
+			1. APIs implemented in 
+				1. Node.JS
+				2. Websphere
+				3. Enterprise Service Bus
+			2. Gateway is on the edge of the enterprise
+			3. API management policies gets applied on the APIs within the servers hosting the APIs throw an agent (provided by API management platform)
+				1. Through some kind of agent provided by the API management platform
+			4. Access to the application is through the secured gateway
+	2. Proxy based
+		1. API management platform sits on the edge of the enterprise
+		2. Proxies are defined on the platform
+		3. Calls coming to the proxies are routed to the API implementations in the trusted network
+			1. Policies are applied to the proxies (not to API implementations)
+		4. When an app makes a call to the proxy, the policies are applied and if everything is good, call is routed to the backend
+		5. Common policies:
+			1. Security policies
+			2. Traffic management policies
+		6. Dev portal
+			1. App developers can access the Dev Portal to get information about the APIs
+			2. To raise request for access
+			3. To get support for the APIs
+4. Details of activities
+5. Some API management platform as example (for activities)
+
 ### API Lifecycle & Developer Productivity ###
+1. Learning Objectives
+	1. API Lifecycle
+		1. API management perspective
+	2. Developer productivity
+		1. Of API developer
+		2. Of App developer
+2. Three products - features to enhance productivity
+	1. IBM API Connect
+	2. apigee
+	3. MuleSoft
+3. Lifecycle of API
+	1. Build (stage)
+		1. API is developed by the developer
+		2. Once API is validated, it gets into next stage
+	2. Publish
+		1. App developers can request access to the API
+			1. If access is granted, they can access or invoke
+	3. Deprecated - Sometimes published version is deprecated
+		1. Replaced by new version
+		2. This will not allow for new app developers to request the access
+	4. Retired - At some point deprecated API gets retired
+		1. API code is removed from infrastructure
+4. To support the API lifecycle in an organization, organization must establish some processes, practices and roles
+	1. Developer documentation
+	2. Who will carry out publishing
+5. We need to publish roadmap in advance
+	1. If provided new version of API, provide Dates for publish, depreated and retired dates in advance if possible
+		1. For App developers are external
+6. Setup App developer communication
+	1. Keep them updated with lifecycle state transitions in advance if possible
+7. Leverage and construct tools
+	1. If company has bought the following use them:
+		1. HP Systnet
+		2. IBM WSR
+8. API lifecycle management is not a standard feature on the API management platforms
+	1. IBM API Connect (support this)
+		1. Draft: API starts it's life in this mode
+		2. Plan: Next phase
+		3. Stage: Next phase
+			1. Publish: Available for provisioning under API Connect developer portal
+				1. Deprecate: API no more available for provisioning on Developer portal
+9. Productivity:
+	1. App developer - Needs developer portal to manage the following
+		1. API Documentation:
+			1. Like to see great documentation
+			2. Like to see samples and examples
+		2. Self serve provisioning
+			1. How the app developer will get access to the APIs
+				1. email and phone is not a good idea
+			2. Develop a website for letting app developers request access
+		3. Support
+			1. If app developer has a problem where do they go?
+	2. API developer - Should make quick decisions about how to implement the API, best designs options, other aspects of implementation
+		1. Development guidelines
+		2. Frameworks - for constructing the API
+		3. Best practices - API developers can leverage
+	3. Design and Development: API Management solutions support this by frameworks and features
+		1. Specifications based tooling
+			1. Feature: Import of specifications for the creation of the API
+				1. Example: Importing Swagger Spec in IBM API Connect or apigee
+				2. Example: Importing RAML based Spec in MuleSoft Platform
+					1. API gets created just by import of the Specs
+		2. Utilities and Tools:
+			1. Feature: Provided to enhance developer productivity
+				1. Mulesoft:
+					1. API Manager > Add new API
+						1. API Name: New API
+					2. API Designer
+						1. Paste RAML
+							1. API is ready
+				2. IBM API Connect
+					1. We can import Swagger Spec (OpenAPI spec)
+						1. Import
+		3. Non-functional requirements
+			1. Security and traffic management (must not be coded into the API - complex and may change)
+				1. Solution: Policy based implementation
+					1. Apply policies written in XML or JSON format (configurations)
+						1. Basic to oauth2 say
+						2. Some use proprietary
+							1. Mulesoft - Mulesoft expression language
+					2. If policies are not enough, then
+						1. Support for extensions
+							1. JavaScript based
+							2. Java based
+							3. Groovy based
+			2. Example: apigee
+				1. Target Endpoint: Google GeoCoding API
+					1. http://maps.googleapis.com/maps/api/geocode/json?address=92012
+				2. Demo:
+					1. Creation of proxy for GeoCoding API
+						1. http://acloudfan-test.apigee.net/geolocation
+					2. Apply policy to protect with **Basic Authentication**
+						1. http://acloudfan-test.apigee.net/geolocation?username=acloudfan&password=test
+				3. Implemetation:
+					1. Go to apigee portal
+						1. API proxy
+						2. Reverse proxy (most common)
+							1. Use OpenAPI 
+							2. Next
+						3. Proxy name: geolocation
+						4. Existing API: http://maps.googleapis.com/api/geocode/json
+							1. Next
+						5. Secure access for users and clients
+							1. Authorization: Pass through (none)
+						6. Build and deploy
+						7. Open link
+						8. Provide address=08817
+						9. Basic authentication
+							1. Go to Develop tab
+							2. Add a step
+								1. Basic Authentication
+								2. Appy
+								3. Save
+							3. Give `&username=acoundfan&password=whatever`
+								1. No code but only policy
+						10. apigee uses xml for policies
+							1. API developer can change xml to change behavior
+
+									<User ref="request.queryparam.username"/>
+
+								1. Can be changed to receive in header param
+
 ### API Developer Portal ###
+1. API Management - Developer Portal
+	1. Learning Objectives
+		1. Developer portal features (that make sense for our API)
+		2. Build versus Buy
+	2. Demos
+		1. apigee
+		2. mulesoft
+2. It is a one stop shop for app developers
+	1. It should have
+		1. API Documentation
+			1. Manage in Swagger/OAI
+				1. This cannot contain a complex flow
+					1. Separate doc and publish in a web-page
+					2. Use `externalDocs` URL to connect with external documentation
+			2. Try it feature
+				1. On the Dev portal
+				2. Developer can understand how API works
+					1. Provide sample code
+					2. Provide sample data
+					3. Provide SDK
+						1. To get developer up to speed quickly (without going through the documentation)
+			3. Example:
+				1. Walmart Open API
+					1. Search API
+						1. Click Try and it works
+				2. Uber:
+					1. SDK
+						1. To add button to mobile app
+		2. Self server provisioning
+			1. Get access
+			2. Manual provisioning:
+				1. Emails or phone calls to get access to API
+					1. App Developer connects to API Owner using ticketing system
+					2. API Owner checks policy
+						1. If okay to grant access,
+							1. Manually generate key/secret (share with App developer)
+				2. Okay for internal teams (not for public or partner APIs)
+			3. Self provisioning:
+				1. App developer visits Dev portal
+				2. App developer looks at the API and tries out
+				3. App developer raises request for the API
+				4. Dev Portal checks if API is setup for auto approval
+					1. If setup for auto approval,
+						1. Portal generates the key/secret
+							1. Key/secret are shared with App developer on the portal
+					2. If not setup for auto approval,
+						1. API Owner is notified
+						2. API Owner checks API policy
+						3. API Owner grants access if okay
+						4. Key/Secret are generated on the portal itself
+						5. Key/Secret are shared on portal itself
+			4. Provision practices:
+				1. Clearyly define the role, responsible for authorization of access to API
+					1. By way of manual process or by way of self service
+						1. Need someone to take decision on whether to authorize access or not
+				2. Setup the API access policies for your API
+					1. Think about who can access it
+						1. Private use
+						2. Partner use
+						3. Public developer (may need to deny)
+				3. Define a criteria for Automatic versus Manual provisioning 
+		3. Support
+
 ### API Security Management ###
 ### API Traffic Management ###
 ### API Analytics ###
