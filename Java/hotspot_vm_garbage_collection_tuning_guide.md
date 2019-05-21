@@ -158,8 +158,53 @@
 		1. Pressure to achieve throughput goal (may require larger heap size) competes with goals for maximum pause-time and minimum footprint (both may require small heap)
 
 ## Garbage Collector Implementation ##
+1. Java SE shields developer from complexity of memory allocation and garbage collection
+	1. Developer needs to understand some aspects of the implementation (since it is a bottleneck)
+2. GC assumes how apps use objects
+	1. Reflected in tunable parameters
+
 ### Generational Garbage Collection ###
+1. Garbage:
+	1. Object is garbage (it's memory can be reused by VM) if it can no longer be reached from any reference of any other live object in running program
+2. Theoretical simple gc:
+	1. iterates over every reachable object
+	2. Left over objects are garbage
+		1. Time taken is proportional to number of live objects
+			1. This is not acceptable for large applications with lots of live data
+3. HotSpot VM incorporates different GC algorithms which use a technique called **generational collection**
+	1. Exploits emprically observed properties of most apps to minimize work required to reclaim unused (garbage) objects
+		1. **weak generational hypothesis**: one property
+			1. Most objects survive only a short period of time
+				1. `Iterator` object lives only during the loop
+				2. Certain objects come alive when app is initialized and live until VM exits
+			2. Majority of applications have this property
+				1. Efficient collection is focussing on the fact that majority of objects "die young"
+
 ### Generations ###
+1. To optimize the scenario, memory is managed in **generations** (memory pools holding objects of different ages)
+	1. GC occurs in each generation when the generation fills up
+		1. Vast majority of objects are allocated in a pool dedicated to young objects (the **young generation**)
+			1. Most object die in this pool
+		2. When young generation fills up, it causes **minor collection** where only young generation is collected
+			1. Garbage in other generations is not reclaimed
+	2. Young generation full of dead objects is collected very quickly
+	3. During each minor collection, a fraction of surviving objects from young generation are moved to the **old generation**
+	4. Eventually **old generation** fills up and must be collected
+		1. This results in **major collection**: entire heap is collected
+			1. This cycle lasts much longer (more objects are involved)
+2. Default arrangement of generations in serial collector:
+
+		![jsgct_dt_001_armgnt_gn_new](jsgct_dt_001_armgnt_gn_new)
+
+	1. Young
+		1. Eden
+		2. Survivor
+		3. Survivor
+		4. Virtual
+	2. Old
+		1. ...
+		2. Virtual
+
 ### Performance Considerations ###
 ### Throughput and Footprint Measurement ###
 

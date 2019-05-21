@@ -495,18 +495,209 @@
 	2. Then we seek out motor/prop/battery combinations that get us close to our TWR goals.
 
 ### Estimating Weight of Drones Part 1 ###
-
+1. Steps in the Design Process
+	1. Estimate Weight of Drone (DOES NOT HAVE TO BE PERFECT!)
+		1. +/- 20% of actual weight
+	2. Have a TWR goal
+		1. 2 say
+	3. Find Motor/Prop/Battery combinations to provide the required thrust to meet your TWR goal
+2. Steps in the Design Process
+	1. Estimate Weight of Drone (DOES NOT HAVE TO BE PERFECT!)
+		1. Start with the frame you would like to use
+			1. Frame manufacturer will usually provide a list of parts specs used with that frame (typically)
+				1. Example: 3S, 20 ESCs, 900 KV motors
+		2. Start from suggested part specs provided by the frame manufacturer
+		3. Add weights of the estimated parts to get total estimated weight of drone
+			1. Of all the parts
+	2. Note:
+		1. If your estimate is for a part that you do not end up using like (ESCs), difference in weight between your estimated part and the final part is most likely minimal
+			1. Contradiction: Battery selection
+				1. Batteries can vary greatly in weight (3000mAh to 5000 mAh drone)
 
 ### Estimating Weight of Drones Part 2 ###
+1. Table:
+	1. Part
+		1. Motor - 4 (multiplier) - 55 g (Unit Weight) - 220 g (Weight)
+		2. ESC - 4 - 28 g - 112 g
+		3. Frame - 1 - 272 g - 272 g
+		4. RC Receiver - 1 - 20 g - 20 g
+		5. Battery - 1 - 266 g - 266 g
+		6. Props - 4 - (1045 props) 10 g - 40 g
+		7. Telemetry - 1 - 20 g - 20 g
+		8. FC - 1 - 50 g - 50 g
+		9. PDB - 1 - 20 g - 20 g
+		10. PPM Encoder - 1 - 10 g - 10 g
+		11. GPS - 1 - 20 g - 20 g
+		12. Misc - 1 - 20 g - 20 g
+	2. Total weight: 1070
+	3. TWR Goal: 2
+	4. Required Thrust (g): **2140**
+
 ### Drive-Train of Drones: Props+Motors+Batteries ###
+1. Find Motor/Prop/Battery combinations to provide the required thrust to meet your TWR goal
+2. Overview
+	1. Thrust and current draw are functions of prop, motor and battery selection:
+		1. Thrust(prop, motor, battery) = Grams Thrust
+		2. CurrentDraw(prop, motor, battery) = Amps
+	2. If we change any one of the three variables of thrust and current, we will get different Thrust and Current draws
+3. Example 1:
+	1. 8045 prop, 935 KV motor, 3S battery
+		1. Max Thrust: 490 g
+		2. Max Current Draw: 7.1 A
+	2. 1045 prop, 935 KV motor, 3S battery
+		1. Max Thrust: 670 g
+		2. Max Current Draw: 9.6 A
+	3. 5045 prop, 2300 KV motor, 3S battery
+		1. Max Thrust: 712 g
+		2. Max Current Draw: 20.7
+	4. 5045 prop, 2300 KV motor, 4S battery
+		1. Max Thrust: 1024 g
+		2. Max Current Draw: 30 A
+			1. ESCs may get blown off
+
 ### Estimating Thrust and Current Draw ###
+1. Drone Drivetrain:
+	1. For simplicity, defining drone drivetrain to be a given selection of prop/motor/battery
+		1. **Drivetrain = {prop, motor, battery}**
+		2. Example:
+			1. Drivetrain = {1045, 2212 1000KV, 3S}
+			2. Drivetrain = {8045, 2212 2300KV, 4S}
+2. Overview
+	1. Three main ways to determine thrust and current draw of your setup
+		1. Buy the prop/motor/battery and bench test yourself
+		2. Triangulate similar setups from other people's bench tests online
+		3. Empirical data from manufacturer (my favorite)
+3. Method 1: Bench Testing
+	1. Method:
+		1. flip the props so that motor presses down
+		2. Put the motor on top of wooden block
+		3. Put the whole setup on top of a weighing machine
+		4. Turn motor at full speed
+		5. Reading is the grams of thrust the motor can produce
+	1. Pros: confidence in data you acquire
+		1. If motors are already there at home
+	2. Cons: Buy the components before you know if hardware will work with the drone
+		1. Not time efficient
+			1. Not worth if others have already done this
+2. Method 2: Triangulate Others Results
+	1. Method is based on theoretical assumption
+	2. **Motors of similar size, KV rating and stator configuration should theoretically produce the same thrust for a given prop and battery choice**
+		1. 2212 920 KV motor from EMAX should perform very similar to any othe r2212 920 KV motor
+			1. We can **estimate** thrust/current draw by comparing confirmed thrust/current draws from similar motors
+	3. Check in google
+		1. Check 2 bench tests and triangulate
+	4. Not accurate but it is just estimate
+3. Method 3: Empirical Data from Manufacturer (best method)
+	1. Bench tests by manufacturer
+		1. Thrust table
+			1. EMAX1045 - 9.6 A, 670 g, 106 W, 6.3 G/W, 6530 RPM
+				1. 4 motors: 38.4 A, 2680 g of thrust, 424 W, ...
+	2. Pros:
+		1. Convencience of estimating thrust/current draw before buying from **Thrust tables**
+		2. Empirical test data for your specific motor
+	3. Cons:
+		1. Empirical data may not reflect acutal results seen on your finished vehicle
+
 ### Choosing ESCs ###
+1. Steps in the Selection Process
+	1. Determine the Prop Size/Motor/Battery combination to be used
+	2. Determine the maximum current draw given the choice from 1
+	3. Select an ESC with a maximum current rating that is ~20% more than the maximum theoretical current draw from 2
+2. ESC is a function of maximum current draw
+	1. Choose with 20% more current than max current draw of motor
+		1. ESC are sensitive and can handle only so much current
+			1. Motors should draw lesser current than ESC can support
+3. Example:
+	1. 10x45 Props
+	2. 3S Battery
+	3. 935KV/2213 Motor
+	4. Estimated Max current Draw
+		1. ~15 A
+		2. Calculate 20% more than 15 A
+			1. 15 A * (1.2) = 18 A - ~20 A rounded
+				1. ESC should support atleast 18 A maximum current rating
+4. Over Spec'ing ESCs
+	1. Means selecting ESCs that have a much larger max AMP rating than required for setup
+		1. Pros:
+			1. Can dissipate heat more effieciently (escessive heat is one of the main causes for ESCs to fail)
+			2. Can be re-purposed for higher current builds
+		2. Cons:
+			1. Heavier and thus reduce the amount of flight time available
+5. Maximum theoretical current draw: 15A
+6. Maximum ESC Amp rating: 30A
+7. 100% larger ESC ap rating than expected on drone build
+8. Comparison
+	1. 30A ESC
+		1. Output: Continuous 30A, Burst 40A up to 10 Secs
+		2. Input Voltage: 2-4 cells lithium battery or 5-12 cells NiCd/MiMh battery
+		3. BEC: 2A/5V (Linear mode)
+		4. Max Speed: 210,000 rpm for 2 Poles BLM, 70,000 rpm for 6 poles BLM, 35,000 rpm for 12
+		5. poles BLM
+			1. (BLM: BrushLess Motor)
+		6. Size: 45mm (L) * 24mm (W) * 11mm (H)
+			1. 25g * 4 = 100g (**60 g heavier than 20A ESC**)
+	2. 20A ESC
+		1. Programe: BLheli, support oneshot 125
+		2. Continuous Current: 20A
+		3. Burst Current (10S): 30A
+		4. BED: 5V/1A
+		5. Lipo Cells: 2-45
+		6. Weight: 10g
+		7. Size (excluding plugs): 28 x 15 x 6 mm
+		8. Typical applications (for reference): 330-550 Multi-rotor
+			1. 10g * 4 = 40g
+
 ### Summary of Course Drone Build ###
+1. Overview:
+	1. Motors: 935 Kv 2213
+	2. Battery: 3S 3000 mAh
+	3. Props: 1045
+	4. Estimated Current Draw: 15A
+	5. ESC: 30A (Double the maximum estimated current, so we could probably use a 4S battery and still be fine)
+	6. FC: NAVIO2+Raspberry Pi
+	7. Estimated Weight: ~1070 g
+	8. Target TWR: 2
+	9. Estimated Thrust ~ 2500 g
+	10. Estimated TWR: 2.5
 
 ## How to Build a Drone ##
 ### Part Placement Planning ###
+1. Plan where to place things
+	1. Bottom plate:
+		1. Corner electrodes - solder ESCs
+		2. Center - solder Battery
+	2. Flight controller
+		1. Raspberry PI + Navio Shield
+			1. Put it on top and center of gravity
+	3. Bottom plate:
+		1. Long side vertical (front and back)
+	4. Battery:
+		1. Horizontal (sideways)
+			1. Leave the longer sides
+	5. ESCs
+		1. Bottom of the arm and zip tie
+	6. RC input:
+		1. Place at the back (red side on bottom plate)
+	7. PPM module (the two are closer)
+		1. Place on top plat close to pin of navio
+	8. GPS:
+		1. Close to center on an arm
+
 ### Soldering Bullet Connectors to ESCs ###
+1. Solder female bullet connectors to ESC blue wires
+	1. Expose some metal of ESC wires
+	2. Heat soldering iron
+	3. Clamp bullet connector to a hands free facing hole to the top
+	4. Place soldering iron on the smaller end
+	5. Push solder through the hole and fill up the hole
+	6. Let it dry
+	7. Push blue wire into the hole
+	8. Heat the solder through the smaller hole
+2. Repeat the above steps for all 4 ESCs
+
 ### Soldering ESCs to PDB ###
+
+
 ### Soldering Battery Connector to PDB ###
 ### Attaching Legs to Frame ###
 ### Installing Motors on Frame ###
