@@ -177,10 +177,113 @@
 			1. `IPADDR=127.0.0.1` - static address
 		3. `nmcli` or `Networkmanager-tui` package for friendly text interface to modify the settings
 			1. On servers: use system of configuration (Puppet, Chef, Salt)
+	5. Routing: Where will the traffic flow?
+		1. `ip_r` command - mobile phone can be a router
+			1. Traffic goes to the router
+				1. `ip addr show` - the device should have an IP from the network
+		2. `ip r add` - used to add new paths
+		3. `ip r del` - used to delete paths
 
 ### DNS ###
+1. BIND - popular DNS-server
+	1. It stores information about addresses and responds to requests
+	2. Recommended to deploy locally
+	3. [Cisco DNS Best Practices, Network Protections, and Attack Identification](http://www.cisco.com/c/en/us/about/security-center/dns-best-practices.html)
+		1. Useful recommendations on safe and sustainable DNS-server
+	4. `nsupdate` - automatically updates DNS-server records
+		1. Guide on configuration
+			1. Service discovery
+2. Before DNS was introduced, `/etc/hosts` file existed
+	1. `/etc/nsswitch.conf` - in what order and where to look for information (includes where to look for hosts)
+		1. Default: `/etc/hosts`
+		2. Then: request is sent to DNS-server
+	2. `/etc/resolv.conf` - defines server used for resolving DNS-names
+3. DNS problems can be debugged using the following commands:
+	1. `dig`
+	2. `nslookup`
+		1. To request information from nameserver 8.8.8.8 about mkdev.me
+
+				dig mkdev.me 8.8.8.8
+
 ### Virtual Machines ###
+1. Installing VM:
+
+		sudo virt-install --name mkdev-networking-basics-1 \
+		--location ~/Downloads/CentOS-7-x86_64-Minimal-1511.iso \
+		--initrd-inject /path/to/ks.cfg \
+		--extra-args ks=file:/ks.cfg \
+		--memory=1024 --vcpus=1 --disk size=8
+
+2. `libvirt` constructs one network by default
+
+		virsh net-list
+
+	1. Block `192.168.0.0/16` is allocated for private networks
+	2. `libvirt` has allocated `192.168.122.212/24` for its network
+		1. All addresses from 192.168.122.0 to 192.168.122.255 are part of the network
+	3. Getting more information about a network
+
+			virsh net-dumpxml default
+
+			<network connections='1'>
+			  <name>default</name>
+			  <uuid>f2ee9249-6bed-451f-a248-9cd223a80702</uuid>
+			  <forward mode='nat'>
+			    <nat>
+			      <port start='1024' end='65535'/>
+			    </nat>
+			  </forward>
+			  <bridge name='virbr0' stp='on' delay='0'/>
+			  <mac address='52:54:00:83:b4:74'/>
+			  <ip address='192.168.122.1' netmask='255.255.255.0'>
+			    <dhcp>
+			      <range start='192.168.122.2' end='192.168.122.254'/>
+			    </dhcp>
+			  </ip>
+			</network>
+
+		1. `connections` - number of machines connected to the network
+	4. [libvirt documentation](https://libvirt.org/formatnetwork.html)
+		1. Options of XML-file
+3. `bridge` or `virbr0` - device or virtual network switch
+	1. All VMs in the network are connected to it
+	2. All requests from one VM to another within this network go through this virtual switch
+	3. `Libvirt` defines a virtual switch for each network
+		1. Every switch is recognized as separate device on host machine
+		2. Network creation in `libvirt` is defining a virtual switch that all VMs are connected to
+			1. This defines a LAN
+	4. `virbr0` is implemented using [Linux Bridge](https://wiki.archlinux.org/index.php/Network_bridge)
+		1. Technology for virtual local area networks
+		2. List switches using `brctl show` on host machine
+		3. It is an L3 switch and has features like [traffic filtering and firewall](http://www.linuxfoundation.org/collaborate/workgroups/networking/bridge)
+	5. Example:
+
+			<ip address='192.168.122.1' netmask='255.255.255.0'>
+				<dhcp>
+					<range start='192.168.122.2' end='192.168.122.254'/>
+				</dhcp>
+			</ip>
+
+		1. Block of addresses used for VMs is 192.168.122.1 (host-machine ip within the Virtual Network)
+
+				ip r
+
+		2. Traffic from VM goes outside through host machine
+	6. [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) - Libvirt uses it for DHCP and DNS
+
+				ps aux | grep dns
+
+	7. DHCP table - shows un-assigned addresses (as well)
+
+			virsh net-dhcp-leases default
+			
+		1. Shows VM's MAC-addrss of `eth0`
+
 ### NAT ###
+1. The total number of IP-addresses isn't going to increase
+	1. A combination of private and public addresses is always used
+	2. Public address hides a lot of machines (each machine having it's own private address)
+
 ### tcpdump ###
 ### VPN ###
 ### For Self Study ###
