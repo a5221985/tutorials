@@ -3855,11 +3855,26 @@
 		2. Inputs - come from existing assets in the architecture repository - we may have to define a few
 		3. Steps
 		4. Outputs
-	2. It may involve
-		
+	2. We may be working with collaborating with business and collection of information from key stakeholders
+4. Going through ADM the first time is hard - no existing documents (architecture repository is empty)
+	1. Establishing contacts
+	2. Process is new
+	3. May find people that don't want to work with you
+5. Next time will be easier and easier next time
 
 ### ADM Cycle ###
-
+1. A - H
+	1. ADM cycle is designed to start over once last phase is complete
+		1. Significant pauses at the end of each cycle for us to be
+			1. looking for changes
+			2. looking for possible opportunities to modify the architecture
+	2. In the center is: Requirements Management Phase
+		1. It allows us to handle change while ADM process is underway
+			1. Everyone has a plan until they get punched in the mouth (Mike Tyson)
+				1. In the middle of execution, we may have to pause to go back and revise a past phase
+	2. Iterations
+		1. In between phases can be interated
+2. TOGAF is designed to be tailored
 
 ### Preliminary Phase ###
 ### Phase A - Architecture Vision ###
