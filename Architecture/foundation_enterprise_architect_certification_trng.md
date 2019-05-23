@@ -3875,8 +3875,13 @@
 	2. Iterations
 		1. In between phases can be interated
 2. TOGAF is designed to be tailored
+	1. ADM can be adapted to your needs
+		1. Other processes may exist
+		2. May skip a few phases
 
 ### Preliminary Phase ###
+1. 
+
 ### Phase A - Architecture Vision ###
 ### Phase B - Business Architecture ###
 ### Phase C - Information Systems Architecture ###
