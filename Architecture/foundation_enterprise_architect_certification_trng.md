@@ -3838,8 +3838,29 @@
 ### Introduction to the ADM ###
 1. Architecture Development Method
 	1. It is the process by which an architecture is defined
+2. It has 10 phases
+	1. Preliminary
+	2. A - Architecture Vision
+	3. B - Business Architecture
+	4. C - Information Systems Architecture
+	5. D - Technology Architecture
+	6. E - Opportunities and Solutions
+	7. F - Migration Planning
+	8. G - Implementation Governance
+	9. H - Architecture Change Management
+	10. Requirements Management
+3. 8 phases make up ADM cycle
+	1. Each of the phases there are
+		1. Objective
+		2. Inputs - come from existing assets in the architecture repository - we may have to define a few
+		3. Steps
+		4. Outputs
+	2. It may involve
+		
 
 ### ADM Cycle ###
+
+
 ### Preliminary Phase ###
 ### Phase A - Architecture Vision ###
 ### Phase B - Business Architecture ###
