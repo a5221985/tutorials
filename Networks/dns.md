@@ -31,6 +31,10 @@
 					net.	172800 IN NS k.gtld-servers.net.
 					net.	172800 IN NS j.gtld-servers.net.
 					
+					Additional section
+					m.gtld-servers.net.	172800 IN A 192.55.83.30 (avoids loop)
+					...
+					
 				1. 172800 - how long the information is valid (seconds)
 				2. IN - DNS class
 				3. NS - Name server (record type) - go ask this
