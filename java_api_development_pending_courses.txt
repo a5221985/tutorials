@@ -1,0 +1,25 @@
+Java/API Development - Pending courses:
+1. Part 1 Foundation Enterprise Architect Certification Trng
+2. Java Web Services
+3. Java Web Services Part 2
+4. REST API Design, Development & Management
+5. Building a Search Server with Elasticsearch
+6. Algorithms and Software Engineering for Professionals
+7. XML and XML Schema Definition in Easy Steps
+8. Docker for Java Developers
+9. Apache Web Server: Deployment and Security - ...
+10. Java Memory Management
+LEARNING PATH: JAVA: High Performing Apps with Java 9
+11. HTTP to HTTPS - Secure your website with SSL for Free
+12. Spring Framework DevOps on AWS
+13. AWS Serverless APIs & Apps - A Complete Introduction
+Advanced Algorithms in Java
+Spring Framework 5: Beginner to Guru
+14. Ready for Production with Spring Boot Actuator
+15. Serlvets and JSPs Tutorial: Learn Web Application With...
+16. Master Microservices with Spring Boot and Spring Cloud
+17. Learn DevOps: CI/CD with Jenkins using Pipelines and...
+18. Java Application Performance and Memory Management
+MySQL, SQL and Stored Procedures from Beginner to ...
+19. Advanced Object Oriented Analysis of Hard Problems...
+20. Part 2 Certified Enterprise Architect Certification...

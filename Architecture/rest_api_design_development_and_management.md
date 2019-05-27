@@ -1498,10 +1498,194 @@
 						2. Partner use
 						3. Public developer (may need to deny)
 				3. Define a criteria for Automatic versus Manual provisioning 
-		3. Support
+					1. API can be marked as a manual or automatic provisioning API
+					2. Criteria:
+						1. Sensitivity of data - highly sensitive data needs every request to be looked up (so manual provisioning)
+						2. Limited capacity in the backend - We may not want everybody to use the API - constraints on the backend
+						3. Trust tiers ... ...
+							1. Categorize App developers into trust tier system
+								1. To decide whether to approve the request or not
+				4. If the API is for internal use only then DO NOT publish on portal
+					1. Example: Twitter API
+						1. Create new app
+							1. name
+							2. ...
+						2. client key and secret key:
+							1. Keys and Access Tokens
+				5. API Management Platforms:
+					1. Provides control on the provisioning aspect of the API
+					2. Examples: IBM API Connect, apigee, MuleSoft
+						1. apigee - Product is created
+							1. Access - internal only, private (explicit authorization is required), public
+							2. Key approval - automatic or manual
+				6. Benefit of using API Management platform:
+					1. Visibility & Provisioning control by configuration
+					2. Runtime & Dev portal are integrated
+		3. Support:
+			1. Internal only API: App developers are supported using ticketing system - not an elaborate dev portal
+			2. Public API or Monetized: Elaborate dev portal
+				1. Need to provide the following:
+					1. Guidance on how to solve some common problems (FAQ)
+					2. Best practices
+					3. Contact forms
+					4. Bug reporting form (for reporting bugs)
+					5. Build a developer community (if popular)
+						1. Social media - Twitter, Facebook
+							1. Forum - developers can solve each other's problems and discuss best practices
+					6. Blogs from expert API provider team and publish them
+			3. Example: Twitter
+3. Build vs Buy
+	1. Developer portal is a web application
+		1. It depends
+			1. Budget
+			2. Nature of API being published
+			3. Roadmap
+	2. Build option
+		1. Documentation from Swagger/OAI may be published as-is
+		2. For self service provisioning a work flow wll need to be designed
+			1. May need to define a manual workflow otherwise
+	3. Buy option
+		1. API product vendors offer Developer Portal bundled with their products
+			1. Integrated with runtime
+		2. Support look and feel customization
+			1. Change almost the entire look and feel
+		3. Some have provision to extend the portals
+			1. To include forums
+			2. To include blogs
+4. Demo:
+	1. MuleSoft:
+		1. Create New Portal
+			1. Theme
+				1. Image for API portal
+				2. Colors
+			2. API Reference
+				1. Add references 
+5. Summary:
+	1. API Documentation - Docs, Try it, Samples, SDK
+	2. Self serve provisioning - Automation
+	3. Support - FAQ, Developer community
+	4. Off the shelf dev portal products
+		1. May be customized
+		2. May be extended
 
 ### API Security Management ###
+1. Learning Objectives:
+	1. Managing the key/secret, OAuth
+		1. apigee - management
+	2. Countering the functional attacks
+		1. Best practices
+		2. General practices for security
+2. API to serve publically available data
+	1. All API must require a minimal security of API Key
+		1. Client can invoke the API but they need to provide an API key
+			1. Purpose: 
+				1. If there is a misbehaving client, we can invalidate the key
+				2. Generate analytics with key as the identity of the app
+				3. Usage metrics for the user
+	2. API provider:
+		1. Management of key/secrets
+		2. Implementation of key/secret in API
+		3. Support App Developer
+	3. App Developer:
+		1. Developer controls key/secret
+			1. Creation on dev portal
+			2. Renew on dev portal
+			3. Delete on dev portal
+3. Look for commercially available key/secret solutions
+	1. API management tools provide this out of the box
+	2. Example: apigee
+		1. Enable API/Key Secret for the GeoLocation API
+		2. Setup API key/secret for the developer & use it for invoking the API
+		3. Invalidate the key
+	3. apigee
+		1. Add step
+		2. Verify API key
+		3. API key and secret can be used
+		4. Delete the app to remove key
+4. OAuth2.0 Implementation
+	1. Do not provide oauth in API code (passport with node js)
+		1. API provider: Off the shelf authorization server for oauth
+			1. Authorization server: 
+				1. Need to connect to enterprise access and identity solution (like LDAP)
+				2. It should manage storage for tokens
+				3. It should manage the following:
+					1. Tokens
+					2. Scopes
+					3. Clients
+5. Functional threats:
+	1. API Testing practices; adopt tools
+		1. We should mimic the functional testing attacks
+	2. Engage third party for vulnerability assessments
+		1. Individuals knowledgable in carrying out the attacks and they are knowledgable to write test cases to break the API
+			1. We should get a report
+			2. Need to do this if public API
+	3. Continuous monitoring to detect attacks/ threats
+		1. Carry out monitoring
+		2. Check logs
+		3. Run reports on logs
+	4. Pro-active in protecting API from new attack types
+		1. New types of attacks
+	5. Implement threat protection in the proxy
+		1. Almost all API management tools offer a mechanism to implement functional threat protection in the proxy
+	6. Example: apigee
+		1. XML Threat Protection
+		2. JSON Threat Protection
+		3. Regular Expression Protection
+6. API Infrastructure
+	1. How can security be implemented for public or partner facing APIs
+		1. Suppose we have a trusted environment
+		2. We put API management gateway or platform on the edge of the environment (in a firewall say)
+			1. Define proxy to connect to the API in the trusted environment
+			2. Apply policies on the proxy to manage the security
+	2. API consumer: Invokes the proxy on which the policies are applied (if everything is good, the call is forwarded to the internal API)
+	3. Leverage API management platform for public facing APIs
+7. API Security Practices
+	1. Educate the API developers
+		1. What they need for securing the APIs
+	2. Provide development guidelines and patterns on security
+	3. Stay up to date on security threats (new vulnerability)
+	4. Have a well defined security policy
+	5. Develop a well defined contingency plan
+		1. How to protect an API from an on-going attack?
+	6. Work with other stakeholders to protect infrastructure
+		1. All touch points within the API pathway are secure
+			1. Network team
+			2. Server team
+			3. ...
+
 ### API Traffic Management ###
+1. Learning Objectives:
+	1. Need for traffic management?
+		1. Why do we need traffic management for API for API infrastructure?
+	2. Common policies
+		1. 3 common policies
+	3. Demo: apigee
+2. Traffic Management?
+	1. API provider is in between the consumer and Data owner
+		1. API provider: must fulfill the contractual aspects agreed upon with the consumer
+		2. API provider: must protect the data
+	2. Why should API provider manage the traffic?
+		1. Response time consistency (for API consumers)
+			1. example: 100 calls/second - 1 sec, 105 calls/second - 5 sec
+				1. 30 calls/sec - app developer
+					1. Suppose infinite loop is introduced (bug) - 80 calls/ sec - respnse time goes up to 5 sec
+				2. Not consistent behavior
+		2. Service Level Agreement (SLA)
+			1. Contractual agreement - SLA is associated
+				
+					SLA {
+						Number of calls: 10,000 calls/ day
+						Concurrency: 5 calls/ second
+						Response time: Under 1 second
+					}
+
+				1. How to enforce this?
+					1. Provider has to take care
+					2. How to ensure only 10000 calls /day or 5 calls /sec
+						1. Enforce the SLA on the **consumer**
+
+		3. Protecting the backend
+
 ### API Analytics ###
 ### API Product and API Monetization ###
 

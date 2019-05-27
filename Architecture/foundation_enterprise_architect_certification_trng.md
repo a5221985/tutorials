@@ -3880,7 +3880,16 @@
 		2. May skip a few phases
 
 ### Preliminary Phase ###
-1. 
+1. On top
+2. Purpose: 
+	1. **Define** architecture capability desired
+	2. **Establish** the architecture capability
+		1. Defining architecture principles
+		2. ...
+3. Where, what, why, who, and how we do architecture
+	1. Setup: Getting into architecture
+		1. How do we do this?
+		2. Who approves this?
 
 ### Phase A - Architecture Vision ###
 ### Phase B - Business Architecture ###
