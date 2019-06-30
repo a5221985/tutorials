@@ -134,6 +134,106 @@
 				2. Do you need increased amount of time off?
 			3. What trade offs are you willing to make?
 	6. Summary
+### Determining Your Strengths and Weaknesses ###
+1. Identify your strengths
+	1. Strengths are like stair steps
+		1. Strenghts show whether you will be able to move to a new job or whether you will be satisfied with your work
+	2. It is not enough to be good at what you don't enjoy or be interested in things that we are not good at
+	3. Find areas that bring abilities and interests come together - these are strengths
+		1. If career makes most of your strenghts others fall into place
+	4. Sources of information:
+		1. Informal feedback from coworkers and friends
+		2. Performance appraisals from supervisors
+		3. Survey - questionaire
+			1. Interests, Activities, Abilities
+				1. **Research** (interests, Abilities)
+				2. Using tools
+				3. Facilitating
+				4. Teamwork (abilities)
+				5. Leadership (interests)
+				6. **Showing initiative** (interests, abilities)
+				7. Negotiating
+				8. Written presentations (abilities)
+				9. **Oral presentations** (interests, abilities)
+				10. Administration
+				11. **Mentoring and training others** (interests, abilities)
+				12. Decision making
+				13. **Using technology** (interests, abilities)
+				14. Writing and communicating (abilities)
+				15. Selling
+				16. Persuading and influencing
+				17. Organizing workload
+				18. Mechanical and machinery operation (interests)
+				19. Working outdoors
+				20. Information processing (abilities)
+		4. Usually interests outweight abilities
+			1. Build abilities for the following:
+				1. Leadership
+				2. Mechanical and machinery operation
+
+2. Identify your weaknesses
+	1. Weakness - it is an area that does not meet the minimum requirements of a job
+		1. Some training or education is required for the job
+			1. When looking for change in career or job need to compete
+				1. Better skills
+				2. More training
+				3. Wider ranging education
+			2. Address this weekness
+		2. Technology expertise is out of date
+			1. Stay current with technology used in the field or organization
+			2. It is not difficult to find training sources for technology-based skills
+		3. Unable to deal with inevitable conflicts at workplace
+			1. Certain jobs and tasks become difficult
+				1. Working with team
+				2. Working with public
+				3. Working directly for a boss
+3. Address your weaknesses
+	1. Two steps
+		1. Identify your weaknesses
+			1. Sources
+				1. Yourself
+					1. What do you need to know?
+					2. What do you need to learn?
+					3. What should I improve on?
+					4. Review last performance appraisal for comments about weaknesses or areas for improvement
+				2. Cowerkers
+					1. Ask trusted co-worker to give feedback on weaknesses es or development needs
+				3. Boss
+					1. Schedule a conversation now
+					2. Preparation
+						1. Schedule a time when the boss is not in stress
+						2. Allow a discussion of about 30 minutes
+						3. Guidelines
+							1. State reasons for discussion - should address your desire for improvement, why do you value your boss's insight
+							2. Clarify statements - of boss not clear to you (example for not organized)
+							3. Don't get defensive - listen to boss's criticism, don't react negatively, follow up later
+							4. Acknowledge and summarize - to be sure you understand
+							5. Commit to improvement - than boss for input
+		2. Change the ones you can
+			1. Once weaknesses are identified, plan a course of action to improve upon them
+			2. Areas
+				1. Soft skills (classroom or online training courses, co-workers can proof read reports or memos)
+					1. Written and verbal communication
+					2. Delegation
+					3. Interpersonal skills
+				2. Hard skills (classroom or online training courses)
+					1. Technical capabilities (web is a good source)
+
+### Establishing Your Career Plan ###
+1. Develop a vision of the future
+	1. Pull everything
+		1. Steps:
+			1. Build a vision
+			2. Develop an action plan
+			3. Build a time line (for achieving)
+	2. A vision can motivate us to work for specific jobs and work responsibilities (stepping stones that will get you where you want to go)
+		1. Be true to yourself: keep in mind values, interests, lifestyle aspirations, strengths, weaknesses, personal attributes
+		2. Don't get overly comitted to a specific path or job - circumstances may change
+		3. Don't get bogged down in details - stay focussed on larger goals
+
+2. Determine how to fulfill your vision
+3. Set a time line for achieving goals
+4. Summary
 
 ## Getting on the Right Track ##
 ## Professional Networking ##

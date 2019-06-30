@@ -458,16 +458,145 @@
 
 ## WS Security - Authentication ##
 ### What is Username Token Profile? ###
+1. UsernameToken profile:
+	1. First way to authenticate in SOAP based webservices
+	2. Defines standard to pass in username and password inside the header
+	3. Root element in ws security standard
+
+			<wsse:Security>
+
+		1. Goes inside SOAP header
+		2. Username token:
+
+				<wsse:Security>
+					<wsse:UsernameToken>
+						<wsse:Username>myuser</wsse:Username>
+						<wsse:Password>mypwd</wsse:Password>
+					</wsse:UsernameToken>
+				</wsse:Security>
+
+			1. UsernameToken: Action
+
 ### Steps to Configure Username Token Profile ###
+1. Steps to Configure UT:
+	1. Configure the intercetors in the cxf-servlet.xml
+	2. Define a password callback handler (interceptors will call into where we pass the password information)
+
 ### Update the Maven Dependencies ###
+1. Apache CXF
+	1. `pom.xml` - dependencies
+
+			<dependency>
+				<groupId>org.apache.cxf</groupId>	
+				<artifactId>cxf-rt-ws-security</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+				<version>3.1</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>1.9</version>
+			</dependency>
+
+	2. maven > update project
+
 ### Configure User Name Token Profile ###
-### Creation and Configure the PasswordCallbackHandler ###
+1. WEB-INF/cxf-servlet.xml
+
+		<jaxws:server ...>
+			...
+			<jaxws:inInterceptors> <!-- uses wss4j in interceptor when SOAP message comes in -->
+				<bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+					<constructor-arg>
+						<map>
+							<entry key="action" value="UsernameToken"/>
+							<entry key="passwordType" value="PasswordText"/>
+							<entry key="passwordCallabackRef" value-ref="myPasswordCallback"/>
+						</map>
+					</constructor-arg>
+				</bean>
+			</jaxws:inInterceptors>
+		</jaxws:server>
+
+### Creation and Configuration of the PasswordCallbackHandler ###
+1. `com.bharath.trainings.ws.PasswordCallbackHandler` implements `javax.security.auth.callback.CallbackHandler`
+
+		Map<String, String> passwords = new HashMap<>();
+
+		public PasswordCallbackHandler() {
+			passwords.put("someuser", "sumpass");
+		}
+
+		@Override
+		public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException { // provides password information at runtime, it should give the password for the given userid that comes in request
+			for(Callback callback: callback) {
+				WSPasswordCallback pc = (WsPasswordCallback) callback;
+				String password = passwords.get(pc.getIdentifier()); // user id that came in request
+				pc.setPassword(password);
+				return;
+			}
+		}
+
+2. Spring bean in cxf-servlet.xml
+
+		<bean id="myPasswordCallback" class="com.bharath.trainings.ws.PasswordCallbackHandler"/> <!-- this bean is called -->
+
 ### Run the Application on the Server ###
+1. Maven clean
+2. Maven install
+3. Run as > Run on Server > Restart the server
+4. Open the website
+	1. Get the wsdl and open it
+
 ### Update Client Maven Dependencies ###
+1. Add security dependencies:
+	1. pom.xml - copy all those from server side pom
+2. Right click and maven > Update project
+
 ### Retrieve the CXF Client Proxy ###
-### Creation of WSSJ Interceptors Programmatically ###
+1. Get access to client side endpoint instance
+
+		@Test
+		public void calculateSumShouldReturnValidResult() {
+			// ...
+			Client client = ClientProxy.getClient(port); // returns runtime proxy
+			Endpoint endpoint = client.getEndpoint(); // needed to add interceptors
+			// ...
+		}
+
+### Creation of WSS4J Interceptors Programmatically ###
+1. Define WSS4J out (on outgoing message, we want to include the username token profile information)
+
+		HashMap<String, Object> outProps = new HashMap<>();
+		WSS4JOutInterceptor wssOut = new WSS4JOutInterceptor(outProps); // On the client side, when SOAP message is sent to server, this interceptor is invoked
+
+		endpoint.getOutInterceptors().add(wssOut); // invoked when soap message is sent to the server
+		
+
 ### Configure the Properties ###
+1. Test class
+
+		outProps.put(WSHandlerConstants.ACTION, "UsernameToken");
+		outProps.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
+		outProps.put(WSHandlerConstants.PW_CALLBACK_CLASS, PasswordCallbackHandler.class.getName());
+
+	1. PasswordCallbackHandler.java is copied to test package (invoked just before message is sent to the server)
+
 ### Run the Test ###
+1. One more property:
+
+		...
+		outProps.put(WSHandlerConstants.USER, "sumUser");
+		...
+
+2. Run as > JUnit Test
+	1. Incoming request - Client project > Create New File > result.xml
+		1. Username and Password are in the request
+
 ### Quiz 2: WS Security - Authentication ###
 
 ## Encryption and Decryption Concepts ##

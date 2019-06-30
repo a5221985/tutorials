@@ -207,6 +207,31 @@
 			for (Integer iBoxed : intKeys) {
 				map.put(iBoxed, stringValues[counter++]);
 			}
+			System.out.println(map);
+
+			Set<Integer> keys = map.keySet();
+
+			Collection<String> values = map.values();
+
+			if (values instanceof List) {
+				System.out.println("values is a List");
+			}
+			System.out.println(map);
+
+			Set<Integer> keys = map.keySet();
+
+			Collection<String> values = map.values();
+
+			if (values instanceof List) {
+				System.out.println("values is a List");
+			}
+
+			List valuesList = new ArrayList(values);
+			System.out.println(valuesList);
+
+			for (Map.Entry<Integer, String> entry : map.entrySet()) {
+				System.out.println(entry.getKey() + "/" + entry.getValue());
+			}
 
 ### Iterations lab 3 Matching Pattern Sequences with Iterations Part A ###
 ### Iterations Lab 3 Matching Pattern Sequences with Iterations Part B ###

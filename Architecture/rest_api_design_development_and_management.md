@@ -1685,9 +1685,210 @@
 						1. Enforce the SLA on the **consumer**
 
 		3. Protecting the backend
+			1. Internal network say shared by multiple servers
+				1. API is used by multiple Apps from outside
+					1. DOS attack or misbehaving app
+						1. May impact internal components
+							1. Degradation of performance of DB
+							2. Too many requests may swarm the network
+							3. Other servers like webapp servers may get impacted
+					2. Spike and volume is not controlled on the edge of the enterprise (say)
+			2. API provider must put in some kind of traffic management control to prevent the backends getting impacted due to such high volume events
+				1. Blocking or throttling the request at the edge of the enterpise network
+					1. API management platforms usually provide traffic management policies to the proxy to APIs
+					2. Policies:
+						1. Quota:
+							1. Defines maximum # of calls per unit time that an app can make to the API
+								1. Quota for public domain developer apps
+									1. Twitter - 350,000 tweets/minute
+										1. API calls from internal apps
+									2. Twitter - 350 calls/hour
+										1. public apps
+									3. Walmart - 5000 calls/day
+							2. Example:
+								1. Demo: Add Quota (6 calls/minute) for GeoLocation API
+								2. Test in node code
+									1. Add quota policy - 6 calls per minute
+										1. 7th calls onwards fail in the minute
+						2. Rate Limiting
+							1. API provider can limit the number of concurrent connections to the API
+								1. Example: 100 concurrent calls / second
+									1. Number of connections should not exceed 100
+										1. 20 calls/sec for each app say
+							2. Solution:
+								1. Walmart open API:
+									1. 5 calls/second
+						3. Spike Arrest
+							1. Protects API backend from severe spikes and DOS attacks
+								1. Prevents calls beyond high wate rmark from reaching backend
+									1. High watermark value is defined
+										1. Calls/sec should never exceed the high watermark
 
 ### API Analytics ###
+1. API Management analytics
+	1. Learning Objectives:
+		1. Why do we need API Analytics
+		2. Types of API analytics (API Management platform)
+		3. Demo: Apigee and Mulesoft for API analytics
+2. Why gather API analytics?
+	1. Service improvement: We can understand APIs better, usage of APIs, align with the needs of the API consumers
+	2. Catch errors: public users may be causing, error rate and nature of errors
+	3. Understand threats/attacks
+	4. Business support: business analytics can be captured by introspecting data flowing through the API
+		1. Insight to business - how transactions are invoked by 3rd party applications or internal applications
+3. Analytics types:
+	1. Metrics
+		1. Error rate
+		2. Response time
+		3. Throughput
+	2. Visibility
+		1. Into usage of the API
+		2. Into transactions
+4. Metrics:
+	1. Performance
+		1. Response time
+		2. Throughput
+		3. Peaks/Valleys
+	2. Error rates
+		1. API errors - implementation throwing errors
+		2. Backend errors
+		3. Policy errors
+			1. How many calls are failing because of violation of quota or rate limit or spike arrest
+				1. May need to increase
+	3. SLA metrics - if we are providing the promised SLA or if they are sticking to the SLA on their end
+		1. Calls/ time
+		2. Response
+5. Visibility
+	1. Usage analytics
+		1. Most active App developer subscribed to the APIs
+		2. Which APIs are popular
+		3. Region based: Which regions are invoking
+		4. Device types: from which devices are APIs getting invoked
+	2. Transactions - Most API management platforms do not support this
+		1. Specific to the business
+		2. Logic for transactional analytics should be build in the proxy
+	3. Exaples:
+		1. Origin of maximum sales?
+			1. Credit card data is used for this
+6. Apigee Dashboard:
+	1. Graphs - hourly/daily, error rate, test reports
+
 ### API Product and API Monetization ###
+1. Learning Objectives:
+	1. API = Product (API is a product)
+	2. Monetization models & technology (for rolling out APIs)
+2. Product: "A Product is anything that can be offered to a market that might satisfy the need or want of the customer"
+	1. Example: App developers want to build advanced communication features
+		1. twilio - offer advanced comm apis to integrate
+			1. Video conferencing
+			2. SMS Texting
+			3. Chatting
+	2. AWS: Fulfull infrastructure needs of organizations
+		1. API is the product
+	3. Capital One DevExchange - Brand recognition, indirect revenue (marketing aspect)
+3. Treating API as product
+	1. To release new model of a car:
+		1. Product lifecycle
+			1. **Business case** to justify the need for a new model and how will company make money by releasing the new model
+			2. Carry out research - who are the target customers for the new model and what are their needs and wants
+			3. Construct: Gather resources and team to build the model
+			4. Marketing: New car model must be marketed to the targetted segment as much as possible
+			5. Launch/Post Launch Support
+	2. API:
+		1. **Buiness case**: Why does the organization need the new API?
+			1. New revenue?
+			2. Brand awareness?
+			3. Partnership?
+		2. **Research**:
+			1. Who are the consumers going to be?
+			2. What are their needs and wants?
+			3. Why would they use the API?
+				1. What incentives are provided by using the API?
+		3. **Construction**:
+			1. Delivery/Planning
+			2. Pilot - to ensure that we are moving in the right direction
+		4. **Marketing**:
+			1. How will consumers know about the API
+				1. Generate buzz with events - hackathons
+				2. Promote - blogging, press release, paid advertisement
+		5. **Launch/ Post Launch**:
+			1. Launch - cool apps using the API and release it to open source
+			2. Post Launch - how to support app developers using the API
+4. Data & Services are usually exposed as APIs
+	1. Can be sold to developers (direct or indirect revenue)
+		1. Direct:
+			1. Salesforce
+			2. Amazon
+		2. Indirect: (revenue when service is sold or merchendize is sold)
+			1. CapitalOne
+			2. Best Buy
+5. Monetization models:
+	1. Free model:
+		1. API provider offers their API for free to dev community
+			1. Facebook
+			2. Twitter
+			3. LinkedIn
+		2. Used to expand their reach
+			1. Brand recognition
+	2. Freemium model:
+		1. Tier model
+			1. Free tier: Developers can use it for free
+			2. Paid tier: Developers can switch to this any time
+		2. Example: Google maps, IBM watson, Apigee
+	3. Enterprise pays:
+		1. Organization pays the developer to use the model
+			1. Amazon Associates - developers who are using their APIs to sell their amazon products
+				1. Amazon pays them if they are able to sell through their apps
+				2. Ebay, Expedia
+		2. Developer pays:
+			1. Developer is paying the API provider organization for their use of the API
+				1. Pay as you go
+					1. Amazon web services - monthly statement
+				2. Subscription:
+					1. License fee model - for certain number of users or certain number of licenses
+				3. Transaction:
+					1. Developer pays per transaction
+						1. PayPal
+						2. Strike
+6. Technology Considerations:
+	1. Tiered Product Definitions
+		1. API management tools support product definitions and plans
+	2. Usage Metering:
+		1. How would you measure the usage of the APIs by specific developers
+	3. Subscription management
+		1. Make sure no overages and ways to handle overages
+	4. Reporting
+		1. Reports generated for the business and consumers of the API
+	5. Indirect revenue model:
+		1. Partner management - track partners and track revenues generated by partners
+7. API management platforms sell the above as add-on models for monetization
+8. Summary:
+	1. Treat API as a product
+	2. Monetization about business + technology
+		1. Decide on a business model
+		2. Technology considerations to support the business model
 
 ## Good Bye & All the Best ##
 ### Good bye ###
+1. Topics:
+	1. REST API Foundation
+		1. REST API constraints
+	2. Design Best Practices
+		1. Pagination
+		2. Partial responses
+		3. Error handling
+		4. Best practices
+		5. (Practice and build APIs and share it with peers)
+	3. Security
+		1. Hackers can exploit vulnerabilities
+		2. Testing
+			1. Functional attacks are real
+			2. Use standard security schemes
+				1. Spotify
+				2. OWASP
+	4. Swagger/OAI
+		1. Vendor community support
+	5. API Management
+	6. Business
+		1. Monetization models
+			1. Technology experts should educate business

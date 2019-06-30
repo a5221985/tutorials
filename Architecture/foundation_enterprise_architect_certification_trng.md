@@ -3892,11 +3892,246 @@
 		2. Who approves this?
 
 ### Phase A - Architecture Vision ###
+1. Architecture Vision - (Under which phase this activity occurs?)
+	1. The purpose is to: Develop a **high-level aspirational vision** of the business value to be delivered
+	2. The purpose is to: obtain approval for a **statement of architecture work**
+2. Inputs to Phase A:
+	1. Architecture reference materials
+	2. Request for Architecture Work
+	3. Business principles, business goals, and business drivers
+	4. Organizational Model for Enterprise Architecture
+	5. Tailored Architecture Framework
+	6. Populated Architecture Repository
+3. Steps of Phase A:
+	1. Establish architecture project
+		1. Kickoff meeting
+		2. Project manager
+		3. status meeting
+		4. Budget
+	2. Identify stakeholders, concerns and business requirements
+		1. People to make happy
+		2. Document their concerns
+		3. Business goals
+	3. Confirm business goals, drivers and constraints
+	4. Evaluate capabilities (updated for TOGAF 9.2)
+		1. Strengths and weaknesses of business
+			1. manufacturing top quality say
+	5. Assess readiness for transformation
+		1. Risk adverse? Hates change
+			1. Show them small improvements
+	6. Define scope
+		1. Address which parts of business problems are we solving
+	7. Confirm architecture principles, including business principles
+	8. Develop architecture vision
+		1. High level idea
+			1. After talking to stakeholders
+			2. High level story
+			3. How to move the company in 12 months say
+	9. Define the target architecture value and KPIs
+	10. Identify transformation risks and mitigation activities
+		1. New lines of business should not risk existing lines
+	11. Develop Statement of Architecture Work, secure approval
+		1. Need approval to continue on
+			1. Big milestone
+4. Outputs from Phase A
+	1. Approved Statement of Architecture Work
+	2. Refined statements of business principles, goals and drivers
+	3. Architecture principles
+	4. Capabilities assessment
+		1. Business scenarios
+		2. Strengths and weaknesses
+	5. Tailored architecture framework
+	6. Architecture vision
+	7. Draft architecture definition document (version 0.1 of all baseline and target BDAT documents)
+		1. 1.0 is final and approved
+	8. Communications plan
+		1. Stakeholders
+		2. Who has to sign off
+		3. Who needs to be informed
+		4. Send emails or copies of progress
+	9. Additional content in the Architecture Repository
+5. Artifacts Produced
+	1. Matrices: Stakeholder map matrix
+	2. Diagrams: **Business model diagram**, **Business capability map**, **Value stream map**, Value chain diagram, Solution concept diagram
+		1. Business or value realated are in Phase A
+
 ### Phase B - Business Architecture ###
+1. The BDAT phases: Business, Data, Application and Technology
+2. Phase B - Business Architecture
+	1. The purpose is: Develop the target business architecture
+		1. Transitional architectures are waypoints along the way
+	2. The purpose is to: Identify **candidate architecture roadmap** items based on gaps
+		1. Roadmap: An analysis of baseline architecture and target architecture where we identify gaps between them and the gaps become work items that go onto the roadmap
+	3. Business architecture is based on the architecture vision (Phase A)
+		1. Look at business requirements and what adjustments are required
+	4. Inputs to Phase B:
+		1. External reference materials
+		2. Request for Architecture Work (optional) (Preliminary phase)
+		3. Business principles, goals, and drivers (Phase A)
+		4. Capabilities assessment (Phase A)
+		5. Communications plan (Phase A)
+		6. Organization Model for Enterprise Architecture (Prelim Phase)
+		7. Tailored Architecture Framework (Prelim Phase)
+		8. Approved Statement of Architecture Work (Phase A)
+		9. Architecture Principles (Phase A)
+		10. Enterprise Continuum
+		11. Architecture Repository
+		12. Architecture vision (Phase A)
+		13. Draft architecture definition document (version 0.1 of all baseline and target BDAT documents) (Phase A)
+	5. Steps for Phase B
+		1. Select reference models, viewpoints, and tools
+			1. Reference model - standard model
+				1. Banking reference model
+				2. Education reference model
+				3. Other industries
+		2. Develop baseline business architecture description
+			1. What is current business architecture
+				1. BUs
+				2. Processes
+				3. How systems connect to each other
+		3. Develop target business architecture description
+			1. Where do we want to go
+			2. What do we need to do to change the business architecture to get there
+		4. Perform gap analysis
+			1. Differences between the two
+		5. Define candidate roadmap components
+		6. Resolve impacts across the architecture landscape
+			1. May need to oursource (call center say)
+				1. Resolve them
+		7. Conduct formal stakeholder review
+		8. Finalize business architecture
+		9. Construct architecture definition document (v 1.0)
+			1. Finalized, signed off and approved
+	5. Outputs from Phase B
+		1. Refined Phase A deliverables
+			1. If we need to go back to Phase A deliverables
+				1. Vision
+				2. Business goals/drivers
+			2. Revise if needed
+		2. Draft architecture definition document
+			1. Baseline business architecture v1.0 (detailed)
+			2. Target business architecture v1.0 (detailed)
+		3. Draft architecture requirements specification - gap analysis
+		4. Business architecture components of an architecture roadmap
+	6. Artifacts Produced
+		1. Catalogs: **Value Stream catalog**, **Business Capabilities catalog**, **Value Stream Stages catalog**, Organization/actor catalog, Driver/goal/objective catalog, role catalog, business service/function catalog, location catalog, process/event/control/product catalog, contract/measure catalog
+		2. Matrices: **Value Stream/Capability matrix**, **Strategy/Capability matrix**, **Capability/Organization matrix**, Business interaction matrix, actor/role matrix
+		3. Diagrams: **Business Model diagram**, **Business Capability Map**, **Value Stream Map**, **Organization Map**, Business footprint diagram, business service/ information diagram, function decomposition diagram, product lifecycle diagram, goal/objective/service diagram, **business** use-case diagram, organization decomposition diagram, process flow diagram, event diagram
+3. The phase underwent the most change from 9.1 to 9.2
+	1. Phase B has most updates
+4. Phase B: Business architecture about how to get there
+
 ### Phase C - Information Systems Architecture ###
+1. Phase C: Contains two phases in one - define the following (order does not matter)
+	1. Data architecture
+	2. Application architecture
+2. The objective, inputs, steps, output are almost the same (but focussed on individual domains)
+3. Purpose is: Develop the **target information systems architecture**
+4. Purpose is: Identify **candidate architecture roadmap** items based on gaps
+
 ### Phase C - Data Architecture ###
+1. The purpose is: Develop **target data architecture**
+2. The purpose is: Identify **candidate architecture roadmap** items based on gaps
+3. Inputs to Phase C, Data Architecture
+	1. External reference materials
+	2. Request for Architecture Work (optional) (Preliminary Phase)
+	3. Capability assessment (Phase A)
+	4. Communications Plan (Phase A)
+	5. Organization Model for Enterprise Architecture (Prelim Phase)
+	6. Tailored Architecture Framework (Prelim Phase)
+	7. Data principles (TOGAF Specification Chapter 20)
+	8. Approved Statement of Architecture Work (Phase A)
+	9. Architecture vision (Phase A)
+	10. Architecture Repository
+	11. Draft architecture documents and draft requirements (Phase B)
+	12. Business related architecture roadmap (Phase B)
+4. Steps for Phase C: Data Architecture
+	1. Select reference models, viewpoints, and tools
+	2. Develop baseline data architecture description
+	3. Develop target data architecture description
+	4. Perform gap analysis
+		1. Gaps become work items that go into roadmap
+	5. Define candidate roadmap components
+	6. Resolve impacts across the architecture landscape
+		1. Other teams
+		2. Other departments
+			1. Single system will have customer info (say)
+		3. Involves talking to people, documenting it, buy-in across organization
+	7. Conduct formal stakeholder review
+	8. Finalize data architecture
+	9. Build architecture definition document
+5. Outputs from Phase C: Data Architecture
+	1. Refined Phase A deliverables
+	2. Draft architecture definition document (work items are in the roadmap and the architecture requirements section, data and architecture requirements sections get filled in with gap analysis)
+		1. Baseline data architecture v1.0
+		2. Target data architecture v1.0
+	3. Draft architecture requirements specification - gap analysis
+	4. Data architecture components of an architecture roadmap
+6. Artifacts Produced
+	1. Catalogs: Data entity/data component catalog
+	2. Matrices: Data entity/business function matrix, **Application/Data matrix**
+	3. Diagrams: Conceptual data diagram, logical data diagram, data dissemination diagram, data security diagram, data migration diagram, data lifecycle diagram
+
 ### Phase C - Application Architecture ###
+1. The purpose is: Develop **target application architecture**
+2. The purpose is: Identify **candidate architecture roadmap** items based on gaps
+3. Inputs to Phase C, Application Architecture (everything from previous phases - if data is done first, it's outputs are included)
+	1. External reference materials
+	2. Request for Architecture Work (optional) (Preliminary Phase)
+	3. Capability assessment (Phase A)
+	4. Communications plan (Phase A)
+	5. Organization Model for Enterprise Architecture (Prelim Phase)
+	6. Tailored Architecture Framework (Prelim Phase)
+	7. Application principles (TOGAF Specification Chapter 20)
+	8. Approved Statement of Architecture Work (Phase A)
+	9. Architecture vision (Phase A)
+	10. Architecture Repository
+	11. Draft architecture documents and draft requirements (Phase A)
+	12. Business and data related architecture roadmap (Phase B)
+4. Steps for Phase C, Application Architecture
+	1. Select reference models, viewpoints, and tools
+	2. Develop baseline application architecture description
+	3. Develop target application architecture description
+	4. Perform gap analysis
+	5. Define candidate roadmap components
+	6. Resolve impacts across the architecture landscape
+	7. Conduct formal stakeholder review (get feedback and sign-off)
+	8. Finalize application architecture
+	9. Construct architecture definition document
+5. Outputs from Phase C, Application Architecture
+	1. Refined Phase A deliverables
+	2. Draft architecture definition document
+		1. Baseline application architecture v1.0
+		2. Target application architecture v1.0
+	3. Draft architecture requirements specification - gap analysis
+	4. Application architecture components of an architecture roadmap
+6. Artifacts Produced
+	1. Catalogs: Application portfolio catalog, interface catalog
+	2. Matrices: Application/ organization matrix, role/ application matrix, application function matrix, application interaction matrix
+	3. Diagrams: Application Communication diagram, Application and User Location diagram, Application Use-Case diagram, Enterprise Manageability diagram, Process/ Application Realization diagram, Software Engineering diagram, Application Migration diagram, Software Distribution diagram
+
 ### Phase D - Technology Architecture ###
+1. Purpose is: Develop the **target technology architecture**
+2. Purpose is: Identify **candidate architecture roadmap** items based on gaps
+3. Inputs to Phase D:
+	1. External reference materials
+	2. Product information on candidate products
+		1. If third party app
+			1. What hardware (servers)
+			2. Additional servers
+			3. Purchase hosting
+			4. contracts
+	3. Request for Architecture Work (optional) (Prelim Phase)
+	4. Capability assessment (Phase A)
+	5. Communication plan (Phase A)
+	6. Organization Model for Enterprise Architecture (Prelim Phase)
+	7. Tailored Architecture Framework (Prelim Phase)
+	8. Technology principles (TOGAF Specification Chapter 20)
+	9. Approved Statement of Architecture Work (Phase A)
+	10. Architecture Vision (Phase A)
+	11. Architecture Repository
+	12. Draft Architecture documents and draft requirements (Phase B and C)
+	13. Business, data and application components of an architecture roadmap (Phase B and C)
 
 ## Continuing with the ADM ##
 ### Phase E - Opportunities and Solutions ###

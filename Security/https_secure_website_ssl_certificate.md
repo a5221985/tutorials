@@ -526,10 +526,120 @@
 		1. Edge certificate is given
 	7. Goto Cloudflare
 		1. Full Strict
-	8. Browser:
+	8. Browser: (Firefox)
 		1. View certificate
 	9. Goto wordpress dashboard
 		1. https should work 
+	10. Origin certificate
+		1. generate one or use existing for the domain (autossl is fine)
+	11. Securing dashboard
+		1. open site fishyfats with https
+		2. Go to C-panel
+			1. File manager
+				1. log into area where website is installed
+				2. wp-config.php - edit
+					1. Paste the following
+
+							define("FORCE_SSL_ADMIN", true);
+
+							/* That's all, ... */
+
+			2. Dashboard
+				1. Settings
+				2. General
+					1. WordPress Address (URL) - https://fishyfats.com
+					2. Site Address (URL) - https://fishyfats.com
+				3. Save changes
+	12. Setup HTTPs redirects
+		1. LiteSpeed Cache - deactivate
+	13. Go to C-Panel
+		1. Login to where the site is and open .htaccess
+			1. Edit
+				
+					RewriteCond %{HTTPS} off
+					RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+				1. Save it
+		2. Activate cache again
+			1. LiteSpeed Cache - activate
+	14. Fix mixed content
+		1. search check ssl spider
+			1. Paste url
+				1. RSS Feed
+					1. Change RSS url to https
+						1. Save and publish
+	15. Change the site url to https in google analytics
+	16. Go to search console
+		1. copy http version
+		2. Add property
+		3. https url
+		4. Add
+		5. Download verification file
+		6. Upload to C-Panel
+			1. upload to the folder
+			2. Drag and drop the file
+		7. Verify
+		8. Continue
+		9. Crawl - sitemaps
+			1. Paste sitemap_index.xml
+				1. Test
+			2. Submit
+			3. Refresh the page
 
 ### "Upgrade" from AutoSSL ###
+1. It sometimes struggles to review
+	1. Emails - AutoSSL could not renew
+		1. Put reminder
+2. Upgrading
+	1. Use the Cloudflare Origin certificate that is free (15 years)
+	2. If your host supports it, try the "Lets Encrypt SSL" option
+		1. https://letsencrypt.org/ for more details on that
+			1. Free and automated
+			2. AutoRenews every few months (but can have problems)
+3. In C-Panel
+	1. Security
+		1. Lets Encrypt SSL (15 years)
+			1. Issue
+		2. SSL Status
+			1. Validated
+			2. View certificate
+				1. Don't have to exclude from auto ssl
+		3. Click on issue
+			1. two
+				1. domain name
+				2. www version of domain name
+	2. New certificate overwrites the old one
+		1. Let's encrypt will try to auto reniew
+4. Origin certificate (15 years certificate)
+	1. C-Panel
+	2. Security
+		1. SSL TLS
+			1. Install and Manage SSL for your site
+				1. Certificate details
+					1. (cPanel issued)
+						1. Don't uninstall
+						2. Update certificate
+							1. Certificate
+							2. Private key
+							3. Certificate authority bundle (usually not required)
+		2. Cloud flare
+			1. Generate origin certificate (and install in stablehost)
+				1. copy certificate
+				2. paste into certificate box
+				3. copy private key
+				4. paste into private key box
+
 ### BONUS Lecture :: Resources ###
+1. [https://www.facebool.com/groups/409924023087181/](https://www.facebool.com/groups/409924023087181/)
+2. 40% off on stablehost [http://ezseonews.com/stablehost](http://ezseonews.com/stablehost)
+3. [Namecheap here](http://ezseonews.com/namecheap)
+4. [Cloudflare](https://www.cloudflare.com/)
+5. [Chrome Insecure content extension](https://chrome.google.com/webstore/detail/https-mixed-content-locat/pbljfomgollbampmcmalflifheichabj)
+	1. To find mixed content in pages
+6. [https://www.jitbit.com/sslcheck](https://www.jitbit.com/sslcheck/)
+7. [https://www.ssllabs.com/ssltest/](https://www.ssllabs.com/ssltest/)
+8. [https://www.sslshopper.com/ssl-checker.html](https://www.sslshopper.com/ssl-checker.html)
+
+#### Coupons ####
+1. [Installing Wordpress](https://www.udemy.com/installing-wordpress-domain-registrars-and-web-hosting/?couponCode=SSLSTUDENTS)
+2. [Wordpress Backup & Restore](https://www.udemy.com/wordpress-backup-restore/?couponCode=SSLSTUDENTS)
