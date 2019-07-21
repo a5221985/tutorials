@@ -12,3 +12,11 @@
 3. Getting Started
 	1. Quick Start:
 		1. `npm install -g create-react-native-app` **(M)**
+		2. `create-react-native-app share-places`
+		3. `cd share-places`
+		4. `npm start`
+		5. Visit app store and install Expo
+		6. Scan QR code (only in wrapper not install it on phone - may have problems with maps ...)
+		7. Quit
+		8. `npm run eject` - real native app
+			1. 
