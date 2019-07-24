@@ -98,6 +98,22 @@
 		3. Opens simulator
 			1. Bezel app
 				1. Window > Show Device Bezels (uncheck)
+		4. Progress Bar
+		5. Errors and Warnings
+		6. Standard editor button (right)
+		7. Assistant editor (2 screens) - for designing
+			1. Canvas on left hand side
+			2. Code on right hand side
+		8. Version editor
+			1. Compare and contrast with previous versions of code
+		9. Popping out three main panes
+			1. Left: Navigator pane (tabs)
+				1. Project navigator - all files making up app
+				2. Find navigator - search within project (folders, files, ...)
+				3. Error pane - errors will show up here (debugging)
+					1. Errors show up in different places
+					2. Error and file is shown in navigator
+					3. Warnings are also shown (yello triangles)
 
 ### Download the Swift Cheat Sheet and a Map of Xcode ###
 ### The Anatomy of an iOS App ###
