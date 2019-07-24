@@ -133,9 +133,25 @@
 				2. Double click/ use utilities pane to edit
 					1. Shield symbol - text
 		2. Drag to increase the text area
-	2.
+	2. Select View
+		1. Attribute inspector - change a property
+			1. Color - Crayon
+			2. Change font
+				1. Ruler symbol - position, width and height
+4. We can change the canvas size
+	1. Bottom - click for different phone or rotate
+5. Document outline - (just beside diagram)
+	1. We can rename
+		1. Label 1
+		2. Label 2
+6. + or - increase or decrease size
+	1. Pinch in our out in track pad
+	2. Two fingers can move the canvas
+7. Play
 
 ### Download the Swift Cheat Sheet and a Map of Xcode ###
+1. [Swift Cheat Sheet]()
+
 ### The Anatomy of an iOS App ###
 
 ## iOS Interface Builder - The $999 App ##
