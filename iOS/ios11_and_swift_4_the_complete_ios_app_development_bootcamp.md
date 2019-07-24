@@ -2,7 +2,29 @@
 
 ## Getting Started with iOS 11 and Swift 4 ##
 ### What You'll Get in This Course ###
+1. 20 mobile apps
+	1. Swift
+2. Cloud based db
+3. Real time chat apps
+4. Intelligent apps
+5. Augmented reality (AR kit and Core ML)
+6. Why are we doing something
+7. Free graphics assets
+	1. Photoshop files
+	2. Illustrator apps
+
 ### How to Get All the Free Stuff ###
+1. Bundle:
+	1. Icons
+	2. Gradients (background)
+	3. HD Photos
+	4. Faces
+	5. Buttons
+	6. Photoshop files
+	7. Icon builders
+2. 12 rules to learn to code
+3. 
+
 ### Download Your Massive Asset Bundle Here ###
 ### Join the Student Community ###
 ### Get Monthly Tips and Tools to Level Up as a Developer ###
