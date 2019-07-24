@@ -60,8 +60,17 @@
 7. Ask: Do you actually need an app? Responsive website is not sufficient?
 	1. Location
 	2. Notification
+	3. Phone related ...
+8. iTunes account is enough to download to devide (Apple Developer program $99 is required when we put it in App store)
+9. Uploading App to App Store
 
 ### Download Xcode 9 ###
+1. Have enough hard drive (atleast 10 GB)
+	1. About this Mac
+		1. Storage tab
+2. Make sure macOS is updated
+	1. About this Mac (10.13 or above)
+
 ### A Walkthrough of the Xcode Development Environment ###
 ### Download the Swift Cheat Sheet and a Map of Xcode ###
 ### The Anatomy of an iOS App ###
