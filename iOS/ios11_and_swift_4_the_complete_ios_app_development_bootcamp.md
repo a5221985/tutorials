@@ -88,6 +88,16 @@
 			4. Organization Identifier: reverse domain name structure
 			5. Language: Swift
 			6. Unchecked
+		3. Next
+			1. Save: Desktop/
+		4. Create
+2. Structure
+	1. Status Bar (similar to other apps)
+		1. Play (builds and runs onto simulator or physical devide)
+		2. Stop (stop running)
+		3. Opens simulator
+			1. Bezel app
+				1. Window > Show Device Bezels (uncheck)
 
 ### Download the Swift Cheat Sheet and a Map of Xcode ###
 ### The Anatomy of an iOS App ###
