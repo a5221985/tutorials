@@ -70,8 +70,25 @@
 		1. Storage tab
 2. Make sure macOS is updated
 	1. About this Mac (10.13 or above)
+3. Search Xcode
+	1. Click on icon
+	2. Install
 
 ### A Walkthrough of the Xcode Development Environment ###
+1. Open XCode - Welcome Screen
+	1. Create a new Xcode project
+		1. Template: iOS > Single View App (most devs)
+			1. Most customizable
+			2. Most flexible
+			3. Other features can be added
+		2. Next
+			1. Product Name: Hello World
+			2. Team: None
+			3. Organization Name: Company name or own full name
+			4. Organization Identifier: reverse domain name structure
+			5. Language: Swift
+			6. Unchecked
+
 ### Download the Swift Cheat Sheet and a Map of Xcode ###
 ### The Anatomy of an iOS App ###
 
