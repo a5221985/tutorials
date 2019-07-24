@@ -23,12 +23,27 @@
 	6. Photoshop files
 	7. Icon builders
 2. 12 rules to learn to code
-3. 
 
 ### Download Your Massive Asset Bundle Here ###
+1. [https://www.udemy.com/ios11-app-development-bootcamp/learn/lecture/7555460#content](https://www.udemy.com/ios11-app-development-bootcamp/learn/lecture/7555460#content)
+
 ### Join the Student Community ###
+1. [Join on Discord](https://discord.gg/ZMCRNA2)
+
 ### Get Monthly Tips and Tools to Level Up as a Developer ###
+1. [https://www.appbrewery.co/p/newsletter/](https://www.appbrewery.co/p/newsletter/)
+
 ### Tools and Materials for iOS 11 App Development ###
+1. Software and Hardware
+	1. Mac - OS X
+	2. Xcode (iPad, iPad Pro do not have)
+2. [www.macincloud.com](www.macincloud.com)
+	1. Remote connection to Mac (Xcode exists)
+3. Hackintosh (Apple is strict)
+	1. Dual Boot/iATKOS
+	2. VMWare
+	3. Delphi XE4
+
 ### Download Xcode 9 ###
 ### A Walkthrough of the Xcode Development Environment ###
 ### Download the Swift Cheat Sheet and a Map of Xcode ###
@@ -63,7 +78,7 @@
 ### Step 3 - Design your App to your Heart's Content ###
 ### Show Off Your Work! ###
 
-## Build a iOS Dice App to Learn Swift Programming Basics ##
+## Build an iOS Dice App to Learn Swift Programming Basics ##
 ### What You'll Make by the End of This Module ###
 ### Download the Pre-Prepared Image Assets Here ###
 ### How to Design Your App ###
