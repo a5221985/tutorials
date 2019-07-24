@@ -39,10 +39,27 @@
 	2. Xcode (iPad, iPad Pro do not have)
 2. [www.macincloud.com](www.macincloud.com)
 	1. Remote connection to Mac (Xcode exists)
-3. Hackintosh (Apple is strict)
+3. Hackintosh (Apple is strict - Physical iPhone running is not possible but simulator is supported)
 	1. Dual Boot/iATKOS
 	2. VMWare
 	3. Delphi XE4
+4. Xcode
+	1. To write code
+	2. Design app
+	3. Run in simulator
+5. MacOS Sierra (10.12.6 or above)
+	1. High Siera is recommended (10.13 or above)
+	2. Apple symbol > About > Software Update
+		1. App Store - Mac Siera (Intermediate update)
+			1. Changes: photo editing software (cool tools)
+	3. XCode has iOS Simulator (notifications, apple health, apple home are tricky)
+6. Universal Development (Problem - UX wont be very nice, native functionality is not so reachable, not so pretty in terms of design)
+	1. Phone Gap (HTML/CSS/JS)
+	2. Xamarin Tools (C#)
+	3. Appcellerator Titanium (JS)
+7. Ask: Do you actually need an app? Responsive website is not sufficient?
+	1. Location
+	2. Notification
 
 ### Download Xcode 9 ###
 ### A Walkthrough of the Xcode Development Environment ###
