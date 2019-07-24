@@ -114,6 +114,26 @@
 					1. Errors show up in different places
 					2. Error and file is shown in navigator
 					3. Warnings are also shown (yello triangles)
+		10. Breakpoints
+			1. Clicking on left margin
+				1. Click once to disable
+				2. Drag it away to remove it
+		11. Bottom pane
+			1. Debug area - error messages when app crashes
+				1. Post in Q&A forum
+			2. Printing to tell what is going on in the app
+		12. Maximize code area
+		13. RightSide pane - utility pane
+			1. Useful for design
+3. Go to Main.storyboard - to design the app
+	1. Object Library (bottom right)
+		1. Selected by default
+			1. Search for label
+				1. Drag and drop
+				2. Double click/ use utilities pane to edit
+					1. Shield symbol - text
+		2. Drag to increase the text area
+	2.
 
 ### Download the Swift Cheat Sheet and a Map of Xcode ###
 ### The Anatomy of an iOS App ###
