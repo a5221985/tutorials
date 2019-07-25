@@ -154,6 +154,20 @@
 1. Components of iPhone App
 	1. View - what you see on screen (buttons, labels, ...)
 	2. ViewController - what should happen when user taps a button or what should happen when a user has data to display
+	3. Model - What controls data (manipulates data, prepares data to be served to ViewController)
+2. Contact app
+	1. ViewController asks Model for contacts (phone numbers, images, ...)
+	2. Model passes the data to ViewController
+	3. ViewController decides how to display on the View
+	4. View displays on the screen (in a beautiful format)
+	5. If delete contact is tapped, ViewController will contact Model and asks it to remove from it's database
+3. MVC?
+	1. More versetile
+	2. Easier to manage
+4. Each layer can be changed independently
+5. It separates different components into individual packages of code
+	1. Bug is easier to identify
+6. Other design patterns will be covered later
 
 ## iOS Interface Builder - The $999 App ##
 ### The I Am Rich App ###
