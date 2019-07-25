@@ -171,6 +171,11 @@
 
 ## iOS Interface Builder - The $999 App ##
 ### The I Am Rich App ###
+1. Flat design
+	1. UI elements
+	2. Assets
+	3. Organizing image assets
+
 ### How to Properly Construct a New Xcode Project ###
 ### What is a Bundle Identifier? ###
 ### Let's Design the User Interface Using Storyboards ###
