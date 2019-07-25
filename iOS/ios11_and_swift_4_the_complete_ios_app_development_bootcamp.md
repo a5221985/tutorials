@@ -177,6 +177,13 @@
 	3. Organizing image assets
 
 ### How to Properly Construct a New Xcode Project ###
+1. Xcode: v 9.x
+2. Three ways of starting project:
+	1. File > New > Project
+	2. Create New Xcode Project
+3. Xcode Keyboard Shortcuts
+	1. 
+
 ### What is a Bundle Identifier? ###
 ### Let's Design the User Interface Using Storyboards ###
 ### How to Position User Interface (UI) Elements ###
