@@ -150,9 +150,10 @@
 7. Play
 
 ### Download the Swift Cheat Sheet and a Map of Xcode ###
-1. [Swift Cheat Sheet]()
-
 ### The Anatomy of an iOS App ###
+1. Components of iPhone App
+	1. View - what you see on screen (buttons, labels, ...)
+	2. ViewController - what should happen when user taps a button or what should happen when a user has data to display
 
 ## iOS Interface Builder - The $999 App ##
 ### The I Am Rich App ###
