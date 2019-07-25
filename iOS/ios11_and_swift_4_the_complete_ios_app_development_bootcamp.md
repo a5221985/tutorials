@@ -182,10 +182,26 @@
 	1. File > New > Project
 	2. Create New Xcode Project
 3. Xcode Keyboard Shortcuts
-	1. 
+4. New project
+	1. Single View App
+	2. Next
+	3. Product Name: I Am Rich
+	4. Organization Name: Org or full name
+	5. Organization Identifier: Reverse Domain Name
+		1. Bundle identifier - identifies app uniquely on app store
+			1. Can be changed later as well
+	6. Language: Swift
+	7. Uncheck rest of the boxes
+	8. Next
+	9. Uncheck Source Control
+	10. Click Create
 
 ### What is a Bundle Identifier? ###
+1. com.company.I-Am-Rich
+
 ### Let's Design the User Interface Using Storyboards ###
+1. 
+
 ### How to Position User Interface (UI) Elements ###
 ### Download the Pre-Prepared Image Assets Here ###
 ### How to Incorporate Image Assets into Your Xcode Project ###
