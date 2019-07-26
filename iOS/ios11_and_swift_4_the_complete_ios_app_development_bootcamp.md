@@ -207,6 +207,22 @@
 	1. There is one blank screen
 	2. Left arrow shows the sequence of app screens (starts from here)
 	3. View as: iPhone 6s
+5. Toggle close panes to give more space
+6. Utilities pane:
+	1. Bottom part
+		1. Object library (circle and square)
+			1. Search: label - drag and drop (margins pop up)
+				1. Change Test to: I Am Rich
+				2. Change font to: Custom, Helvetica Neue, Style: Thin, Size: 40 points
+				3. Select label: command + + = (resizes label to fit properly)
+				4. Change color to white (Chick on View > I Am Rich to find it)
+				5. Clicking on View moves away from the label
+				6. Select #34495E (hex color) for background
+				7. Click on Ruler (right)
+					1. x: 108
+					2. y: 100
+					3. width: 160
+					4. height: 50
 
 ### How to Position User Interface (UI) Elements ###
 ### Download the Pre-Prepared Image Assets Here ###
