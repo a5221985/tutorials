@@ -200,7 +200,13 @@
 1. com.company.I-Am-Rich
 
 ### Let's Design the User Interface Using Storyboards ###
-1. 
+1. Min.storyboard (yellow files are design files)
+2. LaunchScreen.storyboard (loading screen - before app comes up)
+3. Assets.xcassets (image assets)
+4. Design - Main.storyboard
+	1. There is one blank screen
+	2. Left arrow shows the sequence of app screens (starts from here)
+	3. View as: iPhone 6s
 
 ### How to Position User Interface (UI) Elements ###
 ### Download the Pre-Prepared Image Assets Here ###
