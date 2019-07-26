@@ -16,6 +16,9 @@
 	9. The Natural House
 	10. Wikipedia
 
+	8884266840
+	89850077
+
 ## Strategy and Emphasis ##
 1. Many do not know
 	1. Fundamental reference in the book "Design Patterns" (GoF)
