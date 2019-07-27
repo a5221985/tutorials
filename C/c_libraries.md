@@ -40,3 +40,15 @@
 		1. `myprog` should contain machine code for all functions defined in `test.c` and `mylib` library functions that are called by
 
 ## Creation and Usage of Own Library Code ##
+1. Steps:
+	1. Construct an interface to library: `mylib.h`
+	2. Construct an implementation of library: `mylib.c`
+	3. Construct a library object file that can be linked with programs that want to use the library code
+		1. Or shared object file from many `.o` files
+	4. Use library with other C code:
+		1. `#include "mylib.h"`
+		2. Link library code into `a.out` file
+	5. Set LD_LIBRARY_PATH environment variable for finding shared objects (`.so` files) in non-standard locations at runtime
+
+### Details ###
+1. Interface: 
