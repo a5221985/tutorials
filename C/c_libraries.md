@@ -117,4 +117,13 @@
 		2. linking library not in standard path:
 
 				gcc test.c -L/home/newhall/lib -lmylib
+				
+5. Running executable linked with shared object file
+	1. If `.so` is not in `/usr/lib` then set `LD_LIBRARY_PATH` env variable so that liner can find and load `.so` file into executable at runtime:
+
+			# in bash:
+			export LD_LIBRARY_PATH=/home/newhall/lib:$LD_LIBRARY_PATH
+			
+			# in tcsh:
+			sentenv LC_LIBRARY_PATH /home/newhall/lib:$LD_LIBRARY_PATH	
 			
