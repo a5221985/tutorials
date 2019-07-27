@@ -54,4 +54,42 @@
 1. Interface: header file should contain definitions for everything exported by library
 	1. function prototypes with comments for users of user library functions
 	2. definitions of types and global variables exported by library
-2. Have boilerplate code (`#ifndef` ... `#endif`) around header file's contents (ensures that pre-processor includes `mylib.h` one time)
+	3. Have boilerplate code (`#ifndef` ... `#endif`) around header file's contents (ensures that pre-processor includes `mylib.h` one time)
+		1. Example:
+
+				#ifndef _MYLIB_H_
+				#define _MYLIB_H_
+			
+					// a constant definition exported by library:
+					#define MAX_FOO 20
+					
+					// a type definition exported by library:
+					struct foo_struct {
+						int x;
+						float y;
+					};
+					typedef struct foo_struct foo_struct;
+					
+					// a global variable exported by library
+					// "extern" means that this is not a variable declaration, it
+					// just defines that a variable named total_foo of type int
+					// exists and you can use it (its declaration is in some library source file)
+					extern int total_foo;
+					
+					// a function prototype for a function exported by library:
+					extern int foo(float y, float z); // a very bad function name
+				#endif
+
+2. Implementation: construct a `mylib.c` file that includes `mylib.h` and contains implementation of every function in the library
+
+		#include "mylib.h"
+		...
+		int total_foo;
+		
+		int foo(float y, float z)
+		{
+			...
+		}	
+		
+3. Construct Library Object File that can be linked into other programs that use the library (use `-c` option to `gcc` to tell 
+			
