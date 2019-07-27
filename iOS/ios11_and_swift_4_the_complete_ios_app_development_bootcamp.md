@@ -223,8 +223,18 @@
 					2. y: 100
 					3. width: 160
 					4. height: 50
+				8. Center Align the label
 
 ### How to Position User Interface (UI) Elements ###
+1. Positioning:
+	1. Grid layout
+		1. Graph that is reversed (top left is origin - 0,0)
+			1. x extends to the right (iPhone 6 Plus - 375 max)
+			2. y extends downwards (iPhone 6 Plus - 667 max)
+2. [PintCodeApp](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions) - gives resolutions
+	1. App is used to turn drawings into code
+3. 
+
 ### Download the Pre-Prepared Image Assets Here ###
 ### How to Incorporate Image Assets into Your Xcode Project ###
 ### What's the Difference Between Points and Pixels & How to Design iOS Image Assets ###
