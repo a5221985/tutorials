@@ -233,11 +233,40 @@
 			2. y extends downwards (iPhone 6 Plus - 667 max)
 2. [PintCodeApp](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions) - gives resolutions
 	1. App is used to turn drawings into code
-3. 
+3. Position is determined by top left corner and others are determined by size
+	1. x = 46, y = 90
 
 ### Download the Pre-Prepared Image Assets Here ###
 ### How to Incorporate Image Assets into Your Xcode Project ###
+1. Image View:
+	1. Object library
+		1. Search: Image View - single image or an animation described by an array of images
+	2. Attributes Pan
+		1. Size
+		2. Background color
+		3. Tint color
+		4. Image
+2. Design:
+	1. Size inspector pane
+		1. x = 53
+		2. y = 250
+		3. Width = 270
+		4. Height = 270
+3. Assets.xcassets
+	1. Slots - app icon images that xcode expects
+		1. App icons should be available for the slots
+	2. Unzip the assets [https://www.udemy.com/ios11-app-development-bootcamp/learn/lecture/7555528#content](https://www.udemy.com/ios11-app-development-bootcamp/learn/lecture/7555528#content)
+	3. Drag and drop the images into slots
+	4. Drag diamond image and put it under AppIcon
+		1. `@2x.png` - xcode knows to put it in 2x
+4. Attributes pane:
+	1. Image - start typing diamond
+	2. Content mode - Aspect fit
+
 ### What's the Difference Between Points and Pixels & How to Design iOS Image Assets ###
+1. Points vs Pixels
+	1. Pixel - Picture element (squares)
+
 ### App Icon Dimensions and a Brief History of Graphics ###
 ### Asset Catalogue Compiler Warning ###
 ### Run and Test Your App! ###
