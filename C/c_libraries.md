@@ -105,5 +105,16 @@
 	3. Archive file: (statically linked library - `libmylib.a`) It can be constructed from one or more `.o` files
 		1. Linking a static library copies code into `a.out` at runtime
 4. Use library in other programs
-	1. step 1: 
+	1. step 1: Add include line (`#include "mylib.h"`) in all program source files that use the library (`test.c`)
+	2. step 2: Link program's `.c` file with library object file (specify `mylib.o` in command line)
+
+			gcc test.c mylib.o
+			
+		1. linking `libmylib.so` (or `libmylib.a`)
+
+				gcc test.c -lmylib
+				
+		2. linking library not in standard path:
+
+				gcc test.c -L/home/newhall/lib -lmylib
 			
