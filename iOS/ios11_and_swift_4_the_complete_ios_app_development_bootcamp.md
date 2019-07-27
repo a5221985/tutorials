@@ -266,6 +266,18 @@
 ### What's the Difference Between Points and Pixels & How to Design iOS Image Assets ###
 1. Points vs Pixels
 	1. Pixel - Picture element (squares)
+	2. Points - measure of length (1 point = 1/72 Inch)
+		1. Another example: 72 ppi - 72 pixels per inch
+2. 20pt - 
+	1. Retina screens - sharper
+		1. 1 pixel in one point - normal screen
+		2. 4 pixels in one point - retina screen
+	2. 1x - single pixel per point
+	3. 2x - 2 x 2 = 4 pixels per point
+	4. 3x - 3 x 3 = 9 pixels per point
+3. Downscaling an image
+	1. Larger images with single pixel lines (downscaling will remove the lines)
+4. Hence we must provide icons and images for all of the size categories required
 
 ### App Icon Dimensions and a Brief History of Graphics ###
 ### Asset Catalogue Compiler Warning ###
