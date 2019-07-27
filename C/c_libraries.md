@@ -91,5 +91,19 @@
 			...
 		}	
 		
-3. Construct Library Object File that can be linked into other programs that use the library (use `-c` option to `gcc` to tell 
+3. Construct Library Object File that can be linked into other programs that use the library (use `-c` option to `gcc` to tell it to construct object file (`.o` file) rather than executable:
+
+		gcc -o mylib.o -c mylib.c
+		
+	1. `mylib.o` can be used as library file and statically link it into other programs
+	2. Shared object file: This can be constructed from one or more `.o` files.
+		1. It is a Unix name for dynamically linked library (code is loaded at runtime)
+		2. How to construct: use `-shared` flag
+
+				gcc -shared -o libmylib.so mylib.o blah.o grr.o -lm
+				
+	3. Archive file: (statically linked library - `libmylib.a`) It can be constructed from one or more `.o` files
+		1. Linking a static library copies code into `a.out` at runtime
+4. Use library in other programs
+	1. step 1: 
 			
