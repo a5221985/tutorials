@@ -51,4 +51,7 @@
 	5. Set LD_LIBRARY_PATH environment variable for finding shared objects (`.so` files) in non-standard locations at runtime
 
 ### Details ###
-1. Interface: 
+1. Interface: header file should contain definitions for everything exported by library
+	1. function prototypes with comments for users of user library functions
+	2. definitions of types and global variables exported by library
+2. Have boilerplate code (`#ifndef` ... `#endif`) around header file's contents (ensures that pre-processor includes `mylib.h` one time)
