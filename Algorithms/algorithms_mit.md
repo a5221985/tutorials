@@ -270,5 +270,8 @@
 					  3...n  R2...n
 					  
 				1. No of unique sub-problems - left branch (others are repeate)
-					1. `O(nlogn) + O(n)` -> `O(nlogn)`	
+					1. `O(nlogn) + O(n)` -> `O(nlogn)`
+
+2. Strassen Algorithm - Matrix Multiplication
+	1. 	
 					  
