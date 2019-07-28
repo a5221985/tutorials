@@ -699,4 +699,57 @@
 ### Idiot Boxes ###
 ### Further Reading on User Experience Design ###
 
-## 
+## Designing for iOS vs. Android - What are the Important Differences? ##
+### Android vs. iOS Design ###
+### Navigation ###
+### The Devil is in the Details ###
+### Differences in Icon Design ###
+### Flat Design vs. Material Design ###
+### Differences in Establishing Visual Hierarchy ###
+### iOS and Android Design Guidelines ###
+
+## A Step-By-Step Guide to a Professional Mobile Designer's Workflow ##
+### Step 1 - Design Patterns and Colour Palettes ###
+### Where to Find Design Patterns and Colour Palettes ###
+### Step 2 - How to Construct a User Flow Diagram ###
+### Step 3 - How to Construct Wireframes ###
+### Wireframes Resources ###
+### Step 4 - How to Construct Professional Mockups ###
+### Tools for Creation of Mockups ###
+### How to Use Sketch to Construct Mockups ###
+### [Optional] Watch me Construct a Mock up Using Sketch ###
+### How to Use Canva to Construct Mockups ###
+### Your Turn to Construct Your Own Mockups ###
+### Tools and Resources for Constructing Mockups ###
+### Step 5 - How to Construct an Animated App Prototype ###
+### Tools and Resources for Constructing Prototypes ###
+### Prototyping with Keynote ###
+### Prototyping with Marvel ###
+### Your Turn Construct a Prototype ###
+
+## Design Resources ##
+### Where to Find Free-for-Commercial-Use Image Assets ###
+### Where to Find Free-for-Commercial-Use Icons ###
+### How to Keep Designing and Improving ###
+
+## The Complete App Marketing Course - How to Make Money From Your Apps ##
+### The Importance of App Marketing ###
+### The Fallacy of Build it and They Will Come ###
+
+## Idea Validation - Save Yourself Time and Money ##
+### The Importance of Idea Validation ###
+### The Simplest Way of Validating Your Idea - The Starbucks Method ###
+### Using Google Trends to Estimate the Size of Your Market ###
+### The Landing Page Validation Method ###
+### How to Create a Landing Page Website in Less than an Hour ###
+### Creation of a Minimum Viable Product ###
+### Using Crowd-Funding to Validate and Fund Your Idea ###
+
+## App Monetisation Methods - How to Make Money from Your App ##
+### How to Monetise Your App on iOS vs. Android ###
+### When You Should Construct a Paid App ###
+### When to use In-App Advertisements ###
+### How You Thought About These Alternative Monetisation Models? ###
+
+## How to Optimize Your App Store Listing ##
+###  
