@@ -273,5 +273,7 @@
 					1. `O(nlogn) + O(n)` -> `O(nlogn)`
 
 2. Strassen Algorithm - Matrix Multiplication
+	1. T(n) = 7 T(n/2) + n^2
+3. Master Theorem:
 	1. 	
 					  
