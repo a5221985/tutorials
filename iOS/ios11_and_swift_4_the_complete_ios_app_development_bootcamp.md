@@ -752,4 +752,85 @@
 ### How You Thought About These Alternative Monetisation Models? ###
 
 ## How to Optimize Your App Store Listing ##
-###  
+### How to Get an App Icon Designed Without Breaking the Bank ###
+### Split Testing for Super Success ###
+### What Makes a Good App Icon? ###
+### The Dos and Don'ts of Making App Screenshots ###
+### Tools for Building Screenshots ###
+
+## Growth Hacking Techniques for App Downloads ##
+### Your First 1000 Customers ###
+### Building an Email List ###
+### The All Important Landing Page ###
+### Blogging Your Way to Success ###
+### Content Marketing for App Downloads ###
+### How to Successfully Launch on Product Hunt ###
+### How to Launch on Beta List ###
+### How to Launch on Hacker News ###
+### If at First You Don't Succeed... ###
+### Cross Promotion ###
+### Social Referrals and Social Queuing ###
+### How to Make Social Media Work for You ###
+
+## How to Get Press Coverage for Your App ##
+### Do I Need a PR Agency? ###
+### Not All Press is Constructed Equal ###
+### How to Craft Your Story ###
+### How to Craft Your Pitch ###
+### How to Figure Out Whih Journalists to Pitch ###
+### How to Find Anyone's Email Address ###
+### How to Pitch a Journalist ###
+### Just-Add-Water Journalist Pitch Email ###
+### Establishing a Relationship with a Journalist ###
+### What if You Still Can't Get Anyone to Write About You? ###
+### Final Tips on Getting Press ###
+
+## How to Get Your App Featured on the App Store ##
+### How to Get Featured on the App Store? ###
+### "Only on the App Store" ###
+### Work with the Corporate Midset ###
+### Native vs. Cross-Platform Apps ###
+### Tips and Tricks for Getting Featured ###
+
+## App Store Optimisation - How to Rank Higher on the App Store Search Algorithm ##
+### What is App Store Optimisation (ASO)? ###
+### Top Tips to Optimise Your App Store Listing ###
+### My Complete ASO Workflow ###
+### Using Apple Search Ads as a Research Tool ###
+### Early vs. Late Game Strategies ###
+### Differences Between Google Play and Apple App Store ###
+
+## The Right Way of Using Paid Advertising to Drive App Downloads ##
+### When to Use Paid Advertising or App Marketing ###
+### Always Test Before You Advertise ###
+### Which Platform to Advertise On? ###
+### How Much Does it Cost? ###
+### How to Setup Your Facebook Ad ###
+### Use Your Competitors' Ad Budget ###
+### Where Can I Find More Customers? ###
+### One Weird Trick to Get More Money from Apple ###
+
+## App Store Reviews and Ratings ##
+### How to Get More 5 Star Ratings and Reviews ###
+### Use This Free Tools to Monitor Your App Reviews ###
+
+## How to Use App Analytics to Increase User Retention ##
+### How to use App Analytics to Increase User Retention ###
+
+## Write Hat vs. Black Hat Methods of Getting More App Downloads and Revenue ##
+### White Hat Techniques ###
+### Black Hat Techniques ###
+
+## Bonus: How to Build Your App Showcase Website ##
+### A 5 Second Way of Building a Web Page for Your iOS App ###
+### How to Use Bootstrap to Build Your App Showcase Website ###
+
+## Your Turn ##
+### It's Time to Work Our Your Marketing Strategy ###
+### Monthly Student-Built App Showcase ###
+
+## Ask Me Anything Series ##
+### Ask Me Anything - Questions for Angela - Episode 1 ###
+### Ask Me Anything - Questions for Angela - Episode 2 ###
+### Ask Me Anything - Quesitons for Angela - Episode 3 ###
+ 
