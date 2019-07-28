@@ -275,5 +275,9 @@
 2. Strassen Algorithm - Matrix Multiplication
 	1. T(n) = 7 T(n/2) + n^2
 3. Master Theorem:
-	1. 	
+	1. 	Given a recursion: T(n) + aT(n/b) + f(n)
+	
+			T(n) = Theta(n^log_b a) if f(n) = O(n^c) c < log_b a (if not much work at each step)
+			T(n) = Theta(n^c log^k+1 n) if f(n) + Theta(n^c log^k n) c = log_b a
+			T(n) = Theta(f(n)) if f(n) = omega(n^c) c > log_b a (if too much work at each step and f(n) dominates)
 					  
