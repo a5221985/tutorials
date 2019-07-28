@@ -248,3 +248,9 @@
 	6. Delete consumes 1 coin
 		1. amortized cost = actual cost + deposits - withdrawal
 			1. log n + log n - log n = log n (for current n)
+
+## R1. Matrix Multiplication and the Master Theorem ##
+1. Divide and Conquer
+	1. Weighted interval scheduling - choose intervals that do not overlap and the combined weight is maximum
+		1. Needs dynamic programming
+	
