@@ -278,6 +278,8 @@
 3. Downscaling an image
 	1. Larger images with single pixel lines (downscaling will remove the lines)
 4. Hence we must provide icons and images for all of the size categories required
+	1. []() - all of the required icon sizes for iPhone, iPads, universal apps
+	2. 
 
 ### App Icon Dimensions and a Brief History of Graphics ###
 ### Asset Catalogue Compiler Warning ###
@@ -421,4 +423,11 @@
 ### Setting up the Skeleton Project ###
 ### Sign Up for a Free API Key ###
 ### What are Cocoapods and Why Do We Need Them? ###
+### Install and Setup Cocoapods on Your System ###
+### Troubleshooting Cocoapods Installation ###
+### Installing New Pods in Your Xcode Project ###
+### Fix for Those with a Version of Cocoapods Below 1.0.1 ###
+### Completing the Pod Installation Process ###
+### No Such Module Error ###
+### Setting up the Location Manager 
 
