@@ -253,4 +253,12 @@
 1. Divide and Conquer
 	1. Weighted interval scheduling - choose intervals that do not overlap and the combined weight is maximum
 		1. Needs dynamic programming
+		
+				max				{ wj + WIS(Rj)} -> O(n^2): not good
+				1 <= i <= n
+				
+			1. Sort the requests based on start time
+			
+					max(WIS(2, ... n), w1 + WIS(R1, ... n))
+	
 	
