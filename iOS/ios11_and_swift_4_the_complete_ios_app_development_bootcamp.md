@@ -429,5 +429,274 @@
 ### Fix for Those with a Version of Cocoapods Below 1.0.1 ###
 ### Completing the Pod Installation Process ###
 ### No Such Module Error ###
-### Setting up the Location Manager 
+### Setting up the Location Manager to Get GPS Data from the iPhone ###
+### Asking the User for Location Permissions ###
+### Tapping into the GPS ###
+### What is Delegation? ###
+### Swift Dictionaries ###
+### What are APIs? ###
+### Networking with Alamofire ###
+### Networking & REST Explained ###
+### What is JSON and How to Parse it ###
+### Creation of Weather Data Model ###
+### Update the User Interface ###
+### Creation and Usage of Segues in Xcode ###
+### Using Delegates and Protocols in iOS App Development ###
+### How to Pass Data Between View Controllers ###
+### Delegates and Protocols Explained ###
+### Request Weather Data Based on City Name ###
+### Download the Completed App Project ###
 
+## The Command Line and Terminal ##
+### Introduction to the Command Line ###
+### Command Line Shortcuts ###
+### Directory and File Manipulation Using the Command Line + Bonus ###
+
+## Coding Challenge #4 - Cocoapods, REST, APIs - Build a Bitcoin Price Tracker ##
+### What You'll Build by the End of This Coding Challenge ###
+### Step 1 - Check out the Skeleton Project ###
+### How to Set up and Use the UIPicker Class ###
+### Step 2 - Construct the API URL ###
+### Step 3 - Setup Your Cocoapods for this Project ###
+### Step 4 - Make Networking Calls ###
+### Step 5 - Parse the JSON Data ###
+### Step 6 - Update the User Interface ###
+### Step 7 - Are We Rich Yet? ###
+### Optional - Bitcoin Challenge Solution ###
+
+## Cloud Database, iOS Animations and Advanced Swift - Make a WhatsApp Clone ##
+### A Note About Firebase Version 4 ###
+### What You Will Make ###
+### What is Firebase? ###
+### Download the Skeleton Project ###
+### Register for an Account on Firebase ###
+### Set Up Firebase for Development ###
+### A Note About ProgressHUD ###
+### A Note About Potential Issues You Might Encounter ###
+### Saving Data to Firebase ###
+### Let's Register Some Users to our App ###
+### Swift Closures [Advanced Swift] ###
+### The Event-Driven Nature of Apps ###
+### What are Completion Handlers and How Do They Work? ###
+### How Do Navigation Controllers Work and How do You Construct Them? ###
+### Let's Code Up the Login Screen ###
+### What are TableViews and How to Set One Up? ###
+### Making a Custom Message Class ###
+### A Note About Lecture 190 ###
+### Learn About UI Animations in iOS and Make Our Own ###
+### Let's Send Some Messages! ###
+### Observing for Database Changes ###
+### Bug Fix - Where's the Historical Message Data? ###
+### Update the Security Setting of Your Database ###
+### Let's Improve the UX - Add a Progress Spinner ###
+### Improving the UI - Differentiating Between Different Users ###
+### Download the Completed App Project ###
+
+## Firebase Version 3 ##
+### A Note About Firebase Version 3 ###
+### What You'll Construct by the End of This Module ###
+### What is Firebase? ###
+### Download the Skeleton Project ###
+### Register for a Free Account on Google Firebase ###
+### Set up Firebase for Development ###
+### Xcode 9 Bug ###
+### Saving Data to Our Own Database ###
+### Let's Register Some Users to Our App ###
+### An Overview of Our App ###
+### Swift Closures ###
+### The Event Driven Nature of Mobile Apps ###
+### What are Completion Handlers and How Do They Work? ###
+### The Navigation Controller in iOS ###
+### How to Use the Swift Guard Statement ###
+### Let's Code Up the Login Screen ###
+### iOS Table Views and How to Properly Set One Up ###
+### Making a Custom Message Class ###
+### UI Animations in iOS and How to Construct Our Own ###
+### Let's Send Some Messages ###
+### Observing for Real-Time Database Changes ###
+### [Bug Fix] Where are the Historical Messages? ###
+### Update the Security Settings for Your Database Before Your Deploy ###
+### Let's Improve the User Experience (UX) of Our App ###
+### Let's Improve the User Interface (UI) ###
+### Download the Completed App Project ###
+
+## Git, GitHub and Version Control ##
+### Introduction to Version Control and Git ###
+### Version Control Using Git and the Command Line ###
+### GitHub and Remote Repositories ###
+### Gitignore ###
+### Cloning ###
+### Branching and Merging ###
+### Using Git and GitHub in Xcode 9 ###
+### Forking and Pull Requests ###
+
+## Core Data, Realm, User Defaults - Learn Persistent Local Data Storage - Today ##
+### The Clear app Clone that You'll Build by the End of This Module ###
+### Subclassing a UITableViewController ###
+### TableView Delegate Methods and Accessories ###
+### Creation of Textfield Inside UIAlert to Add New Items ###
+### Why do we Need Persistent Local Data Storage? ###
+### Persistent Local Data Storage Using UserDefaults ###
+### UserDefauts Explained ###
+### [Advanced Swift] The Swift Singleton Object ###
+### Creation of a Custom Data Model ###
+### [Advanced Swift] The Swift Ternary Operator ###
+### Restructuring Our App with MVC ###
+### The Concept of iOS Sandboxing ###
+### Encoding Data with NSCoder ###
+### Decoding Data with NSCoder ###
+### Introduction to Databases ###
+### How to Setup and Configure Core Data ###
+### How to Save Data with Core Data (Create in CRUD) ###
+### How to View Your SQLite Database Backend for Core Data ###
+### Core Data Fundamentals ###
+### Reading Data from Core Data (Read in CRUD) ###
+### Updating Data with Core Data (Update in CRUD) ###
+### Removing Data from Core Data (Delete in CRUD) ###
+### How to Implement a UISearchBar and Querying with Core Data ###
+### How to Go Back to the Original List? ###
+### How to Construct Relationship Graphs in Core Data ###
+### [Solution to Challenge] Setting Up CategoryViewController ###
+### Adding the Delegate Method ###
+### Introduction to Realm ###
+### How to Save Data Using Realm (Create in CRUD) ###
+### Fetching Data from Realm (Read in CRUD) ###
+### Updating Data with Realm (Update in CRUD) ###
+### Removing Data from Realm (Delete in CRUD) ###
+### Querying Data Using Realm ###
+### Review of How Our App Uses Realm for Data Persistence ###
+### Making our Cells Swipeable ###
+### Inheriting from SwipeTableViewController ###
+### [Solution to Challenge] Inheriting from SwipeTableViewController ###
+### Adding Colour to our App ###
+### [Solution to Challenge] Persisting the Colour Property ###
+### Creation of Gradient Flow Cells ###
+### Updating the UI of the Navigation Bar ###
+### The Complete App Projet ###
+
+## Introduction to Machine Learning ##
+### Introduction to Machine Learning ###
+### Supervised Learning ###
+### Unsupervised Learning ###
+### Reinforcement Learning ###
+
+## CoreML - How to Incorporate Machine Learning into Your iOS Apps ##
+### A Quick Note About Xcode and iOS Versions ###
+### What is CoreML? ###
+### What we'll be making ###
+### How to Import the Image Recognition Model & Enable Camera Functionality ###
+### Getting Image Recognition Results Back from Our V3 Model ###
+### Hotdog or Not Hotdog? ###
+### Download the Completed App Project ###
+
+## [Optional Bonus Project] Machine Learning Using IBM Watson ##
+### What You'll Make by the End of This Module ###
+### A Note About the Next Lecture ###
+### How to Install and Use Carthage as a Dependency Manager ###
+### Carthage Installation Links ###
+### How to Implement the Camera and Photo Library Functionality in iOS ###
+### How to Use a Pre-Trained Neural Net from IBM to Classify any Image ###
+### How to Process the Data You Get Back from IBM Bluemix ###
+### Let's Beautify Our App and Make it Look Like the Real Deal ###
+### Download the Completed App Project ###
+
+## Advanced CoreML - How to Convert Pre-Trained Models Using CoreML Tools ##
+### What we'll be constructing ###
+### Installing CoremlTools using Python PIP ###
+### Converting a Caffe Model into MLModel ###
+### [Challenge] - Set up a UIImagePickerController ###
+### [Solution] - Setting up a UIImagePickerController ###
+### [Challenge] - Getting Classifications from Our Model ###
+### [Solution] - Getting Classifications from Our Model ###
+### [Challenge] Adding Cocoapods to Our Project ###
+### [Solution] Adding Cocoapods to Our Project ###
+### [Challenge] Making HTTP GET Requests to Wikipedia Using Alamofire and REST ###
+### [Solution] Making HTTP GET Requests to Wikipedia using Alamofire and REST ###
+### [Challenge] Parsing the JSON Result using SwiftyJSON ###
+### [Solution] Parsing the JSON Result using SwiftyJSON ###
+### Displaying Images from a URL using SDWebImage ###
+### [Bonus Lesson] Creation of the App Icon from Scratch and Styling the App ###
+### Download the Completed App Project ###
+
+## iOS 11 - ARKit - How to Make Augmented Reality Apps in iOS ##
+### ARKit Device Compatibility ###
+### Introduction to Augmented Reality and ARKit ###
+### How to Setup and Configure Your Project for AR ###
+### How to Construct a 3D Object in Augmented Reality ###
+### Bring the Moon into Your Living Room Using AR ###
+### How to Find and Import 3D Models for AR ###
+### Update to ARKit Syntax ###
+### How to Detect Horizontal Planes in the Real World ###
+### How to Place Our Dice in 3D Using Touch ###
+### How to Animate 3D Objects in AR ###
+### How to Animate and Roll all the 3D Dice at Once ###
+### How to Remove Our 3D Objects from the AR Scene ###
+### [Optional Lesson] Refactoring Our Code for Better Readability ###
+### Download the Completed App Project ###
+
+## [Bonus Project 2] - Make an Augmented Reality Pokemon Go App Using Vuforia ##
+### Install Unity 5 ###
+### Setting up Vuforia and Unity 5 ###
+### Conjuring Your Pikachu in Augmented Reality ###
+
+## iOS 11 - Advanced ARKit - How to Measure Real World Dimensions in an ARKit App ##
+### What We'll Make by the End of This Module ###
+### Adding the Start and End Measuring Point in 3D ###
+### A Note About the Next Lecture ###
+### Measuring the Distance in AR ###
+### Creation of 3D Text to Display in AR ###
+### Enabling New Measurements ###
+### Download the Completed App Project ###
+
+## How to Submit Your App to the App Store ##
+### How to Publish Your App on to the App Store ###
+### Resources to Check Our When You're Ready to Publish ###
+### Useful Tools to Help You with App Submissions ###
+
+## Next Steps ##
+### Where to Go From Here? ###
+### Resources ###
+
+## The Complete App Design Course ##
+### Introduction to App Design ###
+### Why Design is Important for an App Entrepreneur ###
+### Designer vs. Non-Designer Thinking ###
+
+## Colour Theory ##
+### Understanding the Mood of Your Colour Palette ###
+### How to Combine Colours to Construct Colour Palette ###
+### Tools for Designing with Colour ###
+### Further Reading on Designing with Colour ###
+
+## Typography ##
+### Introduction to Typography ###
+### The Serif Type Family - Origins and Use ###
+### The Sans-Serif Type Family - Origins and Use ###
+### How Typography Determines Readability ###
+### How to Combine Fonts Like a Pro ###
+### Further Reading on Typography ###
+
+## The Fundamentals of User Interface (UI) Design for Mobile ##
+### What is User Interface (UI) Design? ###
+### The Tour Guide Approach to UI Design ###
+### The Importance of Alignment ###
+### What is Good Practice in Interaction Design ###
+### Colour in User Interface Design ###
+### The Many Ways of Designing Text Overlays ###
+### How to Be an Attention Architect ###
+### Further Reading on User Interface Design ###
+
+## The Fundamentals of User Experience (UX) Design for Mobile ##
+### What is User Experience (UX) Design? ###
+### Usability ###
+### Asking for Permissions ###
+### User Profiling ###
+### Form vs. Function ###
+### Consistency ###
+### Simplicity ###
+### Don't Make me Think ###
+### Onboarding ###
+### Idiot Boxes ###
+### Further Reading on User Experience Design ###
+
+## 
