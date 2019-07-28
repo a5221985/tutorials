@@ -261,4 +261,14 @@
 			
 					max(WIS(2, ... n), w1 + WIS(R1, ... n))
 	
-	
+			2. Recursion tree
+
+							1...n
+						no/		  \yes
+						2...n		R1...n
+					 no/  	  \yes
+					  3...n  R2...n
+					  
+				1. No of unique sub-problems - left branch (others are repeate)
+					1. `O(nlogn) + O(n)` -> `O(nlogn)`	
+					  
