@@ -27,6 +27,13 @@
 			2. Personalized Recommendations
 			3. Trending Products - This does not change so frequently so this can be cached in Cache of the API gateway (we can give threshold time for the Cache)
 			4. Discount Offers
+	4. Feature #4: Routing based on headers, paths and params etc, load balancing, A/B testing, canary release
+		1. Router: 
+			1. If one service give low quality video (for mobile) this is chosen for mobile which is fast
+			2. If another service gives high quality video (for desktop/laptop) this is chosen for other computers which is slow
+		2. Load Balancer:
+			1. If a service is in multiple copies (because the load is high) - round robin can be used (or some algorithm like consistent hashing)
+	5. 
 
 ## Service Mesh ##
 1. What is service mesh?
