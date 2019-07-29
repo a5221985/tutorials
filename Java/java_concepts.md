@@ -77,6 +77,43 @@
 		1. If we have a 4 core processor, we can run the three tasks in parallel
 			1. The tasks are not dependent on each other
 	2. Parallelism is about doing lot of things at once - Rob Pike
+	3. Example: `ExecutorService`
+
+			public static void main(String[] args) {
+				ExecutorService es = Executors.newFixedThreadPool(4); // thread pool
+				es.submit(() -> processTax(user1));
+				es.submit(() -> processTax(user2));
+				
+				heavyCalculations();
+			}
+			
+	4. Ways of enabling parallelism: Java
+		1. Threads - raw threads
+		2. ThreadPool
+			1. ExecutorService
+			2. ForkJoinPool (newer)
+			3. Custom ThreadPools (eg: Web Servers)
+		3. **Note:** Requires > 1 CPU cores (pre-requisite for parallelism)
+2. Concurrency:
+	1. Example:
+
+			public static void main(String[] args) throws InterruptedException {
+				new Thread(() -> {
+					if (ticketsAvailable > 0) { // task accessing shared variable
+						bookTicket();
+						ticketsAvailable--;
+					}
+				}).start();
+				
+				new Thread(() -> { // task accessing shared variable
+					if (ticketsAvaialable > 0) {
+						bookTicket();
+						ticketsAvailable--;
+					}
+				}).start();
+				
+				Thread.sleep(5000);
+			}	
 
 ### Java Memory Model in 10 Minutes ###
 ### Using Volatile vs AtomicInteger in Java Concurrency ###
