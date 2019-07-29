@@ -51,6 +51,55 @@
 		3. Google Cloud Endpoints
 		4. Apigee
 
+## Concurrency ##
+### Concurrency vs Parallelism ###
+1. Parallelism
+	1. Example:
+
+			public static void main(String[] args) {
+				new Thread(new Runnable() { // task 1 - first thread
+					@Override
+					public void run() {
+						processTax(user1);
+					}
+				}).start();
+				
+				new Thread(new Runnable() { // task 2 - second thread
+					@Override
+					public void run() {
+						processTax(user2);
+					}
+				}).start();
+				
+				heavyCalculations(); // task 3 - run by main thread
+			}
+			
+		1. If we have a 4 core processor, we can run the three tasks in parallel
+			1. The tasks are not dependent on each other
+	2. Parallelism is about doing lot of things at once - Rob Pike
+
+### Java Memory Model in 10 Minutes ###
+### Using Volatile vs AtomicInteger in Java Concurrency ###
+### Adder and Accumulator Classes in Java 8 ###
+### Understanding How ForkJoinPool Works ###
+### What is a SynchronousQueue in Java? ###
+### ThreadLocal in Java ###
+### Phaser vs CounDownLatch vs CyclicBarrier ###
+### Java Asynchronous Programming ###
+### Lock's Condition Class in Java ###
+### Semaphore in Java Concurrency ###
+### Java ReentrantLock - Fairness, tryLock and More ###
+### ReadWriteLock vs ReentrantLock ###
+### Exchanger Class in Java ###
+### Guava Library - Striped Locks in Java ###
+### What are Coroutines (aka Java Fibers in Project Loom)? ###
+### What are spinlocks? ###
+### How to Detect and Resolve DeadLocks in Java ###
+### Java Concurrency Interview: Implement Producer Consumer Pattern using Wait-Notify ###
+### Java Concurrency Interview: Implement Scatter Gather Pattern ###
+### Singleton and Double Checked Locking ###
+### Race Condition vs Data Races in Java ###
+
 ## Service Mesh ##
 1. What is service mesh?
 	1. Concept in microservices
