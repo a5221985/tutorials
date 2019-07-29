@@ -33,7 +33,23 @@
 			2. If another service gives high quality video (for desktop/laptop) this is chosen for other computers which is slow
 		2. Load Balancer:
 			1. If a service is in multiple copies (because the load is high) - round robin can be used (or some algorithm like consistent hashing)
-	5. 
+	5. Feature #5: 
+		1. If backend services are not ready for latest protocols like http-2 and Websocket, API gateway can convert from new protocol to existing protocol
+		2. All requests can be monitored for performance and latencies
+			1. Dashboards exist
+		3. We can expose to market an API service
+			1. Based on service usage, we can charge
+1. Gateway Configuration
+	1. In House
+		1. Apache
+		2. HAProxy
+		3. Nginx
+		4. Spring Cloud Gateway
+	2. Cloud Services
+		1. AWS API Gateway
+		2. Azure API Gateway
+		3. Google Cloud Endpoints
+		4. Apigee
 
 ## Service Mesh ##
 1. What is service mesh?
