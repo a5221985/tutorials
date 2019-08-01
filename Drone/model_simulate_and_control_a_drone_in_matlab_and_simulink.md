@@ -59,10 +59,17 @@
 4. Motor Limits
 	1. This battery analysis gave us our max operating voltage which we will take as 11.4 V to consider an average over one battery discharge and a max current of 77 A
 	2. The characteristics will allow to limit performance of motors to realistic values by limiting energy they are allowed to extract from battery
+	3. The parameters will be approximately implemented in SIMULINK
 
 ### Empirical Modelling of DC Motors ###
+1. DJI Mavic Pro's vs Ours
+	1. Mavic Pro uses brushless DC motors
+	2. This requires complex electronics and mathematics to be controlled but are highly efficient, compact and do not wear much nor require maintenance
+		1. We could model them using maths behind brushed DC motors
+			1. But we could use provided motor constants to look at different approach and have a simpler model overall
+
 ### Empirical Modelling of Propeller's Behaviour and Performance ###
-### Linear and Rotaional Drone Dynamics ###
+### Linear and Rotational Drone Dynamics ###
 ### Actuation: Moments and Disturbances ###
 ### Actuation: Thrust Vectors and Linear Forces ###
 
