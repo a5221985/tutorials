@@ -26,7 +26,8 @@
 10. Forces at play
 	1. Motor's thrust
 	2. Drag and Gusts
-	3. 
+	3. Gravity
+	4. Motors/Propellers Torque
 
 ### Battery Specifications and Performance ###
 ### Empirical Modelling of DC Motors ###
