@@ -67,6 +67,10 @@
 	2. This requires complex electronics and mathematics to be controlled but are highly efficient, compact and do not wear much nor require maintenance
 		1. We could model them using maths behind brushed DC motors
 			1. But we could use provided motor constants to look at different approach and have a simpler model overall
+2. RPM Motor Constant KV
+	1. RPM constant KV expressed in RPM/Volt - 1400 RPM/V is back-emf generated in motor at a certain speed
+		1. 
+	2. Torque required from motor is proportional to square of rotational velocity of its propeller
 
 ### Empirical Modelling of Propeller's Behaviour and Performance ###
 ### Linear and Rotational Drone Dynamics ###
