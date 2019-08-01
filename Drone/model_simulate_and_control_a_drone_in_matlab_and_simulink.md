@@ -14,7 +14,19 @@
 	5. Battery Capacity: 3830 mAh
 	6. Voltage: 11.4 V
 	7. Max Discharge Current: 20C/77A
-	8. Propeller Size: 8 x 4 inches
+	8. Propeller Size: 8 x 4 inches (diameter by pitch)
+9. What are we modeling?
+	1. Motor, Propellers and battery performance
+		1. How they work together (to make the drone fly, to go where we want it to go, power in proportion)
+	2. Drone physics and dynamics
+		1. How it moves
+		2. How it reacts to different forces and moments
+	3. Sensors and control
+		1. Act on data to control the drone
+10. Forces at play
+	1. Motor's thrust
+	2. Drag and Gusts
+	3. 
 
 ### Battery Specifications and Performance ###
 ### Empirical Modelling of DC Motors ###
