@@ -28,6 +28,16 @@
 	2. Drag and Gusts
 	3. Gravity
 	4. Motors/Propellers Torque
+11. Model Diagram
+	1. Input -> Controller
+	2. Controller -> DC Motors
+	3. DC Motors -> Propellers
+	4. Battery Performance -> DC Motors
+	5. Propellers -> Thrust Vector
+	6. Thrust Vector -> Drone Dynamics
+	7. Disturbances -> Drone Dynamics
+	8. Drone Dynamics -> Position, Velocity, Acceleration, Attitude, Altitude
+	9. Position, Velocity, Acceleration, Attitude, Altitude -> Controller
 
 ### Battery Specifications and Performance ###
 ### Empirical Modelling of DC Motors ###
