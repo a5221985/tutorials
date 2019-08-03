@@ -42,6 +42,12 @@
 				4. Radio Calibration
 					1. Connect receiver to the board
 						1. ardupilot.com
+							1. connecting your RC input...
+								1. AUX1 - 5 (3 position switch - select modes)
+								2. Aeluron - 1
+								3. Elivator - 2
+								4. Throttle - 3
+								5. Rudder - 4
 
 ## Powering the board, motor installation and ESC ##
 ## Troubleshooting APM arming ##
