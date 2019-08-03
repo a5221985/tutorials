@@ -13,7 +13,35 @@
 	1. Radio Receiver
 5. Install firmware
 	1. Plugin the board
-	2. 
+		1. COM6 (if available)
+	2. Click on Install Firmware
+		1. Click Quad copter
+		2. Upload (amber light)
+	3. Terminal
+	4. Calibrate magnetometer and accelerometer
+		1. Click connect
+		2. Click on Wizard
+			1. Mandatory hardware
+				1. Frame type: Plus
+				2. Compass calibration: Live Calibration
+					1. Move the board (get samples)
+				3. Accel Calibration:
+					1. Get set square
+						1. Place APM board on flat surface
+							1. Click When Done
+						2. Place APM on its LEFT side
+							1. Click When Done
+						3. Place APM on its right side
+							1. Use Set square and place it one it's right
+							2. Click When Done
+						4. Nose down
+							1. Click when done
+						5. Nose up
+							1. Click when done
+						6. Done
+				4. Radio Calibration
+					1. Connect receiver to the board
+						1. ardupilot.com
 
 ## Powering the board, motor installation and ESC ##
 ## Troubleshooting APM arming ##
