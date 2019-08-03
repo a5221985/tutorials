@@ -59,3 +59,16 @@
 		1. The methods that return only one element return `OptionalInt`
 			1. Gives higher order functions that abstract away null checks
 				1. `Optional` - Container object that may or may not contain a non-null value
+					1. It has higher order functions removing the concern to add repeating `if null/notNull` checks
+					2. Example:
+
+							Article article = getFirstJavaArticle();
+							if (article == null) {
+								article = fetchLatestArticle();
+							}
+							
+							getFirstJavaArticle()
+								.orElseGet(this.fetchLatestArticle); // says what we need to execute if no value is found
+								
+							playGround.getFirstJavaArticle()
+								.map(Article::getTitle); // map is applied only if value exists
