@@ -697,7 +697,11 @@
 
 ### Soldering ESCs to PDB ###
 1. Soldering:
-	1. 
+	1. Soldering iron
+	2. Solder
+	3. Damp sponge
+	4. Helping hand
+2. 
 
 ### Soldering Battery Connector to PDB ###
 ### Attatching Legs to Frame ###
