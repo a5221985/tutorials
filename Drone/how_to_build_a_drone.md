@@ -715,6 +715,7 @@
 	3. Trim off some wire to expose enough of the wire
 	4. Tin the exposed part of the wire (combine strands of wire)
 		1. Automatically distributes to the whole tip
+		2. 
 
 ### Attatching Legs to Frame ###
 ### Installing Motors on Frame ###
