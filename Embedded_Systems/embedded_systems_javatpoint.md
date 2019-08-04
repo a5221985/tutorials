@@ -61,7 +61,14 @@
 	3. It may be a smaller part in a larger device to serve specific purpose by using hardware-software intermixture
 	4. High reliability
 2. Hardware and Software Interfacing
-	1. Software: Driver for LED, Hardware: LED
+	1. Software: Driver for LED, Hardware: LED interface, Visual Aid: LED glowing On and Off
+	2. Software: Driver for 7 segment display, Hardware: Single or multiple 7 segment display interface, Visual Aid: Numbers from 0000 to 9999
+	3. Software: Driver for multiplexing 4 seven segment displays, Hardware: 7 segment display, Visual Aid: numbers from 0000 to 9999 (done using patterns in display lookup table)
+	4. Software: Counter, Hardware: 7 segment display, Visual Aid: Showing incrementing values on 7 segment display (without interrupt, without ASCII values)
+	5. Software: Timer counter, Hardware: Time/ Counter initialization, Visual Aid: Blinking LED (Timer in polling mode)
+3. I/O handling using interrupt and background/foreground processes
+	1. Software: Timer interrupt, Hardware: Timer, Interrupt vector table, Visual Aid: Blinking of dot on 7 segment display (dot is occurrance of interrupt)
+	2. 
 
 ## Designing of an ES ##
 ## ES Processors ##
