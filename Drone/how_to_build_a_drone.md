@@ -696,7 +696,8 @@
 2. Repeat the above steps for all 4 ESCs
 
 ### Soldering ESCs to PDB ###
-
+1. Soldering:
+	1. 
 
 ### Soldering Battery Connector to PDB ###
 ### Attatching Legs to Frame ###
