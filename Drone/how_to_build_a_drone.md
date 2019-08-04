@@ -736,6 +736,8 @@
 		2. Top-right - counter clockwise
 		3. Bottom-left - counter clockwise
 		4. Bottom-right - clockwise
+	2. Long screws are required to tighten the motors
+	3. Wires should face the length of the arm
 
 ### Securing Raspberry Pi to Top Plate (Method 1) ###
 ### Securing Raspberry Pi to Top Plate (Method 2) ###
