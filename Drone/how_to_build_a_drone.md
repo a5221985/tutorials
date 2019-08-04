@@ -715,9 +715,14 @@
 	3. Trim off some wire to expose enough of the wire
 	4. Tin the exposed part of the wire (combine strands of wire)
 		1. Automatically distributes to the whole tip
-		2. 
+		2. Solder should completely melt (slowly melt it)
 
 ### Attatching Legs to Frame ###
+1. Parts:
+	1. Alen kit
+	2. Screws
+2. Put PDB upside down with leg
+
 ### Installing Motors on Frame ###
 ### Securing Raspberry Pi to Top Plate (Method 1) ###
 ### Securing Raspberry Pi to Top Plate (Method 2) ###
