@@ -722,8 +722,15 @@
 	1. Alen kit
 	2. Screws
 2. Put PDB upside down with leg
+3. Use Alen key to fasten the legs (colored at the front is better)
+	1. Longer side of PDB to the front is better
 
 ### Installing Motors on Frame ###
+1. Red nuts - counter clockwise rotation
+2. Black nuts - clockwise rotation
+3. If a nut does not tighten on a motor, it is incorrect nut
+4. 
+
 ### Securing Raspberry Pi to Top Plate (Method 1) ###
 ### Securing Raspberry Pi to Top Plate (Method 2) ###
 ### Installing Top Plate to Drone Frame ###
