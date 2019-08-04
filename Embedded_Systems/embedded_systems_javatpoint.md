@@ -83,16 +83,28 @@
 ## Designing of an ES ##
 1. Basic structure of ES:
 
-		Sensor -> ADC -> Processor & ASIC -> DAC -> Actuator
-				|   |			^
-				|   v			|
-				|-> Memory <-|
+	![designing-of-an-es](designing-of-an-es.png)
 				
 	1. Sensor: Used to sense change in the environment condition and generate electrical signal (corresponding to the change)
 		1. Also called transducer
 	2. ADC: Analog-to-digital converter - converts analog electric input signal to equivalent digital signal for further processing in embedded system
+	3. Processor & ASICs: Processor - processes the signal and execute desired set of instructions with high speed
+		1. ASIC - Application Specific Integration Circuit is used to perform task specific operation inside an ES
+	4. DAC - Digital-to-analog converter converts digital electric input signal into equivalent analog signal
+	5. Actuators: It is a comparator used for comparing analog input signal level to desired output signal level for providing error free otuput from the system
+
+### Design Steps Required for the Development of Embedded System ###
+
+![designing-of-an-es2.png](designing-of-an-es2.png)
 
 ## ES Processors ##
+1. Processor: Major component in ES
+	1. It receives response from sensors in digital form and processes the response to produce output in real-time
+	2. Embedded systems engineer must know microprocessors and microcontrollers
+2. Interal components of a typical processor
+	1. **Control Unit:** Controls program flow
+		1. 
+
 ## Microprocessor ##
 ## Microcontroller ##
 ## MP vs MC ##
