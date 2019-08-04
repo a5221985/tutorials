@@ -701,9 +701,16 @@
 	2. Solder
 	3. Damp sponge
 	4. Helping hand
-2. 
+2. ESC should be in the bottom and text facing down	1. Red to +
+	2. Black to -
+	3. Procedure:
+		1. Place soldering iron tip on electrode
+		2. Feed in some solder
+		3. Place wire on top and press down with soldering iron
 
 ### Soldering Battery Connector to PDB ###
+1. 
+
 ### Attatching Legs to Frame ###
 ### Installing Motors on Frame ###
 ### Securing Raspberry Pi to Top Plate (Method 1) ###
