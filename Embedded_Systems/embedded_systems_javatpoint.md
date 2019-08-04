@@ -1,0 +1,83 @@
+# Embedded Systems #
+## Introduction to ES ##
+1. ES Tutorial topics
+	1. Basic and Advanced concepts of Embedded System
+2. Target audience
+	1. Beginners
+	2. Professionals
+3. What is ES?
+	1. It is a system composed of
+		1. Hardware
+		2. Application software
+		3. Real time operating system
+	2. Topics covered
+		1. Characteristics
+		2. Designing
+		3. Processors
+		4. Microcontrollers
+		5. Tools
+		6. Addressing modes
+		7. Assembly language
+		8. Interrupts
+		9. Embedded c programming
+		10. Led blinking
+		11. Serial communication
+		12. LCD programming
+		13. Keyboard programming
+		14. Project implementation
+		15. ...
+
+### What is System ###
+1. System: It is a way of working, organizing or performing one or many tasks according to a fixed set of rules, program or plan
+	1. All units are combined to work together by following certain set of rules (in real time computation)
+
+### What is Embedded System ###
+1. It is a system that has software embedded into computer-harware
+	1. Makes it a system dedicated for a variety of applications or specific part of an application or product or part of a larger system
+2. Types:
+	1. Small independent system
+	2. Large combinational system
+3. It is microcontroller based control system used to perform specific task or operation
+4. Major components
+	1. **Hardware:** Physical component connected to the actual system
+		1. Microcontroller based IC
+		2. Power supply
+		3. LCD
+
+## What is ES ##
+## Characteristic of ES ##
+## Designing of an ES ##
+## ES Processors ##
+## Microprocessor ##
+## Microcontroller ##
+## MP vs MC ##
+## Types of MicroControllers ##
+## ES Tools and Peripherals ##
+
+## 8051 MicroController ##
+### 8051 MicroController ###
+### 8051 MC Architecture ###
+### 8051 MC Pin Diagram ###
+### ES I/O Programming ###
+### Addressing Modes ###
+### 8051 Instruction Set ###
+### Assembly Language ###
+### 8051 Interrupts ###
+### Embedded C ###
+### LED Blinking ###
+### 7-Segment Display ###
+### Counter/ Timer ###
+### Serial Communication ###
+### Keypad Programming ###
+### LCD Programming ###
+
+## AVR MicroController ##
+### AVR MicroController 10+ ###
+
+## ES Projects ##
+### ES Projects ###
+### Fire Detection Project ###
+### RFID Attendance System ###
+
+## Robotics ##
+### Robotics Tutorial ###
