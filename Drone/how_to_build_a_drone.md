@@ -699,7 +699,7 @@
 
 
 ### Soldering Battery Connector to PDB ###
-### Attaching Legs to Frame ###
+### Attatching Legs to Frame ###
 ### Installing Motors on Frame ###
 ### Securing Raspberry Pi to Top Plate (Method 1) ###
 ### Securing Raspberry Pi to Top Plate (Method 2) ###

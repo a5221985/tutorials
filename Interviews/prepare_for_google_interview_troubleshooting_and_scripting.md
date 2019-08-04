@@ -30,4 +30,7 @@
 		6. Focus should be on larger solutions
 4. Best Practices
 	1. Explain the thought process during the interview
-	2. 
+	2. Clarify everything
+	3. Once a solution is obtained, think about how to improve the solution
+		1. Let interviewer know what I am thinking
+	4. Practice on paper or whiteboard - code should be easily readable
