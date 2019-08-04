@@ -43,9 +43,26 @@
 		1. Microcontroller based IC
 		2. Power supply
 		3. LCD
+	2. **Application Software:** Run on the hardware (allows users to customize the code to be installed in the harware)
+	3. **Real Time Operating System (RTOS):** It supervises the way an embedded system works
+		1. It is an interface between application software and hardware
+		2. Handles scheduling to control and take care of latencies
 
-## What is ES ##
+				Hardware <-----> RTOS <-----> Application Software
+				
+5. Pre-requisites
+	1. Computer Architecture
+	2. Circuits	
+
 ## Characteristic of ES ##
+1. General characteristics of ES in real-time computation
+	1. Software is embedded into hardware which makes the system dedicated for particular task or set of tasks
+	2. It provides real-time output
+	3. It may be a smaller part in a larger device to serve specific purpose by using hardware-software intermixture
+	4. High reliability
+2. Hardware and Software Interfacing
+	1. Software: Driver for LED, Hardware: LED
+
 ## Designing of an ES ##
 ## ES Processors ##
 ## Microprocessor ##
