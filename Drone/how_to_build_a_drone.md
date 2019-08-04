@@ -729,7 +729,13 @@
 1. Red nuts - counter clockwise rotation
 2. Black nuts - clockwise rotation
 3. If a nut does not tighten on a motor, it is incorrect nut
-4. 
+4. If we spin the motors in opposite direction to intended direction, the nuts get loosened
+5. How to select the direction?
+	1. Props and motors spin towards the north south line (to hit it)
+		1. Top-left - clockwise
+		2. Top-right - counter clockwise
+		3. Bottom-left - counter clockwise
+		4. Bottom-right - clockwise
 
 ### Securing Raspberry Pi to Top Plate (Method 1) ###
 ### Securing Raspberry Pi to Top Plate (Method 2) ###
