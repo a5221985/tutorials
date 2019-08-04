@@ -709,7 +709,12 @@
 		3. Place wire on top and press down with soldering iron
 
 ### Soldering Battery Connector to PDB ###
-1. 
+1. Guage wire on battery connector should match the guage wire on battery
+	1. Ex: 12 guage
+	2. If connectors don't match, use adapters
+	3. Trim off some wire to expose enough of the wire
+	4. Tin the exposed part of the wire (combine strands of wire)
+		1. Automatically distributes to the whole tip
 
 ### Attatching Legs to Frame ###
 ### Installing Motors on Frame ###
