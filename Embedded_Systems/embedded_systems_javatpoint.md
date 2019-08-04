@@ -103,7 +103,21 @@
 	2. Embedded systems engineer must know microprocessors and microcontrollers
 2. Interal components of a typical processor
 	1. **Control Unit:** Controls program flow
-		1. 
+		1. Fetching unit to fetch instructions from memory
+	2. **Execution Unit:** Executes various tasks inside a processor
+		1. ALU: arithmetic and logic operations
+		2. Program control operations
+
+### Types of processors ###
+1. **Application Specific System Processor (ASSP):** Application dependent system processor used to process signals (unique to the application)
+2. **Application Specific Instruction Processor (ASIP):** Application dependent instructions are processed (inside combinational circuit)
+3. **General Purpose Processor (GPP):** Processes signals (inputs) and generates output by controlling system bus, address bus and data bus
+
+### Types of GPPs ###
+1. Microprocessor
+2. Microcontroller
+3. Digital Signal Processor
+4. Analog Signal Processor
 
 ## Microprocessor ##
 ## Microcontroller ##
