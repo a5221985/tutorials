@@ -68,9 +68,26 @@
 	5. Software: Timer counter, Hardware: Time/ Counter initialization, Visual Aid: Blinking LED (Timer in polling mode)
 3. I/O handling using interrupt and background/foreground processes
 	1. Software: Timer interrupt, Hardware: Timer, Interrupt vector table, Visual Aid: Blinking of dot on 7 segment display (dot is occurrance of interrupt)
-	2. 
+	2. Software: Interrupt based display driver for 7 segment display, Hardware: Timer, interrupt, Visual Aid: 4 digit counter on 7 segment display (with interrupt, with ASCII values)
+	3. Software: Interrupt based hex keypad driver, Hardware: Hex keypad, Visual Aid: display value of key pressed till user presses another key (keypad scanning with interrupt)
+	4. Software: Complete stopwatch application, Hardware: 7-segment display, keypad, Visual Aid: Continuously incrementing values on 7-segment display (A - start, B - stop, C - reset)
+3. Advantages of using embedded systems:
+	1. Same hardware can be used in variety of applications
+	2. Lesser power requirement (optimized)
+	3. Lower operational cost of system (certified, cheaper)
+	4. High performance and efficiency (optimized and verified)
+4. Disadvantages:
+	1. Time for software development (complexity)
+	2. High skill required to eliminate failures
 
 ## Designing of an ES ##
+1. Basic structure of ES:
+
+		Sensor -> ADC -> Processor & ASIC -> DAC -> Actuator
+				|   |			^
+				|   v			|
+				|-> Memory <-|
+
 ## ES Processors ##
 ## Microprocessor ##
 ## Microcontroller ##
