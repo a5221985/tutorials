@@ -87,6 +87,10 @@
 				|   |			^
 				|   v			|
 				|-> Memory <-|
+				
+	1. Sensor: Used to sense change in the environment condition and generate electrical signal (corresponding to the change)
+		1. Also called transducer
+	2. ADC: Analog-to-digital converter - converts analog electric input signal to equivalent digital signal for further processing in embedded system
 
 ## ES Processors ##
 ## Microprocessor ##
