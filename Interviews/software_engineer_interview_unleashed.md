@@ -221,10 +221,48 @@
 	1. Borderline Candidates - pass to fail or fail to pass decision is taken or adjust salary range
 
 ### Phone Interview ###
-1. 
+1. Procedure
+	1. Talk Over Phone/ Skype/ Hangout (video)
+	2. Code on Shared Document
+		1. Google Doc, Dropbox
+		2. No Autocomplete (learn commonly used functions or APIs)
+		3. No Highlight
+		4. No Compile
+	3. No Facial Expression/ Body Gesture - more challenging
+2. Ideal Interview Environment
+	1. Quiet Room - no dorms or rooms
+	2. Landline Phone - use headset for smartphone
+	3. Wired Internet Connection - if wifi, disconnect other devices
+	4. Paper & Pencil - have them
 
 ### Onsite Interview ###
+1. After phone interview
+2. Treat yourself before onsite interview
+3. Procedure
+	1. Greeting - by onsite interviewers or recruiters
+	2. Presentation - asked to be given if the following is done
+		1. Industry experience
+		2. Hold PhD
+		3. Researcher (research center - publication/patents)
+	3. Lunch Interview
+		1. May or May not Submit Feedback
+		2. Ask your recruiter: relaxation or evaluation
+	4. Several Technical Interviews
+	5. Top Management Interviews
+		1. Final decision is made by top management
+		2. They want to interview you
+
 ### Research Discussant for PhD ###
+1. If not PhD, pass the session
+2. If PhD
+	1. Procedure:
+		1. Interviewer: PhD Researcher
+		2. In-Depth Research Discussion (with interviewer)
+		3. No coding
+		4. Discuss Math/ Algorithm/ Q&A (Dissertation)
+		5. No Single Answer - open ended questions
+	2. 
+
 ### Intern Hiring Process ###
 
 ## Interview Deep Dive ##
