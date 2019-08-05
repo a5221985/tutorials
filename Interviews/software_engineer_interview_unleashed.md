@@ -207,11 +207,22 @@
 	1. If interview scores are too low, the packet doesn't reach HC
 16. Critical Decisions
 	1. Hire/ Pass/ Borderline
+		1. If borderline - additional interviews may be required
 	2. Overall Grade: {A+, A, A-, B+, B} or {1-5}
 		1. If scores are too high, higher committee is skipped
 	3. Request Additional Interviews
+17. Salary committee
+	1. Base Salary
+	2. Sign-on Bonus
+	3. Stock
+	4. Target Bonus
+	5. Position/Level
+18. Final Decision
+	1. Borderline Candidates - pass to fail or fail to pass decision is taken or adjust salary range
 
 ### Phone Interview ###
+1. 
+
 ### Onsite Interview ###
 ### Research Discussant for PhD ###
 ### Intern Hiring Process ###
