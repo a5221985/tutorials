@@ -120,7 +120,28 @@
 4. Analog Signal Processor
 
 ## Microprocessor ##
-1. 
+1. CPU is built into a single VLSI chip called microprocessor
+2. It is a general purpose device
+3. Additional circuitry are added to make it work as a microcomputer
+4. Operations performed
+	1. Addition
+	2. Subtraction
+	3. Compare
+	4. Fetch data from memory
+	5. Transfer data
+5. It is basic Input-Output System (BIOS)
+	1. Input received from sensors are processed and output is produced
+
+	![es-processors.png](es-processors.png)
+	
+6. Basic components of Microprocessor
+	1. **Arithmetic and Logic Unit (ALU):** Performs arithmetic and logic operations
+		1. Uses registers as well as memory
+	2. **Accumulator:** Register used to store intermediate arithmetic and logical operation data
+	3. **Working Registers:** Storage devices to store data inside a microprocessor
+	4. **Stack pointer:** It is a pointer to certain address. Stores address of last program request inside stack
+	5. **Clock circuit:** Used to generate clock pulse required as a reference signal for microprocessor
+	6. **Interrupt circuit:** Used to generate interrupt signal when higher priority process needs to be served
 
 ## Microcontroller ##
 ## MP vs MC ##
