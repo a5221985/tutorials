@@ -175,7 +175,41 @@
 	3. GPA
 	4. Courses
 	5. Projects
-	6. 
+		1. Course project
+		2. Term project
+9. Technical Expertise
+	1. Language
+	2. Technical proficiency
+	3. Project scope
+	4. Complexity
+	5. Leadership
+10. Publications
+	1. Conference papers
+	2. Journal papers
+	3. Patents - companies
+11. Job Match
+	1. Worked in certain projects and expert in certain areas (match current position?)
+12. Phone Interview
+	1. 45 min - 3 hours
+		1. 2 min - who am I and what projects have I worked on, in which project area I am
+		2. 40 min - Problem solving
+		3. 3 min - Q&A
+	2. Done by Trained Software Engineers
+	3. 1 - 3 questions
+13. Onsite Interview - similar to phone interview
+14. Who are Hiring Committee Members:
+	1. Reviews Latest/Past Interview Results
+	2. Calibrate Interviewers (some are harsh, some are generous - calibrate scores)
+	3. Interview Question Diversity
+	4. Non Technical Aspects (Communication, Cultural fit)
+	5. Unbiased
+15. Conditional Review
+	1. If interview scores are too low, the packet doesn't reach HC
+16. Critical Decisions
+	1. Hire/ Pass/ Borderline
+	2. Overall Grade: {A+, A, A-, B+, B} or {1-5}
+		1. If scores are too high, higher committee is skipped
+	3. Request Additional Interviews
 
 ### Phone Interview ###
 ### Onsite Interview ###
