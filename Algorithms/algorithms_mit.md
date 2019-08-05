@@ -190,6 +190,11 @@
 			
 		1. Doing binary search and inserting new element at the right (if k = 3 minutes, then element is inserted if it is atleast 3 units away from any key - cannot be reserved)
 		2. h - height of the tree, then insertion w/wo check is in O(h) time
+		3. Multiset - has duplicates
+	2. find_min() - O(h) - go to the leftmost leaf
+	3. next_larger(x) - O(h)
+6. Augmented BSTs:
+	1. More data than just pointers
 
 ## Amortization: Amortized Analysis ##
 1. Amortization
