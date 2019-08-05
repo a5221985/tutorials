@@ -290,8 +290,41 @@
 				3. What are the challenges
 				4. How I overcame those challenges
 			3. 2-3 minutes
+		2. Articulate [accomplishments clearly]
+			1. Why is it important
+			2. (Potential) impact of the outcome
+			3. How challenging the problem is (my research overcame the challenges say)
+	5. Don'ts
+		1. My advisor selected the topic
+			1. But show passion in the topic
+		2. Many people use it, so did I (ex: deep learning because it is popular)
+			1. Instead say deep learning has certain characteristics that suited the problem in hand
+		3. My advisor proposed the algorithm
+			1. Instead say the reasons
+		4. I am not interested in this area (advisor is getting funding)
+			1. Instead say I jumped into this area and published a lot of papers and then changed my direction to another area
 
 ### Intern Hiring Process ###
+1. Advantages
+	1. Lower hiring bar
+	2. Smooth way for fulltime offer
+	3. Resume beautification - add company names, product description
+	4. Career development - software engineering process
+	5. Reference - co-host can give reference
+	6. Salary
+	7. Travel - see town or city
+2. Just go get the internship
+3. Process
+	1. Submit resume in web-site
+	2. Recruiter does resume screening
+	3. Interview process starts
+4. If an employee has contact with your professor, he/ she may ask the professor for some interns
+5. If linked in page
+6. When to start
+	1. 8 months ahaed
+		1. For summer internship, starting May, companies start hiring from September
+		2. 
+	2. Apply early
 
 ## Interview Deep Dive ##
 ### Evaluation Scale and Criteria ###
