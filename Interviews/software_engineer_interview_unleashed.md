@@ -261,7 +261,35 @@
 		3. No coding
 		4. Discuss Math/ Algorithm/ Q&A (Dissertation)
 		5. No Single Answer - open ended questions
-	2. 
+	2. Many 'Why's'
+		1. Why you jumped into the area
+		2. Why you selected the approach
+		3. Why you did not consider this algorithm/ device/ tools
+			1. GPUs instead of CPUs
+			2. Why B and not A
+		4. Why yours performs x% better than others
+			1. Reason?
+				1. Characteristics of the source is exploited say
+	3. Goal
+		1. Expertise
+			1. Gained domain knowledge (wide and deep)
+			2. Understand their relationship (relate to other researches)
+		2. Leadership
+			1. Proposed/selected the direction, pushed forward, and presented solid result (how the solution is better than existing ones)
+				1. If you were lead of the entire research
+		3. Communication
+			1. How efficently you introduce your research to others
+				1. Among researchers (Researchers, professors, ...)
+				2. Stress the demos to other researchers (conference, other universities, research centers)
+	4. Dos
+		1. Introduce Your Research to Others
+			1. They may not be familiar
+			2. Use generic terms (if interviewer is not familiar in the area)
+				1. What is the problem
+				2. What are the existing issues
+				3. What are the challenges
+				4. How I overcame those challenges
+			3. 2-3 minutes
 
 ### Intern Hiring Process ###
 
