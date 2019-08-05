@@ -323,8 +323,17 @@
 6. When to start
 	1. 8 months ahaed
 		1. For summer internship, starting May, companies start hiring from September
-		2. 
+		2. Screening starts early
 	2. Apply early
+7. Intern Interview Process Overview
+	1. Resume Screen
+	2. Phone Interview
+		1. one or two
+8. Another process
+	1. Resume screen
+	2. Phone interview (moved to pool of potential candidates)
+	3. Team Match Interview
+	4. Hiring Committee
 
 ## Interview Deep Dive ##
 ### Evaluation Scale and Criteria ###
