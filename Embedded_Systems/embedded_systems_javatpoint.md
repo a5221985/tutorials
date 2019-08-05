@@ -141,9 +141,11 @@
 	3. **Working Registers:** Storage devices to store data inside a microprocessor
 	4. **Stack pointer:** It is a pointer to certain address. Stores address of last program request inside stack
 	5. **Clock circuit:** Used to generate clock pulse required as a reference signal for microprocessor
-	6. **Interrupt circuit:** Used to generate interrupt signal when higher priority process needs to be served
+	6. **Interrupt circuit:** Used to generate interrupt signal when higher priority process needs to be served (basis is priority by the processor)
 
 ## Microcontroller ##
+1. 
+
 ## MP vs MC ##
 ## Types of MicroControllers ##
 ## ES Tools and Peripherals ##
