@@ -144,7 +144,38 @@
 		1. Potential team members
 		2. Software engineers
 6. Hiring Committee
-	1. Result
+	1. Results reviewed
+	2. Transcripts reviewed
+	3. Resume reviewed
+	4. Critical decision is made
+7. Salary Committee
+	1. Reviews package
+	2. Levels
+	3. Base salary
+	4. Target bonuses
+8. Top Management
+	1. Review salary
+9. Team Match Interview
+	1. Talk to recruiter to express interest in which type of product or project
+	2. Hiring manager should take final decision
+
+#### Hiring Committee ####
+1. Resume review
+2. Transcript review - type of classes taken, grades
+3. References - internal and external
+4. Phone interview feedback
+5. Onsite interview feedback
+6. Calibrate interview scores
+7. Past Projects
+	1. App store projects review
+	2. GitHub projects review
+8. Education Background
+	1. School
+	2. Degree
+	3. GPA
+	4. Courses
+	5. Projects
+	6. 
 
 ### Phone Interview ###
 ### Onsite Interview ###
