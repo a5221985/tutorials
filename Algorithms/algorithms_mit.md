@@ -182,6 +182,14 @@
 			1. Actual insert is O(1)
 	4. Heap: min/max
 		1. Checking that element is <= k or >= k from t is O(n) time
+4. Invarient: For all nodes x, if y is in the left subtree of X then key(y) <= key(x). If y is in the right .... key(y) >= key(x)
+5. Runway allocation problem:
+	1. Insert:
+		
+			49 79 46 41 42
+			
+		1. Doing binary search and inserting new element at the right (if k = 3 minutes, then element is inserted if it is atleast 3 units away from any key - cannot be reserved)
+		2. h - height of the tree, then insertion w/wo check is in O(h) time
 
 ## Amortization: Amortized Analysis ##
 1. Amortization
