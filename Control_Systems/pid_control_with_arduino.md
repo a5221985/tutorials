@@ -171,6 +171,16 @@
 2. Process model:
 	1. Input: speed control signal c(t)
 	2. Output: Angle theta
-	3. 
+	3. Instruments:
+		1. IMU: Accelerometer - to measure angle
+		2. Arduino - Controller
+		3. Arduino generates c(t)
+		4. ESC - receives c(t)
+		5. Protocol - I2C
+	4. Sample time - 10 ms (100Hz)
+		1. It should be atleast 10 times faster the time constant of the system
+			1. Time constant - it represents the speed a particular system takes to reach 63% of it's final value
+				1. If input is a step change, time it takes to reach 63% of it's final value is the constant
+				2. Example: Time constant for the system is 0.5 seconds or 2Hz
 
 ## PID Tuning (Ziegler-Nichols Method) ##
