@@ -109,6 +109,47 @@
 	1. Control signal is expressed in continuous domain (analog domain)
 		1. Easier to understand what is going on
 	2. Nowadays controllers are implemented digitally in software
+		1. This requires converting to discrete-time (digital domain)
+
+				u[n] = Kp * e[n] + Ki * sigma_k=0 to n e[k] T + Kd * (e[n] - e[n - 1]) / T
+				
+			1. Each error term is a descrete sample
+	3. T = sample time or the time interval the PID function gets called
+		1. T ~ dt
+
+				void loop() {
+					every T interval {
+						u[n] = Kp * e[n] + Ki * sigma_k=0 to n e[k] T + Kd * (e[n] - e[n - 1]) / T
+					}
+				}
+				
+2. Data types for contants is double - more precision
+3. PID_Control()
+
+		unsigned long current_time = millis(); // returns the number of milliseconds past since the Arduino started
+		int delta_time = current_time - last_time;
+		
+		if (delta_time >= T) {
+			double error = setpoint - sensed_output;
+			total_error += error; // accumulates the error - integral term
+			double delta_error = error - last_error; // difference of error for derivative term
+			
+			control_signal = Kp * error + Ki * T * total_error + (Kd / T) * delta_error; // PID control compute
+			
+			last_error = error;
+			last_time = current_time;
+		}	
+
+4. Cooling fan:
+	1. Hardware:
+		1. Arduino
+		2. Motor driver
+		3. Analog temperature sensor
+		4. Cooling fan
+	2. Working principle
+		1. Motor driver receives PWM signal from Arduino
 
 ## Demonstration of PID Control (Propeller Arm Example) ##
+
+
 ## PID Tuning (Ziegler-Nichols Method) ##
