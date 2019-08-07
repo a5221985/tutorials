@@ -101,10 +101,14 @@
 	1. Kp e(t) - proportional term - decreases rise time
 	2. Kd integral e(t) dt - Integral term - Eliminates steady-state error
 	3. Ki de(t)/dt - Derivative term - reduces overshoots or ringing
-2. 
+2. Control theory - not applied (intuitive approach is taken)
+	1. Involves laplacian tranforms and solving for constants
 
 ## Implementing the PID Control Algorithm (Code Attached) ##
-
+1. Domain:
+	1. Control signal is expressed in continuous domain (analog domain)
+		1. Easier to understand what is going on
+	2. Nowadays controllers are implemented digitally in software
 
 ## Demonstration of PID Control (Propeller Arm Example) ##
 ## PID Tuning (Ziegler-Nichols Method) ##
