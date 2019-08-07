@@ -182,5 +182,6 @@
 			1. Time constant - it represents the speed a particular system takes to reach 63% of it's final value
 				1. If input is a step change, time it takes to reach 63% of it's final value is the constant
 				2. Example: Time constant for the system is 0.5 seconds or 2Hz
+					1. Sample time - atleast 10 * Time constant
 
 ## PID Tuning (Ziegler-Nichols Method) ##
