@@ -66,7 +66,11 @@
 	1. We cannot eliminate steady-state error automatically
 
 ## Proportional-Integral (PI) Control ##
-
+1. Main idea: Errors should accumulate over time
+	1. control signal = Ki integral e(t) dt
+		1. Control accumulates for +error
+		2. Control dissipates for -error
+	2. Eliminates steady state error completely
 
 ## Proportional-Integral-Derivative (PID) Control ##
 ## Implementing the PID Control Algorithm (Code Attached) ##
