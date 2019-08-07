@@ -165,6 +165,8 @@
 		1. Because contron_signal goes beyond 255 and it slowly drops until it reaches 255 and below (lag is because of the delay in drop to 255)	
 
 ## Demonstration of PID Control (Propeller Arm Example) ##
-1. 
+1. Self stabilizing propeller arm system
+	1. Brushless motor is attached to one side of an arm
+	2. Arm is mounted in the middle to a vertical pillar
 
 ## PID Tuning (Ziegler-Nichols Method) ##
