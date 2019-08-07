@@ -193,4 +193,14 @@
 		Kd, Minor Change, Decreases, No Effect, Improves if Kd is small
 		
 	1. Try to be sparing with derivative gain
-		1. If it is set too high, it can cause output to jitter (very sensitive)	
+		1. If it is set too high, it can cause output to jitter (very sensitive for very small errors)
+2. Ziegler-Nichols Closed-Loop tuning Method:
+	1. Set all the gain terms (Kp, Ki, & Kd) to zero
+	2. Increase the Kp gain (iteratively) until the output begins to oscillate upon a step change or disturbance (steady oscillation - Kp_osc = Ku (ultimate gain))
+		1. Tu - period of oscillation (**for disturbance, it should oscillate persistently**)
+			1. Used serial plotter to get estimate
+		2. Example: Ku = 3.4, Tu ~ 1.2 seconds
+			1. Kp = 0.6 * Ku = 2.04
+			2. Ki = (2 * Kp) / Tu = 3.41
+			3. Kd = (Kp * Tu) / 8 = 0.306
+	3. Further tuning can be done from this starting point to make it more stable
