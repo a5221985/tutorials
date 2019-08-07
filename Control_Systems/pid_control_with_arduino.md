@@ -60,8 +60,14 @@
 	2. Workaround: Put bias in the output
 		1. control signal = error * Kp + U_bias
 		2. Problem: For every set point, we need to manually change the bias
+5. Advantage:
+	1. Easy to implement and can drive the process close to the desired setpoint
+6. Disadvantage:
+	1. We cannot eliminate steady-state error automatically
 
 ## Proportional-Integral (PI) Control ##
+
+
 ## Proportional-Integral-Derivative (PID) Control ##
 ## Implementing the PID Control Algorithm (Code Attached) ##
 ## Demonstration of PID Control (Propeller Arm Example) ##
