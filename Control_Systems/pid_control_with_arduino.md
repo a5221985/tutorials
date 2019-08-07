@@ -148,8 +148,23 @@
 		4. Cooling fan
 	2. Working principle
 		1. Motor driver receives PWM signal from Arduino
+		2. Analog temperature sensor sends analog voltage level to Analog pin of Arduino
+		3. Motor driver drives the cooling fan
+	3. Controller
+		1. T = 50 ms (We can select the right sample time and there is a procedure)
+		2. Conver voltage to temperature
+		3. Setpoint is set to desired temperature
+		4. `PID_Control()` outputs a value in [0, 255]
+			1. This is the duty cycle of PWM in the output pin
+		5. Caution: `analogWrite()` can write values in the range [0, 255] only
+			1. If value is outside the range, 
+				1. If val > 255 -> val <- 255
+				2. If val < 0 -> val <- 0
+5. Integral wind up:
+	1. If setpoint suddenly drops to another value, there is a lag before output starts responding (lag)
+		1. Because contron_signal goes beyond 255 and it slowly drops until it reaches 255 and below (lag is because of the delay in drop to 255)	
 
 ## Demonstration of PID Control (Propeller Arm Example) ##
-
+1. 
 
 ## PID Tuning (Ziegler-Nichols Method) ##
