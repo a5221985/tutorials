@@ -167,6 +167,10 @@
 ## Demonstration of PID Control (Propeller Arm Example) ##
 1. Self stabilizing propeller arm system
 	1. Brushless motor is attached to one side of an arm
-	2. Arm is mounted in the middle to a vertical pillar
+	2. Arm is mounted in the middle to a vertical stationary pillar
+2. Process model:
+	1. Input: speed control signal c(t)
+	2. Output: Angle theta
+	3. 
 
 ## PID Tuning (Ziegler-Nichols Method) ##
