@@ -185,3 +185,12 @@
 					1. Sample time - atleast 10 * Time constant
 
 ## PID Tuning (Ziegler-Nichols Method) ##
+1. Table:
+	
+		Parameters, Rise Time, Overshoots, Steady-State Error, Stability
+		Kp, Decreases, Increases, Decreases, Degrades
+		Ki, Decreases, Increases, Eliminates, Degrades
+		Kd, Minor Change, Decreases, No Effect, Improves if Kd is small
+		
+	1. Try to be sparing with derivative gain
+		1. If it is set too high, it can cause output to jitter (very sensitive)	
