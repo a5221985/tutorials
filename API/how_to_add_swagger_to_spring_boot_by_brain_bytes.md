@@ -120,3 +120,22 @@
 6. Restart Application
 
 		http://localhost:8080/v2/api-docs
+		
+7. Springfox-swagger-UI
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		
+	1. Take API out of the root - allows swagger UI handling the root URL
+
+			@RequestMapping("/api")
+			
+		1. localhost:800/swagger-ui.html
+			1. Try it out
+				1. JSON autofilling of template
+		2. Basic error controller - comes with Spring MVC (error end-points)
+		3. Models
+			1. Contacts
