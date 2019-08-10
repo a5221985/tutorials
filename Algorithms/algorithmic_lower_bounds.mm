@@ -114,26 +114,44 @@
   </body>
 </html>
 </richcontent>
-<node CREATED="1565442147926" ID="ID_1424898530" MODIFIED="1565442697841">
+<node CREATED="1565442147926" ID="ID_1424898530" MODIFIED="1565445690240">
 <richcontent TYPE="NODE"><html>
   <head>
     
   </head>
   <body>
     <p>
-      -------------------------------&gt; &quot;computational difficulty&quot;
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NP-Complete&#160;&#160;&#160;EXP-Complete
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|
+    </p>
+    <p>
+      ----|------|-----|--|------------&gt; &quot;computational difficulty&quot;
     </p>
     <p>
       |&#160;&#160;p&#160;&#160;|
     </p>
     <p>
-      |&#160;&#160;&#160;&#160;&#160;&#160;NP&#160;&#160;&#160;&#160;&#160;&#160;&#160;|
+      |&#160;&#160;&#160;&#160;&#160;&#160;NP&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|
     </p>
     <p>
-      |&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exp&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|
+      |&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exp&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|
+    </p>
+    <p>
+      |&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PSPACE&#160;&#160;&#160;&#160;&#160;|
     </p>
     <p>
       |&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;R&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;EXP-hard -&gt;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NP-hard -&gt;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;P-hard (notion of parallel computing)
     </p>
     <p>
       
@@ -144,6 +162,23 @@
   </body>
 </html>
 </richcontent>
+<node CREATED="1565444349622" ID="ID_1429957847" MODIFIED="1565444371648" TEXT="Every problem that can be solved in polynomial time can be solved in NP time"/>
+<node CREATED="1565444390111" ID="ID_1200845481" MODIFIED="1565444394216" TEXT="NP -&gt; EXP">
+<node CREATED="1565444394483" ID="ID_339635193" MODIFIED="1565444407720" TEXT="Run NP for each choice of input">
+<node CREATED="1565444414160" ID="ID_685806830" MODIFIED="1565444418368" TEXT="Depth first search"/>
+</node>
+</node>
+<node CREATED="1565444459533" ID="ID_130983884" MODIFIED="1565444475499" TEXT="NP - P">
+<node CREATED="1565444483036" ID="ID_1811812448" MODIFIED="1565444541754" TEXT="P == NP? Believed to be No">
+<node CREATED="1565444489505" ID="ID_1653344811" MODIFIED="1565444504759" TEXT="We can make random choice"/>
+<node CREATED="1565444505040" ID="ID_1288265552" MODIFIED="1565444510002" TEXT="We can make multiple choices"/>
+<node CREATED="1565444516888" ID="ID_164184320" MODIFIED="1565444525345" TEXT="Not always make the right choice at each step"/>
+</node>
+</node>
+<node CREATED="1565445212590" ID="ID_1519742207" MODIFIED="1565445244506" TEXT="NP-hard - every problem here is at least as hard as the hardest problem in NP"/>
+<node CREATED="1565445282736" ID="ID_617421954" MODIFIED="1565445289999" TEXT="EXP-hard - chess">
+<node CREATED="1565445293176" ID="ID_169559163" MODIFIED="1565445309520" TEXT="It is at-least as hard as the hardest problem in EXP"/>
+</node>
 </node>
 <node CREATED="1565442370684" ID="ID_1708248702" MODIFIED="1565442375405" TEXT="Examples">
 <node CREATED="1565442375669" ID="ID_783990613" MODIFIED="1565442379062" TEXT="n x n chess">
@@ -179,8 +214,47 @@
 <node CREATED="1565443585352" ID="ID_894205260" MODIFIED="1565443644349" TEXT="NP - { decision problems with solutions that can be &quot;checked&quot; in polynomial time } &#xa;&#xa;Checkable efficiently If we know what is the right sequence of guesses, then we can run the algorithms (because we know it is polynomial) &#xa;Conversely: If we don&apos;t have a solution to the algorithm we can guess the solution and check it">
 <node CREATED="1565443655679" ID="ID_340440452" MODIFIED="1565443709653" TEXT="If we are given a lucky algorithm we  can get the checking algorithms"/>
 <node CREATED="1565443667854" ID="ID_1592160147" MODIFIED="1565443734336" TEXT="If we are given a checking algorithm we can convert to the lucky algorithm"/>
+<node CREATED="1565443750184" ID="ID_1765675124" MODIFIED="1565443755904" TEXT="Examples">
+<node CREATED="1565443756207" ID="ID_161630322" MODIFIED="1565443765425" TEXT="Tetris">
+<node CREATED="1565444208101" ID="ID_507363674" MODIFIED="1565444212123" TEXT="in NP"/>
+<node CREATED="1565444231546" ID="ID_820503609" MODIFIED="1565444245249" TEXT="How to prove that we survive the sequence of pieces">
+<node CREATED="1565444259837" ID="ID_1303983691" MODIFIED="1565444267453" TEXT="Where we need to drop a piece"/>
 </node>
 </node>
+</node>
+</node>
+</node>
+<node CREATED="1565444568164" ID="ID_1014414538" MODIFIED="1565444591921" TEXT="X-Hard: &quot;as hard as&quot; every problem belonging to X">
+<node CREATED="1565444606115" ID="ID_1362789222" MODIFIED="1565444613325" TEXT="hardest problem in X"/>
+</node>
+<node CREATED="1565445351703" ID="ID_1377329439" MODIFIED="1565445358473" TEXT="X-complete">
+<node CREATED="1565445358906" ID="ID_616197623" MODIFIED="1565445365553" TEXT="X-hard AND in X"/>
+</node>
+<node CREATED="1565445568334" ID="ID_1671344502" MODIFIED="1565445593998" TEXT="PSPACE = { problems solvable in polynomial space }">
+<node CREATED="1565445600778" ID="ID_862980869" MODIFIED="1565445611459" TEXT="These problems are generally solvable in exponential time">
+<node CREATED="1565445619039" ID="ID_322382819" MODIFIED="1565445635102" TEXT="If polynomial space, there are only exponential states of the machine"/>
+</node>
+</node>
+<node CREATED="1565445700418" ID="ID_1130407014" MODIFIED="1565445704697" TEXT="Examples">
+<node CREATED="1565445704919" ID="ID_1975594406" MODIFIED="1565445708857" TEXT="Rush Hour">
+<node CREATED="1565445709206" ID="ID_1168884641" MODIFIED="1565445713522" TEXT="PSPACE-complete"/>
+</node>
+</node>
+<node CREATED="1565445802297" ID="ID_576280264" MODIFIED="1565445806556" TEXT="Interleaving">
+<node CREATED="1565445806847" ID="ID_1554748645" MODIFIED="1565445810316" TEXT="P Time"/>
+<node CREATED="1565445822659" ID="ID_1644193810" MODIFIED="1565445825045" TEXT="NP"/>
+<node CREATED="1565445810772" ID="ID_779971478" MODIFIED="1565445816628" TEXT="PSPACE"/>
+<node CREATED="1565445826012" ID="ID_630906733" MODIFIED="1565445828828" TEXT="EXP"/>
+<node CREATED="1565445829505" ID="ID_973533430" MODIFIED="1565445833661" TEXT="EXPSPACE"/>
+<node CREATED="1565445836396" ID="ID_1072787036" MODIFIED="1565445841981" TEXT="Doubly EXP"/>
+<node CREATED="1565445842463" ID="ID_1514785272" MODIFIED="1565445850796" TEXT="Doubly EXPSPACE"/>
+</node>
+<node CREATED="1565445887458" ID="ID_1651863034" MODIFIED="1565445892646" TEXT="PSPACE = NPSPACE">
+<node CREATED="1565445902191" ID="ID_418718256" MODIFIED="1565445910455" TEXT="NP uses atmost polynomial space">
+<node CREATED="1565445985894" ID="ID_1528103829" MODIFIED="1565445990936" TEXT="Rush Hour is in PSPACE"/>
+</node>
+</node>
+<node CREATED="1565445994733" ID="ID_409511296" MODIFIED="1565445997705" TEXT="As hard as"/>
 </node>
 </node>
 </node>
