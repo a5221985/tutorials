@@ -133,7 +133,7 @@
 
 			@RequestMapping("/api")
 			
-		1. localhost:800/swagger-ui.html
+		1. localhost:8000/swagger-ui.html
 			1. Try it out
 				1. JSON autofilling of template
 		2. Basic error controller - comes with Spring MVC (error end-points)
