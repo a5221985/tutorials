@@ -79,7 +79,7 @@
 ### Actuation: Moments and Disturbances ###
 ### Actuation: Thrust Vectors and Linear Forces ###
 
-## Section 2: Creation of the Open Look Simulink Model ##
+## Section 2: Creation of the Open Loop Simulink Model ##
 ### SIMULINK and the Motors/ Propellers Block ###
 ### Implementing the Rotational Dynamics Block ###
 ### Implementing the Linear Dynamics Block ###
