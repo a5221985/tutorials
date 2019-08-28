@@ -83,6 +83,23 @@
 <node CREATED="1566964407978" ID="ID_980475332" MODIFIED="1566964412516" TEXT="O(1) space/change">
 <node CREATED="1566964413371" ID="ID_672536792" MODIFIED="1566964426436" TEXT="Every time we make a change, we need to store that change for ever"/>
 </node>
+<node CREATED="1566964452494" ID="ID_1752405783" MODIFIED="1566964454372" TEXT="Proof">
+<node CREATED="1566964475696" ID="ID_675854562" MODIFIED="1566964482407" TEXT="Store back pointers">
+<node CREATED="1566964486170" ID="ID_673143751" MODIFIED="1566964535992" TEXT="nodei ---&gt; nodej ---&gt; nodei"/>
+<node CREATED="1566964554586" ID="ID_1414550171" MODIFIED="1566964595175" TEXT="If there are p pointers, there are p fields in each node">
+<node CREATED="1566964624974" ID="ID_1388106687" MODIFIED="1566964630420" TEXT="Nodes are constant size"/>
+<node CREATED="1566964671440" ID="ID_748812082" MODIFIED="1566964678757" TEXT="Only for latest version of the DS"/>
+</node>
+<node CREATED="1566964637408" ID="ID_769107012" MODIFIED="1566964639124" TEXT="mods">
+<node CREATED="1566964640510" ID="ID_110401585" MODIFIED="1566965860364" TEXT="store &lt;= 2p modifications to fields of DS">
+<node CREATED="1566965863044" ID="ID_207868008" MODIFIED="1566965868058" TEXT="p - bound on in-degree"/>
+<node CREATED="1566965872184" ID="ID_340598668" MODIFIED="1566965885981" TEXT="mod = (version, field, value)">
+<node CREATED="1566965898283" ID="ID_1097244297" MODIFIED="1566965902942" TEXT="fields stay that way"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
