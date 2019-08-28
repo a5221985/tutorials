@@ -61,8 +61,58 @@
 </node>
 </node>
 <node CREATED="1566959229522" ID="ID_1241602292" MODIFIED="1566959235995" TEXT="Temporal Data Structures">
-<node CREATED="1566959249340" ID="ID_178026658" MODIFIED="1566959252629" TEXT="Persistence"/>
-<node CREATED="1566959252877" ID="ID_350675820" MODIFIED="1566959258829" TEXT="Retroactivity"/>
+<node CREATED="1566959249340" ID="ID_178026658" MODIFIED="1566959252629" TEXT="Persistence">
+<node CREATED="1566959287608" ID="ID_1917725809" MODIFIED="1566959308286" TEXT="If we branch a universe, we get a new universe but keep the existing universe">
+<node CREATED="1566959353760" ID="ID_282646694" MODIFIED="1566959369262" TEXT="Keep all versios of data structure">
+<node CREATED="1566959376831" ID="ID_1347330486" MODIFIED="1566959378295" TEXT="Update">
+<node CREATED="1566959378563" ID="ID_1109153779" MODIFIED="1566959390072" TEXT="Take existing version and construct a new one"/>
+</node>
+</node>
+<node CREATED="1566959393858" ID="ID_1974774187" MODIFIED="1566959582184" TEXT="All DS operations are relative to a specified version"/>
+<node CREATED="1566959587261" ID="ID_1401667101" MODIFIED="1566959602225" TEXT="Update constructs and returns a new version"/>
+</node>
+<node CREATED="1566960069665" ID="ID_1937560513" MODIFIED="1566960073547" TEXT="Four Levels">
+<node CREATED="1566960074514" ID="ID_581727599" MODIFIED="1566960078964" TEXT="Partial Persistence">
+<node CREATED="1566960088026" ID="ID_1956770008" MODIFIED="1566960095550" TEXT="Only allowed to update the latest version">
+<node CREATED="1566960098978" ID="ID_1823041061" MODIFIED="1566960103733" TEXT="Linearly ordered">
+<node CREATED="1566960116581" ID="ID_906260315" MODIFIED="1566960134333" TEXT="|---|---|---|---|">
+<node CREATED="1566960135646" ID="ID_706892633" MODIFIED="1566960166301" TEXT="We can query about past but cannot modify"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1566960079661" ID="ID_1428763957" MODIFIED="1566960176701" TEXT="Full Persistence">
+<node CREATED="1566960177569" ID="ID_1730876611" MODIFIED="1566960182284" TEXT="Update any version">
+<node CREATED="1566960187109" ID="ID_1639513381" MODIFIED="1566960192135" TEXT="Version form a tree">
+<node CREATED="1566960196244" ID="ID_1680321061" MODIFIED="1566960261168">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;/--|--|--|
+    </p>
+    <p>
+      |--|--|--|
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\--|--|--|
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1566959252877" ID="ID_350675820" MODIFIED="1566959258829" TEXT="Retroactivity">
+<node CREATED="1566959314318" ID="ID_165069599" MODIFIED="1566959317657" TEXT="Back to the future">
+<node CREATED="1566959320364" ID="ID_1418469268" MODIFIED="1566959331815" TEXT="Go to the future, make change and return back to see what happens"/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1566957239846" ID="ID_1585546367" MODIFIED="1566957247276" POSITION="left" TEXT="Retroactive Data Structures"/>
