@@ -76,7 +76,16 @@
 <node CREATED="1566960088026" ID="ID_1956770008" MODIFIED="1566960095550" TEXT="Only allowed to update the latest version">
 <node CREATED="1566960098978" ID="ID_1823041061" MODIFIED="1566960103733" TEXT="Linearly ordered">
 <node CREATED="1566960116581" ID="ID_906260315" MODIFIED="1566960134333" TEXT="|---|---|---|---|">
-<node CREATED="1566960135646" ID="ID_706892633" MODIFIED="1566960166301" TEXT="We can query about past but cannot modify"/>
+<node CREATED="1566960135646" ID="ID_706892633" MODIFIED="1566960166301" TEXT="We can query about past but cannot modify">
+<node CREATED="1566964238906" ID="ID_1309881096" MODIFIED="1566964249340" TEXT="Details">
+<node CREATED="1566964249834" ID="ID_1063430978" MODIFIED="1566964350606" TEXT="Any pointer-machine DS with &lt;= p = O(1) pointers to any node can be made partially persistent with O(1) amortized factor overhead + O(1) space/change">
+<node CREATED="1566964282482" ID="ID_524964082" MODIFIED="1566964289857" TEXT="Constant number into any node"/>
+<node CREATED="1566964407978" ID="ID_980475332" MODIFIED="1566964412516" TEXT="O(1) space/change">
+<node CREATED="1566964413371" ID="ID_672536792" MODIFIED="1566964426436" TEXT="Every time we make a change, we need to store that change for ever"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
@@ -102,7 +111,26 @@
   </body>
 </html>
 </richcontent>
+<node CREATED="1566963920656" ID="ID_978339614" MODIFIED="1566963934725" TEXT="We can update and query any version"/>
 </node>
+</node>
+</node>
+</node>
+<node CREATED="1566963944722" ID="ID_626345255" MODIFIED="1566963970037" TEXT="Confluent Persistence">
+<node CREATED="1566963972978" ID="ID_1988163895" MODIFIED="1566963994016" TEXT="Can combine two versions to construct a new version">
+<node CREATED="1566963999331" ID="ID_589239928" MODIFIED="1566964006642" TEXT="Versions form DAG"/>
+<node CREATED="1566964063728" ID="ID_1040417633" MODIFIED="1566964067078" TEXT="This is hard to do">
+<node CREATED="1566964067338" ID="ID_1746649744" MODIFIED="1566964070991" TEXT="It is an open problem"/>
+</node>
+</node>
+<node CREATED="1566964034491" ID="ID_484121806" MODIFIED="1566964035797" TEXT="Combine">
+<node CREATED="1566964036204" ID="ID_364909441" MODIFIED="1566964041174" TEXT="Concatenation (say)"/>
+</node>
+</node>
+<node CREATED="1566964082697" ID="ID_167044462" MODIFIED="1566964094297" TEXT="Functional DSs">
+<node CREATED="1566964100446" ID="ID_1792668989" MODIFIED="1566964105550" TEXT="We can never modify anything">
+<node CREATED="1566964112183" ID="ID_1307089013" MODIFIED="1566964117183" TEXT="Only construct new nodes">
+<node CREATED="1566964133339" ID="ID_842259249" MODIFIED="1566964144371" TEXT="All the above are satisfied"/>
 </node>
 </node>
 </node>
