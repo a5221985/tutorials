@@ -98,6 +98,22 @@
 </node>
 </node>
 </node>
+<node CREATED="1567045535777" ID="ID_144216882" MODIFIED="1567045541928" TEXT="read field">
+<node CREATED="1567045544678" ID="ID_1000200548" MODIFIED="1567045646129" TEXT="Given a version v, what is the value of field at version v?">
+<node CREATED="1567045586287" ID="ID_1096767728" MODIFIED="1567045597087" TEXT="Look at mods with version &lt;= v"/>
+</node>
+</node>
+<node CREATED="1567045685439" ID="ID_1004473859" MODIFIED="1567045692401" TEXT="to modify node.field = x">
+<node CREATED="1567045695656" ID="ID_1973285265" MODIFIED="1567045706092" TEXT="If node is not full, add mod">
+<node CREATED="1567045719592" ID="ID_83198003" MODIFIED="1567045724498" TEXT="(now, field, x)"/>
+</node>
+<node CREATED="1567045728010" ID="ID_1143191025" MODIFIED="1567045731932" TEXT="Else">
+<node CREATED="1567045745518" ID="ID_72352167" MODIFIED="1567045768398" TEXT="construct a new node&apos; with all mods applied">
+<node CREATED="1567045784854" ID="ID_780060667" MODIFIED="1567045790193" TEXT="new fields f&apos;"/>
+<node CREATED="1567045791591" ID="ID_124764789" MODIFIED="1567045815429" TEXT="back"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
