@@ -1,0 +1,132 @@
+<map version="0.9.0">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1566901469460" ID="ID_921027352" MODIFIED="1566901497796" TEXT="Develop a Reactive Java Microservice with ReactiveJ">
+<node CREATED="1566901508397" ID="ID_1912427841" MODIFIED="1566901512382" POSITION="right" TEXT="Introduction">
+<node CREATED="1566901541797" ID="ID_1296220323" MODIFIED="1566901549565" TEXT="Intro of the course">
+<node CREATED="1566901824477" ID="ID_66039792" MODIFIED="1566901827457" TEXT="Summary">
+<node CREATED="1566901828854" ID="ID_463667737" MODIFIED="1566901835676" TEXT="What is &quot;Reactive Programming&quot;"/>
+<node CREATED="1566901836093" ID="ID_1958374946" MODIFIED="1566901853626" TEXT="Java JSR 340 Servlet 3.1 spec">
+<node CREATED="1566902027295" ID="ID_72256382" MODIFIED="1566902037551" TEXT="Non-Blocking Servlet Spec"/>
+</node>
+<node CREATED="1566901855267" ID="ID_1430765946" MODIFIED="1566901864584" TEXT="Jetty Reactive Embedded Server"/>
+<node CREATED="1566901864832" ID="ID_1775513108" MODIFIED="1566901875406" TEXT="Advantages of Reactive Microservices"/>
+<node CREATED="1566901875737" ID="ID_1721198119" MODIFIED="1566902060224" TEXT="Construct a Blocking Java Microservice with ReactiveJ"/>
+<node CREATED="1566901990024" ID="ID_768543374" MODIFIED="1566902062821" TEXT="Construct a Non-Blocking Java Microservice with ReactiveJ"/>
+<node CREATED="1566902001409" ID="ID_317643243" MODIFIED="1566902003352" TEXT="Conclusion"/>
+</node>
+</node>
+<node CREATED="1566901552466" ID="ID_759300759" MODIFIED="1566901560420" TEXT="Reactive Programming in brief">
+<node CREATED="1566902211031" ID="ID_797219977" MODIFIED="1566902220917" TEXT="Entity A asks for some data from Entity B">
+<node CREATED="1566902222146" ID="ID_872528595" MODIFIED="1566902273369" TEXT="Blocking">
+<node CREATED="1566902237679" ID="ID_756711868" MODIFIED="1566902250732" TEXT="Blocked until data is fetched from Entity B"/>
+<node CREATED="1566902251512" ID="ID_1674724276" MODIFIED="1566902260291" TEXT="Returns data to Entity A"/>
+</node>
+<node CREATED="1566902276182" ID="ID_1787693902" MODIFIED="1566902279027" TEXT="Non-Blocking">
+<node CREATED="1566902280945" ID="ID_978164763" MODIFIED="1566902295395" TEXT="Request is sent to thread"/>
+<node CREATED="1566902295628" ID="ID_297053057" MODIFIED="1566902340886" TEXT="thread passes request to Entity B"/>
+<node CREATED="1566902341256" ID="ID_276953820" MODIFIED="1566902361141" TEXT="thread does something else like accessing Entity C"/>
+<node CREATED="1566902361719" ID="ID_1094686234" MODIFIED="1566902399936" TEXT="When data is available, thread that is free implements a callback which returns data to Entity A"/>
+</node>
+</node>
+<node CREATED="1566902419141" ID="ID_1690215609" MODIFIED="1566902421699" TEXT="Non-blocking">
+<node CREATED="1566902422530" ID="ID_448709077" MODIFIED="1566902430643" TEXT="No thread waits for data to arrive"/>
+<node CREATED="1566902437062" ID="ID_1306025329" MODIFIED="1566902439602" TEXT="Spec">
+<node CREATED="1566902440534" ID="ID_1794371105" MODIFIED="1566902449511" TEXT="JSR 340 - Servlet 3.2 Spec">
+<node CREATED="1566902451384" ID="ID_385683820" MODIFIED="1566902476296" TEXT="Servlet 2.x - Http Request managed by one thread blocked until the response is sent (the thread must wait for data to be fetched)"/>
+<node CREATED="1566902477332" ID="ID_204254981" MODIFIED="1566902512849" TEXT="Servlet 3.0 - Http Request managed by one thread, passed and processed by other threads asynchronously (The &quot;other&quot; thread must wait for data to be fetched)"/>
+<node CREATED="1566902513651" ID="ID_1969867917" MODIFIED="1566902548132" TEXT="Servlet 3.1 - Http Request managed by one thread, passed to other threads with callbacks (no threads must wait, when data is ready calls back the requester)"/>
+</node>
+<node CREATED="1566902590477" ID="ID_1629403254" MODIFIED="1566902593193" TEXT="Servlet">
+<node CREATED="1566902594149" ID="ID_351205764" MODIFIED="1566902596675" TEXT="Class in Java">
+<node CREATED="1566902599242" ID="ID_1469689529" MODIFIED="1566902604684" TEXT="Manages requests and responses"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1566901561930" ID="ID_130072183" MODIFIED="1566901569760" TEXT="Jetty embedded web server">
+<node CREATED="1566995555400" ID="ID_1251471906" MODIFIED="1566995569594" TEXT="It is servlet container">
+<node CREATED="1566995576716" ID="ID_245431453" MODIFIED="1566995585176" TEXT="Manages HTTP requests and passes to our application"/>
+<node CREATED="1566995589287" ID="ID_1440795129" MODIFIED="1566995599652" TEXT="Listens to specific port and reponds on same port"/>
+</node>
+<node CREATED="1566995618317" ID="ID_686064257" MODIFIED="1566995643262" TEXT="It uses non-blocking I/O connector">
+<node CREATED="1566995625995" ID="ID_1409199183" MODIFIED="1566995629186" TEXT="From v9"/>
+</node>
+<node CREATED="1566995686568" ID="ID_358101178" MODIFIED="1566995702845" TEXT="Microservice A talking to Microservice B">
+<node CREATED="1566995707856" ID="ID_1548989536" MODIFIED="1566995711012" TEXT="Each has jetty"/>
+<node CREATED="1566995712370" ID="ID_196282074" MODIFIED="1566995720557" TEXT="Port 8080 and 8081"/>
+<node CREATED="1566995770969" ID="ID_1438707763" MODIFIED="1566995786883" TEXT="Embedded - microservice and web server are together"/>
+</node>
+</node>
+<node CREATED="1566901571351" ID="ID_378890446" MODIFIED="1566901577882" TEXT="Advantages of reactive programming">
+<node CREATED="1566995811006" ID="ID_1065122134" MODIFIED="1566995828682" TEXT="Blocking uS">
+<node CREATED="1566995856002" ID="ID_1803134456" MODIFIED="1566995858541" TEXT="200 threads">
+<node CREATED="1566995864458" ID="ID_778683243" MODIFIED="1566995935496" TEXT="some threads are processing"/>
+<node CREATED="1566995936011" ID="ID_1104859914" MODIFIED="1566995942865" TEXT="some threads are waiting for data to be fetched">
+<node CREATED="1566996024845" ID="ID_1375021610" MODIFIED="1566996028375" TEXT="doing nothing"/>
+</node>
+</node>
+<node CREATED="1566995990357" ID="ID_700199385" MODIFIED="1566995997010" TEXT="If all threads are engaged">
+<node CREATED="1566995997717" ID="ID_1190169113" MODIFIED="1566996002817" TEXT="There is a queue of requests">
+<node CREATED="1566996005550" ID="ID_1860974226" MODIFIED="1566996013444" TEXT="waiting until a thread is available"/>
+</node>
+</node>
+</node>
+<node CREATED="1566995829075" ID="ID_1004860460" MODIFIED="1566995832416" TEXT="Non-blocking uS">
+<node CREATED="1566995860552" ID="ID_978892217" MODIFIED="1566995863124" TEXT="200 threads">
+<node CREATED="1566996043430" ID="ID_1455108432" MODIFIED="1566996052362" TEXT="no thread waits for data">
+<node CREATED="1566996054532" ID="ID_212658237" MODIFIED="1566996062917" TEXT="available for next processing request"/>
+</node>
+</node>
+<node CREATED="1566996068409" ID="ID_742928430" MODIFIED="1566996116437" TEXT="queue can be very small">
+<node CREATED="1566996119270" ID="ID_379752132" MODIFIED="1566996125899" TEXT="more requests can be served"/>
+</node>
+<node CREATED="1566996132295" ID="ID_697913991" MODIFIED="1566996135833" TEXT="When data is ready">
+<node CREATED="1566996136613" ID="ID_1937347521" MODIFIED="1566996145847" TEXT="there is a callback to requestor to return data"/>
+</node>
+<node CREATED="1566996147698" ID="ID_239137295" MODIFIED="1566996150115" TEXT="Advantages">
+<node CREATED="1566996151003" ID="ID_51723887" MODIFIED="1566996153238" TEXT="less CPU"/>
+<node CREATED="1566996153548" ID="ID_1086102611" MODIFIED="1566996156607" TEXT="less memory"/>
+<node CREATED="1566996156832" ID="ID_1308333908" MODIFIED="1566996158582" TEXT="less time"/>
+<node CREATED="1566996158992" ID="ID_915836272" MODIFIED="1566996161422" TEXT="less instances"/>
+<node CREATED="1566996161889" ID="ID_1927331666" MODIFIED="1566996163669" TEXT="less money">
+<node CREATED="1566996165531" ID="ID_185665951" MODIFIED="1566996170721" TEXT="On cloud"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1566901579057" ID="ID_842365613" MODIFIED="1566901583930" TEXT="What we will develop">
+<node CREATED="1566996280824" ID="ID_1290802023" MODIFIED="1566996292535" TEXT="CRUD - ToDo App">
+<node CREATED="1566996295238" ID="ID_1359707663" MODIFIED="1566996296191" TEXT="Java"/>
+<node CREATED="1566996296507" ID="ID_1207402681" MODIFIED="1566996298921" TEXT="ReactiveJ">
+<node CREATED="1566996300566" ID="ID_1234405063" MODIFIED="1566996313052" TEXT="Implements Servlet 3.2"/>
+<node CREATED="1566996316187" ID="ID_145450637" MODIFIED="1566996319206" TEXT="Jetty 9.x"/>
+</node>
+<node CREATED="1566996339933" ID="ID_664342616" MODIFIED="1566996343973" TEXT="Two versions">
+<node CREATED="1566996344934" ID="ID_578279014" MODIFIED="1566996357442" TEXT="Blocking synchronous approach using ReactiveJ">
+<node CREATED="1566996359156" ID="ID_1095719528" MODIFIED="1566996384878" TEXT="even if ReactiveJ Servlet implementation is reactive we will implement all the logic in a blocking fashion"/>
+</node>
+<node CREATED="1566996401394" ID="ID_1701529153" MODIFIED="1566996419769" TEXT="Non-Blocking asynchronous approach (v2) using ReactiveJ and RxJava2">
+<node CREATED="1566996425215" ID="ID_351152916" MODIFIED="1566996444756" TEXT="We will use RxJava2 in conjuction with ReactiveJ in order to have a reactive stack"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1566901585161" ID="ID_1221589149" MODIFIED="1566901589943" TEXT="Useful links"/>
+</node>
+<node CREATED="1566901514327" ID="ID_1193538266" MODIFIED="1566901526254" POSITION="left" TEXT="Develop our traditional microservice">
+<node CREATED="1566901598243" ID="ID_213416630" MODIFIED="1566901607642" TEXT="Let&apos;s download the starter app"/>
+<node CREATED="1566901608763" ID="ID_1396464241" MODIFIED="1566901617108" TEXT="Implement the skeleton of the Api"/>
+<node CREATED="1566901620143" ID="ID_1107807929" MODIFIED="1566901632363" TEXT="Let&apos;s implement all the CRUD operations"/>
+<node CREATED="1566901633475" ID="ID_257745846" MODIFIED="1566901643053" TEXT="Let&apos;s test our Rest Api!"/>
+</node>
+<node CREATED="1566901527631" ID="ID_613428728" MODIFIED="1566901535102" POSITION="right" TEXT="Develop our reactive microservice">
+<node CREATED="1566901648858" ID="ID_1881748290" MODIFIED="1566901663451" TEXT="Let&apos;s implement the Create ToDo Endpoint"/>
+<node CREATED="1566901664733" ID="ID_1376819977" MODIFIED="1566901672227" TEXT="Let&apos;s develop the rest of our application"/>
+<node CREATED="1566901673438" ID="ID_1297725722" MODIFIED="1566901682394" TEXT="Let&apos;s test our Reactive Rest Api!"/>
+</node>
+<node CREATED="1566901536668" ID="ID_298047690" MODIFIED="1566901539053" POSITION="left" TEXT="Conclusion">
+<node CREATED="1566901685019" ID="ID_565647246" MODIFIED="1566901694157" TEXT="Conclusion"/>
+</node>
+</node>
+</map>
