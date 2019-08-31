@@ -2439,6 +2439,15 @@
 			);
 
 ### Animated ###
+#### Overview ####
+##### Configuring Animations #####
+##### Working with Animations #####
+##### Using the Native Driver #####
+##### Animatable Components #####
+##### Composing Animations #####
+##### Combining Animated Values #####
+
+
 ### AppRegistry ###
 ### AppState ###
 ### AsyncStorage ###
