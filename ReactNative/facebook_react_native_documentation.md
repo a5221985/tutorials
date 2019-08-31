@@ -2441,7 +2441,8 @@
 ### Animated ###
 1. `Animated` library is designed to make animations fluid, powerful, easy to build and maintain
 	1. Deals with declarative relationships between inputs and outputs
-2. 
+	2. Deals with configurable transforms in between
+	3. Deals with simple `start`/ `stop` methods to control time-based animation execution
 
 #### Overview ####
 ##### Configuring Animations #####
