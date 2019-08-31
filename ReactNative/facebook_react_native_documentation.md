@@ -2439,6 +2439,9 @@
 			);
 
 ### Animated ###
+1. `Animated` library is designed to make animations fluid, powerful, easy to build and maintain
+	1. Deals with declarative relationships between inputs and outputs
+
 #### Overview ####
 ##### Configuring Animations #####
 ##### Working with Animations #####
@@ -2446,7 +2449,38 @@
 ##### Animatable Components #####
 ##### Composing Animations #####
 ##### Combining Animated Values #####
+##### Interpolation #####
+##### Handling Gestures and Other Events #####
+##### Methods #####
+##### Properties #####
 
+#### Reference ####
+##### Methods #####
+###### `decay()` ######
+###### `timing()` ######
+###### `spring()` ######
+###### `add()` ######
+###### `subtract()` ######
+##### `divide()` #####
+##### `multiply()` #####
+##### `module()` #####
+##### `diffClamp()` #####
+##### `delay()` #####
+##### `sequence()` #####
+##### `parallel()` #####
+##### `stagger()` #####
+##### `loop()` #####
+##### `event()` #####
+##### `forkEvent()` #####
+##### `unforkEvent()` #####
+
+#### Properties ####
+##### `Value` #####
+##### `ValueXY` #####
+##### Interpolation #####
+##### `Node` #####
+##### `createAnimatedComponent` #####
+##### `attackNativeEvent` #####
 
 ### AppRegistry ###
 ### AppState ###
