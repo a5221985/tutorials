@@ -96,7 +96,13 @@
 		3. When load is applied, RPM decreases
 	2. The torque required from the motor is proportional to the square of the rotational velocity of its propeller
 	3. We assume a 0% RPM drop from KV at 0V and a 25% RPM drop from KV at max voltage: 11.4V
-		1. 25% rotational velocity drop 
+		1. 25% rotational velocity drop from the KV at max voltage
+4. RPM Equation with loading assumption
+
+		RPM = -2.6931 * V^3 + 1400 * V
+		
+	1. 20 sample outputs constructed in the range 0 V - 11.4 V
+	2. 
 
 ### Linear and Rotational Drone Dynamics ###
 ### Actuation: Moments and Disturbances ###
