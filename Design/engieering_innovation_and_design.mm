@@ -26,7 +26,9 @@
 <node CREATED="1567002532220" ID="ID_1857702220" MODIFIED="1567002544045" POSITION="right" TEXT="Instructor Interview: What Happends in Class?"/>
 <node CREATED="1567002545816" ID="ID_1325897435" MODIFIED="1567002556979" POSITION="left" TEXT="Instructor Interview: Online Student Forum"/>
 <node CREATED="1567002558838" ID="ID_210281470" MODIFIED="1567002574199" POSITION="right" TEXT="Instructor Interview: Grading a Design Course"/>
-<node CREATED="1567002578399" ID="ID_1432152691" MODIFIED="1567002593807" POSITION="left" TEXT="10-Step Design Process and Dieter Ram (Sample Lecuture)"/>
+<node CREATED="1567002578399" ID="ID_1432152691" MODIFIED="1567002593807" POSITION="left" TEXT="10-Step Design Process and Dieter Ram (Sample Lecuture)">
+<node CREATED="1567318760710" ID="ID_1013384086" MODIFIED="1567318760710" TEXT=""/>
+</node>
 <node CREATED="1567002595485" ID="ID_893455471" MODIFIED="1567002607031" POSITION="right" TEXT="Research and Stakeholder Analysis (Sample Lecture)"/>
 </node>
 </map>
