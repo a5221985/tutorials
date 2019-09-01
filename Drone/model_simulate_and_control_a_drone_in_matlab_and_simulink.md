@@ -102,7 +102,9 @@
 		RPM = -2.6931 * V^3 + 1400 * V
 		
 	1. 20 sample outputs constructed in the range 0 V - 11.4 V
-	2. 
+	2. Estimation needs to be made
+		1. If propellers are attached, the percentage drop is going to increase proportionally to the square of rotational velocity
+			1. When there is no load, velocity increases linearly
 
 ### Linear and Rotational Drone Dynamics ###
 ### Actuation: Moments and Disturbances ###
