@@ -75,6 +75,13 @@
 		1. 
 
 ### Empirical Modelling of Propeller's Behaviour and Performance ###
+1. Mathematical representation of model of motors of the drone
+2. DJI Mavic Pro's vs Ours
+	1. The Mavic Pro uses brushless DC motors
+	2. These require complex electronics and mathematics to be controlled but are highly efficient, compact and do not wear much nor require maintenance
+	3. As we did in the "Model a Car and Design a PID Controller in MATLAB/SIMULINK" course, we could model them using the maths behind brushed DC motors.
+	4. However, we will use provided motor constants to look at a different approahc and have a simpler model overall
+
 ### Linear and Rotational Drone Dynamics ###
 ### Actuation: Moments and Disturbances ###
 ### Actuation: Thrust Vectors and Linear Forces ###
