@@ -92,9 +92,11 @@
 		1. RPM constant tells how much voltage the motor itself generates. The faster the motor rotates, the greater the voltage is
 		2. When voltage is applied, motor generates a voltage until it's voltage is no different from the voltage applied to it
 			1. Acceleration stops
-		2. When there is no load, the RPM matches the RPM constant 
+		2. When there is no load, the RPM matches the RPM constant
+		3. When load is applied, RPM decreases
 	2. The torque required from the motor is proportional to the square of the rotational velocity of its propeller
 	3. We assume a 0% RPM drop from KV at 0V and a 25% RPM drop from KV at max voltage: 11.4V
+		1. 25% rotational velocity drop 
 
 ### Linear and Rotational Drone Dynamics ###
 ### Actuation: Moments and Disturbances ###
