@@ -492,6 +492,18 @@
 </node>
 </node>
 </node>
+<node CREATED="1567436429816" ID="ID_21846345" MODIFIED="1567436434794" TEXT="Parallel Execution">
+<node CREATED="1567436435264" ID="ID_1338399908" MODIFIED="1567436440079" TEXT="Multicores are here">
+<node CREATED="1567436440333" ID="ID_181133196" MODIFIED="1567436448496" TEXT="2 to 6 cores in a processor"/>
+<node CREATED="1567436449775" ID="ID_935753640" MODIFIED="1567436456516" TEXT="1 to 4 processors in a box"/>
+<node CREATED="1567436457058" ID="ID_965785095" MODIFIED="1567436475399" TEXT="Cloud machines have 2 processors with 6 cores each (total 12 cores)"/>
+</node>
+<node CREATED="1567436507914" ID="ID_813971511" MODIFIED="1567436519902" TEXT="Use concurrency for parallel execution">
+<node CREATED="1567436520233" ID="ID_1383388566" MODIFIED="1567436536571" TEXT="Divide the computation of multiple independent/concurrent computations"/>
+<node CREATED="1567436537697" ID="ID_996446842" MODIFIED="1567436544219" TEXT="Run the computations in parallel"/>
+<node CREATED="1567436545264" ID="ID_559830053" MODIFIED="1567436550819" TEXT="Synchronize at the end"/>
+</node>
+</node>
 </node>
 <node CREATED="1567402889721" ID="ID_1361347997" MODIFIED="1567402895165" POSITION="left" TEXT="Lecture 2: Bit Hacks"/>
 <node CREATED="1567402896203" ID="ID_913810876" MODIFIED="1567402912236" POSITION="right" TEXT="Lecture 3: Basic Performance Engineering"/>
