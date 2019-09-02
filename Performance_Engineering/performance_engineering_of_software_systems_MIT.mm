@@ -111,11 +111,37 @@
 <node CREATED="1567430690813" ID="ID_1254914338" MODIFIED="1567430698029" TEXT="Indirect branches are costly">
 <node CREATED="1567430698306" ID="ID_716887021" MODIFIED="1567430706585" TEXT="Modern microprocessors are deeply pipelined">
 <node CREATED="1567430706849" ID="ID_1294551298" MODIFIED="1567430719562" TEXT="12 pipeline stages in core 2 duo, 20 in Pentium 4"/>
-<node CREATED="1567430732329" ID="ID_954459501" MODIFIED="1567430741266" TEXT="i.e. hundreds of instructions in flight"/>
+<node CREATED="1567430732329" ID="ID_954459501" MODIFIED="1567430741266" TEXT="i.e. hundreds of instructions in flight">
+<node CREATED="1567430886610" ID="ID_425295716" MODIFIED="1567430896568" TEXT="I cannot go further until the previous instruction is resolved">
+<node CREATED="1567430899931" ID="ID_105429145" MODIFIED="1567430905386" TEXT="Machine slows down a lot">
+<node CREATED="1567430927420" ID="ID_1301708216" MODIFIED="1567430940762" TEXT="We need to fetch, test, and only then fetch the next instruction"/>
 </node>
 </node>
 </node>
-<node CREATED="1567430624474" ID="ID_1970175657" MODIFIED="1567430637898" TEXT="Dynamic dispatch is an address lookup + indirect branch"/>
+</node>
+<node CREATED="1567430842740" ID="ID_1430186684" MODIFIED="1567430853842" TEXT="I don&apos;t know where I am going until I do that check"/>
+</node>
+<node CREATED="1567430968735" ID="ID_1686071953" MODIFIED="1567430973157" TEXT="Direct branch">
+<node CREATED="1567431049929" ID="ID_376410051" MODIFIED="1567431069832" TEXT="Target address is known">
+<node CREATED="1567431070219" ID="ID_912290701" MODIFIED="1567431078889" TEXT="We can fetch ahead from target"/>
+</node>
+<node CREATED="1567431092228" ID="ID_498042147" MODIFIED="1567431104812" TEXT="works for conditional branches by predicting the branch">
+<node CREATED="1567431264943" ID="ID_510348019" MODIFIED="1567431275796" TEXT="We can also fetch both options"/>
+</node>
+</node>
+<node CREATED="1567431008075" ID="ID_1184695838" MODIFIED="1567431012264" TEXT="Normal instructions">
+<node CREATED="1567431012580" ID="ID_416146515" MODIFIED="1567431019902" TEXT="keep fetching the next instructions"/>
+<node CREATED="1567430973390" ID="ID_423368039" MODIFIED="1567431007800" TEXT="Need to be able to keep fetching next instructions before executing them"/>
+</node>
+<node CREATED="1567431218977" ID="ID_527348539" MODIFIED="1567431223056" TEXT="Indirect branch">
+<node CREATED="1567431223392" ID="ID_253582066" MODIFIED="1567431228638" TEXT="target is unknown">
+<node CREATED="1567431229805" ID="ID_112089563" MODIFIED="1567431239035" TEXT="need to wait until address fetch completes"/>
+</node>
+</node>
+</node>
+<node CREATED="1567430624474" ID="ID_1970175657" MODIFIED="1567430637898" TEXT="Dynamic dispatch is an address lookup + indirect branch">
+<node CREATED="1567430825049" ID="ID_1953530014" MODIFIED="1567430833514" TEXT="Direct call has become indirect branch"/>
+</node>
 </node>
 </node>
 </node>
