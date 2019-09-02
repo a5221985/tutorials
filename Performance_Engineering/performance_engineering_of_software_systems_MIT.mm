@@ -138,6 +138,13 @@
 <node CREATED="1567431229805" ID="ID_112089563" MODIFIED="1567431239035" TEXT="need to wait until address fetch completes"/>
 </node>
 </node>
+<node CREATED="1567432663365" ID="ID_336521909" MODIFIED="1567432666023" TEXT="Solution">
+<node CREATED="1567432666376" ID="ID_54501713" MODIFIED="1567432690000" TEXT="integers, doubles -&gt; doubles only">
+<node CREATED="1567432714606" ID="ID_1335657089" MODIFIED="1567432717839" TEXT="Improvement">
+<node CREATED="1567432718032" ID="ID_980449002" MODIFIED="1567432720479" TEXT="2.4x"/>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1567430624474" ID="ID_1970175657" MODIFIED="1567430637898" TEXT="Dynamic dispatch is an address lookup + indirect branch">
 <node CREATED="1567430825049" ID="ID_1953530014" MODIFIED="1567430833514" TEXT="Direct call has become indirect branch"/>
