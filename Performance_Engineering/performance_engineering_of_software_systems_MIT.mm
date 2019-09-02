@@ -88,7 +88,9 @@
 <node CREATED="1567409250853" ID="ID_1380745681" MODIFIED="1567409254445" TEXT="Can we do better?">
 <node CREATED="1567409254726" ID="ID_1432015815" MODIFIED="1567409261047" TEXT="Get rid of immutability">
 <node CREATED="1567409307746" ID="ID_1867595222" MODIFIED="1567409313519" TEXT="Performance improvement">
-<node CREATED="1567409313774" ID="ID_806550182" MODIFIED="1567409321996" TEXT="219.7x"/>
+<node CREATED="1567409313774" ID="ID_806550182" MODIFIED="1567409321996" TEXT="219.7x">
+<node CREATED="1567427395932" ID="ID_943808385" MODIFIED="1567427401978" TEXT="N^4 -&gt; N^3"/>
+</node>
 </node>
 </node>
 </node>
@@ -99,6 +101,22 @@
 </node>
 </node>
 <node CREATED="1567409285651" ID="ID_1614526215" MODIFIED="1567409290589" TEXT="Object oriented"/>
+</node>
+</node>
+<node CREATED="1567430549844" ID="ID_1727175437" MODIFIED="1567430561176" TEXT="Time spent for get double and get">
+<node CREATED="1567430570069" ID="ID_879209000" MODIFIED="1567430582529" TEXT="Issues are with Dynamic Dispatch">
+<node CREATED="1567430583640" ID="ID_876683597" MODIFIED="1567430587185" TEXT="Method call overhead">
+<node CREATED="1567430587557" ID="ID_1872554769" MODIFIED="1567430600512" TEXT="Multiple subtypes -&gt; what method to call depends on the object"/>
+<node CREATED="1567430601113" ID="ID_1461426828" MODIFIED="1567430619425" TEXT="Each method call needs to loop-up the object type in a dispatch table">
+<node CREATED="1567430690813" ID="ID_1254914338" MODIFIED="1567430698029" TEXT="Indirect branches are costly">
+<node CREATED="1567430698306" ID="ID_716887021" MODIFIED="1567430706585" TEXT="Modern microprocessors are deeply pipelined">
+<node CREATED="1567430706849" ID="ID_1294551298" MODIFIED="1567430719562" TEXT="12 pipeline stages in core 2 duo, 20 in Pentium 4"/>
+<node CREATED="1567430732329" ID="ID_954459501" MODIFIED="1567430741266" TEXT="i.e. hundreds of instructions in flight"/>
+</node>
+</node>
+</node>
+<node CREATED="1567430624474" ID="ID_1970175657" MODIFIED="1567430637898" TEXT="Dynamic dispatch is an address lookup + indirect branch"/>
+</node>
 </node>
 </node>
 </node>
