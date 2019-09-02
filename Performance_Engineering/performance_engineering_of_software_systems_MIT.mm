@@ -503,6 +503,43 @@
 <node CREATED="1567436537697" ID="ID_996446842" MODIFIED="1567436544219" TEXT="Run the computations in parallel"/>
 <node CREATED="1567436545264" ID="ID_559830053" MODIFIED="1567436550819" TEXT="Synchronize at the end"/>
 </node>
+<node CREATED="1567437571123" ID="ID_660565468" MODIFIED="1567437578403" TEXT="Issues with Parallelism">
+<node CREATED="1567437578699" ID="ID_1336910562" MODIFIED="1567437585115" TEXT="Amdhal&apos;s Law">
+<node CREATED="1567437586267" ID="ID_161266355" MODIFIED="1567437625557" TEXT="Any computation can be analyzed in terms of a portion that must be executed sequentially, Ts, and a portion that can be executed in parallel, Tp, then for n processors">
+<node CREATED="1567437634647" ID="ID_1424226404" MODIFIED="1567437641165" TEXT="T(n) = Tx + Tp/n"/>
+<node CREATED="1567437644308" ID="ID_1293569814" MODIFIED="1567437675531" TEXT="T(infinity) = Ts, thus maximum speedup (Ts + Tp)/Ts">
+<node CREATED="1567437721080" ID="ID_880651014" MODIFIED="1567437732436" TEXT="90% is parallel">
+<node CREATED="1567437732684" ID="ID_91621988" MODIFIED="1567437737165" TEXT="Max: 10%"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1567437742766" ID="ID_387842640" MODIFIED="1567437745804" TEXT="Load Balancing">
+<node CREATED="1567437749012" ID="ID_106191925" MODIFIED="1567437766491" TEXT="The work is distributed among processors so that all processors are kept busy all of the time"/>
+</node>
+<node CREATED="1567437778436" ID="ID_828806581" MODIFIED="1567437781054" TEXT="Granularity">
+<node CREATED="1567437781358" ID="ID_1098362983" MODIFIED="1567437814559" TEXT="The size of the parallel regions between synchronizations or the ratio of computation (useful work) to communication (overhead)">
+<node CREATED="1567437851029" ID="ID_1882493825" MODIFIED="1567437857355" TEXT="To start parallelism is big task">
+<node CREATED="1567437861062" ID="ID_134724909" MODIFIED="1567437863591" TEXT="Expensive">
+<node CREATED="1567437864336" ID="ID_888622262" MODIFIED="1567437869311" TEXT="If work is too small"/>
+<node CREATED="1567437870020" ID="ID_1349100846" MODIFIED="1567437874590" TEXT="Start and stop is overhead"/>
+</node>
+</node>
+</node>
+<node CREATED="1567437887075" ID="ID_1211965022" MODIFIED="1567437888570" TEXT="Problem">
+<node CREATED="1567437891600" ID="ID_588866444" MODIFIED="1567437902913" TEXT="Parallelization may cause slowdown"/>
+</node>
+</node>
+</node>
+<node CREATED="1567437922315" ID="ID_1512211071" MODIFIED="1567437924082" TEXT="Matrix">
+<node CREATED="1567437924305" ID="ID_572344831" MODIFIED="1567437926331" TEXT="Two parts">
+<node CREATED="1567437930669" ID="ID_880754361" MODIFIED="1567437933179" TEXT="3.5x">
+<node CREATED="1567438002337" ID="ID_806336083" MODIFIED="1567438004384" TEXT="CPI">
+<node CREATED="1567438004599" ID="ID_153554291" MODIFIED="1567438006729" TEXT="1/36"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567402889721" ID="ID_1361347997" MODIFIED="1567402895165" POSITION="left" TEXT="Lecture 2: Bit Hacks"/>
