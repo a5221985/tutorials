@@ -87,8 +87,7 @@
       How much <b>time</b>&#160;does this algorithm need to finish?
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="SansSerif" SIZE="12"/>
 <node CREATED="1567050733584" ID="ID_932859777" MODIFIED="1567050739412" TEXT="Extreme case">
 <node CREATED="1567050739618" ID="ID_362957" MODIFIED="1567050756496" TEXT="If program takes lifetime of universe to finish then it is bad"/>
@@ -104,8 +103,7 @@
       How much <b>space</b>&#160;does this algorithm need for its computation?
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1567050765766" ID="ID_1025606052" MODIFIED="1567050768525" TEXT="Extreme case">
 <node CREATED="1567050768725" ID="ID_1218753379" MODIFIED="1567050785870" TEXT="If program data takes all the bytes in all the files in the internet then it is bad"/>
 </node>
@@ -145,6 +143,107 @@
 <node CREATED="1567052182091" ID="ID_1538719926" MODIFIED="1567052189318" TEXT="Cubic Time: O(n^3)"/>
 <node CREATED="1567052189572" ID="ID_795812748" MODIFIED="1567052200939" TEXT="Exponential Time: O(b^n), b &gt; 1"/>
 <node CREATED="1567052201302" ID="ID_1716108746" MODIFIED="1567052208222" TEXT="Factorial Time: O(n!)"/>
+</node>
+<node CREATED="1567483342098" ID="ID_506727581" MODIFIED="1567483345986" TEXT="Big-O Properties">
+<node CREATED="1567483347275" ID="ID_1661548267" MODIFIED="1567483352859" TEXT="O(n + c) = O(n)">
+<node CREATED="1567483508645" ID="ID_1680707201" MODIFIED="1567483519194" TEXT="adding c to infinity it is infinity"/>
+</node>
+<node CREATED="1567483357175" ID="ID_1737777107" MODIFIED="1567483366028" TEXT="O(cn) = O(n), c &gt; 0">
+<node CREATED="1567483521283" ID="ID_439513698" MODIFIED="1567483536549" TEXT="multiplying by c to infinity is infinity"/>
+</node>
+</node>
+<node CREATED="1567483384611" ID="ID_1355655522" MODIFIED="1567483388292" TEXT="Big-O Example">
+<node CREATED="1567483388532" ID="ID_1512523692" MODIFIED="1567483407604" TEXT="Let f be a function that describes the running time of a particular algorithm for an input of size n:">
+<node CREATED="1567483407929" ID="ID_1986830200" MODIFIED="1567483428430" TEXT="f(n) = 7log(n)^3 + 15n^2 + 2n^3 + 8">
+<node CREATED="1567483429113" ID="ID_122976438" MODIFIED="1567483436757" TEXT="O(f(n)) = O(n^3)"/>
+</node>
+</node>
+</node>
+<node CREATED="1567483469454" ID="ID_715997094" MODIFIED="1567483480241" TEXT="We are only interested in what happens when n tends to infinity"/>
+<node CREATED="1567483569081" ID="ID_1386628664" MODIFIED="1567483570577" TEXT="Examples">
+<node CREATED="1567483570831" ID="ID_1783177980" MODIFIED="1567483620147">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      a := 1
+    </p>
+    <p>
+      b := 2
+    </p>
+    <p>
+      c := a + 5 * b
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      i := 0
+    </p>
+    <p>
+      While i &lt; 11 Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = i + 1
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1567483622032" ID="ID_1489138490" MODIFIED="1567483624555" TEXT="O(1)">
+<node CREATED="1567483625320" ID="ID_966436955" MODIFIED="1567483629394" TEXT="Does not depend on n"/>
+</node>
+</node>
+<node CREATED="1567483638428" ID="ID_1879236817" MODIFIED="1567483702462">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      i := 0
+    </p>
+    <p>
+      While i &lt; n Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = i + 1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      f(n) = n
+    </p>
+    <p>
+      O(f(n)) = O(n)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      i := 0
+    </p>
+    <p>
+      While i &lt; n Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = i + 3
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      f(n) = n/3
+    </p>
+    <p>
+      O(f(n)) = O(n)
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
 </node>
 </node>
 </node>
