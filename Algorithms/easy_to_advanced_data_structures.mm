@@ -244,6 +244,86 @@
 </html>
 </richcontent>
 </node>
+<node CREATED="1567483751485" ID="ID_517940471" MODIFIED="1567483781346" TEXT="Both of the following run in quadratic time. The first may be obvious since n work done n times is n * n = O(n^2), but what about hte second one?">
+<node CREATED="1567483781691" ID="ID_1437914013" MODIFIED="1567483815840">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      For (i := 0; i &lt; n; i = i + 1)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;For (j := 0; j &lt; n; j = j + 1)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1567483816908" ID="ID_367307686" MODIFIED="1567483833128" TEXT="f(n) = n * n = n^2, O(f(n)) = O(n^2)"/>
+</node>
+<node CREATED="1567483835704" ID="ID_1029876442" MODIFIED="1567483867606">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      For (i := 0; i &lt; n; i = i + 1)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;For (j := i; j &lt; n; j = j + 1)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1567483868738" ID="ID_1698382569" MODIFIED="1567483879882" TEXT="f(n) = n * (n + 1) / 2 = O(n^2)">
+<node CREATED="1567483945779" ID="ID_176704251" MODIFIED="1567483957976" TEXT="n + n - 1 + n - 2 + ... + 2 + 1"/>
+</node>
+</node>
+</node>
+<node CREATED="1567483967627" ID="ID_199317909" MODIFIED="1567483992833" TEXT="Suppose we have a sorted array and we want to find the index of a particular value in the array, if it existss. What is the time complexity of the following algorithm?">
+<node CREATED="1567483996872" ID="ID_350440965" MODIFIED="1567484076382">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      low := 0
+    </p>
+    <p>
+      high := n - 1
+    </p>
+    <p>
+      While low &lt;= high Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;mid := (low + high) / 2
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;If array[mid] == value: return mid
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Else If array[mid] &lt; value: lo = mid + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Else if array[mid] &gt; value: hi = mid - 1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      return -1 // Value not found
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
 </node>
 </node>
 </node>
