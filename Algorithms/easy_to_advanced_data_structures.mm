@@ -322,6 +322,92 @@
   </body>
 </html>
 </richcontent>
+<node CREATED="1567739365040" ID="ID_918302151" MODIFIED="1567739378222" TEXT="O(log_2(n)) = O(log(n))"/>
+</node>
+</node>
+<node CREATED="1567739388910" ID="ID_802167150" MODIFIED="1567739440079">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      i := 0
+    </p>
+    <p>
+      While i &lt; n Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;j = 0
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;While j &lt; 3 * n Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;j = j + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;j = 0
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;While j &lt; 2 * n Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;j = j + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = i + 1
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1567740156422" ID="ID_115184184" MODIFIED="1567740181698" TEXT="f(n) = n(3 * n + 2 * n)">
+<node CREATED="1567740182676" ID="ID_1272501794" MODIFIED="1567740187971" TEXT="5n^2">
+<node CREATED="1567740188723" ID="ID_1071984168" MODIFIED="1567740192243" TEXT="O(n^2)"/>
+</node>
+</node>
+<node CREATED="1567740208040" ID="ID_505467184" MODIFIED="1567740218959" TEXT="Usually we multiply loops to understand the complexity"/>
+</node>
+<node CREATED="1567740386348" ID="ID_1644365420" MODIFIED="1567740447875">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      i := 0
+    </p>
+    <p>
+      While i &lt; 3 * n Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;j := 10
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;While j &lt;= 50 Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;j = j + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;j = 0
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;While j &lt; n * n * n Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;j = j + 2
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = i + 1
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1567740469664" ID="ID_1964911772" MODIFIED="1567740516504" TEXT="3n(40 + n^3 / 2)">
+<node CREATED="1567740516967" ID="ID_1730363809" MODIFIED="1567740532763" TEXT="120n + 3/2 n^4">
+<node CREATED="1567740533537" ID="ID_1552370744" MODIFIED="1567740536243" TEXT="O(n^4)"/>
+</node>
 </node>
 </node>
 </node>
