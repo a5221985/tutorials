@@ -411,6 +411,20 @@
 </node>
 </node>
 </node>
+<node CREATED="1567740663162" ID="ID_719426810" MODIFIED="1567740673401" TEXT="Classic algorithms">
+<node CREATED="1567740677239" ID="ID_1505914170" MODIFIED="1567740684114" TEXT="Finding all subsets of a set">
+<node CREATED="1567740684385" ID="ID_1747181382" MODIFIED="1567740697154" TEXT="O(2^n)"/>
+</node>
+<node CREATED="1567740700792" ID="ID_4910673" MODIFIED="1567740707281" TEXT="Finding all permutations of a string">
+<node CREATED="1567740711999" ID="ID_1080694945" MODIFIED="1567740714790" TEXT="O(n!)"/>
+</node>
+<node CREATED="1567740715783" ID="ID_993495177" MODIFIED="1567740723287" TEXT="Sorting using mergesort">
+<node CREATED="1567740723680" ID="ID_619216783" MODIFIED="1567740734601" TEXT="O(nlog(n))"/>
+</node>
+<node CREATED="1567740735671" ID="ID_274602272" MODIFIED="1567740748601" TEXT="Iterating over all the cells in a matrix of size n by m">
+<node CREATED="1567740749100" ID="ID_1221718477" MODIFIED="1567740751369" TEXT="O(nm)"/>
+</node>
+</node>
 </node>
 </node>
 </node>
@@ -418,7 +432,14 @@
 </node>
 </node>
 <node CREATED="1567047528993" ID="ID_1399730678" MODIFIED="1567047577626" POSITION="left" TEXT="Static and dynamic arrays">
-<node CREATED="1567047581826" ID="ID_1451464606" MODIFIED="1567047587379" TEXT="Static and dynamic arrays"/>
+<node CREATED="1567047581826" ID="ID_1451464606" MODIFIED="1567047587379" TEXT="Static and dynamic arrays">
+<node CREATED="1567740969214" ID="ID_891909700" MODIFIED="1567740986912" TEXT="It is a fundamental building block for all other data structures">
+<node CREATED="1567741001708" ID="ID_402506270" MODIFIED="1567741023847" TEXT="With arrays and pointers, we can pretty much construct most of the other data structures"/>
+</node>
+<node CREATED="1567742283054" ID="ID_1012995521" MODIFIED="1567742285829" TEXT="Outline">
+<node CREATED="1567742288074" ID="ID_1682683025" MODIFIED="1567742294779" TEXT="Discussion and examples about Arrays"/>
+</node>
+</node>
 <node CREATED="1567047588529" ID="ID_1239959045" MODIFIED="1567047594145" TEXT="Dynamic array source code"/>
 </node>
 <node CREATED="1567047597595" ID="ID_1783641617" MODIFIED="1567047604763" POSITION="right" TEXT="Linked lists">
