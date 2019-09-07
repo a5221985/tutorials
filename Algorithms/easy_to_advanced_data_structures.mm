@@ -509,7 +509,27 @@
 </node>
 </node>
 </node>
-<node CREATED="1567743057067" ID="ID_1990103355" MODIFIED="1567743061985" TEXT="Static array usage example"/>
+<node CREATED="1567743057067" ID="ID_1990103355" MODIFIED="1567743061985" TEXT="Static array usage example">
+<node CREATED="1567820192174" ID="ID_1542035116" MODIFIED="1567820244806">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Elements in A are referenced by their index.
+    </p>
+    <p>
+      There is no other way to access elements in an array.
+    </p>
+    <p>
+      Array indexing is zero-based, meaning the first element is found in position zero.
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
 </node>
 <node CREATED="1567743071768" ID="ID_395567913" MODIFIED="1567743080002" TEXT="Dynamic Array implementation details">
 <node CREATED="1567743202507" ID="ID_1847691529" MODIFIED="1567743207017" TEXT="Using only static array"/>
