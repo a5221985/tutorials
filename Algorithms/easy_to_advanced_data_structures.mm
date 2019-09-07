@@ -932,7 +932,55 @@
 <node CREATED="1567868720738" ID="ID_382126135" MODIFIED="1567868739949" TEXT="Current Bracket, Reversed Bracket">
 <node CREATED="1567868741941" ID="ID_1706006058" MODIFIED="1567868744956" TEXT="Track them"/>
 </node>
+<node CREATED="1567868919754" ID="ID_632329927" MODIFIED="1567868923524" TEXT="pseudocode">
+<node CREATED="1567868924190" ID="ID_1475681509" MODIFIED="1567868999805">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Let S be a stack
+    </p>
+    <p>
+      For bracket in bracket_string:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;rev = getReversedBracket(bracket)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;If isLeftBracket(bracket):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;S.push(bracket)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Else If S.isEmpty() or S.pop() != rev:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return false // Invalid
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      return S.isEmpty() // Valid if S is empty
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
+</node>
+</node>
+</node>
+<node CREATED="1567869088715" ID="ID_1503374573" MODIFIED="1567869093679" TEXT="tower of hanoi">
+<node CREATED="1567869162784" ID="ID_755206345" MODIFIED="1567869176614" TEXT="can be implemented using push() and pop() operations"/>
 </node>
 </node>
 </node>
@@ -940,7 +988,15 @@
 <node CREATED="1567867823891" ID="ID_1934476443" MODIFIED="1567867829649" TEXT="Pushing elements on stack"/>
 <node CREATED="1567867829993" ID="ID_1410298915" MODIFIED="1567867836156" TEXT="Popping elements from stack"/>
 </node>
-<node CREATED="1567867837785" ID="ID_6120644" MODIFIED="1567867843139" TEXT="Code Implementation"/>
+<node CREATED="1567867837785" ID="ID_6120644" MODIFIED="1567867843139" TEXT="Code Implementation">
+<node CREATED="1567869235477" ID="ID_678381324" MODIFIED="1567869238696" TEXT="singly linked list">
+<node CREATED="1567869245706" ID="ID_1447832879" MODIFIED="1567869250635" TEXT="Head &lt;- null"/>
+<node CREATED="1567869261115" ID="ID_1372982234" MODIFIED="1567869265976" TEXT="push()">
+<node CREATED="1567869266325" ID="ID_70783602" MODIFIED="1567869275405" TEXT="insert before the head()"/>
+</node>
+<node CREATED="1567869307691" ID="ID_1286155703" MODIFIED="1567869310250" TEXT="pop()"/>
+</node>
+</node>
 </node>
 <node CREATED="1567868280836" ID="ID_216925841" MODIFIED="1567868282942" TEXT="Discussion"/>
 </node>
