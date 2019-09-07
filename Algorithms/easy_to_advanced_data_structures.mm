@@ -1032,8 +1032,20 @@
 <node CREATED="1567875397545" ID="ID_764050732" MODIFIED="1567875399836" TEXT="Queue Back">
 <node CREATED="1567875406224" ID="ID_1783712288" MODIFIED="1567875412100" TEXT="Used to enqueue"/>
 </node>
+<node CREATED="1567875430132" ID="ID_1226262060" MODIFIED="1567875454055" TEXT="There does not seem to be a consistent terminology for inserting and removing elements from queues">
+<node CREATED="1567875455522" ID="ID_1196420610" MODIFIED="1567875461483" TEXT="Enqueue = Adding = Offering"/>
+<node CREATED="1567875956848" ID="ID_1689657762" MODIFIED="1567875961066" TEXT="Dequeue = Polling">
+<node CREATED="1567875969080" ID="ID_1392341799" MODIFIED="1567875974658" TEXT="removing (another term)"/>
 </node>
-<node CREATED="1567875197120" ID="ID_25662673" MODIFIED="1567875246762" TEXT="When and where is queue used?"/>
+</node>
+<node CREATED="1567876017738" ID="ID_1108660989" MODIFIED="1567876019260" TEXT="Example"/>
+</node>
+<node CREATED="1567875197120" ID="ID_25662673" MODIFIED="1567875246762" TEXT="When and where is queue used?">
+<node CREATED="1567876061482" ID="ID_1788099241" MODIFIED="1567876080657" TEXT="Any waiting line models a queue, for example a lineup at a movie theatre"/>
+<node CREATED="1567876081154" ID="ID_1424754155" MODIFIED="1567876099124" TEXT="Can be used to efficiently keep track of the most recently added elements"/>
+<node CREATED="1567876100287" ID="ID_422620552" MODIFIED="1567876114112" TEXT="Web server request management where you want first come first serve"/>
+<node CREATED="1567876115307" ID="ID_66233979" MODIFIED="1567876125475" TEXT="Breadth first search (BFS) graph traversal"/>
+</node>
 <node CREATED="1567875246983" ID="ID_589812612" MODIFIED="1567875252714" TEXT="Complexity Analysis"/>
 <node CREATED="1567875252931" ID="ID_267068591" MODIFIED="1567875264352" TEXT="Queue Breadth First Search (BFS) example"/>
 </node>
