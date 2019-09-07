@@ -528,11 +528,33 @@
   </body>
 </html>
 </richcontent>
+<node CREATED="1567820338883" ID="ID_29717769" MODIFIED="1567820347986" TEXT="Quntum Computing">
+<node CREATED="1567820350610" ID="ID_404335549" MODIFIED="1567820355290" TEXT="indexing doesn&apos;t work well"/>
+</node>
 </node>
 </node>
 </node>
 <node CREATED="1567743071768" ID="ID_395567913" MODIFIED="1567743080002" TEXT="Dynamic Array implementation details">
 <node CREATED="1567743202507" ID="ID_1847691529" MODIFIED="1567743207017" TEXT="Using only static array"/>
+<node CREATED="1567820436944" ID="ID_145700277" MODIFIED="1567820442681" TEXT="Dynamic Array">
+<node CREATED="1567820446312" ID="ID_1819139855" MODIFIED="1567820454849" TEXT="Can grow and shrink in size">
+<node CREATED="1567820459307" ID="ID_159438728" MODIFIED="1567820463369" TEXT="A.add(-7)"/>
+<node CREATED="1567820467756" ID="ID_396155446" MODIFIED="1567820472148" TEXT="A.add(34)"/>
+<node CREATED="1567820472851" ID="ID_1838616854" MODIFIED="1567820476301" TEXT="A.remove(4)"/>
+</node>
+<node CREATED="1567820514481" ID="ID_1950396911" MODIFIED="1567820523691" TEXT="How can we implement a dynamic array?">
+<node CREATED="1567820524076" ID="ID_444368617" MODIFIED="1567820532813" TEXT="One way is to use a static array">
+<node CREATED="1567820537018" ID="ID_1642198053" MODIFIED="1567820546752" TEXT="Construct a static array with an initial capacity"/>
+<node CREATED="1567820547165" ID="ID_1130028197" MODIFIED="1567820564437" TEXT="Add elements to the underlying static array, keeping track of the number of elements"/>
+<node CREATED="1567820564661" ID="ID_1999783764" MODIFIED="1567820588396" TEXT="If adding another element will exceed the capacity, then construct a new static array with twice the capacity and copy the original elements into it">
+<node CREATED="1567820950685" ID="ID_87292204" MODIFIED="1567820959165" TEXT="Implement dyamic array using generics">
+<node CREATED="1567821143544" ID="ID_1340604753" MODIFIED="1567821147938" TEXT="Implement Iterator"/>
+<node CREATED="1567821148470" ID="ID_1877391349" MODIFIED="1567821155291" TEXT="Implement toString()"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1567743081898" ID="ID_1673304816" MODIFIED="1567743085196" TEXT="Code Implementation"/>
 </node>
