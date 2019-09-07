@@ -861,10 +861,80 @@
 </node>
 <node CREATED="1567868352394" ID="ID_1927693508" MODIFIED="1567868354370" TEXT="LIFO"/>
 </node>
+<node CREATED="1567868369852" ID="ID_1274139999" MODIFIED="1567868371207" TEXT="example">
+<node CREATED="1567868371463" ID="ID_1887709427" MODIFIED="1567868374542" TEXT="instructions">
+<node CREATED="1567868375087" ID="ID_561895132" MODIFIED="1567868422788">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      pop()
+    </p>
+    <p>
+      push('Onion')
+    </p>
+    <p>
+      push('Celery')
+    </p>
+    <p>
+      push('Watermelon')
+    </p>
+    <p>
+      pop()
+    </p>
+    <p>
+      pop()
+    </p>
+    <p>
+      push('Lettuce')
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
-<node CREATED="1567867795355" ID="ID_403562840" MODIFIED="1567867803544" TEXT="When and where is a Stack used?"/>
-<node CREATED="1567867803733" ID="ID_682283518" MODIFIED="1567867810106" TEXT="Complexity Analysis"/>
-<node CREATED="1567867810514" ID="ID_1220707808" MODIFIED="1567867815706" TEXT="Stack usage examples"/>
+</node>
+</node>
+</node>
+<node CREATED="1567867795355" ID="ID_403562840" MODIFIED="1567867803544" TEXT="When and where is a Stack used?">
+<node CREATED="1567868441473" ID="ID_1893010171" MODIFIED="1567868453889" TEXT="Used by undo mechanism in text editors"/>
+<node CREATED="1567868455818" ID="ID_773428452" MODIFIED="1567868470763" TEXT="Used in compiler syntax checking for matching brackets and braces"/>
+<node CREATED="1567868471923" ID="ID_916567027" MODIFIED="1567868480875" TEXT="Can be used to model a pile of books or plates"/>
+<node CREATED="1567868481086" ID="ID_1127383903" MODIFIED="1567868498941" TEXT="Used behind the scenes to support recursion by keeping track of previous function calls"/>
+<node CREATED="1567868499348" ID="ID_464979143" MODIFIED="1567868511507" TEXT="Can be used to do a Depth First Search (DFS) on a graph"/>
+<node CREATED="1567868545707" ID="ID_700327659" MODIFIED="1567868546901" TEXT="games">
+<node CREATED="1567868547158" ID="ID_934977752" MODIFIED="1567868549685" TEXT="tower of hannoi"/>
+</node>
+</node>
+<node CREATED="1567867803733" ID="ID_682283518" MODIFIED="1567867810106" TEXT="Complexity Analysis">
+<node CREATED="1567868587005" ID="ID_35146974" MODIFIED="1567868589982" TEXT="push">
+<node CREATED="1567868591095" ID="ID_1175170519" MODIFIED="1567868592327" TEXT="O(1)"/>
+</node>
+<node CREATED="1567868593173" ID="ID_447474788" MODIFIED="1567868594623" TEXT="pop()">
+<node CREATED="1567868594851" ID="ID_1930600313" MODIFIED="1567868596463" TEXT="O(1)"/>
+</node>
+<node CREATED="1567868597291" ID="ID_1271883920" MODIFIED="1567868599431" TEXT="peek()">
+<node CREATED="1567868599695" ID="ID_783731951" MODIFIED="1567868601871" TEXT="O(1)"/>
+</node>
+<node CREATED="1567868603240" ID="ID_503190249" MODIFIED="1567868605671" TEXT="search()">
+<node CREATED="1567868606848" ID="ID_1369803216" MODIFIED="1567868608927" TEXT="O(n)">
+<node CREATED="1567868651442" ID="ID_1503672373" MODIFIED="1567868656841" TEXT="need to scan from the top"/>
+</node>
+</node>
+<node CREATED="1567868610128" ID="ID_1887850831" MODIFIED="1567868612255" TEXT="size()">
+<node CREATED="1567868614161" ID="ID_328879783" MODIFIED="1567868618944" TEXT="O(1)"/>
+</node>
+</node>
+<node CREATED="1567867810514" ID="ID_1220707808" MODIFIED="1567867815706" TEXT="Stack usage examples">
+<node CREATED="1567868661843" ID="ID_1495474462" MODIFIED="1567868669181" TEXT="problem">
+<node CREATED="1567868669362" ID="ID_227988786" MODIFIED="1567868697704" TEXT="Given a string made up of the following brackets: ()[]{}, determine whether the brackets properly match">
+<node CREATED="1567868720738" ID="ID_382126135" MODIFIED="1567868739949" TEXT="Current Bracket, Reversed Bracket">
+<node CREATED="1567868741941" ID="ID_1706006058" MODIFIED="1567868744956" TEXT="Track them"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1567867819291" ID="ID_1184774594" MODIFIED="1567867823650" TEXT="Implementation details">
 <node CREATED="1567867823891" ID="ID_1934476443" MODIFIED="1567867829649" TEXT="Pushing elements on stack"/>
