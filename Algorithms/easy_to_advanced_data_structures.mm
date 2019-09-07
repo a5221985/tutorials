@@ -562,7 +562,39 @@
 <node CREATED="1567047588529" ID="ID_1239959045" MODIFIED="1567047594145" TEXT="Dynamic array source code"/>
 </node>
 <node CREATED="1567047597595" ID="ID_1783641617" MODIFIED="1567047604763" POSITION="right" TEXT="Linked lists">
-<node CREATED="1567047608399" ID="ID_1422994141" MODIFIED="1567047614545" TEXT="Linked list introduction"/>
+<node CREATED="1567047608399" ID="ID_1422994141" MODIFIED="1567047614545" TEXT="Linked list introduction">
+<node CREATED="1567833120599" ID="ID_976775126" MODIFIED="1567833123249" TEXT="Outline">
+<node CREATED="1567833123633" ID="ID_1729536421" MODIFIED="1567833135081" TEXT="Discussion about Singly &amp; Doubly Linked Lists">
+<node CREATED="1567833135729" ID="ID_1366817558" MODIFIED="1567833141521" TEXT="What is a linked list?">
+<node CREATED="1567833970993" ID="ID_1795758471" MODIFIED="1567833976747" TEXT="Singly and Doubly Linked Lists"/>
+<node CREATED="1567834027206" ID="ID_1355595821" MODIFIED="1567834066737" TEXT="A liked list is a sequential list of nodes that hold data which point to other nodes also containing data.">
+<node CREATED="1567834079284" ID="ID_462711654" MODIFIED="1567834091990" TEXT="Every node has a pointer to next node"/>
+<node CREATED="1567834092698" ID="ID_1697236078" MODIFIED="1567834097692" TEXT="Last node has null reference"/>
+</node>
+</node>
+<node CREATED="1567833141769" ID="ID_388690781" MODIFIED="1567833148230" TEXT="Where are linked lists used?">
+<node CREATED="1567834459445" ID="ID_1329287514" MODIFIED="1567834469714" TEXT="Used in many List, Queue &amp; Stack implementations"/>
+<node CREATED="1567834471745" ID="ID_1241012632" MODIFIED="1567834479224" TEXT="Great for constructing circular lists">
+<node CREATED="1567834550017" ID="ID_359877582" MODIFIED="1567834558778" TEXT="pointer of last node is pointing to first node"/>
+<node CREATED="1567834561649" ID="ID_225662096" MODIFIED="1567834569371" TEXT="Round robbin scheduling"/>
+</node>
+<node CREATED="1567834479472" ID="ID_623874626" MODIFIED="1567834489927" TEXT="Can easily model real world objects such as trains"/>
+<node CREATED="1567834490160" ID="ID_145618758" MODIFIED="1567834512840" TEXT="Used in separate chaining, which is present certain Hashtable implementations to deal with hashing collisions"/>
+<node CREATED="1567834514768" ID="ID_1618861595" MODIFIED="1567834525659" TEXT="Often used in the implementation of adjacency lists for graphs"/>
+</node>
+<node CREATED="1567833148455" ID="ID_967352583" MODIFIED="1567833151528" TEXT="Terminology"/>
+<node CREATED="1567833151759" ID="ID_169836061" MODIFIED="1567833160377" TEXT="Singly Linked vs. Doubly Linked"/>
+</node>
+<node CREATED="1567833162559" ID="ID_1624272856" MODIFIED="1567833166761" TEXT="Implementation Details">
+<node CREATED="1567833166984" ID="ID_277366498" MODIFIED="1567833171679" TEXT="How to insert new elements"/>
+<node CREATED="1567833171882" ID="ID_1690375808" MODIFIED="1567833177159" TEXT="How to remove elements"/>
+</node>
+<node CREATED="1567833179097" ID="ID_186455063" MODIFIED="1567833184058" TEXT="Complexity analysis"/>
+<node CREATED="1567833185111" ID="ID_833463333" MODIFIED="1567833189354" TEXT="Code Implementation">
+<node CREATED="1567833189622" ID="ID_1257981521" MODIFIED="1567833193218" TEXT="Double Linked List"/>
+</node>
+</node>
+</node>
 <node CREATED="1567047616342" ID="ID_26747835" MODIFIED="1567047622360" TEXT="Doubly linked list source code"/>
 </node>
 <node CREATED="1567047624020" ID="ID_1851544901" MODIFIED="1567047628840" POSITION="left" TEXT="Stacks">
