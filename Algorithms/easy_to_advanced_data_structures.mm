@@ -601,6 +601,23 @@
 <node CREATED="1567833151759" ID="ID_169836061" MODIFIED="1567833160377" TEXT="Singly Linked vs. Doubly Linked">
 <node CREATED="1567864996558" ID="ID_1104303525" MODIFIED="1567865051806" TEXT="Singly linked lists only hold a reference to the next node. In the implementation you always maintain a reference to the head to the linked list and a reference to the tail node for quick additions/ removals."/>
 <node CREATED="1567865055371" ID="ID_978648675" MODIFIED="1567865123988" TEXT="With a doubly linked list each node holds a reference to the next and previous node. In the implementation you always maintain a reference to the head and the tail of the doubly linked list to do quick additions/removals from both ends of your list."/>
+<node CREATED="1567865310771" ID="ID_346037168" MODIFIED="1567865313974" TEXT="Pros">
+<node CREATED="1567865320391" ID="ID_1667514471" MODIFIED="1567865352343" TEXT="Singly linked list">
+<node CREATED="1567865326459" ID="ID_63764172" MODIFIED="1567865332350" TEXT="uses less(er) memory"/>
+<node CREATED="1567865333976" ID="ID_777245891" MODIFIED="1567865340446" TEXT="simpler implementation"/>
+</node>
+<node CREATED="1567865341216" ID="ID_976989408" MODIFIED="1567865345847" TEXT="Doubly linked list">
+<node CREATED="1567865362178" ID="ID_1080365259" MODIFIED="1567865366901" TEXT="can be traversed backwards"/>
+</node>
+</node>
+<node CREATED="1567865314206" ID="ID_1876370493" MODIFIED="1567865317110" TEXT="Cons">
+<node CREATED="1567865371197" ID="ID_975406318" MODIFIED="1567865383642" TEXT="cannot easily access previous elements"/>
+<node CREATED="1567865384795" ID="ID_1992008723" MODIFIED="1567865390397" TEXT="takes 2x memory">
+<node CREATED="1567865409828" ID="ID_1946301276" MODIFIED="1567865418307" TEXT="on a 64 bit machine">
+<node CREATED="1567865418508" ID="ID_89154144" MODIFIED="1567865423980" TEXT="references take 8 bytes"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567833162559" ID="ID_1624272856" MODIFIED="1567833166761" TEXT="Implementation Details">
