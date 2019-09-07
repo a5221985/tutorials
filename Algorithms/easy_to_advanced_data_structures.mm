@@ -626,10 +626,183 @@
 </node>
 </node>
 <node CREATED="1567833162559" ID="ID_1624272856" MODIFIED="1567833166761" TEXT="Implementation Details">
-<node CREATED="1567833166984" ID="ID_277366498" MODIFIED="1567833171679" TEXT="How to insert new elements"/>
-<node CREATED="1567833171882" ID="ID_1690375808" MODIFIED="1567833177159" TEXT="How to remove elements"/>
+<node CREATED="1567833166984" ID="ID_277366498" MODIFIED="1567833171679" TEXT="How to insert new elements">
+<node CREATED="1567866354284" ID="ID_1038091725" MODIFIED="1567866477772">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      trav &lt;- head
+    </p>
+    <p>
+      trav &lt;- trav.next
+    </p>
+    <p>
+      newNode.data &lt;- 11
+    </p>
+    <p>
+      newNode.next &lt;- trav.next
+    </p>
+    <p>
+      trav.next &lt;- newNode
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
-<node CREATED="1567833179097" ID="ID_186455063" MODIFIED="1567833184058" TEXT="Complexity analysis"/>
+<node CREATED="1567866498968" ID="ID_11541807" MODIFIED="1567866503726" TEXT="doubly linked list">
+<node CREATED="1567866505064" ID="ID_845284105" MODIFIED="1567866588130">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      trav &lt;- head
+    </p>
+    <p>
+      trav &lt;- trav.next
+    </p>
+    <p>
+      newNode.data &lt;- 11
+    </p>
+    <p>
+      newNode.next &lt;- pos
+    </p>
+    <p>
+      newNode.prev &lt;- trav
+    </p>
+    <p>
+      pos.prev &lt;- newNode
+    </p>
+    <p>
+      trav.nex &lt;- newNode
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1567833171882" ID="ID_1690375808" MODIFIED="1567833177159" TEXT="How to remove elements">
+<node CREATED="1567866604842" ID="ID_553375484" MODIFIED="1567866609322" TEXT="singly linked list">
+<node CREATED="1567866610465" ID="ID_875555249" MODIFIED="1567866624974" TEXT="using two pointers">
+<node CREATED="1567866630230" ID="ID_1259552629" MODIFIED="1567866733700">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      trav1 &lt;- head
+    </p>
+    <p>
+      trav2 &lt;- head.next
+    </p>
+    <p>
+      trav2 &lt;- trav2.next
+    </p>
+    <p>
+      trav1 &lt;- trav1.next
+    </p>
+    <p>
+      ...
+    </p>
+    <p>
+      temp &lt;- trav2
+    </p>
+    <p>
+      trav2 &lt;- trav2.next
+    </p>
+    <p>
+      trav1.next &lt;- trav2
+    </p>
+    <p>
+      remove temp
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1567866736098" ID="ID_1514077046" MODIFIED="1567866739173" TEXT="doubly linked list">
+<node CREATED="1567866779586" ID="ID_420048895" MODIFIED="1567866782770" TEXT="use single pointer">
+<node CREATED="1567866783035" ID="ID_1844735609" MODIFIED="1567866851591">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      trav &lt;- head
+    </p>
+    <p>
+      trav &lt;- trav.next
+    </p>
+    <p>
+      trav.prev.next &lt;- trav.next
+    </p>
+    <p>
+      trav.next.prev &lt;- trav.prev
+    </p>
+    <p>
+      remove trav
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1567833179097" ID="ID_186455063" MODIFIED="1567833184058" TEXT="Complexity analysis">
+<node CREATED="1567866873482" ID="ID_1853046036" MODIFIED="1567866878531" TEXT="singly linked list">
+<node CREATED="1567866882502" ID="ID_330483936" MODIFIED="1567866885811" TEXT="search">
+<node CREATED="1567866885972" ID="ID_517357335" MODIFIED="1567866887548" TEXT="O(n)"/>
+</node>
+<node CREATED="1567866890835" ID="ID_415155634" MODIFIED="1567866894892" TEXT="insert at head">
+<node CREATED="1567866895123" ID="ID_96923319" MODIFIED="1567866897404" TEXT="O(1)"/>
+</node>
+<node CREATED="1567866905109" ID="ID_942875541" MODIFIED="1567866908884" TEXT="insert at tail">
+<node CREATED="1567866909225" ID="ID_1015240473" MODIFIED="1567866911148" TEXT="O(1)"/>
+</node>
+<node CREATED="1567866981105" ID="ID_1833748317" MODIFIED="1567866984052" TEXT="remove at head">
+<node CREATED="1567866984475" ID="ID_322332530" MODIFIED="1567866985772" TEXT="O(1)"/>
+</node>
+<node CREATED="1567866986938" ID="ID_1908370664" MODIFIED="1567866989804" TEXT="remove at tail">
+<node CREATED="1567866993125" ID="ID_605897530" MODIFIED="1567866994484" TEXT="O(n)">
+<node CREATED="1567867059287" ID="ID_958713840" MODIFIED="1567867069671" TEXT="tail needs to be reset"/>
+</node>
+</node>
+<node CREATED="1567867001596" ID="ID_1081718839" MODIFIED="1567867004599" TEXT="remove in middle">
+<node CREATED="1567867005238" ID="ID_1144151002" MODIFIED="1567867006399" TEXT="O(n)"/>
+</node>
+</node>
+<node CREATED="1567866878954" ID="ID_1277221017" MODIFIED="1567866881762" TEXT="doubly linked list">
+<node CREATED="1567866915970" ID="ID_1608402570" MODIFIED="1567866917525" TEXT="search">
+<node CREATED="1567866917838" ID="ID_1086368704" MODIFIED="1567866922101" TEXT="O(n)"/>
+</node>
+<node CREATED="1567866924268" ID="ID_996696552" MODIFIED="1567866926573" TEXT="insert at head">
+<node CREATED="1567866926761" ID="ID_853601712" MODIFIED="1567866928301" TEXT="O(1)"/>
+</node>
+<node CREATED="1567866929241" ID="ID_760740272" MODIFIED="1567866931893" TEXT="insert at tail">
+<node CREATED="1567866932102" ID="ID_259382152" MODIFIED="1567866933533" TEXT="O(1)"/>
+</node>
+<node CREATED="1567867009975" ID="ID_427065675" MODIFIED="1567867011991" TEXT="remove at head">
+<node CREATED="1567867012232" ID="ID_1280011565" MODIFIED="1567867013839" TEXT="O(1)"/>
+</node>
+<node CREATED="1567867014699" ID="ID_287686875" MODIFIED="1567867017286" TEXT="remove at tail">
+<node CREATED="1567867017558" ID="ID_1089434193" MODIFIED="1567867018950" TEXT="O(1)"/>
+</node>
+<node CREATED="1567867019712" ID="ID_1874375030" MODIFIED="1567867022463" TEXT="remove in middle">
+<node CREATED="1567867022757" ID="ID_1847715946" MODIFIED="1567867024263" TEXT="O(n)"/>
+</node>
+</node>
+</node>
 <node CREATED="1567833185111" ID="ID_833463333" MODIFIED="1567833189354" TEXT="Code Implementation">
 <node CREATED="1567833189622" ID="ID_1257981521" MODIFIED="1567833193218" TEXT="Double Linked List"/>
 </node>
