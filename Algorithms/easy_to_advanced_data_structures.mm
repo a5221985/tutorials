@@ -598,7 +598,10 @@
 <node CREATED="1567853479141" ID="ID_217982775" MODIFIED="1567853488493" TEXT="object containing data and pointer(s)"/>
 </node>
 </node>
-<node CREATED="1567833151759" ID="ID_169836061" MODIFIED="1567833160377" TEXT="Singly Linked vs. Doubly Linked"/>
+<node CREATED="1567833151759" ID="ID_169836061" MODIFIED="1567833160377" TEXT="Singly Linked vs. Doubly Linked">
+<node CREATED="1567864996558" ID="ID_1104303525" MODIFIED="1567865051806" TEXT="Singly linked lists only hold a reference to the next node. In the implementation you always maintain a reference to the head to the linked list and a reference to the tail node for quick additions/ removals."/>
+<node CREATED="1567865055371" ID="ID_978648675" MODIFIED="1567865123988" TEXT="With a doubly linked list each node holds a reference to the next and previous node. In the implementation you always maintain a reference to the head and the tail of the doubly linked list to do quick additions/removals from both ends of your list."/>
+</node>
 </node>
 <node CREATED="1567833162559" ID="ID_1624272856" MODIFIED="1567833166761" TEXT="Implementation Details">
 <node CREATED="1567833166984" ID="ID_277366498" MODIFIED="1567833171679" TEXT="How to insert new elements"/>
