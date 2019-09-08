@@ -1151,8 +1151,24 @@
 <node CREATED="1567047692065" ID="ID_356779383" MODIFIED="1567047697048" TEXT="What is a priority queue?">
 <node CREATED="1567927484233" ID="ID_1738146176" MODIFIED="1567927486616" TEXT="Outline">
 <node CREATED="1567927489529" ID="ID_243588299" MODIFIED="1567927498557" TEXT="Discussion &amp; Examples of PQs">
-<node CREATED="1567927501449" ID="ID_1149790374" MODIFIED="1567927505551" TEXT="What is a PQ?"/>
-<node CREATED="1567927505784" ID="ID_1739084500" MODIFIED="1567927509576" TEXT="What is a heap?"/>
+<node CREATED="1567927501449" ID="ID_1149790374" MODIFIED="1567927505551" TEXT="What is a PQ?">
+<node CREATED="1567927708254" ID="ID_866861179" MODIFIED="1567927771728" TEXT="A priority queue is an Abstract Data Type (ADT) that operates similar to a normal queue except that each element has a certain priority. The priority of the elements in the priority queue determine the order in which elements are removed from the PQ"/>
+<node CREATED="1567927798155" ID="ID_254216768" MODIFIED="1567927850030" TEXT="Note: Priority queues only supports comparable data, meaning the data inserted into the priority queue must be able to be ordered in some way either from least to greatest or greatest to least. This is so that we are able to assign relative priorities to each element. ">
+<node CREATED="1567928080144" ID="ID_1774200146" MODIFIED="1567928082027" TEXT="Example">
+<node CREATED="1567928085715" ID="ID_168261323" MODIFIED="1567928087345" TEXT="order">
+<node CREATED="1567928087601" ID="ID_827309055" MODIFIED="1567928091954" TEXT="least to greatest number">
+<node CREATED="1567928115426" ID="ID_1106455735" MODIFIED="1567928119322" TEXT="poll()">
+<node CREATED="1567928119961" ID="ID_238234236" MODIFIED="1567928130838" TEXT="remove the element that has the highest priority"/>
+</node>
+<node CREATED="1567928233920" ID="ID_336213176" MODIFIED="1567928239934" TEXT="uses heap for implementation"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1567927505784" ID="ID_1739084500" MODIFIED="1567927509576" TEXT="What is a heap?">
+<node CREATED="1567928243382" ID="ID_1587978489" MODIFIED="1567928289943" TEXT="A heap is a tree based DS that satisfies the heap invariant (also called heap property): If A is a parent node of B then A is ordered with respect to B for all nodes A, B in the heap"/>
+</node>
 <node CREATED="1567927509814" ID="ID_1204252414" MODIFIED="1567927519024" TEXT="When and where is a PQ used?"/>
 <node CREATED="1567927519282" ID="ID_1788891877" MODIFIED="1567927530648" TEXT="How to turn a Min PQ into a Max PQ"/>
 <node CREATED="1567927531631" ID="ID_1046941321" MODIFIED="1567927536514" TEXT="Complexity Analysis"/>
