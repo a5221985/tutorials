@@ -1306,6 +1306,74 @@
 </richcontent>
 </node>
 </node>
+<node CREATED="1567956611351" ID="ID_1618022818" MODIFIED="1567956622919" TEXT="Removing elements from Binary heap">
+<node CREATED="1567956752227" ID="ID_970781002" MODIFIED="1567956754935" TEXT="Poll()">
+<node CREATED="1567956769262" ID="ID_991189842" MODIFIED="1567956772570" TEXT="removing root">
+<node CREATED="1567956831611" ID="ID_1330163141" MODIFIED="1567956919255">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Step 1: swap root with rightmost leaf
+    </p>
+    <p>
+      Step 2: remove the rightmost leaf
+    </p>
+    <p>
+      Step 3: bubble down the root (if heap invariant is not satisfied)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swap with smallest child
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;repeat the above step until heap invariant is satisfied
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1567957157222" ID="ID_1174713805" MODIFIED="1567957162796" TEXT="O(log(n))"/>
+</node>
+</node>
+</node>
+<node CREATED="1567956756128" ID="ID_1212349169" MODIFIED="1567956761487" TEXT="Remove(&lt;element&gt;)">
+<node CREATED="1567956974468" ID="ID_3055490" MODIFIED="1567957126776">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Step 1: Search from root to last leaf (O(n))
+    </p>
+    <p>
+      Step 2: Swap the &lt;element&gt; with last leaf
+    </p>
+    <p>
+      Step 3: Remove the last leaf
+    </p>
+    <p>
+      Step 4: Bubble down if possible or bubble up if not
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swap with smallest child
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;repeat the above step until heap invariant is satisfied
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1567957164165" ID="ID_1636111617" MODIFIED="1567957165678" TEXT="O(n)">
+<node CREATED="1567957179682" ID="ID_1820784911" MODIFIED="1567957191310" TEXT="There is a better way to improve to O(log(n))">
+<node CREATED="1567957313766" ID="ID_1608366648" MODIFIED="1567957349359" TEXT="The inefficiency of the removal algorithm comes from the fact that we have to perform a linear search to find out where an element is indexed at. What if instead we did a lookup using a Hashtable to find out where a node is indexed at?"/>
+<node CREATED="1567957351855" ID="ID_1446472411" MODIFIED="1567957378176" TEXT="A hashtable provides a constant time lookup and update for a mapping from a key (the node value) to a value (the index)."/>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567949904423" ID="ID_1111580034" MODIFIED="1567949908152" TEXT="Fibonacci Heap"/>
