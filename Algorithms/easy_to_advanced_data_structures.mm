@@ -1191,7 +1191,12 @@
 </node>
 <node CREATED="1567928746880" ID="ID_850920072" MODIFIED="1567928751815" TEXT="Usually Graph Theory algorithms"/>
 </node>
-<node CREATED="1567927519282" ID="ID_1788891877" MODIFIED="1567927530648" TEXT="How to turn a Min PQ into a Max PQ"/>
+<node CREATED="1567927519282" ID="ID_1788891877" MODIFIED="1567927530648" TEXT="How to turn a Min PQ into a Max PQ">
+<node CREATED="1567928984587" ID="ID_1181084894" MODIFIED="1567928986308" TEXT="Problem">
+<node CREATED="1567928986604" ID="ID_1465917842" MODIFIED="1567929030549" TEXT="Often the standard library of most programming languages only provide a min PQ which sorts by smallest elements first, but sometimes we need a Max PQ"/>
+<node CREATED="1567929083577" ID="ID_651444612" MODIFIED="1567929110903" TEXT="Since elements in a priority queue are comparable they implement some sort of comparable interface which we can simply negate to achieve a Max heap"/>
+</node>
+</node>
 <node CREATED="1567927531631" ID="ID_1046941321" MODIFIED="1567927536514" TEXT="Complexity Analysis">
 <node CREATED="1567928757354" ID="ID_1231367622" MODIFIED="1567928764200" TEXT="Binary Heap construction">
 <node CREATED="1567928764888" ID="ID_481229147" MODIFIED="1567928766180" TEXT="O(n)">
