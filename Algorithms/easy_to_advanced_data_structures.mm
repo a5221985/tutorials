@@ -1272,6 +1272,22 @@
 <node CREATED="1567949930440" ID="ID_1530505205" MODIFIED="1567949951318" TEXT="A binary heap is a binary tree that supports the heap invariant. In a binary tree every node has exactly two children">
 <node CREATED="1567949960743" ID="ID_1496513145" MODIFIED="1567949966323" TEXT="leaves have null children"/>
 </node>
+<node CREATED="1567949975752" ID="ID_1054380863" MODIFIED="1567950003847" TEXT="A complete binary tree is a tree in which at every level, except possibly the last is completely filled and all the nodes are as far left as possible">
+<node CREATED="1567950007801" ID="ID_1005908597" MODIFIED="1567950016988" TEXT="insertion is at bottom left"/>
+</node>
+<node CREATED="1567950047847" ID="ID_1002203762" MODIFIED="1567950050790" TEXT="Representation">
+<node CREATED="1567950051227" ID="ID_357058934" MODIFIED="1567950067878" TEXT="array">
+<node CREATED="1567950081493" ID="ID_231498599" MODIFIED="1567950083375" TEXT="insert">
+<node CREATED="1567950083598" ID="ID_1781300889" MODIFIED="1567950088488" TEXT="last"/>
+</node>
+<node CREATED="1567950143938" ID="ID_1058424522" MODIFIED="1567950144949" TEXT="read">
+<node CREATED="1567950145308" ID="ID_1623933449" MODIFIED="1567950150514" TEXT="in order"/>
+</node>
+</node>
+<node CREATED="1567950091038" ID="ID_1606576895" MODIFIED="1567950096199" TEXT="index tree">
+<node CREATED="1567950096755" ID="ID_629510955" MODIFIED="1567950104440" TEXT="not very elegant"/>
+</node>
+</node>
 </node>
 <node CREATED="1567949904423" ID="ID_1111580034" MODIFIED="1567949908152" TEXT="Fibonacci Heap"/>
 <node CREATED="1567949908481" ID="ID_1230783629" MODIFIED="1567949911656" TEXT="Binomial Heap"/>
