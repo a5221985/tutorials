@@ -1076,14 +1076,65 @@
 <node CREATED="1567925210352" ID="ID_1178615574" MODIFIED="1567925219568" TEXT="Graph">
 <node CREATED="1567925219798" ID="ID_1263901226" MODIFIED="1567925221282" TEXT="network"/>
 </node>
-<node CREATED="1567925231946" ID="ID_1063213379" MODIFIED="1567925239780" TEXT="Visit all neighbors first"/>
+<node CREATED="1567925231946" ID="ID_1063213379" MODIFIED="1567925239780" TEXT="Visit all neighbors first">
+<node CREATED="1567925339593" ID="ID_1663016612" MODIFIED="1567925344753" TEXT="pseudocode">
+<node CREATED="1567925345014" ID="ID_407391168" MODIFIED="1567925425956">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Let Q be a Queue
+    </p>
+    <p>
+      Q.enqueue(starting_node)
+    </p>
+    <p>
+      starting_node.visited = true
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      While Q is not empty Do
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;node = Q.dequeue()
+    </p>
+    <p>
+      &#160;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;For neighbour in neighbours(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;If neighbour has not be visited:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;neighbour.visited = true
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Q.enqueue(neighbour)
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567875269668" ID="ID_1551527789" MODIFIED="1567875275682" TEXT="Implementation Details">
 <node CREATED="1567875276027" ID="ID_494219592" MODIFIED="1567875285634" TEXT="How to enqueue (add) elements to a queue"/>
 <node CREATED="1567875286119" ID="ID_1284956826" MODIFIED="1567875296171" TEXT="How to dequeue (remove) elements from a queue"/>
 </node>
-<node CREATED="1567875297444" ID="ID_1558954493" MODIFIED="1567875301851" TEXT="Code Implementation"/>
+<node CREATED="1567875297444" ID="ID_1558954493" MODIFIED="1567875301851" TEXT="Code Implementation">
+<node CREATED="1567925582370" ID="ID_534483534" MODIFIED="1567925585746" TEXT="Singly linked list">
+<node CREATED="1567925590691" ID="ID_1167338103" MODIFIED="1567925610068" TEXT="As we enqueue, push tail pointer forward"/>
+<node CREATED="1567925623381" ID="ID_915551759" MODIFIED="1567925635482" TEXT="As we dequeue, push the head pointer forward"/>
+</node>
+</node>
 </node>
 <node CREATED="1567875322692" ID="ID_603148716" MODIFIED="1567875326351" TEXT="Discussion"/>
 </node>
