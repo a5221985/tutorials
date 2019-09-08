@@ -189,8 +189,7 @@
       &#160;&#160;&#160;&#160;i = i + 1
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1567483622032" ID="ID_1489138490" MODIFIED="1567483624555" TEXT="O(1)">
 <node CREATED="1567483625320" ID="ID_966436955" MODIFIED="1567483629394" TEXT="Does not depend on n"/>
 </node>
@@ -241,8 +240,7 @@
       O(f(n)) = O(n)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1567483751485" ID="ID_517940471" MODIFIED="1567483781346" TEXT="Both of the following run in quadratic time. The first may be obvious since n work done n times is n * n = O(n^2), but what about hte second one?">
 <node CREATED="1567483781691" ID="ID_1437914013" MODIFIED="1567483815840">
@@ -258,8 +256,7 @@
       &#160;&#160;&#160;&#160;For (j := 0; j &lt; n; j = j + 1)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1567483816908" ID="ID_367307686" MODIFIED="1567483833128" TEXT="f(n) = n * n = n^2, O(f(n)) = O(n^2)"/>
 </node>
 <node CREATED="1567483835704" ID="ID_1029876442" MODIFIED="1567483867606">
@@ -275,8 +272,7 @@
       &#160;&#160;&#160;&#160;For (j := i; j &lt; n; j = j + 1)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1567483868738" ID="ID_1698382569" MODIFIED="1567483879882" TEXT="f(n) = n * (n + 1) / 2 = O(n^2)">
 <node CREATED="1567483945779" ID="ID_176704251" MODIFIED="1567483957976" TEXT="n + n - 1 + n - 2 + ... + 2 + 1"/>
 </node>
@@ -320,8 +316,7 @@
       return -1 // Value not found
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1567739365040" ID="ID_918302151" MODIFIED="1567739378222" TEXT="O(log_2(n)) = O(log(n))"/>
 </node>
 </node>
@@ -359,8 +354,7 @@
       &#160;&#160;&#160;&#160;i = i + 1
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1567740156422" ID="ID_115184184" MODIFIED="1567740181698" TEXT="f(n) = n(3 * n + 2 * n)">
 <node CREATED="1567740182676" ID="ID_1272501794" MODIFIED="1567740187971" TEXT="5n^2">
 <node CREATED="1567740188723" ID="ID_1071984168" MODIFIED="1567740192243" TEXT="O(n^2)"/>
@@ -402,8 +396,7 @@
       &#160;&#160;&#160;&#160;i = i + 1
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1567740469664" ID="ID_1964911772" MODIFIED="1567740516504" TEXT="3n(40 + n^3 / 2)">
 <node CREATED="1567740516967" ID="ID_1730363809" MODIFIED="1567740532763" TEXT="120n + 3/2 n^4">
 <node CREATED="1567740533537" ID="ID_1552370744" MODIFIED="1567740536243" TEXT="O(n^4)"/>
@@ -526,8 +519,7 @@
       Array indexing is zero-based, meaning the first element is found in position zero.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1567820338883" ID="ID_29717769" MODIFIED="1567820347986" TEXT="Quntum Computing">
 <node CREATED="1567820350610" ID="ID_404335549" MODIFIED="1567820355290" TEXT="indexing doesn&apos;t work well"/>
 </node>
@@ -649,8 +641,7 @@
       trav.next &lt;- newNode
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1567866498968" ID="ID_11541807" MODIFIED="1567866503726" TEXT="doubly linked list">
 <node CREATED="1567866505064" ID="ID_845284105" MODIFIED="1567866588130">
@@ -681,8 +672,7 @@
       trav.nex &lt;- newNode
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -723,8 +713,7 @@
       remove temp
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -752,8 +741,7 @@
       remove trav
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -891,8 +879,7 @@
       push('Lettuce')
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -973,8 +960,7 @@
       return S.isEmpty() // Valid if S is empty
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -1118,8 +1104,7 @@
       &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Q.enqueue(neighbour)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -1282,10 +1267,44 @@
 </node>
 <node CREATED="1567950143938" ID="ID_1058424522" MODIFIED="1567950144949" TEXT="read">
 <node CREATED="1567950145308" ID="ID_1623933449" MODIFIED="1567950150514" TEXT="in order"/>
+<node CREATED="1567950160664" ID="ID_1355689727" MODIFIED="1567950166928" TEXT="easy to access parents and children">
+<node CREATED="1567956289934" ID="ID_1859051456" MODIFIED="1567956295274" TEXT="Let i be the parent node index">
+<node CREATED="1567956296089" ID="ID_102512848" MODIFIED="1567956305898" TEXT="left child index: 2i + 1">
+<node CREATED="1567956321612" ID="ID_1899068390" MODIFIED="1567956325100" TEXT="zero based"/>
+</node>
+<node CREATED="1567956306404" ID="ID_983450311" MODIFIED="1567956314219" TEXT="right child index: 2i + 2">
+<node CREATED="1567956316858" ID="ID_146825227" MODIFIED="1567956320203" TEXT="zero based"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567950091038" ID="ID_1606576895" MODIFIED="1567950096199" TEXT="index tree">
 <node CREATED="1567950096755" ID="ID_629510955" MODIFIED="1567950104440" TEXT="not very elegant"/>
+</node>
+<node CREATED="1567956437211" ID="ID_1089430741" MODIFIED="1567956445105" TEXT="Adding elements to Binary Heap">
+<node CREATED="1567956446251" ID="ID_1196345464" MODIFIED="1567956527803">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Step 1: put the new node at bottom left
+    </p>
+    <p>
+      Step 2: bubble up the node
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swap with parent
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;repeat above step until heap invariant is satisfied
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
 </node>
 </node>
 </node>
