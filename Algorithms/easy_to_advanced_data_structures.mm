@@ -1194,7 +1194,16 @@
 <node CREATED="1567927519282" ID="ID_1788891877" MODIFIED="1567927530648" TEXT="How to turn a Min PQ into a Max PQ">
 <node CREATED="1567928984587" ID="ID_1181084894" MODIFIED="1567928986308" TEXT="Problem">
 <node CREATED="1567928986604" ID="ID_1465917842" MODIFIED="1567929030549" TEXT="Often the standard library of most programming languages only provide a min PQ which sorts by smallest elements first, but sometimes we need a Max PQ"/>
-<node CREATED="1567929083577" ID="ID_651444612" MODIFIED="1567929110903" TEXT="Since elements in a priority queue are comparable they implement some sort of comparable interface which we can simply negate to achieve a Max heap"/>
+<node CREATED="1567929083577" ID="ID_651444612" MODIFIED="1567929110903" TEXT="Since elements in a priority queue are comparable they implement some sort of comparable interface which we can simply negate to achieve a Max heap">
+<node CREATED="1567949186921" ID="ID_949613378" MODIFIED="1567949201784" TEXT="To convert, negate or convert the output of comparable interface">
+<node CREATED="1567949210449" ID="ID_2998541" MODIFIED="1567949213664" TEXT="example">
+<node CREATED="1567949213922" ID="ID_1979869853" MODIFIED="1567949247431" TEXT="Let x, y be numbers in the PQ. For a min PQ, if x &lt;= y then x comes out of the PQ before y, so the negation of this is if x &gt;= y then y comes out before x"/>
+<node CREATED="1567949289426" ID="ID_243624665" MODIFIED="1567949317886" TEXT="An alternative method for numbers is to negate the numbers as you insert them into the PQ and negate them again when they are taken out. This has the same effect as negating the comparator">
+<node CREATED="1567949319275" ID="ID_1661148376" MODIFIED="1567949322067" TEXT="works for numbers"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567927531631" ID="ID_1046941321" MODIFIED="1567927536514" TEXT="Complexity Analysis">
