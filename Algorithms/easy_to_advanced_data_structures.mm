@@ -1203,6 +1203,22 @@
 </node>
 </node>
 </node>
+<node CREATED="1567949350482" ID="ID_748272057" MODIFIED="1567949357547" TEXT="Strings">
+<node CREATED="1567949357764" ID="ID_217903430" MODIFIED="1567949423115" TEXT="Suppose lex is a comparator for strings which sorts strings in exicographic order (the default in most programming languages). Then let nlex be the negation of lex, and also let s1, s2 be strings">
+<node CREATED="1567949429811" ID="ID_1703801504" MODIFIED="1567949443804" TEXT="lex(s1, s2) = -1 if s1 &lt; s2 lexicographically"/>
+<node CREATED="1567949445172" ID="ID_1414813457" MODIFIED="1567949459355" TEXT="lex(s1, s2) = 0 if s1 = s2 lexicographically"/>
+<node CREATED="1567949459755" ID="ID_388778203" MODIFIED="1567949472808" TEXT="lex(s1, s2) = +1 if s1 &gt; s2 lexicographically"/>
+<node CREATED="1567949474007" ID="ID_874685129" MODIFIED="1567949491783" TEXT="nlex(s1, s2) = -(-1) = +1 s1 &lt; s2 lexicographically"/>
+<node CREATED="1567949492154" ID="ID_323950069" MODIFIED="1567949509337" TEXT="nlex(s1, s2) = -(0) = 0 s1 = s2 lexicographically"/>
+<node CREATED="1567949509590" ID="ID_270727751" MODIFIED="1567949524954" TEXT="nlex(s1, s2) = -(+1) = -1 s1 &gt; s2 lexicographically"/>
+</node>
+<node CREATED="1567949549295" ID="ID_625304416" MODIFIED="1567949551746" TEXT="example">
+<node CREATED="1567949552552" ID="ID_386663184" MODIFIED="1567949570115" TEXT="By adding all these strings on the sright to the PQ with the lex comparator, we obtain the following:"/>
+<node CREATED="1567949574737" ID="ID_70144343" MODIFIED="1567949575885" TEXT="nlex">
+<node CREATED="1567949576793" ID="ID_1426988527" MODIFIED="1567949579685" TEXT="reverses the order"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
@@ -1243,6 +1259,25 @@
 <node CREATED="1567927546803" ID="ID_1069320867" MODIFIED="1567927580974" TEXT="Heap sinking and swimming (also called sift down &amp; sift up or bubble up &amp; bubble down"/>
 <node CREATED="1567927589436" ID="ID_774595642" MODIFIED="1567927593895" TEXT="Adding elements to PQ"/>
 <node CREATED="1567927594246" ID="ID_1621734662" MODIFIED="1567927603643" TEXT="Removing (polling) elements from PQ"/>
+<node CREATED="1567949707717" ID="ID_73975884" MODIFIED="1567949717684" TEXT="Ways of Implementing a Priority Queue">
+<node CREATED="1567949719213" ID="ID_1547960885" MODIFIED="1567949741532" TEXT="Priority queues are usually implemented with heaps since this gives them the best possible time complexity"/>
+<node CREATED="1567949742537" ID="ID_70839202" MODIFIED="1567949804897" TEXT="The Priority Queue (PQ) is an Abstract Data Types (ADT), hence heaps are not the only way to implement PQs. As an example, we could use an unsorted list, but this would not give us the best possible time complexity">
+<node CREATED="1567949832983" ID="ID_1495685115" MODIFIED="1567949840485" TEXT="Heaps give best possible time complexity"/>
+</node>
+</node>
+<node CREATED="1567949877188" ID="ID_158494613" MODIFIED="1567949884718" TEXT="Priority Queue With Binary Heap">
+<node CREATED="1567949885029" ID="ID_1932206572" MODIFIED="1567949900209" TEXT="There are many types of heaps we could use to implement a priority queue including">
+<node CREATED="1567949900424" ID="ID_1358092490" MODIFIED="1567949904168" TEXT="Binary Heap">
+<node CREATED="1567949922703" ID="ID_1199673573" MODIFIED="1567949924904" TEXT="simple"/>
+<node CREATED="1567949930440" ID="ID_1530505205" MODIFIED="1567949951318" TEXT="A binary heap is a binary tree that supports the heap invariant. In a binary tree every node has exactly two children">
+<node CREATED="1567949960743" ID="ID_1496513145" MODIFIED="1567949966323" TEXT="leaves have null children"/>
+</node>
+</node>
+<node CREATED="1567949904423" ID="ID_1111580034" MODIFIED="1567949908152" TEXT="Fibonacci Heap"/>
+<node CREATED="1567949908481" ID="ID_1230783629" MODIFIED="1567949911656" TEXT="Binomial Heap"/>
+<node CREATED="1567949911880" ID="ID_358692" MODIFIED="1567949914720" TEXT="Pairing Heap"/>
+</node>
+</node>
 </node>
 <node CREATED="1567927605260" ID="ID_1878263323" MODIFIED="1567927609055" TEXT="Code Implementation"/>
 </node>
