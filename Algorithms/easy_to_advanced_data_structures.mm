@@ -1368,7 +1368,10 @@
 <node CREATED="1567957164165" ID="ID_1636111617" MODIFIED="1567957165678" TEXT="O(n)">
 <node CREATED="1567957179682" ID="ID_1820784911" MODIFIED="1567957191310" TEXT="There is a better way to improve to O(log(n))">
 <node CREATED="1567957313766" ID="ID_1608366648" MODIFIED="1567957349359" TEXT="The inefficiency of the removal algorithm comes from the fact that we have to perform a linear search to find out where an element is indexed at. What if instead we did a lookup using a Hashtable to find out where a node is indexed at?"/>
-<node CREATED="1567957351855" ID="ID_1446472411" MODIFIED="1567957378176" TEXT="A hashtable provides a constant time lookup and update for a mapping from a key (the node value) to a value (the index)."/>
+<node CREATED="1567957351855" ID="ID_1446472411" MODIFIED="1567957378176" TEXT="A hashtable provides a constant time lookup and update for a mapping from a key (the node value) to a value (the index).">
+<node CREATED="1568042442956" ID="ID_1738109903" MODIFIED="1568042450397" TEXT="Every node is mapped to an index"/>
+</node>
+<node CREATED="1568042460645" ID="ID_273434116" MODIFIED="1568042487498" TEXT="Caveat: What if there are two or more nodes with the same value? What problems would that cause?"/>
 </node>
 </node>
 </node>
