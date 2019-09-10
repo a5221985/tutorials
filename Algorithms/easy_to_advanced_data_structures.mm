@@ -1371,7 +1371,47 @@
 <node CREATED="1567957351855" ID="ID_1446472411" MODIFIED="1567957378176" TEXT="A hashtable provides a constant time lookup and update for a mapping from a key (the node value) to a value (the index).">
 <node CREATED="1568042442956" ID="ID_1738109903" MODIFIED="1568042450397" TEXT="Every node is mapped to an index"/>
 </node>
-<node CREATED="1568042460645" ID="ID_273434116" MODIFIED="1568042487498" TEXT="Caveat: What if there are two or more nodes with the same value? What problems would that cause?"/>
+<node CREATED="1568042460645" ID="ID_273434116" MODIFIED="1568042487498" TEXT="Caveat: What if there are two or more nodes with the same value? What problems would that cause?">
+<node CREATED="1568042497356" ID="ID_561055243" MODIFIED="1568042508199" TEXT="Dealing with the multiple value problem">
+<node CREATED="1568042509033" ID="ID_1185209261" MODIFIED="1568042555456" TEXT="Instead of mapping one value to one position we will map one value to multiple position. We can maintain a Set or Tree Set of indexes for which a particular node value (key) maps to">
+<node CREATED="1568076572310" ID="ID_1143491448" MODIFIED="1568076585145" TEXT="key: node value"/>
+<node CREATED="1568076585391" ID="ID_923571877" MODIFIED="1568076594809" TEXT="value: position(s)"/>
+<node CREATED="1568076598950" ID="ID_285304010" MODIFIED="1568076601521" TEXT="example">
+<node CREATED="1568076602433" ID="ID_1587428585" MODIFIED="1568076667686">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Node Value| Position(s)
+    </p>
+    <p>
+      2&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;| 0, 2, 6
+    </p>
+    <p>
+      7&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;| 1, 4
+    </p>
+    <p>
+      11&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;| 3
+    </p>
+    <p>
+      13&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;| 5
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1568076708062" ID="ID_31764313" MODIFIED="1568076718362" TEXT="If we swap in tree, we swap in table"/>
+</node>
+</node>
+<node CREATED="1568076736839" ID="ID_51747619" MODIFIED="1568076748170" TEXT="Removing Elements from Binary Heap in O(log(n))">
+<node CREATED="1568076749560" ID="ID_1487134193" MODIFIED="1568076771033" TEXT="Question: If we want to remove a repeated node in our heap, which node do we remove and does it matter which one we pick?">
+<node CREATED="1568076797580" ID="ID_979531571" MODIFIED="1568076818872" TEXT="Answer: No it doesn&apos;t matter which node we remove as long as we satisfy the heap invariant in the end"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
@@ -1385,7 +1425,9 @@
 </node>
 </node>
 </node>
-<node CREATED="1567927605260" ID="ID_1878263323" MODIFIED="1567927609055" TEXT="Code Implementation"/>
+<node CREATED="1567927605260" ID="ID_1878263323" MODIFIED="1567927609055" TEXT="Code Implementation">
+<node CREATED="1568077137995" ID="ID_152980391" MODIFIED="1568077150210" TEXT="Implement Comparable&lt;T&gt;"/>
+</node>
 </node>
 </node>
 <node CREATED="1567047698146" ID="ID_948257874" MODIFIED="1567047705098" TEXT="Min heaps and Max heaps">
