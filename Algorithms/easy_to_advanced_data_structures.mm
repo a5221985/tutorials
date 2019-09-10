@@ -1502,7 +1502,97 @@
 <node CREATED="1568078531363" ID="ID_17774009" MODIFIED="1568078538217" TEXT="Least common ancestor in trees"/>
 <node CREATED="1568078538471" ID="ID_408909853" MODIFIED="1568078542342" TEXT="Image processing"/>
 </node>
-<node CREATED="1568078189067" ID="ID_184098431" MODIFIED="1568078199618" TEXT="Kruskal&apos;s minimum spanning tree algorithm"/>
+<node CREATED="1568078189067" ID="ID_184098431" MODIFIED="1568078199618" TEXT="Kruskal&apos;s minimum spanning tree algorithm">
+<node CREATED="1568087439143" ID="ID_1282921816" MODIFIED="1568087483552" TEXT="Given a graph G = (V, E) we want to find a Minimum Spanning Tree in the graph (it may not be unique). A minimum spanning tree is a subset of the edges which connect all vertices in the graph with the minimal total edge cost">
+<node CREATED="1568087758715" ID="ID_1984689568" MODIFIED="1568087760927" TEXT="Steps">
+<node CREATED="1568087761223" ID="ID_1804941219" MODIFIED="1568087849572">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Step 1: Sort edges by ascending edge weight
+    </p>
+    <p>
+      Step 2: Walk through the sorted edges and look at the two nodes the edge belongs to, if the nodes are alrady unified we don't include this edge, otherwise we include it and unify the nodes.
+    </p>
+    <p>
+      Step 3: The algorithm terminates when every edge has been processed or all the vertices have been unified.<br /><br />
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1568087921481" ID="ID_385307345" MODIFIED="1568087923957" TEXT="example">
+<node CREATED="1568087924235" ID="ID_328806408" MODIFIED="1568088010393">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      I to J = 0
+    </p>
+    <p>
+      A to E = 1
+    </p>
+    <p>
+      C to I = 1
+    </p>
+    <p>
+      E to F = 1
+    </p>
+    <p>
+      G to H = 1
+    </p>
+    <p>
+      B to D = 1
+    </p>
+    <p>
+      C to J = 1
+    </p>
+    <p>
+      D to E = 2
+    </p>
+    <p>
+      D to H = 2
+    </p>
+    <p>
+      A to D = 4
+    </p>
+    <p>
+      B to C = 4
+    </p>
+    <p>
+      C to H = 4
+    </p>
+    <p>
+      G to I = 4
+    </p>
+    <p>
+      A to B = 5
+    </p>
+    <p>
+      D to F = 5
+    </p>
+    <p>
+      H to I = 6
+    </p>
+    <p>
+      F to G = 7
+    </p>
+    <p>
+      D to G = 11
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1568078202332" ID="ID_963249453" MODIFIED="1568078206315" TEXT="Complexity analysis">
 <node CREATED="1568078728392" ID="ID_1969977949" MODIFIED="1568078732091" TEXT="Construction">
 <node CREATED="1568078732812" ID="ID_874446638" MODIFIED="1568078734243" TEXT="O(n)"/>
