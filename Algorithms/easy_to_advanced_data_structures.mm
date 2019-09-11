@@ -1739,10 +1739,27 @@
 </html>
 </richcontent>
 <node CREATED="1568174171517" ID="ID_309016610" MODIFIED="1568174182385" TEXT="Union(E, L)">
-<node CREATED="1568174187825" ID="ID_67655286" MODIFIED="1568174194346" TEXT="Find root node of E"/>
-<node CREATED="1568174203108" ID="ID_1095761315" MODIFIED="1568174206433" TEXT="Find root node of L"/>
-<node CREATED="1568174231685" ID="ID_1823156840" MODIFIED="1568174241861" TEXT="Point each one of the nodes along the path to root node">
-<node CREATED="1568174253139" ID="ID_908934707" MODIFIED="1568174263138" TEXT="Lookup of each node in the path is O(1)"/>
+<node CREATED="1568174187825" ID="ID_67655286" MODIFIED="1568174591927">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Step 1: Find root node of E
+    </p>
+    <p>
+      Step 2: Find root node of L
+    </p>
+    <p>
+      Step 3: Point each of the nodes along the path to root node
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1568174253139" ID="ID_908934707" MODIFIED="1568174263138" TEXT="Lookup of each node in the path is O(1)">
+<node CREATED="1568174519005" ID="ID_797992579" MODIFIED="1568174523900" TEXT="Un-unifying is not done"/>
+</node>
 </node>
 </node>
 </node>
