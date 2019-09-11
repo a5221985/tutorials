@@ -1672,6 +1672,12 @@
 </node>
 <node CREATED="1568171267052" ID="ID_1402704936" MODIFIED="1568171270405" TEXT="Union Operation">
 <node CREATED="1568171407998" ID="ID_303427068" MODIFIED="1568171432469" TEXT="To unify two elements find which are the root nodes ofeach component and if the root nodes are different make one of the root nodes be the parent of the other."/>
+<node CREATED="1568173382570" ID="ID_267697709" MODIFIED="1568173384398" TEXT="Remarks">
+<node CREATED="1568173384567" ID="ID_267827479" MODIFIED="1568173411990" TEXT="In this data structure, we do not &quot;un-union&quot; elements. In general, this would be very inefficient to do since we would have to update all the children of a node."/>
+<node CREATED="1568173413126" ID="ID_386114053" MODIFIED="1568173439806" TEXT="The number of components is equal to the number of roots remaining. Also, remark that the number of root nodes never increases.">
+<node CREATED="1568173523892" ID="ID_1646292101" MODIFIED="1568173531067" TEXT="number or root nodes decreases"/>
+</node>
+</node>
 </node>
 </node>
 </node>
@@ -1685,7 +1691,11 @@
 </node>
 <node CREATED="1568078735356" ID="ID_367350127" MODIFIED="1568078736796" TEXT="Union">
 <node CREATED="1568078737164" ID="ID_563029446" MODIFIED="1568078741635" TEXT="alpha(n)">
-<node CREATED="1568078748884" ID="ID_1933112710" MODIFIED="1568078780534" TEXT="amortized constant time"/>
+<node CREATED="1568078748884" ID="ID_1933112710" MODIFIED="1568078780534" TEXT="amortized constant time">
+<node CREATED="1568173549306" ID="ID_1339263966" MODIFIED="1568173555988" TEXT="This needs path compression">
+<node CREATED="1568173559579" ID="ID_391674643" MODIFIED="1568173613826" TEXT="Checking if H and B belong to the same group takes five hops and in the worst case this is potentially much more"/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1568078743323" ID="ID_99415186" MODIFIED="1568078744627" TEXT="Find">
