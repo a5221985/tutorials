@@ -1666,9 +1666,13 @@
 </node>
 <node CREATED="1568171258383" ID="ID_28291819" MODIFIED="1568171259853" TEXT="Summary">
 <node CREATED="1568171262649" ID="ID_1690995910" MODIFIED="1568171266581" TEXT="Find Operation">
-<node CREATED="1568171271487" ID="ID_309781133" MODIFIED="1568171302334" TEXT="To find which component a particular element belongs to find the root of that component by following the parent nodes until a self loop is reached (a node who&apos;s parent is itself)"/>
+<node CREATED="1568171271487" ID="ID_309781133" MODIFIED="1568171302334" TEXT="To find which component a particular element belongs to find the root of that component by following the parent nodes until a self loop is reached (a node who&apos;s parent is itself)">
+<node CREATED="1568171332535" ID="ID_1712453442" MODIFIED="1568171344300" TEXT="finds the group to which an element belongs to"/>
 </node>
-<node CREATED="1568171267052" ID="ID_1402704936" MODIFIED="1568171270405" TEXT="Union Operation"/>
+</node>
+<node CREATED="1568171267052" ID="ID_1402704936" MODIFIED="1568171270405" TEXT="Union Operation">
+<node CREATED="1568171407998" ID="ID_303427068" MODIFIED="1568171432469" TEXT="To unify two elements find which are the root nodes ofeach component and if the root nodes are different make one of the root nodes be the parent of the other."/>
+</node>
 </node>
 </node>
 </node>
