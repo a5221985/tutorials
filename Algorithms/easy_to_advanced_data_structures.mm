@@ -1720,7 +1720,35 @@
 </node>
 <node CREATED="1568078154267" ID="ID_1975942754" MODIFIED="1568078160021" TEXT="Implementation Details">
 <node CREATED="1568078208178" ID="ID_293248170" MODIFIED="1568078213659" TEXT="Find &amp; Union operations"/>
-<node CREATED="1568078213897" ID="ID_1007089506" MODIFIED="1568078219098" TEXT="Path compression"/>
+<node CREATED="1568078213897" ID="ID_1007089506" MODIFIED="1568078219098" TEXT="Path compression">
+<node CREATED="1568174063005" ID="ID_977710336" MODIFIED="1568174073639" TEXT="Boost in efficiency">
+<node CREATED="1568174110369" ID="ID_1136559578" MODIFIED="1568174123076" TEXT="Hypothetical Union find path compression example">
+<node CREATED="1568174124047" ID="ID_1777714048" MODIFIED="1568174161645">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      E -&gt; D -&gt; C -&gt; B -&gt; A -&gt; F
+    </p>
+    <p>
+      L -&gt; K -&gt; J -&gt; I -&gt; H -&gt; G
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1568174171517" ID="ID_309016610" MODIFIED="1568174182385" TEXT="Union(E, L)">
+<node CREATED="1568174187825" ID="ID_67655286" MODIFIED="1568174194346" TEXT="Find root node of E"/>
+<node CREATED="1568174203108" ID="ID_1095761315" MODIFIED="1568174206433" TEXT="Find root node of L"/>
+<node CREATED="1568174231685" ID="ID_1823156840" MODIFIED="1568174241861" TEXT="Point each one of the nodes along the path to root node">
+<node CREATED="1568174253139" ID="ID_908934707" MODIFIED="1568174263138" TEXT="Lookup of each node in the path is O(1)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1568078160250" ID="ID_1673446595" MODIFIED="1568078164690" TEXT="Code Implementation"/>
 </node>
