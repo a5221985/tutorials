@@ -1606,7 +1606,24 @@
 </node>
 </node>
 <node CREATED="1568089830605" ID="ID_687747281" MODIFIED="1568089837909" TEXT="Data Structure used">
-<node CREATED="1568089838142" ID="ID_272549175" MODIFIED="1568089840805" TEXT="Union-Find"/>
+<node CREATED="1568089838142" ID="ID_272549175" MODIFIED="1568089840805" TEXT="Union-Find">
+<node CREATED="1568167048745" ID="ID_580039251" MODIFIED="1568167053957" TEXT="Constructing Union Find">
+<node CREATED="1568167055388" ID="ID_1697572879" MODIFIED="1568167119046" TEXT="To begin using Union Find, first construct a bijection (a mapping) between your objects and the integers in the rangle [0, n)."/>
+<node CREATED="1568167120207" ID="ID_1831206046" MODIFIED="1568167142902" TEXT="Note: This step is not necessary in general, but it will allow us to construct an array-based union find.">
+<node CREATED="1568169826017" ID="ID_1444081750" MODIFIED="1568169828985" TEXT="efficient"/>
+<node CREATED="1568169831274" ID="ID_571583936" MODIFIED="1568169834505" TEXT="easy to work with"/>
+</node>
+<node CREATED="1568169842168" ID="ID_1894178734" MODIFIED="1568169865530" TEXT="Randomly assign a mapping between the objects and the integers on the right">
+<node CREATED="1568169878803" ID="ID_932267175" MODIFIED="1568169890180" TEXT="Store mappings in hashtable"/>
+</node>
+<node CREATED="1568169893955" ID="ID_1329743372" MODIFIED="1568169936641" TEXT="Store Union Find information  in an array. Each index hass an associated object (letter in this example) we can lookup through our mapping">
+<node CREATED="1568169992588" ID="ID_1763500310" MODIFIED="1568170075938" TEXT="value in the array is currently the index at which it is">
+<node CREATED="1568170078027" ID="ID_943535646" MODIFIED="1568170083676" TEXT="It maps to itself"/>
+<node CREATED="1568170092276" ID="ID_969372444" MODIFIED="1568170111606" TEXT="As we group the letters, we change values to the group index"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
