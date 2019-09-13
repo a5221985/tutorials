@@ -1302,8 +1302,7 @@
       &#160;&#160;&#160;&#160;repeat above step until heap invariant is satisfied
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1567956611351" ID="ID_1618022818" MODIFIED="1567956622919" TEXT="Removing elements from Binary heap">
@@ -1331,8 +1330,7 @@
       &#160;&#160;&#160;&#160;repeat the above step until heap invariant is satisfied
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1567957157222" ID="ID_1174713805" MODIFIED="1567957162796" TEXT="O(log(n))"/>
 </node>
 </node>
@@ -1363,8 +1361,7 @@
       &#160;&#160;&#160;&#160;repeat the above step until heap invariant is satisfied
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1567957164165" ID="ID_1636111617" MODIFIED="1567957165678" TEXT="O(n)">
 <node CREATED="1567957179682" ID="ID_1820784911" MODIFIED="1567957191310" TEXT="There is a better way to improve to O(log(n))">
 <node CREATED="1567957313766" ID="ID_1608366648" MODIFIED="1567957349359" TEXT="The inefficiency of the removal algorithm comes from the fact that we have to perform a linear search to find out where an element is indexed at. What if instead we did a lookup using a Hashtable to find out where a node is indexed at?"/>
@@ -1399,8 +1396,7 @@
       13&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;| 5
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1568076708062" ID="ID_31764313" MODIFIED="1568076718362" TEXT="If we swap in tree, we swap in table"/>
 </node>
 </node>
@@ -1521,8 +1517,7 @@
       Step 3: The algorithm terminates when every edge has been processed or all the vertices have been unified.<br /><br />
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1568087921481" ID="ID_385307345" MODIFIED="1568087923957" TEXT="example">
 <node CREATED="1568087924235" ID="ID_328806408" MODIFIED="1568088010393">
 <richcontent TYPE="NODE"><html>
@@ -1585,8 +1580,7 @@
       D to G = 11
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1568089646180" ID="ID_1425195954" MODIFIED="1568089651342" TEXT="Unify IJ"/>
 <node CREATED="1568089657359" ID="ID_711122726" MODIFIED="1568089659817" TEXT="Unify AE"/>
 <node CREATED="1568089666354" ID="ID_1383068915" MODIFIED="1568089673633" TEXT="Add CI to IJ group"/>
@@ -1736,8 +1730,7 @@
       L -&gt; K -&gt; J -&gt; I -&gt; H -&gt; G
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1568174171517" ID="ID_309016610" MODIFIED="1568174182385" TEXT="Union(E, L)">
 <node CREATED="1568174187825" ID="ID_67655286" MODIFIED="1568174591927">
 <richcontent TYPE="NODE"><html>
@@ -1755,8 +1748,7 @@
       Step 3: Point each of the nodes along the path to root node
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1568174253139" ID="ID_908934707" MODIFIED="1568174263138" TEXT="Lookup of each node in the path is O(1)">
 <node CREATED="1568174519005" ID="ID_797992579" MODIFIED="1568174523900" TEXT="Un-unifying is not done"/>
 </node>
@@ -1767,7 +1759,13 @@
 </node>
 </node>
 </node>
-<node CREATED="1568078160250" ID="ID_1673446595" MODIFIED="1568078164690" TEXT="Code Implementation"/>
+<node CREATED="1568078160250" ID="ID_1673446595" MODIFIED="1568078164690" TEXT="Code Implementation">
+<node CREATED="1568341560514" ID="ID_778191565" MODIFIED="1568344215714" TEXT="find"/>
+<node CREATED="1568344221121" ID="ID_554616467" MODIFIED="1568344277207" TEXT="connected"/>
+<node CREATED="1568344298893" ID="ID_158909535" MODIFIED="1568344302304" TEXT="componentSize"/>
+<node CREATED="1568344303472" ID="ID_1908701638" MODIFIED="1568344306312" TEXT="size"/>
+<node CREATED="1568344307559" ID="ID_743386586" MODIFIED="1568344309207" TEXT="components"/>
+</node>
 </node>
 </node>
 <node CREATED="1567047749513" ID="ID_1062175127" MODIFIED="1567047762257" TEXT="Kruskal&apos;s Algorithm"/>
