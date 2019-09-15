@@ -1895,7 +1895,105 @@
 </node>
 </node>
 </node>
-<node CREATED="1567047799767" ID="ID_1131461627" MODIFIED="1567047805635" TEXT="Binary search tree insertions"/>
+<node CREATED="1567047799767" ID="ID_1131461627" MODIFIED="1567047805635" TEXT="Binary search tree insertions">
+<node CREATED="1568573922905" ID="ID_1927978971" MODIFIED="1568573928595" TEXT="Adding elements to a BST">
+<node CREATED="1568573930118" ID="ID_735363289" MODIFIED="1568573947507" TEXT="Binary Search Tree (BST) elements must be comparable so that we cannot order them inside the tree"/>
+<node CREATED="1568573952458" ID="ID_386134655" MODIFIED="1568573982965" TEXT="When inserting an element we want to compare its value to the value stored in the current node we&apos;re considering to decide on one of the following:">
+<node CREATED="1568573995110" ID="ID_1576644693" MODIFIED="1568574008270" TEXT="Recurse down left subtree (&lt; case)"/>
+<node CREATED="1568574008619" ID="ID_1088655444" MODIFIED="1568574019312" TEXT="Recurse down right subtree (&gt; case)"/>
+<node CREATED="1568574019823" ID="ID_42389156" MODIFIED="1568574028758" TEXT="Handle finding a duplicate value (= case)">
+<node CREATED="1568574218414" ID="ID_1727983030" MODIFIED="1568574222954" TEXT="Add duplicate or ignore">
+<node CREATED="1568574353241" ID="ID_1124764950" MODIFIED="1568574361299" TEXT="Choose either left or right and insert"/>
+</node>
+</node>
+<node CREATED="1568574030055" ID="ID_772926372" MODIFIED="1568574038158" TEXT="Construct a new node (found a null leaf)">
+<node CREATED="1568574242630" ID="ID_1744987440" MODIFIED="1568574246782" TEXT="If null node is hit"/>
+</node>
+</node>
+</node>
+<node CREATED="1568574298043" ID="ID_858739085" MODIFIED="1568574304125" TEXT="Start at root when inserting">
+<node CREATED="1568574403561" ID="ID_1397051731" MODIFIED="1568574405297" TEXT="Example">
+<node CREATED="1568574405540" ID="ID_1504360597" MODIFIED="1568574450401">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      insert(7)
+    </p>
+    <p>
+      insert(20)
+    </p>
+    <p>
+      insert(5)
+    </p>
+    <p>
+      insert(15)
+    </p>
+    <p>
+      insert(10)
+    </p>
+    <p>
+      insert(4)
+    </p>
+    <p>
+      insert(4)
+    </p>
+    <p>
+      insert(33)
+    </p>
+    <p>
+      insert(2)
+    </p>
+    <p>
+      insert(25)
+    </p>
+    <p>
+      insert(6)
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1568574473084" ID="ID_244751343" MODIFIED="1568574477750" TEXT="Worst case example">
+<node CREATED="1568574478041" ID="ID_1232290242" MODIFIED="1568574502930">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      insert(1)
+    </p>
+    <p>
+      insert(2)
+    </p>
+    <p>
+      insert(3)
+    </p>
+    <p>
+      insert(4)
+    </p>
+    <p>
+      insert(5)
+    </p>
+    <p>
+      insert(6)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1568574515004" ID="ID_1379986102" MODIFIED="1568574522577" TEXT="takes linear time">
+<node CREATED="1568574524690" ID="ID_1077835708" MODIFIED="1568574527121" TEXT="solution">
+<node CREATED="1568574527341" ID="ID_555961881" MODIFIED="1568574533558" TEXT="balanced binary search trees"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047806769" ID="ID_1637447282" MODIFIED="1567047811993" TEXT="Binary search tree removals"/>
 <node CREATED="1567047812980" ID="ID_194906046" MODIFIED="1567047818554" TEXT="Binary tree traversals"/>
 <node CREATED="1567047819640" ID="ID_600226500" MODIFIED="1567047827032" TEXT="Binary search tree source code"/>
