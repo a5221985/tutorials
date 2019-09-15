@@ -1821,9 +1821,40 @@
 <node CREATED="1568528946339" ID="ID_1192297905" MODIFIED="1568528950909" TEXT="Leaf node">
 <node CREATED="1568528952694" ID="ID_1968705732" MODIFIED="1568528966636" TEXT="A leaf node is a node with no children. These have been highlighted in orange"/>
 </node>
+<node CREATED="1568528972663" ID="ID_364296601" MODIFIED="1568528976181" TEXT="Subtree">
+<node CREATED="1568528976519" ID="ID_162904226" MODIFIED="1568529000423" TEXT="A subtree is a tree entirely contained within another. They are usually denoted using triangles."/>
+<node CREATED="1568529002931" ID="ID_611349863" MODIFIED="1568529013407" TEXT="Note: Subtrees may consist of a single node!"/>
+</node>
 </node>
 <node CREATED="1568528917531" ID="ID_243235990" MODIFIED="1568528919285" TEXT="Example">
 <node CREATED="1568528919845" ID="ID_1387744272" MODIFIED="1568528937477" TEXT="0 has two children (3 and 2) and a parent (4)"/>
+</node>
+</node>
+<node CREATED="1568529069731" ID="ID_1104146040" MODIFIED="1568529075806" TEXT="What is a Binary Tree (BT)?">
+<node CREATED="1568529076964" ID="ID_1928735510" MODIFIED="1568529088580" TEXT="A binary tree is a tree for which every node has at most two child nodes."/>
+</node>
+<node CREATED="1568529163530" ID="ID_712947060" MODIFIED="1568529171251" TEXT="What is a Binary Search Tree (BST)?">
+<node CREATED="1568529173551" ID="ID_550492167" MODIFIED="1568529195671" TEXT="A binary search tree is a binary tree that satisfies the BST invariant:">
+<node CREATED="1568529195980" ID="ID_1799467676" MODIFIED="1568529212592" TEXT="left subtree has smaller elements and right subtree has larger elements">
+<node CREATED="1568529254027" ID="ID_1472785313" MODIFIED="1568529255514" TEXT="example">
+<node CREATED="1568529256050" ID="ID_155857854" MODIFIED="1568529271730" TEXT="If duplicate values are allowed">
+<node CREATED="1568529271971" ID="ID_1366662400" MODIFIED="1568529281363" TEXT="BST operations allow for duplicate values"/>
+<node CREATED="1568529286576" ID="ID_74660265" MODIFIED="1568529306490" TEXT="most of the time we are only interested in having unique elements inside our tree"/>
+</node>
+<node CREATED="1568529358673" ID="ID_421120445" MODIFIED="1568529365243" TEXT="We are not limited to only numbers">
+<node CREATED="1568529365501" ID="ID_1676286024" MODIFIED="1568529371988" TEXT="Any element that is comparable"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1568529534059" ID="ID_656168981" MODIFIED="1568529541409" TEXT="When and where are Binary Trees used?">
+<node CREATED="1568529541632" ID="ID_1575863214" MODIFIED="1568529548615" TEXT="Binary Search Trees (BSTs)">
+<node CREATED="1568529549416" ID="ID_336043989" MODIFIED="1568529557702" TEXT="Implementation of some map and set ADTs"/>
+<node CREATED="1568529559312" ID="ID_1174279347" MODIFIED="1568529562559" TEXT="Red Black Trees"/>
+<node CREATED="1568529563820" ID="ID_1406217836" MODIFIED="1568529566479" TEXT="AVL Trees"/>
+<node CREATED="1568529567332" ID="ID_900882476" MODIFIED="1568529569567" TEXT="Splay Trees"/>
+<node CREATED="1568529570349" ID="ID_117773364" MODIFIED="1568529571375" TEXT="..."/>
 </node>
 </node>
 </node>
