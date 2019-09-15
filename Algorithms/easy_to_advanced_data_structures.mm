@@ -1775,7 +1775,58 @@
 <node CREATED="1567047773953" ID="ID_330957645" MODIFIED="1567047777977" TEXT="Union find source code"/>
 </node>
 <node CREATED="1567047783841" ID="ID_1909997002" MODIFIED="1567047788346" POSITION="left" TEXT="Binary search trees">
-<node CREATED="1567047790041" ID="ID_238808165" MODIFIED="1567047798747" TEXT="Introduction to binary trees"/>
+<node CREATED="1567047790041" ID="ID_238808165" MODIFIED="1567047798747" TEXT="Introduction to binary trees">
+<node CREATED="1568528410965" ID="ID_780782571" MODIFIED="1568528417465" TEXT="Outline">
+<node CREATED="1568528417876" ID="ID_578273971" MODIFIED="1568528421569" TEXT="Discussion &amp; Examples">
+<node CREATED="1568528421793" ID="ID_1507477109" MODIFIED="1568528438410" TEXT="What is a Binary Tree (BT)?"/>
+<node CREATED="1568528438738" ID="ID_1040614206" MODIFIED="1568528447812" TEXT="What is a Binary Search Tree (BST)?"/>
+<node CREATED="1568528448095" ID="ID_1502420837" MODIFIED="1568528455810" TEXT="Where are BTs and BSTs used?"/>
+</node>
+<node CREATED="1568528460936" ID="ID_1561418467" MODIFIED="1568528466283" TEXT="Complexity Analysis"/>
+<node CREATED="1568528484700" ID="ID_450829794" MODIFIED="1568528489540" TEXT="How to insert nodes into a BST"/>
+<node CREATED="1568528489749" ID="ID_781519944" MODIFIED="1568528499334" TEXT="Now to remove nodes from a BST"/>
+<node CREATED="1568528499560" ID="ID_346963154" MODIFIED="1568528504846" TEXT="Binary tree traversals">
+<node CREATED="1568528505527" ID="ID_1225782092" MODIFIED="1568528507830" TEXT="preorder"/>
+<node CREATED="1568528508157" ID="ID_1769320940" MODIFIED="1568528509583" TEXT="inorder"/>
+<node CREATED="1568528509823" ID="ID_608449963" MODIFIED="1568528512014" TEXT="postorder"/>
+<node CREATED="1568528512236" ID="ID_497748654" MODIFIED="1568528517039" TEXT="level order"/>
+</node>
+<node CREATED="1568528532840" ID="ID_985303800" MODIFIED="1568528539518" TEXT="A glance at some source code"/>
+</node>
+<node CREATED="1568528551464" ID="ID_1136244000" MODIFIED="1568528558002" TEXT="Discussion and Examples">
+<node CREATED="1568528558899" ID="ID_392043351" MODIFIED="1568528565602" TEXT="Quick terminology crash course">
+<node CREATED="1568528566257" ID="ID_1070881785" MODIFIED="1568528581451" TEXT="A tree is an undirected graph which satisfies any of the following definitions:">
+<node CREATED="1568528584779" ID="ID_1018793476" MODIFIED="1568528596458" TEXT="An acyclic connected graph"/>
+<node CREATED="1568528597299" ID="ID_914039256" MODIFIED="1568528606506" TEXT="A connected graph with N nodes and N - 1 edges"/>
+<node CREATED="1568528608413" ID="ID_696876704" MODIFIED="1568528623142" TEXT="A graph in which any two vertices are connected by exactly one path">
+<node CREATED="1568528641306" ID="ID_563620070" MODIFIED="1568528649448" TEXT="Cannot have multiple paths - cycle"/>
+</node>
+</node>
+<node CREATED="1568528660099" ID="ID_1665752564" MODIFIED="1568528662658" TEXT="Root node">
+<node CREATED="1568528663297" ID="ID_963479124" MODIFIED="1568528680426" TEXT="If we have a rooted tree then we will want to have a reference to the root nodes of our tree">
+<node CREATED="1568528680876" ID="ID_1766789195" MODIFIED="1568528686745" TEXT="Any node can be a root"/>
+</node>
+<node CREATED="1568528691513" ID="ID_1063739012" MODIFIED="1568528712675" TEXT="It does not always matter which node is selected to be the root node because any node can root the tree!"/>
+</node>
+<node CREATED="1568528721178" ID="ID_363931902" MODIFIED="1568528727683" TEXT="Child node">
+<node CREATED="1568528727940" ID="ID_1104977958" MODIFIED="1568528744835" TEXT="A child is a node extending from another node. A parent is the inverse of this">
+<node CREATED="1568528751543" ID="ID_665242293" MODIFIED="1568528762168" TEXT="parent is a node from with child node(s) extend"/>
+</node>
+<node CREATED="1568528768762" ID="ID_35594316" MODIFIED="1568528774414" TEXT="What is the parent of the root node?">
+<node CREATED="1568528785645" ID="ID_45805256" MODIFIED="1568528814500" TEXT="It has no parent, although it may be useful to assign the parent of the root node to be itself (e.g. filesystem tree).">
+<node CREATED="1568528893778" ID="ID_825186751" MODIFIED="1568528904454" TEXT="cd /; cd ../ (outputs /)"/>
+</node>
+</node>
+</node>
+<node CREATED="1568528946339" ID="ID_1192297905" MODIFIED="1568528950909" TEXT="Leaf node">
+<node CREATED="1568528952694" ID="ID_1968705732" MODIFIED="1568528966636" TEXT="A leaf node is a node with no children. These have been highlighted in orange"/>
+</node>
+</node>
+<node CREATED="1568528917531" ID="ID_243235990" MODIFIED="1568528919285" TEXT="Example">
+<node CREATED="1568528919845" ID="ID_1387744272" MODIFIED="1568528937477" TEXT="0 has two children (3 and 2) and a parent (4)"/>
+</node>
+</node>
+</node>
 <node CREATED="1567047799767" ID="ID_1131461627" MODIFIED="1567047805635" TEXT="Binary search tree insertions"/>
 <node CREATED="1567047806769" ID="ID_1637447282" MODIFIED="1567047811993" TEXT="Binary search tree removals"/>
 <node CREATED="1567047812980" ID="ID_194906046" MODIFIED="1567047818554" TEXT="Binary tree traversals"/>
