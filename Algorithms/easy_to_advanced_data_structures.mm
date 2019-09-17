@@ -1994,7 +1994,31 @@
 </node>
 </node>
 </node>
-<node CREATED="1567047806769" ID="ID_1637447282" MODIFIED="1567047811993" TEXT="Binary search tree removals"/>
+<node CREATED="1567047806769" ID="ID_1637447282" MODIFIED="1567047811993" TEXT="Binary search tree removals">
+<node CREATED="1568680839649" ID="ID_1621802069" MODIFIED="1568680849030" TEXT="Removing elements from a BST">
+<node CREATED="1568680849533" ID="ID_448812915" MODIFIED="1568680869400" TEXT="Removing elements from a Binary Search Tree (BST) can be seen as a two step process">
+<node CREATED="1568680871295" ID="ID_520092863" MODIFIED="1568681480835">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        Find the element we wish to remove (if it exists)
+      </li>
+      <li>
+        Replace the node we want to remove with its successor (if any) to maintain the BST invariant.
+      </li>
+    </ol>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1568681482430" ID="ID_122331550" MODIFIED="1568681500116" TEXT="BST invariant: left subtree has smaller elements and right subtree has larger elements"/>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047812980" ID="ID_194906046" MODIFIED="1567047818554" TEXT="Binary tree traversals"/>
 <node CREATED="1567047819640" ID="ID_600226500" MODIFIED="1567047827032" TEXT="Binary search tree source code"/>
 </node>
