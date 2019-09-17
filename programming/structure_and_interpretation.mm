@@ -3,11 +3,48 @@
 <node CREATED="1568690372137" ID="ID_1185809753" MODIFIED="1568690382833" TEXT="Structure and Interpretation">
 <node CREATED="1568690683287" ID="ID_1176881403" MODIFIED="1568690694095" POSITION="right" TEXT="1. Overview and Introduction to List">
 <node CREATED="1568730499283" ID="ID_1018663039" MODIFIED="1568730502235" TEXT="Process">
-<node CREATED="1568730502496" ID="ID_1472424282" MODIFIED="1568730503819" TEXT="How to"/>
+<node CREATED="1568730502496" ID="ID_1472424282" MODIFIED="1568730503819" TEXT="How to">
+<node CREATED="1568730597614" ID="ID_504278889" MODIFIED="1568730606913" TEXT="Imperative knowledge">
+<node CREATED="1568730608403" ID="ID_1102178553" MODIFIED="1568730609914" TEXT="How to">
+<node CREATED="1568730611121" ID="ID_431978215" MODIFIED="1568730620564" TEXT="To find an approximation to sqrt(x)">
+<node CREATED="1568730621873" ID="ID_200625151" MODIFIED="1568730656403">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Step 1: Make a guess G
+    </p>
+    <p>
+      Step 2: Improve the guess by averaging G and X/G
+    </p>
+    <p>
+      Step 3: Keep improving the guess until it is good enough
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1568730715923" ID="ID_1920721604" MODIFIED="1568730718859" TEXT="What is a process?">
+<node CREATED="1568730736015" ID="ID_721092638" MODIFIED="1568730739749" TEXT="Procedure">
+<node CREATED="1568730777082" ID="ID_615403678" MODIFIED="1568730781354" TEXT="pattern of rules">
+<node CREATED="1568730789554" ID="ID_1844441634" MODIFIED="1568730793818" TEXT="it directs the process">
+<node CREATED="1568730806482" ID="ID_1196860562" MODIFIED="1568730810952" TEXT="they control the processes"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1568730529963" ID="ID_1810756705" MODIFIED="1568730537455" TEXT="Declarative knowledge">
 <node CREATED="1568730537787" ID="ID_495813824" MODIFIED="1568730541109" TEXT="What is true">
-<node CREATED="1568730542036" ID="ID_303228594" MODIFIED="1568730556984" TEXT="sqrt(x) is the y such that y^2 = x and y &gt;= 0"/>
+<node CREATED="1568730542036" ID="ID_303228594" MODIFIED="1568730556984" TEXT="sqrt(x) is the y such that y^2 = x and y &gt;= 0">
+<node CREATED="1568730579071" ID="ID_1985934879" MODIFIED="1568730591117" TEXT="Doesn&apos;t say anything about how we might find it"/>
+</node>
 </node>
 </node>
 </node>
