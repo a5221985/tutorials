@@ -157,10 +157,20 @@
 <node CREATED="1569078996977" ID="ID_641536975" MODIFIED="1569079009821" TEXT="Interviewer&apos;s candidate evaluation">
 <node CREATED="1569079009976" ID="ID_97065123" MODIFIED="1569079024082" TEXT="Did the candidate understand the question, including the basic problem?"/>
 <node CREATED="1569079025035" ID="ID_1719126857" MODIFIED="1569079030619" TEXT="Did they ask clarifying questions?"/>
-<node CREATED="1569079031488" ID="ID_1574561293" MODIFIED="1569079043957" TEXT="What relevant information, stakeholders, and variables were considered?"/>
+<node CREATED="1569079031488" ID="ID_1574561293" MODIFIED="1569079043957" TEXT="What relevant information, stakeholders, and variables were considered?">
+<node CREATED="1569079131673" ID="ID_1546597044" MODIFIED="1569079137251" TEXT="You decide?"/>
+<node CREATED="1569079146740" ID="ID_602434296" MODIFIED="1569079149852" TEXT="You choose?"/>
+<node CREATED="1569079151443" ID="ID_762346702" MODIFIED="1569079158668" TEXT="Feel comfortable with ambiguity"/>
+</node>
 <node CREATED="1569079044923" ID="ID_311430746" MODIFIED="1569079056447" TEXT="Did the candidate identify multiple solution options?"/>
-<node CREATED="1569079057348" ID="ID_1902188582" MODIFIED="1569079077758" TEXT="Were they able to reasonably justify why their solution was the best option?"/>
-<node CREATED="1569079078901" ID="ID_306417330" MODIFIED="1569079102011" TEXT="Did the candidate listen to incorporate any feedback/ hints from probing questions?"/>
+<node CREATED="1569079057348" ID="ID_1902188582" MODIFIED="1569079077758" TEXT="Were they able to reasonably justify why their solution was the best option?">
+<node CREATED="1569079179838" ID="ID_1703330997" MODIFIED="1569079185678" TEXT="Communicate it well"/>
+</node>
+<node CREATED="1569079078901" ID="ID_306417330" MODIFIED="1569079102011" TEXT="Did the candidate listen to incorporate any feedback/ hints from probing questions?">
+<node CREATED="1569079189627" ID="ID_360226928" MODIFIED="1569079206062" TEXT="Interviewer may give feedback through the interview">
+<node CREATED="1569079206244" ID="ID_13260687" MODIFIED="1569079213236" TEXT="Incorporate the feedback as you go"/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1569076969242" ID="ID_1458883835" MODIFIED="1569076974213" POSITION="right" TEXT="Practice!">
