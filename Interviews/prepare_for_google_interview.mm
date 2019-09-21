@@ -87,13 +87,51 @@
 <node CREATED="1569077916247" ID="ID_170262487" MODIFIED="1569077925707" TEXT="Communicate the thought process">
 <node CREATED="1569077928049" ID="ID_486391400" MODIFIED="1569077930417" TEXT="As we think"/>
 <node CREATED="1569077935095" ID="ID_576394625" MODIFIED="1569077940056" TEXT="Succinct and coherent manner"/>
+</node>
+</node>
+<node CREATED="1569077737254" ID="ID_1705233845" MODIFIED="1569077741559" TEXT="Consider the pros and cons">
 <node CREATED="1569077948850" ID="ID_1001505703" MODIFIED="1569077956338" TEXT="Communicate pros and cons"/>
+</node>
+<node CREATED="1569077741766" ID="ID_1756677619" MODIFIED="1569077748795" TEXT="Think about how you measure success">
 <node CREATED="1569077959592" ID="ID_691472857" MODIFIED="1569077968132" TEXT="Communicate how would we measure success"/>
 </node>
+<node CREATED="1569077748983" ID="ID_689110961" MODIFIED="1569077752938" TEXT="Tie it back to the role">
+<node CREATED="1569078023906" ID="ID_417875902" MODIFIED="1569078031082" TEXT="Usually questions are role related"/>
 </node>
-<node CREATED="1569077737254" ID="ID_1705233845" MODIFIED="1569077741559" TEXT="Consider the pros and cons"/>
-<node CREATED="1569077741766" ID="ID_1756677619" MODIFIED="1569077748795" TEXT="Think about how you measure success"/>
-<node CREATED="1569077748983" ID="ID_689110961" MODIFIED="1569077752938" TEXT="Tie it back to the role"/>
+</node>
+<node CREATED="1569078203506" ID="ID_651508379" MODIFIED="1569078205903" TEXT="Example">
+<node CREATED="1569078206078" ID="ID_1333025033" MODIFIED="1569078235614" TEXT="Imagine you are in charge of organizing the grand opening event of a new Google office. How would you plean this event?">
+<node CREATED="1569078242807" ID="ID_607764338" MODIFIED="1569078244264" TEXT="Steps">
+<node CREATED="1569078244672" ID="ID_1393459595" MODIFIED="1569078249511" TEXT="Take a momen before responding"/>
+<node CREATED="1569078249979" ID="ID_1109461760" MODIFIED="1569078254623" TEXT="Ask clarifying questions">
+<node CREATED="1569078257120" ID="ID_1140687885" MODIFIED="1569078262543" TEXT="Where is the new office?">
+<node CREATED="1569078262911" ID="ID_1293588507" MODIFIED="1569078272448" TEXT="Cambridge, MA"/>
+</node>
+<node CREATED="1569078274036" ID="ID_118856948" MODIFIED="1569078277128" TEXT="Is there a budget?">
+<node CREATED="1569078277382" ID="ID_1589569470" MODIFIED="1569078300590" TEXT="You can decide the budget. There was a similar event last year in the New York office, and their budget was $50000"/>
+</node>
+<node CREATED="1569078302241" ID="ID_1156386113" MODIFIED="1569078307699" TEXT="How many people are attending?">
+<node CREATED="1569078308033" ID="ID_572755492" MODIFIED="1569078310696" TEXT="100 people"/>
+</node>
+</node>
+<node CREATED="1569078350754" ID="ID_1839278314" MODIFIED="1569078358932" TEXT="Logical assumptions">
+<node CREATED="1569078359768" ID="ID_727028145" MODIFIED="1569078361859" TEXT="Assumption 1">
+<node CREATED="1569078362774" ID="ID_672186689" MODIFIED="1569078379563" TEXT="I will assume that there is a facilities team onsite to help me organize this event"/>
+</node>
+<node CREATED="1569078383762" ID="ID_520310241" MODIFIED="1569078385972" TEXT="Assumption 2">
+<node CREATED="1569078386377" ID="ID_630025536" MODIFIED="1569078408270" TEXT="I&apos;ll also assume that the objective of this event is to welcome new Googlers to the Cambridge office"/>
+</node>
+<node CREATED="1569078412395" ID="ID_1620651779" MODIFIED="1569078414869" TEXT="Assumption 3">
+<node CREATED="1569078415082" ID="ID_1084034639" MODIFIED="1569078455516" TEXT="Since NYC is a larger city than Cambridge I&apos;ll assume this grand opening will be a smaller. I&apos;ll assume we have a %$10000 budget across 100 people"/>
+</node>
+</node>
+<node CREATED="1569078511943" ID="ID_39071098" MODIFIED="1569078517520" TEXT="Show your work">
+<node CREATED="1569078517850" ID="ID_867581586" MODIFIED="1569078528426" TEXT="I am assuming we have a budget of $100 per person"/>
+<node CREATED="1569078529338" ID="ID_383719661" MODIFIED="1569078554498" TEXT="I&apos;m also assuming I will have the capacity to coordinate with someone in the Cambridge office"/>
+<node CREATED="1569078555936" ID="ID_1417584512" MODIFIED="1569078572429" TEXT="I will also assume all logistical needs can be solved by local vendors"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1569076969242" ID="ID_1458883835" MODIFIED="1569076974213" POSITION="right" TEXT="Practice!">
