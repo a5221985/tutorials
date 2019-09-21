@@ -130,8 +130,37 @@
 <node CREATED="1569078529338" ID="ID_383719661" MODIFIED="1569078554498" TEXT="I&apos;m also assuming I will have the capacity to coordinate with someone in the Cambridge office"/>
 <node CREATED="1569078555936" ID="ID_1417584512" MODIFIED="1569078572429" TEXT="I will also assume all logistical needs can be solved by local vendors"/>
 </node>
+<node CREATED="1569078590318" ID="ID_1127811761" MODIFIED="1569078594500" TEXT="Communicate your solution">
+<node CREATED="1569078594721" ID="ID_1790320680" MODIFIED="1569078610601" TEXT="I would recommend the following steps to plan the Grand opening of the Cambridge office...">
+<node CREATED="1569078610769" ID="ID_8476972" MODIFIED="1569078660538" TEXT="First, I&apos;mm assuming there is a facilities team on site to assist with this project, and all logistical efforts can be supported internally. I would reach out to that team to begin planning, and to assess if I will have to use outside vendors."/>
+<node CREATED="1569078661878" ID="ID_277527289" MODIFIED="1569078687888" TEXT="Second, I&apos;ll assume we have a budget of $100 per person; therefore I know I have ample budget for a food, drinks and decor"/>
+<node CREATED="1569078689199" ID="ID_1324222168" MODIFIED="1569078755609" TEXT="Third, because the objective of the event is to welcome new Googlers to the office, I would ensure that I&apos;m inclusive of all Googlers in my planning. I&apos;d try to bring in local food vendors of find some fun activities for nooglers and their families to do"/>
+<node CREATED="1569078757299" ID="ID_1922234674" MODIFIED="1569078778761" TEXT="Finally, I would collect an experience feedback survey from the NYC event and incorporate it into my planning"/>
 </node>
 </node>
+<node CREATED="1569078841415" ID="ID_1852934782" MODIFIED="1569078845732" TEXT="Measuring success">
+<node CREATED="1569078848449" ID="ID_952843502" MODIFIED="1569078865044" TEXT="Sending out a post event survey to the attendees to measure impact against the intended objective"/>
+<node CREATED="1569078865499" ID="ID_1739716745" MODIFIED="1569078870588" TEXT="Capacity to stay within budget"/>
+<node CREATED="1569078870865" ID="ID_312047073" MODIFIED="1569078874748" TEXT="Number of attendees"/>
+<node CREATED="1569078874957" ID="ID_461571062" MODIFIED="1569078886577" TEXT="Will my project plan be used to plan future grand openings?"/>
+</node>
+</node>
+</node>
+<node CREATED="1569078917440" ID="ID_203809005" MODIFIED="1569078929202" TEXT="Homework">
+<node CREATED="1569078929465" ID="ID_1277128084" MODIFIED="1569078931562" TEXT="Example">
+<node CREATED="1569078931825" ID="ID_857328654" MODIFIED="1569078951883" TEXT="Imagine you&apos;re working on an email product and a competitor starts charging a $5 monthly fee for their product">
+<node CREATED="1569078956119" ID="ID_141837964" MODIFIED="1569078973259" TEXT="How would you assess the situation and what recommendation would you make to your team?"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1569078996977" ID="ID_641536975" MODIFIED="1569079009821" TEXT="Interviewer&apos;s candidate evaluation">
+<node CREATED="1569079009976" ID="ID_97065123" MODIFIED="1569079024082" TEXT="Did the candidate understand the question, including the basic problem?"/>
+<node CREATED="1569079025035" ID="ID_1719126857" MODIFIED="1569079030619" TEXT="Did they ask clarifying questions?"/>
+<node CREATED="1569079031488" ID="ID_1574561293" MODIFIED="1569079043957" TEXT="What relevant information, stakeholders, and variables were considered?"/>
+<node CREATED="1569079044923" ID="ID_311430746" MODIFIED="1569079056447" TEXT="Did the candidate identify multiple solution options?"/>
+<node CREATED="1569079057348" ID="ID_1902188582" MODIFIED="1569079077758" TEXT="Were they able to reasonably justify why their solution was the best option?"/>
+<node CREATED="1569079078901" ID="ID_306417330" MODIFIED="1569079102011" TEXT="Did the candidate listen to incorporate any feedback/ hints from probing questions?"/>
 </node>
 </node>
 <node CREATED="1569076969242" ID="ID_1458883835" MODIFIED="1569076974213" POSITION="right" TEXT="Practice!">
