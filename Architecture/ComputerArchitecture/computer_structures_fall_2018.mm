@@ -49,6 +49,15 @@
 </node>
 </node>
 </node>
+<node CREATED="1569090034365" ID="ID_1384147671" MODIFIED="1569090046064" TEXT="The power of engineering abstractions">
+<node CREATED="1569090046244" ID="ID_1114446931" MODIFIED="1569090071333" TEXT="Good abstractions let us reason about behavior while shielding us from the details of the implementation">
+<node CREATED="1569090106342" ID="ID_1212894409" MODIFIED="1569090133401" TEXT="Corollary: Implementation technologies can evolve while preserving the engieering investment at higher levels."/>
+<node CREATED="1569090152968" ID="ID_639072344" MODIFIED="1569090160003" TEXT="Leads to hierarchical design">
+<node CREATED="1569090162129" ID="ID_1780974472" MODIFIED="1569090180925" TEXT="Limited complexity at each level =&gt; shorten design time, easier to verify"/>
+<node CREATED="1569090183534" ID="ID_1932315455" MODIFIED="1569090190492" TEXT="Reusable building blocks"/>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1569089074960" ID="ID_1763726905" MODIFIED="1569089101424" POSITION="left" TEXT="2. Combinational Devices and Boolean Algebra"/>
 <node CREATED="1569089104403" ID="ID_1400362867" MODIFIED="1569089115780" POSITION="right" TEXT="3. Describing Combinational Circuits in BSV"/>
