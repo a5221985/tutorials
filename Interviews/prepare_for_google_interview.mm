@@ -1,0 +1,104 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1569076946489" ID="ID_1173138711" MODIFIED="1569076956248" TEXT="Prepare for Google Interview">
+<node CREATED="1569076956653" ID="ID_1291613946" MODIFIED="1569076962068" POSITION="right" TEXT="Overview">
+<node CREATED="1569077013690" ID="ID_1459933209" MODIFIED="1569077018225" TEXT="How a candidate thinks">
+<node CREATED="1569077039755" ID="ID_893604244" MODIFIED="1569077049300" TEXT="How data, logic and reasoning is used">
+<node CREATED="1569077211652" ID="ID_882599085" MODIFIED="1569077214806" TEXT="GCA interview">
+<node CREATED="1569077218020" ID="ID_392422458" MODIFIED="1569077223819" TEXT="General Cognitive Ability">
+<node CREATED="1569077227562" ID="ID_1243395616" MODIFIED="1569077244286" TEXT="How do we break down complex problems and come up with thoughful solutions"/>
+<node CREATED="1569077252437" ID="ID_932075655" MODIFIED="1569077254965" TEXT="Two parts">
+<node CREATED="1569077257106" ID="ID_1211012139" MODIFIED="1569077261149" TEXT="Behavioral">
+<node CREATED="1569077268889" ID="ID_670127605" MODIFIED="1569077274725" TEXT="Past behaviors">
+<node CREATED="1569077289381" ID="ID_1020673148" MODIFIED="1569077292126" TEXT="Example:">
+<node CREATED="1569077298148" ID="ID_581507279" MODIFIED="1569077306277" TEXT="Tell me about a team when you lead a team"/>
+<node CREATED="1569077307117" ID="ID_1635150826" MODIFIED="1569077337294" TEXT="Tell me about a time when you communicated effectively"/>
+<node CREATED="1569077337664" ID="ID_190084013" MODIFIED="1569077343831" TEXT="Tell me about a time when you failed"/>
+</node>
+</node>
+<node CREATED="1569077281310" ID="ID_1958152426" MODIFIED="1569077286382" TEXT="Assessment of past behaviors"/>
+</node>
+<node CREATED="1569077353437" ID="ID_1419987292" MODIFIED="1569077364847" TEXT="Hypothetical or situational">
+<node CREATED="1569077367248" ID="ID_1300261686" MODIFIED="1569077376802" TEXT="Real life Google situations we may face"/>
+</node>
+</node>
+</node>
+<node CREATED="1569077392899" ID="ID_305700489" MODIFIED="1569077394909" TEXT="Purpose">
+<node CREATED="1569077395109" ID="ID_1289817807" MODIFIED="1569077401545" TEXT="Evaluation of your problem solving skills"/>
+<node CREATED="1569077401835" ID="ID_498053697" MODIFIED="1569077406912" TEXT="Insight into your work style"/>
+<node CREATED="1569077407442" ID="ID_127859768" MODIFIED="1569077421714" TEXT="Opportunity to talk through situations you may face at Google">
+<node CREATED="1569077436055" ID="ID_1162785819" MODIFIED="1569077440685" TEXT="Or others have faced"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1569077467988" ID="ID_531907672" MODIFIED="1569077471839" TEXT="What is Google assessing?">
+<node CREATED="1569077471966" ID="ID_1865895790" MODIFIED="1569077478423" TEXT="Understanding of the question">
+<node CREATED="1569077591014" ID="ID_1223488431" MODIFIED="1569077601144" TEXT="Interviewer may give too little or too much information">
+<node CREATED="1569077606070" ID="ID_537159570" MODIFIED="1569077615020" TEXT="Distillation through the noice and get into the core issue"/>
+</node>
+</node>
+<node CREATED="1569077479293" ID="ID_517917629" MODIFIED="1569077485592" TEXT="Preparation strategy">
+<node CREATED="1569077618703" ID="ID_1356199033" MODIFIED="1569077634439" TEXT="How much have we parsed through the information given">
+<node CREATED="1569077638961" ID="ID_773688976" MODIFIED="1569077647841" TEXT="Then formulate a dynamic response"/>
+</node>
+</node>
+<node CREATED="1569077485824" ID="ID_1422213380" MODIFIED="1569077491657" TEXT="Ability to identify solutions">
+<node CREATED="1569077652114" ID="ID_1419462655" MODIFIED="1569077663259" TEXT="There is no right or wrong way to answer">
+<node CREATED="1569077665495" ID="ID_1732745536" MODIFIED="1569077676419" TEXT="Identify a solution"/>
+<node CREATED="1569077677187" ID="ID_1077415939" MODIFIED="1569077683251" TEXT="Justify the solution"/>
+<node CREATED="1569077683744" ID="ID_1746477851" MODIFIED="1569077690420" TEXT="Communicate it to the interviewer"/>
+</node>
+</node>
+<node CREATED="1569077491872" ID="ID_729349106" MODIFIED="1569077498397" TEXT="Justification for a specific solution"/>
+<node CREATED="1569077498637" ID="ID_1400150589" MODIFIED="1569077501297" TEXT="Communication"/>
+</node>
+</node>
+<node CREATED="1569077018553" ID="ID_505373486" MODIFIED="1569077022960" TEXT="Leadership skills">
+<node CREATED="1569077055363" ID="ID_499424144" MODIFIED="1569077065786" TEXT="emergent leadership">
+<node CREATED="1569077075859" ID="ID_784983365" MODIFIED="1569077089043" TEXT="Are we pro-active?"/>
+<node CREATED="1569077089299" ID="ID_1968512858" MODIFIED="1569077117519" TEXT="How are we taking leadership initiatives in campus or jobs"/>
+</node>
+</node>
+<node CREATED="1569077023615" ID="ID_1223321038" MODIFIED="1569077029305" TEXT="Role-related knowledge">
+<node CREATED="1569077121421" ID="ID_659717447" MODIFIED="1569077140874" TEXT="Do we have transferable skills to Googlle"/>
+</node>
+<node CREATED="1569077029753" ID="ID_1816350856" MODIFIED="1569077034073" TEXT="Googleyness">
+<node CREATED="1569077151359" ID="ID_27617115" MODIFIED="1569077161539" TEXT="Intellectual curiosity"/>
+<node CREATED="1569077161850" ID="ID_655775957" MODIFIED="1569077168893" TEXT="Can I collaborate and work with people"/>
+<node CREATED="1569077193753" ID="ID_1282122892" MODIFIED="1569077200799" TEXT="Think 10x or at scale"/>
+</node>
+</node>
+<node CREATED="1569076963742" ID="ID_910455063" MODIFIED="1569076968570" POSITION="left" TEXT="Building a strong response">
+<node CREATED="1569076993750" ID="ID_1318465434" MODIFIED="1569076995670" TEXT="framework">
+<node CREATED="1569077715213" ID="ID_449252531" MODIFIED="1569077721643" TEXT="Take a moment before responding">
+<node CREATED="1569077791925" ID="ID_1090556449" MODIFIED="1569077802158" TEXT="questions are complex and may have few layers"/>
+<node CREATED="1569077815026" ID="ID_1818635525" MODIFIED="1569077822778" TEXT="Ask if you need a moment"/>
+<node CREATED="1569077825584" ID="ID_757796592" MODIFIED="1569077831367" TEXT="Take pen and paper and write down"/>
+<node CREATED="1569077837830" ID="ID_351452125" MODIFIED="1569077847232" TEXT="Can ask interviewer to repeat the question"/>
+</node>
+<node CREATED="1569077721849" ID="ID_1592139482" MODIFIED="1569077727697" TEXT="Ask clarifying questions">
+<node CREATED="1569077809256" ID="ID_1278813917" MODIFIED="1569077876687" TEXT="Extract all important information from the interviwer before asnwering"/>
+</node>
+<node CREATED="1569077727895" ID="ID_1968486751" MODIFIED="1569077732010" TEXT="Share logical assumptions">
+<node CREATED="1569077884034" ID="ID_1177357508" MODIFIED="1569077909478" TEXT="We may not get all the information so we need to make some logical assumption"/>
+</node>
+<node CREATED="1569077732198" ID="ID_942575300" MODIFIED="1569077736945" TEXT="Show your work">
+<node CREATED="1569077916247" ID="ID_170262487" MODIFIED="1569077925707" TEXT="Communicate the thought process">
+<node CREATED="1569077928049" ID="ID_486391400" MODIFIED="1569077930417" TEXT="As we think"/>
+<node CREATED="1569077935095" ID="ID_576394625" MODIFIED="1569077940056" TEXT="Succinct and coherent manner"/>
+<node CREATED="1569077948850" ID="ID_1001505703" MODIFIED="1569077956338" TEXT="Communicate pros and cons"/>
+<node CREATED="1569077959592" ID="ID_691472857" MODIFIED="1569077968132" TEXT="Communicate how would we measure success"/>
+</node>
+</node>
+<node CREATED="1569077737254" ID="ID_1705233845" MODIFIED="1569077741559" TEXT="Consider the pros and cons"/>
+<node CREATED="1569077741766" ID="ID_1756677619" MODIFIED="1569077748795" TEXT="Think about how you measure success"/>
+<node CREATED="1569077748983" ID="ID_689110961" MODIFIED="1569077752938" TEXT="Tie it back to the role"/>
+</node>
+</node>
+<node CREATED="1569076969242" ID="ID_1458883835" MODIFIED="1569076974213" POSITION="right" TEXT="Practice!">
+<node CREATED="1569076997647" ID="ID_831699099" MODIFIED="1569077000325" TEXT="together"/>
+</node>
+<node CREATED="1569076975718" ID="ID_1620035225" MODIFIED="1569076979733" POSITION="left" TEXT="Interview Basics"/>
+</node>
+</map>
