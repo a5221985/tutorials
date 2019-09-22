@@ -25,5 +25,8 @@
 <node CREATED="1569135821672" ID="ID_1873205921" MODIFIED="1569135826146" TEXT="Package accordingly"/>
 </node>
 </node>
+<node CREATED="1569136350418" ID="ID_261271293" MODIFIED="1569136362817" POSITION="right" TEXT="G. Garbled information">
+<node CREATED="1569136363130" ID="ID_1052985315" MODIFIED="1569136367521" TEXT="Clean it up for them"/>
+</node>
 </node>
 </map>
