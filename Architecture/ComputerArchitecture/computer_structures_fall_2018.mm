@@ -132,6 +132,19 @@
 <node CREATED="1569143042893" ID="ID_306805623" MODIFIED="1569143066558" TEXT="If you have a conflict with your assigned section, choose a different one - no need to let us know"/>
 <node CREATED="1569143069309" ID="ID_34987671" MODIFIED="1569143081537" TEXT="If a conflict arises later in the course, let us know"/>
 </node>
+<node CREATED="1569153757033" ID="ID_145222097" MODIFIED="1569153767777" TEXT="Recitation attendance is mandatory"/>
+<node CREATED="1569153778932" ID="ID_585887924" MODIFIED="1569153802111" TEXT="Each lecture has a short take-home problem that is due at the beginning of recitation next day">
+<node CREATED="1569153802476" ID="ID_1247511856" MODIFIED="1569153814582" TEXT="We will use these to track recitation attendance"/>
+<node CREATED="1569153814816" ID="ID_1035518572" MODIFIED="1569153823352" TEXT="Full credit for an honest effort"/>
+</node>
+<node CREATED="1569153881919" ID="ID_110652701" MODIFIED="1569153890599" TEXT="Each lecture also has associated tutorial problems">
+<node CREATED="1569153896291" ID="ID_1792994373" MODIFIED="1569153904627" TEXT="Work on them before recitation"/>
+<node CREATED="1569153904852" ID="ID_113865558" MODIFIED="1569153916551" TEXT="Solutions will be released after recitation"/>
+</node>
+</node>
+<node CREATED="1569154031521" ID="ID_1078650062" MODIFIED="1569154037729" TEXT="Online and Offline Resources">
+<node CREATED="1569154042168" ID="ID_362575087" MODIFIED="1569154048925" TEXT="http://6004.mit.edu"/>
+<node CREATED="1569154059145" ID="ID_638350531" MODIFIED="1569154061664" TEXT="Piazza"/>
 </node>
 </node>
 <node CREATED="1569089074960" ID="ID_1763726905" MODIFIED="1569089101424" POSITION="left" TEXT="2. Combinational Devices and Boolean Algebra"/>
