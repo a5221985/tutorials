@@ -58,6 +58,62 @@
 </node>
 </node>
 </node>
+<node CREATED="1569141598893" ID="ID_363431590" MODIFIED="1569141601293" TEXT="Focus">
+<node CREATED="1569141601758" ID="ID_69850989" MODIFIED="1569141617011" TEXT="Programmable General-Purpose Processors">
+<node CREATED="1569141617251" ID="ID_931767967" MODIFIED="1569141630099" TEXT="Microprocessors are the basic building blocks of computer systems">
+<node CREATED="1569141630322" ID="ID_1533672455" MODIFIED="1569141648288" TEXT="Understanding them is crucial even if you do not plan to work as a hardware designer">
+<node CREATED="1569141669731" ID="ID_819390564" MODIFIED="1569141677217" TEXT="To be a better software engineer"/>
+</node>
+<node CREATED="1569141681291" ID="ID_915142986" MODIFIED="1569141681291" TEXT=""/>
+</node>
+<node CREATED="1569141690337" ID="ID_790040854" MODIFIED="1569141708630" TEXT="Microprocessors are the most sophisticated digital systems that exist today">
+<node CREATED="1569141709715" ID="ID_362384419" MODIFIED="1569141721875" TEXT="Understanding them will help you design all kinds of hardware"/>
+</node>
+<node CREATED="1569141737805" ID="ID_1154799209" MODIFIED="1569141750925" TEXT="We will use a new methodology that emphasizes learning-by-doing">
+<node CREATED="1569141752056" ID="ID_255023173" MODIFIED="1569141771790" TEXT="Building systems is the best way to understand them">
+<node CREATED="1569141773370" ID="ID_877015706" MODIFIED="1569141787969" TEXT="By the end of the term you would have designed a simple processor from scratch!">
+<node CREATED="1569141799131" ID="ID_1247856131" MODIFIED="1569141806018" TEXT="It is the best way to understand"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1569141833906" ID="ID_1372650134" MODIFIED="1569141844122" TEXT="We rely on Modern Design Tools">
+<node CREATED="1569141847761" ID="ID_25584059" MODIFIED="1569141860010" TEXT="Bluespec SystemVerilog Design Flow">
+<node CREATED="1569141860929" ID="ID_479618005" MODIFIED="1569141865513" TEXT="BSV source">
+<node CREATED="1569141870136" ID="ID_480955724" MODIFIED="1569141879150" TEXT="Bluespec Compiler">
+<node CREATED="1569141882344" ID="ID_1045076251" MODIFIED="1569141888823" TEXT="Bluespec Simulator">
+<node CREATED="1569141898016" ID="ID_747504129" MODIFIED="1569141908767" TEXT="VCD output">
+<node CREATED="1569141910967" ID="ID_445663215" MODIFIED="1569141916302" TEXT="Power Analysis"/>
+</node>
+</node>
+<node CREATED="1569141889069" ID="ID_218249032" MODIFIED="1569141893247" TEXT="Verilog RTL">
+<node CREATED="1569141921424" ID="ID_1101334275" MODIFIED="1569141930184" TEXT="Vivado Simulator">
+<node CREATED="1569141932157" ID="ID_436870549" MODIFIED="1569141937464" TEXT="VCD output"/>
+</node>
+<node CREATED="1569141952859" ID="ID_1467880680" MODIFIED="1569141960357" TEXT="Vivado Synthesis">
+<node CREATED="1569141977563" ID="ID_721632149" MODIFIED="1569141978987" TEXT="Gates">
+<node CREATED="1569141980686" ID="ID_731436691" MODIFIED="1569141984260" TEXT="Power Analysis"/>
+</node>
+</node>
+<node CREATED="1569141961523" ID="ID_260621493" MODIFIED="1569141967413" TEXT="Design Compiler">
+<node CREATED="1569141971202" ID="ID_1584992377" MODIFIED="1569141972780" TEXT="ASIC"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1569142097180" ID="ID_1058722651" MODIFIED="1569142109468" TEXT="Compiler complains if not right"/>
+<node CREATED="1569142118986" ID="ID_1818477594" MODIFIED="1569142124028" TEXT="Parallelism is important">
+<node CREATED="1569142124435" ID="ID_816963416" MODIFIED="1569142133084" TEXT="Can be designed with the tool"/>
+</node>
+</node>
+<node CREATED="1569142019160" ID="ID_1006923271" MODIFIED="1569142049497" TEXT="Designs are always expressed in a high-level programming language, which is compiled to generate circuit descriptions">
+<node CREATED="1569142059984" ID="ID_601855184" MODIFIED="1569142082221" TEXT="To physical devices"/>
+</node>
+</node>
+<node CREATED="1569142158348" ID="ID_1906483356" MODIFIED="1569142161536" TEXT="Course Mechanics">
+<node CREATED="1569142161984" ID="ID_201387669" MODIFIED="1569142176303" TEXT="2 lectures/week: handouts, videos, and reference materials on website"/>
+</node>
 </node>
 <node CREATED="1569089074960" ID="ID_1763726905" MODIFIED="1569089101424" POSITION="left" TEXT="2. Combinational Devices and Boolean Algebra"/>
 <node CREATED="1569089104403" ID="ID_1400362867" MODIFIED="1569089115780" POSITION="right" TEXT="3. Describing Combinational Circuits in BSV"/>
