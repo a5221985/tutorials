@@ -113,6 +113,25 @@
 </node>
 <node CREATED="1569142158348" ID="ID_1906483356" MODIFIED="1569142161536" TEXT="Course Mechanics">
 <node CREATED="1569142161984" ID="ID_201387669" MODIFIED="1569142176303" TEXT="2 lectures/week: handouts, videos, and reference materials on website"/>
+<node CREATED="1569142826330" ID="ID_715172250" MODIFIED="1569142848825" TEXT="2 recitations/week: work through tutorial problems using skills and concepts from previous lecture"/>
+<node CREATED="1569142850216" ID="ID_1015785267" MODIFIED="1569142857892" TEXT="8 mandatory lab exercises">
+<node CREATED="1569142861781" ID="ID_67815421" MODIFIED="1569142873650" TEXT="Online submission + check-off meetings in lab"/>
+<node CREATED="1569142874884" ID="ID_1950816425" MODIFIED="1569142882474" TEXT="Due throughout the term">
+<node CREATED="1569142883172" ID="ID_1640905541" MODIFIED="1569142892893" TEXT="(7 free late days, see website)"/>
+</node>
+<node CREATED="1569142948841" ID="ID_1052221404" MODIFIED="1569142955477" TEXT="One open-ended design project">
+<node CREATED="1569142958708" ID="ID_576234236" MODIFIED="1569142964755" TEXT="Due at the end of the term"/>
+</node>
+<node CREATED="1569142967502" ID="ID_489840746" MODIFIED="1569142986878" TEXT="3 quizzes: Oct. 11 and Nov. 8 7:30 - 9:30 PM + final">
+<node CREATED="1569142987413" ID="ID_1402465684" MODIFIED="1569142999319" TEXT="If you have a conflict, contact us to schedule a makeup"/>
+</node>
+</node>
+</node>
+<node CREATED="1569143022792" ID="ID_997910694" MODIFIED="1569143027910" TEXT="Recitation Mechanics">
+<node CREATED="1569143031262" ID="ID_953576973" MODIFIED="1569143041559" TEXT="12 recitation sections on Wed &amp; Fri">
+<node CREATED="1569143042893" ID="ID_306805623" MODIFIED="1569143066558" TEXT="If you have a conflict with your assigned section, choose a different one - no need to let us know"/>
+<node CREATED="1569143069309" ID="ID_34987671" MODIFIED="1569143081537" TEXT="If a conflict arises later in the course, let us know"/>
+</node>
 </node>
 </node>
 <node CREATED="1569089074960" ID="ID_1763726905" MODIFIED="1569089101424" POSITION="left" TEXT="2. Combinational Devices and Boolean Algebra"/>
