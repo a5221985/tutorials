@@ -202,7 +202,27 @@
 <node CREATED="1569633520406" ID="ID_1294123237" MODIFIED="1569633540162" TEXT="Hard to distinguish V_TH - e from V_TH + e"/>
 </node>
 </node>
-<node CREATED="1569633559608" ID="ID_1473958814" MODIFIED="1569633562993" TEXT="Attempt 2:"/>
+<node CREATED="1569633559608" ID="ID_1473958814" MODIFIED="1569633562993" TEXT="Attempt 2:">
+<node CREATED="1569633606632" ID="ID_794417779" MODIFIED="1569633612746" TEXT="V &lt;= V_L">
+<node CREATED="1569633615699" ID="ID_872067080" MODIFIED="1569633616978" TEXT="0"/>
+</node>
+<node CREATED="1569633618242" ID="ID_1716354748" MODIFIED="1569633625722" TEXT="V &gt;= V_H">
+<node CREATED="1569633626642" ID="ID_1547883382" MODIFIED="1569633627563" TEXT="1"/>
+</node>
+<node CREATED="1569633628395" ID="ID_1642207509" MODIFIED="1569633638787" TEXT="V_L &lt; V &lt; V_H">
+<node CREATED="1569633639258" ID="ID_487402098" MODIFIED="1569633641971" TEXT="Undefined"/>
+</node>
+<node CREATED="1569633749982" ID="ID_1392533152" MODIFIED="1569633753095" TEXT="Problem">
+<node CREATED="1569633753328" ID="ID_1901569063" MODIFIED="1569633806748" TEXT="Upstream device transmits a signal at V_L - e, a valid &quot;0&quot;. Noise on the wire causes the downstream device to receive V_L + e, which is undefined"/>
+</node>
+<node CREATED="1569633871574" ID="ID_1852917905" MODIFIED="1569633873767" TEXT="Solution">
+<node CREATED="1569633914028" ID="ID_1499664205" MODIFIED="1569633940513" TEXT="Output voltages should use narrower ranges, so that signal will still be valid when it reaches an input even if there is noise">
+<node CREATED="1569633970784" ID="ID_1929392983" MODIFIED="1569633972988" TEXT="Example">
+<node CREATED="1569633973268" ID="ID_694926556" MODIFIED="1569634005275" TEXT="If we transmit anything close to 0 V, and we receive upto 2 V, then it is 0"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1569633461590" ID="ID_1201570112" MODIFIED="1569633480542" TEXT="Use the same convention for every component and wire in our digital system"/>
 </node>
