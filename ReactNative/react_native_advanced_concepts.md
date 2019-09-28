@@ -131,6 +131,22 @@
 				</View>
 
 ### Moving a Ball ###
+1. `main.js`
+
+		const styles ...
+			flex: 1,
+			backgroundColor: '#fff'
+			
+2. `Ball.js`
+	1. Answers to questions:
+		1. Where is the item right now?
+			1. Use `Animated.ValueXY`
+		2. Where is the element moving to?
+			1. Use `Animated.Spring`
+		3. Which element are we moving?
+			1. Use `Animated.View`
+3. `Ball.js`
+
 ### How Animations Work ###
 ### Animation from Another Angle ###
 ### Swipe Deck Props ###
