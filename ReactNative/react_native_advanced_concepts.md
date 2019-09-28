@@ -93,6 +93,42 @@
 6. Start simulator
 	1. Open the project in code editor
 	2. `main.js`
+		1. For expo - common for Android and iOS
+			1. Change text - refresh
+7. Separate component
+	1. `src/Ball.js`
+
+			import React, { Component } from 'react';
+			import { View } from 'react-native';
+			
+			class Ball extends Component {
+				render() {
+					return (
+						<View style={styles.ball} />
+					);
+				}
+			}
+			
+			const styles = {
+				ball: {
+					height: 60,
+					width: 60,
+					borderRadius: 30,
+					borderWidth: 30,
+					borderColor: 'black'
+				}
+			};
+			
+			export default Ball;
+			
+	2. `main.js`
+
+			import Ball from './src/Ball';
+			
+			...
+				<View style={styles.container}>
+					<Ball />
+				</View>
 
 ### Moving a Ball ###
 ### How Animations Work ###
