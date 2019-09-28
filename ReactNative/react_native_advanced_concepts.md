@@ -78,7 +78,18 @@
 1. Move ball across diagonally
 2. Expo project
 3. Using `Animated` module
-4. 
+4. Three questions answered by Animated module
+	1. What's the current position of the element being animated? (Values)
+		1. `Value`, `ValueXY`
+	2. How is the animation changing? (Types)
+		1. 	`Spring`
+		2. `Decay`
+		3. `Timing`
+	3. Apply the animation's current position to an actual component (Component)
+		1. `View`
+		2. `Text`
+		3. `Image`
+5. Moving circle down to bottom right hand side of the screen
 
 ### Moving a Ball ###
 ### How Animations Work ###
