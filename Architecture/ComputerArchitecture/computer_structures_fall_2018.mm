@@ -218,7 +218,46 @@
 <node CREATED="1569633871574" ID="ID_1852917905" MODIFIED="1569633873767" TEXT="Solution">
 <node CREATED="1569633914028" ID="ID_1499664205" MODIFIED="1569633940513" TEXT="Output voltages should use narrower ranges, so that signal will still be valid when it reaches an input even if there is noise">
 <node CREATED="1569633970784" ID="ID_1929392983" MODIFIED="1569633972988" TEXT="Example">
-<node CREATED="1569633973268" ID="ID_694926556" MODIFIED="1569634005275" TEXT="If we transmit anything close to 0 V, and we receive upto 2 V, then it is 0"/>
+<node CREATED="1569633973268" ID="ID_694926556" MODIFIED="1569634005275" TEXT="If we transmit anything close to 0 V, and we receive upto 2 V, then it is 0">
+<node CREATED="1569634011397" ID="ID_1336759499" MODIFIED="1569634020582" TEXT="Large noise margin"/>
+</node>
+</node>
+<node CREATED="1569634031467" ID="ID_1846681515" MODIFIED="1569634035845" TEXT="Proposed fix:">
+<node CREATED="1569634036052" ID="ID_1319390486" MODIFIED="1569634049029" TEXT="Different specifications for inputs and outputs">
+<node CREATED="1569634049246" ID="ID_1288095375" MODIFIED="1569634053614" TEXT="Digital output">
+<node CREATED="1569634053840" ID="ID_515401689" MODIFIED="1569634068637" TEXT="&quot;0&quot; &lt;= V_OL, &quot;1&quot; &gt;= V_OH"/>
+</node>
+<node CREATED="1569634092616" ID="ID_1270447340" MODIFIED="1569634096537" TEXT="Digital input">
+<node CREATED="1569634096822" ID="ID_279447756" MODIFIED="1569634117074" TEXT="&quot;0&quot; &lt;= V_IL, &quot;1&quot; &gt;= V_IH">
+<node CREATED="1569634121386" ID="ID_1482716712" MODIFIED="1569634129731" TEXT="V_IL &gt; V_OL"/>
+<node CREATED="1569634130346" ID="ID_910629915" MODIFIED="1569634145906" TEXT="V_IH &lt; V_OH"/>
+</node>
+</node>
+</node>
+<node CREATED="1569634193370" ID="ID_857492251" MODIFIED="1569634195521" TEXT="Summary">
+<node CREATED="1569634195733" ID="ID_674070147" MODIFIED="1569634221698" TEXT="Digital device accepts marginal inputs and provides unquestionable outputs (to leave room for noise)"/>
+</node>
+<node CREATED="1569634279288" ID="ID_228296236" MODIFIED="1569634285814" TEXT="Digital system are restorative">
+<node CREATED="1569634285996" ID="ID_229540832" MODIFIED="1569634294254" TEXT="Analog systems">
+<node CREATED="1569634294462" ID="ID_203229359" MODIFIED="1569634301031" TEXT="Noise accumulates">
+<node CREATED="1569634305220" ID="ID_1696694775" MODIFIED="1569634333407" TEXT="V1 + e -&gt; f(V1 + e) -&gt; f(V1 + e) + e2 ..."/>
+</node>
+</node>
+<node CREATED="1569634338461" ID="ID_134688121" MODIFIED="1569634341246" TEXT="Digital systems">
+<node CREATED="1569634341602" ID="ID_1606584876" MODIFIED="1569634347908" TEXT="Nose is canceled at each stage">
+<node CREATED="1569634348483" ID="ID_335433536" MODIFIED="1569634385650" TEXT="V1 -&gt; V1 + e1 -&gt; f(V1) -&gt; f(V1) + e2 -&gt; g(f(V1))">
+<node CREATED="1569634403449" ID="ID_796132532" MODIFIED="1569634414817" TEXT="Very large and trivial engineering of robust systems is possible"/>
+</node>
+<node CREATED="1569634432724" ID="ID_254007495" MODIFIED="1569634441596" TEXT="This kind of devices need active components">
+<node CREATED="1569634441854" ID="ID_1476961326" MODIFIED="1569634450636" TEXT="Which can inject power into the devices">
+<node CREATED="1569634465868" ID="ID_740166101" MODIFIED="1569634476576" TEXT="Just resistors, inductors and capacitors is not enough">
+<node CREATED="1569634477123" ID="ID_259855794" MODIFIED="1569634490218" TEXT="Some sort of amplification is acting against the noise"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
