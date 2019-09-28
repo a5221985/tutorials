@@ -90,6 +90,9 @@
 		2. `Text`
 		3. `Image`
 5. Moving circle down to bottom right hand side of the screen
+6. Start simulator
+	1. Open the project in code editor
+	2. `main.js`
 
 ### Moving a Ball ###
 ### How Animations Work ###
