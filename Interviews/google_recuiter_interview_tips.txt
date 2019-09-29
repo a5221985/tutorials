@@ -167,5 +167,22 @@ How to Work with Recruiters:
 	
 Add a Little Detail to Your Interview Answers:
 1. Add small details for interview success
-2. 
+	1. 5-10
+	2. Items:
+		1. Not getting us away from answering the interview question
+	3. Distinction
+		1. Tell me about project you were managing where a dispute between stakeholders threatened the success of the project, and what did you do?
+			1. Situation (keep it short and avoid extranious detail)
+				1. Higher level:
+					1. Lead sales person and lead engineer could not agree on an advertising feature that organization wanted to add to drive the revenue platform
+						1. Already month behind deadline
+						2. Pressure from management to move the project to completion had hit a tipping point
+				2. Adding details
+					1. Bob is slares person and Jane a lead engineer and newer employee could not agree on advertising feature that would add up to a $ 10M to our revenue for our organization per year
+					2. At that time we were already a month behind deadline and pressure mounted from our executive leadership that included my boss who was sending emails at 5 AM everyday which was hitting a tipping point and we had to move forward with our project
+					3. Details:
+						1. We gave names to employees and added their tenure
+						2. We added type (Advertising platform)
+						3. We added communication (5 AM emails)
+				
 		
