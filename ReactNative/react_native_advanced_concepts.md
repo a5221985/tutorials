@@ -186,6 +186,8 @@
 		5. `Animated.View` updates its styling
 
 ### Swipe Deck Props ###
+
+
 ### Component Boilerplate ###
 ### Deck Data ###
 ### Interplay Between Components ###
