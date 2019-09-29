@@ -159,14 +159,22 @@
 			
 			render() {
 				return (
-					<Animated.View style={this.position.getLayout()}>
-						<View style={styles.ball} />
+					<Animated.View style={this.position.getLayout()}> <!-- this is the element we are animating, it can contain as many nested elements as possible - active element -->						<View style={styles.ball} />
 					</Animated>
 				);
 			}
 
 ### How Animations Work ###
 ### Animation from Another Angle ###
+1. Workflow for any change
+
+		Get initial state
+		Render component
+		Update state (causes re-render)
+		Component re-renders
+		
+2. 
+
 ### Swipe Deck Props ###
 ### Component Boilerplate ###
 ### Deck Data ###
