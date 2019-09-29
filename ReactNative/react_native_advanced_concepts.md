@@ -150,7 +150,7 @@
 		import { View, Animated } from 'react-native';
 		...
 		class Ball ... {
-			componentWillMount() {
+			componentWillMount() { // called before render()
 				this.position = new Animated.ValueXY(0, 0); // where the item is at any point in time (we can inspect this)
 				Animated.spring(this.position, {
 					toValue: { x: 200, y: 500 } // where is the element moving to
@@ -173,7 +173,17 @@
 		Update state (causes re-render)
 		Component re-renders
 		
-2. 
+2. `render()` only once - `Animated` takes it from there
+3. Lifecycle:
+	1. Component hierarchy
+		1. `Ball`
+			1. `Animated.View` (`ValueXY` is passed as a prop)
+	2. Component lifecycle
+		1. Ball + Animated.View rendered (first)
+		2. `Animated.View` inspects its props (`style`), finds animated value
+		3. `ValueXY` starts changing
+		4. `Animated.View` sees updated value from `ValueXY`
+		5. `Animated.View` updates its styling
 
 ### Swipe Deck Props ###
 ### Component Boilerplate ###
