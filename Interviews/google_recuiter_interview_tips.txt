@@ -184,5 +184,13 @@ Add a Little Detail to Your Interview Answers:
 						1. We gave names to employees and added their tenure
 						2. We added type (Advertising platform)
 						3. We added communication (5 AM emails)
+					4. Interviewers can connect to the employees and they understand the pressure and tenure
+						1. Male female dynamics
+						2. Picturing video ads
+						3. Receiving communication outside working hours
+			2. Action
+				1. I met lead sales person and lead engineer separately and we got them into a room to hash things out. We ordered food and blocked enough time to come out with a resolution. There was a lot of back and forth but we had a path by the eod
+				2. Details
+					1. Get Bob and Jane to the same room. Before that I had a chat with each one of them to understand their viewpoints and challenges and if there is any areas they can be flexible. Based on these findings, I got them both sit in the room and we went through the deck. Secondly I got them white board the challenges and solutions. Each of them were actively listening
 				
 		
