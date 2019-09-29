@@ -151,10 +151,10 @@
 		...
 		class Ball ... {
 			componentWillMount() {
-				this.position = new Animated.ValueXY(0, 0);
+				this.position = new Animated.ValueXY(0, 0); // where the item is at any point in time (we can inspect this)
 				Animated.spring(this.position, {
-					toValue: { x: 200, y: 500 }
-				}).start();
+					toValue: { x: 200, y: 500 } // where is the element moving to
+				}).start(); // start immediately
 			}
 			
 			render() {
