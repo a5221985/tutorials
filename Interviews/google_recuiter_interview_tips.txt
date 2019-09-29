@@ -191,6 +191,10 @@ Add a Little Detail to Your Interview Answers:
 			2. Action
 				1. I met lead sales person and lead engineer separately and we got them into a room to hash things out. We ordered food and blocked enough time to come out with a resolution. There was a lot of back and forth but we had a path by the eod
 				2. Details
-					1. Get Bob and Jane to the same room. Before that I had a chat with each one of them to understand their viewpoints and challenges and if there is any areas they can be flexible. Based on these findings, I got them both sit in the room and we went through the deck. Secondly I got them white board the challenges and solutions. Each of them were actively listening
+					1. Get Bob and Jane to the same room. Before that I had a chat with each one of them to understand their viewpoints and challenges and if there is any areas they can be flexible. Based on these findings, I got them both sit in the room and we went through the deck. Secondly I got them white board the challenges and solutions. Each of them were actively listening (practice). We ordered pizza from a good place which put them in a good mood. Last couple of hours, we brought our stakeholders and talked to them about our plan and made sure there is good viability for that plan moving forward and we were able to move our project forward.
+						1. We gave names
+						2. Visuals (deck, whiteboard, listening piece)
+						3. Food - pizza
+						4. Talk about other stakeholders could also help
 				
 		
