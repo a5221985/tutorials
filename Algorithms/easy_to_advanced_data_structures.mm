@@ -1953,8 +1953,7 @@
       insert(6)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1568574473084" ID="ID_244751343" MODIFIED="1568574477750" TEXT="Worst case example">
@@ -1983,8 +1982,7 @@
       insert(6)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1568574515004" ID="ID_1379986102" MODIFIED="1568574522577" TEXT="takes linear time">
 <node CREATED="1568574524690" ID="ID_1077835708" MODIFIED="1568574527121" TEXT="solution">
 <node CREATED="1568574527341" ID="ID_555961881" MODIFIED="1568574533558" TEXT="balanced binary search trees"/>
@@ -2012,10 +2010,14 @@
       </li>
     </ol>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1568681482430" ID="ID_122331550" MODIFIED="1568681500116" TEXT="BST invariant: left subtree has smaller elements and right subtree has larger elements"/>
 </node>
+</node>
+</node>
+<node CREATED="1569810446966" ID="ID_1888254347" MODIFIED="1569810451066" TEXT="Find phase">
+<node CREATED="1569810451308" ID="ID_157612766" MODIFIED="1569810472742" TEXT="When searching our BST for a node with a particular value one of four things will happen:">
+<node CREATED="1569810473200" ID="ID_1901590796" MODIFIED="1569810488138" TEXT="1. We hit a null node at which point we know the value does not exist withing our BST"/>
 </node>
 </node>
 </node>
