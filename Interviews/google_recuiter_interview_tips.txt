@@ -196,5 +196,35 @@ Add a Little Detail to Your Interview Answers:
 						2. Visuals (deck, whiteboard, listening piece)
 						3. Food - pizza
 						4. Talk about other stakeholders could also help
+						
+Questions to Ask an Interviewer:
+1. Always ask questions
+	1. Not just at the end
+	2. Throughout the interview (get insight into what they want for the role)
+		1. Why? To show that we are interested in the role
+			1. Big decision
+		2. Apply the answers in future interviews as well
+			1. To know the process
+			2. To know what they are looking for
+			3. Engaged in dialogue but run out of time is okay
+			4. Not asking shows the candidate is not interested in the role
+2. It is okay to go with a piece of paper with questions written down
+	1. Shows a level of preparation
+		1. Different lists can be prepared for different people
+			1. 7 out of 20 ...
+		2. Questions differ from hiring manager from team member, cross functional team member ...
+3. Questions depend on interviewer and adapting to personality type
+	1. Not all questions are appropriate
+		1. Depends on role and personality type
+			1. If someone likes to answer, can go a little deep
+			2. If someone is cold and not answering questions much, do not dig deeper
+		2. Adapting candidates can get hired
+4. Examples:
+	1. Get to know your interviewer personally
+		1. What do they like about the company
+		2. What do they like about their role
+		3. What is that they think is great about the culture, environment
+		4. What do they like about their position
+		5. What is the career growth been like in the organization
 				
 		
