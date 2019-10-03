@@ -226,5 +226,38 @@ Questions to Ask an Interviewer:
 		3. What is that they think is great about the culture, environment
 		4. What do they like about their position
 		5. What is the career growth been like in the organization
+		6. ... take interest in them
+	2. Types of persons
+		1. Big company - recruiter
+		2. Big-medium sized company - HR, wrap recruiter
+		3. Small company - hiring manager
+	3. Questions:
+		1. About the position
+			1. Why is the position open?
+			2. How long has the position been open?
+			3. How long are the candidates been interviewing?
+				1. If they can tell you
+			4. Why do I think my background is a good fit?
+			5. Logistics
+				1. Location of the company
+					1. Can I work out of another location?
+					2. Can I work remotely?
+					3. Does the job require travel?
+			6. What is the salary range?
+			7. What are the specific benefits including vacation, PTO, holidays, sick days, medical, dental and any other perks
+			8. What is the process and how many steps do they have?
+			9. How long is the process?
+			10. How often will I hear back from you?
+			11. Will you let me know if you are out on vacation?
+				1. To know who the backup person is
+			12. How many interviews are conducted?
+			13. What are the stages?
+			14. Who is the final decision maker?
+			15. What topics will be covered in the interviews? (upfront)
+		2. In the interview:
+			1. Know about them
+	4. Hiring manager:
+		1. I looked you up on LinkedIn but tell me about your career path (learning about them)
+		2. How can hiring for this position help with your biggest challenges, success, career path, fit, typical day, clarify/expand on you
 				
 		
