@@ -258,6 +258,26 @@ Questions to Ask an Interviewer:
 			1. Know about them
 	4. Hiring manager:
 		1. I looked you up on LinkedIn but tell me about your career path (learning about them)
-		2. How can hiring for this position help with your biggest challenges, success, career path, fit, typical day, clarify/expand on you
+		2. How can hiring for this position help with your biggest challenges, success look like (6 months, 2 years), typical career path for this position, fit in the overall strategy of the organization, typical day in this role, clarify/expand on you - are there any questions from the way I have answered today or from my background that I have answered for you (critical question)
+			1. Make sure nothing is left lingering
+		3. Any additional skills they see to be a fit for the role
+			1. Next steps
+	5. Team member:
+		1. Their background and what they like about the company
+		2. What do you look for in a team member?
+			1. Does the team work on projects or alone?
+			2. How do I foster a collaborative team
+			3. Team focused and how you can help/have a positive impact for them
+			4. How will hiring for this position help you?
+			5. Is there a specific pain point that we are facing that this position can take off or help you with
+		3. Be team focused
+	6. Cross functional: Outside team member who the team collaborates with
+		1. Background ...
+		2. How does this team interact with your team?
+		3. How often would you be working together?
+		4. How does this role help your team have success?
+		5. Team focussed
+5. Close: For sales person
+	1. Is there a reason why you would not hire me for this role?
 				
 		
