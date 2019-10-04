@@ -184,6 +184,35 @@
 <node CREATED="1570152945831" ID="ID_1543600696" MODIFIED="1570152981512" TEXT="Give one paragraph with your background and interest in the company and inquiry to learn about it more"/>
 </node>
 </node>
+<node CREATED="1570154901280" ID="ID_1834795500" MODIFIED="1570154905157" TEXT="Interview Process">
+<node CREATED="1570154905354" ID="ID_1543843147" MODIFIED="1570154909533" TEXT="Initial Outreach"/>
+<node CREATED="1570154913683" ID="ID_498437157" MODIFIED="1570154916028" TEXT="Phone screen">
+<node CREATED="1570154926574" ID="ID_1137090475" MODIFIED="1570154939085" TEXT="Answer questions about the role I may have"/>
+</node>
+<node CREATED="1570154943994" ID="ID_1162145016" MODIFIED="1570154947909" TEXT="Technical interview"/>
+<node CREATED="1570154953260" ID="ID_126166449" MODIFIED="1570154958579" TEXT="Coding assignment (sometimes)">
+<node CREATED="1570154958893" ID="ID_862724290" MODIFIED="1570154968349" TEXT="GitHub practice comes in handy">
+<node CREATED="1570154973414" ID="ID_1779590425" MODIFIED="1570154980291" TEXT="Prototype a solution and send it back"/>
+</node>
+</node>
+<node CREATED="1570154989229" ID="ID_677978639" MODIFIED="1570154993009" TEXT="Onsite Interview">
+<node CREATED="1570154993367" ID="ID_1974138508" MODIFIED="1570155002687" TEXT="Learn more about the company&apos;s principles and values">
+<node CREATED="1570155005237" ID="ID_1759011223" MODIFIED="1570155014087" TEXT="Company wants to know if I am a cultural fit"/>
+<node CREATED="1570155033919" ID="ID_1942603949" MODIFIED="1570155041994" TEXT="Don&apos;t get upset if you don&apos;t get selected">
+<node CREATED="1570155042363" ID="ID_1969389575" MODIFIED="1570155046275" TEXT="Have a backup plan"/>
+</node>
+</node>
+<node CREATED="1570155059668" ID="ID_712729515" MODIFIED="1570155070116" TEXT="Send follow up email to company after the interview"/>
+</node>
+<node CREATED="1570155023727" ID="ID_577195213" MODIFIED="1570155025355" TEXT="Offer">
+<node CREATED="1570155087598" ID="ID_1519599189" MODIFIED="1570155089453" TEXT="If rejected">
+<node CREATED="1570155089705" ID="ID_1203373356" MODIFIED="1570155094685" TEXT="rejections.us">
+<node CREATED="1570155095337" ID="ID_483790760" MODIFIED="1570155106199" TEXT="Collection of past rejection stories of top engineers"/>
+</node>
+</node>
+</node>
+<node CREATED="1570155025580" ID="ID_607234852" MODIFIED="1570155026293" TEXT="Hire"/>
+</node>
 </node>
 </node>
 </node>
