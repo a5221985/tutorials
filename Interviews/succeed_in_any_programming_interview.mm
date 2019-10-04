@@ -68,14 +68,52 @@
 <node CREATED="1570151868403" ID="ID_1445301732" MODIFIED="1570151872828" TEXT="Ask the question">
 <node CREATED="1570151875749" ID="ID_480111505" MODIFIED="1570151912910" TEXT="What is the one thing I could have done or known that would have made everything easier?">
 <node CREATED="1570151918635" ID="ID_662033639" MODIFIED="1570151931094" TEXT="We may not repeat the same mistake the next time"/>
+<node CREATED="1570151948336" ID="ID_1558299221" MODIFIED="1570151958608" TEXT="Understand how long did you take to solve the problem"/>
+<node CREATED="1570151970529" ID="ID_1276493176" MODIFIED="1570151976681" TEXT="Understand weeknesses">
+<node CREATED="1570151976886" ID="ID_597648483" MODIFIED="1570152004160" TEXT="Do you have a good understanding of algorithm design paradigms like backtracking and exhaustive search?"/>
+<node CREATED="1570152004572" ID="ID_1151202511" MODIFIED="1570152014028" TEXT="Do you know the pros and cons of each data structure?"/>
+<node CREATED="1570152014263" ID="ID_707234077" MODIFIED="1570152021786" TEXT="Are we inside of a simulation?"/>
 </node>
 </node>
+</node>
+</node>
+<node CREATED="1570152065285" ID="ID_1032601143" MODIFIED="1570152073863" TEXT="We are learning to spot patterns">
+<node CREATED="1570152078343" ID="ID_764210166" MODIFIED="1570152082245" TEXT="Binary Search"/>
+<node CREATED="1570152084111" ID="ID_1546671843" MODIFIED="1570152088824" TEXT="Min no of search">
+<node CREATED="1570152089196" ID="ID_327815266" MODIFIED="1570152090942" TEXT="BFS"/>
+</node>
+<node CREATED="1570152091884" ID="ID_935858637" MODIFIED="1570152095071" TEXT="Optimization">
+<node CREATED="1570152095239" ID="ID_988426690" MODIFIED="1570152100314" TEXT="Dynamic Programming">
+<node CREATED="1570152100571" ID="ID_1382070089" MODIFIED="1570152102142" TEXT="Usually"/>
+</node>
+</node>
+<node CREATED="1570152119888" ID="ID_1519062782" MODIFIED="1570152131049" TEXT="Practice spotting patterns by solving more problems"/>
 </node>
 </node>
 </node>
 <node CREATED="1570151673056" ID="ID_788438520" MODIFIED="1570151687089" TEXT="Practice on Whiteboard"/>
 <node CREATED="1570151690853" ID="ID_1855862290" MODIFIED="1570151700608" TEXT="Spend at-least 2 hours a day on leetcode">
 <node CREATED="1570151701584" ID="ID_883379922" MODIFIED="1570151706231" TEXT="45 minutes per problem"/>
+</node>
+<node CREATED="1570152149101" ID="ID_1719728531" MODIFIED="1570152154444" TEXT="Steps to solve problems">
+<node CREATED="1570152154659" ID="ID_62088943" MODIFIED="1570152165596" TEXT="Step 1: Come up with a brute force solution"/>
+<node CREATED="1570152171653" ID="ID_1746516037" MODIFIED="1570152181227" TEXT="Step 2: Conceptualize a simpler version of the problem">
+<node CREATED="1570152190397" ID="ID_1887308406" MODIFIED="1570152197907" TEXT="Try to understand the pattern with simpler examples"/>
+</node>
+<node CREATED="1570152201138" ID="ID_877060046" MODIFIED="1570152206808" TEXT="Step 3: Use visualization">
+<node CREATED="1570152208798" ID="ID_1874053668" MODIFIED="1570152213470" TEXT="Aids you to think about it"/>
+</node>
+<node CREATED="1570152214652" ID="ID_1887676475" MODIFIED="1570152275396" TEXT="Step 4: More efficient solution">
+<node CREATED="1570152275590" ID="ID_1187752696" MODIFIED="1570152282271" TEXT="Use the visualization"/>
+</node>
+<node CREATED="1570152287280" ID="ID_1919016904" MODIFIED="1570152293239" TEXT="Step 5: Test solution">
+<node CREATED="1570152297657" ID="ID_272501734" MODIFIED="1570152301095" TEXT="With few examples"/>
+</node>
+<node CREATED="1570152301895" ID="ID_1354423968" MODIFIED="1570152314881" TEXT="Step 6: Explain the solution in plain English"/>
+<node CREATED="1570152316905" ID="ID_357413945" MODIFIED="1570152328031" TEXT="Step 7: Write bullet-points of solution"/>
+<node CREATED="1570152336690" ID="ID_1740842970" MODIFIED="1570152344845" TEXT="Step 8: Write pseudocode"/>
+<node CREATED="1570152345428" ID="ID_847860726" MODIFIED="1570152354371" TEXT="Step 9: Write function definitions"/>
+<node CREATED="1570152360737" ID="ID_145357687" MODIFIED="1570152367450" TEXT="Step 10: Write function implementation"/>
 </node>
 </node>
 </node>
