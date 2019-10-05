@@ -279,5 +279,14 @@ Questions to Ask an Interviewer:
 		5. Team focussed
 5. Close: For sales person
 	1. Is there a reason why you would not hire me for this role?
+	
+How to End Your Answer to an Interview Question:
+1. Follow Up/ Clarifying Questions:
+	1. Behavioral: Questions on Actions you took
+		1. Targeted for your interviewer: Aligning with what interview wants to hear
+	2. Open ended scenario based/ Estimation: Clarify/ follow up on what was not clear
+		1. Covering your tracks:
+			1. Clarify even more to the interviewer
+	
 				
 		
