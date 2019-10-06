@@ -113,6 +113,41 @@
 <node CREATED="1570368547611" ID="ID_1283674872" MODIFIED="1570368562597" TEXT="Includes: input data, mock objects, loading database with known data, etc..."/>
 </node>
 </node>
+<node CREATED="1570368600393" ID="ID_1127893130" MODIFIED="1570368606177" TEXT="Testing Terminology">
+<node CREATED="1570368606594" ID="ID_597981050" MODIFIED="1570368620601" TEXT="Unit tests/ Unit Testing - Code written to test code under test">
+<node CREATED="1570368623249" ID="ID_1993420086" MODIFIED="1570368632285" TEXT="Designed to test specific sections of code"/>
+<node CREATED="1570368632496" ID="ID_1495668867" MODIFIED="1570368648036" TEXT="Percentage of lines of code tested is code coverage"/>
+<node CREATED="1570368649726" ID="ID_523264345" MODIFIED="1570368658840" TEXT="Ideal coverage is in the 70-80% range">
+<node CREATED="1570368748427" ID="ID_868279476" MODIFIED="1570368758898" TEXT="Obove this is a diminishing value of return">
+<node CREATED="1570368759306" ID="ID_322340967" MODIFIED="1570368770984" TEXT="Something very minor and trivial need not be tested">
+<node CREATED="1570368778925" ID="ID_1561607359" MODIFIED="1570368782902" TEXT="If very obvious"/>
+</node>
+</node>
+<node CREATED="1570368790906" ID="ID_267505935" MODIFIED="1570368793979" TEXT="Ballpark range"/>
+</node>
+<node CREATED="1570368664413" ID="ID_631200329" MODIFIED="1570368673616" TEXT="Should be &apos;unity&apos; and execute very fast">
+<node CREATED="1570368797257" ID="ID_15669166" MODIFIED="1570368800469" TEXT="Very small and fast">
+<node CREATED="1570368804606" ID="ID_303918783" MODIFIED="1570368811153" TEXT="Targetting specific thing"/>
+</node>
+</node>
+<node CREATED="1570368674391" ID="ID_1023585157" MODIFIED="1570368680882" TEXT="Should have no external dependencies">
+<node CREATED="1570368681566" ID="ID_635418436" MODIFIED="1570368688537" TEXT="ie no database, no Spring context, etc"/>
+<node CREATED="1570368828767" ID="ID_649248132" MODIFIED="1570368834675" TEXT="No message broker"/>
+</node>
+</node>
+<node CREATED="1570368846990" ID="ID_922809926" MODIFIED="1570368865865" TEXT="Integration Tests - Designed to test behaviors between objects and parts of the overall system">
+<node CREATED="1570368866568" ID="ID_142643049" MODIFIED="1570368870280" TEXT="Much larger scope"/>
+<node CREATED="1570368870605" ID="ID_1770576529" MODIFIED="1570368882355" TEXT="Can include the Spring Context, database, and message brokers">
+<node CREATED="1570369002879" ID="ID_1197766962" MODIFIED="1570369013487" TEXT="May include spinning up H2 database with known data ..."/>
+</node>
+<node CREATED="1570368883393" ID="ID_260152595" MODIFIED="1570368890257" TEXT="Will run much slower than unit tests"/>
+<node CREATED="1570369143393" ID="ID_1670708404" MODIFIED="1570369159006" TEXT="Used to test behavior between objects (few or many)"/>
+</node>
+<node CREATED="1570368900800" ID="ID_1106809028" MODIFIED="1570368913710" TEXT="Functional Tests - Typically means you are testing the running application">
+<node CREATED="1570368914002" ID="ID_1346937919" MODIFIED="1570368925969" TEXT="Application is live, likely deployed in a known environment"/>
+<node CREATED="1570368926714" ID="ID_807268201" MODIFIED="1570368956238" TEXT="Functional touch points are tested - (i.e. Using a web driver, calling web services, sending/ receiving messages, etc...)"/>
+</node>
+</node>
 </node>
 <node CREATED="1570268304026" ID="ID_89042118" MODIFIED="1570268309218" TEXT="JUnit Test Example"/>
 <node CREATED="1570268309458" ID="ID_132514120" MODIFIED="1570268316073" TEXT="Common Testing Frameworks for Java"/>
