@@ -305,6 +305,15 @@ How do you Handle Stress:
 		3. Breathing exercises
 		4. ...
 	2. To who I am taking tools and using them to manage stress
+4. Example:
+	1. Start with Item 1:
+		1. When I prepared for the interview, I thought about this question and how I had handled stressful situations
+		2. I have an example to share
+			1. Situation
+			2. Task (specific task)
+			3. Action (taken)
+			4. Result
+			5. Learning
 	
 				
 		
