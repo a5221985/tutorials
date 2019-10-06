@@ -55,3 +55,26 @@ Machine Learning:
 		1. Math
 		2. Statistics
 		3. Probability
+		
+Books:
+1. Machine Learning for Humans - Vishal Maini, ...
+	1. Online for free
+	2. For newbees
+	3. For practioner - other topics are explained simply
+2. Python for Data Analysis
+	1. Pandas - Author
+	2. NumPy
+	3. JupyterNotebook
+3. Hands-on Machine Learning with Sci-Kit Learning and Tensorflow
+	1. Work through problems
+4. Grokking Deep Learning
+	1. Analogies
+5. The Mechanics of Machine Learning
+	1. Online for free
+	2. fastai
+6. The Hundred-Page Machine Learning Book
+	1. Slightly advanced
+7. Deep Learning - online for free
+	1. Ian Goodfellow
+	2. Yoshua Bengio
+	3. Aaron Gouville
