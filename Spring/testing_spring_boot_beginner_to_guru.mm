@@ -67,13 +67,53 @@
 <node CREATED="1570295810881" ID="ID_1897308600" MODIFIED="1570295820930" TEXT="Free IDE has little pace">
 <node CREATED="1570295823118" ID="ID_1066717399" MODIFIED="1570295828498" TEXT="No much pace of innovation"/>
 </node>
+<node CREATED="1570295835298" ID="ID_1963142993" MODIFIED="1570295872069" TEXT="IntelliJ is innovative"/>
 </node>
-<node CREATED="1570268264644" ID="ID_994150888" MODIFIED="1570268271515" TEXT="IntelliJ 120 Day Trial"/>
-<node CREATED="1570268271880" ID="ID_1456375940" MODIFIED="1570268284521" TEXT="Slack Community Exclusive to Testing Spring Boot Course!"/>
+<node CREATED="1570268264644" ID="ID_994150888" MODIFIED="1570268271515" TEXT="IntelliJ 120 Day Trial">
+<node CREATED="1570295918597" ID="ID_1405662881" MODIFIED="1570295921054" TEXT="https://springframework.guru/udemy-90-day-trial-license-intellij-spring-5/"/>
+</node>
+<node CREATED="1570268271880" ID="ID_1456375940" MODIFIED="1570268284521" TEXT="Slack Community Exclusive to Testing Spring Boot Course!">
+<node CREATED="1570296360941" ID="ID_841114557" MODIFIED="1570296363305" TEXT="To get help"/>
+<node CREATED="1570296365856" ID="ID_299070015" MODIFIED="1570296373460" TEXT="Help others with problems they are having"/>
+<node CREATED="1570296376238" ID="ID_1644402686" MODIFIED="1570296390457" TEXT="Share Spring framework news, tips, and tricks"/>
+<node CREATED="1570296391400" ID="ID_1448095683" MODIFIED="1570296400606" TEXT="See how others are using Spring Framework"/>
+<node CREATED="1570296405857" ID="ID_63814016" MODIFIED="1570296406813" TEXT="Steps">
+<node CREATED="1570296407059" ID="ID_916405403" MODIFIED="1570296433188" TEXT="https://go.springframework.guru/testing-spring-udemy-slack-signupvnxwf9wm"/>
+</node>
+</node>
 </node>
 <node CREATED="1570267989001" ID="ID_1959021622" MODIFIED="1570268000206" POSITION="left" TEXT="Section 2: Introduction to Testing Software">
-<node CREATED="1570268294633" ID="ID_703863719" MODIFIED="1570268297378" TEXT="Introduction"/>
-<node CREATED="1570268297815" ID="ID_1918186669" MODIFIED="1570268303791" TEXT="Introduction to Testing Software"/>
+<node CREATED="1570268294633" ID="ID_703863719" MODIFIED="1570268297378" TEXT="Introduction">
+<node CREATED="1570367932254" ID="ID_1587248838" MODIFIED="1570367946047" TEXT="Writing software to test software"/>
+<node CREATED="1570367953619" ID="ID_1845087021" MODIFIED="1570367962353" TEXT="Terminology, industry definitions">
+<node CREATED="1570367965381" ID="ID_1327610525" MODIFIED="1570367969936" TEXT="Philosophy behind it"/>
+<node CREATED="1570367973216" ID="ID_1616737655" MODIFIED="1570367979022" TEXT="Unit test vs integration test"/>
+</node>
+<node CREATED="1570368006986" ID="ID_550230670" MODIFIED="1570368009217" TEXT="Overview"/>
+</node>
+<node CREATED="1570268297815" ID="ID_1918186669" MODIFIED="1570268303791" TEXT="Introduction to Testing Software">
+<node CREATED="1570368210206" ID="ID_706737977" MODIFIED="1570368220905" TEXT="Why write tests?">
+<node CREATED="1570368221231" ID="ID_1584840534" MODIFIED="1570368241161" TEXT="Writing tests takes a lot of time. Why do it?">
+<node CREATED="1570368243919" ID="ID_371407174" MODIFIED="1570368251053" TEXT="Improves software quality"/>
+<node CREATED="1570368251517" ID="ID_126318024" MODIFIED="1570368263681" TEXT="Prove&apos;s that your code is doing what you think it should be doing">
+<node CREATED="1570368333794" ID="ID_30376824" MODIFIED="1570368349305" TEXT="Tests catch silly mistakes"/>
+</node>
+<node CREATED="1570368263894" ID="ID_962958913" MODIFIED="1570368271608" TEXT="End the fix one thing, break another!">
+<node CREATED="1570368350510" ID="ID_1329429706" MODIFIED="1570368378923" TEXT="test coverage ensures ramifications of fix gets known"/>
+</node>
+<node CREATED="1570368272635" ID="ID_1327844601" MODIFIED="1570368281095" TEXT="Widely accepted as an industry best practice"/>
+<node CREATED="1570368281490" ID="ID_992830517" MODIFIED="1570368291661" TEXT="Change existing (and working) code with confidence">
+<node CREATED="1570368396779" ID="ID_1685806018" MODIFIED="1570368419396" TEXT="Business rules evolves"/>
+</node>
+</node>
+</node>
+<node CREATED="1570368424529" ID="ID_871562414" MODIFIED="1570368428788" TEXT="Testing Terminology">
+<node CREATED="1570368428947" ID="ID_22995261" MODIFIED="1570368445001" TEXT="Code under test: This is the code (or application) you are testing"/>
+<node CREATED="1570368445916" ID="ID_1170040302" MODIFIED="1570368523518" TEXT="Text fixture: &quot;A test fixture is a fixed state of a set of objects used as a baseline for running tests. The purpose of a test fixture is to ensure that there is a well known and fixed environment in which tests are run so that results are repeatable&quot; - JUnit Doc">
+<node CREATED="1570368547611" ID="ID_1283674872" MODIFIED="1570368562597" TEXT="Includes: input data, mock objects, loading database with known data, etc..."/>
+</node>
+</node>
+</node>
 <node CREATED="1570268304026" ID="ID_89042118" MODIFIED="1570268309218" TEXT="JUnit Test Example"/>
 <node CREATED="1570268309458" ID="ID_132514120" MODIFIED="1570268316073" TEXT="Common Testing Frameworks for Java"/>
 <node CREATED="1570268316297" ID="ID_1379028287" MODIFIED="1570268325504" TEXT="Beyond Testing with CI and CD"/>
