@@ -292,6 +292,22 @@
 <node CREATED="1570375180523" ID="ID_1459001257" MODIFIED="1570375193391" TEXT="Need to use a testing framework such as JUnit, TestNG, or Spock"/>
 </node>
 </node>
+<node CREATED="1570375201195" ID="ID_560929267" MODIFIED="1570375203044" TEXT="GEB">
+<node CREATED="1570375203275" ID="ID_963366831" MODIFIED="1570375209224" TEXT="Groovy browser automation"/>
+<node CREATED="1570375213158" ID="ID_1660728595" MODIFIED="1570375220616" TEXT="Uses Selenium under the covers">
+<node CREATED="1570375222156" ID="ID_1422988883" MODIFIED="1570375225500" TEXT="Groovy wrapper"/>
+</node>
+<node CREATED="1570375226915" ID="ID_871864990" MODIFIED="1570375235627" TEXT="Has JQuey-ish page element selectors"/>
+<node CREATED="1570375236149" ID="ID_1193207411" MODIFIED="1570375243198" TEXT="Needs to be used with a Test Framework">
+<node CREATED="1570375246505" ID="ID_1088165443" MODIFIED="1570375255253" TEXT="Very popular to use with Spock"/>
+</node>
+</node>
+<node CREATED="1570375291297" ID="ID_885071107" MODIFIED="1570375293986" TEXT="Test Containers">
+<node CREATED="1570375295130" ID="ID_828424985" MODIFIED="1570375304977" TEXT="Allows you to launch Docker containers from JUnit Tests"/>
+<node CREATED="1570375307904" ID="ID_1652179113" MODIFIED="1570375330697" TEXT="Allows you to start databases, message-broker, etc for integration and functional tests"/>
+<node CREATED="1570375330935" ID="ID_698152438" MODIFIED="1570375341833" TEXT="Can be combined with Selenium for testing web applications"/>
+<node CREATED="1570375375771" ID="ID_61741431" MODIFIED="1570375390236" TEXT="More in Docker for Java Developers course"/>
+</node>
 </node>
 <node CREATED="1570268316297" ID="ID_1379028287" MODIFIED="1570268325504" TEXT="Beyond Testing with CI and CD"/>
 <node CREATED="1570268325810" ID="ID_770173448" MODIFIED="1570268327978" TEXT="Conclusion"/>
