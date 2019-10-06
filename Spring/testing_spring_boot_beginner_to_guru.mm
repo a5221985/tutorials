@@ -148,6 +148,25 @@
 <node CREATED="1570368926714" ID="ID_807268201" MODIFIED="1570368956238" TEXT="Functional touch points are tested - (i.e. Using a web driver, calling web services, sending/ receiving messages, etc...)"/>
 </node>
 </node>
+<node CREATED="1570369241701" ID="ID_779247032" MODIFIED="1570369244685" TEXT="Testing pyramid">
+<node CREATED="1570369245532" ID="ID_1273799334" MODIFIED="1570369264580" TEXT="All three types of tests play important roles for software quality"/>
+<node CREATED="1570369265964" ID="ID_1319298929" MODIFIED="1570369277875" TEXT="The majority of tests should be Unit Tests">
+<node CREATED="1570369278900" ID="ID_1094021108" MODIFIED="1570369285057" TEXT="Small, fast, light weight tests"/>
+<node CREATED="1570369285286" ID="ID_1475654803" MODIFIED="1570369290591" TEXT="Very detailed and specific"/>
+</node>
+<node CREATED="1570369294676" ID="ID_1805800618" MODIFIED="1570369298797" TEXT="Integration tests">
+<node CREATED="1570369298974" ID="ID_612502325" MODIFIED="1570369305205" TEXT="should be next larger category">
+<node CREATED="1570369735105" ID="ID_192848713" MODIFIED="1570369742466" TEXT="Messages going in and out say"/>
+</node>
+</node>
+<node CREATED="1570369305893" ID="ID_66915592" MODIFIED="1570369308597" TEXT="Functional tests">
+<node CREATED="1570369308854" ID="ID_458797792" MODIFIED="1570369410810" TEXT="are smallest and least detiled of the categories">
+<node CREATED="1570369419967" ID="ID_834303119" MODIFIED="1570369423214" TEXT="Sanity check">
+<node CREATED="1570369744673" ID="ID_1734258536" MODIFIED="1570369749856" TEXT="Is service alive?"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1570268304026" ID="ID_89042118" MODIFIED="1570268309218" TEXT="JUnit Test Example"/>
 <node CREATED="1570268309458" ID="ID_132514120" MODIFIED="1570268316073" TEXT="Common Testing Frameworks for Java"/>
