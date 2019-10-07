@@ -56,7 +56,68 @@
 <node CREATED="1570441104413" ID="ID_1342230519" MODIFIED="1570441107806" TEXT="Good at building it"/>
 </node>
 <node CREATED="1570441110886" ID="ID_936812600" MODIFIED="1570441127574" TEXT="All the information is converted into binary form and all operations are carried out on these binary forms"/>
-<node CREATED="1570441128648" ID="ID_976821889" MODIFIED="1570441151302" TEXT="It is possible to implement simple operations like +, &gt;, AND, etc. on binary numbers in hardware super efficiently"/>
+<node CREATED="1570441128648" ID="ID_976821889" MODIFIED="1570441151302" TEXT="It is possible to implement simple operations like +, &gt;, AND, etc. on binary numbers in hardware super efficiently">
+<node CREATED="1570441155128" ID="ID_1185708097" MODIFIED="1570441165601" TEXT="Hardware is good at doing computations using binary numbers"/>
+</node>
+<node CREATED="1570441168080" ID="ID_873570276" MODIFIED="1570441201420" TEXT="Technology dictates hardware: if tomorrow silicon-based computers were replaced by DNA-based computers, we will have t oredesign 6.004 from scratch">
+<node CREATED="1570441209423" ID="ID_1118515472" MODIFIED="1570441222302" TEXT="Not discussing CMOS or low level technology">
+<node CREATED="1570441223590" ID="ID_1085487675" MODIFIED="1570441249990" TEXT="But this dictates the design principles">
+<node CREATED="1570441298349" ID="ID_538806252" MODIFIED="1570441324364" TEXT="Silicon technolgoy has dictated all computing design thinking"/>
+</node>
+<node CREATED="1570441353048" ID="ID_58855707" MODIFIED="1570441356184" TEXT="Extremely reliable"/>
+<node CREATED="1570441356552" ID="ID_692225537" MODIFIED="1570441371395" TEXT="Extremely resilient"/>
+</node>
+<node CREATED="1570441252565" ID="ID_1491871574" MODIFIED="1570441272996" TEXT="Suppose that there is a revolution in technolgy">
+<node CREATED="1570441274781" ID="ID_130353940" MODIFIED="1570441277708" TEXT="DNA">
+<node CREATED="1570441280509" ID="ID_1484961441" MODIFIED="1570441290443" TEXT="The structure of computers may look very different"/>
+</node>
+</node>
+<node CREATED="1570441382269" ID="ID_60292025" MODIFIED="1570441387949" TEXT="Assume the computers are silicon based"/>
+</node>
+</node>
+<node CREATED="1570441394692" ID="ID_1650631459" MODIFIED="1570441399897" TEXT="Components of a MicroProcessor">
+<node CREATED="1570441401191" ID="ID_1731703185" MODIFIED="1570441403701" TEXT="Register File">
+<node CREATED="1570441414003" ID="ID_1314221325" MODIFIED="1570441418760" TEXT="x0, x1, x2, ....">
+<node CREATED="1570441419296" ID="ID_493710" MODIFIED="1570441427441" TEXT="hold 32-bit &quot;words&quot; (numbers)"/>
+</node>
+</node>
+<node CREATED="1570441432863" ID="ID_113689520" MODIFIED="1570441436945" TEXT="Connected to an ALU">
+<node CREATED="1570441437714" ID="ID_576986071" MODIFIED="1570441441859" TEXT="Arithmetic Logic Unit">
+<node CREATED="1570441442825" ID="ID_263660961" MODIFIED="1570441448760" TEXT="Performs Binary operations">
+<node CREATED="1570441449134" ID="ID_1482316028" MODIFIED="1570441450538" TEXT="Logical">
+<node CREATED="1570441455376" ID="ID_710102820" MODIFIED="1570441457377" TEXT="Comparison"/>
+</node>
+<node CREATED="1570441458138" ID="ID_862101018" MODIFIED="1570441460489" TEXT="Arithmetic"/>
+</node>
+</node>
+<node CREATED="1570441471849" ID="ID_790849438" MODIFIED="1570441481658" TEXT="Simplistic view">
+<node CREATED="1570441481853" ID="ID_1314852376" MODIFIED="1570441486535" TEXT="We take numbers from register file"/>
+<node CREATED="1570441486904" ID="ID_1141067251" MODIFIED="1570441497078" TEXT="We compute results in ALU"/>
+<node CREATED="1570441497288" ID="ID_167990084" MODIFIED="1570441504998" TEXT="We store numbers back in register file"/>
+</node>
+<node CREATED="1570441566215" ID="ID_1075031080" MODIFIED="1570441576973" TEXT="Modern computers can have 16 registers in the file"/>
+</node>
+<node CREATED="1570441537842" ID="ID_1948930925" MODIFIED="1570441540058" TEXT="Calculator">
+<node CREATED="1570441540282" ID="ID_225958339" MODIFIED="1570441544244" TEXT="1 or 2 registers"/>
+</node>
+<node CREATED="1570441638031" ID="ID_1529984921" MODIFIED="1570441641526" TEXT="Main Memory">
+<node CREATED="1570441642762" ID="ID_1276208412" MODIFIED="1570441649941" TEXT="32-bit &quot;words&quot;">
+<node CREATED="1570441656231" ID="ID_1880768617" MODIFIED="1570441665106" TEXT="This is line notes after calculator is operated"/>
+</node>
+<node CREATED="1570441674892" ID="ID_138073286" MODIFIED="1570441676556" TEXT="Very large">
+<node CREATED="1570441680043" ID="ID_789939531" MODIFIED="1570441689812" TEXT="Assume infinite theoretically"/>
+</node>
+<node CREATED="1570441698587" ID="ID_1873977842" MODIFIED="1570441704521" TEXT="Holds program and data">
+<node CREATED="1570441705986" ID="ID_812068960" MODIFIED="1570441707508" TEXT="program">
+<node CREATED="1570441707682" ID="ID_1427580687" MODIFIED="1570441712948" TEXT="instructions">
+<node CREATED="1570441721669" ID="ID_1026466200" MODIFIED="1570441728572" TEXT="they are just bits"/>
+</node>
+</node>
+</node>
+<node CREATED="1570441775127" ID="ID_1052100855" MODIFIED="1570441780898" TEXT="This is not used to compute">
+<node CREATED="1570441781568" ID="ID_684834174" MODIFIED="1570441793310" TEXT="Data is moved back and forth between MM and Register file"/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1570438911792" ID="ID_554215305" MODIFIED="1570438917367" POSITION="left" TEXT="RISC-V Assembly"/>
