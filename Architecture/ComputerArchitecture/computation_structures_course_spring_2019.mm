@@ -377,6 +377,17 @@
 <node CREATED="1570444783650" ID="ID_767587525" MODIFIED="1570444792972" TEXT="fill out poll about lecture handouts"/>
 </node>
 </node>
+<node CREATED="1570444981286" ID="ID_1485982960" MODIFIED="1570444985069" TEXT="Course Logistics">
+<node CREATED="1570444985699" ID="ID_968195597" MODIFIED="1570445000679" TEXT="2 lectures/week: handouts, videos, and reference materials on website"/>
+<node CREATED="1570445002139" ID="ID_191949531" MODIFIED="1570445020983" TEXT="2 recitations/week: work through tutorial problems using skills and concepts from previous lecture"/>
+<node CREATED="1570445021447" ID="ID_1287999031" MODIFIED="1570445027133" TEXT="8 mandatory lab exercices">
+<node CREATED="1570445027490" ID="ID_296093598" MODIFIED="1570445035024" TEXT="online submission + check-off meetings in lab"/>
+<node CREATED="1570445036037" ID="ID_733168170" MODIFIED="1570445061309" TEXT="Due throughout the term (7 free late days meant to covershort illnesses etc., see website)"/>
+</node>
+<node CREATED="1570445063433" ID="ID_113333007" MODIFIED="1570445071174" TEXT="One open-ended design project"/>
+<node CREATED="1570445075142" ID="ID_1803697301" MODIFIED="1570445078141" TEXT="3 quizzes"/>
+</node>
+<node CREATED="1570445093440" ID="ID_478458000" MODIFIED="1570445104129" TEXT="10 recitation sections"/>
 </node>
 </node>
 <node CREATED="1570438911792" ID="ID_554215305" MODIFIED="1570438917367" POSITION="left" TEXT="RISC-V Assembly"/>
