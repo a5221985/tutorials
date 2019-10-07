@@ -115,7 +115,45 @@
 </node>
 </node>
 <node CREATED="1570441775127" ID="ID_1052100855" MODIFIED="1570441780898" TEXT="This is not used to compute">
-<node CREATED="1570441781568" ID="ID_684834174" MODIFIED="1570441793310" TEXT="Data is moved back and forth between MM and Register file"/>
+<node CREATED="1570441781568" ID="ID_684834174" MODIFIED="1570441793310" TEXT="Data is moved back and forth between MM and Register file">
+<node CREATED="1570441835916" ID="ID_1548775862" MODIFIED="1570441841940" TEXT="Instructions to do this exist"/>
+</node>
+</node>
+</node>
+<node CREATED="1570441858786" ID="ID_1689695287" MODIFIED="1570441862050" TEXT="Program">
+<node CREATED="1570441862294" ID="ID_1760717884" MODIFIED="1570441870657" TEXT="Always assumes this abstract view of the machine">
+<node CREATED="1570441900164" ID="ID_889738130" MODIFIED="1570441906502" TEXT="Low level programming">
+<node CREATED="1570441918914" ID="ID_635506014" MODIFIED="1570441922138" TEXT="Hardware dependent"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1570441933351" ID="ID_380327226" MODIFIED="1570441942827" TEXT="MicroProcessor Structure/ Assembly Language">
+<node CREATED="1570441943302" ID="ID_1941636984" MODIFIED="1570441950796" TEXT="Each register is of fixed size, say 32 bits"/>
+<node CREATED="1570441951383" ID="ID_1956651151" MODIFIED="1570441959320" TEXT="The number of registers are small, say 32"/>
+<node CREATED="1570441959660" ID="ID_1049111252" MODIFIED="1570441973918" TEXT="ALU directly performs operations on the register file, typically">
+<node CREATED="1570441974411" ID="ID_661001481" MODIFIED="1570441999734" TEXT="xi &lt;- Op(xj, xk) where Op belongs to {+, AND, OR, &lt;, &gt;, ...}">
+<node CREATED="1570442010008" ID="ID_1667747429" MODIFIED="1570442014350" TEXT="2 dozen"/>
+</node>
+</node>
+<node CREATED="1570442024559" ID="ID_742601989" MODIFIED="1570442036639" TEXT="Memory is large, say Giga bytes, and holds program and data"/>
+<node CREATED="1570442042833" ID="ID_217450653" MODIFIED="1570442058951" TEXT="Data can be moved back and forth between memory and Register File">
+<node CREATED="1570442059577" ID="ID_1543421079" MODIFIED="1570442064057" TEXT="Ld x M[a]">
+<node CREATED="1570442070578" ID="ID_1318022304" MODIFIED="1570442076470" TEXT="move from memory to register"/>
+</node>
+<node CREATED="1570442064379" ID="ID_1652637547" MODIFIED="1570442068121" TEXT="St M[a] x">
+<node CREATED="1570442077370" ID="ID_156241058" MODIFIED="1570442086084" TEXT="move from register to memory"/>
+</node>
+</node>
+</node>
+<node CREATED="1570442089330" ID="ID_1184711449" MODIFIED="1570442096813" TEXT="Assembly (Machine) Language Program">
+<node CREATED="1570442100105" ID="ID_1687551970" MODIFIED="1570442134612" TEXT="An assembly language program is a sequence of instructions which execute in a sequential order unless a control transfer instruction is executed"/>
+<node CREATED="1570442178641" ID="ID_1241005879" MODIFIED="1570442189794" TEXT="Each instruction specifies one of the following operations:">
+<node CREATED="1570442190009" ID="ID_1922395276" MODIFIED="1570442198402" TEXT="ALU or Reg-to-Reg operation"/>
+<node CREATED="1570442199547" ID="ID_293047484" MODIFIED="1570442200298" TEXT="Ld"/>
+<node CREATED="1570442200897" ID="ID_98492153" MODIFIED="1570442201722" TEXT="St"/>
+<node CREATED="1570442201987" ID="ID_1964184000" MODIFIED="1570442217386" TEXT="Control transfer operation: e.g. xi &lt; xj go to label l">
+<node CREATED="1570442290902" ID="ID_69855410" MODIFIED="1570442300263" TEXT="A label is assigned to an instruction"/>
 </node>
 </node>
 </node>
