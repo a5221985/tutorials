@@ -231,8 +231,7 @@
       store(Mem[x10 + 8]) &lt;- x3
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -301,11 +300,19 @@
 <node CREATED="1570443512295" ID="ID_95657210" MODIFIED="1570443526350" TEXT="Logic synthesis">
 <node CREATED="1570443537801" ID="ID_139597780" MODIFIED="1570443547152" TEXT="Bluespec is based on modern language design principles">
 <node CREATED="1570443552607" ID="ID_1033868415" MODIFIED="1570443559225" TEXT="Nees hardware model in the head">
-<node CREATED="1570443560425" ID="ID_1641827634" MODIFIED="1570443566226" TEXT="Procudes circuits"/>
+<node CREATED="1570443560425" ID="ID_1641827634" MODIFIED="1570443614959" TEXT="Produces circuits"/>
 </node>
 </node>
 </node>
 <node CREATED="1570443527273" ID="ID_875064645" MODIFIED="1570443533929" TEXT="Pipelined and folded circuits"/>
+</node>
+<node CREATED="1570443621391" ID="ID_1890498344" MODIFIED="1570443627637" TEXT="Module3">
+<node CREATED="1570443628484" ID="ID_1759737136" MODIFIED="1570443638134" TEXT="Implement non-pipelined RISC-V computer"/>
+<node CREATED="1570443638550" ID="ID_1434976704" MODIFIED="1570443639725" TEXT="Caches"/>
+<node CREATED="1570443639955" ID="ID_1245599101" MODIFIED="1570443648669" TEXT="Implement Pipelined RISC-V computers">
+<node CREATED="1570443650362" ID="ID_1106165189" MODIFIED="1570443658312" TEXT="control and data hazards, bypasses"/>
+</node>
+<node CREATED="1570443659423" ID="ID_1943214848" MODIFIED="1570443665797" TEXT="Branch prediction (time permitting)"/>
 </node>
 </node>
 </node>
