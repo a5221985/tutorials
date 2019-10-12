@@ -505,6 +505,27 @@
 <node CREATED="1570909165555" ID="ID_1717372364" MODIFIED="1570909166322" TEXT="8"/>
 </node>
 </node>
+<node CREATED="1570909275453" ID="ID_1971679703" MODIFIED="1570909282226" TEXT="sll x3, x1, x2">
+<node CREATED="1570909284367" ID="ID_1843938100" MODIFIED="1570909300909" TEXT="01000">
+<node CREATED="1570909336506" ID="ID_597125275" MODIFIED="1570909372260" TEXT="Size of numbers are fixed in computations (due to size of register or memory cell"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1570909378420" ID="ID_610585029" MODIFIED="1570909384690" TEXT="Binary Modular Arithmetic">
+<node CREATED="1570909386610" ID="ID_1017360451" MODIFIED="1570909429085" TEXT="If we use a fixed number of bits, addition and other operations may produce results outside the range that the output can represent (up to 1 extra bit for addition)">
+<node CREATED="1570909430683" ID="ID_829315827" MODIFIED="1570909437053" TEXT="This is known as an overflow"/>
+</node>
+<node CREATED="1570909461255" ID="ID_231878931" MODIFIED="1570909471647" TEXT="Common approach: Ignore the extra bit">
+<node CREATED="1570909472559" ID="ID_1561066478" MODIFIED="1570909502105" TEXT="Gives rise to modular arithmetic: With N-bit numbers, equivalent to following all operations with mod 2^N"/>
+<node CREATED="1570909502665" ID="ID_416920635" MODIFIED="1570909510395" TEXT="Visually, numbers &quot;wrap around&quot;">
+<node CREATED="1570909531247" ID="ID_1059041119" MODIFIED="1570909532688" TEXT="Example">
+<node CREATED="1570909532929" ID="ID_564409758" MODIFIED="1570909546113" TEXT="(6 + 5) % mod 2^3">
+<node CREATED="1570909612734" ID="ID_54058890" MODIFIED="1570909620665" TEXT="Going around circle clockwise for addition"/>
+<node CREATED="1570909621063" ID="ID_1405891861" MODIFIED="1570909634171" TEXT="Going around the circle counter-clockwise for subtraction"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
