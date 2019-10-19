@@ -541,7 +541,43 @@
 <node CREATED="1570438934246" ID="ID_1979956756" MODIFIED="1570438937742" POSITION="right" TEXT="Combinational Logic"/>
 <node CREATED="1570438938339" ID="ID_1665305302" MODIFIED="1570438948303" POSITION="left" TEXT="Barrel Shifter, Boolean Optimizations, and Logic"/>
 <node CREATED="1570438949014" ID="ID_1110080540" MODIFIED="1570438962204" POSITION="right" TEXT="Complex Combinational Circuits in Bluespec"/>
-<node CREATED="1570438963519" ID="ID_476333980" MODIFIED="1570438972382" POSITION="left" TEXT="Design Tradeoffs in Arithmetic Circuits"/>
+<node CREATED="1570438963519" ID="ID_476333980" MODIFIED="1570438972382" POSITION="left" TEXT="Design Tradeoffs in Arithmetic Circuits">
+<node CREATED="1571497978731" ID="ID_1735680288" MODIFIED="1571498012278" TEXT="Algorithmic Tradeoffs in Hardware Design">
+<node CREATED="1571498012535" ID="ID_9285260" MODIFIED="1571498029405" TEXT="Each function allows many implementations with widely different delay, area, and power tradeoffs">
+<node CREATED="1571498032906" ID="ID_1993461119" MODIFIED="1571498039773" TEXT="Theoreticians get involved"/>
+<node CREATED="1571498047273" ID="ID_166528577" MODIFIED="1571498061149" TEXT="It is a multidimensional optimization problem">
+<node CREATED="1571498061926" ID="ID_659611389" MODIFIED="1571498066777" TEXT="Minimize area of circuit"/>
+<node CREATED="1571498071016" ID="ID_41616865" MODIFIED="1571498079637" TEXT="Minimize delay"/>
+<node CREATED="1571498079925" ID="ID_405641937" MODIFIED="1571498088204" TEXT="Minimum Power"/>
+</node>
+<node CREATED="1571498157796" ID="ID_1884694622" MODIFIED="1571498159868" TEXT="Tradeoffs">
+<node CREATED="1571498161974" ID="ID_470460590" MODIFIED="1571498171993" TEXT="Algorithms primarily designed for hardware"/>
+</node>
+<node CREATED="1571498173908" ID="ID_962785198" MODIFIED="1571498184212" TEXT="High level language is fed into compiler">
+<node CREATED="1571498184434" ID="ID_397305504" MODIFIED="1571498190754" TEXT="Compiler does optimization">
+<node CREATED="1571498201749" ID="ID_1038486573" MODIFIED="1571498215046" TEXT="A or B are compiled similarly after optimization"/>
+<node CREATED="1571498220252" ID="ID_780785411" MODIFIED="1571498228516" TEXT="In practice we need to see if A is better than B"/>
+</node>
+</node>
+<node CREATED="1571498233835" ID="ID_96602932" MODIFIED="1571498249782" TEXT="Choosing the right algorithms is key to optimizing your design">
+<node CREATED="1571498257961" ID="ID_1649640042" MODIFIED="1571498271113" TEXT="Tools cannot compensate for an inefficient algorithm (in most cases)]"/>
+<node CREATED="1571498276031" ID="ID_1866153125" MODIFIED="1571498280881" TEXT="Just like programming software">
+<node CREATED="1571498301303" ID="ID_50176021" MODIFIED="1571498311463" TEXT="Hardware cost model is different from software cost model"/>
+</node>
+</node>
+<node CREATED="1571498315208" ID="ID_1329843366" MODIFIED="1571498323843" TEXT="Case study: Building a better adder">
+<node CREATED="1571498386156" ID="ID_1236749268" MODIFIED="1571498392192" TEXT="Faster adder speeds up the whole machine"/>
+</node>
+</node>
+<node CREATED="1571498102290" ID="ID_1646381067" MODIFIED="1571498106810" TEXT="Flow">
+<node CREATED="1571498107059" ID="ID_1475371728" MODIFIED="1571498111228" TEXT="1. Problem"/>
+<node CREATED="1571498111712" ID="ID_689794301" MODIFIED="1571498117859" TEXT="2. Harware Designer"/>
+<node CREATED="1571498118739" ID="ID_1521195312" MODIFIED="1571498127391" TEXT="3. High-level circut description"/>
+<node CREATED="1571498128391" ID="ID_473671885" MODIFIED="1571498135725" TEXT="4. Synthesis tool"/>
+<node CREATED="1571498136642" ID="ID_30423577" MODIFIED="1571498145095" TEXT="5. Optimized circuit implementation"/>
+</node>
+</node>
+</node>
 <node CREATED="1570438974087" ID="ID_1362622601" MODIFIED="1570438978935" POSITION="right" TEXT="Sequential Circuits"/>
 <node CREATED="1570438981511" ID="ID_1563272102" MODIFIED="1570439008472" POSITION="left" TEXT="Sequential Circuits: Modules with Guarded Interfaces"/>
 <node CREATED="1570439010783" ID="ID_1730805459" MODIFIED="1570439017772" POSITION="right" TEXT="Hardware Synthesis in Bluespec"/>
