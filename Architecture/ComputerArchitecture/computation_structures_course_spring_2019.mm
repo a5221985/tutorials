@@ -568,7 +568,29 @@
 <node CREATED="1571498315208" ID="ID_1329843366" MODIFIED="1571498323843" TEXT="Case study: Building a better adder">
 <node CREATED="1571498386156" ID="ID_1236749268" MODIFIED="1571498392192" TEXT="Faster adder speeds up the whole machine"/>
 <node CREATED="1571498397404" ID="ID_1943105475" MODIFIED="1571498405946" TEXT="Ripple-Carry Adder: Simple but slow">
-<node CREATED="1571498407370" ID="ID_525470560" MODIFIED="1571498432692" TEXT="Worst-case path: Carry propagation from LSB to MSB, e.g. when adding 11...111 to 00..001"/>
+<node CREATED="1571498407370" ID="ID_525470560" MODIFIED="1571498432692" TEXT="Worst-case path: Carry propagation from LSB to MSB, e.g. when adding 11...111 to 00..001">
+<node CREATED="1571503537354" ID="ID_117943536" MODIFIED="1571503542713" TEXT="n-1 propagation delay">
+<node CREATED="1571503553360" ID="ID_213201125" MODIFIED="1571503578205" TEXT="t_PD = (n-1)*t_PD,CI-&gt;CO + t_PD,CI-&gt;S">
+<node CREATED="1571503578539" ID="ID_597968753" MODIFIED="1571503582195" TEXT="O(n)">
+<node CREATED="1571503583089" ID="ID_932827828" MODIFIED="1571503584418" TEXT="delay"/>
+<node CREATED="1571503588333" ID="ID_144694480" MODIFIED="1571503628865" TEXT="O(n) is read &quot;order n&quot; and tells us that latency of our adder grows linearly with the number of bits of the operands"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1571503643759" ID="ID_1962203052" MODIFIED="1571503648591" TEXT="Asymptotic Analysis">
+<node CREATED="1571503649375" ID="ID_1485650780" MODIFIED="1571503660521" TEXT="Suppose some computation takes n^2 + 2n + 3 steps">
+<node CREATED="1571503662313" ID="ID_628894056" MODIFIED="1571503676654" TEXT="We say O(n^2) (read &quot;is of order n^2&quot;) steps">
+<node CREATED="1571503677642" ID="ID_52106947" MODIFIED="1571503694220" TEXT="because 2n^2 &gt; n^2 + 2n + 3 &gt; n^2">
+<node CREATED="1571503696862" ID="ID_1748750661" MODIFIED="1571503708192" TEXT="Except for few small integers (1, 2, and 3)"/>
+</node>
+<node CREATED="1571503713927" ID="ID_1269081121" MODIFIED="1571503766961" TEXT="Formally, g(n) = Theta(f(n)) iff there exist C2 &gt;= C1 &gt; 0 such that for all but finitely many integers n &gt;= 0, C2.f(n) &gt;= g(n) &gt;= C1.f(n)">
+<node CREATED="1571503774811" ID="ID_1367032935" MODIFIED="1571503783698" TEXT="Theta(...) implies both inequalities"/>
+<node CREATED="1571503784627" ID="ID_1286571538" MODIFIED="1571503792290" TEXT="O(...) implies only the first"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
