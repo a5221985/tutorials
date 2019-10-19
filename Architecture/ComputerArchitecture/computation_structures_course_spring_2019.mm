@@ -567,6 +567,9 @@
 </node>
 <node CREATED="1571498315208" ID="ID_1329843366" MODIFIED="1571498323843" TEXT="Case study: Building a better adder">
 <node CREATED="1571498386156" ID="ID_1236749268" MODIFIED="1571498392192" TEXT="Faster adder speeds up the whole machine"/>
+<node CREATED="1571498397404" ID="ID_1943105475" MODIFIED="1571498405946" TEXT="Ripple-Carry Adder: Simple but slow">
+<node CREATED="1571498407370" ID="ID_525470560" MODIFIED="1571498432692" TEXT="Worst-case path: Carry propagation from LSB to MSB, e.g. when adding 11...111 to 00..001"/>
+</node>
 </node>
 </node>
 <node CREATED="1571498102290" ID="ID_1646381067" MODIFIED="1571498106810" TEXT="Flow">
