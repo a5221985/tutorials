@@ -52,8 +52,12 @@
 	2. Link
 		1. Verify - starts after loading in complete
 			1. Verifies the loaded bytecode for validity and compatibility with JVM spec
-			2. 
+			2. Checks:
+				1. Magic number checks...
 		2. Prepare
+			1. Memory is allocated to static variables
+			2. Variables are assigned default values
+				1. Not for instance variables
 		3. Resolve
 	3. Initialize
 		1. Initialize
