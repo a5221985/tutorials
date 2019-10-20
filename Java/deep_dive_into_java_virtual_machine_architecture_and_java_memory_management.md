@@ -147,6 +147,8 @@
 		1. This stack will store method specific values
 	2. As soon as method ends, block becomes unused and become available for next method
 	3. Whenever a method is invoked a new block is invoked in method memory to hold local values and reference to other objects
+	4. Stack memory is always referenced in LIFO order
+	5. Stack memory is less compared to Heap memory
 
 ## JVM Memory Management Stack ##
 ## JVM Memory Management Heap Part 1 ##
