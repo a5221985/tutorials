@@ -40,10 +40,10 @@
 ## JVM ClassLoader Overview ##
 1. Class Loader - activity
 	1. Load: responsible for loading bytecode to memory (following types of class loaders exist)
-		1. Bootstrap class loader -
+		1. Bootstrap class loader - (base class)
 			1. 
-		2. Extension class loader - 
-		3. Application class loader - 
+		2. Extension class loader - (child class of bootstrap class loader)
+		3. Application class loader - (child class of Extension class loader)
 	2. Link
 		1. Verify
 		2. Prepare
