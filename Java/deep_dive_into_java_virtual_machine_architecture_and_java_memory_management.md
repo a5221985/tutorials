@@ -41,11 +41,18 @@
 1. Class Loader - activity
 	1. Load: responsible for loading bytecode to memory (following types of class loaders exist)
 		1. Bootstrap class loader - (base class)
-			1. 
+			1. loads Java internal classes
+				1. Reside in `rt.jar` - distributed in JVM implementation
+					1. Contains all core Java API classes
 		2. Extension class loader - (child class of bootstrap class loader)
+			1. Loads additional class files present under `/jre/lib/ext` folder
+				1. All class files will be read for further processing
 		3. Application class loader - (child class of Extension class loader)
+			1. Loads classes specified in Classpath
 	2. Link
-		1. Verify
+		1. Verify - starts after loading in complete
+			1. Verifies the loaded bytecode for validity and compatibility with JVM spec
+			2. 
 		2. Prepare
 		3. Resolve
 	3. Initialize
