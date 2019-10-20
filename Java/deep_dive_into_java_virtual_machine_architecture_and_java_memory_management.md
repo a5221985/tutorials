@@ -121,11 +121,20 @@
 		2. Uses Native Method Interface (JNI)
 		3. JNI interfaces with Native Metod Libraries (.dll, .so, ...)
 	2. Profiler
-	3. JIT compiler
-	4. GC
+		1. Hotspot profiler
+			1. Keeps an eye on bytecode and grabs info
+				1. It can be used by JIT to compile frequently used instructions
+	3. JIT compiler - used to fix slowness of interpreter
+		1. compiles bytecode instructions and keeps target code ready for execution (repeated instructions are done once) - native code
+			1. execution of native code is faster than interpreting code
+	4. GC - Cleans up un-used objects and classes in memory area
 
-## JVM - Conclusion ##
 ## JVM Memory Management Introduction ##
+1. Two types of memory
+	1. Stack memory
+		1. Stores primitive types and addresses of objects
+		2. Every thread has its own stack so there could be multiple stacks in a JVM
+
 ## JVM Memory Management Stack ##
 ## JVM Memory Management Heap Part 1 ##
 ## JVM Memory Management Heap Part 2 ##
