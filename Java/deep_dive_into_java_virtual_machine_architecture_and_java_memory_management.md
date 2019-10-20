@@ -70,7 +70,14 @@
 		1. Happens when class loader fails to find the bytecode for the class
 
 ## JVM Run Time Data Method Area - Part 1 ##
-1. 
+1. Runtime Data Area:
+	1. Areas:
+		1. Method Area
+		2. Heap Area
+		3. Stack
+		4. PC register
+		5. Native Method Stack
+	2. 
 
 ## JVM Run Time Data Method Area - Part 2 ##
 ## JVM Run Time Data Method Area - Part 3 ##
