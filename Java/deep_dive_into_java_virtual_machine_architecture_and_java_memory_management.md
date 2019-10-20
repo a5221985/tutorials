@@ -72,7 +72,11 @@
 ## JVM Run Time Data Method Area - Part 1 ##
 1. Runtime Data Area:
 	1. Areas:
-		1. Method Area
+		1. Method Area:
+			1. Stores runtime constant pool field and method information, static veriable, method bytecode
+			2. -XX:MaxPermSize - 
+			3. `Java.lang.OutOfMemorryError:PermGen` space
+			4. From Java 8 - Metaspace
 		2. Heap Area
 		3. Stack
 		4. PC register
