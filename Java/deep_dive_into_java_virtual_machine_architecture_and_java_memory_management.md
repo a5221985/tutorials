@@ -59,10 +59,19 @@
 			2. Variables are assigned default values
 				1. Not for instance variables
 		3. Resolve
+			1. Symbolic references in the classes are changed to direct references (to a class)
 	3. Initialize
 		1. Initialize
+			1. Static variables and class variables are assigned to proper values
+			2. Static blocks are executed
+2. The phases verify, prepare and resolve may get executed in parallel
+3. Example failures:
+	1. Classnotfound Exception:
+		1. Happens when class loader fails to find the bytecode for the class
 
 ## JVM Run Time Data Method Area - Part 1 ##
+1. 
+
 ## JVM Run Time Data Method Area - Part 2 ##
 ## JVM Run Time Data Method Area - Part 3 ##
 ## JVM Execution Engine Overview ##
