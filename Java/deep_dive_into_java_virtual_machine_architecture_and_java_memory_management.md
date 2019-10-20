@@ -50,7 +50,7 @@
 		3. Application class loader - (child class of Extension class loader)
 			1. Loads classes specified in Classpath
 	2. Link
-		1. Verify - starts after loading in complete
+		1. Verify - starts after loading is complete
 			1. Verifies the loaded bytecode for validity and compatibility with JVM spec
 			2. Checks:
 				1. Magic number checks...
@@ -134,6 +134,19 @@
 	1. Stack memory
 		1. Stores primitive types and addresses of objects
 		2. Every thread has its own stack so there could be multiple stacks in a JVM
+	2. Heap Space
+		1. The object value is stored in actual Heap
+		2. There could be only one Heap space in a JVM
+2. Stack:
+	1. Abstract data type which serves as collection of elements
+		1. Push - which adds an element to the collection
+		2. Pop - which removes most recently added element
+		3. LIFO - Last in First Out
+3. Stack Memory in Java World
+	1. For every thread JVM will construct runtime stack
+		1. This stack will store method specific values
+	2. As soon as method ends, block becomes unused and become available for next method
+	3. Whenever a method is invoked a new block is invoked in method memory to hold local values and reference to other objects
 
 ## JVM Memory Management Stack ##
 ## JVM Memory Management Heap Part 1 ##
