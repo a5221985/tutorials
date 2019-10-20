@@ -90,7 +90,7 @@
 		5. Native Method Stack
 
 ## JVM Run Time Data Method Area - Part 2 ##
-1. Heap area:
+1. Heap area: (only one universal area for JVM)
 	1. Java.lang.OutOfMemoryIssue Heap
 		1. Object allocation does not have sufficient heap space
 	2. `-Xms`, `-Xmx`
@@ -100,14 +100,30 @@
 	1. Objects are created here
 
 ## JVM Run Time Data Method Area - Part 3 ##
-1. PC Register - program counter register
-	1. PC1 for t1
+1. PC Register - program counter register - pointer to next instruction to be executed (per thread one)
+	1. PC1 for t1 (thread 1)
 	2. PC2 for t2
 	3. PC3 for t3
-2. Java Stack
+2. Java Stack - when a method is executed, a stack frame is added to the stack, when method returns, frame is removed (contains parameters, local variables, return values, operand stacks)
+	1. Per thread
+	2. Created when thread starts
+	3. t1, t2, t3 - application threads
+	4. `Java.lang.StackOverflowError` - usually occurs for infinite recursion
+	5. `-Xss` - used to increase stack size
 3. Native Method Stack
+	1. If a method in a thread is invoking a native method, (loading dll)
+		1. Native stack is used which is per thread
 
 ## JVM Execution Engine Overview ##
+1. Execution engine
+	1. Java interpreter
+		1. processes bytecode instruction and analyzes native operation and executes native operation
+		2. Uses Native Method Interface (JNI)
+		3. JNI interfaces with Native Metod Libraries (.dll, .so, ...)
+	2. Profiler
+	3. JIT compiler
+	4. GC
+
 ## JVM - Conclusion ##
 ## JVM Memory Management Introduction ##
 ## JVM Memory Management Stack ##
