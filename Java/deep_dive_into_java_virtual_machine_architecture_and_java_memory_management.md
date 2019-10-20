@@ -75,17 +75,38 @@
 		1. Method Area: class metadata for class is stored
 			1. Stores runtime constant pool field and method information, static veriables, method bytecode - allocated in physical memory
 			2. `-XX:MaxPermSize` - Called permgen space - default size is 64MB but can be tuned using the parameter
-				1. Needed if 
+				1. Needed if too many classes need to be loaded then the following error may occur
 			3. `Java.lang.OutOfMemorryError:PermGen` space
+				1. PermGen space is too low
+				2. Solution: Tune it
+					1. Java 8 does not have
+						1. New space is called the following:
 			4. From Java 8 - Metaspace
+				1. Consumes memory from native OS
+					1. It has no limit virtually because it is using OS space
 		2. Heap Area
 		3. Stack
 		4. PC register
 		5. Native Method Stack
-	2. 
 
 ## JVM Run Time Data Method Area - Part 2 ##
+1. Heap area:
+	1. Java.lang.OutOfMemoryIssue Heap
+		1. Object allocation does not have sufficient heap space
+	2. `-Xms`, `-Xmx`
+		1. min and max sizes of heap
+		2. Default: 1/4th the physical memory of machine
+2. Heap:
+	1. Objects are created here
+
 ## JVM Run Time Data Method Area - Part 3 ##
+1. PC Register - program counter register
+	1. PC1 for t1
+	2. PC2 for t2
+	3. PC3 for t3
+2. Java Stack
+3. Native Method Stack
+
 ## JVM Execution Engine Overview ##
 ## JVM - Conclusion ##
 ## JVM Memory Management Introduction ##
