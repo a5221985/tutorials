@@ -592,6 +592,7 @@
 </node>
 </node>
 </node>
+<node CREATED="1571503828067" ID="ID_1999510776" MODIFIED="1571503838105" TEXT="Carry-Select Adder Trades Area for Speed"/>
 </node>
 </node>
 <node CREATED="1571498102290" ID="ID_1646381067" MODIFIED="1571498106810" TEXT="Flow">
