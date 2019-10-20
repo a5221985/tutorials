@@ -72,9 +72,10 @@
 ## JVM Run Time Data Method Area - Part 1 ##
 1. Runtime Data Area:
 	1. Areas:
-		1. Method Area:
-			1. Stores runtime constant pool field and method information, static veriable, method bytecode
-			2. -XX:MaxPermSize - 
+		1. Method Area: class metadata for class is stored
+			1. Stores runtime constant pool field and method information, static veriables, method bytecode - allocated in physical memory
+			2. `-XX:MaxPermSize` - Called permgen space - default size is 64MB but can be tuned using the parameter
+				1. Needed if 
 			3. `Java.lang.OutOfMemorryError:PermGen` space
 			4. From Java 8 - Metaspace
 		2. Heap Area
