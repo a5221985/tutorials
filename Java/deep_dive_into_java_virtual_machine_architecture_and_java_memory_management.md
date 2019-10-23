@@ -213,3 +213,17 @@
 
 ## Java Memory Management Summary ##
 1. Stack memory is faster than heap memory
+2. Memory spaces:
+
+		OS Mem
+			JVM Mem
+				Stack size -Xss Thread Stack Size
+				Heap size -Xms (Min Heap Size), -Xmx (Max Heap Size)
+
+3. Memory Exceptions:
+	1. `java.lang.StackOverFlowError`
+		1. When there is no memory left in stack to store method call or local variable. Use `-Xss` to define stack memory size
+		2. Usually with recursive calls
+	2. `java.lang.OutOfMemoryError`
+		1. When there is no more heap space for creating the object. Use `-Xms` and `-Xmx` JVM options to define start up size and maximum heap size 	
+		2. Could be because of memory leak (objects are not getting cleared)
