@@ -151,6 +151,10 @@
 	5. Stack memory is less compared to Heap memory
 
 ## JVM Memory Management Stack ##
+1. Example:
+
+		
+
 ## JVM Memory Management Heap Part 1 ##
 ## JVM Memory Management Heap Part 2 ##
 ## Java Memory Management Summary ##
