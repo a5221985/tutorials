@@ -153,8 +153,63 @@
 ## JVM Memory Management Stack ##
 1. Example:
 
+		public class StackExample {
+			public static void main(String[] args) {
+				int i = 10;
+				methodM1();
+			}
+			public static void methodM1() {
+				int j = 10;
+				methodM2();
+			}
+			public static void methodM2() {
+				int m = 30;
+			}
+		}
 		
+		t1:
+		
+		methodM2()
+		m = 30
+		-------
+		methodM1()
+		j = 10
+		-------
+		main()
+		i = 10
+	
+	1. JVM frees up stack after execution of thread t1
 
 ## JVM Memory Management Heap Part 1 ##
+1. Heap: A large amount of objects, kept in a disordered manner
+2. What is Java Heap Space?
+	1. Java heap space is used by Java run time to allocate memory to objects and JRE class
+	2. As there is one heap space per JVM any object created in heap space has **global access** and can be referred anywhere from application
+3. Garbage collectors cleans up the heap space if objects are not referrenced in the application
+
 ## JVM Memory Management Heap Part 2 ##
+1. Example:
+
+		public class HeapExample {
+			public static void main(String[] args) {
+				int m = 0;
+				createBall("red");
+			}
+			public static void createBall(String color) {
+				Ball redBall = new Ball(color);
+			}
+		}
+		
+		
+		t1:
+		createBall()
+		redBall --------------> Ball
+		------------
+		main()
+		m = 0
+		
+	1. When execution of `createBall` is completed, the stack frame is destroyed (no reference to `Ball` object)
+	2. `Ball` object is eligible for garbage collection
+
 ## Java Memory Management Summary ##
+1. Stack memory is faster than heap memory
