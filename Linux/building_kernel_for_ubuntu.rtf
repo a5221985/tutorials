@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fnil\fcharset0 Menlo-Regular;\f2\froman\fcharset0 Times-Roman;
+}
+{\colortbl;\red255\green255\blue255;\red25\green28\blue31;\red243\green245\blue246;\red27\green29\blue31;
+\red235\green236\blue237;\red0\green0\blue233;\red38\green38\blue38;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c12941\c14510\c16078;\cssrgb\c96078\c96863\c97255;\cssrgb\c14118\c15294\c16078;
+\cssrgb\c93725\c94118\c94510;\cssrgb\c0\c0\c93333;\cssrgb\c20000\c20000\c20000;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
+\f1\fs26 \cf4 \cb5 \strokec4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf4 sudo apt-get install libgtk2.0-dev libglib2.0-dev libglade2-dev\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf4 sudo apt-get install bc\
+
+\f0\fs28 \cf2 \cb3 \strokec2 sudo make modules_install\
+sudo make install
+\f1\fs26 \cf4 \cb5 \strokec4 \
+sudo apt-get install initramfs-tools\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf4 sudo apt-get update && sudo apt-get install --reinstall grub2\
+update-initramfs -c -k 5.3.0\
+apt-get install gedit\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://wiki.ubuntu.com/KernelTeam/GitKernelBuild"}}{\fldrslt 
+\f2\fs24 \cf6 \cb1 \ul \ulc6 \strokec6 https://wiki.ubuntu.com/KernelTeam/GitKernelBuild}}
+\f2\fs24 \cf6 \cb1 \ul \ulc6 \strokec6 :
+\f1\fs26 \cf4 \cb5 \ulnone \strokec4 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf7 \cb8 \strokec7 sudo apt-get install git build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache bison flex\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf7 cd $HOME\
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git\
+cd linux\
+git checkout v5.3\
+cp /boot/config-`uname -r` .config\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf7 yes '' | make oldconfig\
+make menuconfig\
+make clean\
+make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom\
+cd ..\
+sudo dpkg -i linux-image-2.6.24-rc5-custom_2.6.24-rc5-custom-10.00.Custom_i386.deb\
+sudo dpkg -i linux-headers-2.6.24-rc5-custom_2.6.24-rc5-custom-10.00.Custom_i386.deb\
+sudo reboot\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf7 \
+}
