@@ -617,7 +617,46 @@
 <node CREATED="1570439069846" ID="ID_1182501336" MODIFIED="1570439074789" POSITION="right" TEXT="Introduction to Pipelining"/>
 <node CREATED="1570439075425" ID="ID_649835535" MODIFIED="1570439080729" POSITION="left" TEXT="Processor Pipelining"/>
 <node CREATED="1570439083497" ID="ID_1028089288" MODIFIED="1570439088785" POSITION="right" TEXT="Implementing Pipelines"/>
-<node CREATED="1570439089401" ID="ID_1351657016" MODIFIED="1570439093105" POSITION="left" TEXT="Synchronization"/>
+<node CREATED="1570439089401" ID="ID_1351657016" MODIFIED="1570439093105" POSITION="left" TEXT="Synchronization">
+<node CREATED="1573493547987" ID="ID_331378129" MODIFIED="1573493555303" TEXT="Thread-level Parallelism">
+<node CREATED="1573493556268" ID="ID_1190931688" MODIFIED="1573493569315" TEXT="Divide computation among multiple threads of execution">
+<node CREATED="1573493576276" ID="ID_608769041" MODIFIED="1573493609722" TEXT="Multiple independent sequential threads which compete for shared resources such as memory and I/O devices">
+<node CREATED="1573493630359" ID="ID_565251796" MODIFIED="1573493636314" TEXT="CPU, Memory, I/O devices"/>
+</node>
+<node CREATED="1573493642096" ID="ID_851449550" MODIFIED="1573493655683" TEXT="Multiple cooperatin sequential threads, which communicate with each other">
+<node CREATED="1573493657424" ID="ID_122256551" MODIFIED="1573493673494" TEXT="How to share info?"/>
+</node>
+</node>
+<node CREATED="1573493680487" ID="ID_1432542808" MODIFIED="1573493684471" TEXT="Communication models">
+<node CREATED="1573493684648" ID="ID_308340905" MODIFIED="1573493688449" TEXT="Shared memory:">
+<node CREATED="1573493688671" ID="ID_1626641392" MODIFIED="1573493691879" TEXT="Single address space">
+<node CREATED="1573493713583" ID="ID_860308516" MODIFIED="1573493728268" TEXT="One thread writes to a particular location in memory and another thread reads from the location"/>
+</node>
+<node CREATED="1573493692808" ID="ID_1220432913" MODIFIED="1573493702351" TEXT="Implicit communication by memory loads &amp; stores"/>
+</node>
+<node CREATED="1573493736368" ID="ID_177289846" MODIFIED="1573493739304" TEXT="Message passing">
+<node CREATED="1573493739561" ID="ID_560719070" MODIFIED="1573493751406" TEXT="Separate address spaces"/>
+<node CREATED="1573493752865" ID="ID_14829650" MODIFIED="1573493764207" TEXT="Explicit communication by sending and receiving messages">
+<node CREATED="1573493779616" ID="ID_1598674060" MODIFIED="1573493785625" TEXT="Over shared network"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1573493797855" ID="ID_1128098238" MODIFIED="1573493801698" TEXT="Synchronization">
+<node CREATED="1573493802209" ID="ID_1673151125" MODIFIED="1573493815050" TEXT="Need for synchronization arises whenever there are parallel processes in a system">
+<node CREATED="1573493816236" ID="ID_1549840525" MODIFIED="1573493836541" TEXT="Fork and Joins: A parallel process may want to wait until several events have occurred">
+<node CREATED="1573493839483" ID="ID_1573099459" MODIFIED="1573493846909" TEXT="To merge results at some point and continue"/>
+</node>
+<node CREATED="1573493854804" ID="ID_1739571810" MODIFIED="1573493889116" TEXT="Producer-Consumer: A consumer process must wait until the producer process has produced data">
+<node CREATED="1573493900444" ID="ID_758284878" MODIFIED="1573493910963" TEXT="Consumer cannot run unless producer produces something"/>
+<node CREATED="1573493915638" ID="ID_1150969917" MODIFIED="1573493925935" TEXT="We need a means to synchronize communication between them"/>
+</node>
+<node CREATED="1573493932830" ID="ID_1580644577" MODIFIED="1573493964406" TEXT="Mutual Exclusion: Operating system has to ensure that a resource is used by only one process at a given time">
+<node CREATED="1573493979743" ID="ID_1301894257" MODIFIED="1573493984941" TEXT="Which process gets to use the resource"/>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1570439093646" ID="ID_235847428" MODIFIED="1570439101513" POSITION="right" TEXT="Implementing Processor Pipelines"/>
 <node CREATED="1570439102841" ID="ID_356527345" MODIFIED="1570439110847" POSITION="left" TEXT="The Digital Abstraction and Sequential Timing"/>
 <node CREATED="1570439111393" ID="ID_1716933023" MODIFIED="1570439115344" POSITION="right" TEXT="Cache Coherence"/>
