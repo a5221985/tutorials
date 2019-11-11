@@ -662,6 +662,48 @@
 </node>
 <node CREATED="1573494045498" ID="ID_1696001573" MODIFIED="1573494073434" TEXT="Thread-safe multithreaded programs behave the same way regardless of whether they are executed on multiprocessors or a single processor">
 <node CREATED="1573494074810" ID="ID_1886725050" MODIFIED="1573494092513" TEXT="Assume each thread runs in it&apos;s own processor"/>
+<node CREATED="1573494588508" ID="ID_965602483" MODIFIED="1573494626333">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      loop: &lt;xxx&gt;;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;send(c);
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;goto loop
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1573494595722" ID="ID_1025216645" MODIFIED="1573494595722" TEXT=""/>
+</node>
+<node CREATED="1573494628443" ID="ID_8634392" MODIFIED="1573494651342">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      loop: c = rcr();
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&lt;yyy&gt;;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;goto loop
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1573494667601" ID="ID_1465395643" MODIFIED="1573494677256" TEXT="Precedence Constraints: a &lt; b">
+<node CREATED="1573494677503" ID="ID_110455042" MODIFIED="1573494681304" TEXT="a precedes b"/>
+</node>
 </node>
 </node>
 </node>
