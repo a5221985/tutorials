@@ -656,6 +656,14 @@
 </node>
 </node>
 </node>
+<node CREATED="1573493989719" ID="ID_1510362649" MODIFIED="1573493995191" TEXT="Thread-safe programming">
+<node CREATED="1573493995455" ID="ID_631623051" MODIFIED="1573494009848" TEXT="Multithreaded programs can be executed on a uniprocessor by timesharing">
+<node CREATED="1573494011011" ID="ID_1046476815" MODIFIED="1573494034817" TEXT="Each thread is executed for a while (timer interrupt) and then the OS switches to another thread, repeatedly"/>
+</node>
+<node CREATED="1573494045498" ID="ID_1696001573" MODIFIED="1573494073434" TEXT="Thread-safe multithreaded programs behave the same way regardless of whether they are executed on multiprocessors or a single processor">
+<node CREATED="1573494074810" ID="ID_1886725050" MODIFIED="1573494092513" TEXT="Assume each thread runs in it&apos;s own processor"/>
+</node>
+</node>
 </node>
 <node CREATED="1570439093646" ID="ID_235847428" MODIFIED="1570439101513" POSITION="right" TEXT="Implementing Processor Pipelines"/>
 <node CREATED="1570439102841" ID="ID_356527345" MODIFIED="1570439110847" POSITION="left" TEXT="The Digital Abstraction and Sequential Timing"/>
