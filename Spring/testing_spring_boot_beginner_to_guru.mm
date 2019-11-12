@@ -309,7 +309,64 @@
 <node CREATED="1570375375771" ID="ID_61741431" MODIFIED="1570375390236" TEXT="More in Docker for Java Developers course"/>
 </node>
 </node>
-<node CREATED="1570268316297" ID="ID_1379028287" MODIFIED="1570268325504" TEXT="Beyond Testing with CI and CD"/>
+<node CREATED="1570268316297" ID="ID_1379028287" MODIFIED="1570268325504" TEXT="Beyond Testing with CI and CD">
+<node CREATED="1573530610607" ID="ID_1604570475" MODIFIED="1573530627760" TEXT="1. Continuous Integration (CI) - Development practice that requires developers to integrate code into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early - ThroughtWorks &#x9;&#xa;&#xa;2. &quot;Continuous Integration doesn&apos;t get rid of bugs, but it does make them dramatically easier to find and remove&quot; - Martin Fowler, Chief Scientist, ThoughtWorks">
+<node CREATED="1573530665145" ID="ID_397854982" MODIFIED="1573530668217" TEXT="Setup a CI server">
+<node CREATED="1573530669553" ID="ID_1422014314" MODIFIED="1573530672753" TEXT="Checkin source code"/>
+<node CREATED="1573530681995" ID="ID_1131285766" MODIFIED="1573530688724" TEXT="Builds and detects build issues">
+<node CREATED="1573530692024" ID="ID_731272744" MODIFIED="1573530696976" TEXT="Good for large group of developers">
+<node CREATED="1573530706870" ID="ID_620767183" MODIFIED="1573530709884" TEXT="Emails"/>
+<node CREATED="1573530718740" ID="ID_1944611492" MODIFIED="1573530721540" TEXT="Must have tests">
+<node CREATED="1573530722117" ID="ID_1939188216" MODIFIED="1573530725483" TEXT="Have good test coverage"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1573530738139" ID="ID_555329298" MODIFIED="1573530740594" TEXT="CI Practices">
+<node CREATED="1573530741514" ID="ID_753695617" MODIFIED="1573530746652" TEXT="CI Practices per Martin Fowler">
+<node CREATED="1573530746899" ID="ID_687870047" MODIFIED="1573530753802" TEXT="Maintain a Single Source Repository">
+<node CREATED="1573530919254" ID="ID_1055260900" MODIFIED="1573530936512" TEXT="Microservices - setup dependencies accordingly (A -&gt; B)"/>
+</node>
+<node CREATED="1573530754817" ID="ID_369638018" MODIFIED="1573530756946" TEXT="Automate Build"/>
+<node CREATED="1573530757707" ID="ID_66778910" MODIFIED="1573530762990" TEXT="Make Your Build Self-Testing"/>
+<node CREATED="1573530763562" ID="ID_1637479584" MODIFIED="1573530777771" TEXT="Every Commit Should Build on Integration Machine"/>
+<node CREATED="1573530779060" ID="ID_270010228" MODIFIED="1573530784040" TEXT="Fix Broken Builds Immediately">
+<node CREATED="1573530970399" ID="ID_1464481705" MODIFIED="1573530976583" TEXT="Don&apos;t leave it broken and fix"/>
+</node>
+<node CREATED="1573530790278" ID="ID_1515691630" MODIFIED="1573530793831" TEXT="Keep the build fast">
+<node CREATED="1573530990078" ID="ID_1683137984" MODIFIED="1573530993198" TEXT="Light fast unit tests"/>
+</node>
+<node CREATED="1573530794164" ID="ID_710665498" MODIFIED="1573530800791" TEXT="Test in a Clone of the Production Environment">
+<node CREATED="1573530997964" ID="ID_569336103" MODIFIED="1573531012203" TEXT="Integration test should be as close as possible to prod env">
+<node CREATED="1573531019411" ID="ID_1592785965" MODIFIED="1573531029401" TEXT="Bring up Docker containers and setup and run tests"/>
+</node>
+</node>
+<node CREATED="1573530801721" ID="ID_767820061" MODIFIED="1573530818535" TEXT="Make it Easy for Anyone to get the Latest Executable Version">
+<node CREATED="1573531040380" ID="ID_1141465820" MODIFIED="1573531042138" TEXT="Nexus">
+<node CREATED="1573531042818" ID="ID_156389579" MODIFIED="1573531046242" TEXT="Publish artifacts">
+<node CREATED="1573531071540" ID="ID_936769426" MODIFIED="1573531076982" TEXT="Move through to prod"/>
+</node>
+</node>
+</node>
+<node CREATED="1573530818968" ID="ID_201869119" MODIFIED="1573530825309" TEXT="Everyone Can See What is Happening">
+<node CREATED="1573531084141" ID="ID_318803305" MODIFIED="1573531091229" TEXT="Huge monitor that shows statuses"/>
+</node>
+</node>
+</node>
+<node CREATED="1573531099551" ID="ID_1680231287" MODIFIED="1573531106040" TEXT="Common CI Build Servers">
+<node CREATED="1573531108717" ID="ID_1504765130" MODIFIED="1573531112230" TEXT="Self-Hosted">
+<node CREATED="1573531116719" ID="ID_561082250" MODIFIED="1573531124158" TEXT="Jenkins, Bamboo, TeamCity, Hudson">
+<node CREATED="1573531125423" ID="ID_976568616" MODIFIED="1573531155545" TEXT="Fun-Fact - Jenkins forked from Hudson in 2010 due to a legal conflict with Oracle"/>
+</node>
+</node>
+<node CREATED="1573531113022" ID="ID_766132579" MODIFIED="1573531116071" TEXT="Cloud Based">
+<node CREATED="1573531159585" ID="ID_217819695" MODIFIED="1573531173455" TEXT="CircleCI, TravisCI, Codeship, GitLab CI, AWS CodeBuild">
+<node CREATED="1573531181913" ID="ID_1959265652" MODIFIED="1573531182916" TEXT="..."/>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1570268325810" ID="ID_770173448" MODIFIED="1570268327978" TEXT="Conclusion"/>
 </node>
 <node CREATED="1570268001193" ID="ID_606128333" MODIFIED="1570268015167" POSITION="right" TEXT="Section 3: Test Driven Development By Example">
