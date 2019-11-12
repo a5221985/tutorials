@@ -114,6 +114,31 @@
 </node>
 </node>
 </node>
+<node CREATED="1573525209034" ID="ID_1866660335" MODIFIED="1573525217366" TEXT="update">
+<node CREATED="1573525217773" ID="ID_936560734" MODIFIED="1573525223004" TEXT="back pointers">
+<node CREATED="1573525225797" ID="ID_310611969" MODIFIED="1573525240367" TEXT="change to node&apos;">
+<node CREATED="1573525240806" ID="ID_636484696" MODIFIED="1573525245648" TEXT="How to find all back pointers?">
+<node CREATED="1573525246142" ID="ID_1779823916" MODIFIED="1573525257188" TEXT="follow along the pointers">
+<node CREATED="1573525273733" ID="ID_1640497675" MODIFIED="1573525276988" TEXT="O(1)"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1573525290670" ID="ID_97903387" MODIFIED="1573525306097" TEXT="recursively update pointers"/>
+</node>
+<node CREATED="1573525343878" ID="ID_698998883" MODIFIED="1573525345390" TEXT="Analysis">
+<node CREATED="1573525345632" ID="ID_157081622" MODIFIED="1573525349869" TEXT="Potential method">
+<node CREATED="1573525356909" ID="ID_1059581979" MODIFIED="1573525364932" TEXT="When is the DS in a bad state">
+<node CREATED="1573525393995" ID="ID_1002321355" MODIFIED="1573525419287" TEXT="c.sigma(# mods in latest version nodes)">
+<node CREATED="1573525496495" ID="ID_1893808917" MODIFIED="1573525501969" TEXT="c - constant to be determined"/>
+</node>
+<node CREATED="1573525520516" ID="ID_1128344944" MODIFIED="1573525619317" TEXT="amortised cost &lt;= c + c + [-2cp + p recursions]?">
+<node CREATED="1573525653731" ID="ID_406390618" MODIFIED="1573525656374" TEXT="O(1)"/>
+<node CREATED="1573525665251" ID="ID_211609448" MODIFIED="1573525744430" TEXT="2c -2cp + 2cp + p recursions"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
@@ -142,8 +167,7 @@
       &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\--|--|--|
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1566963920656" ID="ID_978339614" MODIFIED="1566963934725" TEXT="We can update and query any version"/>
 </node>
 </node>
