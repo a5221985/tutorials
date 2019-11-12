@@ -362,6 +362,41 @@
 <node CREATED="1573531113022" ID="ID_766132579" MODIFIED="1573531116071" TEXT="Cloud Based">
 <node CREATED="1573531159585" ID="ID_217819695" MODIFIED="1573531173455" TEXT="CircleCI, TravisCI, Codeship, GitLab CI, AWS CodeBuild">
 <node CREATED="1573531181913" ID="ID_1959265652" MODIFIED="1573531182916" TEXT="..."/>
+<node CREATED="1573531289395" ID="ID_571085055" MODIFIED="1573531293987" TEXT="AWS CodeBuild">
+<node CREATED="1573531297920" ID="ID_670884984" MODIFIED="1573531298905" TEXT="Good"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1573531343487" ID="ID_130772353" MODIFIED="1573531352734" TEXT="CD - Continuous Deployment">
+<node CREATED="1573531355542" ID="ID_1930997618" MODIFIED="1573531381422" TEXT="Continuous Deployment will Automatically deploy build artifacts after all CI tests have run."/>
+<node CREATED="1573531382021" ID="ID_1495709979" MODIFIED="1573531392023" TEXT="Should happen with every commit">
+<node CREATED="1573531458290" ID="ID_1799450258" MODIFIED="1573531467499" TEXT="Commit window (quit period of 5 minutes)"/>
+</node>
+<node CREATED="1573531393231" ID="ID_622115905" MODIFIED="1573531397918" TEXT="Completely automated"/>
+<node CREATED="1573531398423" ID="ID_1642802002" MODIFIED="1573531411487" TEXT="May include a Staging Area from which additional automated tests are run"/>
+<node CREATED="1573531411807" ID="ID_199358878" MODIFIED="1573531422943" TEXT="Easily confused with Continuous Delivery"/>
+<node CREATED="1573531423966" ID="ID_314960068" MODIFIED="1573531429631" TEXT="Example: AWS CodePipeline">
+<node CREATED="1573531513519" ID="ID_110372729" MODIFIED="1573531552252" TEXT="Setup spring in Docker and microservices deploying  on AWS"/>
+</node>
+</node>
+<node CREATED="1573531574694" ID="ID_1606227896" MODIFIED="1573531580097" TEXT="CD - Continuous Delivery">
+<node CREATED="1573531582465" ID="ID_1173284545" MODIFIED="1573531599048" TEXT="Process to automatically deliver code changes directly to the Prod environment"/>
+<node CREATED="1573531600840" ID="ID_999865816" MODIFIED="1573531611473" TEXT="Involves a high degree of automation in Testing and Deployment"/>
+<node CREATED="1573531612330" ID="ID_26881459" MODIFIED="1573531654623" TEXT="Must have a &quot;Very&quot; Mature Process"/>
+<node CREATED="1573531657706" ID="ID_457146532" MODIFIED="1573531669329" TEXT="Can be difficult in some industries due to regulatory requirements">
+<node CREATED="1573531685455" ID="ID_1535732736" MODIFIED="1573531689521" TEXT="financial services">
+<node CREATED="1573531701186" ID="ID_1902687129" MODIFIED="1573531704170" TEXT="needs sign offs"/>
+</node>
+<node CREATED="1573531689785" ID="ID_338207529" MODIFIED="1573531693361" TEXT="healthcare">
+<node CREATED="1573531694483" ID="ID_140054702" MODIFIED="1573531698202" TEXT="needs sign offs"/>
+</node>
+</node>
+<node CREATED="1573531678209" ID="ID_504745221" MODIFIED="1573531682625" TEXT="This area is evolving">
+<node CREATED="1573531713314" ID="ID_960284693" MODIFIED="1573531721594" TEXT="Few hard &quot;rules&quot; - no standard way"/>
+<node CREATED="1573531722249" ID="ID_1770542266" MODIFIED="1573531734955" TEXT="&quot;Best practices&quot; are maturing, and still a lot of lively debate!"/>
+<node CREATED="1573531776895" ID="ID_1897365039" MODIFIED="1573531779741" TEXT="Tooling is maturing">
+<node CREATED="1573531780062" ID="ID_1229892745" MODIFIED="1573531784441" TEXT="Platforms built around this"/>
 </node>
 </node>
 </node>
