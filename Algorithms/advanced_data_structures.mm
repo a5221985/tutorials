@@ -196,6 +196,11 @@
 </node>
 </node>
 </node>
+<node CREATED="1573526400571" ID="ID_257484215" MODIFIED="1573526415405" TEXT="is version v an ancestor of version w">
+<node CREATED="1573526419302" ID="ID_650826609" MODIFIED="1573526434835" TEXT="bv &lt; bx ex &lt; ev">
+<node CREATED="1573526476369" ID="ID_175342494" MODIFIED="1573526478097" TEXT="O(1)"/>
+</node>
+</node>
 </node>
 </node>
 </node>
