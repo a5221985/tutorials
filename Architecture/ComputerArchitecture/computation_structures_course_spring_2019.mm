@@ -702,7 +702,11 @@
 </richcontent>
 </node>
 <node CREATED="1573494667601" ID="ID_1465395643" MODIFIED="1573494677256" TEXT="Precedence Constraints: a &lt; b">
-<node CREATED="1573494677503" ID="ID_110455042" MODIFIED="1573494681304" TEXT="a precedes b"/>
+<node CREATED="1573494677503" ID="ID_110455042" MODIFIED="1573494681304" TEXT="a precedes b">
+<node CREATED="1573494723507" ID="ID_1310613368" MODIFIED="1573494729957" TEXT="send1 &lt; rcv1, ...">
+<node CREATED="1573494779777" ID="ID_669094319" MODIFIED="1573494802342" TEXT="If writing to a shared location, consumer must consume before producer overrides it"/>
+</node>
+</node>
 </node>
 </node>
 </node>
