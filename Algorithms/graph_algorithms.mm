@@ -31,6 +31,24 @@
 <node CREATED="1573696453536" ID="ID_940247906" MODIFIED="1573696484311" TEXT="Note: Edge can be denoted as a triplet (u, v, w) and specify if the graph is directed or undirected"/>
 </node>
 </node>
+<node CREATED="1573696534023" ID="ID_658052470" MODIFIED="1573696539234" TEXT="Special Graphs">
+<node CREATED="1573696539472" ID="ID_1702151708" MODIFIED="1573696540626" TEXT="Tree">
+<node CREATED="1573696542529" ID="ID_281972725" MODIFIED="1573696570946" TEXT="A tree is an undirected graph with no cycles. Equivalently, it is connected graph with N nodes and N-1 edges"/>
+<node CREATED="1573696581012" ID="ID_121691472" MODIFIED="1573696583987" TEXT="Rooted Trees!">
+<node CREATED="1573707381331" ID="ID_1865944826" MODIFIED="1573707449284" TEXT="A rooted tree is a tree with a designated root node where every edge either points away from or towards the root node. When edges point away from the root the graph is called an arborescence (out-tree) and anti-arborescence (in-tree) otherwise">
+<node CREATED="1573707465136" ID="ID_1779085711" MODIFIED="1573707473370" TEXT="Out-tree is common"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1573707481033" ID="ID_1158285946" MODIFIED="1573707489553" TEXT="Directed Acyclic Graphs (DAGs)">
+<node CREATED="1573707490441" ID="ID_1635052197" MODIFIED="1573707498350" TEXT="DAGs are directed graphs with no cycles."/>
+<node CREATED="1573707503105" ID="ID_1497162066" MODIFIED="1573707520595" TEXT="These graphs play an important role in representing structures with dependencies."/>
+<node CREATED="1573707520987" ID="ID_1465223152" MODIFIED="1573707533066" TEXT="Several efficient algorithms exist to operate on DAGs"/>
+<node CREATED="1573707533585" ID="ID_1316914706" MODIFIED="1573707535771" TEXT="Cool fact">
+<node CREATED="1573707536180" ID="ID_185135062" MODIFIED="1573707551602" TEXT="All out-trees are DAGs but not all DAGs are out-trees"/>
+</node>
+</node>
 </node>
 </node>
 </node>
