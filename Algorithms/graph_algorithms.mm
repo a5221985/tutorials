@@ -12,6 +12,26 @@
 <node CREATED="1573696076446" ID="ID_720005258" MODIFIED="1573696109444" TEXT="A graph theory problem might be: Given the constraints above, how many different sets of clothing can I make by choosing an article from each category?">
 <node CREATED="1573696154753" ID="ID_507584791" MODIFIED="1573696162849" TEXT="Visualization is possible"/>
 </node>
+<node CREATED="1573696166546" ID="ID_1702786956" MODIFIED="1573696186314" TEXT="The canonical graph theory example is a social network of friends.">
+<node CREATED="1573696191568" ID="ID_45873772" MODIFIED="1573696237366" TEXT="Enables interesting questions such as: how many friends does person X have? Or how many degress of separation are there between person X and person Y?"/>
+</node>
+<node CREATED="1573696261474" ID="ID_812471411" MODIFIED="1573696263451" TEXT="Types">
+<node CREATED="1573696264196" ID="ID_1858726627" MODIFIED="1573696268107" TEXT="Undirected Graph">
+<node CREATED="1573696268324" ID="ID_1829472180" MODIFIED="1573696289116" TEXT="An undirected graph is a graph in which edges have no orientation. The edge (u, v) is identical to the edge (v, u). - Wiki">
+<node CREATED="1573696289665" ID="ID_1885434100" MODIFIED="1573696310901" TEXT="Nodes could represent cities and an edge could represent a bidirectional road."/>
+</node>
+</node>
+<node CREATED="1573696323287" ID="ID_368010190" MODIFIED="1573696329301" TEXT="Directed Graph (Digraph)">
+<node CREATED="1573696329638" ID="ID_368378225" MODIFIED="1573696353263" TEXT="A directed graph or digraph is a graph in which edges have orientations. For example, the edge (u, v) is the edge from node u to node v.">
+<node CREATED="1573696356063" ID="ID_1572252291" MODIFIED="1573696381551" TEXT="Nodes could represent people and an edge (u, v) could represent that person u bouth person v a gift."/>
+</node>
+</node>
+<node CREATED="1573696409707" ID="ID_1121624774" MODIFIED="1573696413991" TEXT="Weighted Graphs">
+<node CREATED="1573696414200" ID="ID_1168813154" MODIFIED="1573696450937" TEXT="Many graphs can have edges that contain a certain weight to represent an arbitrary value such as cost, distance, quantity, etc...">
+<node CREATED="1573696453536" ID="ID_940247906" MODIFIED="1573696484311" TEXT="Note: Edge can be denoted as a triplet (u, v, w) and specify if the graph is directed or undirected"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1573695432998" ID="ID_273323376" MODIFIED="1573695438710" POSITION="left" TEXT="2. Problems in Graph Theory"/>
