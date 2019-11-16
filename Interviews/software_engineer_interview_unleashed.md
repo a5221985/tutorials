@@ -358,8 +358,49 @@
 10. Intern Conversion
 	1. Fulltime Hiring Process
 		1. Host/co-host Feedback is critical
+			1. If feedback is poor, there is very low chance
+			2. Hiring manager will review my outputs
+				1. How well did I code
+				2. How well did I design the system
 		2. Evaluate project output
 		3. Offer will be valid > 6 mo
+			1. upto 1 year
+11. Intern Conversion Packet
+	1. You can tell you are interested in full time offer
+		1. Resume
+		2. Transcript
+		3. References
+			1. Co-worker
+			2. Labmate
+			3. Professor
+		4. Conversion Interview Feedback
+			1. Technical interview
+		5. Host feedback
+			1. If it is poor
+				1. Output
+				2. Collaboration
+		6. Intern Project
+			1. Output - code, design
+12. Conversion Interview
+	1. 45 min
+		1. 2 min - Intro
+		2. 40 min - Problem Solving
+		3. 3 min - Q&A
+	2. Trained Software Engineers
+	3. 1-3 questions
+13. Host Feedback is Critical
+	1. Nobody can pass intern conversion without strong host feedback
+		1. Maintain relationship
+	2. Strong Feedback = Life Saver
+		1. What if conversion interview feedback is poor?
+			1. Even if technically good, they may feel we may not be good once we join as a full time engineer
+14. Confidence/ Learning Curve
+	1. At the beginning very high
+	2. Your confidence level goes down
+	3. Confidence level goes high again
+15. Productivity Level
+	1. Initially very low
+	2. Then increases and reaches saturation
 
 ## Interview Deep Dive ##
 ### Evaluation Scale and Criteria ###
