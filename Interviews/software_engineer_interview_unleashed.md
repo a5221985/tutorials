@@ -529,9 +529,55 @@
 	1. Do not interrupt the interviewer
 6. Discussion Versus Argument
 	1. Argument may consist of emotions which is a no-no
-7. 
+7. Work Behavior
+	1. Accept Advice/ Comments
+	2. Deal with Undertain Task
+		1. Ask relevant questions
+			1. sorting 1M numbers
+				1. What are the numbers? postive? negative? floating point?
+				2. Where are the numbers? storage? memory? distributed system?
+	3. Prioritize Tasks
+		1. Prioritizing smaller sub-problems
+			1. Solve trivial cases first
+			2. Learn something from the trivial cases
+			3. Generalize
+	4. Balance Between Perfection and Trivia
+		1. Dealing with all edge cases (even trivia) is not required in a solution
+8. Unbalanced
+	1. Strong coding but weak analytical skills
+	2. Technical skills are strong but poor communication skills
 
 ### Do These ###
+1. Before Interviews
+	1. Eat Enough
+		1. Requires lots of energy (brain work) - 20% of whole energy
+		2. Eat enough for breakfast or lunch
+	2. Prepare Food
+		1. Fill up your water bottle.
+		2. Prepare cookies, chocolates, and/or fruits
+2. Research Company
+	1. Read recent news articles about her
+		1. TechCrunch
+	2. List up her products and services
+		1. Funding
+		2. New product launch
+		3. Product services
+		4. Minor and major
+		5. Who are the customers
+	3. Know who/where they are used
+		1. Americans? Asians? ...
+		2. Faminine?
+3. During Interviews
+	1. Keep talking
+		1. Pause >30 seconds? Yellow signal.
+		2. Pause >60 seconds? Red signal.
+	2. Drink Water
+		1. Talking makes your mouth and body dry. Keep hydrating
+	3. Be nice and friendly
+		1. Interviewer's question
+			1. "Can I work with this candidate today?"
+		2. 
+
 ### Never Do These ###
 ### Myth Buster ###
 ### Irrelevant Interview Questions ###
