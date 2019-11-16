@@ -575,8 +575,9 @@
 		1. Talking makes your mouth and body dry. Keep hydrating
 	3. Be nice and friendly
 		1. Interviewer's question
-			1. "Can I work with this candidate today?"
-		2. 
+			1. "Can I work with this candidate [everyday from] today?"
+		2. Introspective vs outgoing
+		3. Impression that you are nice and collaborative
 
 ### Never Do These ###
 ### Myth Buster ###
