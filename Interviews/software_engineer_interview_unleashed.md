@@ -412,7 +412,59 @@
 
 ## Interview Deep Dive ##
 ### Evaluation Scale and Criteria ###
-1. 
+1. Overall Evaluation Scale: Applied for phone and onsite interviews and conversion
+	1. Superb
+		1. Stronger than most of current employees
+		2. "If we REJECT this candidate, something is terribly wrong"
+			1. He/she could excel immediately
+	2. Strong
+		1. Outstanding performance
+		2. "If other interviewers say PASS, I will fight for HIRE"
+	3. Weak Hire
+		1. In general good performance
+		2. "I think we want to HIRE, but if other interviewers are PASS, I am fine."
+			1. There are a few weak areas
+	4. Weak Reject
+		1. Some aspects are good while others are not
+		2. "I think we need to PASS, but if other interviewers are (strong) HIRE, I am fine."
+			1. Some signals of say good coding but other areas are lacking
+	5. Poor
+		1. Overall poor performance
+		2. "We should REJECT this candidate"
+			1. Coding was poor, communication was poor, did a bad job, team work or collaboration issues
+				1. Fight for rejecting
+	6. No Decision
+		1. We couldn't do interview
+2. Evaluation Criteria
+	1. Coding Skills
+		1. Code quality
+			1. Consistent
+			2. Variable names
+			3. Function names
+			4. Class definition
+			5. ...
+		2. Speed
+			1. How fast I write code
+		3. Expertise
+			1. In language and DS and Algorithms
+	2. Analytical Skills
+		1. Problem understanding
+		2. Data structure
+			1. Can I represent the object in relevant data structure
+		3. Algorithm/ computation speed
+			1. Big-Oh
+	3. Communication Skills
+		1. Understand the question
+			1. If there are doubts, do I ask or not
+		2. Express thoughts/ideas
+			1. Efficient and clear manner
+		3. Dialog
+			1. If the interviewer could have a pleasant conversation with me
+			2. Candidates just tell what they think and reject what interviewers suggest
+	4. Work Behavior
+		1. Collaboration
+		2. Team player
+		3. Supportive
 
 ### Who are Interviewers ###
 ### Who Wants to Hire and Who Don't ###
