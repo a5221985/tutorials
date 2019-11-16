@@ -401,6 +401,14 @@
 15. Productivity Level
 	1. Initially very low
 	2. Then increases and reaches saturation
+16. Host Feedback
+	1. Too much confidence = Bad impression
+		1. Demonstrate your result
+	2. Write Good Quality Code
+		1. Address comments diligently
+		2. Minimize review iteration - host says something, then apply to all of the code
+	3. Request Mock Interviews
+		1. For conversion process
 
 ## Interview Deep Dive ##
 ### Evaluation Scale and Criteria ###
