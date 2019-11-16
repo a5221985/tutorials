@@ -355,6 +355,11 @@
 		2. You will meet them somewhere else
 			1. If someone joins another company and if they like your skillset, they will bring you in
 			2. Host may have fulltime position
+10. Intern Conversion
+	1. Fulltime Hiring Process
+		1. Host/co-host Feedback is critical
+		2. Evaluate project output
+		3. Offer will be valid > 6 mo
 
 ## Interview Deep Dive ##
 ### Evaluation Scale and Criteria ###
