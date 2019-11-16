@@ -495,9 +495,42 @@
 	1. "Can I sit next to this candidate and work together?"
 2. Remember:
 	1. Solicit Help
-		1. 
+		1. When you are stuck, ask for hints.
+		2. If you are not sure, ask question "which is better?"
+			1. If you are stuck somewhere, interviewer can give hints
+			2. Which direction to go?
+				1. Queue or stack? hints
+	2. Accept Hints
+		1. When the interview tells you something, consider it carefully
+			1. Bad signal! Interviewee didn't accept my hints and went into wrong direction
+	3. Help Them Answer Their Question:
+		1. They look for nice co-worker (not a technically strong guy but bad co-worker)
+		2. Show why you are a great potential co-worker
 
 ### Who Wants to Hire and Who Don't ###
+1. The ones with strong technical skills
+	1. Coding
+		1. Speed
+		2. Style - consistent
+		3. Knowledge - strong in computer language
+	2. Algorithm Development - strong!!!
+		1. Algo
+		2. Data Structure
+			1. For the problem
+	3. Analysis
+		1. How complex is the algorithm
+		2. How large the memory is going to be
+2. Understand What Others Say
+3. Deliver What You Think
+	1. Describe what it is. How we worked and how we approached the problem
+4. Say No Appropriately
+	1. Support the nos
+5. Listen to Others
+	1. Do not interrupt the interviewer
+6. Discussion Versus Argument
+	1. Argument may consist of emotions which is a no-no
+7. 
+
 ### Do These ###
 ### Never Do These ###
 ### Myth Buster ###
