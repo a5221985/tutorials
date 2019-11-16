@@ -333,7 +333,28 @@
 	1. Resume screen
 	2. Phone interview (moved to pool of potential candidates)
 	3. Team Match Interview
-	4. Hiring Committee
+		1. We may tell the areas and products we are interested in
+		2. Recruiter may find teams and we may have team match interviews with those teams
+	4. Hiring Committee - final decision
+9. Another process
+	1. Resume Screen
+	2. Phone Interview
+	3. Hiring Committee
+		1. Review
+		2. In a pool of potential candidates
+	4. Team Match Interview
+		1. Several team match interviews
+10. During Internship
+	1. Product Great Outcome
+		1. Achieve more than expected
+		2. Launch - service or feature in a product
+	2. Build Rapport
+		1. Hiring is done by network
+			1. Build great relationship with hosts, co-hosts and team members
+			2. If you want to collaborate with other team, please do that - it could become a reference
+		2. You will meet them somewhere else
+			1. If someone joins another company and if they like your skillset, they will bring you in
+			2. Host may have fulltime position
 
 ## Interview Deep Dive ##
 ### Evaluation Scale and Criteria ###
