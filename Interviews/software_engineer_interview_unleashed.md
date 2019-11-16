@@ -463,10 +463,40 @@
 			2. Candidates just tell what they think and reject what interviewers suggest
 	4. Work Behavior
 		1. Collaboration
+			1. Splitting work into smaller pieces and work with team
 		2. Team player
 		3. Supportive
 
 ### Who are Interviewers ###
+1. Software Engineer Interview
+	1. Conducted by software engineers
+2. Product Manager Interview
+	1. Conducted by product managers (and software engineers)
+		1. Software engineers will ask technical questions
+3. Understanding Software Engineer Interviewer
+	1. Busy
+	2. Long Time for Phone/Onsite Interviews
+		1. Prepare interview (before interviewers, finding relevant questions based on resume, moving around, feedbacks)
+		2. Move to the building/room
+		3. Conduct interview
+		4. Come back to their office
+		5. Write feedback
+		6. You spend 45 mins, they spend 5x more (4 - 5 hours per phone interview)
+4. Need Justification
+	1. Write very detailed feedback. Not just Q/A (time spent by candidate, ... hints, progress, ...)
+	2. Need to tell why the candidate needs to be hired/rejected
+		1. Justification is given
+	3. The better you do, the easier they write feedback
+5. Willing To Help You!
+6. Voluntary Interviewer
+	1. "Can this candidate work with other team members?"
+		1. Wrong candidate can cause trouble to existing employees
+7. Mandatory Interviewer
+	1. "Can I sit next to this candidate and work together?"
+2. Remember:
+	1. Solicit Help
+		1. 
+
 ### Who Wants to Hire and Who Don't ###
 ### Do These ###
 ### Never Do These ###
