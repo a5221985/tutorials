@@ -97,7 +97,67 @@
 <node CREATED="1574021265118" ID="ID_662137555" MODIFIED="1574021269092" TEXT="Data Structures">
 <node CREATED="1574021274726" ID="ID_80160820" MODIFIED="1574021278437" TEXT="Adjacency Matrix">
 <node CREATED="1574021280468" ID="ID_16899792" MODIFIED="1574021319734" TEXT="An adjacency matrix m is a very simple way to represent a graph. The idea is that the cell m[i][j] represents the edge weight of going from node i to node j."/>
-<node CREATED="1574021322085" ID="ID_1806267672" MODIFIED="1574021340390" TEXT="Note: It is often assumed that the edge of going from a node to itself has a cost of zero."/>
+<node CREATED="1574021322085" ID="ID_1806267672" MODIFIED="1574021340390" TEXT="Note: It is often assumed that the edge of going from a node to itself has a cost of zero.">
+<node CREATED="1574021383165" ID="ID_814478067" MODIFIED="1574021388213" TEXT="Diagonal has 0s"/>
+</node>
+<node CREATED="1574021392485" ID="ID_895590187" MODIFIED="1574021395302" TEXT="Pros">
+<node CREATED="1574021398366" ID="ID_459296064" MODIFIED="1574021414290" TEXT="Space efficient for representing dense graphs">
+<node CREATED="1574021479611" ID="ID_1627247711" MODIFIED="1574021484214" TEXT="lot of edges"/>
+</node>
+<node CREATED="1574021417156" ID="ID_1704531640" MODIFIED="1574021423154" TEXT="Edge weight lookup is O(1)"/>
+<node CREATED="1574021424120" ID="ID_1946712215" MODIFIED="1574021430146" TEXT="Simplest graph representation"/>
+</node>
+<node CREATED="1574021433337" ID="ID_1455087765" MODIFIED="1574021434227" TEXT="Cons">
+<node CREATED="1574021434803" ID="ID_213087473" MODIFIED="1574021441187" TEXT="Requires O(V^2) space">
+<node CREATED="1574021513321" ID="ID_1918766719" MODIFIED="1574021521672" TEXT="10000 nodes or more is almost infeasible"/>
+</node>
+<node CREATED="1574021441543" ID="ID_1493392630" MODIFIED="1574021451950" TEXT="Iterating over all edges takes O(V^2) time">
+<node CREATED="1574021525669" ID="ID_212851130" MODIFIED="1574021535483" TEXT="fine for dense graphs but not good for sparse graphs"/>
+</node>
+</node>
+</node>
+<node CREATED="1574021537787" ID="ID_1575546663" MODIFIED="1574021546395" TEXT="Adjacency List">
+<node CREATED="1574021549716" ID="ID_1824517851" MODIFIED="1574021569482" TEXT="An adjacency list is a way to represent a graph as a map from nodes to lists of edges">
+<node CREATED="1574021571813" ID="ID_1992465243" MODIFIED="1574021619186">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      A -&gt; [(B,4),(C,1)]
+    </p>
+    <p>
+      B -&gt; [(C,6)]
+    </p>
+    <p>
+      C -&gt; [(A,4),(B,1),(D,2)]
+    </p>
+    <p>
+      D-&gt;[]
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1574021659480" ID="ID_911935228" MODIFIED="1574021660806" TEXT="Pros">
+<node CREATED="1574021661191" ID="ID_1246041180" MODIFIED="1574021671272" TEXT="Space efficient for representing sparse graphs">
+<node CREATED="1574021671565" ID="ID_113569335" MODIFIED="1574021684743" TEXT="No additional allocation of memory"/>
+</node>
+<node CREATED="1574021694025" ID="ID_1481361900" MODIFIED="1574021700824" TEXT="Iterating over all edges is efficient"/>
+</node>
+<node CREATED="1574021702847" ID="ID_821514361" MODIFIED="1574021703656" TEXT="Cons">
+<node CREATED="1574021703902" ID="ID_1699343231" MODIFIED="1574021714233" TEXT="Less space efficient for denser graphs"/>
+<node CREATED="1574021715206" ID="ID_1102456696" MODIFIED="1574021721777" TEXT="Edge weight lookup is O(E)"/>
+<node CREATED="1574021723007" ID="ID_913214227" MODIFIED="1574021731199" TEXT="Slightly more complex graph representation"/>
+</node>
+</node>
+<node CREATED="1574021752048" ID="ID_879454412" MODIFIED="1574021754111" TEXT="Edge List">
+<node CREATED="1574021754348" ID="ID_1641797928" MODIFIED="1574021835137" TEXT="An edge list is a way to represent a graph simply as an unordered list of edges. Assume the notation for any triplet (u, v ,w) means: &quot;the cost from node u to node is w&quot;">
+<node CREATED="1574021850710" ID="ID_1477027391" MODIFIED="1574021877074" TEXT="[(C,A,4), (A,C,1), (B,C,6), (A,B,4), (C,B,1), (C,D,2)]"/>
+</node>
+<node CREATED="1574021882366" ID="ID_1918510075" MODIFIED="1574021913931" TEXT="This representation is seldomly used because of its lack of structure. However, it is conceptually simple and practical in a handful of algorithms"/>
 </node>
 </node>
 </node>
