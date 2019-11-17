@@ -158,12 +158,40 @@
 <node CREATED="1574021850710" ID="ID_1477027391" MODIFIED="1574021877074" TEXT="[(C,A,4), (A,C,1), (B,C,6), (A,B,4), (C,B,1), (C,D,2)]"/>
 </node>
 <node CREATED="1574021882366" ID="ID_1918510075" MODIFIED="1574021913931" TEXT="This representation is seldomly used because of its lack of structure. However, it is conceptually simple and practical in a handful of algorithms"/>
+<node CREATED="1574021990216" ID="ID_534554958" MODIFIED="1574021991327" TEXT="Pros">
+<node CREATED="1574021994548" ID="ID_1213124694" MODIFIED="1574022006405" TEXT="Space efficient for representing sparse graphs"/>
+<node CREATED="1574022006714" ID="ID_1864644914" MODIFIED="1574022014033" TEXT="Iterating over all edges is efficient"/>
+<node CREATED="1574022015065" ID="ID_1735787385" MODIFIED="1574022018361" TEXT="Very simple structure"/>
+</node>
+<node CREATED="1574021991839" ID="ID_1218844874" MODIFIED="1574021993760" TEXT="Cons">
+<node CREATED="1574022021041" ID="ID_1053784555" MODIFIED="1574022029121" TEXT="Less space efficient for denser graphs."/>
+<node CREATED="1574022030017" ID="ID_106638854" MODIFIED="1574022036001" TEXT="Edge weight lookup is O(E)"/>
 </node>
 </node>
 </node>
 </node>
 </node>
-<node CREATED="1573695432998" ID="ID_273323376" MODIFIED="1573695438710" POSITION="left" TEXT="2. Problems in Graph Theory"/>
+</node>
+<node CREATED="1573695432998" ID="ID_273323376" MODIFIED="1573695438710" POSITION="left" TEXT="2. Problems in Graph Theory">
+<node CREATED="1574022090241" ID="ID_641331821" MODIFIED="1574022097956" TEXT="Common graph theory problems">
+<node CREATED="1574022101122" ID="ID_962527425" MODIFIED="1574022114398" TEXT="Many problems can be reduced to these common problems"/>
+<node CREATED="1574022124622" ID="ID_392851982" MODIFIED="1574022137150" TEXT="For the upcoming problems ask yourself:">
+<node CREATED="1574022139013" ID="ID_703648456" MODIFIED="1574022146701" TEXT="Is the graph directed or undirected?"/>
+<node CREATED="1574022147193" ID="ID_1351295664" MODIFIED="1574022153174" TEXT="Are the edges of the graph weighted?"/>
+<node CREATED="1574022153406" ID="ID_1957554251" MODIFIED="1574022166560" TEXT="Is the graph I will encounter likely to be sparse or dense with edges?"/>
+<node CREATED="1574022171783" ID="ID_1790808875" MODIFIED="1574022204089" TEXT="Should I use an adjacency matrix, adjacency list, an edge list or other structure ot represent the graph efficiently?"/>
+</node>
+<node CREATED="1574022217508" ID="ID_60877473" MODIFIED="1574022223127" TEXT="Shortest path problem">
+<node CREATED="1574022225887" ID="ID_1645117808" MODIFIED="1574022240010" TEXT="Given a weighted graph, find the shortest path of edges from node A to node B"/>
+<node CREATED="1574022252698" ID="ID_1102774473" MODIFIED="1574022284445" TEXT="Algorithms: BFS (unweighted graph), Dijkstra&apos;s, Bellman-Ford, Floud-Warshall, A*, and many more."/>
+<node CREATED="1574022298244" ID="ID_1210540824" MODIFIED="1574022301677" TEXT="Example: Road system"/>
+</node>
+<node CREATED="1574022326687" ID="ID_1366218853" MODIFIED="1574022330182" TEXT="Connectivity">
+<node CREATED="1574022332654" ID="ID_792370894" MODIFIED="1574022341933" TEXT="Does there exist a path between node A and node B?"/>
+<node CREATED="1574022344534" ID="ID_1552482754" MODIFIED="1574022364480" TEXT="Typical solution: Use union find data structure or any search algorithm (e.g DFS)"/>
+</node>
+</node>
+</node>
 <node CREATED="1573695439413" ID="ID_1974938315" MODIFIED="1573695445742" POSITION="right" TEXT="3. Depth First Search Algorithm"/>
 <node CREATED="1573695446821" ID="ID_194963675" MODIFIED="1573695454946" POSITION="left" TEXT="4. Breadth First Search Algorithm"/>
 <node CREATED="1573695455765" ID="ID_35539480" MODIFIED="1573695468843" POSITION="right" TEXT="5. Breadth First Search Grid Shortest Path"/>
