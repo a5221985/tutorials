@@ -590,6 +590,11 @@
 		2. Temperature - too cold? too hot?
 		3. Restroom
 		4. Even a break!
+	7. Be Ready for More Interviews (if hiring committee feels that the questions were too tough or too easy and not enough to make a clear decision) - may be particular area or particular skillset
+		1. Additional/ followup interviews
+		2. More specific or challenging
+	8. Be Ready for Any Result
+		1. The reality would be different from your expectation
 
 ### Never Do These ###
 ### Myth Buster ###
