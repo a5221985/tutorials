@@ -44,7 +44,16 @@
 <node CREATED="1573707481033" ID="ID_1158285946" MODIFIED="1573707489553" TEXT="Directed Acyclic Graphs (DAGs)">
 <node CREATED="1573707490441" ID="ID_1635052197" MODIFIED="1573707498350" TEXT="DAGs are directed graphs with no cycles."/>
 <node CREATED="1573707503105" ID="ID_1497162066" MODIFIED="1573707520595" TEXT="These graphs play an important role in representing structures with dependencies."/>
-<node CREATED="1573707520987" ID="ID_1465223152" MODIFIED="1573707533066" TEXT="Several efficient algorithms exist to operate on DAGs"/>
+<node CREATED="1573707520987" ID="ID_1465223152" MODIFIED="1573707533066" TEXT="Several efficient algorithms exist to operate on DAGs">
+<node CREATED="1573707697304" ID="ID_468200431" MODIFIED="1573707703167" TEXT="Finding shortest paths"/>
+<node CREATED="1573707703400" ID="ID_284349538" MODIFIED="1573707708381" TEXT="Topological ordering of nodes">
+<node CREATED="1573707711223" ID="ID_1901095439" MODIFIED="1573707772807" TEXT="How to process nodes in a graph that tells you how to not perform tasks before completing all of it&apos;s dependencies">
+<node CREATED="1573707777305" ID="ID_1051562140" MODIFIED="1573707781824" TEXT="Class pre-requisites">
+<node CREATED="1573707784823" ID="ID_1253053489" MODIFIED="1573707802101" TEXT="Intro-Biology, Intro-Chemisitry -&gt; Genomics"/>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1573707533585" ID="ID_1316914706" MODIFIED="1573707535771" TEXT="Cool fact">
 <node CREATED="1573707536180" ID="ID_185135062" MODIFIED="1573707551602" TEXT="All out-trees are DAGs but not all DAGs are out-trees"/>
 </node>
@@ -53,6 +62,42 @@
 <node CREATED="1573707665480" ID="ID_1114515802" MODIFIED="1573707667470" TEXT="Build System"/>
 <node CREATED="1573707667716" ID="ID_1931429878" MODIFIED="1573707669126" TEXT="Compiler"/>
 <node CREATED="1573707675727" ID="ID_226550640" MODIFIED="1573707685069" TEXT="University Class pre-requisites"/>
+</node>
+</node>
+<node CREATED="1573707807929" ID="ID_866883909" MODIFIED="1573707811912" TEXT="Bipartite Graph">
+<node CREATED="1574020788802" ID="ID_938375036" MODIFIED="1574020817771" TEXT="A bipartite graph is one whose vertices can be split into two independent groups U, V such that every edge connects between U and V."/>
+<node CREATED="1574020822329" ID="ID_1789618780" MODIFIED="1574020884049" TEXT="Other definitions">
+<node CREATED="1574020828126" ID="ID_1399592194" MODIFIED="1574020858350" TEXT="The graph is two colourable or there is no odd length cycle."/>
+</node>
+<node CREATED="1574020985211" ID="ID_397657341" MODIFIED="1574020986799" TEXT="Problems">
+<node CREATED="1574020987011" ID="ID_1488807646" MODIFIED="1574021000840" TEXT="Maximum Matching on a bipartite graph">
+<node CREATED="1574021017864" ID="ID_1211269075" MODIFIED="1574021027469" TEXT="How many people can be matched to jobs?"/>
+</node>
+<node CREATED="1574021063423" ID="ID_1845717183" MODIFIED="1574021066249" TEXT="Network flow"/>
+</node>
+<node CREATED="1574021092202" ID="ID_667062270" MODIFIED="1574021097610" TEXT="Interesting situations">
+<node CREATED="1574021037592" ID="ID_1052203853" MODIFIED="1574021043121" TEXT="Lesser edges"/>
+<node CREATED="1574021043368" ID="ID_665497230" MODIFIED="1574021047969" TEXT="Tougher constraints"/>
+<node CREATED="1574021055898" ID="ID_273318170" MODIFIED="1574021059217" TEXT="More conflicts"/>
+</node>
+</node>
+<node CREATED="1574021114425" ID="ID_769771793" MODIFIED="1574021118226" TEXT="Complete Graphs">
+<node CREATED="1574021118523" ID="ID_1157041057" MODIFIED="1574021145295" TEXT="A complete graph is one where there is a unique edge between every pair of nodes. A complete graph with n vertices is denoted as the graph Kn">
+<node CREATED="1574021154371" ID="ID_809570198" MODIFIED="1574021157876" TEXT="K1"/>
+<node CREATED="1574021213305" ID="ID_1446692475" MODIFIED="1574021215316" TEXT="K2"/>
+<node CREATED="1574021215810" ID="ID_1247034177" MODIFIED="1574021216833" TEXT="..."/>
+<node CREATED="1574021217273" ID="ID_1256964777" MODIFIED="1574021219425" TEXT="K6"/>
+</node>
+<node CREATED="1574021234933" ID="ID_242945499" MODIFIED="1574021243325" TEXT="Worst case possible graphs">
+<node CREATED="1574021243614" ID="ID_1464904315" MODIFIED="1574021249334" TEXT="Used to test performance"/>
+</node>
+</node>
+</node>
+<node CREATED="1574021259204" ID="ID_659099630" MODIFIED="1574021264189" TEXT="Representing Graphs">
+<node CREATED="1574021265118" ID="ID_662137555" MODIFIED="1574021269092" TEXT="Data Structures">
+<node CREATED="1574021274726" ID="ID_80160820" MODIFIED="1574021278437" TEXT="Adjacency Matrix">
+<node CREATED="1574021280468" ID="ID_16899792" MODIFIED="1574021319734" TEXT="An adjacency matrix m is a very simple way to represent a graph. The idea is that the cell m[i][j] represents the edge weight of going from node i to node j."/>
+<node CREATED="1574021322085" ID="ID_1806267672" MODIFIED="1574021340390" TEXT="Note: It is often assumed that the edge of going from a node to itself has a cost of zero."/>
 </node>
 </node>
 </node>
