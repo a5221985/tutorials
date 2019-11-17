@@ -578,6 +578,18 @@
 			1. "Can I work with this candidate [everyday from] today?"
 		2. Introspective vs outgoing
 		3. Impression that you are nice and collaborative
+	4. Show Your Non-Tech Side
+		1. Remember that they are looking for a nice co-worker
+			1. Sports...
+			2. Passionate about something...
+			3. Mention in Resume too
+	5. Ask Good Questions
+		1. In a following session!
+	6. Ask For Help
+		1. Food, water
+		2. Temperature - too cold? too hot?
+		3. Restroom
+		4. Even a break!
 
 ### Never Do These ###
 ### Myth Buster ###
