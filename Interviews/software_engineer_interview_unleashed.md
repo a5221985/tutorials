@@ -617,9 +617,38 @@
 	3. Interviewers would think "this candidate doesn't want to accept my hints"
 	4. Considered as poor communication skill
 		1. Arrogance
-7. 
+7. Never ask sensitive/ Confidential info
+	1. Salary, bonus, # of RSUs
+	2. Sexual orientation, religion, home town
+	3. Do you make AAA/BBB?
+	4. Are you partnering with Company C?
+8. After Interviews
+	1. Never share interview questions
+		1. Non-disclosure agreement violation
+		2. Made by busy engineers
+			1. Warm up questions
+			2. Extended questions
+			3. ...
+		3. Polished by other engineers for long time
+		4. Shared questions are easy!
+		5. Shared questions are banned! Will not be asked again
+		6. Merely adding more work on them
+	2. If an interviewee does not answer the warm up question, he gets rejected and then he leaks it. But actual questions are saved
+		1. Companies monitor the web pages and they ban those
+9. Never Share Product Info
+	1. Non-disclosure agreement violation
+	2. Never disclose about the new secret product
+	3. May hurt the company's business plan as well as you
 
 ### Myth Buster ###
+1. Education
+	1. PhD preferred to BS/MS?
+		1. Some position requires advanced research skills
+		2. No preference on degrees
+2. Preferred School?
+	1. No. Does not mean much.
+	2. If some company prefers particular school alumni, do not go there	
+
 ### Irrelevant Interview Questions ###
 
 ## Interview Preparation ##
