@@ -825,7 +825,47 @@
 4. Quantitative Description
 	1. "Improved by xx%" instead of "developed A"
 	2. "We built the software together and I worked on the backend" instead of "I built the software"
+		1. Team size with exact contribution
 	3. "2M customers uses it" instead of "I released it"
+		1. Imagination is possible
+5. Not sure
+	1. Full address vs City (only city, state and country)
+	2. Poor GPA
+		1. Hard to hide (try to show something that compensates poor GPA)
+	3. Nationality
+		1. Hard to hide but no need to explicitly show
+6. Do not include
+	1. Financial information
+		1. Social security number, amount of loan, your car maker, etc
+	2. Religious Information
+	3. Health Info
+	4. Portrait Picture (may trigger bias)
+7. Typical Resume Length (guideline only)
+	1. Degrees
+		1. College Intern
+			1. education, course/ personal projects, other experiences
+			2. 1 page
+		2. New Grad
+			1. + GPA, internship
+			2. 1 - 2 pages
+		3. Masters
+			1. + academic projects, publication, industry experience
+			2. 2 - 3 pages
+		4. PhD
+			1. + professional work
+			2. 2 - 4 pages
+		5. + Industry
+			1. + company projects
+			2. + 1 - 3 pages
+8. Resume Example
+	1. College, mathematics and computer science
+	2. Looking for Internship
+	3. Good (first 1/2)
+		1. Good GPA
+		2. Presidential scholar
+		3. Some projects
+		4. Github page is available
+		5. Tutoring experience (tutor and TA)
 
 ### Phone Interview Preparation ###
 ### Onsite Interview Preparation ###
