@@ -866,6 +866,66 @@
 		3. Some projects
 		4. Github page is available
 		5. Tutoring experience (tutor and TA)
+	4. Signals: maybe better than other students. Interview!
+	5. Improve
+		1. Too much white space (around)
+		2. Increase font size
+9. Example Resume:
+	1. College, computer science & physics
+	2. Looking for Internship
+	3. Good
+		1. High GPA (5.0)
+		2. Known school (MIT)
+		3. Internship: SpaceX
+		4. Programming skills
+			1. C++, Java, Python
+			2. CUDA, OpenMP, Numpy
+	4. Signals: Let's read more
+		1. Good
+			1. Designed a programming language: Optrix
+			2. Computing olympiad
+		2. may be better than other students
+	5. Improve
+		1. Any link to personal webpage/ Github/ LinkedIn?
+10. Example Resume:
+	1. Masters, computer science
+	2. Looking for fulltime position
+	3. Good
+		1. Known School (Duke university)
+		2. High GPA (3.5, 3.85)
+		3. Programming skills (python)
+		4. Signals: let's read more
+			1. Signals: let's read more
+				1. Good:
+					1. Personal webpage
+					2. Known school
+					3. High GPA
+					4. Programming skills
+					5. GPU applications
+					6. List of tools/ languages used
+			2. Signals: good to interview
+	4. Improve
+		1. Increase the font size
+11. Resume Example:
+	1. PhD, electrical and computer engineering
+	2. Looking for internship
+	3. Good:
+		1. Known school: University of Maryland - College Park
+		2. Very high GPA: 
+		3. Good skills (profficient vs good vs knows)
+			1. C++, CUDA, C
+			2. Computer vision, machine learning, ...
+		4. Signals: let's read more
+	4. Improve:
+		1. Link to personal webpage or Linkedin
+	5. Bottom half:
+		1. Good:
+			1. Implemented academic work on mobile device
+			2. Projects on some scientific work
+		2. Signals: let's read more
+			1. Neural networks, non-linear regression, ...
+		3. Improve:
+			1. Reduce the white space
 
 ### Phone Interview Preparation ###
 ### Onsite Interview Preparation ###
