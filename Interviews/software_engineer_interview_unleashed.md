@@ -647,7 +647,27 @@
 		2. No preference on degrees
 2. Preferred School?
 	1. No. Does not mean much.
-	2. If some company prefers particular school alumni, do not go there	
+	2. If some company prefers particular school alumni, do not go there	(hiring decision is biased and faulty and company may not succeed)
+3. Computer Science Only?
+	1. Many software engineers who majored Physics, Math, Statistics, Electrical Eng, Mechanical Eng, Industrial Eng, etc. Higher bar for CS Major
+		1. The bar will be higher for CS candidates
+4. Which language to use?
+	1. Many companies have tons of projects with different languages
+	2. Select the one you feel strongest
+5. Most Popular Languages?
+	1. Python: Server backend, visualization, etc.
+	2. Java: Android, most widely adapted language
+	3. C/C++: Kernel, performance sensitive
+	4. Javascript: Web client, service backend
+	5. Objective C: iOS client/server development
+	6. C#: Microsoft products, easy to write, high performance
+	7. PHP: Powers 1/3 of the web. Facebook, Yahoo, Wordpress, and many other companies use it
+	8. Ruby: Easy to read and write code. Easy to build web apps. Also Rails is popular as additional framework
+6. If you use one of them, in most cases you are fine!
+7. Any preferred language?
+	1. May or may be not (for Android - Java and Kotlin)
+		1. I use C#, can I interview with Google?
+			1. 
 
 ### Irrelevant Interview Questions ###
 
