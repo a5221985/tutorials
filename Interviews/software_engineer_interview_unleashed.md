@@ -667,7 +667,16 @@
 7. Any preferred language?
 	1. May or may be not (for Android - Java and Kotlin)
 		1. I use C#, can I interview with Google?
-			1. 
+			1. If I am good at C#, I can teach myself a new language
+		2. I use Go, can I interview with Facebook?
+			1. We can showcase algorithm development skills and language skills - indicates that I can learn any new language (capability)
+		3. Many companies use multiple languages, may ask you do interview with your preferred language
+8. Current Employment
+	1. Current employer?
+		1. Doesn't matter much in general
+	2. Current employment type?
+		1. Full time, part time, etc. Matter? Maybe not
+		2. Part time: may mean you have not been involved in a significant project recently. But, doesn't mean much
 
 ### Irrelevant Interview Questions ###
 
