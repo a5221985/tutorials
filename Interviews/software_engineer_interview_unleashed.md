@@ -673,12 +673,21 @@
 		3. Many companies use multiple languages, may ask you do interview with your preferred language
 8. Current Employment
 	1. Current employer?
-		1. Doesn't matter much in general
+		1. Doesn't matter much in general (old school? not much)
 	2. Current employment type?
-		1. Full time, part time, etc. Matter? Maybe not
+		1. Full time, part time, etc. Matter? Maybe not (if parttime, not involved in a significant project recently)
 		2. Part time: may mean you have not been involved in a significant project recently. But, doesn't mean much
+9. Current Salary
+	1. My current salary is not high enough due to ...
+		1. Laszlo Bock, SVP, Google, "... pay for what the job is worth by setting a pay target for each job when hiring and promoting..."
+10. Visa/ Green Card Required?
+	1. Ask recruiter.
+	2. Many companies support employees to obtain visa, work permit, and/or green card.
+	3. Strong software engieers are always short anywhere. (company is willing to support)
+	4. Seen many people directly coming from different country
 
 ### Irrelevant Interview Questions ###
+1. 
 
 ## Interview Preparation ##
 ### Reference ###
