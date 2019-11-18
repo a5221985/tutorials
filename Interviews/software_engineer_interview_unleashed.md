@@ -597,6 +597,28 @@
 		1. The reality would be different from your expectation
 
 ### Never Do These ###
+1. Never be late
+	1. Late == Rejection
+	2. Assume traffic jam or accident
+	3. Be there 1 hour ahead (2 - 3 times more time than expected)
+	4. Ready to talk over phone 10 mins ahead
+		1. Open laptop
+		2. Connect cell to charger
+		3. bring coffee or water beforehead
+5. Do not confuse buildings
+	1. Many companies have multiple buildings
+	2. Your interview building may be different from where you know
+		1. Double check the building
+		2. Talk to receptionist to confirm
+6. Never Interrupt
+	1. Many interviewees interrupt interviewers
+	2. May be cultural behavior
+		1. Interrupt may mean you are knowledgeable and confident (not a good cultural fit for companies)
+	3. Interviewers would think "this candidate doesn't want to accept my hints"
+	4. Considered as poor communication skill
+		1. Arrogance
+7. 
+
 ### Myth Buster ###
 ### Irrelevant Interview Questions ###
 
