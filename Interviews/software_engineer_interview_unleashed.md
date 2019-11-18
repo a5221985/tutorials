@@ -687,7 +687,40 @@
 	4. Seen many people directly coming from different country
 
 ### Irrelevant Interview Questions ###
-1. 
+1. Interviewee should not ask
+	1. What is your current salary?
+		1. Employees shouldn't disclose their salary
+		2. Stocks
+		3. Options
+	2. Tell me about the details of product A
+		1. You may be asking confidential info
+	3. Maybe useless
+		1. How is your daily life?
+			1. Interviewer's life if office (to know how it is going to be for you is okay)
+		2. How does your food at Cafeteria taste?
+			1. Is it worth spending interview time
+		3. How long have you been at this company?
+			1. Is it useful?
+2. Interviewer should not ask?
+	1. What does your husband or wife work for?
+		1. Marital status should not be asked
+	2. Do you have any kid?
+		1. Marital status
+	3. Do you have any disabilities?
+		1. You may release disabilities to recruiter if you think it is worth (if it affects your job)
+	4. What is your religion?
+	5. Are you a veteran?
+	6. What do you do during weekend?
+		1. This may be understood as asking your religion
+	7. Are you a man? Women? or LGBT?
+	8. How old are you?
+		1. Age should not be asked
+			1. Company should not base decision based on age
+	9. Where did you learn English?
+		1. Asks origin - not good
+	10. Do you have family/ friend working here?
+		1. Should not be asked
+		2. 
 
 ## Interview Preparation ##
 ### Reference ###
