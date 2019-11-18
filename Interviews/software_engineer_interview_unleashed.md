@@ -926,6 +926,42 @@
 			1. Neural networks, non-linear regression, ...
 		3. Improve:
 			1. Reduce the white space
+	6. Good:
+		1. Undergrad thesis award
+		2. Distinguished teaching assistant
+		3. Scholarship
+		4. Top 10% excellent student
+		5. Signals:
+			1. let's interview
+12. Resume Example:
+	1. PhD, systems engineering
+	2. Looking for fulltime position
+	3. Good:
+		1. Known school
+		2. PhD
+		3. Qualifying exam passed
+		4. Fellowship
+		5. Signals: let's keep reading
+		6. Improve:
+			1. Move citizenship to the last page
+			2. Too much empty space
+			3. Link to personal page
+		7. Good:
+			1. Good publications
+		8. Improve:
+			1. Author list seems long (give your authorship)
+		9. Good:
+			1. Multiple internship experiences
+			2. Journal paper reviwers (IEEE)
+			3. Skills:
+				1. C, C++, Java
+		10. Improve
+			1. Move skills to the first page
+13. Recap:
+	1. Be easy to read
+	2. Be succinct
+	3. Has quantitative description
+	4. Has links to external sources
 
 ### Phone Interview Preparation ###
 ### Onsite Interview Preparation ###
