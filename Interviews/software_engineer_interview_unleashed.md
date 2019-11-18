@@ -788,8 +788,45 @@
 	1. Invest time, energy, and money for building and maintaining reference network
 	2. Be memorable (when you send email saying you are looking for a job)
 	3. Give a small gift when you meet
+9. Recap
+	1. Build your reference network now
+	2. Maintain your connection
+	3. Apply through internal reference
 
 ### Resume ###
+1. Who reads your resume
+	1. Recruiter
+		1. Reads hundreds of resumes every day
+		2. Looks for candidates better than others to interview
+			1. They read top 1/2 page and make decision (very important)
+		3. Flight for lies and exaggerations
+			1. If you say you are proficient in 5-10 computer languages, their expectation might become very high
+				1. Interview might become really challenging
+					1. Write only truth
+	2. Interviewer
+		1. They select relevant questions based on your resume
+2. Good resume
+	1. Easy to read
+		1. Must show interesting facts on the top first half
+		2. Should give a reason why they need to read further
+		3. Be succinct. Never be verbose
+			1. Not too long (10 pages is too long)
+				1. Give only important projects and info and not all of them
+		4. Some important stuff is written in BOLD
+			1. Direction
+3. Contains necessary information
+	1. Name, contact, education
+	2. Links to personal homepage, Linkedin, Github, or any
+	3. Publication (include important ones)
+	4. Project description (important facts)
+	5. Achievement (awards, scholarships, volunteering ... triathlon, playing, ...)
+	6. Leadership
+	7. Some non-technicl activities
+4. Quantitative Description
+	1. "Improved by xx%" instead of "developed A"
+	2. "We built the software together and I worked on the backend" instead of "I built the software"
+	3. "2M customers uses it" instead of "I released it"
+
 ### Phone Interview Preparation ###
 ### Onsite Interview Preparation ###
 ### Team Match Interview ###
