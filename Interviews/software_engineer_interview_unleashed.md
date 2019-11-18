@@ -775,8 +775,19 @@
 		1. Building a set of references in different companies/organizations takes much longer than expected
 		2. Start now!
 	2. Try internship
-		1. Best way to build references
+		1. Best way to build references (internships at companies)
 		2. Try different companies
+	3. 6-10 references takes several years
+6. Maintain Connection
+	1. Regularly communicate with them (send emails or messages...)
+	2. Update how you are doing (course or project, ..., companies worked on)
+	3. No worries, they don't skip (even if they don't reply they usually read)
+		1. Do you know any opening position and you know what I have been doing
+		2. They may give an outline of what you have been doing and may recommend that you are very good
+8. Investment
+	1. Invest time, energy, and money for building and maintaining reference network
+	2. Be memorable (when you send email saying you are looking for a job)
+	3. Give a small gift when you meet
 
 ### Resume ###
 ### Phone Interview Preparation ###
