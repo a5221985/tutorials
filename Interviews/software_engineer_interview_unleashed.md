@@ -720,10 +720,44 @@
 		1. Asks origin - not good
 	10. Do you have family/ friend working here?
 		1. Should not be asked
-		2. 
+	11. What is your country of citizenship?
+		1. May disclose to recruiter but not to tech interviewer
+		2. May trigger a bias
+	12. Do you have a car or a house?
+		1. Interviewer must not ask this but it is required if you have to relocate by selling your property
+			1. May trigger bias based on your socio-economic status
+3. Allowed:
+	1. Can you work weekends?
+		1. Depends on work type
+			1. This may be asked
+	2. Why did you drop your college/phd study?
+		1. Follow up questions depending on reasons
+	3. What did you study?
+		1. Not when did you study
+	4. What did you work on in previous company?
+		1. Don't give away confidential info
+		2. Not when did you work on the project
+4. What to do for illegal questions:
+	1. Contact recruiter immediately
+		1. They may request to void the interview or additional interviewers
 
 ## Interview Preparation ##
 ### Reference ###
+1. Process
+	1. Resume submission
+	2. Resume screen
+	3. Internal reference (it may go through resume screen but may not and interview process may start immediately)
+	4. Recruiter contact - they may contact you directly looking into the Linkedin page, contacts, ...
+2. How referee works
+	1. Internal Reference
+		1. Can initiate interview process (higher chance)
+		2. Higher chance to have an interview
+			1. They may work as external reference
+				1. If contacted by recruiter and passed onsite interviews
+	2. External reference check
+		1. Final review
+		2. Ask details about past work experience
+
 ### Resume ###
 ### Phone Interview Preparation ###
 ### Onsite Interview Preparation ###
