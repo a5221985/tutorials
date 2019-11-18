@@ -765,7 +765,18 @@
 		1. Co-worker, labmate, dissertion advisor
 		2. Anybody who can talk about you from objective perspective
 	2. Second-hand experience
-		1. Former class mate, former TA
+		1. Former class mate, former TA (how did I study or how smart I am but they did not work with me on a project)
+4. Social Interaction
+	1. Met in a conference (attended their presentation or they attended your presentation)
+	2. Did non-professional work together (voluntary work)
+	3. Friend who knows some of your non-job related work (something together on a project)
+5. Building reference network
+	1. Takes long time
+		1. Building a set of references in different companies/organizations takes much longer than expected
+		2. Start now!
+	2. Try internship
+		1. Best way to build references
+		2. Try different companies
 
 ### Resume ###
 ### Phone Interview Preparation ###
