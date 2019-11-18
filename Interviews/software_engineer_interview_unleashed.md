@@ -754,9 +754,18 @@
 		2. Higher chance to have an interview
 			1. They may work as external reference
 				1. If contacted by recruiter and passed onsite interviews
-	2. External reference check
+	2. External reference check (if they work for different company, they may talk about your work style, how smart you are, ...)
 		1. Final review
 		2. Ask details about past work experience
+	3. Internal job introduction
+		1. When a company has opening positions, your referees may contact you (internally if they cannot fill in, they may find you)
+		2. They may receive Referral bonus
+3. Who are referees
+	1. First-hand experience (with you)
+		1. Co-worker, labmate, dissertion advisor
+		2. Anybody who can talk about you from objective perspective
+	2. Second-hand experience
+		1. Former class mate, former TA
 
 ### Resume ###
 ### Phone Interview Preparation ###
