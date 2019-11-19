@@ -1361,9 +1361,11 @@
 	1. In-order traversal: left - self - right
 	2. Pre-order traversal: self - left - right
 	3. Post-order traversal: left - right - self
-6. Serialization and deserialization
+6. Serialization and deserialization of binary tree
 
 ### String Manipulation ###
+1. 
+
 ### Depth/ Breadth First Search ###
 ### Dynamic Program ###
 ### Multithreading/ Concurrency ###
