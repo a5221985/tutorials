@@ -1391,6 +1391,8 @@
 	2. Naive algorithm: O(n^3)
 	3. Linear Search Algorithm
 		1. Increase end index until the substring has only two chars
+5. Find longest word containing input chars
+	1. 
 
 ### Depth/ Breadth First Search ###
 ### Dynamic Program ###
