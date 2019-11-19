@@ -1124,10 +1124,38 @@
 	1. "Your service shows too many things on a small screen. Can you split the UI and provide a navigation?"
 		1. You used/loved our service from user's point of view
 	2. "Your analysis result looks very useful. If you could add xxx, it should be much more useful"
-	3. 
+		1. You understand when to analyze the data and how to improve product.
+			1. Using tools
+			2. How to show results on services on web pages
+	3. "Your service works >99% of time, but not 100%. I would propose to make these steps into one, which will improve user experience much"
+		1. You care for user experience and understand engineering system structure
+			1. Very strong at analyzing their services and I love that product
+	4. "Your company recently opensourced a library xxx. Don't you lose any competence?"
+		1. You follow public announcements and look very interested in company's success
+4. Poor Questions
+	1. "How long have you been at this company?"
+	2. "How much is your salary?"
+	3. "How does food at the cafeteria taste?"
+	4. "I have heard that your company is doing xxx. Is it true?"
+		1. Confidential
+5. May be ok
+	1. "How about your regular day?"
+		1. Measure how they work - not very useful
+	2. "What is your project?"
+		1. Doesn't show any love for project or product
+6. Recap
+	1. Know about company/ product/ service/ user
+	2. Prepare enough questions
+	3. Show your love and passion on them
+	4. Do not waste time with meaningless questions
 
 ## Technical Questions ##
 ### Algorithms and Data Structures ###
+1. Basic algorithms and Data structures (not every detail)
+	1. Topics to study
+	2. Materials
+	3. Review of algorithms and data structures
+
 ### Principles of Technical Questions ###
 ### Coding Style ###
 ### Sorting Algorithms ###
