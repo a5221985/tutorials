@@ -1183,9 +1183,16 @@
 		1. Vector, inner/cross product, matrix manipulation, singular value decomposition, orthogonalization
 8. Source coding
 	1. Run length coding, huffman coding
-9. 
+9. Study:
+	1. Level: Computer Science 1st/2nd year
+	2. No problem for science/engineering major (purchase books)
+	3. For non-science/engineering major
+		1. Free online resources/ video courses
+			1. Practice + advanced algorithms and data structures
 
 ### Principles of Technical Questions ###
+1. 
+
 ### Coding Style ###
 ### Sorting Algorithms ###
 ### Binary Trees ###
