@@ -1364,7 +1364,32 @@
 6. Serialization and deserialization of binary tree
 
 ### String Manipulation ###
-1. 
+1. String matching
+	1. Compare two string
+		1. Find occurrences of a pattern in the text.
+		2. Widely used in web search, dictionary search, ...
+		3. String 1: abcdefghijklmnopqrstu
+		4. String 2: ijk
+		5. Find index
+2. Naive algorithm
+	1. Check starting from index 0
+	2. If no match, move by one index
+	3. O(nm) - m is pattern length
+3. Rabin-Karp algorithm
+	1. Preprocesses the input string
+		1. String 1: abdc....u
+		2. String 1 hash: 369....
+		3. String 2: ijk
+		4. String 2 hash: 17
+		5. Find hash for triplets: abc, bcd, cdf, ....
+		6. Find where the hash of String 2 is
+		7. Average complexity: O(n + m)
+4. Find required substring
+	1. Find the longest substring with 2 unique characters
+		1. Input: assdeeeddffffha
+		2. Output: deeedd
+	2. Naive algorithm: O(n^3)
+	3. Linear Search Algorithm
 
 ### Depth/ Breadth First Search ###
 ### Dynamic Program ###
