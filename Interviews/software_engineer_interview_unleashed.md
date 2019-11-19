@@ -964,6 +964,8 @@
 	4. Has links to external sources
 
 ### Phone Interview Preparation ###
+1. 
+
 ### Onsite Interview Preparation ###
 ### Team Match Interview ###
 ### Do You Have any Questions? ###
