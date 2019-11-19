@@ -1195,6 +1195,8 @@
 	1. Try trivial cases first
 		1. Ex: Write a function for returning fibonacci number
 		2. f(0) = 0, f(1) = 1, f(2) = 1, ... f(x) = f(x - 1) + f(x - 2)
+			1. f(3) = f(2) + f(1)
+			2. ...
 
 ### Coding Style ###
 ### Sorting Algorithms ###
