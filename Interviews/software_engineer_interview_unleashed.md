@@ -1197,6 +1197,18 @@
 		2. f(0) = 0, f(1) = 1, f(2) = 1, ... f(x) = f(x - 1) + f(x - 2)
 			1. f(3) = f(2) + f(1)
 			2. ...
+	2. Implementation
+
+			int ComputeFibonacci(int n) {
+				if (n == 0) return 0;
+				if (n == 1) return 1;
+				return ComputerFibonacci(n - 1) + ComputeFibonacci(n - 2);
+			}
+			
+	3. Brute force algorithm first
+		1. Compute moving average with window size k = 3
+		2. if k == 3, add this and previous two values and divide by 3
+		3. if k < 3, add this to previous k - 1 values and divide by k
 
 ### Coding Style ###
 ### Sorting Algorithms ###
