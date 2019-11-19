@@ -998,7 +998,31 @@
 		3. Connect phone to wall charger
 
 ### Onsite Interview Preparation ###
-1. 
+1. 45 - minutes
+2. What to Demonstrate
+	1. Technical Skills
+		1. Algorithm development, coding, data structure, domain knowledge, etc...
+	2. Communication Skills
+		1. Question & answer, conversation, presentation, etc...
+	3. Leadership
+		1. Team building, collaboration, etc...
+3. Things to Buy:
+	1. Whiteboard
+	2. Markers
+		1. Thin markers and parctice using thin markers
+	3. Books:
+		1. Introduction to Algorithms
+			1. By Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein
+			2. Best reference book
+		2. Effective C++ (Third Edition)
+			1. Scott Meyers
+			2. Nice book
+		3. Effective Java
+			1. Joshua Block
+		4. Learning Python
+			1. Mark Lutz
+		5. Design Patterns:
+			1. By Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
 
 ### Team Match Interview ###
 ### Do You Have any Questions? ###
