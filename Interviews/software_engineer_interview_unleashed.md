@@ -1103,7 +1103,28 @@
 	1. Be patient
 
 ### Do You Have any Questions? ###
-1. 
+1. What is this?
+	1. Your turn to ask questions
+		1. Some interviwers consider this seriously
+	2. They want to measure
+		1. How passionate you are at the company/ product/ team
+		2. How widely/ deeply you know their products (customers, services)
+		3. What ideas you have to improve
+2. How to prepare questions
+	1. Use their products
+		1. Download apps
+		2. Register in their websites and use it
+	2. Think ahead
+		1. Which device they use (cell phone, web browser, tv, ...)
+		2. What data they collect from users (LinkedIn - resumes, ...)
+	3. Recent News (product launch, deprivation)
+		1. TechCrunch, VentureBeat, Gigaom - blogs and articles
+		2. Read recent articles or news
+3. Good questions:
+	1. "Your service shows too many things on a small screen. Can you split the UI and provide a navigation?"
+		1. You used/loved our service from user's point of view
+	2. "Your analysis result looks very useful. If you could add xxx, it should be much more useful"
+	3. 
 
 ## Technical Questions ##
 ### Algorithms and Data Structures ###
