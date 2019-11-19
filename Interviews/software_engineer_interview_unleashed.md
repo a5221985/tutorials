@@ -1312,9 +1312,45 @@
 				
 	2. Java:
 
-			// uses quicksort for integers
+			// uses quicksort for primitives
+			int a1[] = {3, 4, 1, 5, 2, 6};
+			
+			Arrays.sort(a1); // quicksort internally
+			
+		1. For objects, merge sort is used
+
+				Card[] hand = new Card[5];
+				
+				Random rand = new Random();
+				
+				for (int i = 0; i < 5; i++) {
+					hand[i] = new Card(rand.nextInt(5));
+				}
+				
+				Arrays.sort(hand); // merge sort
+				
+		2. Python uses a variation of merge sort for numbers
+
+				# Adaptive merge sort
+				>>> sorted([5, 2, 3, 1, 4])
+				[1, 2, 3, 4 , 5]
+				>>> a = [5, 2, 3, 1, 4]
+				>>> a.sort()
+				>>> a
+				[1, 2, 3, 4, 5]
+				
+			1. Tuples and objects are also sorted in python
+
+					>>> student_tuples = [
+						('john', 'A', 15),
+						('jane', 'B', 12),
+						('dave', 'B', 10),
+					]
+					>>> sorted(stuent_tuples, key=lambda student: student[2]) # sort by age	
 
 ### Binary Trees ###
+1. 
+
 ### String Manipulation ###
 ### Depth/ Breadth First Search ###
 ### Dynamic Program ###
