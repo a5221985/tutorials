@@ -1062,7 +1062,15 @@
 
 ### Team Match Interview ###
 1. Team Match Interview - last step
-	1. 
+	1. May interview a team
+	2. Final stage
+	3. It is to find a team I am going to join
+		1. Talk with multiple hiring managers
+		2. Mutual interest == mutual sales
+			1. They will sell their role/ product/ service/ chance
+			2. You will sell your credential/ skill set/ work attitude
+		3. Ask recruiter
+			1. There could be internal & high profile projects
 
 ### Do You Have any Questions? ###
 
