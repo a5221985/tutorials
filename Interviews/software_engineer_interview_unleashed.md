@@ -1038,6 +1038,21 @@
 		4. Company Visit
 			1. Great to meet people there
 			2. If you don't know anybody, just visit there and see how they walk and talk
+				1. See how the employees walk and talk
+		5. Request Mock Interviews
+			1. Employees may be willing to help you
+			2. Friend is also fine
+		6. Practice
+			1. A lot!
+			2. Writing code in computer
+			3. Writing code on a whiteboard
+		7. Dress Relevantly
+			1. Overdress is always better than underdress
+		8. Never be late
+			1. Traffic will be severe. Arrive early
+			2. Your interview building may not be the one you know
+		9. Eat Enough
+			1. 
 
 ### Team Match Interview ###
 ### Do You Have any Questions? ###
