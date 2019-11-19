@@ -972,6 +972,13 @@
 	2. No Autocomplete
 	3. No Highlight
 	4. No Compile
+5. No facial expression/ Body gesture
+	1. More challenging
+6. How to Practice:
+	1. Code on Editor
+		1. Select 2 coding/ algorithm development questions
+		2. Solve them on a text/web editor
+		3. Once finished, compile them
 
 ### Onsite Interview Preparation ###
 ### Team Match Interview ###
