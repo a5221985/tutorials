@@ -1390,6 +1390,7 @@
 		2. Output: deeedd
 	2. Naive algorithm: O(n^3)
 	3. Linear Search Algorithm
+		1. Increase end index until the substring has only two chars
 
 ### Depth/ Breadth First Search ###
 ### Dynamic Program ###
