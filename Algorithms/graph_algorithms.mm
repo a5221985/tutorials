@@ -195,7 +195,36 @@
 <node CREATED="1573695439413" ID="ID_1974938315" MODIFIED="1573695445742" POSITION="right" TEXT="3. Depth First Search Algorithm"/>
 <node CREATED="1573695446821" ID="ID_194963675" MODIFIED="1573695454946" POSITION="left" TEXT="4. Breadth First Search Algorithm"/>
 <node CREATED="1573695455765" ID="ID_35539480" MODIFIED="1573695468843" POSITION="right" TEXT="5. Breadth First Search Grid Shortest Path"/>
-<node CREATED="1573695470588" ID="ID_981637395" MODIFIED="1573695481725" POSITION="left" TEXT="6. Dijkstra&apos;s Shortest Path Algorithm"/>
+<node CREATED="1573695470588" ID="ID_981637395" MODIFIED="1573695481725" POSITION="left" TEXT="6. Dijkstra&apos;s Shortest Path Algorithm">
+<node CREATED="1574202001438" ID="ID_1073521853" MODIFIED="1574202013182" TEXT="What is Dijkstra&apos;s algorithm?">
+<node CREATED="1574202013485" ID="ID_428867860" MODIFIED="1574202038640" TEXT="Dijkstra&apos;s algorithm is a Single Source Shortest Path (SSSP) algorithm for graphs with non-negative edge weights."/>
+<node CREATED="1574202041590" ID="ID_1068399905" MODIFIED="1574202074466" TEXT="Depending on how the algorithm is implemented and what data structures are used the time complexity is typically O(E*log(V)) which is competitive against other shortest path algorithms.">
+<node CREATED="1574202095961" ID="ID_1135346152" MODIFIED="1574202099353" TEXT="Specify start node"/>
+<node CREATED="1574202103168" ID="ID_713388275" MODIFIED="1574202113521" TEXT="Shortest paths to all other nodes"/>
+</node>
+</node>
+<node CREATED="1574202129828" ID="ID_903422183" MODIFIED="1574202137251" TEXT="Algorithm prerequisites">
+<node CREATED="1574202137712" ID="ID_1502250360" MODIFIED="1574202180428" TEXT="One constraint for Dijstra&apos;s algorithm is that the graph must only contain non-negative edge weights. This constraint is imposed to ensure that once a node has been visited its optimal distance cannot be improved."/>
+<node CREATED="1574202183825" ID="ID_261564831" MODIFIED="1574202218333" TEXT="This property is especially important because it enables Dijkstra&apos;s algorithms to act in a greedy manner by always selecting the next most promising node."/>
+</node>
+<node CREATED="1574202251899" ID="ID_1001233433" MODIFIED="1574202254217" TEXT="Outline">
+<node CREATED="1574202256802" ID="ID_1933994612" MODIFIED="1574202284896" TEXT="The goal of this slide deck is for you to understand how to implement DIjkstra&apos;s algorithm and implement it efficiently">
+<node CREATED="1574202285896" ID="ID_341979423" MODIFIED="1574202292386" TEXT="Lazy Dijkstra&apos;s animation">
+<node CREATED="1574202376962" ID="ID_1649240511" MODIFIED="1574202379050" TEXT="Most common"/>
+</node>
+<node CREATED="1574202293296" ID="ID_898621662" MODIFIED="1574202309697" TEXT="Lazy Dijkstra&apos;s pseudo-code"/>
+<node CREATED="1574202310642" ID="ID_1112711517" MODIFIED="1574202319410" TEXT="Finding SP + stopping early optimization"/>
+<node CREATED="1574202320434" ID="ID_1704455508" MODIFIED="1574202331874" TEXT="Using indexed priority and increase performance"/>
+<node CREATED="1574202335266" ID="ID_46088274" MODIFIED="1574202342636" TEXT="Eager Dijkstra&apos;s animation">
+<node CREATED="1574202382944" ID="ID_19804833" MODIFIED="1574202423212" TEXT="Uses indexed-priority queue">
+<node CREATED="1574202413827" ID="ID_459633546" MODIFIED="1574202436019" TEXT="decrease Q operation"/>
+</node>
+</node>
+<node CREATED="1574202343497" ID="ID_28138040" MODIFIED="1574202353453" TEXT="Eager Dijkstra&apos;s pseudo-code"/>
+<node CREATED="1574202353827" ID="ID_1688490257" MODIFIED="1574202363572" TEXT="Heap optimization with D-ary heap"/>
+</node>
+</node>
+</node>
 <node CREATED="1573695488375" ID="ID_1462754315" MODIFIED="1573695507915" POSITION="right" TEXT="7. Dijkstra&apos;s Shortest Path Algorithm | Source Code"/>
 <node CREATED="1573695509430" ID="ID_988963723" MODIFIED="1573695517720" POSITION="left" TEXT="8. Topological Sort Algorithm"/>
 <node CREATED="1573695518527" ID="ID_1996042730" MODIFIED="1573695532822" POSITION="right" TEXT="9. Shortest/Longest Path on Directed Acyclic Graph (DAG)"/>
