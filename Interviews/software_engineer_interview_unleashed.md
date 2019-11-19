@@ -1243,12 +1243,46 @@
 						SBT(p->l, out); SBT(p->r, out);
 					}
 					
-	3. Coding style guides
+	3. Coding style guides (Google's internal guides)
 		1. C++: [https://google.github.io/styleguide/cppguide.html](https://google.github.io/styleguide/cppguide.html)
 		2. Java: [https://google.github.io/styleguide/javaguide.html](https://google.github.io/styleguide/javaguide.html)
 		3. Python: [https://google.github.io/styleguide/pyguide.html](https://google.github.io/styleguide/pyguide.html)
+	4. Example:
+		1. includes are sorted
+		2. Camel casing
+		3. input params first and then output params
+		4. brackets
+		5. 2 spaces for indentation
+		6. 1 space after ,
+		7. 1 space after function )
+	5. Example: Java
+		1. Function name starts with small letter
+	6. Example: Python
+		1. Function name: multiple words - underscore and all in lower case
+2. Recap:
+	1. Consistent
+	2. Readable
 
 ### Sorting Algorithms ###
+1. Widely used algorithms
+	1. Merge sort, quick sort, bubble sort, heap sort
+	2. Binary tree sort
+	3. Basic operations
+	4. Space/ time complexity
+2. Implementations
+	1. How to sort primitives and objects in your language
+	2. Which are implemented underneath `sorting` functions
+		1. Java
+3. Bubble sort
+	1. Bubble the max element to farthest right possible
+	2. Repeated until sort is completed
+4. Merge sort
+	1. Faster than bubble sort
+	2. Divides arrays into smaller groups recursively
+	3. Merges numbers into bigger groups
+5. Heap sort
+	1. Internally it uses min-heap or max-heap
+
 ### Binary Trees ###
 ### String Manipulation ###
 ### Depth/ Breadth First Search ###
