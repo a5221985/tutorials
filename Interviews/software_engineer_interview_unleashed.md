@@ -979,8 +979,27 @@
 		1. Select 2 coding/ algorithm development questions
 		2. Solve them on a text/web editor
 		3. Once finished, compile them
+			1. Many syntax errors
+	2. Mock Phone Interview
+		1. Find a partner or experienced interviewer
+		2. Request a mock interview and feedback
+			1. Two different rooms
+			2. Talk over a phone
+			3. Solve problem on google doc or dropbox document
+			4. Get feedback
+7. Phone Interview Environment
+	1. Find Quiet Room
+	2. Stable Internet Connection
+		1. Wired connection is always the best, but wifi also works fine
+			1. wifi signal must be strong
+	3. Phone
+		1. Landline phone is always the best
+		2. Find where cellphone signal is strong
+		3. Connect phone to wall charger
 
 ### Onsite Interview Preparation ###
+1. 
+
 ### Team Match Interview ###
 ### Do You Have any Questions? ###
 
