@@ -964,7 +964,14 @@
 	4. Has links to external sources
 
 ### Phone Interview Preparation ###
-1. 
+1. 2 min - Intro
+2. 40 min - problem solving - Trained Software engineers - 1-3 Qs
+3. 3 min - Q&A
+4. Talk Over Phone / Skype / Hangout
+	1. Google Doc, Dropbox, CodePair
+	2. No Autocomplete
+	3. No Highlight
+	4. No Compile
 
 ### Onsite Interview Preparation ###
 ### Team Match Interview ###
