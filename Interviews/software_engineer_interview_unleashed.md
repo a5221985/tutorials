@@ -1071,8 +1071,39 @@
 			2. You will sell your credential/ skill set/ work attitude
 		3. Ask recruiter
 			1. There could be internal & high profile projects
+				1. If not sure which one to join
+2. How Large is Your Team?
+	1. 2-5? 6-15? >15?
+3. Roles
+	1. SWE only? Research Scientist? Product Manager (PM)?
+	2. User Experience Designer (UX)? User Interface
+	3. Designer (UI)? Testing Engineer?
+4. Product Phase
+	1. Was the product already launched?
+	2. Any clear release plan?
+5. Team Culture
+	1. Decision making?
+		1. How are they made? Who makes them?
+	2. Release & interate? or high quality launch only?
+		1. Strategy
+6. Work Hours
+	1. Day time only? Night/weekend?
+7. Growth/ Stable (which stage?)
+	1. Filling large headcounts?
+		1. They have lost many
+	2. Existing or new headcount?
+		1. Next projects
+8. Sort By Preference
+	1. Talk with your recruiter about your preference
+		1. Priority order
+			1. If they like team 1
+			2. If they don't like then team 2
+			3. ...
+9. May Take Long
+	1. Be patient
 
 ### Do You Have any Questions? ###
+1. 
 
 ## Technical Questions ##
 ### Algorithms and Data Structures ###
