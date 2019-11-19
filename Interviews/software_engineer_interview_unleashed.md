@@ -1282,6 +1282,37 @@
 	3. Merges numbers into bigger groups
 5. Heap sort
 	1. Internally it uses min-heap or max-heap
+6. Binary tree sort
+	1. nlog(n)
+7. Quick sort
+	1. Select a pivot
+	2. move every element of pivot to left and larger ones to right
+	3. Recursively perform this operation for smaller groups
+8. Space/ Time complexity
+	1. Quick sort: space - O(log n)*, time - O(n log n), O(n^2), O(n)
+	2. Merge sort: space - O(log n)*, time - O(n log n), O(n log n), O( n log n)
+	3. Heap sort: space - O(1)*, time - O(n log n), O(n log n), O(n log n)
+	4. Binary tree sort: space - O(n), time - O(n log n), O(n^2), O(n log n)
+	5. Bubble sort: space - O(1)*, time - O(n^2), O(n^2), O(n)
+9. Sorting in C++
+	1. [www.cplusplus.com/reference/algorithm/sort/](www.cplusplus.com/reference/algorithm/sort/)
+	
+			// std::sort() is introsort.
+			
+			vector vec<int> = {5, 3, 7, -1, 6};
+			
+			std::sort(vec.begin(), vec.end());
+			
+			// or use lambda function
+			
+			std::sort(vec.begin(), vec.end(),
+				[] (int a, int b) {
+					return a > b;
+				});
+				
+	2. Java:
+
+			// uses quicksort for integers
 
 ### Binary Trees ###
 ### String Manipulation ###
