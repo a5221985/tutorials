@@ -1191,7 +1191,10 @@
 			1. Practice + advanced algorithms and data structures
 
 ### Principles of Technical Questions ###
-1. 
+1. How to solve technical questions
+	1. Try trivial cases first
+		1. Ex: Write a function for returning fibonacci number
+		2. f(0) = 0, f(1) = 1, f(2) = 1, ... f(x) = f(x - 1) + f(x - 2)
 
 ### Coding Style ###
 ### Sorting Algorithms ###
