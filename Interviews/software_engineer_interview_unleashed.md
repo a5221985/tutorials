@@ -1052,9 +1052,18 @@
 			1. Traffic will be severe. Arrive early
 			2. Your interview building may not be the one you know
 		9. Eat Enough
-			1. 
+			1. Meet Your Friend
+				1. If you know any, meet them and have coffee together
+	5. What to wear
+		1. Measure their style
+			1. Ask your recruiter
+			2. Be there a day before. Look how they dress (try to wear similarly)
+		2. Overdress... Slightly
 
 ### Team Match Interview ###
+1. Team Match Interview - last step
+	1. 
+
 ### Do You Have any Questions? ###
 
 ## Technical Questions ##
