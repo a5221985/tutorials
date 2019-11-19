@@ -1023,6 +1023,21 @@
 			1. Mark Lutz
 		5. Design Patterns:
 			1. By Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
+	4. Preparation
+		1. Techncial Problem Solving
+			1. leetcode.com
+			2. hackerrank.com
+			3. careercup.com
+			4. topcoder.com
+		2. Search For Interview Questions
+			1. Many companies regularly monitor those pages.
+			2. Leaked questions may not be most challenging.
+		3. Research Companies
+			1. Must know their products and services
+			2. Great way to show your love and passion on them.
+		4. Company Visit
+			1. Great to meet people there
+			2. If you don't know anybody, just visit there and see how they walk and talk
 
 ### Team Match Interview ###
 ### Do You Have any Questions? ###
