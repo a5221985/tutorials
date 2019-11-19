@@ -1392,7 +1392,18 @@
 	3. Linear Search Algorithm
 		1. Increase end index until the substring has only two chars
 5. Find longest word containing input chars
-	1. 
+	1. Input dic: { 'act', 'acquaintance', 'trace'}
+		1. Input: cat
+		2. Output: acquaintance
+	2. Questions to ask
+		1. Lower case?
+		2. Dictionary size?
+	3. Algorithm 1:
+		1. Naive
+			1. compare each word with inputs and find longest
+	4. Algorithm 2:
+		1. Convert each word to a token
+		2. Try `and` operation
 
 ### Depth/ Breadth First Search ###
 ### Dynamic Program ###
