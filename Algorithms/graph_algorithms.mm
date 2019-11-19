@@ -221,7 +221,48 @@
 </node>
 </node>
 <node CREATED="1574202343497" ID="ID_28138040" MODIFIED="1574202353453" TEXT="Eager Dijkstra&apos;s pseudo-code"/>
-<node CREATED="1574202353827" ID="ID_1688490257" MODIFIED="1574202363572" TEXT="Heap optimization with D-ary heap"/>
+<node CREATED="1574202353827" ID="ID_1688490257" MODIFIED="1574202363572" TEXT="Heap optimization with D-ary heap">
+<node CREATED="1574202445821" ID="ID_164158034" MODIFIED="1574202451294" TEXT="Further boost to performance"/>
+</node>
+</node>
+</node>
+<node CREATED="1574202454611" ID="ID_1422446751" MODIFIED="1574202461014" TEXT="Quick Algorithm Overview">
+<node CREATED="1574202504271" ID="ID_74545419" MODIFIED="1574202681122" TEXT="Maintain a &apos;dist&apos; array where the distance to every node is positive infinity. Mark the distance to the start node &apos;s&apos; to be 0.&#xa;&#xa;Maintain a PQ of key-value pairs of (node index, distance) pairs which tell you which node to visit next based on sorted min value.&#xa;&#xa;Insert (s, 0) into the PQ and loop while PQ is not empty pulling out the next most promising (node index, distance) pair.&#xa;&#xa;Iterate over all edges outwards from the current node and relax each edge appending a new (node index, distance) key-value pair to the PQ for every relaxation.">
+<node CREATED="1574203020849" ID="ID_1959459337" MODIFIED="1574203060071">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      (index, dist)
+    </p>
+    <p>
+      (0, 0)
+    </p>
+    <p>
+      (1, 4)
+    </p>
+    <p>
+      (2, 1)
+    </p>
+    <p>
+      (1, 3)
+    </p>
+    <p>
+      (3, 6)
+    </p>
+    <p>
+      (3, 4)
+    </p>
+    <p>
+      (4, 7)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1574203068228" ID="ID_624552329" MODIFIED="1574203083766" TEXT="dist: [0, 3, 1, 4, 7]"/>
+</node>
 </node>
 </node>
 </node>
