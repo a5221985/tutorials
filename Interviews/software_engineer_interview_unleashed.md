@@ -1349,7 +1349,19 @@
 					>>> sorted(stuent_tuples, key=lambda student: student[2]) # sort by age	
 
 ### Binary Trees ###
-1. 
+1. Each node has a left child and right child (any of them can be null)
+2. BST
+	1. Values in left subtree < value of root < values in right subtree
+3. Average time complexity:
+	1. Lookup: O(log n)
+	2. Insertion: O(log n)
+	3. Deletion: O(log n)
+4. Space: O(n)
+5. Binary tree traversal
+	1. In-order traversal: left - self - right
+	2. Pre-order traversal: self - left - right
+	3. Post-order traversal: left - right - self
+6. Serialization and deserialization
 
 ### String Manipulation ###
 ### Depth/ Breadth First Search ###
