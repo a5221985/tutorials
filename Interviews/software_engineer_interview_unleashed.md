@@ -1155,6 +1155,35 @@
 	1. Topics to study
 	2. Materials
 	3. Review of algorithms and data structures
+2. Big-Oh - refer to books
+3. Algorithms to study
+	1. Big-O Notation
+		1. Algorithm complexity (time)
+		2. Memory consumption
+	2. Sorting algorithms
+		1. Bubble sort, insertion sort, merge sort, quick sort, radix sort, heap sort
+			1. There are more advanced ones
+4. Advanced algorithms
+	1. Dijkstra's algorithm, dynamic programming, string matching
+5. Graph algorithms
+	1. Depth first search
+	2. Breadth first search
+	3. Maximum flow
+6. Data structures
+	1. Basic
+		1. Stack, queue, linked list, heap
+	2. Hash
+		1. Hash function, hash table, hash set, hash map
+	3. Tree
+		1. Binary tree, prefix tree, quad tree
+7. Advanced topics
+	1. Disjoing set
+	2. Linear programming
+	3. Linear algebra
+		1. Vector, inner/cross product, matrix manipulation, singular value decomposition, orthogonalization
+8. Source coding
+	1. Run length coding, huffman coding
+9. 
 
 ### Principles of Technical Questions ###
 ### Coding Style ###
