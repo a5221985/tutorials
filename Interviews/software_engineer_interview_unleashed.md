@@ -1209,8 +1209,45 @@
 		1. Compute moving average with window size k = 3
 		2. if k == 3, add this and previous two values and divide by 3
 		3. if k < 3, add this to previous k - 1 values and divide by k
+	4. Better algorithm
+		1. Visit only once
 
 ### Coding Style ###
+1. Coding rules
+	1. Consistent
+		1. Function, variable naming, blank line, whitespace, comment, initialization
+			1. relevance
+			2. Correctness
+		2. Readable
+			1. Do not sacrifice readability for coding length
+				1. Do not write too many things in one line
+	2. Binary tree serialization
+		1. Example:
+
+				void serializeBinaryTree(BinaryTree *p, string *out) {
+					if (p == nullptr) {
+						*out += "#";
+					} else {
+						*out += p->data;
+						*out += ",";
+						serializeBinaryTree(p->left, out);
+						serializeBinaryTree(p->right, out);
+					}
+				}
+				
+			1. Poor readable code
+
+					void SBT(BT* p, string* out) {
+						if (p == nullptr) { *out += "#"; return; }
+						*out += p->data + ", ";
+						SBT(p->l, out); SBT(p->r, out);
+					}
+					
+	3. Coding style guides
+		1. C++: [https://google.github.io/styleguide/cppguide.html](https://google.github.io/styleguide/cppguide.html)
+		2. Java: [https://google.github.io/styleguide/javaguide.html](https://google.github.io/styleguide/javaguide.html)
+		3. Python: [https://google.github.io/styleguide/pyguide.html](https://google.github.io/styleguide/pyguide.html)
+
 ### Sorting Algorithms ###
 ### Binary Trees ###
 ### String Manipulation ###
