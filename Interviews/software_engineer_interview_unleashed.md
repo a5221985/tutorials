@@ -1425,7 +1425,43 @@
 			
 		1. Solution: pre-allocate the memory and shrink the memory at the end
 
+				string FindAs(const string& input) {
+					string out;
+					out.reserve(input.size()); // pre-allocation
+					for (int i = 0; i < input.size(); i++) {
+						if (input[i] == 'a') {
+							out += input[i];
+						}
+					}
+					out.shrink_to_fit(); // shink to fit
+					return out;
+				}
+
 ### Depth/ Breadth First Search ###
+1. pre-order, in-order, post-order are DFS
+2. BFS: visit root node, then all it's children and then the next level (by level)
+3. Pseudo-code
+
+		Stor the root node in Container
+		While (there are nodes in Container)
+			N = Get the "next" node from Container
+			Store all the children of N in Container
+			Do some work on N
+			
+	1. DFS: Container - Stack
+	2. BFS: Container - Queue
+4. Example: Count # of islands
+
+		000000
+		00xx00
+		0000x0
+		00000x
+		
+	1. Only vertical and horizontal x's are assumed connected
+	2. Example implementation:
+
+			public class Count
+
 ### Dynamic Program ###
 ### Multithreading/ Concurrency ###
 ### Design Question ###
