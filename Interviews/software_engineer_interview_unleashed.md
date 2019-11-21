@@ -1404,6 +1404,26 @@
 	4. Algorithm 2:
 		1. Convert each word to a token
 		2. Try `and` operation
+6. Longest string search
+	1. algorithm + presort dictionary by length
+		1. Average time complexity of this algo is same as before but in practice it is faster
+	2. algorithm 4
+		1. Algorithm 3 + build sorted char index
+			1. Example: If we are searching for `c`, we can sort all words containing `c` by length and pickup the longest
+7. Typical mistakes:
+	1. Example:
+
+			string FindAs(const string& input) {
+				string out;
+				for (int i = 0; i < input.size(); i++) {
+					if (input[i] == 'a') {
+						out += input[i]; // releases memory for out and re-allocates again - inefficient
+					}
+				}
+				return out;
+			}
+			
+		1. Solution: pre-allocate the memory and shrink the memory at the end
 
 ### Depth/ Breadth First Search ###
 ### Dynamic Program ###
