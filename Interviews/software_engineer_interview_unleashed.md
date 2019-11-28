@@ -1550,6 +1550,41 @@
 					man3.join();
 					return 0;
 				}
+				
+7. Busy waiting:
+	1. Waiting for some future event with repeatedly checking if the event happens
+	2. Example:
+
+			mutex m;
+			int i = 0;
+			void IncrementCounter()
+			{
+				sleep(1000);
+				lock_guard<mutex> lock(m);
+				i++; // shared resource
+			}
+			int main(int argc, char* argv[])
+			{
+				thread increment_counter(IncrementCounter);
+				while (true)
+				{
+					lock_guard<mutex> lock(m);
+					if (i >= 1) break;
+				}
+				increment_counter.join();
+				return 0;
+			}
+			
+8. How to avoid busy wait:
+
+		Use `Semaphore` (Python/Java, not C++)
+		Use `Event` (Python) or `CountDownLatch` (Java)
+		Use `Sleep(0)` - just changes priority of the task so that other jobs can run
+9. Recap:
+	1. Concurrency, Parallelism, Multithreading
+	2. Shared Resources
+		1. Critical section, mutex, semaphore
+	3. Busy Waiting
 
 ### Design Question ###
 ### Frequent Coding Mistakes ###
