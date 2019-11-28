@@ -1472,6 +1472,9 @@
 	1. For allowing concurrency within each process
 4. Single threaded program (+ main thread)
 
+		#include <stdio.h>
+		#include <thread>
+
 		void CallFromThread()
 		{
 			printf("Hello, World\n");
@@ -1487,6 +1490,9 @@
 		}
 		
 5. Multithreaded-program:
+
+		#include <stdio.h>
+		#include <thread>
 
 		void CallFromThread(int thread_id)
 		{
@@ -1514,6 +1520,8 @@
 		}
 		
 	1. `g++ -std=c++11 -o multiple_threads multiple_threads.cpp`
+6. Shared resources
+	1. 
 
 ### Design Question ###
 ### Frequent Coding Mistakes ###
