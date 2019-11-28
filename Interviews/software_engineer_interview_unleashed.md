@@ -1470,7 +1470,21 @@
 	1. Running multiple tasks at the same time (multiple cores or multiple cpus)
 3. Multithreading
 	1. For allowing concurrency within each process
-4. 
+4. Single threaded program (+ main thread)
+
+		void CallFromThread()
+		{
+			printf("Hello, World\n");
+		}
+		
+		int main(int argc, char* argv[])
+		{
+			// Launch a new thread
+			thread t1(CallFromThread);
+			// Join the thread with the main thread
+			t1.join();
+			return 0;
+		}
 
 ### Design Question ###
 ### Frequent Coding Mistakes ###
