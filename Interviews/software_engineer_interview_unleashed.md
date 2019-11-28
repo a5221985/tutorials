@@ -1464,6 +1464,14 @@
 
 ### Dynamic Program ###
 ### Multithreading/ Concurrency ###
+1. Concurrency:
+	1. Running multiple tasks at almost the same time in some unspecified order (one cpu or one core running multiple tasks)
+2. Parallelism (part of concurrency)
+	1. Running multiple tasks at the same time (multiple cores or multiple cpus)
+3. Multithreading
+	1. For allowing concurrency within each process
+4. 
+
 ### Design Question ###
 ### Frequent Coding Mistakes ###
 
