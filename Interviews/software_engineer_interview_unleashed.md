@@ -1634,8 +1634,19 @@
 7. How to approach?
 	1. Ask clarifying questions
 	2. How many total users/ concurrent users?
+		1. How widely it is distributed?
 	3. How are servers connected?
 	4. How strong security is required?
+		1. For photos it is very important
+		2. For road traffic doesn't have to be secure (for faster transmission)
+	5. How much delay can be tolerated?
+	6. How much errors could be accepted?
+8. Design Electric vehicle charging availability app
+	1. Building an app showing available/ unavailable chargin stations on the map
+	2. 10M charging stations all over the world
+		1. Show only a few of them
+		2. Latitude and longitude zoom level
+	3. Design a system that returns charging station list to the map
 
 ### Frequent Coding Mistakes ###
 
