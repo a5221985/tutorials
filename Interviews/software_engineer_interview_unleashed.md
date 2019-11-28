@@ -1647,6 +1647,26 @@
 		1. Show only a few of them
 		2. Latitude and longitude zoom level
 	3. Design a system that returns charging station list to the map
+	4. How to update charging station changes?
+	5. Have another layer with statistics
+		1. If there are too many charging stations, how to show them?
+			1. statistics of availability (pre-compute every 5 or 10 seconds)
+	6. What is the tolerant time delay?
+	7. Show updates online? Or no?
+	8. How many concurrent users?
+	9. How are they distributed?
+9. Good approach:
+	1. Build a scenario:
+		1. App sends a request with latitude, longitude, and zoom level
+		2. Find charging stations near the input lat/lon/zoom
+		3. Return the entire list of charging stations or a snippet of it
+		4. App displays all or some of the charging stations
+			1. Or statistics
+		5. Prefetch nearby charging stations in multiple zoom level
+10. Recap:
+	1. Design questions are daunting
+	2. Ask scoping questions
+	3. Build scenario
 
 ### Frequent Coding Mistakes ###
 
