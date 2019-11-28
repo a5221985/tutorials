@@ -1587,6 +1587,25 @@
 	3. Busy Waiting
 
 ### Design Question ###
+1. Question scope
+	1. Asking an ability to design a large scale data processing/ serving/ accessing system (to address multiple quality attributes)
+	2. Evaluate in terms of efficiency, reliability, portability, extensibility, complexity, performance, scalability, etc
+2. New Design
+	1. (Maybe) outside your knowledge or past experience
+		1. How can I handle the challenge
+3. Target Interviewee
+	1. PhD candidates
+	2. BS/ MS with (maybe) 3+ years of experience
+	3. Not for interns or fresh college grad
+4. Design a Web browser
+	1. From entering URL to rendering the Web page
+		1. How to implement URL auto-complete?
+		2. How to render a web page with multiple images?
+			1. MP3
+			2. Video
+	2. They want to know how I approach the process
+	3. From user's point of view
+
 ### Frequent Coding Mistakes ###
 
 ## Interview Examples ##
