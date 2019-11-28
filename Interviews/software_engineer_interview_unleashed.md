@@ -1521,7 +1521,35 @@
 		
 	1. `g++ -std=c++11 -o multiple_threads multiple_threads.cpp`
 6. Shared resources
-	1. 
+	1. Critical section
+		1. Section in the program where two or more threads might try to access the same resource. Potential race condition
+	2. Semaphore
+		1. Shared resource access with a maximum concurrency.
+			1. Usage: control access to a limited number of resources being shared by multiple threads
+				1. Ex: limit the max # of threads accessing database (connection limit)
+	3. Mutex
+		1. Mutually exclusive resource access
+			1. A special case of Semaphore with max thread of 1
+		2. Example:
+
+				std::mutex m;
+				int i = 0;
+				void makeACallFromPhoneBooth()
+				{
+					m.lock();
+					printf("%d Hello Wife\n", i++);
+					m.unlock();
+				}
+				int main(int argc, char* argv[])
+				{
+					thread man1(MakeACallFromPhoneBooth);
+					thread man2(MakeACallFromPhoneBooth);
+					thread man3(MakeACallFromPhoneBooth);
+					man1.join();
+					man2.join();
+					man3.join();
+					return 0;
+				}
 
 ### Design Question ###
 ### Frequent Coding Mistakes ###
