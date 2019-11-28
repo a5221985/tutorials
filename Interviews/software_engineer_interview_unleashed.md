@@ -1603,8 +1603,39 @@
 		2. How to render a web page with multiple images?
 			1. MP3
 			2. Video
+			3. We can optionally read only images required to show and render the others later
 	2. They want to know how I approach the process
 	3. From user's point of view
+5. How to make photo sharing service for 1B users
+	1. Like instagram, user's new photo should be shared with 1B users instantly. (with friends or friend's friends)
+		1. Where/ how to store the images?
+			1. Where do we want to deploy the serving servers and database servers
+			2. Find list of photos that user wants to share
+		2. How to find images in chronological order in distributed database?
+			1. Fetch latest images from distributed system
+			2. How to distribute
+			3. How to fetch
+			4. How to serve
+6. Design distributed file system in the moon
+	1. 100 file servers in the moon
+		1. Send from earth file server to 100 file servers on the moon separately?
+		2. Send as a broadcast?
+		3. Send to a central server on the moon and distribute locally?
+	2. How to securely transfer your file to them?
+		1. Transmission channel is un-secure and noisy
+	3. How to search files in the system?
+		1. Send query to all servers?
+		2. Send to one server and wait?
+	4. How to read files from it?
+		1. Ask server to send a packet multiple times?
+		2. Error correction code
+		3. Source coding scheme
+		4. Special way to transfer
+7. How to approach?
+	1. Ask clarifying questions
+	2. How many total users/ concurrent users?
+	3. How are servers connected?
+	4. How strong security is required?
 
 ### Frequent Coding Mistakes ###
 
