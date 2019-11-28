@@ -1669,6 +1669,24 @@
 	3. Build scenario
 
 ### Frequent Coding Mistakes ###
+1. Missing input Parameter Check
+
+		void DoSomething(int index, double probability, vector<double> c) {
+			c[index] = probability;	
+		}
+		
+	1. Yellow signal:
+		1. If index is negative?
+		2. What if probability is negative?
+		3. If vector is empty?
+		4. Copying vector of double (value copying)
+
+				CHECK(index >= 0);
+				CHECK(probability >= 0.0);
+				CHECK(index < c.size());
+				
+			1. `vector<double> &c`
+2. 
 
 ## Interview Examples ##
 ### Phone Interview Example 1 Part I ###
