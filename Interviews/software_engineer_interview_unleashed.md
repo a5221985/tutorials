@@ -1485,6 +1485,35 @@
 			t1.join();
 			return 0;
 		}
+		
+5. Multithreaded-program:
+
+		void CallFromThread(int thread_id)
+		{
+			printf("Thread ID: %d\n", thread_id);
+		}
+		
+		int main(int argc, char* argv[])
+		{
+			constexpr int kNumThreads = 5;
+			thread t[kNumThreads];
+			// Launch a group of threads
+			for (int i = 0; i < kNumThreads; i++)
+			{
+				t[i] = thread(CallFromThread, i);
+			}
+			
+			printf("Launched from the main\n");
+			
+			// Join the threads with the main thread
+			for (int i = 0; i < kNumThreads; i++)
+			{
+				t[i].join();
+			}
+			return 0;
+		}
+		
+	1. `g++ -std=c++11 -o multiple_threads multiple_threads.cpp`
 
 ### Design Question ###
 ### Frequent Coding Mistakes ###
