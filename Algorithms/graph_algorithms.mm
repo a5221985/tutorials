@@ -284,6 +284,79 @@
   </body>
 </html>
 </richcontent>
+<node CREATED="1574222058760" ID="ID_1452448885" MODIFIED="1574222302945">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Runs Dijkstra's algorithm and returns an array that contains
+    </p>
+    <p>
+      # the shortest distance to every node from the start node s.
+    </p>
+    <p>
+      # g - adjacency list of weighted graph
+    </p>
+    <p>
+      # n - the number of nodes in the graph
+    </p>
+    <p>
+      # s - the index of the starting node (0 &lt;= s &lt; n)
+    </p>
+    <p>
+      function dijkstra(g, n, s):
+    </p>
+    <p>
+      &#160;&#160;vis = [false, false, ..., false] # size n
+    </p>
+    <p>
+      &#160;&#160;dist = [inf, inf, ..., inf, inf] # size n
+    </p>
+    <p>
+      &#160;&#160;dist[s] = 0
+    </p>
+    <p>
+      &#160;&#160;pq = empty priority queue
+    </p>
+    <p>
+      &#160;&#160;pq.insert((s, 0))
+    </p>
+    <p>
+      &#160;&#160;while pz.size() != 0:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;index, minValue = pq.poll()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;vis[index] = true
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for (edge : g[index]):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;if vis[edge.to] : continue
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;newDist = dist[index] + edge.cost
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;if newDist &lt; dist[edge.to]:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;dist[edge.to] = newDist
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pq.insert((edge.to, newDist))
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return dist
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
 </node>
 </node>
 </node>
