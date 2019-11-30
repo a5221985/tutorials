@@ -1741,10 +1741,28 @@
 
 		double a = 1.0;
 		double b = 0.9 + 0.1;
-		if (a == b) printf("same");
+		if (a == b) printf("same"); // they may not be the same because floats may have different precisions
+	
+	1. Solution:
+
+			if (fabs(b - a) < 1e-8) printf("same");
+			
+11. Arithmetic operation stability
+
+		double a = 1.0;
+		double b = 1.1;
+		double c1 = a + b;
+		double c2 = b + a;
+		if (c1 == c2) printf("same"); // they may not be same and unlikely if adding many numbers and high precision values (order may matter)
+		
+	1. Solution:
+
+			if (fabs(c1 - c2) < 1e-8) printf("same");
 
 ## Interview Examples ##
 ### Phone Interview Example 1 Part I ###
+1. 
+
 ### Phone Interview Example 1 Part II ###
 ### Phone Interview Example 1 Part III ###
 ### Onsite Interview Example 1 Part I ###
