@@ -1685,8 +1685,63 @@
 				CHECK(probability >= 0.0);
 				CHECK(index < c.size());
 				
-			1. `vector<double> &c`
-2. 
+			1. `vector<double> &c` - pass reference
+2. If function has input pointer
+	1. Check if pointer is nullpointer
+
+			CHECK(b != nullptr);
+			
+3. Check if variable is initialized or not
+
+		void DoSometing() {
+			int c = 0; // initialize
+			int a = 1;
+			//...
+		}
+		
+4. Pointer/ Value misuse
+
+		int a = 10;
+		int *p = &a;
+		if (p > 5) printf("bigger than 5"); // wrong (*p > 5)
+		
+5. Unitialized memory
+
+		int *b = new int[1];
+		if (b > 0) printf("positive"); // uninitialized
+		
+6. Assignment vs Comparison
+
+		if (a = 1) {
+			// ...
+		}
+		
+7. Out of bounds memory access
+
+		int a[10];
+		for (int i = 0; i < 11; i++) a[i] = 0; // out of boundary
+		
+8. Logical vs Bitwise operator
+
+		int a = 1; int b = 3;
+		if (a & b) printf("found it"); // bitwise and not logical operator
+		int c = a || 16; // not bitwise but logical
+		if (c > 10) printf("wow");
+		
+9. Missing break switch
+
+		int m = 1;
+		switch (m) {
+			case 0: printf("zero"); break;
+			case 1: printf("one"); break;
+			default: printf("default");
+		}
+		
+10. Comparing floating point values
+
+		double a = 1.0;
+		double b = 0.9 + 0.1;
+		if (a == b) printf("same");
 
 ## Interview Examples ##
 ### Phone Interview Example 1 Part I ###
