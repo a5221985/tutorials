@@ -859,9 +859,15 @@
 11. FPU status register contains 16 bit value that allows a task to determine the result of an arithemetic operation and check if an exception has occurred and query stack status info
 12. FPU instruction set supports 3 types of memory operands
 	1. Signed integer
-		1. 
+		1. 16 bit word
+		2. 32 bit double word
+		3. 64 bit quad word
 	2. Floating point
+		1. 32 bit single precision (C/C++ - float)
+		2. 64 bit double precision (C/C++ - double)
+		3. 80 bit double extended precision
 	3. BCD
+13. 
 
 ### Overview of x86 Memory Modes ###
 
