@@ -840,7 +840,7 @@
 	3. Data transfers between FPU registers and x86 GPRs is not possible
 		1. Intermedite mem location needs to be used for this
 		2. Not performed very often - only in rare situations
-7. FPU numberic formats, algorithms, exception signalling procedures are based on IEEE standard for binary FP arithmetic - IEEE 754.198 standard
+7. FPU numberic formats, algorithms, exception signalling procedures are based on IEEE standard for binary FP arithmetic - IEEE 754.1985 standard
 	1. 80 bit double extended precision format
 		1. conversion between the internal format and supported floating point, integer and BCD formats occur automatically during FPU reg load and store operations
 
