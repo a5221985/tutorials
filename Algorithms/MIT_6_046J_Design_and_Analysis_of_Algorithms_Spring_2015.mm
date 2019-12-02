@@ -41,7 +41,11 @@
 <node CREATED="1575224898067" ID="ID_584232075" MODIFIED="1575224905495" TEXT="Shortest path: O(v^2)"/>
 </node>
 </node>
-<node CREATED="1575224912562" ID="ID_695205058" MODIFIED="1575224929120" TEXT="NP - class of problems verifiable in polynomial time"/>
+<node CREATED="1575224912562" ID="ID_695205058" MODIFIED="1575224929120" TEXT="NP - class of problems verifiable in polynomial time">
+<node CREATED="1575224937407" ID="ID_1326686711" MODIFIED="1575224952560" TEXT="Hamiltonian cycle">
+<node CREATED="1575224953119" ID="ID_1549968170" MODIFIED="1575224975879" TEXT="Given  adirected graph, finda single cycle (cannot repeat vertices)"/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1575128462725" ID="ID_700048212" MODIFIED="1575128475792" POSITION="left" TEXT="2. Divide &amp; Conquer: Convex Hull, Median Finding"/>
