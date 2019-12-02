@@ -843,6 +843,25 @@
 7. FPU numberic formats, algorithms, exception signalling procedures are based on IEEE standard for binary FP arithmetic - IEEE 754.1985 standard
 	1. 80 bit double extended precision format
 		1. conversion between the internal format and supported floating point, integer and BCD formats occur automatically during FPU reg load and store operations
+8. FPU special purpose registers
+	1. Used to configure FPU
+	2. Determine it's status
+	3. Facilitate exception processing
+	4. FPU control register (does not require elevated runtime privileges) - application programs can configure based on algorithm specific requirements
+		1. Allows a task to enable or disable various floating point processing options
+			1. Exceptions
+				1. Setting exception mask bit to 1 in FPU control register disables generation of processor exception
+			2. Rounding method
+			3. Precision
+9. FPU status register always records occurrance of any FPU exception condition
+10. Application programs cannot access internal processor table that specifies the FPU exception handler
+	1. Most C and C++ compilers provide a library function that allows application programs to designate a callback function that gets invoked when whenever FPU exception occurs
+11. FPU status register contains 16 bit value that allows a task to determine the result of an arithemetic operation and check if an exception has occurred and query stack status info
+12. FPU instruction set supports 3 types of memory operands
+	1. Signed integer
+		1. 
+	2. Floating point
+	3. BCD
 
 ### Overview of x86 Memory Modes ###
 
