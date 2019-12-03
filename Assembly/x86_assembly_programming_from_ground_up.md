@@ -920,13 +920,29 @@
 7. Flat segmentation model:
 	1. All segments are mapped to the entire 32 bit physical address space of the computer
 
-			Base address  limit   access
+			Segment descriptor:
+			Base address  limit   access (determines how the segment can be used)
 			  00000000     0400    ----
+			  to
+			  FFFFFFFF     0400    ----
 			  
-		
+		1. 00040000 to FFFFFFFF are not accessed
+	2. At-least two segments are required
+		1. Code segment
+		2. Data segment
+	3. Each segment is defined by segment descriptor
+		1. segment descriptor - 64 bit integer
+			1. Stored in global descriptor table
+8. All modern x86 architectures use the flat segmentation model
+	1. Code indicates this
 	
 ## Introduction to x86 Assembly Language ##
+### Book to Read ###
+1. "Modern X86 Assembly Language Programming" by Daniel Kusswurm
+
 ### Overview of x86 Integers ###
+1. 
+
 ### Introduction to Directives and Instructions ###
 ### Simple x86 Assembly Template ###
 ### Coding: Declaring Variables in Assembly ###
