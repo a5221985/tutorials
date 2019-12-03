@@ -912,8 +912,19 @@
 			1. Easy to use
 				1. Single 32 bit register had hold address of variable
 				2. CPU performs transformation in the background
-		2. 
+		2. CS, DS, SS, ES, FS, GS - point to segment descriptor tables which OS uses to keep track of locations of individual program segments
+	2. A protected mode program has 3 segments:
+		1. CODE - CS - references segment descriptor table for code segment
+		2. DATA - DS - references segment descriptor table for data segment
+		3. STACK - SS - refernces segment descriptor table for stack segment
+7. Flat segmentation model:
+	1. All segments are mapped to the entire 32 bit physical address space of the computer
 
+			Base address  limit   access
+			  00000000     0400    ----
+			  
+		
+	
 ## Introduction to x86 Assembly Language ##
 ### Overview of x86 Integers ###
 ### Introduction to Directives and Instructions ###
