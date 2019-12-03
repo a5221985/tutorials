@@ -46,6 +46,30 @@
 <node CREATED="1575224953119" ID="ID_1549968170" MODIFIED="1575387729756" TEXT="Given  adirected graph, find a single cycle (cannot repeat vertices)"/>
 </node>
 </node>
+<node CREATED="1575387811525" ID="ID_788475824" MODIFIED="1575387816032" TEXT="NP-complete">
+<node CREATED="1575387819041" ID="ID_1385823318" MODIFIED="1575387826766" TEXT="Hardest problems in NP">
+<node CREATED="1575387829726" ID="ID_1806344921" MODIFIED="1575387835945" TEXT="Hamiltonian cycle is one of them"/>
+<node CREATED="1575387846821" ID="ID_862454709" MODIFIED="1575387868202" TEXT="If we can solve one NP-Complete problem then we can solve all NP problems in polynomial time"/>
+</node>
+<node CREATED="1575387887305" ID="ID_554832427" MODIFIED="1575387900286" TEXT="Problem is in NP and is as hard as any problem in NP"/>
+<node CREATED="1575387912325" ID="ID_1453621925" MODIFIED="1575387913572" TEXT="Others">
+<node CREATED="1575387913821" ID="ID_499072336" MODIFIED="1575387916118" TEXT="SAT"/>
+</node>
+</node>
+<node CREATED="1575389454491" ID="ID_237380627" MODIFIED="1575389471887" TEXT="P - small change -&gt; P (complex) - small change -&gt; NP complete">
+<node CREATED="1575389479655" ID="ID_1961765854" MODIFIED="1575389486974" TEXT="We need to understand where the problems reside"/>
+<node CREATED="1575389490183" ID="ID_208820172" MODIFIED="1575389494583" TEXT="Reductions">
+<node CREATED="1575389502876" ID="ID_597830992" MODIFIED="1575389514604" TEXT="An existing hard problem can be translated to my problem"/>
+</node>
+</node>
+</node>
+<node CREATED="1575389615814" ID="ID_789000312" MODIFIED="1575389621182" TEXT="Interval scheduling problem">
+<node CREATED="1575389637111" ID="ID_819604653" MODIFIED="1575389641945" TEXT="Resources &amp; requests">
+<node CREATED="1575389642496" ID="ID_222583249" MODIFIED="1575389649088" TEXT="Single resource"/>
+<node CREATED="1575389650176" ID="ID_1263332114" MODIFIED="1575389654563" TEXT="Requests 1,...,n">
+<node CREATED="1575389657841" ID="ID_1414291937" MODIFIED="1575389667795" TEXT="Require time on each resource"/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1575128462725" ID="ID_700048212" MODIFIED="1575128475792" POSITION="left" TEXT="2. Divide &amp; Conquer: Convex Hull, Median Finding"/>
