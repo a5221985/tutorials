@@ -1227,22 +1227,23 @@
 			
 				const int n = 10;
 				int x[n], y[n];
+				
 				//srand(4l);
 				for(int i = 0; i < n; i++)
 					//x[i] = rand() % 1000;
 					x[i] = i;
+					
 				Reverser(y, x, n);
 				
 				printf("\n------------Array Reverser------------\n");
 				for (int i = 0; i < n; i++)
 				{
 					printf("i:	%5d		y: %5d	x: %5d\n", i, y[i], x[i]);
-				}
-				
+				}	
 			
 	19. Add assembly code (push certain registers into stack - context saving - prologue, epilogue)
 
-				.386
+				.386							; optional
 				.model flat,c					; c - 
 				.code
 				Reverser proc
@@ -1255,6 +1256,7 @@
 						mov edi, [ebp+8]			; destination address
 						mov esi, [ebp+12]		; source address
 						mov ecx, [ebp+16]		; number of elements
+						test ecx, ecx
 					
 						lea esi, [esi+ecx*4-4]
 						pushfd						; saves current direction flag
@@ -1272,8 +1274,11 @@
 						pop edi			; epilog
 						pop esi
 						pop ebp
+						ret
 				Reverser endp
 				         end
+				         
+	20. In signal processing and image processing, most of the pixel manipulations are done in assembly and called in C/C++
 
 ## Data Transfer Instructions ##
 ### Operand Types ###
