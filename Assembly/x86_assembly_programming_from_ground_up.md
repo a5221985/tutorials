@@ -1220,7 +1220,9 @@
 	15. Microsoft Macro Assembler
 	16. Select C++ file
 	17. Build solution
-	18. Add code to assembly file
+	18. Add code (copy source array to destination array in reverse order)
+
+			extern "C" void Reverser(int* y, const int* x, int n);
 
 ## Data Transfer Instructions ##
 ### Operand Types ###
