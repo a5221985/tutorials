@@ -1224,9 +1224,17 @@
 
 			extern "C" void Reverser(int* y, const int* x, int n);
 			
-	19. Add assembly code (push certain registers into stack)
+	19. Add assembly code (push certain registers into stack - context saving - prologue, epilogue)
 
-			
+				.386
+				.model flat,c		; c - 
+				.code
+				Reverser proc
+					push ebp
+					mov ebp, esp
+					push esi
+					push edi
+				Reverser endp
 
 ## Data Transfer Instructions ##
 ### Operand Types ###
