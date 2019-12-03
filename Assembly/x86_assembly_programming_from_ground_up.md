@@ -1223,17 +1223,30 @@
 	18. Add code (copy source array to destination array in reverse order)
 
 			extern "C" void Reverser(int* y, const int* x, int n);
+			...
+			
+				Reverser(dest_array, src_array, 10);
 			
 	19. Add assembly code (push certain registers into stack - context saving - prologue, epilogue)
 
 				.386
-				.model flat,c		; c - 
+				.model flat,c			; c - 
 				.code
 				Reverser proc
-					push ebp
+					push ebp			; prolog
 					mov ebp, esp
 					push esi
 					push edi
+					
+					xor eax, eax			; 0s
+					mov edi, [ebp+8]		; destination address
+					mov esi, [ebp+12]	; source address
+					mov ecx, [ebp+16]	; number of elements
+					
+					lea esi, [esi+ecx*4-4]
+					pushfd						; saves current direction flag
+					std							; sets flag to 1
+					
 				Reverser endp
 
 ## Data Transfer Instructions ##
