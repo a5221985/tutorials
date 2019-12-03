@@ -1142,6 +1142,26 @@
 		DD - 32-bit integer or real
 		DQ - 64-bit integer or real
 		DT - 80-bit ingeger
+		
+4. BYTE:
+
+		; Initialized
+		
+		char1 BYTE 'C'			; character constant
+		num2 BYTE 0				; smallest unsigned byte
+		num3 BYTE 255				; largest unsigned byte
+		num4 SBYTE -128			; smallest signed byte
+		num10 SBYTE +127			; largest signed byte
+		
+		; Uninitialized
+		num5 SBYTE ?				; unitialized variable
+		
+		; Multiple initializers
+		list BYTE 10,20,30,40	; placed consecutively in memory
+									; offsets: 0000 (10), 0001, 0002, 0003 (40)
+									
+		; Strings (using single or double quotation marks)
+		
 
 ### Endianness ###
 
