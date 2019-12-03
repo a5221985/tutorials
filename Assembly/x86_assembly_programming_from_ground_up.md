@@ -868,11 +868,30 @@
 		3. 80 bit double extended precision
 	3. BCD
 13. Encoding using 3 distinct fields
-	1. Significand - 
-	2. Exponent - locates the binary or decimal point
-	3. Signed bit
+	1. Significand - fractional part
+	2. Exponent - locates the binary or decimal point in significand (magnitude)
+	3. Signed bit - positive or negative
 
 ### Overview of x86 Memory Modes ###
+1. Real address mode - only 1 MB memory can be addressed (00000 to FFFFF)
+	1. Processor can run only one program at a time
+	2. Processor can interrupt that program for a moment to process requests (interrupts)
+		1. Interrupts usually come from peripherals (mouse, keyboard)
+	3. Applications can access any memory addresses (including the ones linked with hardware)
+2. Protected mode:
+	1. Processor can run multiple programs at the same time
+	2. 4 GB of memory is assigned to each process
+		1. Process - running program
+		2. Each program can be assigned their own memory area
+	3. Programs are prevented from accessing each other's memory and data
+	4. Microsoft windows and Linux run in protected mode
+3. Virtual 8086 mode:
+	1. Processor runs in protected mode and runs in virtual 8086 machine
+	2. With 1 MB address space (simulates 8086 computer running in real address mode)
+		1. 20 bit addresses
+	3. Addressing:
+		1. To hold 20 bit addresses, segmented addresses are used
+			1. Each segment is 64 KB of memory
 
 ## Introduction to x86 Assembly Language ##
 ### Overview of x86 Integers ###
