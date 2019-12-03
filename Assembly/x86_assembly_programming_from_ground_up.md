@@ -1225,29 +1225,55 @@
 			extern "C" void Reverser(int* y, const int* x, int n);
 			...
 			
-				Reverser(dest_array, src_array, 10);
+				const int n = 10;
+				int x[n], y[n];
+				//srand(4l);
+				for(int i = 0; i < n; i++)
+					//x[i] = rand() % 1000;
+					x[i] = i;
+				Reverser(y, x, n);
+				
+				printf("\n------------Array Reverser------------\n");
+				for (int i = 0; i < n; i++)
+				{
+					printf("i:	%5d		y: %5d	x: %5d\n", i, y[i], x[i]);
+				}
+				
 			
 	19. Add assembly code (push certain registers into stack - context saving - prologue, epilogue)
 
 				.386
-				.model flat,c			; c - 
+				.model flat,c					; c - 
 				.code
 				Reverser proc
-					push ebp			; prolog
-					mov ebp, esp
-					push esi
-					push edi
+						push ebp					; prolog
+						mov ebp, esp
+						push esi
+						push edi
 					
-					xor eax, eax			; 0s
-					mov edi, [ebp+8]		; destination address
-					mov esi, [ebp+12]	; source address
-					mov ecx, [ebp+16]	; number of elements
+						xor eax, eax				; 0s
+						mov edi, [ebp+8]			; destination address
+						mov esi, [ebp+12]		; source address
+						mov ecx, [ebp+16]		; number of elements
 					
-					lea esi, [esi+ecx*4-4]
-					pushfd						; saves current direction flag
-					std							; sets flag to 1
+						lea esi, [esi+ecx*4-4]
+						pushfd						; saves current direction flag
+						std							; sets flag to 1
 					
+				@@:		loadsd
+						mov [edi], eax
+						add, edi, 4
+						dec ecx
+						jnz @B
+						
+						popfd
+						mov eax, 1
+						
+						pop edi			; epilog
+						pop esi
+						pop ebp
 				Reverser endp
+				         end
 
 ## Data Transfer Instructions ##
 ### Operand Types ###
