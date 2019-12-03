@@ -1161,7 +1161,31 @@
 									; offsets: 0000 (10), 0001, 0002, 0003 (40)
 									
 		; Strings (using single or double quotation marks)
+		hello BYTE "Welcome back", 0
 		
+		; multi-line strings
+		hello BYTE "Welcome back"
+		      BYTE "Ready to get started"
+		      BYTE "Enter your name", 0
+		
+5. WORD (16-BIT)
+
+		word1 WORD 65535			; largest unsigned value
+		word2 SWORD -32768		; smallest signed value
+		word3 WORD ?				; uninitialized, unsigned
+		
+		; multiple initializers
+		list WORD 1,2,3,4,5		; offsets: 0000 (1), 0002, 0004, 0008 (5)
+		
+6. Double WORD (32-BIT)
+
+		word1 DWORD 12345678h	; unsigned value
+		word2 SDWORD -214742222	; signed value
+		word3 DWORD ?				; uninitialized, unsigned
+		
+7. Multiple initializers
+
+		list DWORD 1,2,3,4,5	; offsets: 0000 (1), 0004, 0008, 000C, 0010 (5) 
 
 ### Endianness ###
 
