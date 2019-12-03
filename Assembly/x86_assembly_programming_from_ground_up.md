@@ -988,6 +988,38 @@
 				1. Data labels:
 
 						count DWORD 100
+						
+					1. count - 32 bit variable - assembler assigns a numberic value to each label
+					2. Multiple locations:
+
+							amount DWORD 1024, 2024
+							       DWORD 4096, 8192
+							       
+						1. amount refers to 1024 but next addresses follow amount (amount + 4, amount + 8, ...)
+			3. Code labels: must end in :
+
+					start: // it can be placed in a line by itself
+						mov ax, bx,
+						...
+						jpm start
+						
+					start: ...
+					
+		2. Mnemonic: identifies an instruction
+
+				mov : Move (assign) one value to another
+				add : add two values
+				sub : subtract one value from another
+				mul : multiply two values
+				jmp : jump to a new location
+				call: call a procedure
+				
+		3. Operand: quantity on which an operation can be done
+			1. Operator, Name
+			2. 20, Constant
+			3. 35 - 7, Constant expression
+			4. EAX, Register
+			5. count, Memory
 
 ### Simple x86 Assembly Template ###
 ### Coding: Declaring Variables in Assembly ###
