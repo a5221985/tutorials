@@ -972,7 +972,22 @@
 		.END - marks the end of a module
 		.DD - allocates a double word (4 bytes) storage
 		.DWORD - allocates a double word (4 bytes) storage
-	
+3. Instructions?
+	1. A statement that becomes executable when a program is assembled
+	2. Instructions are translated by assembler into machine language bytes
+	3. Parts
+
+			[label:] mnemonic [operands] [;comment]
+			optional required may be     optional
+			
+			start : mov eax, 10000h ; EAX = 10000h
+			
+		1. Label: used as a place marker for instructions and data
+			1. Lable placed before an instruciton implies an instruction's address
+			2. Label placed before a variable implies variable's address
+				1. Data labels:
+
+						count DWORD 100
 
 ### Simple x86 Assembly Template ###
 ### Coding: Declaring Variables in Assembly ###
