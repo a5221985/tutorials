@@ -130,6 +130,23 @@
 </node>
 <node CREATED="1575390516534" ID="ID_540051124" MODIFIED="1575390520590" TEXT="earliest finish time">
 <node CREATED="1575391035635" ID="ID_971455235" MODIFIED="1575391042735" TEXT="correct and works in every case"/>
+<node CREATED="1575393136094" ID="ID_1743328034" MODIFIED="1575393137598" TEXT="Proof">
+<node CREATED="1575393137891" ID="ID_1108329722" MODIFIED="1575393222575" TEXT="Claim: Given a list of intervals L, greedy algorithm with earliest finish time produces k* internals, where k* is maximum">
+<node CREATED="1575393235884" ID="ID_77859393" MODIFIED="1575393239791" TEXT="Proof by induction">
+<node CREATED="1575393242936" ID="ID_735702280" MODIFIED="1575393247369" TEXT="Induction on k*"/>
+<node CREATED="1575393250161" ID="ID_40581595" MODIFIED="1575393256953" TEXT="Base case: k* = 1">
+<node CREATED="1575393258535" ID="ID_1750418144" MODIFIED="1575393296984" TEXT="Any interval works">
+<node CREATED="1575393298509" ID="ID_300853133" MODIFIED="1575393306190" TEXT="all intervals overlap"/>
+</node>
+<node CREATED="1575393308432" ID="ID_1161674721" MODIFIED="1575393315839" TEXT="Optimal schedule has cardinality 1"/>
+</node>
+<node CREATED="1575393361670" ID="ID_935710418" MODIFIED="1575393389426" TEXT="Suppose claim holds for k* and we are given a list of intervals whose optimal scheudle has k* + 1 intervals">
+<node CREATED="1575415690823" ID="ID_769769732" MODIFIED="1575415774667" TEXT="S*[1,2,...k*+1] = &lt;S(j1),f(j1),...&lt;S(jk*+1),f(jk*+1)&gt;"/>
+</node>
+<node CREATED="1575415875160" ID="ID_1608732809" MODIFIED="1575415943291" TEXT="S[1,...,k] = &lt;s(i1),f(i1)&gt;,...,&lt;s(ik),f(ik)&gt;"/>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1575390611167" ID="ID_1971234737" MODIFIED="1575390627517" TEXT="find the number of incompatible requests for each request">
 <node CREATED="1575390654501" ID="ID_1752597267" MODIFIED="1575390664882" TEXT="Select the one with min incompatible requests">
