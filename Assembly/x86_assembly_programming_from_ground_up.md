@@ -1068,7 +1068,56 @@
 		END main
 
 ### Coding: Declaring Variables in Assembly ###
+1. Open Visual Studio
+	1. New project
+	2. Windows Console Applciation
+	3. DeclaringVariables
+	4. Delete C and C++ files
+	5. Right click
+	6. Add
+	7. New Item
+	8. Select C++
+	9. Main.asm
+	10. Right click on project
+	11. Build Dependencies
+	12. masm
+	13. Right click on Main.asm
+	14. Item Type
+	15. Microsoft Macro Assembler
+	16. Right click on project
+	17. Properties
+	18. Linker
+	19. Advanced
+	20. Entry Point: start
+2. Content:
+
+		.386
+		.model flat
+		.data
+		num1	dword	11111111h
+		num2	dword	10101010h
+		ans		dword	0
+		.code
+		start	proc
+				mov eax, num1
+				add eax, num2
+				mov ans, eax
+				ret
+		start	endp
+		end		start
+		
+	1. Right click
+	2. Build solution
+	3. Put a break point at ret
+	4. Debug
+	5. Start debugging
+	6. Right click on `ans` - Add to watch
+	7. Click and display in hexadecimal format
+	8. Select registers
+
 ### Dealing with Data ###
+
+
 ### Endianness ###
 
 ## Data Transfer Instructions ##
