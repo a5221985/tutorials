@@ -892,6 +892,27 @@
 	3. Addressing:
 		1. To hold 20 bit addresses, segmented addresses are used
 			1. Each segment is 64 KB of memory
+			
+					8000:0000 to 8000:FFFF
+					
+4. Byte addressible memory:
+	1. Each byte location (8-bit) has a separate address
+	2. Two 16 bit registers are required for addressing
+		1. 1 segment register (CS, DS, ES, SS)
+		2. 1 offset register
+	3. CPU automatically converts to 20 bit address
+5. Programs have 3 segments:
+	1. Code segment (CS contains 16 bit code segment address)
+	2. Data segment (DS contains 16 bit data segment address)
+	3. Stack segment (SS contains 16 bit stack segment address)
+	4. ES, FS and GS - alternate data segments (they supplement DS)
+6. Protected Mode:
+	1. 4GB Linear address space (flat segmentation model)
+		1. Appropriate for protected mode programming
+			1. Easy to use
+				1. Single 32 bit register had hold address of variable
+				2. CPU performs transformation in the background
+		2. 
 
 ## Introduction to x86 Assembly Language ##
 ### Overview of x86 Integers ###
