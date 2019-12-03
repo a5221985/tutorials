@@ -1020,8 +1020,53 @@
 			3. 35 - 7, Constant expression
 			4. EAX, Register
 			5. count, Memory
+		4. Block Comments:
+
+				COMMENT !
+				Assembly programming is awesome
+				Register are empty
+				!
+				
+				COMMENT &
+				This procedure initializes the
+				printer and scanner drivers.
+				&
+				
+		5. Single line comments:
+
+				start : move eax, 10000h ; EAX = 10000h
 
 ### Simple x86 Assembly Template ###
+1. Example:
+
+		; This program adds and subtracts 32-bit integers
+		.386 							; min CPU required
+		.model flat,stdcall			; identifies segmentation model, identifies convention used to pass parameters, flat - protected mode, stdcall - enables calling ms windows functions
+		.stack 4096
+		.code							; beginning of code segment
+		main PROC						; PROC - identifies beginning of a procedure, main - name of procedure
+				mov eax, 10000h		; EAX = 10000h
+				add eax, 40000h		; EAX = 50000h
+				sub eax, 20000h		; EAX = 30000h
+		main ENDP						; end of main procedure
+		END main						; marks end of program, identifies name of startup procedure
+		
+2. Aseembly Program Template:
+
+		; Program Description:
+		; Author:
+		; Creation Date:
+		; Revisions:
+		; Date:
+		.data
+		; (insert variables here)
+		.code
+		main PROC
+		; (insert executable instructions here)
+		main ENDP
+		; (insert additional procedures here)
+		END main
+
 ### Coding: Declaring Variables in Assembly ###
 ### Dealing with Data ###
 ### Endianness ###
