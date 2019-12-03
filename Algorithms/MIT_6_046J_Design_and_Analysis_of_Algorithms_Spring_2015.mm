@@ -68,6 +68,62 @@
 <node CREATED="1575389642496" ID="ID_222583249" MODIFIED="1575389649088" TEXT="Single resource"/>
 <node CREATED="1575389650176" ID="ID_1263332114" MODIFIED="1575389654563" TEXT="Requests 1,...,n">
 <node CREATED="1575389657841" ID="ID_1414291937" MODIFIED="1575389667795" TEXT="Require time on each resource"/>
+<node CREATED="1575389674474" ID="ID_795556395" MODIFIED="1575389718211" TEXT="s(i) - start time of ith request"/>
+<node CREATED="1575389687481" ID="ID_930725158" MODIFIED="1575389697504" TEXT="f(i) - finish time of ith request">
+<node CREATED="1575389700234" ID="ID_429945306" MODIFIED="1575389710675" TEXT="s(i) &lt; f(i)"/>
+</node>
+</node>
+<node CREATED="1575389727814" ID="ID_1374746922" MODIFIED="1575389751820" TEXT="Two requests i &amp; j are compatible provided they don&apos;t overlap">
+<node CREATED="1575389755769" ID="ID_203877337" MODIFIED="1575389778172" TEXT="f(i) &lt;= s(j) or f(j) &lt;= s(i)"/>
+</node>
+</node>
+<node CREATED="1575389856967" ID="ID_1464903476" MODIFIED="1575389864715" TEXT="Optimization problem">
+<node CREATED="1575389911058" ID="ID_290948051" MODIFIED="1575389936555" TEXT="Select compatible subset of requests/intervals that is of max size">
+<node CREATED="1575389941804" ID="ID_1556308031" MODIFIED="1575389947778" TEXT="Do it efficiently"/>
+</node>
+</node>
+<node CREATED="1575390005437" ID="ID_1176869" MODIFIED="1575390007845" TEXT="Solution">
+<node CREATED="1575390008197" ID="ID_771473264" MODIFIED="1575390017401" TEXT="Possible greedy heuristics">
+<node CREATED="1575390017767" ID="ID_1401333174" MODIFIED="1575390026136" TEXT="Smallest request">
+<node CREATED="1575390105381" ID="ID_938691298" MODIFIED="1575390110132" TEXT="Collect as many as possible"/>
+</node>
+</node>
+</node>
+<node CREATED="1575390031624" ID="ID_1151648501" MODIFIED="1575390040690" TEXT="Claim: We can solve this problem using a greedy algorithm">
+<node CREATED="1575390043032" ID="ID_1454628512" MODIFIED="1575390045473" TEXT="What is it?">
+<node CREATED="1575390050391" ID="ID_510311805" MODIFIED="1575390053812" TEXT="Myopic">
+<node CREATED="1575390054342" ID="ID_1769755052" MODIFIED="1575390080476" TEXT="Looks to maximize the very first thing that you can maximize"/>
+</node>
+<node CREATED="1575390130857" ID="ID_799067557" MODIFIED="1575390168786" TEXT="A greedy algorithm is myopic algorithm that processes the input one piece at a time with no apparent look ahead">
+<node CREATED="1575390199948" ID="ID_1496954673" MODIFIED="1575390209701" TEXT="Look at a small part of problem instance">
+<node CREATED="1575390210314" ID="ID_1004676273" MODIFIED="1575390218187" TEXT="Solve the part"/>
+<node CREATED="1575390218451" ID="ID_1682541453" MODIFIED="1575390226906" TEXT="Rest of the problem has got simplified"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575390257187" ID="ID_911537708" MODIFIED="1575390263184" TEXT="Greedy Interval Scheduling">
+<node CREATED="1575390264062" ID="ID_1447433673" MODIFIED="1575390350101">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        Use a simple rule to select a request i
+      </li>
+      <li>
+        Reject all requests incompatible with i
+      </li>
+      <li>
+        Repeat until all requests are processed
+      </li>
+    </ol>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1575390362744" ID="ID_657277644" MODIFIED="1575390366601" TEXT="What is the rule?"/>
 </node>
 </node>
 </node>
