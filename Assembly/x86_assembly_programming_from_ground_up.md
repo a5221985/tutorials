@@ -941,9 +941,39 @@
 1. "Modern X86 Assembly Language Programming" by Daniel Kusswurm
 
 ### Overview of x86 Integers ###
-1. 
+1. Integer constants:
+	
+		+ or - digits radix
+
+	1. radix - H (hexadecimal), r (encoded real), q/o (octal), t (decimal), d (decimal), y (binary), b (binary)
+	2. Example:
+
+			26d
+			1001110b
+			
+2. Integer prcedence
+	1. (), Parantheses, 1
+	2. +,-, Unary plus, Unary minux, 2
+	3. *,/, Multiply, Divide, 3
+	4. MOD, Modulus, 3
+	5. +,-, Add, subtract, 4
 
 ### Introduction to Directives and Instructions ###
+1. Directives?
+	1. They are not instruction set
+	2. They assist and control assembly process
+	3. They are also called pseudo-ops
+	4. They change the way the code is assembled
+2. Examples:
+
+		.CODE - indicates start of code segment
+		.DATA - indicates start of data segment
+		.STACK - indicates start of stack segment
+		.END - marks the end of a module
+		.DD - allocates a double word (4 bytes) storage
+		.DWORD - allocates a double word (4 bytes) storage
+	
+
 ### Simple x86 Assembly Template ###
 ### Coding: Declaring Variables in Assembly ###
 ### Dealing with Data ###
@@ -992,7 +1022,8 @@
 ### Coding: Developing the Sphere Computation Algorithm ###
 ### Coding: Processing Floating-Point Arrays with FPU Instructions ###
 ### Coding: Computing Min and Max of Single-Precision Floating Point Arrays ###
-### Coding: Developing Algorithms with x86 FPU Transcendental Instructions ### Coding: Developing the Least Squares Algorithm ###
+### Coding: Developing Algorithms with x86 FPU Transcendental Instructions ###
+### Coding: Developing the Least Squares Algorithm ###
 
 ## Programming with the x86 MMX Extensions ##
 ### Coding: SIMD Arithmetic with Packed Data using MMX Registers (Part I) ###
