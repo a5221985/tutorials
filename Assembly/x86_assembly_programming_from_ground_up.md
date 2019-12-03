@@ -1116,7 +1116,32 @@
 	8. Select registers
 
 ### Dealing with Data ###
+1. `[name] directive initializer [,initializer]`
 
+		count DWORD 44324 ; DWORD is double word
+		
+2. Other directives
+
+		BYTE : 8-bit unsigned integer
+		SBYTE : 8-bit singed integer. S stands for signed
+		WORD: 16-bit unsigned integer
+		SWORD: 16-bit signed integer
+		DWORD: 32-bit unsigned integer
+		SDWORD: 32-bit signed integer
+		FWORD: 48-bit integer (Far pointer in potected mode)
+		QWORD: 64-bit integer. Q stands for quad
+		TBYTE: 80-bit (10-byte) integer, T stands for Ten-byte
+		REAL4: 32-bit (4-byte) IEEE short real
+		REAL8: 64-bit (8-byte) IEEE long real
+		REAL10: 80-bit (10-byte) IEEE extended real
+		
+3. Legacy directives:
+
+		DB - 8-bit integer (one or more signed or unsigned values each must store one byte)
+		DW - 16-bit integer
+		DD - 32-bit integer or real
+		DQ - 64-bit integer or real
+		DT - 80-bit ingeger
 
 ### Endianness ###
 
