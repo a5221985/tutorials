@@ -867,7 +867,10 @@
 		2. 64 bit double precision (C/C++ - double)
 		3. 80 bit double extended precision
 	3. BCD
-13. 
+13. Encoding using 3 distinct fields
+	1. Significand - 
+	2. Exponent - locates the binary or decimal point
+	3. Signed bit
 
 ### Overview of x86 Memory Modes ###
 
