@@ -1201,7 +1201,26 @@
 1. `#include <stdlib.h>` is needed in `main.c`
 
 ### Coding: Mixing C/C++ and Assembly ###
-1. Using C/C++ file and assembly file - pushing and popping parameters
+1. Using C/C++ file and assembly file - pushing and popping parameters - just give a taste
+2. Open visual studio
+	1. New project
+	2. Windows Console Application
+	3. ArrayReverser
+	4. Add another file to Source Files
+	5. Add new Item
+	6. C++ File
+	7. Reverser.asm
+	8. Right click on project
+	9. Build dependencies
+	10. Build customization
+	11. Masm...
+	12. Right click on new file
+	13. Properties
+	14. Item Type
+	15. Microsoft Macro Assembler
+	16. Select C++ file
+	17. Build solution
+	18. Add code to assembly file
 
 ## Data Transfer Instructions ##
 ### Operand Types ###
