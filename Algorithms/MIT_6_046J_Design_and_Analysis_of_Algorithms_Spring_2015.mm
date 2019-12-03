@@ -123,7 +123,20 @@
   </body>
 </html>
 </richcontent>
-<node CREATED="1575390362744" ID="ID_657277644" MODIFIED="1575390366601" TEXT="What is the rule?"/>
+<node CREATED="1575390362744" ID="ID_657277644" MODIFIED="1575390366601" TEXT="What is the rule?">
+<node CREATED="1575390506024" ID="ID_705985426" MODIFIED="1575390512758" TEXT="lowest to highest"/>
+<node CREATED="1575390513099" ID="ID_1459625008" MODIFIED="1575390515375" TEXT="shortest time">
+<node CREATED="1575390599521" ID="ID_1219285694" MODIFIED="1575390603198" TEXT="doesn&apos;t work"/>
+</node>
+<node CREATED="1575390516534" ID="ID_540051124" MODIFIED="1575390520590" TEXT="earliest finish time">
+<node CREATED="1575391035635" ID="ID_971455235" MODIFIED="1575391042735" TEXT="correct and works in every case"/>
+</node>
+<node CREATED="1575390611167" ID="ID_1971234737" MODIFIED="1575390627517" TEXT="find the number of incompatible requests for each request">
+<node CREATED="1575390654501" ID="ID_1752597267" MODIFIED="1575390664882" TEXT="Select the one with min incompatible requests">
+<node CREATED="1575390999460" ID="ID_1276108051" MODIFIED="1575391007412" TEXT="does not work"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
