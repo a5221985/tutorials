@@ -1223,6 +1223,10 @@
 	18. Add code (copy source array to destination array in reverse order)
 
 			extern "C" void Reverser(int* y, const int* x, int n);
+			
+	19. Add assembly code (push certain registers into stack)
+
+			
 
 ## Data Transfer Instructions ##
 ### Operand Types ###
