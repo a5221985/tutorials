@@ -1188,6 +1188,20 @@
 		list DWORD 1,2,3,4,5	; offsets: 0000 (1), 0004, 0008, 000C, 0010 (5) 
 
 ### Endianness ###
+1. How data is stored and retrieved in memory
+	1. x86 uses little endien order - first bit is used to store least significant bit
+
+			12345678h ; 0000 (78), 0001 (56), 0002 (34), 0003 (12)
+			
+	2. Big endian:
+
+			0000 (12), 0001 (34), 0002 (56), 0003 (78)
+			
+### Notice ###
+1. `#include <stdlib.h>` is needed in `main.c`
+
+### Coding: Mixing C/C++ and Assembly ###
+1. Using C/C++ file and assembly file - pushing and popping parameters
 
 ## Data Transfer Instructions ##
 ### Operand Types ###
