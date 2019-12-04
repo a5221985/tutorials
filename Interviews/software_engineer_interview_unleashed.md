@@ -360,8 +360,125 @@
 ### Binary Trees ###
 ### String Manipulation ###
 ### Depth/ Breadth First Search ###
+1. DFS in Java for number of islands
+
+		private static int getNumberOfIslands(char[][] grid) {
+			int numberOfIslands = 0;
+			for (int r = 0; r < grid.length; r++) {
+				for (int c = 0; c < grid[r].length; c++) {
+					if (grid[r][c] == 'x') {
+						// Mark all connected cells with 'm'
+						visistIsland(r, c, grid);
+						numberOfIslands++;
+					}
+				}
+			}
+			return numberOfIslands;
+		}
+
+		private static void visitIsland(int r, int c, char[][] grid) {
+			if (r >= 0 && r < grid.length && c >= 0 && c < grid[0].length && grid[r][c] == 'x') {
+				grid[r][c] = 'm';
+				visitIsland(r + 1, c, grid);
+				visitIsland(r - 1, c, grid);
+				visitIsland(r, c + 1, grid);
+				visitIsland(r, c - 1, grid);
+			}
+		} // class CountIslands
+
+2. Find the deepest node in BST
+	1. When we queue, we increment the level
+
 ### Dynamic Program ###
+1. Dynamic program
+	1. Algorithm for solving a problem by identifying a collection of subproblems and its starting state
+2. Characteristics of DP problems
+	1. Solution to the problem depends on the solution(s) of sub-problems
+3. Example: Longest increasing sub-sequence (it need not be consecutive sequence)
+	1. Longest sub-sequence ending at ith node
+4. Fibonacci number
+5. Example: Find lowest cost graph path from A to N
+	1. Find lowest cost paths from A-K, A-L, A-M
+		1. Min(A-K + K-N, A-L + L-N, A-M + M-N)
+6. Fibonacci numbers:
+	1. Questions to ask:
+		1. Is the input number positive integer?
+		2. What is the maximum input number?
+	2. Implementation using memoization:
+
+			int* memoize;
+			int ComputeFibonacciHelper(int n) {
+				assert_true(n < 0);
+				if (memoize[n] < 0) {
+					memoize[n] = ComputeFibonacciHelper(n - 1) + ComputeFibonacciHelper(n - 2);
+				}
+				return memoize[n];
+			}
+
+			int ComputeFibonacci(int n) {
+				memoize = new int[n + 1];
+				for (int i = 0; i < n; i++) {
+					memoize[i] = -1;
+				}
+				memoize[0] = 0;
+				memoize[1] = 1;
+				memoize[2] = 1;
+				int fibonacci_number = ComputeFibonacciHelper(n);
+				delete memoize;
+				return fibonacci_number;
+			}
+
+7. Recap:
+	1. Dynamic program
+		1. Algorithm for solving a problem by identifying a collection of subproblems and its starting state
+	2. Examples:
+			1. Longest increasing sub-sequence
+			2. Fibonacci number
+			3. low cost graph path
+
 ### Multithreading/ Concurrency ###
+1. Definition
+	1. Concurrency (like in one core)
+		1. Running multiple tasks at almost the same time in some unspecified order
+	2. Parallelism (multiple cores)
+		1. Running multiple tasks at the same time
+	3. Multithreading
+		1. For allowing concurrency within each process
+2. Multi-threaded program
+
+		void CallFromThread() {
+			printf("Hello, World\n");
+		}
+
+		int main(int argc, char *argv[]) {
+			// Launch a new thread
+			thread t1(CallFromThread);
+			// Join the thread with the main thread
+			t1.join();
+			return 0;
+		}
+
+3. Example: 5 threaded program
+
+		void CallFromThread() {
+			printf("Thread ID: %d\n", thread_id);
+		}
+
+		int main(int argc, char* argv[]) {
+			constexpr int KNumThreads = 5;
+			thread t[kNumThreads];
+			// Launch a group of threads
+			for (int i = 0; i < kNumThreads; i++) {
+				t[i] = thread(CallFromThread, i);
+			}
+			printf("Launched from the main\n");
+			// Join the threads with the main thread
+			for (int i = 0; i < kNumThreads; i++) {
+				t[i].join();
+			}
+			return 0;
+		}
+
 ### Design Question ###
 ### Frequent Coding Mistakes ###
 

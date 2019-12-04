@@ -794,7 +794,170 @@
 
 ## REST API Security ##
 ### REST API Security - Introduction ###
+1. Learning Objectives: Very important - Designers should think about security from the beginning
+	1. API security considerations
+2. Application flow:
+	1. Attack
+		1. Application attack - manipulate, steel identity
+		2. Gateway attack - vulnerabilities and connect to back end
+		3. Breaching firewall - directly access server, directly access database
+	2. Consider all attack posibilities
+		1. Best strategy - prevent attacker from reaching the API server or API management system
+			1. Think about security at every API touch point
+3. Example: Bank Mobile Application
+	1. Confidential data
+		1. Customer personal data
+		2. Transactional data
+	2. Protection:
+		1. Firewall - impenitrable
+			1. If API are at the boundary of the firewall
+				1. We have introduced an attack surface
+					1. Attackers can get access the data
+						1. Data theft
+						2. Data manipulation
+						3. Identify theft
+						4. DOS attack
+				2. If the API has some weekness or vulnerability, attackers take advantage of that
+					1. We need to think about all the possible types of attacks that an attacker can launch
+			2. Common attacks
+				1. Functional attacks - ...
+		2. Impersonation:
+			1. Mimics the mobile application
+				1. Call the API
+					1. Who is the caller of API?
+						1. Authentication and Authorization
+						2. How to ensure that the client is actually a mobile app and not an imperosonator
+							1. Multiple ways
+								1. Basic
+								2. Token based
+								3. Key-secret based
+					2. Transactions getting executed
+						1. Is the transaction authorized?
+							1. OAuth 2.0 - defacto standard
+		3. Securing the data
+			1. How to secure
+				1. Maintaining or managing measures to protect the data
+					1. From unauthorized access or threat
+					2. Maintaining the integrity of the data
+						1. API designers may not have control but needs to specify the requirement
+						2. Data at rest is outside the scope of REST API design and implementation
+							1. Work with other stakeholders to prtect it
+						3. Data in motion
+							1. Transmitted from mobile app to my application is within the scope of REST API design and implementation
+								1. Solution: Always use TLS/HTTPS for REST API
+									1. Encryption
+									2. protection from
+										1. Un-authorized attacks
+										2. Man in the middle attacks
+							2. Do not use self-signed certificates
+			2. API Security
+				1. Authentication
+				2. Authorization
+				3. Functional attacks
+
 ### Securing API with Basic Authentication ###
+1. Learning objectives
+	1. Basic authentication for API security
+		1. Issues related to basic authentication scheme
+	2. Implement basic auth for node API
+2. Basic Authentication - easiest way to protect the API
+	1. HTTP Header
+		1. Authorization: Encoded-Credentials (Base64 encoded)
+			1. user:password
+			2. Server decodes the header and reads the username and password
+				1. If it is good, sends 200 OK
+				2. If not okay, 401 Unauthorized
+			3. Anyone can read this data
+				1. Need to use https and ssl
+				2. Must not be used with http
+		2. Issues
+			1. Dreamz
+				1. Vacation bidding
+					1. If user needs info from Dreamz
+						1. Dreamz calls Acme API
+							1. provided by Acme
+				2. If http is used, man-in the middle attack is possible
+	2. This scheme needs user to send the credentials in every request
+		1. sessions can be used - not allowed for REST
+	3. Dreamz Mobile app may be invoking API
+		1. The credentials need to be stored in the mobile app
+			1. Anyone can break into the app and take the credentials
+3. Passport: [http://passportjs.org/](http://passportjs.org/)
+	1. Authentication middleware for Node.js
+		1. Non intrusive - keeps the code maintainable
+		2. Supports multiple forms of authentication
+			1. Basic
+			2. OAuth2
+			3. Tokens
+		3. Built in support for social authentication
+			1. Facebook
+			2. ...
+	2. Over 300 strategies - authentication
+	3. Example:
+		1. Where to store?
+			1. File
+
+					// Hardcoded users for testing
+					// Can be changed to store the users in a database
+					var users = [
+						{ id: 1, name: "jim", email: "jim@mail.com", password: "jim123" },
+						{ id: 2, name: "sam", email: "sam@mail.com", password: "sam123" }
+					];
+
+					var checkCredentials = function (username, password) {
+						// Check if username/password are good
+						var user = users.find(function (u) {
+							return u.name === username && u.password === password;
+						});
+						return user
+					}
+
+					exports.checkCredentials = checkCredentials;
+
+		2. app.js
+
+				var express = require('express')
+				var basicauth = require(__dirname, '/basicauth')
+
+				// Express app setup
+				var app = express();
+				var router = express.Router();
+
+				// This is the passport middleware function that get called first
+				var auth = basicauth.auth
+				// Setup the route with basic authentication
+				router.get('/private', auth, function (req, res) {
+					res.send('Access granted to private resource!!!')
+				});
+
+				app.use(router);
+				app.listen(3000);
+				console.log('Listening on 3000')
+
+		3. basicauth.js
+
+				// This has all the code for implementing basic auth
+				var passport = require('passport')
+				// This the strategy for basic authentication
+				var BasicStrategy = require('passport-http').BasicStrategy
+
+				// Access to the users data
+				var users = require(__dirname + '/userdata/users')
+
+				// Setup the passport strategy
+				passport.use(new BasicStrategy(function (username, password, done) {
+					var user = users.checkCredentials(username, password)
+					if (user)
+						return done(null, true)
+					else
+						return done(null, false)
+				}));
+
+				// This is the middleware function that gets invoked
+				var auth = passport.authenticate('basic', { session: false })
+
+				exports.auth = auth;
+
 ### Securing API with Tokens & JWT ###
 ### Securing API with API Key & Secret ###
 ### API Authorization Using OAuth 2.0 ###

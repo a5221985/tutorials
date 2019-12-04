@@ -112,10 +112,25 @@
 </node>
 </node>
 </node>
-<node CREATED="1566901585161" ID="ID_1221589149" MODIFIED="1566901589943" TEXT="Useful links"/>
+<node CREATED="1566901585161" ID="ID_1221589149" MODIFIED="1566901589943" TEXT="Useful links">
+<node CREATED="1566996463757" ID="ID_1442170205" MODIFIED="1567057311884" TEXT="ReactiveJ github link:">
+<node CREATED="1567057314397" ID="ID_1879036775" MODIFIED="1567057326347" TEXT="https://github.com/alessandroargentieri/RactiveJ"/>
+</node>
+<node CREATED="1567057328513" ID="ID_1683726787" MODIFIED="1567057334724" TEXT="Starting app github link:">
+<node CREATED="1567057335791" ID="ID_340509247" MODIFIED="1567057358148" TEXT="https://github.com/alessandroargentieri/reactive-crud-todo-app.git"/>
+</node>
+<node CREATED="1567057359531" ID="ID_790139724" MODIFIED="1567057365911" TEXT="Final app github link:">
+<node CREATED="1567057368594" ID="ID_1622643978" MODIFIED="1567057408049" TEXT="(go to final-app branch)">
+<node CREATED="1567057375296" ID="ID_680564873" MODIFIED="1567057428547" TEXT="https://github.com/alessandroargentieri/reactive-crud-todo-app.git"/>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1566901514327" ID="ID_1193538266" MODIFIED="1566901526254" POSITION="left" TEXT="Develop our traditional microservice">
-<node CREATED="1566901598243" ID="ID_213416630" MODIFIED="1566901607642" TEXT="Let&apos;s download the starter app"/>
+<node CREATED="1566901598243" ID="ID_213416630" MODIFIED="1566901607642" TEXT="Let&apos;s download the starter app">
+<node CREATED="1567057450798" ID="ID_1142244163" MODIFIED="1567057649306" TEXT="Install git"/>
+<node CREATED="1567057651101" ID="ID_554638948" MODIFIED="1567057653917" TEXT="Install Maven"/>
+</node>
 <node CREATED="1566901608763" ID="ID_1396464241" MODIFIED="1566901617108" TEXT="Implement the skeleton of the Api"/>
 <node CREATED="1566901620143" ID="ID_1107807929" MODIFIED="1566901632363" TEXT="Let&apos;s implement all the CRUD operations"/>
 <node CREATED="1566901633475" ID="ID_257745846" MODIFIED="1566901643053" TEXT="Let&apos;s test our Rest Api!"/>
