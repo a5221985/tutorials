@@ -143,7 +143,36 @@
 <node CREATED="1575393361670" ID="ID_935710418" MODIFIED="1575393389426" TEXT="Suppose claim holds for k* and we are given a list of intervals whose optimal scheudle has k* + 1 intervals">
 <node CREATED="1575415690823" ID="ID_769769732" MODIFIED="1575415774667" TEXT="S*[1,2,...k*+1] = &lt;S(j1),f(j1),...&lt;S(jk*+1),f(jk*+1)&gt;"/>
 </node>
-<node CREATED="1575415875160" ID="ID_1608732809" MODIFIED="1575415943291" TEXT="S[1,...,k] = &lt;s(i1),f(i1)&gt;,...,&lt;s(ik),f(ik)&gt;"/>
+<node CREATED="1575415875160" ID="ID_1608732809" MODIFIED="1575415943291" TEXT="S[1,...,k] = &lt;s(i1),f(i1)&gt;,...,&lt;s(ik),f(ik)&gt;">
+<node CREATED="1575415983582" ID="ID_975441690" MODIFIED="1575415991854" TEXT="k,k* are not comparable"/>
+<node CREATED="1575416011973" ID="ID_776719521" MODIFIED="1575416018649" TEXT="f(i1) &lt;= f(j1)">
+<node CREATED="1575416060439" ID="ID_1620685657" MODIFIED="1575416113847" TEXT="S**=&lt;s(i1),f(i1)&gt;,&lt;s(j2),f(j2)&gt;....&lt;s(jk*+1),f(jk*+1)&gt;"/>
+<node CREATED="1575416204264" ID="ID_353943617" MODIFIED="1575416224679" TEXT="Define L&apos; = set of intervals s(i) &gt;= f(i1)">
+<node CREATED="1575416297463" ID="ID_99597412" MODIFIED="1575416330339" TEXT="Since S** is optimal for L then S**[2,...,k*+1] is an optimal for L&apos;">
+<node CREATED="1575416387315" ID="ID_105322535" MODIFIED="1575416431819" TEXT="If I can substitute the rest of them with some other intervals, then S* would shrink which is a contradition"/>
+<node CREATED="1575416530389" ID="ID_1649041650" MODIFIED="1575416543137" TEXT="Therefore optimal schedule for L&apos; has k* size">
+<node CREATED="1575416544342" ID="ID_92267672" MODIFIED="1575416734037">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      By inductive hypothesis, run the greedy algorithm on L' should produce a schedule of size k*
+    </p>
+    <p>
+      By construction, greedy on L' gives S[2,...,k] of size k - 1
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1575416819333" ID="ID_1218634722" MODIFIED="1575416837365" TEXT="k - 1 = k* and therefor k = k* + 1"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
@@ -153,6 +182,28 @@
 <node CREATED="1575390999460" ID="ID_1276108051" MODIFIED="1575391007412" TEXT="does not work"/>
 </node>
 </node>
+</node>
+</node>
+</node>
+<node CREATED="1575416934827" ID="ID_395173397" MODIFIED="1575416941990" TEXT="Weighted interval scheduling">
+<node CREATED="1575416942389" ID="ID_1249724645" MODIFIED="1575416959832" TEXT="Each request has weight w(i), shedule subset of requests with max weight"/>
+<node CREATED="1575418092815" ID="ID_1911749708" MODIFIED="1575418096593" TEXT="Dynamic programming">
+<node CREATED="1575418097028" ID="ID_315602978" MODIFIED="1575418118670" TEXT="R^x = {reques j belongs to R | S(j) &gt;= x}">
+<node CREATED="1575418130071" ID="ID_1312837687" MODIFIED="1575418134448" TEXT="x = f(i)">
+<node CREATED="1575418138055" ID="ID_13485270" MODIFIED="1575418157766" TEXT="All the requests that come after finish of ith request are in R^x">
+<node CREATED="1575418181832" ID="ID_1209966204" MODIFIED="1575418190196" TEXT="Not all of them are compatible with ith request"/>
+<node CREATED="1575418268787" ID="ID_482427105" MODIFIED="1575418279458" TEXT="n: number of requests">
+<node CREATED="1575418279739" ID="ID_942495972" MODIFIED="1575418284025" TEXT="#subproblems = n"/>
+<node CREATED="1575418305657" ID="ID_1675491271" MODIFIED="1575418315780" TEXT="Solve each subproblem once &amp; memoize"/>
+<node CREATED="1575418318068" ID="ID_586808682" MODIFIED="1575418335331" TEXT="#subproblems * time to solve each subproblem (assumes O(1) for lookups)">
+<node CREATED="1575418341179" ID="ID_1352666962" MODIFIED="1575418348909" TEXT="Recursion is O(1)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575418401420" ID="ID_1137425746" MODIFIED="1575418405837" TEXT="DP guessing">
+<node CREATED="1575418409197" ID="ID_737497500" MODIFIED="1575418418965" TEXT="Try each request i as a possible FIRST request"/>
 </node>
 </node>
 </node>
