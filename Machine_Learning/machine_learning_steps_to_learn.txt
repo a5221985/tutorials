@@ -1,0 +1,80 @@
+Machine Learning:
+1. Learn Python, Data Science Tools and machine learning concepts
+	1. Few months
+	2. Concepts
+	3. Jupyter notebooks
+	4. Anaconda
+	5. Course: 
+		1. elementsofai course
+	    	1. Overview
+		2. Coursera: Python for everybody specialization
+		3. Free code camp - youtube 
+		4. Jupyter and Anaconda - Corie Schafer
+2. Learn data manipulation, analysis and visualization with pandas, NumPy and Matplotlib
+	1. Foundations for data manipulation
+		1. Pandas - structured data manipulation
+			1. Tabular
+		2. NumPy - Numerical Python
+			1. On tables
+		3. MathPlotLib - plotting
+	2. Courses:
+		1. Applied Data Science with Python Specialization
+			1. Introduction to Data Science in Python
+			2. Applied Plotting, Charting & Data Representation in Python
+			3. Applied Machine Learning in Python
+		2. Pandas tutorial - Code basics
+		3. NumPy - Free code camps video
+		4. MathPlotLib - Sentdex in youtube
+3. Learn machine learning with scikit-learn
+	1. Scikit-learn
+		1. Machine learning algorithms built-in
+		2. Applying pre-built versions to different problems
+		3. Courses
+			1. Sci-kit-learn: DataSchool in YouTube
+4. Learn deep learning and neural networks
+	1. for unstructured data
+		1. images
+		2. videos
+		3. audios
+	2. Courses
+		1. Andrew Ng - deeplearning.ai
+		2. fast.ai
+5. Extra Curriculum & Books
+	1. Do projects
+	2. Blog posts
+	3. Share code in Github
+	4. Books
+		1. Python for Data Analysis
+		2. Hand-On Machine Learning with Scikit-Learn Keras & Tensorflow
+		3. The Mechanics of Machine Learning
+6. Data Camp
+7. Time
+	1. 2 years
+8. Foundation Skills
+	1. Fundamentals
+		1. Math
+		2. Statistics
+		3. Probability
+		
+Books:
+1. Machine Learning for Humans - Vishal Maini, ...
+	1. Online for free
+	2. For newbees
+	3. For practioner - other topics are explained simply
+2. Python for Data Analysis
+	1. Pandas - Author
+	2. NumPy
+	3. JupyterNotebook
+3. Hands-on Machine Learning with Sci-Kit Learning and Tensorflow
+	1. Work through problems
+4. Grokking Deep Learning
+	1. Analogies
+5. The Mechanics of Machine Learning
+	1. Online for free
+	2. fastai
+6. The Hundred-Page Machine Learning Book
+	1. Slightly advanced
+7. Deep Learning - online for free
+	1. Ian Goodfellow
+	2. Yoshua Bengio
+	3. Aaron Gouville

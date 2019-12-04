@@ -15,6 +15,7 @@ Master Microservices with Spring Boot and Spring Cloud
 Complete Elasticsearch Masterclass with Logstash and Kibana
 Advanced Object Oriented Analysis of Hard Problems...
 Java Application Performance and Memory Management II
+Object-Oriented Programming Using Java and Intellij Hands On
 
 Software Engineer Interview Unleashed
 Easy to Advanced Data Structures
@@ -27,3 +28,4 @@ REST API Design, Development & Management
 
 SQL Beginner to Guru: MySQL Edition - Master SQL with ...
 MySQL, SQL and Stored Procedures from Beginner to Advanced
+Database Design

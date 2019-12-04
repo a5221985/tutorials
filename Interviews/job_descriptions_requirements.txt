@@ -1,0 +1,123 @@
+SAP:
+Java
+JDBC
+JMS
+Web Services
+   REST
+   *oData
+*Performance
+*Scalability
+*API Management
+*Service Discovery
+*API Gateways
+*RESTful API design principles
+*Security standards
+*Enterprise Integration Patterns
+OOAD
+*Algorithms
+*Data Structures
+*Design Patterns
+*RDBMS
+*OS & Runtime (Unix, Windows, JVM, Web Servers, Servlet Containers)
+JavaScript
+HTML
+CSS
+DevOps
+*Oracle DB/ SQL Server/ MySQL/ PostgreSQL/ DB2
+Spring-Hibernate
+*PL/SQL
+*Tuning Queries for performance
+*Lean development infrastructure process
+    Git
+	TeamCity
+	Jenkins
+Continuous Delivery
+*AWS Deployments
+*OWASP Threats and mitigation
+*Microservices
+Spring Boot
+*Spring Reactor
+Docker
+*Kubernetes
+*Swagger
+*Hadoop
+
+Lockheed Martin:
+Python Scripting
+*SQL Programming
+*AWS - S3
+*Data pipeline
+*Redshift
+*Amazon Athena
+*Amazon Quick Sight
+JIRA
+*TFS
+Bitbucket
+
+IBM:
+Agile
+*Linux OS
+GitHub
+
+Lockheed Martin:
+*Java Swing/JavaFX
+*Multithreading
+*Memory Management
+Linux Commands
+OOP
+*Gerrit
+*Gradle
+*Test Automation
+
+Amazon:
+*Linux/Unix Tools and Architecture
+*Web Protocols
+*Network Protocols
+*Security Protocols
+*Security tools (intrusion detection, log analysis, network scanning)
+*Full stack experience
+*Design and analysis of algorithms and data structures
+OOD and implementation
+Web-based applications development experience
+Web-Services applications at massive scale
+Python
+*Linux OS Development
+
+Boeing: Embedded
+*Software Architecture
+Software Design
+*Trade studies
+Product and/or Process Improvement
+*C++
+Python
+*Linux Development
+*CI Poly
+Innovation
+
+Boeing: Software
+*Distributed computing
+*Automate testing and deployment (new features and products)
+Angular
+AWS
+JUnit
+*MongoDB
+Maven
+*Wildfly
+Atlassian Tool Suite (Jira, Confluence, Crucible, BitBucket)
+*Java for Cloud
+*Design documentation
+*User training documentation
+Unit tests
+Integration tests
+*GUI development
+*Mathematical and Logical algorithms
+*Database structure design
+*Architecture Design documentation
+*Requirements documentation
+*J2EE architecture
+*Relational table design
+*NoSQL
+Eclipse
+Git/SVN
+Atlassian development tools
+*Polygraph

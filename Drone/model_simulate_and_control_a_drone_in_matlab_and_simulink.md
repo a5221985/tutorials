@@ -75,6 +75,37 @@
 		1. 
 
 ### Empirical Modelling of Propeller's Behaviour and Performance ###
+1. Mathematical representation of model of motors of the drone
+2. DJI Mavic Pro's vs Ours
+	1. The Mavic Pro uses brushless DC motors
+		1. New technology
+		2. Requires complex electronics
+		3. Efficient
+		4. Does not wear much
+			1. No much maintenance
+	2. These require complex electronics and mathematics to be controlled but are highly efficient, compact and do not wear much nor require maintenance
+	3. As we did in the "Model a Car and Design a PID Controller in MATLAB/SIMULINK" course, we could model them using the maths behind brushed DC motors.
+		1. Much simpler
+	4. However, we will use provided motor constants to look at a different approahc and have a simpler model overall
+3. The RPM Motor Constant KV
+	1. The RPM constant KV expressed in RPM/Volt, 1400 RPM/V here, tells use the back-emf generated in the motor at a certain speed
+		1. RPM constant tells how much voltage the motor itself generates. The faster the motor rotates, the greater the voltage is
+		2. When voltage is applied, motor generates a voltage until it's voltage is no different from the voltage applied to it
+			1. Acceleration stops
+		2. When there is no load, the RPM matches the RPM constant
+		3. When load is applied, RPM decreases
+	2. The torque required from the motor is proportional to the square of the rotational velocity of its propeller
+	3. We assume a 0% RPM drop from KV at 0V and a 25% RPM drop from KV at max voltage: 11.4V
+		1. 25% rotational velocity drop from the KV at max voltage
+4. RPM Equation with loading assumption
+
+		RPM = -2.6931 * V^3 + 1400 * V
+		
+	1. 20 sample outputs constructed in the range 0 V - 11.4 V
+	2. Estimation needs to be made
+		1. If propellers are attached, the percentage drop is going to increase proportionally to the square of rotational velocity
+			1. When there is no load, velocity increases linearly
+
 ### Linear and Rotational Drone Dynamics ###
 ### Actuation: Moments and Disturbances ###
 ### Actuation: Thrust Vectors and Linear Forces ###

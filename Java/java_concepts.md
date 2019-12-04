@@ -121,7 +121,7 @@
 ### Understanding How ForkJoinPool Works ###
 ### What is a SynchronousQueue in Java? ###
 ### ThreadLocal in Java ###
-### Phaser vs CounDownLatch vs CyclicBarrier ###
+### Phaser vs CountDownLatch vs CyclicBarrier ###
 ### Java Asynchronous Programming ###
 ### Lock's Condition Class in Java ###
 ### Semaphore in Java Concurrency ###

@@ -836,16 +836,449 @@
 	1. a + b (a is operand, b is operand)
 6. Different data types can be pushed onto or popped off the FPU register stack
 	1. Including signed integers of different sizes (16 bit, 32 bit and 64 bit)
+	2. Floating point values of different sizes can also be pushed and popped
+	3. Data transfers between FPU registers and x86 GPRs is not possible
+		1. Intermedite mem location needs to be used for this
+		2. Not performed very often - only in rare situations
+7. FPU numberic formats, algorithms, exception signalling procedures are based on IEEE standard for binary FP arithmetic - IEEE 754.1985 standard
+	1. 80 bit double extended precision format
+		1. conversion between the internal format and supported floating point, integer and BCD formats occur automatically during FPU reg load and store operations
+8. FPU special purpose registers
+	1. Used to configure FPU
+	2. Determine it's status
+	3. Facilitate exception processing
+	4. FPU control register (does not require elevated runtime privileges) - application programs can configure based on algorithm specific requirements
+		1. Allows a task to enable or disable various floating point processing options
+			1. Exceptions
+				1. Setting exception mask bit to 1 in FPU control register disables generation of processor exception
+			2. Rounding method
+			3. Precision
+9. FPU status register always records occurrance of any FPU exception condition
+10. Application programs cannot access internal processor table that specifies the FPU exception handler
+	1. Most C and C++ compilers provide a library function that allows application programs to designate a callback function that gets invoked when whenever FPU exception occurs
+11. FPU status register contains 16 bit value that allows a task to determine the result of an arithemetic operation and check if an exception has occurred and query stack status info
+12. FPU instruction set supports 3 types of memory operands
+	1. Signed integer
+		1. 16 bit word
+		2. 32 bit double word
+		3. 64 bit quad word
+	2. Floating point
+		1. 32 bit single precision (C/C++ - float)
+		2. 64 bit double precision (C/C++ - double)
+		3. 80 bit double extended precision
+	3. BCD
+13. Encoding using 3 distinct fields
+	1. Significand - fractional part
+	2. Exponent - locates the binary or decimal point in significand (magnitude)
+	3. Signed bit - positive or negative
 
 ### Overview of x86 Memory Modes ###
+1. Real address mode - only 1 MB memory can be addressed (00000 to FFFFF)
+	1. Processor can run only one program at a time
+	2. Processor can interrupt that program for a moment to process requests (interrupts)
+		1. Interrupts usually come from peripherals (mouse, keyboard)
+	3. Applications can access any memory addresses (including the ones linked with hardware)
+2. Protected mode:
+	1. Processor can run multiple programs at the same time
+	2. 4 GB of memory is assigned to each process
+		1. Process - running program
+		2. Each program can be assigned their own memory area
+	3. Programs are prevented from accessing each other's memory and data
+	4. Microsoft windows and Linux run in protected mode
+3. Virtual 8086 mode:
+	1. Processor runs in protected mode and runs in virtual 8086 machine
+	2. With 1 MB address space (simulates 8086 computer running in real address mode)
+		1. 20 bit addresses
+	3. Addressing:
+		1. To hold 20 bit addresses, segmented addresses are used
+			1. Each segment is 64 KB of memory
+			
+					8000:0000 to 8000:FFFF
+					
+4. Byte addressible memory:
+	1. Each byte location (8-bit) has a separate address
+	2. Two 16 bit registers are required for addressing
+		1. 1 segment register (CS, DS, ES, SS)
+		2. 1 offset register
+	3. CPU automatically converts to 20 bit address
+5. Programs have 3 segments:
+	1. Code segment (CS contains 16 bit code segment address)
+	2. Data segment (DS contains 16 bit data segment address)
+	3. Stack segment (SS contains 16 bit stack segment address)
+	4. ES, FS and GS - alternate data segments (they supplement DS)
+6. Protected Mode:
+	1. 4GB Linear address space (flat segmentation model)
+		1. Appropriate for protected mode programming
+			1. Easy to use
+				1. Single 32 bit register had hold address of variable
+				2. CPU performs transformation in the background
+		2. CS, DS, SS, ES, FS, GS - point to segment descriptor tables which OS uses to keep track of locations of individual program segments
+	2. A protected mode program has 3 segments:
+		1. CODE - CS - references segment descriptor table for code segment
+		2. DATA - DS - references segment descriptor table for data segment
+		3. STACK - SS - refernces segment descriptor table for stack segment
+7. Flat segmentation model:
+	1. All segments are mapped to the entire 32 bit physical address space of the computer
 
+			Segment descriptor:
+			Base address  limit   access (determines how the segment can be used)
+			  00000000     0400    ----
+			  to
+			  FFFFFFFF     0400    ----
+			  
+		1. 00040000 to FFFFFFFF are not accessed
+	2. At-least two segments are required
+		1. Code segment
+		2. Data segment
+	3. Each segment is defined by segment descriptor
+		1. segment descriptor - 64 bit integer
+			1. Stored in global descriptor table
+8. All modern x86 architectures use the flat segmentation model
+	1. Code indicates this
+	
 ## Introduction to x86 Assembly Language ##
+### Book to Read ###
+1. "Modern X86 Assembly Language Programming" by Daniel Kusswurm
+
 ### Overview of x86 Integers ###
+1. Integer constants:
+	
+		+ or - digits radix
+
+	1. radix - H (hexadecimal), r (encoded real), q/o (octal), t (decimal), d (decimal), y (binary), b (binary)
+	2. Example:
+
+			26d
+			1001110b
+			
+2. Integer prcedence
+	1. (), Parantheses, 1
+	2. +,-, Unary plus, Unary minux, 2
+	3. *,/, Multiply, Divide, 3
+	4. MOD, Modulus, 3
+	5. +,-, Add, subtract, 4
+
 ### Introduction to Directives and Instructions ###
+1. Directives?
+	1. They are not instruction set
+	2. They assist and control assembly process
+	3. They are also called pseudo-ops
+	4. They change the way the code is assembled
+2. Examples:
+
+		.CODE - indicates start of code segment
+		.DATA - indicates start of data segment
+		.STACK - indicates start of stack segment
+		.END - marks the end of a module
+		.DD - allocates a double word (4 bytes) storage
+		.DWORD - allocates a double word (4 bytes) storage
+3. Instructions?
+	1. A statement that becomes executable when a program is assembled
+	2. Instructions are translated by assembler into machine language bytes
+	3. Parts
+
+			[label:] mnemonic [operands] [;comment]
+			optional required may be     optional
+			
+			start : mov eax, 10000h ; EAX = 10000h
+			
+		1. Label: used as a place marker for instructions and data
+			1. Lable placed before an instruciton implies an instruction's address
+			2. Label placed before a variable implies variable's address
+				1. Data labels:
+
+						count DWORD 100
+						
+					1. count - 32 bit variable - assembler assigns a numberic value to each label
+					2. Multiple locations:
+
+							amount DWORD 1024, 2024
+							       DWORD 4096, 8192
+							       
+						1. amount refers to 1024 but next addresses follow amount (amount + 4, amount + 8, ...)
+			3. Code labels: must end in :
+
+					start: // it can be placed in a line by itself
+						mov ax, bx,
+						...
+						jpm start
+						
+					start: ...
+					
+		2. Mnemonic: identifies an instruction
+
+				mov : Move (assign) one value to another
+				add : add two values
+				sub : subtract one value from another
+				mul : multiply two values
+				jmp : jump to a new location
+				call: call a procedure
+				
+		3. Operand: quantity on which an operation can be done
+			1. Operator, Name
+			2. 20, Constant
+			3. 35 - 7, Constant expression
+			4. EAX, Register
+			5. count, Memory
+		4. Block Comments:
+
+				COMMENT !
+				Assembly programming is awesome
+				Register are empty
+				!
+				
+				COMMENT &
+				This procedure initializes the
+				printer and scanner drivers.
+				&
+				
+		5. Single line comments:
+
+				start : move eax, 10000h ; EAX = 10000h
+
 ### Simple x86 Assembly Template ###
+1. Example:
+
+		; This program adds and subtracts 32-bit integers
+		.386 							; min CPU required
+		.model flat,stdcall			; identifies segmentation model, identifies convention used to pass parameters, flat - protected mode, stdcall - enables calling ms windows functions
+		.stack 4096
+		.code							; beginning of code segment
+		main PROC						; PROC - identifies beginning of a procedure, main - name of procedure
+				mov eax, 10000h		; EAX = 10000h
+				add eax, 40000h		; EAX = 50000h
+				sub eax, 20000h		; EAX = 30000h
+		main ENDP						; end of main procedure
+		END main						; marks end of program, identifies name of startup procedure
+		
+2. Aseembly Program Template:
+
+		; Program Description:
+		; Author:
+		; Creation Date:
+		; Revisions:
+		; Date:
+		.data
+		; (insert variables here)
+		.code
+		main PROC
+		; (insert executable instructions here)
+		main ENDP
+		; (insert additional procedures here)
+		END main
+
 ### Coding: Declaring Variables in Assembly ###
+1. Open Visual Studio
+	1. New project
+	2. Windows Console Applciation
+	3. DeclaringVariables
+	4. Delete C and C++ files
+	5. Right click
+	6. Add
+	7. New Item
+	8. Select C++
+	9. Main.asm
+	10. Right click on project
+	11. Build Dependencies
+	12. masm
+	13. Right click on Main.asm
+	14. Item Type
+	15. Microsoft Macro Assembler
+	16. Right click on project
+	17. Properties
+	18. Linker
+	19. Advanced
+	20. Entry Point: start
+2. Content:
+
+		.386
+		.model flat
+		.data
+		num1	dword	11111111h
+		num2	dword	10101010h
+		ans		dword	0
+		.code
+		start	proc
+				mov eax, num1
+				add eax, num2
+				mov ans, eax
+				ret
+		start	endp
+		end		start
+		
+	1. Right click
+	2. Build solution
+	3. Put a break point at ret
+	4. Debug
+	5. Start debugging
+	6. Right click on `ans` - Add to watch
+	7. Click and display in hexadecimal format
+	8. Select registers
+
 ### Dealing with Data ###
+1. `[name] directive initializer [,initializer]`
+
+		count DWORD 44324 ; DWORD is double word
+		
+2. Other directives
+
+		BYTE : 8-bit unsigned integer
+		SBYTE : 8-bit singed integer. S stands for signed
+		WORD: 16-bit unsigned integer
+		SWORD: 16-bit signed integer
+		DWORD: 32-bit unsigned integer
+		SDWORD: 32-bit signed integer
+		FWORD: 48-bit integer (Far pointer in potected mode)
+		QWORD: 64-bit integer. Q stands for quad
+		TBYTE: 80-bit (10-byte) integer, T stands for Ten-byte
+		REAL4: 32-bit (4-byte) IEEE short real
+		REAL8: 64-bit (8-byte) IEEE long real
+		REAL10: 80-bit (10-byte) IEEE extended real
+		
+3. Legacy directives:
+
+		DB - 8-bit integer (one or more signed or unsigned values each must store one byte)
+		DW - 16-bit integer
+		DD - 32-bit integer or real
+		DQ - 64-bit integer or real
+		DT - 80-bit ingeger
+		
+4. BYTE:
+
+		; Initialized
+		
+		char1 BYTE 'C'			; character constant
+		num2 BYTE 0				; smallest unsigned byte
+		num3 BYTE 255				; largest unsigned byte
+		num4 SBYTE -128			; smallest signed byte
+		num10 SBYTE +127			; largest signed byte
+		
+		; Uninitialized
+		num5 SBYTE ?				; unitialized variable
+		
+		; Multiple initializers
+		list BYTE 10,20,30,40	; placed consecutively in memory
+									; offsets: 0000 (10), 0001, 0002, 0003 (40)
+									
+		; Strings (using single or double quotation marks)
+		hello BYTE "Welcome back", 0
+		
+		; multi-line strings
+		hello BYTE "Welcome back"
+		      BYTE "Ready to get started"
+		      BYTE "Enter your name", 0
+		
+5. WORD (16-BIT)
+
+		word1 WORD 65535			; largest unsigned value
+		word2 SWORD -32768		; smallest signed value
+		word3 WORD ?				; uninitialized, unsigned
+		
+		; multiple initializers
+		list WORD 1,2,3,4,5		; offsets: 0000 (1), 0002, 0004, 0008 (5)
+		
+6. Double WORD (32-BIT)
+
+		word1 DWORD 12345678h	; unsigned value
+		word2 SDWORD -214742222	; signed value
+		word3 DWORD ?				; uninitialized, unsigned
+		
+7. Multiple initializers
+
+		list DWORD 1,2,3,4,5	; offsets: 0000 (1), 0004, 0008, 000C, 0010 (5) 
+
 ### Endianness ###
+1. How data is stored and retrieved in memory
+	1. x86 uses little endien order - first bit is used to store least significant bit
+
+			12345678h ; 0000 (78), 0001 (56), 0002 (34), 0003 (12)
+			
+	2. Big endian:
+
+			0000 (12), 0001 (34), 0002 (56), 0003 (78)
+			
+### Notice ###
+1. `#include <stdlib.h>` is needed in `main.c`
+
+### Coding: Mixing C/C++ and Assembly ###
+1. Using C/C++ file and assembly file - pushing and popping parameters - just give a taste
+2. Open visual studio
+	1. New project
+	2. Windows Console Application
+	3. ArrayReverser
+	4. Add another file to Source Files
+	5. Add new Item
+	6. C++ File
+	7. Reverser.asm
+	8. Right click on project
+	9. Build dependencies
+	10. Build customization
+	11. Masm...
+	12. Right click on new file
+	13. Properties
+	14. Item Type
+	15. Microsoft Macro Assembler
+	16. Select C++ file
+	17. Build solution
+	18. Add code (copy source array to destination array in reverse order)
+
+			extern "C" void Reverser(int* y, const int* x, int n);
+			...
+			
+				const int n = 10;
+				int x[n], y[n];
+				
+				//srand(4l);
+				for(int i = 0; i < n; i++)
+					//x[i] = rand() % 1000;
+					x[i] = i;
+					
+				Reverser(y, x, n);
+				
+				printf("\n------------Array Reverser------------\n");
+				for (int i = 0; i < n; i++)
+				{
+					printf("i:	%5d		y: %5d	x: %5d\n", i, y[i], x[i]);
+				}	
+			
+	19. Add assembly code (push certain registers into stack - context saving - prologue, epilogue)
+
+				.386							; optional
+				.model flat,c					; c - 
+				.code
+				Reverser proc
+						push ebp					; prolog
+						mov ebp, esp
+						push esi
+						push edi
+					
+						xor eax, eax				; 0s
+						mov edi, [ebp+8]			; destination address
+						mov esi, [ebp+12]		; source address
+						mov ecx, [ebp+16]		; number of elements
+						test ecx, ecx
+					
+						lea esi, [esi+ecx*4-4]
+						pushfd						; saves current direction flag
+						std							; sets flag to 1
+					
+				@@:		loadsd
+						mov [edi], eax
+						add, edi, 4
+						dec ecx
+						jnz @B
+						
+						popfd
+						mov eax, 1
+						
+						pop edi			; epilog
+						pop esi
+						pop ebp
+						ret
+				Reverser endp
+				         end
+				         
+	20. In signal processing and image processing, most of the pixel manipulations are done in assembly and called in C/C++
 
 ## Data Transfer Instructions ##
 ### Operand Types ###
@@ -890,7 +1323,8 @@
 ### Coding: Developing the Sphere Computation Algorithm ###
 ### Coding: Processing Floating-Point Arrays with FPU Instructions ###
 ### Coding: Computing Min and Max of Single-Precision Floating Point Arrays ###
-### Coding: Developing Algorithms with x86 FPU Transcendental Instructions ### Coding: Developing the Least Squares Algorithm ###
+### Coding: Developing Algorithms with x86 FPU Transcendental Instructions ###
+### Coding: Developing the Least Squares Algorithm ###
 
 ## Programming with the x86 MMX Extensions ##
 ### Coding: SIMD Arithmetic with Packed Data using MMX Registers (Part I) ###

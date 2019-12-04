@@ -1,0 +1,38 @@
+drift
+data drift
+
+publishing model:
+model is accessible through API endpoint
+
+Assessing model:
+   feed live data - payload
+      model is scored
+	  
+openscale:
+    config: IBM AI openscale library
+	persistance: PostgreSQL is provided
+	   used by openscale for persistance
+
+Bind WML to openscale
+    subscription
+	probablility: that the output is right
+	
+fairness config:
+    ...
+    majority
+	minority
+	threshold
+	min records - used to detect fairness (100-200...)
+
+Run fairness monitor
+
+fairness monitoring:
+    1. openscale will construct purturbed data
+	2. bias graph: below threshold is not acceptable - above threshold is good performance
+	
+Reach out
+
+pgoyal89@in.ibm.com
+https://www.linedin.com/in/prateekgoyalofficial
+
+Statistical parity difference

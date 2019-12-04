@@ -78,12 +78,116 @@
 1. Move ball across diagonally
 2. Expo project
 3. Using `Animated` module
-4. 
+4. Three questions answered by Animated module
+	1. What's the current position of the element being animated? (Values)
+		1. `Value`, `ValueXY`
+	2. How is the animation changing? (Types)
+		1. 	`Spring`
+		2. `Decay`
+		3. `Timing`
+	3. Apply the animation's current position to an actual component (Component)
+		1. `View`
+		2. `Text`
+		3. `Image`
+5. Moving circle down to bottom right hand side of the screen
+6. Start simulator
+	1. Open the project in code editor
+	2. `main.js`
+		1. For expo - common for Android and iOS
+			1. Change text - refresh
+7. Separate component
+	1. `src/Ball.js`
+
+			import React, { Component } from 'react';
+			import { View } from 'react-native';
+			
+			class Ball extends Component {
+				render() {
+					return (
+						<View style={styles.ball} />
+					);
+				}
+			}
+			
+			const styles = {
+				ball: {
+					height: 60,
+					width: 60,
+					borderRadius: 30,
+					borderWidth: 30,
+					borderColor: 'black'
+				}
+			};
+			
+			export default Ball;
+			
+	2. `main.js`
+
+			import Ball from './src/Ball';
+			
+			...
+				<View style={styles.container}>
+					<Ball />
+				</View>
 
 ### Moving a Ball ###
+1. `main.js`
+
+		const styles ...
+			flex: 1,
+			backgroundColor: '#fff'
+			
+2. `Ball.js`
+	1. Answers to questions:
+		1. Where is the item right now?
+			1. Use `Animated.ValueXY`
+		2. Where is the element moving to?
+			1. Use `Animated.Spring`
+		3. Which element are we moving?
+			1. Use `Animated.View`
+3. `Ball.js`
+
+		import { View, Animated } from 'react-native';
+		...
+		class Ball ... {
+			componentWillMount() { // called before render()
+				this.position = new Animated.ValueXY(0, 0); // where the item is at any point in time (we can inspect this)
+				Animated.spring(this.position, {
+					toValue: { x: 200, y: 500 } // where is the element moving to
+				}).start(); // start immediately
+			}
+			
+			render() {
+				return (
+					<Animated.View style={this.position.getLayout()}> <!-- this is the element we are animating, it can contain as many nested elements as possible - active element -->						<View style={styles.ball} />
+					</Animated>
+				);
+			}
+
 ### How Animations Work ###
 ### Animation from Another Angle ###
+1. Workflow for any change
+
+		Get initial state
+		Render component
+		Update state (causes re-render)
+		Component re-renders
+		
+2. `render()` only once - `Animated` takes it from there
+3. Lifecycle:
+	1. Component hierarchy
+		1. `Ball`
+			1. `Animated.View` (`ValueXY` is passed as a prop)
+	2. Component lifecycle
+		1. Ball + Animated.View rendered (first)
+		2. `Animated.View` inspects its props (`style`), finds animated value
+		3. `ValueXY` starts changing
+		4. `Animated.View` sees updated value from `ValueXY`
+		5. `Animated.View` updates its styling
+
 ### Swipe Deck Props ###
+
+
 ### Component Boilerplate ###
 ### Deck Data ###
 ### Interplay Between Components ###
