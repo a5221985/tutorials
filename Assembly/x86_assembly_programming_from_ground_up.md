@@ -1324,7 +1324,19 @@
 		MOV destination, source ; source does not change but destination changes
 		
 	1. Copying smaller values to larger ones: (MOV does not do this)
-	2. 
+	2. `count`: unsigned 16-bit value
+
+			.data
+			count WORD 1
+			.code
+			mov ecx, 0		; make all bits 0 first
+			mov cx, count		; copy 16 bits to lower 16 bits of ECX
+			
+	3. `MOVZX` (Move with zero-extend)
+
+			MOVZX reg32, reg/mem8
+			MOVZX reg32, reg/mem16
+			MOVZX reg16, reg/mem8
 
 ### Understanding Direct - Offset Operands ###
 ### Memory Addressing Modes ###
