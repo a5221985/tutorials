@@ -1337,9 +1337,42 @@
 			MOVZX reg32, reg/mem8
 			MOVZX reg32, reg/mem16
 			MOVZX reg16, reg/mem8
+			
+		1. Copy a byte to 16 bit destination
+
+				MOVZX AX, 10001111b
+				
+			1. Example:
+
+					.data
+					byteVal BYTE 10001111b
+					.code
+					movzx ax, byteVal		; AX = 0000000010001111b
+					
+	4. `MOVSX` (Mov with sign-extend) - used only with signed instructions
+
+			MOVSX reg32, reg/mem8
+			MOVSX reg32, reg/mem16
+			MOVSX reg16, reg/mem8
+			
+		1. Example:
+
+				.data
+				byteVal BYTE 10001111b
+				.code
+				movsx ax, byteVal		; AX = 1111111110001111b
 
 ### Understanding Direct - Offset Operands ###
+1. Direct-Offset Operands
+
+		numArray BYTE 10h,20h,30h,40h,50h
+		
+		mov al, numArray			; AL = 10h
+		mov al, [numArray+1]	; AL = 20h
+		mov al, [numArray+2]	; AL = 30h
+
 ### Memory Addressing Modes ###
+
 
 ## Arithmetic Instructions ##
 ### The Increment and Decrement Instructions ###
