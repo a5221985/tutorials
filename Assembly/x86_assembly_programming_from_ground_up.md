@@ -1290,9 +1290,22 @@
 		mnemonic [destimation], [source 1], [source 2]
 
 2. Types of Instrucitons Operands
-	1. Immediate
-	2. Register
-	3. Memory
+	1. Immediate - uses numeric literal
+	2. Register - named register in CPU
+	3. Memory - memory location
+3. Direct Memory Operand
+	1. Variable names are references to offset within data segment
+
+			.data
+			num1 BYTE 13h
+			
+		1. Program code contains references that dereference memory operands using addresses
+
+				mov AL, num1	; num1 has address 00010400h, symbolic names makes it easier to reference memory
+		
+4. Operands summary:
+	1. `reg8`: 8-bit general-purpose register: AH, AL, BH, BL, CH, CL, DH, DL
+	2. `reg16`: 16-bit general-purpose register: AX, BX, CX, DX, SI, DI, SP, BP	
 
 ### Overview of the MOV Instruction ###
 ### Understanding Direct - Offset Operands ###
