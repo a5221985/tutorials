@@ -1305,9 +1305,27 @@
 		
 4. Operands summary:
 	1. `reg8`: 8-bit general-purpose register: AH, AL, BH, BL, CH, CL, DH, DL
-	2. `reg16`: 16-bit general-purpose register: AX, BX, CX, DX, SI, DI, SP, BP	
+	2. `reg16`: 16-bit general-purpose register: AX, BX, CX, DX, SI, DI, SP, BP
+	3. `reg32`: 32-bit general-purpose register: EAX, EBX, ECX, EDX, ESI, EDI, ESP, EBP
+	4. `reg`: Any general-purpose register
+	5. `sreg`: 16-bit segment register: CS, DS, SS, ES, FS, GS
+	6. `imm`: 8-,16-,or 32-bit immediate value
+	7. `imm8`: 8-bit immediate byte value
+	8. `imm16`: 16-bit immediate word value
+	9. `imm32`: 32-bit immediate doubleword value
+	10. `reg/mem8`: 8-bit operand, which can be an 8-bit general register or memory byte
+	11. `reg/mem16`: 16-bit operand, which can be a 16-bit general register or memory word
+	12. `reg/mem32`: 32-bit operand, which can be a 32-bit general register or memory doubleword
+	13. `mem`: Any 8-,16-, or 32-bit memory operand
 
 ### Overview of the MOV Instruction ###
+1. MOV instruction copies data from a source operand to a destination operand
+
+		MOV destination, source ; source does not change but destination changes
+		
+	1. Copying smaller values to larger ones: (MOV does not do this)
+	2. 
+
 ### Understanding Direct - Offset Operands ###
 ### Memory Addressing Modes ###
 
