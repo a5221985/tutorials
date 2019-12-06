@@ -1282,6 +1282,18 @@
 
 ## Data Transfer Instructions ##
 ### Operand Types ###
+1. Instruction format with varying number of operands
+
+		mnemonic	; destination register only
+		mnemonic [destination]
+		mnemonic [destination], [source]
+		mnemonic [destimation], [source 1], [source 2]
+
+2. Types of Instrucitons Operands
+	1. Immediate
+	2. Register
+	3. Memory
+
 ### Overview of the MOV Instruction ###
 ### Understanding Direct - Offset Operands ###
 ### Memory Addressing Modes ###
