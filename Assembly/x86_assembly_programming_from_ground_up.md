@@ -1372,7 +1372,20 @@
 		mov al, [numArray+2]	; AL = 30h
 
 ### Memory Addressing Modes ###
+1. 4 components
+	1. Fixed displacement
+	2. Base register
+	3. Index register
+	4. Scale factor
+2. Effective address - calculated by processor to determine the final destination of the operand
 
+		Effective address = BaseReg + IndexReg * ScaleFactor + Disp
+		
+	1. BaseReg - any general purpose reg
+	2. IndexReg - any general purpose reg except ESP
+	3. Disp - constant offset encoded within the instruction
+	4. ScaleFactor - 1, 2, 4, 8
+	5. Final effective address is always 32 bit
 
 ## Arithmetic Instructions ##
 ### The Increment and Decrement Instructions ###
