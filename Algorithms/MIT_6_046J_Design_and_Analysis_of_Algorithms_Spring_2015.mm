@@ -121,8 +121,7 @@
       </li>
     </ol>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1575390362744" ID="ID_657277644" MODIFIED="1575390366601" TEXT="What is the rule?">
 <node CREATED="1575390506024" ID="ID_705985426" MODIFIED="1575390512758" TEXT="lowest to highest"/>
 <node CREATED="1575390513099" ID="ID_1459625008" MODIFIED="1575390515375" TEXT="shortest time">
@@ -164,8 +163,7 @@
       By construction, greedy on L' gives S[2,...,k] of size k - 1
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1575416819333" ID="ID_1218634722" MODIFIED="1575416837365" TEXT="k - 1 = k* and therefor k = k* + 1"/>
 </node>
 </node>
@@ -345,6 +343,50 @@
 <node CREATED="1575859520863" ID="ID_862641914" MODIFIED="1575859521889" TEXT="FFT">
 <node CREATED="1575859522182" ID="ID_1950895065" MODIFIED="1575859524433" TEXT="Algorithm"/>
 </node>
+</node>
+</node>
+</node>
+<node CREATED="1575860439978" ID="ID_819282513" MODIFIED="1575860442637" TEXT="Matrix view:">
+<node CREATED="1575860442976" ID="ID_729104975" MODIFIED="1575860544667">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      1 x0 x0^2 ... x0^n-1] [a0] = [y0]
+    </p>
+    <p>
+      1 x1 x1^2 ... x1^n-1] [a1] = [y1]
+    </p>
+    <p>
+      ...
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1575860546332" ID="ID_409121850" MODIFIED="1575860550527" TEXT="Vandermond matrix">
+<node CREATED="1575861433771" ID="ID_1847658680" MODIFIED="1575861442198" TEXT="Vjk = Xj^k">
+<node CREATED="1575861470541" ID="ID_287873578" MODIFIED="1575861488432" TEXT="Coefficients to samples = V. A">
+<node CREATED="1575861488683" ID="ID_135233511" MODIFIED="1575861491396" TEXT="O(n^2)"/>
+</node>
+<node CREATED="1575861515570" ID="ID_1101295266" MODIFIED="1575861535703" TEXT="Samples to coefficients = V \ A">
+<node CREATED="1575861564354" ID="ID_313845683" MODIFIED="1575861570011" TEXT="Gaussian elimination">
+<node CREATED="1575861570231" ID="ID_1895361476" MODIFIED="1575861577931" TEXT="O(n^3)">
+<node CREATED="1575861578178" ID="ID_1601887662" MODIFIED="1575861579116" TEXT="Bad"/>
+<node CREATED="1575861588505" ID="ID_1664937011" MODIFIED="1575861599166" TEXT="Little better with fixed coefficients"/>
+</node>
+<node CREATED="1575861604257" ID="ID_434930751" MODIFIED="1575861608595" TEXT="V^-1 . A">
+<node CREATED="1575861609290" ID="ID_850848792" MODIFIED="1575861614417" TEXT="But need to do it only once">
+<node CREATED="1575861617330" ID="ID_1078320164" MODIFIED="1575861621338" TEXT="It can be stored"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575861665841" ID="ID_1947415120" MODIFIED="1575861670301" TEXT="We can choose xk">
+<node CREATED="1575861671374" ID="ID_177090450" MODIFIED="1575861680797" TEXT="To convert it into O(n log n)"/>
 </node>
 </node>
 </node>
