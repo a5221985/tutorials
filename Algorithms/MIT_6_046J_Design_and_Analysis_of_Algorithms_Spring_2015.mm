@@ -535,6 +535,38 @@
 </node>
 <node CREATED="1575938070067" ID="ID_101342065" MODIFIED="1575938079357" TEXT="(nV^-1).A* = nA">
 <node CREATED="1575938150873" ID="ID_24192129" MODIFIED="1575938174510" TEXT="divide each term by n"/>
+<node CREATED="1575938653861" ID="ID_825423758" MODIFIED="1575938670622" TEXT="P = V.cc(V) = n I">
+<node CREATED="1575938681576" ID="ID_1997148861" MODIFIED="1575938699325" TEXT="P_jk = row j of V . col k of cc(V)">
+<node CREATED="1575938708151" ID="ID_299526737" MODIFIED="1575938817682" TEXT="sigma_m=0 to n - 1 e^i tau jm/n . e^-i tau mk/n = sigma_m=0 to n - 1 e^i tau m/n(j - k)">
+<node CREATED="1575938842515" ID="ID_1313319988" MODIFIED="1575938853076" TEXT="n if j = k or 0 if j != k">
+<node CREATED="1575938947185" ID="ID_1348370636" MODIFIED="1575938992842" TEXT="if j != k: sigma_m=0 to n - 1 e^(i tau (j - k)/n) m">
+<node CREATED="1575938997251" ID="ID_772308262" MODIFIED="1575939001274" TEXT="Geometric series">
+<node CREATED="1575939042227" ID="ID_1487563767" MODIFIED="1575939127858" TEXT="(e^i tau (j - k)/n)n - 1 ) / (e^i tau k/n - 1))">
+<node CREATED="1575939128399" ID="ID_424683184" MODIFIED="1575939129218" TEXT="0">
+<node CREATED="1575939131217" ID="ID_306970487" MODIFIED="1575939141568" TEXT="since e^i tau = 1"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575939306869" ID="ID_374033674" MODIFIED="1575939309115" TEXT="Applications">
+<node CREATED="1575939309651" ID="ID_1761996096" MODIFIED="1575939317381" TEXT="Audio">
+<node CREATED="1575939317682" ID="ID_925976093" MODIFIED="1575939336431" TEXT="IFFT is called Forier Transform"/>
+<node CREATED="1575939341763" ID="ID_377257301" MODIFIED="1575939375068" TEXT="For every position in vector in fft is viewed as a trigonometric function">
+<node CREATED="1575939379157" ID="ID_1182818183" MODIFIED="1575939395238" TEXT="Magnitude - how much of that frequency we have"/>
+<node CREATED="1575939395737" ID="ID_806007276" MODIFIED="1575939408333" TEXT="Angle - how much is the trigonometric function shifted"/>
+</node>
+<node CREATED="1575939436784" ID="ID_1408954457" MODIFIED="1575939440095" TEXT="For Bell">
+<node CREATED="1575939440325" ID="ID_1232312238" MODIFIED="1575939485815" TEXT="fft -&gt; one spike at a particular frequency and it is rotated depending on the phase"/>
+</node>
+<node CREATED="1575939500150" ID="ID_1349723741" MODIFIED="1575939510870" TEXT="High pass filters and low pass filters">
+<node CREATED="1575939511151" ID="ID_985285097" MODIFIED="1575939532969" TEXT="convert using fft, remove high frequencies and low frequencies and convert it back"/>
 </node>
 </node>
 </node>
