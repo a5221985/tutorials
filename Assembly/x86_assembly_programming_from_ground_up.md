@@ -1438,9 +1438,43 @@
 
 		OFFSET - Returns offset of a data label (distance in bytes from the beginning of the data segment)
 		PTR - Overrides operand's default size
-			1. Necessary when using 
+			1. Necessary when we are trying to access the variable using the size attribute which is different from the one used to declare the variable
+		TYPE - Returns size of operand or array element size (in bytes)
+			1. Type of byte is 1
+			2. Type of word is 2
+			3. Type of double word is 4
+			4. Type of quad word is 8
+		LENGTHOF - Returns number of elements in an array
+		SIZEOF - Returns number of bytes used by array initializer (LENGTHOF * TYPE)
+		LABEL - Redefines same variable with different size attributes
+		ALIGN - Aligns a variable on a boundary (byte, word or double word) 
 
 ### Coding: Summing Array Elements ###
+1. Open Visual Studio
+2. New Project
+3. Windows Console Application
+4. ArraySum
+5. Remove C++ files
+6. Source Files > New Item > C++ File
+	1. Main.asm
+7. Right click on project > Build Dependencies > Build Customization > MASM
+8. Right click on file > General > Microsoft MASM Assembler
+9. Right click on Project > Linker > Advanced > Entry Point - start
+
+		.386
+		.model flat
+		
+		.data
+		intArray DWORD 10000h,20000h,30000h,40000h
+		
+		.code
+		start proc
+			mov edi, OFFSET intArray
+			mov ecx, LENGTHOF intArray
+			mov eax, 0
+		LP:
+			
+
 ### Coding: Scanning an Array ###
 ### Coding: Using Pointers and Typedef ###
 
