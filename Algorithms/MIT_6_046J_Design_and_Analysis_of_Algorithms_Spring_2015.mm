@@ -476,17 +476,65 @@
 <node CREATED="1575937196373" ID="ID_1375072252" MODIFIED="1575937205184" TEXT="e^i k tau/n">
 <node CREATED="1575937223764" ID="ID_1730585026" MODIFIED="1575937316286" TEXT="(e^i theta) = e^i(2 theta) = e ^i (2 theta mod tau)">
 <node CREATED="1575937331621" ID="ID_661738374" MODIFIED="1575937347832" TEXT="e^i tau = 1"/>
+<node CREATED="1575937464438" ID="ID_801907938" MODIFIED="1575937476262" TEXT="n = 2^k =&gt; nth roots of unity are collapsing">
+<node CREATED="1575937478460" ID="ID_609233418" MODIFIED="1575937489636" TEXT="x_k = e^ik tau/n">
+<node CREATED="1575937490558" ID="ID_44750646" MODIFIED="1575937495828" TEXT="Computed only once"/>
+</node>
+<node CREATED="1575937541771" ID="ID_1689264012" MODIFIED="1575937552970" TEXT="n -&gt; n/2 -&gt; n/4 -&gt; ..."/>
 </node>
 </node>
+</node>
+<node CREATED="1575937503714" ID="ID_71533073" MODIFIED="1575937515264" TEXT="Choose n uniformly spaced points on a unit circle"/>
 </node>
 </node>
 <node CREATED="1575935194638" ID="ID_899615993" MODIFIED="1575935228956" TEXT="Collapsing set X if |X^2| = |X|/2 &amp; X^2 is collapsing"/>
 </node>
 </node>
 </node>
+<node CREATED="1575937580699" ID="ID_1138701255" MODIFIED="1575937589004" TEXT="Fast Forier Transfer (FFT)">
+<node CREATED="1575937589282" ID="ID_1849861466" MODIFIED="1575937599687" TEXT="Divide &amp; conquer algorithm for DFT">
+<node CREATED="1575937600328" ID="ID_1639740521" MODIFIED="1575937606466" TEXT="Discrete Forier Transform">
+<node CREATED="1575937606728" ID="ID_1907454129" MODIFIED="1575937614918" TEXT="Mathematical transformation">
+<node CREATED="1575937626356" ID="ID_714900745" MODIFIED="1575937642851" TEXT="V.A for x_k = e^i k tau/n">
+<node CREATED="1575937653684" ID="ID_862479044" MODIFIED="1575937675422" TEXT="V_jk = x^k = e^ ijk tau/n"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1575861880179" ID="ID_1134326279" MODIFIED="1575861883307" TEXT="3. Combine"/>
 </node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575937768045" ID="ID_1639162830" MODIFIED="1575937774748" TEXT="Fast Polynomial Multiplication">
+<node CREATED="1575937775453" ID="ID_1690648651" MODIFIED="1575937780456" TEXT="A* = FFT(A)"/>
+<node CREATED="1575937782169" ID="ID_1493308331" MODIFIED="1575937785934" TEXT="B* = FFT(B)">
+<node CREATED="1575937799949" ID="ID_909101194" MODIFIED="1575937806793" TEXT="exact same points as samples of A"/>
+</node>
+<node CREATED="1575937811519" ID="ID_1806607179" MODIFIED="1575937833737" TEXT="C*_k = A*_k.B*_k for all k">
+<node CREATED="1575937838332" ID="ID_693217240" MODIFIED="1575937842855" TEXT="C = IFFT(C*)">
+<node CREATED="1575937893737" ID="ID_595892869" MODIFIED="1575937915327" TEXT="Claim: V^-1 = Complex Conjugate(V) / n">
+<node CREATED="1575937918153" ID="ID_691767657" MODIFIED="1575937938002" TEXT="complex conjugate(a + ib) = a - ib"/>
+</node>
+<node CREATED="1575937956589" ID="ID_239713438" MODIFIED="1575938102211">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      x_k^-1 = (e^-ik tau/n)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1575938012750" ID="ID_1690150093" MODIFIED="1575938025781" TEXT="reflection about x axis"/>
+</node>
+<node CREATED="1575938070067" ID="ID_101342065" MODIFIED="1575938079357" TEXT="(nV^-1).A* = nA">
+<node CREATED="1575938150873" ID="ID_24192129" MODIFIED="1575938174510" TEXT="divide each term by n"/>
 </node>
 </node>
 </node>
