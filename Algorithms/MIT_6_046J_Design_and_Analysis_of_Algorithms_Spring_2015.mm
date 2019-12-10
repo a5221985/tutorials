@@ -569,6 +569,16 @@
 <node CREATED="1575939511151" ID="ID_985285097" MODIFIED="1575939532969" TEXT="convert using fft, remove high frequencies and low frequencies and convert it back"/>
 </node>
 </node>
+<node CREATED="1575939553666" ID="ID_504858188" MODIFIED="1575939581453" TEXT="Any time based function can be thought of converting and doing manipulations">
+<node CREATED="1575939582934" ID="ID_1805996564" MODIFIED="1575939585349" TEXT="Easy to perform"/>
+</node>
+<node CREATED="1575939590219" ID="ID_302677998" MODIFIED="1575939592006" TEXT="FFTW">
+<node CREATED="1575939592220" ID="ID_1640273295" MODIFIED="1575939599686" TEXT="Fast Forier Transform in the West">
+<node CREATED="1575939600030" ID="ID_856852582" MODIFIED="1575939602261" TEXT="Done at MIT">
+<node CREATED="1575939610997" ID="ID_360308903" MODIFIED="1575939619415" TEXT="Software"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
