@@ -405,7 +405,86 @@
 </node>
 </node>
 </node>
-<node CREATED="1575861877426" ID="ID_307508731" MODIFIED="1575861879915" TEXT="2. Conquer"/>
+<node CREATED="1575861877426" ID="ID_307508731" MODIFIED="1575861879915" TEXT="2. Conquer">
+<node CREATED="1575862408999" ID="ID_1375077208" MODIFIED="1575862426158" TEXT="Recursively compute A_even(y) &amp; A_odd(y) for y in X^2">
+<node CREATED="1575862427420" ID="ID_1256272036" MODIFIED="1575862439894" TEXT="X^2 = {x^2 | x in X}">
+<node CREATED="1575934721047" ID="ID_1249786484" MODIFIED="1575934732820" TEXT="X^2 has same size as X"/>
+</node>
+<node CREATED="1575934743642" ID="ID_1123842873" MODIFIED="1575934806910" TEXT="T(n, |X|) = 2T(n/2, |X|) + O(n + |X|)">
+<node CREATED="1575934926193" ID="ID_1216868957" MODIFIED="1575935000524">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;n
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;n&#160;&#160;&#160;&#160;&#160;&#160;n
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;n&#160;&#160;n&#160;&#160;n&#160;&#160;&#160;n
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;....
+    </p>
+    <p>
+      n n&#160;&#160;n n n n n n -&gt; 2^log n ns
+    </p>
+    <p>
+      &#160;
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1575935125200" ID="ID_1501301573" MODIFIED="1575935436947">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      |X| = 1, X = {1}
+    </p>
+    <p>
+      |X| = 2, X = {-1, 1}
+    </p>
+    <p>
+      |X| = 4, X = {i, -i, -1, 1}
+    </p>
+    <p>
+      |X| = 8, X = {+/-rt(2)/2(1 + i) + +/1rt(2)/2(i - 1), i, -i, -1, 1}
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1575935501571" ID="ID_944436387" MODIFIED="1575935507709" TEXT="Complex plane">
+<node CREATED="1575935508473" ID="ID_611624280" MODIFIED="1575935512948" TEXT="Im/R">
+<node CREATED="1575935513681" ID="ID_843316802" MODIFIED="1575935517620" TEXT="Unit Circle"/>
+</node>
+</node>
+<node CREATED="1575936103606" ID="ID_139110974" MODIFIED="1575936110402" TEXT="nth root of unity">
+<node CREATED="1575936963845" ID="ID_1899161117" MODIFIED="1575936984075" TEXT="(cos Theta, sin Theta)">
+<node CREATED="1575936987391" ID="ID_846048564" MODIFIED="1575936996448" TEXT="cos theta + i.sin theta">
+<node CREATED="1575937013544" ID="ID_204934310" MODIFIED="1575937092831" TEXT="for theta = 0, tau/n, 2 tau/n, ... (n -1)/n tau">
+<node CREATED="1575937101156" ID="ID_1967089900" MODIFIED="1575937107353" TEXT="Tau = 2 pi"/>
+</node>
+<node CREATED="1575937122797" ID="ID_1712567249" MODIFIED="1575937129266" TEXT="= e^i theta"/>
+</node>
+</node>
+<node CREATED="1575937196373" ID="ID_1375072252" MODIFIED="1575937205184" TEXT="e^i k tau/n">
+<node CREATED="1575937223764" ID="ID_1730585026" MODIFIED="1575937316286" TEXT="(e^i theta) = e^i(2 theta) = e ^i (2 theta mod tau)">
+<node CREATED="1575937331621" ID="ID_661738374" MODIFIED="1575937347832" TEXT="e^i tau = 1"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575935194638" ID="ID_899615993" MODIFIED="1575935228956" TEXT="Collapsing set X if |X^2| = |X|/2 &amp; X^2 is collapsing"/>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1575861880179" ID="ID_1134326279" MODIFIED="1575861883307" TEXT="3. Combine"/>
 </node>
 </node>
