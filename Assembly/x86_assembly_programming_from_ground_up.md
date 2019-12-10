@@ -1473,9 +1473,21 @@
 			mov ecx, LENGTHOF intArray
 			mov eax, 0
 		LP:
-			
+			add eax, edi
+			add edi, TYPE intArray
+			loop LP
+			ret
+		start endp
+		end start
+		
+	1. Build Solution
+	2. Put break point
+	3. Start debugging
+	4. Open Registers - EAX = a000...
 
 ### Coding: Scanning an Array ###
+
+
 ### Coding: Using Pointers and Typedef ###
 
 ## Conditional Branching ##
