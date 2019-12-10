@@ -1407,13 +1407,39 @@
 2. Example:
 
 		.data
-		myWord		WORD		1000h
+		myWord	WORD 1000h
 		.code
-		inc myWord
-		
+		inc myWord			; myWord = 1001h				
+		mov bx, myWord
+		dec bx					; BX = 1000h
 
 ### The Addition and Subtraction Instructions ###
+1. `ADD dest, source` - source is unchanged, sum is stored in dest
+
+		.data
+		var1 DWORD 10000h
+		var2 DWORD 20000h
+		.code
+		mov eax, var1			; EAX = 10000h
+		add eax, var2			; EAX = 30000h
+		
+2. `SUB dest, source`
+
+		.data
+		var1 DWORD 30000h
+		var2 DWORD 10000h
+		.code
+		mov eax, var1			; EAX = 30000h
+		sub eax, var2			; EAX = 20000h
+
 ### Data Operators and Directives ###
+1. Operators and directives are not executable instructions, they are simply interpreted by the assembler
+2. Operators:
+
+		OFFSET - Returns offset of a data label (distance in bytes from the beginning of the data segment)
+		PTR - Overrides operand's default size
+			1. Necessary when using 
+
 ### Coding: Summing Array Elements ###
 ### Coding: Scanning an Array ###
 ### Coding: Using Pointers and Typedef ###
