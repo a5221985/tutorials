@@ -1386,9 +1386,32 @@
 	3. Disp - constant offset encoded within the instruction
 	4. ScaleFactor - 1, 2, 4, 8
 	5. Final effective address is always 32 bit
+3. Examples:
+
+		Disp									mov eax, [MyVal]
+		BaseReg								mov eax, [ebx]
+		BaseReg + Disp						mov eax, [ebx+12]
+		Disp + IndexReg * SF				mov eax, [MyArray + esi*4]
+		BaseReg + IndexReg					mov eax, [ebx + esi]
+		BaseReg + IndexReg + Disp			mov eax, [ebx + esi + 12]
+		BaseReg + indexReg * SF				mov eax, [ebx + esi * 4]
+		BaseReg + IndexReg * SF + Disp	mov eax, [ebx + esi * 4 + 20]
 
 ## Arithmetic Instructions ##
 ### The Increment and Decrement Instructions ###
+1. Increment and Decrement:
+
+		INC reg/mem
+		DEC reg/mem
+		
+2. Example:
+
+		.data
+		myWord		WORD		1000h
+		.code
+		inc myWord
+		
+
 ### The Addition and Subtraction Instructions ###
 ### Data Operators and Directives ###
 ### Coding: Summing Array Elements ###
