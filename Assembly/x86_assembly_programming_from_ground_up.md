@@ -1535,7 +1535,21 @@
 		arrayW WORD 1,2,3
 		arrayD DWORD 4,5,6
 		
+		pt_1 PBYTE arrayB
+		pt_2 PWORD arrayW
+		pt_3 PDWORD arrayD
 		
+		.code
+		start proc
+			mov esi, pt_1
+			mov al, [esi]
+			mov esi, pt_2
+			mov as, [esi]
+			mov esi, pt_3
+			mov eax, [esi]
+			ret
+		start endp
+		end start
 
 ## Conditional Branching ##
 ### The Jump and Loop Instructions ###
