@@ -1494,23 +1494,44 @@
 			
 			.data
 			intArray SWORD 0,0,0,0,1,3,0,-34,-56,7,8
+			;intArray SWORD 0,0,0,0,0,0,0,0,0,0,0
 			
 			.code
 			main proc
 				mov ebx, OFFSET intArray
 				mov ecx, LENGTHOF intArray
+				
 			L1:
 				cmp WORD PTR[ebx], 0
 				jnz found
 				add ebx, 2
 				loop L1
 				jmp notFound
+				
 			found: 
 				movsx eax, WORD PTR[ebx]
+				jmp quit
+				
+			notFound:
+				mov eax, 9999999
+				
+			quit:
+				ret
+				
 			main endp
 			end main
 
 ### Coding: Using Pointers and Typedef ###
+1. File > New > Project > PointersAndTypedef
+
+		.386
+		.model flat
+		PBYTE TYPEDEF PTR BYTE ; pointer to byte
+		PWORD TYPEDEF PTR WORD ; pointer to word
+		PDWORD TYPEDEF PTR DWORD ; pointer to double word
+		
+		.data
+		arrayB BYTE 10h,20h,30h
 
 ## Conditional Branching ##
 ### The Jump and Loop Instructions ###
