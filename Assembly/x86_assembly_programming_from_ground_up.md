@@ -1532,6 +1532,10 @@
 		
 		.data
 		arrayB BYTE 10h,20h,30h
+		arrayW WORD 1,2,3
+		arrayD DWORD 4,5,6
+		
+		
 
 ## Conditional Branching ##
 ### The Jump and Loop Instructions ###
