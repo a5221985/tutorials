@@ -638,6 +638,11 @@
 <node CREATED="1576119400184" ID="ID_1594061846" MODIFIED="1576119417237" TEXT="O(0) time per delete">
 <node CREATED="1576119419225" ID="ID_1951306552" MODIFIED="1576119421812" TEXT="Free operation">
 <node CREATED="1576119486627" ID="ID_1834978014" MODIFIED="1576119498975" TEXT="We cannot delete more elements than those I have inserted"/>
+<node CREATED="1576119517687" ID="ID_181852679" MODIFIED="1576119544531" TEXT="total cost = O(c + i log n* + d log n*)">
+<node CREATED="1576119546681" ID="ID_1301828377" MODIFIED="1576119549482" TEXT="d &lt;= i">
+<node CREATED="1576119557466" ID="ID_1337416100" MODIFIED="1576119592369" TEXT="O(c + 2i log n) = O(c + i log n)"/>
+</node>
+</node>
 </node>
 </node>
 </node>
