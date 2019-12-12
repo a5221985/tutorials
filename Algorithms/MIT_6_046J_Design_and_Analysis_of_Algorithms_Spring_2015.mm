@@ -625,6 +625,23 @@
 <node CREATED="1576118163698" ID="ID_1626879631" MODIFIED="1576118169765" TEXT="binary counter"/>
 </node>
 </node>
+<node CREATED="1576119037345" ID="ID_239991968" MODIFIED="1576119040477" TEXT="Amortized bounds">
+<node CREATED="1576119045986" ID="ID_1391741679" MODIFIED="1576119082785" TEXT="assign amortized cost for each operation such that we &quot;preserve the sum&quot;">
+<node CREATED="1576119084358" ID="ID_990567635" MODIFIED="1576119113664" TEXT="sigma_op amortized cost &gt;= sigma_op actual cost">
+<node CREATED="1576119131998" ID="ID_26262562" MODIFIED="1576119152330" TEXT="This is good for algorithms such as Dijkstra&apos;s because we want total cost and not cost at time t"/>
+<node CREATED="1576119164363" ID="ID_1829875210" MODIFIED="1576119169288" TEXT="Not good for real time systems"/>
+</node>
+</node>
+<node CREATED="1576119353144" ID="ID_982661942" MODIFIED="1576119363909" TEXT="E.g: 2-3 trees achieve">
+<node CREATED="1576119364154" ID="ID_1566761517" MODIFIED="1576119384743" TEXT="O(1) - worst case per construct an empty tree"/>
+<node CREATED="1576119386387" ID="ID_1746305445" MODIFIED="1576119399857" TEXT="O(log n*) amortized per insert"/>
+<node CREATED="1576119400184" ID="ID_1594061846" MODIFIED="1576119417237" TEXT="O(0) time per delete">
+<node CREATED="1576119419225" ID="ID_1951306552" MODIFIED="1576119421812" TEXT="Free operation">
+<node CREATED="1576119486627" ID="ID_1834978014" MODIFIED="1576119498975" TEXT="We cannot delete more elements than those I have inserted"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1575128515795" ID="ID_1184758006" MODIFIED="1575128527826" POSITION="left" TEXT="6. Randomization: Matrix Multiply, Quicksort"/>
 <node CREATED="1575128529126" ID="ID_1679522484" MODIFIED="1575128540630" POSITION="right" TEXT="7. Randomization: Skip Lists"/>
