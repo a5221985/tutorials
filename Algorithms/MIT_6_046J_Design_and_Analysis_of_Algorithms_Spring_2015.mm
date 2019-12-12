@@ -363,8 +363,7 @@
       ...
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1575860546332" ID="ID_409121850" MODIFIED="1575860550527" TEXT="Vandermond matrix">
 <node CREATED="1575861433771" ID="ID_1847658680" MODIFIED="1575861442198" TEXT="Vjk = Xj^k">
 <node CREATED="1575861470541" ID="ID_287873578" MODIFIED="1575861488432" TEXT="Coefficients to samples = V. A">
@@ -436,8 +435,7 @@
       &#160;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1575935125200" ID="ID_1501301573" MODIFIED="1575935436947">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -457,8 +455,7 @@
       |X| = 8, X = {+/-rt(2)/2(1 + i) + +/1rt(2)/2(i - 1), i, -i, -1, 1}
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1575935501571" ID="ID_944436387" MODIFIED="1575935507709" TEXT="Complex plane">
 <node CREATED="1575935508473" ID="ID_611624280" MODIFIED="1575935512948" TEXT="Im/R">
 <node CREATED="1575935513681" ID="ID_843316802" MODIFIED="1575935517620" TEXT="Unit Circle"/>
@@ -529,8 +526,7 @@
       x_k^-1 = (e^-ik tau/n)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1575938012750" ID="ID_1690150093" MODIFIED="1575938025781" TEXT="reflection about x axis"/>
 </node>
 <node CREATED="1575938070067" ID="ID_101342065" MODIFIED="1575938079357" TEXT="(nV^-1).A* = nA">
@@ -592,14 +588,37 @@
 <node CREATED="1576118115651" ID="ID_1687419423" MODIFIED="1576118121877" TEXT="Sum of all the operations"/>
 </node>
 <node CREATED="1576118125339" ID="ID_1205992599" MODIFIED="1576118126797" TEXT="Methods">
+<node CREATED="1576118889594" ID="ID_683967097" MODIFIED="1576118894243" TEXT="Aggregate method">
+<node CREATED="1576118894898" ID="ID_980621592" MODIFIED="1576118902211" TEXT="Weakest way">
+<node CREATED="1576118918370" ID="ID_1824872163" MODIFIED="1576118927204" TEXT="Total cost of k ops % k">
+<node CREATED="1576118942252" ID="ID_1415831452" MODIFIED="1576118947010" TEXT="Works for simple examples"/>
+<node CREATED="1576118963649" ID="ID_1166482960" MODIFIED="1576118975982" TEXT="If inserts and deletes are mixed, the sum is not clear"/>
+</node>
+</node>
+</node>
 <node CREATED="1576118146306" ID="ID_692556853" MODIFIED="1576118150909" TEXT="Accounting method"/>
 <node CREATED="1576118151124" ID="ID_655641239" MODIFIED="1576118154333" TEXT="Charging method"/>
 <node CREATED="1576118154621" ID="ID_937311075" MODIFIED="1576118158453" TEXT="Potential method"/>
 <node CREATED="1576118200928" ID="ID_869575092" MODIFIED="1576118202446" TEXT="Examples">
 <node CREATED="1576118158678" ID="ID_1344977574" MODIFIED="1576118162293" TEXT="Table doubling">
 <node CREATED="1576118208614" ID="ID_1538563173" MODIFIED="1576118210805" TEXT="HashTables">
-<node CREATED="1576118211771" ID="ID_713177614" MODIFIED="1576118219718" TEXT="if we store m items in a hashtable of size m">
-<node CREATED="1576118223047" ID="ID_478287707" MODIFIED="1576118223047" TEXT=""/>
+<node CREATED="1576118211771" ID="ID_713177614" MODIFIED="1576118317430" TEXT="if we store n items in a hashtable of size m">
+<node CREATED="1576118223047" ID="ID_478287707" MODIFIED="1576118326143" TEXT="Expected cost of O(1 + m/n)">
+<node CREATED="1576118330056" ID="ID_663030316" MODIFIED="1576118338063" TEXT="m be atleast around n">
+<node CREATED="1576118344751" ID="ID_106957708" MODIFIED="1576118352055" TEXT="Technique: If table is too small, double it">
+<node CREATED="1576118360784" ID="ID_1282285820" MODIFIED="1576118379390" TEXT="If n grows to m, then double m =&gt; m&apos; = 2*m">
+<node CREATED="1576118387977" ID="ID_1609369530" MODIFIED="1576118394834" TEXT="O(m) work">
+<node CREATED="1576118404632" ID="ID_958162716" MODIFIED="1576118409175" TEXT="We double log(n) times"/>
+</node>
+</node>
+<node CREATED="1576118417818" ID="ID_1559013747" MODIFIED="1576118820687" TEXT="Total cost for n insertions =  O(2^0 + 2^1 + ... + 2^log(n)) = O(n)">
+<node CREATED="1576118826070" ID="ID_477435350" MODIFIED="1576118837425" TEXT="Amortized cost per operation is constant">
+<node CREATED="1576118841580" ID="ID_1749123499" MODIFIED="1576118842935" TEXT="O(1)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
