@@ -597,7 +597,18 @@
 </node>
 </node>
 <node CREATED="1576118146306" ID="ID_692556853" MODIFIED="1576118150909" TEXT="Accounting method">
-<node CREATED="1576121351760" ID="ID_1531102902" MODIFIED="1576121356866" TEXT="Bank teller&apos;s analysis"/>
+<node CREATED="1576121351760" ID="ID_1531102902" MODIFIED="1576121356866" TEXT="Bank teller&apos;s analysis">
+<node CREATED="1576121437939" ID="ID_1175411129" MODIFIED="1576121453081" TEXT="Allow an operation to store credit in that bank account">
+<node CREATED="1576121470622" ID="ID_1151213792" MODIFIED="1576121479061" TEXT="Must always be non-negative balance"/>
+<node CREATED="1576121486823" ID="ID_1005315508" MODIFIED="1576121495610" TEXT="If we store, we pay for it">
+<node CREATED="1576121512233" ID="ID_944691886" MODIFIED="1576121529865" TEXT="If I remove, the credit should never become 0">
+<node CREATED="1576121546898" ID="ID_538602992" MODIFIED="1576121564527" TEXT="delete can be done if I have log n balance it the account"/>
+</node>
+</node>
+</node>
+<node CREATED="1576121594691" ID="ID_194984818" MODIFIED="1576121609573" TEXT="Allow an operation to to pay for time using credit stored in the bank"/>
+<node CREATED="1576121614303" ID="ID_1120816656" MODIFIED="1576121621073" TEXT="Balance &gt;= 0"/>
+</node>
 </node>
 <node CREATED="1576118151124" ID="ID_655641239" MODIFIED="1576118154333" TEXT="Charging method"/>
 <node CREATED="1576118154621" ID="ID_937311075" MODIFIED="1576118158453" TEXT="Potential method"/>
