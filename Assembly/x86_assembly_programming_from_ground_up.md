@@ -1544,7 +1544,7 @@
 			mov esi, pt_1
 			mov al, [esi]
 			mov esi, pt_2
-			mov as, [esi]
+			mov ax, [esi]
 			mov esi, pt_3
 			mov eax, [esi]
 			ret
