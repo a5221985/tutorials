@@ -76,6 +76,7 @@
 </node>
 </node>
 <node CREATED="1576258035267" ID="ID_4383563" MODIFIED="1576258052635" TEXT="Removable bits + extension rods"/>
+<node CREATED="1576258154938" ID="ID_128313015" MODIFIED="1576258179772" TEXT="Bendable neck"/>
 </node>
 </node>
 </node>
