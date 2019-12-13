@@ -635,7 +635,22 @@
 <node CREATED="1576203497352" ID="ID_175531888" MODIFIED="1576203509801" TEXT="We are thinking about the future - what can potentially charege me"/>
 </node>
 <node CREATED="1576203528052" ID="ID_270209750" MODIFIED="1576203550626" TEXT="Amortized cost = actual cost - total charge to the past + total charge in future">
-<node CREATED="1576203578288" ID="ID_1048446998" MODIFIED="1576203582996" TEXT="Example: Table doubling"/>
+<node CREATED="1576203578288" ID="ID_1048446998" MODIFIED="1576203582996" TEXT="Example: Table doubling">
+<node CREATED="1576203621964" ID="ID_1987966139" MODIFIED="1576203628868" TEXT="To half full to completely full">
+<node CREATED="1576203629268" ID="ID_1821377952" MODIFIED="1576203635277" TEXT="n/2 insertions">
+<node CREATED="1576203679000" ID="ID_1181307506" MODIFIED="1576203686658" TEXT="charge doubling to inserts since last doubling">
+<node CREATED="1576203701435" ID="ID_1408198427" MODIFIED="1576203711954" TEXT="n/2">
+<node CREATED="1576203712252" ID="ID_1912422545" MODIFIED="1576203892646" TEXT="charges theta(n) to make doubling free">
+<node CREATED="1576203727636" ID="ID_355864685" MODIFIED="1576203732899" TEXT="Theta(1) for each">
+<node CREATED="1576203905571" ID="ID_878192528" MODIFIED="1576203918046" TEXT="Uniformly distribute charge for each element"/>
+<node CREATED="1576203936790" ID="ID_403419560" MODIFIED="1576203941306" TEXT="Insert is charged only once"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1576118154621" ID="ID_937311075" MODIFIED="1576118158453" TEXT="Potential method"/>
