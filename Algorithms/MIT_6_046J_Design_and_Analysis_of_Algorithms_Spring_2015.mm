@@ -611,7 +611,16 @@
 <node CREATED="1576200461369" ID="ID_1279224765" MODIFIED="1576200469227" TEXT="Claim: O(log n) for insert (current value of n), 0 per delete, amortized">
 <node CREATED="1576200478616" ID="ID_322956074" MODIFIED="1576200492686" TEXT="Put 1 coin worth O(log n) per insert"/>
 <node CREATED="1576200493510" ID="ID_962168278" MODIFIED="1576200503007" TEXT="Delete consumes 1 coin"/>
-<node CREATED="1576200505271" ID="ID_1550190533" MODIFIED="1576200529817" TEXT="Amortized cost = actual cost + deposits - withdrawals"/>
+<node CREATED="1576200505271" ID="ID_1550190533" MODIFIED="1576200529817" TEXT="Amortized cost = actual cost + deposits - withdrawals">
+<node CREATED="1576200567205" ID="ID_591745959" MODIFIED="1576200574736" TEXT="Coin has different value based on current value of n">
+<node CREATED="1576200616588" ID="ID_991986016" MODIFIED="1576200636515" TEXT="Invariant: one value of log i for i = 1, ...., n"/>
+</node>
+</node>
+</node>
+<node CREATED="1576200664260" ID="ID_362850967" MODIFIED="1576200671205" TEXT="Example Table Doubling:">
+<node CREATED="1576200705565" ID="ID_1948054067" MODIFIED="1576200719402" TEXT="when insert, add coin on it">
+<node CREATED="1576200727228" ID="ID_1158144076" MODIFIED="1576200738651" TEXT="Value of the coin: c = O(1)"/>
+</node>
 </node>
 </node>
 </node>
