@@ -630,7 +630,14 @@
 </node>
 </node>
 </node>
-<node CREATED="1576118151124" ID="ID_655641239" MODIFIED="1576118154333" TEXT="Charging method"/>
+<node CREATED="1576118151124" ID="ID_655641239" MODIFIED="1576118154333" TEXT="Charging method">
+<node CREATED="1576202065492" ID="ID_1065998889" MODIFIED="1576203454968" TEXT="Allow operations to charge cost retroactively to the past (not the future))">
+<node CREATED="1576203497352" ID="ID_175531888" MODIFIED="1576203509801" TEXT="We are thinking about the future - what can potentially charege me"/>
+</node>
+<node CREATED="1576203528052" ID="ID_270209750" MODIFIED="1576203550626" TEXT="Amortized cost = actual cost - total charge to the past + total charge in future">
+<node CREATED="1576203578288" ID="ID_1048446998" MODIFIED="1576203582996" TEXT="Example: Table doubling"/>
+</node>
+</node>
 <node CREATED="1576118154621" ID="ID_937311075" MODIFIED="1576118158453" TEXT="Potential method"/>
 <node CREATED="1576118200928" ID="ID_869575092" MODIFIED="1576118202446" TEXT="Examples">
 <node CREATED="1576118158678" ID="ID_1344977574" MODIFIED="1576118162293" TEXT="Table doubling">
