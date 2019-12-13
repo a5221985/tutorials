@@ -608,6 +608,11 @@
 </node>
 <node CREATED="1576121594691" ID="ID_194984818" MODIFIED="1576121609573" TEXT="Allow an operation to to pay for time using credit stored in the bank"/>
 <node CREATED="1576121614303" ID="ID_1120816656" MODIFIED="1576121621073" TEXT="Balance &gt;= 0"/>
+<node CREATED="1576200461369" ID="ID_1279224765" MODIFIED="1576200469227" TEXT="Claim: O(log n) for insert (current value of n), 0 per delete, amortized">
+<node CREATED="1576200478616" ID="ID_322956074" MODIFIED="1576200492686" TEXT="Put 1 coin worth O(log n) per insert"/>
+<node CREATED="1576200493510" ID="ID_962168278" MODIFIED="1576200503007" TEXT="Delete consumes 1 coin"/>
+<node CREATED="1576200505271" ID="ID_1550190533" MODIFIED="1576200529817" TEXT="Amortized cost = actual cost + deposits - withdrawals"/>
+</node>
 </node>
 </node>
 <node CREATED="1576118151124" ID="ID_655641239" MODIFIED="1576118154333" TEXT="Charging method"/>
