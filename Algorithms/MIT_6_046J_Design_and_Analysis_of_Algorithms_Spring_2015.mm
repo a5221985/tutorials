@@ -619,7 +619,13 @@
 </node>
 <node CREATED="1576200664260" ID="ID_362850967" MODIFIED="1576200671205" TEXT="Example Table Doubling:">
 <node CREATED="1576200705565" ID="ID_1948054067" MODIFIED="1576200719402" TEXT="when insert, add coin on it">
-<node CREATED="1576200727228" ID="ID_1158144076" MODIFIED="1576200738651" TEXT="Value of the coin: c = O(1)"/>
+<node CREATED="1576200727228" ID="ID_1158144076" MODIFIED="1576200738651" TEXT="Value of the coin: c = O(1)">
+<node CREATED="1576200866800" ID="ID_38098326" MODIFIED="1576200890547" TEXT="n/2 coins are left each time we double">
+<node CREATED="1576200899238" ID="ID_882680252" MODIFIED="1576200903135" TEXT="They get used up">
+<node CREATED="1576200945508" ID="ID_1865190993" MODIFIED="1576200991268" TEXT="=&gt; Amortized cost = O(n) - c * n/2 = 0 if c is set to large value (2*(O (n)))"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
