@@ -1675,6 +1675,36 @@
 
 ## The Nature of Mixing C/C++ and Assembly ##
 ### Coding: Computing the Sum of an Array ###
+1. New project: Windows console - CalculateSum
+2. New item: Adder.asm - C++ file
+3. Build Customizations - Masm
+4. Adder.asm - Properties - Microsoft Macro Assembler
+5. CalculatorSum.cpp
+		
+		extern "C" int AdderASM(int a, int b, int c);
+		
+		int main()
+		{
+			
+		}
+		
+		int AdderCPP(int a, int b, int c)
+		{
+			return a + b + c;
+		}
+		
+6. Adder.asm
+
+		.386
+		.model flat,c ; c style names for public symbols
+		.code
+		AdderASM proc
+			push ebp
+			mov ebp, esp	; stack frame initializes
+			
+		AdderASM endp
+		end AdderASM
+
 ### Coding: Computing Signed Multiplication and Division ###
 ### Coding: Understanding C/C++ Calling Conventions ###
 ### Coding: Declaring Global Variables in C/C++ and using them in Assembly ###
