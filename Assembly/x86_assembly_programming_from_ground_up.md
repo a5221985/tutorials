@@ -1682,10 +1682,18 @@
 5. CalculatorSum.cpp
 		
 		extern "C" int AdderASM(int a, int b, int c);
+		int AdderCPP(int a, int b, int c);
 		
 		int main()
 		{
+			int a = 17, b = 11, c = 14;
+			int sum = AdderCPP(a, b, c);
+			printf("a: %d\n", a);
+			printf("b: %d\n", b);
+			printf("c: %d\n", c);
+			printf("sum: %d\n", sum);
 			
+			return 0;
 		}
 		
 		int AdderCPP(int a, int b, int c)
@@ -1710,10 +1718,13 @@
 			add eax, edx			; eax = 'a' + 'b' + 'c'
 			
 			pop ebp
+			
+			ret
 		AdderASM endp
 		end AdderASM
 		
 	1. x86-32 assembly language function assumes eax to return 32 bit integer to it's calling function
+	2. Start without debugging
 
 ### Coding: Computing Signed Multiplication and Division ###
 ### Coding: Understanding C/C++ Calling Conventions ###
