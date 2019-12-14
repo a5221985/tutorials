@@ -703,6 +703,15 @@
 <node CREATED="1576334172545" ID="ID_714852015" MODIFIED="1576334174641" TEXT="delta phi">
 <node CREATED="1576334174946" ID="ID_436634609" MODIFIED="1576334187235" TEXT="potential after the operation - potential before the operation"/>
 </node>
+<node CREATED="1576334240337" ID="ID_1718443461" MODIFIED="1576334263034" TEXT="sum of amortized costs = sum of actual costs + phi(end) - phi(beginning)">
+<node CREATED="1576334556648" ID="ID_294816304" MODIFIED="1576334564958" TEXT="actual cost must be atmost amortized cost">
+<node CREATED="1576334747318" ID="ID_1245555843" MODIFIED="1576334757191" TEXT="=&gt; some cost must be payed at the beginning">
+<node CREATED="1576334779659" ID="ID_899447593" MODIFIED="1576334789094" TEXT="pay phi(beggining) at beginning">
+<node CREATED="1576334798368" ID="ID_838666196" MODIFIED="1576334805728" TEXT="should be O(1) or 0"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
