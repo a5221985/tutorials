@@ -1553,7 +1553,18 @@
 
 ## Conditional Branching ##
 ### The Jump and Loop Instructions ###
-1. 
+1. Jump: `jmp` - unconditional transfer to a destination using code label translated by assembler to an offset address
+	1. Offset of destination is moved to the instruction pointer register causing execution to continue at new location
+
+			start:
+			.
+			.
+			jmp start			; repeat the endless loop
+			
+2. Loop: `loop` repeats a block of instructions a specific number of times
+	1. `ecx` - counter whose value is decremented each time a loop is repeated
+
+			LOOP destination 
 
 ### Logic Instructions ###
 ### Condition Jump Instructions ###
