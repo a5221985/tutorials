@@ -1622,8 +1622,56 @@
 			.
 			.
 			level2:
+			
+			cmp eax, 0
+			jnz level2 ; jump if ZF = 0
+			.
+			.
+			level2:
+			
+	3. Table:
+
+			JC - Jump if Carry flag is set - CF = 1
+			JNC - Jump if Carry flag is not set - CF = 0
+			JZ - Jump if Zero flag is et - ZF = 1
+			JNZ - Jump if Zero flag is not set - ZF = 0
+			JO - Jump if Overflow flag is set - OF = 1
+			JNO - Jump if Overflow flag is not set - OF = 0
+			JS - Jump if signed flag is set - SF = 1
+			JNS - Jump if signed flag is not set - SF = 0
+			JP - Jump if parity flag is set - PF = 1
+			JNP - Jump if parity flag is not set - PF = 0
+			
+	4. Jump instructions based on equality comparisons:
+
+			JE - Jump if equal
+			JNE - Jump if not eaual
+			JCXZ - Jump if CX = 0
+			JECXZ - Jump if ECX = 0
+			
+		1. `CMP leftOp, rightOp`
 
 ### Instruction Operands ###
+1. Implicitly specified operands
+	1. Immediate operand type - constants (only source)
+	2. Register - GPRs
+	3. Memory - location in memory
+2. Examples:
+
+		mov eax, 42 ; eax = 42
+		imul ebx, 11h ; ebx *= 0x11
+		xor dl, 55h ; dl ^= 0x55
+		add esi, ebx ; esi += 8
+		
+		mov eax, ebx
+		inc ecx
+		add ebx, esi
+		mul ebx		; edx:eax = eax * ebx
+		
+		mov eax, [ebx]	; eax = *ebx
+		add eax, [val1]	; eax += *val1
+		or ecx, [ebx+esi]	; ecx |= *(ebx + esi)
+		sub word ptr [edi], 12	; *(short*)edi -= 12
 
 ## The Nature of Mixing C/C++ and Assembly ##
 ### Coding: Computing the Sum of an Array ###
