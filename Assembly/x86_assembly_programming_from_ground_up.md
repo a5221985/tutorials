@@ -1687,7 +1687,8 @@
 		int main()
 		{
 			int a = 17, b = 11, c = 14;
-			int sum = AdderCPP(a, b, c);
+			//int sum = AdderCPP(a, b, c);
+			int sum = AdderASM(a, b, c);
 			printf("a: %d\n", a);
 			printf("b: %d\n", b);
 			printf("c: %d\n", c);
@@ -1724,7 +1725,7 @@
 		end AdderASM
 		
 	1. x86-32 assembly language function assumes eax to return 32 bit integer to it's calling function
-	2. Start without debugging
+	2. Rebuild solution and Start without debugging
 
 ### Coding: Computing Signed Multiplication and Division ###
 ### Coding: Understanding C/C++ Calling Conventions ###
