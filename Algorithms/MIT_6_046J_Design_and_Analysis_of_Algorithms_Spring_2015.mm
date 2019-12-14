@@ -628,6 +628,7 @@
 </node>
 </node>
 </node>
+<node CREATED="1576333949922" ID="ID_837178573" MODIFIED="1576333962981" TEXT="We are explicitly specifying the credit amount"/>
 </node>
 </node>
 <node CREATED="1576118151124" ID="ID_655641239" MODIFIED="1576118154333" TEXT="Charging method">
@@ -687,6 +688,22 @@
 <node CREATED="1576118154621" ID="ID_937311075" MODIFIED="1576118158453" TEXT="Potential method">
 <node CREATED="1576333764119" ID="ID_250757416" MODIFIED="1576333775986" TEXT="Defining Karma">
 <node CREATED="1576333776191" ID="ID_650255043" MODIFIED="1576333777847" TEXT="Formally"/>
+</node>
+<node CREATED="1576333791692" ID="ID_1488430533" MODIFIED="1576333801386" TEXT="Define bank balance as a function of the current state">
+<node CREATED="1576333807306" ID="ID_926009444" MODIFIED="1576333859153" TEXT="define potential function phi mapping data structure configuration nonnegative integer">
+<node CREATED="1576333822529" ID="ID_245902200" MODIFIED="1576333826399" TEXT="Kinetic potential"/>
+<node CREATED="1576333826665" ID="ID_1398073114" MODIFIED="1576333830063" TEXT="Potential energy">
+<node CREATED="1576333922350" ID="ID_594656214" MODIFIED="1576333927540" TEXT="Stores up energy"/>
+</node>
+</node>
+<node CREATED="1576333988882" ID="ID_1981472767" MODIFIED="1576334006917" TEXT="Integrating deltas (from accounting method) gives potential function">
+<node CREATED="1576334130825" ID="ID_979313592" MODIFIED="1576334139241" TEXT="costly operations can be checked with this"/>
+</node>
+<node CREATED="1576334161912" ID="ID_1240376362" MODIFIED="1576334170416" TEXT="Amortized cost = actual cost + delta phi">
+<node CREATED="1576334172545" ID="ID_714852015" MODIFIED="1576334174641" TEXT="delta phi">
+<node CREATED="1576334174946" ID="ID_436634609" MODIFIED="1576334187235" TEXT="potential after the operation - potential before the operation"/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1576118200928" ID="ID_869575092" MODIFIED="1576118202446" TEXT="Examples">
