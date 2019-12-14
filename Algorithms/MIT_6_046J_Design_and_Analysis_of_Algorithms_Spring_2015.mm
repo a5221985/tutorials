@@ -655,7 +655,16 @@
 <node CREATED="1576329542929" ID="ID_1526669753" MODIFIED="1576329550012" TEXT="100% full -&gt; double">
 <node CREATED="1576329551161" ID="ID_166857648" MODIFIED="1576329560102" TEXT="1/4 full -&gt; halve">
 <node CREATED="1576329560653" ID="ID_1091760561" MODIFIED="1576329566533" TEXT="constant amortized per operation">
-<node CREATED="1576329569454" ID="ID_473734015" MODIFIED="1576329573222" TEXT="Complicated"/>
+<node CREATED="1576329569454" ID="ID_473734015" MODIFIED="1576329573222" TEXT="Complicated">
+<node CREATED="1576329584692" ID="ID_473947273" MODIFIED="1576329586140" TEXT="Charging">
+<node CREATED="1576329623077" ID="ID_1143053828" MODIFIED="1576329638386" TEXT="Whenever we double or shrink, the array is half full">
+<node CREATED="1576329703973" ID="ID_955272341" MODIFIED="1576329729389" TEXT="If I double, I have to insert m/2 items"/>
+<node CREATED="1576329730300" ID="ID_1273997281" MODIFIED="1576329864235" TEXT="If I have to shrink, I have to delete  atleast m/4 deletions">
+<node CREATED="1576329875828" ID="ID_754352269" MODIFIED="1576329897051" TEXT="charge halving operation to &gt;= m/4 deletions since last resize of either type"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
