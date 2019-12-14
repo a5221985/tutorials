@@ -1700,10 +1700,20 @@
 		.code
 		AdderASM proc
 			push ebp
-			mov ebp, esp	; stack frame initializes
+			mov ebp, esp	; stack frame initializes - offset of data on stack are relative to registers ebp and esp
 			
+			mov eax, [ebp+8]		; eax = 'a'
+			mov ecx, [ebp+12]	; ecx = 'b'
+			mov edx, [ebp+16]	; edx = 'c'
+			
+			add eax, ecx			; eax = 'a' + 'b'
+			add eax, edx			; eax = 'a' + 'b' + 'c'
+			
+			pop ebp
 		AdderASM endp
 		end AdderASM
+		
+	1. x86-32 assembly language function assumes eax to return 32 bit integer to it's calling function
 
 ### Coding: Computing Signed Multiplication and Division ###
 ### Coding: Understanding C/C++ Calling Conventions ###
