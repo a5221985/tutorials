@@ -658,9 +658,15 @@
 <node CREATED="1576329569454" ID="ID_473734015" MODIFIED="1576329573222" TEXT="Complicated">
 <node CREATED="1576329584692" ID="ID_473947273" MODIFIED="1576329586140" TEXT="Charging">
 <node CREATED="1576329623077" ID="ID_1143053828" MODIFIED="1576329638386" TEXT="Whenever we double or shrink, the array is half full">
-<node CREATED="1576329703973" ID="ID_955272341" MODIFIED="1576329729389" TEXT="If I double, I have to insert m/2 items"/>
+<node CREATED="1576329703973" ID="ID_955272341" MODIFIED="1576329729389" TEXT="If I double, I have to insert m/2 items">
+<node CREATED="1576329901564" ID="ID_993737559" MODIFIED="1576329914224" TEXT="charge doubling to atleast m/2 insertions since the last resize"/>
+</node>
 <node CREATED="1576329730300" ID="ID_1273997281" MODIFIED="1576329864235" TEXT="If I have to shrink, I have to delete  atleast m/4 deletions">
-<node CREATED="1576329875828" ID="ID_754352269" MODIFIED="1576329897051" TEXT="charge halving operation to &gt;= m/4 deletions since last resize of either type"/>
+<node CREATED="1576329875828" ID="ID_754352269" MODIFIED="1576329897051" TEXT="charge halving operation to &gt;= m/4 deletions since last resize of either type">
+<node CREATED="1576333490163" ID="ID_422190435" MODIFIED="1576333498766" TEXT="Each resize is charging to the past window of time">
+<node CREATED="1576333508736" ID="ID_1341545692" MODIFIED="1576333513024" TEXT="Charge within epic"/>
+<node CREATED="1576333530274" ID="ID_1933320308" MODIFIED="1576333539059" TEXT="Inserts and Deletes are constant amortized"/>
+<node CREATED="1576333540991" ID="ID_1627819026" MODIFIED="1576333547776" TEXT="Doubling is free amortized"/>
 </node>
 </node>
 </node>
@@ -669,7 +675,20 @@
 </node>
 </node>
 </node>
-<node CREATED="1576118154621" ID="ID_937311075" MODIFIED="1576118158453" TEXT="Potential method"/>
+</node>
+<node CREATED="1576333653847" ID="ID_1367107819" MODIFIED="1576333656906" TEXT="2-3 trees">
+<node CREATED="1576333657153" ID="ID_838925014" MODIFIED="1576333666167" TEXT="Charge it to the insert that made this current value">
+<node CREATED="1576333681689" ID="ID_1721216577" MODIFIED="1576333687350" TEXT="insert paid log n cost">
+<node CREATED="1576333688709" ID="ID_1163313660" MODIFIED="1576333694257" TEXT="This can be used to delete another item"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1576118154621" ID="ID_937311075" MODIFIED="1576118158453" TEXT="Potential method">
+<node CREATED="1576333764119" ID="ID_250757416" MODIFIED="1576333775986" TEXT="Defining Karma">
+<node CREATED="1576333776191" ID="ID_650255043" MODIFIED="1576333777847" TEXT="Formally"/>
+</node>
+</node>
 <node CREATED="1576118200928" ID="ID_869575092" MODIFIED="1576118202446" TEXT="Examples">
 <node CREATED="1576118158678" ID="ID_1344977574" MODIFIED="1576118162293" TEXT="Table doubling">
 <node CREATED="1576118208614" ID="ID_1538563173" MODIFIED="1576118210805" TEXT="HashTables">
