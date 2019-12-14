@@ -1573,9 +1573,56 @@
 			4. If ecx is zero, no jump takes place and control passed to the instruction following the loop 
 
 ### Logic Instructions ###
-1. 
+1. AND - bitwise and between two operands
+
+		AND destination, source
+		
+		AND reg, reg
+		AND reg, mem
+		AND reg, imm
+		AND mem, reg
+		AND mem, imm
+		
+2. OR - bitwise or between two operands
+
+		OR destination, source
+		
+		OR reg, reg
+		OR reg, mem
+		OR reg, imm
+		OR mem, reg
+		OR mem, imm
+		
+3. TEST - implied AND operation between each pair of matching bits between two operands
+
+		TEST reg, reg
+		
+		test al, 00001001b ; test bits 0 and 3 in the al register
+		
+	1. Unline AND, test does not modify the destination operand
+	2. Useful to test if individual bits are set in two operands
+4. CMP - used to compare integers (implied subtraction between source and destination)
+
+		CMP destination, source
 
 ### Condition Jump Instructions ###
+1. `J<cond>` instruction: branches to a destination label when a status flag condition is true or else, falls through to the next instruction
+
+	1. Operations that modify CPU status flags
+		
+			SUB
+			AND
+			CMP
+			
+		1. `J<cond> destination` - one or more flags are tested
+	2. Example:
+
+			cmp eax, 0
+			jz level2 ; jump if ZF = 1
+			.
+			.
+			level2:
+
 ### Instruction Operands ###
 
 ## The Nature of Mixing C/C++ and Assembly ##
