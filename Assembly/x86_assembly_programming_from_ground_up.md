@@ -1564,9 +1564,17 @@
 2. Loop: `loop` repeats a block of instructions a specific number of times
 	1. `ecx` - counter whose value is decremented each time a loop is repeated
 
-			LOOP destination 
+			LOOP destination
+			
+		1. Two steps
+			1. Subtracts 1 from ecx register
+			2. Compares ecx to 0
+			3. If ecx is not zero, a jump is taken to the label identified by destination
+			4. If ecx is zero, no jump takes place and control passed to the instruction following the loop 
 
 ### Logic Instructions ###
+1. 
+
 ### Condition Jump Instructions ###
 ### Instruction Operands ###
 
