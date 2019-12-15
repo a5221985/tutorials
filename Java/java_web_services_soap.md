@@ -533,6 +533,12 @@
 4. Datatype: DataHandler attachinfo; // incoming file is read and set into this data handler
 	1. used to return response as well
 	2. `binding.setMTOMEnabled(true);` - by default it is not enabled
+5. Setup:
+
+		FileWs
+			| upload
+			| download
+		FileWsImpl
 
 ### Construct the MTOM Project ###
 ### Construct the FileWs Interface ###
