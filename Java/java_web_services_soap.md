@@ -306,6 +306,14 @@
 
 		Map<String, Object> inProps = new HashMap<>();
 		inProps.put(ConfigurationConstants.ACTION, ConfigurationConstants.USERNAME_TOKEN);
+		inProps.put(CongirutationConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
+		inProps.put(ConfigurationConstants.PW_CALLBACK_CLASS, UTPasswordCallback.class.getName());
+		
+	1. Generate the class
+
+			com.bharath.ws.soap.config.UTPasswordCallback
+			
+		1. Implement: CallbackHandler - javax.security.auth.callback
 
 ### Setup an in Memory Database ###
 ### Implement the Handle Method ###
