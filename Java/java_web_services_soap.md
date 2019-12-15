@@ -408,9 +408,56 @@
 			      </soap:processPayment>
 			   </soapenv:Body>
 			</soapenv:Envelope>
+			
+### Section Summary ###
+1. WS-Standards
+	1. Why?
+		1. Open bodies worked on standards such as WS-Security
+			1. Authentication
+			2. Confidentiality
+			3. Integrity
+2. MTOM
+3. WS-Addressing - Async communication, redirection
+4. WS-Policy - SSL, user name token profile, ...
+5. User Name Token Profile
+	1. Callback
+	2. `cxf-serlet.xml`
 
 ## User Name Token Profile Client ##
 ### Construct the Project ###
+1. New Spring Starter Project - UTClient
+2. Finish
+3. `pom.xml`
+	1. Copy cxf dependencies
+	2. spring - 1.5.9
+4. Generate stubs
+	1. Copy plugin
+
+			<build>
+				<plugins>
+					<plugin>
+						<executions>
+							<execution>
+								<id>generate-sources</id>
+								<phase>generate-sources</phase>
+								<configuration>
+									<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
+									<wsdlOptions>
+										<wsdlOption>
+											<wsdl>${basedir}/src/main/resources/wsdl/CustomerOrders.wsdl</wsdl>
+											<wsdlLocation>classpath:wsdl/CustomerOrders.wsdl</wsdlLocation>
+										</wsdlOption>
+									</wsdlOptions>
+								</configuration>
+								<goals>
+									<goal>wsdl2java</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
 ### Generate the Stubs ###
 ### Code the Client ###
 ### CXF Low Level Client API ###
