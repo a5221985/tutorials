@@ -250,7 +250,26 @@
 		3. WS-Addressing - Asynchronous Callbacks
 			1. If WS is taking a lot of time, consumers can give a URL to call back once the processing is done
 				1. Headers can be used
-			2. Redirect 
+			2. Redirect WS response to another server instead of consumer
+		4. WS-Policy- Assert and mandate certain rules to consume our web services
+			1. Say ensure all consumers to use https to call web service
+			2. CXF ensures policies are followed
+		5. WS-SecureConversation - Improve Performance while encrypting and decrypting by negotiating a private key at the beginning
+			1. Instead of for each request and response
+		6. WS-SecurityPolicy - Assert WS-Security requirements
+			1. Combination of WS security and WS policy
+				1. Assures certain WS security standards are followed by the Web Services consumer in an easier way
+					1. For example, consumer must encrypt message before sending
+5. CXF implements these standards which can be used without doing much work at our end
+	1. Refer to documentation
+6. Wrap Up:
+	1. There are other standards as well
+	2. WS-Security - application security
+	3. MTOM - file exchange
+	4. WS-Addressing - asynchronous callback, redirect to different server
+	5. WS-Policy - Rules for consumer
+	6. WS-SecurityPolicy
+	7. WS-SecureConversation
 
 ### Username Token Authentication Steps ###
 1. 
