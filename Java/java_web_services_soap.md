@@ -136,7 +136,16 @@
 		}
 
 ### Mark the Endpoint with JAX-WS Annotations ###
+1. `PaymentProcessor` - interface is enough (cxf will take care of it)
+
+		@WebService(name = "PaymentProcessor") // JaxWS API, name is optional
+		public interface PaymentProcessor {
+			//... @WebMethod is optional for method, @WebResult can be used to mark response and @WebParam(name="") can be used for parameters - optional
+		}
+
 ### Publish the Endpoint ###
+1. 
+
 ### Run the Application ###
 ### Test Using SoapUI ###
 ### SOAPUI Assignment ###
