@@ -498,11 +498,42 @@
 		PaymentProcessorResponse ...
 
 ### Configure Properties ###
+
+		props = new HashMap<>();
+		props.put(WSHandlerConstants.ACTION, WSHandlerConstants.USENAME_TOKEN);
+		props.put(WSHandlerConstants.USER, "cxf");
+		props.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
+
 ### Construct a Callback Handler ###
+1. New Class - UTPasswordCallback - Implements - CallbackHandler
+
+		handle(...) {
+			for (int i = 0; i < callbacks.length; i++) {
+				WSPasswordCallback wpc = (WSPasswordCallback) callbacks[i];
+				if (wpc.getIdentifier().equals("cxf")) {
+					wpc.setPassword("cxf"); // can be read from a properties file
+					return;
+				}
+			}
+		}
+		
+2. `PaymentWSClient`
+
+		props.put(WSHandlerConstants.PW_CALLBACK_CLASS, UTPasswordCallback.class.getName());
+
 ### UT in Action ###
+1. Right click - Run as Java Application
+2. Server side shows full request
 
 ## MTOM ##
 ### Introduction ###
+1. MTOM - Message Transmission and Optimization Mechanism - Standard from SOAP
+2. Standard mechanism to compress messages (best way) - WS-Attachments is a legacy
+3. cxf, weblogic, websphere have this
+4. Datatype: DataHandler attachinfo; // incoming file is read and set into this data handler
+	1. used to return response as well
+	2. `binding.setMTOMEnabled(true);` - by default it is not enabled
+
 ### Construct the MTOM Project ###
 ### Construct the FileWs Interface ###
 ### Construct the FileWsImpl ###
