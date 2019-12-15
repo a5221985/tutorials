@@ -102,8 +102,39 @@
 	4. Mark with JAX-WS annotations
 	5. Construct the config class
 	6. Run the application
+2. Download the java first web services project from Resources
+3. Import the project into STS
+4. Open `pom.xml`
+
+		cxf-spring-boot-starter-jaxws
 
 ### Mark the Beans with JAXB Annotations ###
+1. Mark DTOs with JAXB - to serialize and deserialize
+2. `PaymentProcessorRequest`
+
+		@XmlType(name = "PaymentProcessorRequest") // name is optional
+		@XmlAccessorType(XmlAccessType.FIELD) // fields are used for JAXB
+		public class PaymentProcessorRequest {
+			@XmlElement(name = "creditCardInfo", required = true)
+			private CreditCardInfo creditCardInfo;
+			@XmlElement(name = "Amount")
+			private Double amount;	
+		}
+
+3. `CreditCardInfo`
+
+		@XmlType
+		public class CreditCardInfo {
+			...
+		}
+		
+4. `PaymentProcessorResponse`
+
+		@XmlType
+		public class PaymentProcessorResponse {
+			...
+		}
+
 ### Mark the Endpoint with JAX-WS Annotations ###
 ### Publish the Endpoint ###
 ### Run the Application ###
