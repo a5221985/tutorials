@@ -336,7 +336,7 @@
 1. Handle gets callback array - callback has username as parameter
 
 		for(Callback callback : callbacks) {
-			WsPasswordCallback passwordCallback = (WSPasswordCallback) callback;
+			WSPasswordCallback passwordCallback = (WSPasswordCallback) callback;
 			String password = passwords.get(passwordCallback.getIdentifier()); // returns username
 			
 			if (password != null) {
@@ -371,6 +371,43 @@
 	1. SoapUI: 
 
 			Paste in Header section
+			
+	2. Example:
+
+			<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ws.bharath.com/">
+			   <soapenv:Header>
+			 	<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1">
+			 	  <wsse:UsernameToken xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+			 	    <wsse:Username xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">bharath</wsse:Username>
+			 	    <wsse:Password xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">bharath</wsse:Password>
+			 	  </wsse:UsernameToken>
+			     </wsse:Security>
+			   </soapenv:Header>
+			   <soapenv:Body>
+			      <soap:processPayment>
+			         <!--Optional:-->
+			         <arg0>
+			            <!--Optional:-->
+			            <creditCardInfo>
+			               <!--Optional:-->
+			               <address>TEST</address>
+			               <!--Optional:-->
+			               <cardNumber>123</cardNumber>
+			               <!--Optional:-->
+			               <expirtyDate>2021-09-24+06:00</expirtyDate>
+			               <!--Optional:-->
+			               <firstName>A</firstName>
+			               <!--Optional:-->
+			               <lastName>M</lastName>
+			               <!--Optional:-->
+			               <secCode>123</secCode>
+			            </creditCardInfo>
+			            <!--Optional:-->
+			            <amount>1000</amount>
+			         </arg0>
+			      </soap:processPayment>
+			   </soapenv:Body>
+			</soapenv:Envelope>
 
 ## User Name Token Profile Client ##
 ### Construct the Project ###
