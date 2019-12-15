@@ -210,11 +210,51 @@
 
 ### Section Summary ###
 1. Endpoint and Beans
+2. Annotate
+3. Publish the Endpoints
+4. SoapUI Testing
 
 ## WS Standards ##
 ### Introduction ###
+1. Security can be configured out of the box
+2. UT - User Token
+3. MTOM - to exchange files
+4. Encryption and Decryption
+
 ### WS Standards Overview ###
+1. Why WS.*?
+2. Two components need to communicate with each other seamlessly so we need WS standards
+3. When? Why? and How? to use the standards
+4. Why?
+	1. Example: Online Shopping Application
+		1. Credit card info is sent to Banks Payment Gateway Web Service
+		2. Bank will ask us to authenticate
+		3. SOAP message should contain it
+			1. WS security is used:
+				1. Username and Password is passed
+	2. WS-Security:
+		1. 3 important issues
+			1. Authentication - Each of them know about each other
+				1. User Name Token Profile - username and password
+				2. X 508 Certificates
+				3. SAML - Single Sign On
+					1. If we sign on to one web service, we can use any other web service
+			2. Confidentiality - make sure hacker does not read the messages
+				1. Encryption and Decryption - public key cryptography
+			3. Integrity - messages must not get changed or tampered
+				1. XML Signature - included in the message
+					1. Consumer calculates signature and compares
+		2. MTOM - For exchange files
+			1. Any kind of files - word, text, images
+				1. X-Rays
+		3. WS-Addressing - Asynchronous Callbacks
+			1. If WS is taking a lot of time, consumers can give a URL to call back once the processing is done
+				1. Headers can be used
+			2. Redirect 
+
 ### Username Token Authentication Steps ###
+1. 
+
 ### Add Maven Dependency ###
 ### Configure the Interceptors ###
 ### Provide the Interceptor Properties ###
