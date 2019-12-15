@@ -335,8 +335,42 @@
 ### Implement the Handle Method ###
 1. Handle gets callback array - callback has username as parameter
 
+		for(Callback callback : callbacks) {
+			WsPasswordCallback passwordCallback = (WSPasswordCallback) callback;
+			String password = passwords.get(passwordCallback.getIdentifier()); // returns username
+			
+			if (password != null) {
+				passwordCallback.setPassword(password);
+				return;
+			}
+		}
+
 ### Run the Application ###
+1. Summary:
+	1. Interceptor
+		1. What it needs to do - action
+		2. password type
+		3. callback
+	2. Callback handler
+		1. returns password to WSS4J
+2. Re-start application
+3. Run the request in SoapUI - security error
+
 ### Test ###
+1. Download the text file:
+
+		 <soapenv:Header>
+		 	<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1">
+		 		<wsse:UsernameToken xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+		 			<wsse:Username xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">Bharath</wsse:Username>
+		 			<wsse:Password xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Bharath</wsse:Password>
+		 		</wsse:UsernameToken>
+		 	</wsse:Security>
+		 </soapenv:Header>
+		 
+	1. SoapUI: 
+
+			Paste in Header section
 
 ## User Name Token Profile Client ##
 ### Construct the Project ###
