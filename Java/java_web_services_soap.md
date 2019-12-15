@@ -436,11 +436,11 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.apache.cxf</groupId>
+						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
 					</plugin>
 					<plugin>
-						<groupId>org.springframework.boot</groupId>
+						<groupId>org.apache.cxf</groupId>
 						<artifactId>cxf-codegen-plugin</artifactId>
 						<version>3.2.1</version>
 						<executions>
