@@ -79,7 +79,30 @@
 
 ## Developing Bottom Up Web Services ##
 ### Payment Gateway Legacy Application Use Case ###
+1. Context
+	1. Bank - Amazon wants to process payments using our gateway
+	2. User calls Amazom
+		1. Web layer
+		2. Business layer
+		3. Data access
+		4. DB
+	3. For eBay, Flipkart, ...
+		1. Instead of re-writing
+			1. Business layer is marked as Java Web Service using Payment Gateway
+			2. Payment Gateway is added to connect to Business layer
+			3. eBay calls Business layer through Payment Gateway to make payments
+				1. PG Web Service
+2. This approach is used when the legacy application already exists and we want to expose legacy service as a web-service for other applications
+
 ### Import the Legacy Project ###
+1. Steps:
+	1. Construct teh Project
+	2. Construct the Endpoint
+	3. Mark with JAXB annotations
+	4. Mark with JAX-WS annotations
+	5. Construct the config class
+	6. Run the application
+
 ### Mark the Beans with JAXB Annotations ###
 ### Mark the Endpoint with JAX-WS Annotations ###
 ### Publish the Endpoint ###
@@ -99,3 +122,40 @@
 ### Implement the Handle Method ###
 ### Run the Application ###
 ### Test ###
+
+## User Name Token Profile Client ##
+### Construct the Project ###
+### Generate the Stubs ###
+### Code the Client ###
+### CXF Low Level Client API ###
+### Configure Properties ###
+### Construct a Callback Handler ###
+### UT in Action ###
+
+## MTOM ##
+### Introduction ###
+### Construct the MTOM Project ###
+### Construct the FileWs Interface ###
+### Construct the FileWsImpl ###
+### Implement the Download Method ###
+### Publish the Endpoint ###
+### Test Using SoapUI ###
+
+## JAX-WS Handlers ##
+### Introduction ###
+### Two Types of JAX-WS Handlers ###
+### Usecase ###
+### Steps ###
+### Construct the Handler Class ###
+### Implement the `handleMessage` Method ###
+### Extract the Header ###
+### Configure the Handler ###
+### SoapUI Test ###
+### The Handler Flow ###
+### `getHeaders` Explained ###
+
+## SOAP Faults ##
+### Introduction ###
+### Usecase and Project ###
+### Constructing a SOAP Fault ###
+### Construct and Throw a Custom Exception ###
