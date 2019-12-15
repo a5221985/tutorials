@@ -172,9 +172,44 @@
 
 ### Test Using SoapUI ###
 1. Copy wsdl url and paste in SoapUI
+	1. Single TestCase with one Request for each Operation
+2. Example Request:
+
+		<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ws.bharath.com/">
+		   <soapenv:Header/>
+		   <soapenv:Body>
+		      <soap:processPayment>
+		         <!--Optional:-->
+		         <arg0>
+		            <!--Optional:-->
+		            <creditCardInfo>
+		               <!--Optional:-->
+		               <address>TEST</address>
+		               <!--Optional:-->
+		               <cardNumber>123</cardNumber>
+		               <!--Optional:-->
+		               <expirtyDate>2021-09-24+06:00</expirtyDate>
+		               <!--Optional:-->
+		               <firstName>A</firstName>
+		               <!--Optional:-->
+		               <lastName>M</lastName>
+		               <!--Optional:-->
+		               <secCode>123</secCode>
+		            </creditCardInfo>
+		            <!--Optional:-->
+		            <amount>1000</amount>
+		         </arg0>
+		      </soap:processPayment>
+		   </soapenv:Body>
+		</soapenv:Envelope>
+		
+3. Apache cxf de-serializes request into PaymentProcessorRequest and passes it on to PaymentProcessorImpl and then serializes response back from PaymentProcessorResponse
 
 ### SOAPUI Assignment ###
+1. Run tests in SOAP UI and check responses
+
 ### Section Summary ###
+1. Endpoint and Beans
 
 ## WS Standards ##
 ### Introduction ###
