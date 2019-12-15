@@ -35,9 +35,36 @@
 		1. cxf-codegen-plugin
 
 ### Implement the Client ###
+1. `com.bharath.ws.soap.CustomerOrderWsClient.java`
 
+		public class CustomerOrderWsClient {
+			public static void main(String[] args) throws MalformedURLException {
+				CustomerOrderWsImplService service = new CustomerOrderWsImplService(new URL("http://localhost:8080/wsdlfirstws/customerdersservice?wsdl"));
+				CustomerOrdersPortType customerOrdersWsImplPort = service.getCustomerOrderWsImplPort();// wraps all the operations
+				GetOrdersRequest request = customerOrdersWsImplPort.getOrders(new GetOrdersRequest());
+				request.setCustomerId(BigInteger.valueOf(1);
+				GetOrdersResponse response = customerOrdersWsImplPort.getOrders(request);
+				List<Order> orders = response.getOrder();
+				
+				System.out.println("Number of orders for the customer are: " + orders.get(0));
+			}
+		}
+		
+	1. Right click on the class and Run as Java Application
 
 ### Assignment ###
+1. CreateRequest:
+	1. Pass it to create Orders method
+
 ### Flow and the Service Provider Mechanism ###
+1. What is going on behind the scenes:
+	1. Creation of customer order service:
+		1. `Service` class constructor
+
+				delegate = Provider.provider().createServiceDelegate(...);
+				
+			1. Uses service provider mechanism
+				1. Searches for `Provider` class in jar files
+
 ### Section Summary ###
 
