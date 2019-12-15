@@ -483,6 +483,20 @@
 		System.out.println(response.isResult());
 
 ### CXF Low Level Client API ###
+1. Run as Java Application
+2. Error - Security error
+3. CXF specific way:
+4. PaymentWSClient
+
+		Client client = ClientProxy.getClient(port);
+		Endpoint endpoint = client.getEndpoint();
+		
+		Map<String, Object> props = new HashMap<>();
+		WSS4JOutInterceptor wssOut = new WSS4JOutInterceptor(props);
+		endpoint.getOutInterceptors().add(wssOut);
+		
+		PaymentProcessorResponse ...
+
 ### Configure Properties ###
 ### Construct a Callback Handler ###
 ### UT in Action ###
