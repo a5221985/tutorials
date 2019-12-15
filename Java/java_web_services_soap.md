@@ -436,7 +436,7 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.springframework.boot</groupId>
+						<groupId>org.apache.cxf</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
 					</plugin>
 					<plugin>
