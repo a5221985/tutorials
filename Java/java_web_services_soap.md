@@ -64,7 +64,38 @@
 				delegate = Provider.provider().createServiceDelegate(...);
 				
 			1. Uses service provider mechanism
-				1. Searches for `Provider` class in jar files
+				1. Searches for `Provider` class in jar files (`javax.xml.ws.spi.Provider`)
+					1. `ProviderImpl`
+			2. `delegate` is responsible for generating client dynamically at runtime
+				1. `delegate` is used to construct a port on the fly (uses proxy pattern may be)
 
 ### Section Summary ###
+1. `pom.xml` - maven dependencies
+2. Generate stubs - using maven codegen plugin of cxf
+3. Standalone client
+4. Service provider mechanism (Java 6) - used to discover who is the provider on the client side
+	1. Which is apache cxf
+		1. Generates ports, serializes and deserializes messages
 
+## Developing Bottom Up Web Services ##
+### Payment Gateway Legacy Application Use Case ###
+### Import the Legacy Project ###
+### Mark the Beans with JAXB Annotations ###
+### Mark the Endpoint with JAX-WS Annotations ###
+### Publish the Endpoint ###
+### Run the Application ###
+### Test Using SoapUI ###
+### SOAPUI Assignment ###
+### Section Summary ###
+
+## WS Standards ##
+### Introduction ###
+### WS Standards Overview ###
+### Username Token Authentication Steps ###
+### Add Maven Dependency ###
+### Configure the Interceptors ###
+### Provide the Interceptor Properties ###
+### Setup an in Memory Database ###
+### Implement the Handle Method ###
+### Run the Application ###
+### Test ###
