@@ -316,7 +316,25 @@
 		1. Implement: CallbackHandler - javax.security.auth.callback
 
 ### Setup an in Memory Database ###
+1. UTPasswordCallback
+
+		private Map<String, String> passwords = new HashMap<>();
+		
+		public void UTPasswordCallback() {
+			passwords.put("bharath", "bharath");
+			passwords.put("cxf", "cxf");
+		}
+		
+		@Override
+		public void handle(...) {
+		
+		}
+		
+	1. Passwords can be obtained from database or from LDAP
+
 ### Implement the Handle Method ###
+1. Handle gets callback array - callback has username as parameter
+
 ### Run the Application ###
 ### Test ###
 
