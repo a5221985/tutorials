@@ -144,7 +144,22 @@
 		}
 
 ### Publish the Endpoint ###
-1. 
+1. Copy WebServiceConfig.java
+
+		package com.bharath.ws.soap.config;
+
+		@Configuration
+		public class WebServiceConfig {
+			@Autowired
+			private Bus bus;
+			
+			@Bean
+			public Endpoint endpoint() {
+				Endpoint endpoint = new EndpointImpl(bus, new PaymentProcessorImpl());
+				endpoint.publish("/paymentProcessor");
+				return endpoint;
+			}
+		}
 
 ### Run the Application ###
 ### Test Using SoapUI ###
