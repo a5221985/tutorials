@@ -297,6 +297,7 @@
 <node CREATED="1576382145284" ID="ID_27228693" MODIFIED="1576382156580" TEXT="We can set exact voltage or current"/>
 </node>
 <node CREATED="1576382031536" ID="ID_1326053412" MODIFIED="1576382052648" TEXT="Not required item"/>
+<node CREATED="1576382863843" ID="ID_1956412259" MODIFIED="1576382881771" TEXT="Needed for general electronics (Arduino doesn&apos;t need it)"/>
 </node>
 <node CREATED="1576173110449" ID="ID_1802506362" MODIFIED="1576173112825" TEXT="Conclusion"/>
 </node>
