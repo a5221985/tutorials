@@ -160,9 +160,19 @@
 				return endpoint;
 			}
 		}
+		
+2. `application.properties`
+
+		server.context-path=/javafirstws
+		cxf.path=/
 
 ### Run the Application ###
+1. Open `http://localhost:8080/javafirstws`
+	1. cxf scans packages and based on annotations, it will build a wsdl file
+
 ### Test Using SoapUI ###
+1. Copy wsdl url and paste in SoapUI
+
 ### SOAPUI Assignment ###
 ### Section Summary ###
 
