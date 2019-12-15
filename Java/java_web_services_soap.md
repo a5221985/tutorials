@@ -436,6 +436,13 @@
 			<build>
 				<plugins>
 					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+					</plugin>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>cxf-codegen-plugin</artifactId>
+						<version>3.2.1</version>
 						<executions>
 							<execution>
 								<id>generate-sources</id>
@@ -445,7 +452,7 @@
 									<wsdlOptions>
 										<wsdlOption>
 											<wsdl>${basedir}/src/main/resources/wsdl/CustomerOrders.wsdl</wsdl>
-											<wsdlLocation>classpath:wsdl/CustomerOrders.wsdl</wsdlLocation>
+											<wsdlLocation>classpath:wsdl/paymentProcessor.wsdl</wsdlLocation>
 										</wsdlOption>
 									</wsdlOptions>
 								</configuration>
@@ -459,7 +466,22 @@
 			</build>
 
 ### Generate the Stubs ###
+1. Right click on `javafirstws` - run it
+	1. Open wsdl in browser `http://localhost:8080/javafirstws`
+	2. Command+S: paymentProcessor.wsdl (select All Files)
+	3. Copy the file to `src/main/resources` - New folder: `wsdl`
+	4. Change to `paymentProcessor.wsdl` everywhere
+	5. Run as Spring Boot Application
+2. Stub classes get generated
+
 ### Code the Client ###
+1. Right click on `src/main/java` - Other - Class - `com.bharath.trainings.ws.client.PaymentWSClient`
+
+		PaymentProcessor_Service service = new PaymentProcessor_Service(new URL("http://localhost:8080/javafirstwsut/services/paymentProcessor?wsdl"));
+		PamentProcessor port = service.getPaymentProcessorPort();
+		PaymentProcessorResponse response = port.processPayment(new PaymentProcessorRequest());
+		System.out.println(response.isResult());
+
 ### CXF Low Level Client API ###
 ### Configure Properties ###
 ### Construct a Callback Handler ###
