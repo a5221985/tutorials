@@ -272,11 +272,41 @@
 	7. WS-SecureConversation
 
 ### Username Token Authentication Steps ###
-1. 
+1. Steps:
+	1. Add Security Dependency
+	2. Configure the WSS4J Interceptors - WebServices Security for Java
+		1. They handle security - need to configure
+	3. Construct the Password Callback class - provides password so that WSS4J interceptors can intercept incoming message and validate against password
+	4. Run and Test
 
 ### Add Maven Dependency ###
+1. Search for cxf jaxws security dependency
+2. Maven repository: `cxf-rt-ws-security`
+
+		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-ws-security -->
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-ws-security</artifactId>
+		    <version>3.3.4</version>
+		</dependency>
+
 ### Configure the Interceptors ###
+1. Open `WebServicesConfig`
+
+		public Endpoint endpoint() {
+			EndpointImpl ...;
+			new HashMap<String, Object> hashMap = new HashMap<>();
+			WSS4JInInterceptor wssIn = new WSS4JInInterceptor(hashMap); // in interceptor used for incoming requests, out interceptor is used for outgoing responses
+			endpoint.getInInterceptors().add(wssIn);
+			...
+		}
+
 ### Provide the Interceptor Properties ###
+1. Properties
+
+		Map<String, Object> inProps = new HashMap<>();
+		inProps.put(ConfigurationConstants.ACTION, ConfigurationConstants.USERNAME_TOKEN);
+
 ### Setup an in Memory Database ###
 ### Implement the Handle Method ###
 ### Run the Application ###
