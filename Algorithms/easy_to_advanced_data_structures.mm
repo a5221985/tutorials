@@ -2012,12 +2012,67 @@
   </body>
 </html></richcontent>
 <node CREATED="1568681482430" ID="ID_122331550" MODIFIED="1568681500116" TEXT="BST invariant: left subtree has smaller elements and right subtree has larger elements"/>
+<node CREATED="1576461481630" ID="ID_63782140" MODIFIED="1576461485399" TEXT="Find Phase">
+<node CREATED="1576461486007" ID="ID_14717728" MODIFIED="1576461513854" TEXT="When searching our BST for a node with a particular value one of four things can happen">
+<node CREATED="1576461515237" ID="ID_462665047" MODIFIED="1576461528344" TEXT="1. We hit a null node at which point we know the value does not exist within out BST">
+<node CREATED="1576461734158" ID="ID_987362887" MODIFIED="1576461738450" TEXT="Value does not exist"/>
+</node>
+<node CREATED="1576461528588" ID="ID_1746345004" MODIFIED="1576461538734" TEXT="2. Comparator value equal to 0 (found it!)">
+<node CREATED="1576461749307" ID="ID_1919631078" MODIFIED="1576461754490" TEXT="comparator()"/>
+</node>
+<node CREATED="1576461538997" ID="ID_516582642" MODIFIED="1576461557302" TEXT="Comparator value less than 0 (the value, if it exists, is in the left subtree)"/>
+<node CREATED="1576461557992" ID="ID_1243458320" MODIFIED="1576461574920" TEXT="4. Comparator value greater than 0 (the value, if it exists, is in the right subtree)"/>
+</node>
+</node>
 </node>
 </node>
 </node>
 <node CREATED="1569810446966" ID="ID_1888254347" MODIFIED="1569810451066" TEXT="Find phase">
 <node CREATED="1569810451308" ID="ID_157612766" MODIFIED="1569810472742" TEXT="When searching our BST for a node with a particular value one of four things will happen:">
 <node CREATED="1569810473200" ID="ID_1901590796" MODIFIED="1569810488138" TEXT="1. We hit a null node at which point we know the value does not exist withing our BST"/>
+</node>
+</node>
+<node CREATED="1576461889023" ID="ID_920480280" MODIFIED="1576461893037" TEXT="Remove Phase">
+<node CREATED="1576461893947" ID="ID_672362687" MODIFIED="1576461900162" TEXT="Node to remove is a leaf node">
+<node CREATED="1576461935351" ID="ID_952482166" MODIFIED="1576461940543" TEXT="Case I: Leaf Node">
+<node CREATED="1576461941853" ID="ID_1048945303" MODIFIED="1576461962648" TEXT="If the node we wish to remove is a leaf node then we may do so without side effect"/>
+<node CREATED="1576461964016" ID="ID_1095662322" MODIFIED="1576461991210" TEXT="Suppose we want to remove 8 from the BST on the right. First we would find 8 then remove it immediately since it&apos;s a leaf node"/>
+</node>
+</node>
+<node CREATED="1576461900632" ID="ID_661337218" MODIFIED="1576461910025" TEXT="Node to remove has a right subtree but no left subtree">
+<node CREATED="1576462015104" ID="ID_1815376648" MODIFIED="1576462027300" TEXT="Case II &amp; III: either the left/right child node is a subtree">
+<node CREATED="1576462033764" ID="ID_1275260460" MODIFIED="1576462051005" TEXT="The successor of the node we are trying to remove in these cases will be the root node of the left/right subtree"/>
+<node CREATED="1576462063121" ID="ID_1181855354" MODIFIED="1576462087797" TEXT="It may be the case that you are removing the root node of the BST in which case its immediate child becomes the new root as you would expect."/>
+</node>
+</node>
+<node CREATED="1576461910236" ID="ID_686947562" MODIFIED="1576461920505" TEXT="Node to remove has a left subtree but no right subtree"/>
+<node CREATED="1576461920719" ID="ID_1735541905" MODIFIED="1576461931998" TEXT="Node to remove has a both left subtree and a right subtree"/>
+</node>
+<node CREATED="1576461808520" ID="ID_1347775802" MODIFIED="1576461811457" TEXT="Example:">
+<node CREATED="1576461811897" ID="ID_468406332" MODIFIED="1576461837560">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Find queries:
+    </p>
+    <p>
+      find(14)
+    </p>
+    <p>
+      find(25)
+    </p>
+    <p>
+      find(37)
+    </p>
+    <p>
+      find(17)
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
 </node>
 </node>
