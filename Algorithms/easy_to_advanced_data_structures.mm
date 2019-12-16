@@ -2044,13 +2044,40 @@
 <node CREATED="1576462033764" ID="ID_1275260460" MODIFIED="1576462051005" TEXT="The successor of the node we are trying to remove in these cases will be the root node of the left/right subtree"/>
 <node CREATED="1576462063121" ID="ID_1181855354" MODIFIED="1576462087797" TEXT="It may be the case that you are removing the root node of the BST in which case its immediate child becomes the new root as you would expect.">
 <node CREATED="1576462955506" ID="ID_51377550" MODIFIED="1576462959628" TEXT="Remove phase">
-<node CREATED="1576462960449" ID="ID_359262930" MODIFIED="1576462975971" TEXT="Suppose we wish to remove 9, then we encounter case II with a left subtree"/>
+<node CREATED="1576462960449" ID="ID_359262930" MODIFIED="1576462975971" TEXT="Suppose we wish to remove 9, then we encounter case II with a left subtree">
+<node CREATED="1576463013689" ID="ID_1530898959" MODIFIED="1576463023051" TEXT="Replace 9 with left subtree"/>
+</node>
 </node>
 </node>
 </node>
 </node>
 <node CREATED="1576461910236" ID="ID_686947562" MODIFIED="1576461920505" TEXT="Node to remove has a left subtree but no right subtree"/>
-<node CREATED="1576461920719" ID="ID_1735541905" MODIFIED="1576461931998" TEXT="Node to remove has a both left subtree and a right subtree"/>
+<node CREATED="1576461920719" ID="ID_1735541905" MODIFIED="1576461931998" TEXT="Node to remove has a both left subtree and a right subtree">
+<node CREATED="1576463067025" ID="ID_1518852286" MODIFIED="1576463079246" TEXT="Case IV: Node to remove has both a left subtree and a right subtee">
+<node CREATED="1576463079964" ID="ID_1701814472" MODIFIED="1576463093810" TEXT="Q: In which subtree will the successor of the node we are trying to remove be?">
+<node CREATED="1576463100881" ID="ID_363204097" MODIFIED="1576463127343" TEXT="A: The answer is both! The successor can eiher be the largest value is left subtree or the smallest value in the right subtree">
+<node CREATED="1576463285961" ID="ID_49461250" MODIFIED="1576463299600" TEXT="A justification for why there could be more than one successor is:">
+<node CREATED="1576464632357" ID="ID_439636528" MODIFIED="1576464647152" TEXT="The largest value in the left subtree satisfies the BST invriant since it:">
+<node CREATED="1576464648159" ID="ID_1376997341" MODIFIED="1576464678568" TEXT="Is larger than everything in left subtree. This follows immediately from teh deefinition of being the largest."/>
+<node CREATED="1576464679281" ID="ID_1008873799" MODIFIED="1576464703032" TEXT="Is smaller than everything in right subtree because it was found in the left subtree"/>
+</node>
+<node CREATED="1576464738650" ID="ID_1023946656" MODIFIED="1576464754252" TEXT="The smallest value in the righ subtree satsifies the BST invariant since it:">
+<node CREATED="1576464754651" ID="ID_98688016" MODIFIED="1576464778292" TEXT="Is smaller than everything in right subtree. This follows immediately from the definition of being the smallest"/>
+<node CREATED="1576464778868" ID="ID_897526518" MODIFIED="1576464791442" TEXT="Is larger than everything in left subtree because it was found in teh right subtree"/>
+<node CREATED="1576464791901" ID="ID_233235353" MODIFIED="1576464800365" TEXT="So there are two possible successors, yea!"/>
+</node>
+</node>
+<node CREATED="1576464851491" ID="ID_390127912" MODIFIED="1576464856565" TEXT="We can choose either">
+<node CREATED="1576464879132" ID="ID_1203013670" MODIFIED="1576464881989" TEXT="Convension">
+<node CREATED="1576464934477" ID="ID_598464022" MODIFIED="1576464947202" TEXT="May need to be done recursively">
+<node CREATED="1576465024810" ID="ID_350893117" MODIFIED="1576465043623" TEXT="Case I &gt; Case II or Case III &gt; Case IV"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1576461808520" ID="ID_1347775802" MODIFIED="1576461811457" TEXT="Example:">
 <node CREATED="1576461811897" ID="ID_468406332" MODIFIED="1576461837560">
