@@ -2108,7 +2108,38 @@
 </node>
 </node>
 <node CREATED="1567047812980" ID="ID_194906046" MODIFIED="1567047818554" TEXT="Binary tree traversals">
-<node CREATED="1576465288735" ID="ID_1752451947" MODIFIED="1576465299337" TEXT="Preorder, Inorder, Postorder &amp; Level order"/>
+<node CREATED="1576465288735" ID="ID_1752451947" MODIFIED="1576465299337" TEXT="Preorder, Inorder, Postorder &amp; Level order">
+<node CREATED="1576465737369" ID="ID_1389316316" MODIFIED="1576465746420" TEXT="Recursively defined">
+<node CREATED="1576465746789" ID="ID_1867325297" MODIFIED="1576465795464">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      preorder(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node == null: return
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;print(node.value)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;preorder(node.left)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;preorder(node.right)
+    </p>
+    <p>
+      &#160;&#160;&#160;
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1567047819640" ID="ID_600226500" MODIFIED="1567047827032" TEXT="Binary search tree source code"/>
 </node>
