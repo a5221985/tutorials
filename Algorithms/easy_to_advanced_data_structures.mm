@@ -2042,7 +2042,11 @@
 <node CREATED="1576461900632" ID="ID_661337218" MODIFIED="1576461910025" TEXT="Node to remove has a right subtree but no left subtree">
 <node CREATED="1576462015104" ID="ID_1815376648" MODIFIED="1576462027300" TEXT="Case II &amp; III: either the left/right child node is a subtree">
 <node CREATED="1576462033764" ID="ID_1275260460" MODIFIED="1576462051005" TEXT="The successor of the node we are trying to remove in these cases will be the root node of the left/right subtree"/>
-<node CREATED="1576462063121" ID="ID_1181855354" MODIFIED="1576462087797" TEXT="It may be the case that you are removing the root node of the BST in which case its immediate child becomes the new root as you would expect."/>
+<node CREATED="1576462063121" ID="ID_1181855354" MODIFIED="1576462087797" TEXT="It may be the case that you are removing the root node of the BST in which case its immediate child becomes the new root as you would expect.">
+<node CREATED="1576462955506" ID="ID_51377550" MODIFIED="1576462959628" TEXT="Remove phase">
+<node CREATED="1576462960449" ID="ID_359262930" MODIFIED="1576462975971" TEXT="Suppose we wish to remove 9, then we encounter case II with a left subtree"/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1576461910236" ID="ID_686947562" MODIFIED="1576461920505" TEXT="Node to remove has a left subtree but no right subtree"/>
