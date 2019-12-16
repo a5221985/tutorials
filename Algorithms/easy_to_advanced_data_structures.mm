@@ -2189,7 +2189,39 @@
   </body>
 </html>
 </richcontent>
-<node CREATED="1576466626823" ID="ID_558349930" MODIFIED="1576466637195" TEXT="postorder prints after the recursive calls"/>
+<node CREATED="1576466626823" ID="ID_558349930" MODIFIED="1576466637195" TEXT="postorder prints after the recursive calls">
+<node CREATED="1576467243398" ID="ID_655833740" MODIFIED="1576467372771">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Call Stack:
+    </p>
+    <p>
+      node A
+    </p>
+    <p>
+      node B
+    </p>
+    <p>
+      node D
+    </p>
+    <p>
+      node I
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Order: A, B, D, H, I&#160;
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
 </node>
 </node>
 </node>
