@@ -2137,6 +2137,59 @@
   </body>
 </html>
 </richcontent>
+<node CREATED="1576465974504" ID="ID_1798276195" MODIFIED="1576465981728" TEXT="preorder prints before the recursive calls"/>
+</node>
+<node CREATED="1576465882978" ID="ID_224051724" MODIFIED="1576465927189">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      inorder(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node == null: return
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;inorder(node.left)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;print(node.value)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;inorder(node.right)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1576466616583" ID="ID_1537868948" MODIFIED="1576466625668" TEXT="inorder prints between the recursive calls"/>
+</node>
+<node CREATED="1576465930831" ID="ID_1557013778" MODIFIED="1576465968941">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      postorder(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node == null: return
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;postorder(node.left)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;postorder(node.right)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;print(node.value)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1576466626823" ID="ID_558349930" MODIFIED="1576466637195" TEXT="postorder prints after the recursive calls"/>
 </node>
 </node>
 </node>
