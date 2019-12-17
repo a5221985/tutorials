@@ -2228,7 +2228,12 @@
 </node>
 <node CREATED="1576552049869" ID="ID_1575590025" MODIFIED="1576552056798" TEXT="Level Order Traversal">
 <node CREATED="1576552058767" ID="ID_767845064" MODIFIED="1576552072362" TEXT="In a level order traversal we want to print the nodes as they appear one layer at a time">
-<node CREATED="1576552101378" ID="ID_1666245098" MODIFIED="1576552116284" TEXT="To obtain this ordering we want to do a BFS from the root node down to the leaf nodes"/>
+<node CREATED="1576552101378" ID="ID_1666245098" MODIFIED="1576552116284" TEXT="To obtain this ordering we want to do a BFS from the root node down to the leaf nodes">
+<node CREATED="1576552123896" ID="ID_1589099867" MODIFIED="1576552137587" TEXT="To do a BFS we will need to maintain a Queue of the nodes left to explore"/>
+<node CREATED="1576552139032" ID="ID_1074244951" MODIFIED="1576552170747" TEXT="Begin with the root inside of the queue and finish when the queue is empty">
+<node CREATED="1576552180219" ID="ID_10089081" MODIFIED="1576552203862" TEXT="Steps: At each iteration we add the left child and the right child of the current node to our queue"/>
+</node>
+</node>
 </node>
 </node>
 </node>
