@@ -2222,6 +2222,14 @@
 </richcontent>
 </node>
 </node>
+<node CREATED="1576551909520" ID="ID_1037845328" MODIFIED="1576551914682" TEXT="Inorder traversal">
+<node CREATED="1576551915071" ID="ID_1938042881" MODIFIED="1576551930345" TEXT="Prints values in-order - increasing order"/>
+</node>
+</node>
+<node CREATED="1576552049869" ID="ID_1575590025" MODIFIED="1576552056798" TEXT="Level Order Traversal">
+<node CREATED="1576552058767" ID="ID_767845064" MODIFIED="1576552072362" TEXT="In a level order traversal we want to print the nodes as they appear one layer at a time">
+<node CREATED="1576552101378" ID="ID_1666245098" MODIFIED="1576552116284" TEXT="To obtain this ordering we want to do a BFS from the root node down to the leaf nodes"/>
+</node>
 </node>
 </node>
 </node>
