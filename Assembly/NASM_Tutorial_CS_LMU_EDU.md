@@ -191,6 +191,11 @@
 	1. `number` is displacement
 	2. `reg` is base
 	3. `scale` is index
+2. Examples:
+
+		[750]				; displacement only
+		[rbp]				; base register only
+		[rcx + rsi * 4]	; base + index * scale
 
 ### Immediate Operands ###
 
