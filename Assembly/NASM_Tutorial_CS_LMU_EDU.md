@@ -230,9 +230,25 @@
 1. [Chapter 3 or docs](https://cs.lmu.edu/~ray/notes/nasmtutorial/)
 2. To place data in memory
 
-		db		0x55				; just the byte 0x55
-		db		0x55,0x56,0x57	; three bytes in succession
-		db		'a',0x55			; character constants are OK
+		db		0x55					; just the byte 0x55
+		db		0x55,0x56,0x57		; three bytes in succession
+		db		'a',0x55				; character constants are OK
+		db		'hello',13,10,'$'	; so are string constants
+		db		0x1234					; 0x34 0x12
+		dw		'a'						; 0x61 0x00 (it's just a number)
+		dw		'ab'					; 0x61 0x62 (character constant)
+		dw		'abc'					; 0x61 0x62 0x63 0x00 (string)
+		dd		0x12345678			; 0x79 0x56 0x34 0x12
+		dd		1.234567e20			; floating point constant
+		dq		0x123456789abcdef0	; eitht byte constant
+		dq		1.234567e20			; double-precision float
+		dt		1.234567e20			; extended-precision float
+		
+3. To reserve space without initializing, following pseudo instrucitons can be used. They should be in `.bss` section
+
+		buffer:		resb		64		; reserver 64 bytes
+		wordvar:		resw		1		; reserver a word
+		realarray:	resq		10		; reserver an array of ten reals
 
 ## Another Example ##
 ## Using a C Library ##
