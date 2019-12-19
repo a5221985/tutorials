@@ -218,9 +218,22 @@
 		0b110_1000; binary - 0b prefix, and by the way, underscores are allowed
 
 ## Instructions with Two Memory Operands Are Extremely Rare ##
-1. 
+1. Most instructions are of the following form:
+
+		add reg, reg
+		add reg, mem
+		add reg, imm
+		add mem, reg
+		add mem, imm
 
 ## Defining Data and Reserving Space ##
+1. [Chapter 3 or docs](https://cs.lmu.edu/~ray/notes/nasmtutorial/)
+2. To place data in memory
+
+		db		0x55				; just the byte 0x55
+		db		0x55,0x56,0x57	; three bytes in succession
+		db		'a',0x55			; character constants are OK
+
 ## Another Example ##
 ## Using a C Library ##
 ## Understanding Calling Convention ##
