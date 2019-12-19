@@ -448,4 +448,8 @@ How to contact recruiters and how to land a job and negotiate:
 	11. Questions:
 		1. Excel in competitive programming gives interview chance
 		2. Google - Engineering prowess - keeping user the center of everything - pure engineering
-		3. 
+		3. Qualification while studying is okay
+		4. Google doesn't have a degree requirement - only qualification is important
+		5. How to get leadership role? Come in at a level appropriate to you, learn from ground up, make relationships, do great work, star will ascend
+	12. Resources:
+		1. recruitinginyogapants.com
