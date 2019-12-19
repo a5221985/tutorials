@@ -193,13 +193,33 @@
 	3. `scale` is index
 2. Examples:
 
-		[750]				; displacement only
-		[rbp]				; base register only
-		[rcx + rsi * 4]	; base + index * scale
+		[750]						; displacement only
+		[rbp]						; base register only
+		[rcx + rsi * 4]			; base + index * scale
+		[rbp + rdx]				; scale is 1
+		[rbx - 8]					; displacement is -8
+		[rax + rdi * 8 + 500]	; all four components
+		[rbx + counter]			; uses the address of the variable 'counter' as the displacement
 
 ### Immediate Operands ###
+1. From official docs:
+2. Examples:
+
+		200			; decimal
+		0200		; still decimal - the leading 0 does not make it octal
+		0200d		; explicitly decimal - d suffix
+		0d200		; also decimal - 0d prefix
+		0c8h		; hex - h suffix, but leading 0 is required because c8h looks like a var
+		0xc8		; hex - the classic 0x prefix
+		0hc8		; hex - for some reason NASM likes 0h
+		310q		; octal - q suffix
+		0q310		; octal - 0q prefix
+		11001000b	; binary - b suffix
+		0b110_1000; binary - 0b prefix, and by the way, underscores are allowed
 
 ## Instructions with Two Memory Operands Are Extremely Rare ##
+1. 
+
 ## Defining Data and Reserving Space ##
 ## Another Example ##
 ## Using a C Library ##
