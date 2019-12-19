@@ -433,3 +433,12 @@ How to contact recruiters and how to land a job and negotiate:
 			2. Research
 				1. This is what market says
 		2. Know your potential
+	5. Documented labor market feedback
+	6. Interview feedback gives power to negotiate
+	7. Internal references inside Google (adds up)
+	8. Prepare very very very well
+	9. Recruiter cannot share specific feedback
+		1. High level insight can be given
+		2. Technical bar is not met usually
+			1. Coding
+			2. System design
