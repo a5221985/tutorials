@@ -3067,6 +3067,127 @@
 </node>
 <node CREATED="1576719542482" ID="ID_353482957" MODIFIED="1576719549546" TEXT="We refer to these as key-value pairs"/>
 <node CREATED="1576719550849" ID="ID_928593708" MODIFIED="1576719560671" TEXT="Keys must be unique, but values can be repeated"/>
+<node CREATED="1576719592181" ID="ID_590492122" MODIFIED="1576719615250" TEXT="HTs are often used to track item frequencies. For instance, coutning the number of times a word appears in a given text."/>
+<node CREATED="1576719667099" ID="ID_1449510494" MODIFIED="1576719697130" TEXT="The key-value pairs you can place in a HT can be of any type not just strings and numbers, but also bojects! However, the keys needs to be hashable, a property we will discuss shortly">
+<node CREATED="1576719707058" ID="ID_873018824" MODIFIED="1576719732321" TEXT="To be able to understand how a mapping is constructed between key-value pairs we fist need to talk about hash functions."/>
+<node CREATED="1576719732567" ID="ID_1959597115" MODIFIED="1576719747809" TEXT="A hash function H(x) is a function that maps a key &apos;x&apos; to a whole number in a fixed range.">
+<node CREATED="1576719751627" ID="ID_1160981104" MODIFIED="1576719786554" TEXT="Example: H(x) = (x^2 - 6x + 9) mod 10 maps all integer keys to the range [0, 9]">
+<node CREATED="1576719794298" ID="ID_1324821729" MODIFIED="1576719938680">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      H(4) = (16 - 24 + 9) mod 10 = 1
+    </p>
+    <p>
+      H(-7) = (49 + 42 + 9) mod 10 = 0
+    </p>
+    <p>
+      H(0) = (0 - 0 + 9) mod 10 = 9
+    </p>
+    <p>
+      H(2) = (4 - 12 + 9) mod 10 = 1
+    </p>
+    <p>
+      H(8) = (64 - 48 + 9) mod 10 = 5
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1576719981847" ID="ID_324076642" MODIFIED="1576720006195" TEXT="We can also define hash functions for arbitrary objects such as strings, list, tuples, multi data objects, etc...">
+<node CREATED="1576720017235" ID="ID_260903345" MODIFIED="1576720037487" TEXT="For a string s let H(s) be a hash function defined below where ASCII(x) returns the ASCII valeu fo the character x">
+<node CREATED="1576720040853" ID="ID_881056835" MODIFIED="1576720077379">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      ASCII('A') = 65
+    </p>
+    <p>
+      ASCII('B') = 66
+    </p>
+    <p>
+      ...
+    </p>
+    <p>
+      ASCII('Z') = 90
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1576720080138" ID="ID_309025568" MODIFIED="1576720129560">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function H(s):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sum := 0
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for char in x:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sum = sum + ASCII(char)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return sum mod 50
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1576720271210" ID="ID_1995836199" MODIFIED="1576720289259" TEXT="There are an infinite number of possible valid hash functions H(person), here is one:">
+<node CREATED="1576720290849" ID="ID_1284309586" MODIFIED="1576720340812">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function H(person):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;hash := person.age
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;hash = hash + length(person.name)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if person.sex == &quot;M&quot;:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;hash = hash + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return hash mod 6
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1576720397304" ID="ID_585727740" MODIFIED="1576720403401" TEXT="Properties of Hash functions">
+<node CREATED="1576720403810" ID="ID_146175552" MODIFIED="1576720434098" TEXT="If H(x) = H(y) then objects x and y might be equal, but if H(x) != H(y) then x and y are certainly not equal">
+<node CREATED="1576720484417" ID="ID_680162370" MODIFIED="1576720497064" TEXT="Q: How can we use this to our advantage to speedup object comparisons?">
+<node CREATED="1576720505225" ID="ID_1898076730" MODIFIED="1576720538716" TEXT="A: This means that instead of comparing x and y directly a smarter approach is to first compare their hash values, and only if the hash values match do we nedd to explicitly compare xa nd y."/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567047845106" ID="ID_1637573432" MODIFIED="1567047851822" TEXT="Hash table separate chaining"/>
