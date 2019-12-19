@@ -98,7 +98,100 @@
 	1. First 8 have alternate names
 	2. Lower 32 bits of each register can be considered as a register
 
+			R0D (EAX) (double word)
+			R1D (ECX)
+			R2D (EDX)
+			R3D (EBX)
+			R4D (ESP)
+			R5D (EBP)
+			R6D (ESI)
+			R7D (EDI)
+			R8D
+			R9D
+			R10D
+			R11D
+			R12D
+			R13D
+			R14D
+			R15D
+			
+	3. Lower 16 bits of each register can be considered as a register
+
+			R0W (AX)
+			R1W (CX)
+			R2W (DX)
+			R3W (BX)
+			R4W (SP)
+			R5W (BP)
+			R6W (SI)
+			R7W (DI)
+			R8W
+			R9W
+			R10W
+			R11W
+			R12W
+			R13W
+			R14W
+			R15W
+			
+	4. Lowest 8 bits of each register can be considered as a register
+
+			R0B (AL)
+			R1B (CL)
+			R2B (DL)
+			R3B (BL)
+			R4B (SPL)
+			R5B (BPL)
+			R6B (SIL)
+			R7B (DIL)
+			R8B
+			R9B
+			R10B
+			R11B
+			R12B
+			R13B
+			R14B
+			R15B
+			
+	5. Bits 15 through 8 of `R0` ... `R3` are named (historical reasons):
+
+			AH
+			CH
+			DH
+			BH
+			
+	6. There are 16 XMM registers (each 128 bits wide)
+
+			XMM0
+			XMM1
+			XMM2
+			XMM3
+			XMM4
+			XMM5
+			XMM6
+			XMM7
+			XMM8
+			XMM9
+			XMM10
+			XMM11
+			XMM12
+			XMM13
+			XMM14
+			XMM15
+
 ### Memory Operands ###
+1. Forms of addressing:
+
+		[ number ]
+		[ reg ]
+		[ reg + reg * scale ] - scale can be 1, 2, 4, or 8 only
+		[ reg + number ]
+		[ reg + reg * scale + number ]
+	
+	1. `number` is displacement
+	2. `reg` is base
+	3. `scale` is index
+
 ### Immediate Operands ###
 
 ## Instructions with Two Memory Operands Are Extremely Rare ##
