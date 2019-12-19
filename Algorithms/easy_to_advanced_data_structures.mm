@@ -3263,7 +3263,17 @@
 </node>
 </node>
 </node>
-<node CREATED="1567047845106" ID="ID_1637573432" MODIFIED="1567047851822" TEXT="Hash table separate chaining"/>
+<node CREATED="1567047845106" ID="ID_1637573432" MODIFIED="1567047851822" TEXT="Hash table separate chaining">
+<node CREATED="1576726287665" ID="ID_1210949899" MODIFIED="1576726293186" TEXT="What is seperate chaining?">
+<node CREATED="1576726293449" ID="ID_1062890330" MODIFIED="1576726331086" TEXT="Separate chaining is one of many strategiesto deal with hash collisions by maintaining a data strcuture (susually a linked list) to hold all the different values which hashed to a particular value.">
+<node CREATED="1576726349314" ID="ID_70905475" MODIFIED="1576726355241" TEXT="Auxiliary data structure is used"/>
+<node CREATED="1576726361987" ID="ID_1045936607" MODIFIED="1576726414027" TEXT="NOTE: The data structures used to cache the itemsused to cache the items which hashed to a particular value is not limited to a linked list. Some implemenatations use one or a mixture of: arrays, binary trees, self balancing trees and etc..."/>
+</node>
+<node CREATED="1576726547031" ID="ID_1776349136" MODIFIED="1576726556199" TEXT="Linked list separate chaining insertions">
+<node CREATED="1576726557198" ID="ID_1720991584" MODIFIED="1576726578151" TEXT="Suppose we have a hash table that will store (name, age) key-value pairs and we wish to insert the following entries:"/>
+</node>
+</node>
+</node>
 <node CREATED="1567047852767" ID="ID_1781810660" MODIFIED="1567047861859" TEXT="Hash table separate chaining source code"/>
 <node CREATED="1567047863123" ID="ID_1180079256" MODIFIED="1567047869247" TEXT="Hash table open addressing"/>
 <node CREATED="1567047870330" ID="ID_146250376" MODIFIED="1567047875833" TEXT="Hash table linear probing"/>
