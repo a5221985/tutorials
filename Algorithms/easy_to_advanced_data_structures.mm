@@ -3270,7 +3270,20 @@
 <node CREATED="1576726361987" ID="ID_1045936607" MODIFIED="1576726414027" TEXT="NOTE: The data structures used to cache the itemsused to cache the items which hashed to a particular value is not limited to a linked list. Some implemenatations use one or a mixture of: arrays, binary trees, self balancing trees and etc..."/>
 </node>
 <node CREATED="1576726547031" ID="ID_1776349136" MODIFIED="1576726556199" TEXT="Linked list separate chaining insertions">
-<node CREATED="1576726557198" ID="ID_1720991584" MODIFIED="1576726578151" TEXT="Suppose we have a hash table that will store (name, age) key-value pairs and we wish to insert the following entries:"/>
+<node CREATED="1576726557198" ID="ID_1720991584" MODIFIED="1576726578151" TEXT="Suppose we have a hash table that will store (name, age) key-value pairs and we wish to insert the following entries:">
+<node CREATED="1576726837929" ID="ID_764009300" MODIFIED="1576726867602" TEXT="NOTE: Even if values are same, we store the key (name) value in the linked list block"/>
+</node>
+</node>
+<node CREATED="1576726900360" ID="ID_366364213" MODIFIED="1576726904630" TEXT="Lookups">
+<node CREATED="1576726907862" ID="ID_1406857671" MODIFIED="1576726930087" TEXT="To find the age of &quot;Ryan&quot; hash the key &quot;Ryan&quot; to obtain the value (index) 1. After this search teh 1 bucket for &quot;Ryan&quot;"/>
+</node>
+</node>
+<node CREATED="1576727220861" ID="ID_1968344896" MODIFIED="1576727222951" TEXT="FAQs">
+<node CREATED="1576727223153" ID="ID_852034882" MODIFIED="1576727249203" TEXT="Q: How do I maintain O(1) insertion and lookup time complexity once my HT gets really full and I have long linked list chains?">
+<node CREATED="1576727250093" ID="ID_1297423091" MODIFIED="1576727284359" TEXT="A: Once the HT contains a lot of elements you should construct a new HT with a larger capacilty and rehash all the items inside the old HT and disperse them throughout the new HT ant different locations."/>
+</node>
+<node CREATED="1576727341227" ID="ID_1599242919" MODIFIED="1576727349145" TEXT="Q: How do I remove key-value pairs from my HT?">
+<node CREATED="1576727349716" ID="ID_1202443782" MODIFIED="1576727391118" TEXT="A: Apply the same procedure as doing a lookup for a key, but this time instead of returning the value associated with the key remove the node in the linked list data structure."/>
 </node>
 </node>
 </node>
