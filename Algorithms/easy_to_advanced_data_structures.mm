@@ -3240,7 +3240,19 @@
 </node>
 <node CREATED="1576722681238" ID="ID_505334372" MODIFIED="1576722705640" TEXT="Remarkably, we can achieve all this in O(1)* time using a hash function as a way to index into a hash table."/>
 <node CREATED="1576722706750" ID="ID_574578431" MODIFIED="1576722726279" TEXT="* The constant time behaviour attributed to hash tables is only true if you have a good uniform hash function!"/>
-<node CREATED="1576722787934" ID="ID_923768759" MODIFIED="1576722815544" TEXT="Think of the hash table on the right as an indesable block of memory (an array) and we can only access its entries using the value given to us by our hash function H(x)"/>
+<node CREATED="1576722787934" ID="ID_923768759" MODIFIED="1576722860059" TEXT="Think of the hash table on the right as an indexable block of memory (an array) and we can only access its entries using the value given to us by our hash function H(x)">
+<node CREATED="1576723195754" ID="ID_791924647" MODIFIED="1576723243518" TEXT="Suppose we&apos;re inserting (integer, string) key-value pairs into teh table representing rankings of users to their usernames from an outline programming competition and we&apos;re using the hash function: H(x) = x^2 + 3 mod 10"/>
+<node CREATED="1576723372256" ID="ID_1611902482" MODIFIED="1576723388217" TEXT="To lookup which user has rank r we simply compute H(f) and look inside the hashtable!"/>
+</node>
+<node CREATED="1576723400565" ID="ID_225952506" MODIFIED="1576723414922" TEXT="Q: What do we do if there is a hash collision?">
+<node CREATED="1576723415408" ID="ID_1998476299" MODIFIED="1576723433414" TEXT="example: users with ranks 2 and 8 hash to the same value!!">
+<node CREATED="1576723435059" ID="ID_477005514" MODIFIED="1576723454750" TEXT="H(2) = 2^2 + 3 mod 10 = 7 = 8^2 + 3 mod 10 = H(8)"/>
+</node>
+<node CREATED="1576723462070" ID="ID_1325438972" MODIFIED="1576723484930" TEXT="A: We use one of many hash collision resolution techniques to handle this, the two most popular ones are separate chaining and open addressing.">
+<node CREATED="1576723500813" ID="ID_1405068280" MODIFIED="1576723553551" TEXT="Separate chaining deals with hash collisions by maintaining a data structure (usually a linked lis) to hold all the different values which hashed to a particular value."/>
+<node CREATED="1576723554852" ID="ID_1904581245" MODIFIED="1576723586495" TEXT="Open addressing deals with hash collisions by finding place within the hash table for the object to go by offsetting it from the position to which it hashed ot."/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567047845106" ID="ID_1637573432" MODIFIED="1567047851822" TEXT="Hash table separate chaining"/>
