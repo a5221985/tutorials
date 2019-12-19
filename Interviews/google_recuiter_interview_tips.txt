@@ -442,3 +442,10 @@ How to contact recruiters and how to land a job and negotiate:
 		2. Technical bar is not met usually
 			1. Coding
 			2. System design
+	10. If re-interviewing:
+		1. If gap is more and roles are different, put the differences aside - it is fresh
+		2. Near miss - we need to take time and prepare well
+	11. Questions:
+		1. Excel in competitive programming gives interview chance
+		2. Google - Engineering prowess - keeping user the center of everything - pure engineering
+		3. 
