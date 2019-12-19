@@ -3186,6 +3186,47 @@
 <node CREATED="1576720403810" ID="ID_146175552" MODIFIED="1576720434098" TEXT="If H(x) = H(y) then objects x and y might be equal, but if H(x) != H(y) then x and y are certainly not equal">
 <node CREATED="1576720484417" ID="ID_680162370" MODIFIED="1576720497064" TEXT="Q: How can we use this to our advantage to speedup object comparisons?">
 <node CREATED="1576720505225" ID="ID_1898076730" MODIFIED="1576720538716" TEXT="A: This means that instead of comparing x and y directly a smarter approach is to first compare their hash values, and only if the hash values match do we nedd to explicitly compare xa nd y."/>
+<node CREATED="1576721967580" ID="ID_304807664" MODIFIED="1576721987476" TEXT="Consider the problem of trying to determine if two very large files have the same contents."/>
+<node CREATED="1576721987977" ID="ID_643451174" MODIFIED="1576722066926" TEXT="If we precomputed H(file1) and H(file2) first we should compare those hash values since comparing hash values is O(1)! If possible, we do not want to open either of the files directly. Comparing their contents can be very slow, although we may have to if H(file1) = H(file2).">
+<node CREATED="1576722069556" ID="ID_638934834" MODIFIED="1576722103324" TEXT="NOTE: Hash functions for files are more sophisticated than those used for hashtables. Instead for files we use what are called cryptographic hash functions also called checksums"/>
+</node>
+<node CREATED="1576722202495" ID="ID_1558704010" MODIFIED="1576722213024" TEXT="A hash function H(x) must be deterministic.">
+<node CREATED="1576722214705" ID="ID_1807800955" MODIFIED="1576722254468" TEXT="This means that if H(x) = y then H9x) must always produce y and never another value.. This may be seen as obvious, but it is critical to the functionality of a hash function.">
+<node CREATED="1576722259505" ID="ID_923968337" MODIFIED="1576722270754" TEXT="Example of non-deterministic hash functions:">
+<node CREATED="1576722271010" ID="ID_1309489189" MODIFIED="1576722298798">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      counter := 0
+    </p>
+    <p>
+      function H(x):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;counter = counter + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return (x + counter) mod 13
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1576722300228" ID="ID_1536661597" MODIFIED="1576722324692" TEXT="H(5) = 6 but H(5) = 7 as well"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1576722345718" ID="ID_312245411" MODIFIED="1576722362549" TEXT="We try very hard to make uniform hash functions to minize the number of hash collisions">
+<node CREATED="1576722364211" ID="ID_1200506814" MODIFIED="1576722424166" TEXT="A hash collision is when two objects, x, y hash to the same value (i.e. H(x) = H(y))."/>
+</node>
+<node CREATED="1576722434295" ID="ID_63759049" MODIFIED="1576722462536" TEXT="We are now able to answer a central question about the types of keys we are allowed to use in our hashtable:">
+<node CREATED="1576722462528" ID="ID_1842837840" MODIFIED="1576722488238" TEXT="Q: What makes a key of type T hashable?">
+<node CREATED="1576722503030" ID="ID_1267467075" MODIFIED="1576722583249" TEXT="A: Since we are going to use hash functions in the implementation of our hash table we need our hash functions to be deterministic. To enforce this behaviour, we demand that the keys used in our hashtable are immutable data types. Hence, if a key fof type T is immutable, and we have a hash function H(k) defined for all keys k of type T then we say a key of type T is hashable."/>
+</node>
+</node>
 </node>
 </node>
 </node>
