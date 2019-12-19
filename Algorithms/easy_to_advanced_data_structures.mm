@@ -3250,7 +3250,15 @@
 </node>
 <node CREATED="1576723462070" ID="ID_1325438972" MODIFIED="1576723484930" TEXT="A: We use one of many hash collision resolution techniques to handle this, the two most popular ones are separate chaining and open addressing.">
 <node CREATED="1576723500813" ID="ID_1405068280" MODIFIED="1576723553551" TEXT="Separate chaining deals with hash collisions by maintaining a data structure (usually a linked lis) to hold all the different values which hashed to a particular value."/>
-<node CREATED="1576723554852" ID="ID_1904581245" MODIFIED="1576723586495" TEXT="Open addressing deals with hash collisions by finding place within the hash table for the object to go by offsetting it from the position to which it hashed ot."/>
+<node CREATED="1576723554852" ID="ID_1904581245" MODIFIED="1576723596395" TEXT="Open addressing deals with hash collisions by finding place within the hash table for the object to go by offsetting it from the position to which it hashed to.">
+<node CREATED="1576724661973" ID="ID_1478893207" MODIFIED="1576724665640" TEXT="Complexity:">
+<node CREATED="1576724666247" ID="ID_1938104579" MODIFIED="1576724680568" TEXT="Insertion: Average - O(1)*, Wors - O(n)">
+<node CREATED="1576724721965" ID="ID_172618407" MODIFIED="1576724745039" TEXT="* The constant time behavior attributed to hash tables is only true if you have agood uniform hash function!"/>
+</node>
+<node CREATED="1576724681231" ID="ID_1892088286" MODIFIED="1576724693824" TEXT="Removal: Average - O(1)*, Words - O(n)"/>
+<node CREATED="1576724694561" ID="ID_1689831060" MODIFIED="1576724706600" TEXT="Search: Average - O(1)*, Worst - O(n)"/>
+</node>
+</node>
 </node>
 </node>
 </node>
