@@ -3224,11 +3224,23 @@
 </node>
 <node CREATED="1576722434295" ID="ID_63759049" MODIFIED="1576722462536" TEXT="We are now able to answer a central question about the types of keys we are allowed to use in our hashtable:">
 <node CREATED="1576722462528" ID="ID_1842837840" MODIFIED="1576722488238" TEXT="Q: What makes a key of type T hashable?">
-<node CREATED="1576722503030" ID="ID_1267467075" MODIFIED="1576722583249" TEXT="A: Since we are going to use hash functions in the implementation of our hash table we need our hash functions to be deterministic. To enforce this behaviour, we demand that the keys used in our hashtable are immutable data types. Hence, if a key fof type T is immutable, and we have a hash function H(k) defined for all keys k of type T then we say a key of type T is hashable."/>
+<node CREATED="1576722503030" ID="ID_1267467075" MODIFIED="1576722583249" TEXT="A: Since we are going to use hash functions in the implementation of our hash table we need our hash functions to be deterministic. To enforce this behaviour, we demand that the keys used in our hashtable are immutable data types. Hence, if a key fof type T is immutable, and we have a hash function H(k) defined for all keys k of type T then we say a key of type T is hashable.">
+<node CREATED="1576722609396" ID="ID_1217280733" MODIFIED="1576722620144" TEXT="keys are immutable - strings, integers">
+<node CREATED="1576722621850" ID="ID_370951750" MODIFIED="1576722630456" TEXT="Not sets or lists"/>
 </node>
 </node>
 </node>
 </node>
+</node>
+</node>
+</node>
+<node CREATED="1576722651007" ID="ID_523341002" MODIFIED="1576722656249" TEXT="How does a hash table work?">
+<node CREATED="1576722659577" ID="ID_1534945728" MODIFIED="1576722679268" TEXT="Ideally we would like to have a very fast insertion, lookup and removal time for the data we are placing withing our hash table.">
+<node CREATED="1576722744298" ID="ID_1247451831" MODIFIED="1576722754748" TEXT="Hash table is an array"/>
+</node>
+<node CREATED="1576722681238" ID="ID_505334372" MODIFIED="1576722705640" TEXT="Remarkably, we can achieve all this in O(1)* time using a hash function as a way to index into a hash table."/>
+<node CREATED="1576722706750" ID="ID_574578431" MODIFIED="1576722726279" TEXT="* The constant time behaviour attributed to hash tables is only true if you have a good uniform hash function!"/>
+<node CREATED="1576722787934" ID="ID_923768759" MODIFIED="1576722815544" TEXT="Think of the hash table on the right as an indesable block of memory (an array) and we can only access its entries using the value given to us by our hash function H(x)"/>
 </node>
 </node>
 <node CREATED="1567047845106" ID="ID_1637573432" MODIFIED="1567047851822" TEXT="Hash table separate chaining"/>
