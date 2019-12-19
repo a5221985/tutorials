@@ -3285,6 +3285,12 @@
 <node CREATED="1576727341227" ID="ID_1599242919" MODIFIED="1576727349145" TEXT="Q: How do I remove key-value pairs from my HT?">
 <node CREATED="1576727349716" ID="ID_1202443782" MODIFIED="1576727391118" TEXT="A: Apply the same procedure as doing a lookup for a key, but this time instead of returning the value associated with the key remove the node in the linked list data structure."/>
 </node>
+<node CREATED="1576727401488" ID="ID_1609089780" MODIFIED="1576727418574" TEXT="Q: Can I use another data structure to model the bucket behaviour required for the sepaarate chaining method?">
+<node CREATED="1576727421100" ID="ID_341353060" MODIFIED="1576727489445" TEXT="A: Of course! Common data structures used instead of a linked list include: arrays, binary trees, self balancing trees, etc... You can even go with a hybrid approach like Java&apos;s HashMap. However, note that some of these are much more memory intensive and complext to implement than a simple linked list which is why they may be less popular">
+<node CREATED="1576727514527" ID="ID_438463014" MODIFIED="1576727534999" TEXT="Jaa switches t oa binary tree once the length gets to certain point"/>
+<node CREATED="1576727558925" ID="ID_239823131" MODIFIED="1576727562723" TEXT="They might be faster"/>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567047852767" ID="ID_1781810660" MODIFIED="1567047861859" TEXT="Hash table separate chaining source code"/>
