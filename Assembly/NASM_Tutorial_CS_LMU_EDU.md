@@ -330,6 +330,7 @@
 				db			"Hola, mundo", 0		; Note: strings must be terminated with 0 in C
 				
 	1. `nasm -felf64 hola.asm && gcc hola.o && ./a.out`
+	
 3. MacOS:
 
 					global		_main
@@ -346,6 +347,8 @@
 		message:	db			"Hola, mundo", 0
 
 ## Understanding Calling Convention ##
+
+
 ## Mixing C and Assembly Language ##
 ## Conditional Instructions ##
 ## Command Line Arguments ##
