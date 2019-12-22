@@ -251,6 +251,20 @@
 		realarray:	resq		10		; reserver an array of ten reals
 
 ## Another Example ##
+1. MacOS program:
+
+		; ---------------------------------------------------
+		; This is an OSX console program that writes a little triangle
+		; output. Runs on macOS only.
+		;
+		; nasm -fmacho64 triangle.asm && gcc hola.o && ./a.out
+		; ---------------------------------------------------
+		
+					global		start
+					section	.text
+		start:
+					
+
 ## Using a C Library ##
 ## Understanding Calling Convention ##
 ## Mixing C and Assembly Language ##
