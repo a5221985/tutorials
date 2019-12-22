@@ -298,8 +298,37 @@
 		
 	1. `cmp` - compares and sets flags
 	2. `je` - if previous comparison was equal, jumps to given label
+	3. `jne` - if previous comparison was not equal, jumps to a given label
+		1. `jl` - jump if less than
+		2. `jnl` - jump if not less than
+		3. `jle` - jump if less than or equal to
+		4. `jnle` - jump if not less than or equal to
+		5. `jge` - jump if greater than
+		6. `jnge` - jump if not greater than or equal to
+		7. ...
+	4. `equ` - not a real instruction. Defines an abbreviation for assembler itself to use
+	5. `.bss` - writable data section
 
 ## Using a C Library ##
+1. `main` - function in C
+	1. C library has `_start` label inside
+	2. Code in `_start` does some initialization and calls `main`
+	3. Code then does some cleanup and issues system call for exit
+	4. We need to implement main
+2. Implementation of main in assembly
+
+				global		main
+				extern		puts
+				
+				section	.text
+		main:
+				mov			rdi,		message
+				call		puts
+				ret
+				
+		message:
+				db			"Hola, mundo", 0
+
 ## Understanding Calling Convention ##
 ## Mixing C and Assembly Language ##
 ## Conditional Instructions ##
