@@ -321,13 +321,29 @@
 				extern		puts
 				
 				section	.text
-		main:
-				mov			rdi,		message
-				call		puts
-				ret
+		main:										; This is called by the C library startup code
+				mov			rdi,		message	; First integer (or pointer) argument in rdi
+				call		puts					; puts(message)
+				ret									; Return from main back into C library wrapper
 				
 		message:
-				db			"Hola, mundo", 0
+				db			"Hola, mundo", 0		; Note: strings must be terminated with 0 in C
+				
+	1. `nasm -felf64 hola.asm && gcc hola.o && ./a.out`
+3. MacOS:
+
+					global		_main
+					extern		_puts
+				
+					section	.text
+		_main:		push		rbx
+					lea			rdi,	[rel message]
+					call		_puts
+					pop			rbx
+					ret
+				
+					section	.data
+		message:	db			"Hola, mundo", 0
 
 ## Understanding Calling Convention ##
 ## Mixing C and Assembly Language ##
