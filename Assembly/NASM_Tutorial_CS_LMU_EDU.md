@@ -346,8 +346,54 @@
 					section	.data
 		message:	db			"Hola, mundo", 0
 
-## Understanding Calling Convention ##
+	1. C functions (or function that is expored from one module to another) must be prefixed with `_`
+	2. Call stack must be aligned on a 16-byte boundary
+	3. `rel` required to access named variables
 
+## Understanding Calling Convention ##
+1. why should argument go into `rdi`?
+	1. convention used for calls
+2. Calling conventions must be followed explained in [AMD64 ABI Reference](http://www.x86-64.org/documentation/abi.pdf)
+	1. Also in [Wikipedia](http://en.wikipedia.org/wiki/X86_calling_conventions#x86-64_Calling_Conventions)
+	2. Pass as many parameters as will fit in registers in the following order:
+		1. for integers and pointers: `rdi`, `rsi`, `rdx`, `rcx`, `r8`, `r9`
+		2. for floating point (float, double): `xmm0`, `xmm1`, `xmm2`, `xmm3`, `xmm4`, `xmm5`, `xmm6`, `xmm7`
+		3. Additional parameters must be pushed to stack, right to left and must be removed by caller after call
+		4. Call instruction is run after pushing to stack
+			1. Return address is in `[rsp]`
+			2. First memory param is at `[rsp+8]`
+			3. ...
+		5. Stack pointer `rsp` must be aligned to a 16-byte boundary before making a call
+			1. Call pushes return address (8 bytes) on stack
+				1. Hence `rsp` is not aligned when inside function
+					1. Solution:
+						1. Push something to make extra space
+						2. Subtract 8 from `rsp`
+		6. Registers that called function must preserver are (all others can be freely changed):
+			1. `rbp`
+			2. `rbx`
+			3. `r12`
+			4. `r13`
+			5. `r14`
+			6. `r15`
+		7. Callee must save control bits of `XMCSR` and x87 control word
+			1. x87 instructions are rare in 64-bit code (don't have to worry)
+		8. Integers are returned in `rax` or `rdx:rax`
+		9. Floating point values are returned in `xmm0` or `xmm1:xmm0`
+3. Example:
+
+		; -------------------------------------------------------------
+		; A 64-bit Linux application that writes the first 90 Fibonacci numbers. To
+		; assemble and run:
+		;
+		;		nasm -felf64 fib.asm && gcc fib.o && ./a.out
+		; -------------------------------------------------------------
+		
+						global		main
+						extern		printf
+					
+						section	.text
+			main:	
 
 ## Mixing C and Assembly Language ##
 ## Conditional Instructions ##

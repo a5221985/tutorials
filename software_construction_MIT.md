@@ -1,5 +1,5 @@
 # Software Construction #
-## Redings ##
+## Readings ##
 ### Static Checking ###
 ### Basic Java ###
 ### Testing ###
