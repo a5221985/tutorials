@@ -394,8 +394,96 @@
 					
 						section	.text
 			main:	
+						push		rbx
+						
+						mov			ecx,		90
+						xor			rax,		rax
+						xor			rbx,		rbx
+						inc			rbx
+			print:
+						; We need to call printf, but we are using rax, rbx, and rcx, printf
+						; may destroy rax and rcx so we will save these before the call and
+						; restore them afterwards
+						
+						push		rax				; caller-save register
+						push		rcx				; caller-save register
+						
+						mov			rdi,		format	; set 1st parameter (format)
+						mov			rsi,		rax	; set 2nd parameter (current_number)
+						xor			rax,		rax	; because printf is vararg
+						
+						; Stack is already aligned because we pushed three 8 byte registers
+						call		printf			; printf(format, current_number)
+						
+						pop			rcx				; restore caller-save register
+						pop			rax				; restore caller-save register
+						
+						mov			rdx,		rax	; save the current number
+						mov			rax,		rbx	; next number is now current
+						add			rbx,		rdx	; get the new next number
+						dec			ecx				; count down
+						jnz			print			; if not done counting, do some more
+						
+						pop			rbx				; restore rbx before returning
+						ret
+						
+			format:
+						db			"%20ld", 10, 0 
+						
+	1. `nasm -felf64 fib.asm && gcc fib.o && ./a.out`
+	2. `push x` - Decrement `rsp` by size of operand, then store `x` in `[rsp]`
+	3. `pop x` - Move `[rsp]` into `x`, then increment `rsp` by size of operand
+	4. `jnz label` - if the processors's Z (zero) flag, is set, jump to the given label `label`
+	5. `call label` - Pushes the address of the next instruction, then jump to the label
+	6. `ret` - Pop into the instruction pointer
 
 ## Mixing C and Assembly Language ##
+1. Function that takes 3 integer params and returns max value
+
+		; ----------------------------------------------------------
+		; A 64-bit function that returns the maximum value of its three arguments. The function has signature:
+		;
+		;	int64_t maxofthree(int64_t x, int64_t y, int64_t z)
+		;
+		; Note that the parameters have already been passed in rdi, rsi, and rdx. We
+		; just have to return the value in rax.
+		; ----------------------------------------------------------
+		
+					global		maxofthree
+					section	.text
+			maxofthree:
+					mov			rax,		rdi		; result (rax) initially holds x
+					cmp			rax,		rsi		; is x less than y?
+					cmovl		rax,		rsi		; if so, set result to y
+					cmp			is max(x, y) less than z?
+					cmovl		rax,		rdx		; if so, set result to z
+					ret
+					
+2. C program that calls the assembly language function
+
+
+		/*
+		 * A small program that illustrates how to call the maxofthree
+		 * assembly language.
+		 */
+		 
+		#include <stduio.h>
+		#include <inttypes.h>
+		
+		int64_t maxofthree(int64_t, int64_t, int64_t);
+		
+		int main() {
+				printf("%ld\n", maxofthree(1, -4, -7));
+				printf("%ld\n", maxofthree(2, -6, 1));
+				printf("%ld\n", maxofthree(2, 3, 1));
+				printf("%ld\n", maxofthree(-2, 4, 3));
+				printf("%ld\n", maxofthree(2, -6, 5));
+				printf("%ld\n", maxofthree(2, 4, 6));
+				return 0;
+		}
+	
+	1. `nasm -felf64 maxofthree.asm && gcc callmaxofthree.c maxofthree.o && ./a.out`
+
 ## Conditional Instructions ##
 ## Command Line Arguments ##
 ## A Longer Example ##

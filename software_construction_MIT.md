@@ -3,7 +3,12 @@
 ### Static Checking ###
 ### Basic Java ###
 ### Testing ###
-1. 
+1. Safe from bugs
+	1. correct today and in unknown future
+2. Easy to understand
+	1. Communication clearly with future programmers (including future you)
+3. Ready for change
+	1. 
 
 ### Code Review ###
 ### Version Control ###
