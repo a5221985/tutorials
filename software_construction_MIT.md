@@ -1,7 +1,17 @@
 # Software Construction #
 ## Readings ##
 ### Static Checking ###
+#### Types ####
+#### Static Checking vs Dynamic Checking ####
+#### Arrays and Collections ####
+#### Iterating ####
+#### Methods ####
+#### Mutating Variables vs Reassigning Variables ####
+#### Documenting Assumptions ####
+
 ### Basic Java ###
+#### 
+
 ### Testing ###
 1. Safe from bugs
 	1. correct today and in unknown future
