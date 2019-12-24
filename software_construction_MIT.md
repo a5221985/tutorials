@@ -227,7 +227,15 @@
 #### Higher-order Functions in Java ####
 
 ### Little Languages ###
+#### Representing Code as Data ####
+#### Building Languages to Solve Problems ####
+#### Music Language ####
+
 ### Team Version Control ###
+#### Git Workflow ####
+#### Viewing Commit History ####
+#### Graph of Commits ####
+#### Using Version Control as a Team ####
 
 ## General ##
 ### General Information ###
