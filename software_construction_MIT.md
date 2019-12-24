@@ -216,6 +216,10 @@
 #### Background Processing in Graphical User Interfaces ####
 
 ### Map, Filter, Reduce ###
+#### Abstracting Out Control Flow ####
+#### Map ####
+#### Functions ####
+
 ### Little Languages ###
 ### Team Version Control ###
 
