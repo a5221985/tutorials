@@ -218,7 +218,13 @@
 ### Map, Filter, Reduce ###
 #### Abstracting Out Control Flow ####
 #### Map ####
-#### Functions ####
+#### Functions as Values ####
+#### Filter ####
+#### Reduce ####
+#### Benefits of Abstracting Out Control ####
+#### First-Class Functions in Java ####
+#### Map/Filter/Reduce in Java ####
+#### Higher-order Functions in Java ####
 
 ### Little Languages ###
 ### Team Version Control ###
