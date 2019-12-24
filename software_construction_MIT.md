@@ -50,11 +50,45 @@
 #### Behavioral Equivalence ####
 #### Specification Structure ####
 #### Null References ####
-#### What a Specification 
+#### What a Specification May Talk About ####
+#### Testing and Specifications ####
+#### Specifications for Mutating Methods ####
+#### Exceptions for SIgnaling Bugs ####
+#### Exceptions for Special Results ####
+#### Checked and Unchecked Exceptions ####
+#### Throwable Hierarchy ####
+#### Exception Design Considerations ####
+#### Abuse of Exceptions ####
 
 ### Designing Specifications ###
+#### Deterministic vs Undetermined Specs ####
+#### Declarative vs Operational Specs ####
+#### Stronger vs Weaker Specs ####
+#### Diagramming Specifications ####
+#### Designing Good Specifications ####
+#### Precondition or Postcondition? ####
+#### About Access Control ####
+#### About Static vs Instance Methods ####
+
 ### Avoiding Debugging ###
+#### First Defense: Making Bugs Impossible ####
+#### Second Defense: Localizing Bugs ####
+#### Assertions ####
+#### What to Assert ####
+#### What Not to Assert ####
+#### Incremental Development ####
+#### Modularity and Encapsulation ####
+
 ### Mutability & Immutability ###
+#### Mutability ####
+#### Risks of Mutation ####
+#### Aliasing is What Makes Mutation Risky ####
+#### Specifications for Mutating Methods ####
+#### Iterating Over Arrays and Lists ####
+#### Mutation Undermines an Iterator ####
+#### Mutation and Contracts ####
+#### Useful Implementation Types ####
+
 ### Recursion ###
 ### Debugging ###
 ### Abstract Data Types ###
