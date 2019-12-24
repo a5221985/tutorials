@@ -10,7 +10,9 @@
 #### Documenting Assumptions ####
 
 ### Basic Java ###
-#### 
+#### Snapshot Diagrams ####
+#### Java Collections ####
+#### Java API Documentation ####
 
 ### Testing ###
 1. Safe from bugs
@@ -18,11 +20,38 @@
 2. Easy to understand
 	1. Communication clearly with future programmers (including future you)
 3. Ready for change
-	1. 
+
+#### Validation ####
+#### Test-first Programming ####
+#### Choosing Test Cases by Partitioning ####
+#### Blackbox and Whitebox Testing ####
+#### Documenting Testing Strategies ####
+#### Coverage ####
+#### Unit Testing and Stubs ####
+#### Automated Testing and Regression Testing ####
 
 ### Code Review ###
+#### Don't Repeat Yourself ####
+#### Comments Where Needed ####
+#### Fail Fast ####
+#### Avoid Magic Numbers ####
+#### One Purpose for Each Variable ####
+#### Use Good Names ####
+#### Use Whitespace to Help the Reader ####
+#### Don't Use Global Variables ####
+#### Methods Should Return Results, Not Print Them ####
+
 ### Version Control ###
+#### Inventing Version Control ####
+#### Git: Copy, Commit, Pull, Push, Merge ####
+
 ### Specifications ###
+#### Why Specifications? ####
+#### Behavioral Equivalence ####
+#### Specification Structure ####
+#### Null References ####
+#### What a Specification 
+
 ### Designing Specifications ###
 ### Avoiding Debugging ###
 ### Mutability & Immutability ###
