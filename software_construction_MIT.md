@@ -180,9 +180,41 @@
 #### How to Make A Safety Argument ####
 
 ### Sockets & Networking ###
+#### Client/ Server Design Pattern ####
+#### Network Sockets ####
+#### I/O ####
+#### Blocking ####
+#### Using Network Sockets ####
+#### Wire Protocols ####
+#### Testing Client/ Server Code ####
+
 ### Queues & Message-Passing ###
+#### Two Models for Concurrency ####
+#### Message Passing with Threads ####
+#### Implementing Message Passing with Queues ####
+#### Stopping ####
+#### Thread Safety Arguments with Message Passing ####
+
 ### Locks & Synchronization ###
+#### Synchronization ####
+#### Deadlock ####
+#### Developing a ThreadSafe Abstract Data Type ####
+#### Locking ####
+#### Monitor Pattern ####
+#### Thread Safety Argument with Synchronization ####
+#### Atomic Operations ####
+#### Designing a Data Type for Concurrency ####
+#### Deadlock Rears its Ugly Head ####
+#### Goals of Concurrent Program Design ####
+#### Concurrency in Practice ####
+
 ### Graphical User Interfaces ###
+#### View Tree ####
+#### How th View Tree is Used ####
+#### Input Handling ####
+#### Separating Frontend from Backend ####
+#### Background Processing in Graphical User Interfaces ####
+
 ### Map, Filter, Reduce ###
 ### Little Languages ###
 ### Team Version Control ###
