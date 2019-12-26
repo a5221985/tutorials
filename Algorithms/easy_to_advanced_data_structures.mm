@@ -3293,8 +3293,601 @@
 </node>
 </node>
 </node>
-<node CREATED="1567047852767" ID="ID_1781810660" MODIFIED="1567047861859" TEXT="Hash table separate chaining source code"/>
-<node CREATED="1567047863123" ID="ID_1180079256" MODIFIED="1567047869247" TEXT="Hash table open addressing"/>
+<node CREATED="1567047852767" ID="ID_1781810660" MODIFIED="1567047861859" TEXT="Hash table separate chaining source code">
+<node CREATED="1577334212789" ID="ID_1039092499" MODIFIED="1577369364567">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="1">class Entry &lt;K, V&gt; { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;int hash; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;K key; V value; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public Entry(K key, V value) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.key = key; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.value = value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.hash = key.hashCode(); // cache to not recompute </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// We are not overriding the Object equals method </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// No casting is required with this method. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public boolean equals(Entry &lt;K, V&gt; other) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (hash != other.hash) return false; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return key.equals(other.key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;@Override public String toString() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return key + &quot; =&gt; &quot; + value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">@SuppressWarnings(&quot;unchecked&quot;) </font>
+    </p>
+    <p>
+      <font size="1">public class HashTableSeparateChaining &lt;K, V&gt; implements Iterable &lt;K&gt; { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private static final int DEFAULT_CAPACITY = 3; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private static final double DEFAULT_LOAD_FACTOR = 0.75; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private double maxLoadFactor; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private int capacity, threshold, size = 0; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private LinkedList &lt;Entry&lt;K,V&gt;&gt; [] table; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public HashTableSeperateChaining () { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this(DEFAULT_CAPACITY, DEFAULT_LOAD_FACTOR); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;}&#160; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public HashTableSeperateChaining (int capacity, double maxLoadFactor) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (capacity &lt; 0) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;throw new IllegalArgumentException(&quot;Illegal capacity&quot;); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (maxLoadFactor &lt;= 0 || Double.isNaN(maxLoadFactor) || Double.isInfinite(maxLoadFactor)) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;throw new IllegalArgumentException(&quot;Illegal maxLoadFactor&quot;); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.maxLoadFactor = maxLoadFactor; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.capacity = capacity; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;threshold = (int) (this.capacity * maxLoadFactor); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;table = new LinkedList[this.capacity]; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Returns the number of elements currently inside the hash-table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public int size() { return size; } </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Returns true/false depending on whether the hash-table is empty </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public boolean isEmpty() { return size == 0; } </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Converts a hash value to an index. Essentially, this strips the </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// negative sign and places the hash value in the domain [0, capacity) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private int normalizeIndex(int keyHash) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return (keyHash &amp; 0x7FFFFFFF) % capacity; // strips negative sign </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Clears all the contents of the hash-table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public void clear() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Arrays.fill(table, null); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;size = 0; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public boolean containsKey(K key) { return hasKey(key); } </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Returns true/false depending on whether a key is in the hash table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public boolean hasKey(K key) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int bucketIndex = normalizeIndex(key.hashCode()); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return bucketSeekEntry(bucketIndex, key) != null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Insert, put and add all place a value in the hash-table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public V put(K key, V value) { return insert(key, value); } </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public V add(K key, V value) { return insert(key, value); } </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public V insert(K key, V value) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (key == null) throw new IllegalArgumentException(&quot;Null key&quot;); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Entry &lt;K, V&gt; newEntry = new Entry&lt;&gt;(key, value); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int bucketIndex = normalizeIndex(newEntry.hash); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return bucketInsertEntry(bucketIndex, newEntry); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Gets a key's values from the map and returns the value. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// NOTE: returns null if the value is null AND also returns </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// null if the key does not exists, so watch out.. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public V get(K key) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (key == null) return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int bucketIndex = normalizeIndex(key.hashCode()); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Entry &lt;K, V&gt; entry = bucketSeekEntry(bucketIndex, key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (entry != null) return entry.value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Removes a key from the map and returns the value. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// NOTE: returns null if the value is null AND also returns </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// null if the key does not exists. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public V remove(K key) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (key == null) return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int bucketIndex = normalizeIndex(key.hashCode()); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return bucketRemoveEntry(bucketIndex, key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Removes an entry from a given bucket if it exists </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private V bucketRemoveEntry(int bucketIndex, K key) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Entry &lt;K, V&gt; entry = bucketSeekEntry(bucketIndex, key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (entry != null) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LinkedList &lt;Entry&lt;K, V&gt;&gt; links = table[bucketIndex]; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;links.remove(entry); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--size; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return entry.value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Inserts an entry in a given bucket only if the entry does not already </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// exist in the given bucket, but if it does then update the entry value </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private V bucketInsertEntry(int bucketIndex, Entry &lt;K, V&gt; entry) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LinkedList &lt;Entry&lt;K, V&gt;&gt; bucket = table[bucketIndex]; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (bucket == null) table[bucketIndex] = bucket = new LinkedList&lt;&gt;(); </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Entry &lt;K, V&gt; existentEntry = bucketSeekEntry(bucketIndex, entry.key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (existentEntry == null) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;bucket.add(entry); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (++size &gt; threshold) resizeTable(); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return null; // Use null to indicate that there was no previous entry </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;V oldVal = existentEntry.value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;existentEntry.value = entry.value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return oldVal; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Finds and returns a particular entry in a given bucket if it exists, returns null otherwise </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private Entry &lt;K, V&gt; bucketSeekEntry(int bucketIndex, K key) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (key == null) return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LinkedList &lt;Entry&lt;K, V&gt;&gt; bucket = table[bucketIndex]; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (bucket == null) return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (Entry &lt;K, V&gt; entry : bucket) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (entry.key.equals(key)) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return entry; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Resizes the internal table holding buckets of entries </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private void resizeTable() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;capacity *= 2; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;threshold = (int) (capacity * maxLoadFactor); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LinkedList &lt;Entry&lt;K,V&gt;&gt; [] newTable = new LinkedList[capacity]; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (int i = 0; i &lt; table.length; i++) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (table[i] != null) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (Entry &lt;K, V&gt; entry : table[i]) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int bucketIndex = normalizeIndex(entry.hash); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LinkedList&lt;Entry&lt;K,V&gt;&gt; bucket = newTable[bucketIndex]; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (bucket == null) newTable[bucketIndex] = bucket = new LinkedList&lt;&gt;(); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;bucket.add(entry); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Avoid memory leak. Help the GC </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;table[i].clear(); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;table[i] = null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;table = newTable; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Returns the list of keys found within the hash table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public List &lt;K&gt; keys() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;List &lt;K&gt; keys = new ArrayList&lt;&gt;(size()); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (LinkedList&lt;Entry&lt;K,V&gt;&gt; bucket : table) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (bucket != null) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (Entry &lt;K,V&gt; entry : bucket) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;keys.add(entry.key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;return keys; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Returns the list of values found within the hash table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public List &lt;V&gt; values() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;List &lt;V&gt; values = new ArrayList&lt;&gt;(size()); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (LinkedList&lt;Entry&lt;K,V&gt;&gt; bucket : table) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (bucket != null) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (Entry &lt;K,V&gt; entry : bucket) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;values.add(entry.value); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return values; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">} </font>
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1567047863123" ID="ID_1180079256" MODIFIED="1567047869247" TEXT="Hash table open addressing">
+<node CREATED="1577369532976" ID="ID_1689117443" MODIFIED="1577369540468" TEXT="Collision resolution technique"/>
+<node CREATED="1577369543428" ID="ID_200938945" MODIFIED="1577369547331" TEXT="Open addressing basics">
+<node CREATED="1577369547601" ID="ID_1618933428" MODIFIED="1577369562797" TEXT="The goal of the Hash Table (HT) is to construct a mapping from keys to values."/>
+<node CREATED="1577369565898" ID="ID_1462552710" MODIFIED="1577369580451" TEXT="Keys must be hashable and we need a hash function that converts keys to whole numbers."/>
+<node CREATED="1577369580828" ID="ID_1706198356" MODIFIED="1577369598220" TEXT="We use the hash function defined on our key set to index into an array (the hash table)."/>
+<node CREATED="1577369598691" ID="ID_1870903960" MODIFIED="1577369643429" TEXT="Hash functions are not perfect, therefore sometimes two keys k1, k2 (k1 != k2) hash to the same value. When this happens we have a hash collision (i.e H(k1 = H(k2))"/>
+<node CREATED="1577369644277" ID="ID_1732474554" MODIFIED="1577369650757" TEXT="Open addressing is a way to solve this issue.">
+<node CREATED="1577369725675" ID="ID_1006939397" MODIFIED="1577369729212" TEXT="Open addressing basics">
+<node CREATED="1577369729829" ID="ID_1357789143" MODIFIED="1577369767421" TEXT="When using open addressing as a collision resolution technique the key-value pairs are stored in teh table (array) itself as opposed to a data structure like in separate chaining."/>
+<node CREATED="1577369769214" ID="ID_1933827972" MODIFIED="1577369789661" TEXT="This means we need to care a great deal about the size of our hash table and how many elements are currently in the table">
+<node CREATED="1577369790630" ID="ID_783717030" MODIFIED="1577369799174" TEXT="Load factor = items in table / size of table"/>
+<node CREATED="1577369848109" ID="ID_78644049" MODIFIED="1577369853668" TEXT="or else difficult to find slot"/>
+</node>
+</node>
+</node>
+<node CREATED="1577369884965" ID="ID_245954382" MODIFIED="1577369926941" TEXT="The O(1) constant time behaviour attributed to hash tables ssumes the load factor (alpha) is kept below a certain fixed value. This means once alpha &gt; threshold we need to grow the table size (ideally exponentially, e.g double)."/>
+</node>
+</node>
 <node CREATED="1567047870330" ID="ID_146250376" MODIFIED="1567047875833" TEXT="Hash table linear probing"/>
 <node CREATED="1567047877084" ID="ID_1344116679" MODIFIED="1567047883639" TEXT="Hash table quadratic probing"/>
 <node CREATED="1567047884522" ID="ID_1596198472" MODIFIED="1567047889979" TEXT="Hash table double hashing"/>
