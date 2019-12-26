@@ -3954,6 +3954,19 @@
 </richcontent>
 </node>
 </node>
+<node CREATED="1577370613045" ID="ID_372683697" MODIFIED="1577370616078" TEXT="Chaos with cycles">
+<node CREATED="1577370616406" ID="ID_785800868" MODIFIED="1577370635366" TEXT="Most randomly selected probing sequences modulo N will produce a cycle shorter than the table size."/>
+<node CREATED="1577370636695" ID="ID_468980738" MODIFIED="1577370661647" TEXT="This becomes problamatic when you are trying to insert a key-value pair and all the buckets on the cycle are occupied because you will get stuck in an infinite loop!">
+<node CREATED="1577370714038" ID="ID_48188437" MODIFIED="1577370734183" TEXT="Suppose the sequence produces only 3 slots and cycles through them infinitely">
+<node CREATED="1577370748803" ID="ID_582834116" MODIFIED="1577370750674" TEXT="Example:">
+<node CREATED="1577370750864" ID="ID_214027381" MODIFIED="1577370791996" TEXT="k1,v1, null, null, k2,v2, k3,v3,k4,v4, null, null, k5,v5, null, k6,v6, null">
+<node CREATED="1577370793485" ID="ID_115437890" MODIFIED="1577370807477" TEXT="Assume the probing sequence used is P(x) = 4x"/>
+<node CREATED="1577370807837" ID="ID_1577758174" MODIFIED="1577370823814" TEXT="Now suppose we want to insert (k,v) into the table and H(k) = 8"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>

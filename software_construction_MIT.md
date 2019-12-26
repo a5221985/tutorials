@@ -370,9 +370,40 @@
 			1. When a name or type of variable is changed, compiler immediately displays errors at all places where variable is used
 
 ### Basic Java ###
+1. Safe from Bugs
+	1. Correct today and correct in the unknown future.
+2. Easy to Understand
+	1. Communicating clearly with future programmers, including future you
+3. Ready for Change
+	1. Designed to accomodate change without rewriting
+
+#### Getting Started with the Java Tutorials ####
+1. [Java Tutorials](http://docs.oracle.com/javase/tutorial/index.html)
+2. [Getting Started: Learning Java](https://ocw.mit.edu/ans7870/6/6.005/s16/getting-started/java.html)
+
+##### Language Basics #####
+##### Numbers and Strings #####
+##### Classes and Objects #####
+##### Hello, world! #####
+
 #### Snapshot Diagrams ####
+##### Primitive Values #####
+##### Object Values #####
+##### Mutating Values vs. Reassigning Variables #####
+###### Reassigning and Immutable Values ######
+###### Mutable Values ######
+###### Immutable References ######
+
 #### Java Collections ####
+##### Lists, Sets, and Maps #####
+##### Literals #####
+##### Generics: Declaring List, Set, and Map Variables #####
+##### ArrayLists and LinkedLists: Constructing Lists #####
+##### HashSets and HashMaps: Constructing Sets and Maps #####
+##### Iteration #####
+
 #### Java API Documentation ####
+##### Specifications #####
 
 ### Testing ###
 1. Safe from bugs
