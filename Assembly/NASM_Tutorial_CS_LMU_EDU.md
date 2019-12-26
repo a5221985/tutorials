@@ -485,7 +485,92 @@
 	1. `nasm -felf64 maxofthree.asm && gcc callmaxofthree.c maxofthree.o && ./a.out`
 
 ## Conditional Instructions ##
+1. After a) arithmetic instruction and b) `cmp` instruction, processor sets or clears bits in `rflags`
+2. Examples:
+
+		s (sign)
+		z (zero)
+		c (carry)
+		o (overflow)
+		
+	1. The flag values can be used to perform jumps, move or set.
+	2. Example:
+
+			jz label		; Jump to label if the result of the operation was zero
+			cmovno x, y	; x <- y if the last operation did not overflow
+			setc x			; x <- 1 if last operation had a carry, but x <- 0 otherwise (x must be a byte-size register or memory location)
+
+3. Conditional instructions have three base forms: 
+	1. `j` for conditional jump
+	2. `cmov` for conditional move
+4. Suffix has one of 30 forms:
+	1. `s`
+	2. `ns`
+	3. `z`
+	4. `nz`
+	5. `c`
+	6. `nc`
+	7. `o`
+	8. `no`
+	9. `p`
+	10. `np`
+	11. `pe`
+	12. `po`
+	13. `e`
+	14. `ne`
+	15. `l`
+	16. `nl`
+	17. `le`
+	18. `nle`
+	19. `g`
+	20. `ng`
+	21. `ge`
+	22. `nge`
+	23. `a`
+	24. `na`
+	25. `ae`
+	26. `nae`
+	27. `b`
+	28. `nb`
+	29. `be`
+	30. `nbe`
+
 ## Command Line Arguments ##
+1. `int main(int argc, char** argv)` - c main function
+	1. `argc` - ends up in `rdi`
+	2. `argv` - pointer will end up in `rsi`
+2. Example: Echo commandline arguments
+
+		; ------------------------------------------------------------
+		; A 64-bit program that displays its command line arguments, one per line.
+		;
+		; On entry, rdi will contain argc and rsi will contain argv
+		; ------------------------------------------------------------
+		
+					global		main
+					extern		puts
+					section	.text
+				
+			main:
+					push		rdi				; save registers that puts uses
+					push		rsi
+					sub			rsp,	8		; must align stack before call
+					
+					mov			rdi,	[rsi]	; the argument string to display
+					call		puts			; print it
+					
+					add			rsp,	8		; restore %rsp to pre-aligned value
+					pop			rsi				; restore registers puts used
+					pop			rdi	
+					
+					add			rsi,	8		; point to next argument
+					dec			rdi				; count down
+					jnz			main			; if not done counting keep going
+					
+					ret
+					
+	1. `nasm -felf64 echo.asm && gcc echo.o && ./a.out dog 22 -zzz "hi there"`
+
 ## A Longer Example ##
 ## Floating Point Instructions ##
 ## Data Sections ##
