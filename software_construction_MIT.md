@@ -380,13 +380,50 @@
 #### Getting Started with the Java Tutorials ####
 1. [Java Tutorials](http://docs.oracle.com/javase/tutorial/index.html)
 2. [Getting Started: Learning Java](https://ocw.mit.edu/ans7870/6/6.005/s16/getting-started/java.html)
+3. [Java API Documentation](http://docs.oracle.com/javase/8/docs/api/)
+	1. All classes built into Java
 
 ##### Language Basics #####
+1. [Language Basics](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/index.html)
+2. Questions which need to be answered:
+	1. [Variables](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/QandE/questions_variables.html)
+	2. [Operators](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/QandE/questions_operators.html)
+	3. [Expressions, Statements, Blocks](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/QandE/questions_expressions.html)
+	4. [Control Flow](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/QandE/questions_flow.html)
+
 ##### Numbers and Strings #####
+1. [Numbers and Strings](http://docs.oracle.com/javase/tutorial/java/data/index.html)
+2. Questions:
+	1. [Numbers](http://docs.oracle.com/javase/tutorial/java/data/QandE/numbers-questions.html)
+	2. [Characters, Strings](http://docs.oracle.com/javase/tutorial/java/data/QandE/characters-questions.html)
+
 ##### Classes and Objects #####
+1. [Classes and Objects](http://docs.oracle.com/javase/tutorial/java/javaOO/index.html)
+2. Questions:
+	1. [Classes](http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/creating-questions.html)
+	2. [Objects](http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/objects-questions.html)
+
 ##### Hello, world! #####
+1. [Hello World!](http://docs.oracle.com/javase/tutorial/getStarted/application/index.html)
 
 #### Snapshot Diagrams ####
+1. Useful to draw pictures of what's happening at runtime (to understand subtle questions)
+2. **Snapshot diagrams**: Represent internal state of a program at runtime
+	1. Stack (methods in progress and their local variables)
+	2. Heap (objects that currently exist)
+3. Why do we use snapshot diagrams?
+	1. To interact with each other through pictures
+	2. To illustrate concepts like 
+		1. primitive types vs. object types
+		2. immutable values vs. immutable references
+		3. pointer aliasing
+		4. stack vs. heap
+		5. abstractions vs. concrete representations
+	3. To help explain design for team project
+	4. To pave way for richer design notations in subsequent courses
+		1. Snapshot diagrams generalize into object models in 6.170
+4. Diagram notation can be applied to any modern programming language (Python, Javascript, C++, Ruby).
+
 ##### Primitive Values #####
 ##### Object Values #####
 ##### Mutating Values vs. Reassigning Variables #####
