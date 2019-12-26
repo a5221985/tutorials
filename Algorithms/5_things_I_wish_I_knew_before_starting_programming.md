@@ -17,4 +17,11 @@
 1. API: Blueprint or instruction manual that defines how you interact with a thing
 	1. Front end - button - API (UI and Action)
 	2. Backend - post tweets, comment on tweets, ... (Interface)
-2. 
+
+## www.algoexpert.io/clem ##
+## Software Developer & Software Engineer are the Same ##
+1. Web-Developer - Front end
+2. Band-End Engineer
+
+## There is no Best Programming Language to Learn ##
+1. If you enjoy it, it is good
