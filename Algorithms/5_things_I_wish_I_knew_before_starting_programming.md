@@ -16,3 +16,5 @@
 ## API is Used Loosely in Industry ##
 1. API: Blueprint or instruction manual that defines how you interact with a thing
 	1. Front end - button - API (UI and Action)
+	2. Backend - post tweets, comment on tweets, ... (Interface)
+2. 
