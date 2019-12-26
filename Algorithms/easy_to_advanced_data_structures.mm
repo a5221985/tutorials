@@ -3885,7 +3885,76 @@
 </node>
 </node>
 </node>
-<node CREATED="1577369884965" ID="ID_245954382" MODIFIED="1577369926941" TEXT="The O(1) constant time behaviour attributed to hash tables ssumes the load factor (alpha) is kept below a certain fixed value. This means once alpha &gt; threshold we need to grow the table size (ideally exponentially, e.g double)."/>
+<node CREATED="1577369884965" ID="ID_245954382" MODIFIED="1577369926941" TEXT="The O(1) constant time behaviour attributed to hash tables ssumes the load factor (alpha) is kept below a certain fixed value. This means once alpha &gt; threshold we need to grow the table size (ideally exponentially, e.g double).">
+<node CREATED="1577369948941" ID="ID_1421341182" MODIFIED="1577369959736" TEXT="It may get exponentially bad after certain threshold"/>
+</node>
+<node CREATED="1577369975963" ID="ID_974261891" MODIFIED="1577369981224" TEXT="Open addressing main idea">
+<node CREATED="1577369983373" ID="ID_433586555" MODIFIED="1577370020144" TEXT="When we want to insert a key-value pair (k, v) into the hash table we hash the key and obtain an original position for where this key-value pair belongs, i.e H(k)"/>
+<node CREATED="1577370022101" ID="ID_1145833824" MODIFIED="1577370058985" TEXT="If the position our key hashed to is occupied we try another position in the hash table by offsetting the current position subject o a probing sequence P(x). We keep doing this until an unoccupied slot is found."/>
+<node CREATED="1577370120313" ID="ID_932454091" MODIFIED="1577370137628" TEXT="There are an infinite amount of probing sequences you can come up with, here are a few:">
+<node CREATED="1577370138724" ID="ID_750593367" MODIFIED="1577370157299" TEXT="Linear probing">
+<node CREATED="1577370157779" ID="ID_922155410" MODIFIED="1577370169217" TEXT="P(x) = ax + b where a, b are constants"/>
+</node>
+<node CREATED="1577370171738" ID="ID_1917168744" MODIFIED="1577370176061" TEXT="Quadratic probing">
+<node CREATED="1577370176282" ID="ID_44258301" MODIFIED="1577370194942" TEXT="P(x) = ax^2 + bx + c where a, b, c are constants"/>
+</node>
+<node CREATED="1577370196206" ID="ID_492274658" MODIFIED="1577370199220" TEXT="Double hashing">
+<node CREATED="1577370199525" ID="ID_41924921" MODIFIED="1577370220113" TEXT="P(k,x) = x*H2(k), where H2(k) is a secondary hash function"/>
+</node>
+<node CREATED="1577370221605" ID="ID_1414408699" MODIFIED="1577370230446" TEXT="Pseudo random number generator:">
+<node CREATED="1577370230815" ID="ID_344675924" MODIFIED="1577370264202" TEXT="P(k,x) = x * RNG(H(k), x), where RNG is a random number generator function seeded with H(k)">
+<node CREATED="1577370342147" ID="ID_460257500" MODIFIED="1577370355235" TEXT="sead is H(k) which is deterministic (same always)">
+<node CREATED="1577370377456" ID="ID_1325730476" MODIFIED="1577370383894" TEXT="x increments by 1 each time"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1577370396111" ID="ID_668632316" MODIFIED="1577370409027" TEXT="General insertion method for open addressing on a table of size N goes as follows:">
+<node CREATED="1577370413508" ID="ID_324538868" MODIFIED="1577370505615">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      x := 1
+    </p>
+    <p>
+      keyHash := H(k)
+    </p>
+    <p>
+      index := keyHash
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      while table[index] != null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;index = (keyHash + P(k,x)) mod N
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;x = x + 1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      insert (k,v) at table[index]
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Where H(k) is the hash for the key k and P(k,x) is the probing function
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567047870330" ID="ID_146250376" MODIFIED="1567047875833" TEXT="Hash table linear probing"/>
