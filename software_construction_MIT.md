@@ -425,7 +425,18 @@
 4. Diagram notation can be applied to any modern programming language (Python, Javascript, C++, Ruby).
 
 ##### Primitive Values #####
+1. Primitive values are represented using bare constants
+2. Incoming arrow is reference to value from variable or object
+
 ##### Object Values #####
+1. Object value is circle
+2. Label is type
+3. Field names are written inside (optional)
+4. Arrows point to their values
+5. Fields can include declared types (optional)
+	1. `x:int`
+	2. `int x`
+
 ##### Mutating Values vs. Reassigning Variables #####
 ###### Reassigning and Immutable Values ######
 ###### Mutable Values ######
