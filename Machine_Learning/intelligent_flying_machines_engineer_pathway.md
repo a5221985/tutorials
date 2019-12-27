@@ -1,9 +1,25 @@
 # Intelligent Flying Machines Engineer - Pathway #
+
 ## Intro to Computer Science ##
 1. [Intro to Computer Science](https://www.udacity.com/course/intro-to-computer-science--cs101)
+
+## Statistics and Probability ##
+1. [Statistics and Probability](https://www.khanacademy.org/math/statistics-probability)
+2. [Intro to Statistics](https://www.udacity.com/course/intro-to-statistics--st101)
+3. [Descriptive Statistics](https://www.udacity.com/course/intro-to-descriptive-statistics--ud827)
+4. [Inferential Statistics](https://www.udacity.com/course/intro-to-inferential-statistics--ud201)
+
+## Linear Algebra ##
+1. [Linear Algebra](https://www.khanacademy.org/math/linear-algebra)
+
+## Multivariate Calculus ##
+1. [Multivariate Calculus](https://www.khanacademy.org/math/multivariable-calculus)
 
 ## C++ for Programmers ##
 1. [C++ for Programmers](https://www.udacity.com/course/c-for-programmers--ud210)
 
 ## Programming Foundations with Python ##
 1. [Programming Foundations with Python](https://www.udacity.com/course/programming-foundations-with-python--ud036)
+
+## Intro to Machine Learning ##
+1. [Intro to Machine Learning](https://www.udacity.com/course/intro-to-machine-learning--ud120)
