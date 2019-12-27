@@ -440,9 +440,22 @@
 ##### Mutating Values vs. Reassigning Variables #####
 1. Snapshot diagrams give us a way to visualize distinction between changing variable and changing value:
 	1. When assigning to variable or field, you are changing where variable's arrow points. You can point it to a different value
+	2. When assigning to contents of mutable value - (array or list)
+		1. We are changing references inside that value
 
 ###### Reassigning and Immutable Values ######
+1. Re-assigning:
+
+		String s = "a";
+		s = s + "b";
+		
+	1. `String` is immutable type (values can never change once created)
+	2. Immutability (immunity to change) is major design principle in the course
+	3. Denoted in diagram by double border
+
 ###### Mutable Values ######
+1. `StringBuilder` - is mutable object that represents a string of chracters
+
 ###### Immutable References ######
 
 #### Java Collections ####
