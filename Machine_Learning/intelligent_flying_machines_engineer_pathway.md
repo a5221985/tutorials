@@ -21,6 +21,7 @@
 
 ## Programming Foundations with Python ##
 1. [Programming Foundations with Python](https://www.udacity.com/course/programming-foundations-with-python--ud036)
+2. [AI Programming with Python](https://www.google.com/url?q=https://www.udacity.com/course/ai-programming-python-nanodegree--nd089&source=gmail&ust=1577506882812000&usg=AFQjCNG-IyVuY6mV2_HIrj7aAE8w6no19w)
 
 ## Intro to Machine Learning ##
 1. [Intro to Machine Learning](https://www.udacity.com/course/intro-to-machine-learning--ud120)
