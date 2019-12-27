@@ -438,6 +438,9 @@
 	2. `int x`
 
 ##### Mutating Values vs. Reassigning Variables #####
+1. Snapshot diagrams give us a way to visualize distinction between changing variable and changing value:
+	1. When assigning to variable or field, you are changing where variable's arrow points. You can point it to a different value
+
 ###### Reassigning and Immutable Values ######
 ###### Mutable Values ######
 ###### Immutable References ######
