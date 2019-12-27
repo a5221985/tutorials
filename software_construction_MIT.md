@@ -454,7 +454,13 @@
 	3. Denoted in diagram by double border
 
 ###### Mutable Values ######
-1. `StringBuilder` - is mutable object that represents a string of chracters
+1. `StringBuilder` - is mutable object that represents a string of characters
+	1. It has methods to change value of the object
+
+			StringBuilder sb = new StringBuilder("a");
+			sb.append("b");
+			
+	2. Difference between mutability and immutability will play an important role in making code safe from bugs
 
 ###### Immutable References ######
 
