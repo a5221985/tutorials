@@ -463,17 +463,218 @@
 	2. Difference between mutability and immutability will play an important role in making code safe from bugs
 
 ###### Immutable References ######
+1. Java has immutable references (variables are assigned only once)
+	1. Done using `final` keyword
+
+			final int n = 5;
+			
+		1. If compiler finds a re-assignment, it throws an error (static checking for immutable references)
+2. Snapshot diagram representation: double arrow
+3. We can have an immutable reference to a mutable value
+
+		final StringBuilder sb = new StringBuilder("a");
+		
+4. We can have a mutable reference to an immutable value
+
+		String s = "abcd";
 
 #### Java Collections ####
+1. [Arrays](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html)
+	1. Fixed length containers for a sequence (of objects or primitive types)
+2. **Java Collections Framework**: More powerful and flexible tools for managing collections of objects
+
 ##### Lists, Sets, and Maps #####
+1. [List](http://docs.oracle.com/javase/8/docs/api/?java/util/List.html)
+	1. Contains an ordered collection of zero or more **objects**
+		1. Same object may appear multiple times
+		2. We can add and remove items from the list (grows and shrinks to accomodate its contents)
+2. Example list operations:
+	1. Java:
+		1. `int count = lst.size();` - count number of elements
+		2. `lst.add(e);` - append an element to the end
+		3. `if (lst.isEmpty()) ...` - test if list is empty
+	2. Python:
+		1. `count = len(lst)`
+		2. `lst.append(e)`
+		3. `if not lst: ...`
+3. Snapshot diagram representation:
+	1. Object with indices drawn as fields
+		1. Example: cities is a List of Strings which may represent a trip from Boston to Bogota to Barcelona
+4. `Set` - un ordered collection of zero or more unique objects (like in Mathematics) or [Python set](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset)
+	1. An object cannot appear multiple times
+	2. Operations:
+		1. Java:
+			1. `s1.contains(e)` - test if set contains an element
+			2. `s1.containsAll(s2)` - test whether s1 is a superset of s2
+			3. `s1.removeAll(s2)` - remove s2 from s1
+		2. Python:
+			1. `e in S1`
+			2. `s1.issuperset(s2)`, `s1 >= s2`
+			3. `s1.difference_update(s2)`, `s1 -= s2`
+	3. Snapshot diagram representation: Object with no name fields
+5. `Map` (similar to Python dictionary)
+	1. Key must be hashable
+	2. Operations:
+		1. Java
+			1. `map.put(key, val)` - add mapping key -> val
+			2. `map.get(key)` - get the value for a key
+			3. `map.containsKey(key)` - test whether map has a key
+			4. `map.remove(key)` - delete a mapping
+		2. Python
+			1. `map[key] = val`
+			2. `map[key]`
+			3. `key in map`
+			4. `del map[key]`
+	3. Snapshot diagram representation:
+		1. Object that contains key/value pairs
+			1. `turtles` map contains `Turtle` objects assigned to `String` keys: `Bob`, `Buckminster`, `Buster`
+
 ##### Literals #####
+1. Python:
+	1. `lst = [ "a", "b", "c" ]`
+	2. `map = { "apple": 5, "banana": 7 }`
+2. Java:
+	1. `String[] arr = { "a", "b", "c" };`
+		1. This constructs an array but not list
+		2. [provided utility function](http://docs.oracle.com/javase/8/docs/api/?java/util/Arrays.html)
+
+				Arrays.asList(new String[] { "a", "b", "c" });
+				
+			1. This restricts length (fixed)
+
 ##### Generics: Declaring List, Set, and Map Variables #####
+1. Java can restrict type of objects contained in collection
+	1. When we add item, compiler performs static checking to ensure we only add items of appropriate type
+	2. When we pull out an item, it is expected type only
+2. Examples:
+
+		List<String> cities;			// a List of Strings
+		Set<Integer> numbers;			// a Set of Integers
+		Map<String, Turtle> turtles;	// a Map with String keys and Turtle values
+		
+3. Collection of primitive types cannot be constructed (`Set<int>` is not acceptible)
+	1. Primitives have wrappers
+		1. Java does automatic conversion between wrappers and primitive types
+
+				sequence.add(5);					// add 5 to the sequence
+				int second = sequence.get(1);	// get the second element
+
 ##### ArrayLists and LinkedLists: Constructing Lists #####
+1. Java helps us distinguish between specification of a type - what does it do? and the implementation - what is the code?
+2. `List`, `Set`, `Map` are interfaces:
+	1. They define how the types work (they do not provide implementation code)
+	2. Advantage:
+		1. Users can choose different implementations in different situations
+		2. Examples:
+
+				List<String> firstNames = new ArrayList<>();
+				List<String> lastNames = new LinkedList<>();
+				
+			1. Diamond operator `<>` is used to save typing
+			2. Both `ArrayList` and `LinkedList` provide operations of `List`
+				1. The operations must work as described in the documentation for `List`
+				2. If we swap `LinkedList` with `ArrayList` or vice versa, the code will not break
+				3. Difference is performance
+					1. When in doubt use `ArrayList`
+
 ##### HashSets and HashMaps: Constructing Sets and Maps #####
+1. `HashSet` - default choice for `Set`s
+
+		Set<String> set = new HashSet<>();
+		
+	1. Java provides sorted sets with `TreeSet`
+2. `HashMap` - default choice for `Map`s
+
+		Map<String, Turtle> map = new HashMap<>();
+
 ##### Iteration #####
+1. Examples:
+
+		List<String> cities = new ArrayList<>();
+		Set<Integer> numbers = new HashSet<>();
+		Map<String, Turtle> turtles = new HashMap<>();
+		
+	1. Python:
+
+			for city in cities:
+				print city
+				
+			for num in numbers:
+				print num
+				
+			for key in turtles:
+				print "%s: %s" % (key, turtles[key])
+				
+	2. Java:
+
+			for (String city : cities) {
+				System.out.println(city);
+			}
+			
+			for (int num : numbers) {
+				System.out.println(num);
+			}
+			
+		1. We cannot iterate over `Map`s directly
+			1. We can iterate over keys:
+
+					for (String key : turtles.keySet()) {
+						System.out.println(key + ": " + turtles.get(key));
+					}
+					
+				1. Under the hood, this kind of `for` loop uses `Iterator` (design pattern)
+
+##### Iterating with indices #####
+1. Different `for` loop using indices
+
+		for (int i = 0; i < cities.size(); i++)
+			System.out.println(cities.get(i));
+			
+	1. This code is verbose and has more places of bugs to hide (unless we need `i`)
 
 #### Java API Documentation ####
+1. [Java Platform API](http://docs.oracle.com/javase/8/docs/api/)
+	1. API - Application Programming Interface
+		1. If we want an app to talk to **Facebook**, it publishes an API (more than one, for different languages and frameworks)
+	2. Java API is large set of generally usueful tools for programming almost anything
+		1. `java.lang.String` - full name for `String`
+			1. Objects of this type can be constructed using double quotes `"..."`
+		2. `java.lang.Integer` - (and other wrapper classes)
+			1. Java automatically converts between primitives and wrapped ("boxed") types in most situations
+		3. `java.util.List` - in Python it is part of the language but in Java it is implemented
+		4. `java.util.Map` - is like Python dictionary
+		5. `java.io.File` - represents file on disk
+			1. Operations:
+				1. Test if file is readable
+				2. Delete a file
+				3. Check when a file was last modified
+		6. `java.io.FileReader` - allows us to read files
+		7. `java.io.BufferedReader` - allows us to read text efficiently
+			1. Useful feature:
+				1. Reading entire line at a time
+2. Closer look at `BufferedReader`:
+	1. Class hierarchy - at the top of the page
+	2. List of implemented interfaces (next)
+		1. The class has all the methods of all those types (plus it's own)
+	3. Next we see direct subclasses
+		1. For interface - implementing classes
+			1. Helps us identify that `HashMap` is an implementation of `Map`
+	4. Next is **description of class**: they might be a little obtuse (but **first place we should go** to understand the class)
+	5. Next is **constructor summery** - which can let us know how a new object can be constructed
+		1. Constructor is not the only way in Java but it is most common
+	6. Next is **method summary lists all the methods we can call** on object of the class
+		1. First place to see to know what the methods do
+	7. Next is detailed description which includes:
+		1. **method signature** - return type, method name, parameters, exceptions
+		2. full **description** -
+		3. **Paremeters**: descriptions of method arguments
+		4. **Returns** descriptions of what method returns
+
 ##### Specifications #####
+1. The above detailed descriptions are **specifications**
+	1. The specs allow us to use tools like `String`, `Map`, `BufferedReader` without having to read or understand code that implements them
+	2. Reading, writing, understanding, analyzing specs:
+		1. Key undertakings of the class
 
 ### Testing ###
 1. Safe from bugs
