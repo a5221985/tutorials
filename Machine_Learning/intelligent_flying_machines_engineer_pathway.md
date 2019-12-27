@@ -11,6 +11,7 @@
 
 ## Linear Algebra ##
 1. [Linear Algebra](https://www.khanacademy.org/math/linear-algebra)
+2. [Linear Algebra Refresher](https://www.udacity.com/course/linear-algebra-refresher-course--ud953)
 
 ## Multivariate Calculus ##
 1. [Multivariate Calculus](https://www.khanacademy.org/math/multivariable-calculus)
@@ -23,3 +24,11 @@
 
 ## Intro to Machine Learning ##
 1. [Intro to Machine Learning](https://www.udacity.com/course/intro-to-machine-learning--ud120)
+2. [Machine Learning Engineer Nanodegree Program](https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009t)
+3. [Deep Learning Nanodegree Program](https://www.udacity.com/course/deep-learning-nanodegree--nd101)
+
+## Flying Car and Autonomous Flight Engineer Nanodegree Program ##
+1. [Flying Car Nanodegree Program](https://www.udacity.com/course/flying-car-nanodegree--nd787)
+
+## Robotics Software Engineer Nanodegree Program ##
+1. [Robotics Software Engineer Nanodegree Program](https://www.udacity.com/course/robotics-software-engineer--nd209)
