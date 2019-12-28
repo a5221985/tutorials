@@ -1042,6 +1042,23 @@
 			1. Example:
 				1. A module might be expecting a different input than it's actually getting from another module
 		2. Thorough set of unit tests give confidence in correctness of individual modules (less searching for bugs)
+4. If we are building a web search engine:
+	1. Two modules could be:
+		1. `getWebPage()` - downloads web pages
+		2. `extractWords()` - splits a page into its component words
+5. Specification:
+
+		/** @return	the contents of the web page downloaded from url
+		 */
+		public static String getWebPage(URL url) { ... }
+		
+		/** @return	the words in string s, in the order they appear,
+		 *				where a word is a continuous sequence of
+		 *			 	non-whitespace and non-punctuation characters
+		 */
+		public static List<String> extractWords(String s) { ... }
+		
+6. The methods methods can be used by another module `makeIndex()`
 
 #### Automated Testing and Regression Testing ####
 
