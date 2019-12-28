@@ -859,13 +859,45 @@
 					1. (a,b) = (1,2) to cover a < b
 					2. (a,b) = (9,9) to cover a = b
 					3. (a,b) = (-5,-6) to cover a > b
-				3. Include boundaries in the Partition
-					1. Bugs usually occure at boundaries between subdomains:
-						1. Examples:
-							1. 0 is a boundary between positive numbers and negative numbers
-							2. the maximum and minimum values of numeric types, like `int` and `double`
-							3. emptiness (the empty string, empty list, empty array) for collection types
-							4. the first and last element of a collection
+
+##### Include boundaries in the Partition #####
+1. Bugs usually occure at boundaries between subdomains:
+	1. Examples:
+		1. 0 is a boundary between positive numbers and negative numbers
+		2. the maximum and minimum values of numeric types, like `int` and `double`
+		3. emptiness (the empty string, empty list, empty array) for collection types
+		4. the first and last element of a collection
+2. Why bugs happen at boundaries?
+	1. Programmers often make off-by-one mistake (writing `<=` instead of `<` or initializing counter to 0 instead of 1)
+	2. Some boundaries need to be handled as special cases in code
+	3. Boundaries may be places of discontinuity in code's behavior
+		1. If `int` grows beyond it's max positive value - it abruptly becomes negative
+3. Solution:
+	1. Include boundaries as subdomains in partition (we must choose inputs from boundary)
+	2. Example: `max : int x int -> int`
+		1. Partion into:
+			1. Relationship between a and b
+				1. a < b
+				2. a = b
+				3. a > b
+			2. Value of a
+				1. a = 0
+				2. a < 0
+				3. a > 0
+				4. a = minimum integer
+				5. a = maximum integer
+			3. Value of b
+				1. b = 0
+				2. b > 0
+				3. b < 0
+				4. b = minimum integer
+				5. b = maximum integer
+		2. Pick test values that cover all classes:
+			1. (1,2) covers a < b, a > 0, b > 0
+			2. (-1, -3) covers a > b, a < 0, b < 0
+			3. (0, 0) covers a = b, a = 0, b = 0
+			4. (Integer.MIN_VALUE, Integer.MAX_VALUE) covers a < b, a = minint, b = maxint
+			5. (Integer.MAX_VALUE, Integer.MIN_VALUE) covers a > b, a = maxint, b = minint
 						
 
 #### Blackbox and Whitebox Testing ####
