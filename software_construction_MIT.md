@@ -1031,7 +1031,16 @@
 			1. Come up with test cases that execute the red colored lines until all red lines become green
 
 #### Unit Testing and Stubs ####
-1. 
+1. Well-tested program will have tests for every individual module (where a module is a method or a class) contained in it
+2. **Unit Test**: Test that tests individual module in isolation
+	1. Testing in isolation leads to easier debugging
+		1. If a unit test for a module fails, we can be confident that bug is found in that module (rather than everywhere in program)
+3. **Integration Test**: Tests a combination of modules (or entire program)
+	1. If a test fails, we may have to hunt for the bug (might be everywhere in the program)
+	2. They are still important
+		1. Because a program can fail at the connections (interfaces) between modules
+			1. Example:
+				1. A module might be expecting a different input than it's actually getting from another module
 
 #### Automated Testing and Regression Testing ####
 
