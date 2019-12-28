@@ -1114,6 +1114,22 @@
 		1. This can be regression test for the bug
 6. In practice, automated testing and regression testing are used in combination
 	1. Regression testing: practiced only if tests can be run often, automatically
+	2. If we already have automated testing, it can be used to prevent regressions
+7. **Automated Regression Testing**: best-practice of modern software engineering
+
+#### Summary ####
+1. Ideas:
+	1. Test-first programming: Write tests before you write code
+	2. Partitioning and boundaries for choosing test cases systematically
+	3. White box testing and statement coverage for filling out a test suite
+	4. Unit-testing each module, in isolation as much as possible
+	5. Automated regression testing to keep bugs from coming back
+2. Three key properties of good software as follows:
+	1. **Safe from bugs**: Testing is for finding bugs
+		1. Test-first programming - finding them as early as possible (immediately after it is introduced)
+	2. **Easy to understand**: Code review is important
+	3. **Ready for change**: By writing tests that only depend on behavior in spec.
+		1. Automated regression testing - helps keep bugs from coming back when changes are made
 
 ### Code Review ###
 #### Don't Repeat Yourself ####
