@@ -1091,6 +1091,29 @@
 #### Automated Testing and Regression Testing ####
 1. **Automated testing** - running tests and checking their resuts automatically
 	1. Test driver should not be interactive program that prompts for inputs and prints results for manual checking
+		1. Test driver should
+			1. Invoke module on fixed test cases
+			2. Automatically check that results are correct
+		2. Results should be:
+			1. All tests OK
+			2. These tests failred: ...
+	2. Testing frameworks for automated test suites: JUnit
+2. Automatic test generation is a hard problem - a subject of active computer science research
+3. When we modify code, we must rerun the tests - Prefents program from regressing (introducing other bugs when you fix new bugs or add new features)
+	1. Running all tests after every change is **regression testing**
+4. How to fix bugs using tests?
+	1. Take input that caused the bug and add it to automated test suite as a test case
+		1. This is a regression test
+			1. Helps populate test suite with good test cases (good test case elicits a bug)
+			2. Also protects code from reversions that re-introduce the bug
+				1. The bug is easy to make because it happend before
+5. Test-first debugging:
+	1. When a bug arises, write a test case for it that elicits it
+	2. Immediately add it to test suite
+	3. Once we fix the bug, all test cases should pass
+		1. This can be regression test for the bug
+6. In practice, automated testing and regression testing are used in combination
+	1. Regression testing: practiced only if tests can be run often, automatically
 
 ### Code Review ###
 #### Don't Repeat Yourself ####
