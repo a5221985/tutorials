@@ -49,6 +49,13 @@
 		2. Use SSL to encrypt and authenticate the connections between applications
 		3. Validate field values before assignment
 			1. Checking object invariants by using `readObject` method
+	5. NOTE:
+		1. Built-in-filters are provided for RMI
+			1. They are starting points only
+				1. Configure blacklists
+				2. Extend whitelist to add additional protection for application that uses RMI
+					1. [Built-in Filters](https://docs.oracle.com/en/java/javase/13/core/serialization-filtering1.html#GUID-80AD4DA1-6AA3-42C0-8172-DECF8FB8A841)
+		2. [Secure Coding Guidelines for Java SE](http://www.oracle.com/technetwork/java/seccodeguide-139067.html) - Other strategies
 
 ##### Java Serialization Filters #####
 ##### Whitelists and Blacklists #####
