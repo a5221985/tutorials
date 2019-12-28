@@ -898,9 +898,42 @@
 			3. (0, 0) covers a = b, a = 0, b = 0
 			4. (Integer.MIN_VALUE, Integer.MAX_VALUE) covers a < b, a = minint, b = maxint
 			5. (Integer.MAX_VALUE, Integer.MIN_VALUE) covers a > b, a = maxint, b = minint
-						
+
+##### Two Extremes for Covering the Partition #####
+1. After paritioning, we can choose how exhaustive we want test suite to be:
+	1. **Full Cartesian Product**
+		1. Every legal combination of partition dimensions is covered by one test case
+			1. `multiply` example: 7 x 7 = 49 test cases
+			2. `max` example:
+				1. Includes boundaries
+				2. three dimensions with
+					1. 3 parts
+					2. 5 parts
+					3. 5 parts
+				3. 3 x 5 x 5 = 75 test cases
+					1. In practice not all combinations are possible (no way to cover a < b, a = 0, b = 0, because a can't be simultaneously less than zero and equal to zero)
+	2. **Cover Each Part**
+		1. Every part of each dimension is covered by at least one test case (not necessarily every combination)
+			1. Reduces test cases to 5 for `max` if carefully chosen
+2. We may often have to strike compromize between the two extremes
+	1. Basis
+		1. Human judgement and caution
+		2. Whitebox testing
+		3. Code coverage tools
 
 #### Blackbox and Whitebox Testing ####
+1. Specification: 
+	1. Description of function's behavior
+	2. Types of parameters
+	3. Type of return value
+	4. Constraints
+	5. Relationships between the constraints
+
+##### Blackbox Testing #####
+1. Choosing test cases only from specification (not from implementation of function)
+	1. We have been doing this so far
+		1. Partitioned and looked at boundaries in `multiply` and `max` (not looked into actual code)
+
 #### Documenting Testing Strategies ####
 #### Coverage ####
 #### Unit Testing and Stubs ####
