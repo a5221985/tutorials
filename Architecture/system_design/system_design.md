@@ -24,4 +24,38 @@
 	2. Practice - Work with peers and friends and brainstorm to see what technologies we can use to solve the problem
 	3. Gaining knowledge - blogs, videos
 3. Basic features:
-	1. 
+	1. Features
+	2. Define APIs - what are the APIs
+		1. Who is to call
+	3. Availability
+		1. If host went down
+		2. If data center went down
+	4. Latency and Performance
+		1. Background job - latency is okay
+		2. Customer facing - latency should be minimal
+			1. Caching
+			2. ...
+	5. Scalability
+		1. Is it going to work for 1000 users or 1M users
+			1. Is it going to have good latency and performance
+	6. Durability
+		1. It may or may not be important
+		2. Data
+			1. Stored securely
+			2. Data is not lost
+			3. Data is not compromized
+		3. If designing database, this aspect is important
+	7. Class diagram
+		1. Object oriented principles
+			1. Design patterns
+	8. Security & Privacy
+		1. If designing an authentication system
+	9. Cost effectiveness
+		1. Is there any alternate solution
+			1. Discuss pros and cons
+
+### Concepts and Topics ###
+1. Vertical vs Horizontal Scaling
+	1. Vertical - add more memory, cpu, hardware (expensive but no distributed systems problem)
+	2. Horizontal - add multiple hosts (cheaper but complexity involved with distributed systems)
+2. CAP Theorem
