@@ -1058,9 +1058,39 @@
 		 */
 		public static List<String> extractWords(String s) { ... }
 		
-6. The methods methods can be used by another module `makeIndex()`
+6. The methods methods can be used by another module `makeIndex()` as part of web crawler that makes search engine's index:
+
+		/** @return	an index mapping a word to the set of URLs
+		 *				containing that word, for all webpages in the input set
+		 */
+		public static Map<String, Set<URL>> makeIndex(Set<URL> urls) {
+			...
+			for (URL url : urls) {
+				String page = getWebPage(url);
+				List<String> words = extractWords(page);
+				...
+			}
+			...
+		}
+		
+	1. Test suite should have:
+		1. unit tests just for `getWebPage()` that test it on various URLs
+		2. unit tests just for `extractWords()` that test it on various strings
+		3. unit tests for `makeIndex()` that test it on various sets of URLs
+7. Mistake:
+	1. Writing test cases for `extractWords()` that depend on test cases on `getWebPage()` to be correct
+8. Modules must be tested in isolation and by paritioning
+	1. Partitions to use web content for `extractWords()` could be reasonable but should not depend on `getWebPage()` which might be buggy!
+		1. Solution: Store web page content as a string and pass it directly to `extractWords()`
+9. For `makeIndex()` : If a test fails, the failure might have been in any of the methods called by `makeIndex()`
+	1. Solution: **stub** versions of the modules called by higher level module
+		1. Example: stub for `getWebPage()` wouldn't access internet, but return mock web page content irrespective of the URL passed
+		2. Stub for class is called [mock object](http://en.wikipedia.org/wiki/Mock_object)
+			1. Important technique for building large systems
 
 #### Automated Testing and Regression Testing ####
+1. **Automated testing** - running tests and checking their resuts automatically
+	1. Test driver should not be interactive program that prompts for inputs and prints results for manual checking
 
 ### Code Review ###
 #### Don't Repeat Yourself ####
