@@ -1041,6 +1041,7 @@
 		1. Because a program can fail at the connections (interfaces) between modules
 			1. Example:
 				1. A module might be expecting a different input than it's actually getting from another module
+		2. Thorough set of unit tests give confidence in correctness of individual modules (less searching for bugs)
 
 #### Automated Testing and Regression Testing ####
 
