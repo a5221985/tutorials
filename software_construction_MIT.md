@@ -1000,7 +1000,21 @@
 		// ... other test cases ...
 
 #### Coverage ####
-1. 
+1. A way to judge test suite is to ask how thoroughly it exercises program
+	1. It is called coverage
+2. Common kinds of coverage:
+	1. **Statement coverage**: is every statement run by some test case?
+	2. **Branch coverage**: for every `if` or `while` statement, are both true and false direction taken by some test case?
+	3. **Path coverage**: is every possible combination of branches (every path through the program) taken by some test case?
+3. Branch coverage is stronger (requires more tests) than statement coverage
+4. Path coverage is stronger than branch coverage
+	
+		path coverage >= branch coverage >= statement coverage
+		
+	1. Industry goal: 100% statement coverage (rarely achieved due to unreachable defensive code (like "should never get here" assertions)
+	2. Highly desirable: 100% branch coverage
+		1. Safety critical industry code has arduous criteria (e.g. "MCDC" - modified decision/condition coverage)
+	3. Infeasible: 100% path coverage (requires exponential-size test suites)
 
 #### Unit Testing and Stubs ####
 #### Automated Testing and Regression Testing ####
