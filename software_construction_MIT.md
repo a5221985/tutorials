@@ -1015,8 +1015,24 @@
 	2. Highly desirable: 100% branch coverage
 		1. Safety critical industry code has arduous criteria (e.g. "MCDC" - modified decision/condition coverage)
 	3. Infeasible: 100% path coverage (requires exponential-size test suites)
+5. Standard approach:
+	1. Add tests until test suite achieves adequate statement coverage
+		1. Every reachable statement in the program is executed by at least one test case
+		2. Usually measured by a code coverage tool
+			1. Counts the number of times each statement is run by test suite
+				1. This makes whitebox testing easy
+			2. Strategy:
+				1. Measure the coverage of black box tests
+				2. Add more test cases until all important statements are  executed
+6. Tools:
+	1. Eclemma - Eclipse plugin
+		1. Lines executed are colored green
+		2. Lines not yet covered are red
+			1. Come up with test cases that execute the red colored lines until all red lines become green
 
 #### Unit Testing and Stubs ####
+1. 
+
 #### Automated Testing and Regression Testing ####
 
 ### Code Review ###
