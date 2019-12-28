@@ -934,7 +934,38 @@
 	1. We have been doing this so far
 		1. Partitioned and looked at boundaries in `multiply` and `max` (not looked into actual code)
 
+##### Whitebox Testing #####
+1. Also called glassbox testing
+2. It is choosing test cases with knowledge of how function is actually implemented
+	1. Example:
+		1. If implementation selects different algorithms based on input (then partitioning is according to those domains)
+		2. If implementation keeps an internal cache that remembers answers to previous inputs (we should test repeated inputs)
+3. Whitebox testing should not include specific implementation behavior that is not specifically called for by spec
+	1. Example: If spec says "throws an exception if the input is poorly formatted"
+		1. Test shouldn't check specifically for `NullPointerException` (this could be the current implementation and a different implementation might throw a different exception)
+		2. Spec in this case allows any exception to be thrown
+			1. Test case should be general to preserve implementor's freedom
+
 #### Documenting Testing Strategies ####
+1. Document the strategy at the top of the test classes:
+
+		/**
+		 * Reverse the end of a string.
+		 * 
+		 * For example:
+		 * 		reverseEnd("Hello, world", 5)
+		 * 	 	returns "Hellodlrow ,"
+		 * 	  
+		 * With start = 0, reverses the entire text.
+		 * With start == text.length(), reverses nothing.
+		 * 
+		 * @param text non-null String that will have
+		 * 				  its end reversed
+		 * 	@param start the index at which the
+		 *  			   remainder of the input is
+		 *  			   reversed, requires 0 <=
+		 
+
 #### Coverage ####
 #### Unit Testing and Stubs ####
 #### Automated Testing and Regression Testing ####
