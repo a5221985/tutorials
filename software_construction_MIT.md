@@ -947,26 +947,61 @@
 			1. Test case should be general to preserve implementor's freedom
 
 #### Documenting Testing Strategies ####
-1. Document the strategy at the top of the test classes:
+1. Specification is on top of the class
 
 		/**
-		 * Reverse the end of a string.
+		 *	Reverse the end of a string.
 		 * 
-		 * For example:
+		 *	For example:
 		 * 		reverseEnd("Hello, world", 5)
 		 * 	 	returns "Hellodlrow ,"
 		 * 	  
-		 * With start = 0, reverses the entire text.
-		 * With start == text.length(), reverses nothing.
+		 *	With start = 0, reverses the entire text.
+		 *	With start == text.length(), reverses nothing.
 		 * 
-		 * @param text non-null String that will have
-		 * 				  its end reversed
-		 * 	@param start the index at which the
-		 *  			   remainder of the input is
-		 *  			   reversed, requires 0 <=
+		 *	@param		text	non-null String that will have
+		 * 				  		its end reversed
+		 *	@param		start	the index at which the
+		 *  					remainder of the input is
+		 *  					reversed, requires 0 <=
+		 *  					start <= text.length
+		 *	@return	input text with the substring from
+		 * 				start to the end of the string
+		 * 			 	reversed
+		 */
+		 static String reverseEnd(String text, int start);
 		 
+1. Document the strategy at the top of the test classes:
+
+		/*
+		 *	Testing strategy
+		 * 
+		 *	Partition the inputs as follows:
+		 *	text.length():			0, 1, > 1
+		 *	start:						0, 1, 1 < start < text.length(),
+		 * 								text.length() - 1, text.length()
+		 * 	text.length() - start:	0, 1, even > 1 odd > 1
+		 *  
+		 *	Include even- and odd-length reversals because
+		 *	only odd has a middle element that doesn't move.
+		 * 
+		 *	Exhaustive Cartesian coverage of partitions.
+		 */
+		 
+2. Document how each test case was chosen, including white box tests:
+
+		// covers	test.length() = 0,
+		//			start = 0 = text.length(),
+		//			text.length() - start = 0
+		@Test public void testEmpty() {
+			assertEquals("", reverseEnd("", 0));
+		}
+		
+		// ... other test cases ...
 
 #### Coverage ####
+1. 
+
 #### Unit Testing and Stubs ####
 #### Automated Testing and Regression Testing ####
 
