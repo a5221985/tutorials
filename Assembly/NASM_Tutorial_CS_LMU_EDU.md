@@ -572,7 +572,15 @@
 	1. `nasm -felf64 echo.asm && gcc echo.o && ./a.out dog 22 -zzz "hi there"`
 
 ## A Longer Example ##
+1. Program to compute x^y
+
 ## Floating Point Instructions ##
+1. Floating point arguments go into `xmm` registers
+2. Function for summing values in double array
+
+		; -----------------------------------------------------------
+		; A 64-bit function that returns the sum of the elements in a 
+
 ## Data Sections ##
 ## Recursion ##
 ## SIMD Parallelism ##
