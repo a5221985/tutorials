@@ -262,6 +262,22 @@
 	4. Keeps messages ordered inside partition of a topic
 8. NGINX/ HAProxy
 	1. Very efficient load balancers
+	2. NGINX:
+		1. Can manage 1000s or 10s of thousands of clients from a single instance
 10. Solr, Elasticsearch
-11. 
+	1. Search platforms on top of lucene
+	2. Highly available
+	3. Highly scalable
+	4. Fault tolerant
+	5. Full text search
+11. Blobstore like Amazon S3
+	1. For big pictures, big files to be stored on cloud
+12. Docker - container engine - used to run distributed applications - it can run on laptop or data center or on cloud
+	1. Kubernetes/ Mesos
+		1. Used to manage and coordinate containers
+13. Hadoop/ Spark (faster version - does map-reduce in memory) - Used for Map-Reduce
+	1. HDFS
+		1. Java Based File System
+			1. Distributed and fault tolerent
+		2. Hadoop relies on HDFS
 		
