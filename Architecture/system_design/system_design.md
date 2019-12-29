@@ -181,5 +181,10 @@
 			1. Uses HTTP URI to do the routing
 			2. Most LBs operate at this level
 12. CNSs & Edge
-	1. 
+	1. CDNs: Netflix puts the movies in CDNs close to you
+		1. Streaming performance and latency is improved
+	2. Edge:
+		1. Processing is performed close to the end user
+		2. It has a dedicated network from Edge to DC (general internet is not used for routing)
+13. 
 		
