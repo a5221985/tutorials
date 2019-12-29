@@ -279,5 +279,8 @@
 	1. HDFS
 		1. Java Based File System
 			1. Distributed and fault tolerent
-		2. Hadoop relies on HDFS
+		2. Hadoop relies on HDFS for it's processing
+
+## How to Prepare for System Design Interviews ##
+1. 
 		
