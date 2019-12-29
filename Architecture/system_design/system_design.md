@@ -282,5 +282,19 @@
 		2. Hadoop relies on HDFS for it's processing
 
 ## How to Prepare for System Design Interviews ##
-1. 
+1. How to prepare
+	1. Why System Design Interview
+		1. Technical ability to lead a team (I might need to guide juniors and colleagues)
+			1. Guide to solve problem
+		2. Problem solving
+		3. Design skills
+	2. If experience is more than 4 years and for senior role (atleast one round)
+	3. Brush up below mentioned skills
+		1. Technical ability to lead a team
+		2. Problem solving skills
+		3. Design skills
+	4. There are many possible solutions to a given problem
+		1. Interviewers may have a solution in mind
+		2. Treat them as colleague and explain the design choices
+2. How to tackle system design interview
 		
