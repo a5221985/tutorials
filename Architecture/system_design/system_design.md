@@ -171,5 +171,15 @@
 	1. Asymmetric - computationally more expensive
 		1. Must be used to send small amounts of data
 		2. Public-private key encryption
-	2. 
+	2. Symmetric key - AES encryption
+11. Load Balancers:
+	1. Delegate requests to servers
+		1. Based on round robbin or load average
+	2. Load balancing can be done at (Levels for OSI model)
+		1. L4 - considers both client and destination IP addresses and port numbers (to do routing)
+		2. L7 - HTTP
+			1. Uses HTTP URI to do the routing
+			2. Most LBs operate at this level
+12. CNSs & Edge
+	1. 
 		
