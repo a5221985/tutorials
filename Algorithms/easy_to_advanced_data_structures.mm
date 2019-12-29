@@ -4104,7 +4104,15 @@
 </node>
 </node>
 </node>
-<node CREATED="1567047877084" ID="ID_1344116679" MODIFIED="1567047883639" TEXT="Hash table quadratic probing"/>
+<node CREATED="1567047877084" ID="ID_1344116679" MODIFIED="1567047883639" TEXT="Hash table quadratic probing">
+<node CREATED="1577633773588" ID="ID_1117252357" MODIFIED="1577633779864" TEXT="What is quadratic probing?">
+<node CREATED="1577633780979" ID="ID_1930003366" MODIFIED="1577633797071" TEXT="QP is a probing method which probes according to a quadratic formula, specifically:">
+<node CREATED="1577633797512" ID="ID_372367502" MODIFIED="1577633835920" TEXT="P(x) = ax^2 + bx + c where a,b,c are constants and a != 0 (otherwise we have linear probing) (Note: The constant c is obsolete, do you know why?)">
+<node CREATED="1577635255432" ID="ID_1590497890" MODIFIED="1577635286822" TEXT="However, as we previously saw not all quadratic functions are viable because they are unable to produce a cycle of order N. We will need some way to handle this."/>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047884522" ID="ID_1596198472" MODIFIED="1567047889979" TEXT="Hash table double hashing"/>
 <node CREATED="1567047890930" ID="ID_422156043" MODIFIED="1567047899043" TEXT="Hash table removing key-value pairs"/>
 <node CREATED="1567047903541" ID="ID_1761414486" MODIFIED="1567047910266" TEXT="Hash table open addressing source code"/>
