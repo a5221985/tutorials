@@ -132,5 +132,29 @@
 			2. Latency
 			3. Scale
 11. Random vs Sequential Read/ Write on Disk
+	1. Random is very slow for disk
+		1. Must be avoided
+	2. Sequential is amazingly fast
+		1. If using Disk, design the system around sequential reads and writes
+12. HTTP vs HTTP2 vs Websocket
+	1. HTTP2: 
+		1. Improvements over HTTP
+			1. Multiple requests over single connection
+	2. Websocket
+		1. Bidirectional communication between client and server
+	3. Know the differences and inner workings
+13. TCP/IP Model
+	1. 4 layers
+		1. Know what each layer does
+14. IPV4 vs IPV6
+	1. IPV4 - 32 bit addresses
+	2. IPV6 - 128 bit addresses
+	3. How IP routing works
+15. TCP vs UDP
+	1. TCP - connection oriented reliable
+	2. UDP - Unreliable connection
+		1. Fast but may lose packets
+			1. Video streaming
+16. DNS Lookup
 	1. 
 		
