@@ -215,5 +215,45 @@
 	1. Java comes built in
 	2. C/C++ depend on platform specific implementation
 
-## 
+## Implementations of the Above Concepts - Used in high scale systems ##
+1. Cassandra
+	1. Wide column highly scalable database
+	2. Uses:
+		1. Simple key-value storage
+		2. Time series data
+		3. Traditional rows with large number of columns
+	3. Can provide both strong and eventual consistency
+	4. Uses consistent caching to shard data
+	5. Gossipping is used to keep all nodes informed about clustering
+2. MongoDB/Couchbase
+	1. JSON like structure
+	2. ACID properties at document level
+	3. Scale very well
+3. MySQL
+	1. Many tables with relationships can be modelled
+	2. Full ACID support
+	3. Has Master-Slave architecture
+		1. It scales very well
+4. Memcached/ Redis
+	1. Distributed caches
+	2. They hold data in memory
+	3. Memcached - simple and fast data storage
+	4. Redis - key-value storage but does other things
+		1. Can be setup as cluster for
+			1. Availability
+			2. Replication
+		2. It can flush data on hard-drive if we configure it to do so
+	5. Things to remember:
+		1. They are never the sources of truth
+		2. They can hold only limited data
+			1. Limited by memory
+6. Zookeeper
+	1. Centralized configuration management tool
+	2. Can be used for leader election
+	3. Can be used for distributed locking
+7. Kafka
+8. NGINX
+9. HAProxy
+10. Solr, Elasticsearch
+11. 
 		
