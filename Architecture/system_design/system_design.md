@@ -58,10 +58,20 @@
 1. Vertical vs Horizontal Scaling
 	1. Vertical - add more memory, cpu, hardware (expensive but no distributed systems problem)
 	2. Horizontal - add multiple hosts (cheaper but complexity involved with distributed systems) - easier to add hosts
-2. CAP Theorem
+2. CAP Theorem - we can achieve only two of the following
 	1. Consistency
 		1. Read has most recent write
 	2. Availability
 		1. Might or might not be the most recent write
-	3. Partial Tollerence
+	3. Partition Tollerence
 		1. Between two nodes, we could be dropping network packets
+	4. We could choose consistency of availability
+		1. SQL DB: Data is less available, the data is always consistent
+		2. NoSQL DB: Data is more available but it is less consistent (if it is configured that way)
+3. ACID vs BASE:
+	1. ACID:
+		1. Atomicity
+		2. Consistency
+		3. Integrity
+		4. 
+		
