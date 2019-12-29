@@ -4028,6 +4028,27 @@
 </node>
 </node>
 </node>
+<node CREATED="1577620181008" ID="ID_395596916" MODIFIED="1577620249775" TEXT="If our linear function is: P(x) = 3x, H(k) = 4, and table size is nine (N = 9) we end up with the following cycle occurring:g:">
+<node CREATED="1577620250046" ID="ID_1916993484" MODIFIED="1577620258598" TEXT="H(k) + P(0) mod N = 4"/>
+<node CREATED="1577620258822" ID="ID_1092062" MODIFIED="1577620270234" TEXT="H(k) + P(1) mod N = 7"/>
+<node CREATED="1577620270473" ID="ID_55739188" MODIFIED="1577620284757" TEXT="H(k) + P(2) mod N = 1"/>
+<node CREATED="1577620285094" ID="ID_1912421457" MODIFIED="1577620297886" TEXT="H(k) + P(3) mod N = 4"/>
+<node CREATED="1577620298790" ID="ID_279494917" MODIFIED="1577620299694" TEXT="..."/>
+</node>
+<node CREATED="1577620337789" ID="ID_148960283" MODIFIED="1577620360735" TEXT="The cycle {4,7,1} makes it impossible to reach buckets {0,2,3,5,6,8}!">
+<node CREATED="1577620363639" ID="ID_1583601574" MODIFIED="1577620379047" TEXT="Causing infinite loop in our hash table if all the buckets 4, 7, and 1 were already occupied!"/>
+</node>
+<node CREATED="1577620418001" ID="ID_1516221096" MODIFIED="1577620436397" TEXT="Q: Which value(s) of the constant a in P(x) = ax produce a full cycle module N??">
+<node CREATED="1577620437316" ID="ID_1543377192" MODIFIED="1577620502262" TEXT="A: This happens when a and N are relatively prime. Two numbers are relatively prime if their Greatest Common Denominator (GCD) is equal to one. Hence, when GCD(a,N) = 1 the probing function P(x) be able to generate a complete cycle and we will always be able to find an empty bucket!"/>
+</node>
+<node CREATED="1577620632341" ID="ID_266375603" MODIFIED="1577620657755" TEXT="Suppose we have an originally empty hash table ans we want to insert some (ki,vi) pairs with LP and we selected our hash table to have:">
+<node CREATED="1577620658138" ID="ID_34004819" MODIFIED="1577620671115" TEXT="Probing function: P(x) = 6x"/>
+<node CREATED="1577620671356" ID="ID_1393257194" MODIFIED="1577620678034" TEXT="Fixed table size: N = 8"/>
+<node CREATED="1577620678963" ID="ID_1677260361" MODIFIED="1577620686891" TEXT="Max load factor: alpha = 0.667"/>
+<node CREATED="1577620687668" ID="ID_274216484" MODIFIED="1577620696802" TEXT="Threshold before resize = N * alpha = 6">
+<node CREATED="1577620749531" ID="ID_1432589682" MODIFIED="1577620762902" TEXT="GCD(6, 9) = 3 and not 1"/>
+</node>
+</node>
 </node>
 </node>
 </node>
