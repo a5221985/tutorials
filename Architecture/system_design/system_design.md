@@ -85,4 +85,52 @@
 		1. We cannot store it in one node of database (many nodes are required)
 	2. How do we shard or split data?
 		1. Each DB stores one portion
+		2. How to access?
+			1. Consistent hashing - very important concept
+5. Optimistic vs Pessimistic Locking:
+	1. DB transaction say
+		1. Optimistic locking: Don't acquire any lock but when we are about to commit a transaction, we check to see if no other transaction has updated the record we are working on
+		2. Pessimistic locking: Acquire all locks before hand and commit the transaction
+	2. Understand when to use which kind of locking mechanism
+6. Strong vs Eventual Consistency
+	1. Strong:
+		1. Reads will allways see the latest writes
+			1. Relational DBs use this
+	2. Eventual:
+		1. Reads will see some writes but eventually will see the latest writes
+			1. NoSQL can opt for this or strong
+		2. Higher availability
+7. Relational vs NoSQL Database
+	1. Relation DB: ACID properties
+	2. NoSQL: Scales better and has higher availability
+8. Types of NoSQL
+	1. Key-Value
+	2. Wide column db - row can have many different kind of columns and many columns
+	3. Document based db - semi structured data (XML, JSON)
+	4. Graph based db - entities with edges with relationships between entities (like a graph)
+9. Caching 
+	1. Speeds up requests
+		1. If some data is going to be used more frequently
+	2. Two types
+		1. Distributed cache - each node has a cache
+		2. Centralized cache - single central cache is shared
+	3. Consider the following:
+		1. Cache cannot be the source of truth
+		2. Cache data must be small (uses memory)
+		3. Eviction policies
+10. Data centers/ Racks/ Hosts
+	1. Need to know how data centers are architected and arranged today
+		1. Data center
+			1. Racks
+				1. Hosts
+	2. What is the latency if we are talking across racks or across hosts or across DCs
+	3. What can happen if hosts go down or racks go down or if DC goes down
+10. CPU/ Memory/ Hard drive/ Memory/ Network bandwidth
+	1. Limited resources
+		1. Need to consider how we can work around the limitations and improve
+			1. Throughput
+			2. Latency
+			3. Scale
+11. Random vs Sequential Read/ Write on Disk
+	1. 
 		
