@@ -186,5 +186,34 @@
 	2. Edge:
 		1. Processing is performed close to the end user
 		2. It has a dedicated network from Edge to DC (general internet is not used for routing)
-13. 
+13. Bloom Filters & Count-Min Sketch
+	1. Space efficient and Probabilistic Data Structures
+		1. Bloom Filter - can be used to detect if a member is a set or not
+			1. Can have false positive but never false negatives
+				1. If design can tolerate false positives
+		2. Count-Min Sketch - used to count frequency of events
+			1. Out of millions of events we are interested in specific events (not keep track of all events)
+				1. Gives an answer close enough to the actual answer with some error rate
+14. Paxos:
+	1. Used for consensus over distributed hosts (know use cases that it solves)
+		1. Before - leader election
+15. Design Patterns & Object Oriented Design
+16. Virtual Machines & Containers
+	1. VM - a hardware emulator that can be used as any machine
+	2. Container - Used for running applications and dependencies in isolation
+		1. Used in production now
+17. Publisher/Subscriber over Queue
+	1. Publisher publishes a message and Subscriber consumes it
+	2. Very important
+	3. Customer facing requests should not be exposed to Pub/Sub system
+18. Map/Reduce
+	1. Distributed and Parallel Processing of large data
+		1. Map - used for filtering and sorting the data
+		2. Reduce - Summarizing the data
+	2. Big data field
+19. Multithreading, Concurrency, Locks, Synchronization, CAS (Compare and Set)
+	1. Java comes built in
+	2. C/C++ depend on platform specific implementation
+
+## 
 		
