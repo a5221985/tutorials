@@ -4099,6 +4099,9 @@
 </node>
 </node>
 </node>
+<node CREATED="1577622072499" ID="ID_769535602" MODIFIED="1577622097356" TEXT="Q: Sweet, I know how insertion works, now how do I remove key-value pairs from the hash table using open addressing?">
+<node CREATED="1577622103131" ID="ID_1475346986" MODIFIED="1577622116771" TEXT="A: This topic by itself mertis its own video (link in the description)."/>
+</node>
 </node>
 </node>
 <node CREATED="1567047877084" ID="ID_1344116679" MODIFIED="1567047883639" TEXT="Hash table quadratic probing"/>
