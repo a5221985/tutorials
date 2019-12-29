@@ -57,5 +57,11 @@
 ### Concepts and Topics ###
 1. Vertical vs Horizontal Scaling
 	1. Vertical - add more memory, cpu, hardware (expensive but no distributed systems problem)
-	2. Horizontal - add multiple hosts (cheaper but complexity involved with distributed systems)
+	2. Horizontal - add multiple hosts (cheaper but complexity involved with distributed systems) - easier to add hosts
 2. CAP Theorem
+	1. Consistency
+		1. Read has most recent write
+	2. Availability
+		1. Might or might not be the most recent write
+	3. Partial Tollerence
+		1. Between two nodes, we could be dropping network packets
