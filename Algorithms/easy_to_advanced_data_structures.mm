@@ -4111,6 +4111,18 @@
 <node CREATED="1577635255432" ID="ID_1590497890" MODIFIED="1577635286822" TEXT="However, as we previously saw not all quadratic functions are viable because they are unable to produce a cycle of order N. We will need some way to handle this."/>
 </node>
 </node>
+<node CREATED="1577635922948" ID="ID_706060464" MODIFIED="1577635927247" TEXT="Chaos with Cycles">
+<node CREATED="1577635928335" ID="ID_1814808605" MODIFIED="1577635979306" TEXT="Randomly selected QP functions have the issue that they easily produce short cycles. For example, if P(x) = 2x^2 + 2, H(k) = 4, and table size is nine (N  9) we end up with the following cycle occurring:">
+<node CREATED="1577635981280" ID="ID_1961313944" MODIFIED="1577635990408" TEXT="H(k) + P(0) mod N = 4"/>
+<node CREATED="1577636000427" ID="ID_1022512573" MODIFIED="1577636008442" TEXT="H(k) + P(1) mod N = 7"/>
+<node CREATED="1577636009870" ID="ID_1697740604" MODIFIED="1577636018130" TEXT="H(k) + P(2) mod N = 4"/>
+<node CREATED="1577636018880" ID="ID_1385709185" MODIFIED="1577636027322" TEXT="H(k) + P(3) mod N = 7"/>
+<node CREATED="1577636027897" ID="ID_1063380178" MODIFIED="1577636035051" TEXT="H(k) + P(4) mod N = 4"/>
+<node CREATED="1577636035428" ID="ID_1191560945" MODIFIED="1577636042715" TEXT="H(k) + P(5) mod N = 7"/>
+</node>
+<node CREATED="1577636046489" ID="ID_1436287773" MODIFIED="1577636073427" TEXT="The cycle {4,7} makes it impossible to reach buckets {0,1,2,3,5,6,8}!"/>
+<node CREATED="1577636074362" ID="ID_77422493" MODIFIED="1577636091899" TEXT="This would cause an infinite loop in our hash table if the buckets 4 and 7 were already occupied!"/>
+</node>
 </node>
 </node>
 <node CREATED="1567047884522" ID="ID_1596198472" MODIFIED="1567047889979" TEXT="Hash table double hashing"/>
