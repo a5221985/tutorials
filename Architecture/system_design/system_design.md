@@ -251,9 +251,17 @@
 	1. Centralized configuration management tool
 	2. Can be used for leader election
 	3. Can be used for distributed locking
+	4. Scales very well for reads but does not scale so well for writes
+	5. Maintains data in memory - cannot store too much data
+	6. Good for
+		1. Small amount of data that must be available and has a lot of reads
 7. Kafka
-8. NGINX
-9. HAProxy
+	1. Fault tollerent highly available queue
+	2. Used in Pub/Sub streaming applications
+	3. Delivers messages exactly once
+	4. Keeps messages ordered inside partition of a topic
+8. NGINX/ HAProxy
+	1. Very efficient load balancers
 10. Solr, Elasticsearch
 11. 
 		
