@@ -4046,7 +4046,56 @@
 <node CREATED="1577620671356" ID="ID_1393257194" MODIFIED="1577620678034" TEXT="Fixed table size: N = 8"/>
 <node CREATED="1577620678963" ID="ID_1677260361" MODIFIED="1577620686891" TEXT="Max load factor: alpha = 0.667"/>
 <node CREATED="1577620687668" ID="ID_274216484" MODIFIED="1577620696802" TEXT="Threshold before resize = N * alpha = 6">
-<node CREATED="1577620749531" ID="ID_1432589682" MODIFIED="1577620762902" TEXT="GCD(6, 9) = 3 and not 1"/>
+<node CREATED="1577620749531" ID="ID_1432589682" MODIFIED="1577620762902" TEXT="GCD(6, 9) = 3 and not 1">
+<node CREATED="1577620952802" ID="ID_1036035522" MODIFIED="1577620982944" TEXT="Most likely to cause cycle"/>
+</node>
+</node>
+</node>
+<node CREATED="1577621010764" ID="ID_1068529528" MODIFIED="1577621031654" TEXT="A common choice for P(x) is P(x) = 1x since GCD(N, 1) = 1 no matter the choice of N (table size)">
+<node CREATED="1577621468823" ID="ID_1541073778" MODIFIED="1577621503175" TEXT="Suppose we have an originally empty hash table and we want to insert some (ki,vi) pairs with LP and we welected our hash table to have:">
+<node CREATED="1577621503749" ID="ID_1776369745" MODIFIED="1577621563494">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Probing function: P(x) = 5x
+    </p>
+    <p>
+      Fixed table size: N = 12
+    </p>
+    <p>
+      Max load factor: @ = 0.35
+    </p>
+    <p>
+      Threshold before resize = N * alpha = 4
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      GCD(12, 5) = 1 so no cycle should occur!
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1577621576440" ID="ID_1662673749" MODIFIED="1577621592784" TEXT="H(k1) + P(0) mod 12 = 10"/>
+<node CREATED="1577621596789" ID="ID_946609011" MODIFIED="1577621612927" TEXT="H(k2) + P(0) mod 12 = 8"/>
+<node CREATED="1577621613182" ID="ID_1753935856" MODIFIED="1577621624074" TEXT="H(k3) + P(1) mod 12 = 3"/>
+<node CREATED="1577621626329" ID="ID_1341414478" MODIFIED="1577621651265" TEXT="H(k4) + P(3) mod 12 = 1"/>
+<node CREATED="1577621669430" ID="ID_1899446043" MODIFIED="1577621678655" TEXT="threshold = 4">
+<node CREATED="1577621681525" ID="ID_380790446" MODIFIED="1577621685989" TEXT="Resizing the table">
+<node CREATED="1577621695874" ID="ID_1968764159" MODIFIED="1577621753722" TEXT="Before we insert the next (ki,vi) pair, notice that we have reached the threshold value, so we need to grow the table. Usually this is done in some exponential fashion such as doubling the table size,Whatever you do make sure GCD(N,a) = 1 still holds.">
+<node CREATED="1577621848015" ID="ID_771616597" MODIFIED="1577621878275" TEXT="After doubling N = 24 alpha is constant so it&apos;s still 0.35 New threshold value = N * alpha = 8, The probing function P(x) does not change.">
+<node CREATED="1577621919175" ID="ID_823893828" MODIFIED="1577621947371" TEXT="Upon allocating memory for a new table we need to insert the contents of the old table into the new table.">
+<node CREATED="1577621978457" ID="ID_295068800" MODIFIED="1577621989693" TEXT="scan all positions and re-calculate index and copy"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
