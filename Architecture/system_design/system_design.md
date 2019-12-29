@@ -156,5 +156,20 @@
 		1. Fast but may lose packets
 			1. Video streaming
 16. DNS Lookup
-	1. 
+	1. Translates address into IP address
+		1. Hierarchy
+		2. Caching
+17. HTTPS/TLS
+	1. TLS: Transport layer security
+		1. Used to secure communication between client and server (privacy and data integrity)
+		2. If used with HTTP - HTTPS
+18. Public Key Infrastructure & Certificate Authority
+	1. Used to manage public key and digital certificates
+	2. CA - Trusted entity which tells us if public key is from the correct party
+		1. If facebook is sending, CA tells that it is definitely from facebook and not from a middle attacker
+19. Symmetric vs Asymmetric Encryption
+	1. Asymmetric - computationally more expensive
+		1. Must be used to send small amounts of data
+		2. Public-private key encryption
+	2. 
 		
