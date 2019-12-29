@@ -2102,8 +2102,7 @@
       find(17)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -2135,8 +2134,7 @@
       &#160;&#160;&#160;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1576465974504" ID="ID_1798276195" MODIFIED="1576465981728" TEXT="preorder prints before the recursive calls"/>
 </node>
 <node CREATED="1576465882978" ID="ID_224051724" MODIFIED="1576465927189">
@@ -2161,8 +2159,7 @@
       &#160;&#160;&#160;&#160;inorder(node.right)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1576466616583" ID="ID_1537868948" MODIFIED="1576466625668" TEXT="inorder prints between the recursive calls"/>
 </node>
 <node CREATED="1576465930831" ID="ID_1557013778" MODIFIED="1576465968941">
@@ -2187,8 +2184,7 @@
       &#160;&#160;&#160;&#160;print(node.value)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1576466626823" ID="ID_558349930" MODIFIED="1576466637195" TEXT="postorder prints after the recursive calls">
 <node CREATED="1576467243398" ID="ID_655833740" MODIFIED="1576467372771">
 <richcontent TYPE="NODE"><html>
@@ -2218,8 +2214,7 @@
       Order: A, B, D, H, I&#160;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1576551909520" ID="ID_1037845328" MODIFIED="1576551914682" TEXT="Inorder traversal">
@@ -2898,8 +2893,7 @@
       <font size="1">&#160;&#160;&#160;&#160;}</font>
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -3031,8 +3025,7 @@
       </li>
     </ol>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1576719409990" ID="ID_1774369679" MODIFIED="1576719416996" TEXT="What is a hash table?">
 <node CREATED="1576719417243" ID="ID_1459234231" MODIFIED="1576719441447" TEXT="A hash table (HT) is a data structure that provides a mapping from keys to values using a technique calling hashing.">
@@ -3061,8 +3054,7 @@
       &quot;Leah&quot; -&gt; &quot;purple&quot;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1576719542482" ID="ID_353482957" MODIFIED="1576719549546" TEXT="We refer to these as key-value pairs"/>
@@ -3094,8 +3086,7 @@
       H(8) = (64 - 48 + 9) mod 10 = 5
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1576719981847" ID="ID_324076642" MODIFIED="1576720006195" TEXT="We can also define hash functions for arbitrary objects such as strings, list, tuples, multi data objects, etc...">
@@ -3119,8 +3110,7 @@
       ASCII('Z') = 90
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1576720080138" ID="ID_309025568" MODIFIED="1576720129560">
 <richcontent TYPE="NODE"><html>
@@ -3144,8 +3134,7 @@
       &#160;&#160;&#160;&#160;return sum mod 50
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1576720271210" ID="ID_1995836199" MODIFIED="1576720289259" TEXT="There are an infinite number of possible valid hash functions H(person), here is one:">
 <node CREATED="1576720290849" ID="ID_1284309586" MODIFIED="1576720340812">
@@ -3173,8 +3162,7 @@
       &#160;&#160;&#160;&#160;return hash mod 6
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -3212,8 +3200,7 @@
       &#160;&#160;&#160;&#160;return (x + counter) mod 13
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1576722300228" ID="ID_1536661597" MODIFIED="1576722324692" TEXT="H(5) = 6 but H(5) = 7 as well"/>
 </node>
 </node>
@@ -3865,8 +3852,7 @@
       <font size="1">} </font>
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1567047863123" ID="ID_1180079256" MODIFIED="1567047869247" TEXT="Hash table open addressing">
@@ -3950,8 +3936,7 @@
       Where H(k) is the hash for the key k and P(k,x) is the probing function
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1577370613045" ID="ID_372683697" MODIFIED="1577370616078" TEXT="Chaos with cycles">
@@ -3961,7 +3946,24 @@
 <node CREATED="1577370748803" ID="ID_582834116" MODIFIED="1577370750674" TEXT="Example:">
 <node CREATED="1577370750864" ID="ID_214027381" MODIFIED="1577370791996" TEXT="k1,v1, null, null, k2,v2, k3,v3,k4,v4, null, null, k5,v5, null, k6,v6, null">
 <node CREATED="1577370793485" ID="ID_115437890" MODIFIED="1577370807477" TEXT="Assume the probing sequence used is P(x) = 4x"/>
-<node CREATED="1577370807837" ID="ID_1577758174" MODIFIED="1577370823814" TEXT="Now suppose we want to insert (k,v) into the table and H(k) = 8"/>
+<node CREATED="1577370807837" ID="ID_1577758174" MODIFIED="1577370823814" TEXT="Now suppose we want to insert (k,v) into the table and H(k) = 8">
+<node CREATED="1577619298033" ID="ID_398640541" MODIFIED="1577619408682" TEXT="index = H(k) = 8 + 0 mode 12 = 8"/>
+<node CREATED="1577619310186" ID="ID_1092679344" MODIFIED="1577619372033" TEXT="index = H(k) + P(1) = 8 + 4 mod 12 = 0"/>
+<node CREATED="1577619327318" ID="ID_427905433" MODIFIED="1577619364816" TEXT="index = H(k) + P(2) = 8 + 8 mod 12 = 4"/>
+<node CREATED="1577619382448" ID="ID_821101256" MODIFIED="1577619402104" TEXT="index = H(k) + P(3) = 8 + 12 mod 12 = 8"/>
+<node CREATED="1577619410482" ID="ID_1492200526" MODIFIED="1577619412274" TEXT="..."/>
+</node>
+<node CREATED="1577619441330" ID="ID_1927049410" MODIFIED="1577619451265" TEXT="We have a cycle even though there are empty slots"/>
+</node>
+</node>
+<node CREATED="1577619458384" ID="ID_1105828211" MODIFIED="1577619480425" TEXT="Q: So that&apos;s concerning, how do we handle probing functions which produce cycles shorter than the table size?">
+<node CREATED="1577619484985" ID="ID_1834393274" MODIFIED="1577619533375" TEXT="A: In general the concesnus is that we don&apos;t handle this issue, instead we avoid it altogether by restricting our domain of probing functions to those which produce a cycle of exactly length N*">
+<node CREATED="1577619536883" ID="ID_1433164446" MODIFIED="1577619556246" TEXT="* There are a few exceptions with special proprties that can produce shorter cycles."/>
+</node>
+</node>
+<node CREATED="1577619616414" ID="ID_383019877" MODIFIED="1577619620653" TEXT="Chaos with cycles">
+<node CREATED="1577619624190" ID="ID_1674799779" MODIFIED="1577619667581" TEXT="Techniques such as linear probing, quadratic probing and double hashing are all subject to the issue of causing cycles which is why the probing functions used with these methods are very specific. This is a large topic that will be the focus of the next few vidoes."/>
+<node CREATED="1577619669391" ID="ID_1618509427" MODIFIED="1577619713511" TEXT="Notice that open addressing is very sensitive to the hashing function and probing function used. This is not something you have to worry about (as much) if you are using separate chaining as a collision resolution method."/>
 </node>
 </node>
 </node>
@@ -3969,8 +3971,66 @@
 </node>
 </node>
 </node>
+<node CREATED="1567047870330" ID="ID_146250376" MODIFIED="1567047875833" TEXT="Hash table linear probing">
+<node CREATED="1577619920151" ID="ID_1851249096" MODIFIED="1577619926308" TEXT="Open addressing main idea">
+<node CREATED="1577619926872" ID="ID_1147539272" MODIFIED="1577620008347">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      General insertion method for open addressing on a table of size N goes as follows:
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      x := 1
+    </p>
+    <p>
+      keyHash := H(k)
+    </p>
+    <p>
+      index := keyHash
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      while table[index] != null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;index = (keyHash + P(k,x)) mod N
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;x = x + 1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      insert (k, v) at table[index]
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      where H(k) is the hash for the key k and P(k,x) is the probing function
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1577620034317" ID="ID_1379463749" MODIFIED="1577620042229" TEXT="What is linear probing (LP)?">
+<node CREATED="1577620043130" ID="ID_1332539606" MODIFIED="1577620061852" TEXT="LP is a probing method which probes according to a lnear formula, specifically:">
+<node CREATED="1577620062411" ID="ID_1116627164" MODIFIED="1577620099102" TEXT="P(x) = ax + b where a (!=0), be are constants (Note: The constant b is obsolete, do you know why?)">
+<node CREATED="1577620129162" ID="ID_1934365427" MODIFIED="1577620158588" TEXT="However, as we previously saw not all linear functions are viable because they are unable to produce a cycle of order N. We will need some way to handle this."/>
 </node>
-<node CREATED="1567047870330" ID="ID_146250376" MODIFIED="1567047875833" TEXT="Hash table linear probing"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047877084" ID="ID_1344116679" MODIFIED="1567047883639" TEXT="Hash table quadratic probing"/>
 <node CREATED="1567047884522" ID="ID_1596198472" MODIFIED="1567047889979" TEXT="Hash table double hashing"/>
 <node CREATED="1567047890930" ID="ID_422156043" MODIFIED="1567047899043" TEXT="Hash table removing key-value pairs"/>
