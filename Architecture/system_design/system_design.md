@@ -69,9 +69,20 @@
 		1. SQL DB: Data is less available, the data is always consistent
 		2. NoSQL DB: Data is more available but it is less consistent (if it is configured that way)
 3. ACID vs BASE:
-	1. ACID:
+	1. ACID: (Relational DBs)
 		1. Atomicity
 		2. Consistency
-		3. Integrity
-		4. 
+		3. Isolation
+		4. Durability
+	2. BASE: (more for NoSQL)
+		1. Basically
+		2. Available
+		3. Soft-State
+		4. Eventual Consistency
+	3. If we are using NoSQL, we must decide which part of ACID properties we are willing to sacrifice
+4. Partitioning/ Sharding Data
+	1. Trillions of records:
+		1. We cannot store it in one node of database (many nodes are required)
+	2. How do we shard or split data?
+		1. Each DB stores one portion
 		
