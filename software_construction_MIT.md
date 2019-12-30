@@ -1177,6 +1177,27 @@
 	1. Not updated for latest versions
 	2. Specific advices:
 		1. Opening brace should be at the end of the line that begins the compound statement
+		2. Closing brace should beging at line and be indented to the beginning of compound statement
+
+				public static void main(String[] args) { // point 1
+					// ...
+				} // point 2
+		
+5. Guidelines:
+	1. Style is not important (but follow conventions of the project working on)
+	2. Be self consistent
+	3. Be a team player
+6. Sensible rules:
+	1. Topic of the course
+	2. Need to look for them when coding or reviewing other's code
+	3. It is not an exhaustive list
+	4. Other factors that help code review:
+		1. Specifications
+		2. Abstract Data Types with representation invariants
+		3. Concurrency and Thread safety
+
+##### Smelly Example #1 #####
+1. A bad code is often described as a bad smell that needs to be removed (Also called Code hygiene)
 
 #### Don't Repeat Yourself ####
 #### Comments Where Needed ####
