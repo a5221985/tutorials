@@ -1143,7 +1143,40 @@
 	2. General principles of good coding: things you can look for in every code review, regardless of programming language or program purpose
 
 #### Code Review ####
-1. 
+1. it is careful, systematic study of source code by people who are not original author of the code
+	1. It is like proofreading a term paper
+2. Two purposes of code review:
+	1. **Improving the code**:
+		1. Finding bugs
+		2. Anticipating possible bugs
+		3. Checking the clarity of code
+		4. Checking for consistency with project's style standards
+	2. **Improving the programmer**
+		1. It is an important way programmers learn and teach each other
+			1. About new language features
+			2. About changes in design of project
+			3. About coding standards
+			4. About new techniques
+		2. Open source projects:
+			1. Much conversation happens in the context of code reviews
+3. Widely practiced in open source projects
+	1. Apache
+	2. [Mozilla](http://blog.humphd.org/vocamus-1569/?p=1569)
+4. Widely practiced in industry
+	1. Google: Cannot push code into main repository until another entineer has signed off on it in code review
+5. [MIT Code Reviewing Document](https://ocw.mit.edu/ans7870/6/6.005/s16/general/code-review.html)
+
+##### Style Standards #####
+1. Most companies and large projects have coding style standards
+	1. [Google Java Style](http://google.github.io/styleguide/javaguide.html)
+2. They can be very detailed
+	1. Like how deep to indent
+	2. Where curly braces and parantheses should go
+3. They are a matter of taste and style
+4. [Java General Style Guide](http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html)
+	1. Not updated for latest versions
+	2. Specific advices:
+		1. Opening brace should be at the end of the line that begins the compound statement
 
 #### Don't Repeat Yourself ####
 #### Comments Where Needed ####
