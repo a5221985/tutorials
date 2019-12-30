@@ -14,7 +14,7 @@
 ### Join Our Community on Slack! ###
 1. 
 
-### Get Matched to Other Entrepreneurs Uisng our Companion App ###
+### Get Matched to Other Entrepreneurs Using our Companion App ###
 ### Review Sheets, Activities, Resources - All in One PDF ###
 
 ## What is an Entrepreneur? ##
