@@ -1198,6 +1198,13 @@
 
 ##### Smelly Example #1 #####
 1. A bad code is often described as a bad smell that needs to be removed (Also called Code hygiene)
+2. Example: Smelly code
+
+		public static int dayOfYear(int month, int dayOfMonth, int year) {
+			if (month == 2) {
+				dayOfMonth += 31;
+			}
+		}
 
 #### Don't Repeat Yourself ####
 #### Comments Where Needed ####
