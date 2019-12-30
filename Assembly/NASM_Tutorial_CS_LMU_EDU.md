@@ -751,8 +751,31 @@
 
 		; void add_four_floats(float x[4], float y[4])
 		; x[i] += y[i] for i in range (0..4)
+		
+					global		add_four_floats
+					section	.text
+		add_four_floats:
+					movdqa		xmm0,	[rdi]			; all four values of x
+					movdqa		xmm1,	[rsi]			; all four values of y
+					addps		xmm0,	xmm1			; do all four sums in one shot
+					movdqa		[rdi],	xmm0
+					ret
+					
+	
+		#include <stdio.h>
+		void add_four_floats(float[], float[]);
+		
+		int main() {
+			float x[] = {-29.750, 244.333, 887.29, 48.1E22};
+			float y[] = {29.750, 199.333, -8.29, 22.1E23};
+			add_four_floats(x, y);
+			printf("%f\n%f\n%f\n%f\n", x[0], x[1], x[2], x[3]);
+			return 0;
+		}
 
 ## Saturated Arithmetic ##
+1. 
+
 ## Graphics ##
 ## Local Variables and Stack Frames ##
 ## Using NASM on macOS ##
