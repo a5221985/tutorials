@@ -595,7 +595,7 @@
 						addsd		xmm0, [rdi]		; add in the current array element
 						add			rdi, 8				; move to next array element
 						dec			rsi					; count down
-						jnz			next				if not done counting, continue
+						jnz			next				; if not done counting, continue
 			done:
 						ret								; return value already in xmm0
 
