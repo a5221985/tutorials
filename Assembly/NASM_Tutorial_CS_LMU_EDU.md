@@ -694,6 +694,11 @@
 			cvtsd2ss	reg32, xmmr/m32	; reg32 <-- floatToInt(xmmr/m32)
 
 ## Recursion ##
+1. While implementing recursive functions, we need to save registers carefully (because the same registers are overwritten when the function is called again and again)
+	1. Strategy: push registers which need to be preserved before and after call to recursive function
+
+			
+
 ## SIMD Parallelism ##
 ## Saturated Arithmetic ##
 ## Graphics ##
