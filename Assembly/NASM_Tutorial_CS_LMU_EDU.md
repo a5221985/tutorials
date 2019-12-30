@@ -598,8 +598,39 @@
 						jnz			next				; if not done counting, continue
 			done:
 						ret								; return value already in xmm0
+						
+	1. C Program:
+
+			/*
+			 * Illustrates how to call the sum function we wrote in assembly language
+			 */
+			 
+			#include <stdio.h>
+			#include <inttypes.h>
+			
+			double sum(double[], uint64_t);
+			
+			int main() {
+				double test[] = {
+					40.5, 26.7, 21.9, 1.5, -40.5, -23.4
+				};
+				printf("%20.7f\n", sum(test, 6));
+				printf("%20.7f\n", sum(test, 2));
+				printf("%20.7f\n", sum(test, 0));
+				printf("%20.7f\n", sum(test, 3));
+				return 0;
+			}
+			
+		1. Compilation and execution
+
+				nasm -felf64 sum.asm && gcc sum.o callsum.c && ./a.out
 
 ## Data Sections ##
+1. Text section is read only on most OSs, hence we might need data section
+2. `.data` is usually only for initialization in most OSs
+3. `.bss` is for un-initialized data
+4. Example: Program to average command line arguments (expected to be integers) - displays result as a floating point number
+
 ## Recursion ##
 ## SIMD Parallelism ##
 ## Saturated Arithmetic ##
