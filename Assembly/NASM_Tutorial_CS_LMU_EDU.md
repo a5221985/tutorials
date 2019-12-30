@@ -697,9 +697,45 @@
 1. While implementing recursive functions, we need to save registers carefully (because the same registers are overwritten when the function is called again and again)
 	1. Strategy: push registers which need to be preserved before and after call to recursive function
 
+			; -------------------------------------------------------
+			; An implementation of the recursive function:
+			;
+			;		uint64_t factorial(uint64_t n) {
+			;			return	(n <= 1)? 1: n * factorial(n - 1);
+			;		}
+			; -------------------------------------------------------
 			
+						global		factorial
+						section	.text
+			factorial:
+						cmp			rdi,		0
+						jne			calculate
+						mov			rax,		1
+						ret
+			calculate:
+						push		rdi
+						dec			rdi
+						call		factorial
+						pop			rdi
+						mul			rdi
+						ret
+						
+		1. C - function
+
+				#include <stdio.h>
+				#include <inttypes.h>
+				
+				int64_t factorial(int64_t);
+				
+				int main() {
+					for (int64_t i = 0; i < 20; i++)
+						printf("%ld! = %ld\n", i, factorial(i));
+					return 0;
+				}
 
 ## SIMD Parallelism ##
+1. 
+
 ## Saturated Arithmetic ##
 ## Graphics ##
 ## Local Variables and Stack Frames ##
