@@ -647,7 +647,51 @@
 			main:
 						dec			rdi					; argc-1, since we don't count program name
 						jz			nothingToAverage		
-						mov			[count],	rdi		; 
+						mov			[count],	rdi		; save number of real arguments
+			accumulate:
+						push		rdi					; save register across call to atoi
+						push		rsi
+						mov			rdi,	[rsi + rdi * 8]		; argv[rdi]
+						call		atoi				; now rax has the int value of arg
+						pop			rsi					; restore registers after atoi call
+						pop			rdi					; count down
+						add			[sum],	rax			; accumulate sum as we go
+						dec			rdi					; count down
+						jnz			accumulate		; more arguments?
+			average:
+						cvtsi2sd	xmm0,	[sum]
+						cvtsi2sd	xmm1,	[count]
+						divsd		xmm0,	xmm1		; xmm0 is sum/count
+						mov			rdi,	format		; 1st arg to printf
+						mov			rax,	1			; printf is varargs, there is 1 non-int argument
+						sum			rsp,	8			; align stack pointer
+						call		printf				; printf(format, sum/count)
+						add			rsp,	8			; restore stack pointer
+						ret
+						
+			nothingToAverage:
+						mov			rdi,	error
+						xor			rax,	rax
+						call		printf
+						ret
+						
+						section	.data
+			count:		dq			0
+			sum			dq			0
+			format:	db			"%g", 10, 0
+			error:		db			"There are no command line argument to average", 10, 0
+			
+	1. Compilation and execution:
+
+			nasm -felf64 average.asm && gcc average.o && ./a.out 19 8 21 -33
+			nasm -felf64 average.asm && gcc average.o && ./a.out
+			
+	2. Processor instructions that convert between integer and floating point value:
+
+			cvtsi2sd	xmmreg, r/m32		; xmmreg[63..0] <-- intToDouble(r/m32)
+			cvtsi2ss	xmmreg, r/m32		; xmmreg[31..0] <-- intToFloat(r/m32)
+			cvtsd2si	reg32, xmmr/m64	; reg32 <-- doubleToInt(xmmr/m64)
+			cvtsd2ss	reg32, xmmr/m32	; reg32 <-- floatToInt(xmmr/m32)
 
 ## Recursion ##
 ## SIMD Parallelism ##
