@@ -1132,6 +1132,19 @@
 		1. Automated regression testing - helps keep bugs from coming back when changes are made
 
 ### Code Review ###
+1. Safe from bugs
+	1. Correct today and correct in the unknown future
+2. Easy to understand
+	1. Communicating clearly with future programmers, including future you
+3. Ready for change
+	1. Designed to accommodate change without rewriting
+4. Objectives:
+	1. Code review: Reading and discussing code written by sombody else
+	2. General principles of good coding: things you can look for in every code review, regardless of programming language or program purpose
+
+#### Code Review ####
+1. 
+
 #### Don't Repeat Yourself ####
 #### Comments Where Needed ####
 #### Fail Fast ####
