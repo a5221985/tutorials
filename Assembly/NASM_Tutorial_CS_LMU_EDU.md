@@ -631,6 +631,13 @@
 3. `.bss` is for un-initialized data
 4. Example: Program to average command line arguments (expected to be integers) - displays result as a floating point number
 
+		; -------------------------------------------------------------
+		; 64-bit program that treats all its command line arguments as integers and
+		; displays their average as a floating point number. This program uses a data
+		; section to store intermediate results, not that it has to, but only to
+		; illustrate how data sections are used.
+		; -------------------------------------------------------------
+
 ## Recursion ##
 ## SIMD Parallelism ##
 ## Saturated Arithmetic ##
