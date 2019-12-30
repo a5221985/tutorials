@@ -637,6 +637,17 @@
 		; section to store intermediate results, not that it has to, but only to
 		; illustrate how data sections are used.
 		; -------------------------------------------------------------
+		
+						global		main
+						extern		atoi
+						extern		printf
+						default	rel
+						
+						section	.text
+			main:
+						dec			rdi					; argc-1, since we don't count program name
+						jz			nothingToAverage		
+						mov			[count],	rdi		; 
 
 ## Recursion ##
 ## SIMD Parallelism ##
