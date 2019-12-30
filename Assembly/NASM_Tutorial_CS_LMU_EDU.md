@@ -734,7 +734,23 @@
 				}
 
 ## SIMD Parallelism ##
-1. 
+1. XMM registers can do arithmetic on floating point values - 
+	1. one operation at a time (scalar) or 
+	2. multiple operations at a time (packed)
+2. Operations have the form
+
+		op	xmmreg_or_memory, xmmreg
+		
+	1. For floating point addition:
+		1. `addpd` - do 2 double-precision additions in parallel (add packed double)
+		2. `addsd` - do just one double-precision addition, using low 64-bits of register
+		3. `addps` - do 4 single-precision additions in parallel (add packed single)
+		4. `addss` - do just one single-precision addition, using the low 32-bits of the register (add scalar single)
+
+3. Adding 4 floats at once:
+
+		; void add_four_floats(float x[4], float y[4])
+		; x[i] += y[i] for i in range (0..4)
 
 ## Saturated Arithmetic ##
 ## Graphics ##
