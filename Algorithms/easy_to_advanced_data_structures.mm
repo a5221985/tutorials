@@ -4191,7 +4191,35 @@
 </node>
 </node>
 </node>
-<node CREATED="1567047890930" ID="ID_422156043" MODIFIED="1567047899043" TEXT="Hash table removing key-value pairs"/>
+<node CREATED="1567047890930" ID="ID_422156043" MODIFIED="1567047899043" TEXT="Hash table removing key-value pairs">
+<node CREATED="1577815330378" ID="ID_1892933450" MODIFIED="1577815361442" TEXT="Suppose we have an empty hash table and we&apos;re using liner probing with P(x) = x as our probing function.">
+<node CREATED="1577815424301" ID="ID_1788062374" MODIFIED="1577815434662" TEXT="Operations:">
+<node CREATED="1577815435543" ID="ID_371740793" MODIFIED="1577815439735" TEXT="insert(k1,v1)"/>
+<node CREATED="1577815440195" ID="ID_1630433242" MODIFIED="1577815443786" TEXT="insert(k2,v2)"/>
+<node CREATED="1577815444192" ID="ID_813191230" MODIFIED="1577815448742" TEXT="insert(k3,v3)"/>
+<node CREATED="1577815449148" ID="ID_250761687" MODIFIED="1577815451879" TEXT="remove(k2)"/>
+<node CREATED="1577815452439" ID="ID_1232305860" MODIFIED="1577815456103" TEXT="getValue(k3)"/>
+</node>
+<node CREATED="1577815464506" ID="ID_702618996" MODIFIED="1577815475203" TEXT="Let H(k1) = H(k2) = H(k3) = 1">
+<node CREATED="1577815486741" ID="ID_79902001" MODIFIED="1577815489397" TEXT="Hash collision">
+<node CREATED="1577815499262" ID="ID_1006095926" MODIFIED="1577815506636" TEXT="1 -&gt; k1,v1"/>
+<node CREATED="1577815506923" ID="ID_248653207" MODIFIED="1577815512355" TEXT="2 -&gt; k2,v2"/>
+<node CREATED="1577815512738" ID="ID_595324504" MODIFIED="1577815521609" TEXT="3 -&gt; k3,v3"/>
+</node>
+<node CREATED="1577815538991" ID="ID_125977731" MODIFIED="1577815542376" TEXT="Naive removal">
+<node CREATED="1577815546210" ID="ID_717474599" MODIFIED="1577815553942" TEXT="2 -&gt; k2,v2">
+<node CREATED="1577815554268" ID="ID_374804421" MODIFIED="1577815555952" TEXT="Remove it"/>
+</node>
+</node>
+<node CREATED="1577815586718" ID="ID_778554536" MODIFIED="1577815590821" TEXT="getValue(k3)">
+<node CREATED="1577815591198" ID="ID_1670938520" MODIFIED="1577815631631" TEXT="The value in the bucket at index 2 is null so we must conclude that the key k3 does not exist in the hash table otherwise we would have found it before reaching a null position!">
+<node CREATED="1577815690831" ID="ID_155637504" MODIFIED="1577815710121" TEXT="However, the key k3 clearly exists in our table! Hence, the naive removing method doesn&apos;t work"/>
+</node>
+<node CREATED="1577815736768" ID="ID_1751847673" MODIFIED="1577815773883" TEXT="Soluiotion: place a unique marker called a tomstone instead of null to indicate that a (k,v) pair has been deleted and that the bucket should be skipped during a search."/>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047903541" ID="ID_1761414486" MODIFIED="1567047910266" TEXT="Hash table open addressing source code"/>
 </node>
 <node CREATED="1567047916017" ID="ID_1895167146" MODIFIED="1567047925223" POSITION="left" TEXT="Fenwick tree/ Binary indexed tree">
