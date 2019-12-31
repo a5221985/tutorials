@@ -4172,6 +4172,14 @@
 </node>
 </node>
 </node>
+<node CREATED="1577813284991" ID="ID_1283118554" MODIFIED="1577813291678" TEXT="Constructing H2(k)">
+<node CREATED="1577813292172" ID="ID_1582423647" MODIFIED="1577813297591" TEXT="Suppose the key k has type T"/>
+<node CREATED="1577813304284" ID="ID_1616026116" MODIFIED="1577813331572" TEXT="Whenever we want to use double hashing as a collision resolution method we need to fabricate a new function H2(k) that knows how to hash keys of type T."/>
+<node CREATED="1577813332469" ID="ID_113559667" MODIFIED="1577813363550" TEXT="It would be nice to have a systematic way to be able to effectively produce a new hash function every time we need one, right?"/>
+<node CREATED="1577813371867" ID="ID_171577377" MODIFIED="1577813406463" TEXT="The keys we need to hash are always composed of the same fundamental building blocks. In particular: integers, strings, real numbers, fixed length vectors, etc..."/>
+<node CREATED="1577813430143" ID="ID_1514828790" MODIFIED="1577813466023" TEXT="There are many well known high quality hash functions for these fundamental data types. hence, we can use and combine them to contruct our function H2(k)."/>
+<node CREATED="1577813469650" ID="ID_513114044" MODIFIED="1577813498805" TEXT="Frequently the hash functions selected to compose H2(k) are picked from a pool of hash functions called unversal hash functions which generally operate on one fundamental data type."/>
+</node>
 </node>
 <node CREATED="1567047890930" ID="ID_422156043" MODIFIED="1567047899043" TEXT="Hash table removing key-value pairs"/>
 <node CREATED="1567047903541" ID="ID_1761414486" MODIFIED="1567047910266" TEXT="Hash table open addressing source code"/>
