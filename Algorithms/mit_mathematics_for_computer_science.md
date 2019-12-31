@@ -455,4 +455,15 @@
 
 					for all z.[P(z) AND Q(z)] IMPLIES [for all x.P(x) AND for all y.Q(y)]
 					
-				1. For all 
+				1. This means: Everything in the domain has property P and property Q this implies that everything in the domain has property P and everything in the domain has property Q 
+					1. This is fundamental logical fact that does not depend on what P and what Q actually mean
+						1. This follows from the definition of for all, and and implies
+					2. Hence this is valid
+		2. How to prove validity?
+			1. Proof strategy: assume left side is T, then
+				1. Then prove right side is T
+			2. Example:
+
+					for all z[Q(z) ^ P(z)] -> [for all x.Q(x) ^ for all y.P(y)]
+					
+				1. Proof: Assume left hand side. That is, for all values of z in the domain, Q(z) and P(z) is true
