@@ -4160,6 +4160,10 @@
 <node CREATED="1577807213987" ID="ID_725612052" MODIFIED="1577807214982" TEXT="...">
 <node CREATED="1577807233747" ID="ID_1714598309" MODIFIED="1577807266861" TEXT="The cycle {4,7,1} makes it impossible to reach buckets {0,2,3,5,6,8}!"/>
 <node CREATED="1577807267936" ID="ID_1685937339" MODIFIED="1577807292675" TEXT="This would cause an infinite loop in our hash table if all the buckets 4, 7, and 1 were already occupied!"/>
+<node CREATED="1577807305408" ID="ID_1614239722" MODIFIED="1577807305408" TEXT=""/>
+</node>
+<node CREATED="1577807323478" ID="ID_864436125" MODIFIED="1577807340955" TEXT="To fix the issue of cycles pick the table size to be a prime number and also computer the value of delta">
+<node CREATED="1577807341320" ID="ID_711140232" MODIFIED="1577810307617" TEXT="delta = H2(k) mod N"/>
 </node>
 </node>
 </node>
