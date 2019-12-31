@@ -4225,7 +4225,12 @@
 <node CREATED="1577816036172" ID="ID_1866896141" MODIFIED="1577816075430" TEXT="Suppose we have the following HT with the quadratic prbing function P9x) = (x^2 + x)/2. Let&apos;s see how to delete tombstones while doing a lookup."/>
 <node CREATED="1577816092378" ID="ID_1632180662" MODIFIED="1577816101770" TEXT="Recall that P(x) = (x^2 + x)/2">
 <node CREATED="1577816102072" ID="ID_1189118496" MODIFIED="1577816121747" TEXT="Suppose we want to find the value of k7 inside the HT and H(K7) = 5."/>
-<node CREATED="1577816124107" ID="ID_194506510" MODIFIED="1577816153032" TEXT="Position 6 is the first tombstone we encounter, so store this position for later."/>
+<node CREATED="1577816124107" ID="ID_194506510" MODIFIED="1577816153032" TEXT="Position 6 is the first tombstone we encounter, so store this position for later.">
+<node CREATED="1577816210150" ID="ID_347760179" MODIFIED="1577816252897" TEXT="Optimization: re-locate the found element to the first tomstone position">
+<node CREATED="1577816254654" ID="ID_608619853" MODIFIED="1577816280207" TEXT="We found the key k7 and its associated value v7, but we don&apos;t want to probe an additional four times to find k7 every time we do a lookup for its value."/>
+<node CREATED="1577816280607" ID="ID_1853797160" MODIFIED="1577816705942" TEXT="An optimization we can do it replace the earliest tomstone encountered with teh value we did a lookup for. The next time we lookup the key it &apos;ll be found much faster! We call this lazy deletion"/>
+</node>
+</node>
 </node>
 </node>
 </node>
