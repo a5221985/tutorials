@@ -4163,7 +4163,11 @@
 <node CREATED="1577807305408" ID="ID_1614239722" MODIFIED="1577807305408" TEXT=""/>
 </node>
 <node CREATED="1577807323478" ID="ID_864436125" MODIFIED="1577807340955" TEXT="To fix the issue of cycles pick the table size to be a prime number and also computer the value of delta">
-<node CREATED="1577807341320" ID="ID_711140232" MODIFIED="1577810307617" TEXT="delta = H2(k) mod N"/>
+<node CREATED="1577807341320" ID="ID_711140232" MODIFIED="1577810307617" TEXT="delta = H2(k) mod N">
+<node CREATED="1577811347074" ID="ID_256574576" MODIFIED="1577811368125" TEXT="If delta = 0 then we are guaranteed to be stuck in a cycle, so when this happens set delta = 1">
+<node CREATED="1577811371004" ID="ID_442988557" MODIFIED="1577811436098" TEXT="Notice that 1 &lt;= delta &lt; N and GCD(delta, N) = 1 since N is prime. Hence, with these conditions we know that module N the sequence: H1(k), H1(k) + 1.delta, H1(k) + 2.delta, H1(k) + 3.delta, ... is certain to have order N"/>
+</node>
+</node>
 </node>
 </node>
 </node>
