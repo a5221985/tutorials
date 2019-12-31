@@ -443,4 +443,16 @@
 
 ## Predicate Logic, II ##
 1. Validity & Satisfiability:
-2. 
+	1. Propositional validity
+		1. True for all truth-values (all possible combinations)
+
+				(P IMPLIES Q) OR (Q IMPLIES P)
+				
+			1. This is always true
+	2. Predicate Calculus validity
+		1. True for all domains and predicates. (It should be true for all possible domains of discourse the that variables range over)
+			1. The formula comes out to be true no matter what the predicate means
+
+					for all z.[P(z) AND Q(z)] IMPLIES [for all x.P(x) AND for all y.Q(y)]
+					
+				1. For all 
