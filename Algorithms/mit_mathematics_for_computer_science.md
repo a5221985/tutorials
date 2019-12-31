@@ -442,3 +442,5 @@
 	3. Domain: R-, H is F
 
 ## Predicate Logic, II ##
+1. Validity & Satisfiability:
+2. 
