@@ -4215,7 +4215,18 @@
 <node CREATED="1577815591198" ID="ID_1670938520" MODIFIED="1577815631631" TEXT="The value in the bucket at index 2 is null so we must conclude that the key k3 does not exist in the hash table otherwise we would have found it before reaching a null position!">
 <node CREATED="1577815690831" ID="ID_155637504" MODIFIED="1577815710121" TEXT="However, the key k3 clearly exists in our table! Hence, the naive removing method doesn&apos;t work"/>
 </node>
-<node CREATED="1577815736768" ID="ID_1751847673" MODIFIED="1577815773883" TEXT="Soluiotion: place a unique marker called a tomstone instead of null to indicate that a (k,v) pair has been deleted and that the bucket should be skipped during a search."/>
+<node CREATED="1577815736768" ID="ID_1751847673" MODIFIED="1577815773883" TEXT="Soluiotion: place a unique marker called a tomstone instead of null to indicate that a (k,v) pair has been deleted and that the bucket should be skipped during a search.">
+<node CREATED="1577815792864" ID="ID_1756910892" MODIFIED="1577815807651" TEXT="Search will continue if tomstone is encountered"/>
+</node>
+</node>
+</node>
+<node CREATED="1577815854821" ID="ID_1646066875" MODIFIED="1577815874924" TEXT="Q: I have a lot of tomstones cluttering my HT how do I get rid of them?">
+<node CREATED="1577815926264" ID="ID_1089459859" MODIFIED="1577815976568" TEXT="A: Tomstones count as filled slots in the HT so they increase the load factor and will be removed when the table is resized. Additionally, when inserting a new (k,v) pair you can replace buckets with tomstones with the new key-value pair.">
+<node CREATED="1577816036172" ID="ID_1866896141" MODIFIED="1577816075430" TEXT="Suppose we have the following HT with the quadratic prbing function P9x) = (x^2 + x)/2. Let&apos;s see how to delete tombstones while doing a lookup."/>
+<node CREATED="1577816092378" ID="ID_1632180662" MODIFIED="1577816101770" TEXT="Recall that P(x) = (x^2 + x)/2">
+<node CREATED="1577816102072" ID="ID_1189118496" MODIFIED="1577816121747" TEXT="Suppose we want to find the value of k7 inside the HT and H(K7) = 5."/>
+<node CREATED="1577816124107" ID="ID_194506510" MODIFIED="1577816153032" TEXT="Position 6 is the first tombstone we encounter, so store this position for later."/>
+</node>
 </node>
 </node>
 </node>
