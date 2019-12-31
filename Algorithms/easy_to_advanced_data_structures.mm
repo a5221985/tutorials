@@ -4185,7 +4185,9 @@
 <node CREATED="1577814559333" ID="ID_1512930342" MODIFIED="1577814575029" TEXT="Probing function: P(x) = x*H2(k)"/>
 <node CREATED="1577814575405" ID="ID_1398982206" MODIFIED="1577814582949" TEXT="Table size: N = 7 (a prime number)"/>
 <node CREATED="1577814583701" ID="ID_613893496" MODIFIED="1577814591466" TEXT="Max load factor: alpha = 0.75"/>
-<node CREATED="1577814591679" ID="ID_790795323" MODIFIED="1577814600069" TEXT="Threshold before resize = N * alpha = 5"/>
+<node CREATED="1577814591679" ID="ID_790795323" MODIFIED="1577814600069" TEXT="Threshold before resize = N * alpha = 5">
+<node CREATED="1577814896859" ID="ID_528503729" MODIFIED="1577814941560" TEXT="Double table size to re-size and choose the next prime number"/>
+</node>
 </node>
 </node>
 </node>
