@@ -488,3 +488,15 @@
 				for all z.[P(z) OR Q(z)] IMPLIES [for all x.P(x) OR for all y.Q(y)]
 				
 			1. Saying that: Every thing has the property P or property Q, then everything has property P or everything has property Q
+			2. Proof: Give counter-model, where left size of IMPLIES is T, but right side is F
+				1. Namely, let domain ::= {1, 2}
+				2. Let Q(z) ::= [z = 1], P(z) ::= [z = 2]
+					1. Is left hand side true? Yes for both z = 1, and z = 2
+					2. RHS: If z = 1, P(z) is false, If z = 2, Q(z) is false
+						1. => P(z) is not true for all z in domain
+						2. => Q(z) is not true for all z in domain
+						3. => False or False is False (RHS is false)
+		5. DeMorgan's Law for Quantifiers:
+			1. Another valid formula:
+				1. ~(P OR Q) iff ~P AND !Q
+				2. NOT(for all x.P(x)) IFF there exists y.NOT(P(y))
