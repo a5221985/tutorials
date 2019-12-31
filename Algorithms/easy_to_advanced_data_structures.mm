@@ -4180,6 +4180,14 @@
 <node CREATED="1577813430143" ID="ID_1514828790" MODIFIED="1577813466023" TEXT="There are many well known high quality hash functions for these fundamental data types. hence, we can use and combine them to contruct our function H2(k)."/>
 <node CREATED="1577813469650" ID="ID_513114044" MODIFIED="1577813498805" TEXT="Frequently the hash functions selected to compose H2(k) are picked from a pool of hash functions called unversal hash functions which generally operate on one fundamental data type."/>
 </node>
+<node CREATED="1577814522335" ID="ID_774886785" MODIFIED="1577814527558" TEXT="Inserting with DH">
+<node CREATED="1577814528102" ID="ID_1492862140" MODIFIED="1577814559062" TEXT="Suppose we have an originally empty hash table and we want to insert some (ki,vi) pairs with DH and we selected our hash table to have:">
+<node CREATED="1577814559333" ID="ID_1512930342" MODIFIED="1577814575029" TEXT="Probing function: P(x) = x*H2(k)"/>
+<node CREATED="1577814575405" ID="ID_1398982206" MODIFIED="1577814582949" TEXT="Table size: N = 7 (a prime number)"/>
+<node CREATED="1577814583701" ID="ID_613893496" MODIFIED="1577814591466" TEXT="Max load factor: alpha = 0.75"/>
+<node CREATED="1577814591679" ID="ID_790795323" MODIFIED="1577814600069" TEXT="Threshold before resize = N * alpha = 5"/>
+</node>
+</node>
 </node>
 <node CREATED="1567047890930" ID="ID_422156043" MODIFIED="1567047899043" TEXT="Hash table removing key-value pairs"/>
 <node CREATED="1567047903541" ID="ID_1761414486" MODIFIED="1567047910266" TEXT="Hash table open addressing source code"/>
