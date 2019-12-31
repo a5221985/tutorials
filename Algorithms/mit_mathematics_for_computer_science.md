@@ -477,7 +477,7 @@
 						1. It can be thought of as an axiom
 		3. Unviersal Generalization (UG)
 
-					P(c)
+					  P(c)
 				--------------
 				for all x.P(x)
 				
