@@ -20,7 +20,7 @@
 ## What is an Entrepreneur? ##
 ### What is an Entrepreneur? ###
 ### Myths About Entrepreneurship ###
-### Common Personality Trits ###
+### Common Personality Traits ###
 ### The Most Important Trait of All ###
 ### Age & Entrepreneurship ###
 ### ACTIVITY: Test Your Entrepreneurial Aptitude ###
