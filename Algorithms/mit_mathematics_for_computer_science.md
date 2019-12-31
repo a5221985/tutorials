@@ -510,3 +510,15 @@
 		1. Literal translation: for all x[G(x) IMPLIES NOT(Au(x))]
 			1. NOT(for x.[G(x) IMPLIES Au(x)])
 				1. It is not true that all that glitters is gold
+	3. Literal translation may be non-sense
+		1. Machine translation from Natural language to precise formal language is problematic
+2. Example: There is a season to every purpose under heaven:
+	1. Literal translation
+		1. There exists s in Season for all p in Purpose.s is for p (there exists a season that is for every purpose)
+		2. Actual: for all p in Purpose there exists s in Season.s is for p 
+			1. For every purpose, there exists a season such that the season is for the purpose
+3. Two profound theorems about Mathematical Logic
+	1. Power & Limits of Logic (They are meta-theorems - theorems about theorems - theorems about systems for proving theorems)
+		1. Meta - means going up above a level
+	2. Theorem 1: Good News theorem: Only need to know a few axioms & rules to prove all valid formulas
+		1. In theory; in practice need lots of rules
