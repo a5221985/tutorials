@@ -4121,7 +4121,24 @@
 <node CREATED="1577636035428" ID="ID_1191560945" MODIFIED="1577636042715" TEXT="H(k) + P(5) mod N = 7"/>
 </node>
 <node CREATED="1577636046489" ID="ID_1436287773" MODIFIED="1577636073427" TEXT="The cycle {4,7} makes it impossible to reach buckets {0,1,2,3,5,6,8}!"/>
-<node CREATED="1577636074362" ID="ID_77422493" MODIFIED="1577636091899" TEXT="This would cause an infinite loop in our hash table if the buckets 4 and 7 were already occupied!"/>
+<node CREATED="1577636074362" ID="ID_77422493" MODIFIED="1577636091899" TEXT="This would cause an infinite loop in our hash table if the buckets 4 and 7 were already occupied!">
+<node CREATED="1577805164590" ID="ID_1585309245" MODIFIED="1577805189405" TEXT="Q: So how do we pick a probing function we can work with?">
+<node CREATED="1577805193924" ID="ID_1455074623" MODIFIED="1577805223081" TEXT="merous ways, but thA: There are numerous ways but three of the most popular approaches are:">
+<node CREATED="1577805223282" ID="ID_244432597" MODIFIED="1577805241191" TEXT="Let P(x) = x^2, keep the table size a prime number &gt; 3 and also keep alpha &lt;= 1/2"/>
+<node CREATED="1577805243588" ID="ID_1067704977" MODIFIED="1577805260872" TEXT="Let P(x) = (x^2 + x) / 2 and keep the table size a power of two">
+<node CREATED="1577805369449" ID="ID_385033137" MODIFIED="1577805377903" TEXT="Let&apos;s see an example">
+<node CREATED="1577805397684" ID="ID_1545194148" MODIFIED="1577805424711" TEXT="Suppose we have an originall empty hash table ans we want to insert some (ki, vi) pairs with QP and we selected our hash table to have:">
+<node CREATED="1577805429249" ID="ID_708331423" MODIFIED="1577805442197" TEXT="Probing function: P(x) = (x^2 + x) / 2"/>
+<node CREATED="1577805443827" ID="ID_552971233" MODIFIED="1577805457657" TEXT="Table size: N = 2^3 = 8 (power of two)"/>
+<node CREATED="1577805458301" ID="ID_349573618" MODIFIED="1577805467455" TEXT="Max load factor: alpha = 0.4"/>
+<node CREATED="1577805468191" ID="ID_938194267" MODIFIED="1577805491734" TEXT="Threshold before resize = N * alpha = 3"/>
+</node>
+</node>
+</node>
+<node CREATED="1577805261156" ID="ID_65098880" MODIFIED="1577805287294" TEXT="Let P(x) = (-1^x)*x^2 and keep the table size a prime N where N = 3 mod 4"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
