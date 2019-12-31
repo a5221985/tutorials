@@ -467,3 +467,24 @@
 					for all z[Q(z) ^ P(z)] -> [for all x.Q(x) ^ for all y.P(y)]
 					
 				1. Proof: Assume left hand side. That is, for all values of z in the domain, Q(z) and P(z) is true
+					1. Suppose val(z) = c, an element in the domain. Then
+						1. => Q(c) AND P(x) holds, and so Q(c) by itself holds
+							1. But c could have been any element of the domain.
+								1. So we conclude for all x.Q(x) (by Universal Generalization)
+							2. Similarly conclude for all y.P(y). Therefor for all x.Q(x) AND for all y.P(y) QED
+				2. This implies that universal quantification distributes over AND
+					1. It is itself fundamental but translating it to english (not really a proof)
+						1. It can be thought of as an axiom
+		3. Unviersal Generalization (UG)
+
+					P(c)
+				--------------
+				for all x.P(x)
+				
+			1. If we have proved the one above the bar, then we have proved the one below the bar
+				1. Provided c does not occur in any other part in predicate P
+		4. Proving something is not valid:
+		
+				for all z.[P(z) OR Q(z)] IMPLIES [for all x.P(x) OR for all y.Q(y)]
+				
+			1. Saying that: Every thing has the property P or property Q, then everything has property P or everything has property Q
