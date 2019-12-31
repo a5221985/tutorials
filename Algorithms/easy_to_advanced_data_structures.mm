@@ -4142,7 +4142,29 @@
 </node>
 </node>
 </node>
-<node CREATED="1567047884522" ID="ID_1596198472" MODIFIED="1567047889979" TEXT="Hash table double hashing"/>
+<node CREATED="1567047884522" ID="ID_1596198472" MODIFIED="1567047889979" TEXT="Hash table double hashing">
+<node CREATED="1577805983641" ID="ID_1239811474" MODIFIED="1577806080229" TEXT="DH is a probing method which probes according to a constant multiple of another hash function, specifically:">
+<node CREATED="1577806081000" ID="ID_1237282159" MODIFIED="1577806107772" TEXT="P(k,x) = x*H2(k), where H2(k) is a second hash funcion">
+<node CREATED="1577807077051" ID="ID_909830346" MODIFIED="1577807086362" TEXT="H2(k) must hash the same type of keys as H1(k)">
+<node CREATED="1577807087755" ID="ID_1951383631" MODIFIED="1577807105386" TEXT="NOTE: Notice that doubling hashing reduces to linear probing (except that the constant is unknown until runtime)">
+<node CREATED="1577807106987" ID="ID_1087890379" MODIFIED="1577807114188" TEXT="constant is dynamically computed"/>
+</node>
+</node>
+</node>
+<node CREATED="1577807129989" ID="ID_809595202" MODIFIED="1577807133396" TEXT="Chaos with cycles">
+<node CREATED="1577807138396" ID="ID_263386164" MODIFIED="1577807182422" TEXT="Since DH reduces to linear probing at runtime we may end up with a linear prbing function such as: P9x) = 3x, H1(k) = 4, and table size is nine (N= 9) in which case we end up with the following cycle occurring:">
+<node CREATED="1577807184185" ID="ID_111127273" MODIFIED="1577807193324" TEXT="H(k) + P(0) mod N = 4"/>
+<node CREATED="1577807193565" ID="ID_49535707" MODIFIED="1577807200828" TEXT="H(k) + P(1) mod N = 7"/>
+<node CREATED="1577807201061" ID="ID_1125610781" MODIFIED="1577807206892" TEXT="H(k) + P(2) mod N = 1"/>
+<node CREATED="1577807207130" ID="ID_945380953" MODIFIED="1577807213405" TEXT="H(k) + P(3) mod N = 4"/>
+<node CREATED="1577807213987" ID="ID_725612052" MODIFIED="1577807214982" TEXT="...">
+<node CREATED="1577807233747" ID="ID_1714598309" MODIFIED="1577807266861" TEXT="The cycle {4,7,1} makes it impossible to reach buckets {0,2,3,5,6,8}!"/>
+<node CREATED="1577807267936" ID="ID_1685937339" MODIFIED="1577807292675" TEXT="This would cause an infinite loop in our hash table if all the buckets 4, 7, and 1 were already occupied!"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047890930" ID="ID_422156043" MODIFIED="1567047899043" TEXT="Hash table removing key-value pairs"/>
 <node CREATED="1567047903541" ID="ID_1761414486" MODIFIED="1567047910266" TEXT="Hash table open addressing source code"/>
 </node>
