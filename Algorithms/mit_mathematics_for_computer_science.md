@@ -500,3 +500,13 @@
 			1. Another valid formula:
 				1. ~(P OR Q) iff ~P AND !Q
 				2. NOT(for all x.P(x)) IFF there exists y.NOT(P(y))
+					1. If it is not the case that for all x, property P holds true, then there exists some y such that P does not hold to be true
+
+## Predicate Logic III ##
+1. for all, there exists (English is ambiguous)
+	1. Two meta-theorems
+		1. Mathematics of mathematical logic
+	2. Poet: "All that glitters is not gold"
+		1. Literal translation: for all x[G(x) IMPLIES NOT(Au(x))]
+			1. NOT(for x.[G(x) IMPLIES Au(x)])
+				1. It is not true that all that glitters is gold
