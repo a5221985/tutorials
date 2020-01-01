@@ -2047,6 +2047,22 @@
 								1. 1/2 + 1/2n
 									1. If difference is (n - 1)
 										1. 1/2 + (n - 1)/2n = 1 - 1/2n
+							3. Host's strategy is to pick a number in [1, n] uniformly and pick the next number 1 more than the first
+							4. Playe's strategy is the above algorithm (to increase the chances of winning)
+			5. Protocol for using network with shared bus:
+				1. Each node flips and gets a random number
+					1. Broadcasts with that probability
+					2. If there is a collission, it chooses a smaller probability
+					3. If it gets through, then it tries to cramn a lot of stuff (until we there is a collission)
+					4. Randomized algorithms: Quck sort - chooses a random number and splits at that index
+		3. Binomial Distribution:
+			1. Unbiased binomial distribution: (p = 1/2)
+			
+					fn(k) = (n k) 2^-n n >= 1, 0 <= k <= n
+					
+			2. General binomial distribution:
+
+					fn(k) = (n k) p^k (1 - p)^(n - k) 0 < p < 1
 
 ## Lec 22 ##
 ## Lec 23 ##
