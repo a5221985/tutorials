@@ -2358,6 +2358,7 @@
 	2. Proof: Pr(|R - Ex(R)| >= x) = Pr((R - Ex(R))^2 >= x^2) <= Ex((R - Ex(R))^2)/x^2 (Using Markov's theorem) <= Var(R)/x^2 []
 	3. Corollary: Pr(|R - Ex(R)| >= c standard_deviation(R)) <= Var(R)/c^2.standard_deviation(R)^2 <= 1/c^2
 9. Example: R = IQ of a random person
-	1. Assume R >= 0
+	1. Assume R >= 0, Ex(R) = 100, standard deviation(R) = 15
+	2. Pr(R >= 250)
 
 ## Lec 25 ##
