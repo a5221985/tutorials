@@ -4355,7 +4355,18 @@
 <node CREATED="1577852264312" ID="ID_910510175" MODIFIED="1577852279215" TEXT="Let&apos;s use prefix sums to compute the interval sum between [i, j].">
 <node CREATED="1577852280524" ID="ID_1740973140" MODIFIED="1577852289116" TEXT="Compute the interval sum between [11, 15].">
 <node CREATED="1577852290023" ID="ID_403089203" MODIFIED="1577852324742" TEXT="First we compute the prefix sum of [1, 15], then we will compute the prefix sum of [1, 11) and get the difference.">
-<node CREATED="1577852325524" ID="ID_1211412565" MODIFIED="1577852335077" TEXT="Not inclusive! We want the value at position 11."/>
+<node CREATED="1577852325524" ID="ID_1211412565" MODIFIED="1577852335077" TEXT="Not inclusive! We want the value at position 11.">
+<node CREATED="1577852490639" ID="ID_1512950066" MODIFIED="1577852502041" TEXT="Compute the interval sum between [11, 15].">
+<node CREATED="1577852502543" ID="ID_251059867" MODIFIED="1577852525122" TEXT="First we compute the prefix sum of [1, 15], then we will compute the prefix sum of [1, 11) and get the difference">
+<node CREATED="1577852526568" ID="ID_1328689811" MODIFIED="1577852548982" TEXT="Sum of [1, 15] = A[15] + A[14] + A[12] + A[8]"/>
+<node CREATED="1577852549609" ID="ID_1734782226" MODIFIED="1577852569869" TEXT="Sum of [1, 11) = A[10] + A[8]"/>
+<node CREATED="1577852577828" ID="ID_370907462" MODIFIED="1577852609754" TEXT="Range sum: (A[15] + A[14] + A[12] + A[8] - A[10] - A[8]"/>
+</node>
+<node CREATED="1577852615564" ID="ID_579885347" MODIFIED="1577852658668" TEXT="Notice that in the worst case the cell we&apos;re querying has a binary representation of all ones (numbers of the form 2^n - 1)">
+<node CREATED="1577852661156" ID="ID_26440176" MODIFIED="1577852689930" TEXT="Hence, it&apos;s easy to see that in the worst case a range query might make us have to do two queries that cost log_2(n) operations"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
