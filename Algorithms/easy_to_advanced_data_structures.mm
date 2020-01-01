@@ -4373,6 +4373,53 @@
 </node>
 </node>
 </node>
+<node CREATED="1577852760351" ID="ID_383824271" MODIFIED="1577852769170" TEXT="Range query algorithm">
+<node CREATED="1577852769823" ID="ID_1931177779" MODIFIED="1577852784709" TEXT="To do a range query from [i,j] both inclusive a Fenwick tree of size N">
+<node CREATED="1577852786192" ID="ID_688088038" MODIFIED="1577852927576">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function prefixSum(i):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sum := 0
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;while i != 0:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sum = sum + tree[i]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = i - LSB(i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return sum
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function rangeQuery(i, j):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return prefixSum(j) - prefixSum(i - 1)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Where LSB returns the value of the least significant bit.
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
