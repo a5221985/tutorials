@@ -2063,6 +2063,19 @@
 			2. General binomial distribution:
 
 					fn(k) = (n k) p^k (1 - p)^(n - k) 0 < p < 1
+					
+			3. Ex: n components. Each fails mutually independently with probability p (0 < p < 1)
+				1. R = number of failed components
+				2. Theorem: Pr(R = k) = fn,p(k) for 0 <= k <= n
+					1. Theorem:
+						1. Tree method:
+							1. Component 1
+								1. F
+								2. NF
+									1. Component 2
+										1. F
+										2. N
+										3. ...
 
 ## Lec 22 ##
 ## Lec 23 ##
