@@ -1203,11 +1203,70 @@
 		public static int dayOfYear(int month, int dayOfMonth, int year) {
 			if (month == 2) {
 				dayOfMonth += 31;
+			} else if (month == 3) {
+				dayOfMonth += 59;
+			} else if (month == 4) {
+				dayOfMonth += 90;
+			} else if (month == 5) {
+				dayOfMonth += 31 + 28 + 31 + 30;
+			} else if (month == 6) {
+				dayOfMonth += 31 + 28 + 31 + 30 + 31;
+			} else if (month == 7) {
+				dayOfMonth += 31 + 28 + 31 + 30 + 31 + 30;
+			} else if (month == 8) {
+				dayOfMonth += 31 + 28 + 31 + 30 + 31 + 30 + 31;
+			} else if (month == 9) {
+				dayOfMonth += 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31;
+			} else if (month == 10) {
+				dayOfMonth += 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30;
+			} else if (month == 11) {
+				dayOfMonth += 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31;
+			} else if (month == 12) {
+				dayOfMonth += 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30;
 			}
+			return dayOfMonth;
 		}
+		
+	1. Next few sections will pick out the particular smells in the code
 
 #### Don't Repeat Yourself ####
+1. Duplicated code cons:
+	1. Risk to safety
+		1. If we have identical or similar code in two places, there may be bug in both copies
+			1. If a maintainer fixes a bug in one place, the bug still exists in other copies
+	2. Avoid duplication
+		1. Do not copy and paste code from one place to the other (longer the block copied, riskier it is)
+2. [Don't Repeat Yourself](http://en.wikipedia.org/wiki/Don't_repeat_yourself) - DRY must be followed
+	1. `dayOfMonth` code has a lot of duplication
+
 #### Comments Where Needed ####
+1. Good software developers write comments in code and do it judiciously
+	1. Good comments:
+		1. Makes code easier to understand
+		2. Safer from bugs (important assumptions have been documented)
+		3. Ready for change
+2. Kinds of comments:
+	1. Specification - re-appears above a method or above a class - documents behavior of method or class
+		1. Java: written as Javadoc comment
+			
+				/**
+				 *
+				 * ...
+				 */
+				 
+			1. Example:
+
+					/**
+					 * Compute the hailstone sequence.
+					 * See http://en.wikipedia.org/wiki/Collatz_conjecture#Statement_of_the_problem
+					 * @param n starting number of sequence; requires n > 0
+					 * @return the hailstone sequence starting at n and ending with 1.
+					 * 				For example, hailstone(3) = [3, 10, 5, 16, 8, 4, 2, 1]
+					 */
+					public static List<Integer> hailstoneSequence(int n) {
+						// ...
+					}
+
 #### Fail Fast ####
 #### Avoid Magic Numbers ####
 #### One Purpose for Each Variable ####
