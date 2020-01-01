@@ -4255,7 +4255,129 @@
 <node CREATED="1577845938281" ID="ID_158043942" MODIFIED="1577845941926" TEXT="Code Implementation"/>
 </node>
 <node CREATED="1577845977737" ID="ID_1454575431" MODIFIED="1577845980921" TEXT="Motivation">
-<node CREATED="1577845981972" ID="ID_503517607" MODIFIED="1577845998077" TEXT="Given an array of integer values compute the range sum between index [i, j)."/>
+<node CREATED="1577845981972" ID="ID_503517607" MODIFIED="1577845998077" TEXT="Given an array of integer values compute the range sum between index [i, j).">
+<node CREATED="1577846037495" ID="ID_313812917" MODIFIED="1577846063379" TEXT="A = [5, -3, 6, 1, 0, -4, 11, 6, 2, 7]">
+<node CREATED="1577846064059" ID="ID_1066285989" MODIFIED="1577846083765" TEXT="Sum of A from [2, 7) = 6 + 1 + 0 -4 + 11 = 14">
+<node CREATED="1577846099610" ID="ID_837176097" MODIFIED="1577846102782" TEXT="Linear queries"/>
+<node CREATED="1577846114047" ID="ID_1901835338" MODIFIED="1577846116231" TEXT="Solution:">
+<node CREATED="1577846116558" ID="ID_1212700859" MODIFIED="1577846126967" TEXT="Let P be an array containing all the prefix sums of A">
+<node CREATED="1577846198392" ID="ID_1465146885" MODIFIED="1577846224058" TEXT="P = [0, 5, 2, 8, 9, 9, 5, 16, 22, 24, 31]">
+<node CREATED="1577846224736" ID="ID_1246693559" MODIFIED="1577846263797" TEXT="Sum of A from [2, 7) = P[7] - P[2] = 16 - 2 = 14">
+<node CREATED="1577846302696" ID="ID_715058746" MODIFIED="1577846304497" TEXT="Flaw:">
+<node CREATED="1577846304762" ID="ID_17420430" MODIFIED="1577846314075" TEXT="When we update a value in original array?">
+<node CREATED="1577846316289" ID="ID_1706585361" MODIFIED="1577846324927" TEXT="We have to recompute all prefix sums">
+<node CREATED="1577846325755" ID="ID_1247882874" MODIFIED="1577846327220" TEXT="O(n)"/>
+</node>
+<node CREATED="1577846330354" ID="ID_1138823801" MODIFIED="1577846331851" TEXT="Solution">
+<node CREATED="1577846332322" ID="ID_336406329" MODIFIED="1577846335076" TEXT="Fenwick tree">
+<node CREATED="1577851312088" ID="ID_791722290" MODIFIED="1577851352518" TEXT="A Fenwick Tree (also called Binary Index Tree) is a data structure that supports sum range queries as well as setting values in a static array and getting the value of the prefix sum up some index efficiently.">
+<node CREATED="1577851369363" ID="ID_1976608208" MODIFIED="1577851371944" TEXT="Complexity">
+<node CREATED="1577851376126" ID="ID_380211144" MODIFIED="1577851381033" TEXT="Construction: O(n)"/>
+<node CREATED="1577851383470" ID="ID_571509538" MODIFIED="1577851393434" TEXT="Point Update: O(log(n))"/>
+<node CREATED="1577851393922" ID="ID_1274680972" MODIFIED="1577851401257" TEXT="Range Sum: O(log(n))"/>
+<node CREATED="1577851401758" ID="ID_1949918993" MODIFIED="1577851409840" TEXT="Range Update: O(log(n))"/>
+<node CREATED="1577851410656" ID="ID_1093401780" MODIFIED="1577851415417" TEXT="Adding Index: N/A"/>
+<node CREATED="1577851415662" ID="ID_709944726" MODIFIED="1577851421627" TEXT="Removing Index: N/A"/>
+</node>
+<node CREATED="1577851466929" ID="ID_922128091" MODIFIED="1577851487997" TEXT="Unline a regular array, in a Fenwick tree a specific cell is responsible for other cells as well"/>
+<node CREATED="1577851509572" ID="ID_472928406" MODIFIED="1577851533583" TEXT="The position of the least significant bit (LSB) determines the range of responsibility that cell has to the cells below itself">
+<node CREATED="1577851553131" ID="ID_416707826" MODIFIED="1577851672131">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      16: 10000
+    </p>
+    <p>
+      15: 01111
+    </p>
+    <p>
+      14: 01110
+    </p>
+    <p>
+      13: 01101
+    </p>
+    <p>
+      12: 01100
+    </p>
+    <p>
+      11: 01011
+    </p>
+    <p>
+      10: 01010
+    </p>
+    <p>
+      &#160;&#160;9: 01001
+    </p>
+    <p>
+      &#160;&#160;8: 01000
+    </p>
+    <p>
+      &#160;&#160;7: 00111
+    </p>
+    <p>
+      &#160;&#160;6: 00110
+    </p>
+    <p>
+      &#160;&#160;5: 00101
+    </p>
+    <p>
+      &#160;&#160;4: 00100
+    </p>
+    <p>
+      &#160;&#160;3: 00011
+    </p>
+    <p>
+      &#160;&#160;2: 00010
+    </p>
+    <p>
+      &#160;&#160;1: 00001
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1577851679295" ID="ID_240240701" MODIFIED="1577851685851" TEXT="Index 12 in binary is: 1100">
+<node CREATED="1577851687190" ID="ID_764608857" MODIFIED="1577851715446" TEXT="LSB is at position 3, so this index is responsible for 2^(3-1) = 4 cells below itself"/>
+<node CREATED="1577851932567" ID="ID_312857843" MODIFIED="1577851948622" TEXT="Blue bars represent the range of responsibility for that cell NOT value.">
+<node CREATED="1577851949212" ID="ID_1463842237" MODIFIED="1577851989010" TEXT="All odd numbers have their first least significant bit set in the ones position, so they are only responsible for themselves."/>
+</node>
+<node CREATED="1577852000070" ID="ID_977650345" MODIFIED="1577852013120" TEXT="Numbers with their least significant bit in the third position have a range of four"/>
+<node CREATED="1577852037733" ID="ID_877456430" MODIFIED="1577852041374" TEXT="Range Queries">
+<node CREATED="1577852047504" ID="ID_117589234" MODIFIED="1577852072546" TEXT="In a Fenwick tree we may compute the prefix sum up to a certain index, which ultimately lets us perform range sum queries">
+<node CREATED="1577852100062" ID="ID_419756558" MODIFIED="1577852131517" TEXT="Idea: Suppose you want to find the prefix sum of [1, i], then you start at i and cascade downwards until you reach zero adding the value at each of the indices you encounter.">
+<node CREATED="1577852147941" ID="ID_873696216" MODIFIED="1577852157756" TEXT="Prefix sum up to index 7 (inclusive)">
+<node CREATED="1577852198772" ID="ID_1202040447" MODIFIED="1577852212013" TEXT="sum = A[7] + A[6] + A[4]">
+<node CREATED="1577852212742" ID="ID_1717066536" MODIFIED="1577852217913" TEXT="6 is responsible for 2"/>
+<node CREATED="1577852218209" ID="ID_1370244906" MODIFIED="1577852227461" TEXT="4 is responsible for 4 (3 below)"/>
+</node>
+<node CREATED="1577852264312" ID="ID_910510175" MODIFIED="1577852279215" TEXT="Let&apos;s use prefix sums to compute the interval sum between [i, j].">
+<node CREATED="1577852280524" ID="ID_1740973140" MODIFIED="1577852289116" TEXT="Compute the interval sum between [11, 15].">
+<node CREATED="1577852290023" ID="ID_403089203" MODIFIED="1577852324742" TEXT="First we compute the prefix sum of [1, 15], then we will compute the prefix sum of [1, 11) and get the difference.">
+<node CREATED="1577852325524" ID="ID_1211412565" MODIFIED="1577852335077" TEXT="Not inclusive! We want the value at position 11."/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1567047934157" ID="ID_1668128613" MODIFIED="1567047940049" TEXT="Fenwick tree point updates"/>
