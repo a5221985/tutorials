@@ -1302,9 +1302,36 @@
 2. Example: `dayOfYear` functions doesn't fail fast
 
 #### Avoid Magic Numbers ####
-1. 0, 1 and may be 2 are considered as constants by Computer Scientists
+1. 0, 1 and may be 2 are recognized as constants by Computer Scientists. Everything else are not (they don't mean much without explanation)
+2. Declare a number with named constant (clear name)
+3. Example:
+	1. Months 2, ..., 12 can be named `FEBRUARY`, ..., `DECEMBER`
+	2. 30, 31, 28 are more readable (and must eliminate duplicate code) if they are in data structure like `MONTH_LENGTH[month]`
+	3. Do not hardcode constants computed by hand. Instead use something similar to:
+
+			MONTH_LENGTH[JANUARY] + MONTH_LENGTH[FEBRUARY]
 
 #### One Purpose for Each Variable ####
+1. Example: `dayOfMonth` is re-used to compute very different values
+2. Don't re-use parameters and variables
+	1. Introduce them freely
+	2. Give good names
+	3. Stop using them when we don't need them (variable that meant something must not mean something else elsewhere)
+		1. It is also a safety from bugs
+		2. It is ready for change
+3. Method parameters should generally be left un-modified
+	1. Important for ready for change
+		1. In future, another part of method may need the original parameters
+	2. Use `final` - variable should never be re-assigned (Java checks that statically)
+		1. Example:
+
+				public static int dayOfYear(final int month, final int dayOfMonth, final in year) {
+					// ...
+				}
+				
+#### Smelly Example #2 ####
+1. 
+
 #### Use Good Names ####
 #### Use Whitespace to Help the Reader ####
 #### Don't Use Global Variables ####
