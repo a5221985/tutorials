@@ -1266,6 +1266,9 @@
 					public static List<Integer> hailstoneSequence(int n) {
 						// ...
 					}
+					
+		2. Specifications must document assumptions
+	2. Source or piece of code copied or adapted from elsewhere
 
 #### Fail Fast ####
 #### Avoid Magic Numbers ####
