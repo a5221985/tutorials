@@ -1269,9 +1269,41 @@
 					
 		2. Specifications must document assumptions
 	2. Source or piece of code copied or adapted from elsewhere
+		1. Good practice
+		2. Example:
+
+				// read a web page into a string
+				// see http://stackoverflow.com/questions/4328711/read-url-to-string-in-few-lines-of-java-code
+				String mitHomepage = new Scanner(new URL("http://www.mit.edu").openStream, "UTF-8").useDelimiter("\\A").next();
+				
+			1. Avoids violation of copyright
+				1. Stackoverflow may be in public domain but other sources may be proprietary or covered by other open source licenses (may be more restrictive)
+			2. Important if the code has fallen out of date (coding style evolved now)
+3. Bad comments:
+	1. Transilaterations of code into English (it does not improve understanding - reader at-least knows Java)
+
+			while (n != 1) {  // Test whether n is 1 (don't write comments like this!)
+				++i; increment i
+				l.add(n); // add n to l
+			}
+		
+		1. Obscure code might get comment:
+
+				sendMessage("as you wish"); // this basically says "I love you"
+				
+			1. `dayOfYear` needs some comments
+				1. where? month runs from 0 to 11 or 1 to 12?
 
 #### Fail Fast ####
+1. Means: code should reveal bugs as early as possible
+	1. Earlier the problem is revealed (closeer to cause), easier it is to find and fix
+		1. Example: Static checking fails faster than dynamic checking
+		2. Example: Dynamic checking fails faster than producing wrong answer that may corrupt further computation
+2. Example: `dayOfYear` functions doesn't fail fast
+
 #### Avoid Magic Numbers ####
+1. 0, 1 and may be 2 are considered as constants by Computer Scientists
+
 #### One Purpose for Each Variable ####
 #### Use Good Names ####
 #### Use Whitespace to Help the Reader ####
