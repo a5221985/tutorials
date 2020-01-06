@@ -1330,9 +1330,56 @@
 				}
 				
 #### Smelly Example #2 ####
-1. 
+1. Bug in `dayOfyear` - Didn't handle leap years
+	1. Suppose we write the following:
+
+			public static boolean leap(int y) {
+				String tmp = String.valueOf(y);
+				if (tmp.charAt(2) == '1' || tmp.charAt(2) == '3' || tmp.charAt(2) == 5 || tmp.charAt(2) == '7' || tmp.charAt(2) == '9') {
+					if (tmp.charAt(3) == '2' || tmp.charAt(3) == '6') return true; /* R1 */
+					else
+						return false; /* R2 */
+				} else {
+					if (tmp.charAt(2) == '0' && tmp.charAt(3) == '0') {
+						return false; /* R3 */
+					}
+					if (tmp.charAt(3) == '0' || tmp.charAt(3) == '4' || tmp.charAt(3) == '8') return true; /* R4 */
+				}
+				return false; /* R5 */
+			}
 
 #### Use Good Names ####
+1. Good method names and variable names are long and self-descriptive
+	1. Comments can be avoided by making code more readable (using better names that describe methods and variables)
+		1. Bad example:
+
+				int tmp = 86400; // tmp is the number of seconds in a day (don't do this!)
+				
+		2. Good example:
+
+				int secondsPerDay = 86400;
+				
+			1. `tmp`, `temp` and `data` are aweful names (programmer laziness)
+				1. Every local variable is temporary (meaningless name)
+				2. Every variable is data (meaningless name)
+			2. Solution: Use long and descriptive names
+2. Follow lexical naming conventions of the language
+	1. Python: Classes are capitalized, variables are lowercase, words_are_separated_by_underscores.
+	2. Java:
+		1. `methodsAreNamedWithCamelCaseLikeThis`
+		2. `variablesAreAlsoCamelCase`
+		3. `CONSTANTS_ARE_IN_ALL_CAPS_WITH_UNDERSCORES`
+		4. `ClassesAreCapitalized`
+		5. `packages.are.lowercase.and.separated.by.dots`
+3. Method names: verb phrases - `getDate`, `isUpperCase`
+4. Variables and classes: noun phrases
+	1. Use short words and be concise (avoid abbreviations)
+		1. `message` is clearer than `msg`
+		2. `word` is better than `wd`
+	2. Abbreviations are harder for non-English speaking colleagues
+5. `leap` bad name - it has multiple meanings
+	1. `leapYear` is better
+
 #### Use Whitespace to Help the Reader ####
 #### Don't Use Global Variables ####
 #### Methods Should Return Results, Not Print Them ####
