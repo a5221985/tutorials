@@ -1377,10 +1377,12 @@
 		1. `message` is clearer than `msg`
 		2. `word` is better than `wd`
 	2. Abbreviations are harder for non-English speaking colleagues
-5. `leap` bad name - it has multiple meanings
+5. `leap` bad name - it has multiple meanings based on context
 	1. `leapYear` is better
 
 #### Use Whitespace to Help the Reader ####
+1. 
+
 #### Don't Use Global Variables ####
 #### Methods Should Return Results, Not Print Them ####
 
