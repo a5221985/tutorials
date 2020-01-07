@@ -282,8 +282,7 @@
       &#160;&#160;&#160;&#160;2-5-----
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1574222058760" ID="ID_1452448885" MODIFIED="1574222302945">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -354,8 +353,7 @@
       &#160;&#160;&#160;&#160;return dist
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -363,7 +361,26 @@
 </node>
 </node>
 <node CREATED="1573695488375" ID="ID_1462754315" MODIFIED="1573695507915" POSITION="right" TEXT="7. Dijkstra&apos;s Shortest Path Algorithm | Source Code"/>
-<node CREATED="1573695509430" ID="ID_988963723" MODIFIED="1573695517720" POSITION="left" TEXT="8. Topological Sort Algorithm"/>
+<node CREATED="1573695509430" ID="ID_988963723" MODIFIED="1573695517720" POSITION="left" TEXT="8. Topological Sort Algorithm">
+<node CREATED="1578429683039" ID="ID_1258968491" MODIFIED="1578429709330" TEXT="Many real world situations can be modelled as a graph with directed edges where some events must occur before others">
+<node CREATED="1578429710866" ID="ID_42060496" MODIFIED="1578429719879" TEXT="School class prerequisites"/>
+<node CREATED="1578429720123" ID="ID_47988740" MODIFIED="1578429725716" TEXT="Program dependencies"/>
+<node CREATED="1578429726236" ID="ID_777107703" MODIFIED="1578429732060" TEXT="Event scheduling"/>
+<node CREATED="1578429732292" ID="ID_322422765" MODIFIED="1578429737564" TEXT="Assembly instructions">
+<node CREATED="1578429766719" ID="ID_306041567" MODIFIED="1578429768542" TEXT="Ordering"/>
+</node>
+<node CREATED="1578429737829" ID="ID_496892979" MODIFIED="1578429738940" TEXT="..."/>
+</node>
+<node CREATED="1578429771269" ID="ID_625191236" MODIFIED="1578429773485" TEXT="Example">
+<node CREATED="1578429773757" ID="ID_72854892" MODIFIED="1578429837167" TEXT="Suppose you&apos;re a student at university X and you want ot take class H, then you must take classes A, B, D and E as prerequisites. In this sense there is an ordering on the nodes of the graph">
+<node CREATED="1578429839799" ID="ID_601255374" MODIFIED="1578429884246" TEXT="Topsort algo can tell us the order in which we need to enroll in classes meeting prerequisites"/>
+</node>
+<node CREATED="1578429907431" ID="ID_1894757230" MODIFIED="1578429955281" TEXT="Another canonical example where an ordering on the nodes of the graph matters is for program build dependencies. A program cannot be built unless its dependencies are first built."/>
+</node>
+<node CREATED="1578430034504" ID="ID_410603240" MODIFIED="1578430066852" TEXT="A topological ordering is an ordering of the nodes in a directed graph where for each directed edge from node A to node B, node A appears before node B in the ordering."/>
+<node CREATED="1578430088979" ID="ID_1853195438" MODIFIED="1578430104317" TEXT="The topological sort algorithm can find a topological ordering in O(V + E) time!"/>
+<node CREATED="1578430105202" ID="ID_1733912006" MODIFIED="1578430114662" TEXT="NOTE: Topological orderings are not unique"/>
+</node>
 <node CREATED="1573695518527" ID="ID_1996042730" MODIFIED="1573695532822" POSITION="right" TEXT="9. Shortest/Longest Path on Directed Acyclic Graph (DAG)"/>
 <node CREATED="1573695533742" ID="ID_1398295416" MODIFIED="1573695541613" POSITION="left" TEXT="10. Bellman-Ford Algorithm"/>
 <node CREATED="1573695542311" ID="ID_1791814029" MODIFIED="1573695557119" POSITION="right" TEXT="11. Floyd-Warshall All Pairs Shortest Path Algorithm"/>
