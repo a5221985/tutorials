@@ -862,5 +862,37 @@
 		1. Class
 
 				public class ServiceException extends Exception {
-					
+					public ServiceException(String message) {
+						super(message);
+					}
 				}
+				
+			1. `PaymentProcessorImpl`
+
+					... throws ServiceException {
+						...
+						throws new ServiceException("Invalid Card Number");
+					}
+					
+				1. Detail:
+
+						<detail>
+							<...ServiceException>
+						</detail>
+						
+## CRUD Operations Using SOAP ##
+### Usecase ###
+1. 
+
+### Install MySQL and MySQL workbench ###
+### Launch MySQL workbench and Construct a Database ###
+### Construct DB Table ###
+### Construct the Project ###
+### Construct the Data Access Layer ###
+### Construct the Web Services Layer ###
+### Implement the Endpoint Methods ###
+### Mark the Endpoint with jax-ws Annotations ###
+### Publish the Endpoint ###
+### Configure the Properties ###
+### Run and Access the wsdl ###
+### Test Using SoapUI ###
