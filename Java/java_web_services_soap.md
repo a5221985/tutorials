@@ -541,8 +541,29 @@
 		FileWsImpl
 
 ### Construct the MTOM Project ###
+1. File > New > Spring Starter Project > mtom
+	1. Description: MTOM
+2. Copy the section: cxf dependency from pom.xml and paste
+	1. Spring version: 1.5.9
+3. Right click on project > Maven Update Project
+4. `src/main/resources/application.properties`
+	1. Paste the following:
+
+			server.context-path=/mtom
+			cxf.path=/
+
 ### Construct the FileWs Interface ###
+1. `src/main/java` - New Interface - `FileWs`
+
+		@WebService
+		public interface FileWs {
+			void upload(@WebParam(name = "file") DataHandler attachment); // cxf grabs attachment and converts to DataHandler
+			DataHandler download(); // cxf writes attachment back to client
+		}
+
 ### Construct the FileWsImpl ###
+1. `src/main/java/FileWsImpl` implements `FileWs`
+
 ### Implement the Download Method ###
 ### Publish the Endpoint ###
 ### Test Using SoapUI ###
