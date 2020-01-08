@@ -585,10 +585,26 @@
 ### Implement the Download Method ###
 1. FileWsImpl
 
-		@Override DataHandler download(DataSource 
+		@Override DataHandler download() {
+			return new DataHandler(new FileDataSource(new File("/Users/bharaththippireddy/Desktop/files/uploaded/test.jpg")));
+		}
 
 ### Publish the Endpoint ###
+1. `WebServicesConfig.java`
+
+		@Bean
+		public Endpoint endpoint() {
+			Endpoint endpoint = new EndpointImpl(bus, new FileWsImpl());
+			endpoint.publish("/fields");
+			
+			SOAPBinding binding = (SOAPBinding) endpoint.getBinding(); // javax.xml.ws.soap
+			binding.setMTOMEnabled(true);
+			
+			return endpoint;
+		}
+
 ### Test Using SoapUI ###
+1. 
 
 ## JAX-WS Handlers ##
 ### Introduction ###
