@@ -690,14 +690,46 @@
 1. 	wsdlFirstws - New Class > com.bharath.trainings.ws.handlers.SiteHandler implements SOAPHandler (javax.xml.ws.handler.soap.SOAPHandler)
 
 		public class SiteHandler implements SOAPHandler<SOAPMessageContext> {
+			...
 			@Override
 			public boolean handleMessage(SOAPMessageContext context) {
-				
+				return false;
 			}
+			...
 		}
 
 ### Implement the `handleMessage` Method ###
+1. Steps:
+	1. Configure for request message only
+
+			@Override
+			public boolean handleMessage(SOAPMessageContext context) {
+				Boolean isResponse = (Boolean) context.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
+				if (!isResponse) {
+					SOAPMessage soapMsg = context.getMessage();
+					try {
+						SOAPEnvelope envelope = soapMsg.getSOAPPart().getEnvelope();
+						SOAPHeader header = envelope.getHeader();
+						Iterator childElements = header.getChildElements();
+					} catch (SOAPException e) {
+						e.printStackTrace();
+					}
+				} else {
+					System.out.println("Response on the way");
+				}
+				return false;
+			}
+
 ### Extract the Header ###
+
+		while (childElements.hasNext()) {
+			Node eachNode = (Node) childElements.next(); // javax.xml.soap.Node
+			String name = eachNode.getLocalName();
+			if (name != null && name.equals("SiteName")) {
+				System.out.println(eachNode.getValue());
+			}
+		}
+
 ### Configure the Handler ###
 ### SoapUI Test ###
 ### The Handler Flow ###
