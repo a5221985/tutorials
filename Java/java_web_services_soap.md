@@ -627,10 +627,47 @@
 		2. Click on + button
 		3. Select `sky-div.jpg`
 		4. Don't cache
+	2. Click on Part: Select the content id
+4. Hit play
+5. To Download:
+	1. Open download request
+	2. Hit play
+		1. Includes cid:
+	3. Click on Attachments tab at the bottom:
+		1. File is seen
+		2. Click on the file to open to save it
 
 ## JAX-WS Handlers ##
 ### Introduction ###
+1. What? Why and When to use the Jax-WS handlers
+2. Lower level API to implement handlers
+3. Cross-cutting concerns: - across ws endpoints or across clients
+	1. Handlers are used for this
+		1. Classes we develop by implementing interfaces
+4. Called when WS-Client invokes a request to CXF (in between)
+5. Called when cxf sends request to WS-Endpoing (in between)
+6. And also when response flows through
+7. They are similar to servlet filters but can be applied on client and server side
+8. Handlers are used for:
+	1. Custom authentication defition (own soap headers)
+		1. We can manipulate here
+	2. Caching - caches responses (same request or not)
+	3. Maintaining different versions of WS-Endpoint
+		1. We may have to decide which web service will serve the request (dispatched to specific endpoints)
+9. We can do on eithe server or client side or both
+
 ### Two Types of JAX-WS Handlers ###
+1. SOAP Handlers: A type of handler
+	1. They have access to entire message (soap headers, body, ...)
+2. Logical Handlers: Another type of handler
+	1. Just the payload information
+3. Implementation: `SOAPHandler<SOAPMessageContext>` interface is implemented
+	1. Methods to override:
+		1. `handleMessage`
+		2. `handleFault`
+		3. `getHeaders`
+		4. `close`
+
 ### Usecase ###
 ### Steps ###
 ### Construct the Handler Class ###
