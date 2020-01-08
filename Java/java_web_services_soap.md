@@ -790,9 +790,39 @@
 	2. Example:
 
 			<SiteName mustUnderstand="1">Amazon</SiteName>
+			
+		1. Server:
+
+				@Override
+				public Set<QName> getHeaders() {
+					System.out.println("getHeaders");
+					return null; // put SiteName in the Set and return it for cxf to know that we have handled it
+				}
+				
+			1. Should be implemented if `mustUnderstand="1"` attribute is set
 
 ## SOAP Faults ##
 ### Introduction ###
+1. Soap services should handle errors
+
+		<SOAP-ENV:Envelope>
+			<SOAP-ENV:Body>
+				<SOAP-ENV:Fault>
+				
+	1. Four child elements:
+		1. `<faulCode>` : Indicates what has gone wrong
+			1. `SOAP-ENV:VersionMismatch` - if soap envelope namespace is not what the server is expecting
+			2. `SOAP-ENV:MustUnderstand` - Used when `mustUnderstand` flag is set to 1 in soap header
+				1. If provider does not handle the child element of the header, then this error occurs
+			3. `SOAP-ENV:Client` - message was not formed well (wrong info or incorrect message)
+			4. `SOAP-ENV:Server` - server fault
+		2. `<faultString>`: Message that explains the error
+		3. `<faultActor>`: If message is going through multiple nodes, we want to know at which node the error occurred
+		4. `<detail>`: More information about the error
+			1. If multiple errors, we can indicate here
+
 ### Usecase and Project ###
+1. 
+
 ### Constructing a SOAP Fault ###
 ### Construct and Throw a Custom Exception ###
