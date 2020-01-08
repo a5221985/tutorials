@@ -361,7 +361,7 @@
 </node>
 </node>
 <node CREATED="1573695488375" ID="ID_1462754315" MODIFIED="1573695507915" POSITION="right" TEXT="7. Dijkstra&apos;s Shortest Path Algorithm | Source Code"/>
-<node CREATED="1573695509430" ID="ID_988963723" MODIFIED="1573695517720" POSITION="left" TEXT="8. Topological Sort Algorithm">
+<node CREATED="1573695509430" ID="ID_988963723" MODIFIED="1578431050242" POSITION="left" TEXT="8. Topological Sort Algorithm">
 <node CREATED="1578429683039" ID="ID_1258968491" MODIFIED="1578429709330" TEXT="Many real world situations can be modelled as a graph with directed edges where some events must occur before others">
 <node CREATED="1578429710866" ID="ID_42060496" MODIFIED="1578429719879" TEXT="School class prerequisites"/>
 <node CREATED="1578429720123" ID="ID_47988740" MODIFIED="1578429725716" TEXT="Program dependencies"/>
@@ -377,9 +377,222 @@
 </node>
 <node CREATED="1578429907431" ID="ID_1894757230" MODIFIED="1578429955281" TEXT="Another canonical example where an ordering on the nodes of the graph matters is for program build dependencies. A program cannot be built unless its dependencies are first built."/>
 </node>
-<node CREATED="1578430034504" ID="ID_410603240" MODIFIED="1578430066852" TEXT="A topological ordering is an ordering of the nodes in a directed graph where for each directed edge from node A to node B, node A appears before node B in the ordering."/>
+<node CREATED="1578430034504" ID="ID_410603240" MODIFIED="1578430066852" TEXT="A topological ordering is an ordering of the nodes in a directed graph where for each directed edge from node A to node B, node A appears before node B in the ordering.">
+<node CREATED="1578430196392" ID="ID_542981325" MODIFIED="1578430215895" TEXT="Informally, we can line all the nodes in such a way that all edges point to the right"/>
+</node>
 <node CREATED="1578430088979" ID="ID_1853195438" MODIFIED="1578430104317" TEXT="The topological sort algorithm can find a topological ordering in O(V + E) time!"/>
 <node CREATED="1578430105202" ID="ID_1733912006" MODIFIED="1578430114662" TEXT="NOTE: Topological orderings are not unique"/>
+<node CREATED="1578430245263" ID="ID_1450250542" MODIFIED="1578430258136" TEXT="Directed Acyclic Graphs (DAG)">
+<node CREATED="1578430261551" ID="ID_980441431" MODIFIED="1578430287833" TEXT="Not every graph can have a topological ordering. A graph which contains a cycle cannot have a valid ordering:"/>
+<node CREATED="1578430326711" ID="ID_1103106341" MODIFIED="1578430349531" TEXT="The only type of graph which has a valid topological ordering is a DAG. These are graphs with directed edges and no cycles."/>
+<node CREATED="1578430350418" ID="ID_124912035" MODIFIED="1578430368658" TEXT="Q: How do I verify that my graph does not contain a directed cycle?">
+<node CREATED="1578430371403" ID="ID_1878487932" MODIFIED="1578430390003" TEXT="A: One method is to use Tarjan&apos;s strongly connected component algorithm which can be used to find these cycles."/>
+</node>
+<node CREATED="1578430368905" ID="ID_1819460658" MODIFIED="1578430433597" TEXT="By definition, all rooted trees have a topological ordering since they do not contain any cycless">
+<node CREATED="1578430439445" ID="ID_226125541" MODIFIED="1578430480488" TEXT="Method to get topological ordering">
+<node CREATED="1578430481069" ID="ID_1957300436" MODIFIED="1578430537397">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        iteratively pick leaves from right to left
+      </li>
+      <li>
+        When root is reached then stop
+      </li>
+    </ol>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1578430547309" ID="ID_1413639137" MODIFIED="1578430559359" TEXT="Method">
+<node CREATED="1578430559741" ID="ID_1792889959" MODIFIED="1578430656211">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Pick an unvisited node
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Beginning with the selected node, do a Depth First Search (DFS) exploring only unvisited nodes.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      On the recursive callback of the DFS, add the current node to the topological ordering in reverse order.
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1578430883642" ID="ID_893719677" MODIFIED="1578431007557" TEXT="Add node if we backtrack from it">
+<node CREATED="1578431015817" ID="ID_7008035" MODIFIED="1578431023482" TEXT="CBEFKADGHIJLM"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1578430258375" ID="ID_52644035" MODIFIED="1578431060398" TEXT="Topsort pseudocode">
+<node CREATED="1578431063207" ID="ID_1311577550" MODIFIED="1578431210668">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Assumption: graph is stored as adjacency list
+    </p>
+    <p>
+      function topsort(graph):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;N = graph.numberOfNodes()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;V = [false, ..., false] # Length N
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;ordering = [0,...,0]&#160;&#160;# Length N
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = N - 1 # Index for ordering array
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for (at = 0; at &lt; N; at++):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if V[at] == false:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;visitedNodes = []
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;dfs(at, V, visitedNodes, graph)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for nodeId in visitedNodes:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ordering[i] = nodeId
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = i - 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return ordering
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1578431332996" ID="ID_1472840290" MODIFIED="1578431442528">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Execute Depth First Search (DFS)
+    </p>
+    <p>
+      function dfs(at, V, visitedNodes, graph):
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;V[at] = true
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;edges = graph.getEdgesOutFromNode(at)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for edge in edges:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if V[edge.to] == false:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;dfs(edge.to, V, visitedNodes, graph)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;visitedNodes.add(at)
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1578431499763" ID="ID_1951820161" MODIFIED="1578431508451" TEXT="Optimization">
+<node CREATED="1578453250601" ID="ID_175289181" MODIFIED="1578453371173">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Assumption: graph is stored as adjacency list
+    </p>
+    <p>
+      function topsort(graph):
+    </p>
+    <p>
+      &#160;&#160;&#160;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;N = graph.numberOfNodes()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;V = [false, ..., false]&#160;&#160;&#160;&#160;# Length N
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;ordering = [0, ..., 0]&#160;&#160;&#160;# Length N
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = N - 1&#160;&#160;&#160;# Index for ordering array
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for (at = 0; at &lt; N; at++):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if V[at] == false:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = dfs(i, at, V, ordering, graph)
+    </p>
+    <p>
+      &#160;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return ordering
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1578431050182" ID="ID_455384673" MODIFIED="1578431050182" TEXT=""/>
 </node>
 <node CREATED="1573695518527" ID="ID_1996042730" MODIFIED="1573695532822" POSITION="right" TEXT="9. Shortest/Longest Path on Directed Acyclic Graph (DAG)"/>
 <node CREATED="1573695533742" ID="ID_1398295416" MODIFIED="1573695541613" POSITION="left" TEXT="10. Bellman-Ford Algorithm"/>
