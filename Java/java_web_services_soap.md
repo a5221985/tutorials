@@ -722,16 +722,42 @@
 
 ### Extract the Header ###
 
+		System.out.println("HandleMessage");
+		
+		...
+		
 		while (childElements.hasNext()) {
 			Node eachNode = (Node) childElements.next(); // javax.xml.soap.Node
 			String name = eachNode.getLocalName();
 			if (name != null && name.equals("SiteName")) {
-				System.out.println(eachNode.getValue());
+				System.out.println("Site Name is =====> " + eachNode.getValue());
 			}
+		}
+		...
+		return true; // or else this handler will not be called
+		
+		@Override
+		public boolean handleFault(SOAPMessageContext context) {
+			System.out.println("handleFault");
+			return false;
 		}
 
 ### Configure the Handler ###
+1. `WebServiceConfig.xml`
+
+		@Bean
+		public Endpoint endpoint() {
+			...
+			SOAPBinding binding = (SOAPBinding) endpoint.getBinding();
+			ArrayList<Handler> handlerChain = new ArrayList<>();
+			handlerChain.add(new SiteHandler());
+			binding.setHandlerChain(handlerChain);
+			
+			return endpoint;
+
 ### SoapUI Test ###
+1. 
+
 ### The Handler Flow ###
 ### `getHeaders` Explained ###
 
