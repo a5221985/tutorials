@@ -667,10 +667,35 @@
 		2. `handleFault`
 		3. `getHeaders`
 		4. `close`
+4. `handleMessage`, `getHeaders`: Called on the way in and way out (twice)
+5. `handleFault`: Called only when there is a fault
+6. `close`: On the way out at the end of entire flow (cleanup code can be put here - closing resources)
+7. Implementation: `LogicalHandler<LogicalMessageContext>`:
+	1. Methods to override:
+		1. `handleMessage`
+		2. `handleFault`
+		3. `close`
+		4. No `getHeaders`
 
 ### Usecase ###
+1. `SiteName` - `SiteHandler` is used to extract site name
+
 ### Steps ###
+1. Design the handler chain (we can have multiple handlers) - servlets filter pattern
+2. Construct the handlers
+3. Configure the handlers
+4. Run and Test
+
 ### Construct the Handler Class ###
+1. 	wsdlFirstws - New Class > com.bharath.trainings.ws.handlers.SiteHandler implements SOAPHandler (javax.xml.ws.handler.soap.SOAPHandler)
+
+		public class SiteHandler implements SOAPHandler<SOAPMessageContext> {
+			@Override
+			public boolean handleMessage(SOAPMessageContext context) {
+				
+			}
+		}
+
 ### Implement the `handleMessage` Method ###
 ### Extract the Header ###
 ### Configure the Handler ###
