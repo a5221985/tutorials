@@ -756,7 +756,10 @@
 			return endpoint;
 
 ### SoapUI Test ###
-1. 
+1. Start application
+2. Access wsdl file
+3. Paste in SOAP-UI
+4. 
 
 ### The Handler Flow ###
 ### `getHeaders` Explained ###
