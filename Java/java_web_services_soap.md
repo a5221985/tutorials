@@ -822,7 +822,45 @@
 			1. If multiple errors, we can indicate here
 
 ### Usecase and Project ###
-1. 
+1. Run application: javafirstws
+2. Test using SOAP UI
 
 ### Constructing a SOAP Fault ###
+1. Example:
+
+		public class PaymentProcessorImpl implements PaymentProcessor {
+			public PaymentProcessorResponse processPayment(PaymentProcessorRequest paymentProcessorRequest) {
+				...
+				if (paymentProcessorRequest.getCreditCardInfo().getCardNumber() == null || paymentProcessorRequest.getCreditCardInfo().getCardNumber().length() == 0) {
+					throw new RuntimeException("Invalid Card Number");
+				}
+			}
+		}
+		
+	1. Remove the number and run
+
+			<faultcode>soap:Server</faultcode>
+			<faultstring>Invalid Card Number</faultstring>
+			
+		1. wsdl does not have any fault elements
+			1. We are throwing runtime exception and not checked exception
+
 ### Construct and Throw a Custom Exception ###
+1. Making soap fault part of contract
+2. Example:
+
+		@WebService(name = "PaymentProcessor")
+		public interface PaymentProcessor {
+			public @WebResult(name = "response") PaymentProcessorResponse processPayment(@WebParam(name = "paymentProcessorRequest") PaymentProcessorRequest paymentProcessorRequest) throws Exception;
+		}
+		
+	1. WSDL has fault element
+	2. Custom exception:
+
+			... throws ServiceException
+			
+		1. Class
+
+				public class ServiceException extends Exception {
+					
+				}
