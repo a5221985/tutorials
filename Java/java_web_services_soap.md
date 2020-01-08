@@ -564,7 +564,29 @@
 ### Construct the FileWsImpl ###
 1. `src/main/java/FileWsImpl` implements `FileWs`
 
+		public class FileWsImpl implements FileWs {
+			@Override
+			public void upload(DataHandler attachment) {
+				try {
+					InputStream inputStream = attachment.getInputStream();
+					OutputStream outputStream = new FileOutputStream(new File("/Users/bharaththippireddy/Desktop/files/uploaded/test.jpg"));
+					byte[] b = new byte[100000];
+					int bytesRead = 0;
+					
+					while ((bytesRead = inputStream.read(b) != -1) {
+						outputStream.write(b, 0, bytesRead);
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
 ### Implement the Download Method ###
+1. FileWsImpl
+
+		@Override DataHandler download(DataSource 
+
 ### Publish the Endpoint ###
 ### Test Using SoapUI ###
 
