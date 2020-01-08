@@ -567,8 +567,10 @@
 		public class FileWsImpl implements FileWs {
 			@Override
 			public void upload(DataHandler attachment) {
+				InputStream inputStream = null;
+				OutputStream outputStream = null;
 				try {
-					InputStream inputStream = attachment.getInputStream();
+					inputStream = attachment.getInputStream();
 					OutputStream outputStream = new FileOutputStream(new File("/Users/bharaththippireddy/Desktop/files/uploaded/test.jpg"));
 					byte[] b = new byte[100000];
 					int bytesRead = 0;
@@ -578,6 +580,13 @@
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
+				} finally {
+					try {
+						inputStream.close();
+						outputStream.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}
@@ -604,7 +613,20 @@
 		}
 
 ### Test Using SoapUI ###
-1. 
+1. Run as Spring Boot App
+
+		localhost:8080/mtom
+		
+	1. Click on wsdl link and copy the link
+2. In SoapUI, New SOAP Project:
+	1. Project Name: fileWs
+	2. Initial WSDL: paste the link
+3. Open upload request:
+	1. Attachment has content id:
+		1. Click on Attchments at button
+		2. Click on + button
+		3. Select `sky-div.jpg`
+		4. Don't cache
 
 ## JAX-WS Handlers ##
 ### Introduction ###
