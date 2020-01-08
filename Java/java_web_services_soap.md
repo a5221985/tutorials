@@ -759,10 +759,37 @@
 1. Start application
 2. Access wsdl file
 3. Paste in SOAP-UI
-4. 
+4. Project Name: SiteHandlerTest
+	1. Request:
+		1. CustomerID: 1
+		2. id: 1234
+		3. description: iPhone
+		4. quantity: 1000
+	2. Add headers
+
+			<soapenv:Header>
+				<SiteName>Amazon</SiteName>
+			</soapenv:Header>
+			
+		1. Console prints the handler message
 
 ### The Handler Flow ###
+1. First method called: `getHeaders` - on the way in
+2. Second: `handleMessage` - on the way in
+3. Third: `getHeaders` - on the way out
+4. Fourth: `handleMessage` - on the way out
+3. Third: `close` - at the end before ending
+
 ### `getHeaders` Explained ###
+1. Assignment: implement it
+2. `mustUnderstand` attribute
+	1. It takes two values: 
+		1. 1 - shoud be processed by the web services provider
+			1. Code on should handle soap header
+		2. 0 - optional
+	2. Example:
+
+			<SiteName mustUnderstand="1">Amazon</SiteName>
 
 ## SOAP Faults ##
 ### Introduction ###
