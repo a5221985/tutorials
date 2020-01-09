@@ -882,9 +882,26 @@
 						
 ## CRUD Operations Using SOAP ##
 ### Usecase ###
-1. 
+1. CRUD on products
+	1. Product:
+		1. id
+		2. description
+		3. ...
+2. Spring Data JPA
+3. Hibernate
+4. Classes
+	1. ProductRepository
+	2. Product
+	3. ProducWs
+	4. ProductWsImpl
+5. Steps:
+	1. Download MySQL and MySQL Workbench
+	2. Install (choose Workbench)
+	3. Configure (enter Root password)
 
 ### Install MySQL and MySQL workbench ###
+1. [https://corlewsolutions.com/](https://corlewsolutions.com/)
+
 ### Launch MySQL workbench and Construct a Database ###
 ### Construct DB Table ###
 ### Construct the Project ###
