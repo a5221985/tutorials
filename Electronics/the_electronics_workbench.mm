@@ -399,6 +399,11 @@
 <node CREATED="1578496797369" ID="ID_410301144" MODIFIED="1578496809459" TEXT="If we touch the leads, current flows through us">
 <node CREATED="1578496813620" ID="ID_377167115" MODIFIED="1578496826512" TEXT="Resistance in parallel of ourselves with the component is measured"/>
 </node>
+<node CREATED="1578496925896" ID="ID_1985387906" MODIFIED="1578496929237" TEXT="Continuity">
+<node CREATED="1578496929724" ID="ID_1145366375" MODIFIED="1578496932700" TEXT="Beeps">
+<node CREATED="1578496966566" ID="ID_607713357" MODIFIED="1578496973128" TEXT="Check which pads are connected"/>
+</node>
+</node>
 </node>
 <node CREATED="1576173183641" ID="ID_946827282" MODIFIED="1576173189303" TEXT="Auto-ranging multimeters"/>
 <node CREATED="1576173189519" ID="ID_771127184" MODIFIED="1576173196514" TEXT="Multimeter demo: DC measurement"/>
