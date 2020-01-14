@@ -39,8 +39,18 @@
 	3. Get help with the course, your projects, share something cool you are working on
 	4. Or just say Hi!
 	5. See Module in Section one for Instructions on How to join!
+5. Join Slack - ask questions, or just say Hi!
 
 ### Slack Group for OpenAPI: Beginner to Guru ###
+1. Slack channel - private and exclusive to students enrolled this course!
+2. Teacher answering questions
+3. TAs answering questions
+4. Uses:
+	1. Get help with the course
+	2. Help others with problems they are having
+	3. Share Spring Framework news, tips, and tricks
+	4. See how others are using the Spring Framework
+	5. Or just say Hi!
 
 ## Overview of OpenAPI ##
 ### Introduction ###
