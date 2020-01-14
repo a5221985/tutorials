@@ -5,8 +5,41 @@
 
 ### Meet Your Instructor ###
 1. springframeworkguru.com
+2. Spring REST Docs
+	1. Not comparable to OpenAPI
+3. Why use OpenAPI?
 
 ### Getting the Most out of Your OpenAPI Course ###
+1. Tips
+	1. Take the time to complete the course!
+		1. Many people never start
+		2. Many start, but never finish
+		3. To get the most of the course, you need to take the course!
+		4. Pro-Tip: Plan time on your calendar. Make a meeting for yourself!
+	2. Do quizzes
+	3. Do the assignments
+		1. Yet get a lot of benefit in learning from doing the coding exercises
+			1. Proven in education research
+2. Swagger Hub
+	1. Swagger Hub is used in the course
+		1. Commercial Product - but free to use
+		2. Is not the focus of this course
+3. Swagger Hub Alternatives
+	1. Visual Studio Code
+		1. Free to download and use
+		2. Look for OpenAPI Plugins - will help
+	2. IntelliJ - free community edition
+		1. Open API plugins
+	3. Any text editor will work fine
+		1. Notepad, Text Wranger, Sublime Text
+	4. DO NOT USE WORD or other word processing programs
+4. Slack Community
+	1. As a student in this course, you can request access to Spring Framework Guru's Slack Community
+	2. Get your access to a Slack channel exclusive to students of this course
+	3. Get help with the course, your projects, share something cool you are working on
+	4. Or just say Hi!
+	5. See Module in Section one for Instructions on How to join!
+
 ### Slack Group for OpenAPI: Beginner to Guru ###
 
 ## Overview of OpenAPI ##
