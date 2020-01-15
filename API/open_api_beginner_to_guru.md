@@ -73,7 +73,33 @@
 5. An API is a method for two computer applications to speak to each other
 	1. Conversation
 	2. Invoking action
-6. 
+6. APIs come in many flavors
+7. Clicking on a link in an email message is executing an API
+	1. Tells your device to open the web browser and go to this website
+	2. This action is performed via an API
+8. Some APIs are very technology specific - considered CLOSED
+	1. For example on a mobile device where one application opens another
+		1. Low level - needs OS calls may be
+9. Others adopt broadly accepted standards - considered OPEN
+10. APIs allow the internet to function as we know it
+11. For example - searching Google for a term
+	1. Your web browser does an HTTP POST of the search term to Google's servers
+	2. Googles servers understand the HTTP POST and respond back with an HTML document
+	3. Your web browser understands HTML - this is the language to describe the results web page
+12. APIs in this course:
+	1. This course will focus on the type of APIs used in web development
+	2. These API follow Open Standards and are widely used
+	3. These types of APIs are often referred to as Web Services
+	4. Two primary types of Web Services are
+		1. SOAP - older legacy systems (insurance, finance)
+		2. RESTful - modern adoption, widely used
+	5. Course will focus on RESTful Web Services
+13. RESTful Web Services
+	1. Popular because of their simplicity and versatility, RESTful web services have become the de facto standard for web services.
+	2. REST - Representational State Transfer
+		1. Representation - Typically JSON or XML
+		2. State Transfer - Typically via HTTP
+		3. Established by Roy Fielding from his 2000 doctoral dissertation
 
 ### HTTP Protocol ###
 ### HTTP Request Methods ###
