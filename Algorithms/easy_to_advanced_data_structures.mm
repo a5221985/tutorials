@@ -4519,9 +4519,20 @@
 </node>
 </node>
 <node CREATED="1579094252413" ID="ID_821998499" MODIFIED="1579094253843" TEXT="How?">
-<node CREATED="1579094254063" ID="ID_425717562" MODIFIED="1579094257507" TEXT="Tree Rotations!">
+<node CREATED="1579094254063" ID="ID_425717562" MODIFIED="1579094583980" TEXT="Tree Rotations!">
 <node CREATED="1579094263416" ID="ID_908153197" MODIFIED="1579094282315" TEXT="The secret ingredient to most BBST algorithms is the clever usage of a tree invariant and tree rotations."/>
-<node CREATED="1579094286688" ID="ID_1071640508" MODIFIED="1579094320892" TEXT="A tree invariant is a property/rule you impose on your tree that it must meet after every operation. To ensure that the invariant is always satisfied a series of tree rotations are normally applied"/>
+<node CREATED="1579094286688" ID="ID_1071640508" MODIFIED="1579094320892" TEXT="A tree invariant is a property/rule you impose on your tree that it must meet after every operation. To ensure that the invariant is always satisfied a series of tree rotations are normally applied">
+<node CREATED="1579094501812" ID="ID_1098455811" MODIFIED="1579094513270" TEXT="Tree rotations are applied to maintain the invariant"/>
+</node>
+<node CREATED="1579094583924" ID="ID_1681542612" MODIFIED="1579094608565" TEXT="Q: Why does this work? Why are you alloed to change the structure of a tree like this?">
+<node CREATED="1579094577966" ID="ID_1097124984" MODIFIED="1579094651627" TEXT="Short answer: In teh left tree we know that D &lt; B &lt; E &lt; A &lt; C and this remains true for the right subtree, so we didsn&apos;t break the BST invariant and, therefore, this is a valid transformation."/>
+<node CREATED="1579094721562" ID="ID_1631011578" MODIFIED="1579094724821" TEXT="Long answer">
+<node CREATED="1579094725730" ID="ID_1014065269" MODIFIED="1579094747180" TEXT="Recall that all BBSTs are BSTs so the BST invariant holds. This means that for every node n, n.left &lt; n and n &lt; n.right.">
+<node CREATED="1579094749243" ID="ID_1285673698" MODIFIED="1579094797398" TEXT="NOTE: The above assumes we only have unique values, otherwise we&apos;d have to consider the case where n.left &lt;= n and n &lt;= n.right"/>
+<node CREATED="1579094802173" ID="ID_681905297" MODIFIED="1579094844481" TEXT="It does not matter what the structure of the tree looks; all we care about is that the BST invariant holds. This means we can shuffle/ transform/ rotate the values and nodes in the tree as we please as long as the BST invariant remains satisfied!"/>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
