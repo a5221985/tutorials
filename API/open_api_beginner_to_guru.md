@@ -213,6 +213,18 @@
 	10. OPTIONS - Returns the HTTP methods supported by the server for the specified URL
 	11. CONNECT - Converts the request to a transparent TCP/IP tunnel, typically for HTTPS through an unenecrypted HTTP proxy
 	12. PATCH - Applies partial modifications to the specified resource
+2. Safe Methods
+	1. Safe methods are considered safe to use because they only fetch info and do not cause changes to server
+	2. Safe methods are: GET, HEAD, OPTIONS, TRACE
+3. Idempotent Methods
+	1. Idempotence - A quality of an action such that repetitions of the action have no further effect on the outcome
+	2. PUT and DELETE are idempotent methods
+	3. Safe methods (GET, HEAD, TRACE, OPTIONS) are also idempotent
+	4. Being truly idempotent is not enforced by the protocol
+4. Non-Idempotent methods
+	1. POST is not idempotent
+	2. Multiple posts are likely to construct multiple resources
+	3. There are websites which ask you to click submit only once
 
 ### Why use OpenAPI? ###
 ### Pet Clinic on Swagger Editor ###
