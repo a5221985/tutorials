@@ -113,6 +113,15 @@
 			2. Example - Refreshing web page (HTTP GET operation)
 	6. Stateless - Service does not maintain any client state
 	7. HATEOAS - Hypermedia As The Engine of Application State
+		1. Wikipedia - "A REST client should then be able to use server-provided links dynamically to discover all the available actions and resources it needs. As access proceeds, the server responds with text that includes hyperlinks to other actions that are currently available."
+15. HTTP - GET
+	1. Use: To read data from resource
+	2. Read only
+	3. Idempotent
+	4. Safe operation - does not change state of resource
+16. HTTP - PUT
+	1. Use: to insert (if not found) or update (if found)
+	2. Idempotent - Multiple PUTs will not change result
 
 ### HTTP Protocol ###
 ### HTTP Request Methods ###
