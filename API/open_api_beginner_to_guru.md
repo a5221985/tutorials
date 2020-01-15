@@ -179,6 +179,22 @@
 9. HTTP/1.1 - Updated by RFC 2616 in 1999 (Still used)
 10. Updated again by RFC 7230 in 2014
 	1. Still in use today
+	2. Example:
+
+			GET /index.html HTTP/1.1
+			...
+			Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
+			Cookie: __qca=P0-.... (snip)
+			
+11. HTTP/2.0 Standardized in 2015
+12. Supported by most servers and browsers by the end of 2015
+13. As of May 2017, only 13.7% of the top 10 Million websites supported HTTP/2.0
+14. Has high level of compatibility with HTTP/1.1
+15. Features:
+	1. Transport Performance was a focus of HTTP/2.0
+	2. Improves page load speed by:
+		1. Lower latency
+		2. Higher Throughout
 
 ### HTTP Request Methods ###
 ### Why use OpenAPI? ###
