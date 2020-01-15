@@ -194,9 +194,26 @@
 	1. Transport Performance was a focus of HTTP/2.0
 	2. Improves page load speed by:
 		1. Lower latency
-		2. Higher Throughout
+		2. Higher Throughput
+	3. Differences from HTTP/1.1 are largely transparent for web developers
+		1. Usage is going to be same (but lower level)
 
 ### HTTP Request Methods ###
+1. Request methods, also known as verbs, are used to indicate the desired action to be performed
+	1. GET - is a request for a resource (html file, javascript file, image, etc)
+	2. GET - is used when you visit a website
+	3. HEAD - is like GET, but only asks for meta information about the body
+	4. POST - is used to post data to the server
+		1. Post form data to the server (like a checkout form)
+	5. PUT - is a request for the enclosed entity be stored at the supplied URI. If the entity exists, it is expected to be updated
+	6. POST - is a construct request
+	7. PUT - is construct or update request
+	8. DELETE - is a request to delete the specified resource
+	9. TRACE - Will echo the received request. Can be used to see if request was altered by intermediate servers
+	10. OPTIONS - Returns the HTTP methods supported by the server for the specified URL
+	11. CONNECT - Converts the request to a transparent TCP/IP tunnel, typically for HTTPS through an unenecrypted HTTP proxy
+	12. PATCH - Applies partial modifications to the specified resource
+
 ### Why use OpenAPI? ###
 ### Pet Clinic on Swagger Editor ###
 ### OpenAPI 2.0 vs 3.0 ###
