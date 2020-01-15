@@ -4649,6 +4649,98 @@
 </node>
 </node>
 </node>
+<node CREATED="1579096163584" ID="ID_1131978128" MODIFIED="1579096167514" TEXT="Node information to store">
+<node CREATED="1579096167759" ID="ID_685519228" MODIFIED="1579096185907" TEXT="The actual value we&apos;re storing in the node. NOTE: THis value must be comparable so we know how to insert it."/>
+<node CREATED="1579096187636" ID="ID_1925609243" MODIFIED="1579096196003" TEXT="A value storing this node&apos;s balance factor."/>
+<node CREATED="1579096204665" ID="ID_1708276508" MODIFIED="1579096211875" TEXT="The height of this node in the tree"/>
+<node CREATED="1579096212615" ID="ID_1694179393" MODIFIED="1579096219875" TEXT="Pointers to the left/right child nodes."/>
+</node>
+<node CREATED="1579096257802" ID="ID_643974396" MODIFIED="1579096273046" TEXT="Q: What if the BF of a node is not in {-1, 0, +1}?">
+<node CREATED="1579096275072" ID="ID_94888803" MODIFIED="1579096285221" TEXT="How do we restore the AVL tree invariant?">
+<node CREATED="1579096286937" ID="ID_259901414" MODIFIED="1579096316627" TEXT="A: If a node&apos;s BF is not in {-1, 0, +1} then the BF of that node is +/- 2 which can be adjusted using tree rotations.">
+<node CREATED="1579096317816" ID="ID_716751821" MODIFIED="1579096329421" TEXT="BF(node) = H(node.right) - H(node.left)">
+<node CREATED="1579096342754" ID="ID_176669732" MODIFIED="1579096361415" TEXT="If BF is -2, then right rotate">
+<node CREATED="1579096435203" ID="ID_1959180588" MODIFIED="1579096437973" TEXT="Left heavy"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579096458532" ID="ID_528377350" MODIFIED="1579096462429" TEXT="Different cases">
+<node CREATED="1579096462659" ID="ID_1580590152" MODIFIED="1579096465357" TEXT="left heavy">
+<node CREATED="1579096465677" ID="ID_710709437" MODIFIED="1579096477227" TEXT="right rotation"/>
+</node>
+<node CREATED="1579096478153" ID="ID_1507100491" MODIFIED="1579096480947" TEXT="left right case">
+<node CREATED="1579096487113" ID="ID_1640467808" MODIFIED="1579096544915" TEXT="left rotate about left child (becomes left heavy)">
+<node CREATED="1579096514676" ID="ID_661407284" MODIFIED="1579096519620" TEXT="right rotate"/>
+</node>
+</node>
+<node CREATED="1579096552747" ID="ID_461095984" MODIFIED="1579096556188" TEXT="right right case">
+<node CREATED="1579096556480" ID="ID_1949126797" MODIFIED="1579096567009" TEXT="left rotation about right child"/>
+</node>
+<node CREATED="1579096568978" ID="ID_162683305" MODIFIED="1579096572532" TEXT="right left case">
+<node CREATED="1579096572880" ID="ID_696177875" MODIFIED="1579096582204" TEXT="right rotate about right child (becomes right heavy)">
+<node CREATED="1579096582794" ID="ID_1750342474" MODIFIED="1579096585788" TEXT="left rotate"/>
+</node>
+</node>
+</node>
+<node CREATED="1579096595787" ID="ID_797890151" MODIFIED="1579096600589" TEXT="Pseudocode">
+<node CREATED="1579096601120" ID="ID_1035435449" MODIFIED="1579096699733">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Public facing insert method. Returns true
+    </p>
+    <p>
+      # on successful insert and false otherwise.
+    </p>
+    <p>
+      function insert(value):
+    </p>
+    <p>
+      &#160;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if value == null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return false
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Only insert unique values
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if !contains(root, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;root = insert(root, value)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;nodeCount = nodeCount + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return true
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Value already exists in tree.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return false
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
 </node>
 <node CREATED="1567047975034" ID="ID_994624740" MODIFIED="1567047980588" TEXT="AVL tree removals"/>
 <node CREATED="1567047981371" ID="ID_76219402" MODIFIED="1567047986021" TEXT="AVL tree source code"/>
