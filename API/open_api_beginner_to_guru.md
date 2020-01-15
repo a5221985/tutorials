@@ -148,6 +148,37 @@
 6. HTTP standards were developed by:
 	1. IETF - Internet Engineering Task Force
 	2. W3C - World Wide Web Consortium
+7. HTTP/1.0
+
+		telnet website.org 80
+		
+		Connected to xxx.xxx.xxx.xxx
+		
+		GET /rfc/rfc1845.txt HTTP/1.0
+		User-Agent: CERN-.../2.35 lib.../2.17...
+		Accept: */*
+		
+		HTTP/1.0 200 OK
+		Content-Type: text/plain
+		Content-Length: ...
+		Expires: ...
+		Last-Modified: ...
+		Server: ...
+		
+		(plain-text response)
+		(connection closed)
+		
+8. HTTP/1.1 - Originally released in 1997
+	1. Solved a lot of ambiguities from earlier versions
+	2. Added support for 
+		1. keep alive connections
+		2. chunked encoding transfers
+		3. byte-range requests
+		4. transfer encodings
+		5. request pipelining
+9. HTTP/1.1 - Updated by RFC 2616 in 1999 (Still used)
+10. Updated again by RFC 7230 in 2014
+	1. Still in use today
 
 ### HTTP Request Methods ###
 ### Why use OpenAPI? ###
