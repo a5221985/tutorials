@@ -225,8 +225,22 @@
 	1. POST is not idempotent
 	2. Multiple posts are likely to construct multiple resources
 	3. There are websites which ask you to click submit only once
+5. HTTP Status Codes
+	1. 100 series are informational in nature
+	2. 200 series indicate successful request
+	3. 300 series are redirections
+	4. 400 series are client errors
+	5. 500 series are server side errors
+6. Common HTTP Status Codes
+	1. 200 Okay; 201 Created; 204 Accepted (background processing must occur)
+	2. 301 Moved permanently (different URI)
+	3. 400 Bad request (malformed data); 401 Not Authorized (resource has not been supplied or do not have security credentials to access)
+	4. 404 Not Found (server was not able to find the resource)
+	5. 500 Internal Server error (server code and not related to request), 503 - Service Unavailable (service is temporarily down)
 
 ### Why use OpenAPI? ###
+
+
 ### Pet Clinic on Swagger Editor ###
 ### OpenAPI 2.0 vs 3.0 ###
 ### YAML Crash Course ###
