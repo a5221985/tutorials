@@ -54,7 +54,18 @@
 
 ## Overview of OpenAPI ##
 ### Introduction ###
+1. OpenAPI
+2. Terminology
+3. HTTP and RESTFul APIs
+4. Technologies
+5. Services with OpenAPI specs using YAML
+6. Schema, Data Types
+7. Re-usable components
+8. Using OpenAPI Specs and Technologies
+
 ### What is an API? ###
+1. 
+
 ### HTTP Protocol ###
 ### HTTP Request Methods ###
 ### Why use OpenAPI? ###
