@@ -100,6 +100,19 @@
 		1. Representation - Typically JSON or XML
 		2. State Transfer - Typically via HTTP
 		3. Established by Roy Fielding from his 2000 doctoral dissertation
+14. RESTful Terminology
+	1. Verbs - HTTP Methods: GET, PUT, POST, DELETE
+	2. Messages - payload of the action (JSON/XML)
+	3. URI - Uniform Resource Identifier
+		1. A unique string identifying a resource
+	4. URL - Uniform Resource Locator
+		1. A URI with network information - http://www.example.com
+	5. Idempotence - 
+		1. Wikipedia "Idempotence is the property of certain operations in mathematics and computer science that they can be applied multiple times without changing the result beyond the initial application"
+			1. The operation can be exercised multiple times - without chaning the result
+			2. Example - Refreshing web page (HTTP GET operation)
+	6. Stateless - Service does not maintain any client state
+	7. HATEOAS - Hypermedia As The Engine of Application State
 
 ### HTTP Protocol ###
 ### HTTP Request Methods ###
