@@ -122,8 +122,33 @@
 16. HTTP - PUT
 	1. Use: to insert (if not found) or update (if found)
 	2. Idempotent - Multiple PUTs will not change result
+17. HTTP - POST
+	1. Use: to construct new object (insert)
+	2. Non-Idempotent - Multiple POSTs is expected to construct multiple objects
+	3. Not Safe operation - does chnage state of resource (on server)
+	4. Only Non-Idempotent, Non-Safe HTTP verb
+18. HTTP - DELETE
+	1. Use: to delete an object (resource)
+	2. Idempotent - Multiple DELETEs will have same effect/ behavior
+	3. Not Safe operation - does change state of resource
 
 ### HTTP Protocol ###
+1. Development of HTTP was started by Tim Berners-Lee of CERN in 1989
+2. HTTP/0.9 is the Original HTTP proposal by Tim Berners-Lee
+3. Started as a telnet friendly protocol
+	1. HTTP History
+		1. `telnet google.com 80`
+			1. `GET /about/`
+
+					(hypertext response)
+					(connection closed)
+					
+4. HTTP/1.0 - From 1991 to 1995 the HTTP/HTML specifications grew rapidly
+5. New software known as a "web browser" emerged
+6. HTTP standards were developed by:
+	1. IETF - Internet Engineering Task Force
+	2. W3C - World Wide Web Consortium
+
 ### HTTP Request Methods ###
 ### Why use OpenAPI? ###
 ### Pet Clinic on Swagger Editor ###
