@@ -64,7 +64,16 @@
 8. Using OpenAPI Specs and Technologies
 
 ### What is an API? ###
-1. 
+1. API: Application Programming Interface
+	1. API is broad term - covering a wide range of meanings
+2. Application: Computer application
+	1. Web site, Mobile application, any computer program
+3. Programming: Instructions to complete a task
+4. Interface: A point where two systems meet and interact
+5. An API is a method for two computer applications to speak to each other
+	1. Conversation
+	2. Invoking action
+6. 
 
 ### HTTP Protocol ###
 ### HTTP Request Methods ###
