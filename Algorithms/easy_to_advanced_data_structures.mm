@@ -4533,13 +4533,123 @@
 </node>
 </node>
 </node>
+<node CREATED="1579094870115" ID="ID_694705785" MODIFIED="1579094874147" TEXT="Right Rotations">
+<node CREATED="1579094874763" ID="ID_1879457950" MODIFIED="1579094983777">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function right Rotate(A):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B := A.left
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;A.left = B.right
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B.right = A
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return B
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579095017317" ID="ID_149684406" MODIFIED="1579095028725" TEXT="Parent P may or may not exist">
+<node CREATED="1579095030948" ID="ID_367003070" MODIFIED="1579095102406" TEXT="If P exists, then B must be the child of P">
+<node CREATED="1579095104483" ID="ID_1651779430" MODIFIED="1579095162967" TEXT="NOTE: It&apos;s possible that before the rotation node A had a parent whose left/right pointer referenced it. It&apos;s very iportant that this link be updated to reference B. This is usually done on the recursive callback using the return value of rotateRight."/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579094998227" ID="ID_1421010278" MODIFIED="1579095002126" TEXT="Left Rotations"/>
+<node CREATED="1579095232966" ID="ID_313260436" MODIFIED="1579095301661" TEXT="In some BBST implementations where you often need to access the parent/uncle nodes (such as RB trees), it&apos;s convenient for nodes to not only have a reference to the left and the right child nodes but also the parent node. This can complicate tree rotations because instead of updating three pointers, now you have to update six!">
+<node CREATED="1579095350277" ID="ID_1109986124" MODIFIED="1579095356668" TEXT="RB: Red Black Trees"/>
+<node CREATED="1579095389478" ID="ID_1762656858" MODIFIED="1579095532066">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function rightRotate(A):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;P := A.parent
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B := A.left
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;A.left = B.right
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if B.right != null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;B.right.parent = A
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B.right = A
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;A.parent = B
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B.parent = P
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Update parent down link.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if P != null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if P.left == A:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;P.left = B
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;P.right = B
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return B
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1579095737315" ID="ID_770022336" MODIFIED="1579095767789" TEXT="Summary: BBSTs remain balanced by performing a series of left/right tree rotations when their invariant is not satisfied."/>
 </node>
 </node>
 </node>
 </node>
 </node>
 </node>
-<node CREATED="1567047966997" ID="ID_1916570050" MODIFIED="1567047973404" TEXT="AVL tree insertions"/>
+<node CREATED="1567047966997" ID="ID_1916570050" MODIFIED="1567047973404" TEXT="AVL tree insertions">
+<node CREATED="1579095803185" ID="ID_600708070" MODIFIED="1579095809265" TEXT="AVL Tree Introduction">
+<node CREATED="1579095812386" ID="ID_700587606" MODIFIED="1579095842345" TEXT="An AVL tree is one of many types of Balanced Binary Search Trees (BBSTs) which allow for logarightmic O(log(n)) insertion, deletion and search operations."/>
+<node CREATED="1579095843855" ID="ID_161638485" MODIFIED="1579095894265" TEXT="In fact, it was the first type of BBST to be discovered. Soon after, many other types of BBSTs started to emerge including the 2-33 tree, the AA tree, the scapegoat tree, and its main rival, the red-black tree."/>
+</node>
+<node CREATED="1579095943398" ID="ID_1975901335" MODIFIED="1579095949383" TEXT="AVL Tree Invariant">
+<node CREATED="1579095955347" ID="ID_1448879101" MODIFIED="1579095975951" TEXT="The property which keeps an AVL tree balanced is called the Balanced Factor (BF).">
+<node CREATED="1579095977109" ID="ID_437288640" MODIFIED="1579095987943" TEXT="BF(node) = H(node.right) - H(node.left)">
+<node CREATED="1579095990230" ID="ID_1881550410" MODIFIED="1579096015504" TEXT="Where H(x) is the height of node x. Recall that H9x) is calculated as the number of edges between x and the furthest leaf."/>
+<node CREATED="1579096031566" ID="ID_1154959541" MODIFIED="1579096065007" TEXT="The invariant in the AVL which forces it to remain balanced is the requirement that the balance factor is always either -1, 0. or +1">
+<node CREATED="1579096136875" ID="ID_616406160" MODIFIED="1579096147160" TEXT="If tree has only one node, H(x) = 0"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047975034" ID="ID_994624740" MODIFIED="1567047980588" TEXT="AVL tree removals"/>
 <node CREATED="1567047981371" ID="ID_76219402" MODIFIED="1567047986021" TEXT="AVL tree source code"/>
 </node>
