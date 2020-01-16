@@ -246,8 +246,25 @@
 	1. Microsoft, Google, IBM
 4. OpenAPI is considered technology agnostic
 	1. Java, .NET, PHP, Ruby, etc - can all benefit from OpenAPI
+5. OpenAPI Specifications are defined in YAML or JSON
+	1. YAML - lighter
+	2. JSON - more structured
+6. The OpenAPI Specification is backed by a formal schema
+	1. Defines document's properties and data types
+		1. Sections
+		2. Propeties
+		3. Data types
+7. OpenAPI is a structured document
+	1. It can be read programmatically
+8. OpenAPI Tools - Converters, Validators, GUI Editors, Mock Services, SDK Generators, Documentation
+9. OpenAPI CodeGen - To generate server code for 20+ languages; Client code for 40+ languages
+	1. Templates
+10. The OpenAPI Specification becomes the single source of truth for what the API is supposed to do.
+11. 
 
 ### Pet Clinic on Swagger Editor ###
+1. 
+
 ### OpenAPI 2.0 vs 3.0 ###
 ### YAML Crash Course ###
 
