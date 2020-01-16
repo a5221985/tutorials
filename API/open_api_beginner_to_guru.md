@@ -239,7 +239,13 @@
 	5. 500 Internal Server error (server code and not related to request), 503 - Service Unavailable (service is temporarily down)
 
 ### Why use OpenAPI? ###
-
+1. OpenAPI - Short for OpenAPI Specification
+	1. OA3 - for OpenAPI 3.x
+2. OpenAPI is widely adopted standard for describing APIs
+3. Strong industry support for OpenAPI
+	1. Microsoft, Google, IBM
+4. OpenAPI is considered technology agnostic
+	1. Java, .NET, PHP, Ruby, etc - can all benefit from OpenAPI
 
 ### Pet Clinic on Swagger Editor ###
 ### OpenAPI 2.0 vs 3.0 ###
