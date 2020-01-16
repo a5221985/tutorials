@@ -260,7 +260,19 @@
 9. OpenAPI CodeGen - To generate server code for 20+ languages; Client code for 40+ languages
 	1. Templates
 10. The OpenAPI Specification becomes the single source of truth for what the API is supposed to do.
-11. 
+11. Without OpenAPI - what defines the API?
+	1. Source code?
+	2. Design documentation or wiki?
+	3. Unit tests?
+	4. Email messages between developers?
+12. OpenAPI Spec is the source of truth and we code to the specification
+13. OpenAPI at Velo Payments
+	1. Microservices define API via OpenAPI Specification
+	2. Unit Tests use OpenAPI to validate all requests and responses
+		1. Tests are run locally and during CI/CD
+	3. Consumer Driven Contracts defined in OpenAPI extensions
+	4. Client side SDKs published in ~8 languages using OpenAPI generated code
+	5. Public documentation generated from OpenAPI specification
 
 ### Pet Clinic on Swagger Editor ###
 1. 
