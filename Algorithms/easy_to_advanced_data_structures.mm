@@ -4556,8 +4556,7 @@
       &#160;&#160;&#160;&#160;return B
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579095017317" ID="ID_149684406" MODIFIED="1579095028725" TEXT="Parent P may or may not exist">
 <node CREATED="1579095030948" ID="ID_367003070" MODIFIED="1579095102406" TEXT="If P exists, then B must be the child of P">
 <node CREATED="1579095104483" ID="ID_1651779430" MODIFIED="1579095162967" TEXT="NOTE: It&apos;s possible that before the rotation node A had a parent whose left/right pointer referenced it. It&apos;s very iportant that this link be updated to reference B. This is usually done on the recursive callback using the return value of rotateRight."/>
@@ -4623,8 +4622,7 @@
       &#160;&#160;&#160;&#160;return B
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1579095737315" ID="ID_770022336" MODIFIED="1579095767789" TEXT="Summary: BBSTs remain balanced by performing a series of left/right tree rotations when their invariant is not satisfied."/>
@@ -4737,8 +4735,69 @@
       &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return false
     </p>
   </body>
+</html></richcontent>
+<node CREATED="1579226783419" ID="ID_116654620" MODIFIED="1579226929517">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function insert(node, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node == null: return Node(value)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Invoke the comparator function in whatever
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# programming language you're using
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;cmp := compare(value, node.value)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if cmp &lt; 0:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.left = insert(node.left, value)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.right = insert(node.right, value)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Update balance factor and height values.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;update(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Rebalance tree
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return balance(node)
+    </p>
+  </body>
 </html>
 </richcontent>
+<node CREATED="1579226966189" ID="ID_527979982" MODIFIED="1579226966189" TEXT=""/>
+</node>
 </node>
 </node>
 </node>
