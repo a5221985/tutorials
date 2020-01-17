@@ -4796,7 +4796,209 @@
   </body>
 </html>
 </richcontent>
-<node CREATED="1579226966189" ID="ID_527979982" MODIFIED="1579226966189" TEXT=""/>
+<node CREATED="1579226966189" ID="ID_527979982" MODIFIED="1579227052154">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function update(node):
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Variables for left/right subtree heights
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;lh := -1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;rh := -1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node.left != null: lh = node.left.height
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node.right != null: rh = node.right.height
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Update this node's height
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;node.height = 1 + max(lh, rh)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Update balance factor.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;node.bf = rh - lh
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579227081293" ID="ID_855289016" MODIFIED="1579227118293" TEXT="-1 because if it is added to height of tree with 0 height, it becomes 0"/>
+<node CREATED="1579227133977" ID="ID_541653073" MODIFIED="1579227256827">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function balance(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Left heavy subtree.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node.bf == -2:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if node.left.bf &lt;= 0:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return leftLeftCase(node)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return leftRightCase(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Right heavy subtree.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;else if node.bf == +2:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if node.right.bf &gt;= 0:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return rightRightCase(node)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return rightLeftCase(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Node has balance factor of -1, 0, or +1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# which we do not need to balance
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return node
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579227274260" ID="ID_378724280" MODIFIED="1579227354442">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function leftLeftCase(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return rightRotation(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function leftRightCase(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;node.left = leftRotation(node.left)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return leftLeftCase(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function rightRightCase(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return leftRotation(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function rightLeftCase(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;node.right = rightRotation(node.right)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return rightRightCase(node)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579227389334" ID="ID_432613421" MODIFIED="1579227457698">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function rightRotate(A):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B := A.left
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;A.left = B.right
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B.right = A
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# After rotation update balance
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# factor and height values.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;update(A)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;update(B)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return B
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579227458873" ID="ID_1640051097" MODIFIED="1579227475516" TEXT="AVL tree rotations require you to call the update method! The left rotation is symmetric">
+<node CREATED="1579227492175" ID="ID_1125035920" MODIFIED="1579227498659" TEXT="Height, balance factor"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
