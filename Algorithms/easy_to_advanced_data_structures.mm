@@ -5003,7 +5003,31 @@
 </node>
 </node>
 </node>
-<node CREATED="1567047975034" ID="ID_994624740" MODIFIED="1567047980588" TEXT="AVL tree removals"/>
+<node CREATED="1567047975034" ID="ID_994624740" MODIFIED="1567047980588" TEXT="AVL tree removals">
+<node CREATED="1579227595918" ID="ID_1144833440" MODIFIED="1579227604219" TEXT="Removing Elements from a BST">
+<node CREATED="1579227609093" ID="ID_1557558151" MODIFIED="1579227613405" TEXT="Two step process">
+<node CREATED="1579227613651" ID="ID_1333323297" MODIFIED="1579227658292">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        Find the element we wish to remove (if it exists).
+      </li>
+      <li>
+        Replace the node we want to remove with its successor (if any) to maintain the BST invariant.
+      </li>
+    </ol>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579227661062" ID="ID_1416258298" MODIFIED="1579227676191" TEXT="BST invariant: left subtree has smaller elements and right subtree has larger elements."/>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047981371" ID="ID_76219402" MODIFIED="1567047986021" TEXT="AVL tree source code"/>
 </node>
 <node CREATED="1567047990936" ID="ID_430826137" MODIFIED="1567047995764" POSITION="left" TEXT="Indexed Priority Queue">
