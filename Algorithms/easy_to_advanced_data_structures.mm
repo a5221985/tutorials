@@ -5070,7 +5070,9 @@
 <node CREATED="1579352180386" ID="ID_1576922143" MODIFIED="1579352193184" TEXT="Q: In which subtree will the successor of the node we are tyring to remove be?">
 <node CREATED="1579352201001" ID="ID_1249043285" MODIFIED="1579352226723" TEXT="A: The answer is both! The successor can either be the largest value in the left subtree OR the smallest value in the right subtree ">
 <node CREATED="1579352242539" ID="ID_614386155" MODIFIED="1579352267813" TEXT="Once the successor node has been identified (if it exists), replace the value of the node to remove with teh value in the successor node.">
-<node CREATED="1579352273989" ID="ID_596810682" MODIFIED="1579352326663" TEXT="NOTE: Don&apos;t forget to remove the duplicate value of the successor node that still exists in the tree at this point! One strategy to resolve this is by calling the function again recursively but with the value to remove as the value in the successor node."/>
+<node CREATED="1579352273989" ID="ID_596810682" MODIFIED="1579352326663" TEXT="NOTE: Don&apos;t forget to remove the duplicate value of the successor node that still exists in the tree at this point! One strategy to resolve this is by calling the function again recursively but with the value to remove as the value in the successor node.">
+<node CREATED="1579352439614" ID="ID_1890603907" MODIFIED="1579352452046" TEXT="This will only result in Case I, II or III removal"/>
+</node>
 </node>
 </node>
 </node>
@@ -5092,6 +5094,50 @@
 </node>
 </node>
 </node>
+<node CREATED="1579352491591" ID="ID_679861129" MODIFIED="1579352503252" TEXT="Augmenting BST Removal Algorithm for AVL Tree">
+<node CREATED="1579352503900" ID="ID_79005883" MODIFIED="1579352526056" TEXT="Augmenting the removal algorithm from a plain BST implementation to an AVL tree is just as easy as adding two lines of code:">
+<node CREATED="1579352527416" ID="ID_842378358" MODIFIED="1579352578148">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function remove(node, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;...
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Code for BST item removal here
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;...
+    </p>
+    <p>
+      &#160;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Update balance factor
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;update(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Rebalance tree
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return balance(tree)
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
@@ -5103,7 +5149,23 @@
 <node CREATED="1567047981371" ID="ID_76219402" MODIFIED="1567047986021" TEXT="AVL tree source code"/>
 </node>
 <node CREATED="1567047990936" ID="ID_430826137" MODIFIED="1567047995764" POSITION="left" TEXT="Indexed Priority Queue">
-<node CREATED="1567047996676" ID="ID_1465373898" MODIFIED="1567048021205" TEXT="Introduction to indexed priority queues"/>
+<node CREATED="1567047996676" ID="ID_1465373898" MODIFIED="1567048021205" TEXT="Introduction to indexed priority queues">
+<node CREATED="1579352716826" ID="ID_567228589" MODIFIED="1579352732189" TEXT="Recap"/>
+<node CREATED="1579352740226" ID="ID_1341567466" MODIFIED="1579352747366" TEXT="What is an Indexed Priority Queue?">
+<node CREATED="1579352758894" ID="ID_484731373" MODIFIED="1579352804508" TEXT="An Indexed Priority Queue is a traditional priority queue variant which on top of the regular PQ operations supports quick updates and deletions of key-value pairs.">
+<node CREATED="1579352847170" ID="ID_885519984" MODIFIED="1579352865718" TEXT="Suppose a hospital has a waiting root with N people which need attention with different levels of priority">
+<node CREATED="1579352870088" ID="ID_1988323736" MODIFIED="1579352879786" TEXT="Mary is in labour - Priority: 9">
+<node CREATED="1579352970215" ID="ID_1736783784" MODIFIED="1579352973721" TEXT="Highest priority"/>
+</node>
+<node CREATED="1579352880263" ID="ID_691966819" MODIFIED="1579352893774" TEXT="Akarsh has a paper cut - Priority: 1"/>
+<node CREATED="1579352894545" ID="ID_601456063" MODIFIED="1579352907056" TEXT="James has an arrow in his leg - Priority: 7"/>
+<node CREATED="1579352907620" ID="ID_399337008" MODIFIED="1579352922052" TEXT="Naida&apos;s stomach hurts - Priority: 3"/>
+<node CREATED="1579352922413" ID="ID_1362473896" MODIFIED="1579352933943" TEXT="Richard has a fractured wrist - Priority: 5"/>
+<node CREATED="1579352934205" ID="ID_1339938582" MODIFIED="1579352945910" TEXT="Leah&apos;s stomach hurts - Priority: 3"/>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567048022793" ID="ID_526212390" MODIFIED="1567048028448" TEXT="Indexed priority queue source code"/>
 </node>
 </node>
