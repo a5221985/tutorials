@@ -5058,9 +5058,24 @@
 <node CREATED="1579351563112" ID="ID_1841579799" MODIFIED="1579351589332" TEXT="Suppose we want to remove 8 from the BST on the right. First we would find 8 then remove it immediately since it&apos;s a leaf node"/>
 </node>
 </node>
-<node CREATED="1579350377144" ID="ID_533668289" MODIFIED="1579350387695" TEXT="2. Node to remove has a right subtree but no left subtree"/>
+<node CREATED="1579350377144" ID="ID_533668289" MODIFIED="1579350387695" TEXT="2. Node to remove has a right subtree but no left subtree">
+<node CREATED="1579351914978" ID="ID_1152937955" MODIFIED="1579351929381" TEXT="Case II &amp; III: either the left/right child node is a subtree">
+<node CREATED="1579351930042" ID="ID_1852427935" MODIFIED="1579351951002" TEXT="The successor of the node we are trying to remove in these cases will be the immediate node down from the left/right subtree"/>
+<node CREATED="1579351956648" ID="ID_1090430397" MODIFIED="1579351980392" TEXT="It may be the case that we are removing the root node of the BST, in which case its immediate child becomes the new root, as you would expect"/>
+</node>
+</node>
 <node CREATED="1579350388064" ID="ID_757733435" MODIFIED="1579350399362" TEXT="3. Node to remove has a left subtree but no right subtree"/>
-<node CREATED="1579350399607" ID="ID_744645281" MODIFIED="1579350413184" TEXT="4. Note to remove has both left subtree and a right subtree"/>
+<node CREATED="1579350399607" ID="ID_744645281" MODIFIED="1579350413184" TEXT="4. Note to remove has both left subtree and a right subtree">
+<node CREATED="1579352165868" ID="ID_1799216853" MODIFIED="1579352179297" TEXT="Case IV: Node to remove has both a left subtree and a right subtree">
+<node CREATED="1579352180386" ID="ID_1576922143" MODIFIED="1579352193184" TEXT="Q: In which subtree will the successor of the node we are tyring to remove be?">
+<node CREATED="1579352201001" ID="ID_1249043285" MODIFIED="1579352226723" TEXT="A: The answer is both! The successor can either be the largest value in the left subtree OR the smallest value in the right subtree ">
+<node CREATED="1579352242539" ID="ID_614386155" MODIFIED="1579352267813" TEXT="Once the successor node has been identified (if it exists), replace the value of the node to remove with teh value in the successor node.">
+<node CREATED="1579352273989" ID="ID_596810682" MODIFIED="1579352326663" TEXT="NOTE: Don&apos;t forget to remove the duplicate value of the successor node that still exists in the tree at this point! One strategy to resolve this is by calling the function again recursively but with the value to remove as the value in the successor node."/>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1579351125470" ID="ID_854498735" MODIFIED="1579351131023" TEXT="Removing Elements from a BST">
 <node CREATED="1579351153747" ID="ID_1107439609" MODIFIED="1579351174405" TEXT="Removing elements from a Binary Search Tree (BST) can be seen as a two-step process:">
