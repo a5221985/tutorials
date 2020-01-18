@@ -5024,6 +5024,63 @@
 </html>
 </richcontent>
 <node CREATED="1579227661062" ID="ID_1416258298" MODIFIED="1579227676191" TEXT="BST invariant: left subtree has smaller elements and right subtree has larger elements."/>
+<node CREATED="1579227708526" ID="ID_494708944" MODIFIED="1579227711728" TEXT="Find phase">
+<node CREATED="1579227711942" ID="ID_246009847" MODIFIED="1579227734611" TEXT="When searching for an element, one of 4 things can happen">
+<node CREATED="1579227735412" ID="ID_1654478131" MODIFIED="1579227798660">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        We hit a null node at which point we know the value does not exist within our BST
+      </li>
+      <li>
+        Comparator value equal to 0 (found it!)
+      </li>
+      <li>
+        Comparator value less than 0 (the value, if it exists, is in the left subtree)
+      </li>
+      <li>
+        Comparator value greater than 0 (the value, if it exists, is in the right subtree)
+      </li>
+    </ol>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579234658734" ID="ID_965855049" MODIFIED="1579234662694" TEXT="find(14)"/>
+<node CREATED="1579350355708" ID="ID_941659754" MODIFIED="1579350360295" TEXT="Remove Phase">
+<node CREATED="1579350360664" ID="ID_1889821671" MODIFIED="1579350363806" TEXT="Four cases">
+<node CREATED="1579350368816" ID="ID_1012747742" MODIFIED="1579350376341" TEXT="1. Node to remove is a leaf node">
+<node CREATED="1579351535871" ID="ID_857308190" MODIFIED="1579351541623" TEXT="Case I: Leaf node">
+<node CREATED="1579351542651" ID="ID_655691814" MODIFIED="1579351555543" TEXT="If the node we wish to remove is a leaf node then we may do so without side effect"/>
+<node CREATED="1579351563112" ID="ID_1841579799" MODIFIED="1579351589332" TEXT="Suppose we want to remove 8 from the BST on the right. First we would find 8 then remove it immediately since it&apos;s a leaf node"/>
+</node>
+</node>
+<node CREATED="1579350377144" ID="ID_533668289" MODIFIED="1579350387695" TEXT="2. Node to remove has a right subtree but no left subtree"/>
+<node CREATED="1579350388064" ID="ID_757733435" MODIFIED="1579350399362" TEXT="3. Node to remove has a left subtree but no right subtree"/>
+<node CREATED="1579350399607" ID="ID_744645281" MODIFIED="1579350413184" TEXT="4. Note to remove has both left subtree and a right subtree"/>
+</node>
+<node CREATED="1579351125470" ID="ID_854498735" MODIFIED="1579351131023" TEXT="Removing Elements from a BST">
+<node CREATED="1579351153747" ID="ID_1107439609" MODIFIED="1579351174405" TEXT="Removing elements from a Binary Search Tree (BST) can be seen as a two-step process:">
+<node CREATED="1579351174925" ID="ID_557906775" MODIFIED="1579351186804" TEXT="1. Find the element we wish to remove (if it exists).">
+<node CREATED="1579351299384" ID="ID_1037544518" MODIFIED="1579351318040" TEXT="When searching our BST for a node with a particular value, one of four things will happen:">
+<node CREATED="1579351318439" ID="ID_906527826" MODIFIED="1579351338070" TEXT="1. We hit a null node at which point we know the value does not exist within our BST"/>
+<node CREATED="1579351338670" ID="ID_1693899714" MODIFIED="1579351348201" TEXT="2. Comparator value equal to 0 (found it!)"/>
+<node CREATED="1579351348703" ID="ID_1670976662" MODIFIED="1579351367337" TEXT="3. Comparator value less than 0 (the value, if it exists, is in the left subtree)"/>
+<node CREATED="1579351368266" ID="ID_694818398" MODIFIED="1579351384522" TEXT="4. Comparator value greater than 0 (the value, if it exists, is in the right subtree)"/>
+</node>
+</node>
+<node CREATED="1579351187297" ID="ID_13185242" MODIFIED="1579351204836" TEXT="2. Replace the node we want to remove with its successor (if any) to maintain the BST invariant.">
+<node CREATED="1579351220438" ID="ID_1086451941" MODIFIED="1579351236927" TEXT="BST invariant: left subtree has smaller elements and right subtree has larger elements"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
