@@ -5181,8 +5181,31 @@
 <node CREATED="1579353391295" ID="ID_1614780851" MODIFIED="1579353396545" TEXT="Richard &lt;-&gt; 4"/>
 <node CREATED="1579353396810" ID="ID_1792324839" MODIFIED="1579353401408" TEXT="Leah &lt;-&gt; 5"/>
 </node>
+<node CREATED="1579353773771" ID="ID_825417000" MODIFIED="1579353801619" TEXT="NOTE: This assumes you know how many keys you will have in your IPQ, but this mapping can be constructed cynamically as well"/>
 </node>
 </node>
+</node>
+</node>
+<node CREATED="1579353843165" ID="ID_293979139" MODIFIED="1579353846837" TEXT="Reason for mapping">
+<node CREATED="1579353847693" ID="ID_892700928" MODIFIED="1579353865107" TEXT="Q: Why are we mapping keys to indexes in the domain [0, N)?">
+<node CREATED="1579353867896" ID="ID_765132428" MODIFIED="1579353904522" TEXT="A: Typically priority queues are implemented as heaps under the hood which internally use arrays which we want to facilitate indexing into.">
+<node CREATED="1579353907269" ID="ID_787346352" MODIFIED="1579353944203" TEXT="NOTE: Often the keys themselves are integers in the range [0, N) so there&apos;s no need for the mapping, but it&apos;s handy to be able to support any type of key (like names)."/>
+</node>
+</node>
+</node>
+<node CREATED="1579354001144" ID="ID_1352511749" MODIFIED="1579354005316" TEXT="IPQ ADT interface">
+<node CREATED="1579354006369" ID="ID_332864976" MODIFIED="1579354033647" TEXT="If &apos;k&apos; is the key we want to update first get the key&apos;s index: ki = map[k], then use &apos;ki&apos; with the IPQ">
+<node CREATED="1579354035606" ID="ID_1449285761" MODIFIED="1579354046044" TEXT="delete(ki)"/>
+<node CREATED="1579354046369" ID="ID_1128503342" MODIFIED="1579354050667" TEXT="valueOf(ki)"/>
+<node CREATED="1579354051504" ID="ID_1150505900" MODIFIED="1579354055195" TEXT="contains(ki)"/>
+<node CREATED="1579354056113" ID="ID_136879397" MODIFIED="1579354061123" TEXT="peekMinKeyIndex()"/>
+<node CREATED="1579354061985" ID="ID_199943446" MODIFIED="1579354072444" TEXT="pollMinKeyIndex()"/>
+<node CREATED="1579354072693" ID="ID_1831796570" MODIFIED="1579354078491" TEXT="peekMinValue()"/>
+<node CREATED="1579354078714" ID="ID_679048979" MODIFIED="1579354083060" TEXT="pollMinValue()"/>
+<node CREATED="1579354084091" ID="ID_1208991343" MODIFIED="1579354088636" TEXT="insert(ki, value)"/>
+<node CREATED="1579354088909" ID="ID_618778371" MODIFIED="1579354093012" TEXT="update(ki, value)"/>
+<node CREATED="1579354093869" ID="ID_1958953611" MODIFIED="1579354100164" TEXT="decreaseKey(ki, value)"/>
+<node CREATED="1579354100770" ID="ID_164057649" MODIFIED="1579354107124" TEXT="increaseKey(ki, value)"/>
 </node>
 </node>
 </node>
