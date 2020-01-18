@@ -5249,13 +5249,20 @@
 <node CREATED="1579364232250" ID="ID_687553884" MODIFIED="1579364235173" TEXT="pm[ki]"/>
 </node>
 <node CREATED="1579364318087" ID="ID_536372401" MODIFIED="1579364343062" TEXT="To do inverse lookup we also need to maintain an inverse lookup table denoted: im (Inverse Map)">
-<node CREATED="1579364361119" ID="ID_154588954" MODIFIED="1579364376487" TEXT="Q: Which person (key) is represented in the node at index 2?"/>
+<node CREATED="1579364361119" ID="ID_154588954" MODIFIED="1579364376487" TEXT="Q: Which person (key) is represented in the node at index 2?">
+<node CREATED="1579364515681" ID="ID_477981715" MODIFIED="1579364518505" TEXT="im[2]">
+<node CREATED="1579364521424" ID="ID_378548442" MODIFIED="1579364524152" TEXT="return ki">
+<node CREATED="1579364528145" ID="ID_1072984443" MODIFIED="1579364534023" TEXT="ki gives name"/>
 </node>
 </node>
 </node>
 </node>
 </node>
 </node>
+</node>
+</node>
+</node>
+<node CREATED="1579364729499" ID="ID_984917488" MODIFIED="1579364736372" TEXT="Insertion"/>
 </node>
 <node CREATED="1567048022793" ID="ID_526212390" MODIFIED="1567048028448" TEXT="Indexed priority queue source code"/>
 </node>
