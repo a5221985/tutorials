@@ -5157,11 +5157,33 @@
 <node CREATED="1579352870088" ID="ID_1988323736" MODIFIED="1579352879786" TEXT="Mary is in labour - Priority: 9">
 <node CREATED="1579352970215" ID="ID_1736783784" MODIFIED="1579352973721" TEXT="Highest priority"/>
 </node>
-<node CREATED="1579352880263" ID="ID_691966819" MODIFIED="1579352893774" TEXT="Akarsh has a paper cut - Priority: 1"/>
+<node CREATED="1579352880263" ID="ID_691966819" MODIFIED="1579352893774" TEXT="Akarsh has a paper cut - Priority: 1">
+<node CREATED="1579353061429" ID="ID_1340014318" MODIFIED="1579353081623" TEXT="+ open skull (fell on the floor in hospital) - Priority: 10"/>
+</node>
 <node CREATED="1579352894545" ID="ID_601456063" MODIFIED="1579352907056" TEXT="James has an arrow in his leg - Priority: 7"/>
-<node CREATED="1579352907620" ID="ID_399337008" MODIFIED="1579352922052" TEXT="Naida&apos;s stomach hurts - Priority: 3"/>
-<node CREATED="1579352922413" ID="ID_1362473896" MODIFIED="1579352933943" TEXT="Richard has a fractured wrist - Priority: 5"/>
+<node CREATED="1579352907620" ID="ID_399337008" MODIFIED="1579352922052" TEXT="Naida&apos;s stomach hurts - Priority: 3">
+<node CREATED="1579353006547" ID="ID_318149461" MODIFIED="1579353021308" TEXT="Suppose + vomiting - Priority: 6"/>
+</node>
+<node CREATED="1579352922413" ID="ID_1362473896" MODIFIED="1579352933943" TEXT="Richard has a fractured wrist - Priority: 5">
+<node CREATED="1579353038148" ID="ID_858869294" MODIFIED="1579353048663" TEXT="Richard leaves and goes to another clinic"/>
+</node>
 <node CREATED="1579352934205" ID="ID_1339938582" MODIFIED="1579352945910" TEXT="Leah&apos;s stomach hurts - Priority: 3"/>
+</node>
+<node CREATED="1579353110725" ID="ID_941099019" MODIFIED="1579353116022" TEXT="Usefulness of IPQ">
+<node CREATED="1579353168538" ID="ID_351139681" MODIFIED="1579353204744" TEXT="In the hospital example, we saw that it was very important to be able to dynamically update the priority (value) of certain people (keys).">
+<node CREATED="1579353208805" ID="ID_1532092061" MODIFIED="1579353258531" TEXT="The Indexed Priority Queue (IPQ) data structure lets us do this efficiently The first step to using an IPQ is to assign index values to all the keys forming a bidirectional mapping">
+<node CREATED="1579353326730" ID="ID_1801814980" MODIFIED="1579353351222" TEXT="Construct a bidirectional mapping between your N keys and the domain [0, N) using a bidirectional hashtable.">
+<node CREATED="1579353352888" ID="ID_816692537" MODIFIED="1579353366880" TEXT="Key &lt;-&gt; Key Index (ki)">
+<node CREATED="1579353369313" ID="ID_506655875" MODIFIED="1579353374689" TEXT="Mary &lt;-&gt; 0"/>
+<node CREATED="1579353375002" ID="ID_1359361090" MODIFIED="1579353380025" TEXT="Akarsh &lt;-&gt; 1"/>
+<node CREATED="1579353380265" ID="ID_379144029" MODIFIED="1579353384873" TEXT="James &lt;-&gt; 2"/>
+<node CREATED="1579353385100" ID="ID_442645359" MODIFIED="1579353391057" TEXT="Naida &lt;-&gt; 3"/>
+<node CREATED="1579353391295" ID="ID_1614780851" MODIFIED="1579353396545" TEXT="Richard &lt;-&gt; 4"/>
+<node CREATED="1579353396810" ID="ID_1792324839" MODIFIED="1579353401408" TEXT="Leah &lt;-&gt; 5"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
