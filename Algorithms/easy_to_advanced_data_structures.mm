@@ -5262,7 +5262,115 @@
 </node>
 </node>
 </node>
-<node CREATED="1579364729499" ID="ID_984917488" MODIFIED="1579364736372" TEXT="Insertion"/>
+<node CREATED="1579364729499" ID="ID_984917488" MODIFIED="1579364736372" TEXT="Insertion">
+<node CREATED="1579365022488" ID="ID_1743111531" MODIFIED="1579365030175" TEXT="Update vals, pm and im">
+<node CREATED="1579365030922" ID="ID_95712922" MODIFIED="1579365044919" TEXT="If swap is done, swap values in pm and im"/>
+</node>
+<node CREATED="1579365067223" ID="ID_1559671449" MODIFIED="1579365073503" TEXT="Insertion Pseudo Code">
+<node CREATED="1579365073820" ID="ID_144808172" MODIFIED="1579365152443">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Inserts a value into the min indexed binary
+    </p>
+    <p>
+      # heap. The key index must not already be in
+    </p>
+    <p>
+      # the heap and the value must not be null.
+    </p>
+    <p>
+      function insert(ki, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;values[ki] = value
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# 'sz' is the current size of the heap
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;pm[ki] = sz
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;im[sz] = ki
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swim(sz)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sz = sz + 1
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579365201377" ID="ID_1556529784" MODIFIED="1579365303602">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Swims up node i (zero based) until heap
+    </p>
+    <p>
+      # invariant is satisfied.
+    </p>
+    <p>
+      function swim(i):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for (p = (i - 1) / 2; i &gt; 0 and less(i, p)):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;swap(i, p)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = p
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;p = (i - 1) / 2
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function swap(i, j):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;pm[im[j]] = i
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;pm[im[i]] = j
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;tmp = im[i]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;im[i] = im[j]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;im[j] = tmp
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function less(i, j):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return values[im[i]] &lt; values[im[j]]
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579365429339" ID="ID_1024748883" MODIFIED="1579365436053" TEXT="Polling &amp; Removals"/>
 </node>
 <node CREATED="1567048022793" ID="ID_526212390" MODIFIED="1567048028448" TEXT="Indexed priority queue source code"/>
 </node>
