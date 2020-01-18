@@ -5236,6 +5236,24 @@
 <node CREATED="1579363483665" ID="ID_1367050776" MODIFIED="1579363488605" TEXT="Right child index: 2i + 2"/>
 </node>
 </node>
+<node CREATED="1579363778312" ID="ID_401005470" MODIFIED="1579363828633" TEXT="Suppose we have N people with different priorities we need to serve. Assume priorities can dynamically change and we always want to serve the person with the lowest priority.">
+<node CREATED="1579363840616" ID="ID_126206018" MODIFIED="1579363854617" TEXT="To figure out who to serve next use a Min IPQ to sort by lowest value first."/>
+<node CREATED="1579363857878" ID="ID_1918727821" MODIFIED="1579363874369" TEXT="Arbitrarily assign each person a unique index value between [0, N)"/>
+<node CREATED="1579363885627" ID="ID_1199473580" MODIFIED="1579363915720" TEXT="Initial values to place inside IPQ. These will be maintained by the IPQ once inserted. Note that values can be any comparable value not only integers">
+<node CREATED="1579363973573" ID="ID_116791375" MODIFIED="1579363990980" TEXT="When we insert (ki, v) pairs into an IPQ we sort by the value associated with each key."/>
+<node CREATED="1579363991756" ID="ID_1134592513" MODIFIED="1579364009602" TEXT="In the heap above we are sorting by smallest value since we&apos;re working with a min heap">
+<node CREATED="1579364029602" ID="ID_1371259595" MODIFIED="1579364051414" TEXT="To access the value for any given key k, find its key index (ki) and do a lookup in the vals array maintained by the IPQ">
+<node CREATED="1579364082263" ID="ID_1595305653" MODIFIED="1579364085833" TEXT="vals[ki]"/>
+</node>
+<node CREATED="1579364164327" ID="ID_1015082327" MODIFIED="1579364186456" TEXT="The array pm is a Position Map we maintain to tell us the index of the node in the heap for a given key index (ki)">
+<node CREATED="1579364232250" ID="ID_687553884" MODIFIED="1579364235173" TEXT="pm[ki]"/>
+</node>
+<node CREATED="1579364318087" ID="ID_536372401" MODIFIED="1579364343062" TEXT="To do inverse lookup we also need to maintain an inverse lookup table denoted: im (Inverse Map)">
+<node CREATED="1579364361119" ID="ID_154588954" MODIFIED="1579364376487" TEXT="Q: Which person (key) is represented in the node at index 2?"/>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
