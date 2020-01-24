@@ -5362,8 +5362,130 @@
 </node>
 <node CREATED="1579365429339" ID="ID_1024748883" MODIFIED="1579365436053" TEXT="Polling &amp; Removals">
 <node CREATED="1579832618258" ID="ID_1238638412" MODIFIED="1579832683291" TEXT="Polling is still O(log(n)) in an IPQ, but removing is improved from O(n) in a traditional PQ to O(log(n)) since node position lookups are O(1) but repositioning is still O(log(n))">
+<node CREATED="1579833030193" ID="ID_1684509511" MODIFIED="1579833082181" TEXT="Polling root node: The required steps are almost exactly like a regular binary heap">
 <node CREATED="1579832918288" ID="ID_741751112" MODIFIED="1579832929768" TEXT="1. Exchange root node with bottom right node"/>
 <node CREATED="1579832943439" ID="ID_194816796" MODIFIED="1579832968878" TEXT="2. Finally restore heap invariant by moving swapped purple node up or down"/>
+</node>
+</node>
+<node CREATED="1579833234373" ID="ID_1577251238" MODIFIED="1579833242558" TEXT="Removing specific value &quot;Laura&quot;">
+<node CREATED="1579833242953" ID="ID_547331170" MODIFIED="1579833248254" TEXT="Index is 11 (O(1))">
+<node CREATED="1579833255512" ID="ID_1857376730" MODIFIED="1579833266685" TEXT="Swap with last node"/>
+<node CREATED="1579833267780" ID="ID_160637979" MODIFIED="1579833275574" TEXT="Cleanup removed node"/>
+<node CREATED="1579833276246" ID="ID_367675859" MODIFIED="1579833288496" TEXT="Restore heap invariant by moving swapping">
+<node CREATED="1579833296917" ID="ID_950742993" MODIFIED="1579833300151" TEXT="O(log(n))"/>
+</node>
+</node>
+<node CREATED="1579833322625" ID="ID_1734939650" MODIFIED="1579833326784" TEXT="Pseudo Code">
+<node CREATED="1579833327040" ID="ID_900033708" MODIFIED="1579833473308">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Deletes the node with the key index ki
+    </p>
+    <p>
+      # in the heap. The key index ki must exist
+    </p>
+    <p>
+      # and be present in the heap.
+    </p>
+    <p>
+      function remove(ki):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = pm[ki]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swap(i, sz)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sz = sz - 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sink(i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swim(i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;values[ki] = null
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;pm[ki] = -1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;im[sz] = -1
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579833443466" ID="ID_1190426241" MODIFIED="1579833445818" TEXT="sz = size"/>
+<node CREATED="1579833476372" ID="ID_502328078" MODIFIED="1579833493780" TEXT="sink or swim needs to be done (we are not sure)"/>
+<node CREATED="1579833502010" ID="ID_746839747" MODIFIED="1579833594405">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Sinks the node at index i by swapping
+    </p>
+    <p>
+      # itself with the smallest of the left
+    </p>
+    <p>
+      # or the right child node.
+    </p>
+    <p>
+      function sink(i):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;while true:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;left = 2 * i + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;right = 2 * i + 2
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;smallest = left
+    </p>
+    <p>
+      &#160;&#160;&#160;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if right &lt; sz and less(right, left):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;smallest = right
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if left &gt;= sz or less(i, smallest):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;swap(smallest, i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = smallest
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
