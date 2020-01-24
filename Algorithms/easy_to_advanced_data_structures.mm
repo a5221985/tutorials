@@ -4794,8 +4794,7 @@
       &#160;&#160;&#160;&#160;return balance(node)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579226966189" ID="ID_527979982" MODIFIED="1579227052154">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -4842,8 +4841,7 @@
       &#160;&#160;&#160;&#160;node.bf = rh - lh
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579227081293" ID="ID_855289016" MODIFIED="1579227118293" TEXT="-1 because if it is added to height of tree with 0 height, it becomes 0"/>
 <node CREATED="1579227133977" ID="ID_541653073" MODIFIED="1579227256827">
 <richcontent TYPE="NODE"><html>
@@ -4906,8 +4904,7 @@
       &#160;&#160;&#160;&#160;return node
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579227274260" ID="ID_378724280" MODIFIED="1579227354442">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -4954,8 +4951,7 @@
       &#160;&#160;&#160;&#160;return rightRightCase(node)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579227389334" ID="ID_432613421" MODIFIED="1579227457698">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -4990,8 +4986,7 @@
       &#160;&#160;&#160;&#160;return B
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579227458873" ID="ID_1640051097" MODIFIED="1579227475516" TEXT="AVL tree rotations require you to call the update method! The left rotation is symmetric">
 <node CREATED="1579227492175" ID="ID_1125035920" MODIFIED="1579227498659" TEXT="Height, balance factor"/>
 </node>
@@ -5021,8 +5016,7 @@
       </li>
     </ol>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579227661062" ID="ID_1416258298" MODIFIED="1579227676191" TEXT="BST invariant: left subtree has smaller elements and right subtree has larger elements."/>
 <node CREATED="1579227708526" ID="ID_494708944" MODIFIED="1579227711728" TEXT="Find phase">
 <node CREATED="1579227711942" ID="ID_246009847" MODIFIED="1579227734611" TEXT="When searching for an element, one of 4 things can happen">
@@ -5047,8 +5041,7 @@
       </li>
     </ol>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579234658734" ID="ID_965855049" MODIFIED="1579234662694" TEXT="find(14)"/>
 <node CREATED="1579350355708" ID="ID_941659754" MODIFIED="1579350360295" TEXT="Remove Phase">
 <node CREATED="1579350360664" ID="ID_1889821671" MODIFIED="1579350363806" TEXT="Four cases">
@@ -5133,8 +5126,7 @@
       &#160;&#160;&#160;&#160;return balance(tree)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -5304,8 +5296,7 @@
       &#160;&#160;&#160;&#160;sz = sz + 1
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579365201377" ID="ID_1556529784" MODIFIED="1579365303602">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -5364,13 +5355,17 @@
       &#160;&#160;&#160;&#160;return values[im[i]] &lt; values[im[j]]
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
 </node>
-<node CREATED="1579365429339" ID="ID_1024748883" MODIFIED="1579365436053" TEXT="Polling &amp; Removals"/>
+<node CREATED="1579365429339" ID="ID_1024748883" MODIFIED="1579365436053" TEXT="Polling &amp; Removals">
+<node CREATED="1579832618258" ID="ID_1238638412" MODIFIED="1579832683291" TEXT="Polling is still O(log(n)) in an IPQ, but removing is improved from O(n) in a traditional PQ to O(log(n)) since node position lookups are O(1) but repositioning is still O(log(n))">
+<node CREATED="1579832918288" ID="ID_741751112" MODIFIED="1579832929768" TEXT="1. Exchange root node with bottom right node"/>
+<node CREATED="1579832943439" ID="ID_194816796" MODIFIED="1579832968878" TEXT="2. Finally restore heap invariant by moving swapped purple node up or down"/>
+</node>
+</node>
 </node>
 <node CREATED="1567048022793" ID="ID_526212390" MODIFIED="1567048028448" TEXT="Indexed priority queue source code"/>
 </node>
