@@ -5488,6 +5488,49 @@
 </node>
 </node>
 </node>
+<node CREATED="1579833652477" ID="ID_1344945459" MODIFIED="1579833654624" TEXT="Updates">
+<node CREATED="1579833658215" ID="ID_354424947" MODIFIED="1579833700449" TEXT="Similar to removals, updates in a min indexed binary heap also take O(log(n)) due to O(1) lookup time to find the node and O(log(n)) time to adjust where the key-value pair should appear in the heap">
+<node CREATED="1579833759488" ID="ID_1866672772" MODIFIED="1579833764970" TEXT="Pseudo Code">
+<node CREATED="1579833765346" ID="ID_1269000186" MODIFIED="1579833814090">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Updates the value of a key in the binary
+    </p>
+    <p>
+      # heap. The key index must exist and the
+    </p>
+    <p>
+      # value must not be null.
+    </p>
+    <p>
+      function update(ki, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = pm[ki]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;values[ki] = value
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sink(i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swim(i)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579833828307" ID="ID_1967965885" MODIFIED="1579833833508" TEXT="Decrease and Increase key">
+<node CREATED="1579833834924" ID="ID_1200869825" MODIFIED="1579833919782" TEXT="In many applications (e.g Dijkstra&apos;s and Prims algorithm) it is often useful to only update a given key to make its value either always smaller (or larger). In the event that a worse value is given the value in the IPQ should not be updated.&#xa;&#xa;In such situations it is useful to define a more restrictive form of update operation we call increaseKey(ki, v) and decreaseKey(ki, v)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1567048022793" ID="ID_526212390" MODIFIED="1567048028448" TEXT="Indexed priority queue source code"/>
 </node>
