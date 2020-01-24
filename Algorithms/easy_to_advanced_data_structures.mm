@@ -5525,7 +5525,56 @@
 </html>
 </richcontent>
 <node CREATED="1579833828307" ID="ID_1967965885" MODIFIED="1579833833508" TEXT="Decrease and Increase key">
-<node CREATED="1579833834924" ID="ID_1200869825" MODIFIED="1579833919782" TEXT="In many applications (e.g Dijkstra&apos;s and Prims algorithm) it is often useful to only update a given key to make its value either always smaller (or larger). In the event that a worse value is given the value in the IPQ should not be updated.&#xa;&#xa;In such situations it is useful to define a more restrictive form of update operation we call increaseKey(ki, v) and decreaseKey(ki, v)"/>
+<node CREATED="1579833834924" ID="ID_1200869825" MODIFIED="1579833919782" TEXT="In many applications (e.g Dijkstra&apos;s and Prims algorithm) it is often useful to only update a given key to make its value either always smaller (or larger). In the event that a worse value is given the value in the IPQ should not be updated.&#xa;&#xa;In such situations it is useful to define a more restrictive form of update operation we call increaseKey(ki, v) and decreaseKey(ki, v)">
+<node CREATED="1579834130089" ID="ID_954784077" MODIFIED="1579834133963" TEXT="Pseudo Code">
+<node CREATED="1579834134331" ID="ID_1552400065" MODIFIED="1579834223630">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # For both these functions assume ki and value
+    </p>
+    <p>
+      # are valid inputs and we are dealing with a
+    </p>
+    <p>
+      # min indexed binary heap
+    </p>
+    <p>
+      function decreaseKey(ki, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if less(value, values[ki]):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;values[ki] = value
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;swim(pm[ki])
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function increaseKey(ki, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if less(values[ki], value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;values[ki] = value
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sink(pm[ki])
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
 </node>
 </node>
 </node>
