@@ -41,7 +41,9 @@
 	1. Implication both ways
 		1. True if both are True or both are False
 5. Axioms:
-	1. Definition: An axiom is a proposition that is assumed to be true
+	1. Definition: An axiom is a proposition that is assumed to be true (no proof) - think worthy (Greek)
+		1. Identify what the assumptions are (other people has to agree)
+			1. if a = b and b = c, then a = c (axiom)
 
 ## Lec 2 ##
 ## Lec 3 ##
