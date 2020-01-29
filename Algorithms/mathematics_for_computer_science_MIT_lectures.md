@@ -19,6 +19,10 @@
 				3. a^4 + b^4 + c^4 = d^4 has no positive integers - false
 					1. a = 95800, b = 217519, ...
 				4. 313(x^3 + y^3) = d^3
+					1. Eliptic curve - factoring large integers technique
+						1. Can be used to break cryptosystems
+				5. The regions in any map can be colored in 4 colors so that adjacent regions have different colors - 4 color theorem
+					1. Proof by picture can be convincing but may be wrong
 			2. Logical deductions
 			3. Axioms
 
