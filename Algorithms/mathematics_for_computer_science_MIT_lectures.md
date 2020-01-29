@@ -23,8 +23,13 @@
 						1. Can be used to break cryptosystems
 				5. The regions in any map can be colored in 4 colors so that adjacent regions have different colors - 4 color theorem
 					1. Proof by picture can be convincing but may be wrong
+				6. Every even integer but 2 is the sum of 2 primes - no one knows - Christian Golbach conjecture - Globe article - unsolved mystery
+				7. Riemann Hypothesis
+				8. Poincare conjecture
+				9. for all n in N, n >= 2 => n^2 >= 4 (symbols are many)
 			2. Logical deductions
 			3. Axioms
+3. Definition: An implication p => q is true if p is false or q is true
 
 ## Lec 2 ##
 ## Lec 3 ##
