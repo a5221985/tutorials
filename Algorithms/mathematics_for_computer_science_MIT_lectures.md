@@ -26,10 +26,22 @@
 				6. Every even integer but 2 is the sum of 2 primes - no one knows - Christian Golbach conjecture - Globe article - unsolved mystery
 				7. Riemann Hypothesis
 				8. Poincare conjecture
-				9. for all n in N, n >= 2 => n^2 >= 4 (symbols are many)
+				9. for all n in Z, n >= 2 => n^2 >= 4 (symbols are many)
 			2. Logical deductions
 			3. Axioms
 3. Definition: An implication p => q is true if p is false or q is true
+
+		p q p => q
+		T T T
+		T F F
+		F T T
+		F F T
+		
+4. For all n in Z, n >= 2 iff n^2 >= 4 - False
+	1. Implication both ways
+		1. True if both are True or both are False
+5. Axioms:
+	1. Definition: An axiom is a proposition that is assumed to be true
 
 ## Lec 2 ##
 ## Lec 3 ##
