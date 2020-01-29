@@ -3,6 +3,20 @@
 1. Mathematical proofs
 2. Proof:
 	1. Method for assertaining a truth
+		1. Assertaining - establishing truth, verifying truth
+			1. Experimentation and observation
+			2. Sampling and counter examples
+			3. Judge or jury
+			4. Word of GOD (belief)
+			5. Word of Boss or Customer or Professor
+			6. Conviction (transfering the burden of proof to others)
+	2. Mathematical proof:
+		1. A verification of a proposition by a chain of logical deductions from a set of axioms
+			1. Proposition: Is a statement that is either True or False
+				1. Ex: 2 + 3 = 5 (True proposition)
+				2. For all n in N, n^2 + n + 41 is a prime number
+			2. Logical deductions
+			3. Axioms
 
 ## Lec 2 ##
 ## Lec 3 ##
