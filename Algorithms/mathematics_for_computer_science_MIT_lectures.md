@@ -14,7 +14,11 @@
 		1. A verification of a proposition by a chain of logical deductions from a set of axioms
 			1. Proposition: Is a statement that is either True or False
 				1. Ex: 2 + 3 = 5 (True proposition)
-				2. For all n in N, n^2 + n + 41 is a prime number
+				2. For all n in N, n^2 + n + 41 is a prime number (this is a predicate)
+					1. Predicate: It is a proposition whose truth depends on the value of variable(s) - fails at 40
+				3. a^4 + b^4 + c^4 = d^4 has no positive integers - false
+					1. a = 95800, b = 217519, ...
+				4. 313(x^3 + y^3) = d^3
 			2. Logical deductions
 			3. Axioms
 
