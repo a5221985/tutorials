@@ -49,7 +49,11 @@
 8. Hyperbolic Geometry: Give a line L and a point p not on L, there are infinitely many lines through p parallel to L
 	1. They make sense based on context
 9. Axioms guiding principles:
-	1. Should be 
+	1. Should be consistent
+		1. A set of axioms is consistent if no proposition can be proved to be both true and false
+	2. Should be complete
+		1. A set of axioms is complete if it can be used to prove every proposition is either true or false
+			1. You can solve every problem (you can use them to get to the end)
 
 ## Lec 2 ##
 ## Lec 3 ##
