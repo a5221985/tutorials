@@ -54,6 +54,8 @@
 	2. Should be complete
 		1. A set of axioms is complete if it can be used to prove every proposition is either true or false
 			1. You can solve every problem (you can use them to get to the end)
+				1. Trying to find a set of axioms spent careers
+					1. Proved that it is impossible to find such axioms
 
 ## Lec 2 ##
 ## Lec 3 ##
