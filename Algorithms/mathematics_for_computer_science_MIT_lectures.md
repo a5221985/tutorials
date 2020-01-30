@@ -56,8 +56,11 @@
 			1. You can solve every problem (you can use them to get to the end)
 				1. Trying to find a set of axioms spent careers
 					1. Proved that it is impossible to find such axioms
+						1. May be Goldbach's conjecture is true but it is impossible to prove
 
 ## Lec 2 ##
+1. 
+
 ## Lec 3 ##
 ## Lec 4 ##
 ## Lec 5 ##
