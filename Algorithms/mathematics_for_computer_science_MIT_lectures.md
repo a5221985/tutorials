@@ -44,6 +44,12 @@
 	1. Definition: An axiom is a proposition that is assumed to be true (no proof) - think worthy (Greek)
 		1. Identify what the assumptions are (other people has to agree)
 			1. if a = b and b = c, then a = c (axiom)
+6. Euclidean Geometry: Given a line L and a point p not on L, there is exactly one line through p parallel to L.
+7. Spherical Geometry: Give a line L and a point p not on L, there is no line through p parallel to L (on a sphere)
+8. Hyperbolic Geometry: Give a line L and a point p not on L, there are infinitely many lines through p parallel to L
+	1. They make sense based on context
+9. Axioms guiding principles:
+	1. Should be 
 
 ## Lec 2 ##
 ## Lec 3 ##
