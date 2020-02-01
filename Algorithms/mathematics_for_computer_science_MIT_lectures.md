@@ -67,11 +67,21 @@
 3. Indirect proofs:
 	1. Assume the opposite of what is stated
 	2. Logical deductions
-	3. Contradition (we assumed wrong in the beginning)
+	3. Contradiction (we assumed wrong in the beginning)
 4. Proof by contradiction:
 	1. To prove P is true, we assume P is False (i.e. ~P is T), then use that hypothesis to derive a falsehood is True or contradiction
 		1. If ~P => F is True
-			1. ~P must be False in this case therefore P is True
+			1. ~P must be False in this case therefore P is True (Since ~P => F is T is same as ~(~P)vF is T i.e. PvF is T. i.e. P is T)
+	2. sqrt(2) is irrational:
+		1. Pf by contradiction:
+			1. Assume for the purpose of contraditiction that sqrt(2) is rational
+				1. ~P is T
+					1. sqrt(2) = a/b (fraction in lowest terms)
+					2. Squaring on both sides
+						1. 2 = a^2 / b^2
+						2. a^2 = 2b^2 => a is even (2 | a)
+						3. a^2 => 4 | a
+						4. b^2 => 
 
 ## Lec 3 ##
 ## Lec 4 ##
