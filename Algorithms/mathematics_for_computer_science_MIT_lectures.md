@@ -59,7 +59,7 @@
 						1. May be Goldbach's conjecture is true but it is impossible to prove
 
 ## Lec 2 ##
-1. 
+1. Any axiom that is acceptible which is consistent
 
 ## Lec 3 ##
 ## Lec 4 ##
