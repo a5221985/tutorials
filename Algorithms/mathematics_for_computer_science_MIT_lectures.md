@@ -83,7 +83,7 @@
 						3. a^2 => 4 | a
 						4. b^2 => 4 | 2b^2 => 2 | b^2
 						5. b is even
-				2. Therefor a and b are not in lowest terms
+				2. Therefore a and b are not in lowest terms
 					1. contradiction x
 					2. Therefore ~P must be F => P is T
 		2. Rational numbers can have finite length decimals repeating
