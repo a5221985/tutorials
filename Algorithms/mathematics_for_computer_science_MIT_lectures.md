@@ -81,7 +81,13 @@
 						1. 2 = a^2 / b^2
 						2. a^2 = 2b^2 => a is even (2 | a)
 						3. a^2 => 4 | a
-						4. b^2 => 
+						4. b^2 => 4 | 2b^2 => 2 | b^2
+						5. b is even
+				2. Therefor a and b are not in lowest terms
+					1. contradiction x
+					2. Therefore ~P must be F => P is T
+		2. Rational numbers can have finite length decimals repeating
+			1. 1/7 = 0.142857142857142857...
 
 ## Lec 3 ##
 ## Lec 4 ##
