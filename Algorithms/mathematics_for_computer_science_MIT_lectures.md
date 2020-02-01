@@ -60,6 +60,18 @@
 
 ## Lec 2 ##
 1. Any axiom that is acceptible which is consistent
+2. Direct proofs:
+	1. Start with axioms
+	2. Logical deductions
+	3. Solution
+3. Indirect proofs:
+	1. Assume the opposite of what is stated
+	2. Logical deductions
+	3. Contradition (we assumed wrong in the beginning)
+4. Proof by contradiction:
+	1. To prove P is true, we assume P is False (i.e. ~P is T), then use that hypothesis to derive a falsehood is True or contradiction
+		1. If ~P => F is True
+			1. ~P must be False in this case therefore P is True
 
 ## Lec 3 ##
 ## Lec 4 ##
