@@ -1397,7 +1397,15 @@
 		1. Implementer is responsible for meeting the contract
 		2. Client can rely on the contract
 		3. It has demands on both parties
-		4. 
+			1. If spec has pre-condition, client also has resposibilities (to fulfill the pre-conditions)
+2. Topics
+	1. Specification of methods
+	2. Pre-conditions & Post-conditions
+		1. What do they mean to implementor
+		2. What do they mean to client
+	3. Exceptions
+		1. Makes methods safer from bugs
+		2. Makes methods easier to understand
 		
 #### Why Specifications? ####
 #### Behavioral Equivalence ####
