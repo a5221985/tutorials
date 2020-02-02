@@ -1391,6 +1391,14 @@
 #### Git: Copy, Commit, Pull, Push, Merge ####
 
 ### Specifications ###
+#### Introduction ####
+1. It's impossible to delegate responsibility for implementing a method without spec
+	1. It is a contract
+		1. Implementer is responsible for meeting the contract
+		2. Client can rely on the contract
+		3. It has demands on both parties
+		4. 
+		
 #### Why Specifications? ####
 #### Behavioral Equivalence ####
 #### Specification Structure ####
