@@ -1408,6 +1408,8 @@
 		2. Makes methods easier to understand
 		
 #### Why Specifications? ####
+1. 
+
 #### Behavioral Equivalence ####
 #### Specification Structure ####
 #### Null References ####
