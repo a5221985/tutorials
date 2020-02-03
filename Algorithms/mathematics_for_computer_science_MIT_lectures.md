@@ -89,7 +89,9 @@
 		2. Rational numbers can have finite length decimals repeating
 			1. 1/7 = 0.142857142857142857...
 5. Induction:
-	1. 
+	1. Induction axiom:
+		1. Let P(n) be a predicate. If P(0) is true and for all n in N (P(n) => P(n + 1)) is true, then for all n in N, P(n) is true
+			1. If P(0), P(0) -> P(1), P(1) => P(2), ..., then P(0), P(1), P(2), ... are true
 
 ## Lec 3 ##
 ## Lec 4 ##
