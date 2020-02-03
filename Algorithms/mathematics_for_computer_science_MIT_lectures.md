@@ -115,7 +115,11 @@
 						(n + 1)(n + 2)/2
 						
 					1. Therefore `P(n) => P(n + 1)` for all `n >= 0`
-				4. 
+6. Limitations with Induction:
+	1. We don't know why the theorem is true sometimes
+	2. We cannot figure out the answer using induction (n(n + 1)/2)
+		1. There are a few instances when we can figure out the answer using induction
+7. 
 
 ## Lec 3 ##
 ## Lec 4 ##
