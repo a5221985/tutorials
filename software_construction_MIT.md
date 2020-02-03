@@ -1453,7 +1453,15 @@
 						the precondition holds when method is called,
 					then
 						the postcondition must hold when method completes
-
+						
+					If 
+						the precondition does not hold when method is called,
+					then
+						the implementation is not bound by post-condition (free to do anything, termination, throwing exception, returning arbitrary results, making arbitrary modifications included)
+						
+##### Specifications in Java #####
+1. 
+					
 #### Null References ####
 #### What a Specification May Talk About ####
 #### Testing and Specifications ####
