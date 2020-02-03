@@ -1408,7 +1408,18 @@
 		2. Makes methods easier to understand
 		
 #### Why Specifications? ####
-1. 
+1. Bugs arise due to misunderstanding about behavior at interface between two pieces of code
+2. Problems
+	1. Different programmers in a team may have different specs in mind
+3. Solution
+	1. Precise spec in code lets us apportion blame to framents of code (not people)
+4. Benefit
+	1. Good for client of a method (don't have to read code to understand it)
+5. Example: Java Spec for `BigInteger`
+	1. Also has additional docs for corner cases
+6. Benefit to implementer:
+	1. Freedom to change implementation without telling clients
+		1. 
 
 #### Behavioral Equivalence ####
 #### Specification Structure ####
