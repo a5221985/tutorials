@@ -1419,9 +1419,21 @@
 	1. Also has additional docs for corner cases
 6. Benefit to implementer:
 	1. Freedom to change implementation without telling clients
-		1. 
+	2. Code can be faster
+		1. Restricting inputs: may allow implementor to skip expensive check that is no longer necessary (more efficient implementation might exist)
+	3. Contract is like a firewall between client and implementor
+		1. Shields client from details of workingings of unit
+			1. Spec is enough and we don't have to read the source code to use it
+		2. Shields implementor from usage of the unit
+		3. Decoupling - Code of unit and code of client can be changed independently (changes should respect the spec)
 
 #### Behavioral Equivalence ####
+1. Can we substitute one implementation for the other
+2. There are clients that rely on only a subset of possible outputs and ignore the rest
+	1. To substitute one implementation for another
+	2. To know when substitution is possible
+3. A spec should tell what the client depends on
+
 #### Specification Structure ####
 #### Null References ####
 #### What a Specification May Talk About ####
