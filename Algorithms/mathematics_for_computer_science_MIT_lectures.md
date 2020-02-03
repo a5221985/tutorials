@@ -88,6 +88,8 @@
 					2. Therefore ~P must be F => P is T
 		2. Rational numbers can have finite length decimals repeating
 			1. 1/7 = 0.142857142857142857...
+5. Induction:
+	1. 
 
 ## Lec 3 ##
 ## Lec 4 ##
