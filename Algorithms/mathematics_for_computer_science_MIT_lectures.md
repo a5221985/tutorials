@@ -107,6 +107,15 @@
 			3. Inductive step: For n >= 0, show P(n) => P(n + 1) is true
 				1. Assume P(n) is true for purposes of induction
 				2. i.e, assume 1 + 2 + ... + n = n(n + 1)/2
+				3. Need to show P(n + 1): 1 + 2 + ... + (n + 1) = (n + 1)(n + 2)/2
+				
+						1 + 2 + ... + n + (n + 1)
+						n(n + 1)/2 + (n + 1)
+						(n^2 + n + 2n + 2)/2
+						(n + 1)(n + 2)/2
+						
+					1. Therefore `P(n) => P(n + 1)` for all `n >= 0`
+				4. 
 
 ## Lec 3 ##
 ## Lec 4 ##
