@@ -92,6 +92,21 @@
 	1. Induction axiom:
 		1. Let P(n) be a predicate. If P(0) is true and for all n in N (P(n) => P(n + 1)) is true, then for all n in N, P(n) is true
 			1. If P(0), P(0) -> P(1), P(1) => P(2), ..., then P(0), P(1), P(2), ... are true
+				1. Series of dominos - if P(0) is knocked down, all the others get knocked down one after the other
+	2. Example: for all n >= 0, 1 + 2 + 3 + ... + n = n(n + 1)/2
+		1. sigma_i=1_to_n i = n(n + 1)/2
+		2. sigma_1_<=\_i\_<=_n i (on top or bottom)
+			1. if n = 1, 1 + 2 + ... + n = 1
+			2. if n <= 0, 1 + 2 + ... + n = 0
+			3. if n = 4, 1 + 2 + ... 4 = 10 = 10
+		3. Proof: By induction
+			1. Let P(n) be the predicate that sigma_i_=_1_to_n i = n(n + 1) / 2
+			2. Base case: P(0) is true?
+				1. sigma_i=1_to_0 i = 0
+				2. 0(0 + 1) / 2 = 0
+			3. Inductive step: For n >= 0, show P(n) => P(n + 1) is true
+				1. Assume P(n) is true for purposes of induction
+				2. i.e, assume 1 + 2 + ... + n = n(n + 1)/2
 
 ## Lec 3 ##
 ## Lec 4 ##
