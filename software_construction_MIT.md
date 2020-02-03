@@ -1433,8 +1433,27 @@
 	1. To substitute one implementation for another
 	2. To know when substitution is possible
 3. A spec should tell what the client depends on
+	1. Example:
+
+			static int find(int[] arr, int val)
+				requires: val occurs exactly once in arr
+				effects: returns index 1 such that arr[i] = val
 
 #### Specification Structure ####
+1. Clauses
+	1. *precondition*: keyword used - `requires`
+		1. It is an obligation on client (caller of method)
+			1. It is a state in which the method must be invoked
+	2. *postcondition*: keyword used - `effects`
+		1. It is an obligation on implementor
+		2. If precondition holds for invoking state, method is obliged to obey postcondition (by returning appropriate values, throwing exceptions, modifying or not modifying objects, ...)
+			1. Logical implication:
+
+					If 
+						the precondition holds when method is called,
+					then
+						the postcondition must hold when method completes
+
 #### Null References ####
 #### What a Specification May Talk About ####
 #### Testing and Specifications ####
