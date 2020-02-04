@@ -620,7 +620,28 @@
 <node CREATED="1580779635296" ID="ID_531513948" MODIFIED="1580779648253" TEXT="Try"/>
 </node>
 </node>
-<node CREATED="1573695533742" ID="ID_1398295416" MODIFIED="1573695541613" POSITION="left" TEXT="10. Bellman-Ford Algorithm"/>
+<node CREATED="1573695533742" ID="ID_1398295416" MODIFIED="1573695541613" POSITION="left" TEXT="10. Bellman-Ford Algorithm">
+<node CREATED="1580779730908" ID="ID_1392027441" MODIFIED="1580779767327" TEXT="In graph theory, the Bellman-Ford (BF) algorithm is a Single Source Shortest Path (SSSP) algorithm. This means it can find the shortest path from one node to any other node."/>
+<node CREATED="1580779769584" ID="ID_239078602" MODIFIED="1580779823480" TEXT="However, BF is not ideal for most SSSP problems because it has a time complexity of O(EV) It is better to use Dijkstra&apos;s algorithm which is much faster. It is on the order of O((E+V)log(V)) when using a binary heap priority queue">
+<node CREATED="1580779886454" ID="ID_620786156" MODIFIED="1580779941720" TEXT="However, Dijkstra&apos;s algorithm can fail when the graph has negative edge weights. This is when BF becomes really handy because it can be used to detect negative cycles and determine where they occur."/>
+<node CREATED="1580779943247" ID="ID_1668586344" MODIFIED="1580779972530" TEXT="Finding negative cycles can be useful in many types of applications. One particularly neat application arises in finance when performing an arbitrage between two or more markets.">
+<node CREATED="1580780013061" ID="ID_36526663" MODIFIED="1580780028418" TEXT="stock or currency"/>
+</node>
+<node CREATED="1580780046158" ID="ID_1134452445" MODIFIED="1580780050650" TEXT="Negative Cycles">
+<node CREATED="1580780050923" ID="ID_962922063" MODIFIED="1580780062994" TEXT="Negative cycles can manifest themselves in many ways...">
+<node CREATED="1580780167436" ID="ID_1763054225" MODIFIED="1580780174914" TEXT="Net change in a cycle can be negative"/>
+</node>
+</node>
+</node>
+<node CREATED="1580780201101" ID="ID_1110244610" MODIFIED="1580780207460" TEXT="BF Algorithm Steps">
+<node CREATED="1580780208648" ID="ID_462001633" MODIFIED="1580780213342" TEXT="Let&apos;s define a few variables">
+<node CREATED="1580780213547" ID="ID_310844545" MODIFIED="1580780219004" TEXT="Let E be the number of edges."/>
+<node CREATED="1580780219252" ID="ID_1610539069" MODIFIED="1580780226571" TEXT="Let V be the number of vertices"/>
+<node CREATED="1580780226795" ID="ID_761402269" MODIFIED="1580780234305" TEXT="Let S be the id of the starting node"/>
+<node CREATED="1580780235150" ID="ID_1224821635" MODIFIED="1580780249893" TEXT="Let D be an array of size V that tracks the best distance from S to each node."/>
+</node>
+</node>
+</node>
 <node CREATED="1573695542311" ID="ID_1791814029" MODIFIED="1573695557119" POSITION="right" TEXT="11. Floyd-Warshall All Pairs Shortest Path Algorithm"/>
 <node CREATED="1573695558317" ID="ID_1923307945" MODIFIED="1573695575295" POSITION="left" TEXT="12. Floyd-Warshall All Pairs Shortest Path Algorithm | Source Code"/>
 <node CREATED="1573695576252" ID="ID_1873645889" MODIFIED="1573695584557" POSITION="right" TEXT="13. Bridges &amp; Articulation Points"/>
