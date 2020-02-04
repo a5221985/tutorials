@@ -595,7 +595,29 @@
 </node>
 </node>
 <node CREATED="1580779130910" ID="ID_617945022" MODIFIED="1580779134792" TEXT="SSSP on DAG">
-<node CREATED="1580779135929" ID="ID_680666100" MODIFIED="1580779189720" TEXT="The Single Source Shortest Path (SSSP) problem can be solved efficiently on a DAG in O(V+E) time. This is due to the fact that the nodes can be ordered in a topological ordering via topsort and processed sequentially."/>
+<node CREATED="1580779135929" ID="ID_680666100" MODIFIED="1580779189720" TEXT="The Single Source Shortest Path (SSSP) problem can be solved efficiently on a DAG in O(V+E) time. This is due to the fact that the nodes can be ordered in a topological ordering via topsort and processed sequentially.">
+<node CREATED="1580779267129" ID="ID_1629016761" MODIFIED="1580779271040" TEXT="Relaxing edges">
+<node CREATED="1580779271216" ID="ID_853305731" MODIFIED="1580779274687" TEXT="Better values"/>
+</node>
+<node CREATED="1580779313561" ID="ID_1390356955" MODIFIED="1580779316120" TEXT="Example:">
+<node CREATED="1580779317281" ID="ID_625577760" MODIFIED="1580779328780" TEXT="topsort: A, B, C, D, G, E, F, H">
+<node CREATED="1580779332792" ID="ID_895709815" MODIFIED="1580779339664" TEXT="A - 0"/>
+<node CREATED="1580779340512" ID="ID_1992210048" MODIFIED="1580779344424" TEXT="B - 3"/>
+<node CREATED="1580779360094" ID="ID_620393437" MODIFIED="1580779362258" TEXT="C - 6"/>
+<node CREATED="1580779377045" ID="ID_461366535" MODIFIED="1580779379809" TEXT="E - 14"/>
+<node CREATED="1580779399003" ID="ID_191185766" MODIFIED="1580779400947" TEXT="D - 7"/>
+<node CREATED="1580779415954" ID="ID_509278229" MODIFIED="1580779443852" TEXT="..."/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1580779511292" ID="ID_1366558161" MODIFIED="1580779516940" TEXT="Longest Path on DAG">
+<node CREATED="1580779517257" ID="ID_902244700" MODIFIED="1580779546276" TEXT="What about the longest path? On a general graph this problem is NP-Hard, but on a DAG this problem is solvable in O(V+E)!">
+<node CREATED="1580779565452" ID="ID_118689106" MODIFIED="1580779593445" TEXT="The trick is to multiply all edge values by -1 then find the shortest path and then multiply the edge values by -1 again!"/>
+</node>
+</node>
+<node CREATED="1580779631252" ID="ID_1575184874" MODIFIED="1580779633933" TEXT="Source Code">
+<node CREATED="1580779635296" ID="ID_531513948" MODIFIED="1580779648253" TEXT="Try"/>
 </node>
 </node>
 <node CREATED="1573695533742" ID="ID_1398295416" MODIFIED="1573695541613" POSITION="left" TEXT="10. Bellman-Ford Algorithm"/>
