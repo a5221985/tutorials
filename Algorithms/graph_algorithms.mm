@@ -640,6 +640,50 @@
 <node CREATED="1580780226795" ID="ID_761402269" MODIFIED="1580780234305" TEXT="Let S be the id of the starting node"/>
 <node CREATED="1580780235150" ID="ID_1224821635" MODIFIED="1580780249893" TEXT="Let D be an array of size V that tracks the best distance from S to each node."/>
 </node>
+<node CREATED="1580780285921" ID="ID_1666248242" MODIFIED="1580780327439">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      1) Set every entry in D to +infinity
+    </p>
+    <p>
+      2) Set D[S] = 0
+    </p>
+    <p>
+      3) Relax each edge V-1 times:
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1580780363204" ID="ID_1142221885" MODIFIED="1580780429077">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      for (i = 0; i &lt; V-1; i = i + 1):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for edge in graph.edges:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Relax edge (update D with shorter path)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (D[edge.from] + edge.cost &lt; D[edge.to])
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;D[edge.to] = D[edge.from] + edge.cost
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1573695542311" ID="ID_1791814029" MODIFIED="1573695557119" POSITION="right" TEXT="11. Floyd-Warshall All Pairs Shortest Path Algorithm"/>
