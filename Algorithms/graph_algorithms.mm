@@ -405,8 +405,7 @@
       </li>
     </ol>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -433,8 +432,7 @@
       On the recursive callback of the DFS, add the current node to the topological ordering in reverse order.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1578430883642" ID="ID_893719677" MODIFIED="1578431007557" TEXT="Add node if we backtrack from it">
 <node CREATED="1578431015817" ID="ID_7008035" MODIFIED="1578431023482" TEXT="CBEFKADGHIJLM"/>
 </node>
@@ -494,8 +492,7 @@
       &#160;&#160;&#160;&#160;return ordering
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1578431332996" ID="ID_1472840290" MODIFIED="1578431442528">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -536,8 +533,7 @@
       &#160;&#160;&#160;&#160;visitedNodes.add(at)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1578431499763" ID="ID_1951820161" MODIFIED="1578431508451" TEXT="Optimization">
 <node CREATED="1578453250601" ID="ID_175289181" MODIFIED="1578453371173">
@@ -586,15 +582,22 @@
       &#160;&#160;&#160;&#160;return ordering
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
 </node>
-<node CREATED="1578431050182" ID="ID_455384673" MODIFIED="1578431050182" TEXT=""/>
 </node>
-<node CREATED="1573695518527" ID="ID_1996042730" MODIFIED="1573695532822" POSITION="right" TEXT="9. Shortest/Longest Path on Directed Acyclic Graph (DAG)"/>
+<node CREATED="1573695518527" ID="ID_1996042730" MODIFIED="1573695532822" POSITION="right" TEXT="9. Shortest/Longest Path on Directed Acyclic Graph (DAG)">
+<node CREATED="1580779003981" ID="ID_371656419" MODIFIED="1580779029295" TEXT="Directed Acyclic Graph (DAG)">
+<node CREATED="1580779030772" ID="ID_902354082" MODIFIED="1580779070265" TEXT="DAG is a graph with directed edges and no cycles. By definition this means all trees are automatically DAGs since they do not contain cycles.">
+<node CREATED="1580779118215" ID="ID_499502059" MODIFIED="1580779124712" TEXT="Edges must be directed"/>
+</node>
+</node>
+<node CREATED="1580779130910" ID="ID_617945022" MODIFIED="1580779134792" TEXT="SSSP on DAG">
+<node CREATED="1580779135929" ID="ID_680666100" MODIFIED="1580779189720" TEXT="The Single Source Shortest Path (SSSP) problem can be solved efficiently on a DAG in O(V+E) time. This is due to the fact that the nodes can be ordered in a topological ordering via topsort and processed sequentially."/>
+</node>
+</node>
 <node CREATED="1573695533742" ID="ID_1398295416" MODIFIED="1573695541613" POSITION="left" TEXT="10. Bellman-Ford Algorithm"/>
 <node CREATED="1573695542311" ID="ID_1791814029" MODIFIED="1573695557119" POSITION="right" TEXT="11. Floyd-Warshall All Pairs Shortest Path Algorithm"/>
 <node CREATED="1573695558317" ID="ID_1923307945" MODIFIED="1573695575295" POSITION="left" TEXT="12. Floyd-Warshall All Pairs Shortest Path Algorithm | Source Code"/>
