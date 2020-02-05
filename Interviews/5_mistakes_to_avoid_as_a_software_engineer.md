@@ -9,7 +9,7 @@
 3. Anyone else reading will never understand or the same developer forgets it
 
 ## Not Using Algo Expert ##
-1. Use promo code clem
+1. Use promo code `clem`
 
 ## Consistency in Code ##
 1. Lack of consistency
@@ -22,4 +22,4 @@
 ## Readability ##
 1. This is better than being clever with single line codes
 2. Performance gain
-	1. 
+	1. O(n) for 50 elements is okay
