@@ -119,7 +119,12 @@
 	1. We don't know why the theorem is true sometimes
 	2. We cannot figure out the answer using induction (n(n + 1)/2)
 		1. There are a few instances when we can figure out the answer using induction
-7. 
+7. Theorem: for all n in N 3 | (n^3 - n)
+	1. Proof by induction:
+		1. P(n): 3 | (n^3 - n)
+		2. Base case: P(0): 3 | (0 - 0)
+		3. Inductive step: For n >= 0, show P(n) => P(n + 1) is T
+			1. Assume P(n) is T, i.e. 3 | (n^3 - n)
 
 ## Lec 3 ##
 ## Lec 4 ##
