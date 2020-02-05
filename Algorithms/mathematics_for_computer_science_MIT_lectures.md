@@ -125,6 +125,20 @@
 		2. Base case: P(0): 3 | (0 - 0)
 		3. Inductive step: For n >= 0, show P(n) => P(n + 1) is T
 			1. Assume P(n) is T, i.e. 3 | (n^3 - n)
+			2. Examine: (n + 1)^3 - (n + 1) = n^3 +3n^2 + 3n + 1 -n - 1
+				1. = n^3 + 3n^2 + 2n = n^3 - n +3n^2 + 3n = (n^3 - n) + 3(n^2 + n).
+				2. 3 | (n^3 - n) by inductive hypothesis and 3 | 3k where k = (n^2 + n)
+				3. Therefore, 3 | (n + 1)^3 - (n - 1)
+8. Steps:
+	1. Base Case: P(b) is true
+	2. Inductive Step: for all n ≥ b P(n) => P(n + 1)
+	3. Conclude: for all n ≥ b P(n) is true
+9. False proof: All horses are of the same color:
+	1. Pf: By Induction
+		1. P(n): In any set of n ≥ 1 horses, the horses are all of same color
+		2. Base case: P(1): True since, just one horse
+		3. Inductive step: Assume P(n) to prove P(n + 1)
+			1. Consider a set of n + 1 horses: H
 
 ## Lec 3 ##
 ## Lec 4 ##
