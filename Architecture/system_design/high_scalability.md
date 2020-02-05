@@ -55,4 +55,19 @@
 	4. Fill out the form and click submit
 
 ### Participate By Signing Up For The RSS Feed ###
-1. Paste the following in RSS reader: [http://feeds.feedburner.com/HighScalability](http://feeds.feedburner.com/HighScalability)	
+1. Paste the following in RSS reader: [http://feeds.feedburner.com/HighScalability](http://feeds.feedburner.com/HighScalability)
+2. Comment feed: [http://highscalability.squarespace.com/blog/rss-comments.xml](http://highscalability.squarespace.com/blog/rss-comments.xml)	
+
+### Consider The Many Benefits Of Registering As A User ###
+1. Can do many things without registering
+
+### How Do I Get Notification Of Content And Comment Changes? ###
+1. RSS section
+2. If registered, can select *Subscribe to Page Updates* in upper right corner
+
+### Posting Rules ###
+1. Do not post announcements for new product versions, classes, etc...
+	1. Use weekly hot links post
+
+### About ###
+1. Todd Hoff - Experience in large scale distributed systems
