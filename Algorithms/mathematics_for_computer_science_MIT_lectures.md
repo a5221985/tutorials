@@ -138,7 +138,8 @@
 		1. P(n): In any set of n ≥ 1 horses, the horses are all of same color
 		2. Base case: P(1): True since, just one horse
 		3. Inductive step: Assume P(n) to prove P(n + 1)
-			1. Consider a set of n + 1 horses: H
+			1. Consider a set of n + 1 horses: H<sub>1</sub>, H<sub>2</sub>, H<sub>3</sub>, ..., H<sub>n+1</sub>
+			2. Then H<sub>1</sub>, H<sub>2</sub>, ..., H<sub>n</sub> are of the same color
 
 ## Lec 3 ##
 ## Lec 4 ##
