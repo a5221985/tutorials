@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.26)  15 FEB 2020 06:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.26)  15 FEB 2020 08:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -196,7 +196,7 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 Here is how much of TeX's memory you used:
  2012 strings out of 492616
  27693 string characters out of 6129481
- 92827 words of memory out of 5000000
+ 94827 words of memory out of 5000000
  5936 multiletter control sequences out of 15000+600000
  4094 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -209,7 +209,7 @@ t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on expected_value_of_binomial_distribution.pdf (1 page, 56538 by
+Output written on expected_value_of_binomial_distribution.pdf (1 page, 59819 by
 tes).
 PDF statistics:
  36 PDF objects out of 1000 (max. 8388607)
