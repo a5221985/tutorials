@@ -11,7 +11,15 @@
 	\node[node_style] (v5) at (-2,-4) {6};
 	\node[node_style] (v6) at (2,-4) {8};
 	\node[node_style] (v7) at (6,-4) {10};
+	\node[node_style] (v8) at (-7,-6) {2};
+	\node[node_style] (v9) at (-5,-6) {2};
 	\draw[edge_style]  (v1) edge (v2);
 	\draw[edge_style]  (v1) edge (v3);
+	\draw[edge_style]  (v2) edge (v4);
+	\draw[edge_style]  (v2) edge (v5);
+	\draw[edge_style]  (v3) edge (v6);
+	\draw[edge_style]  (v3) edge (v7);
+	\draw[edge_style]  (v4) edge (v8);
+	\draw[edge_style]  (v4) edge (v9);
 	\end{tikzpicture}
 \end{document}
