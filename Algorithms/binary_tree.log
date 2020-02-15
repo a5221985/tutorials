@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.26)  15 FEB 2020 13:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.26)  15 FEB 2020 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -422,7 +422,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Overfull \hbox (59.68459pt too wide) in paragraph at lines 24--25
+Overfull \hbox (59.68459pt too wide) in paragraph at lines 26--27
 [][] 
  []
 
@@ -431,16 +431,16 @@ Overfull \hbox (59.68459pt too wide) in paragraph at lines 24--25
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./binary_tree.aux) ) 
 Here is how much of TeX's memory you used:
- 11645 strings out of 492616
- 239536 string characters out of 6129481
- 273934 words of memory out of 5000000
- 15371 multiletter control sequences out of 15000+600000
+ 11653 strings out of 492616
+ 239647 string characters out of 6129481
+ 274934 words of memory out of 5000000
+ 15379 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,6n,53p,408b,650s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr10.pfb>
-Output written on binary_tree.pdf (1 page, 11788 bytes).
+Output written on binary_tree.pdf (1 page, 12078 bytes).
 PDF statistics:
  15 PDF objects out of 1000 (max. 8388607)
  10 compressed objects within 1 object stream
