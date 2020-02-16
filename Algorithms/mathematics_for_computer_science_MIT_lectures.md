@@ -140,6 +140,8 @@
 		3. Inductive step: Assume P(n) to prove P(n + 1)
 			1. Consider a set of n + 1 horses: H<sub>1</sub>, H<sub>2</sub>, H<sub>3</sub>, ..., H<sub>n+1</sub>
 			2. Then H<sub>1</sub>, H<sub>2</sub>, ..., H<sub>n</sub> are of the same color
+			3. Since color(H1) = color(H2, ..., Hn) = color(Hn + 1) => color(H1) = color(Hn + 1)
+			4. => all n + 1 are of same color
 
 ## Lec 3 ##
 ## Lec 4 ##
