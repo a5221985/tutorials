@@ -1,17 +1,15 @@
 \documentclass{article}
 \usepackage{tikz}
 \begin{document}
-	\begin{tikzpicture} [nodes in empty cells,
-	      nodes={minimum width=0.5cm, minimum height=0.5cm},
-	      row sep=-\pgflinewidth, column sep=-\pgflinewidth]
-	      border/.style={draw}
-	    
-	      \matrix(vector)[matrix of nodes,
-	          row 1/.style={nodes={draw=none, minimum width=0.3cm}},
-	          nodes={draw}]
-	      {
-	          \tiny{0} & \tiny{1} & \tiny{2} & \tiny{3}\\
-	          $a_{0}$ & $a_{1}$ & $a_{2}$ & $a_{3}$\\
-	      };
+	\begin{tikzpicture}[draw, minimum width=1cm, minimum height=0.5cm]
+	\node[draw] (in) at (-1,2) {};
+	\node[draw] (out) at (1,2) {};
+	\matrix (queue)[matrix of nodes, nodes={draw, nodes={draw}}, nodes in empty cells]
+	{
+		\\ \\ \\ \\
+	};
+	
+	\draw[-latex] (0.25,1) .. controls (0.25,1.5) and (1,1.5) .. (out.south);
+	\draw[-latex] (in.south) .. controls (-1, 1.5) and (-0.25,1.5) .. (-0.25,1);
 	\end{tikzpicture}
 \end{document}
