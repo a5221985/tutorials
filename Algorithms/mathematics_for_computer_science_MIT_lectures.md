@@ -139,9 +139,12 @@
 		2. Base case: P(1): True since, just one horse
 		3. Inductive step: Assume P(n) to prove P(n + 1)
 			1. Consider a set of n + 1 horses: H<sub>1</sub>, H<sub>2</sub>, H<sub>3</sub>, ..., H<sub>n+1</sub>
-			2. Then H<sub>1</sub>, H<sub>2</sub>, ..., H<sub>n</sub> are of the same color
+			2. Then H<sub>1</sub>, H<sub>2</sub>, ..., H<sub>n</sub> are of the same color and H2,H3,...,Hn+1
 			3. Since color(H1) = color(H2, ..., Hn) = color(Hn + 1) => color(H1) = color(Hn + 1)
 			4. => all n + 1 are of same color
+	2. Problem when n = 2!
+		1. Does P(1) => P(2)?
+			1. color(H1) = color(empty set) is wrong!
 
 ## Lec 3 ##
 ## Lec 4 ##
