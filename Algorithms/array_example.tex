@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{pgf}
+\begin{document}
+	\begin{tikzpicture} [nodes in empty cells,
+	      nodes={minimum width=0.5cm, minimum height=0.5cm},
+	      row sep=-\pgflinewidth, column sep=-\pgflinewidth]
+	      border/.style={draw}
+	    
+	      \matrix(vector)[matrix of nodes,
+	          row 1/.style={nodes={draw=none, minimum width=0.3cm}},
+	          nodes={draw}]
+	      {
+	          \tiny{0} & \tiny{1} & \tiny{2} & \tiny{3}\\
+	          $a_{0}$ & $a_{1}$ & $a_{2}$ & $a_{3}$\\
+	      };
+	\end{tikzpicture}
+\end{document}
