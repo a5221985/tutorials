@@ -162,9 +162,23 @@
 					2. Consider a 2^(n + 1) x 2^(n + 1) courtyard
 					3. Divide the courtyard into 4 blocks
 			2. Change inductive hypothesis: for all n, there exists a way to tile a 2^n x 2^n region with a corner stone missing
-				1. 
+				1. Stronger P(n): for all n, there exists a way to tile a 2^n x 2^n with **any** square missing:
+					1. P(n) has got more powerful so that there are more assumptions
+						1. Try something harder (assume stronger)
 
 ## Lec 3 ##
+1. Good proofs are:
+	1. Correct
+	2. Complete (all the details must be there, key steps)
+	3. Clear (we must be able to understand)
+	4. Brief (too much detail is not good, key details and crisp)
+	5. Elegant (nice one)
+		1. Mathematical beauty (crisp, clever, short to the point) - like an art
+	6. Well organized
+		1. Lemmas (like sub-routines)
+	7. In order
+		1. Not haphazhard (high school - backwards)
+
 ## Lec 4 ##
 ## Lec 5 ##
 ## Lec 6 ##
