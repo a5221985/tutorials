@@ -161,6 +161,8 @@
 					1. So we need to show P(n + 1) is true
 					2. Consider a 2^(n + 1) x 2^(n + 1) courtyard
 					3. Divide the courtyard into 4 blocks
+			2. Change inductive hypothesis: for all n, there exists a way to tile a 2^n x 2^n region with a corner stone missing
+				1. 
 
 ## Lec 3 ##
 ## Lec 4 ##
