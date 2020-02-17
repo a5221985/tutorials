@@ -145,6 +145,12 @@
 	2. Problem when n = 2!
 		1. Does P(1) => P(2)?
 			1. color(H1) = color(empty set) is wrong!
+	3. P(1) & P(2) => P(3), P(3) => P(4) .... for all n belongs to Z
+		1. P(1) => P(2) is F
+	4. P(2) be the base case?
+		1. Base case is wrong - If any pair of horses are of same color (which is not true always)
+10. To prove there is a solution to the problem and to find one
+	1. 
 
 ## Lec 3 ##
 ## Lec 4 ##
