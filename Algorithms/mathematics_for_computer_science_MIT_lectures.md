@@ -178,6 +178,14 @@
 		1. Lemmas (like sub-routines)
 	7. In order
 		1. Not haphazhard (high school - backwards)
+			1. 1 = 1 to A = B is better (not the otherway)
+	8. They are like good code
+		1. This technique can be used to prove that programs are doing what they are supposed to do
+			1. A-300 - software controlled - automated takeoff and landing
+				1. Software opened rear door accidentally and the plane crashed
+			2. Radiation device: got into race condition - killed patient with too much radiation
+			3. American airlines: grounded entire fleet
+			4. Akamai: MIT - Content delivery (software bugs may bring up all the sites)
 
 ## Lec 4 ##
 ## Lec 5 ##
