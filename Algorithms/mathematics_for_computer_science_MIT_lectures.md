@@ -150,7 +150,17 @@
 	4. P(2) be the base case?
 		1. Base case is wrong - If any pair of horses are of same color (which is not true always)
 10. To prove there is a solution to the problem and to find one
-	1. 
+	1. Example: Courtyard - 2^n x 2^n
+		1. Statue in the middle
+		2. Use L shaped tiles
+			1. Tile the courtyard using L shaped tiles (2 x 2) leaving one space for statue
+		3. Theorem: for all n, there exists a way to tile a 2^n x 2^n region with a center square missing
+			1. Proof by induction: P(n)
+				1. Base Case: P(0) - one space for statue - done
+				2. Inductive Step: For n >= 0, assume P(n) to verify the inductive hypothesis.
+					1. So we need to show P(n + 1) is true
+					2. Consider a 2^(n + 1) x 2^(n + 1) courtyard
+					3. Divide the courtyard into 4 blocks
 
 ## Lec 3 ##
 ## Lec 4 ##
