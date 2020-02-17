@@ -186,6 +186,8 @@
 			2. Radiation device: got into race condition - killed patient with too much radiation
 			3. American airlines: grounded entire fleet
 			4. Akamai: MIT - Content delivery (software bugs may bring up all the sites)
+		2. In a few years, our life depends on code written by people
+			1. We need rock solid arguments to overcome these situations
 
 ## Lec 4 ##
 ## Lec 5 ##
