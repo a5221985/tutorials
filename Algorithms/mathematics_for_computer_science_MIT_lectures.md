@@ -201,6 +201,17 @@
 			8. Proof by vehement assertion
 			9. Proof by appeal to intuition
 			10. Proof by reference to eminent authority
+				1. Fermat's theorem
+
+						for all n > 2 there does not exist x, y, z in N
+						x^n + y^n = z^n
+						
+					1. It is finally proved by someone else
+2. Puzzles:
+	1. Find a sequence of moves to go from one configuration to another
+		1. Legal move - slide a letter to adjacent blank square (row or a column)
+		2. Theorem: There is no sequence of legal moves to invert G & H and return all the other letters to their original order or position
+			1. Invariant: It holds at initial state and it is preserved for any state reached from initial state (so it does not hold for the special state)
 
 ## Lec 4 ##
 ## Lec 5 ##
