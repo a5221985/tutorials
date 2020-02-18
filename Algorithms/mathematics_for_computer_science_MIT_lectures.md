@@ -212,6 +212,17 @@
 		1. Legal move - slide a letter to adjacent blank square (row or a column)
 		2. Theorem: There is no sequence of legal moves to invert G & H and return all the other letters to their original order or position
 			1. Invariant: It holds at initial state and it is preserved for any state reached from initial state (so it does not hold for the special state)
+			2. Moves: Row move
+				1. Ex: G =>
+					1. Relative order of items did not change
+						1. Natural order:
+
+								1 2 3
+								4 5 6
+								7 9 9
+								
+				2. Lemma 1: A row move does not change the order of the items
+					1. Proof: 
 
 ## Lec 4 ##
 ## Lec 5 ##
