@@ -188,6 +188,19 @@
 			4. Akamai: MIT - Content delivery (software bugs may bring up all the sites)
 		2. In a few years, our life depends on code written by people
 			1. We need rock solid arguments to overcome these situations
+	9. Problems:
+		1. We are lazy and don't write all details (it is clear, let us move on)
+		2. Top 10 proof techniques we should not use:
+			1. Proof by example
+			2. Proof by vigorous hand waving
+			3. Proof by cumbursome notation
+			4. Proof by exhaustion
+			5. Proof by ommission (reader needs to fill in details)
+			6. Proof is trivial
+			7. Proof by picture
+			8. Proof by vehement assertion
+			9. Proof by appeal to intuition
+			10. Proof by reference to eminent authority
 
 ## Lec 4 ##
 ## Lec 5 ##
