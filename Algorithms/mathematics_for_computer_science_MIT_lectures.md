@@ -233,6 +233,12 @@
 								1. Decreases by 2
 							3. Case C: One pair was inverted
 								1. Stays the same
+				4. Corollary 1: During a move, the parity (even/odd) of the # of inversions does not change
+					1. If G goes up => GH changes order and GE changes order
+					2. Proof: Adding or subtracting 2 does not change the parity
+				3. Lemma 4: In every state reachable from start state, the parity of the number of inversions is odd
+					1. Proof: (By induction - veriant proofs are always by induction)
+						1. P(n): After any sequence of n moves from start state
 
 ## Lec 4 ##
 ## Lec 5 ##
