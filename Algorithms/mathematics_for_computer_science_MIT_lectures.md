@@ -238,7 +238,18 @@
 					2. Proof: Adding or subtracting 2 does not change the parity
 				3. Lemma 4: In every state reachable from start state, the parity of the number of inversions is odd
 					1. Proof: (By induction - veriant proofs are always by induction)
-						1. P(n): After any sequence of n moves from start state
+						1. P(n): After any sequence of n moves from start state the parity is always odd (n is number of moves usually)
+						2. Base Case: P(0) -> no moves
+							1. Number of inversions is 1 => parity is odd
+							2. Hence P(0) is true
+						3. Inductive Step: For n >= 0, show P(n) => P(n + 1)
+							1. Consider a sequence of n + 1 moves m1, ..., m_n+1
+							2. Pairity of inversions after n moves is odd by P(n)
+								1. By I.H, we know that parity after m1,...,m2 is odd
+								2. By corrolary 1, we know that parity of # of inversions does not change during m_n+1 => the parity after m1,m2, ..., m_n+1 moves is odd => P(n + 1)
+3. Corollary - simple consequence of something else
+	1. Usually short proof
+4. Lemma - used as a tool to prove a bigger thing
 
 ## Lec 4 ##
 ## Lec 5 ##
