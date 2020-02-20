@@ -228,6 +228,11 @@
 					1. Proof: Row move - no changes (by Lemma 1)
 						1. Colum move - 2 pairs change order (by Lemma 2)
 							1. Case A: both pairs were in order (originally)
+								1. Goes up by 2
+							2. Case B: both pairs were inverted
+								1. Decreases by 2
+							3. Case C: One pair was inverted
+								1. Stays the same
 
 ## Lec 4 ##
 ## Lec 5 ##
