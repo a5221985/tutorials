@@ -224,6 +224,10 @@
 				2. Lemma 1: A row move does not change the order of the items
 					1. Proof: In a row move, we move an item from cell i into an adjacent cell i - 1 or i + 1. Nothing else moves. Hence the order of the items is preserved
 						1. Everything is upto i - 2 and i + 1 onwards or upto i - 1 and i + 2 onwards 
+				3. Lemma 3: During a move, the # of inversions can only increase by 2 or decrease by 2 or stay same.
+					1. Proof: Row move - no changes (by Lemma 1)
+						1. Colum move - 2 pairs change order (by Lemma 2)
+							1. Case A: both pairs were in order (originally)
 
 ## Lec 4 ##
 ## Lec 5 ##
