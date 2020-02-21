@@ -271,6 +271,12 @@
 			1 (1 point)
 			
 		1. Add the points for final score
+	3. Theorem: All strategies for the n-block game produce the same score. S(n)
+		1. Ex: S(8) = 28
+		2. Proof by strong induction:
+			1. P(n): The theorem
+				1. Base case: P(1). S(1) = 0
+				2. Inductive step: 
 
 ## Lec 4 ##
 ## Lec 5 ##
