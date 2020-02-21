@@ -271,14 +271,29 @@
 			1 (1 point)
 			
 		1. Add the points for final score
-	3. Theorem: All strategies for the n-block game produce the same score. S(n)
+	3. Theorem: All strategies for the n-block game produce the same score. S(n) = n(n - 1)/2 (stronger hypothesis)
 		1. Ex: S(8) = 28
 		2. Proof by strong induction:
 			1. P(n): The theorem
-				1. Base case: P(1). S(1) = 0
-				2. Inductive step: 
+				1. Base case: P(1). S(1) = 0 (1(1 - 1)/2 = 0)
+				2. Inductive step: Assume P(1), P(2), ... P(n) to prove P(n + 1)
+					1. Look at n + 1 blocks
+
+							n + 1 -> k, n + 1 - k
+							
+						1. Score = k * (n + 1 - k) + P(k) + P(n + 1 - k)
+							1. P(k) = k(k - 1)/2
+							2. P(n + 1 - k) = (n + 1 - k)(n - k)/2
+							3. score = n(n + 1)/2 => S(n + 1)
 
 ## Lec 4 ##
+1. Number theory
+	1. Study of the integers: 0, 1, 2, 3, ...
+		1. Used in cryptography
+			1. Study and practive of hiding numbers
+				1. Medical data
+	2. 
+
 ## Lec 5 ##
 ## Lec 6 ##
 ## Lec 7 ##
