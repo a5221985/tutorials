@@ -292,7 +292,17 @@
 		1. Used in cryptography
 			1. Study and practive of hiding numbers
 				1. Medical data
-	2. 
+	2. Definition: m | a (m divides a)
+		1. Iff there exists an integer k such that a = k.m
+			1. If a = 0, then 0.m = 0 and m | 0
+2. Suppose a-gallon jub (a = 3 say), b-gallon jub (b = 5 say) and assume a <= b
+	1. Theorem: If m | a and m | b, then m | any result
+		1. State machine:
+			1. States: pairs (x, y), where x = # gallons in the a-jug, y = # of gallons in b-jug
+	2. Start-State: (0, 0)
+	3. Transitions:
+		1. Emptying: (x, y) -> (0, y) or (x, y) -> (x, 0)
+		2. Filling: (x, y) -> (a, y) or (x, y) -> (x, b)
 
 ## Lec 5 ##
 ## Lec 6 ##
