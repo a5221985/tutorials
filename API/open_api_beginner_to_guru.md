@@ -301,6 +301,7 @@
 
 ### YAML Crash Course ###
 1. Used to define open api specs
+2. learnxinyminutes.com
 
 ## Defining a Microservice with OpenAPI ##
 ### Introduction ###
