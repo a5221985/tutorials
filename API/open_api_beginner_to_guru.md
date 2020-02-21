@@ -275,10 +275,32 @@
 	5. Public documentation generated from OpenAPI specification
 
 ### Pet Clinic on Swagger Editor ###
-1. 
+1. Different sections are considered as objects and it has properties
+
+		info:
+			version: 1.0.0
+			title: Swagger Petstore
+			licens:
+				name: MIT
+				
+	1. Operations object
+
+			/pets:
+				get:
+					summary: list all pets
+					operationId: listPets
+					tags:
+						- pets
+					parameters:
+						- name: limit
 
 ### OpenAPI 2.0 vs 3.0 ###
+1. 3.0 - widely adopted (course focus)
+	1. Components are more re-usable
+	2. Standerdized
+
 ### YAML Crash Course ###
+1. Used to define open api specs
 
 ## Defining a Microservice with OpenAPI ##
 ### Introduction ###
