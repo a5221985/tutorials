@@ -253,6 +253,24 @@
 5. Theorem: 
 	1. Proof: The parity of the # of inversions in the desired target state is even (0). By lemma 4, the desired state cannot be reached from the start state (the parity of # of inversions is odd)
 6. Idea: Find invariant that is preserved in every step and that is not preserved in the target state
+7. Practical example:
+	1. Nuclear reactor software: From a given state, any sequence of moves does not rach the meltdown state
+		1. Use invariant
+	2. Aircraft software: from a given state to crash state
+	3. Radiation device: ...
+8. Strong induction: Easier to use for certain problems
+	1. Strong Induction Axiom:
+		1. Let P(n) be any predicate. If P(0) is true and for all n (P(0) ^ P(1) ^ ... ^ P(n)) => P(n + 1) is true, then for all n P(n) is true
+			1. Assume P(0), ... P(n) is true to prove P(n + 1)
+				1. Any proof that can be done with strong induction can be done with ordinary induction (it is a little harder)
+	2. Example: Unstacking game
+
+			8 -> 5, 3 (5 * 3 = 15 points)
+			5 -> 4, 1 (4 * 1 = 4 points)
+			...
+			1 (1 point)
+			
+		1. Add the points for final score
 
 ## Lec 4 ##
 ## Lec 5 ##
