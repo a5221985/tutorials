@@ -302,6 +302,9 @@
 ### YAML Crash Course ###
 1. Used to define open api specs
 2. learnxinyminutes.com
+3. `---` document start
+4. `#` comments
+5. `key: value` - values can be string or number
 
 ## Defining a Microservice with OpenAPI ##
 ### Introduction ###
