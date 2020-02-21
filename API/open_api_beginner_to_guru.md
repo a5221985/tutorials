@@ -305,6 +305,22 @@
 3. `---` document start
 4. `#` comments
 5. `key: value` - values can be string or number
+6. `|` - multiline text
+7. Nesting:
+
+		a_nested_map:
+			key: value
+			another_key: Another Value
+			...
+			
+8. Sequences: arrays
+
+		a_sequence:
+			- Item 1
+			- Item 2
+			- ...
+
+9. IntelliJ	
 
 ## Defining a Microservice with OpenAPI ##
 ### Introduction ###
