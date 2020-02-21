@@ -250,6 +250,9 @@
 3. Corollary - simple consequence of something else
 	1. Usually short proof
 4. Lemma - used as a tool to prove a bigger thing
+5. Theorem: 
+	1. Proof: The parity of the # of inversions in the desired target state is even (0). By lemma 4, the desired state cannot be reached from the start state (the parity of # of inversions is odd)
+6. Idea: Find invariant that is preserved in every step and that is not preserved in the target state
 
 ## Lec 4 ##
 ## Lec 5 ##
