@@ -321,7 +321,9 @@
 			1. Suppose (x, y) is the state after n transitions. m | x and m | y (Assuming P(n) is true)
 			2. After another transition, each of the jugs are filled with either 0, a, b, x, y, x + y, x + y - a, x + y - b gallons
 				1. m | a, m | b, m | x, m | y => m divides any of the above => P(n + 1)
-5. Definition: gcd(a, b) = the gratest common divisor of a 
+5. Definition: gcd(a, b) = the gratest common divisor of a and b
+	1. gcd(52, 44) = 4
+	2. Definition: a and b are relatively prime if gcd(a, b) = 1
 
 ## Lec 5 ##
 ## Lec 6 ##
