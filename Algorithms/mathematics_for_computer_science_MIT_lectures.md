@@ -303,6 +303,10 @@
 	3. Transitions:
 		1. Emptying: (x, y) -> (0, y) or (x, y) -> (x, 0)
 		2. Filling: (x, y) -> (a, y) or (x, y) -> (x, b)
+3. Pouring:
+	
+		(x, y) -> (0, x + y), x + y <= b
+		(x, y) -> (x - (b - y), b)
 
 ## Lec 5 ##
 ## Lec 6 ##
