@@ -319,6 +319,7 @@
 		2. Base case: (0, 0). m | 0 => P(0)
 		3. Inductive step: Assume P(n)
 			1. Suppose (x, y) is the state after n transitions. m | x and m | y (Assuming P(n) is true)
+			2. After another transition, each of the jugs are filled with either
 
 ## Lec 5 ##
 ## Lec 6 ##
