@@ -306,7 +306,19 @@
 3. Pouring:
 	
 		(x, y) -> (0, x + y), x + y <= b
-		(x, y) -> (x - (b - y), b)
+		(x, y) -> (x - (b - y), b) = (x - y - b, b), x + y >= b
+		
+	1. By symmetry
+
+			(x, y) -> (x + y, 0), x + y <= a
+			(x, y) -> (a, y + x - a), x + y >= a
+			
+4. Example: a = 3, b = 5: (0, 0) -> (0, 5) -> (3, 2) -> (0, 2) -> (2, 0) -> (2, 5) -> (3, 4)
+	1. By induction: Assume m | a and m | b
+		1. Invariant: P(n) = "If (x, y) is the state after n transitions, then m | x and m | y"
+		2. Base case: (0, 0). m | 0 => P(0)
+		3. Inductive step: Assume P(n)
+			1. Suppose (x, y) is the state after n transitions. m | x and m | y (Assuming P(n) is true)
 
 ## Lec 5 ##
 ## Lec 6 ##
