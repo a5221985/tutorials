@@ -306,7 +306,7 @@
 3. Pouring:
 	
 		(x, y) -> (0, x + y), x + y <= b
-		(x, y) -> (x - (b - y), b) = (x - y - b, b), x + y >= b
+		(x, y) -> (x - (b - y), b) = (x + y - b, b), x + y >= b
 		
 	1. By symmetry
 
@@ -319,7 +319,8 @@
 		2. Base case: (0, 0). m | 0 => P(0)
 		3. Inductive step: Assume P(n)
 			1. Suppose (x, y) is the state after n transitions. m | x and m | y (Assuming P(n) is true)
-			2. After another transition, each of the jugs are filled with either
+			2. After another transition, each of the jugs are filled with either 0, a, b, x, y, x + y, x + y - a, x + y - b gallons
+				1. m | a, m | b, m | x, m | y => m divides any of the above => P(n + 1)
 
 ## Lec 5 ##
 ## Lec 6 ##
