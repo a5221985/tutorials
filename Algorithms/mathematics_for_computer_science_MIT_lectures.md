@@ -327,7 +327,19 @@
 6. Definition: a and b are relatively prime if gcd(a, b) = 1
 	1. Corrolary: gcd(a, b) | any result
 7. Theorem: Any linear combination L = sa + tb, of a and b with 0 <= L <= b can be reached (s and t can be negative or positive)
-	1. Ex: 4 = (-2)3 + 2(5)
+	1. Ex: 4 = (-2)3 + 2(5) = (-2)3 + 2(5) + 5.3 - 3.5 = (3)3 + (-1)5 (s > 0)
+	2. We want s to be positive
+	3. Proof: Notice L = sa + tb = (s + mb)a + (t - ma)b (where s + mb > 0)
+		1. There exists s', t' L = s'a + t'b with s' > 0
+		2. Assume 0 < L < b
+		3. Algorithm: To obtain L gallons, repeat s' times the following:
+			1. Fill the a-jug
+			2. Pour into b-jug
+			3. When if b-jug becomes full, empty it out
+			4. Countinue the above process until a-jug is empty
+		4. Example:
+			1. First loop: (0, 0) -> (3, 0) -> (0, 3)
+			2. Second loop: (0, 3) -> (3, 3) -> (1, 5) -> (1, 0) -> (0, 1)
 
 ## Lec 5 ##
 ## Lec 6 ##
