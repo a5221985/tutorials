@@ -351,6 +351,14 @@
 			1. We want to show r = L
 
 					r = s'a + t'b - u.b - t'b = L - (t' + u)b
+				
+				1. If we subtract or add any posible multiple of b then L jumps out of given range. Therefore t' + u = 0
+					1. if t' + u != 0, [r < 0 v r > b] -> contradiction
+					2. t' + u = 0 => u = -t' => r = L
+8. Why s' is positive? We want to repeat the algorithm s' times and if s' is nagative, we cannot repeat s' times
+9. Example: 1 = 2.3 - 1.5 => we can reach any multiple of 1
+10. Euclid's algorithm: Pulvurizer
+	1. There exists a unique q (quotient) and r (remainder) such that b = qa + r with the property 0 <= r < a (assumed for now)
 
 ## Lec 5 ##
 ## Lec 6 ##
