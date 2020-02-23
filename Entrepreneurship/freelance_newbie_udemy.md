@@ -50,8 +50,23 @@
 	3. It's OK if you don't know right away. Come back to this question as you progress with the course
 2. Exercise: Develop and draft a statement of purpose
 	1. Why am I doing this; What is my purpose in freelancing?
+		1. Earn by working remotely
+		2. Charge according to market rate and skills
+		3. Work from anywhere and anytime (own schedule)
+		4. Utilize finances on innovation and building business
+		5. Cover up for gaps in employment
 
 ### Business plan bullet point - What are my goals? ###
+1. REALISTIC: A realistic goal is based on your desires, needs, interests, and abilities
+2. BELIEVABLE AND POSSIBLE: Believe that you can reach your goal and that it's possible to reach it with a reasonable amount of time
+3. MEASURABLE: Attainable goals are measurable. Establish a time frame along with a foreseeable outcome. For example, if your goal is to "make a lot of money", you need to define how much "a lot of money" is
+4. FLEXIBLE: Rarely will you set a goal and be able to follow it through to completion without any problems. Life happens! Temporary setbacks might interrupt your progress, but don't have to keep you from your goal.
+	1. Be persistent
+2. CONTROLLABLE: Set goals you can control and determine your own time limit for completing them
+3. ETHICAL: The steps you should table to reach your goals shouldn't cause you to take advantage of others, compromise your values, or violate rules.
+4. Exercise: Develop and draft your main goals:
+	1. Build company to do innovation and solve real problems using technology
+
 ### Business plan bullet point - What is my CMS of expertise? ###
 ### Business plan bullet point - What niche do I prefer? ###
 ### Business plan bullet point - Who is my ideal client? ###
