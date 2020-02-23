@@ -1,15 +1,16 @@
-\documentclass{article}
-\usepackage{tikz}
+\documentclass[tikz, border=5mm]{standalone}
 \begin{document}
-	\begin{tikzpicture}[draw, minimum width=1cm, minimum height=0.5cm]
-	\node[draw] (in) at (-1,2) {};
-	\node[draw] (out) at (1,2) {};
-	\matrix (queue)[matrix of nodes, nodes={draw, nodes={draw}}, nodes in empty cells]
-	{
-		\\ \\ \\ \\
-	};
-	
-	\draw[-latex] (0.25,1) .. controls (0.25,1.5) and (1,1.5) .. (out.south);
-	\draw[-latex] (in.south) .. controls (-1, 1.5) and (-0.25,1.5) .. (-0.25,1);
+	\begin{tikzpicture}
+	\foreach \x in {0,...,9} {
+		\node at (\x, 0) {\x};
+		\foreach \y\lbl in {1/1,2/2,3/1} {
+			\node [left] at (-1,-\y) {v\lbl};
+			\ifnum\y=3
+			\pgfmathtruncatemacro{\result}{2*\x}
+			\else
+			\node (n\x\y) [draw, minimum width=1cm] at (\x, -\y) {\x};
+			\fi
+		}
+	}
 	\end{tikzpicture}
 \end{document}
