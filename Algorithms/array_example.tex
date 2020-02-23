@@ -1,16 +1,18 @@
-\documentclass[tikz, border=5mm]{standalone}
+\documentclass[tikz,border=2mm]{standalone}
+\usetikzlibrary{matrix,backgrounds}
+
 \begin{document}
-	\begin{tikzpicture}
-	\foreach \x in {0,...,9} {
-		\node at (\x, 0) {\x};
-		\foreach \y\lbl in {1/1,2/2,3/1} {
-			\node [left] at (-1,-\y) {v\lbl};
-			\ifnum\y=3
-			\pgfmathtruncatemacro{\result}{2*\x}
-			\else
-			\node (n\x\y) [draw, minimum width=1cm] at (\x, -\y) {\x};
-			\fi
-		}
-	}
+	\begin{tikzpicture} [nodes in empty cells,
+	nodes={minimum width=0.5cm, minimum height=0.5cm},
+	row sep=-\pgflinewidth, column sep=-\pgflinewidth]
+	border/.style={draw}
+	
+	\matrix(vector)[matrix of nodes,
+	row 1/.style={nodes={draw=none, minimum width=0.3cm}},
+	nodes={draw}]
+	{
+		\tiny{0} & \tiny{1} & \tiny{2} & \tiny{3}\\
+		$5, -1, -1$ & $2, 0, -1$ & $9, 1, 3$ & $1, -1, -1$ \\
+	};
 	\end{tikzpicture}
 \end{document}
