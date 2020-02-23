@@ -324,6 +324,10 @@
 5. Definition: gcd(a, b) = the gratest common divisor of a and b
 	1. gcd(52, 44) = 4
 	2. Definition: a and b are relatively prime if gcd(a, b) = 1
+6. Definition: a and b are relatively prime if gcd(a, b) = 1
+	1. Corrolary: gcd(a, b) | any result
+7. Theorem: Any linear combination L = sa + tb, of a and b with 0 <= L <= b can be reached (s and t can be negative or positive)
+	1. Ex: 4 = (-2)3 + 2(5)
 
 ## Lec 5 ##
 ## Lec 6 ##
