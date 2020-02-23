@@ -15,9 +15,42 @@
 		1. Different drafts
 
 ### What is a business plan & why do I need one? ###
-1. 
+1. The plan is for you
+	1. Details business goals, strategies, tech stack, customers
+	2. Does not have to be fancy or academic
+	3. Requires multiple passes/ edits to really fine-tune everything
+	4. We'll focus on developing the first draft of this dynamic document
+		1. Thoughts change, goals change, strategies change as we get more ideas
+2. Questions to answer in the plan:
+	1. Why am I doing this? What is my purpose of freelancing?
+		1. Money?
+		2. Better lifestyle?
+		3. Helping neighbors and community?
+	2. What are my goals?
+		1. X dollars per year?
+		2. How many clients?
+	3. What is my CMS of expertise?
+		1. Wordpress?
+		2. Joomla?
+	4. What niche do I prefer (if any)? (What do I enjoy?)
+		1. Restaurants?
+		2. Coffee shops?
+		3. Everyone throws work at you?
+	5. Who is ideal client?
+	6. How will I market myself?
+	7. How will I make money?
+	8. How much money will I need to start; what is my budget?
+	9. What is my competition; what is my competitive advantage?
+	10. What is my action plan; what steps do I need to take in the next month, quarter, year?
 
 ### Business plan bullet point - Why an I doing this? ###
+1. What is my purpose in freelancing?
+	1. Recall the exercise you did in the introduction of this course
+	2. Independence, financial, career shift, something else?
+	3. It's OK if you don't know right away. Come back to this question as you progress with the course
+2. Exercise: Develop and draft a statement of purpose
+	1. Why am I doing this; What is my purpose in freelancing?
+
 ### Business plan bullet point - What are my goals? ###
 ### Business plan bullet point - What is my CMS of expertise? ###
 ### Business plan bullet point - What niche do I prefer? ###
