@@ -7,7 +7,16 @@
 
 ## Develop a Business Plan ##
 ### Section Introduction ###
+1. Business Plan - Roadmap for success - cornerstone document
+2. Topics
+	1. We'll go over the components that go into your business plan
+	2. Think of these components as "min-plans" that all come together when you draft your business plan
+	3. You'll have the opportunity to build the first draft of your business plan
+		1. Different drafts
+
 ### What is a business plan & why do I need one? ###
+1. 
+
 ### Business plan bullet point - Why an I doing this? ###
 ### Business plan bullet point - What are my goals? ###
 ### Business plan bullet point - What is my CMS of expertise? ###
