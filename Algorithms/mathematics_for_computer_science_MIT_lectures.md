@@ -340,6 +340,17 @@
 		4. Example:
 			1. First loop: (0, 0) -> (3, 0) -> (0, 3)
 			2. Second loop: (0, 3) -> (3, 3) -> (1, 5) -> (1, 0) -> (0, 1)
+			3. Third loop: (0, 1) -> (3, 1) -> (0, 4)
+		5. Filled the 'a-jug' s' times
+		6. Suppose that b jug emptied u times
+		7. Let r be the remainder in the b-jug (0 <= r <= b) (assumption 0 < L < b)
+		
+				r = s'a - ub (entire system has this much)
+				L = s'a + t'b
+				
+			1. We want to show r = L
+
+					r = s'a 
 
 ## Lec 5 ##
 ## Lec 6 ##
