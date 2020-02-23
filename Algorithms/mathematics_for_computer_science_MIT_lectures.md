@@ -350,7 +350,7 @@
 				
 			1. We want to show r = L
 
-					r = s'a 
+					r = s'a + t'b - u.b - t'b = L - (t' + u)b
 
 ## Lec 5 ##
 ## Lec 6 ##
