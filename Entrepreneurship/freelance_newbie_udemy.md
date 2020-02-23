@@ -66,8 +66,20 @@
 3. ETHICAL: The steps you should table to reach your goals shouldn't cause you to take advantage of others, compromise your values, or violate rules.
 4. Exercise: Develop and draft your main goals:
 	1. Build company to do innovation and solve real problems using technology
+		1. Do freelancing to earn investment and grow the business
+	2. Deliver a product (or MVP) every quarter
 
 ### Business plan bullet point - What is my CMS of expertise? ###
+1. CMS: Helps find clients
+	1. Content Management System - efficient websites
+	2. WordPress
+	3. Drupal
+	4. Joomla
+	5. Magento
+	6. Netlify (for static sites)
+	7. If you don't know CMS, add it to your Goals
+2. Exercise: Determine your CMS of expertise
+
 ### Business plan bullet point - What niche do I prefer? ###
 ### Business plan bullet point - Who is my ideal client? ###
 ### Business plan bullet point - How will I market myself? ###
