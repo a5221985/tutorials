@@ -158,6 +158,22 @@
 			2. Clear all doubts regarding authenticity (past projects and achievements)
 
 ### Business plan bullet point - How will I make money? ###
+1. How will you produce an income from providing solutions to people's problems?
+	1. The key to answering this question lies in getting organized
+		1. When your business is organized, you make it easy to start earning money
+		2. The reason why talented people don't make money in freelancing is because there's something blocking the transaction
+			1. Ultimately they are disorganized
+			2. Blockers
+				1. If the freelancer's pitch to clients sounds like a used car salesman's pitch, money-hungry and fast... That's blocking her income
+				2. If the freelancer doesn't have a logical layout to her website, which causes a high bounce rate... That's blocking her income
+				3. If the freelancer doesn't bother renewing her domain name and her sit's down for a month before she realizes it... That's blocking her income
+2. Think about how you can organize your:
+	1. Communication
+	2. Services
+	3. Workflow
+	4. Personal Freelance Website
+	5. Pricing Tiers
+
 ### Business plan bullet point - What is my budget? ###
 ### Business plan bullet point - Competition & Competitive Advantage ###
 ### Business plan bullet point - Action plan ###
