@@ -101,10 +101,12 @@
 	4. **CON**: Sometimes you spend more time researching than building
 8. Exercise: Develop & draft your niche(s) (1 or more)
 	1. Niche - Islam and Related Business
-	2. 
+	2. General - Problem solving using technology
 
 ### Business plan bullet point - Who is my ideal client? ###
-1. 
+1. Everything is easier when you work with people you get along with
+	1. What kind of people do you enjoy working with?
+2. An ideal client is totally subjective and is simply a matter of identifying who you want to work with
 
 ### Business plan bullet point - How will I market myself? ###
 ### Business plan bullet point - How will I make money? ###
