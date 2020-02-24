@@ -173,6 +173,20 @@
 	3. Workflow
 	4. Personal Freelance Website
 	5. Pricing Tiers
+	6. Business Priorities
+	7. Physical Work & Living Areas (Messy work are is disorganization)
+		1. Don't fumble for paper work
+		2. Don't fumble for passwords
+3. Getting organized and thinking about your processes can really help show you where your money is
+4. Anybody can make a website, but can just anybody organize a highly-technical array of processes? No. and that's where your money is
+	1. Humans can
+5. Exercise: Develop and draft your system for making money
+	1. Organization:
+		1. Communication:
+			1. Direct meet: Setup a time (duration as well) and place - keep it regular
+			2. Indirect meet: Setup tools for meeting schedules and standardize templates for content (Agenda, ...)
+				1. Recurrances for showing progress
+				2. Tools for clients to 
 
 ### Business plan bullet point - What is my budget? ###
 ### Business plan bullet point - Competition & Competitive Advantage ###
