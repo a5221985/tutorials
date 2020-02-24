@@ -197,7 +197,30 @@
 		1. Web hosting & domain name
 		2. Transportation costs to meet clients
 		3. Business cards & other promotional items
-		4. 
+		4. Office space if you prefer co-working arrangements rather than a home office or coffeeshot/library/other public location with WiFi
+		5. Plus the costs of living you had before starting freelancing like mortgage/rent, car payment, phone, groceries, etc.
+3. Be very cautious, honest, and analytical when crunching the numbers.
+	1. Money runs out quickly!
+	2. Consider doing freelancing part time with one or two clients while holding down a "regular" job until you can afford to transition to full time freelancing
+4. Exercise: Develop & draft your projected expenses
+	1. Groceries:
+		1. Family
+		2. Pets
+	2. Bills:
+		1. Cell phones
+		2. Rent
+		3. TV
+		4. Vehicle maintenance
+			1. Fuel
+			2. Service
+		5. Power
+		6. Water
+		7. Gas
+	3. Purchases:
+		1. Books
+		2. Learning material
+	4. Medical expenses:
+	5. 
 
 ### Business plan bullet point - Competition & Competitive Advantage ###
 ### Business plan bullet point - Action plan ###
