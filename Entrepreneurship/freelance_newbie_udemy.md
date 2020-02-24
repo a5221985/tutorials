@@ -88,6 +88,9 @@
 	1. Google for lingos
 	2. Reach out to people in network
 		1. Ask people their pain points (electricians, masjid Imams)
+		2. If chef - we understand ins and outs
+3. **PRO**: Allows you to have a very specific area of expertise. minimizing surprises
+4. **PRO**: You can reuse a lot of build components, saving valuable dev time.
 
 ### Business plan bullet point - Who is my ideal client? ###
 ### Business plan bullet point - How will I market myself? ###
