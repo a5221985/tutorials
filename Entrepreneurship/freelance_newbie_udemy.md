@@ -236,7 +236,13 @@
 
 ### Business plan bullet point - Competition & Competitive Advantage ###
 1. Understanding your competition can give you direction for your own business, especially your competitive advantage.
-2. 
+2. Google freelance web developers in your area along with smaller creative agencies
+3. Take note of everything: top results, prices, services, portfolio items, reviews, target audience...
+4. Advantages:
+	1. New ideas
+	2. Competitive advantage as a freelancer
+5. Example:
+	1. Compare with (facts) existing services and offer something that gives an edge
 
 ### Business plan bullet point - Action plan ###
 
