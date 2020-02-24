@@ -220,10 +220,31 @@
 		1. Books
 		2. Learning material
 	4. Medical expenses:
-	5. 
+	5. Debts
+	6. Entertainment
+	7. Shopping
+		1. Clothes
+		2. Utensils
+	8. Home office:
+		1. Stationary
+		2. Business Card
+		3. Web hosting domain
+		4. Cloud service expenses
+		5. Software tools
+		6. Travel expenses
+		7. Promotional items
 
 ### Business plan bullet point - Competition & Competitive Advantage ###
+1. Understanding your competition can give you direction for your own business, especially your competitive advantage.
+2. 
+
 ### Business plan bullet point - Action plan ###
+
+
 ### Business plan assembly & demo ###
+
+
 ### Section summary ###
+
+
 ### Business Plan Example (First Draft) PDF ###
