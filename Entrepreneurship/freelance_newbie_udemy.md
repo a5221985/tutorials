@@ -143,6 +143,20 @@
 		2. Who want to stay at the top
 
 ### Business plan bullet point - How will I market myself? ###
+1. How will you get the word out that you exist and are the ideal person to solve a client's problems?
+2. We dedicate a whole section to this with numerous techniques you can use effectively and inexpensively
+3. Exercise:
+	1. Brainstorm ideas for marketing your freelance business
+		1. Write down ideas that will help get you noticed by your ideal clients
+			1. Approach them with problems and possible solutions and how it might benefit them
+				1. Directly (within reach)
+				2. Through friends (network)
+				3. Social media (indirect)
+				4. Websites - who are offering projects
+		2. Write down ideas for showing your ideal clients that you're the ideal person to solve their set of problems
+			1. Approach them with a solution to the problem and show it's benefits and discuss openly about how to improve it
+			2. Clear all doubts regarding authenticity (past projects and achievements)
+
 ### Business plan bullet point - How will I make money? ###
 ### Business plan bullet point - What is my budget? ###
 ### Business plan bullet point - Competition & Competitive Advantage ###
