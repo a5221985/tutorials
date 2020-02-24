@@ -121,7 +121,13 @@
 	1. (People are highly dynamic creatures and you never want to alientate potential customers due to static ideals)
 	2. Could turn out to be a good business relationship
 10. Exercise: Develop & draft your ideal client
-	1. 
+	1. Ideal client I enjoy working with
+		1. Likes new ideas
+		2. Foresees benefits of ideas
+		3. Interactive and listens to ideas and suggests improvements
+		4. Smart and humble
+		5. Who is ready to invest and can forsee benefits
+	2. 
 
 ### Business plan bullet point - How will I market myself? ###
 ### Business plan bullet point - How will I make money? ###
