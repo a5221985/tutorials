@@ -127,7 +127,20 @@
 		3. Interactive and listens to ideas and suggests improvements
 		4. Smart and humble
 		5. Who is ready to invest and can forsee benefits
-	2. 
+	2. Client Personality:
+		1. Problem solver
+		2. Ready to invest on innovation
+		3. Smart but humble
+		4. Open minded
+	3. Benefits sought
+		1. Market edge
+		2. Revenue growth or saving of cost
+		3. Reputation
+	4. Demographics
+		1. Worldwide
+	5. Who can spend money?
+		1. Who do not have edge in the market and striving hard for it
+		2. Who want to stay at the top
 
 ### Business plan bullet point - How will I market myself? ###
 ### Business plan bullet point - How will I make money? ###
