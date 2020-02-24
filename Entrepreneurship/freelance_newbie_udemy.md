@@ -89,10 +89,23 @@
 	2. Reach out to people in network
 		1. Ask people their pain points (electricians, masjid Imams)
 		2. If chef - we understand ins and outs
-3. **PRO**: Allows you to have a very specific area of expertise. minimizing surprises
-4. **PRO**: You can reuse a lot of build components, saving valuable dev time.
+3. Niche:
+	1. **PRO**: Allows you to have a very specific area of expertise. minimizing surprises
+	2. **PRO**: You can reuse a lot of build components, saving valuable dev time.
+	3. **CON**: Big opportunity cost - clients outside your niche are needing websites
+	4. **CON**: Can have a limited local presence (very important to consider as a newbie; we'll cover local clients in detail further in the course)
+7. Generalist:
+	1. **PRO**: Lots of work to be had in the local area
+	2. **PRO**: You can outsource talent when you're given a project outside your scope of skills
+	3. **CON**: You're basically dealing with every need and niche under the sun - can be overwhelming
+	4. **CON**: Sometimes you spend more time researching than building
+8. Exercise: Develop & draft your niche(s) (1 or more)
+	1. Niche - Islam and Related Business
+	2. 
 
 ### Business plan bullet point - Who is my ideal client? ###
+1. 
+
 ### Business plan bullet point - How will I market myself? ###
 ### Business plan bullet point - How will I make money? ###
 ### Business plan bullet point - What is my budget? ###
