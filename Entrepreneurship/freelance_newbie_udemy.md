@@ -107,6 +107,21 @@
 1. Everything is easier when you work with people you get along with
 	1. What kind of people do you enjoy working with?
 2. An ideal client is totally subjective and is simply a matter of identifying who you want to work with
+3. What do they do, what's their personality like?
+4. What benefits are they seeking when they want your service?
+5. What are their demographics?
+6. Which ones are most profitable?
+	1. Which people can spend money
+7. When you identify your ideal client you can tailor your marketing & networking efforts based on the "sketch" you now have of that person
+8. Clients from hell are one thing - non-ideal clients are another!
+	1. Nothing ever goes right with them
+	2. Payment is always a pain (free)
+	3. These are different from non-ideal clients
+9. Always be open to working with people even if they don't fall into your definition of the ideal client
+	1. (People are highly dynamic creatures and you never want to alientate potential customers due to static ideals)
+	2. Could turn out to be a good business relationship
+10. Exercise: Develop & draft your ideal client
+	1. 
 
 ### Business plan bullet point - How will I market myself? ###
 ### Business plan bullet point - How will I make money? ###
