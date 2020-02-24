@@ -78,9 +78,12 @@
 	5. Magento
 	6. Netlify (for static sites)
 	7. If you don't know CMS, add it to your Goals
-2. Exercise: Determine your CMS of expertise
+2. Exercise: Determine your CMS of expertise (Magnolia - Learn)
+3. They can really help you construct efficient websites...
 
 ### Business plan bullet point - What niche do I prefer? ###
+1. 
+
 ### Business plan bullet point - Who is my ideal client? ###
 ### Business plan bullet point - How will I market myself? ###
 ### Business plan bullet point - How will I make money? ###
