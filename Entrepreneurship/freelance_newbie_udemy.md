@@ -189,6 +189,16 @@
 				2. Tools for clients to setup a call with you ()
 
 ### Business plan bullet point - What is my budget? ###
+1. Can you start freelancing with no budget?
+	1. Yes
+2. Should you start freelancing with no budget?
+	1. No
+	2. Some costs to consider:
+		1. Web hosting & domain name
+		2. Transportation costs to meet clients
+		3. Business cards & other promotional items
+		4. 
+
 ### Business plan bullet point - Competition & Competitive Advantage ###
 ### Business plan bullet point - Action plan ###
 ### Business plan assembly & demo ###
