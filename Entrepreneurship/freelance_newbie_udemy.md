@@ -186,7 +186,7 @@
 			1. Direct meet: Setup a time (duration as well) and place - keep it regular
 			2. Indirect meet: Setup tools for meeting schedules and standardize templates for content (Agenda, ...)
 				1. Recurrances for showing progress
-				2. Tools for clients to 
+				2. Tools for clients to setup a call with you ()
 
 ### Business plan bullet point - What is my budget? ###
 ### Business plan bullet point - Competition & Competitive Advantage ###
