@@ -82,7 +82,12 @@
 3. They can really help you construct efficient websites...
 
 ### Business plan bullet point - What niche do I prefer? ###
-1. 
+1. A niche is a speciality. It can be something general like ecommerce or landing pages; or industry-specific such as restaurants
+	1. Restaurants - only one
+2. You can have more than one niche. You can even have no niches, and be a generalist
+	1. Google for lingos
+	2. Reach out to people in network
+		1. Ask people their pain points (electricians, masjid Imams)
 
 ### Business plan bullet point - Who is my ideal client? ###
 ### Business plan bullet point - How will I market myself? ###
