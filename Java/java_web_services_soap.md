@@ -1,3 +1,23 @@
+## Developing Top Down Web Services ##
+### Usecase ###
+1. 
+
+### Steps to Construct WSDL First Web Service ###
+### Construct the WSDL First Project ###
+### WSDL Construction ###
+### Generate the Stubs ###
+### Quiz 18: Generating the Stubs ###
+### Construct the CustomerOrders Service ###
+### Implement the init Method ###
+### Implement the getOrders Method ###
+### Implement the constructOrders Method ###
+### Publish the Endpoint ###
+### Enable Logging Feature ###
+### Run the Application ###
+### Testing using SoapUI ###
+### WSDL First Web Service Assignment ###
+### Section Summary ###
+
 ## Java SOAP Client ##
 ### Introduction ###
 1. Steps
