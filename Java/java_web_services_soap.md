@@ -131,10 +131,34 @@
 			</wsdl:portType>
 			
 			<wsdl:binding name="CustomerOrdersServiceSoapBinding"
-				type="tns:CustomerOrdersPortType">
+				type="tns:CustomerOrdersPortType"> <!-- links the abstract and physical portions -->
 				<soap:binding style="document"
 					transport="http://schemas.xmlsoap.org/soap/http" />
-				<wsdl:operation name="getOrders"
+				<wsdl:operation name="getOrders">
+					<soap:operation soapAction="" style="document" />
+					<wsdl:input name="getOrdersRequest">
+						<soap:body use="literal" /> <!-- binding recommended - entire messages are validated by soap engine -->
+					</wsdl:input>
+					<wsdl:output name="getOrdersResponse">
+						<soap:body use="literal" />
+					</wsdl:output>
+				</wsdl:operation>
+				<wsdl:operation name="createOrders">
+					<soap:operation soapAction="" style="document" />
+					<wsdl:input name="createOrdersRequest">
+						<soap:body use="literal" /> <!-- binding recommended - entire messages are validated by soap engine -->
+					</wsdl:input>
+					<wsdl:output name="createOrdersResponse">
+						<soap:body use="literal" />
+					</wsdl:output>
+				</wsdl:operation>
+				
+				<wsdl:service name="CustomerOrdersService">
+					<wsdl:port binding="tns:CustomerOrdersServiceSoapBinding" name="CustomerOrdersPort">
+						<soap:address
+							location="http://localhost:8080/wsdlfirstws/services/customerOrdersService" />
+					</wsdl:port>
+				</wsdl:service>
 			</wsdl:binding>
 
 ### Generate the Stubs ###
