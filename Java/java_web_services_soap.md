@@ -115,14 +115,22 @@
 				</wsdl:port>
 			</wsdl:message>
 			
-			<wsdl:portType name="CustomerOrdersPortType">
-				<wsdl:operation name="getOrders">
+			<wsdl:portType name="CustomerOrdersPortType"> <!-- operations are grouped here - abstract portion -->
+				<wsdl:operation name="getOrders"> <!-- operation -->
 					<wsdl:input message="tns:getOrdersRequest" name="getOrdersRequest">
 					</wsdl:input>
 					<wsdl:output message="tns:getOrdersResponse" name="getOrdersResponse">
 					</wsdl:output>
 				</wsdl:operation>
+				<wsdl:operation name="createOrders"> <!-- operation -->
+					<wsdl:input message="tns:createOrdersRequest" name="createOrdersRequest">
+					</wsdl:input>
+					<wsdl:output message="tns:createOrdersResponse" name="createOrdersResponse">
+					</wsdl:output>
+				</wsdl:operation>
 			</wsdl:portType>
+			
+			<
 
 ### Generate the Stubs ###
 ### Quiz 18: Generating the Stubs ###
