@@ -21,9 +21,47 @@
 	1. wsdlfirstws
 	2. Description: WSDL First
 	3. Finish
-2. 
+2. Dependency:
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		
+3. `application.properties`
+
+		server.context-path=/wsdlfirstws
+		cxf.path=/ # /services is default
 
 ### WSDL Construction ###
+1. WSDL - xml document
+2. Root: wsdl definitions element - namespaces to be used
+	1. `targetNamespace` - our own namespace. Applicable to all the requests and responses in our application
+		1. Usually domain name
+	2. `name="CustomerOrderService"` - unique name for our service
+	3. `schema` - all request and response types
+
+			<wsdl:types>
+				<xs:schema xmlns="http://www.w3.org/2001/XML_Schema"
+					xmlns:tns="http://trainings.ws.bharath.com/" elementFormDefault="unqualified"
+					targetNamespace="http://trainings.ws.bharath.com/" version="1.0">
+					<xs:complexType name="order">
+						<xs:sequence>
+							<xs:element name="id" type="xs:integer" />
+							<xs:element maxOccurs="unbounded" name="product" type="tns:product" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:complexType name="product">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="id" type="xs:string" />
+							<xs:element minOccurs="0" name="description" type="xs:string" />
+							<xs:element minOccurs="0" name="quantity" type="xs:integer" />
+						</xs:sequence>
+					</xs:complexType>
+			</wsdl:types>
+
 ### Generate the Stubs ###
 ### Quiz 18: Generating the Stubs ###
 ### Construct the CustomerOrders Service ###
