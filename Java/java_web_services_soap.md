@@ -201,9 +201,18 @@
 			@WebService
 			...
 			
-	3. 
+	3. Service class - 
+	4. Order - pojo (JAXB)
+	5. ObjectFactory - meta data used to construct the objects
+2. Endpoint creation:
+	1. Right click > New > Class
+		1. CustomerOrdersWsImpl
+		2. Add: CustomerOrdersPortType (Interface)
+			1. We don't have to mark the class with any annotations (annotations are present in the interface)
 
 ### Implement the init Method ###
+1. 
+
 ### Implement the getOrders Method ###
 ### Implement the constructOrders Method ###
 ### Publish the Endpoint ###
