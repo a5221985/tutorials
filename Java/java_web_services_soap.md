@@ -153,17 +153,56 @@
 					</wsdl:output>
 				</wsdl:operation>
 				
-				<wsdl:service name="CustomerOrdersService">
+				<wsdl:service name="CustomerOrdersService"> <!-- Defines how to consume the web service -->
 					<wsdl:port binding="tns:CustomerOrdersServiceSoapBinding" name="CustomerOrdersPort">
 						<soap:address
-							location="http://localhost:8080/wsdlfirstws/services/customerOrdersService" />
+							location="http://localhost:8080/wsdlfirstws/services/customerOrdersService" /> <!-- dynamically changed by cxf with ip address of the server -->
 					</wsdl:port>
 				</wsdl:service>
 			</wsdl:binding>
 
 ### Generate the Stubs ###
-### Quiz 18: Generating the Stubs ###
+1. Search for `cxf codegen plugin` - `cxf-codegen-plugin`
+	1. Apache CXF - link
+
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>3.2.1</version>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot> <!-- generated stubs are copied here - in target directory -->
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/CustomerOrders.wsdl</wsdl> <!-- basedir - src/main/resources/wsdl -->
+									<wsdlLocation>classpath:CustomerOrders.wsdl</wsdlLocation> <!-- above or this can be used -->
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+		1. Paste in `pom.xml` at the end
+		2. Right click - maven > update project
+			1. Stubs are generated
+
 ### Construct the CustomerOrders Service ###
+1. Generates both JAXB and JAXWS classes
+	1. Request and Response classes
+	2. PortType class - wraps the operations
+
+			@WebService
+			...
+			
+	3. 
+
 ### Implement the init Method ###
 ### Implement the getOrders Method ###
 ### Implement the constructOrders Method ###
