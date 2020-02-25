@@ -60,7 +60,60 @@
 							<xs:element minOccurs="0" name="quantity" type="xs:integer" />
 						</xs:sequence>
 					</xs:complexType>
+					
+					<xs:complexType name="getOrdersRequest">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="customerId" type="xs:integer" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:complexType name="getOrdersResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="order" type="tns:order" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:complexType name="createOrdersRequest">
+						<xs:sequence>
+							<xs:element name="customerId" type="xs:integer" />
+							<xs:element name="order" type="tns:order" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:complexType name="createOrdersResponse">
+						<xs:sequence>
+							<xs:element name="result" type="xs:boolean" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:element name="getOrdersRequest" type="tns:getOrdersRequest" /> <!-- element definition -->
+					
+					<xs:element name="getOrdersResponse" type="tns:getOrdersResponse" />
+					
+					<xs:element name="createOrdersRequest" type="tns:createOrdersRequest" />
+					
+					<xs:element name="createOrdersResponse" type="tns:createOrdersResponse" />
 			</wsdl:types>
+			
+			<wsdl:message name="getOrdersRequest"> <!-- Analogous to input params to Java methods and outputs -->
+				<wsdl:port element="tns:getOrdersRequest" name="parameters"/>
+				</wsdl:port>
+			</wsdl:message>
+			
+			<wsdl:message name="getOrdersResponse"> <!-- Analogous to input params to Java methods and outputs -->
+				<wsdl:port element="tns:getOrdersResponse" name="parameters"/>
+				</wsdl:port>
+			</wsdl:message>
+			
+			<wsdl:message name="createOrdersRequest"> <!-- Analogous to input params to Java methods and outputs -->
+				<wsdl:port element="tns:createOrdersRequest" name="parameters"/>
+				</wsdl:port>
+			</wsdl:message>
+			
+			<wsdl:message name="createOrdersResponse"> <!-- Analogous to input params to Java methods and outputs -->
+				<wsdl:port element="tns:createOrdersResponse" name="parameters"/>
+				</wsdl:port>
+			</wsdl:message>
 
 ### Generate the Stubs ###
 ### Quiz 18: Generating the Stubs ###
