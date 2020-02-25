@@ -130,7 +130,12 @@
 				</wsdl:operation>
 			</wsdl:portType>
 			
-			<
+			<wsdl:binding name="CustomerOrdersServiceSoapBinding"
+				type="tns:CustomerOrdersPortType">
+				<soap:binding style="document"
+					transport="http://schemas.xmlsoap.org/soap/http" />
+				<wsdl:operation name="getOrders"
+			</wsdl:binding>
 
 ### Generate the Stubs ###
 ### Quiz 18: Generating the Stubs ###
