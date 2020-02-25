@@ -1,9 +1,28 @@
 ## Developing Top Down Web Services ##
 ### Usecase ###
-1. 
+1. CustomersOrderService - Construct, Read
+2. Steps:
+	1. WSDL:
+	2. Generate Stubs
+	3. Implement the endpoint
+	4. Configure the cf-servlet.xml (spring config file for apache cxf)
 
 ### Steps to Construct WSDL First Web Service ###
+1. Steps:
+	1. Construct the Project
+		1. Construct the WSDL
+		2. Generate the Stubs
+	2. Construct the endpoint
+	3. Construct the config class
+	4. Run the application
+
 ### Construct the WSDL First Project ###
+1. New > Spring Starter Project
+	1. wsdlfirstws
+	2. Description: WSDL First
+	3. Finish
+2. 
+
 ### WSDL Construction ###
 ### Generate the Stubs ###
 ### Quiz 18: Generating the Stubs ###
