@@ -114,6 +114,15 @@
 				<wsdl:port element="tns:createOrdersResponse" name="parameters"/>
 				</wsdl:port>
 			</wsdl:message>
+			
+			<wsdl:portType name="CustomerOrdersPortType">
+				<wsdl:operation name="getOrders">
+					<wsdl:input message="tns:getOrdersRequest" name="getOrdersRequest">
+					</wsdl:input>
+					<wsdl:output message="tns:getOrdersResponse" name="getOrdersResponse">
+					</wsdl:output>
+				</wsdl:operation>
+			</wsdl:portType>
 
 ### Generate the Stubs ###
 ### Quiz 18: Generating the Stubs ###
