@@ -258,13 +258,39 @@
 ### Business plan bullet point - Action plan ###
 1. What is my action plan?
 	1. How am I going to put all of this into play?
-2. 
-
+	2. Action plan - take ideas to the street
+	3. Makes things come ALIVE
+	4. Components
+		1. Dates
+		2. Milestones
+		3. Metrics
+	5. Example:
+		1. June 1, 2019 - deploy freelance site
+		2. June ... - Reach out to at least 30 potential clients
+		3. August ... - Develop a system with Rudolph for regular guest blog posting he expressed interest in on my site
+2. Exercise: Develop and draft an action plan that includes significant dates for you
+	1. Promotional materials
+		1. Printing it
+	2. Think about immediate future all the way up to a year from now (dates further out if you have ideas for that)
 
 ### Business plan assembly & demo ###
-
+1. Tidy up the bullet points - components
+	1. Purpose
+	2. What I do
+	3. How I will make money
+	4. Budget
+	5. Promotion
+	6. Goals
+	7. Promotion
+	8. Goals
+	9. Action Plan
+2. You can combine components where it makes sense
+3. First draft is ready
+4. A final draft will take multiple iterations. As you get more ideas, continue to refine this plan to suit your vision
+5. Exercise: Draft the first version of your business plan using the information you developed earlier in this section. Add more info where you see fit.
+	1. Cohesive document - guides your business
 
 ### Section summary ###
-
+1. A business plan is mandatory for all freelance newbies who want sustained success
 
 ### Business Plan Example (First Draft) PDF ###
