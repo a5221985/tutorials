@@ -272,6 +272,17 @@
 	1. Promotional materials
 		1. Printing it
 	2. Think about immediate future all the way up to a year from now (dates further out if you have ideas for that)
+	3. Solution:
+		1. Freelance Site setup by
+		2. Number of potential clients to reach out to every month
+		3. Number of projects to accept every month
+		4. Design promotional materials by
+		5. Get the promotional materials printed out by
+		6. Tools setup by
+			1. Software tools
+			2. Hardware tools
+		7. Infrastructure setup by
+		8. Complete research by
 
 ### Business plan assembly & demo ###
 1. Tidy up the bullet points - components
@@ -292,5 +303,21 @@
 
 ### Section summary ###
 1. A business plan is mandatory for all freelance newbies who want sustained success
+2. A business plan doesn't have to be dozens of pages or use lots of Latin! This business plan is your you, and you only
+	1. Defines how we can succeed in the freelance game
+	2. Roadmap for success
+3. It's blueprint that defines how you're going to succeed in the freelance game
+4. It's a document that keeps you focussed on your goals
+5. It's a constant and serious reminder of why you're doing this whole thing
+6. You will find yourself updating your business plan a lot in the beginning - that's usually a good sign
+7. Please don't skip it
 
 ### Business Plan Example (First Draft) PDF ###
+1. What I do
+	1. Combines:
+		1. CMS
+		2. Niche
+		3. Ideal Client
+		4. Competitive Advantage
+
+## Your Workspace: Home, Shared
