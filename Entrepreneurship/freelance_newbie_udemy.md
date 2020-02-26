@@ -243,6 +243,9 @@
 	2. Competitive advantage as a freelancer
 5. Example:
 	1. Compare with (facts) existing services and offer something that gives an edge
+6. **Keep tabs on your competition, even after the business plan phase**
+7. Exercise:
+	1. Research a few local freelancers (local area, in city, within 50 mile radius). What are their main selling points?
 
 ### Business plan bullet point - Action plan ###
 
