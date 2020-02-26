@@ -246,8 +246,19 @@
 6. **Keep tabs on your competition, even after the business plan phase**
 7. Exercise:
 	1. Research a few local freelancers (local area, in city, within 50 mile radius). What are their main selling points?
+		1. Offers
+		2. Promises
+		3. Why people want to hire those freelancers?
+			1. What would make a person want to hire this freelancer?
+		4. Are there any good ideas that you can implement in your own business?
+		5. Assess areas where you have a competitive advantage
+		6. Finally develop & draft your competition and competitive advantage(s)
+			1. We want to know if my competition is failing or succeeding
 
 ### Business plan bullet point - Action plan ###
+1. What is my action plan?
+	1. How am I going to put all of this into play?
+2. 
 
 
 ### Business plan assembly & demo ###
