@@ -358,7 +358,10 @@
 8. Why s' is positive? We want to repeat the algorithm s' times and if s' is nagative, we cannot repeat s' times
 9. Example: 1 = 2.3 - 1.5 => we can reach any multiple of 1
 10. Euclid's algorithm: Pulvurizer
-	1. There exists a unique q (quotient) and r (remainder) such that b = qa + r with the property 0 <= r < a (assumed for now)
+	1. There exists a unique q (quotient) and r (remainder) such that b = qa + r with the property 0 <= r < a (assumed for now) - assumed for now
+		1. r = rem(b, a)
+	2. Lemma: gcd(a, b) = gcd(rem(b, a), a):
+		1. Example: gcd(105, 224) = gcd(rem(224, 105), 105) = gcd(14, 105) = gcd(rem(105, 14), 14) = gcd(7, 14) = gcd(rem(14, 7), 7) = gcd(0, 7) = 7
 
 ## Lec 5 ##
 ## Lec 6 ##
