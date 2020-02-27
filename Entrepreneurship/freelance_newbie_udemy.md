@@ -378,9 +378,40 @@
 		3. Partitioned space
 		4. Completely private space
 	3. Networking potential
-		1. 
+		1. Other freelancers are working there too so we can network with them
+		2. Co-working spaces sometimes have monthly meetups or events to grow your business
+		3. Free training or $5 cover charge to learn how to grow your business is okay
 	4. Learning opportunities and other events to help grow your business
+3. Cons -
+	1. Distracting
+		1. Day passes exist
+		2. People come and go
+		3. They sometimes bring pets
+		4. Some of them have alchohol
+		5. Talking
+		6. Chilling after work
+	2. Lack of privacy (hot desk)
+		1. If we want a business call, we want a private room
+			1. May need to go to conference room - inconvenient
+	3. Ruls and work culture isn't yours - no total freedom
+4. Google - co-working spaces
+5. Check out day-pass - to see how it is
 
 ### Pros & cons of being a digital nomad; hybrid approach ###
+1. A completely mobile option that lets you work wherever there's WiFi
+2. Benefit
+	1. Freedom to work anywhere in the world - need WiFi
+	2. Inexpensive
+	3. Possible strategic advantage ("two birds, one stone")
+		1. Student - library (study and work on freelance)
+3. Cons
+	1. Environment often not suitable for client calls or meetings
+		1. Not a good place to meet a client
+		2. Not a good place to call clients
+	2. Feels like you're always "running around" (no permanency)
+		1. Some people do not like that
+4. Hybrid approach
+	1. A mix of home, shared space, and/or digital nomad
+
 ### EXERCISE: Your best workspace ###
 ### Section summary ###
