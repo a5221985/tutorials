@@ -321,4 +321,28 @@
 		4. Competitive Advantage
 
 ## Your Workspace: Home, Shared Space, or Somewhere Else? ##
-### Section Introduction + why 
+### Section Introduction + why you don't need a "traditional" office ###
+1. Three main options for freelancing:
+	1. home
+	2. shared (co-working) space
+	3. "digital nomad" (anywhere with a WiFi connection)
+2. Pros & cons of each
+3. Add to business plan
+4. Storefronts and traditional offices are not necessary right now!
+	1. As a new freelancer you most lidely won't have foot traffic. Even many fully-developed digital agencies come of distributed teams (i.e. work from home) because the industry does not rely on foot traffic or "walk-ins" to produce income
+	2. Needs are minimal for first 6 months to year (single computer, one or two monitors, consumer-level printer, etc...)
+		1. We don't need the best printer
+		2. We don't need the 8 monitors
+		3. We don't need space for customer files
+	3. Many shared workspaces offer private office space inside their facility, giving you virtually the same experience as a traditional office at a fraction of the price
+
+### Pros & cons of working from home ###
+1. Main benefits
+	1. Major immediate money savings
+	2. Tax write-off (at least in the USA; check your contry's tax laws)
+	3. Familiar environment
+
+### Pros & cons of a shared space ###
+### Pros & cons of being a digital nomad; hybrid approach ###
+### EXERCISE: Your best workspace ###
+### Section summary ###
