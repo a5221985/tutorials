@@ -339,10 +339,48 @@
 ### Pros & cons of working from home ###
 1. Main benefits
 	1. Major immediate money savings
+		1. Already have internet connection
+		2. Already have a printer
+		3. Already have a computer
 	2. Tax write-off (at least in the USA; check your contry's tax laws)
 	3. Familiar environment
+		1. Not distracted with un-known people coming to and fro
+2. Cons:
+	1. Unable to keep focus on tasks that we need to do
+		1. Social media
+		2. Pets
+		3. Solution: Have a room just for office - dedicated area
+	2. Boring to stare at a wall all the time and become isolated
+	3. Still need to meet clients outside home
+		1. Risky to bring client home unless they are family member
+			1. Strangers
+				1. Safety risks
+				2. Privacy risks
+		2. Meet at coffee shop or shared space
 
 ### Pros & cons of a shared space ###
+1. Shared (co-working) space
+	1. All the benefits of a professional business environment without the price tag
+2. Benefits - 
+	1. below for low price - unlike traditional office
+		1. We get high speed internet
+		2. We get laser printer
+		3. We get business address
+		4. We get the break room
+		5. We get the conference rooms
+		6. We get the clean tidy environment
+	2. Various configurations to suit your needs
+		1. Hot desk
+			1. Reserve the desk for how many hours as you need
+			2. Take the stuff when done and someone else occupies it
+		2. Dedicated desk
+			1. We can keep stuff at night
+		3. Partitioned space
+		4. Completely private space
+	3. Networking potential
+		1. 
+	4. Learning opportunities and other events to help grow your business
+
 ### Pros & cons of being a digital nomad; hybrid approach ###
 ### EXERCISE: Your best workspace ###
 ### Section summary ###
