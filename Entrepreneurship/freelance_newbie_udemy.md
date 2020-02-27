@@ -412,6 +412,39 @@
 		1. Some people do not like that
 4. Hybrid approach
 	1. A mix of home, shared space, and/or digital nomad
+		1. Based on need and the day
+			1. Client's needs - 
+			2. Life situation
+			3. Daily needs
+	2. You benefit from all the pros of each workspace... But also will deal with the cons of each workspace
 
 ### EXERCISE: Your best workspace ###
+1. Analyze the optimal workspace for your freelance business
+	1. Incorporate this info into the business plan
+		1. Solution:
+			1. Needs:
+				1. Computers with Linux + Windows + Mac
+				2. High speed internet
+					1. Trianing material
+					2. Googling
+					3. Upload and download project
+					4. Share info
+					5. Chat (slack)
+					6. Setup calls (zoom, skype)
+					7. VoIP
+				3. Training material
+					1. Books
+					2. Courses
+				4. Printers
+				5. Furniture
+					1. Desk(s)
+					2. Chairs
+					3. 
+2. Checkout a few co-working spaces
+
 ### Section summary ###
+1. A traditional office isn't necessary yet
+	1. Web developers do not need it yet
+2. Three main types of workspaces for newbies
+3. Each workspace has its pros and cons
+4. Hybrid situations are also an option
