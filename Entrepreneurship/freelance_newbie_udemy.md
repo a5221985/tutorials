@@ -320,4 +320,5 @@
 		3. Ideal Client
 		4. Competitive Advantage
 
-## Your Workspace: Home, Shared
+## Your Workspace: Home, Shared Space, or Somewhere Else? ##
+### Section Introduction + why 
