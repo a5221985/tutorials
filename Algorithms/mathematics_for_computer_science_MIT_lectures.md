@@ -362,6 +362,9 @@
 		1. r = rem(b, a)
 	2. Lemma: gcd(a, b) = gcd(rem(b, a), a):
 		1. Example: gcd(105, 224) = gcd(rem(224, 105), 105) = gcd(14, 105) = gcd(rem(105, 14), 14) = gcd(7, 14) = gcd(rem(14, 7), 7) = gcd(0, 7) = 7
+	3. Proof: [m | a ^ m | b] => [m | b - qa = rem(b, a) ^ m | a]
+		1. We have proved that gcd(rem(b, a), a) >= m (gcd(b, a) | gcd(rem(b, a), a))
+		2. If rem(b, a) != 0 then [m | rem(b, a) = b - qa ^ m | a] => [m | a ^ m | b] (linear combination)
 
 ## Lec 5 ##
 ## Lec 6 ##
