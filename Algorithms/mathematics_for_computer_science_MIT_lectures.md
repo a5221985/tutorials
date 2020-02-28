@@ -365,6 +365,15 @@
 	3. Proof: [m | a ^ m | b] => [m | b - qa = rem(b, a) ^ m | a]
 		1. We have proved that gcd(rem(b, a), a) >= m (gcd(b, a) | gcd(rem(b, a), a))
 		2. If rem(b, a) != 0 then [m | rem(b, a) = b - qa ^ m | a] => [m | a ^ m | b] (linear combination)
+			1. Therefore: gcd(rem(b, a), a) <= gcd(b, a)
+		3. If rem(b, a) = 0 => bq - a = 0 or bq = a
+	4. Theorem: gcd(a, b) is a linear combination of a and b
+		1. Proof by induction: Invariant - P(n) = If Euclid's algorithm reaches the gcd(x, y) after n steps, then both x and y are linear combinations of a and b, gcd(a, b) = gcd(x, y)
+			1. Base case: P(0) is true
+			2. Inductive step: Assume P(n), Notice that there exists a q such that rem(y, x) = y - qx.
+				1. Since y and x are linear combinations of a and b (by inductive hypothesis), y - qx is also a linear combination of a and b => P(n + 1)
+	5. Theorem: gcd(a, b) is the smallest positive linear combination of a and b
+		1. 
 
 ## Lec 5 ##
 ## Lec 6 ##
