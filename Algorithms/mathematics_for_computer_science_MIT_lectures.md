@@ -373,9 +373,11 @@
 			2. Inductive step: Assume P(n), Notice that there exists a q such that rem(y, x) = y - qx.
 				1. Since y and x are linear combinations of a and b (by inductive hypothesis), y - qx is also a linear combination of a and b => P(n + 1)
 	5. Theorem: gcd(a, b) is the smallest positive linear combination of a and b
-		1. 
+		1. Combine the three arguments and prove this
 
 ## Lec 5 ##
+
+
 ## Lec 6 ##
 ## Lec 7 ##
 ## Lec 8 ##
