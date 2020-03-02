@@ -404,7 +404,15 @@
 	1. Congruency:
 		1. Definition: x is congruent to y modulo n : x = y (mod n) (three bars) iff n | (x - y)
 			1. Ex: 31 = 16 (mod 5)
-8. 
+		2. Definition: The multiplicative inverse of x modulo n is a number x^-1 in {0, 1, ..., n - 1} such that x.x^-1 = 1 (mod n)
+			1. Ex: 2.3 = 1 (mod 5)
+				1. 2 = 3^-1 (mod 5)
+				2. 3 = 2^-1 (mod 5)
+			2. Ex: 5.5 = 1 (mod 6)
+				1. 5 = 5^-1 (mod 6)
+8. rem(mk, p) = mk (mod p)
+	1. m' = mk (mod p)
+	2. If k.k^-1 = 1 (mod p) - (not always possible), then m'k^-1 = m.k.k^ = m (mod p)
 
 ## Lec 6 ##
 ## Lec 7 ##
