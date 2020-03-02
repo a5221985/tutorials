@@ -426,6 +426,9 @@
 				1. m'm^-1 = k.m.m^-1 = k (mod p)
 					1. Compute k^-1 (mod p)
 9. Definition: Euler's Totient Function: Phi(n) denotes the number of integers in {1, 2, ..., n - 1} that are relatively prime to n
+	1. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+		1. Phi(12) = 4 (number of integers relatively prime)
+		2. n = 15: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14: 1, 2, 4, 7, 8, 11, 13, 14 => Phi(15) = 8
 
 ## Lec 6 ##
 ## Lec 7 ##
