@@ -376,7 +376,19 @@
 		1. Combine the three arguments and prove this
 
 ## Lec 5 ##
+1. Encryption:
+	1. Cryptology - art of hiding information
+	2. Beforehand: "keys" are exchanged
+	3. Encryption: m' = E_keys(m)
+	4. Decryption: m = D_keys(m') (Only works if keys exist)
+2. Man in the middle - If I don't have keys, I cannot find m' from m or m from m'
+3. Turing's code V1:
 
+		m = 22 09 03 20 15 18 25 13
+		
+	1. Change to a prime number P(m)
+	2. Beforehand: Exchange secret prime - k
+	3. Enc: m' = m.k
 
 ## Lec 6 ##
 ## Lec 7 ##
