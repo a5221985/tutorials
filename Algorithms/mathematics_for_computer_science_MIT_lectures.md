@@ -413,6 +413,10 @@
 8. rem(mk, p) = mk (mod p)
 	1. m' = mk (mod p)
 	2. If k.k^-1 = 1 (mod p) - (not always possible), then m'k^-1 = m.k.k^ = m (mod p)
+		1. Since m' = mk (mod p) => p | (m' - mk) => p | (m'k^-1 - mk.k^-1) => m'k^-1 = mk.k^-1 (mod p) (m is in {0, 1, ..., p - 1})
+			1. m = rem(m'k^-1, p) - Decryption
+	3. Attack: Known-plaintext attack
+		1. Know message m and encryption m' = rem(mk, p)
 
 ## Lec 6 ##
 ## Lec 7 ##
