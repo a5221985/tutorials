@@ -417,6 +417,8 @@
 			1. m = rem(m'k^-1, p) - Decryption
 	3. Attack: Known-plaintext attack
 		1. Know message m and encryption m' = rem(mk, p)
+			1. Proof:
+				1. m'k^-1 = m (mod p) => p | (m'k^-1 - m) => m'k^-1 - m = ip (for some i) => m = -ip + m'k^-1 = rem(mk^-1, p)
 
 ## Lec 6 ##
 ## Lec 7 ##
