@@ -419,6 +419,12 @@
 		1. Know message m and encryption m' = rem(mk, p)
 			1. Proof:
 				1. m'k^-1 = m (mod p) => p | (m'k^-1 - m) => m'k^-1 - m = ip (for some i) => m = -ip + m'k^-1 = rem(mk^-1, p)
+		2. Know message m and encryption m' = rem(mk, p)
+			1. m' = mk (mod p)
+			2. gcd(m, p) = 1
+			3. Compute m' such that m.m' = 1 (mod p)
+				1. m'm^-1 = k.m.m^-1 = k (mod p)
+					1. Compute k^-1 (mod p)
 
 ## Lec 6 ##
 ## Lec 7 ##
