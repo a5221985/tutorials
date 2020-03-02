@@ -388,7 +388,23 @@
 		
 	1. Change to a prime number P(m)
 	2. Beforehand: Exchange secret prime - k
-	3. Enc: m' = m.k
+	3. Enc: m' = m.k (both are prime)
+	4. Dec: m = m'/ k
+4. Hard to factor a product of two large primes
+5. How to break it?
+	1. m1' = m1 . k
+	2. m2' = m2 . k
+	3. gcd(m1', m2') = k - key is revealed
+6. Turing code V2:
+	1. Beforehand: exchange a public prime p, a secret prime k
+	2. Encryption: message - a number m in {0, 1, ..., p - 1}
+	3. Compute encryption as: m' = rem(mk, p)
+	4. Decryption: ?
+7. Property: a, b are relatively prime iff gcd(a, b) = 1 iff there exists s, t such that sa + tb = 1
+	1. Congruency:
+		1. Definition: x is congruent to y modulo n : x = y (mod n) (three bars) iff n | (x - y)
+			1. Ex: 31 = 16 (mod 5)
+8. 
 
 ## Lec 6 ##
 ## Lec 7 ##
