@@ -430,7 +430,10 @@
 		1. Phi(12) = 4 (number of integers relatively prime)
 		2. n = 15: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14: 1, 2, 4, 7, 8, 11, 13, 14 => Phi(15) = 8
 10. Euler's theorem: if gcd(n, k) = 1 => k^Phi(n) = 1 (mod n)
-	1. Lemma: 
+	1. Lemma: If gcd(n, k) = 1, then ak = bk (mod n) => a = b (mod n)
+		1. Proof: 
+	2. gcd(n, k) = 1 iff k has a multiplicative inverse
+		1. Proof: gcd(n, k) = 1 <=> there exists s, t . ns + kt = 1 <=> there exists t n | (kt - 1) <=> kt = 1 (mod n) (t is the multiplicative inverse)
 
 ## Lec 6 ##
 ## Lec 7 ##
