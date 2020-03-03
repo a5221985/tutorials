@@ -441,7 +441,15 @@
 			2. ki.k = kj.k (mod n) => ki = kj (mod n) => n | (ki - kj) => (ki - kj) = 0 (since both ki and kj are in the range {0, 1, ..., n - 1}) => ki = kj
 	2. Step 2: The set is a subset of the set
 		1. gcd(n, rem(ki.k, n)) = gcd(n, ki.k) (gcd property - Euclid's theorem)
-		2. gcd(n, k) = gcd(n, ki) = 1 => gcd(n, k.ki) = 1 => gcd(n, rem(ki.k, n) = 1 => rem(ki.k, n) must be part of the second set
+		2. gcd(n, k) = gcd(n, ki) = 1 => gcd(n, k.ki) = 1 => gcd(n, rem(ki.k, n) = 1 => rem(ki.k, n) must be part of the second set. Thus the first set is a subset of the second
+12. Proof: Euler's theorem
+	1. k1.k2....kr = rem(k1.k, n)....rem(kr.k, n) = k.k.k2.k....kr.k (mod n) = k1.k2...kr. k^r (mod n) => 1 = k^r (mod n) where r = Phi(n) (since ak C= bk (mod n) => a C= b (mod n)
+13. Fermat (little) theorem: Suppose p is prime and k is in {1, 2, ..., p - 1} Then k^(p - 1) C= 1 (mod n)
+	1. Proof: 1, 2, ..., p - 1 are relatively prime to p (since p is prime)
+		1. k^Phi(p) C= 1 (mod p) => k^(p - 1) C= 1 (mod p) (since Phi(p) = p - 1 because all numbers upto p (not included) are relatively prime to p)
+3. k.k^(p - 2) C= 1 (mod p) => k^(p - 2) is a multiplicative inverse of k
+4. RSA: Beforehand - receiver constructs a public key and a secret key (public key is published)
+	1. Generate two distinct primes p 
 
 ## Lec 6 ##
 ## Lec 7 ##
