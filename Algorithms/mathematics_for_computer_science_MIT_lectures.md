@@ -434,6 +434,8 @@
 		1. Proof: 
 	2. gcd(n, k) = 1 iff k has a multiplicative inverse
 		1. Proof: gcd(n, k) = 1 <=> there exists s, t . ns + kt = 1 <=> there exists t n | (kt - 1) <=> kt = 1 (mod n) (t is the multiplicative inverse)
+11. Lemma: Suppose that gcd(n, k) = 1, Let k1,...,kr in {1, 2, 3, ..., n - 1} denote the integers relatively prime to n (r = Phi(n)), Then {rem(k1.k, n), ..., rem(kr.k, n)} = {k1, ..., kr}
+	1. 
 
 ## Lec 6 ##
 ## Lec 7 ##
