@@ -435,7 +435,13 @@
 	2. gcd(n, k) = 1 iff k has a multiplicative inverse
 		1. Proof: gcd(n, k) = 1 <=> there exists s, t . ns + kt = 1 <=> there exists t n | (kt - 1) <=> kt = 1 (mod n) (t is the multiplicative inverse)
 11. Lemma: Suppose that gcd(n, k) = 1, Let k1,...,kr in {1, 2, 3, ..., n - 1} denote the integers relatively prime to n (r = Phi(n)), Then {rem(k1.k, n), ..., rem(kr.k, n)} = {k1, ..., kr}
-	1. 
+	1. Step 1: The set has r elements
+		1. Proof: To prove that rem(ki.k, n) = rem(kj.k, n) happens only if ki = kj
+			1. ki.k = kj.k (mod n) (ki.k = pn + rem(ki.k, n) and kj.k = sn + rem(kj.k, n) => (ki.k - kj.k) = (p - s)n => n | (ki.k - kj.k))
+			2. ki.k = kj.k (mod n) => ki = kj (mod n) => n | (ki - kj) => (ki - kj) = 0 (since both ki and kj are in the range {0, 1, ..., n - 1}) => ki = kj
+	2. Step 2: The set is a subset of the set
+		1. gcd(n, rem(ki.k, n)) = gcd(n, ki.k) (gcd property - Euclid's theorem)
+		2. gcd(n, k) = gcd(n, ki) = 1 => gcd(n, k.ki) = 1 => gcd(n, rem(ki.k, n) = 1 => rem(ki.k, n) must be part of the second set
 
 ## Lec 6 ##
 ## Lec 7 ##
