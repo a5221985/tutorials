@@ -439,7 +439,7 @@
 				5. Furniture
 					1. Desk(s)
 					2. Chairs
-					3. 
+					3. Whiteboard
 2. Checkout a few co-working spaces
 
 ### Section summary ###
