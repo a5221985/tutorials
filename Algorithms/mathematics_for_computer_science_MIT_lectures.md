@@ -448,8 +448,22 @@
 	1. Proof: 1, 2, ..., p - 1 are relatively prime to p (since p is prime)
 		1. k^Phi(p) C= 1 (mod p) => k^(p - 1) C= 1 (mod p) (since Phi(p) = p - 1 because all numbers upto p (not included) are relatively prime to p)
 3. k.k^(p - 2) C= 1 (mod p) => k^(p - 2) is a multiplicative inverse of k
-4. RSA: Beforehand - receiver constructs a public key and a secret key (public key is published)
-	1. Generate two distinct primes p 
+4. **RSA**: Beforehand - receiver constructs a public key and a secret key (public key is published)
+	1. Generate two distinct primes p and q (we can generate and test for primality efficiently)
+	2. Let n = pq (it is hard to factor a multiple of two primes)
+	3. Select e such that gcd(2, (p - 1)(q - 1)) = 1
+		1. public key is the pair (e, n)
+	4. Compute d such that d.e C= 1 (mod (p - 1)(q - 1)) (d is a multiplicative inverse of e)
+		1. Secret key is the pair (d, n)
+	5. Encryption: m' = rem(m^e, n)
+	6. Decryption: m = rem(m'^d, n)
+5. Proof:
+	1. m' = rem(m^e, n) C= m^e (mod n) => (m')^d C= m^(ed) (mod n) (?)
+	2. There exists r such that ed = 1 + r.(p - 1)(q - 1) (ed C= 1 (mod (p - 1)(q - 1)))
+	3. So, (m')d C= m^(ed) C= m.m^(r(p - 1)(q - 1)) (mod n)
+		1. n = pq
+		2. If m !C= 0 (mod p) then m^(p - 1) C= 1 (mod p)
+		3. If m !C= 0 (mod q) then m^(q - 1) C= 1 (mod q)
 
 ## Lec 6 ##
 ## Lec 7 ##
