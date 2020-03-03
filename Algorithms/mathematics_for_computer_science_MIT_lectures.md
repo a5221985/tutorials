@@ -464,6 +464,9 @@
 		1. n = pq
 		2. If m !C= 0 (mod p) then m^(p - 1) C= 1 (mod p)
 		3. If m !C= 0 (mod q) then m^(q - 1) C= 1 (mod q)
+		4. So m'^d C= m (mod p) => p | ((m')^d - m)
+		5. And m'^d C= m (mod q) => q | ((m')^d - m)
+			1. Possible if pq | ((m')^d - m) => (m')^d C= m (mod pq)
 
 ## Lec 6 ##
 ## Lec 7 ##
