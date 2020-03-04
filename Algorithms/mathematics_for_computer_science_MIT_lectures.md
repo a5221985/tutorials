@@ -467,8 +467,15 @@
 		4. So m'^d C= m (mod p) => p | ((m')^d - m)
 		5. And m'^d C= m (mod q) => q | ((m')^d - m)
 			1. Possible if pq | ((m')^d - m) => (m')^d C= m (mod pq)
+			2. => (m')^d C= m (mod n) (m is in {0, ..., n - 1})
+				1. => m = rem((m')^d, n)
+6. FHE over the integers
+	1. Arithmetic operations can be performed on encrypted text?
 
 ## Lec 6 ##
+1. Graphs:
+	1. Applications - scheduling, optimization, communications, design-and-analysis of algorithms
+
 ## Lec 7 ##
 ## Lec 8 ##
 ## Lec 9 ##
