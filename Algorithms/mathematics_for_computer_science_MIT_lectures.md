@@ -496,6 +496,11 @@
 	3. Jude ---- Katie
 	4. Keith --- ...
 	5. |V| ~ 300 m, |Vm| = 147.6m, |Vn| = 152.4m, |E| = ??
+	6. Definition: 
+		1. Am = average # of opposite gender partners for men
+		2. Aw = average ,, ,, for women
+		3. What is Am/Aw = 1.74, 3.33 (according to survey and news)
+		4. Am = sigma_x_in_Vm deg(x)
 
 ## Lec 7 ##
 ## Lec 8 ##
