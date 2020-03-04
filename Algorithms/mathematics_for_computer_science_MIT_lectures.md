@@ -500,7 +500,8 @@
 		1. Am = average # of opposite gender partners for men
 		2. Aw = average ,, ,, for women
 		3. What is Am/Aw = 1.74, 3.33 (according to survey and news)
-		4. Am = sigma_x_in_Vm deg(x)
+		4. Am = sigma_x_in_Vm deg(x) / |Vm| = |E| / |Vm|
+		5. Aw = sigma_x_in_Vw deg(x) / |Vw| = |E| / |Vw|
 
 ## Lec 7 ##
 ## Lec 8 ##
