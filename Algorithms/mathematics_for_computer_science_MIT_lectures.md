@@ -502,6 +502,7 @@
 		3. What is Am/Aw = 1.74, 3.33 (according to survey and news)
 		4. Am = sigma_x_in_Vm deg(x) / |Vm| = |E| / |Vm|
 		5. Aw = sigma_x_in_Vw deg(x) / |Vw| = |E| / |Vw|
+		6. Am / Aw = (|E| / |Vm|)/(|E| / |Vw|) = |Vw| / |Vm| ~ 1.0325
 
 ## Lec 7 ##
 ## Lec 8 ##
