@@ -503,7 +503,7 @@
 		4. Am = sigma_x_in_Vm deg(x) / |Vm| = |E| / |Vm|
 		5. Aw = sigma_x_in_Vw deg(x) / |Vw| = |E| / |Vw|
 		6. Am / Aw = (|E| / |Vm|)/(|E| / |Vw|) = |Vw| / |Vm| ~ 1.0325 (nothing to do with promiscuity of men or women?)
-	7. 
+5. 
 
 ## Lec 7 ##
 ## Lec 8 ##
