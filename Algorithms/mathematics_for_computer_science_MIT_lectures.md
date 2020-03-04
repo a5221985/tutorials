@@ -474,7 +474,11 @@
 
 ## Lec 6 ##
 1. Graphs:
-	1. Applications - scheduling, optimization, communications, design-and-analysis of algorithms
+	1. Applications - scheduling, optimization, communications, design-and-analysis of algorithms, industry
+2. Claim: (U Chicago): on average, men have 74% more opposite gender partners than women.
+	1. ABC news: Average man has 20 partners and average woman has 6 (233%)
+3. Graph: It is dots (nodes) connected by lines (edges). Nodes are sometimes labelled
+	1. Formal definition: A graph G is a pair of sets s (V, E) where V is a non-empty set of items called vertices or nodes and E is a set of 2-item subsets of V called edges.
 
 ## Lec 7 ##
 ## Lec 8 ##
