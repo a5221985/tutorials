@@ -479,6 +479,23 @@
 	1. ABC news: Average man has 20 partners and average woman has 6 (233%)
 3. Graph: It is dots (nodes) connected by lines (edges). Nodes are sometimes labelled
 	1. Formal definition: A graph G is a pair of sets s (V, E) where V is a non-empty set of items called vertices or nodes and E is a set of 2-item subsets of V called edges.
+		1. Ex: V = {X1, X2, X3, ..., X7} and E = {{X1, X2}, {X1, X3}, ..., {X5, X7}}
+		2. Another notation: X1 --- X2 (edges)
+		3. non-empty vertices - to prove certain theorems (which could be false otherwise)
+		4. Ex: G = (V, E), V = {X1, X2, X3}, E = Phi
+	2. Definition: Two nodes Xi and Xj are adjacent if {Xi, Xj} is in E
+	3. Definition: An edge e = {Xi, Xj} is incident to Xi and Xj (e is label)
+	4. Definition: The number of edges incident to a node is the degree of the node
+		1. Ex: deg(X5) = 3
+	5. Definition: A graph is simple if it has no loops or multiple edges
+		1. Loop: connects to only one node
+		2. Multi-edge: Two edges connect to two nodes
+4. Partners:
+	1. Tom ----- Nicole
+	2. Ben ----- Penelope
+	3. Jude ---- Katie
+	4. Keith --- ...
+	5. |V| ~ 300 m, |Vm| = 147.6m, |Vn| = 152.4m, |E| = ??
 
 ## Lec 7 ##
 ## Lec 8 ##
