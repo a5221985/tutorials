@@ -512,6 +512,10 @@
 			4. ,,  - 11-1 AM
 			5. ,,  - 1-3 AM
 		2. Goal: Assign slots to nodes  (as fewer as possible) without overlap (no edge between them)
+			1. Graph coloring problem: Given a graph G and K colors, assign a color to each node so that adjacent nodes get different colors.
+			2. Definition: The minimum value of k for which such a coloring exists is the chromatic number of the graph. (Chi(G))
+			3. Example: Time slot is the color
+				1. C1, C2, ..., C5
 
 ## Lec 7 ##
 ## Lec 8 ##
