@@ -505,6 +505,13 @@
 		6. Am / Aw = (|E| / |Vm|)/(|E| / |Vw|) = |Vw| / |Vm| ~ 1.0325 (nothing to do with promiscuity of men or women?)
 5. Scheduling exams: edge means they cannot be together
 	1. Example: Pairs of classes with overlapping student enrollment
+		1. Slots:
+			1. Wed - 5-7 PM
+			2. ,,  - 7-9 PM
+			3. ,,  - 9-11 PM
+			4. ,,  - 11-1 AM
+			5. ,,  - 1-3 AM
+		2. Goal: Assign slots to nodes  (as fewer as possible) without overlap (no edge between them)
 
 ## Lec 7 ##
 ## Lec 8 ##
