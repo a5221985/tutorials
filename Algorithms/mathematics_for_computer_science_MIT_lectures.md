@@ -504,7 +504,7 @@
 		5. Aw = sigma_x_in_Vw deg(x) / |Vw| = |E| / |Vw|
 		6. Am / Aw = (|E| / |Vm|)/(|E| / |Vw|) = |Vw| / |Vm| ~ 1.0325 (nothing to do with promiscuity of men or women?)
 5. Scheduling exams: edge means they cannot be together
-	1. 
+	1. Example: Pairs of classes with overlapping student enrollment
 
 ## Lec 7 ##
 ## Lec 8 ##
