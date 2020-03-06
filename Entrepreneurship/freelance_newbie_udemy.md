@@ -473,8 +473,21 @@
 	2. We don't have control on what people say about me on Facebook
 4. It serves as a lead generation page
 5. Try to incorporate all of these strategic business objectives into the design and copywriting of your individual webpages and domain name. Make it easy for clients to be on board with your business.
+6. Simple navigation
+7. Easy-to-spell/remember domain name
+8. Proper spelling/grammar
+9. Responsive design (all devices)
+10. Check out the competition on these things - you might have a competitive advantage
+11. TODO
+	1. Gather some design and layout ideas for your site - screenshots, code snippets, filter themes...
+	2. Explore competitions - techniques can range from passive to assertive
+		1. We can email or talk to them if required to know more about sites
+	3. Explore memorable, appropriate, easy-to-spell domain names
+	4. Reserve domain names & hosting
 
 ### Page by Page: homepage & TODO ###
+1. 
+
 ### Ideas for Capturing Email Addresses ###
 ### Page by Page: about & TODO ###
 ### Real-world freelance website About pages ###
