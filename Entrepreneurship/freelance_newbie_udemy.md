@@ -452,7 +452,27 @@
 ## Setting Up Your Freelance Website ##
 ### Section Introduction + Facebook as a homepage + TODO list ###
 1. Section objectives:
-	1. 
+	1. Understand the multiple purposes of having a website for your freelance business
+	2. See the connection between your business objectives and design components
+		1. Design of the site is based on what I am going to offer and what I am going to get out of a transaction with customers
+		2. Overlays: Sites promise free e-book or free pomphlet or free information if we give our email address
+			1. To grab attention, to grab money later for you
+			2. It is a design component built on a business objective
+				1. Connections between the components
+	3. Discover how current real-world freelancers and creative agencies design their websites for maximum results
+	4. Analyze the technical components of a successful site. Get started planning/ architecting your own site
+		1. Successful sites have a lot of planning behind the scenes
+2. Why do I need a website? Can't I just use facebook?
+	1. A website establishes your online presence, increasing your trust factor
+	2. It shows
+		1. What I offer
+		2. What am I capable of
+		3. Illustrates my competitive advantage along with my understanding of the industry
+3. Testimonials, positive reviews, and other social proof on the site further increases trust in your brand
+	1. Facebook is not as robust as your personal site
+	2. We don't have control on what people say about me on Facebook
+4. It serves as a lead generation page
+5. Try to incorporate all of these strategic business objectives into the design and copywriting of your individual webpages and domain name. Make it easy for clients to be on board with your business.
 
 ### Page by Page: homepage & TODO ###
 ### Ideas for Capturing Email Addresses ###
