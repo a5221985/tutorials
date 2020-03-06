@@ -448,3 +448,22 @@
 2. Three main types of workspaces for newbies
 3. Each workspace has its pros and cons
 4. Hybrid situations are also an option
+
+## Setting Up Your Freelance Website ##
+### Section Introduction + Facebook as a homepage + TODO list ###
+1. Section objectives:
+	1. 
+
+### Page by Page: homepage & TODO ###
+### Ideas for Capturing Email Addresses ###
+### Page by Page: about & TODO ###
+### Real-world freelance website About pages ###
+### Page by Page: testimonials & TODO ###
+### Page by Page: serices & TODO ###
+### Page by Page: contact & TODO ###
+### Page by Page: portfolio & TODO ###
+### Page by Page: blog & TODO ###
+### Blog Examples & Blog Title Ideas ###
+### Page by Page: tech stack ###
+### Section summary ###
+
