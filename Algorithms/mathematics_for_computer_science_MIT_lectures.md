@@ -525,7 +525,12 @@
 			1. It is easy to check validity (polynomial)
 			2. Figuring out is hard (exponential)
 				1. We don't know if we can solve these problems simply
-7. 
+7. Basic Coloring Algorithm for G = (V, E)
+	1. Order the nodes v1, v2, ..., vn
+	2. Order the colors C1, C2, ...
+	3. For i = 1, 2, ..., n:
+		1. Assign the lowest legal color to vi
+8. 
 
 ## Lec 7 ##
 ## Lec 8 ##
