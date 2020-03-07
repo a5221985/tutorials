@@ -516,7 +516,16 @@
 			2. Definition: The minimum value of k for which such a coloring exists is the chromatic number of the graph. (Chi(G))
 			3. Example: Time slot is the color
 				1. C1, C2, ..., C5
-6. 
+6. Chi(G) = 3 example
+	1. No one knows a fast algorithm for coloring a graph
+		1. It is easy to check that colors are different
+		2. It takes exponential time to color a graph
+	2. Even 3 coloring problem is exponential problem
+		1. NP-Complete problem
+			1. It is easy to check validity (polynomial)
+			2. Figuring out is hard (exponential)
+				1. We don't know if we can solve these problems simply
+7. 
 
 ## Lec 7 ##
 ## Lec 8 ##
