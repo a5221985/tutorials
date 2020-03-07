@@ -538,6 +538,10 @@
 9. Theorem: If every node in G has degree <= d, then Basic Algorithm uses at most d + 1 colors
 	1. If graph has 100s of nodes but max degree is 3, then 4 colors max
 	2. In graphs put n for nodes. If it does not work, put n for edges
+		1. If every node in an n-node graph G has degree <= d, then Basic Algorithm uses at-most d + 1 colors
+			1. Base case: n = 1 => 0 edges (no loops) => d = 0, 1 color = d + 1 (0 + 1)
+			2. Inductive step: Assume P(n) is true for induction. Let G = (V, E) be any n + 1 node graph, Let d be the largest degree in G, Order the nodes V1, V2, ..., Vn, Vn+1. Remove Vn+1 (and all edges connecting Vn+1) from G to construct G' = (V', E'). G' has max degree <= d & n nodes So P(n) says Basic Algorithm uses <= d + 1 colors for V1, V2, ..., Vn
+			3. Vn+1 has <= d neighbors
 
 ## Lec 7 ##
 ## Lec 8 ##
