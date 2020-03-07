@@ -525,12 +525,19 @@
 			1. It is easy to check validity (polynomial)
 			2. Figuring out is hard (exponential)
 				1. We don't know if we can solve these problems simply
-7. Basic Coloring Algorithm for G = (V, E)
+7. Basic Coloring Algorithm for G = (V, E) (Greedy algorithm)
 	1. Order the nodes v1, v2, ..., vn
 	2. Order the colors C1, C2, ...
 	3. For i = 1, 2, ..., n:
 		1. Assign the lowest legal color to vi
-8. 
+8. Greedy algorithm:
+	1. Go one step at a time (simple)
+	2. Take the best at each step
+	3. Never go back and make it better
+	4. Never do hill climbing
+9. Theorem: If every node in G has degree <= d, then Basic Algorithm uses at most d + 1 colors
+	1. If graph has 100s of nodes but max degree is 3, then 4 colors max
+	2. In graphs put n for nodes. If it does not work, put n for edges
 
 ## Lec 7 ##
 ## Lec 8 ##
