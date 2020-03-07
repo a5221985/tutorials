@@ -516,6 +516,7 @@
 			2. Definition: The minimum value of k for which such a coloring exists is the chromatic number of the graph. (Chi(G))
 			3. Example: Time slot is the color
 				1. C1, C2, ..., C5
+6. 
 
 ## Lec 7 ##
 ## Lec 8 ##
