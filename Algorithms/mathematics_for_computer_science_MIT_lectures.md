@@ -550,7 +550,21 @@
 		1. Bipartite graph: degree = n / 2, Chi(G) = 2
 		2. Star graph: d = n - 1, Chi(G) = 2
 			1. Basic algorithm: 2 colors no matter the order
-	5. 
+	5. Bipartite graph with all edges except edges straight across
+		1. Bad ordering:
+
+				V1			V2
+				V3			V4
+				...
+				Vn-1		Vn
+					
+			1. V1 - C1
+			2. V2 - C1
+			3. V3 - C2
+			4. V4 - C3
+			5. ...
+	6. Definition: A graph G = (V, E) is bipartite if V can be split into VL, VR so that all the edges connect a node in VL connect to a node in VR
+		1. Bipartite: We can do it with 2 colors
 
 ## Lec 7 ##
 ## Lec 8 ##
