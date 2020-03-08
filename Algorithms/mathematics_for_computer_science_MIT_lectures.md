@@ -591,7 +591,9 @@
 		1. Matching interns to hospitals
 	3. Resource allocation
 		1. Load balancing traffic on the internet
-	4. 
+	4. Graph:
+		1. Edges represent compatibility
+		2. Definition: Given a graph G = (V, E), a matching is a subgraph of G where every node has degree 1
 
 ## Lec 8 ##
 ## Lec 9 ##
