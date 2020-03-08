@@ -565,8 +565,34 @@
 			5. ...
 	6. Definition: A graph G = (V, E) is bipartite if V can be split into VL, VR so that all the edges connect a node in VL connect to a node in VR
 		1. Bipartite: We can do it with 2 colors
+	7. Example: Akamai servers
+		1. 75000 servers
+		2. Software release every week
+		3. Need to deploy efficiently
+			1. If servers are brought down, there is downtime
+			2. If we do one server at a time, it is extremely time consuming
+		4. 75000 servers is a gigantic graph coloring problem
+			1. If there are edges between pairs of servers, then they cannot be taken down at the same time
+			2. Graph coloring algorithms: 8 colors
+				1. 8 waves of installs - 8 times installation
+	8. Assigning every variable to a register:
+		1. We cannot have two variables active at the same time associated with the same register (minimize the number of registers)
+			1. Colors - registers
+	9. Map coloring problem
+		1. 4 colors
+	10. Assign frequencies to radio stations or cell towers
+		1. If two towers have overlapping area, they cannot be given the same frequency (collision)
+			1. Frequencies are very expensive (Govt needs to be paid)
 
 ## Lec 7 ##
+1. Marriage - Matching problem
+	1. Online dating agencies
+	2. Assignment problems
+		1. Matching interns to hospitals
+	3. Resource allocation
+		1. Load balancing traffic on the internet
+	4. 
+
 ## Lec 8 ##
 ## Lec 9 ##
 ## Lec 10 ##
