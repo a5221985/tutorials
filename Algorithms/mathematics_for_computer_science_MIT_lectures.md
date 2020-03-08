@@ -541,7 +541,8 @@
 		1. If every node in an n-node graph G has degree <= d, then Basic Algorithm uses at-most d + 1 colors
 			1. Base case: n = 1 => 0 edges (no loops) => d = 0, 1 color = d + 1 (0 + 1)
 			2. Inductive step: Assume P(n) is true for induction. Let G = (V, E) be any n + 1 node graph, Let d be the largest degree in G, Order the nodes V1, V2, ..., Vn, Vn+1. Remove Vn+1 (and all edges connecting Vn+1) from G to construct G' = (V', E'). G' has max degree <= d & n nodes So P(n) says Basic Algorithm uses <= d + 1 colors for V1, V2, ..., Vn
-			3. Vn+1 has <= d neighbors
+			3. Vn+1 has <= d neighbors => There exists atleast one color in the set of d + 1 colors not used by any neighbor. Give Vn+1 that color => Basic algorithm uses <= d + 1 colors on G => P(n + 1).
+	3. Kn = n-node complete graph (Clique - clique of friends - everyone likes everybody)
 
 ## Lec 7 ##
 ## Lec 8 ##
