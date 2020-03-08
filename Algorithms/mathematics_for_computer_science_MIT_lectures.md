@@ -543,6 +543,14 @@
 			2. Inductive step: Assume P(n) is true for induction. Let G = (V, E) be any n + 1 node graph, Let d be the largest degree in G, Order the nodes V1, V2, ..., Vn, Vn+1. Remove Vn+1 (and all edges connecting Vn+1) from G to construct G' = (V', E'). G' has max degree <= d & n nodes So P(n) says Basic Algorithm uses <= d + 1 colors for V1, V2, ..., Vn
 			3. Vn+1 has <= d neighbors => There exists atleast one color in the set of d + 1 colors not used by any neighbor. Give Vn+1 that color => Basic algorithm uses <= d + 1 colors on G => P(n + 1).
 	3. Kn = n-node complete graph (Clique - clique of friends - everyone likes everybody)
+		1. d = n - 1
+		2. Chi(Kn) = n = d + 1
+	3. Induction in graphs is similar to this one
+	4. Chi(G) is way off of d
+		1. Bipartite graph: degree = n / 2, Chi(G) = 2
+		2. Star graph: d = n - 1, Chi(G) = 2
+			1. Basic algorithm: 2 colors no matter the order
+	5. 
 
 ## Lec 7 ##
 ## Lec 8 ##
