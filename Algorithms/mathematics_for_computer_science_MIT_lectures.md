@@ -594,6 +594,7 @@
 	4. Graph:
 		1. Edges represent compatibility
 		2. Definition: Given a graph G = (V, E), a matching is a subgraph of G where every node has degree 1
+2. Definition: A matching is perfect if it has size |V|/2
 
 ## Lec 8 ##
 ## Lec 9 ##
