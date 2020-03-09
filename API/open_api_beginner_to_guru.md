@@ -344,7 +344,34 @@
 
 ## Defining a Microservice with OpenAPI ##
 ### Introduction ###
+1. Defining operations. From scratch
+2. Major components
+3. Data structures: Schema
+4. Re-usable components
+5. Open-API parameters
+6. Query params, headers, cookies
+7. Building open-api spec
+
 ### Swagger Hub ###
+1. SwaggerHub - swagger - smart bear's
+	1. Predecessor to OpenAPI
+2. Sign up for free
+	1. Optional
+	2. Create New > API
+	3. Version: 3.0
+	4. Non Template
+	5. Name: openapicourse
+	6. Version: 1.0
+	7. Title OpenAPI Course
+	8. Owner: springframeworkguru
+	9. Visibility: Public
+	10. Auto Mock API: OFF
+	11. Create API
+3. Swagger hub editor:
+	
+		description: Specification for ApenAPI Course
+		path: {}
+
 ### OpenAPI Specification ###
 ### OpenAPI Info Object ###
 ### OpenAPI Servers Object ###
