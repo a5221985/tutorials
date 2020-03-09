@@ -320,7 +320,27 @@
 			- Item 2
 			- ...
 
-9. IntelliJ	
+9. IntelliJ
+	1. src/main/java/resources/temp.yaml (or yml)
+
+			# This is a comment
+			
+			somekey: value
+			
+			somekey2: value # This is another comment
+			
+			myObject: 
+				stringProperty: asdf asdf asdf
+				numberProperty: 123
+				listProperty:
+					- val 1
+					- val 2
+					- val 3
+					- myObj2:
+						val22: asdf
+						val44: asdfasdfadf
+						
+		1. Spacing - be careful (odd issues may occur)
 
 ## Defining a Microservice with OpenAPI ##
 ### Introduction ###
