@@ -371,6 +371,8 @@
 	
 		description: Specification for ApenAPI Course
 		path: {}
+		
+	1. Github: examples: v3.0
 
 ### OpenAPI Specification ###
 ### OpenAPI Info Object ###
