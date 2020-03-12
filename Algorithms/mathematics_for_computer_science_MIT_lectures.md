@@ -612,7 +612,15 @@
 			
 					u = v0 - v1 ... - ... vi = vj - ... - vk = v
 					
-				1. 
+				1. This is a shorter walk and this contradicts our assumption of minimality. Therefore shortest walk is a path
+2. Connectivity:
+	1. Definition: u and v are connected if there is a path from u to v
+	2. Definition: A graph is connected when every pair of vertices are connected
+3. Cycles & Closed Walks
+	1. Definition: A closed walk is a walk which starts and ends at the same vertex v0 - v1 - ... - vk = v0. If k >= 3 and v0, v1, ..., vk-1 are different, then it is called cycle
+4. Trees:
+	1. Definition: A connected and acyclic graph is acalled a tree
+	2. Definition: A leaf is a node with degree 1 in a tree
 
 ## Lec 9 ##
 ## Lec 10 ##
