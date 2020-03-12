@@ -597,6 +597,11 @@
 2. Definition: A matching is perfect if it has size |V|/2
 
 ## Lec 8 ##
+1. Walks & Paths
+	1. Definition: Walk - A walk is a sequence of vertices connected by edges:
+		1. vo (start) - v1 - v2 - ... - vk (end) - length k
+	2. 
+
 ## Lec 9 ##
 ## Lec 10 ##
 ## Lec 11 ##
