@@ -600,7 +600,19 @@
 1. Walks & Paths
 	1. Definition: Walk - A walk is a sequence of vertices connected by edges:
 		1. vo (start) - v1 - v2 - ... - vk (end) - length k
-	2. 
+	2. Definition: A path is a walk where all vertices vi's are different
+	3. Lemma: If there exists a walk from u to v, then there exists a path from u to v
+		1. Proof: There exists a walk from u to v, By well ordering principle; walk of minial length.
+
+				u = v0 - v1 - v2 - ... - vk = v
+				
+			1. Case: k = 0 (right)
+			2. Case: k = 1 (u - v)
+			3. Case: k >= 2 (suppose walk is not a path). There exists i != j such that vi = vj
+			
+					u = v0 - v1 ... - ... vi = vj - ... - vk = v
+					
+				1. 
 
 ## Lec 9 ##
 ## Lec 10 ##
