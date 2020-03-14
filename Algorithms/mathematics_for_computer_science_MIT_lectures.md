@@ -632,6 +632,10 @@
 				2. Let v be a leaf of the tree. 
 					1. Delete v: This leaves a connected subgraph and by the lemma this is a tree
 				3. By P(n): it has n - 1 edges
+			4. Re-attach v: T has (n - 1) + 1 = n edges => P(n + 1)
+5. Definition: A spanning tree (ST) of a connected graph is a subgraph that is a tree with the same vertices as the graph
+	1. Theorem: Every connected graph has a spanning tree.
+		1. Proof by contradiction: Assume - a connected graph G that has no spanning tree. Let T be a connected subgraph of G with the same vertices as G and with the smallest number of edges possible.
 
 ## Lec 9 ##
 ## Lec 10 ##
