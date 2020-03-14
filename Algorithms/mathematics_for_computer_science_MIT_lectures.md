@@ -635,7 +635,9 @@
 			4. Re-attach v: T has (n - 1) + 1 = n edges => P(n + 1)
 5. Definition: A spanning tree (ST) of a connected graph is a subgraph that is a tree with the same vertices as the graph
 	1. Theorem: Every connected graph has a spanning tree.
-		1. Proof by contradiction: Assume - a connected graph G that has no spanning tree. Let T be a connected subgraph of G with the same vertices as G and with the smallest number of edges possible.
+		1. Proof by contradiction: Assume - a connected graph G that has no spanning tree. Let T be a connected subgraph of G with the same vertices as G and with the smallest number of edges possible. T is not a ST, so it must have a cycle. 
+			1. Case 1: x is connect to y and does not contain e. If e is removed, x and y are still connected
+			2. Case 2: 
 
 ## Lec 9 ##
 ## Lec 10 ##
