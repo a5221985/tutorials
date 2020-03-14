@@ -622,7 +622,12 @@
 	1. Definition: A connected and acyclic graph is acalled a tree
 	2. Definition: A leaf is a node with degree 1 in a tree
 	3. Lemma: Any connected subgraph of a tree is a tree
-		1. Proof: 
+		1. Proof: By contradiction. Suppose the connected subgraph is not a tree: has a cycle => whole graph has this cycle. But the whole graph is a tree (so no cycle). It is a contradiction
+	4. Lemma: A tree with n vertices has n - 1 edges
+		1. Proof: By induction on n.
+			1. P(n): There are n - 1 edges in any n vertex tree
+			2. Base case: P(1): There are 0 edges in any 1 vertex tree. This is true
+			3. Inductive step: 
 
 ## Lec 9 ##
 ## Lec 10 ##
