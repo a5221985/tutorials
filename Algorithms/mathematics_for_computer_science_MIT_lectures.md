@@ -621,6 +621,8 @@
 4. Trees:
 	1. Definition: A connected and acyclic graph is acalled a tree
 	2. Definition: A leaf is a node with degree 1 in a tree
+	3. Lemma: Any connected subgraph of a tree is a tree
+		1. Proof: 
 
 ## Lec 9 ##
 ## Lec 10 ##
