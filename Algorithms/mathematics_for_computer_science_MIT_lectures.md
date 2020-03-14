@@ -627,7 +627,11 @@
 		1. Proof: By induction on n.
 			1. P(n): There are n - 1 edges in any n vertex tree
 			2. Base case: P(1): There are 0 edges in any 1 vertex tree. This is true
-			3. Inductive step: 
+			3. Inductive step: Suppose P(n) (is true)
+				1. Let T be a tree that has n + 1 vertices (We need to remove a vertex such that the result is still a tree - remove leaf (only one edge is connected))
+				2. Let v be a leaf of the tree. 
+					1. Delete v: This leaves a connected subgraph and by the lemma this is a tree
+				3. By P(n): it has n - 1 edges
 
 ## Lec 9 ##
 ## Lec 10 ##
