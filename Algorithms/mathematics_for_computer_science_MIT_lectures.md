@@ -681,6 +681,13 @@
 			
 		1. Complete binary tree: 
 
+						o
+					 ()  ()
+					 o	   o
+					 
+				1. o = switch
+				2. 
+
 ## Lec 10 ##
 ## Lec 11 ##
 ## Lec 12 ##
