@@ -650,6 +650,13 @@
 		2. Once m = n - 1, we know S is an MST (since S is a subset of E  and S has n - 1 edges and E has n - 1 edges => S = E)
 11. Proof of Lemma:
 	1. P(m) = for all G and for all S consisting of the first m selected edges, there exists an MST T = (V, E) of G such that S is a subset of E
+		1. Base case: m = 0 => S = {}, S is a subset of E for any MST T = (V, E)
+			1. For all G there exists a spanning tree by previous theorem
+		2. Inductive step: Assume that P(m) holds.
+			1. Let e denote the edge added in (m + 1)th step and let S denote the first m selected edges.
+			2. By P(m): Let T* = (V, E\*) be a MST such that S is a subset of E\*
+				1. Case 1: If e belongs to E*: S U {e} is a subset of E\* => P(m + 1)
+				2. Case 2: 
 
 ## Lec 9 ##
 ## Lec 10 ##
