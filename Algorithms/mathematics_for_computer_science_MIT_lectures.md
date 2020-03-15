@@ -637,7 +637,8 @@
 	1. Theorem: Every connected graph has a spanning tree.
 		1. Proof by contradiction: Assume - a connected graph G that has no spanning tree. Let T be a connected subgraph of G with the same vertices as G and with the smallest number of edges possible. T is not a ST, so it must have a cycle. 
 			1. Case 1: x is connect to y and does not contain e. If e is removed, x and y are still connected
-			2. Case 2: 
+			2. Case 2: All vertices in G are still connected after removing e from T.
+			3. 
 
 ## Lec 9 ##
 ## Lec 10 ##
