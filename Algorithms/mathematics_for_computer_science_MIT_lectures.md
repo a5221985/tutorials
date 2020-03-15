@@ -638,7 +638,11 @@
 		1. Proof by contradiction: Assume - a connected graph G that has no spanning tree. Let T be a connected subgraph of G with the same vertices as G and with the smallest number of edges possible. T is not a ST, so it must have a cycle. 
 			1. Case 1: x is connect to y and does not contain e. If e is removed, x and y are still connected
 			2. Case 2: All vertices in G are still connected after removing e from T.
-			3. 
+			3. We have constructed a sub-graph with the same number of vertices as G but with fewer edges. This is a contradiction to our original assumption that T is a connected subgraph with smallest number of edges
+6. Weight of ST: 19, can be reduced to 17
+7. Definition: The MST of an edge weighted graph G is the ST of G with the smallest possible sum of edge weights.
+8. Algorithm: Grow a subgrah one edge at a time, at each step:
+	1. Add the minimum weight edge that keeps the subgraph acyclic
 
 ## Lec 9 ##
 ## Lec 10 ##
