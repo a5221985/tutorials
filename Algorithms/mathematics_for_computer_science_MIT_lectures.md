@@ -643,6 +643,10 @@
 7. Definition: The MST of an edge weighted graph G is the ST of G with the smallest possible sum of edge weights.
 8. Algorithm: Grow a subgrah one edge at a time, at each step:
 	1. Add the minimum weight edge that keeps the subgraph acyclic
+9. Lemma: Let S consist of the first m edges selected. By the algorithm. Then there exists an MST T = (V, E) for G such that S is a subset E.
+10. Theorem: For any connected weighted graph G, the algorithm produced a MST
+	1. Proof: |V| = n. 
+		1. If < n - 1 edges are picked, then there exists an edge in E - S that can be added without adding a cycle. (The algorithm does not select an edge that adds a cycle and E - S does not have any edges that can add a cycle)
 
 ## Lec 9 ##
 ## Lec 10 ##
