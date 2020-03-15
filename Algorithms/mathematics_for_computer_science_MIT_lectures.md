@@ -662,8 +662,13 @@
 					3. Swap e and e' in T: Let T** = (V, E\*). E** = E* - {e}
 					4. T** is acyclic because removed e' from the only cycle in E* U {e}
 					5. T** is connected since e' was on a cycle
+					6. T** contains all vertices in G
+					7. The above statements prove that T** is a spanning tree
+					8. Weight T** <= Weight T* and we know T* is an MST => T** is an MST
 
 ## Lec 9 ##
+1. 
+
 ## Lec 10 ##
 ## Lec 11 ##
 ## Lec 12 ##
