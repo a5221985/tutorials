@@ -648,6 +648,8 @@
 	1. Proof: |V| = n. 
 		1. If < n - 1 edges are picked, then there exists an edge in E - S that can be added without adding a cycle. (The algorithm does not select an edge that adds a cycle and E - S does not have any edges that can add a cycle)
 		2. Once m = n - 1, we know S is an MST (since S is a subset of E  and S has n - 1 edges and E has n - 1 edges => S = E)
+11. Proof of Lemma:
+	1. P(m) = for all G and for all S consisting of the first m selected edges, there exists an MST T = (V, E) of G such that S is a subset of E
 
 ## Lec 9 ##
 ## Lec 10 ##
