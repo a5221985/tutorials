@@ -656,7 +656,12 @@
 			1. Let e denote the edge added in (m + 1)th step and let S denote the first m selected edges.
 			2. By P(m): Let T* = (V, E\*) be a MST such that S is a subset of E\*
 				1. Case 1: If e belongs to E*: S U {e} is a subset of E\* => P(m + 1)
-				2. Case 2: 
+				2. Case 2: If e is not in E*: Algorithm => S U {e} has no cycle. T\* is a tree => (V, E\* U {e}) has a cycle
+					1. This cycle must have an edge e' in E* - S
+					2. Algorithm could have selected e or e' => weight of e is at most the weight of e'
+					3. Swap e and e' in T: Let T** = (V, E\*). E** = E* - {e}
+					4. T** is acyclic because removed e' from the only cycle in E* U {e}
+					5. T** is connected since e' was on a cycle
 
 ## Lec 9 ##
 ## Lec 10 ##
