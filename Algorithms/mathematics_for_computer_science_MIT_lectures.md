@@ -667,7 +667,19 @@
 					8. Weight T** <= Weight T* and we know T* is an MST => T** is an MST
 
 ## Lec 9 ##
-1. 
+1. Communication networks:
+	1. Highly structured networks (not internet)
+		1. Parallel computing
+		2. Telephone networks
+	2. Table:
+
+			NXN Network | Diameter | Switch-Size | #Switces | Congestion
+			Binary Tree |			   |		       |          |
+			2D Array	  |			   |		       |          |
+			Butterfly	  |			   |		       |          |
+			Benes		  |			   |             |          |
+			
+		1. Complete binary tree: 
 
 ## Lec 10 ##
 ## Lec 11 ##
