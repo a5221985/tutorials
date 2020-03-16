@@ -442,3 +442,83 @@
 	3. Domain: R-, H is F
 
 ## Predicate Logic, II ##
+1. Validity & Satisfiability:
+	1. Propositional validity
+		1. True for all truth-values (all possible combinations)
+
+				(P IMPLIES Q) OR (Q IMPLIES P)
+				
+			1. This is always true
+	2. Predicate Calculus validity
+		1. True for all domains and predicates. (It should be true for all possible domains of discourse the that variables range over)
+			1. The formula comes out to be true no matter what the predicate means
+
+					for all z.[P(z) AND Q(z)] IMPLIES [for all x.P(x) AND for all y.Q(y)]
+					
+				1. This means: Everything in the domain has property P and property Q this implies that everything in the domain has property P and everything in the domain has property Q 
+					1. This is fundamental logical fact that does not depend on what P and what Q actually mean
+						1. This follows from the definition of for all, and and implies
+					2. Hence this is valid
+		2. How to prove validity?
+			1. Proof strategy: assume left side is T, then
+				1. Then prove right side is T
+			2. Example:
+
+					for all z[Q(z) ^ P(z)] -> [for all x.Q(x) ^ for all y.P(y)]
+					
+				1. Proof: Assume left hand side. That is, for all values of z in the domain, Q(z) and P(z) is true
+					1. Suppose val(z) = c, an element in the domain. Then
+						1. => Q(c) AND P(x) holds, and so Q(c) by itself holds
+							1. But c could have been any element of the domain.
+								1. So we conclude for all x.Q(x) (by Universal Generalization)
+							2. Similarly conclude for all y.P(y). Therefor for all x.Q(x) AND for all y.P(y) QED
+				2. This implies that universal quantification distributes over AND
+					1. It is itself fundamental but translating it to english (not really a proof)
+						1. It can be thought of as an axiom
+		3. Unviersal Generalization (UG)
+
+					  P(c)
+				--------------
+				for all x.P(x)
+				
+			1. If we have proved the one above the bar, then we have proved the one below the bar
+				1. Provided c does not occur in any other part in predicate P
+		4. Proving something is not valid:
+		
+				for all z.[P(z) OR Q(z)] IMPLIES [for all x.P(x) OR for all y.Q(y)]
+				
+			1. Saying that: Every thing has the property P or property Q, then everything has property P or everything has property Q
+			2. Proof: Give counter-model, where left size of IMPLIES is T, but right side is F
+				1. Namely, let domain ::= {1, 2}
+				2. Let Q(z) ::= [z = 1], P(z) ::= [z = 2]
+					1. Is left hand side true? Yes for both z = 1, and z = 2
+					2. RHS: If z = 1, P(z) is false, If z = 2, Q(z) is false
+						1. => P(z) is not true for all z in domain
+						2. => Q(z) is not true for all z in domain
+						3. => False or False is False (RHS is false)
+		5. DeMorgan's Law for Quantifiers:
+			1. Another valid formula:
+				1. ~(P OR Q) iff ~P AND !Q
+				2. NOT(for all x.P(x)) IFF there exists y.NOT(P(y))
+					1. If it is not the case that for all x, property P holds true, then there exists some y such that P does not hold to be true
+
+## Predicate Logic III ##
+1. for all, there exists (English is ambiguous)
+	1. Two meta-theorems
+		1. Mathematics of mathematical logic
+	2. Poet: "All that glitters is not gold"
+		1. Literal translation: for all x[G(x) IMPLIES NOT(Au(x))]
+			1. NOT(for x.[G(x) IMPLIES Au(x)])
+				1. It is not true that all that glitters is gold
+	3. Literal translation may be non-sense
+		1. Machine translation from Natural language to precise formal language is problematic
+2. Example: There is a season to every purpose under heaven:
+	1. Literal translation
+		1. There exists s in Season for all p in Purpose.s is for p (there exists a season that is for every purpose)
+		2. Actual: for all p in Purpose there exists s in Season.s is for p 
+			1. For every purpose, there exists a season such that the season is for the purpose
+3. Two profound theorems about Mathematical Logic
+	1. Power & Limits of Logic (They are meta-theorems - theorems about theorems - theorems about systems for proving theorems)
+		1. Meta - means going up above a level
+	2. Theorem 1: Good News theorem: Only need to know a few axioms & rules to prove all valid formulas
+		1. In theory; in practice need lots of rules

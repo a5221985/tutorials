@@ -541,27 +541,377 @@
 		FileWsImpl
 
 ### Construct the MTOM Project ###
+1. File > New > Spring Starter Project > mtom
+	1. Description: MTOM
+2. Copy the section: cxf dependency from pom.xml and paste
+	1. Spring version: 1.5.9
+3. Right click on project > Maven Update Project
+4. `src/main/resources/application.properties`
+	1. Paste the following:
+
+			server.context-path=/mtom
+			cxf.path=/
+
 ### Construct the FileWs Interface ###
+1. `src/main/java` - New Interface - `FileWs`
+
+		@WebService
+		public interface FileWs {
+			void upload(@WebParam(name = "file") DataHandler attachment); // cxf grabs attachment and converts to DataHandler
+			DataHandler download(); // cxf writes attachment back to client
+		}
+
 ### Construct the FileWsImpl ###
+1. `src/main/java/FileWsImpl` implements `FileWs`
+
+		public class FileWsImpl implements FileWs {
+			@Override
+			public void upload(DataHandler attachment) {
+				InputStream inputStream = null;
+				OutputStream outputStream = null;
+				try {
+					inputStream = attachment.getInputStream();
+					OutputStream outputStream = new FileOutputStream(new File("/Users/bharaththippireddy/Desktop/files/uploaded/test.jpg"));
+					byte[] b = new byte[100000];
+					int bytesRead = 0;
+					
+					while ((bytesRead = inputStream.read(b) != -1) {
+						outputStream.write(b, 0, bytesRead);
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						inputStream.close();
+						outputStream.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+
 ### Implement the Download Method ###
+1. FileWsImpl
+
+		@Override DataHandler download() {
+			return new DataHandler(new FileDataSource(new File("/Users/bharaththippireddy/Desktop/files/uploaded/test.jpg")));
+		}
+
 ### Publish the Endpoint ###
+1. `WebServicesConfig.java`
+
+		@Bean
+		public Endpoint endpoint() {
+			Endpoint endpoint = new EndpointImpl(bus, new FileWsImpl());
+			endpoint.publish("/fields");
+			
+			SOAPBinding binding = (SOAPBinding) endpoint.getBinding(); // javax.xml.ws.soap
+			binding.setMTOMEnabled(true);
+			
+			return endpoint;
+		}
+
 ### Test Using SoapUI ###
+1. Run as Spring Boot App
+
+		localhost:8080/mtom
+		
+	1. Click on wsdl link and copy the link
+2. In SoapUI, New SOAP Project:
+	1. Project Name: fileWs
+	2. Initial WSDL: paste the link
+3. Open upload request:
+	1. Attachment has content id:
+		1. Click on Attchments at button
+		2. Click on + button
+		3. Select `sky-div.jpg`
+		4. Don't cache
+	2. Click on Part: Select the content id
+4. Hit play
+5. To Download:
+	1. Open download request
+	2. Hit play
+		1. Includes cid:
+	3. Click on Attachments tab at the bottom:
+		1. File is seen
+		2. Click on the file to open to save it
 
 ## JAX-WS Handlers ##
 ### Introduction ###
+1. What? Why and When to use the Jax-WS handlers
+2. Lower level API to implement handlers
+3. Cross-cutting concerns: - across ws endpoints or across clients
+	1. Handlers are used for this
+		1. Classes we develop by implementing interfaces
+4. Called when WS-Client invokes a request to CXF (in between)
+5. Called when cxf sends request to WS-Endpoing (in between)
+6. And also when response flows through
+7. They are similar to servlet filters but can be applied on client and server side
+8. Handlers are used for:
+	1. Custom authentication defition (own soap headers)
+		1. We can manipulate here
+	2. Caching - caches responses (same request or not)
+	3. Maintaining different versions of WS-Endpoint
+		1. We may have to decide which web service will serve the request (dispatched to specific endpoints)
+9. We can do on eithe server or client side or both
+
 ### Two Types of JAX-WS Handlers ###
+1. SOAP Handlers: A type of handler
+	1. They have access to entire message (soap headers, body, ...)
+2. Logical Handlers: Another type of handler
+	1. Just the payload information
+3. Implementation: `SOAPHandler<SOAPMessageContext>` interface is implemented
+	1. Methods to override:
+		1. `handleMessage`
+		2. `handleFault`
+		3. `getHeaders`
+		4. `close`
+4. `handleMessage`, `getHeaders`: Called on the way in and way out (twice)
+5. `handleFault`: Called only when there is a fault
+6. `close`: On the way out at the end of entire flow (cleanup code can be put here - closing resources)
+7. Implementation: `LogicalHandler<LogicalMessageContext>`:
+	1. Methods to override:
+		1. `handleMessage`
+		2. `handleFault`
+		3. `close`
+		4. No `getHeaders`
+
 ### Usecase ###
+1. `SiteName` - `SiteHandler` is used to extract site name
+
 ### Steps ###
+1. Design the handler chain (we can have multiple handlers) - servlets filter pattern
+2. Construct the handlers
+3. Configure the handlers
+4. Run and Test
+
 ### Construct the Handler Class ###
+1. 	wsdlFirstws - New Class > com.bharath.trainings.ws.handlers.SiteHandler implements SOAPHandler (javax.xml.ws.handler.soap.SOAPHandler)
+
+		public class SiteHandler implements SOAPHandler<SOAPMessageContext> {
+			...
+			@Override
+			public boolean handleMessage(SOAPMessageContext context) {
+				return false;
+			}
+			...
+		}
+
 ### Implement the `handleMessage` Method ###
+1. Steps:
+	1. Configure for request message only
+
+			@Override
+			public boolean handleMessage(SOAPMessageContext context) {
+				Boolean isResponse = (Boolean) context.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
+				if (!isResponse) {
+					SOAPMessage soapMsg = context.getMessage();
+					try {
+						SOAPEnvelope envelope = soapMsg.getSOAPPart().getEnvelope();
+						SOAPHeader header = envelope.getHeader();
+						Iterator childElements = header.getChildElements();
+					} catch (SOAPException e) {
+						e.printStackTrace();
+					}
+				} else {
+					System.out.println("Response on the way");
+				}
+				return false;
+			}
+
 ### Extract the Header ###
+
+		System.out.println("HandleMessage");
+		
+		...
+		
+		while (childElements.hasNext()) {
+			Node eachNode = (Node) childElements.next(); // javax.xml.soap.Node
+			String name = eachNode.getLocalName();
+			if (name != null && name.equals("SiteName")) {
+				System.out.println("Site Name is =====> " + eachNode.getValue());
+			}
+		}
+		...
+		return true; // or else this handler will not be called
+		
+		@Override
+		public boolean handleFault(SOAPMessageContext context) {
+			System.out.println("handleFault");
+			return false;
+		}
+
 ### Configure the Handler ###
+1. `WebServiceConfig.xml`
+
+		@Bean
+		public Endpoint endpoint() {
+			...
+			SOAPBinding binding = (SOAPBinding) endpoint.getBinding();
+			ArrayList<Handler> handlerChain = new ArrayList<>();
+			handlerChain.add(new SiteHandler());
+			binding.setHandlerChain(handlerChain);
+			
+			return endpoint;
+
 ### SoapUI Test ###
+1. Start application
+2. Access wsdl file
+3. Paste in SOAP-UI
+4. Project Name: SiteHandlerTest
+	1. Request:
+		1. CustomerID: 1
+		2. id: 1234
+		3. description: iPhone
+		4. quantity: 1000
+	2. Add headers
+
+			<soapenv:Header>
+				<SiteName>Amazon</SiteName>
+			</soapenv:Header>
+			
+		1. Console prints the handler message
+
 ### The Handler Flow ###
+1. First method called: `getHeaders` - on the way in
+2. Second: `handleMessage` - on the way in
+3. Third: `getHeaders` - on the way out
+4. Fourth: `handleMessage` - on the way out
+3. Third: `close` - at the end before ending
+
 ### `getHeaders` Explained ###
+1. Assignment: implement it
+2. `mustUnderstand` attribute
+	1. It takes two values: 
+		1. 1 - shoud be processed by the web services provider
+			1. Code on should handle soap header
+		2. 0 - optional
+	2. Example:
+
+			<SiteName mustUnderstand="1">Amazon</SiteName>
+			
+		1. Server:
+
+				@Override
+				public Set<QName> getHeaders() {
+					System.out.println("getHeaders");
+					return null; // put SiteName in the Set and return it for cxf to know that we have handled it
+				}
+				
+			1. Should be implemented if `mustUnderstand="1"` attribute is set
 
 ## SOAP Faults ##
 ### Introduction ###
+1. Soap services should handle errors
+
+		<SOAP-ENV:Envelope>
+			<SOAP-ENV:Body>
+				<SOAP-ENV:Fault>
+				
+	1. Four child elements:
+		1. `<faulCode>` : Indicates what has gone wrong
+			1. `SOAP-ENV:VersionMismatch` - if soap envelope namespace is not what the server is expecting
+			2. `SOAP-ENV:MustUnderstand` - Used when `mustUnderstand` flag is set to 1 in soap header
+				1. If provider does not handle the child element of the header, then this error occurs
+			3. `SOAP-ENV:Client` - message was not formed well (wrong info or incorrect message)
+			4. `SOAP-ENV:Server` - server fault
+		2. `<faultString>`: Message that explains the error
+		3. `<faultActor>`: If message is going through multiple nodes, we want to know at which node the error occurred
+		4. `<detail>`: More information about the error
+			1. If multiple errors, we can indicate here
+
 ### Usecase and Project ###
+1. Run application: javafirstws
+2. Test using SOAP UI
+
 ### Constructing a SOAP Fault ###
+1. Example:
+
+		public class PaymentProcessorImpl implements PaymentProcessor {
+			public PaymentProcessorResponse processPayment(PaymentProcessorRequest paymentProcessorRequest) {
+				...
+				if (paymentProcessorRequest.getCreditCardInfo().getCardNumber() == null || paymentProcessorRequest.getCreditCardInfo().getCardNumber().length() == 0) {
+					throw new RuntimeException("Invalid Card Number");
+				}
+			}
+		}
+		
+	1. Remove the number and run
+
+			<faultcode>soap:Server</faultcode>
+			<faultstring>Invalid Card Number</faultstring>
+			
+		1. wsdl does not have any fault elements
+			1. We are throwing runtime exception and not checked exception
+
 ### Construct and Throw a Custom Exception ###
+1. Making soap fault part of contract
+2. Example:
+
+		@WebService(name = "PaymentProcessor")
+		public interface PaymentProcessor {
+			public @WebResult(name = "response") PaymentProcessorResponse processPayment(@WebParam(name = "paymentProcessorRequest") PaymentProcessorRequest paymentProcessorRequest) throws Exception;
+		}
+		
+	1. WSDL has fault element
+	2. Custom exception:
+
+			... throws ServiceException
+			
+		1. Class
+
+				public class ServiceException extends Exception {
+					public ServiceException(String message) {
+						super(message);
+					}
+				}
+				
+			1. `PaymentProcessorImpl`
+
+					... throws ServiceException {
+						...
+						throws new ServiceException("Invalid Card Number");
+					}
+					
+				1. Detail:
+
+						<detail>
+							<...ServiceException>
+						</detail>
+						
+## CRUD Operations Using SOAP ##
+### Usecase ###
+1. CRUD on products
+	1. Product:
+		1. id
+		2. description
+		3. ...
+2. Spring Data JPA
+3. Hibernate
+4. Classes
+	1. ProductRepository
+	2. Product
+	3. ProducWs
+	4. ProductWsImpl
+5. Steps:
+	1. Download MySQL and MySQL Workbench
+	2. Install (choose Workbench)
+	3. Configure (enter Root password)
+
+### Install MySQL and MySQL workbench ###
+1. [https://corlewsolutions.com/](https://corlewsolutions.com/)
+
+### Launch MySQL workbench and Construct a Database ###
+
+
+### Construct DB Table ###
+### Construct the Project ###
+### Construct the Data Access Layer ###
+### Construct the Web Services Layer ###
+### Implement the Endpoint Methods ###
+### Mark the Endpoint with jax-ws Annotations ###
+### Publish the Endpoint ###
+### Configure the Properties ###
+### Run and Access the wsdl ###
+### Test Using SoapUI ###

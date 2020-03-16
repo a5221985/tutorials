@@ -356,3 +356,100 @@ Interview Preparation Checklist - Including Time
 		3. Qualifications
 	3. Body language (read articles, watch videos)
 		1. Critical
+
+How to contact recruiters and how to land a job and negotiate:
+1. Process:
+	1. What talent is required for gaps (based on discussion with tech managers and leaders)
+	2. Post: 
+	3. Look for target companies
+	4. Look for recruiters who will give me what I want
+	5. How to contact recruiter: (make it clear)
+	 	1. This is what I am
+		2. I work in this technology
+		3. I have seen a post that you are hiring for ...
+		4. I am interested to be considered for the role
+		5. I have applied online and here is the link that I used
+			1. Or else the candidate cannot be considered
+			2. Database has it
+				1. Helps recruiters search and contact (others)
+		6. If the recruiter is not the right person, ask him/her to connect to the right recruiter
+		7. What is your dream job? What do you like to do? Be very clear
+	6. New grads:
+		1. Hiring on potential
+		2. Academic success
+		3. Side projects
+		4. Hackathons
+		5. You can learn, adapt, interested
+		6. Research
+		7. Hobbies
+		8. Solve problems on your own (passion, keep skills sharp)
+	7. Entrepreneur - built a company
+		1. Looking for leadership positions
+	8. Doing only one language for entire life may not be good but need to know a few or used
+	9. Internation Grads:
+		1. Tricky one
+		2. Work authorization issue
+			1. Not controlled by Companies
+			2. Lotteries
+		3. **L1 transfer is easy if working in big company in home country**
+		4. Government issue
+		5. HR legal stuff has nothing to do with recuiters
+	10. School Grads:
+		1. Side projects
+		2. Couresera
+		3. Khan Academy
+		4. Study and learn
+		5. Hackathons
+		6. Be pro-active
+	11. Resume:
+		1. Cover letters are required
+		2. Resume should be long enough to tell the story (not just 1 or two pages)
+			1. Recruiters are looking for actionable, measurable accomplishments and achievements
+				1. What have you done?
+				2. How long have you been doing it?
+					1. Things that can be measured
+				3. What is the growth?
+					1. Promoted?
+					2. Career tragectery?
+	12. What to wear?
+		1. It doesn't matter
+			1. One level above what you want to be
+			2. Tech company:
+				1. Environment is important - wear higher slightly
+	13. No 1 factor:
+		1. Interview feedback
+			1. Do I have the right expertise?
+			2. Did I prove it?
+			3. Meets or crosses the bar
+2. Should we negotiate
+	1. Yes - no worries
+		1. We can work out
+	2. Do not hold information
+		1. Be open
+	3. Recruiter tries to meet package because it affects their pay
+	4. How to negotiate?
+		1. Practice
+			1. Mirror talk
+			2. Research
+				1. This is what market says
+		2. Know your potential
+	5. Documented labor market feedback
+	6. Interview feedback gives power to negotiate
+	7. Internal references inside Google (adds up)
+	8. Prepare very very very well
+	9. Recruiter cannot share specific feedback
+		1. High level insight can be given
+		2. Technical bar is not met usually
+			1. Coding
+			2. System design
+	10. If re-interviewing:
+		1. If gap is more and roles are different, put the differences aside - it is fresh
+		2. Near miss - we need to take time and prepare well
+	11. Questions:
+		1. Excel in competitive programming gives interview chance
+		2. Google - Engineering prowess - keeping user the center of everything - pure engineering
+		3. Qualification while studying is okay
+		4. Google doesn't have a degree requirement - only qualification is important
+		5. How to get leadership role? Come in at a level appropriate to you, learn from ground up, make relationships, do great work, star will ascend
+	12. Resources:
+		1. recruitinginyogapants.com

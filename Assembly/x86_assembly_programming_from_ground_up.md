@@ -1739,7 +1739,7 @@
 ### Coding: Computing the Sum of Rows and Columns of a 2-Dimensional Array ###
 
 ## Working with Strings ##
-### Coding: Copying Strings from on Variable to Another ###
+### Coding: Copying Strings from one Variable to Another ###
 ### Coding: Creation of a Character Search Algorithm ###
 
 ## Programming with the Floating-Point Unit (FPU) Registers ##

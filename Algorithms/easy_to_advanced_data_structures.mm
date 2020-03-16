@@ -2102,8 +2102,7 @@
       find(17)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -2135,8 +2134,7 @@
       &#160;&#160;&#160;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1576465974504" ID="ID_1798276195" MODIFIED="1576465981728" TEXT="preorder prints before the recursive calls"/>
 </node>
 <node CREATED="1576465882978" ID="ID_224051724" MODIFIED="1576465927189">
@@ -2161,8 +2159,7 @@
       &#160;&#160;&#160;&#160;inorder(node.right)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1576466616583" ID="ID_1537868948" MODIFIED="1576466625668" TEXT="inorder prints between the recursive calls"/>
 </node>
 <node CREATED="1576465930831" ID="ID_1557013778" MODIFIED="1576465968941">
@@ -2187,8 +2184,7 @@
       &#160;&#160;&#160;&#160;print(node.value)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1576466626823" ID="ID_558349930" MODIFIED="1576466637195" TEXT="postorder prints after the recursive calls">
 <node CREATED="1576467243398" ID="ID_655833740" MODIFIED="1576467372771">
 <richcontent TYPE="NODE"><html>
@@ -2218,8 +2214,7 @@
       Order: A, B, D, H, I&#160;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1576551909520" ID="ID_1037845328" MODIFIED="1576551914682" TEXT="Inorder traversal">
@@ -2239,21 +2234,2210 @@
 </node>
 </node>
 </node>
-<node CREATED="1567047819640" ID="ID_600226500" MODIFIED="1567047827032" TEXT="Binary search tree source code"/>
+<node CREATED="1567047819640" ID="ID_600226500" MODIFIED="1567047827032" TEXT="Binary search tree source code">
+<node CREATED="1576552408502" ID="ID_1963818458" MODIFIED="1576594782743">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="1">public class BinarySearchTree &lt;T extends Comparable&lt;T&gt;&gt; { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Tracks the number of nodes in this BST </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private int nodeCount = 0; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// This BST is a rooted tree so we maintain a handle on the root node </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private Node root = null; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Internal node containing node references </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// and the actual node data </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private class Node { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;T data; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Node left, right; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;public Node (Node left, Node right, T elem) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.data = elem; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.left = left; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.right = right; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Check if this binary tree is empty </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public boolean isEmpty() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return size() == 0; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Get the number of nodes in this binary tree </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public int size() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return nodeCount; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Add an element to this binary tree. Returns true </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// if we successfully perform an insertion </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public boolean add(T elem) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Check if the value already exists in this </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// binary tree, if it does ignore adding it </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (contains(elem)) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return false; </font>
+    </p>
+    <p>
+      <font size="1">&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Otherwise add this element to the binary tree </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;root = add(root, elem); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;nodeCount++; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return true; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Private method to recursively add a value in the binary tree </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;private Node add(Node node, T elem) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Base case: found a leaf node </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (node == null) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node = new Node(null, null, elem); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Place lower elements values in left subtree </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (elem.compareTo(node.data) &lt; 0) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.left = add(node.left, elem); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.right = add(node.right, elem); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return node; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Remove a value from this binary tree, if it exists </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;public boolean remove(T elem) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Make sure the node we want to remove </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// actually exists before we remove it </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (contains(elem)) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;root = remove(root, elem); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;nodeCount--; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return true; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return false; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;private Node remove(Node node, T elem) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (node == null) return null; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int cmp = elem.compareTo(node.data); </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Dig into left subtree, the value we're looking </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// for is smaller than the current value </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (cmp &lt; 0) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.left = remove(node.left, elem); </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Dig into right subtree, the value we're looking </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// for is greater than the current value </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else if (cmp &gt; 0) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.right = remove(node.right, elem); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Found the node we wish to remove </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// This is the case with only a right subtree or </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// no subtree at all. In this situation just </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// swap the node we wish to remove with its right child. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (node.left == null) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Node rightChild = node.right; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.data = null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node = null; </font>
+    </p>
+    <p>
+      <font size="1">&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return rightChild; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// This is the case with only a left subtree or </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// no subtree at all. In this situation just </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// swap the node we wish to remove with its left child. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else if (node.right == null) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Node leftChild = node.left; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.data = null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node = null; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return leftChild; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// When removing a node from a binary tree with two links th </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// successor of the node being removed can either be the largest </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// value in the left subtree or the smallest value in the right </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// subtree. In this implementation I have decided to find the </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// smallest value in the right subtree which can be found by </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// traversing as far as possible in the right subtree. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else { </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Find the leftmost node in the right subtree </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Node tmp = digLeft(node.right); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Swap the data </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.data = tmp.data; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Go into the right subtree and remove the leftmost node we </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// found and swapped data with. This prevents us from having </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// two nodes in our tree with the same value. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.right = remove(node.right, tmp.data); </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// If instead we wanted to find the largest node in the left </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// subtree as opposed to smallest node in the right subtree </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// here is what we do: </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Node tmp = digRight(node.left); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// node.data = tmp.data; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// node.left = remove(node.left, tmp.data);&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return node; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Helper method to find the leftmost node </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;private Node digLeft(Node node) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Node cur = node; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;while (cur.left != null) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cur = cur.left; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return cur; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Helper method to find the leftmost node </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;private Node digRight(Node node) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Node cur = node; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;while (cur.right != null) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cur = cur.right; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return cur; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// returns true if the element exists in the tree </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;public boolean contains(T elem) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return contains(root, elem); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// private recursive method to find an element in the tree </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;private boolean contains(Node node, T elem) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Base case: reached bottom, value not found </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (node == null) return false; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int cmp = elem.compareTo(node.data); </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Dig into the left subtree because the value we're </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// looking for is smaller than the current value </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (cmp &lt; 0) return contains(node.left, elem); </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Dig into the right subtree because the value we're </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// looking for is greater than the current value </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else if (cmp &gt; 0) return contains(node.right, elem); </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// We found the value we were looking for </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else return true; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Computes the height of the tree, O(n) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;public int height() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return height(root); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Recursive helper method to compute the height of the tree </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;private int height(Node node) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (node == null) return 0; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return Math.max(height(node.left), height(node.right)) + 1; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// This method returns an iterator for a given TreeTraversalOrder. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// The ways in which you can traverse the tree are four different ways </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// preorder, inorder, postorder and levelorder. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;public java.util.Iterator &lt;T&gt; traverse(TreeTraversalOrder order) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;switch (order) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case PRE_ORDER: return preOrderTraversal(); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case IN_ORDER: return inOrderTraversal(); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case POST_ORDER: return postOrderTraversal(); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case LEVEL_ORDER: return levelOrderTraversal(); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;default: return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Returns as iterator to traverse the tree in pre order </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;private java.util.Iterator &lt;T&gt; preOrderTraversal() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;}</font>
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
 </node>
 <node CREATED="1567047834200" ID="ID_1076354860" MODIFIED="1567047836627" POSITION="right" TEXT="Hash tables">
-<node CREATED="1567047838699" ID="ID_498331933" MODIFIED="1567047843888" TEXT="Hash table hash functions"/>
-<node CREATED="1567047845106" ID="ID_1637573432" MODIFIED="1567047851822" TEXT="Hash table separate chaining"/>
-<node CREATED="1567047852767" ID="ID_1781810660" MODIFIED="1567047861859" TEXT="Hash table separate chaining source code"/>
-<node CREATED="1567047863123" ID="ID_1180079256" MODIFIED="1567047869247" TEXT="Hash table open addressing"/>
-<node CREATED="1567047870330" ID="ID_146250376" MODIFIED="1567047875833" TEXT="Hash table linear probing"/>
-<node CREATED="1567047877084" ID="ID_1344116679" MODIFIED="1567047883639" TEXT="Hash table quadratic probing"/>
-<node CREATED="1567047884522" ID="ID_1596198472" MODIFIED="1567047889979" TEXT="Hash table double hashing"/>
-<node CREATED="1567047890930" ID="ID_422156043" MODIFIED="1567047899043" TEXT="Hash table removing key-value pairs"/>
+<node CREATED="1567047838699" ID="ID_498331933" MODIFIED="1567047843888" TEXT="Hash table hash functions">
+<node CREATED="1576719071204" ID="ID_1737571070" MODIFIED="1576719391418">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Outline
+    </p>
+    <ol>
+      <li>
+        What is a Hash Table (HT) and what is a hash function?
+      </li>
+      <li>
+        Properties of hash functions
+      </li>
+      <li>
+        Discussion on collision resolution methods, in particular: separate chaining and open addressing
+      </li>
+      <li>
+        Complexity analysis
+      </li>
+      <li>
+        Separate chaining implementation details:
+
+        <ol>
+          <li>
+            Linked list approach overview
+          </li>
+          <li>
+            Separate chaining FAQs
+          </li>
+          <li>
+            Separate chaining source code
+          </li>
+        </ol>
+      </li>
+      <li>
+        Separate chaining HT source code
+      </li>
+      <li>
+        Open addressing techniques implementation details:
+
+        <ol>
+          <li>
+            Linear probing
+
+            <ol>
+              <li>
+                What is linear probing?
+              </li>
+              <li>
+                Chaos with cycles
+              </li>
+              <li>
+                Linear probing insertion examples
+              </li>
+              <li>
+                Table resizing and updating values
+              </li>
+            </ol>
+          </li>
+          <li>
+            Quadratic probing
+
+            <ol>
+              <li>
+                What is quadratic probing?
+              </li>
+              <li>
+                Problems with probing sequence cycles
+              </li>
+              <li>
+                Different ways to quadratically probe
+              </li>
+              <li>
+                Inserting/ resize examples
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li>
+        Double hashing
+
+        <ol>
+          <li>
+            What is double hashing? How does it work?
+          </li>
+          <li>
+            Chaos with cycles
+          </li>
+          <li>
+            Constructing a new hash function
+
+            <ol>
+              <li>
+                Universal hash functions
+              </li>
+            </ol>
+          </li>
+          <li>
+            Inserting/ resize example
+          </li>
+        </ol>
+      </li>
+      <li>
+        Removing elements
+
+        <ol>
+          <li>
+            Solution using tomstones
+          </li>
+          <li>
+            Lazy deletion/ relocation
+          </li>
+          <li>
+            Lots of examples
+          </li>
+        </ol>
+      </li>
+      <li>
+        Source code!
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1576719409990" ID="ID_1774369679" MODIFIED="1576719416996" TEXT="What is a hash table?">
+<node CREATED="1576719417243" ID="ID_1459234231" MODIFIED="1576719441447" TEXT="A hash table (HT) is a data structure that provides a mapping from keys to values using a technique calling hashing.">
+<node CREATED="1576719481432" ID="ID_1442243528" MODIFIED="1576719537337">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      key (name) -&gt; value (fav color)
+    </p>
+    <p>
+      &quot;William&quot; -&gt; &quot;green&quot;
+    </p>
+    <p>
+      &quot;Micah&quot; -&gt; &quot;purple&quot;
+    </p>
+    <p>
+      &quot;Catherine&quot; -&gt; &quot;yellow&quot;
+    </p>
+    <p>
+      &quot;Thomas&quot; -&gt; &quot;red&quot;
+    </p>
+    <p>
+      &quot;Leah&quot; -&gt; &quot;purple&quot;
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1576719542482" ID="ID_353482957" MODIFIED="1576719549546" TEXT="We refer to these as key-value pairs"/>
+<node CREATED="1576719550849" ID="ID_928593708" MODIFIED="1576719560671" TEXT="Keys must be unique, but values can be repeated"/>
+<node CREATED="1576719592181" ID="ID_590492122" MODIFIED="1576719615250" TEXT="HTs are often used to track item frequencies. For instance, coutning the number of times a word appears in a given text."/>
+<node CREATED="1576719667099" ID="ID_1449510494" MODIFIED="1576719697130" TEXT="The key-value pairs you can place in a HT can be of any type not just strings and numbers, but also bojects! However, the keys needs to be hashable, a property we will discuss shortly">
+<node CREATED="1576719707058" ID="ID_873018824" MODIFIED="1576719732321" TEXT="To be able to understand how a mapping is constructed between key-value pairs we fist need to talk about hash functions."/>
+<node CREATED="1576719732567" ID="ID_1959597115" MODIFIED="1576719747809" TEXT="A hash function H(x) is a function that maps a key &apos;x&apos; to a whole number in a fixed range.">
+<node CREATED="1576719751627" ID="ID_1160981104" MODIFIED="1576719786554" TEXT="Example: H(x) = (x^2 - 6x + 9) mod 10 maps all integer keys to the range [0, 9]">
+<node CREATED="1576719794298" ID="ID_1324821729" MODIFIED="1576719938680">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      H(4) = (16 - 24 + 9) mod 10 = 1
+    </p>
+    <p>
+      H(-7) = (49 + 42 + 9) mod 10 = 0
+    </p>
+    <p>
+      H(0) = (0 - 0 + 9) mod 10 = 9
+    </p>
+    <p>
+      H(2) = (4 - 12 + 9) mod 10 = 1
+    </p>
+    <p>
+      H(8) = (64 - 48 + 9) mod 10 = 5
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1576719981847" ID="ID_324076642" MODIFIED="1576720006195" TEXT="We can also define hash functions for arbitrary objects such as strings, list, tuples, multi data objects, etc...">
+<node CREATED="1576720017235" ID="ID_260903345" MODIFIED="1576720037487" TEXT="For a string s let H(s) be a hash function defined below where ASCII(x) returns the ASCII valeu fo the character x">
+<node CREATED="1576720040853" ID="ID_881056835" MODIFIED="1576720077379">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      ASCII('A') = 65
+    </p>
+    <p>
+      ASCII('B') = 66
+    </p>
+    <p>
+      ...
+    </p>
+    <p>
+      ASCII('Z') = 90
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1576720080138" ID="ID_309025568" MODIFIED="1576720129560">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function H(s):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sum := 0
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for char in x:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sum = sum + ASCII(char)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return sum mod 50
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1576720271210" ID="ID_1995836199" MODIFIED="1576720289259" TEXT="There are an infinite number of possible valid hash functions H(person), here is one:">
+<node CREATED="1576720290849" ID="ID_1284309586" MODIFIED="1576720340812">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function H(person):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;hash := person.age
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;hash = hash + length(person.name)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if person.sex == &quot;M&quot;:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;hash = hash + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return hash mod 6
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1576720397304" ID="ID_585727740" MODIFIED="1576720403401" TEXT="Properties of Hash functions">
+<node CREATED="1576720403810" ID="ID_146175552" MODIFIED="1576720434098" TEXT="If H(x) = H(y) then objects x and y might be equal, but if H(x) != H(y) then x and y are certainly not equal">
+<node CREATED="1576720484417" ID="ID_680162370" MODIFIED="1576720497064" TEXT="Q: How can we use this to our advantage to speedup object comparisons?">
+<node CREATED="1576720505225" ID="ID_1898076730" MODIFIED="1576720538716" TEXT="A: This means that instead of comparing x and y directly a smarter approach is to first compare their hash values, and only if the hash values match do we nedd to explicitly compare xa nd y."/>
+<node CREATED="1576721967580" ID="ID_304807664" MODIFIED="1576721987476" TEXT="Consider the problem of trying to determine if two very large files have the same contents."/>
+<node CREATED="1576721987977" ID="ID_643451174" MODIFIED="1576722066926" TEXT="If we precomputed H(file1) and H(file2) first we should compare those hash values since comparing hash values is O(1)! If possible, we do not want to open either of the files directly. Comparing their contents can be very slow, although we may have to if H(file1) = H(file2).">
+<node CREATED="1576722069556" ID="ID_638934834" MODIFIED="1576722103324" TEXT="NOTE: Hash functions for files are more sophisticated than those used for hashtables. Instead for files we use what are called cryptographic hash functions also called checksums"/>
+</node>
+<node CREATED="1576722202495" ID="ID_1558704010" MODIFIED="1576722213024" TEXT="A hash function H(x) must be deterministic.">
+<node CREATED="1576722214705" ID="ID_1807800955" MODIFIED="1576722254468" TEXT="This means that if H(x) = y then H9x) must always produce y and never another value.. This may be seen as obvious, but it is critical to the functionality of a hash function.">
+<node CREATED="1576722259505" ID="ID_923968337" MODIFIED="1576722270754" TEXT="Example of non-deterministic hash functions:">
+<node CREATED="1576722271010" ID="ID_1309489189" MODIFIED="1576722298798">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      counter := 0
+    </p>
+    <p>
+      function H(x):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;counter = counter + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return (x + counter) mod 13
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1576722300228" ID="ID_1536661597" MODIFIED="1576722324692" TEXT="H(5) = 6 but H(5) = 7 as well"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1576722345718" ID="ID_312245411" MODIFIED="1576722362549" TEXT="We try very hard to make uniform hash functions to minize the number of hash collisions">
+<node CREATED="1576722364211" ID="ID_1200506814" MODIFIED="1576722424166" TEXT="A hash collision is when two objects, x, y hash to the same value (i.e. H(x) = H(y))."/>
+</node>
+<node CREATED="1576722434295" ID="ID_63759049" MODIFIED="1576722462536" TEXT="We are now able to answer a central question about the types of keys we are allowed to use in our hashtable:">
+<node CREATED="1576722462528" ID="ID_1842837840" MODIFIED="1576722488238" TEXT="Q: What makes a key of type T hashable?">
+<node CREATED="1576722503030" ID="ID_1267467075" MODIFIED="1576722583249" TEXT="A: Since we are going to use hash functions in the implementation of our hash table we need our hash functions to be deterministic. To enforce this behaviour, we demand that the keys used in our hashtable are immutable data types. Hence, if a key fof type T is immutable, and we have a hash function H(k) defined for all keys k of type T then we say a key of type T is hashable.">
+<node CREATED="1576722609396" ID="ID_1217280733" MODIFIED="1576722620144" TEXT="keys are immutable - strings, integers">
+<node CREATED="1576722621850" ID="ID_370951750" MODIFIED="1576722630456" TEXT="Not sets or lists"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1576722651007" ID="ID_523341002" MODIFIED="1576722656249" TEXT="How does a hash table work?">
+<node CREATED="1576722659577" ID="ID_1534945728" MODIFIED="1576722679268" TEXT="Ideally we would like to have a very fast insertion, lookup and removal time for the data we are placing withing our hash table.">
+<node CREATED="1576722744298" ID="ID_1247451831" MODIFIED="1576722754748" TEXT="Hash table is an array"/>
+</node>
+<node CREATED="1576722681238" ID="ID_505334372" MODIFIED="1576722705640" TEXT="Remarkably, we can achieve all this in O(1)* time using a hash function as a way to index into a hash table."/>
+<node CREATED="1576722706750" ID="ID_574578431" MODIFIED="1576722726279" TEXT="* The constant time behaviour attributed to hash tables is only true if you have a good uniform hash function!"/>
+<node CREATED="1576722787934" ID="ID_923768759" MODIFIED="1576722860059" TEXT="Think of the hash table on the right as an indexable block of memory (an array) and we can only access its entries using the value given to us by our hash function H(x)">
+<node CREATED="1576723195754" ID="ID_791924647" MODIFIED="1576723243518" TEXT="Suppose we&apos;re inserting (integer, string) key-value pairs into teh table representing rankings of users to their usernames from an outline programming competition and we&apos;re using the hash function: H(x) = x^2 + 3 mod 10"/>
+<node CREATED="1576723372256" ID="ID_1611902482" MODIFIED="1576723388217" TEXT="To lookup which user has rank r we simply compute H(f) and look inside the hashtable!"/>
+</node>
+<node CREATED="1576723400565" ID="ID_225952506" MODIFIED="1576723414922" TEXT="Q: What do we do if there is a hash collision?">
+<node CREATED="1576723415408" ID="ID_1998476299" MODIFIED="1576723433414" TEXT="example: users with ranks 2 and 8 hash to the same value!!">
+<node CREATED="1576723435059" ID="ID_477005514" MODIFIED="1576723454750" TEXT="H(2) = 2^2 + 3 mod 10 = 7 = 8^2 + 3 mod 10 = H(8)"/>
+</node>
+<node CREATED="1576723462070" ID="ID_1325438972" MODIFIED="1576723484930" TEXT="A: We use one of many hash collision resolution techniques to handle this, the two most popular ones are separate chaining and open addressing.">
+<node CREATED="1576723500813" ID="ID_1405068280" MODIFIED="1576723553551" TEXT="Separate chaining deals with hash collisions by maintaining a data structure (usually a linked lis) to hold all the different values which hashed to a particular value."/>
+<node CREATED="1576723554852" ID="ID_1904581245" MODIFIED="1576723596395" TEXT="Open addressing deals with hash collisions by finding place within the hash table for the object to go by offsetting it from the position to which it hashed to.">
+<node CREATED="1576724661973" ID="ID_1478893207" MODIFIED="1576724665640" TEXT="Complexity:">
+<node CREATED="1576724666247" ID="ID_1938104579" MODIFIED="1576724680568" TEXT="Insertion: Average - O(1)*, Wors - O(n)">
+<node CREATED="1576724721965" ID="ID_172618407" MODIFIED="1576724745039" TEXT="* The constant time behavior attributed to hash tables is only true if you have agood uniform hash function!"/>
+</node>
+<node CREATED="1576724681231" ID="ID_1892088286" MODIFIED="1576724693824" TEXT="Removal: Average - O(1)*, Words - O(n)"/>
+<node CREATED="1576724694561" ID="ID_1689831060" MODIFIED="1576724706600" TEXT="Search: Average - O(1)*, Worst - O(n)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1567047845106" ID="ID_1637573432" MODIFIED="1567047851822" TEXT="Hash table separate chaining">
+<node CREATED="1576726287665" ID="ID_1210949899" MODIFIED="1576726293186" TEXT="What is seperate chaining?">
+<node CREATED="1576726293449" ID="ID_1062890330" MODIFIED="1576726331086" TEXT="Separate chaining is one of many strategiesto deal with hash collisions by maintaining a data strcuture (susually a linked list) to hold all the different values which hashed to a particular value.">
+<node CREATED="1576726349314" ID="ID_70905475" MODIFIED="1576726355241" TEXT="Auxiliary data structure is used"/>
+<node CREATED="1576726361987" ID="ID_1045936607" MODIFIED="1576726414027" TEXT="NOTE: The data structures used to cache the itemsused to cache the items which hashed to a particular value is not limited to a linked list. Some implemenatations use one or a mixture of: arrays, binary trees, self balancing trees and etc..."/>
+</node>
+<node CREATED="1576726547031" ID="ID_1776349136" MODIFIED="1576726556199" TEXT="Linked list separate chaining insertions">
+<node CREATED="1576726557198" ID="ID_1720991584" MODIFIED="1576726578151" TEXT="Suppose we have a hash table that will store (name, age) key-value pairs and we wish to insert the following entries:">
+<node CREATED="1576726837929" ID="ID_764009300" MODIFIED="1576726867602" TEXT="NOTE: Even if values are same, we store the key (name) value in the linked list block"/>
+</node>
+</node>
+<node CREATED="1576726900360" ID="ID_366364213" MODIFIED="1576726904630" TEXT="Lookups">
+<node CREATED="1576726907862" ID="ID_1406857671" MODIFIED="1576726930087" TEXT="To find the age of &quot;Ryan&quot; hash the key &quot;Ryan&quot; to obtain the value (index) 1. After this search teh 1 bucket for &quot;Ryan&quot;"/>
+</node>
+</node>
+<node CREATED="1576727220861" ID="ID_1968344896" MODIFIED="1576727222951" TEXT="FAQs">
+<node CREATED="1576727223153" ID="ID_852034882" MODIFIED="1576727249203" TEXT="Q: How do I maintain O(1) insertion and lookup time complexity once my HT gets really full and I have long linked list chains?">
+<node CREATED="1576727250093" ID="ID_1297423091" MODIFIED="1576727284359" TEXT="A: Once the HT contains a lot of elements you should construct a new HT with a larger capacilty and rehash all the items inside the old HT and disperse them throughout the new HT ant different locations."/>
+</node>
+<node CREATED="1576727341227" ID="ID_1599242919" MODIFIED="1576727349145" TEXT="Q: How do I remove key-value pairs from my HT?">
+<node CREATED="1576727349716" ID="ID_1202443782" MODIFIED="1576727391118" TEXT="A: Apply the same procedure as doing a lookup for a key, but this time instead of returning the value associated with the key remove the node in the linked list data structure."/>
+</node>
+<node CREATED="1576727401488" ID="ID_1609089780" MODIFIED="1576727418574" TEXT="Q: Can I use another data structure to model the bucket behaviour required for the sepaarate chaining method?">
+<node CREATED="1576727421100" ID="ID_341353060" MODIFIED="1576727489445" TEXT="A: Of course! Common data structures used instead of a linked list include: arrays, binary trees, self balancing trees, etc... You can even go with a hybrid approach like Java&apos;s HashMap. However, note that some of these are much more memory intensive and complext to implement than a simple linked list which is why they may be less popular">
+<node CREATED="1576727514527" ID="ID_438463014" MODIFIED="1576727534999" TEXT="Jaa switches t oa binary tree once the length gets to certain point"/>
+<node CREATED="1576727558925" ID="ID_239823131" MODIFIED="1576727562723" TEXT="They might be faster"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1567047852767" ID="ID_1781810660" MODIFIED="1567047861859" TEXT="Hash table separate chaining source code">
+<node CREATED="1577334212789" ID="ID_1039092499" MODIFIED="1577369364567">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="1">class Entry &lt;K, V&gt; { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;int hash; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;K key; V value; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public Entry(K key, V value) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.key = key; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.value = value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.hash = key.hashCode(); // cache to not recompute </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// We are not overriding the Object equals method </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// No casting is required with this method. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public boolean equals(Entry &lt;K, V&gt; other) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (hash != other.hash) return false; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return key.equals(other.key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;@Override public String toString() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return key + &quot; =&gt; &quot; + value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">@SuppressWarnings(&quot;unchecked&quot;) </font>
+    </p>
+    <p>
+      <font size="1">public class HashTableSeparateChaining &lt;K, V&gt; implements Iterable &lt;K&gt; { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private static final int DEFAULT_CAPACITY = 3; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private static final double DEFAULT_LOAD_FACTOR = 0.75; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private double maxLoadFactor; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private int capacity, threshold, size = 0; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private LinkedList &lt;Entry&lt;K,V&gt;&gt; [] table; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public HashTableSeperateChaining () { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this(DEFAULT_CAPACITY, DEFAULT_LOAD_FACTOR); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;}&#160; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public HashTableSeperateChaining (int capacity, double maxLoadFactor) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (capacity &lt; 0) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;throw new IllegalArgumentException(&quot;Illegal capacity&quot;); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (maxLoadFactor &lt;= 0 || Double.isNaN(maxLoadFactor) || Double.isInfinite(maxLoadFactor)) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;throw new IllegalArgumentException(&quot;Illegal maxLoadFactor&quot;); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.maxLoadFactor = maxLoadFactor; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;this.capacity = capacity; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;threshold = (int) (this.capacity * maxLoadFactor); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;table = new LinkedList[this.capacity]; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Returns the number of elements currently inside the hash-table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public int size() { return size; } </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Returns true/false depending on whether the hash-table is empty </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public boolean isEmpty() { return size == 0; } </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Converts a hash value to an index. Essentially, this strips the </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// negative sign and places the hash value in the domain [0, capacity) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private int normalizeIndex(int keyHash) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return (keyHash &amp; 0x7FFFFFFF) % capacity; // strips negative sign </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Clears all the contents of the hash-table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public void clear() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Arrays.fill(table, null); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;size = 0; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public boolean containsKey(K key) { return hasKey(key); } </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Returns true/false depending on whether a key is in the hash table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public boolean hasKey(K key) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int bucketIndex = normalizeIndex(key.hashCode()); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return bucketSeekEntry(bucketIndex, key) != null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Insert, put and add all place a value in the hash-table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public V put(K key, V value) { return insert(key, value); } </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public V add(K key, V value) { return insert(key, value); } </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public V insert(K key, V value) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (key == null) throw new IllegalArgumentException(&quot;Null key&quot;); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Entry &lt;K, V&gt; newEntry = new Entry&lt;&gt;(key, value); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int bucketIndex = normalizeIndex(newEntry.hash); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return bucketInsertEntry(bucketIndex, newEntry); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Gets a key's values from the map and returns the value. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// NOTE: returns null if the value is null AND also returns </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// null if the key does not exists, so watch out.. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public V get(K key) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (key == null) return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int bucketIndex = normalizeIndex(key.hashCode()); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Entry &lt;K, V&gt; entry = bucketSeekEntry(bucketIndex, key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (entry != null) return entry.value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Removes a key from the map and returns the value. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// NOTE: returns null if the value is null AND also returns </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// null if the key does not exists. </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public V remove(K key) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (key == null) return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int bucketIndex = normalizeIndex(key.hashCode()); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return bucketRemoveEntry(bucketIndex, key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Removes an entry from a given bucket if it exists </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private V bucketRemoveEntry(int bucketIndex, K key) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Entry &lt;K, V&gt; entry = bucketSeekEntry(bucketIndex, key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (entry != null) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LinkedList &lt;Entry&lt;K, V&gt;&gt; links = table[bucketIndex]; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;links.remove(entry); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--size; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return entry.value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Inserts an entry in a given bucket only if the entry does not already </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// exist in the given bucket, but if it does then update the entry value </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private V bucketInsertEntry(int bucketIndex, Entry &lt;K, V&gt; entry) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LinkedList &lt;Entry&lt;K, V&gt;&gt; bucket = table[bucketIndex]; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (bucket == null) table[bucketIndex] = bucket = new LinkedList&lt;&gt;(); </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Entry &lt;K, V&gt; existentEntry = bucketSeekEntry(bucketIndex, entry.key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (existentEntry == null) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;bucket.add(entry); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (++size &gt; threshold) resizeTable(); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return null; // Use null to indicate that there was no previous entry </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} else { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;V oldVal = existentEntry.value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;existentEntry.value = entry.value; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return oldVal; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Finds and returns a particular entry in a given bucket if it exists, returns null otherwise </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private Entry &lt;K, V&gt; bucketSeekEntry(int bucketIndex, K key) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (key == null) return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LinkedList &lt;Entry&lt;K, V&gt;&gt; bucket = table[bucketIndex]; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (bucket == null) return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (Entry &lt;K, V&gt; entry : bucket) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (entry.key.equals(key)) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return entry; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Resizes the internal table holding buckets of entries </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;private void resizeTable() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;capacity *= 2; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;threshold = (int) (capacity * maxLoadFactor); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LinkedList &lt;Entry&lt;K,V&gt;&gt; [] newTable = new LinkedList[capacity]; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (int i = 0; i &lt; table.length; i++) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (table[i] != null) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (Entry &lt;K, V&gt; entry : table[i]) { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int bucketIndex = normalizeIndex(entry.hash); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LinkedList&lt;Entry&lt;K,V&gt;&gt; bucket = newTable[bucketIndex]; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (bucket == null) newTable[bucketIndex] = bucket = new LinkedList&lt;&gt;(); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;bucket.add(entry); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Avoid memory leak. Help the GC </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;table[i].clear(); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;table[i] = null; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}&#160;&#160;&#160; </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;table = newTable; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Returns the list of keys found within the hash table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public List &lt;K&gt; keys() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;List &lt;K&gt; keys = new ArrayList&lt;&gt;(size()); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (LinkedList&lt;Entry&lt;K,V&gt;&gt; bucket : table) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (bucket != null) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (Entry &lt;K,V&gt; entry : bucket) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;keys.add(entry.key); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;return keys; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;// Returns the list of values found within the hash table </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;public List &lt;V&gt; values() { </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;List &lt;V&gt; values = new ArrayList&lt;&gt;(size()); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (LinkedList&lt;Entry&lt;K,V&gt;&gt; bucket : table) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (bucket != null) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for (Entry &lt;K,V&gt; entry : bucket) </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;values.add(entry.value); </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return values; </font>
+    </p>
+    <p>
+      <font size="1">&#160;&#160;&#160;&#160;} </font>
+    </p>
+    <p>
+      <font size="1">} </font>
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1567047863123" ID="ID_1180079256" MODIFIED="1567047869247" TEXT="Hash table open addressing">
+<node CREATED="1577369532976" ID="ID_1689117443" MODIFIED="1577369540468" TEXT="Collision resolution technique"/>
+<node CREATED="1577369543428" ID="ID_200938945" MODIFIED="1577369547331" TEXT="Open addressing basics">
+<node CREATED="1577369547601" ID="ID_1618933428" MODIFIED="1577369562797" TEXT="The goal of the Hash Table (HT) is to construct a mapping from keys to values."/>
+<node CREATED="1577369565898" ID="ID_1462552710" MODIFIED="1577369580451" TEXT="Keys must be hashable and we need a hash function that converts keys to whole numbers."/>
+<node CREATED="1577369580828" ID="ID_1706198356" MODIFIED="1577369598220" TEXT="We use the hash function defined on our key set to index into an array (the hash table)."/>
+<node CREATED="1577369598691" ID="ID_1870903960" MODIFIED="1577369643429" TEXT="Hash functions are not perfect, therefore sometimes two keys k1, k2 (k1 != k2) hash to the same value. When this happens we have a hash collision (i.e H(k1 = H(k2))"/>
+<node CREATED="1577369644277" ID="ID_1732474554" MODIFIED="1577369650757" TEXT="Open addressing is a way to solve this issue.">
+<node CREATED="1577369725675" ID="ID_1006939397" MODIFIED="1577369729212" TEXT="Open addressing basics">
+<node CREATED="1577369729829" ID="ID_1357789143" MODIFIED="1577369767421" TEXT="When using open addressing as a collision resolution technique the key-value pairs are stored in teh table (array) itself as opposed to a data structure like in separate chaining."/>
+<node CREATED="1577369769214" ID="ID_1933827972" MODIFIED="1577369789661" TEXT="This means we need to care a great deal about the size of our hash table and how many elements are currently in the table">
+<node CREATED="1577369790630" ID="ID_783717030" MODIFIED="1577369799174" TEXT="Load factor = items in table / size of table"/>
+<node CREATED="1577369848109" ID="ID_78644049" MODIFIED="1577369853668" TEXT="or else difficult to find slot"/>
+</node>
+</node>
+</node>
+<node CREATED="1577369884965" ID="ID_245954382" MODIFIED="1577369926941" TEXT="The O(1) constant time behaviour attributed to hash tables ssumes the load factor (alpha) is kept below a certain fixed value. This means once alpha &gt; threshold we need to grow the table size (ideally exponentially, e.g double).">
+<node CREATED="1577369948941" ID="ID_1421341182" MODIFIED="1577369959736" TEXT="It may get exponentially bad after certain threshold"/>
+</node>
+<node CREATED="1577369975963" ID="ID_974261891" MODIFIED="1577369981224" TEXT="Open addressing main idea">
+<node CREATED="1577369983373" ID="ID_433586555" MODIFIED="1577370020144" TEXT="When we want to insert a key-value pair (k, v) into the hash table we hash the key and obtain an original position for where this key-value pair belongs, i.e H(k)"/>
+<node CREATED="1577370022101" ID="ID_1145833824" MODIFIED="1577370058985" TEXT="If the position our key hashed to is occupied we try another position in the hash table by offsetting the current position subject o a probing sequence P(x). We keep doing this until an unoccupied slot is found."/>
+<node CREATED="1577370120313" ID="ID_932454091" MODIFIED="1577370137628" TEXT="There are an infinite amount of probing sequences you can come up with, here are a few:">
+<node CREATED="1577370138724" ID="ID_750593367" MODIFIED="1577370157299" TEXT="Linear probing">
+<node CREATED="1577370157779" ID="ID_922155410" MODIFIED="1577370169217" TEXT="P(x) = ax + b where a, b are constants"/>
+</node>
+<node CREATED="1577370171738" ID="ID_1917168744" MODIFIED="1577370176061" TEXT="Quadratic probing">
+<node CREATED="1577370176282" ID="ID_44258301" MODIFIED="1577370194942" TEXT="P(x) = ax^2 + bx + c where a, b, c are constants"/>
+</node>
+<node CREATED="1577370196206" ID="ID_492274658" MODIFIED="1577370199220" TEXT="Double hashing">
+<node CREATED="1577370199525" ID="ID_41924921" MODIFIED="1577370220113" TEXT="P(k,x) = x*H2(k), where H2(k) is a secondary hash function"/>
+</node>
+<node CREATED="1577370221605" ID="ID_1414408699" MODIFIED="1577370230446" TEXT="Pseudo random number generator:">
+<node CREATED="1577370230815" ID="ID_344675924" MODIFIED="1577370264202" TEXT="P(k,x) = x * RNG(H(k), x), where RNG is a random number generator function seeded with H(k)">
+<node CREATED="1577370342147" ID="ID_460257500" MODIFIED="1577370355235" TEXT="sead is H(k) which is deterministic (same always)">
+<node CREATED="1577370377456" ID="ID_1325730476" MODIFIED="1577370383894" TEXT="x increments by 1 each time"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1577370396111" ID="ID_668632316" MODIFIED="1577370409027" TEXT="General insertion method for open addressing on a table of size N goes as follows:">
+<node CREATED="1577370413508" ID="ID_324538868" MODIFIED="1577370505615">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      x := 1
+    </p>
+    <p>
+      keyHash := H(k)
+    </p>
+    <p>
+      index := keyHash
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      while table[index] != null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;index = (keyHash + P(k,x)) mod N
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;x = x + 1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      insert (k,v) at table[index]
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Where H(k) is the hash for the key k and P(k,x) is the probing function
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1577370613045" ID="ID_372683697" MODIFIED="1577370616078" TEXT="Chaos with cycles">
+<node CREATED="1577370616406" ID="ID_785800868" MODIFIED="1577370635366" TEXT="Most randomly selected probing sequences modulo N will produce a cycle shorter than the table size."/>
+<node CREATED="1577370636695" ID="ID_468980738" MODIFIED="1577370661647" TEXT="This becomes problamatic when you are trying to insert a key-value pair and all the buckets on the cycle are occupied because you will get stuck in an infinite loop!">
+<node CREATED="1577370714038" ID="ID_48188437" MODIFIED="1577370734183" TEXT="Suppose the sequence produces only 3 slots and cycles through them infinitely">
+<node CREATED="1577370748803" ID="ID_582834116" MODIFIED="1577370750674" TEXT="Example:">
+<node CREATED="1577370750864" ID="ID_214027381" MODIFIED="1577370791996" TEXT="k1,v1, null, null, k2,v2, k3,v3,k4,v4, null, null, k5,v5, null, k6,v6, null">
+<node CREATED="1577370793485" ID="ID_115437890" MODIFIED="1577370807477" TEXT="Assume the probing sequence used is P(x) = 4x"/>
+<node CREATED="1577370807837" ID="ID_1577758174" MODIFIED="1577370823814" TEXT="Now suppose we want to insert (k,v) into the table and H(k) = 8">
+<node CREATED="1577619298033" ID="ID_398640541" MODIFIED="1577619408682" TEXT="index = H(k) = 8 + 0 mode 12 = 8"/>
+<node CREATED="1577619310186" ID="ID_1092679344" MODIFIED="1577619372033" TEXT="index = H(k) + P(1) = 8 + 4 mod 12 = 0"/>
+<node CREATED="1577619327318" ID="ID_427905433" MODIFIED="1577619364816" TEXT="index = H(k) + P(2) = 8 + 8 mod 12 = 4"/>
+<node CREATED="1577619382448" ID="ID_821101256" MODIFIED="1577619402104" TEXT="index = H(k) + P(3) = 8 + 12 mod 12 = 8"/>
+<node CREATED="1577619410482" ID="ID_1492200526" MODIFIED="1577619412274" TEXT="..."/>
+</node>
+<node CREATED="1577619441330" ID="ID_1927049410" MODIFIED="1577619451265" TEXT="We have a cycle even though there are empty slots"/>
+</node>
+</node>
+<node CREATED="1577619458384" ID="ID_1105828211" MODIFIED="1577619480425" TEXT="Q: So that&apos;s concerning, how do we handle probing functions which produce cycles shorter than the table size?">
+<node CREATED="1577619484985" ID="ID_1834393274" MODIFIED="1577619533375" TEXT="A: In general the concesnus is that we don&apos;t handle this issue, instead we avoid it altogether by restricting our domain of probing functions to those which produce a cycle of exactly length N*">
+<node CREATED="1577619536883" ID="ID_1433164446" MODIFIED="1577619556246" TEXT="* There are a few exceptions with special proprties that can produce shorter cycles."/>
+</node>
+</node>
+<node CREATED="1577619616414" ID="ID_383019877" MODIFIED="1577619620653" TEXT="Chaos with cycles">
+<node CREATED="1577619624190" ID="ID_1674799779" MODIFIED="1577619667581" TEXT="Techniques such as linear probing, quadratic probing and double hashing are all subject to the issue of causing cycles which is why the probing functions used with these methods are very specific. This is a large topic that will be the focus of the next few vidoes."/>
+<node CREATED="1577619669391" ID="ID_1618509427" MODIFIED="1577619713511" TEXT="Notice that open addressing is very sensitive to the hashing function and probing function used. This is not something you have to worry about (as much) if you are using separate chaining as a collision resolution method."/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1567047870330" ID="ID_146250376" MODIFIED="1567047875833" TEXT="Hash table linear probing">
+<node CREATED="1577619920151" ID="ID_1851249096" MODIFIED="1577619926308" TEXT="Open addressing main idea">
+<node CREATED="1577619926872" ID="ID_1147539272" MODIFIED="1577620008347">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      General insertion method for open addressing on a table of size N goes as follows:
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      x := 1
+    </p>
+    <p>
+      keyHash := H(k)
+    </p>
+    <p>
+      index := keyHash
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      while table[index] != null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;index = (keyHash + P(k,x)) mod N
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;x = x + 1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      insert (k, v) at table[index]
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      where H(k) is the hash for the key k and P(k,x) is the probing function
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1577620034317" ID="ID_1379463749" MODIFIED="1577620042229" TEXT="What is linear probing (LP)?">
+<node CREATED="1577620043130" ID="ID_1332539606" MODIFIED="1577620061852" TEXT="LP is a probing method which probes according to a lnear formula, specifically:">
+<node CREATED="1577620062411" ID="ID_1116627164" MODIFIED="1577620099102" TEXT="P(x) = ax + b where a (!=0), be are constants (Note: The constant b is obsolete, do you know why?)">
+<node CREATED="1577620129162" ID="ID_1934365427" MODIFIED="1577620158588" TEXT="However, as we previously saw not all linear functions are viable because they are unable to produce a cycle of order N. We will need some way to handle this."/>
+</node>
+</node>
+</node>
+<node CREATED="1577620181008" ID="ID_395596916" MODIFIED="1577620249775" TEXT="If our linear function is: P(x) = 3x, H(k) = 4, and table size is nine (N = 9) we end up with the following cycle occurring:g:">
+<node CREATED="1577620250046" ID="ID_1916993484" MODIFIED="1577620258598" TEXT="H(k) + P(0) mod N = 4"/>
+<node CREATED="1577620258822" ID="ID_1092062" MODIFIED="1577620270234" TEXT="H(k) + P(1) mod N = 7"/>
+<node CREATED="1577620270473" ID="ID_55739188" MODIFIED="1577620284757" TEXT="H(k) + P(2) mod N = 1"/>
+<node CREATED="1577620285094" ID="ID_1912421457" MODIFIED="1577620297886" TEXT="H(k) + P(3) mod N = 4"/>
+<node CREATED="1577620298790" ID="ID_279494917" MODIFIED="1577620299694" TEXT="..."/>
+</node>
+<node CREATED="1577620337789" ID="ID_148960283" MODIFIED="1577620360735" TEXT="The cycle {4,7,1} makes it impossible to reach buckets {0,2,3,5,6,8}!">
+<node CREATED="1577620363639" ID="ID_1583601574" MODIFIED="1577620379047" TEXT="Causing infinite loop in our hash table if all the buckets 4, 7, and 1 were already occupied!"/>
+</node>
+<node CREATED="1577620418001" ID="ID_1516221096" MODIFIED="1577620436397" TEXT="Q: Which value(s) of the constant a in P(x) = ax produce a full cycle module N??">
+<node CREATED="1577620437316" ID="ID_1543377192" MODIFIED="1577620502262" TEXT="A: This happens when a and N are relatively prime. Two numbers are relatively prime if their Greatest Common Denominator (GCD) is equal to one. Hence, when GCD(a,N) = 1 the probing function P(x) be able to generate a complete cycle and we will always be able to find an empty bucket!"/>
+</node>
+<node CREATED="1577620632341" ID="ID_266375603" MODIFIED="1577620657755" TEXT="Suppose we have an originally empty hash table ans we want to insert some (ki,vi) pairs with LP and we selected our hash table to have:">
+<node CREATED="1577620658138" ID="ID_34004819" MODIFIED="1577620671115" TEXT="Probing function: P(x) = 6x"/>
+<node CREATED="1577620671356" ID="ID_1393257194" MODIFIED="1577620678034" TEXT="Fixed table size: N = 8"/>
+<node CREATED="1577620678963" ID="ID_1677260361" MODIFIED="1577620686891" TEXT="Max load factor: alpha = 0.667"/>
+<node CREATED="1577620687668" ID="ID_274216484" MODIFIED="1577620696802" TEXT="Threshold before resize = N * alpha = 6">
+<node CREATED="1577620749531" ID="ID_1432589682" MODIFIED="1577620762902" TEXT="GCD(6, 9) = 3 and not 1">
+<node CREATED="1577620952802" ID="ID_1036035522" MODIFIED="1577620982944" TEXT="Most likely to cause cycle"/>
+</node>
+</node>
+</node>
+<node CREATED="1577621010764" ID="ID_1068529528" MODIFIED="1577621031654" TEXT="A common choice for P(x) is P(x) = 1x since GCD(N, 1) = 1 no matter the choice of N (table size)">
+<node CREATED="1577621468823" ID="ID_1541073778" MODIFIED="1577621503175" TEXT="Suppose we have an originally empty hash table and we want to insert some (ki,vi) pairs with LP and we welected our hash table to have:">
+<node CREATED="1577621503749" ID="ID_1776369745" MODIFIED="1577621563494">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Probing function: P(x) = 5x
+    </p>
+    <p>
+      Fixed table size: N = 12
+    </p>
+    <p>
+      Max load factor: @ = 0.35
+    </p>
+    <p>
+      Threshold before resize = N * alpha = 4
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      GCD(12, 5) = 1 so no cycle should occur!
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1577621576440" ID="ID_1662673749" MODIFIED="1577621592784" TEXT="H(k1) + P(0) mod 12 = 10"/>
+<node CREATED="1577621596789" ID="ID_946609011" MODIFIED="1577621612927" TEXT="H(k2) + P(0) mod 12 = 8"/>
+<node CREATED="1577621613182" ID="ID_1753935856" MODIFIED="1577621624074" TEXT="H(k3) + P(1) mod 12 = 3"/>
+<node CREATED="1577621626329" ID="ID_1341414478" MODIFIED="1577621651265" TEXT="H(k4) + P(3) mod 12 = 1"/>
+<node CREATED="1577621669430" ID="ID_1899446043" MODIFIED="1577621678655" TEXT="threshold = 4">
+<node CREATED="1577621681525" ID="ID_380790446" MODIFIED="1577621685989" TEXT="Resizing the table">
+<node CREATED="1577621695874" ID="ID_1968764159" MODIFIED="1577621753722" TEXT="Before we insert the next (ki,vi) pair, notice that we have reached the threshold value, so we need to grow the table. Usually this is done in some exponential fashion such as doubling the table size,Whatever you do make sure GCD(N,a) = 1 still holds.">
+<node CREATED="1577621848015" ID="ID_771616597" MODIFIED="1577621878275" TEXT="After doubling N = 24 alpha is constant so it&apos;s still 0.35 New threshold value = N * alpha = 8, The probing function P(x) does not change.">
+<node CREATED="1577621919175" ID="ID_823893828" MODIFIED="1577621947371" TEXT="Upon allocating memory for a new table we need to insert the contents of the old table into the new table.">
+<node CREATED="1577621978457" ID="ID_295068800" MODIFIED="1577621989693" TEXT="scan all positions and re-calculate index and copy"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1577622072499" ID="ID_769535602" MODIFIED="1577622097356" TEXT="Q: Sweet, I know how insertion works, now how do I remove key-value pairs from the hash table using open addressing?">
+<node CREATED="1577622103131" ID="ID_1475346986" MODIFIED="1577622116771" TEXT="A: This topic by itself mertis its own video (link in the description)."/>
+</node>
+</node>
+</node>
+<node CREATED="1567047877084" ID="ID_1344116679" MODIFIED="1567047883639" TEXT="Hash table quadratic probing">
+<node CREATED="1577633773588" ID="ID_1117252357" MODIFIED="1577633779864" TEXT="What is quadratic probing?">
+<node CREATED="1577633780979" ID="ID_1930003366" MODIFIED="1577633797071" TEXT="QP is a probing method which probes according to a quadratic formula, specifically:">
+<node CREATED="1577633797512" ID="ID_372367502" MODIFIED="1577633835920" TEXT="P(x) = ax^2 + bx + c where a,b,c are constants and a != 0 (otherwise we have linear probing) (Note: The constant c is obsolete, do you know why?)">
+<node CREATED="1577635255432" ID="ID_1590497890" MODIFIED="1577635286822" TEXT="However, as we previously saw not all quadratic functions are viable because they are unable to produce a cycle of order N. We will need some way to handle this."/>
+</node>
+</node>
+<node CREATED="1577635922948" ID="ID_706060464" MODIFIED="1577635927247" TEXT="Chaos with Cycles">
+<node CREATED="1577635928335" ID="ID_1814808605" MODIFIED="1577635979306" TEXT="Randomly selected QP functions have the issue that they easily produce short cycles. For example, if P(x) = 2x^2 + 2, H(k) = 4, and table size is nine (N  9) we end up with the following cycle occurring:">
+<node CREATED="1577635981280" ID="ID_1961313944" MODIFIED="1577635990408" TEXT="H(k) + P(0) mod N = 4"/>
+<node CREATED="1577636000427" ID="ID_1022512573" MODIFIED="1577636008442" TEXT="H(k) + P(1) mod N = 7"/>
+<node CREATED="1577636009870" ID="ID_1697740604" MODIFIED="1577636018130" TEXT="H(k) + P(2) mod N = 4"/>
+<node CREATED="1577636018880" ID="ID_1385709185" MODIFIED="1577636027322" TEXT="H(k) + P(3) mod N = 7"/>
+<node CREATED="1577636027897" ID="ID_1063380178" MODIFIED="1577636035051" TEXT="H(k) + P(4) mod N = 4"/>
+<node CREATED="1577636035428" ID="ID_1191560945" MODIFIED="1577636042715" TEXT="H(k) + P(5) mod N = 7"/>
+</node>
+<node CREATED="1577636046489" ID="ID_1436287773" MODIFIED="1577636073427" TEXT="The cycle {4,7} makes it impossible to reach buckets {0,1,2,3,5,6,8}!"/>
+<node CREATED="1577636074362" ID="ID_77422493" MODIFIED="1577636091899" TEXT="This would cause an infinite loop in our hash table if the buckets 4 and 7 were already occupied!">
+<node CREATED="1577805164590" ID="ID_1585309245" MODIFIED="1577805189405" TEXT="Q: So how do we pick a probing function we can work with?">
+<node CREATED="1577805193924" ID="ID_1455074623" MODIFIED="1577805223081" TEXT="merous ways, but thA: There are numerous ways but three of the most popular approaches are:">
+<node CREATED="1577805223282" ID="ID_244432597" MODIFIED="1577805241191" TEXT="Let P(x) = x^2, keep the table size a prime number &gt; 3 and also keep alpha &lt;= 1/2"/>
+<node CREATED="1577805243588" ID="ID_1067704977" MODIFIED="1577805260872" TEXT="Let P(x) = (x^2 + x) / 2 and keep the table size a power of two">
+<node CREATED="1577805369449" ID="ID_385033137" MODIFIED="1577805377903" TEXT="Let&apos;s see an example">
+<node CREATED="1577805397684" ID="ID_1545194148" MODIFIED="1577805424711" TEXT="Suppose we have an originall empty hash table ans we want to insert some (ki, vi) pairs with QP and we selected our hash table to have:">
+<node CREATED="1577805429249" ID="ID_708331423" MODIFIED="1577805442197" TEXT="Probing function: P(x) = (x^2 + x) / 2"/>
+<node CREATED="1577805443827" ID="ID_552971233" MODIFIED="1577805457657" TEXT="Table size: N = 2^3 = 8 (power of two)"/>
+<node CREATED="1577805458301" ID="ID_349573618" MODIFIED="1577805467455" TEXT="Max load factor: alpha = 0.4"/>
+<node CREATED="1577805468191" ID="ID_938194267" MODIFIED="1577805491734" TEXT="Threshold before resize = N * alpha = 3"/>
+</node>
+</node>
+</node>
+<node CREATED="1577805261156" ID="ID_65098880" MODIFIED="1577805287294" TEXT="Let P(x) = (-1^x)*x^2 and keep the table size a prime N where N = 3 mod 4"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1567047884522" ID="ID_1596198472" MODIFIED="1567047889979" TEXT="Hash table double hashing">
+<node CREATED="1577805983641" ID="ID_1239811474" MODIFIED="1577806080229" TEXT="DH is a probing method which probes according to a constant multiple of another hash function, specifically:">
+<node CREATED="1577806081000" ID="ID_1237282159" MODIFIED="1577806107772" TEXT="P(k,x) = x*H2(k), where H2(k) is a second hash funcion">
+<node CREATED="1577807077051" ID="ID_909830346" MODIFIED="1577807086362" TEXT="H2(k) must hash the same type of keys as H1(k)">
+<node CREATED="1577807087755" ID="ID_1951383631" MODIFIED="1577807105386" TEXT="NOTE: Notice that doubling hashing reduces to linear probing (except that the constant is unknown until runtime)">
+<node CREATED="1577807106987" ID="ID_1087890379" MODIFIED="1577807114188" TEXT="constant is dynamically computed"/>
+</node>
+</node>
+</node>
+<node CREATED="1577807129989" ID="ID_809595202" MODIFIED="1577807133396" TEXT="Chaos with cycles">
+<node CREATED="1577807138396" ID="ID_263386164" MODIFIED="1577807182422" TEXT="Since DH reduces to linear probing at runtime we may end up with a linear prbing function such as: P9x) = 3x, H1(k) = 4, and table size is nine (N= 9) in which case we end up with the following cycle occurring:">
+<node CREATED="1577807184185" ID="ID_111127273" MODIFIED="1577807193324" TEXT="H(k) + P(0) mod N = 4"/>
+<node CREATED="1577807193565" ID="ID_49535707" MODIFIED="1577807200828" TEXT="H(k) + P(1) mod N = 7"/>
+<node CREATED="1577807201061" ID="ID_1125610781" MODIFIED="1577807206892" TEXT="H(k) + P(2) mod N = 1"/>
+<node CREATED="1577807207130" ID="ID_945380953" MODIFIED="1577807213405" TEXT="H(k) + P(3) mod N = 4"/>
+<node CREATED="1577807213987" ID="ID_725612052" MODIFIED="1577807214982" TEXT="...">
+<node CREATED="1577807233747" ID="ID_1714598309" MODIFIED="1577807266861" TEXT="The cycle {4,7,1} makes it impossible to reach buckets {0,2,3,5,6,8}!"/>
+<node CREATED="1577807267936" ID="ID_1685937339" MODIFIED="1577807292675" TEXT="This would cause an infinite loop in our hash table if all the buckets 4, 7, and 1 were already occupied!"/>
+<node CREATED="1577807305408" ID="ID_1614239722" MODIFIED="1577807305408" TEXT=""/>
+</node>
+<node CREATED="1577807323478" ID="ID_864436125" MODIFIED="1577807340955" TEXT="To fix the issue of cycles pick the table size to be a prime number and also computer the value of delta">
+<node CREATED="1577807341320" ID="ID_711140232" MODIFIED="1577810307617" TEXT="delta = H2(k) mod N">
+<node CREATED="1577811347074" ID="ID_256574576" MODIFIED="1577811368125" TEXT="If delta = 0 then we are guaranteed to be stuck in a cycle, so when this happens set delta = 1">
+<node CREATED="1577811371004" ID="ID_442988557" MODIFIED="1577811436098" TEXT="Notice that 1 &lt;= delta &lt; N and GCD(delta, N) = 1 since N is prime. Hence, with these conditions we know that module N the sequence: H1(k), H1(k) + 1.delta, H1(k) + 2.delta, H1(k) + 3.delta, ... is certain to have order N"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1577813284991" ID="ID_1283118554" MODIFIED="1577813291678" TEXT="Constructing H2(k)">
+<node CREATED="1577813292172" ID="ID_1582423647" MODIFIED="1577813297591" TEXT="Suppose the key k has type T"/>
+<node CREATED="1577813304284" ID="ID_1616026116" MODIFIED="1577813331572" TEXT="Whenever we want to use double hashing as a collision resolution method we need to fabricate a new function H2(k) that knows how to hash keys of type T."/>
+<node CREATED="1577813332469" ID="ID_113559667" MODIFIED="1577813363550" TEXT="It would be nice to have a systematic way to be able to effectively produce a new hash function every time we need one, right?"/>
+<node CREATED="1577813371867" ID="ID_171577377" MODIFIED="1577813406463" TEXT="The keys we need to hash are always composed of the same fundamental building blocks. In particular: integers, strings, real numbers, fixed length vectors, etc..."/>
+<node CREATED="1577813430143" ID="ID_1514828790" MODIFIED="1577813466023" TEXT="There are many well known high quality hash functions for these fundamental data types. hence, we can use and combine them to contruct our function H2(k)."/>
+<node CREATED="1577813469650" ID="ID_513114044" MODIFIED="1577813498805" TEXT="Frequently the hash functions selected to compose H2(k) are picked from a pool of hash functions called unversal hash functions which generally operate on one fundamental data type."/>
+</node>
+<node CREATED="1577814522335" ID="ID_774886785" MODIFIED="1577814527558" TEXT="Inserting with DH">
+<node CREATED="1577814528102" ID="ID_1492862140" MODIFIED="1577814559062" TEXT="Suppose we have an originally empty hash table and we want to insert some (ki,vi) pairs with DH and we selected our hash table to have:">
+<node CREATED="1577814559333" ID="ID_1512930342" MODIFIED="1577814575029" TEXT="Probing function: P(x) = x*H2(k)"/>
+<node CREATED="1577814575405" ID="ID_1398982206" MODIFIED="1577814582949" TEXT="Table size: N = 7 (a prime number)"/>
+<node CREATED="1577814583701" ID="ID_613893496" MODIFIED="1577814591466" TEXT="Max load factor: alpha = 0.75"/>
+<node CREATED="1577814591679" ID="ID_790795323" MODIFIED="1577814600069" TEXT="Threshold before resize = N * alpha = 5">
+<node CREATED="1577814896859" ID="ID_528503729" MODIFIED="1577814941560" TEXT="Double table size to re-size and choose the next prime number"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1567047890930" ID="ID_422156043" MODIFIED="1567047899043" TEXT="Hash table removing key-value pairs">
+<node CREATED="1577815330378" ID="ID_1892933450" MODIFIED="1577815361442" TEXT="Suppose we have an empty hash table and we&apos;re using liner probing with P(x) = x as our probing function.">
+<node CREATED="1577815424301" ID="ID_1788062374" MODIFIED="1577815434662" TEXT="Operations:">
+<node CREATED="1577815435543" ID="ID_371740793" MODIFIED="1577815439735" TEXT="insert(k1,v1)"/>
+<node CREATED="1577815440195" ID="ID_1630433242" MODIFIED="1577815443786" TEXT="insert(k2,v2)"/>
+<node CREATED="1577815444192" ID="ID_813191230" MODIFIED="1577815448742" TEXT="insert(k3,v3)"/>
+<node CREATED="1577815449148" ID="ID_250761687" MODIFIED="1577815451879" TEXT="remove(k2)"/>
+<node CREATED="1577815452439" ID="ID_1232305860" MODIFIED="1577815456103" TEXT="getValue(k3)"/>
+</node>
+<node CREATED="1577815464506" ID="ID_702618996" MODIFIED="1577815475203" TEXT="Let H(k1) = H(k2) = H(k3) = 1">
+<node CREATED="1577815486741" ID="ID_79902001" MODIFIED="1577815489397" TEXT="Hash collision">
+<node CREATED="1577815499262" ID="ID_1006095926" MODIFIED="1577815506636" TEXT="1 -&gt; k1,v1"/>
+<node CREATED="1577815506923" ID="ID_248653207" MODIFIED="1577815512355" TEXT="2 -&gt; k2,v2"/>
+<node CREATED="1577815512738" ID="ID_595324504" MODIFIED="1577815521609" TEXT="3 -&gt; k3,v3"/>
+</node>
+<node CREATED="1577815538991" ID="ID_125977731" MODIFIED="1577815542376" TEXT="Naive removal">
+<node CREATED="1577815546210" ID="ID_717474599" MODIFIED="1577815553942" TEXT="2 -&gt; k2,v2">
+<node CREATED="1577815554268" ID="ID_374804421" MODIFIED="1577815555952" TEXT="Remove it"/>
+</node>
+</node>
+<node CREATED="1577815586718" ID="ID_778554536" MODIFIED="1577815590821" TEXT="getValue(k3)">
+<node CREATED="1577815591198" ID="ID_1670938520" MODIFIED="1577815631631" TEXT="The value in the bucket at index 2 is null so we must conclude that the key k3 does not exist in the hash table otherwise we would have found it before reaching a null position!">
+<node CREATED="1577815690831" ID="ID_155637504" MODIFIED="1577815710121" TEXT="However, the key k3 clearly exists in our table! Hence, the naive removing method doesn&apos;t work"/>
+</node>
+<node CREATED="1577815736768" ID="ID_1751847673" MODIFIED="1577815773883" TEXT="Soluiotion: place a unique marker called a tomstone instead of null to indicate that a (k,v) pair has been deleted and that the bucket should be skipped during a search.">
+<node CREATED="1577815792864" ID="ID_1756910892" MODIFIED="1577815807651" TEXT="Search will continue if tomstone is encountered"/>
+</node>
+</node>
+</node>
+<node CREATED="1577815854821" ID="ID_1646066875" MODIFIED="1577815874924" TEXT="Q: I have a lot of tomstones cluttering my HT how do I get rid of them?">
+<node CREATED="1577815926264" ID="ID_1089459859" MODIFIED="1577815976568" TEXT="A: Tomstones count as filled slots in the HT so they increase the load factor and will be removed when the table is resized. Additionally, when inserting a new (k,v) pair you can replace buckets with tomstones with the new key-value pair.">
+<node CREATED="1577816036172" ID="ID_1866896141" MODIFIED="1577816075430" TEXT="Suppose we have the following HT with the quadratic prbing function P9x) = (x^2 + x)/2. Let&apos;s see how to delete tombstones while doing a lookup."/>
+<node CREATED="1577816092378" ID="ID_1632180662" MODIFIED="1577816101770" TEXT="Recall that P(x) = (x^2 + x)/2">
+<node CREATED="1577816102072" ID="ID_1189118496" MODIFIED="1577816121747" TEXT="Suppose we want to find the value of k7 inside the HT and H(K7) = 5."/>
+<node CREATED="1577816124107" ID="ID_194506510" MODIFIED="1577816153032" TEXT="Position 6 is the first tombstone we encounter, so store this position for later.">
+<node CREATED="1577816210150" ID="ID_347760179" MODIFIED="1577816252897" TEXT="Optimization: re-locate the found element to the first tomstone position">
+<node CREATED="1577816254654" ID="ID_608619853" MODIFIED="1577816280207" TEXT="We found the key k7 and its associated value v7, but we don&apos;t want to probe an additional four times to find k7 every time we do a lookup for its value."/>
+<node CREATED="1577816280607" ID="ID_1853797160" MODIFIED="1577816705942" TEXT="An optimization we can do it replace the earliest tomstone encountered with teh value we did a lookup for. The next time we lookup the key it &apos;ll be found much faster! We call this lazy deletion"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047903541" ID="ID_1761414486" MODIFIED="1567047910266" TEXT="Hash table open addressing source code"/>
 </node>
 <node CREATED="1567047916017" ID="ID_1895167146" MODIFIED="1567047925223" POSITION="left" TEXT="Fenwick tree/ Binary indexed tree">
-<node CREATED="1567047926501" ID="ID_1669705925" MODIFIED="1567047932949" TEXT="Fenwick tree range queries"/>
+<node CREATED="1567047926501" ID="ID_1669705925" MODIFIED="1567047932949" TEXT="Fenwick tree range queries">
+<node CREATED="1577845856279" ID="ID_1867988588" MODIFIED="1577845866522" TEXT="Also called Binary Indexed Tree"/>
+<node CREATED="1577845868541" ID="ID_202260371" MODIFIED="1577845871849" TEXT="Outline">
+<node CREATED="1577845875709" ID="ID_357522876" MODIFIED="1577845887706" TEXT="Discussion &amp; Examples">
+<node CREATED="1577845897160" ID="ID_1092701357" MODIFIED="1577845902522" TEXT="Data structure motivation"/>
+<node CREATED="1577845902730" ID="ID_37552349" MODIFIED="1577845910610" TEXT="What is a Fenwick tree?"/>
+<node CREATED="1577845911089" ID="ID_1924714467" MODIFIED="1577845917179" TEXT="Complexity analysis"/>
+</node>
+<node CREATED="1577845919299" ID="ID_1928935606" MODIFIED="1577845923432" TEXT="Implementation details">
+<node CREATED="1577845923914" ID="ID_477865904" MODIFIED="1577845927395" TEXT="Range query"/>
+<node CREATED="1577845927704" ID="ID_1483730850" MODIFIED="1577845931754" TEXT="Point Updates"/>
+<node CREATED="1577845932487" ID="ID_460810946" MODIFIED="1577845937097" TEXT="Fenwick tree construction"/>
+</node>
+<node CREATED="1577845938281" ID="ID_158043942" MODIFIED="1577845941926" TEXT="Code Implementation"/>
+</node>
+<node CREATED="1577845977737" ID="ID_1454575431" MODIFIED="1577845980921" TEXT="Motivation">
+<node CREATED="1577845981972" ID="ID_503517607" MODIFIED="1577845998077" TEXT="Given an array of integer values compute the range sum between index [i, j).">
+<node CREATED="1577846037495" ID="ID_313812917" MODIFIED="1577846063379" TEXT="A = [5, -3, 6, 1, 0, -4, 11, 6, 2, 7]">
+<node CREATED="1577846064059" ID="ID_1066285989" MODIFIED="1577846083765" TEXT="Sum of A from [2, 7) = 6 + 1 + 0 -4 + 11 = 14">
+<node CREATED="1577846099610" ID="ID_837176097" MODIFIED="1577846102782" TEXT="Linear queries"/>
+<node CREATED="1577846114047" ID="ID_1901835338" MODIFIED="1577846116231" TEXT="Solution:">
+<node CREATED="1577846116558" ID="ID_1212700859" MODIFIED="1577846126967" TEXT="Let P be an array containing all the prefix sums of A">
+<node CREATED="1577846198392" ID="ID_1465146885" MODIFIED="1577846224058" TEXT="P = [0, 5, 2, 8, 9, 9, 5, 16, 22, 24, 31]">
+<node CREATED="1577846224736" ID="ID_1246693559" MODIFIED="1577846263797" TEXT="Sum of A from [2, 7) = P[7] - P[2] = 16 - 2 = 14">
+<node CREATED="1577846302696" ID="ID_715058746" MODIFIED="1577846304497" TEXT="Flaw:">
+<node CREATED="1577846304762" ID="ID_17420430" MODIFIED="1577846314075" TEXT="When we update a value in original array?">
+<node CREATED="1577846316289" ID="ID_1706585361" MODIFIED="1577846324927" TEXT="We have to recompute all prefix sums">
+<node CREATED="1577846325755" ID="ID_1247882874" MODIFIED="1577846327220" TEXT="O(n)"/>
+</node>
+<node CREATED="1577846330354" ID="ID_1138823801" MODIFIED="1577846331851" TEXT="Solution">
+<node CREATED="1577846332322" ID="ID_336406329" MODIFIED="1577846335076" TEXT="Fenwick tree">
+<node CREATED="1577851312088" ID="ID_791722290" MODIFIED="1577851352518" TEXT="A Fenwick Tree (also called Binary Index Tree) is a data structure that supports sum range queries as well as setting values in a static array and getting the value of the prefix sum up some index efficiently.">
+<node CREATED="1577851369363" ID="ID_1976608208" MODIFIED="1577851371944" TEXT="Complexity">
+<node CREATED="1577851376126" ID="ID_380211144" MODIFIED="1577851381033" TEXT="Construction: O(n)"/>
+<node CREATED="1577851383470" ID="ID_571509538" MODIFIED="1577851393434" TEXT="Point Update: O(log(n))"/>
+<node CREATED="1577851393922" ID="ID_1274680972" MODIFIED="1577851401257" TEXT="Range Sum: O(log(n))"/>
+<node CREATED="1577851401758" ID="ID_1949918993" MODIFIED="1577851409840" TEXT="Range Update: O(log(n))"/>
+<node CREATED="1577851410656" ID="ID_1093401780" MODIFIED="1577851415417" TEXT="Adding Index: N/A"/>
+<node CREATED="1577851415662" ID="ID_709944726" MODIFIED="1577851421627" TEXT="Removing Index: N/A"/>
+</node>
+<node CREATED="1577851466929" ID="ID_922128091" MODIFIED="1577851487997" TEXT="Unline a regular array, in a Fenwick tree a specific cell is responsible for other cells as well"/>
+<node CREATED="1577851509572" ID="ID_472928406" MODIFIED="1577851533583" TEXT="The position of the least significant bit (LSB) determines the range of responsibility that cell has to the cells below itself">
+<node CREATED="1577851553131" ID="ID_416707826" MODIFIED="1577851672131">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      16: 10000
+    </p>
+    <p>
+      15: 01111
+    </p>
+    <p>
+      14: 01110
+    </p>
+    <p>
+      13: 01101
+    </p>
+    <p>
+      12: 01100
+    </p>
+    <p>
+      11: 01011
+    </p>
+    <p>
+      10: 01010
+    </p>
+    <p>
+      &#160;&#160;9: 01001
+    </p>
+    <p>
+      &#160;&#160;8: 01000
+    </p>
+    <p>
+      &#160;&#160;7: 00111
+    </p>
+    <p>
+      &#160;&#160;6: 00110
+    </p>
+    <p>
+      &#160;&#160;5: 00101
+    </p>
+    <p>
+      &#160;&#160;4: 00100
+    </p>
+    <p>
+      &#160;&#160;3: 00011
+    </p>
+    <p>
+      &#160;&#160;2: 00010
+    </p>
+    <p>
+      &#160;&#160;1: 00001
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1577851679295" ID="ID_240240701" MODIFIED="1577851685851" TEXT="Index 12 in binary is: 1100">
+<node CREATED="1577851687190" ID="ID_764608857" MODIFIED="1577851715446" TEXT="LSB is at position 3, so this index is responsible for 2^(3-1) = 4 cells below itself"/>
+<node CREATED="1577851932567" ID="ID_312857843" MODIFIED="1577851948622" TEXT="Blue bars represent the range of responsibility for that cell NOT value.">
+<node CREATED="1577851949212" ID="ID_1463842237" MODIFIED="1577851989010" TEXT="All odd numbers have their first least significant bit set in the ones position, so they are only responsible for themselves."/>
+</node>
+<node CREATED="1577852000070" ID="ID_977650345" MODIFIED="1577852013120" TEXT="Numbers with their least significant bit in the third position have a range of four"/>
+<node CREATED="1577852037733" ID="ID_877456430" MODIFIED="1577852041374" TEXT="Range Queries">
+<node CREATED="1577852047504" ID="ID_117589234" MODIFIED="1577852072546" TEXT="In a Fenwick tree we may compute the prefix sum up to a certain index, which ultimately lets us perform range sum queries">
+<node CREATED="1577852100062" ID="ID_419756558" MODIFIED="1577852131517" TEXT="Idea: Suppose you want to find the prefix sum of [1, i], then you start at i and cascade downwards until you reach zero adding the value at each of the indices you encounter.">
+<node CREATED="1577852147941" ID="ID_873696216" MODIFIED="1577852157756" TEXT="Prefix sum up to index 7 (inclusive)">
+<node CREATED="1577852198772" ID="ID_1202040447" MODIFIED="1577852212013" TEXT="sum = A[7] + A[6] + A[4]">
+<node CREATED="1577852212742" ID="ID_1717066536" MODIFIED="1577852217913" TEXT="6 is responsible for 2"/>
+<node CREATED="1577852218209" ID="ID_1370244906" MODIFIED="1577852227461" TEXT="4 is responsible for 4 (3 below)"/>
+</node>
+<node CREATED="1577852264312" ID="ID_910510175" MODIFIED="1577852279215" TEXT="Let&apos;s use prefix sums to compute the interval sum between [i, j].">
+<node CREATED="1577852280524" ID="ID_1740973140" MODIFIED="1577852289116" TEXT="Compute the interval sum between [11, 15].">
+<node CREATED="1577852290023" ID="ID_403089203" MODIFIED="1577852324742" TEXT="First we compute the prefix sum of [1, 15], then we will compute the prefix sum of [1, 11) and get the difference.">
+<node CREATED="1577852325524" ID="ID_1211412565" MODIFIED="1577852335077" TEXT="Not inclusive! We want the value at position 11.">
+<node CREATED="1577852490639" ID="ID_1512950066" MODIFIED="1577852502041" TEXT="Compute the interval sum between [11, 15].">
+<node CREATED="1577852502543" ID="ID_251059867" MODIFIED="1577852525122" TEXT="First we compute the prefix sum of [1, 15], then we will compute the prefix sum of [1, 11) and get the difference">
+<node CREATED="1577852526568" ID="ID_1328689811" MODIFIED="1577852548982" TEXT="Sum of [1, 15] = A[15] + A[14] + A[12] + A[8]"/>
+<node CREATED="1577852549609" ID="ID_1734782226" MODIFIED="1577852569869" TEXT="Sum of [1, 11) = A[10] + A[8]"/>
+<node CREATED="1577852577828" ID="ID_370907462" MODIFIED="1577852609754" TEXT="Range sum: (A[15] + A[14] + A[12] + A[8] - A[10] - A[8]"/>
+</node>
+<node CREATED="1577852615564" ID="ID_579885347" MODIFIED="1577852658668" TEXT="Notice that in the worst case the cell we&apos;re querying has a binary representation of all ones (numbers of the form 2^n - 1)">
+<node CREATED="1577852661156" ID="ID_26440176" MODIFIED="1577852689930" TEXT="Hence, it&apos;s easy to see that in the worst case a range query might make us have to do two queries that cost log_2(n) operations"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1577852760351" ID="ID_383824271" MODIFIED="1577852769170" TEXT="Range query algorithm">
+<node CREATED="1577852769823" ID="ID_1931177779" MODIFIED="1577852784709" TEXT="To do a range query from [i,j] both inclusive a Fenwick tree of size N">
+<node CREATED="1577852786192" ID="ID_688088038" MODIFIED="1577852927576">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function prefixSum(i):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sum := 0
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;while i != 0:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sum = sum + tree[i]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = i - LSB(i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return sum
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function rangeQuery(i, j):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return prefixSum(j) - prefixSum(i - 1)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Where LSB returns the value of the least significant bit.
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047934157" ID="ID_1668128613" MODIFIED="1567047940049" TEXT="Fenwick tree point updates"/>
 <node CREATED="1567047940961" ID="ID_814720894" MODIFIED="1567047946570" TEXT="Fenwick tree construction"/>
 <node CREATED="1567047947928" ID="ID_210618531" MODIFIED="1567047952477" TEXT="Fenwick tree source code"/>
