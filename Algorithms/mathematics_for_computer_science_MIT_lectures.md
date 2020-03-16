@@ -675,7 +675,7 @@
 
 			NXN Network | Diameter | Switch-Size | #Switces | Congestion
 			Binary Tree |	2(1+logN) | 3x3         | 2xN - 1  | N
-			2D Array	  |			   |		       |          |
+			2D Array	  |		2N	   | 2x2         |  N^2     | 2
 			Butterfly	  |			   |		       |          |
 			Benes		  |			   |             |          |
 			
@@ -714,10 +714,18 @@
 			5. Max congestion = max min(solutions of all paths) congestion P0,pi(0)...PN-1,pi(N-1)
 2. All inputs are connected using 2-D array
 
-		In0 -> [] -> o
+		In0 -> [] -> o -> o ...
+					   |	
+					   o ...
 					   |
-					   o
+					   o ...
+					   |
+					   [] ...
+					   Out0
 					   
+	1. Theorem: The congestion of N input array is 2
+		1. Proof: Let pi be a permutation. P.i,pi(i) = path from Ini rightward to column pi(i) and downward to output pi(i)
+			1. Switch in row i and column pi(i) transmits <= 2 packets
 
 ## Lec 10 ##
 ## Lec 11 ##
