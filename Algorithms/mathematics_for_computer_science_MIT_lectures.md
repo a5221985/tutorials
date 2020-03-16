@@ -738,7 +738,21 @@
 	1. Labeling switches: Columns - level 0, 1, 2, ..., Rows: 000, 001, 010, 011, 100, 101, 110, 111 (binary)
 	2. Switch is uniquely identified by it's row and column
 
-			(b1,...,b_log N, l) (l is level)
+			(b1,...,b_log N, l) (l is level) routes to (b1, ..., ~b_l+1,..., b_logN, l+1) or to (b1, ..., b_l+1,..., b_logN, l+1)
+			
+		1. (X1, ..., X_logN, 0) all the way to (Y1, ..., Y_logN, logN)
+
+				(X1,...,X_logN, 0) -> (Y1, ..., X_logN, 1) -> (Y1, Y2, ..., X_logN, 2) -> .... -> (Y1, Y2, ..., Y_logN, logN)
+				
+			1. Diameter: ~ logN (actual 2 + logN)
+			2. Switches: 2x2
+			3. Number of switches: N(1 + logN)
+			4. Congestion: sqrt(N) (if N is even) or sqrt(N/2) (if N is odd)
+	3. Benes Network: Butterfly back to back (with second half reversed)
+
+			o -> o -> o
+			| x  | x  |
+			o -> o -> o
 
 ## Lec 10 ##
 ## Lec 11 ##
