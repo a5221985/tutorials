@@ -730,8 +730,15 @@
 3. Butterfly network:
 
 		In0 [] -> o -> o -> ... -> o -> [] Out0
-	             |  x |  
+		          ^    ^
+	             |  x |
+	             v    v  
 		... [] -> o -> o -> ... -> o -> [] Out1     
+
+	1. Labeling switches: Columns - level 0, 1, 2, ..., Rows: 000, 001, 010, 011, 100, 101, 110, 111 (binary)
+	2. Switch is uniquely identified by it's row and column
+
+			(b1,...,b_log N, l) (l is level)
 
 ## Lec 10 ##
 ## Lec 11 ##
