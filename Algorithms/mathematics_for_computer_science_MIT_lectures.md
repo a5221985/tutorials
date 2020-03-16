@@ -674,7 +674,7 @@
 	2. Table:
 
 			NXN Network | Diameter | Switch-Size | #Switces | Congestion
-			Binary Tree |	2(1+logN) | 3x3         | 2xN - 1  |
+			Binary Tree |	2(1+logN) | 3x3         | 2xN - 1  | N
 			2D Array	  |			   |		       |          |
 			Butterfly	  |			   |		       |          |
 			Benes		  |			   |             |          |
@@ -704,7 +704,20 @@
 		2. Conjestion: Everything has to go through root and if it fails, then two disjoint subtrees cannot communicate
 			1. A permutation: It is a function pi {0, ..., n - 1} -> {0, ..., n - 1} such that no two numbers are mapped to the same value
 				1. pi(i) = pi(j) iff i = j
-				2. Example: pi(i) = N - 1 - i
+				2. Example: pi(i) = N - 1 - i, pi(i) = i
+			2. Permutation Routing problem for:
+				1. For each i, direct the packet at Input i to Output pi(i)
+			3. Path taken is denoted by P_i.pi(i)
+			4. Conjestion of paths P0.pi(0),...,PN-1,pi(N-1) is equal to the largest number of paths that pass through a single switch
+				1. P(i) = N - i - 1 (congestion is N)
+				2. P(i) = i (congestion is 1)
+			5. Max congestion = max min(solutions of all paths) congestion P0,pi(0)...PN-1,pi(N-1)
+2. All inputs are connected using 2-D array
+
+		In0 -> [] -> o
+					   |
+					   o
+					   
 
 ## Lec 10 ##
 ## Lec 11 ##
