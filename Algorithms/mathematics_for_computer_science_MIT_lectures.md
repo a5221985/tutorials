@@ -686,7 +686,7 @@
 					 o	   o
 					 
 				1. o = switch
-				2. 
+				2. direct packets through network (fixed size - 4096 bytes say)
 
 ## Lec 10 ##
 ## Lec 11 ##
