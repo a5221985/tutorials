@@ -750,9 +750,7 @@
 			4. Congestion: sqrt(N) (if N is even) or sqrt(N/2) (if N is odd)
 	3. Benes Network: Butterfly back to back (with second half reversed)
 
-			o -> o -> o
-			| x  | x  |
-			o -> o -> o
+		1. ![benes_network](benes_network.jpg)
 
 ## Lec 10 ##
 ## Lec 11 ##
