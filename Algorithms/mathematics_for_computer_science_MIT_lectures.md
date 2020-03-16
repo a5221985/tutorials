@@ -674,7 +674,7 @@
 	2. Table:
 
 			NXN Network | Diameter | Switch-Size | #Switces | Congestion
-			Binary Tree |			   |		       |          |
+			Binary Tree |	2(1+logN) | 3x3         | 2xN - 1  |
 			2D Array	  |			   |		       |          |
 			Butterfly	  |			   |		       |          |
 			Benes		  |			   |             |          |
@@ -691,9 +691,20 @@
 				1. o = switch
 				2. direct packets through network (fixed size - 4096 bytes say)
 				3. [] = Terminal (computer say. Source & destination of data)
+				
 		2. Latency:
 			1. It is the time required for a packet to travel from an input to an output.
 		3. Diameter: Of a network is the length of the shortest path between the input and the output that are furthest apart (worst case time between input and output)
+			1. Travels through root in this case
+				1. Diameter = 6
+				2. Internal switches are 3 x 3
+					1. For ternary trees, switch size increases but path size decreases
+			2. Monster switch: All inputs to one node and to all outputs
+				1. But we want to use small switches and do routing (conceals the actual problem - how do we route inside the switch?)
+		2. Conjestion: Everything has to go through root and if it fails, then two disjoint subtrees cannot communicate
+			1. A permutation: It is a function pi {0, ..., n - 1} -> {0, ..., n - 1} such that no two numbers are mapped to the same value
+				1. pi(i) = pi(j) iff i = j
+				2. Example: pi(i) = N - 1 - i
 
 ## Lec 10 ##
 ## Lec 11 ##
