@@ -674,10 +674,10 @@
 	2. Table:
 
 			NXN Network | Diameter | Switch-Size | #Switces | Congestion
-			Binary Tree |	2(1+logN) | 3x3         | 2xN - 1  | N
-			2D Array	  |		2N	   | 2x2         |  N^2     | 2
-			Butterfly	  |			   |		       |          |
-			Benes		  |			   |             |          |
+			Binary Tree | 2(1+logN)| 3x3         | 2xN - 1  | N
+			2D Array    | 2N       | 2x2         | N^2      | 2
+			Butterfly   | 2 + logN | 2x2         | N(1+logN)|
+			Benes       |          |             |          |
 			
 		1. Complete binary tree: 
 
