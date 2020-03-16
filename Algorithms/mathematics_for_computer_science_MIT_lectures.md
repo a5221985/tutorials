@@ -726,6 +726,12 @@
 	1. Theorem: The congestion of N input array is 2
 		1. Proof: Let pi be a permutation. P.i,pi(i) = path from Ini rightward to column pi(i) and downward to output pi(i)
 			1. Switch in row i and column pi(i) transmits <= 2 packets
+				1. If Pi(0) = 0, Pi(N-1) = N - 1 => Conjestion of 2 (specific example)
+3. Butterfly network:
+
+		In0 [] -> o -> o -> ... -> o -> [] Out0
+	             |  x |  
+		... [] -> o -> o -> ... -> o -> [] Out1     
 
 ## Lec 10 ##
 ## Lec 11 ##
