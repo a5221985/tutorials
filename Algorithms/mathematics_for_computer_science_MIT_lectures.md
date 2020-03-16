@@ -681,12 +681,19 @@
 			
 		1. Complete binary tree: 
 
-						o
-					 ()  ()
-					 o	   o
+						 o
+					   ()
+				  	  o	  
+				 	 ()   
+					/  \  
+				  []   []	  
 					 
 				1. o = switch
 				2. direct packets through network (fixed size - 4096 bytes say)
+				3. [] = Terminal (computer say. Source & destination of data)
+		2. Latency:
+			1. It is the time required for a packet to travel from an input to an output.
+		3. Diameter: Of a network is the length of the shortest path between the input and the output that are furthest apart (worst case time between input and output)
 
 ## Lec 10 ##
 ## Lec 11 ##
