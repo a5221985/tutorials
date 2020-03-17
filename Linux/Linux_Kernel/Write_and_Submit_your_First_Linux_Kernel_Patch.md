@@ -100,4 +100,8 @@
 	2. Correct "Fron:" address
 	3. Concise "Subject:"
 	4. Explain the patch
-	5. Signed-off by	
+	5. Signed-off by
+9. If no response:
+	1. Wait for a week and re-send again
+		1. Persistence is the key
+10. `kernelnewbies.org`	
