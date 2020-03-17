@@ -107,3 +107,8 @@
 10. `kernelnewbies.org`	
 	1. Wiki
 	2. What is in each kernel release
+	3. mailing list
+	4. irc channel
+		1. Questions are answered
+	5. Every single sub-system of kernel has a mailing list (usb)
+		1. open - any one can send email
