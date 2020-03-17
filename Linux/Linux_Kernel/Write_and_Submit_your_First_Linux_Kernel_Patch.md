@@ -105,3 +105,5 @@
 	1. Wait for a week and re-send again
 		1. Persistence is the key
 10. `kernelnewbies.org`	
+	1. Wiki
+	2. What is in each kernel release
