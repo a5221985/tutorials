@@ -752,6 +752,8 @@
 
 		1. ![benes_network](benes_network.jpg)
 
+	
+
 ## Lec 10 ##
 ## Lec 11 ##
 ## Lec 12 ##
