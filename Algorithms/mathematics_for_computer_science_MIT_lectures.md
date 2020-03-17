@@ -676,8 +676,8 @@
 			NXN Network | Diameter | Switch-Size | #Switces | Congestion
 			Binary Tree | 2(1+logN)| 3x3         | 2xN - 1  | N
 			2D Array    | 2N       | 2x2         | N^2      | 2
-			Butterfly   | 2 + logN | 2x2         | N(1+logN)|
-			Benes       |          |             |          |
+			Butterfly   | 2 + logN | 2x2         | N(1+logN)| rt(N)/rt(N/2) 
+			Benes       | 1 + 2logN| 2x2         | 2NlogN   | 1
 			
 		1. Complete binary tree: 
 
@@ -751,8 +751,19 @@
 	3. Benes Network: Butterfly back to back (with second half reversed)
 
 		1. ![benes_network](benes_network.jpg)
+		2. It has recursive nature
+			1. Two sub-networks are banes networks
+		3. Theorem: The congestion of the N-input Benes network is 1, when N = 2^a for some a >= 1
+			1. Proof: By induction on a: P(a) = "The theorem is true for a"
+				1. Base Case: P(1): N = 2, 
 
-	
+						In1 [] -> o -> o -> [] Ou1
+						          | x  |
+						In2 [] -> o -> o -> [] Ou2
+						
+					1. pi(0) = 0, pi(1) = 1 (congestion is 1)
+					2. pi(0) = 1, pi(1) = 0 (congestion is 1)
+				3. 
 
 ## Lec 10 ##
 ## Lec 11 ##
