@@ -52,3 +52,30 @@
 			1. Different hardware work differently
 				1. Community checks (if people have the hardware they report)
 		13. `git commit -a`
+		14. Commit message: `USB: otg: Fix bug on remove path without transceiver` (summary of what it does)
+		15. Signed of by:
+			1. Developer's certificate of origin
+				1. I added this change; or
+				2. Based this on a previous work with a compatible license; or
+				3. Provided to me by (a), (b), or (c) and not modified
+				4. This contribution is public
+			2. Every single line of code is reviewed by atleast 2 people and they sign off
+			3. No anonymous contributors allowed
+			4. Example commit message:
+
+					Staging: comedi: ssc_dnp: fixed a brace coding style issue
+					
+					Fixed a coding style issue.
+					
+					signed-off-by: Greg Kroah-Hartman <gregkh@suse.de>
+					
+			5. `git log`
+			6. `git show` - patch in format
+			7. `git show --pretty=full`
+				1. Authorship is preserved
+		16. `git format-patch master..tutorial` (patch is made)
+			1. Converts to email
+		17. We can configure email clients to send patches:
+			1. There is documentation
+		18. `./scripts/get_maintainer.pl <patch>.patch`
+		18. `git send-email <patch>.patch`
