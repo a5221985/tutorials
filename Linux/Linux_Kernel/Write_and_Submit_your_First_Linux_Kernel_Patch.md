@@ -21,3 +21,4 @@
 7. Coding style:
 	1. We can see bugs
 	2. It should be consistent
+	3. We someone else to join
