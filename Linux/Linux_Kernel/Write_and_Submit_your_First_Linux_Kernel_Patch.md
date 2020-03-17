@@ -16,4 +16,8 @@
 6. Git (free books)
 	1. `git status`
 		1. Where is kernel? `git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git`
-	2. 
+	2. `git branch tutorial`
+		1. `git checkout tutorial`
+7. Coding style:
+	1. We can see bugs
+	2. It should be consistent
