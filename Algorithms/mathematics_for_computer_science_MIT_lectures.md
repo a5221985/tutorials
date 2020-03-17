@@ -776,7 +776,7 @@
 							2 - - 6
 							
 						1. Constraint: The packet destined for Out_0 (pi(6) = 0) and the packet for Out_4 (pi(2) = 4) cannot pass through the same subnetwork.
-						2. Constraint: 
+						2. Key insight: A 2-coloring of the constraint graph (leads to best solution of the routing problem)
 
 ## Lec 10 ##
 ## Lec 11 ##
