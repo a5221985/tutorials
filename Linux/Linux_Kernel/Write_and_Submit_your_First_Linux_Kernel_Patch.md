@@ -30,4 +30,25 @@
 			2. 80 char line limit (if too long - refactor)
 		3. Braces: upper left, lower right
 		4. `goto` are used
-	
+			1. Locking - jump to the end and release all locks (scheduler)
+		5. single arg if statements - no braces
+		6. function: all the way to left
+
+				int function(int *baz)
+				{
+					do_something(baz);
+					return 0;
+				}
+				
+		7. `scripts/checkpatch.pl` (if we make modification to kernel if it is good or not)
+		
+				./scripts/checkpatch.pl --file --terse drivers/staging/modedi/drivers/ssv_dnp.c
+				
+		8. `vim drivers/staging/comedi/drivers/ssv_dnp.c +330`
+		9. `git status`
+		10. `git diff`
+		11. `make M=drivers/staging/comedi/`
+		12. It is hard to have test suite for hardware interactions
+			1. Different hardware work differently
+				1. Community checks (if people have the hardware they report)
+		13. `git commit -a`
