@@ -78,4 +78,26 @@
 		17. We can configure email clients to send patches:
 			1. There is documentation
 		18. `./scripts/get_maintainer.pl <patch>.patch`
-		18. `git send-email <patch>.patch`
+		18. `git send-email --to gegkh@suse.de --cc devel@deiverdev.osuosl.org --cc linux-kernel@vger.kernel.org <patch>.patch `
+			1. Multiple files may need a summary patch (tell the order)
+			2. Patch should do only one thing (not replace sub-systems)
+			3. Adding new driver code is fine
+			4. Modifying a sub-system needs review process
+		19. `vim ~/.gitconfig`
+
+				[sendmail]
+						smtpserver = /usr/bin/msmtp
+						
+			1. man pages can tell how to configure for email servers
+		20. `./scripts/get_maintainer.pl --file drivers/hid/hid-ezkey.c`
+			1. We can contact them if required
+		21. `git blame drivers/hid/hid-ezkey.c`
+			1. Who wrote what line etc...
+		22. `git show <commit-id>`
+			1. Who made this commit and what changes they made
+8. Checklist:
+	1. Kernel builds with patch applied
+	2. Correct "Fron:" address
+	3. Concise "Subject:"
+	4. Explain the patch
+	5. Signed-off by	
