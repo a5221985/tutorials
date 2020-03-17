@@ -763,7 +763,8 @@
 						
 					1. pi(0) = 0, pi(1) = 1 (congestion is 1)
 					2. pi(0) = 1, pi(1) = 0 (congestion is 1)
-				3. 
+				2. Inductive Step: Assume P(a)
+					1. If two packets must pass through different subnetworks, then there is an edge between them
 
 ## Lec 10 ##
 ## Lec 11 ##
