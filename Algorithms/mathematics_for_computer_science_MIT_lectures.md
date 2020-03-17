@@ -766,6 +766,18 @@
 				2. Inductive Step: Assume P(a)
 					1. If two packets must pass through different subnetworks, then there is an edge between them
 
+							0 --- 4
+							1 --- 5
+							2 --- 6
+							3 --- 7
+							0 - - 1
+							3 - - 4
+							5 - - 7
+							2 - - 6
+							
+						1. Constraint: The packet destined for Out_0 (pi(6) = 0) and the packet for Out_4 (pi(2) = 4) cannot pass through the same subnetwork.
+						2. Constraint: 
+
 ## Lec 10 ##
 ## Lec 11 ##
 ## Lec 12 ##
