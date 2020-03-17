@@ -21,4 +21,13 @@
 7. Coding style:
 	1. We can see bugs
 	2. It should be consistent
-	3. We someone else to join
+		1. Pick a coding style and stick to it
+	3. We want someone else to join
+	4. Linux Kernel is very good code
+	5. `Documentation/CodingStyle` - Document
+		1. Rules
+			1. all tabs are 8 chars
+			2. 80 char line limit (if too long - refactor)
+		3. Braces: upper left, lower right
+		4. `goto` are used
+	
