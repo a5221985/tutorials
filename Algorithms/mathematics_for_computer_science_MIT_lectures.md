@@ -783,7 +783,16 @@
 							3. Proof: Recitation
 
 ## Lec 10 ##
-1. 
+1. Topics
+	1. Euler Tours
+	2. Directed graphs
+		1. Definitions
+		2. No of walks
+		3. Strong connectivity
+		4. DAGs (communication networks)
+	3. Tournament Graphs
+2. Euler Tours
+	1. 
 
 ## Lec 11 ##
 ## Lec 12 ##
