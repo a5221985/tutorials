@@ -777,8 +777,14 @@
 							
 						1. Constraint: The packet destined for Out_0 (pi(6) = 0) and the packet for Out_4 (pi(2) = 4) cannot pass through the same subnetwork.
 						2. Key insight: A 2-coloring of the constraint graph (leads to best solution of the routing problem)
+						3. Routing process:
+							1. If a node is colored red, then direct it to the red sub-net
+							2. All packets from input to output can be routed such that the entire network sees one packet at a time
+							3. Proof: Recitation
 
 ## Lec 10 ##
+1. 
+
 ## Lec 11 ##
 ## Lec 12 ##
 ## Lec 13 ##
