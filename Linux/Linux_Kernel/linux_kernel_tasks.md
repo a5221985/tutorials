@@ -14,4 +14,6 @@
 	1. Find tasks to work on
 7. Fix compiler warnings
 	1. It can be dangerous!!! We need to have background
-8. 
+8. Commit message: Why are we doing it
+9. No test suite!!!
+	1. Hardware is not available (but we have the spec)
