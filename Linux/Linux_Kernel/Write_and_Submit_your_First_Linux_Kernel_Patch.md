@@ -97,7 +97,7 @@
 			1. Who made this commit and what changes they made
 8. Checklist:
 	1. Kernel builds with patch applied
-	2. Correct "Fron:" address
+	2. Correct "From:" address
 	3. Concise "Subject:"
 	4. Explain the patch
 	5. Signed-off by
