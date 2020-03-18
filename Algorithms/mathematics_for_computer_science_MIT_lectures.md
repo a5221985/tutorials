@@ -797,7 +797,11 @@
 		1. Proof:
 			1. Two directions proof:
 				1. If =>
-					1. Assume 
+					1. Assume G = (V, E) has an Euler tour;
+
+							v0 - v1 - ... - vk-1 - vk = v0
+							
+						1. Walk where 
 
 ## Lec 11 ##
 ## Lec 12 ##
