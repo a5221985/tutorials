@@ -12,3 +12,6 @@
 	2. Improve it
 6. `find -iname TODO | wc -l` (Developers write what they want to do and they don't want to do...)
 	1. Find tasks to work on
+7. Fix compiler warnings
+	1. It can be dangerous!!! We need to have background
+8. 
