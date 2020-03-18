@@ -838,7 +838,31 @@
 			aij = { 1 if vi -> vj is an edge
 			      { 0 if otherwise
 			      
-		1. Let pij^k = number of directed walks of length k from vi to vj
+		1. Let pij^k = number of directed walks of length k from vi to vj. Then A^k = {pij^k}
+			1. Example:
+
+						v1	v2	v3
+					v1	1	1	1
+					v2	0	0	1	= A
+					v3	0	1	0
+					
+				1. A^2 =
+
+						1	2	2
+						0	1	0
+						0	0	1
+						
+				2. A^3 =
+
+						1	3	3
+						0	0	1
+						0	1	0
+						
+			2. Proof: By induction:
+				1. Let aij^k deonte the (i, j) th entry in A^k
+				2. P(K): Theorem is true for k
+					1. P(k) = for all i, j ai,j^k = Pi,j^k
+				3. Base Case:
 
 ## Lec 11 ##
 ## Lec 12 ##
