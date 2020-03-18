@@ -792,7 +792,12 @@
 		4. DAGs (communication networks)
 	3. Tournament Graphs
 2. Euler Tours
-	1. 
+	1. Definition: An euler tour is a walk that traverses every edge exactly once. (Un-directed graph) and starts + finishes at the same vertex
+	2. Theorem: A connected graph has an Euler tour iff every vertex has even degree
+		1. Proof:
+			1. Two directions proof:
+				1. If =>
+					1. Assume 
 
 ## Lec 11 ##
 ## Lec 12 ##
