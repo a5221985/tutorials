@@ -801,7 +801,12 @@
 
 							v0 - v1 - ... - vk-1 - vk = v0
 							
-						1. Walk where 
+						1. Walk where all edges are covered and covered only once
+						2. Since every edge in E is traversed once
+					2. Let u be a vertex that exists in the walk
+						1. deg(u) = number of times u appears in the tour v0 to vk times 2 => deg(u) is even
+				2. <=
+					1. For G = (V, E), assume deg(v) is even
 
 ## Lec 11 ##
 ## Lec 12 ##
