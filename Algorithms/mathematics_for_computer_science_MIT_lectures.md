@@ -823,10 +823,22 @@
 
 									u - vi - ... - v0 = vk - ... - vi
 									
-								1. This is a longer walk which is a longer walk which is a contradiction to the initial assumption that W is the longest walk
+								1. This is a longer walk which is a contradiction to the initial assumption that W is the longest walk
 2. Directed graph: (digraph)
+	1. ![digraph_example.png](digraph_example.png)
+	2. Edge
 
-		
+			v2 -> v3
+			tail	head
+			
+		1. indegree(v2) = 2
+		2. outdegree(v2) = 1
+	3. Theorem: Let G = (V, E) be an n-node graph with V = {v1, ..., vn}. Let A = {aij} denote the adjacency matrix for G. That is
+
+			aij = { 1 if vi -> vj is an edge
+			      { 0 if otherwise
+			      
+		1. Let pij^k = number of directed walks of length k from vi to vj
 
 ## Lec 11 ##
 ## Lec 12 ##
