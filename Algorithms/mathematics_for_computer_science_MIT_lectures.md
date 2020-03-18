@@ -806,7 +806,19 @@
 					2. Let u be a vertex that exists in the walk
 						1. deg(u) = number of times u appears in the tour v0 to vk times 2 => deg(u) is even
 				2. <=
-					1. For G = (V, E), assume deg(v) is even
+					1. For G = (V, E), assume deg(v) is even for all v in V: Let W : v0 - v1 - ... - vk be the longest walk that traverses no edge more than once
+					2. If vk - u not in W: 
+
+							vo - v1 - ... - vk - u
+							
+						1. It is a longer walk and hence a contradiction => every edge is covered by the walk
+						2. All edges incident to vk are used in W
+					3. vk = v0?
+						1. Proof: Proof by contradiction
+							1. vk has odd degree in W (vk is in W)
+							2. By 1, vk has odd degree in G. This is a contradiction to initial assumption
+					4. Suppose W is not an Euler tour:
+						1. G is connected
 
 ## Lec 11 ##
 ## Lec 12 ##
