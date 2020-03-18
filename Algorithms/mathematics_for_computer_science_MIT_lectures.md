@@ -818,7 +818,15 @@
 							1. vk has odd degree in W (vk is in W)
 							2. By 1, vk has odd degree in G. This is a contradiction to initial assumption
 					4. Suppose W is not an Euler tour:
-						1. G is connected
+						1. We know that G is connected: so there exists an edge in E not used in W but incident to some vertex used in W. Let u - vi be this edge
+							1. Let us start from u
+
+									u - vi - ... - v0 = vk - ... - vi
+									
+								1. This is a longer walk which is a longer walk which is a contradiction to the initial assumption that W is the longest walk
+2. Directed graph: (digraph)
+
+		
 
 ## Lec 11 ##
 ## Lec 12 ##
