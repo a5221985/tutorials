@@ -20,3 +20,8 @@
 10. https://0xax.gitbooks.io/linux-insides/
 	1. How linux works
 11. `#kernelnewbies @ oftc.net`
+12. Unit test framework for linux kernel
+	1. Device drivers
+13. IDE:
+	1. Emacs
+	2. Nano (small stuff)
