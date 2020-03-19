@@ -19,3 +19,4 @@
 	1. Hardware is not available (but we have the spec)
 10. https://0xax.gitbooks.io/linux-insides/
 	1. How linux works
+11. `#kernelnewbies @ oftc.net`
