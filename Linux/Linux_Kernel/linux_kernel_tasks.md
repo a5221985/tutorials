@@ -17,3 +17,5 @@
 8. Commit message: Why are we doing it
 9. No test suite!!!
 	1. Hardware is not available (but we have the spec)
+10. https://0xax.gitbooks.io/linux-insides/
+	1. How linux works
