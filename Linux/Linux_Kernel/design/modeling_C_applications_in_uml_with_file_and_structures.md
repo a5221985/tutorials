@@ -97,3 +97,16 @@
 		1. In *.h files
 	3. Private attributes and operations:
 		1. In *.c files
+	4. Composite data
+		1. It is in structure (`struct`)
+			1. Represented as file/class without any operations
+				1. Functions manipulating `struct`s can be in
+					1. Same file (recommended)
+					2. Different file
+
+## Modeling Keeps it Simple ##
+1. Modeling 
+	1. Simplifies development process
+	2. Facilitates collaboration
+	3. Enables re-use
+	4. Benefits modeling complex applications
