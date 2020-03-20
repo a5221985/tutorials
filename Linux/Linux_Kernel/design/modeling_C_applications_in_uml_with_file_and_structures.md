@@ -82,4 +82,18 @@
 	2. Product that meets customer's stated requirements
 
 ## Modeling Function-Based Designs ##
-
+1. C **files**, **functions** and **data structures** can be represented as 
+	1. **UML class diagrams**
+	2. **Activity diagrams**
+	3. **Sequence diagrams**
+	4. **Statechart diagrams**
+2. UML file represents source files
+	1. Content:
+		1. Variables
+		2. Functions
+		3. Types
+		4. Structures
+	2. Public attributes and operations:
+		1. In *.h files
+	3. Private attributes and operations:
+		1. In *.c files
