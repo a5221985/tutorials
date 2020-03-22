@@ -11,3 +11,7 @@
 		1. Independent sequence of execution
 	3. Difference
 		1. Processes run in a separate memory space, while threads run in a shared memory space
+4. Task switching and scheduling
+	1. Many processes and threads run concurrently
+	2. Made possible by task switching and scheduling functionality of the kernel
+	3. Kernel makes a wise choice to choose the right process to run on the CPU
