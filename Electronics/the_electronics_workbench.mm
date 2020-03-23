@@ -512,6 +512,8 @@
 </node>
 </node>
 </node>
+<node CREATED="1584950514520" ID="ID_1829949598" MODIFIED="1584950522305" TEXT="X-axis - time"/>
+<node CREATED="1584950522553" ID="ID_4128569" MODIFIED="1584950527801" TEXT="Y-axis - voltage"/>
 </node>
 </node>
 <node CREATED="1576173209596" ID="ID_82880359" MODIFIED="1576173219035" TEXT="Decoding I2C with the oscilloscope"/>
