@@ -895,7 +895,9 @@
 7. Hamiltonian path: Path that goes around the graph and covers each vertex exactly once
 	1. Definition: A directed hamiltonian path is a directed walk that visits every vertex exactly once.
 	2. Theorem: Every tournament graph contains a directed Hamiltonian path
-		1. Proof: By induction on n
+		1. Proof: By induction on n where P(n) = "Every tournament graph on n nodes contains a directed Hamiltonian path"
+			1. Base case: n = 1 => single node is a directed Hamiltonian path
+			2. Inductive step: Assume P(n)
 
 ## Lec 11 ##
 ## Lec 12 ##
