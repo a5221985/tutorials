@@ -862,7 +862,14 @@
 				1. Let aij^k deonte the (i, j) th entry in A^k
 				2. P(K): Theorem is true for k
 					1. P(k) = for all i, j ai,j^k = Pi,j^k
-				3. Base Case: k = 1, Edge vi -> vj : Pij^(1) = 1 = a
+				3. Base Case: k = 1, 
+					1. Edge vi -> vj : Pij^(1) = 1 = aij^(1). This is true because there is a walk between vi and vj of length 1.
+					2. No edge vi -> vj: Pij^(1) = 0 = aij^(1). This is true because there is no walk of length 1 between vi and vj
+				4. Inductive Step: Assume P^(k)
+
+						Pij^(k+1) = sigmal_j:vh->vj is edge in G Pih^(k) = sigma_h=1 to n Pih^(k) . ahj = sigma_h=1 to n aij^(k) . ahj = sigma_h=1 to n aij^(k+1) (matrix multiplication). []
+						
+3. 	
 
 ## Lec 11 ##
 ## Lec 12 ##
