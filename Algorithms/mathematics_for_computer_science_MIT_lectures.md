@@ -862,7 +862,7 @@
 				1. Let aij^k deonte the (i, j) th entry in A^k
 				2. P(K): Theorem is true for k
 					1. P(k) = for all i, j ai,j^k = Pi,j^k
-				3. Base Case:
+				3. Base Case: k = 1, Edge vi -> vj : Pij^(1) = 1 = a
 
 ## Lec 11 ##
 ## Lec 12 ##
