@@ -892,7 +892,7 @@
 6. Example: A -> B -> D -> E -> C (but C beats A!)
 	1. It is not clear who is the best player (If one is at left)
 	2. Example: C -> A -> B -> D -> E
-7. Hamiltonian path: 
+7. Hamiltonian path: Path that goes around the graph and covers each vertex exactly once
 
 ## Lec 11 ##
 ## Lec 12 ##
