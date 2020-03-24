@@ -869,7 +869,30 @@
 
 						Pij^(k+1) = sigmal_j:vh->vj is edge in G Pih^(k) = sigma_h=1 to n Pih^(k) . ahj = sigma_h=1 to n aij^(k) . ahj = sigma_h=1 to n aij^(k+1) (matrix multiplication). []
 						
-3. 	
+3. Definition: A digraph G = (V, E) is strongly connected if for all vertices u, v in V, there exists a directed path from u to v in G.
+4. Definition: A directed graph is called a directed acyclic graph (DAG) if it does not contain any directed cycles
+	1. Scheduling
+	2. Optimization
+	3. Partial orderings
+5. Tournament graph: Vertex - team, directed edge - who wins against whom
+
+		E -> A
+		A -> B
+		C -> B
+		D -> C
+		C -> E
+		B -> E
+		E -> C
+		A -> D
+		B -> D
+		C -> A
+		
+	1. Either u beats v : u -> v
+	2. or v beats u : v -> u
+6. Example: A -> B -> D -> E -> C (but C beats A!)
+	1. It is not clear who is the best player (If one is at left)
+	2. Example: C -> A -> B -> D -> E
+7. Hamiltonian path: 
 
 ## Lec 11 ##
 ## Lec 12 ##
