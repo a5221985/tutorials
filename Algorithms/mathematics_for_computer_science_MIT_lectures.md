@@ -898,6 +898,11 @@
 		1. Proof: By induction on n where P(n) = "Every tournament graph on n nodes contains a directed Hamiltonian path"
 			1. Base case: n = 1 => single node is a directed Hamiltonian path
 			2. Inductive step: Assume P(n)
+				1. Consider a tournament graph on n + 1 nodes.
+				2. Take out one node v. This gives a tournament graph on n nodes
+				3. By P(n): v1 -> v2 -> ... -> vn be a Hamiltonian path
+					1. Case 1: if v -> v1, then we have a Hamiltonian path
+					2. Case 2: if v1 -> v, 
 
 ## Lec 11 ##
 ## Lec 12 ##
