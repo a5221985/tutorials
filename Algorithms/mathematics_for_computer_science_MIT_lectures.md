@@ -1031,7 +1031,11 @@
 ## Lec 12 ##
 1. Loan: student, home
 	1. Annuity - financial instrument
-		1. That pays a fixed amount of money every year
+		1. That pays a fixed amount of money every year for some number of years
+		2. student loan: it is the value the bank gave you
+			1. Every month or year we pay back
+	2. We want to know whether we will get back money for the money we pay every month for certain number of years in the future
+2. Definition: An n-year $m-payment annuity
 
 ## Lec 13 ##
 ## Lec 14 ##
