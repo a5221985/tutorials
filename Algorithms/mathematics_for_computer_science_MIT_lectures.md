@@ -965,6 +965,15 @@
 			2. [7] = [12] = [17] = ...
 6. A partition of A is a collection of disjoint non-empty sets A1, ..., An (which are subsets of A), whose union is A
 	1. Ex: {..., -5, 0, 5, 10, ...}
+	2. Ex: {..., -4, 1, 6, 11, ...} (x C 1 (mod 5))
+	3. Ex: {..., -3, 2, 7, 17, ...}
+	4. Ex: {..., -2, 3, 8, 13, ...}
+	5. Ex: {..., -1, 4, 9, 14, ...} (if you add 1 to each element, we get the first equivalence class)
+	6. The equivalence classes are partition of Integers
+7. Theorem: The equivalence class of an equivalence relation on a set A form a partition of A
+8. A relation is a (weak) partial order if it is reflexive, anti-symmetric and transitive
+	1. strong - ir-reflexivity
+9. A partial order relation is denoted with <= instead of R (we can give ranking to elements)
 
 ## Lec 12 ##
 ## Lec 13 ##
