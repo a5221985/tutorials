@@ -963,7 +963,8 @@
 		1. Ex: x C y (mod 5)
 			1. [7] = {..., -3, 2, 7, 12, 17, 22, ...}
 			2. [7] = [12] = [17] = ...
-6. A partition of A is a collection of disjoint non-empty sets A1, ..., An
+6. A partition of A is a collection of disjoint non-empty sets A1, ..., An (which are subsets of A), whose union is A
+	1. Ex: {..., -5, 0, 5, 10, ...}
 
 ## Lec 12 ##
 ## Lec 13 ##
