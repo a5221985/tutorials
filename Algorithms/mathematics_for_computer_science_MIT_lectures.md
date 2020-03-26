@@ -974,6 +974,20 @@
 8. A relation is a (weak) partial order if it is reflexive, anti-symmetric and transitive
 	1. strong - ir-reflexivity
 9. A partial order relation is denoted with <= instead of R (we can give ranking to elements)
+	1. Ex: (A, <=) is called a partially ordered set or poset
+	2. A poset is a directed graph with vertex set A and edge set <= (<= is a set of tuples (pairs))
+	3. Example:
+	
+			underwear -> pants
+			shirt -> pants -> belt -> Jacket
+			pants -> right shoe
+			pants -> left shoe
+			shirt -> tie -> jacket
+			right sock -> right shoe
+			left sock -> left shoe
+			
+		1. Hasse Diagram
+			1. Due to transitivity, there are edges from previous to next item
 
 ## Lec 12 ##
 ## Lec 13 ##
