@@ -1005,6 +1005,18 @@
 					2. Since a3 <= a4 => a1 <= a4
 						1. Use induction to prove: a1 <= an
 						2. But an <= a1 but a1 != an. This is a contradiction
+		3. So deleting self loops from a poset, makes a directed acyclic graph (DAG)
+		4. Why is it called as partial order? Since certain elements cannot be compared to the others
+			1. Right sock cannot be compared to shirt
+		5. Definition: a and b are incomparable if neither a <= b nor b <= a.
+		6. Definition: a and b are comparable if a <= b or b <= a.
+		7. Definition: 
+			1. Total order: A total order is a partial order in which every pair of elements is comparable
+				1. It is a straight line graph
+					1. Finite line or
+					2. Infinite line (or semi infinite line)
+10. A total order is consistent with a partial order, it is called a topological sort.
+	1. A topological sort of a poset (A, <=) is a total order (A, <=_T) (subscript) such that <= is a subset of <=_T (if x <= y then x <=_T y)
 
 ## Lec 12 ##
 ## Lec 13 ##
