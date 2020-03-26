@@ -1017,8 +1017,22 @@
 					2. Infinite line (or semi infinite line)
 10. A total order is consistent with a partial order, it is called a topological sort.
 	1. A topological sort of a poset (A, <=) is a total order (A, <=_T) (subscript) such that <= is a subset of <=_T (if x <= y then x <=_T y)
+		1. Theorem: Every finite poset has a topological sort
+		2. Definition: x in A is minimal if it is not true that there exists a y in A, y != x, such that y <= x
+		3. Definition: x in A is maximal if it is not true that there exists a y in A, y != x, such that x <= y
+		4. If it is infinite poset (Z, <=) there does not exist a minimal element (because we can always find a smaller element)
+11. Lemma: Every finite poset has a minimal element:
+	1. Definition: A chain is a sequence of distinct elements such that a1 <= a2 <= a3 <= ... <= at (t is the length)
+	2. Proof: let a1 <= a2 <= ... <= an be a maximum length chain (how? well ordering principle can be used to prove this)
+		1. Case 1: a is not in {a1, a2, ..., an}: if a <= a1, then we get a longer chain which is a contradiction => a is not <= a1
+		2. Case 2: a is in {a1, a2, ..., an}: if a <= a1, then we have a cycle which is a contradiction => a is not <= a1
+		3. Therefore a1 is minimal
 
 ## Lec 12 ##
+1. Loan: student, home
+	1. Annuity - financial instrument
+		1. That pays a fixed amount of money every year
+
 ## Lec 13 ##
 ## Lec 14 ##
 ## Lec 15 ##
