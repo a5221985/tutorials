@@ -960,6 +960,10 @@
 5. Equivalence relation: An equivalence relation is reflexive, symmatric and transitive
 	1. Ex: quality (=) itself, x C y (mod n)
 	2. Equivalence class of x in A is the set of all elements in A related to x by R: denoted by [x]
+		1. Ex: x C y (mod 5)
+			1. [7] = {..., -3, 2, 7, 12, 17, 22, ...}
+			2. [7] = [12] = [17] = ...
+6. A partition of A is a collection of disjoint non-empty sets A1, ..., An
 
 ## Lec 12 ##
 ## Lec 13 ##
