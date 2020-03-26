@@ -907,7 +907,13 @@
 							1. If v -> v(i - 1) then it is a contradiction
 								1. v(i - 1) -> v
 						2. Another way: Use largest i such that vi -> v
-			3. 
+8. Either chicken u pecks chicken v: u -> v or we have a chicken v that pecks chicken u: v -> u. 
+	1. u virtually pecks v if
+		1. u -> v or
+		2. there exists w such that u -> w -> v
+9. A chicken that virtually pecks every other chicken, is called a king chicken
+	1. Theorem: The chicken with highest outdegree is definitely a king
+		1. Proof: By contradiction. Let u have highest outdegree. Suppose u is not king.
 
 ## Lec 11 ##
 ## Lec 12 ##
