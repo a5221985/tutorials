@@ -987,7 +987,24 @@
 			left sock -> left shoe
 			
 		1. Hasse Diagram
-			1. Due to transitivity, there are edges from previous to next item
+			1. Or else due to transitivity, there are edges from previous to next item (which are ignored in Hasse diagram)
+			
+					uderwear -> belt
+					...
+			
+			2. A Hasse diagram for a poset (A, <=) is a directed graph in which vertex set A and edge set <= minus
+				1. all self loops
+				2. all edges implied by transitivity
+		2. Theorem: A poset has no directed cycles other than self loops
+			1. Proof: By contradiction:
+				1. Suppose there exists n >= 2 distinct elements a1, ..., an such that
+				
+						a1 <= a2 <= a3 <= ... <= an <= a1
+						
+					1. Since a1 <= a2 <= a3 => a1 <= a3
+					2. Since a3 <= a4 => a1 <= a4
+						1. Use induction to prove: a1 <= an
+						2. But an <= a1 but a1 != an. This is a contradiction
 
 ## Lec 12 ##
 ## Lec 13 ##
