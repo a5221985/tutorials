@@ -914,8 +914,29 @@
 9. A chicken that virtually pecks every other chicken, is called a king chicken
 	1. Theorem: The chicken with highest outdegree is definitely a king
 		1. Proof: By contradiction. Let u have highest outdegree. Suppose u is not king.
+			1. There exists v such that v -> u and for all w, w -> u or v -> w
+				1. if u -> w then v -> w
+					1. outdegree(v) >= outdegree(u) + 1. This is a contradiction (v has higher degree in this case)
 
 ## Lec 11 ##
+1. Reading: Chapter 7
+2. Topics
+	1. Relations
+		1. Properties
+	2. Partial Orders
+		1. Hasse diagram
+		2. Total order
+		3. Topological sort
+	3. Parallel Task scheduling
+		1. Dilworth's lemma
+3. Relations:
+	1. A relation from a set A to a set B is a subset R in A x B
+		1. Ex: R = {(a, b) : student a is taking class b}
+			1. (a, b) is in R
+			2. a R b (another notation)
+			3. a ~_R b (sub-script R)
+	2. A relation on A is a subset R in A x A
+
 ## Lec 12 ##
 ## Lec 13 ##
 ## Lec 14 ##
