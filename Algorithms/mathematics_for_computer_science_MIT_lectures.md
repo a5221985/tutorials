@@ -954,9 +954,12 @@
 		3. Anti-symmetrix: if x R y and y R x => x = y for x in A
 		4. Transitivity: if x R y and y R z => x R z (it is transitive)
 	3. Example: 
-		1. x C y (mod 5) : reflextive, symmetric, 
-		2. x | y :
-		3. x <= y :
+		1. x C y (mod 5) : reflextive, symmetric, not anti-symmetric (7 C 2 (mod 5), transitive (equivalence relations)
+		2. x | y : reflexive, not symmetric, anti-symmetrix, transitive (partial orders)
+		3. x <= y : reflexive, not symmatric, anti-symmatrix, transitive
+5. Equivalence relation: An equivalence relation is reflexive, symmatric and transitive
+	1. Ex: quality (=) itself, x C y (mod n)
+	2. Equivalence class of x in A is the set of all elements in A related to x by R: denoted by [x]
 
 ## Lec 12 ##
 ## Lec 13 ##
