@@ -923,11 +923,12 @@
 2. Topics
 	1. Relations
 		1. Properties
-	2. Partial Orders
+	2. Equivalence relations
+	3. Partial Orders
 		1. Hasse diagram
 		2. Total order
 		3. Topological sort
-	3. Parallel Task scheduling
+	4. Parallel Task scheduling
 		1. Dilworth's lemma
 3. Relations:
 	1. A relation from a set A to a set B is a subset R in A x B
@@ -936,6 +937,26 @@
 			2. a R b (another notation)
 			3. a ~_R b (sub-script R)
 	2. A relation on A is a subset R in A x A
+		1. Ex: A = Z : x R y iff x C y (mod 5)
+		2. Ex: A = N : x R y iff x | y
+		3. Ex: A = N : x R y iff x <= y
+4. Set A together with R is a directed graph:
+	1. G = (V, E), where V = A, E = R
+
+			Julie ->	Bill
+			Bill -> Bill
+			Rob <-> Julie
+			
+		1. -> : likes relationship
+	2. Properties: A relation R on A is:
+		1. Reflexive if x R x for all x in A
+		2. Symmetric: if x R y => y R x for all x, y in A
+		3. Anti-symmetrix: if x R y and y R x => x = y for x in A
+		4. Transitivity: if x R y and y R z => x R z (it is transitive)
+	3. Example: 
+		1. x C y (mod 5) : reflextive, symmetric, 
+		2. x | y :
+		3. x <= y :
 
 ## Lec 12 ##
 ## Lec 13 ##
