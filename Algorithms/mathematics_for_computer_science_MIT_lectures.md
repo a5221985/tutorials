@@ -1080,8 +1080,24 @@
 		1. 1/(1 - x)
 	2. This is Geometric series
 		1. Usually be close to the largest term
-11. Complex sums:
+11. Complex sums: Perturbation method
 	1. sigma_i = 1 to n of ix^i = x + 2x^2 + 3x^3 + ... + nx^n
+	
+			S = x + 2x^2 + 3x^3 + ... + nx^n
+			xS =     x^2 + 2x^3 + .... + (n - 1)x^n + nx^(n+1)
+			(1 - x)s = x + x^2 + x^3 + ... + x^n - nx^(n + 1)
+			(1 - x)s = (1 - x^(n + 1))/(1 - x) - 1 - nx^(n + 1) = (x - (n + 1)x^(n + 1) + nx^(n + 2))/(1 - x)^2
+12. Complex sums: Derivative method
+	1. For x != 1, sigma_i = 0 to n x^i = (1 - x^(n + 1))/(1 - x)
+	2. sigma_i = 0 to n of ix^(i - 1) = (1 - (n + 1)x^n + nx^(n + 1))/(1 - x)^2
+	3. simga_i = 0 to n of ix^i = (x - (n + 1)x^(n + 1) + nx^(n + 2))/(1 - x)^2
+	4. Theorem: If |x| < 1, sigma_i = 0 to infinity of ix^i = x/(1 - x)^2
+		1. Value of a company grows my \$m (\$m gets added to profit every year)
+			1. Ex: An annuity that pays $im at the end of year i (i = 1, 2, 3, ...) is worth
+
+					m(1/(1 + p))/(1 - (1/(1 + p)^2) = m(1 + p)/p
+					
+				1. m = $50k, p = 0.06, V = $14,722,222
 
 ## Lec 13 ##
 ## Lec 14 ##
