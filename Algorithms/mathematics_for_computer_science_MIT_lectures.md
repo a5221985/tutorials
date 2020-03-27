@@ -1121,7 +1121,18 @@
 				2. sigma_i = 1 to n of f(i) <= f(n) + integral_1 to n of f(x)dx
 					1. Slide area left by 1 unit - the area does not change (same integral)
 						1. integral_x = 0 to n - 1 of f(x + 1)dx
-	3. 
+	3. Example: f(i) = sqrt(i)
+
+			integral = 2/3(n^(3/2) - 1)
+			
+		1. (2/3)n^(3/2) + 1/3 <= sigma <= sqrt(n) + (2/3)(n^(3/2)) - 2/3
+			1. for n = 100
+
+					667 <= sigma sqrt(i) <= 676
+					
+				1. Error: sqrt(n) grows slower than the function (n^(3/2))
+					1. (2/3)n^(3/2) + delta(n) where 1/3 <= delta(n) <= sqrt(n) - 2/3
+					2. sigma sqrt(i) ~ (2/3).n^(3/2) (the other terms become insignificant as n increases)
 
 ## Lec 13 ##
 ## Lec 14 ##
