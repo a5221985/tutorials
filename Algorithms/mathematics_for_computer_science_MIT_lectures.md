@@ -1050,6 +1050,32 @@
 	5. \$(m/(1 + p)^(n - 1)) = \$m in n - 1 years
 7. V = sigma_i=0 to n - 1 of m/(i + p)^i = Total current value
 
+		V = m sigma_i=0 to n - 1 of x^i = m (1 - x^n)/(1 - x)
+		
+	1. Theorem: for all n >=1, x != 1, sigma_i = 0 to n - 1 of x^i = (1 - x^n)/(1 - x)
+8. Perturbation method:
+	1. S = 1 + x + x^2 + ... + x^(n - 1)
+	2. Perturb
+		1. xS = x + x^2 + ... + x^(n - 1) + x^n
+	3. Subtract:
+
+			(1 - x)S = 1 - x^n
+			S = (1 - x^n)/(1 - x)
+			
+9. V = m (1 - x^n)/(1 - x)
+
+		V = m (1 - (1/(1 + p))^n)/(1 - (1/(1 + p)))
+		  = m (1 + p - (1/(1 + p)^(n - 1))/p
+		  
+	1. For m = $50k, n = 20, p = 0.6
+	2. V = $607,906 (bigger p gets, the lesser it is worth)
+10. Claim: If n = infinity, then V = m(1 + p)/p
+	1. Proof:
+
+			lim n -> infinity of m(1 + p - 1/(1 + p)^(n - 1))/p = m(1 + p)/p
+			
+		1. For m = \$50, n = 20, p = 0.6, V = \$833,333
+
 ## Lec 13 ##
 ## Lec 14 ##
 ## Lec 15 ##
