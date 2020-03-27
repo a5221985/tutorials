@@ -1036,6 +1036,19 @@
 			1. Every month or year we pay back
 	2. We want to know whether we will get back money for the money we pay every month for certain number of years in the future
 2. Definition: An n-year \$m-payment annuity pays \$m at the start of each year for n years (m can be finite or infinite)
+3. Assumption: Fixed increase rate p
+	1. \$1 today = \$(1 + p) in 1 year
+	2. ,, = \$(1 + p)^2 in 2 years
+	3. ...
+4. \$(1/(1 + p)) = \$1 in a year
+5. \$(1/(1 + p)^2) = \$1 in 2 years
+6. Current value vs Payments
+	1. \$m	= \$m
+	2. \$(m/(1 + p)) = \$m in 1 year
+	3. \$(m/(1 + p)^2) = \$m in 2 years
+	4. ...
+	5. \$(m/(1 + p)^(n - 1)) = \$m in n - 1 years
+7. V = sigma_i=0 to n - 1 of m/(i + p)^i = Total current value
 
 ## Lec 13 ##
 ## Lec 14 ##
