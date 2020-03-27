@@ -1143,7 +1143,7 @@
 			
 		1. 2.sqrt(n) - 2 <= sigma_i = 1 to n 1/sqrt(i) <= 2.sqrt(n) - 1
 		2. sigma_i = 1 to n 1/i^(1/2) = 2 sqrt(n) - delta(n) ~ 2 sqrt(n)
-			1. 
+			1. 1 <= delta(n) <= 2 - 1/sqrt(n)
 
 ## Lec 13 ##
 ## Lec 14 ##
