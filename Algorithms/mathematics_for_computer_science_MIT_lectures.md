@@ -1075,6 +1075,13 @@
 			lim n -> infinity of m(1 + p - 1/(1 + p)^(n - 1))/p = m(1 + p)/p
 			
 		1. For m = \$50, n = 20, p = 0.6, V = \$833,333
+10. Corollary: If |x| < 1, sigma_i = 0 to infinity x^i = 1/(1 - x)
+	1. Proof: lim_x -> infinity of (1 - x^n)/(1 - x) (x^n = 0 if x < 1)
+		1. 1/(1 - x)
+	2. This is Geometric series
+		1. Usually be close to the largest term
+11. Complex sums:
+	1. sigma_i = 1 to n of ix^i = x + 2x^2 + 3x^3 + ... + nx^n
 
 ## Lec 13 ##
 ## Lec 14 ##
