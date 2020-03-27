@@ -1095,9 +1095,24 @@
 		1. Value of a company grows my \$m (\$m gets added to profit every year)
 			1. Ex: An annuity that pays $im at the end of year i (i = 1, 2, 3, ...) is worth
 
-					m(1/(1 + p))/(1 - (1/(1 + p)^2) = m(1 + p)/p
+					m(1/(1 + p))/(1 - (1/(1 + p))^2 = m(1 + p)/p (sigma_i = 1 to infinity im (1/(1 + p)^i)
 					
-				1. m = $50k, p = 0.06, V = $14,722,222
+				1. m = \$50k, p = 0.06, V = \$14,722,222
+				2. Geometric decrease diminishes linear growth
+13. sigma_i = 1 to infinity i2^(-i) = 1/2 + 1/4 + 3/8 + 4/16 + ... = 1/2(1 - 1/2)^2 = 2
+14. Arithmetic sums:
+	1. sigma_i = 0 to n i = n(n + 1)/2
+	2. sigma_i = 0 to n i^2 = n(n + 1)(2n + 1)/6
+		1. Derivation: Guess that the sum is a cubic polynomial
+			1. Guess: for all n, sigma_i = 1 to n i^2 = an^3 + bn^2 + cn + d
+				1. Plugin: n = 0 => S = 0 = d
+				2. Plugin: n = 1 => S = 1 = a + b + c + d
+				3. Plugin: n = 2 => S = 5 = 8a + 4b + 2c + d
+				4. Plugin: n = 3 => S = 14 = 27a + 9b + 3c + d
+			2. Solve the system of equations:
+				1. a = 1/3, b = 1/2, c = 1/6, d = 0
+		2. To ensure the guess is right, use induction to prove it
+15. Sum first n square roots: No closed form expression
 
 ## Lec 13 ##
 ## Lec 14 ##
