@@ -1138,6 +1138,11 @@
 16. Integral bounds when f is decreasing
 	1. Ex: sigma 1/i^(1/2)
 
+			sigma_i = 1 to n f(i) <= f(1) + integral_x = 1 to n f(x).dx
+			sigma_i = 1 to n f(i) >= f(n) + integral_x = 1 to n f(x).dx
+			
+		1. 2.sqrt(n) - 2 <= sigma_i = 1 to n 1/sqrt(i) <= 2.sqrt(n) - 1
+
 ## Lec 13 ##
 ## Lec 14 ##
 ## Lec 15 ##
