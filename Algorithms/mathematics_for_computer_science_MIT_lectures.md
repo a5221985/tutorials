@@ -1133,6 +1133,10 @@
 				1. Error: sqrt(n) grows slower than the function (n^(3/2))
 					1. (2/3)n^(3/2) + delta(n) where 1/3 <= delta(n) <= sqrt(n) - 2/3
 					2. sigma sqrt(i) ~ (2/3).n^(3/2) (the other terms become insignificant as n increases)
+			2. Formal definition: g(x) ~ h(x) means lim_x -> infinity g(x)/h(x) = 1
+				1. Example: lim_x -> infinity ((2/3)n^(3/2) + delta(n))/((2/3)n^(3/2)) = lim_n -> infinity 1 + delta(n)/((2/3)n^(3/2)) <= 1 + n^(1/2)/((2/3)n^(3/2)) = 1 + 1/pi(n) = 1
+16. Integral bounds when f is decreasing
+	1. Ex: sigma 1/i^(1/2)
 
 ## Lec 13 ##
 ## Lec 14 ##
