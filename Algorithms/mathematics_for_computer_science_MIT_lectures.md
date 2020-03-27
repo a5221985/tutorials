@@ -1113,6 +1113,17 @@
 				1. a = 1/3, b = 1/2, c = 1/6, d = 0
 		2. To ensure the guess is right, use induction to prove it
 15. Sum first n square roots: No closed form expression
+	1. sigma_i = 1 to n of sqrt(i)
+	2. Method: Using integration bounds
+		1. for increasing series:
+			1. sigma_i = 1 to n of f(i) when f is a positive increasing function.
+
+					
+					
+					
+					
+					
+					
 
 ## Lec 13 ##
 ## Lec 14 ##
