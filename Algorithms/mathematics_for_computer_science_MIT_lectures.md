@@ -1117,13 +1117,11 @@
 	2. Method: Using integration bounds
 		1. for increasing series:
 			1. sigma_i = 1 to n of f(i) when f is a positive increasing function.
-
-					
-					
-					
-					
-					
-					
+				1. sigma_i = 1 to n of f(i) >= f(1) + integral_1 to n of f(x)dx
+				2. sigma_i = 1 to n of f(i) <= f(n) + integral_1 to n of f(x)dx
+					1. Slide area left by 1 unit - the area does not change (same integral)
+						1. integral_x = 0 to n - 1 of f(x + 1)dx
+	3. 
 
 ## Lec 13 ##
 ## Lec 14 ##
