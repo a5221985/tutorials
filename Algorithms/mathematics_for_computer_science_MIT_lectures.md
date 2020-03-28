@@ -1146,6 +1146,9 @@
 			1. 1 <= delta(n) <= 2 - 1/sqrt(n)
 
 ## Lec 13 ##
+1. Stacking blocks
+	1. Ls needed to balance perfectly
+
 ## Lec 14 ##
 ## Lec 15 ##
 ## Lec 16 ##
