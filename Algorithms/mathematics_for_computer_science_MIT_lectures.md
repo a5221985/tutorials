@@ -1244,7 +1244,8 @@
 	2. Time to multiply n x n matrices is T(n) = O(n^3) (the algorithm grows at most at the cubic rate)
 		1. Irrespective of the computer
 14. Oscillations?
-	1. 
+	1. If f(x) = sin(x)
+		1. f(x) = O(x)
 
 ## Lec 14 ##
 ## Lec 15 ##
