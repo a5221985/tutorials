@@ -1219,6 +1219,13 @@
 					1. 100! >= (100/e)^100 sqrt(200 pi)(1/e^1201) = 1.0008329...
 					2. 100! <= ... (1/e^1200) = 1.00083368 (difference is a tiny fraction of 1 %)
 5. n! ~ (n/e)^n.sqrt(2 pi n)
+6. Asymptotic notation:
+	1. tilde: f(x) ~ g(x) if lim_x -> inf f(x)/g(x) = 1
+	2. Oh, big-Oh:
+	
+			f(x) = O(g(x)) if lim_x -> inf | f(x)/g(x) | < inf (finite) (cannot diverge)
+		
+		1. f(x) grows at the same rate or slower than g(x)
 
 ## Lec 14 ##
 ## Lec 15 ##
