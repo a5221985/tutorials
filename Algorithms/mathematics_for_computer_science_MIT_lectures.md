@@ -1149,7 +1149,7 @@
 1. Stacking blocks
 	1. Ls needed to balance perfectly
 		1. On a single peg
-2. 
+2. Can we stack blocks such that the last block is k blocks out of the table
 
 ## Lec 14 ##
 ## Lec 15 ##
