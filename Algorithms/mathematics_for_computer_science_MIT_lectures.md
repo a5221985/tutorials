@@ -1192,7 +1192,18 @@
 							3. H3 = 3/2 + 1/3 = 11/6
 							4. H4 = 11/6 + 1/4 = 25/12 (> 2) we can get it out of the table here
 							5. ...
-							6. H_1,000,000 = 14.3927
+							6. H_1,000,000 = 14.3927 (7 out of the table)
+3. Integration bounds for decreasing sum:
+	1. f(n) + integral_1 to n f(x) dx <= sigma_i = 1 to n f(i) <= f(1) + integral_1 to n f(x) dx
+	2. 1/n + ln(n) <= Hn <= 1 + ln(n)
+		1. Hn ~ ln(n)
+			1. Very close value: Hn = ln(n) + delta + 1/2n + 1/12n^2 + epsilon(n)/120n^4
+				1. where for all n 0 < epsilon(n) < 1 and
+				2. delta = Euler's constant = 0.577215664... (not sure if it is rational or irrational)
+	3. There are other strategies:
+		1. The top block is behind top + 1 block (this is optimal)
+		2. There are two optimal solutions
+4. n! = Pi_(i = 1 to n) i
 
 ## Lec 14 ##
 ## Lec 15 ##
