@@ -1168,6 +1168,31 @@
 						
 					1. r_(n + 1) is the edge of the table
 					2. The center of mass of kth block is at rk - 1/2
+					3. The center of mass of the top k blocks is Ck = ((k - 1)C_(k - 1) + 1(rk - 1/2))/(k - 1 + 1)
+
+							= ((k - 1)C_(k - 1) + rk - 1/2)/k
+							r_(k + 1) = ((k - 1)rk + rk - 1/2)/k
+										= (krk - 1/2)/k
+										= rk - 1/2k
+										
+							rk - r_(k + 1) = 1/2k (how much rk is out of r_(k + 1))
+							
+							r1 - r2 = 1/2
+							r2 - r3 = 1/4
+							r3 - r4 = 1/6
+							...
+							rn - r_(n + 1) = 1/2n
+							---------------------
+							r1 - r_(n + 1) = 1/2 + 1/4 + 1/6 + ... + 1/2n = sigma_i = 1 to n 1/2i
+							r1 = 1/2 sigma_i = 1 to n 1/i
+							
+						1. nth harmonic number is Hn = sigma_i = 1 to n 1/i
+							1. H1 = 1
+							2. H2 = 1 + 1/2 = 3/2
+							3. H3 = 3/2 + 1/3 = 11/6
+							4. H4 = 11/6 + 1/4 = 25/12 (> 2) we can get it out of the table here
+							5. ...
+							6. H_1,000,000 = 14.3927
 
 ## Lec 14 ##
 ## Lec 15 ##
