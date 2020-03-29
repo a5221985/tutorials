@@ -1279,7 +1279,15 @@
 	1. lim = 0
 22. x/100 = Theta(x)
 23. x^2 = omega(x)
-24. 
+24. Theorem (NOT!): Let f(n) = sigma_i = 1 to n i. Then f(n) = O(n)
+	1. False proof: By induction on n.
+		1. Induction hypothesis: P(n) = f(n) = O(n) (f(n) is not a function) - fixed n in P(n)
+		2. Base case: f(1) = 1 = O(1)
+		3. Inductive step: Assume P(n) to prove P(n + 1)
+			1. P(n) => f(n) = O(n)
+			2. f(n + 1) = f(n) + (n + 1) = O(n) + O(n) = O(n)
+				1. Assymptotic notation works only for functions 
+				2. Do not use O in a predicate (n gets fixed)
 
 ## Lec 14 ##
 ## Lec 15 ##
