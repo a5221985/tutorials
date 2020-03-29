@@ -1150,6 +1150,24 @@
 	1. Ls needed to balance perfectly
 		1. On a single peg
 2. Can we stack blocks such that the last block is k blocks out of the table
+	1. Greedy strategy:
+		1. Given n blocks of length 1.
+		2. Definition: r_i = amount by which ith block extends beyond the table.
+
+				r1
+				r2
+				...
+				rn
+				rn + 1 = 0
+				
+			1. Constraint: Stability constraint
+				1. The center of mass C_k of the top k blocks must lie on the (k + 1)st block. (table = block n + 1)
+				2. For Greedy stacking:
+				
+						C_k = r_(k + 1)
+						
+					1. r_(n + 1) is the edge of the table
+					2. The center of mass of kth block is at rk - 1/2
 
 ## Lec 14 ##
 ## Lec 15 ##
