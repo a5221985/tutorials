@@ -1226,6 +1226,25 @@
 			f(x) = O(g(x)) if lim_x -> inf | f(x)/g(x) | < inf (finite) (cannot diverge)
 		
 		1. f(x) grows at the same rate or slower than g(x)
+		2. Other notations: f(x) <= O(g(x)), f(x) is O(g(x)), f(x) in O(g(x))
+			1. Where O(g(x)) is a set of functions that do not grow any faster than g(x). (Formal mathematical notation)
+				1. Any above notation is fine
+7. Theorem: Let f(x) = x, g(x) = x^2, Then f(x) = O(g(x))	1. Proof: lim_x -> inf |x/x^2| = 0 (finite) < inf
+8. Theorem: x^2 != O(x)
+	1. Proof: lim_x -> inf |x^2/x| = inf !< inf. []
+9. Is x^2 = O(10^6 x)? No
+	1. Proof: lim_x -> inf |x^2/10^6.x| = inf
+10. Is 10^6 x^2 = O(x^2)? Yes (Ignore the constant and hence used in CS)
+	1. Proof: lim_x -> inf 10^6.x^2/x^2 = 10^ < inf
+11. x^2 + 100x + 10^7 = O(x^2)
+12. Is x^10 = O(e^x)? Yes
+	1. Proof: lim_x -> inf x^10/e^x = 0 < inf
+13. Uses: Algorithms
+	1. Summarizes the running time and space used by the algorithm
+	2. Time to multiply n x n matrices is T(n) = O(n^3) (the algorithm grows at most at the cubic rate)
+		1. Irrespective of the computer
+14. Oscillations?
+	1. 
 
 ## Lec 14 ##
 ## Lec 15 ##
