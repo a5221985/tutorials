@@ -1273,7 +1273,8 @@
 	1. o - strictly < (not equal)
 	2. omega - strictly > (not equal)
 20. Little oh:
-	1. f(x) = o(g(x)) if lim_x -> inf |f(x)/g(x)| = 0
+	1. f(x) = o(g(x)) if lim_x -> inf |f(x)/g(x)| = 0 (strictly smaller)
+	2. f(x) = omega(g(x)) if lim_x -> inf |f(x)/g(x)| = inf (strictly greater)
 
 ## Lec 14 ##
 ## Lec 15 ##
