@@ -1254,7 +1254,26 @@
 17. Hn = ln(n) + delta + O(1/n) (technically wrong way to write it)
 	1. Hn - ln(n) - delta = O(1/n) (correct way to write it)
 	2. Hn - ln(n) ~ delta (wrong way to write it)
-		1. Hn ~ ln(n) + delta (true but delta needs to be bounded 10^6 also works) 
+		1. Hn ~ ln(n) + delta (true but delta needs to be bounded 10^6 also works)
+18. f(x) >= O(g(x)) is meaningless
+	1. f(x) = Omega(g(x)) if lim_x -> inf |f(x)/g(x)| > 0
+	2. Theorem: f(x) = O(g(x) iff g(x) = Omega(f(x))
+		1. f(x) >= Omega(g(x))
+	3. Example: x^2 = Omega(x)
+	4. Example: 2^x = Omega(x^2)
+	5. Example: x/100 = Omega(100x + 25)
+	6. Example: T(n) = Omega(n^2) (Running time of the algorithm is atleast quadratic)
+19. f(x) = Theta(g(x)) if 0 < lim_x -> inf |f(x)/g(x)| < inf
+	1. Theorem: f(x) = Theta(g(x)) iff f(x) = O(g(x)) and f(x) = Omega(g(x))
+		1. Ex: 10x^3 - 20x + 1 = Theta(x^2)
+		2. Ex: x/ln(x) =? Theta(x)
+			1. lim_x -> inf x/ln(x)/x = 0 (it is not theta but it should be > 0)
+	2. T(n) = Theta(n^2) means T grows quadratically in n
+20. Summary: O means <=, Omega means >=, Theta means = (upto constant factors)
+	1. o - strictly < (not equal)
+	2. omega - strictly > (not equal)
+20. Little oh:
+	1. f(x) = o(g(x)) if lim_x -> inf |f(x)/g(x)| = 0
 
 ## Lec 14 ##
 ## Lec 15 ##
