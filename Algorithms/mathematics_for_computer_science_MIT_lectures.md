@@ -1148,6 +1148,8 @@
 ## Lec 13 ##
 1. Stacking blocks
 	1. Ls needed to balance perfectly
+		1. On a single peg
+2. 
 
 ## Lec 14 ##
 ## Lec 15 ##
