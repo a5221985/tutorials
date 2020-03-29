@@ -1275,6 +1275,11 @@
 20. Little oh:
 	1. f(x) = o(g(x)) if lim_x -> inf |f(x)/g(x)| = 0 (strictly smaller)
 	2. f(x) = omega(g(x)) if lim_x -> inf |f(x)/g(x)| = inf (strictly greater)
+21. x/ln(x) = o(x)
+	1. lim = 0
+22. x/100 = Theta(x)
+23. x^2 = omega(x)
+24. 
 
 ## Lec 14 ##
 ## Lec 15 ##
