@@ -1245,7 +1245,16 @@
 		1. Irrespective of the computer
 14. Oscillations?
 	1. If f(x) = sin(x)
-		1. f(x) = O(x)
+		1. f(x) = O(x) (since it is not infinite)
+		2. f(x) = O(1) since -1 <= sin(x) <= 1
+15. Is 4^x = O(2^x)? No
+	1. lim_x -> inf 4^x/2^x = lim_x -> inf 2^x
+16. Is 10 = O(1)? Yes
+	1. f(x) = 10, g(x) = 1
+17. Hn = ln(n) + delta + O(1/n) (technically wrong way to write it)
+	1. Hn - ln(n) - delta = O(1/n) (correct way to write it)
+	2. Hn - ln(n) ~ delta (wrong way to write it)
+		1. Hn ~ ln(n) + delta (true but delta needs to be bounded 10^6 also works) 
 
 ## Lec 14 ##
 ## Lec 15 ##
