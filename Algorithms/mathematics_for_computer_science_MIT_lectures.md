@@ -1204,6 +1204,21 @@
 		1. The top block is behind top + 1 block (this is optimal)
 		2. There are two optimal solutions
 4. n! = Pi_(i = 1 to n) i
+	1. ln(n!) = ln(1.2.3...n) = ln1 + ln2 + ln3 + ... + ln(n) = sigma_(i = 1 to n) ln(i)
+	2. Using integration bounds: It is an increasing function
+	
+			ln(1) + integral_1 to n ln(x) dx <= sigma_(i = 1 to n) ln(i) <= ln(n) + integral_1 to n ln(x) dx
+			(xln(x) - x)|1 to n = nln(n) - n + 1
+			
+			nln(n) - n + 1 <= sigma_(i = 1 to n) ln(i) <= ln(n) + nln(n) - n + 1
+			n^n/e^(n - 1) <= n! <= n^(n + 1)/e^(n - 1)
+			
+		1. Tighter bounds: Sterling's formula
+			1. n! = (n/e)^n sqrt(2pin) e^(epsilon(n))
+				1. Where 1/(12n + 1) <= epsilon(n) <= 1/(12n)
+					1. 100! >= (100/e)^100 sqrt(200 pi)(1/e^1201) = 1.0008329...
+					2. 100! <= ... (1/e^1200) = 1.00083368 (difference is a tiny fraction of 1 %)
+5. n! ~ (n/e)^n.sqrt(2 pi n)
 
 ## Lec 14 ##
 ## Lec 15 ##
