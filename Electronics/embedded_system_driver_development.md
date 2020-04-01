@@ -18,5 +18,25 @@
 		1. Microcontrollers
 		2. Sensors
 		3. EEPROMs
-4. 
+4. I2C Node
+	1. Vcc - connected to C ends of darlington pair across two resistors
+	2. B terminals of darlington are inputs
+	3. E termals are ground
+	4. First transistor is SCL
+	5. Second transistor is SDA
+5. Case 1: Master wants to write 1 Byte
+	1. First Byte from Master:
+		1. Start condition: 1 bit is to get control of slave
+		2. 7 or 10 bits: slave address
+		3. R/W bit: Write(0), Read(1)
+		4. This is address phase
+	2. If slave is available: the following data is sent
+		1. 1 ACK bit
+	3. Second Byte from Master:
+		1. Data byte
+	4. Slave response for the byte:
+		1. 1 ACK bit
+			1. For each packet from master, Slave will respond with 1 ACK bit
+	5. 
+	
 	
