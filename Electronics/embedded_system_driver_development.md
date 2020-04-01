@@ -72,6 +72,10 @@
 		1. 1 for successful address/data communication
 		2. 1 for error condition
 	5. ACK generation and detection mechanism for both master and slave nodes
-11. 
+11. Functional Block diagram of STM32F4 uC
+	1. Only one buffer available for transmission and reception
+		1. Only one data register is available
+		2. Only one data shift register is available
+	2. 
 	
 	
