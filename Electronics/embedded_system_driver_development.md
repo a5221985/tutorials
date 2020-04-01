@@ -110,6 +110,15 @@
 		14. SMBUS (rw)
 		15. PE (rw) (Peripheral enable)
 			1. **Must be set to 1 during initialization**
-13. 
+13. Control Register: I2C_CR2
+	1. Fields
+		1. Reserved: 15 to 13
+		2. LAST (rw)
+		3. DMEAN (rw)
+		4. ITBUFEN (rw)
+		5. ITEVTEN (rw)
+		6. ITERREN (rw)
+		7. Reserved: 7, 6
+		8. FREQ: 5 to 0 (rw - all)
 	
 	
