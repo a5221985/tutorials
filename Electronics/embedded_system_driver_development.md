@@ -198,6 +198,26 @@
 		1. Set I2C slave address
 		2. Enable clock stretching (if required)
 17. How master transmits a Byte?
-	1. 
+	1. Step 1: Update BUSY Flag to Busy
+	2. Step 2: Generate START condition
+	3. Step 3: Wait until successful START sent event. (SB-bit)
+	4. Step 4: Write SLAVE address in data buffer
+	5. Step 5: Wait until successful address sent event. (ADDR bit)
+	6. Step 6: Wait until ACK bit not received. (with some timeout)
+	7. Step 7: Write DATA in data buffer
+	8. Step 8: Wait until ACK bit not received. (with some timeout)
+	9. Step 9: Generate STOP condition
+	10. Step 10: Update BUSY Flag to Free
+18. How Master Receives a Byte?
+	1. Step 1: Update BUSY Flag to Busy
+	2. Step 2: Generate START condition
+	3. Step 3: Wait until successful START sent event. (SB bit)
+	4. Step 4: Write SLAVE address in data buffer
+	5. Step 5: Wait until successful address sent event. (ADDR bit)
+	6. Step 6: Wait until ACK bit not received. (with some timeout)
+	7. Step 7: Wait for Buffer interrupt
+	8. Step 8: Read data from DATA buffer
+	9. Step 9: Generate STOP condition
+	10. Step 10: Update BUSY Flag to Free
 	
 	
