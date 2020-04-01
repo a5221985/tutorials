@@ -178,5 +178,26 @@
 			1. Used to program the clock for I2C communication
 			2. Formula to calculate the value:
 				1. T_high = CCR * T_PCLK (peripheral clock: 1/10 MHz = 0.1 us)
+					1. T_PCLK = 0.1 micro sec
+					2. T_SCL = 1/f_SCL = 1/100 khz = 10 micro sec
+						1. T_SCL = T_high + T_low = 10 micro sec
+					2. Duty cycle = 1:1
+						1. T_high = 10/2 = 5 micro sec
+						2. CCR = T_high/T_PCLK = 5/0.1 = 50 or 0x32
+16. Steps for APIs
+	1. Required for both Master & Slave:
+		1. Set communication mode: Standard or Fast
+		2. Set communication speed by setting CCR
+		3. Set duty cycle
+		4. Select Pin-packs
+		5. Enable interrupts: Event, Buffer, Error
+			1. **Only if interrupt is used instead of polling**
+		6. Enable Byte ACK
+		7. Enable I2C Peripheral
+	2. Only for Slave:
+		1. Set I2C slave address
+		2. Enable clock stretching (if required)
+17. How master transmits a Byte?
+	1. 
 	
 	
