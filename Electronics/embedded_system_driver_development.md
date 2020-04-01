@@ -47,6 +47,31 @@
 		1. For:
 			1. Master
 			2. Slave
-		2. 
+		2. Configuration steps:
+			1. Configure I2C Mode
+			2. Device address
+			3. Clock settings
+			4. ...
+	2. API to handle transmission and reception of data:
+		1. TX Handler (for master and slave)
+		2. RX Handler (for master and slave)
+	3. Event interrupt handler (for I2C TX and RX)
+	4. Error Interrupt handler (handle during communication)
+10. Reference: STM uC (Use Reference manual/ datasheet)
+	1. I2C Main features:
+		1. Standard mode: (up to 100 kHz)
+		2. Fast mode: (up to 400 kHz)
+	2. I2C Master: features:
+		1. Clock generation
+		2. Start condition generation
+		3. Stop condition generation
+	3. I2C Slave: features:
+		1. Programmable I2C address detection mechanism
+		2. Stop condition detection mechanism
+	4. 2 Interrupt vectors: handlers
+		1. 1 for successful address/data communication
+		2. 1 for error condition
+	5. ACK generation and detection mechanism for both master and slave nodes
+11. 
 	
 	
