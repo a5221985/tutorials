@@ -120,10 +120,11 @@
 		5. ITEVFEN (rw)
 			1. **Used to enable interrupt**
 				1. The following interrupts will get enabled:
-					1. Start bit sent (Master)
-					2. Address sent (Master) or Address matched (Slave)
-					3. 10-bit header sent (Master)
-					4. Stop received (Slave)
+					1. Start bit sent (Master) (Flag: SB)
+					2. Address sent (Master) or Address matched (Slave) (Flag: ADDR)
+					3. 10-bit header sent (Master) (Flag: ADD10)
+					4. Stop received (Slave) (Flag: STOPF)
+					5. Data byte transfer finished (BTF)
 		6. ITERREN (rw)
 			1. **Used to enable interrupt**
 		7. Reserved: 7, 6
