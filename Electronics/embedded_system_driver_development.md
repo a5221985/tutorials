@@ -93,6 +93,7 @@
 		4. PEC (rw)
 		5. POS (rw)
 		6. ACK (rw)
+			1. **Used to generate ACK bit after each byte**
 		6. STOP (rw)
 			1. **Used to generate stop condition by master node**
 		7. START (rw)
@@ -109,5 +110,6 @@
 		14. SMBUS (rw)
 		15. PE (rw) (Peripheral enable)
 			1. **Must be set to 1 during initialization**
+13. 
 	
 	
