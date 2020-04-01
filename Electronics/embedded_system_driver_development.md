@@ -37,6 +37,9 @@
 	4. Slave response for the byte:
 		1. 1 ACK bit
 			1. For each packet from master, Slave will respond with 1 ACK bit
-	5. 
+	5. Master can stop at any time by generating:
+		1. 1 stop bit (lines are held high for other masters to take over)
+6. Start condition: master brings SDA from high to low (precondition - SCL must be high)
+7. Stop condition: master brings SDA from low to high (precondition - SCL must be high)
 	
 	
