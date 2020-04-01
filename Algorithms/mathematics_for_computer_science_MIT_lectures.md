@@ -1294,6 +1294,12 @@
 	1. 3 pegs and n disks
 	2. Start with a stack and move to another disk
 		1. Cannot put big disk on top of small disk
+		2. We can move one disk at a time
+	3. 3 disks takes 7 moves (may be we can do better)
+	4. Definition: T_n = min # of moves for n disks
+		1. T_1 = 1
+		2. T_2 = 3
+		3. T_3 <= 7
 
 ## Lec 15 ##
 ## Lec 16 ##
