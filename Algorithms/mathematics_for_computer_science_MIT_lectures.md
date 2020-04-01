@@ -1290,6 +1290,11 @@
 				2. Do not use O in a predicate (n gets fixed)
 
 ## Lec 14 ##
+1. Tower of Hannoi problem:
+	1. 3 pegs and n disks
+	2. Start with a stack and move to another disk
+		1. Cannot put big disk on top of small disk
+
 ## Lec 15 ##
 ## Lec 16 ##
 ## Lec 17 ##
