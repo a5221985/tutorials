@@ -117,6 +117,10 @@
 		3. DMEAN (rw)
 		4. ITBUFEN (rw)
 			1. **Used to enable interrupt**
+				1. Receive buffer not empty (Flag: RxNE)
+				2. Transmit buffer empty (Flag: TxE)
+				3. Start bit sent (Master) (Flag: SB)
+				4. Address sent (Master) or Address matched (Slave)
 		5. ITEVFEN (rw)
 			1. **Used to enable interrupt**
 				1. The following interrupts will get enabled:
@@ -127,7 +131,52 @@
 					5. Data byte transfer finished (BTF)
 		6. ITERREN (rw)
 			1. **Used to enable interrupt**
+				1. The following interrupts will get enabled:
+					1. Bus error (Flag: BERR)
+					2. Arbitration loss (Master) (Flag: ARLO)
+					3. Acknowledge failure (Flag: AF)
+					4. Overrun/Underrun (Flag: OVR)
+					5. PEC error (Flag: PECERR)
+					6. Timeout/Tlow error (Flag: TIMEOUT)
+					7. SMBus Alert (Flag: SMBALERT)
 		7. Reserved: 7, 6
 		8. FREQ: 5 to 0 (rw - all)
+14. Status Register: I2C_SR1
+	1. Fields:
+		1. SMB ALERT (rc_w0)
+		2. TIME OUT (rc_W0)
+		3. Res
+		4. PEC ERR (rc_w0)
+		5. OVR (rc_w0)
+		6. AF (rc_w0)
+		7. ARLO(rc_w0)
+		8. BERR (rc_w0)
+		9. TxE (r)
+			1. Set if data buffer is empty (during data transmission)
+			2. Not set during address phase
+		10. RxNE (r)
+			1. Set if data buffer is not empty
+				1. Firmware can read the new data
+			2. Not set during address phase
+		11. Res
+		12. STOPF (r)
+			1. Checked by master to know the status of stop bit (success/failure) (if it is set in slave)
+		13. ADD10 (r)
+			1. Checked by master to know the status of address bit (success/failure)
+		14. BTF (r)
+		15. ADDR (r)
+			1. Checked by master to know the status of address bit (success/failure)
+				1. If it is set in slave node, the address is successfully matched
+		16. SB (r)
+			1. Checked by master to know the status of start bit (success/failure)
+15. Clock Register: I2C_CCR:
+	1. Fields
+		1. F/S
+		2. DUTY
+		3. Reserved
+		4. CCR[11:0] (rw)
+			1. Used to program the clock for I2C communication
+			2. Formula to calculate the value:
+				1. T_high = CCR * T_PCLK (peripheral clock: 1/10 MHz = 0.1 us)
 	
 	
