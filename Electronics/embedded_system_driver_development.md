@@ -41,5 +41,6 @@
 		1. 1 stop bit (lines are held high for other masters to take over)
 6. Start condition: master brings SDA from high to low (precondition - SCL must be high)
 7. Stop condition: master brings SDA from low to high (precondition - SCL must be high)
+8. Other cases: While transmitting address, data or ACK, SDA transition takes place (high to low or low to high) when SCL is low
 	
 	
