@@ -76,6 +76,38 @@
 	1. Only one buffer available for transmission and reception
 		1. Only one data register is available
 		2. Only one data shift register is available
-	2. 
+	2. Address registers to slave I2C slave register
+		1. Own address register
+		2. Dual address register
+		3. Address phase:
+			1. When address is received, it is compared with the stored address and if it matches, an interrupt is generated
+			2. Then the following registers are used to control and configure I2C engine
+				1. Clock control Register (CCR)
+				2. Control registers (CR1 & CR2)
+				3. Status registers (SR1 & SR2)
+12. Control Register: I2C_CR1
+	1. Fields
+		1. SW/RST (rw)
+		2. Res
+		3. ALERT (rw)
+		4. PEC (rw)
+		5. POS (rw)
+		6. ACK (rw)
+		6. STOP (rw)
+			1. **Used to generate stop condition by master node**
+		7. START (rw)
+			1. **Used to generate start condition by master node**
+		8. NO STRETCH (rw)
+			1. Clock stretching is enabled by default
+				1. Enable = 0, Disable = 1
+			2. **Disable it for master node**
+		9. ENGC (rw)
+		10. ENPEC (rw)
+		11. ENARP (rw)
+		12. SMP TYPE (rw)
+		13. Res
+		14. SMBUS (rw)
+		15. PE (rw) (Peripheral enable)
+			1. **Must be set to 1 during initialization**
 	
 	
