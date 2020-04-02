@@ -1323,6 +1323,30 @@
 				2. Base case: T_1 = 1 = 2^1 - 1 => P(1)
 				3. Inductive step: Assume T_n = 2^n - 1 to prove T_(n + 1) = 2^(n + 1) - 1
 					1. T_(n + 1) = 2T_n + 1 = 2.(2^n - 1) + 1 = 2^(n + 1) - 1 => P(n + 1)
+		2. Problem: Guessing is not always easy
+	2. Plug and Chug
+	
+			T_n = 1 + 2T_(n - 1)
+				= 1 + 2(1 + 2T_(n - 2))
+				= 1 + 2 + 4T_(n - 2)
+				= 1 + 2 + 4(1 + 2T_(n - 3))
+				= 1 + 2 + 4 + 8T_(n - 3)
+				= 1 + 2 + 2^2 + 2^3T_(n - 3)
+				= 1 + 2 + 2^2 + ... + 2^(i - 1) + 2^i.T_(n - i)
+				= 1 + 2 + 2^2 + ... + 2^(n - 2) + 2^(n - 1)T_1 (= 1)
+				= 1 + 2 + 2^2 + ... + 2^(n - 1)
+				= 2^n - 1
+			
+		1. Problem: Need to check if we have not done a mistake
+8. Merge Sort:
+	1. To sort n > 1 (2^k), X1, X2, ..., Xn (n = power of 2)
+		1. Sort X1, X2, ..., X(n/2) & X(n/2 + 1), ..., Xn
+		2. Merge the two lists
+	2. Example: Sort {10, 7, 23, 5, 2, 3, 4, 3}
+		1. sort {10, 7, 23, 5} => {5, 7, 10, 23}
+		2. sort {2, 4, 3, 9} => {2, 4, 3, 9}
+		3. merge: Look at smallest items in each list and compare them
+			1. {2, 3, 4, 5, 7, 9, 10, 23}
 
 ## Lec 15 ##
 ## Lec 16 ##
