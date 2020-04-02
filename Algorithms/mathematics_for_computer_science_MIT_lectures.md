@@ -1372,6 +1372,9 @@
 						= n.log n - n + 1
 						
 				1. Proof: Prove by induction
+			3. Rule of thumb: Keep the terms while solving if it helps to understand the pattern
+	4. T(n) = 2.T(n - 1) + 1 => T(n) ~ 2^n
+	5. T(n) = 2T(n/2) + n - 1 => T(n) ~ nlog(n)
 
 ## Lec 15 ##
 ## Lec 16 ##
