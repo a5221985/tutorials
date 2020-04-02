@@ -1300,6 +1300,29 @@
 		1. T_1 = 1
 		2. T_2 = 3
 		3. T_3 <= 7
+2. Phase 1:
+	1. Recursively move n - 1 from first peg to a second peg (T_(n - 1) steps)
+3. Phase 2
+	2. Move nth disk to third peg (1 step)
+4. Phase 2
+	3. Recursively move n - 1 from second peg to third peg (T_(n - 1) steps)
+5. Number of moves T_n <= 2T_(n - 1) + 1
+	1. T_3 <= 2T_2 + 1 = 7
+	2. T_4 <= 15
+6. Lower Bound:
+	1. >= T_(n - 1) steps before big disk moves
+	2. >= 1 step for big disk to move
+	3. >= T_(n - 1) steps after last move of big disk
+	4. => T_n >= 2T_(n - 1) + 1
+	5. T_n = 2T_(n - 1) + 1
+7. Methods to solve recursions:
+	1. Substitution method: Guess the answer and then verify
+		1. Guess: T_n = 2^n - 1
+			1. Proof: Verify by induction
+				1. P(n): T_n = 2^n - 1
+				2. Base case: T_1 = 1 = 2^1 - 1 => P(1)
+				3. Inductive step: Assume T_n = 2^n - 1 to prove T_(n + 1) = 2^(n + 1) - 1
+					1. T_(n + 1) = 2T_n + 1 = 2.(2^n - 1) + 1 = 2^(n + 1) - 1 => P(n + 1)
 
 ## Lec 15 ##
 ## Lec 16 ##
