@@ -1346,7 +1346,17 @@
 		1. sort {10, 7, 23, 5} => {5, 7, 10, 23}
 		2. sort {2, 4, 3, 9} => {2, 4, 3, 9}
 		3. merge: Look at smallest items in each list and compare them
-			1. {2, 3, 4, 5, 7, 9, 10, 23}
+			1. {2, 3, 4, 5, 7, 9, 10, 23} => n - 1 comparisons
+	3. Definition: T(n) = # comparisons used by merge sort to sort n numbers (in the worst case)
+		1. Merging takes n - 1 comparisons (worst case)
+		2. 2 T(n/2) comparisons for recursive sorting
+		3. T(n) = 2T(n/2) + n - 1
+		4. T(1) = 0 (no comparisons to sort 1 item)
+		5. Solving:
+			1. T(2) = 1
+			2. T(4) = 5
+			3. T(8) = 17
+			4. T(16) = 2.17 + 16 - 1 = 49
 
 ## Lec 15 ##
 ## Lec 16 ##
