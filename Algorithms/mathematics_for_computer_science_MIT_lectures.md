@@ -1375,6 +1375,25 @@
 			3. Rule of thumb: Keep the terms while solving if it helps to understand the pattern
 	4. T(n) = 2.T(n - 1) + 1 => T(n) ~ 2^n
 	5. T(n) = 2T(n/2) + n - 1 => T(n) ~ nlog(n)
+		1. Reducing the size much faster (cutting it by half)
+		2. Example: 
+			1. S(1) = 0
+			2. S(n) = S(floor(n/2)) + S(ceil(n/2)) + 1 for n >= 2 (ceil: smallest integer >= n/2, biggest integer <= n/2)
+				1. If n = 2^k, S(n) = 2S(n/2) + 1
+				2. Guess method:
+					1. S(1) = 0
+					2. S(2) = 1
+					3. S(3) = 2
+					4. S(4) = 3
+					5. S(5) = 4
+					6. ...
+					7. Guess: S(n) = n - 1
+					8. Verify: By strong induction:
+						1. P(n): S(n) = n - 1
+						2. Base case: S(1) = 0 = 1 - 1 => P(1)
+						3. Inductive step: Assume P(1), P(2), ..., P(n) to prove P(n + 1) for all n >= 1
+							1. S(n + 1) = S(floor((n + 1)/2)) + S(ceil((n + 1)/2) + 1 = floor((n + 1)/2) - 1 + ceil((n + 1)/2) - 1 + 1 by inductive hypothesis
+							2. S(n + 1) = 2((n + 1)/2) - 1 = (n + 1) - 1 => P(n + 1)
 
 ## Lec 15 ##
 ## Lec 16 ##
