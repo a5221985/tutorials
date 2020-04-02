@@ -1353,10 +1353,25 @@
 		3. T(n) = 2T(n/2) + n - 1
 		4. T(1) = 0 (no comparisons to sort 1 item)
 		5. Solving:
-			1. T(2) = 1
-			2. T(4) = 5
-			3. T(8) = 17
-			4. T(16) = 2.17 + 16 - 1 = 49
+			1. Guessing:
+				1. T(2) = 1
+				2. T(4) = 5
+				3. T(8) = 17
+				4. T(16) = 2.17 + 16 - 1 = 49 (Guess is not working)
+			2. Plug and Chug:
+			
+					T(n) = n - 1 + 2T(n/2)
+						= n - 1 + 2(n/2 - 1 + 2T(n/4))
+						= n - 1 + n - 2 + 4T(n/4)
+						= n - 1 + n - 2 + n - 4 + 8T(n/8)
+						= n - 1 + n - 2 + n - 4 + n - 8 + ... + n - 2^(i - 1) + 2^i.T(n/2^i)
+						= n - 1 + n - 2 + ... + n - 2^(logn - 1) + 2^logn T(1) (= 0)
+						= sigma_i = 0 to log n - 1 (n - 2^i)
+						= sigma_i = 0 to log n n - sigma_i = 0 to log n 2^i
+						= n.log n - (2^log n - 1)
+						= n.log n - n + 1
+						
+				1. Proof: Prove by induction
 
 ## Lec 15 ##
 ## Lec 16 ##
