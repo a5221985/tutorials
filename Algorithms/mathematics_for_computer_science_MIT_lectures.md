@@ -1426,12 +1426,14 @@
 9. T(n) = 2.T(n/2) + Theta(n) => T(n) + Theta(n.log n) (wrong!)
 	1. Theorem (NOT!). If T(n) = 2.T(n/2) + n - 1 and T(1) = 0, then T(n) = O(n) (Wrong!)
 		1. Proof: By strong induction:
-			1. Induction Hypothesis: P(n): T(n) = O(n)
+			1. Induction Hypothesis: P(n): T(n) = O(n) (n in predicate cannot be in O(n), lim_n -> inf T(n)/n < inf. This makes no sense if n is given (since it is not definite))
 			2. Base Case: T(1) = 0 = O(1)
 			3. Inductive step: Assume P(1), P(2), P(3), ..., P(n).
 				1. T(n) = 2.T(n/2) + n - 1 => 2.O(n/2) + n - 1 = O(n)
 
 ## Lec 15 ##
+1. 
+
 ## Lec 16 ##
 ## Lec 17 ##
 ## Lec 18 ##
