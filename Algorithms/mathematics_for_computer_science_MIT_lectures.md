@@ -1400,7 +1400,14 @@
 		
 				T(x) = a1.T(b1.x) + eplison1(x)) + a2.T(b2.x) + epsilon2(x)) + ... + an.T(bn.x + epsilon_n(x)) + g(x) for x >= x0
 				
-			1. Where ai > 0, 0 < bi < 1
+			1. Where ai > 0, 0 < bi < 1, k is fixed, |epsiloni(x)| <= O(x/log^2x) (it should not be too big), |g'(x)| <= x^2 (it is polynomial and cannot be exponential)
+				1. n - 1 or n - k is not divide and conquer (Tower of hannoi is not a divide and conquer)
+				2. S(n) + S(floor(n/2)) + S(ceil(n/2)) + 1
+					1. epsilon1(n) = n/2 - floor(n/2) <= 1
+					2. epsilon2(n) = ceil(n/2) - n/2 <= 1
+		2. Theorem (Akra & Bazzi: 96): Set p so that sigma_i = 1 to k aibi^p = 1
+			1. Then T(x) + Theta(x^p + x^p integral_1 to x g(u)/u^(p - 1) du)
+				1. Proof: Guess and verify but can be proved by induction
 
 ## Lec 15 ##
 ## Lec 16 ##
