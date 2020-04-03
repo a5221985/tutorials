@@ -1406,8 +1406,17 @@
 					1. epsilon1(n) = n/2 - floor(n/2) <= 1
 					2. epsilon2(n) = ceil(n/2) - n/2 <= 1
 		2. Theorem (Akra & Bazzi: 96): Set p so that sigma_i = 1 to k aibi^p = 1
-			1. Then T(x) + Theta(x^p + x^p integral_1 to x g(u)/u^(p - 1) du)
-				1. Proof: Guess and verify but can be proved by induction
+			1. Then T(x) + Theta(x^p + x^p integral_1 to x g(u)/u^(p + 1) du)
+				1. Proof: Guess and verify but can be proved by induction (but a little hard)
+		3. T(x) = 2.T(x/2) + x - 1
+			1. a1 = 2, b1 = 1/2, k = 1 => p = 1
+			2. T(x) = Theta(x^1 + x^1 integral_1 to x (u - 1)/u^2 du) = Theta(x + x.integral_1 to x (1/u - 1/u^2) du) = Theta(x + x.(log.u + 1/u)|1 to x) = Theta(x + x.(log(x) + 1/x - 1)) = Theta(x.log(x))
+				1. This works for nasty equations too
+		4. 2(1/2)^p + 8/9(3/4)^p = 1 => p = 2 works
+			1. T(x) = Theta(x^2 + x^2.integral_1 to x u^2/(u^3)du) = Theta(x^2 + x^2.log u|1 to x) = Theta(x^2.log(x))
+			2. It gives the assymptotic growth only
+				1. For algorithms it is sufficient because actual constants are ignored
+					1. In ~, constant factors matter (log_2 x is different from log_e x)
 
 ## Lec 15 ##
 ## Lec 16 ##
