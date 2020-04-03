@@ -1394,6 +1394,13 @@
 						3. Inductive step: Assume P(1), P(2), ..., P(n) to prove P(n + 1) for all n >= 1
 							1. S(n + 1) = S(floor((n + 1)/2)) + S(ceil((n + 1)/2) + 1 = floor((n + 1)/2) - 1 + ceil((n + 1)/2) - 1 + 1 by inductive hypothesis
 							2. S(n + 1) = 2((n + 1)/2) - 1 = (n + 1) - 1 => P(n + 1)
+						4. S(n) ~ n
+	6. T(x) = 2T(x/2) + 8/9.T(3x/4) + x^2 for x >= 1 or T(x) = 0 if x < 1
+		1. Definition: Divide and conquer recurrence has the form
+		
+				T(x) = a1.T(b1.x) + eplison1(x)) + a2.T(b2.x) + epsilon2(x)) + ... + an.T(bn.x + epsilon_n(x)) + g(x) for x >= x0
+				
+			1. Where ai > 0, 0 < bi < 1
 
 ## Lec 15 ##
 ## Lec 16 ##
