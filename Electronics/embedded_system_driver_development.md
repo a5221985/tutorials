@@ -219,5 +219,4 @@
 	8. Step 8: Read data from DATA buffer
 	9. Step 9: Generate STOP condition
 	10. Step 10: Update BUSY Flag to Free
-	
-	
+
