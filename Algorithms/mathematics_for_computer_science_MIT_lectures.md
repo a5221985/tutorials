@@ -1417,6 +1417,19 @@
 			2. It gives the assymptotic growth only
 				1. For algorithms it is sufficient because actual constants are ignored
 					1. In ~, constant factors matter (log_2 x is different from log_e x)
+		5. T(x) = 3.T(x/3) + 4.T(x/4) + x^2
+			1. 3(1/3)^p = 4(1/4)^p = 1 => p is a fraction
+				1. There is an interesting insight:
+					1. T(x) = Theta(x^p + x^p.integral_t to x u^2/(u^(p + 1) du) = Theta(x^p + x^p.integral u^(1 - p) du) = Theta(x^p + x^p.x^(2 - p)) = Theta(x^p + x^2) = Theta(x^2) (since p < 2)
+					2. Theorem: If g(x) = Theta(x^t) for t >= 0 and sigma_i = 1 to k ai.bi < 1, then T(x) = Theta(g(x))
+						1. Proof: Similar to the example above
+9. T(n) = 2.T(n/2) + Theta(n) => T(n) + Theta(n.log n) (wrong!)
+	1. Theorem (NOT!). If T(n) = 2.T(n/2) + n - 1 and T(1) = 0, then T(n) = O(n) (Wrong!)
+		1. Proof: By strong induction:
+			1. Induction Hypothesis: P(n): T(n) = O(n)
+			2. Base Case: T(1) = 0 = O(1)
+			3. Inductive step: Assume P(1), P(2), P(3), ..., P(n).
+				1. T(n) = 2.T(n/2) + n - 1 => 2.O(n/2) + n - 1 = O(n)
 
 ## Lec 15 ##
 ## Lec 16 ##
