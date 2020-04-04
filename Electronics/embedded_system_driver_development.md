@@ -294,5 +294,5 @@
 				14. CPHA (need to configure) - 0 - default
 		2. CR2:
 			1. Fields
-				1. 
+				1. Reserved: [15:8]
 	8. Status register (status of verious events)
