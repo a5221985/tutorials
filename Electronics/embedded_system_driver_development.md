@@ -227,4 +227,31 @@
 	3. SPI Control & Status register
 	4. How to configure?
 	5. Transmit & Receive Handler
-6. 
+2. Serial Peripheral Interface
+	1. **Full-Duplex**, **Serial** Communication Protocol
+	2. **Synchronous** Communication Protocol
+	3. **Four Wire** Communication Protocol
+	4. **Single**-Master **Multi**-slave
+	5. Widely used for short-distance communication, primarily in Embedded Systems
+3. Master:
+	1. Clock (SCLK) is configured with frequency supported by the slave device
+	2. GPIOi pin is pulled to 0 to select a slave
+	3. To stop communication
+		1. Master stops the clock signal
+		2. Master pulls GPIOi pin to 1 to de-select the slave
+4. Communication:
+	1. Shift registers are used to communicate from master to slave and slave to master
+		1. Shift register (Master has one and slave has one)
+			1. On each clock signal, master shifts a bit from Master Shift register to Slave shift register over MOSI line
+				1. A bit shift also occurs from Slave shift register to Master shift register over MISO line
+			2. At 8th clock cycle, the data of master and slave are swapped
+		2. Advantages:
+			1. Communication is cheap and easy using shift register is easy as compared to UART and I2C
+	2. CPOL (Clock Polarity) (needs to be configured for both master and slave)
+		1. CPOL = 0 - Non-inverted (active state = 1)
+		2. CPOL = 1 - Inverted (active state = 0)
+	3. CPHASE (Clock Phase)
+		1. When data has to be toggled
+		2. When data has to be sampled
+			1. CPHASE = 0 - Data is sampled at leading edge of the clock
+			2. CPHASE = 1 - Data is sampled at trailing edge of the clock
