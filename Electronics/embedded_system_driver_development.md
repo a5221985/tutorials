@@ -220,3 +220,11 @@
 	9. Step 9: Generate STOP condition
 	10. Step 10: Update BUSY Flag to Free
 
+## SPI - Driver Development ##
+1. Topics
+	1. How SPI Hardware works?
+	2. What are Shift Registers?
+	3. SPI Control & Status register
+	4. How to configure?
+	5. Transmit & Receive Handler
+6. 
