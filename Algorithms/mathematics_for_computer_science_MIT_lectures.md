@@ -1432,7 +1432,14 @@
 				1. T(n) = 2.T(n/2) + n - 1 => 2.O(n/2) + n - 1 = O(n)
 
 ## Lec 15 ##
-1. 
+1. Linear Recurrence:
+	1. Example: Graduate student Job Problem (nightmare)
+		1. Total # jobs = m (budgetery constraints - fixed over time)
+		2. Each professor generates 1 graduate (new professor) per year
+		3. Except - 1st year professors produce 0
+		4. No retirements - filled for every
+		5. Question: When are all m jobs filled?
+		6. Boundary condition:  
 
 ## Lec 16 ##
 ## Lec 17 ##
