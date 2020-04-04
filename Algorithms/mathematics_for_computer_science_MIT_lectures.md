@@ -1439,7 +1439,16 @@
 		3. Except - 1st year professors produce 0
 		4. No retirements - filled for every
 		5. Question: When are all m jobs filled?
-		6. Boundary condition:  
+		6. Boundary condition: 1st professor hired in year 1
+		7. Solution: Let f(n) = # professors during year n
+			1. f(0) = 0
+			2. f(1) = 1
+			3. f(2) = 1
+			4. f(3) = 2
+			5. f(4) = 3
+			6. f(5) = 5
+			7. For n >= 2, f(n) = f(n - 1) + f(n - 2) (no of professors who were there 2 years ago)
+2. Definition: A recurrence is linear if it is of the form f(n) = a1.f(n - 1) + a2.f(n - 2) + ... + ad.f(n - d) = sigma_i = 1 to d ai.f(n - i) for fixed ai,d (d = order of the recurrence) 
 
 ## Lec 16 ##
 ## Lec 17 ##
