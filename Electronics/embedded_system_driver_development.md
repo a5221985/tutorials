@@ -328,3 +328,26 @@
 			1. Tx handler
 			2. Rx handler
 		3. Event interrupt handler to handle master and slave interrupts
+	10. Init API
+		1. Steps:
+			1. Master or Slave: MSTR bit
+			2. Set communication mode: COPL, CPHASE
+			3. Set communication speed
+			4. Data size: 8 or 16 bit
+			5. Direction: LSB or MSB
+			6. Select Pin-packs
+			7. Enable interrupts
+			8. Enable SPI Peripheral
+	11. How Master transmits n Bytes?
+		1. Step 1: Update BUSY Flag to Busy
+		2. Step 2: Copy data into Data buffer
+		3. Step 3: Update Length information (global buffer)
+		4. Step 4: Reset SLAVE select GPIO (selects a slave)
+		6. Step 6: Enable Transmit Interrupt
+	12. How Master receives n Bytes?
+		1. Step 1: Update BUSY Flag to Busy
+		2. Step 2: Copy Dummy data into Data buffer
+		3. Step 3: Update Length information (global buffer)
+		4. Step 4: Reset SLAVE select GPIO (selects a slave)
+		5. Step 5: Enable Receive interrupt
+		6. Step 6: Enable Transmit Interrupt (
