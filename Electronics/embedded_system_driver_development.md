@@ -255,3 +255,44 @@
 		2. When data has to be sampled
 			1. CPHASE = 0 - Data is sampled at leading edge of the clock
 			2. CPHASE = 1 - Data is sampled at trailing edge of the clock
+			3. There are 4 modes:
+				1. Mode 0: 0 (CPOL), 0 (CPHASE)
+				2. Mode 1: 0, 1
+				3. Mode 2: 1, 0
+				4. Mode 3: 1, 1
+5. STM32F4:
+	1. MOSI line
+	2. MISO line
+	3. SCK line
+	4. NSS line (for chip select)
+	5. Rx buffer (connected to shift register)
+	6. Tx buffer (connected to shift register)
+	7. Control registers - 2 (configure SPI communication)
+		1. CR1:
+			1. Fields (all are rw)
+				1. BIDI MODE
+				2. BIDI OE
+				3. CRC EN
+				4. CRC NEXT
+				5. DFF
+				6. RX ONLY
+				7. SSM
+				8. SSI
+				9. LSB FIRST
+				10. SPE - enables SPI peripheral
+				11. BR [2:0] - clock config (should not be changed when communication is ongoing) - not used in I2S mode
+					1. 000: fPCLK/2 (fPCLK = 16 Mhz say)
+					2. 001: fPCLK/4
+					3. 010: fPCLK/8
+					4. 011: fPCLK/16
+					5. 100: fPCLK/32
+					6. 101: fPCLK/64
+					7. 110: fPCLK/128
+					8. 111: fPCLK/256
+				12. MSTR - 1 - master, 0 - slave
+				13. CPOL (need to configure) - 0 - default
+				14. CPHA (need to configure) - 0 - default
+		2. CR2:
+			1. Fields
+				1. 
+	8. Status register (status of verious events)
