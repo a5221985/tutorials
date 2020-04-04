@@ -295,4 +295,36 @@
 		2. CR2:
 			1. Fields
 				1. Reserved: [15:8]
+				2. TXEIE (rw) - set for interrupt 
+				3. RXNEIE (rw) - set for interrupt
+				4. ERRIE (rw)
+				5. FRF (rw)
+				6. Res
+				7. SSOE (rw)
+				8. TXDMAEN (rw)
+				9. RXDMAEN (rw)
 	8. Status register (status of verious events)
+		1. SPI_SR:
+			1. Fields
+				1. Reserved: [15:9]
+				2. FRE (r) - set if there is communication error
+				3. BSY (r) - set if there is communication error
+				4. OVR (r) - set if there is communication error
+					1. Over-run
+				5. MODF (r) - set if there is communication error
+				6. CRC ERR (rc_w0) - set if there is communication error
+					1. CRC mismatch
+				7. UDR (r) - set if there is communication error
+					1. Under-run
+				8. CHSIDE (r) - set if there is communication error
+				9. TXE (r) - when Tx buffer is empty, this gets set when data is successfully transmitted
+				10. RXNE (r) - when Rx buffer is not empty, this get set when data is successfully received
+	9. SPI Driver API Requirements:
+		1. Initialization: Master and Slave
+			1. Configuring SPI mode
+			2. Clock setting
+			3. ...
+		2. API for transmission and reception of data
+			1. Tx handler
+			2. Rx handler
+		3. Event interrupt handler to handle master and slave interrupts
