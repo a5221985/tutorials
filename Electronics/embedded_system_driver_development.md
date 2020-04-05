@@ -369,4 +369,20 @@
 	4. If Input is 0, PMOS gate is 0 and NMOS gate is 1
 		1. NMOS is on and PMOS is off so LED is turned off (pulled to ground)	
 2. Open Drain config
-	1. 
+	1. Only NMOS is active (PMOS is not in picture)
+	2. If Input is 0, NMOS gate is 1 and turned on then output is 0
+	3. If Input is 1, NMOS gate is 0 and output is floating
+3. Open Drain with Pull-up resistor:
+	1. +VCC is connected across resistor to NMOS
+		1. Two configs
+			1. Internal Pull-up resistor
+				1. Configured using GPIO control register (activation)
+			2. External Pull-up resistor
+	2. Operation:
+		1. If Input is 1: NMOS is turned off
+			1. Output is pulled to VCC
+				1. LED is turned on
+		2. If Input is 0: NMOS is turned on
+			1. Current flows through NMOS
+				1. Output is pulled down to 0
+					1. LED is turned off
