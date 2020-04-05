@@ -350,4 +350,15 @@
 		3. Step 3: Update Length information (global buffer)
 		4. Step 4: Reset SLAVE select GPIO (selects a slave)
 		5. Step 5: Enable Receive interrupt
-		6. Step 6: Enable Transmit Interrupt (
+		6. Step 6: Enable Transmit Interrupt
+
+## GPIO Output Configuration ##
+1. Push-Pull config:
+	1. Default config
+	2. Connection:
+		1. Input is connected to an inverter
+		2. Inverter output is connected to PMOS and NMOS Gates
+		3. +VCC is connected to Source of PMOS
+		4. Drain of PMOS is connected to NMOS
+		5. Source of NMOS is grounded
+		6. D
