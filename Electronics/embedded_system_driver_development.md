@@ -361,4 +361,6 @@
 		3. +VCC is connected to Source of PMOS
 		4. Drain of PMOS is connected to NMOS
 		5. Source of NMOS is grounded
-		6. D
+		6. Drain is connected to current limiting resistor
+		7. Other end of resistor is connected to Anode of LED
+		8. Cathode of LED is grounded
