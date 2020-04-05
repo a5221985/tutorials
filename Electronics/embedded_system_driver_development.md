@@ -364,3 +364,9 @@
 		6. Drain is connected to current limiting resistor
 		7. Other end of resistor is connected to Anode of LED
 		8. Cathode of LED is grounded
+	3. If Input is 1, PMOS gate is 1 (gate is opened)
+		1. PMOS will conduct and LED is turned on (pushed to +VCC)
+	4. If Input is 0, PMOS gate is 0 and NMOS gate is 1
+		1. NMOS is on and PMOS is off so LED is turned off (pulled to ground)	
+2. Open Drain config
+	1. 
