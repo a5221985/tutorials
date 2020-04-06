@@ -1507,7 +1507,20 @@
 	1. f : X -> Y surjective => |X| >= |Y|
 	2. f : X -> Y injective => |X| <= |Y|
 	3. f : X -> Y bijective => |X| = |Y| (bijection rule)
-15. 
+15. Example: X = all the ways to select 12 donuts from 5 varieties:
+	1. X:
+		1. 2 - chololate
+		2. 0 - lemon filled
+		3. 6 - sugar
+		4. 2 - glazed
+		5. 2 - plain
+	2. Map 0s to donuts
+	3. Map 1s to dividers
+	4. This mapping is bijective
+	5. Y = set of all 16 bit sequence with exactly 4 1s, |X| = |Y|
+16. Example: Bijection from subsets of X = {1 , ..., n} to n-bit sequences
+	1. S -f-> (b1, b2, ..., bn) via bi = {1 - if i is in S, 0 - if i is not in S}
+	2. 2^n = Number of n bit sequence (0 or 1 for each bi - 2 choices) = number of subsets of an n-element Set
 
 ## Lec 17 ##
 ## Lec 18 ##
