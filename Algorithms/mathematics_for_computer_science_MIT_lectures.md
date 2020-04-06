@@ -1451,6 +1451,8 @@
 2. Definition: A recurrence is linear if it is of the form f(n) = a1.f(n - 1) + a2.f(n - 2) + ... + ad.f(n - d) = sigma_i = 1 to d ai.f(n - i) for fixed ai,d (d = order of the recurrence) 
 
 ## Lec 16 ##
+1. 
+
 ## Lec 17 ##
 ## Lec 18 ##
 ## Lec 19 ##
