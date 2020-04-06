@@ -1475,7 +1475,7 @@
 		2. Second term has 2 choices (one element is used)
 		3. Third term has 1 choice (two elements are used)
 6. Number of permutations of a set of n elements = n(n - 1)(n - 2) ... 1 = n!
-7. Definition: A function f : X -> Y is a relation between the sets X and Y such that every element of X is related to exactly one element of Y
+7. Definition: A function f : X -> Y is a relation between the sets X and Y such that every element of X is related to exactly one element of Y (all elements must be covered in X and not element should map to more than one function)
 	1. X - domain of function f
 	2. Y - range of function f (image)
 8. Example: X = {a, b, c}, Y = {1, 2, 3}
@@ -1486,6 +1486,28 @@
 	2. f(a) = 1
 	3. f(b) = 3
 	4. f(c) = 3
+9. Definition: f: X -> Y is surjective if every single element of Y is mapped to at-least once
+10. Definition: f: X -> Y is injective if every single element of Y is mapped to at-most once
+11. Definition: f: X -> Y is bijective if every single element of Y is mapped to exactly once
+	1. Byjective iff surjective and injective
+12. Example: X = {1, 2, 3}, Y = {a, b} - surjective
+	1. f(1) = a
+	2. f(2) = a
+	3. f(3) = b
+13. Example: X = {1, 2, 3}, Y = {a, b, c, d} - injective
+	1. f(1) = a
+	2. f(2) = b
+	3. f(3) = d
+14. Example: Let (a1, ..., an) be a permutation of S = {a1, a2, ..., an}
+	1. Definition: Pi(ai) = i
+		1. a in S, is mapped to i iff a is in the i-th term in the permutation
+		2. Then: Pi is bijective
+			1. every i is convered exactly once by ai
+14. Mapping Rule:
+	1. f : X -> Y surjective => |X| >= |Y|
+	2. f : X -> Y injective => |X| <= |Y|
+	3. f : X -> Y bijective => |X| = |Y| (bijection rule)
+15. 
 
 ## Lec 17 ##
 ## Lec 18 ##
