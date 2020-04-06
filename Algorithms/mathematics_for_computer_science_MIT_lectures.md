@@ -1464,6 +1464,28 @@
 	1. Example: {a, b, c} = {c, a, b}
 	2. Example: {a, b, a} is not a set (collection)
 3. Definition: The size or cardinality of S is the number of elements in S. Denoted by |S|
+4. Definition: Sequence is an ordered collection of elements (components/ terms) not necessarily distinct.
+	1. Example: (a, b, c) (starting from a)
+	2. Example: (a, b, a) (valid)
+5. Definition: A permutation of a set S is a sequence containing every element in S exactly once.
+	1. Example: {a, b, c} - (a, b, c), (b, c, a), (c, a, b), 
+		1. (c, b, a), (b, a, c), (a, c, b)
+	2. How does it work?
+		1. First term has 3 choices
+		2. Second term has 2 choices (one element is used)
+		3. Third term has 1 choice (two elements are used)
+6. Number of permutations of a set of n elements = n(n - 1)(n - 2) ... 1 = n!
+7. Definition: A function f : X -> Y is a relation between the sets X and Y such that every element of X is related to exactly one element of Y
+	1. X - domain of function f
+	2. Y - range of function f (image)
+8. Example: X = {a, b, c}, Y = {1, 2, 3}
+	1. f:
+		1. a -> 1
+		2. b -> 3
+		3. c -> 3
+	2. f(a) = 1
+	3. f(b) = 3
+	4. f(c) = 3
 
 ## Lec 17 ##
 ## Lec 18 ##
