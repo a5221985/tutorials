@@ -1460,6 +1460,10 @@
 		4. Division Rule
 	3. Generalized Product Rule
 	4. Sum Rule
+2. Definition: A set is unordered collection of distinct elements
+	1. Example: {a, b, c} = {c, a, b}
+	2. Example: {a, b, a} is not a set (collection)
+3. Definition: The size or cardinality of S is the number of elements in S. Denoted by |S|
 
 ## Lec 17 ##
 ## Lec 18 ##
