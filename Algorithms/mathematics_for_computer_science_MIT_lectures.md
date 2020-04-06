@@ -1451,7 +1451,15 @@
 2. Definition: A recurrence is linear if it is of the form f(n) = a1.f(n - 1) + a2.f(n - 2) + ... + ad.f(n - d) = sigma_i = 1 to d ai.f(n - i) for fixed ai,d (d = order of the recurrence) 
 
 ## Lec 16 ##
-1. 
+1. Counting 1: Reading 7.2, 11.1 - 11.4, 11.10
+	1. Set, sequence, permutation
+	2. Function
+		1. Surjective, injective, bijective
+		2. Mapping rule
+		3. Generalized Pigeon hole principle
+		4. Division Rule
+	3. Generalized Product Rule
+	4. Sum Rule
 
 ## Lec 17 ##
 ## Lec 18 ##
