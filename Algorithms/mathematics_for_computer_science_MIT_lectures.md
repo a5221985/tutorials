@@ -1524,6 +1524,16 @@
 		1. **If we can prove that the mapping is bijective, the number of elements in set X is same as in Y**
 17. Generalized Pigeon hole principle:
 	1. If |X| > k.|Y|, then for all f : X -> Y, there exists k + 1 different elements of X that are mapped to the same element in Y
+		1. (k = 1: pigeonhole principle)
+			1. Example: > n pigeons from X fly into n holes Y => atleast 2 pigeons will fly into the same hole
+18. Example: Boston has ~ 500,000 non-bald people X
+	1. Claim: there exists 3 people in Boston with the same number of hair on the head
+		1. Number of hair on a head is <= 200,000
+			1. Number of hair set is Y
+			2. |X| > 2|Y| => 2 + 1 = 3 people have the same number of hair
+	2. It is a non-constructive proof - General Pigeonhole principle (unlike induction)
+	3. Example: Pick 10 arbitrary double digit numbers 21, 71, 14, 31, 25, 60, 92, 80, 29, 91
+		1. There are two subsets with the same sum
 
 ## Lec 17 ##
 ## Lec 18 ##
