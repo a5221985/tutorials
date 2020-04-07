@@ -1521,6 +1521,9 @@
 16. Example: Bijection from subsets of X = {1 , ..., n} to n-bit sequences
 	1. S -f-> (b1, b2, ..., bn) via bi = {1 - if i is in S, 0 - if i is not in S}
 	2. 2^n = Number of n bit sequence (0 or 1 for each bi - 2 choices) = number of subsets of an n-element Set
+		1. **If we can prove that the mapping is bijective, the number of elements in set X is same as in Y**
+17. Generalized Pigeon hole principle:
+	1. If |X| > k.|Y|, then for all f : X -> Y, there exists k + 1 different elements of X that are mapped to the same element in Y
 
 ## Lec 17 ##
 ## Lec 18 ##
