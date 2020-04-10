@@ -26,3 +26,13 @@
 				1. before going to customers
 				2. before user space depends on it
 					1. The code changes and improves on it's way in (before shipping to the customer)
+			2. Before shipping code
+				1. If not, if the code changes on it's way in, then problems may occur in user space (uis,...)
+			3. Commercial users observe this very well
+		2. Technical quality overall
+			1. Code quality outweighs
+				1. Company plans
+				2. User desires
+				3. Existing practice
+				4. Developer status
+		3. 
