@@ -1539,7 +1539,7 @@
 				2. Y = {0, 1, ..., 10.99 (990)}: set of all possible sums: |Y| = 991 => |X| > |Y| => P
 26. Definition: A k-to-1 function f: X -> Y maps exactly k elements of X to every element of Y (k elements map to 1, next k elements map to 1, ...)
 	1. Division Rule (generalizes bijection rule: bijection iff 1-to-1): If f is k-to-1: Then |X| = k.|Y|
-	2. 
+27. How many ways to place 2 identical rooks on a chess board such that no row/column is shared?
 
 ## Lec 17 ##
 ## Lec 18 ##
