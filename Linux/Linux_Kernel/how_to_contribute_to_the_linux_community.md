@@ -60,3 +60,16 @@
 							1. We don't fix bugs by introducing new problems... - Linux Torvalds
 							2. We may have to backout if it occurs
 								1. We are not sure if the quality is increasing or decreasing over time
+						2. If we don't allow existing things to break, we are sure that there is improvement in quality or it is the same
+					6. No inherent right to inclusion
+						1. Changes require justification (improve the kernel in some way and useful for users and must be the best solution)
+						2. Other solutions may win out
+							1. Better solution gets merged
+								1. Tips
+									1. Move on assuming the problem is solved
+					7. Getting started: companies
+						1. Ensure management understands the process
+							1. Company should not intervene with kernel changes (do their own quality checks and qa)
+								1. Peer review process is most important
+					8. Getting started: companies
+						1. Develop skills in-house
