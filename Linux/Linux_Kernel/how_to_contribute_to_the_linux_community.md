@@ -57,7 +57,7 @@
 						2. Anyone can change (even it may mean changing how it works)
 					5. No regressions:
 						1. Even to fix other problems
-							1. We don't fix bugs by introducing new problems... - Linux Torvalds
+							1. We don't fix bugs by introducing new problems... - Linus Torvalds
 							2. We may have to backout if it occurs
 								1. We are not sure if the quality is increasing or decreasing over time
 						2. If we don't allow existing things to break, we are sure that there is improvement in quality or it is the same
