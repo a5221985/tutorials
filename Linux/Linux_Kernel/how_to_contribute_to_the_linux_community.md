@@ -32,7 +32,31 @@
 		2. Technical quality overall
 			1. Code quality outweighs
 				1. Company plans
-				2. User desires
+				2. User desires (better but needs quality)
 				3. Existing practice
 				4. Developer status
-		3. 
+					1. Quality code
+						1. How it performs
+						2. How it integrates with other kernel code
+						3. How secure is it
+						4. ...
+					2. Long-term view
+						1. Kernel developers expect to be maintaining the code 5-10 years from now
+							1. How much will it cost to maintain the piece of code for the indefinite future
+							2. Does the code justify the cost?
+							3. Are there changes that will make the code easier to maintain?
+							4. ...
+					3. Peer review
+						1. No code is perfect
+							1. it can always be improved heed requests for changes
+						2. Review process:
+							1. People expect it to be changed
+								1. Understand the process and prepare to change
+					4. No ownership of code
+						1. Even code you wrote
+						2. Anyone can change (even it may mean changing how it works)
+					5. No regressions:
+						1. Even to fix other problems
+							1. We don't fix bugs by introducing new problems... - Linux Torvalds
+							2. We may have to backout if it occurs
+								1. We are not sure if the quality is increasing or decreasing over time
