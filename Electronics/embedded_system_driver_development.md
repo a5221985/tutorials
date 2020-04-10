@@ -392,3 +392,46 @@
 2. No host required
 3. CAN bus is a broadcast type of bus
 	1. Each node can listen to the messages in the network
+	2. Node:
+		1. IO device
+		2. Sensor
+		3. Embedded controller
+		4. General purpose computer (can communicate over USB or ethernet)
+4. It is a message based protocol
+	1. message has id
+	2. priority of message is decided
+	3. Node identification is not required
+	4. Easy to add or remove nodes
+5. It is based on serial half-duplex asynchronous communication
+	1. No need of clock signal to synchronize data between two nodes
+6. It uses differential two wired communication
+	1. Twisted pair
+	2. 120 ohm characteristic impedence
+		1. Connected at each end
+7. Originally designed for automobiles
+	1. Now it is used for others
+8. It is one of the five protocol used in on board diagnostics
+9. Why CAN?
+	1. Due to increase in Electronic Control Units (ECUs)
+	2. 70+ ECUs in modern vehicle
+		1. Engine control unit
+		2. Ignition
+		3. Power window
+		4. transmission
+		5. Mirror adjustment
+		6. Airbag
+		7. ABS
+		8. Doors
+		9. Dashboard
+	3. If all communicating nodes are connected one to one, speed of communication is high but complexity, number of connectors and cost is also high.
+		1. Solution: CAN Bus
+			1. Two wires:
+				1. CAN high
+				2. CAN low
+			2. Advantages
+				1. Low cost (only two wires)
+				2. Efficient
+				3. Flexible (nodes can be added and removed)
+				4. Centralized
+	4. Applications:
+		1. 
