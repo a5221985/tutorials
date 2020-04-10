@@ -465,8 +465,35 @@
 				2. Encapsulation/Decapsulation
 				3. Error detection
 				4. Signalling
-		2. Physical
-			1. PLS
-			2. PMA
-			3. PMS
-			4. MDI
+		2. Physical (responsible for transmission and reception of raw data)
+			1. PLS - Physical Layer Signalling
+			2. PMA - Physical Medium Attachment
+			3. PMS - Physical Medium Specification
+				1. Voltage
+				2. Timing
+				3. Data rates
+				4. connector
+			4. MDI - Medium Dependent Interface
+		3. CAN spec defines
+			1. CAN Protocol (Data Link)
+				1. ISO 11898-1 (part 1)
+					1. spec for DLL (LLC, MAC)
+					2. spec for PLS (signalling in physical layer)
+			2. CAN Physical Layer (Physical layer)
+				1. ISO 11898-2 (part 2) - (PMA & PMS) - for high speed
+					1. Upto 1 Mbps (usually used in power drain and chasis area of the vehicle)
+				2. ISO 11898-3 (part 3) - (PMA & PMS) - for low speed
+					1. Upto 125 kbps (if communication speed is not critical)
+			3. CiA DS-102 (MDI - Physical layer) - CAN in Automation
+				1. Defines spec for CAN connector
+		4. Implementation:
+			1. CAN Controller (Covers ISO 11898-1)
+				1. Implemented in software (with the help of application, OS and network management functions)
+			2. CAN Transceiver (Covers ISO 11898-2 or 3)
+				1. Implemented in software (with the help of application, OS and network management functions)
+			3. CAN Bus Medium (Covers ISO 11898-2 or 3)
+12. CAN Versions:
+	1. CAN 2.0 (1991)
+		1. CAN 2.0 A
+			1. This part is for standard format (11 bit identifier included)
+		2. CAN 2.0 B
