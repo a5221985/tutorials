@@ -123,5 +123,10 @@
 							1. We may have to repeat the explanation and be patient
 						3. Understand their motivation
 							1. Do not take it personally
+								1. Do not argue with them and get grumpy back at them
 					16. Be part of the process
 						1. The kernel needs you
+							1. Development process document
+								1. [http://www.static.linuxfound.org/sites/lfcorp/files/How-Participate-Linux-Community_0.pdf](http://www.static.linuxfound.org/sites/lfcorp/files/How-Participate-Linux-Community_0.pdf)
+									1. How do we find patches
+									2. Coding style documents
