@@ -73,3 +73,32 @@
 								1. Peer review process is most important
 					8. Getting started: companies
 						1. Develop skills in-house
+							1. It is just like developing any operating system
+							2. Learn OS design
+					9. Getting started: companies
+						1. Get legal on board
+							1. Know how open source licenses work
+								1. Work with the legal people to understand this
+					10. Getting started: companies
+						1. Let your developers contribute
+							1. Contribute on mailing list
+							2. Talk to other developers
+					11. Getting started: developers
+						1. No 1 project for all kernel beginners: "make sure that the kernel runs perfectly at all times on all machines which you can lay your hands on"
+							1. Find bugs and fix
+							2. Find bugs and fix
+							3. ...
+						2. This develops reputation in the community
+						3. If what we write does not add much value to kernel, then it is not much appreciated
+					12. Getting started: developers
+						1. Review code!
+							1. Look at other code that people post
+							2. Review and ask questions and comments
+								1. I don't understand
+								2. How does it work if this...
+							3. Good learning
+					13. Communication:
+						1. Communicate your plans early
+							1. Talk to developers early
+						2. Specify requirements carefully
+							1. "Why" instead of "what"
