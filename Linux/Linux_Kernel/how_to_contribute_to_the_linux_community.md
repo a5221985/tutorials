@@ -100,5 +100,18 @@
 					13. Communication:
 						1. Communicate your plans early
 							1. Talk to developers early
+							2. Don't keep internal until the end
+							3. Tell people what we are trying to do early
 						2. Specify requirements carefully
 							1. "Why" instead of "what"
+								1. Kernel may already have a solution
+									1. Specify the requiremnt - we want to have this for our customer which the current kernel does not support well, we think this feature will be a good solution for this ...
+						3. Listen:
+							1. Feedback is important from community
+							2. They have wisdom
+							3. Respond to all of them
+					14. Aim for the mainline
+						1. early!
+							1. Do not fall into the trap of adding more and more stuff to an out-of-tree project. It just makes it harder and harder to get it merged. There are many examples of this - Andrew Morton
+								1. If we put the code early into the mainline kernel, the paroject may be carried on by other developers or else it may be dead and gone
+							2. People may come back to you with suggestions on ways to make the code better
