@@ -497,3 +497,4 @@
 		1. CAN 2.0 A
 			1. This part is for standard format (11 bit identifier included)
 		2. CAN 2.0 B
+			1. This part is for extended format (29 bit identifier included)
