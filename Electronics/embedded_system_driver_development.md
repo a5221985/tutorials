@@ -386,3 +386,9 @@
 			1. Current flows through NMOS
 				1. Output is pulled down to 0
 					1. LED is turned off
+
+## CAN Protocol ##
+1. CAN: Controller Area Network (CAN bus)
+2. No host required
+3. CAN bus is a broadcast type of bus
+	1. Each node can listen to the messages in the network
