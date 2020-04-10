@@ -115,3 +115,13 @@
 							1. Do not fall into the trap of adding more and more stuff to an out-of-tree project. It just makes it harder and harder to get it merged. There are many examples of this - Andrew Morton
 								1. If we put the code early into the mainline kernel, the paroject may be carried on by other developers or else it may be dead and gone
 							2. People may come back to you with suggestions on ways to make the code better
+					15. Dealing with Reviewers:
+						1. Do not ignore reviews
+							1. Have to respond
+							2. Fix the problem or discuss and justify your change
+						2. Be nice to reviewers
+							1. We may have to repeat the explanation and be patient
+						3. Understand their motivation
+							1. Do not take it personally
+					16. Be part of the process
+						1. The kernel needs you
