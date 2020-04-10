@@ -434,4 +434,39 @@
 				3. Flexible (nodes can be added and removed)
 				4. Centralized
 	4. Applications:
-		1. 
+		1. Automotive (Passenger vehicles, trucks, buses)
+		2. Electronic equipment for aviation and navigation
+		3. Industrial automation and mechanical control
+		4. Elevators & escalators
+		5. Building automation
+		6. Medical instruments and equipment
+		7. Marine, Military, Industrial, Medical
+10. Topics:
+	1. Architecture
+	2. Standards
+	3. Versions
+11. OSI model
+	1. Open System Interconnection model
+		1. Application
+		2. Presentation
+		3. Session
+		4. Transport
+		5. Network
+		6. Data Link
+		7. Physical
+	2. CAN defines two layers
+		1. Data Link (for node to node data transfer) - defines protocol to establish and terminate the connection, detect and correct errors that might have occurred at physical layer
+			1. LLC - Logical Link Control
+				1. Frame acceptance filtering
+				2. Overload notification
+				3. Recovery management
+			2. MAC - Medium Access Control (defines now devices get access to the medium)
+				1. Medium access
+				2. Encapsulation/Decapsulation
+				3. Error detection
+				4. Signalling
+		2. Physical
+			1. PLS
+			2. PMA
+			3. PMS
+			4. MDI
