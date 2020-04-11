@@ -659,7 +659,41 @@
 6. UART Data frame:
 	1. Idle - high voltage (line is held is high) - shows line and transmitter are not damaged
 	2. Start bit - 0
-	3. Stop bit - 1 or more (logic high state)
+	3. Stop bit - 1 or more (logic high state) - signals characters are completed
 	4. Data bits
 		1. 5 - 9 bits (depends on config)
 	5. Parity bit (optional) (after data bits)
+7. Transmission:
+	1. All characters will be send from transmitter to receiver in the same format
+	2. Parity bit:
+		1. Used by receiver for error detection - to check if data has got corrupted during transmission
+8. UART Configuration:
+	1. Three ways
+		1. Simplex: One way communication (no tramission from reciever to sender)
+		2. Half duplex: Can happen in both direction but not at the same time
+		3. Full duplex: Can happen in both direction and at the same time
+9. Advantages:
+	1. Only uses two wires
+	2. No clock signal is necessary
+	3. Provide error detection by Parity bit check
+	4. Cost & size will be much lesser compared to the parallel communication
+10. Disadvantages:
+	1. Size of data frame is limited to a max of 9 bits
+	2. Doesn't support multiple slaves or multiple master systems
+	3. Limited speed is the bottlenect for the application which requires higher data transmission rate
+11. Configuration:
+	1. UART functional block
+	2. Control, Data & Status Register
+	3. Configuration of Start & Stop bit
+	4. Significance of Parity Bit
+	5. UART Baud Rate Calculation
+12. STM32F4: Support synchronous and asynchronous
+	1. Since UART supports full duplex:
+		1. There are two sets of registers:
+			1. Transmit data register (TDR)
+			2. Transmit Shift Register
+			3. Receive data register (RDR)
+			4. Receive Shift Register
+		2. 3 Control registers
+		3. 1 Status register
+		4. Baud rate generation block
