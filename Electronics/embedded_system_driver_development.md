@@ -630,6 +630,36 @@
 
 ## UART ##
 1. Universal **Asynchronous** Receiver-Transmitter
+	1. Asynchronous: No clock signal required to synchornize or validate the data from transmitter
+	2. Synchronous: Clock signal is shared between tramsitter and receiver to synchronize the data
 2. **Serial** communication protocol
+	1. Parallel - multiple wires are used to conver binary info simultaneously (8 bits ...)
+		1. Higher speed of data transmission
+	2. Serial - only single bit at a time
+		1. Bits are sent sequentially over single wire
+			1. Channel size and cost is reduced
 3. **Two wires** required for communication
 4. Data **format** & transmission **speed** are configurable
+5. How does work?
+	1. TX pin of device 1 (transmitter) is connected to RX pin of device 2 (receiver)
+	2. RX pin of device 1 (transmitter) is connected to TX pin of device 2 (receiver)
+	3. GND of both devices are connected to common ground
+	4. How does reciever know when to read the data if there is no clock signal?
+		1. Data synchronization in UART:
+			1. Baud rate: timing parameters must be agreed by both
+			2. Start & Stop bits: used to to mark the beginning and end or each data byte respectively
+	5. Baud Rate:
+		1. Baud rate is a measure of the speed of data transfer, expressed in bits per second (bps)
+			1. 2400 bps
+			2. 4800 bps
+			3. 9600 bps
+			4. ...
+			5. 256000 bps
+		2. Needs to be configured in both the devices
+6. UART Data frame:
+	1. Idle - high voltage (line is held is high) - shows line and transmitter are not damaged
+	2. Start bit - 0
+	3. Stop bit - 1 or more (logic high state)
+	4. Data bits
+		1. 5 - 9 bits (depends on config)
+	5. Parity bit (optional) (after data bits)
