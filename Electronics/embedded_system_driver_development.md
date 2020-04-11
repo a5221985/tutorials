@@ -574,3 +574,7 @@
 		2. Logic 0 - dominant
 		3. Logic 1 - recessive
 			1. If both CANH and CANL are applied with 2.5 V, the differential voltage is 0 - read by transceiver as logic 1
+				1. Ideal state of the bus
+				2. Not possible for any other node to drive the logic to recessive when one node drives it to dominant
+					1. dominant state dominates recessive state
+			2. If CANH is pulled high to 3.5 V and CANL is pulled down to 1.5 V, the differential voltage is 2 V - read by transceiver as logic 0
