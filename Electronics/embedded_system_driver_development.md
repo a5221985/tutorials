@@ -590,6 +590,10 @@
 			3. If All senders send recessive simultaneously, then BUS is recessive
 		2. Implementation of AND logic
 			1. Using open collector circuit
-		3. Smaller the message ID, higher the priority
+		3. Smaller the message ID, higher the priority (can be decided during design time)
 			1. Examples:
-				1. 
+				1. Flow chart:
+					1. Wish to send a message
+					2. Bus is monitored (until it is free)
+					3. If can bus is idle, send SOF (dominant bit to take bus access)
+					4. Then send next ID bit
