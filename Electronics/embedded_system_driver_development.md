@@ -701,9 +701,44 @@
 		1. Fields
 			1. Res
 			2. LINEN (rw)
-			3. STOP[1:0] (rw, rw)
+			3. **STOP[1:0] (rw, rw)**
+				1. 00: 1 stop bit
+				2. 01: 0.5 stop bit (not available for UART4 & 5)
+				3. 10: 2 stop bits (for higher baud rate)
+				4. 11: 1.5 stop bit (not available for UART4 & 5)
 			4. CLKEN (rw)
 			5. CPOL (rw)
 			6. CPHA (rw)
 			7. LBCL (rw)
 			8. Res
+			9. LBDIE (rw)
+			10. LBDL (rw)
+			11. Res (rw)
+			12. ADD[3:0] (rw - all)
+	3. Parity bit, is bit added to string of binary code to ensure that the total number of 1-bits in string is even or odd
+		1. Simplest method of error detection
+	4. Two variants of parity bits:
+		1. Even parity: results in even number of 1s (number of 1s including the parity bit is even)
+			1. 0x55 - 01010101 - 4 1s (even) - parity bit is 0
+			2. 0x54 - 01010100 - 3 1s (odd) - parity bit is 1
+		2. Odd parity: (number of 1s including parity bit is odd)
+			1. 0x55 - parity bit is 1
+			2. 0x54 - parity bit is 0
+	5. Control register 1: (USART_CR1)
+		1. Fields: (rw - all)
+			1. OVER8
+			2. Reserved
+			3. **UE**
+			4. **M** - 8 or 
+			5. WAKE
+			6. **PCE**
+			7. **PS**
+			8. PEIE
+			9. **TXEIE**
+			10. **TCIE**
+			11. **RXNEIE**
+			12. IDLEIE
+			13. **TE**
+			14. **RE**
+			15. RWU
+			16. SBK
