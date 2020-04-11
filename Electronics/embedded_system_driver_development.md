@@ -697,3 +697,13 @@
 		2. 3 Control registers
 		3. 1 Status register
 		4. Baud rate generation block
+	2. Control register 2 (USART_CR2)
+		1. Fields
+			1. Res
+			2. LINEN (rw)
+			3. STOP[1:0] (rw, rw)
+			4. CLKEN (rw)
+			5. CPOL (rw)
+			6. CPHA (rw)
+			7. LBCL (rw)
+			8. Res
