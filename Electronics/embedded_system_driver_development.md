@@ -498,3 +498,6 @@
 			1. This part is for standard format (11 bit identifier included)
 		2. CAN 2.0 B
 			1. This part is for extended format (29 bit identifier included)
+13. CAN Frame Format:
+	1. Standard Data Format
+	2. Extended Data Format
