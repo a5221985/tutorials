@@ -511,15 +511,42 @@
 				2. RTR - Remote Transmission Request defines frame type (data frame or remote frame) - 1 bit
 			3. Control Field (user defined functions)
 				1. IDE - Identifier Extension
+					1. Dominant IDE bit indicates 11 bit standard frame identifier
+						1. Fields of Standard frame identifier:
+							1. Identifier
+							2. RTR
+					2. Resessive IDE bit indicates 29 bit extended frame identifier
+						1. Fields of Extended frame identifier:
+							1. Base Identifier
+							2. SRR
+							3. IDE
+							4. Extended Identifier
+							5. RTR
 				2. r
-				3. DLC
+				3. DLC - Data Length Code (4 bits)
+					1. Defines length of data in data field
+						1. 0 to 8 bytes
+							1. DLC3 | DLC2 | DLC1 | DLC0
+							2. 0 | 0 | 0 | 0 - 0 bytes
+							3. 0001 - 1 byte
+							4. 0010 - 2 bytes
+							5. 0011 - 3 bytes
+							6. 0100 - 4 bytes
+							7. 0101 - 5 bytes
+							8. 0110 - 6 bytes
+							9. 0111 - 7 bytes
+							10. 1000 - 8 bytes
 			4. Data Field (actual data)
-			5. CRC Field
+			5. CRC Field - Cyclic Redundancy Check for Error (Data corruption) detection - 15 bits - Sender computes and sends, then receiver computes again and if it does not match, receiver sends an error frame
 				1. CRC Sequence
 				2. DEL
-			6. ACK Field
+			6. ACK Field - Acknowledgement - interesting mechanism
 				1. ACK
 				2. DEL
-			7. EOF - End of Frame bit
+			7. EOF - End of Frame bit - End of Frame (7 bits - resessive)
 		2. Other Fields
 			1. ITM 
+15. Topics
+	1. CAN Electrical Characteristics
+		1. Dominant
+		2. Recessive
