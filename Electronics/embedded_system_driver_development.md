@@ -501,3 +501,25 @@
 13. CAN Frame Format:
 	1. Standard Data Format
 	2. Extended Data Format
+14. CAN Framing:
+	1. Standard Data Frame:
+		1. Fields
+			1. SOF - Start of Frame bit
+			2. Arbitration Field (message identifier)
+				1. Identifier - sets the priority of the data frame - 11 bits
+					1. Used for arbitration
+				2. RTR - Remote Transmission Request defines frame type (data frame or remote frame) - 1 bit
+			3. Control Field (user defined functions)
+				1. IDE - Identifier Extension
+				2. r
+				3. DLC
+			4. Data Field (actual data)
+			5. CRC Field
+				1. CRC Sequence
+				2. DEL
+			6. ACK Field
+				1. ACK
+				2. DEL
+			7. EOF - End of Frame bit
+		2. Other Fields
+			1. ITM 
