@@ -578,3 +578,18 @@
 				2. Not possible for any other node to drive the logic to recessive when one node drives it to dominant
 					1. dominant state dominates recessive state
 			2. If CANH is pulled high to 3.5 V and CANL is pulled down to 1.5 V, the differential voltage is 2 V - read by transceiver as logic 0
+3. Arbitration:
+	1. If two or more nodes sends messages at the same time
+		1. Which node should be given priority?
+			1. Wired-AND Logic is used:
+				1. Sender 1:0 1 0 1 0 1 0 1
+				2. Sender 2:0 0 1 1 0 0 1 1
+				3. Sender 3:0 0 0 0 1 1 1 1
+				4. CAN Bus :0 0 0 0 0 0 0 1
+			2. If Different senders send dominant and recessive simultaneously, then BUS remains dominant
+			3. If All senders send recessive simultaneously, then BUS is recessive
+		2. Implementation of AND logic
+			1. Using open collector circuit
+		3. Smaller the message ID, higher the priority
+			1. Examples:
+				1. 
