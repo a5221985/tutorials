@@ -596,4 +596,20 @@
 					1. Wish to send a message
 					2. Bus is monitored (until it is free)
 					3. If can bus is idle, send SOF (dominant bit to take bus access)
-					4. Then send next ID bit
+					4. Then send next ID bit (MSB)
+						1. If node detects dominant bit while it has sent a recessive bit, (if bus level != sent level)
+							1. Node has lost the arbitration and stops sending further bits
+							2. Waits until bus is free again
+			2. Example:
+				1. CAN Node
+					1. 1 - 0x7F3 - 11111110011
+					2. 2 - 0x6B3 - 11010110011
+					3. 3 - 0x6D9 - 11011011001
+				2. Suppose all three are transmitting at once
+					1. First bit is recessive
+						1. First bit - all are recessive
+						2. Second bit - all are recessive
+						3. Third bit - 2 & 3 send dominant bits (1 has lost arbitration)
+						4. Fourth bit - 2 & 3 send recessive bits
+						5. Fifth bit - 2 sends dominant bit (3 has lost arbitration)
+						6. Henceforth 2 continues to hold the bus and complete
