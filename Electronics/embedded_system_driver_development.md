@@ -729,16 +729,46 @@
 			1. OVER8
 			2. Reserved
 			3. **UE**
-			4. **M** - 8 or 
+			4. **M** - 8 or 9 bits word length
 			5. WAKE
-			6. **PCE**
-			7. **PS**
+			6. **PCE** (parity control)
+			7. **PS** (parity control)
 			8. PEIE
-			9. **TXEIE**
-			10. **TCIE**
-			11. **RXNEIE**
+			9. **TXEIE** (Transmit interrupt enable)
+			10. **TCIE** (Transmit interrupt enable)
+			11. **RXNEIE** (Transmit/Receive interrupt enable) - if interrupt is used instead of polling
 			12. IDLEIE
 			13. **TE**
 			14. **RE**
 			15. RWU
 			16. SBK
+	6. Status register (USART_SR) - set by the hardware
+		1. Fields
+			1. Reserved [31:26]
+			2. CTS (rc_w0)
+			3. LBD (rc_w0)
+			4. **TXE** (r) (on successful transmission)
+			5. TC (rc_w0)
+			6. **RXNE** (rc_w0) (on successful reception)
+			7. IDLE (r)
+			8. ORE (r)
+			9. NF (r)
+			10. FE (r)
+			11. PE (r)
+	7. USART_BRR (register for baud rate)
+		1. Value:
+			1. DIV_Mantissa
+			2. DIV_Fraction
+		2. Calculation: f_PCLKx(x=1,2) - UART peripheral clock can be used to calculate baud rate value
+	8. Fractional baud rate generation:
+		1. Tx/Rx baud = f_CK/(8 x (2 - OVER8) x USARTDIV)
+			1. f_pCLK (UART Peripheral Clock) = 16 MHz
+				1. Baud rate: 9600 bps
+				2. OVER8 = 0 (Oversampling by 16)
+			2. USARTDIV = 16M/(8 x 2 x 9600) = 104.17
+			3. After correcting the UART error = 104.1875
+				1. Mantissa - 12 bits
+					1. 104 * 104 = 0x68
+				2. Fraction - 4 bits
+					1. 0.1875 * 16 = 0x3
+			4. USART_BRR = 0x683
