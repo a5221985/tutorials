@@ -627,3 +627,9 @@
 	2. Another difference: RTR
 		1. For Data frame - RTR is dominant (takes precedence over remote)
 		2. For Remote frame - RTR is recessive (loses arbitration if Data frame is available on the bus)
+
+## UART ##
+1. Universal **Asynchronous** Receiver-Transmitter
+2. **Serial** communication protocol
+3. **Two wires** required for communication
+4. Data **format** & transmission **speed** are configurable
