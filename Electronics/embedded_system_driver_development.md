@@ -571,3 +571,6 @@
 					3. ...
 				2. Twisting of lines reduces magnetic field
 				3. Bus is terminated with 120 ohm resistance at each end
+		2. Logic 0 - dominant
+		3. Logic 1 - recessive
+			1. If both CANH and CANL are applied with 2.5 V, the differential voltage is 0 - read by transceiver as logic 1
