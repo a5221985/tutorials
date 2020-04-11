@@ -613,3 +613,17 @@
 						4. Fourth bit - 2 & 3 send recessive bits
 						5. Fifth bit - 2 sends dominant bit (3 has lost arbitration)
 						6. Henceforth 2 continues to hold the bus and complete
+4. Topics
+	1. Data Frame
+	2. Remote Frame
+	3. Differences
+5. CAN Framing:
+	1. Differences
+		1. Data frame - consists of actual data
+		2. Remote frame - is a request message from any other node - no data field
+		3. Example:
+			1. If say Node C wants temperature, it sends a remote frame (request) with same message id
+			2. If say Node A is responsible for sending the information, it sends the data
+	2. Another difference: RTR
+		1. For Data frame - RTR is dominant (takes precedence over remote)
+		2. For Remote frame - RTR is recessive (loses arbitration if Data frame is available on the bus)
