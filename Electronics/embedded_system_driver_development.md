@@ -550,3 +550,24 @@
 	1. CAN Electrical Characteristics
 		1. Dominant
 		2. Recessive
+	2. CAN Node elements
+		1. Host - uP or uC (running application to do a specific job)
+			1. Decides what received message means and what it wants to send next
+		2. CAN Controller
+			1. Deals with communication functions prescribed by the CAN protocol
+			2. Triggers interrupt upon transmission or reception of messages
+		3. CAN Transceiver
+			1. Responsible for transmission and reception of Data on the CAN bus
+				1. Converts CAN signal collected from the Bus into stream of data which can be understood by the CAN controller
+	3. Unshielded twisted line is used to transmit and receive Data (Can BUS)
+		1. CANH - CAN High line
+		2. CANL - CAN Low line
+	4. Transmission:
+		1. Occurs by applying differential voltage to the lines
+			1. Twisted pair?
+				1. In automobile, the environment can cause a lot of data loss or corruption due to noise
+					1. Ignition system
+					2. Motors
+					3. ...
+				2. Twisting of lines reduces magnetic field
+				3. Bus is terminated with 120 ohm resistance at each end
