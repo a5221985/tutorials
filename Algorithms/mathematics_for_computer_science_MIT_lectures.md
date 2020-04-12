@@ -1602,6 +1602,8 @@
 			3. |E| = |E \ M| + |M intersect E| (using sum rule)
 			4. |M U E| = |M \ E| + |M intersect E| + |E \ M| (sum rule)
 			5. |M| + |E| countes M intersect E twice
+			6. |M U E| = |M| + |E| - |M intersect E|
+		2. 
 
 ## Lec 18 ##
 ## Lec 19 ##
