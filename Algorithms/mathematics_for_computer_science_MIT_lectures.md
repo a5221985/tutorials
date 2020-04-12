@@ -1542,6 +1542,15 @@
 27. How many ways to place 2 identical rooks on a chess board such that no row/column is shared?
 		1. R1 - (r1, c1)
 		2. R2 - (r2, c2)
+		3. How to describe this?
+			1. (r1, c1, r2, c2) - sequence
+			2. Let Y = set of valid rook configuration
+				1. sequence is in Y
+		4. X = sequences - (r1, c1, r2, c2) such that r1 != r2, c1 != c2
+			1. The combination is a placement
+		5. (r2, c2, r1, c1) also maps to the same configuraiton
+			1. => f is 2-to-1
+			2. |Y| = |X| / 2
 
 ## Lec 17 ##
 ## Lec 18 ##
