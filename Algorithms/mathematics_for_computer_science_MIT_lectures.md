@@ -1594,6 +1594,14 @@
 	2. Binomial Theorem
 4. Counting Examples: Poker Hands
 5. Combinatorial Proofs
+6. Details:
+	1. Inclusion-Exclusion
+		1. Set M and Set E both intersect
+			1. M \ E + M intrsect E | E \ M
+			2. |M| = |M \ E| + |M intersect E| (using sum rule)
+			3. |E| = |E \ M| + |M intersect E| (using sum rule)
+			4. |M U E| = |M \ E| + |M intersect E| + |E \ M| (sum rule)
+			5. |M| + |E| countes M intersect E twice
 
 ## Lec 18 ##
 ## Lec 19 ##
