@@ -1620,6 +1620,12 @@
 			7. P_60 inter P_04 inter P_42 -> Permutations of {6042, ...} => |P_60 inter P_04 inter P_42| = 7!
 			8. Using inclusion exclusion principle: 
 				1. |P_60 U P_04 U P_42| = 3.9! - 3.8! + 7!
+7. Bookkeeper Rule: Distinct copies of letters l1, l2, l3, ..., lk. The number of sequences with n1 copies of l1 and l2 copies of l2 ... nk copies of lk is
+
+		(n1 + n2 + ... + nk)!/(n1!n2!...nk!) = (n1 + n1 + ... + nk n1,n2,n3,...nk)
+		
+	1. If k = 2, binomial coefficient
+		1. (n k, n - k) = n!/(k!.(n - k)!)
 
 ## Lec 18 ##
 ## Lec 19 ##
