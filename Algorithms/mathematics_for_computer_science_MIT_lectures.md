@@ -1540,6 +1540,8 @@
 26. Definition: A k-to-1 function f: X -> Y maps exactly k elements of X to every element of Y (k elements map to 1, next k elements map to 1, ...)
 	1. Division Rule (generalizes bijection rule: bijection iff 1-to-1): If f is k-to-1: Then |X| = k.|Y|
 27. How many ways to place 2 identical rooks on a chess board such that no row/column is shared?
+		1. R1 - (r1, c1)
+		2. R2 - (r2, c2)
 
 ## Lec 17 ##
 ## Lec 18 ##
