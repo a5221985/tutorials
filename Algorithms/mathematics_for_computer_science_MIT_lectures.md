@@ -1568,7 +1568,17 @@
 	4. = n(n - 1)(n - 2)
 30. Example: Defective dollars - some digits appears more than once in the 8-digit serial number
 	1. Fraction non-defective bills = number of non-defective serial numbers / total number of serial numbers = x / y
-		1. y =  
+		1. y = 10^8
+		2. x = 10 x 9 x 8 x 7 x 6 x 5 x 4 x 3 = 10!/2! = 1814400
+		3. fraction = 1.8144 (are non-defective)
+31. Definition: A1 x A2 x .. x An = {(a1, a2, ..., an): a1 is in A1, a2 is in A2, ..., an is in An}
+	1. Product rule: |A1 x A2 x ... x A2| = |A1|.|A2|...|An|
+		1. Example: {0, 1} x {0, 1} x ... x {0, 1} = 2^n choices for n bit sequence
+32. Sum Rule: If A1, ..., An are disjoint sets, then
+	1. |A1 U ... U An| = |A1| + |A2| + ... + |An|
+	2. Example: Passwords: 6-8 symbols
+		1. 1st symbol is a letter (upper or lower case)
+		2. other symbols are letters or digits
 
 ## Lec 17 ##
 ## Lec 18 ##
