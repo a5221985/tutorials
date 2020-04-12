@@ -1579,8 +1579,22 @@
 	2. Example: Passwords: 6-8 symbols
 		1. 1st symbol is a letter (upper or lower case)
 		2. other symbols are letters or digits
+		3. Total number of passwords:
+			1. F = {a, b, ..., z, A, B, C, ..., Z} has 52 elements
+			2. S = {a, b, ..., z, A, B, C, ..., Z, 0, 1, ..., 9}, |S| = 62
+		4. P - possible passwords set
+			1. P = (F x S x S x S x S x S) U (F x S x S x S x S x S x S x S) U (F x S^7)
+			2. |P| = |F x S^5| + |F x S^6| + |F x S^7| = |F|x|S^5| + |F|x|S^6| + |F|x|S^7| = 1.8 x 10^14
 
 ## Lec 17 ##
+1. Reading 11.5 - 11.9, 11.11
+2. Inclusion-Exclusion
+3. Bookkeeper Rule
+	1. Subset Rule
+	2. Binomial Theorem
+4. Counting Examples: Poker Hands
+5. Combinatorial Proofs
+
 ## Lec 18 ##
 ## Lec 19 ##
 ## Lec 20 ##
