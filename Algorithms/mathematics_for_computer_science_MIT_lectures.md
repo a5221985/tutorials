@@ -1634,6 +1634,9 @@
 	1. Proof: 
 		1. Example: if n = 2, a^2 + ab + ba + b^2 = a^2 + 2ab + b^2
 		2. Example: if n = 3, a^3 + a^2b + aba + ba^2 + ab^2 + bab + b^2a + a^3 = a^3 + 3a^2b + 3ab^2 + b^3
+		3. Number of terms with k x a, (n - k) x b = number of length n sequences with k a's and (n - k) b's = (n k)
+10. Poker Hands: Deck: 52 cards, card = suit (spades, hearts, clubs, diamonds)
+	1. Values: 2, 3, 4, ..., 10, J, Q, K, A - 13 possible values
 
 ## Lec 18 ##
 ## Lec 19 ##
