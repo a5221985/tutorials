@@ -1557,6 +1557,18 @@
 28. Generalized product rule: Let S be a set of length k sequences. If there are 
 	1. n1 possible first entries
 	2. n2 possible second entries for each first entry
+	3. n3 possible third entries for each combination of first and second entries
+	4. ...
+	5. nk possible kth entries for each combination of all from first to k - 1 th entries
+	6. Then, |S| = n1 x n2 x n3 x ... x nk
+29. Example: Committies (x, y, z) where x is leader, y is secretary, z is consultant selected from n memebers
+	1. n ways to choose x
+	2. (n - 1) ways to choose y (except x)
+	3. (n - 2) ways to choose z (except x, y)
+	4. = n(n - 1)(n - 2)
+30. Example: Defective dollars - some digits appears more than once in the 8-digit serial number
+	1. Fraction non-defective bills = number of non-defective serial numbers / total number of serial numbers = x / y
+		1. y =  
 
 ## Lec 17 ##
 ## Lec 18 ##
