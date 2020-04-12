@@ -1626,6 +1626,14 @@
 		
 	1. If k = 2, binomial coefficient
 		1. (n k, n - k) = n!/(k!.(n - k)!)
+	2. Examples: Number of bit sequences of 16 with 4 1s (donuts) - convert to bit sequences and use bijection rule
+		1. (16 4) = 16!/(4!.12!)
+8. Subset Rule: Number of k element subsets of an n element set = (n k)
+	1. Proof: Map elements to binary digits, count permutations (n k) and appy bijection rule
+9. Theorem: Binomial Theorem - for all n (a + b)^n = sigma_k = 0 to n (n k).a^(n - k).b^k
+	1. Proof: 
+		1. Example: if n = 2, a^2 + ab + ba + b^2 = a^2 + 2ab + b^2
+		2. Example: if n = 3, a^3 + a^2b + aba + ba^2 + ab^2 + bab + b^2a + a^3 = a^3 + 3a^2b + 3ab^2 + b^3
 
 ## Lec 18 ##
 ## Lec 19 ##
