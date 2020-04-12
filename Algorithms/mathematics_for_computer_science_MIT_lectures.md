@@ -1609,6 +1609,17 @@
 			2. P_42 = set of permutations with 42
 			3. P_04 = ... with 04
 			4. P_60 = ... with 60
+		4. Size of P_60? Tick: Find a Bijection
+			1. P_60 -> permutations of {60, 1, 2, 3, 4, 5, 7, 8, 9}
+				1. (7, 2, 5, 60, 4, 3, 5, 1, 9) => |P_60| = 9!
+			2. P_04 => |P_04| = 9!
+			3. P_42 => |P_42| = 9!
+			4. P_42 inter P_60 -> Permutations of {42, 60, ...} => |P_42 inter P_60| = 8!
+			5. P_60 inter P_04 -> Permutations of {604, ...} => |P_60 inter P_04| = 8!
+			6. P_42 inter P_04 -> Permutations of {042, ...} => |P_42 inter P_04| = 8!
+			7. P_60 inter P_04 inter P_42 -> Permutations of {6042, ...} => |P_60 inter P_04 inter P_42| = 7!
+			8. Using inclusion exclusion principle: 
+				1. |P_60 U P_04 U P_42| = 3.9! - 3.8! + 7!
 
 ## Lec 18 ##
 ## Lec 19 ##
