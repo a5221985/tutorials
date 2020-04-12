@@ -1551,6 +1551,12 @@
 		5. (r2, c2, r1, c1) also maps to the same configuraiton
 			1. => f is 2-to-1
 			2. |Y| = |X| / 2
+		6. Choices: seq (r1, c1, r2, c2)
+			1. (8, 8, 7, 7) = 8 x 8 x 7 x 7
+				1. |Y| = (8 x 7)^2/2
+28. Generalized product rule: Let S be a set of length k sequences. If there are 
+	1. n1 possible first entries
+	2. n2 possible second entries for each first entry
 
 ## Lec 17 ##
 ## Lec 18 ##
