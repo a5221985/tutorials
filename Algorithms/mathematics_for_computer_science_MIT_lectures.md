@@ -1603,7 +1603,12 @@
 			4. |M U E| = |M \ E| + |M intersect E| + |E \ M| (sum rule)
 			5. |M| + |E| countes M intersect E twice
 			6. |M U E| = |M| + |E| - |M intersect E|
-		2. 
+		2. |A1 U A2 U A3 U ... U An| = sigma_i=1 to n |Ai| - sigma_1 <= i1 < i2 <= n |Ai1 intersect Ai2| + sigma_1 <= i1 < i2 < i3 <= n |Ai1 intersect Ai2 intersect Aii3| + ... + (-1)^(n + 1) |A1 intersect A2 ... An| = sigma_k = 1 to n (-1)^(k + 1) sigma_S in {1...n} s.t |S| = k |interset_i in S Ai|
+		3. Example: How many permutations of {0, 1, ..., 9} that have (consecutive) 42, 04 or 60?
+			1. Ex: (7, 2, 5, 6, 0, 4, 3, 5, 1, 9) - has 60, 04
+			2. P_42 = set of permutations with 42
+			3. P_04 = ... with 04
+			4. P_60 = ... with 60
 
 ## Lec 18 ##
 ## Lec 19 ##
