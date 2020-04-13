@@ -1637,6 +1637,9 @@
 		3. Number of terms with k x a, (n - k) x b = number of length n sequences with k a's and (n - k) b's = (n k)
 10. Poker Hands: Deck: 52 cards, card = suit (spades, hearts, clubs, diamonds)
 	1. Values: 2, 3, 4, ..., 10, J, Q, K, A - 13 possible values
+		1. hand: subset of 5 cards. Number of hands = (52 5)
+11. 4-of-a-kind: (4 of one kind of value)
+	1. Ex: {8S, 9D, 8D, 8H, 8C} - Representation
 
 ## Lec 18 ##
 ## Lec 19 ##
