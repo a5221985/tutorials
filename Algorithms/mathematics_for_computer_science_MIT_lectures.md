@@ -1640,6 +1640,19 @@
 		1. hand: subset of 5 cards. Number of hands = (52 5)
 11. 4-of-a-kind: (4 of one kind of value)
 	1. Ex: {8S, 9D, 8D, 8H, 8C} - Representation
+		1. Value of the 4 cards - 13
+		2. Value of the extra card - 12
+		3. Suit of the extra card - 4
+	2. 4-of-a-kind -f-> (val1, val2, val3) (ex: (8, 9, D))
+		1. Number of sequences = 13 x 12 x 4 (generalized product rule) = 624
+12. Full house: (3 cards of one value, 2 cards of another value)
+	1. Ex: {2C, 2S, 2D, JC, JD} -> (2, {C, S, D}, J, {C, D})
+		1. value of the tripple: 13
+		2. suits of triple: (4 3) = 4
+		3. value of pair: 12
+		4. suits of pair: (4 2) = 6
+		5. = 13 x 4 x 12 6 = 
+	2. Ex: {5D, 5H, 5C, 7H, 7C} -> (5, {D, H, C}, 7, {H, C})
 
 ## Lec 18 ##
 ## Lec 19 ##
