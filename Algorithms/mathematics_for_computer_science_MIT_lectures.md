@@ -1651,8 +1651,12 @@
 		2. suits of triple: (4 3) = 4
 		3. value of pair: 12
 		4. suits of pair: (4 2) = 6
-		5. = 13 x 4 x 12 6 = 
+		5. = 13 x 4 x 12 6 = 13 . (4 3) . 12 (4 2) = 3744 (worth less than 4 of a kind)
 	2. Ex: {5D, 5H, 5C, 7H, 7C} -> (5, {D, H, C}, 7, {H, C})
+13. Hand with 2 pairs: (i.e. 2 cards of one value + 2 ... another value)
+	1. Representation
+		1. value of first pair: 13
+		2. suits of first pair: (4 2)
 
 ## Lec 18 ##
 ## Lec 19 ##
