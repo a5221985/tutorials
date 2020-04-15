@@ -110,8 +110,31 @@
 ### Using Helm Charts to Manage Releases to Kubernetes Cluster ###
 
 ## Kubernetes on AWS with EKS ##
-
+### Kubernetes on AWS with EKS - Section Introduction ###
+### Constructing an AWS Root Account ###
+### Constructing an IAM User for your AWS Account ###
+### Its Your Responsibility to Monitor Billing in Cloud - 5 Recommendations ###
+### Monitor AWS Billing - Setting Billing Alerts ###
+### Installing AWS CLI ###
+### Installing EKS CTL and Configure AWS CLI with IAM User ###
+### Construct a Kubernetes Cluster on AWS with EKS ###
+### Quick Review of AWS Basics - Region, AZ, VPS and Subnet ###
+### Quick Review of the AWS EKS Kubernetes Cluster ###
+### Review Hello World and Web Apps from GKE Section ###
+### Deploy Hello World Rest API to AWS EKS Kubernetes Cluster ###
+### Deploy Web App H2 to AWS EKS Kubernetes Cluster ###
+### Deploy Web App with MySQL to AWS EKS Kubernetes Cluster ###
+### Delete Web App and Hello World Deployments ###
+### Review of Microservices on GKE ###
+### Deploy Microservices to AWS EKS Kubernetes Cluster ###
+### Setup Ingress Controller and Ingress ###
+### Quick Review of Ingress ###
+### Setup Container Insights and AWS Cloud Watch Logs ###
+### Setup Cluster Autoscaling and AWS EKS Kubernetes ###
+### Delete AWS EKS Kubernetes Cluster ###
 
 ## Kubernetes on Azure with AKS ##
+### 
+
 ## Appending - Introduction to Docker in 8 Steps ##
 ## Bonus Section ##
