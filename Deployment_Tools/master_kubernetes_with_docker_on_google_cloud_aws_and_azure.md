@@ -134,7 +134,31 @@
 ### Delete AWS EKS Kubernetes Cluster ###
 
 ## Kubernetes on Azure with AKS ##
-### 
+### Kubernetes on Azure with AKS - Section Introduction ###
+### Constructing an Azure Account ###
+### Constructing a Resource Group, Service Principal and AKS Kubernetes Cluster ###
+### Deploy Hello World Rest API to Azure AKS Kubernetes ###
+### Deploy Web App H2 to Azure AKS Kubernetes Cluster ###
+### Deploy Web App with MySQL to Azure AKS Kubernetes Cluster ###
+### Delete Deployments and Review of Microservices on GKE ###
+### Deploy Microservices to Azure AKS Kubernetes Cluster ###
+### Review Dev Spaces, Insights and Logs in Azure AKS Kubernetes Cluster ###
+### Setup Ingress Controller and Ingress ###
+### Review Cluster Autoscaling on Azure AKS Kubernetes ###
+### Delete Azure AKS Kubernetes Cluster ###
 
 ## Appending - Introduction to Docker in 8 Steps ##
+### Installing Docker - Docker ###
+### Quick Tip for Windows 10: Use 192.168.99.100 in URL instead of localhost ###
+### Your First Docker Usecase - Deploy a Spring Boot Application ###
+### Important Docker Concepts - Registry, Repository, Tag, Image and Conta ###
+### Playing with Docker Images and Containers ###
+### Understanding Docker Architecture - Docker Client, Docker Engine ###
+### Why is Docker Popular ###
+### Playing with Docker Images ###
+### Playing with Docker Containers ###
+### Playing with Docker Commands - stats, system ###
+### Before You Go - Ensure You Delete All Your Clusters ###
+
 ## Bonus Section ##
+### Bonus Lecture ###
