@@ -44,9 +44,49 @@
 ### Playing with Kubernetes Commands - Top Node and Pod ###
 
 ## GKE - Using Kubernetes and Docker with Java Todo Web Application using MySQL ##
+### Code Review of 03 Java Todo Web Application MySQL ###
+### Running MySQL as Docker Container on Local ###
+### Connect Spring Boot Java Todo Web App to MySQL on Local ###
+### Construct Docker Image for 03 Todo Web Application and Use Link to Connect ###
+### Update: Launching Containers in Custom Network ###
+### Playing with Docker Compose ###
+### Using Kompose to generate Kubernetes Deployment Configuration ###
+### Review Kubernetes YAML for MySQL and Java Web Application ###
+### Deply MySQL Database to Kubernetes Cluster ###
+### Understanding Persistent Storage with Kubernetes - PV and PVC ###
+### Using Config Maps for Centralized Configuration with Kubernetes ###
+### Using Secrets with Kubernetes ###
+### Construcing a ClusterIP Kubernetes Service for MySQL Database ###
+
 ## GKE - Using Kubernetes and Docker with Java Spring Boot Microservices ##
+### Introduction to Microservices ###
+### Advantages of Microservices ###
+### Microservices - Challenges ###
+### Overview of CCS and CES Spring Boot Microservices ###
+### Push Docker Images and Construct Kubernetes Config for Microservices ###
+### Deploying Spring Boot Microservices to Kubernetes Cluster ###
+### Microservices and Kubernetes Service Discovery - Part 1 ###
+### Microservices and Kubernetes Service Discovery - Part 2 ###
+### Microservice Discovery, Centralized Configuration and Load Balancing ###
+### Using Kubernetes Ingress to Simplify Microservice Access ###
+### Review Google Cloud Load Balancer Backend and Frontends with Ingress ###
+
 ## GKE - Integrating Java Spring Cloud Kubernetes and Spring Boot Microservices ##
+### Using Spring Cloud Kubernetes with Microservices - Project Review ###
+### Deploying Spring Cloud Kubernetes Microservices ###
+### Using RBAC to Allow Ribbon to Access Services Discovery APIs ###
+### Using Spring Cloud Kubernetes Config to Load ConfigMaps ###
+### Understanding Auto Scaling Approaches with Kubernetes ###
+### Implementing Horizontal Pod Autoscaling with Kubernetes ###
+### Deleting Your Kubernetes Cluster ###
+
 ## GKE - Integrating Spring Boot Microservices - Kubernetes with Google Stackdriver ##
+### Constructing New Cluster to Play With Google Stackdriver ###
+### Review Spring Boot Microservices Integrated with Google Stackdriver ###
+### Enabling Stackdriver APIs for Your Google Cloud Account ###
+### Deploying Spring Boot Microservices and Explore Google Stackdriver ###
+### Exploring Google Stackdriver Error Reporting and Logging ###
+
 ## GKE - Integrating Java Spring Boot Microservices on Kubernetes with Istio ##
 ## GKE - Using Helm to Automate Microservices Deployment on Kubernetes ##
 ## Kubernetes on AWS with EKS ##
