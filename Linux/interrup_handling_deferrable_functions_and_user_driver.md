@@ -47,4 +47,8 @@
 			7. SCHED_SOFTIRQ - 6 - Used in the CFS Scheduler
 			8. HRTIMER_SOFTIRQ - 7 - Used if high resolution timers are present
 8. When are SOFTIRQs executed:
-	1. When returned from hardware or software interrupts, syscalls ... 
+	1. When returned from hardware or software interrupts, syscalls and excepiton handler...  system checks to see if there are any softirqs to be run and then runs them
+		1. Tasklet storm - tasklets issues others...
+			1. Tasklets are not scheduled
+			2. Ksoftirq daemon
+				1. Consumes 10 times and then stops and then is scheduled like any other task in the system
