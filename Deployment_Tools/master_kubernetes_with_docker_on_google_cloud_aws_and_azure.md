@@ -88,8 +88,30 @@
 ### Exploring Google Stackdriver Error Reporting and Logging ###
 
 ## GKE - Integrating Java Spring Boot Microservices on Kubernetes with Istio ##
+### Constructing new Kubernetes Cluster for Playing with Istio ###
+### Understanding Service Mesh, Istio and Sidecar Pattern ###
+### Installing Istio and Kubernetes Cluster - CRD and Istio Components ###
+### Review Istio Installation and Deploy Spring Boot App with Side Cars ###
+### Increasing Kubernetes Cluster Size to 3 Nodes ###
+### Understanding Gateways and Virtual Services for Istio ###
+### Basic Deployment Strategies - Rolling Updates and Recreate ###
+### Setting up Multiple Versions of Spring Boot Applications ###
+### Configure Destination Rules and Subsets to Implement Mirroring ###
+### Executing Blue Green and Canary Deployments with Kubernetes ###
+### Review Spring Boot Microservices Integration with Istio ###
+### Observing Istio Service Mesh with Kali ###
+### Monitoring Istio Service Mesh with Graphana and Prometheus ###
+### Distribute Tracing for Spring Boot Microservices with Istio and Jaegar ###
+### Delete Kubernetes Cluster for Playing with Istio ###
+
 ## GKE - Using Helm to Automate Microservices Deployment on Kubernetes ##
+### Understanding Helm Basics and Setting up Kubernetes Cluster ###
+### Using Helm Charts to Deploy Spring Boot Microservices to Kubernetes ###
+### Using Helm Charts to Manage Releases to Kubernetes Cluster ###
+
 ## Kubernetes on AWS with EKS ##
+
+
 ## Kubernetes on Azure with AKS ##
 ## Appending - Introduction to Docker in 8 Steps ##
 ## Bonus Section ##
