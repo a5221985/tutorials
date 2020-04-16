@@ -75,3 +75,18 @@
 			1. Second handler: thread function - bottom half (threaded)
 		2. Top half:
 			1. `IRQ_WAKE_THREAD` - wakes the bottom half to be run
+14. `linux kernel /vmlinuz-... ... threadirqs` - converts all interrupts to threaded irqs (another flag to make exceptions)
+15. If first handler is null, no top half, only bottom half exists which is always a scheduled handler (scheduled when there is an interrupt which does not run in interrupt context)
+16. Interrupt handlers in user space:
+	1. Better security and stability
+	2. Code base is smaller (we don't have to put it in drivers not used)
+	3. Proprietary driver can be used (syscalls and library calls) - no licensing constraints (of kernel)
+	4. Problem: No code review, may go out of sync with kernel
+	5. Example: Printer drivers (done as filters on various ports)
+	6. Problem: There was no good method to handler interrupts in user space:
+		1. Solution: An API in Kernel - UIO (userspace I/O)
+			1. Gives interrupt access to userspace
+				1. Application can find out about them and take action
+17. Multiple handlers: one handler and another specific handler
+18. Producer consumer problem: top half produces and bottom half consumes but they may go out of sync because production is much faster than consumption
+	1. Multiple methods
