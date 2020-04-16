@@ -61,8 +61,17 @@
 12. Internal kernel thread of execution:
 	1. [<name>] - kernel thread
 	2. API:
-		1. `struct task_struct *kthread_run (int (*threadfn) (void *data), void *data, const char namefmt[], ...)`
-		2. `struct task_struct *kthread_create (int (*threadfn) (void *data ...)`
-		3. `void kthread_bind (struct task_struct *k, unsigned int cpu)`
+		1. `struct task_struct *kthread_run (int (*threadfn) (void *data), void *data, const char namefmt[], ...)` - like exec (runs immediately)
+		2. `struct task_struct *kthread_create (int (*threadfn) (void *data ...)` - like fork (created in sleeping state) - to bind
+		3. `void kthread_bind (struct task_struct *k, unsigned int cpu)` - binds to a CPU before running (then run wakeup)
+			1. We can run one thread per CPU
 		4. `int kthread_stop (struct task_struct *k);`
+			1. Stops task
+			2. `do { ... } while (!kthread_should_stop());`
 		5. `int kthread_should_stop (void);`
+13. Threaded interrupt handlers:
+	1. API:
+		1. `int request_threaded_irq (unsigned int irq, irq_handler_t handler_fn, irq_handler_t thread_fn, unsigned long flags, const ...)`
+			1. Second handler: thread function - bottom half (threaded)
+		2. Top half:
+			1. `IRQ_WAKE_THREAD` - wakes the bottom half to be run
