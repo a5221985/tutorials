@@ -51,4 +51,18 @@
 		1. Tasklet storm - tasklets issues others...
 			1. Tasklets are not scheduled
 			2. Ksoftirq daemon
-				1. Consumes 10 times and then stops and then is scheduled like any other task in the system
+				1. Consumes 10 times and then stops and then is scheduled like any other task on the system
+9. Tasklets run with infinite priority - cause latencies for other tasks
+	1. Network drivers have used tasklets (cannot get rid of them)
+	2. Avoid tasklets for new handlers, use threaded IRQ or work queues
+10. Work Queue APIs
+11. Pool of threads on each CPU (efficient)
+	1. Old API is wrapped around new API
+12. Internal kernel thread of execution:
+	1. [<name>] - kernel thread
+	2. API:
+		1. `struct task_struct *kthread_run (int (*threadfn) (void *data), void *data, const char namefmt[], ...)`
+		2. `struct task_struct *kthread_create (int (*threadfn) (void *data ...)`
+		3. `void kthread_bind (struct task_struct *k, unsigned int cpu)`
+		4. `int kthread_stop (struct task_struct *k);`
+		5. `int kthread_should_stop (void);`
