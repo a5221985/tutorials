@@ -78,7 +78,17 @@
 	2. How to provision:
 		1. Dashboard:
 			1. Clusters: Create Cluster
-			2. Workloads: manage applications or containers
+			2. Workloads: manage applications or containers want to deploy into cluster
+			3. Services & Ingress: to provide access to external world
+			4. Configuration: Application configuration
+			5. Storage: Persistant data storage
+	2. Creation of Cluster:
+		1. Create Cluster
+			1. Type of nodes
+			2. Number of nodes
+			3. Location
+		2. Take defaults and get started
+			1. 
 
 ### Review Kubernetes Cluster and Learn Few Fun Facts about Kubernetes ###
 ### Deploy Your First Spring Boot Application to Kubernetes Cluster ###
