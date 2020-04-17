@@ -1696,8 +1696,26 @@
 		1. Sample space of possible outcomes
 			1. Definition: The sample space for an experiment is the set of all possible outcomes (atomic event)
 			2. Definition: an outcome (aka sample point) consists of all the info about the experiment after it has been performed including all random choices
-			3. Definition: An outcome of the Monty Hall Game when the contestant switches
+			3. Definition: An outcome of the Monty Hall Game when the contestant switches consists of:
+				1. box with the prize
+				2. box chosen first
+				3. box revealed
+			4. Example: 
+				1. Sample point (2, 1, 3) is where the prize is in box 2
+				2. The player pics box 1
+				3. Carol reveals box 3
+				4. (1, 2, 1) is not a sample point (we cannot reveal the box with the price)
+				5. (2, 1, 1) is not a sample point (we cannot reveal the box the player picked)
+				6. (1, 1, 2), (1, 1, 3) are sample points
+		2. Constructing the sample space - the Tree method
 
+			   (box with price)
+					/1
+				/1	-2
+					\3
+				-2
+				\3
+		
 ## Lec 19 ##
 ## Lec 20 ##
 ## Lec 21 ##
