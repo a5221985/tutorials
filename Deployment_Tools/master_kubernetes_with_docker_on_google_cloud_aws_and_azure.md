@@ -62,6 +62,24 @@
 	3. 12 months $300 account
 
 ### Constructing Kubernetes Cluster with Google Kubernetes Engine (GKE) ###
+1. Cluster:
+	1. Resource manager: manages resources
+		1. resource: servers (in the cloud - virtual servers)
+			1. AWS EC2
+			2. Azure VMs
+			3. GC Compute Engine
+			4. Kubernetes: Nodes (thousands)
+		2. Managers: Master Nodes
+			1. For high availability - multiple master nodes
+		3. Cluster:
+			1. Combination of nodes and master nodes
+				1. Worker nodes or simply nodes
+				2. Master nodes - ensure nodes are available and are dealing with some work
+	2. How to provision:
+		1. Dashboard:
+			1. Clusters: Create Cluster
+			2. Workloads: manage applications or containers
+
 ### Review Kubernetes Cluster and Learn Few Fun Facts about Kubernetes ###
 ### Deploy Your First Spring Boot Application to Kubernetes Cluster ###
 ### Save Your Free Credits ###
