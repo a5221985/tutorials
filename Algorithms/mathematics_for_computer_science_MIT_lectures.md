@@ -1694,12 +1694,12 @@
 		2. 2 doors - switch?
 	2. Basic steps:
 		1. Sample space of possible outcomes
-			1. Definition: The sample space for an experiment is the set of all possible outcomes (atomic event)
-			2. Definition: an outcome (aka sample point) consists of all the info about the experiment after it has been performed including all random choices
-			3. Definition: An outcome of the Monty Hall Game when the contestant switches consists of:
-				1. box with the prize
-				2. box chosen first
-				3. box revealed
+			1. **Definition: The sample space for an experiment is the set of all possible outcomes (atomic event)**
+			2. **Definition: an outcome (aka sample point) consists of all the info about the experiment after it has been performed including all random choices**
+			3. **Definition: An outcome of the Monty Hall Game when the contestant switches consists of:**
+				1. **box with the prize**
+				2. **box chosen first**
+				3. **box revealed**
 			4. Example: 
 				1. Sample point (2, 1, 3) is where the prize is in box 2
 				2. The player pics box 1
@@ -1716,14 +1716,15 @@
 				-2
 				\3
 				
-			1. Definition: A probability space consists of a sample space and a probability function Pr: S -> R such that
-				1. for all w in S, 0 <= P(w) <= 1
-				2. sigma_w in S Pr(w) = 1
+			1. **Definition: A probability space consists of a sample space and a probability function Pr: S -> R such that**
+				1. **for all w in S, 0 <= P(w) <= 1**
+				2. **sigma_w in S Pr(w) = 1**
 			2. Interpretation: for all w in S, Pr(w) = probability that w will be the outcome
 			3. Assumptions:
 				1. The prize is in each box with probability 1/3
 				2. No matter where the prize is, player picks each box with probability 1/3
-				3. 
+				3. No matter where the prize is, if Carol has a choice, she picks each box with probability 1/2 - (for 3 boxes it does not matter, but for 4 boxes it does)
+			4. **Rule: The probability of a sample point is the product of the probabilities on the path in the tree leading to the sample point**
 		
 ## Lec 19 ##
 ## Lec 20 ##
