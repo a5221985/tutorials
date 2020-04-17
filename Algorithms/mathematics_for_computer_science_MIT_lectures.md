@@ -1657,8 +1657,33 @@
 	1. Representation
 		1. value of first pair: 13
 		2. suits of first pair: (4 2)
+14. (there is more - pending)
 
 ## Lec 18 ##
+1. Most important subject of CS and Math - Probability
+	1. 6.046 - Randomness - runs faster
+	2. Software engineering - to measure system performance, hash tables
+	3. Used in coding theory
+	4. Used in information theory
+	5. Used in cryptography
+		1. Bad guys are using probabilistic algorithms to break the codes
+	6. Game theory
+	7. Fault tollerence
+		1. Probability that there will be a critical failure that causes the space shuttle to crash
+		2. ... nuclear plant will melt down
+	8. Everyday
+		1. Election - margin of error analysis (poll)
+			1. How many people are required
+		2. Medical analysis
+			1. Does cholesterol cause heart disease
+			2. Does smoking cause lung cancer
+			3. How effective is a drug
+			4. Chances you have a disease
+2. Most mis-understood subject
+	1. Easy to lie with statistics
+		1. News paper articles
+		2. Falacious arguments
+
 ## Lec 19 ##
 ## Lec 20 ##
 ## Lec 21 ##
