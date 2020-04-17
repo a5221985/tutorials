@@ -1730,6 +1730,8 @@
 			6. **Definition: The probability that en event E subset of S occurs is sigma_w in E Pr(w)**
 				1. Ex: Pr(E_L) = 1/6
 				2. Pr(win with switch) = Pr(lose with stick) = 2/3
+		3. Dice game:
+			1. (2, 6, 7), (1, 5, 9), (3, 4, 8) (repeated)
 		
 ## Lec 19 ##
 ## Lec 20 ##
