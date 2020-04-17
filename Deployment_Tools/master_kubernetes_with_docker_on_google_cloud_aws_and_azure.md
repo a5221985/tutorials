@@ -39,8 +39,28 @@
 	1. autoscale (upto M instances) - single command
 7. Release without any downtime
 	1. Line of code: `minReadySeconds: 15`
+		1. execute one command to go to new release
+			1. seamlessly switches from older version to newer version
+8. Declarative method to configure kubernetes
+9. Kubernetes is cloud neutral
+10. Kubernetes cluster:
+	1. Setup is not easy
+		1. GKE (Google Kubernetes Engine)
+			1. Handles it easily
+	2. Google uses this same technology for Gmail, YouTube, ...
 
 ### Constructing Google Cloud Account ###
+1. Features:
+	1. Declarative
+	2. Easy scaling
+	3. Load balancing
+	4. Self healing
+	5. Zero downtime deployments
+2. Google Cloud Free Trial account
+	1. cloud.google.com
+	2. Country
+	3. 12 months $300 account
+
 ### Constructing Kubernetes Cluster with Google Kubernetes Engine (GKE) ###
 ### Review Kubernetes Cluster and Learn Few Fun Facts about Kubernetes ###
 ### Deploy Your First Spring Boot Application to Kubernetes Cluster ###
