@@ -1741,7 +1741,12 @@
 			4. K - rolls - all combinations is possible
 		
 ## Lec 19 ##
-
+1. Conditional Probability:
+	1. Pr(A|B) = Probability of A give B
+		1. Ex: B = event Carol places the prize in Box 1
+			1. A = event contestant chooses Box 1
+			2. Assumed Pr(A|B) = 1/3 (contestant didn't know where the prize was)
+	2. Definition: If Pr(B) != 0, Pr(A|B) = Pr(A and B)/Pr(B)
 
 ## Lec 20 ##
 ## Lec 21 ##
