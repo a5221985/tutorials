@@ -20,9 +20,17 @@
 	1. STM32F4RE-Nucleo has one
 	2. Otherwise we may need external debuggers
 		1. Example: Arduino
-4. CAN protocol support must exist
+4. CAN protocol support must exist (446RE has)
+5. 100+ KB SRAM
+6. Flash memory - 512kB to 1MB
 
 ### STM32F4 Discovery and Nucleo: Board Details ###
+1. DISC1 - newer board
+	1. B997D - board id for newer board (MB997C - older)
+2. ST link circuitry - debugger - used to flash and debug code from host software
+3. Jumpers should be connected properly
+4. Firmware - Product description page
+	1. ST-LIN/V2-A for newer discovery board
 
 ## Hardware/Software Requirements ##
 ### Hardware/Software Requirements ###
