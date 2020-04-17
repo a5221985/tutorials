@@ -1715,6 +1715,15 @@
 					\3
 				-2
 				\3
+				
+			1. Definition: A probability space consists of a sample space and a probability function Pr: S -> R such that
+				1. for all w in S, 0 <= P(w) <= 1
+				2. sigma_w in S Pr(w) = 1
+			2. Interpretation: for all w in S, Pr(w) = probability that w will be the outcome
+			3. Assumptions:
+				1. The prize is in each box with probability 1/3
+				2. No matter where the prize is, player picks each box with probability 1/3
+				3. 
 		
 ## Lec 19 ##
 ## Lec 20 ##
