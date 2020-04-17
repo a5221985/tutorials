@@ -13,6 +13,14 @@
 	1. Discovery - more expensive (code is compatible for both)
 2. Documentation is avialable?
 	1. ST maintains all docs
+		1. Code samples
+		2. Reference manuals
+		3. Programmer manuals
+3. On-board debugger
+	1. STM32F4RE-Nucleo has one
+	2. Otherwise we may need external debuggers
+		1. Example: Arduino
+4. CAN protocol support must exist
 
 ### STM32F4 Discovery and Nucleo: Board Details ###
 
