@@ -1760,6 +1760,20 @@
 
 				Game 1 		Game 2			Game 3
 				
+			1. Applying the product rule:
+				1. Pr(WW) = Pr(W 1st).Pr(W 2nd | W 1st) = 1/2 * 2/3 = 1/3
+				2. Pr(WLW) = Pr(W 1st).Pr(L 2nd | W 1st).Pr(W 3rd | W 1st and L 2nd) = 1/2 * 1/3 * 1/3 (Pr(W 3rd | L 2nd) = 1/18
+				3. Pr(WLL) = 1/9
+				4. Pr(LWW) = 1/9
+				5. Pr(LWL) = 1/18
+				6. Pr(LL) = 1/3
+			2. A = event win the series
+			3. B = event win the first game
+			4. Pr(A|B) = Pr(A and B)/Pr(B)
+				1. A = WW, WLW, LWW
+				2. B = WW, WLW, WLL
+				3. A and B = WW, WLW
+					1. Pr(A and B) = (1/3 + 1/18)/(1/3 + 1/18 + 1/9) = 7/9
 
 ## Lec 20 ##
 ## Lec 21 ##
