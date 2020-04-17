@@ -1683,6 +1683,16 @@
 	1. Easy to lie with statistics
 		1. News paper articles
 		2. Falacious arguments
+	2. Trips up students
+3. Human intiution may be wrong
+4. Solution: don't go by intuition
+	1. Go to basic principles
+	2. Go step by step
+5. Example: Monty Hall problem (Monty Hall was host)
+	1. Let's make a deal - game show (70s)
+		1. 3 doors - pick one
+		2. 2 doors - switch?
+	2. 
 
 ## Lec 19 ##
 ## Lec 20 ##
