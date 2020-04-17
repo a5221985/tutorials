@@ -2,11 +2,44 @@
 ## Introduction ##
 ### Kubernetes Crash Course for Java Developers - Course Overview ###
 1. Basics of Kubernetes
+2. Pods, Cluster, Deployments, Replica Sets ...
+3. Config maps, secrets, Persistent Volumes
+4. Microservices with Kubernetes DNS, Service Discovery and Load Balancing
+5. Spring Cloud Kubernetes - Ribbon and Centralized Configuration!
+6. Centralized Logging and Distributed Tracing with StackDriver
+7. Service Mesh with Istio - Release Strategy, Tracing...
+	1. Release strategy
+		1. Blue green
+		2. Canery
+	2. Distributed tracing - Open API
+8. Automate Deployments with Helm
+9. [https://github.com/in28minutes/kubernetes-crash-course](https://github.com/in28minutes/kubernetes-crash-course)
+10. Software
+	1. JDK 8+
+	2. Latest version of Eclipse Java EE IDE
 
 ### Github Repository for the Course ###
+1. [https://github.com/in28minutes/kubernetes-crash-course](https://github.com/in28minutes/kubernetes-crash-course)
 
 ## Getting Started with Kubernetes and Google Kubernetes Engine (GKE) ##
 ### Getting Started with Docker, Kubernetes and Google Kubernetes Engine ###
+1. Why Docker?
+	1. Run one single command - within few seconds, application is deployed
+	2. Framework free, OS free, language free, configuration free
+	3. Standardizes packaging and deployment
+	4. Increase number of instances or decrease - using Kubernetes
+2. Quickly deploy application
+	1. Deploy
+	2. Expose
+3. Quickly increase instances
+4. Load balancing is automatic
+5. Delete one of the instances, and application does not goes down
+	1. Another instance comes up automatically
+6. Increase number of instances for certain time and bring it down
+	1. autoscale (upto M instances) - single command
+7. Release without any downtime
+	1. Line of code: `minReadySeconds: 15`
+
 ### Constructing Google Cloud Account ###
 ### Constructing Kubernetes Cluster with Google Kubernetes Engine (GKE) ###
 ### Review Kubernetes Cluster and Learn Few Fun Facts about Kubernetes ###
