@@ -1746,7 +1746,20 @@
 		1. Ex: B = event Carol places the prize in Box 1
 			1. A = event contestant chooses Box 1
 			2. Assumed Pr(A|B) = 1/3 (contestant didn't know where the prize was)
-	2. Definition: If Pr(B) != 0, Pr(A|B) = Pr(A and B)/Pr(B)
+	2. **Definition: If Pr(B) != 0, Pr(A|B) = Pr(A and B)/Pr(B)**
+		1. Shrunk the sample space to B (since other outcomes cannot happen) (Pr(A) = Pr(A|S))
+		2. Pr(B|B) = Pr(B and B) / Pr(B) = Pr(B) / Pr(B) = 1
+	3. **Product Rule: Pr(A and B) = Pr(B) Pr(A | B)**
+		1. Pr(A and B) = 1/3 * 1/3 = 1/9
+2. **General Product Rule:**
+	1. **Pr(A1 and A2 ... An) = Pr(A1).Pr(A2|A1).Pr(A3|A1 and A2) ... Pr(An|A1 and A2 ... An-1)**
+		1. Proof: Induction on n
+	2. Example: In a best 2 out of 3 series, the probability of winning 1st game is 1/2. The probability of winning a game following a win is 2/3. The probability of winning after a loss is 1/3
+		1. What is the probability that we play 3 games
+		2. Tree method:
+
+				Game 1 		Game 2			Game 3
+				
 
 ## Lec 20 ##
 ## Lec 21 ##
