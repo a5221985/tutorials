@@ -1736,8 +1736,13 @@
 				1. C beats A with probability = 5/9
 				2. B beats C with probability = 5/9
 				3. A beats B with probability = 5/9
+			3. Roll two times each:
+				1. A < B < C < A - rolling twice
+			4. K - rolls - all combinations is possible
 		
 ## Lec 19 ##
+
+
 ## Lec 20 ##
 ## Lec 21 ##
 ## Lec 22 ##
