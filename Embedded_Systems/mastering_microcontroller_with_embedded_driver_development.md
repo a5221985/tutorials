@@ -7,10 +7,12 @@
 ### Source Code ###
 1. [https://github.com/niekiran/MasteringMCU.git](https://github.com/niekiran/MasteringMCU.git)
 
-### Rating and Review ###
-
 ## Development board used in our course ##
 ### About MCU Development Board ###
+1. ST-F446RE-Nucleo
+	1. Discovery - more expensive (code is compatible for both)
+2. Documentation is avialable?
+	1. ST maintains all docs
 
 ### STM32F4 Discovery and Nucleo: Board Details ###
 
