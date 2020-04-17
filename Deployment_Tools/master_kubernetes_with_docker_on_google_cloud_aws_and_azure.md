@@ -1,6 +1,8 @@
 # Master Kubernetes with Docker on Google  Cloud, AWS & Azure #
 ## Introduction ##
 ### Kubernetes Crash Course for Java Developers - Course Overview ###
+1. Basics of Kubernetes
+
 ### Github Repository for the Course ###
 
 ## Getting Started with Kubernetes and Google Kubernetes Engine (GKE) ##
