@@ -1692,7 +1692,10 @@
 	1. Let's make a deal - game show (70s)
 		1. 3 doors - pick one
 		2. 2 doors - switch?
-	2. 
+	2. Basic steps:
+		1. Sample space of possible outcomes
+			1. Definition: The sample space for an experiment is the set of all possible outcomes (atomic event)
+			2. Definition: an outcome (aka sample point) 
 
 ## Lec 19 ##
 ## Lec 20 ##
