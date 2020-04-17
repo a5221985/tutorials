@@ -1731,7 +1731,11 @@
 				1. Ex: Pr(E_L) = 1/6
 				2. Pr(win with switch) = Pr(lose with stick) = 2/3
 		3. Dice game:
-			1. (2, 6, 7), (1, 5, 9), (3, 4, 8) (repeated)
+			1. (2, 6, 7), (1, 5, 9), (3, 4, 8) (repeated 3 times each)
+			2. Definition: A sample space S is uniform if every sample point has the same Pr(w) = 1/|S|
+				1. C beats A with probability = 5/9
+				2. B beats C with probability = 5/9
+				3. A beats B with probability = 5/9
 		
 ## Lec 19 ##
 ## Lec 20 ##
