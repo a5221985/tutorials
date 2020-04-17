@@ -1695,7 +1695,8 @@
 	2. Basic steps:
 		1. Sample space of possible outcomes
 			1. Definition: The sample space for an experiment is the set of all possible outcomes (atomic event)
-			2. Definition: an outcome (aka sample point) 
+			2. Definition: an outcome (aka sample point) consists of all the info about the experiment after it has been performed including all random choices
+			3. Definition: An outcome of the Monty Hall Game when the contestant switches
 
 ## Lec 19 ##
 ## Lec 20 ##
