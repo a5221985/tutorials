@@ -1725,6 +1725,8 @@
 				2. No matter where the prize is, player picks each box with probability 1/3
 				3. No matter where the prize is, if Carol has a choice, she picks each box with probability 1/2 - (for 3 boxes it does not matter, but for 4 boxes it does)
 			4. **Rule: The probability of a sample point is the product of the probabilities on the path in the tree leading to the sample point**
+			5. **Definition: An event is a subset of the sample space**
+				1. Example: E_L = event that player loses with a switch strategy
 		
 ## Lec 19 ##
 ## Lec 20 ##
