@@ -1727,6 +1727,9 @@
 			4. **Rule: The probability of a sample point is the product of the probabilities on the path in the tree leading to the sample point**
 			5. **Definition: An event is a subset of the sample space**
 				1. Example: E_L = event that player loses with a switch strategy
+			6. **Definition: The probability that en event E subset of S occurs is sigma_w in E Pr(w)**
+				1. Ex: Pr(E_L) = 1/6
+				2. Pr(win with switch) = Pr(lose with stick) = 2/3
 		
 ## Lec 19 ##
 ## Lec 20 ##
