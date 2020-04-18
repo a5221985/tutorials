@@ -1792,6 +1792,19 @@
 					1. Pr(A and B) = 1/4
 					2. Pr(B) = 3/4
 					3. Pr(A|B) = 1/3
+			4. If p is the probability of choosing a coin:
+				1. Pr(A|B) = (p/2)/(p/2 + 1 - p) = p/(2 - p)
+					1. if p = 0, Pr(A|B) = 0
+					2. if p = 1, Pr(A|B) = 1
+			5. If k flips all give heads:
+				1. P(FH) = 1/2^k
+				2. P(FT) = ...
+				3. Pr(A|B) = Pr(A and B)/Pr(B) = p.2^-k/(p.2^-k + (1 - p) = p/(p + 2^k(1 - p))
+3. Designing a poll: pick 1% at random and see that many vote for Republicans - tells nothing about the population
+4. Medical Testing:
+	1. 10% population has disease
+	2. If you have disease, 10% chance test is negative (false negative)
+	3. ... don't ..., 30% ...: positive (false positive)
 
 ## Lec 20 ##
 ## Lec 21 ##
