@@ -70,5 +70,5 @@
 ### Installation-Windows ###
 ### Installation-Ubuntu ###
 ### Embedded Target ###
-### Docuents Required ###
+### Documents Required ###
 
