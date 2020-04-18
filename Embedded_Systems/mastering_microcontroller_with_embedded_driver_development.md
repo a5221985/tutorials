@@ -63,7 +63,9 @@
 2. Compiler and debugger may have to be integrated manually
 3. IDE: Eclipse-based STM32CubeIDE (developed by ST Microelectronics)
 	1. For STM32 ARM-based microcontrollers
-4. 
+	2. Has STM32 related customization
+4. Link: https://www.st.com/en/development-tools/stm32cubeide.html
+5. You have to login
 
 ### Installation-Windows ###
 ### Installation-Ubuntu ###
