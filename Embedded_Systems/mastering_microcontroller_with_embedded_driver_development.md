@@ -31,7 +31,25 @@
 3. Jumpers should be connected properly
 4. Firmware - Product description page
 	1. ST-LIN/V2-A for newer discovery board
-5. 
+5. 8 Mhz external clock - for ST-Link module
+6. Microcontroller comes with an internal clock (RC-Oscillator)
+	1. Discover board is more sophisticated
+7. Necleo - board - lesser features
+	1. Arduino compatable (arduino shields can be used)
+	2. ST morpho compatable 
+	3. No on-board sensors
+	4. User button and reset button
+	5. No on-board external oscillator
+	6. Has virtual COM support
+		1. Device manager - Ports (COM & LPT) > STM STLink Vitual COM Port (COM3)
+			1. We can talk to the board using UART by connecting to PC
+		2. Discovery board needs to be configured for this:
+			1. ST_LINK/V2-A VCP Configuration - User Manual
+				1. U2 pin 12 and U2 pin 13 (not connected to USART)
+					1. Solutions:
+						1. UART to USB dongle - buy and they are cheap
+							1. Short two wires (not easy)
+						2. 
 
 ## Hardware/Software Requirements ##
 ### Hardware/Software Requirements ###
