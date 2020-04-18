@@ -1774,6 +1774,11 @@
 				2. B = WW, WLW, WLL
 				3. A and B = WW, WLW
 					1. Pr(A and B) = (1/3 + 1/18)/(1/3 + 1/18 + 1/9) = 7/9
+	3. Probablity that you won the first game given that you won the series
+		1. It is the same product rule to use
+		2. Special name for such probabilities: A-postieri probabilities
+			1. Pr(B|A) where B precedes A in time
+				1. Pr(B and A)/Pr(A) = (1/3 + 1/18)/(9/18) = 7/9 (same as the answer before - not always true)
 
 ## Lec 20 ##
 ## Lec 21 ##
