@@ -1814,6 +1814,9 @@
 			4. P(NN) = 0.9 x 0.7 = 0.63
 			5. P(D and B) = 0.09
 			6. P(P) = 0.09/(0.09 + 0.27) = 1/4 (you probably have the disease)
+			7. P(Test is right) = 0.09 + 0.63 = 0.72
+5. Weather prediction:
+	1. 
 
 ## Lec 20 ##
 ## Lec 21 ##
