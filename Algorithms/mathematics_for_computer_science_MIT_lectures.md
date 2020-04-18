@@ -1782,6 +1782,12 @@
 					1. Pr(A|B) < 1, Pr(B|A) = 1 if A is in B
 					2. Pr(A|B) = Pr(B|A) = Pr(A and B)/Pr(B) = Pr(B and A)/Pr(A)
 						1. Pr(A and B) = 0 or Pr(A) = Pr(B)
+		3. Example: Suppose we have 2 coins
+			1. Fair coin: Pr(H) = Pr(T) = 1/2
+			2. Unfair coin: Pr(H) = 1, Pr(T) = 0
+			3. Experiment:
+				1. Choose a coin: F (1/2), U (1/2)
+				2. H or T: FH (1/4), FT (1/4), UH (1/2), UT (0)
 
 ## Lec 20 ##
 ## Lec 21 ##
