@@ -1788,6 +1788,10 @@
 			3. Experiment:
 				1. Choose a coin: F (1/2), U (1/2)
 				2. H or T: FH (1/4), FT (1/4), UH (1/2), UT (0)
+				3. Pr(A|B) = Pr(A and B)/Pr(B)
+					1. Pr(A and B) = 1/4
+					2. Pr(B) = 3/4
+					3. Pr(A|B) = 1/3
 
 ## Lec 20 ##
 ## Lec 21 ##
