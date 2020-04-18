@@ -1833,6 +1833,16 @@
 	3. F_EF = application is female and EE
 	4. M_CS = application is male & CS
 	5. M_EE = applicant is male & EE
+	6. Pr(A|F_CS) < Pr(A|M_CS) & Pr(A|F_EE) < Pr(A|M_EE) + = Pr(A|F_CS U F_EE) > Pr(A|M_CS U M_EE)
+		1. 0/1 < 50/100 & 70/100 < 1/1
+10. Airlines:
+	1. 				AA				AW
+	2. CA		ontime 	Rate	ontime 	Rate
+	3. Ph		500/560	89%		700/800	87% (weather is good)
+	4. SD		220/230	95%		4900/5300	92%
+	5. SF		210/230	92%		400/450	89%
+	6. Seattl	1900/2200	86%		200/260	77% (weather is not good)
+				3300/3820	87%		6520/7260	90%
 
 ## Lec 20 ##
 ## Lec 21 ##

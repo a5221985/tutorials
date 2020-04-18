@@ -31,6 +31,7 @@
 3. Jumpers should be connected properly
 4. Firmware - Product description page
 	1. ST-LIN/V2-A for newer discovery board
+5. 
 
 ## Hardware/Software Requirements ##
 ### Hardware/Software Requirements ###
