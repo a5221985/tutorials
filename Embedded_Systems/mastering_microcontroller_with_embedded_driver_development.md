@@ -90,5 +90,20 @@
 3. Mini-USB cable
 
 ### Documents Required ###
-1. 
+1. Documents related to microcontroller:
+	1. STM32F407VG - landing page
+		1. Resources
+			1. Check Datasheet (PRODUCT SPECIFICATIONS section)
+			2. Refernce Manuals (REFERENCE MANUALS section)
+	2. stm32f407 discovery board (vendor website)
+		1. Resources
+			1. Product Specification (PRODUCT SPECIFICATIONS Section)
+			2. User Manual (USER Manuals Section)
+			3. Schematic (SCHEMATICS Section)
+
+## Constructing a Project Using STM32CubeIDE ##
+### Constructing Hello-World Project ###
+### SWV Working Principle ###
+### Testing Hello-World Through SWV ###
+### OpenOCD and Semihosting to use printf ###	
 
