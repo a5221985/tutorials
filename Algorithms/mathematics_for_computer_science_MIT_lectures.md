@@ -1805,6 +1805,10 @@
 	1. 10% population has disease
 	2. If you have disease, 10% chance test is negative (false negative)
 	3. ... don't ..., 30% ...: positive (false positive)
+		1. A = event person has disease
+		2. B = event person tests positive
+		3. P(A|B) = Pr(A and B)/Pr(B)
+			1. 
 
 ## Lec 20 ##
 ## Lec 21 ##
