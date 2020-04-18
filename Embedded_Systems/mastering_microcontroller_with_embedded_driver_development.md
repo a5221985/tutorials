@@ -69,6 +69,15 @@
 
 ### Installation-Windows ###
 ### Installation-Ubuntu ###
+1. Download
+2. Extract
+3. Give execute permission to *.sh script
+4. `sudo ./<file>.sh`
+5. Accept Agreement - `y`
+6. Search for st
+
 ### Embedded Target ###
+1. STM32F407VGT6 MCU based DISCOVERY board is used as target
+
 ### Documents Required ###
 
