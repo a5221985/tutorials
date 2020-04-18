@@ -1827,6 +1827,12 @@
 7. **Rule: Pr(A U B | C) = Pr(A | C) + Pr(B | C) - Pr(A and B | C)**
 8. Claim: If C and D = null, then Pr(A | C U D) = Pr(A | C) + Pr(A | D)?
 	1. Not true ( 1 != 2) (if A has C and D and C and D are disjoint)
+9. Events:
+	1. A = applicant is admitted
+	2. F_CS = applicant is female and CS
+	3. F_EF = application is female and EE
+	4. M_CS = application is male & CS
+	5. M_EE = applicant is male & EE
 
 ## Lec 20 ##
 ## Lec 21 ##
