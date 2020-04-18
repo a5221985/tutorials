@@ -1816,7 +1816,14 @@
 			6. P(P) = 0.09/(0.09 + 0.27) = 1/4 (you probably have the disease)
 			7. P(Test is right) = 0.09 + 0.63 = 0.72
 5. Weather prediction:
-	1. 
+	1. Usually worng if you use fancy stuff
+6. Carnival Dice:
+	1. Player pics a number N in [1, 6] and rolls 3 dice (fair)
+	2. Player wins iff N matches >= 1 die
+	3. Claim? Pr(win) = 1/2
+		1. Proof? Let Ai = event ith die rolls N. Pr(win) = Pr(A1 U A2 U A3) = Pr(A1) + Pr(A2) + Pr(A3) = 1/6 + /16 + 1/6 = 1/2 (false proof) - there is intersection (Ai are not disjoint)
+		2. Fact: Pr(A1 U A2 U A3) = Pr(A1) + Pr(A2) + Pr(A3) - Pr(A1 and A2) - Pr(A2 and A3) - Pr(A1 and A3) + Pr(A1 and A2 and A3)
+			1. Pr(A1 U A2 U A3) = 1/6 + 1/6 + 1/6 - 1/36 - 1/36 - 1/36 + 1/216 = 0.421 ~ 42% of winning
 
 ## Lec 20 ##
 ## Lec 21 ##
