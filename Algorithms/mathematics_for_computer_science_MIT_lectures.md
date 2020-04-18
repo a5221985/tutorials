@@ -1779,6 +1779,9 @@
 		2. Special name for such probabilities: A-postieri probabilities
 			1. Pr(B|A) where B precedes A in time
 				1. Pr(B and A)/Pr(A) = (1/3 + 1/18)/(9/18) = 7/9 (same as the answer before - not always true)
+					1. Pr(A|B) < 1, Pr(B|A) = 1 if A is in B
+					2. Pr(A|B) = Pr(B|A) = Pr(A and B)/Pr(B) = Pr(B and A)/Pr(A)
+						1. Pr(A and B) = 0 or Pr(A) = Pr(B)
 
 ## Lec 20 ##
 ## Lec 21 ##
