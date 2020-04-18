@@ -1808,7 +1808,12 @@
 		1. A = event person has disease
 		2. B = event person tests positive
 		3. P(A|B) = Pr(A and B)/Pr(B)
-			1. 
+			1. P(DP) = 0.1 x 0.9 = 0.09
+			2. P(DN) = 0.1 x 0.1 = 0.01
+			3. P(NP) = 0.9 x 0.3 = 0.27
+			4. P(NN) = 0.9 x 0.7 = 0.63
+			5. P(D and B) = 0.09
+			6. P(P) = 0.09/(0.09 + 0.27) = 1/4 (you probably have the disease)
 
 ## Lec 20 ##
 ## Lec 21 ##
