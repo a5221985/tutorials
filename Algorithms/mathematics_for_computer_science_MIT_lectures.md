@@ -1824,6 +1824,9 @@
 		1. Proof? Let Ai = event ith die rolls N. Pr(win) = Pr(A1 U A2 U A3) = Pr(A1) + Pr(A2) + Pr(A3) = 1/6 + /16 + 1/6 = 1/2 (false proof) - there is intersection (Ai are not disjoint)
 		2. Fact: Pr(A1 U A2 U A3) = Pr(A1) + Pr(A2) + Pr(A3) - Pr(A1 and A2) - Pr(A2 and A3) - Pr(A1 and A3) + Pr(A1 and A2 and A3)
 			1. Pr(A1 U A2 U A3) = 1/6 + 1/6 + 1/6 - 1/36 - 1/36 - 1/36 + 1/216 = 0.421 ~ 42% of winning
+7. **Rule: Pr(A U B | C) = Pr(A | C) + Pr(B | C) - Pr(A and B | C)**
+8. Claim: If C and D = null, then Pr(A | C U D) = Pr(A | C) + Pr(A | D)?
+	1. Not true ( 1 != 2) (if A has C and D and C and D are disjoint)
 
 ## Lec 20 ##
 ## Lec 21 ##
