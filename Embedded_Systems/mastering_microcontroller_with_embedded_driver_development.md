@@ -49,9 +49,23 @@
 					1. Solutions:
 						1. UART to USB dongle - buy and they are cheap
 							1. Short two wires (not easy)
-						2. 
 
 ## Hardware/Software Requirements ##
 ### Hardware/Software Requirements ###
 
 ## IDE Installation ##
+### Downloading STM32CUBEIDE ###
+1. IDE is a softwar ethat contains all essential tools to
+	1. Develop
+	2. Compile
+	3. Link
+	4. Debug
+2. Compiler and debugger may have to be integrated manually
+3. IDE: Eclipse-based STM32CubeIDE (developed by ST Microelectronics)
+	1. For STM32 ARM-based microcontrollers
+
+### Installation-Windows ###
+### Installation-Ubuntu ###
+### Embedded Target ###
+### Docuents Required ###
+
