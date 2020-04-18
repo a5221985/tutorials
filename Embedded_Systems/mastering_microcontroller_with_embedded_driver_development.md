@@ -78,6 +78,17 @@
 
 ### Embedded Target ###
 1. STM32F407VGT6 MCU based DISCOVERY board is used as target
+2. Parts
+	1. STM32F407VGT6 32 bit Microcontroller
+	2. Processor: ARM Cortex - M4 with FPU (Floating Point Unit)
+	3. IO pins for interfacing external components
+		1. External interfacing IO headers
+	4. Crystal oscillator - 8MHz
+	5. On-board programmer and debugger
+		1. Program or debug code
+		2. Drivers from ST website
+3. Mini-USB cable
 
 ### Documents Required ###
+1. 
 
