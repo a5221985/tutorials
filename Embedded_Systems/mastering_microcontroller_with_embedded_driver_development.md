@@ -181,6 +181,18 @@
 				2. Serial Wire Debug (SWD)
 					1. two-wire protocol for accessing ARM debug interface
 						1. 2 pin debug + 1 pin trace
+							1. trace: trace related info
+			2. SWD:
+				1. Two-wire protocol for accessing ARM debug interface
+				2. part of ARM Debug Interface Spec v5 and is an alternative to JTAG
+				3. Physical layer consists of two lines
+					1. SWDIO: a bidirectional data line
+					2. SWCLK: a clock driven by the host
+				4. SWD interface is used to program MCUs internal flash
+					1. you can access memory regions
+					2. Add breakpoints
+					3. stop/run CPU (from IDE)
+				5. Serial wire viewer can be used for printf statements for debugging
 
 ### Testing Hello-World Through SWV ###
 ### OpenOCD and Semihosting to use printf ###	
