@@ -179,6 +179,8 @@
 			1. ITM unit - Instrumentation Trace Macrocell Unit
 				1. ITM is an optional **application-driven** trace source that supports printf style debugging to trace operating system and **application events**, and generates **diagnostic system information**
 				2. Serial Wire Debug (SWD)
+					1. two-wire protocol for accessing ARM debug interface
+						1. 2 pin debug + 1 pin trace
 
 ### Testing Hello-World Through SWV ###
 ### OpenOCD and Semihosting to use printf ###	
