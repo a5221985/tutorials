@@ -110,6 +110,41 @@
 		1. MCU/MPU Selector
 	2. If Standard board:
 		1. Board Selector
+		2. Type board name is part number search box:
+			1. STM32F4DISCOVERY
+				1. Select - you can see picture and docs about features
+				2. Resources:
+					1. Data sheets
+					2. User manuals
+				3. Datasheet download
+			2. NUCLEO-446RE
+			3. Next: Project Name: 001HelloWorld
+			4. Targeted Language: C
+			5. Binary Type: Executable
+			6. Targeted Project Type: Empty
+				1. STM32Cube - used for cube project
+					1. Peripheral config using cube software and generate code using GUI (not covered here)
+			7. Structure:
+				1. Src
+					1. .c files
+					2. main.c
+				2. Inc
+					1. headers files
+			8. Right click on project and run Build Project
+			9. Build logs:
+				1. cross compiler is used
+				2. Warning: FPU is not initialized (not discussed in the course)
+					1. Right click on project
+					2. Properties
+					3. Settings
+					4. Tool Settings
+					5. MCU Settings
+					6. Floating-point Unit: None
+					7. Floating-point ABI: Software Implementation
+				3. Rebuild
+		3. Right click > Debug As > STM32 Cortex-M C/C++ Application
+			1. Downloads code into target
+			2. Sets board to debug mode
 
 ### SWV Working Principle ###
 ### Testing Hello-World Through SWV ###
