@@ -187,12 +187,17 @@
 				2. part of ARM Debug Interface Spec v5 and is an alternative to JTAG
 				3. Physical layer consists of two lines
 					1. SWDIO: a bidirectional data line
+						1. Insert breakpoint command example
 					2. SWCLK: a clock driven by the host
+						1. Synchronous protocol
 				4. SWD interface is used to program MCUs internal flash
 					1. you can access memory regions
 					2. Add breakpoints
 					3. stop/run CPU (from IDE)
 				5. Serial wire viewer can be used for printf statements for debugging
+					1. SWO - Trace pin
+			3. SWD and JTAG:
+				1. JTAG was the traditional mechanism for debug connections for ARM7/9 family, but with Cortex-M family, ARM introduced Serial Wire Debug (SWD) interface. SWD is designed to reduce pin count required for debug from 4 used by JTAG (excluding GND) down to 2. SWD provided additional pin SWO (Serial Wire Output) used for Single Wire Viewing (SWV) - low cost tracing technology
 
 ### Testing Hello-World Through SWV ###
 ### OpenOCD and Semihosting to use printf ###	
