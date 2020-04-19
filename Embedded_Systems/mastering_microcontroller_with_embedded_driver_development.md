@@ -198,7 +198,52 @@
 					1. SWO - Trace pin
 			3. SWD and JTAG:
 				1. JTAG was the traditional mechanism for debug connections for ARM7/9 family, but with Cortex-M family, ARM introduced Serial Wire Debug (SWD) interface. SWD is designed to reduce pin count required for debug from 4 used by JTAG (excluding GND) down to 2. SWD provided additional pin SWO (Serial Wire Output) used for Single Wire Viewing (SWV) - low cost tracing technology
+				3. ST-LINK V2 Modified SWD + SWV
+					1. 2 - 3.3V
+					2. 4 - SWCLK
+					3. 5 - SWO
+					4. 6 - SWDIO
+					5. 7 - GND
+			4. ITM Unit
+				1. FIFO - Hardware buffer
+					1. Write pintf data into FIFO
+					2. SWO Pin is connected to it
+						1. It is connected to ST Link circuitry of the board and can be captured using debug software (IDE)
 
 ### Testing Hello-World Through SWV ###
+1. Copy pase the following code in syscalls.c
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//					Implementation of printf like feature using ARM Cortex M3/M4/ ITM functionality
+		//					This function will not work for ARM Cortex M0/M0+
+		//					If you are using Cortex M0, then you can use semihosting feature of openOCD
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		
+		//Debug Exception and Monitor Control Register base address
+		#define DEMCR        			*((volatile uint32_t*) 0xE000EDFCU )
+		
+		/* ITM register addresses */
+		#define ITM_STIMULUS_PORT0   	*((volatile uint32_t*) 0xE0000000 )
+		#define ITM_TRACE_EN          	*((volatile uint32_t*) 0xE0000E00 )
+		
+		void ITM_SendChar(uint8_t ch)
+		{
+		
+			//Enable TRCENA
+			DEMCR |= ( 1 << 24);
+		
+			//enable stimulus port 0
+			ITM_TRACE_EN |= ( 1 << 0);
+		
+			// read FIFO status in bit [0]:
+			while(!(ITM_STIMULUS_PORT0 & 1));
+		
+			//Write to ITM stimulus port0
+			ITM_STIMULUS_PORT0 = ch;
+		}
+		
+	1. This is the implementation of printf feature
+
 ### OpenOCD and Semihosting to use printf ###	
 
