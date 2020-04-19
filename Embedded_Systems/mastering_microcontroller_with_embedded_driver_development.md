@@ -170,7 +170,15 @@
 		5. Build the project
 
 ### SWV Working Principle ###
-1. 
+1. How to see the message?
+	1. printf - ARM Cortex M3/M4/M7 based MCUs
+		1. Applicable to M3+ processors
+	2. Printf works over SWO pin (Serial Wire Output) of SWD Interface
+	3. ARM Cortex Processor connects to ST Link V2 Debug circuit using SWO pin
+		1. ARM Cortex Processor:
+			1. ITM unit - Instrumentation Trace Macrocell Unit
+				1. ITM is an optional **application-driven** trace source that supports printf style debugging to trace operating system and **application events**, and generates **diagnostic system information**
+				2. Serial Wire Debug (SWD)
 
 ### Testing Hello-World Through SWV ###
 ### OpenOCD and Semihosting to use printf ###	
