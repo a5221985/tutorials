@@ -103,6 +103,14 @@
 
 ## Constructing a Project Using STM32CubeIDE ##
 ### Constructing Hello-World Project ###
+1. Folder creation
+2. Workspace:
+3. Click on Start new STM32 Project
+	1. If custom board:
+		1. MCU/MPU Selector
+	2. If Standard board:
+		1. Board Selector
+
 ### SWV Working Principle ###
 ### Testing Hello-World Through SWV ###
 ### OpenOCD and Semihosting to use printf ###	
