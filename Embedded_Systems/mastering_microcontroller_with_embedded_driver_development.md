@@ -254,7 +254,8 @@
 			__write()
 			{
 				ITM_sendChar();
-				LCD_sendChar();
+				//LCD_sendChar();
+				//UART_sendChar();
 			}
 			
 		1. `__write` is impemented in `syscalls.c`
