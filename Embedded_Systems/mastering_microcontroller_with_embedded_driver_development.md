@@ -145,8 +145,33 @@
 		3. Right click > Debug As > STM32 Cortex-M C/C++ Application
 			1. Downloads code into target
 			2. Sets board to debug mode
+			3. Before that:
+				1. Debug As > Select Debug configuration:
+					1. Debugger
+					2. Debug probe: ST-LINK (ST-LINK GDB server)
+						1. There are two others
+					3. Interface: SWD
+					4. Access: port - dont change
+					5. Serial Wire Viewer: (later)
+						1. Enable
+					6. Apply
+					7. Okay
+				2. Remember my decision > Switch to debug perspective
+			4. Click on Terminate to terminate
+		4. Simple problem:
+			
+				#include <stdio.h>
+				
+				int main(void) {
+					printf("Hello World!\n");
+					for(;;);
+				}
+				
+		5. Build the project
 
 ### SWV Working Principle ###
+1. 
+
 ### Testing Hello-World Through SWV ###
 ### OpenOCD and Semihosting to use printf ###	
 
