@@ -244,6 +244,22 @@
 		}
 		
 	1. This is the implementation of printf feature
+	2. printf implementation in standard library:
+
+			printf() 
+			{
+				__write();
+			}
+			
+			__write()
+			{
+				ITM_sendChar();
+				LCD_sendChar();
+			}
+			
+		1. `__write` is impemented in `syscalls.c`
+		2. IDE captures and prints on console
+2. Test: Build and debug
 
 ### OpenOCD and Semihosting to use printf ###	
 
