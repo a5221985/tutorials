@@ -262,5 +262,32 @@
 		2. IDE captures and prints on console
 2. Test: Build and debug
 
-### OpenOCD and Semihosting to use printf ###	
+### OpenOCD and Semihosting to use printf ###
+1. OpenOCD Debugger and Semi-Hosting
+	1. Open On Chip Debugger - (can be used for M0+)
+		1. Linker args:
+			1. `-specs=rdimon.specs -lc -lrdimon`
+		2. Semi-hosting run command:
+			1. `monitor arm semihosting enable`
+		3. Add below function call to main.c
+		
+				extern void initialise_monitor_handles(void);
+				initialise_monitor_handles(void); 
+				
+			1. New project:
+				1. Right click > Debug Config
+					1. STM32 MCU Debugging
+						1. New lannch config
+							1. Debugger
+								1. Open OCD
+							2. Startup
+								1. Run commands:
 
+										monitor arm semihosting enable
+										
+							3. Appy
+							4. Close
+				2. Right click > Properties > C++ Build > Settings > Tools Settings > Linker > Miscellaneous
+					1. Other Flags > +
+
+							-specs=rdimon.specs -lc -lrdimon
