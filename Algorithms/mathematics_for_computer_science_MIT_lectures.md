@@ -1855,7 +1855,14 @@
 	3. Then Pr(A|B) = 1/2 = Pr(A)
 3. Disjoint events =/=> independence
 	1. Pr(A|B) = 0 (since A intersect B = null)
-	2. 
+	2. If A is half of S and B intersect A is half of B, then the events are independent
+4. Theorem: (Product Rule for Independent Events) - If A is independent of B, then Pr(A intersect B) = Pr(A).Pr(B)
+	1. Proof:
+		1. Case I: Pr(B) = 0. Then Pr(A and B) = 0 = Pr(A).Pr(B)
+		2. Case II: Pr(B) > 0, Then Pr(A and B) = Pr(B).Pr(A|B) = Pr(B).Pr(A) (by independence)
+5. Theorem: (Symmetry of Independence) - If A is independent of B, then B is independent of A
+	1. Order doesn't matter Pr(A|B) or Pr(B|A)
+6. Example: 
 
 ## Lec 21 ##
 ## Lec 22 ##
