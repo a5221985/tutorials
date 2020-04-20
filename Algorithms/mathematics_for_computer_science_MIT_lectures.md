@@ -1873,7 +1873,7 @@
 	2. Pr(A) = p^2 + (1 - p)^2
 		1. A and B are independent iff Pr(B) = 0 => p = 0 or
 			1. p = 1 - 2p + 2p^2 => 0 = 1 - 3p + 2p^2 => 0 = (1 - 2p)(1 - p) => p = 1/2 or p = 1 (if are always heads or tails or they are fair)
-8. Example: Fisby - on fair coin
+8. Example: Frisby - on fair coin
 	1. Fair way to do it: say they are same or different (Idea: fair coin) - it is not!
 		1. Always call the same - more chances of winning
 	2. 
