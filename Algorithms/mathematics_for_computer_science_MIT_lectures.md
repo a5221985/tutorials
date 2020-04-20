@@ -1826,7 +1826,7 @@
 			1. Pr(A1 U A2 U A3) = 1/6 + 1/6 + 1/6 - 1/36 - 1/36 - 1/36 + 1/216 = 0.421 ~ 42% of winning
 7. **Rule: Pr(A U B | C) = Pr(A | C) + Pr(B | C) - Pr(A and B | C)**
 8. Claim: If C and D = null, then Pr(A | C U D) = Pr(A | C) + Pr(A | D)?
-	1. Not true ( 1 != 2) (if A has C and D and C and D are disjoint)
+	1. Not true (1 != 2) (if A has C and D and C and D are disjoint)
 9. Events:
 	1. A = applicant is admitted
 	2. F_CS = applicant is female and CS
