@@ -1845,7 +1845,14 @@
 				3300/3820	87%		6520/7260	90%
 
 ## Lec 20 ##
-1. 
+1. Independence:
+	1. Definition: An event A is independent of an event B if
+		1. Pr(A|B) = Pr(A) or (knowing that B occurs doesn't change the probability of A)
+		2. Pr(B) = 0
+2. Eample: Flip 2 fair "independent" coins
+	1. B = event 1st coin is H => Pr(B) = 1/2
+	2. A = event 2nd coin is H => Pr(A) = 1/2
+	3. Then Pr(A|B) = 1/2 = Pr(A)
 
 ## Lec 21 ##
 ## Lec 22 ##
