@@ -1853,7 +1853,9 @@
 	1. B = event 1st coin is H => Pr(B) = 1/2
 	2. A = event 2nd coin is H => Pr(A) = 1/2
 	3. Then Pr(A|B) = 1/2 = Pr(A)
-3. 
+3. Disjoint events =/=> independence
+	1. Pr(A|B) = 0 (since A intersect B = null)
+	2. 
 
 ## Lec 21 ##
 ## Lec 22 ##
