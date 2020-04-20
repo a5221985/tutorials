@@ -291,3 +291,20 @@
 					1. Other Flags > +
 
 							-specs=rdimon.specs -lc -lrdimon
+							
+				3. `main.c`
+
+						extern void initialise_monitor_handles(void);
+						
+						int main(void)
+						{
+							initialise_monitor_handles();
+							printf("...');
+							for(;;);
+						}
+						
+					1. Right click on syscalls.c > Properties > C++ Build > Exclude Resource from Build
+					2. Build the project
+					3. Debug As > STM32 C Application
+						1. Switch
+						2. Prints appear on the console
