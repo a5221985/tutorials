@@ -1862,7 +1862,21 @@
 		2. Case II: Pr(B) > 0, Then Pr(A and B) = Pr(B).Pr(A|B) = Pr(B).Pr(A) (by independence)
 5. Theorem: (Symmetry of Independence) - If A is independent of B, then B is independent of A
 	1. Order doesn't matter Pr(A|B) or Pr(B|A)
-6. Example: 
+6. Example: 2 fair independent coins
+	1. A = event coins match
+	2. B = event 1st coins is H
+	3. Pr(A|B) = Pr(2nd coin is H) = 1/2
+	4. Pr(A) = Pr(HH) + Pr(TT) = 1/2
+		1. => Pr(A|B) = Pr(A)
+7. Pr(H) = p, Pr(T) = 1 - p
+	1. Pr(A|B) = p
+	2. Pr(A) = p^2 + (1 - p)^2
+		1. A and B are independent iff Pr(B) = 0 => p = 0 or
+			1. p = 1 - 2p + 2p^2 => 0 = 1 - 3p + 2p^2 => 0 = (1 - 2p)(1 - p) => p = 1/2 or p = 1 (if are always heads or tails or they are fair)
+8. Example: Fisby - on fair coin
+	1. Fair way to do it: say they are same or different (Idea: fair coin) - it is not!
+		1. Always call the same - more chances of winning
+	2. 
 
 ## Lec 21 ##
 ## Lec 22 ##
