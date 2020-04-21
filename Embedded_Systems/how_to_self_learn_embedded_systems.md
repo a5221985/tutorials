@@ -57,3 +57,11 @@
 11. Go through Source Codes
 	1. Learn from other open source objects
 	2. Go through Linux Kernel code, FreeRTOS code and any code you get
+		1. How experts are writing code optimized in C language
+12. Learn Reverse Engineering:
+	1. Break into smaller chunks. Debug using RX/TX-UART, JTAG, Debug processes in an OS
+		1. Linux has dmesg, ...
+13. Learn Optimization techniques (limited CPU, Memory, storage)
+	1. Learn profiling/optimization of your code 
+	2. Be good at data-structures and algorithms
+	3. Profiling tools - perf, Intel Vtune Amplifier, etc...
