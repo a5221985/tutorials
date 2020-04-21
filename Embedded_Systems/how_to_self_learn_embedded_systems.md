@@ -30,4 +30,14 @@
 		3. ...
 		4. Vim
 	3. Do some projects with arduino/raspberry pi/embedded board/STM32F4
-		1. 
+		1. To understand build process and compilation works
+5. Learn Basic Electronics (Sensors, Actuators) - hardware architectures, how data is transmitted, interface
+	1. ADC, Sensors, relays, display interface, camera interface
+	2. Learn how to use oscilloscopes, multimeters, **logic analyzers**
+		1. Debugging
+6. Learn basic PCB design
+	1. Learn CADsoft eagle, OrCAD, KiCAD
+	2. Design your own PCB
+7. Learn to read data sheets
+	1. Read as many datasheets as possible
+	2. Read BLE module, WiFi module, ZigBee module and so on
