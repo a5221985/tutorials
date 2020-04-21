@@ -38,6 +38,22 @@
 6. Learn basic PCB design
 	1. Learn CADsoft eagle, OrCAD, KiCAD
 	2. Design your own PCB
-7. Learn to read data sheets
+7. Learn to read data sheets (for components used in project)
 	1. Read as many datasheets as possible
+		1. Architecture
+		2. Interfacing
 	2. Read BLE module, WiFi module, ZigBee module and so on
+	3. Read from different manufacturers
+	4. Read the datasheet of different development boards
+8. Learn FPGA: (Field Programmable Gate Array - new hardware design concept - used to design our own processor or implement our own algorithm in hardware)
+	1. Learn any Hardware description language. VHDL or Verilog
+	2. FPGA used for interfacing
+9. Learn Web technologies
+	1. (HTML, JS), Database-(Sqlite, MySQL), Java and Python too
+		1. IOT
+	2. It will be useful for IoT applications (optional)
+10. Learn Image Processing (Digital cameras, smart cameras)
+	1. Learn simpleCV, OpenCV, fastCV to work on Image processing projects
+11. Go through Source Codes
+	1. Learn from other open source objects
+	2. Go through Linux Kernel code, FreeRTOS code and any code you get
