@@ -319,10 +319,21 @@
 	3. Breakpoints (Inserting, deleting and skipping breakpoints)
 		1. HW breakpoints
 	4. Disassembly
-	5. Calls stack
+		1. Converting higher level language to assembly language
+			1. Mnemonics constructed
+			2. Instructions generated
+	5. Call stack
 	6. Expression and variable windows
+		1. IDE features
+			1. We can watch variables
+			2. We can write expressions to see values and addresses of variables and functions
 	7. Memory browser
+		1. Examine contents of memory of uc
+			1. Flash, SRAM, ...
+		3. Host machine can show what is there in those memory modules
 	8. Data watch-points
+		1. Used to halt processor when a condition is met
+2. ITM - internal peripheral - for printf style debugging
 
 ### Single Stepping ###
 ### Disassembly and Register Windows ###
