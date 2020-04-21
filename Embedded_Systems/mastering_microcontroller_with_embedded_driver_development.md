@@ -308,3 +308,28 @@
 					3. Debug As > STM32 C Application
 						1. Switch
 						2. Prints appear on the console
+
+## Embedded Code Debugging Tips and Tricks ##
+### Debugging Options ###
+1. Options:
+	1. Serial Wire Viewer and data tracing (printf style debugging)
+	2. Single stepping, stepping over and stepping out (IDE)
+		1. step by step execution
+		2. Can view register and mem contents
+	3. Breakpoints (Inserting, deleting and skipping breakpoints)
+		1. HW breakpoints
+	4. Disassembly
+	5. Calls stack
+	6. Expression and variable windows
+	7. Memory browser
+	8. Data watch-points
+
+### Single Stepping ###
+### Disassembly and Register Windows ###
+### Breakpoints ###
+### Expression and Variable Windows ###
+### Memory Browser Windows ###
+### Call Stack and Fault Analyzers ###
+### Data Watch-Points ###
+### SFR Windows ###
+### Other Basic Features of IDE ###
