@@ -334,6 +334,11 @@
 	8. Data watch-points
 		1. Used to halt processor when a condition is met
 2. ITM - internal peripheral - for printf style debugging
+	1. Minimal time-space overhead
+		1. Minimum code
+		2. Time consumed is minimal (doesn't slow down app)
+3. New Project:
+	1. Copy code from resource: main.c
 
 ### Single Stepping ###
 ### Disassembly and Register Windows ###
