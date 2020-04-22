@@ -1888,6 +1888,19 @@
 		1. Knowledge of ay of the other events does not influence the event looked at
 	2. Equivalent Definition: (Product Rule Form)
 		1. A1, A2, ... , An are mutually independent if for al J in [1, n], Pr(subset_j = J Aj) = PI_j Pr(Aj)
+11. Example: n = 3, A1, A2, A3 are mutually independent if Pr(A1 intersect A2) = Pr(A1).Pr(A2)
+	1. Pr(A1 intersect A2) = Pr(A1).Pr(A3)
+	2. Pr(A2 intersect A3) = Pr(A2).Pr(A3)
+	3. Pr(A1 intersect A2 intersect A3) = Pr(A1).Pr(A2).Pr(A3)
+12. Example: Flip 3 fair mutually independent coins
+	1. A1 = event coin 1 matches coin 2
+	2. A2 = event coin 2 matches coin 3
+	3. A3 = event coin 3 matches coin 1
+		1. Pr(Ai) = Pr(HH) + Pr(TT) = 1/4 + 1/4  = 1/2
+		2. Pr(Ai inter Aj) = Pr(HHH) + Pr(TTT) = 1/8 + 1/8 = 1/4 = Pr(Ai).Pr(Aj)
+		3. Pr(A1 inter A2 inter A3) = 1/4 =/= Pr(A1).Pr(A2).Pr(A3) (1/8)
+			1. => The events are not mutually independent
+13. **Definition: Events A1, A2, ..., An are pairwise independent if for all i, j (i != j), Ai and Aj are independent**
 
 ## Lec 21 ##
 ## Lec 22 ##
