@@ -1906,6 +1906,10 @@
 14. Pr(m1 inter m2 inter m3) <= Pr(m1 inter m2) = Pr(m1).Pr(m2) = 1/50
 	1. Pr(K | B and M) > 1/2
 		1. Pr(K | M) should be compared
+15. Example: Birthday paradox Problem: N birthdays (ex: N = 365), M people (ex: 100)
+	1. What is the probability that 2 or more people have same birthday?
+		1. Assumptions: Birthdays are mutually independent and are equally likely (not true practically)
+			1. Not mutually independent? twins, same birthday brothers
 
 ## Lec 21 ##
 ## Lec 22 ##
