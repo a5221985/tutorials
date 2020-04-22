@@ -1901,6 +1901,11 @@
 		3. Pr(A1 inter A2 inter A3) = 1/4 =/= Pr(A1).Pr(A2).Pr(A3) (1/8)
 			1. => The events are not mutually independent
 13. **Definition: Events A1, A2, ..., An are pairwise independent if for all i, j (i != j), Ai and Aj are independent**
+	1. pairwise =/=> mutual
+	2. mutual => pairwises
+14. Pr(m1 inter m2 inter m3) <= Pr(m1 inter m2) = Pr(m1).Pr(m2) = 1/50
+	1. Pr(K | B and M) > 1/2
+		1. Pr(K | M) should be compared
 
 ## Lec 21 ##
 ## Lec 22 ##
