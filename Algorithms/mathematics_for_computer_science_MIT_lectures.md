@@ -1915,6 +1915,18 @@
 		1. S = {(b1, b2, ..., bn) | 1 <= bi <= N}
 			1. |S| = N^M
 			2. Pr((b1, b2, ..., bM) | 1 <= bi <= N) = 1/N^M (uniform - assumption)
+		2. All are different:
+		1. N(N - 1)...(N - M + 1) = N!/(N - M)!
+			1. Pr(all birthdays are different) = N!/((N - M)!.N^M)
+				1. Stirling's formula: N! ~ sqrt(2.Pi.N).(N/e)^N
+					1. Pr(all bdays differ) ~ e^((N - M + 1/2).ln(N/(N - M)) - M)
+						1. N = 365, M = 100, 3.07...x 10^-7 (1 in 3 million)
+						2. N = 365, M = 23, 0.49 (about 50%)
+			2. If M = o(N^(2/3)), then Pr(all differ) ~ e^(-M^2/2N)
+				1. 1/2 ~ e^(-M^2/2N) => -M^2/2N = ln(1/2)
+					1. => M^2 = 2N.ln(2)
+					2. => M = sqrt(2N.ln(2)) ~ 1.177...sqrt(N)
+						1. **Roughly sqrt(N) are allocated into M boxes, there is fair chance that 2 of them go into the same box**
 
 ## Lec 21 ##
 ## Lec 22 ##
