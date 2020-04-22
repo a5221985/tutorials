@@ -1910,6 +1910,11 @@
 	1. What is the probability that 2 or more people have same birthday?
 		1. Assumptions: Birthdays are mutually independent and are equally likely (not true practically)
 			1. Not mutually independent? twins, same birthday brothers
+16. Birthday sample space:
+	1. Tree: Each node of degree N and M levels
+		1. S = {(b1, b2, ..., bn) | 1 <= bi <= N}
+			1. |S| = N^M
+			2. Pr((b1, b2, ..., bM) | 1 <= bi <= N) = 1/N^M (uniform - assumption)
 
 ## Lec 21 ##
 ## Lec 22 ##
