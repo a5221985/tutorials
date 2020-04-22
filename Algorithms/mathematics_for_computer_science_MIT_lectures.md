@@ -1926,7 +1926,22 @@
 				1. 1/2 ~ e^(-M^2/2N) => -M^2/2N = ln(1/2)
 					1. => M^2 = 2N.ln(2)
 					2. => M = sqrt(2N.ln(2)) ~ 1.177...sqrt(N)
-						1. **Roughly sqrt(N) are allocated into M boxes, there is fair chance that 2 of them go into the same box**
+						1. **Roughly sqrt(N) are allocated into M boxes, there is fair chance that 2 of them go into the same box** - Birthday principle
+							1. Applications: CS: h: L -> S
+								1. hash function
+									1. large set to small set
+								2. digital signature
+									1. msessages to 1000 bit signatures
+								3. memory allocation
+									1. values to registers
+								4. error checking
+									1. garbled messages to valid messages
+							2. Definition: x collides with y if h(x) = h(y) but x != y
+							3. In practice, we are interested in L' in L (small set of messages we really sign)
+								1. We want to match L' to S one to one
+									1. **Birthday principle: If |S| >= 100, L' in L, |L'| >= 1.2sqrt(|S|), and if the values of h on L' are random (uniform) and mutually independent, then with probability >= 1/2, there exists x,y such that x !=  and h(x) = h(y)**
+										1. Birthday attack (two encrypted messages might be same)
+											1. RSA has 1000s of digits or else it is can be cracked
 
 ## Lec 21 ##
 ## Lec 22 ##
