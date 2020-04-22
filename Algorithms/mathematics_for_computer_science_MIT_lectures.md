@@ -1876,7 +1876,18 @@
 8. Example: Frisby - on fair coin
 	1. Fair way to do it: say they are same or different (Idea: fair coin) - it is not!
 		1. Always call the same - more chances of winning
-	2. 
+9. Example: Blood matching
+	1. 1/10 people match type O
+	2. 1/5 .. rh factor +
+	3. 1/4 ... marker XYZ
+	4. 1/200 match all three (?)
+		1. How do we know they are independent?
+			1. We may to test all people
+10. Definition: Events A1, A2, ..., An are mutually independent if for all i and for all sets J in [1, n] - {i} (events)
+	1. Pr(Ai| subset_j in J Aj) = Pr(Ai) or Pr(subset_j in J Aj) = 0 
+		1. Knowledge of ay of the other events does not influence the event looked at
+	2. Equivalent Definition: (Product Rule Form)
+		1. A1, A2, ... , An are mutually independent if for al J in [1, n], Pr(subset_j = J Aj) = PI_j Pr(Aj)
 
 ## Lec 21 ##
 ## Lec 22 ##
