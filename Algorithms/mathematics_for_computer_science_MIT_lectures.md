@@ -1939,12 +1939,22 @@
 							2. Definition: x collides with y if h(x) = h(y) but x != y
 							3. In practice, we are interested in L' in L (small set of messages we really sign)
 								1. We want to match L' to S one to one
-									1. **Birthday principle: If |S| >= 100, L' in L, |L'| >= 1.2sqrt(|S|), and if the values of h on L' are random (uniform) and mutually independent, then with probability >= 1/2, there exists x,y such that x !=  and h(x) = h(y)**
+									1. **Birthday principle: If |S| >= 100, L' in L, |L'| >= 1.2 sqrt(|S|), and if the values of h on L' are random (uniform) and mutually independent, then with probability >= 1/2, there exists x,y such that x !=  and h(x) = h(y)**
 										1. Birthday attack (two encrypted messages might be same)
 											1. RSA has 1000s of digits or else it is can be cracked
 
 ## Lec 21 ##
-
+1. How much you win (unlike H or T) - like home many heads
+	1. Definition: A random varialbe R is a function R: **S** => **R**
+		1. **S** Sample space
+		2. **R** Random variable
+	2. Example: Toss 3 coins
+		1. R = number of heads
+		2. R(H, T, H) = 2
+		3. M = {1 if all 3 coins match, 0 otherwise} (it is a random variable) - called indicator random variable, bernueuli random varialbe, characteristic random variable (0 or 1)
+			1. M(H,H,T) = 0
+			2. M(T, T, T) = 1
+2. Definition: An indicator (aka, Bernoulli or CHaracteristic) r.v is a random variable with range = {0, 1}
 
 ## Lec 22 ##
 ## Lec 23 ##
