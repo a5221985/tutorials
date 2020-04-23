@@ -1954,7 +1954,22 @@
 		3. M = {1 if all 3 coins match, 0 otherwise} (it is a random variable) - called indicator random variable, bernueuli random varialbe, characteristic random variable (0 or 1)
 			1. M(H,H,T) = 0
 			2. M(T, T, T) = 1
-2. Definition: An indicator (aka, Bernoulli or CHaracteristic) r.v is a random variable with range = {0, 1}
+2. Definition: An indicator (aka, Bernoulli or Characteristic) r.v is a random variable with range = {0, 1}
+	1. It indicates which sample point has a certain property (like all coins match)
+3. Random variable defines partitions of sample space
+	1. Indicator random variable gives a single partition
+
+			HHH		TTT	-> m = 1
+			----------
+			HTH		HTT
+			HHT		THT	-> m = 0
+			THH		TTH
+			
+		1. R = 3 heads, R = 2 heads, R = 1 heads, R = 0 heads (4 partitions)
+		2. {w | R(w) = X} is the event that R = X
+			1. Every block (partition) is an event
+				1. Event is a subset of outcomes
+		3. Pr(R = X) = sigma_w:R(w)=X Pr(w) (probability of the event happening)
 
 ## Lec 22 ##
 ## Lec 23 ##
