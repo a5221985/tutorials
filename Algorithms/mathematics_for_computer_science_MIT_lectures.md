@@ -1970,6 +1970,9 @@
 			1. Every block (partition) is an event
 				1. Event is a subset of outcomes
 		3. Pr(R = X) = sigma_w:R(w)=X Pr(w) (probability of the event happening)
+			1. Pr(R = 2) = 3/8 (3 outcomes each of probability 1/8)
+				1. Pr(HHT, HTH, THH)
+			2. Pr(m = 1) = Pr(HHH, TTT) = 2/8 = 1/4
 
 ## Lec 22 ##
 ## Lec 23 ##
