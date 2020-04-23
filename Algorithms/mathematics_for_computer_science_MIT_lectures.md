@@ -1973,6 +1973,8 @@
 			1. Pr(R = 2) = 3/8 (3 outcomes each of probability 1/8)
 				1. Pr(HHT, HTH, THH)
 			2. Pr(m = 1) = Pr(HHH, TTT) = 2/8 = 1/4
+			3. Pr(R >= 2) = sigma_i=2toinf Pr(R = i) = Pr(R = 2) + Pr(R = 3) ... = 1/2
+			4. For A subset R, Pr(R in A) = sigma_ainA Pr(R = a)
 
 ## Lec 22 ##
 ## Lec 23 ##
