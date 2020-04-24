@@ -1979,6 +1979,15 @@
 4. Definition: Two random variables R1, R2 are independent if for all x1, x2 in **R** if Pr(R1 = x1 | R2 = x2) = Pr(R1 = x1) or Pr(R2 = x2) = 0
 	1. No value taken by R2 can influence the value taken by R1
 5. Equivalent Definition: for all x1, x2 in **R**, Pr(R1 = x1 and R2 = x2) = Pr(R1 = x1).Pr(R1 = x2)
+		1. Pr(R1 = x1 and m = m1) is not independent
+			1. Pr(R = 2 and m = 1) = 0 != Pr(R = 2) Pr(m = 1) (3/8.1/4)
+			2. Harder to show independence (we have to check for all possible pairs of values)
+6. 2 fair independent 6-siced die: D1, D2 (given value of D2 the value of D1 does not change)
+	1. S = D1 + D2 (S is also a random variable) (S -> **R**)
+	2. Let T = {1 if S = 7, 0 otherwise}
+		1. Indicator random variable
+			1. Pr(S = 12 and D1 = 1) = 0 != Pr(S = 12).Pr(D1 = 1)
+				1. => S and D1 are dependent
 
 ## Lec 22 ##
 ## Lec 23 ##
