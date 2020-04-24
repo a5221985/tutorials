@@ -1988,6 +1988,22 @@
 		1. Indicator random variable
 			1. Pr(S = 12 and D1 = 1) = 0 != Pr(S = 12).Pr(D1 = 1)
 				1. => S and D1 are dependent
+		2. Pr(T = 1 | D1 = 1) = 1/6 = Pr(T = 1)
+		3. Pr(T = 1 | D1 = 2) = 1/6 = ,,
+		4. ...
+		5. Pr(T = 1 | D1 = 6) = 1/6 = ,,
+		6. Pr(T = 0 | D1 = 1) = 5/6 = Pr(T = 0)
+		7. ...
+		8. Pr(T = 0 | D1 = 6) = 5/6 = Pr(T = 0)
+	3. If t: 1 if S = 6, 0 otherwise (this is not independent of D1)
+7. Definition: R1, R2, ..., Rn are mutually independent if for all x1, x2, ..., xn in **R**
+	1. Pr(R1 = x1 and R2 = x2 and ... and Rn = xn) = Pr(R1 = x1) ... Pr(Rn = xn)
+		1. Should work for all possible values of xi
+8. Definition: Given a random variable R, the probability (or point) distribution function (pdf) for R is
+	
+		f(x) = Pr(R = x)
+		
+	1. 
 
 ## Lec 22 ##
 ## Lec 23 ##
