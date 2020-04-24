@@ -24,6 +24,6 @@
 			1. Husband may not be comfortable with a few people
 		7. If wife talks swear words say, ... raise with her and address the issue
 		8. Becoming furious and overreact out of minor issue is against etiquette and character of a husband
-		9. Praise wives with certain limits
+		9. Praise wives at times but with certain limits
 		10. If speaking does not work
 			1. Sleep separately
