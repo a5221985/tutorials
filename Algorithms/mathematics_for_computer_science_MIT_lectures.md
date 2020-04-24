@@ -2024,6 +2024,7 @@
 			2. Picking a student randomly in class (picking you is 1/size_of_class)
 			3. Uniform sample spaces - all outcomes are equally likely
 			4. Game: 
+				1. 
 
 ## Lec 22 ##
 ## Lec 23 ##
