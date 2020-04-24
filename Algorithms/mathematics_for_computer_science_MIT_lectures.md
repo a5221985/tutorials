@@ -2034,9 +2034,19 @@
 					5. Player swaps if r < x
 						1. Probability of winning
 							1. Tree method:
-								2. Too low: x < y < z
-								3. Okay: y < x < z
-								4. 
+								2. Too low: x < y < z (p = y/n) (p = y/2n)
+									1. r = y (1/2) (no swap) - L
+									2. r = z (1/2) (no swap) - W
+								3. Okay: y < x < z (p = (z - y)/n) (p = y/2n)
+									1. r = y (1/2) (swap) - W
+									2. r = z (1/2) (no swap) - W
+								4. Too high: y < z < x (p = (n - z)/n)
+									1. r = y (1/2) (swap) - W
+									2. r = z (1/2) (swap) - L
+							2. Pr(W) = y/2n + (z - y)/2n + (z - y)/2n + (n - z)/2n = (n + z -y)/2n = 1/2 + (z - y)/2n > 1/2 (since z - y >= 1)
+								1. 1/2 + 1/2n
+									1. If difference is (n - 1)
+										1. 1/2 + (n - 1)/2n = 1 - 1/2n
 
 ## Lec 22 ##
 ## Lec 23 ##
