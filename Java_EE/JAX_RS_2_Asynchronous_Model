@@ -1,0 +1,158 @@
+# JAX-RS 2.0 Asynchronous Server and Client #
+1. Asynchronous processing model is essential for design and implementation of scalable enterprise services
+2. Synchronous processing:
+	1. Client connection is accepted by a single I/O thread and processed
+	2. If a request is received, server accepts and dedicates a thread to process the request
+		1. Thread is blocked until processing is completed and returned
+		2. When response is sent back, thread can be released and send back to pool
+	3. Pros:
+		1. The model works fine if request processing doesn't take much time
+	4. Cons:
+		1. If processing is heavy and time consuming, then a point can be reached where all the threads are busy processing and the pool is empty
+			1. No more threads to accept new connection requests
+3. Pros with asynchronous processing model:
+	1. Separates connection accepting and request processing operations
+		1. Two different threads
+			1. First accepts client connections - Acceptor
+			2. Second handles heavy and time consuming operations - Worker
+		2. Container dispatches one thread to accept connections - Acceptor
+		3. Container dispatches another thread to process requests - Worker
+			1. This cause container to release the acceptor
+			2. Result is returned by worker thread
+	2. JAX-RS 2 async API: It is an implementation of the async processing model:
+		1. Example:
+		
+				@Stateless
+				@Path("/asyncresource")
+				public class AsynchronousResource {
+					@GET
+					@Asynchronous
+					public void asyncRestMethod(@Suspended final AsyncResponse asyncResponse) {
+						String result = heavyLifting();
+						asyncResponse.resume(result);
+					}
+					
+					private String heavyLifting() {
+						return "RESULT";
+					}
+				}
+				
+			1. `AsyncResponse` instance is injected using `@Suspended` annotation
+				1. `void` - return type of `@Asynchronous` method
+					1. This only accepts requests
+			2. `asyncResponse.resume(result)`: This is invoked when processing is finished and response is ready
+				1. This call returns the result
+					1. Internally uses JAVA EE EJB feature:
+						1. `@Asynchronous` - tells enterprise bean container to handle the method asynchronously (this acts as a worker thread)
+4. `TimeoutHandler` - event handler to handle timeouts
+
+		@Resource(lookup = "java:com/DefaultManagedThreadFactory")
+		private ManagedThreadFactory threadFactory;
+		
+		@GET
+		public void asyncRestMethod(@Suspended final AsyncResponse asyncResponse) {
+			asyncResponse.setTimeoutHandler(new TimeoutHandler () {
+				@Override
+				public void handleTimeout(AsyncResponse asyncResponse) {
+					asyncResponse.resume(Response.status(Response.Status.SERVICE_UNAVAILABLE).entity("TIME OUT !").build();
+				}
+			});
+			
+			asyncResponse.setTimeout(40, TimeUnit.SECONDS);
+			
+			Thread thread = threadFactory.newThread(new Runnable () {
+				@Override
+				public void run() {
+					String result = heavyLifting();
+					asyncResponse.resume(result);
+				}
+				
+				private String heavyLifting() {
+					return "RESULT";
+				}
+			});
+			thread.start();
+		}
+		
+	1. If processing takes more than 40 seconds, it is cancelled
+		1. Resources are released and `handleTimeout()` is called
+			1. Also sends Http 503 response code
+	2. `ManagedThreadFactory`: used for creation of explicit threads in Java EE Runtime environment
+		1. It is just like initializing in Java SE
+			1. The execution and lifetime of the thread is managed by Java EE environment
+5. `CompletionCallback`, `ConnectionCallback`
+	1. If we register `AsyncResponse` with `CompletionCallback`,
+		1. `onComplete()` method is called when request is finished or failed
+	2. If we register `AsyncResponse` with `ConnectionCallback`,
+		1. `onDisconnect()` is called when connection with client is closed or failed
+	3. Uses: Runtime monitoring and logging of runtime operations
+	4. Example:
+	
+			@Resource
+			ManagedExecutorService managedExecutorService;
+			
+			@GET
+			public void asyncRestMethod(@Suspended final AsyncResponse asyncResponse) {
+				asyncResponse.register(new CompletionCallback () {
+					@Override
+					public void onComplete(Throwable throwable) {
+						if (throwable == null) {
+							// Everything is good. Response has been successfully
+							// dispatched to client
+						} else {
+							// An error has occurred during request processing
+						}
+					}
+				}, new ConnectionCallback () {
+					public void onDisconnect(AsyncResponse disconnected) {
+						// Connection lost or closed by the client!
+					}
+				});
+			}
+			managedExecutorService.submit(new Runnable () {
+				@Override
+				public void run() {
+					String result = heavyLifting();
+					asyncResponse.resume(result);
+				}
+				
+				private String heavyLifting() {
+					return "RESULT";
+				}
+			});
+			
+		1. `Runnable` object runs the task asynchronously
+6. Client side JAX-RS 2 async API:
+	1. GET is called on async method rather than request
+		1. The async method returns `Future` object
+			1. If `get()` is called, the call blocks until response is ready
+				1. The method returns when response is ready
+	2. Callbacks for async scenarios:
+		1. `InvocationCallback` - interface
+			1. Two methods are provided:
+				1. `completed()` - called whenever processing is finished and response is received
+					1. It frees from checking using `isDone()` method constantly until response is ready
+				2. `failed()` - called whenever request processing is not successful
+	3. Example:
+	
+			Future<Response> futureResponse = client
+				.target(“http://www.mydomain.com/resource/”)
+				.path("asyncresource")
+				.request()
+				.async()
+				.get(new InvocationCallback<Response>() {
+					@Override
+					public void completed(Response response) {
+						System.out.println("Response code " + response.getStatus());
+					}
+					
+					@Override
+					public void failed(Throwable throwable) {
+						System.out.println("Failed");
+						throwable.printStackTrace();
+					}
+				});
+
+	
+					
+		
