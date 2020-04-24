@@ -2026,6 +2026,17 @@
 			4. Game: 
 				1. Place two numbers (distinct) in two envelopes
 					1. Guessing: If your guess is right - p = 1, if guess is wrong - p = 1/2 (guess is the mid value)
+				2. Winning strategy:
+					1. Envelopes contain y & z in [0, n] where y < z
+					2. Player chooses x uniformly in {1/2, 1 1/2, 2 1/2, ..., n 1/2}
+					3. Player hopes y < x < z
+					4. Player opens random envelpe to reveal r in {y, z}
+					5. Player swaps if r < x
+						1. Probability of winning
+							1. Tree method:
+								2. Too low: x < y < z
+								3. Okay: y < x < z
+								4. 
 
 ## Lec 22 ##
 ## Lec 23 ##
