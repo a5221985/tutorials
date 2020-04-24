@@ -2003,7 +2003,27 @@
 	
 		f(x) = Pr(R = x)
 		
-	1. 
+	1. Definition: The cumulative distribution function F for R is
+	
+			F(x) = Pr(R <= x) = sigma_y in x Pr(R = y)
+			
+		1. For an indicator random variable: (Bernulli distribution)
+
+				f(0) = p
+				f(1) = 1 = p
+				
+				F(0) = p
+				F(1) = 1
+				
+		2. For a Uniform random variable on [1, n]:
+
+				fn(k) = 1/n for 1 <= k <= n
+				Fn(k) = k/n (1/n + 1/n + ... + 1/n (k times))
+				
+			1. One of the outcomes of a fair die (all outcomes are equally likely - 1/6)
+			2. Picking a student randomly in class (picking you is 1/size_of_class)
+			3. Uniform sample spaces - all outcomes are equally likely
+			4. Game: 
 
 ## Lec 22 ##
 ## Lec 23 ##
