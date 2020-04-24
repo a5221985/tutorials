@@ -2024,7 +2024,8 @@
 			2. Picking a student randomly in class (picking you is 1/size_of_class)
 			3. Uniform sample spaces - all outcomes are equally likely
 			4. Game: 
-				1. 
+				1. Place two numbers (distinct) in two envelopes
+					1. Guessing: If your guess is right - p = 1, if guess is wrong - p = 1/2 (guess is the mid value)
 
 ## Lec 22 ##
 ## Lec 23 ##
