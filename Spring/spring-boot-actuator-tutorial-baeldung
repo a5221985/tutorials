@@ -1,0 +1,53 @@
+# Spring Boot Actuator #
+## Overview ##
+1. Configure, extend the monitoring tool in Spring 2.x and WebFlux
+	1. Using reactive programming
+2. Actuator has been redesigned with Spring Boot 2
+3. New endpoints are added
+
+## What is an Actuator? ##
+1. It brings production ready features to our application
+	1. Monitoring application
+	2. Gathering metrics
+	3. Understanding traffic or state of database
+2. Uses: Used to expose operational information about running application
+	1. Health
+	2. Metrics
+	3. Info
+	4. Dump
+	5. Env
+	6. ...
+3. HTTP endpoints are used
+4. JMX beans are enabled
+5. When we add the dependency, many endpoints are available out of the box
+	1. It can also be extended
+
+### Getting Started ###
+1. Add the following dependency:
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+## Spring Boot 1.x Actuator ##
+### Endpoints ###
+### Configuring Existing Endpoints ###
+### /health Endpoint ###
+### /info Endpoint ###
+### /metrics Endpoint ###
+### Constructing a New Endpoint ###
+### Further Customization ###
+
+## Spring Boot 2.x Actuator ##
+### Technology Support ###
+### Important Changes ###
+### Predefined Endpoints ###
+### Health Indicators ###
+### Metrics in Spring Boot 2 ###
+### Customizating the /info Endpoint ###
+### Constructing a Custom Endpoint ###
+### Extending Exiting Endpoints ###
+### Enable All Endpoints ###
+
+## Summary ##
