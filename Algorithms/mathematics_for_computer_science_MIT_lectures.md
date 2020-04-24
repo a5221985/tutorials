@@ -1975,6 +1975,10 @@
 			2. Pr(m = 1) = Pr(HHH, TTT) = 2/8 = 1/4
 			3. Pr(R >= 2) = sigma_i=2toinf Pr(R = i) = Pr(R = 2) + Pr(R = 3) ... = 1/2
 			4. For A subset R, Pr(R in A) = sigma_ainA Pr(R = a)
+			5. Pr(R = 2 | m = 1) = 0 (exactly two heads and all same cannot happen)
+4. Definition: Two random variables R1, R2 are independent if for all x1, x2 in **R** if Pr(R1 = x1 | R2 = x2) = Pr(R1 = x1) or Pr(R2 = x2) = 0
+	1. No value taken by R2 can influence the value taken by R1
+5. Equivalent Definition: for all x1, x2 in **R**, Pr(R1 = x1 and R2 = x2) = Pr(R1 = x1).Pr(R1 = x2)
 
 ## Lec 22 ##
 ## Lec 23 ##
