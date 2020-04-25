@@ -2162,7 +2162,12 @@
 7. Super-bowl - many people guess in a small range - so guess outside (Expected gain in higher)
 	1. This could be totally opposite of maximising winning
 8. **Theorem: Ex(R) = sigma_x in Range(R) x.Pr(R = x)**
-	1. Proof: Ex(R) = sigma_w in S R(w).Pr(w) = sigma_x in Rnage(R). sigma_w in S: R(w) = x R(w).Pr(w)
+	1. Proof: Ex(R) = sigma_w in S R(w).Pr(w) = sigma_x in Rnage(R). sigma_w in S: R(w) = x R(w).Pr(w) = sigma_x in Range(R) sigma_w in S: R(w) = x x.Pr(w) = sigma_x in Range(R) x sigma_w in S: R(w) = x Pr(w) = sigma_x in Range(r) x.Pr(R = x)
+	2. Corollary: If R: S -> N, then
+
+			Ex(R) = sigma_i = 0 to inf i . Pr(R = i)
+			
+		1. Summing over natural numbers and 0 . something is 0 (only positive integers matter)
 
 ## Lec 23 ##
 ## Lec 24 ##
