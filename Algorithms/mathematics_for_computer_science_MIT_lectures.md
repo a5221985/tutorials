@@ -2163,11 +2163,18 @@
 	1. This could be totally opposite of maximising winning
 8. **Theorem: Ex(R) = sigma_x in Range(R) x.Pr(R = x)**
 	1. Proof: Ex(R) = sigma_w in S R(w).Pr(w) = sigma_x in Rnage(R). sigma_w in S: R(w) = x R(w).Pr(w) = sigma_x in Range(R) sigma_w in S: R(w) = x x.Pr(w) = sigma_x in Range(R) x sigma_w in S: R(w) = x Pr(w) = sigma_x in Range(r) x.Pr(R = x)
-	2. Corollary: If R: S -> N, then
+	2. **Corollary: If R: S -> N, then**
 
 			Ex(R) = sigma_i = 0 to inf i . Pr(R = i)
 			
 		1. Summing over natural numbers and 0 . something is 0 (only positive integers matter)
+9. **Theorem: If R: S -> N, then E(R) = sigma_i = 0 to inf Pr(R > i) = sigma_i = 1 to inf Pr(R >= i)**
+	1. Proof: sigma_i = 0 to inf Pr(R > i) = Pr(R > 0) + Pr(R > 1) + Pr(R > 2) ... = Pr(R = 1) + Pr(R = 2) + ... + Pr(R = 2) + Pr(R = 3) + ... + Pr(R = 3) + Pr(R = 4) + ... = 1.Pr(R = 1) + 2.Pr(R = 2) + 3.Pr(R = 3) + ...
+		1. = Ex(R) (by corollary)
+9. Example: System fails with probability p at each step (mutually independent) - What is the expected number of steps before the system failure:
+	1. R = step when failure occurs
+	2. Ex(R) = sigma_i = 0 to inf Pr(R > i) (Pr(R > i) = Pr(no failure in first i steps) = Pr(ok in 1st step).Pr(ok in 2nd step)...Pr(ok in ith step) (mutual indpendence) = (1 - p)(1 - p) ... (1 - p) (i times) = (1 - p)^p = alpha^i where alpha = 1 - p)
+		1. Ex(R) = sigma_i = 0 to inf alpha^i = 1/(1 - alpha) = 1/p
 
 ## Lec 23 ##
 ## Lec 24 ##
