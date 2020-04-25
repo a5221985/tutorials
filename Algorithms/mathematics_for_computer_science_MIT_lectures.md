@@ -2108,7 +2108,12 @@
 		1. 50% chance of being bigger than the median and 50% chance of being smaller
 		2. Definition: The median of R is x in Range(R) such that Pr(R < x) <= 1/2, Pr(R > x) < 1/2
 			1. Median for 6 sided die: 4 works
-3. Game:  
+3. Game: 
+	1. Coin: H, H, T, T, T, H
+	2. Adam guessed: T (- $2 + $1 + $1 - $2 - $2 - $2)
+	3. Martina guessed: H (+ $4 + $1 + $1 + $4 - $2 - $2)
+	4. Nick guessed: T (- $2 - $2 - $2 - $2 + $4 + $4)
+4. 
 
 ## Lec 23 ##
 ## Lec 24 ##
