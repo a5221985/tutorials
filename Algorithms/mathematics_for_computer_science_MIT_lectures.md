@@ -2113,7 +2113,39 @@
 	2. Adam guessed: T (- $2 + $1 + $1 - $2 - $2 - $2)
 	3. Martina guessed: H (+ $4 + $1 + $1 + $4 - $2 - $2)
 	4. Nick guessed: T (- $2 - $2 - $2 - $2 + $4 + $4)
-4. 
+	5. Tree:
+		1. H
+			1. H
+				1. H
+					1. H - 0
+					2. T - 0
+				2. T
+					1. H - +1
+					2. T - -2
+			2. T
+				1. H
+					1. H - + 1
+					2. T - - 2
+				2. T
+					1. H - +4
+					2. T - -2
+		2. T
+			1. H
+				1. H
+					1. H -
+					2. T -
+				2. T
+					1. H - 
+					2. T
+			2. T
+				1. H
+					1. H
+					2. T
+				2. T
+					1. H
+					2. T
+
+		3. Ex(Gain for Adam) = 0 (fair game)
 
 ## Lec 23 ##
 ## Lec 24 ##
