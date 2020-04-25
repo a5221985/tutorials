@@ -2076,6 +2076,10 @@
 										1. F
 										2. N
 										3. ...
+						2. 2^n sample points
+						3. (n k) sample points have k failed components
+						4. p^k.(1 - p)^(n - k) - probability for each sample point
+						5. Pr(R = k) = (n k).p^k.(1 - p)^(n - k) = fn,p(k)
 
 ## Lec 22 ##
 ## Lec 23 ##
