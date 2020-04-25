@@ -2146,6 +2146,13 @@
 					2. T
 
 		3. Ex(Gain for Adam) = 0 (fair game)
+		4. If Nick and Martina are always alternating
+			1. Certain branches are not happening
+				1. Ex(Gain for Adam) = 2 . 1/8 ( 1 - 2 + 1 = 2) = - 1/2 (-50 cents every game on an average)
+4. Game: Sports
+	1. If we collude with one or more person on the table, we can get an edge
+5. Lottery: Everyone puts money, Government takes 1/2 and winners split the pot
+	1. The Expected return is 1/2 of what we put in
 
 ## Lec 23 ##
 ## Lec 24 ##
