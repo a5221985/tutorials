@@ -2095,10 +2095,20 @@
 								2. Pr(25 heads) <= 0.09... 2^(-.1887).100 ~ 1.913.10^-7 (we can use sterling's formula)
 							5. Plot: height = Theta(1/sqrt(n))
 								1. Width ~ Theta(sqrt(n))
-									1. 
+									1. Example: Failure rate is 1% (bit is dopped from 10000), what is the probability that I lost 2% percent of the bits
 
 ## Lec 22 ##
-
+1. Expected value of a random variable (best tool for probability problems in practice)
+2. Definition: The expected value (aka. average or mean) of a random variable R over a probability space S is Ex(R) = sigma_w in S R(w).Pr(w)
+	1. Weighted average of all possibilities of the random variable with the probability (of that happening) as the weight
+	2. Example: Roll a fair, 6-sided die
+	3. R = outcome
+	4. Ex(R) = 1.1/6 + 2.1/6 + ... 6.1/6 = 6.7/2.1/6 = 7/1 = 3 1/2 (not one of the values but it is the average value)
+	5. Median: Outcome that splits the probabilities into halves
+		1. 50% chance of being bigger than the median and 50% chance of being smaller
+		2. Definition: The median of R is x in Range(R) such that Pr(R < x) <= 1/2, Pr(R > x) < 1/2
+			1. Median for 6 sided die: 4 works
+3. Game:  
 
 ## Lec 23 ##
 ## Lec 24 ##
