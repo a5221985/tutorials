@@ -2080,8 +2080,26 @@
 						3. (n k) sample points have k failed components
 						4. p^k.(1 - p)^(n - k) - probability for each sample point
 						5. Pr(R = k) = (n k).p^k.(1 - p)^(n - k) = fn,p(k)
+						6. Problem: 1, 1/2, 1/10, 1/100, 1/1k, 1/1m ... 0
+							1. Pr(R = 50H) ~ 8%
+							2. Pr(R <= 25H) < 1/1m
+							3. f_n,p(alpha n) (alpha = k)
+
+									fPn,p(alpha n) <= 2^[alpha log 1/alpha + (1 - alpha) log (1 - p)/(1 - alpha)]n / sqrt(2.Pi.alpha(1 - alpha)n) for 0 < alpha < 1
+									max value at alpha = p
+									f_n,p(pn) <= 1/sqrt(2.Pi.p(1 - p)n)
+									
+								1. For n = 100, p = 1/2
+									1. Pr(50 heads) ~ 0.080...
+							4. For n = 100, p = 1/2, alpha = 1/4
+								2. Pr(25 heads) <= 0.09... 2^(-.1887).100 ~ 1.913.10^-7 (we can use sterling's formula)
+							5. Plot: height = Theta(1/sqrt(n))
+								1. Width ~ Theta(sqrt(n))
+									1. 
 
 ## Lec 22 ##
+
+
 ## Lec 23 ##
 ## Lec 24 ##
 ## Lec 25 ##
