@@ -2259,6 +2259,11 @@
 		3. Next number is Q
 		4. Next number is 3
 		5. Next number is 4 (done)
+	2. All (almost) got the same card at the end
+	3. If numbers are smaller, we land on same card is higher (Murphy's law)
+		1. They are not independent - Murphy's law does not apply
+	4. Ai = event that we collide on ith jump
+		1. Events are not mutually independent
 
 ## Lec 24 ##
 ## Lec 25 ##
