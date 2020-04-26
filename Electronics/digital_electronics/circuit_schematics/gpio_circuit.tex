@@ -6,8 +6,9 @@
 \begin{document}
 	\begin{center}
 		\begin{circuitikz} \draw 
-			(0, 0) to [short, *-] (1, 0)
-			to [R, l=$R_s$] (3, 4);
+		(0, 0)	node (mynot) [not port] {}
+		(3, 0)	node (myand) [and port] {};
+		\draw (mynot.out) -- (myand.in);
 		\end{circuitikz}
 	\end{center}
 \end{document}
