@@ -2320,7 +2320,11 @@
 	3. Expected value of square of deviation (average of squares of the amount by which the variable deviates from it's mean)
 		1. If a random variable is likely to deviate from it's mean the n variable will be high
 18. R - Ex(R) = { 1000	1/2, -1000 1/2 }
-	1. (R - Ex(R))^2 = {1,
+	1. (R - Ex(R))^2 = {1,000,000 1/2, 1,000,000 1/2
+	2. Ex(S) = {1 1/2, -1 1/2
+	3. (S - Ex(R))^2 = {1 1/2, 1 1/2
+		1. Var(S) = 1
+2. Ex(R - Ex(R)) = Ex(R) - Ex(R) = 0
 
 ## Lec 24 ##
 ## Lec 25 ##
