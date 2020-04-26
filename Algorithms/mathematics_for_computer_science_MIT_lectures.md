@@ -2264,6 +2264,20 @@
 		1. They are not independent - Murphy's law does not apply
 	4. Ai = event that we collide on ith jump
 		1. Events are not mutually independent
+8. If Expected value is 1, and the events are mutually independent, then it is very much likely that one of those events will occur
+9. **Theorem 4: (Product Rule for Expectation): For any** **independent** **random variables, R1, R2. Then Ex(R1.R2) = Ex(R1).Ex(R2)**
+	1. Example: Roll 2 6-sided independent dice:
+		1. Expected product of the dice:
+			1. R1 = value on 1st die
+			2. R2 = value on 2nd die
+			3. Ex(R1.R2) = Ex(R1).Ex(R2) = 7/2 . 7/2 = 49/4 = 12 1/4
+	2. Non example: Ex(R1.R1) = Ex(R1^2) = sigma_i = 1 to 6 i^2 . Pr(R1 = i) = 1/6(1 + 4 + 9 + 16 + 25 + 36) = 15 1/6 ~= (3 1/2)^2 = Ex(R1)^2
+	3. Corollary 4.1: If R1, R2, ..., Rn are mutually independent, then Ex(R1.R2....Rn) = Ex(R1).Ex(R2)...Ex(Rn) (proof by induction)
+	4. Coroallary 4.2: For any constants a, b and any random variable R,
+
+			Ex(aR + b) = a.Ex(R) + b (b is random variable that always has a value b and same is the case with a and they are all independent)
+			
+	5. Corollary: Ex(1/R) = 1/Ex(R)?
 
 ## Lec 24 ##
 ## Lec 25 ##
