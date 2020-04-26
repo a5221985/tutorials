@@ -2187,11 +2187,31 @@
 		1. Ex(D) = sigma_i = 1 to inf Pr(D >= i) = sigma_i = 1 to inf 1/i = inf (10 milliseconds is wrong in this case)
 			1. Finite points may not be sufficient because out of range points might blow up the expected value
 13. Linearity of Expectation:
-	1. Theorem: For any random variables R1 and R2 on a probability space S.
+	1. **Theorem: For any random variables R1 and R2 on a probability space S**.
 
 			Ex(R1 + R2) = Ex(R1) + Ex(R2)
 			
-		1. Proof:
+		1. Proof: 
+		2. **Corollary: For all k in N, and k random variables R1, R2, ... Rk**
+
+				Ex(R1 + R2 + ... + Rk) = Ex(R1) + Ex(R2) + ... + Ex(Rk)
+				
+			1. Proof: By induction
+		3. **No independence needed!!**
+14. Example: Roll 2 fair 6-sided dice.
+	1. R1 = outcome on 1st die
+	2. R2 = outocme on 2nd die
+	3. R = R1 + R2
+	4. Ex(R) = Ex(R1) + Ex(R2) = 3 1/2 + 3 1/2 = 7 (whether they are independent or not)
+15. Hat check problem:
+	1. n - men
+	2. Each man gets a random hat back
+	3. R = number of ment to get the right hat
+	4. Ex(R) = sigma_k = 1 to n k.Pr(R = k)
+		1. Pr(R = k) = 1/(k!(n - k)) if k <= n - 2 or 1/n! if k = n - 1, n (difficult way to compute)
+		2. Easier solution:
+			1. R = R1 + R2 + ... Rn
+			2. Ri = {1 if ith man gets the right hat and 0 otherwise
 
 ## Lec 23 ##
 ## Lec 24 ##
