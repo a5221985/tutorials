@@ -2325,6 +2325,9 @@
 	3. (S - Ex(R))^2 = {1 1/2, 1 1/2
 		1. Var(S) = 1
 2. Ex(R - Ex(R)) = Ex(R) - Ex(R) = 0
+3. Linearity of variance - easy with the formula
+4. Ex((R - Ex(R))^4) = Kartosis(R)
+5. **Definition: For a random variable R the standard deviation of R is sigma(R) = sqrt(Var(R)) = root-mean-square of dev (root of mean of square of deviation)**
 
 ## Lec 24 ##
 ## Lec 25 ##
