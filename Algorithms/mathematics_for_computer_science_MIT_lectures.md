@@ -2212,7 +2212,11 @@
 		2. Easier solution:
 			1. R = R1 + R2 + ... Rn
 			2. Ri = {1 if ith man gets the right hat and 0 otherwise
+	5. Ex(R) = Ex(R1) + ... + Ex(Rn) = Pr(R1 = 1) + Pr(R2 = 1) ... + Pr(Rn = 1) = 1/n + 1/n + .. + 1/n = n . 1/n = 1
 
 ## Lec 23 ##
+1. Theorem 1: Given a probability space S and events A1, A2, ..., An in S, the expected number of these events to occur is sigma_i = 1 to n Pr(Ai)
+	1. Proof: 
+
 ## Lec 24 ##
 ## Lec 25 ##
