@@ -2216,7 +2216,9 @@
 
 ## Lec 23 ##
 1. Theorem 1: Given a probability space S and events A1, A2, ..., An in S, the expected number of these events to occur is sigma_i = 1 to n Pr(Ai)
-	1. Proof: 
+	1. Proof: Let T_i(w) = {1 if w in A_i, 0 otherwise} - T_i = 1 iff Ai occurs
+		1. Let T = T1 + T2 + ... + Tn
+			1. Ex(T) = Sigma_i = 1 to n Ex(Ti)
 
 ## Lec 24 ##
 ## Lec 25 ##
