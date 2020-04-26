@@ -2236,7 +2236,8 @@
 	1. Proof: Ex(T) = sigma_i = 1 to inf Pr(T >= i) >= Pr(T >= 1) []
 	2. Corollary: Pr(T >= 1) <= sigma_i = 1 to n Pr(Ai)
 		1. Proof: Theorem 1
-	3. 
+	3. Applications: To calculate the probability that certain bad event happens
+		1. 
 
 ## Lec 24 ##
 ## Lec 25 ##
