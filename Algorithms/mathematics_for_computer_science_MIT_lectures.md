@@ -2245,6 +2245,11 @@
 		1. Ex(T) = 10
 		2. For all i,j Pr(Ai|Aj) = 1 (total dependence)
 			1. Pr(T >= 1) = 1/100 (first event occurs)
+6. Murphy's law:
+	1. Theorem 3: (Murphy's Law): Given mutually independent events A1, A2, ..., An, then Pr(T = 0) <= e^(-Ex(T))
+		1. Proof: Pr(T = 0) = Pr(~A1 ^ ~A2 ^ ... ^ ~An) = PI_i = 1 to n Pr(~Ai) (product rule for independence)
+			1. = PI_i = 1 to n (1 - Pr(Ai))
+			2. <= PI_i = 1 to n e^(-Pr(Ai)) = e^(- sigma_i = 1 to n Pr(Ai)) = e^(-Ex(T))
 
 ## Lec 24 ##
 ## Lec 25 ##
