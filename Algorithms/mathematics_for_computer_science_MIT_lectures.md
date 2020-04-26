@@ -2175,6 +2175,13 @@
 	1. R = step when failure occurs
 	2. Ex(R) = sigma_i = 0 to inf Pr(R > i) (Pr(R > i) = Pr(no failure in first i steps) = Pr(ok in 1st step).Pr(ok in 2nd step)...Pr(ok in ith step) (mutual indpendence) = (1 - p)(1 - p) ... (1 - p) (i times) = (1 - p)^p = alpha^i where alpha = 1 - p)
 		1. Ex(R) = sigma_i = 0 to inf alpha^i = 1/(1 - alpha) = 1/p
+10. Example: Pr(Boy) = 1/2. Qyit when you get a girl. R = number of boys. Everything is mutually independent
+			1. Ex(R) = 1/p - 1 = number of children - 1 (girl) = MTTF - 1 = 2 - 1 = 1 (1 boy before a girl)
+11. Example: Quit when you get the opposite sex (1 each atleast)
+	1. Ex(R) = 1 + 1/p = 3
+12. Latency of communication channel - average latency (measure a hundred times - expected latency is average - sometimes okay to do)
+	1. Let D = delay of packet on channel
+	2. Let f(x) = Pr(D = x) be pdf for D
 
 ## Lec 23 ##
 ## Lec 24 ##
