@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.26)  26 APR 2020 22:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.26)  26 APR 2020 22:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -513,7 +513,7 @@ Here is how much of TeX's memory you used:
  62i,6n,50p,415b,679s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmr10.pfb>
-Output written on gpio_circuit.pdf (1 page, 8522 bytes).
+Output written on gpio_circuit.pdf (1 page, 8519 bytes).
 PDF statistics:
  15 PDF objects out of 1000 (max. 8388607)
  10 compressed objects within 1 object stream
