@@ -2293,7 +2293,22 @@
 	4. Rec Sort			2800	1400	0.5
 	5. 4.8/4 = 1.2 - Code on an average for RISC is better (is wrong!)
 		1. Z8002 - 2 programs are 20% longer on an average
-			1. 
+			1. total lines of code for RISC is higher
+			2. RISC/Z8002 = 1.105 => RISC programs are 10% longer on average!!!
+11. Let x = benchmark
+	1. R(x) = code length for RISC on x
+	2. Z(x) = code length for Z8002 on x
+	3. Pr(x) = Probability of seeing x (uniform?)
+	4. Ex(Z/R) = 1.2 =/=> Ex(Z) = 1.2Ex(R)
+		1. Z/R may not be independent of Z
+		2. Ex(R/Z) = 1.1
+12. Ex(R) = 805, Ex(Z) = 500
+13. Example:
+	1. Prob1	2	1	2	1/2
+	2. Prob2	1	2	1/2	2
+	3. Ex(R/Z) = 1 1/4
+	4. Ex(Z/R) = 1 1/4
+	5. Never take average of ratio
 
 ## Lec 24 ##
 ## Lec 25 ##
