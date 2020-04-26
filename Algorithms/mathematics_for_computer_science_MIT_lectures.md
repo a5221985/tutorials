@@ -2250,6 +2250,15 @@
 		1. Proof: Pr(T = 0) = Pr(~A1 ^ ~A2 ^ ... ^ ~An) = PI_i = 1 to n Pr(~Ai) (product rule for independence)
 			1. = PI_i = 1 to n (1 - Pr(Ai))
 			2. <= PI_i = 1 to n e^(-Pr(Ai)) = e^(- sigma_i = 1 to n Pr(Ai)) = e^(-Ex(T))
+			3. Corollary: If we expect 10 or more mututally indenpendent events to occur, the probability that no event is <= e^-10 < 1/22,000
+				1. I am not likely to win a Million bucks but somebody is going to win
+7. Game: 4, 5, 2, 3, 10 = 1, Q = 1, 3, 7, 6, 4
+	1. Start with a 3 
+		1. Next number is 2
+		2. Next number is 10
+		3. Next number is Q
+		4. Next number is 3
+		5. Next number is 4 (done)
 
 ## Lec 24 ##
 ## Lec 25 ##
