@@ -2273,11 +2273,27 @@
 			3. Ex(R1.R2) = Ex(R1).Ex(R2) = 7/2 . 7/2 = 49/4 = 12 1/4
 	2. Non example: Ex(R1.R1) = Ex(R1^2) = sigma_i = 1 to 6 i^2 . Pr(R1 = i) = 1/6(1 + 4 + 9 + 16 + 25 + 36) = 15 1/6 ~= (3 1/2)^2 = Ex(R1)^2
 	3. Corollary 4.1: If R1, R2, ..., Rn are mutually independent, then Ex(R1.R2....Rn) = Ex(R1).Ex(R2)...Ex(Rn) (proof by induction)
-	4. Coroallary 4.2: For any constants a, b and any random variable R,
+	4. Corollary 4.2: For any constants a, b and any random variable R,
 
 			Ex(aR + b) = a.Ex(R) + b (b is random variable that always has a value b and same is the case with a and they are all independent)
 			
 	5. Corollary: Ex(1/R) = 1/Ex(R)?
+		1. Ex: R = {1 with probability 1/2, -1 with probability 1/2}
+			1. Ex(R) = 0
+			2. Ex(1/R) = 0 != 1/Ex(R) (does not work with indicator random variable as well)
+	3. Corollary: Given independent random variable's R & T, if Ex(R/T) > 1, then Ex(R) > Ex(T) (Not true)
+		1. Proof: Ex(R/T) > 1
+			1. Ex(R/T).Ex(T) > Ex(T) (If Ex(T) is negative this is wrong)
+			2. Ex(R/T.T) > Ex(T) (wrong because R/T and T may not be independent)
+			3. Ex(R) > Ex(T)
+10. Benchmark: Code size for RISC and Z8002. Z8002/RISC
+	1. E-string search	150		120		.8
+	2. F-bit test			120		180		1.50
+	3. Ackerman			150		300		2.0
+	4. Rec Sort			2800	1400	0.5
+	5. 4.8/4 = 1.2 - Code on an average for RISC is better (is wrong!)
+		1. Z8002 - 2 programs are 20% longer on an average
+			1. 
 
 ## Lec 24 ##
 ## Lec 25 ##
