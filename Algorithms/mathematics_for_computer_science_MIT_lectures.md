@@ -2218,7 +2218,25 @@
 1. Theorem 1: Given a probability space S and events A1, A2, ..., An in S, the expected number of these events to occur is sigma_i = 1 to n Pr(Ai)
 	1. Proof: Let T_i(w) = {1 if w in A_i, 0 otherwise} - T_i = 1 iff Ai occurs
 		1. Let T = T1 + T2 + ... + Tn
-			1. Ex(T) = Sigma_i = 1 to n Ex(Ti)
+			1. Ex(T) = Sigma_i = 1 to n Ex(Ti) (by linearity of explectations)
+				1. = sigma_i = 1 to n Pr(Ti = 1)
+				2. = sigma_i = 1 to n Pr(Ai) (we don't need independence for that)
+2. Example: Flip n fair coins
+	1. A_i = event ith coin is H
+	2. T = number of heads
+	3. Ex(T) = Pr(A_1) + Pr(A_2) + ... + Pr(A_n) = 1/2 + 1/2 + ... + 1/2 = n/2 (coin tosses need not be independent)
+3. Hard way to prove:
+	1. Ex(T) = sigma_i = 0 to n i.Pr(T = i):
+	2. Assume mutually independent:
+		1. = sigma_i = 0 to n i . (n i) . 2^(-n) = n/2
+
+				sigma_i = 0 n i . (n i) = n.2^(n - 1)
+				
+4. Theorem 2: Pr(T >= 1) <= Ex(T) (If Ex(T) is small < 1)
+	1. Proof: Ex(T) = sigma_i = 1 to inf Pr(T >= i) >= Pr(T >= 1) []
+	2. Corollary: Pr(T >= 1) <= sigma_i = 1 to n Pr(Ai)
+		1. Proof: Theorem 1
+	3. 
 
 ## Lec 24 ##
 ## Lec 25 ##
