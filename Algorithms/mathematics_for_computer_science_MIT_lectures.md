@@ -2237,7 +2237,14 @@
 	2. Corollary: Pr(T >= 1) <= sigma_i = 1 to n Pr(Ai)
 		1. Proof: Theorem 1
 	3. Applications: To calculate the probability that certain bad event happens
-		1. 
+		1. Upperbound the probability of a disaster
+			1. Probability that a nuclear plant melts down
+		2. Every possible event that a meltdown can occur
+5. Expected number of events is high (10 say)?
+	1. n = 1000, Pr(Ai) = 1/100
+		1. Ex(T) = 10
+		2. For all i,j Pr(Ai|Aj) = 1 (total dependence)
+			1. Pr(T >= 1) = 1/100 (first event occurs)
 
 ## Lec 24 ##
 ## Lec 25 ##
