@@ -2304,11 +2304,20 @@
 		2. Ex(R/Z) = 1.1
 12. Ex(R) = 805, Ex(Z) = 500
 13. Example:
-	1. Prob1	2	1	2	1/2
-	2. Prob2	1	2	1/2	2
+	1. Prob1	2	1	2		1/2
+	2. Prob2	1	2	1/2		2
 	3. Ex(R/Z) = 1 1/4
 	4. Ex(Z/R) = 1 1/4
 	5. Never take average of ratio
+14. Latency problem cin a channel:
+	1. Ex = inf but 90% of time it is 10 ms
+15. Pr(R = 1000) = 1/2, Pr(R = -1000) = 1/2 (far from expected value)
+	1. Ex(R) = 0
+16. Pr(S = 1) = 1/2, Pr(S = -1) = 1/2 => Ex(S) = 0 (near expected value)
+17. Definition: The variance of a random variable R is Var(R) = Ex(R - Ex(R))^2)
+	1. R - Ex(R) - deviation from mean
+	2. square of deviation
+	3. Expected value of square of deviation (average of squares of the amount by which the variable deviates from it's mean)
 
 ## Lec 24 ##
 ## Lec 25 ##
