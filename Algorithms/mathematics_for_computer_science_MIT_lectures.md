@@ -2182,6 +2182,16 @@
 12. Latency of communication channel - average latency (measure a hundred times - expected latency is average - sometimes okay to do)
 	1. Let D = delay of packet on channel
 	2. Let f(x) = Pr(D = x) be pdf for D
+	3. f(x) = asymptotically decreases with x - long delay is more unlikely
+	4. If Pr(D > i) = 1/i (data concludes this)
+		1. Ex(D) = sigma_i = 1 to inf Pr(D >= i) = sigma_i = 1 to inf 1/i = inf (10 milliseconds is wrong in this case)
+			1. Finite points may not be sufficient because out of range points might blow up the expected value
+13. Linearity of Expectation:
+	1. Theorem: For any random variables R1 and R2 on a probability space S.
+
+			Ex(R1 + R2) = Ex(R1) + Ex(R2)
+			
+		1. Proof:
 
 ## Lec 23 ##
 ## Lec 24 ##
