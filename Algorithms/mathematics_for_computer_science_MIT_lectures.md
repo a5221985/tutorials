@@ -2342,6 +2342,18 @@
 	1. Suppose Ex(R) = 100. Pr(R >= 200)
 		1. <= 100/200 = 1/2
 	2. What fraction of people can weigh 200 pounds? 1/2 (because if all people weigh 200 pounts, then Ex(R) = 200 (average)
-5. 
+5. If x is negative?
+	1. Pr(R = 1000) = 1/2 and Pr(R = -1000) = 1/2. Then Ex(R)/1000 = 0 != Pr(R >= 1000) = 1/2
+6. Corollary: If R <= u for some u in R, then for all x < u, Pr(R <= x) <= (u - Ex(R))/(u - x)
+	1. Proof: Pr(R < x) = Pr(u - R >= u - x) (u - R is non-negative)
+		1. Pr(u - R >= u - x) <= Ex(u - R)/(u - x) (Applying Markov)
+		2. <= (u - Ex(R))/(u - x) (Linearity and u is scalar)
+7. Example: R = score of a random student. max score = 100 = u
+	1. Suppose Ex(R) = 75
+	2. Pr(R <= 50)
+		1. Pr(100 - R >= 100 - 50) = Pr(100 - R >= 50
+		2. (100 - 75)/(100 - 50) = 1/2
+8. Chebyshev's Theorem: For all x > 0 & any random variable R (can be negative)
+	1. Pr(|R - Ex(R)| >= x) <= Var(R)/x^2
 
 ## Lec 25 ##
