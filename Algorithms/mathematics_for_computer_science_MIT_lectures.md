@@ -2385,6 +2385,17 @@
 	1. => z = 1.ln(2) + 1 -2 > .38
 	2. Pr(T >= 2.Ex(T)) <= e^(-.38x100) = e^-38 (much better than Markov or Chebishev)
 		1. Expectation is 100 and getting a value 200 or more is tiny
-	3. It contains a class of binomial distributions
+	3. It is a broad class: It contains a class of all binomial distributions
+		1. Binomial: all Tj s have same distribution
+		2. Bernulli: Tj is 0 or 1
+		2. Chernoff: Much broader
+	4. Number of random variables n does not appear in the answer
+	5. If c = 1, z = 0 => Pr(...) <= 1 (not interesting because all probabilities are upper bounded by 1)
+	6. What if there is single random variable
+	7. Ex: 10 million people playing pick 4 (pick 4 digit number)
+		1. Win if we get exact match
+			1. Pr(win) = 1/10000
+			2. Ex(number of winners) = 10000000/10000 (T = T1 + T2 + ... + T10000000) = 1000
+	8. Pr( >= 2000 winners) <= 
 
 ## Lec 25 ##
