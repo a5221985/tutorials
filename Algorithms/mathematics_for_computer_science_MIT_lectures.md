@@ -2362,6 +2362,21 @@
 	2. Pr(R >= 250)
 		1. Markov: <= Ex(R)/250 = 0.4 (40% chance)
 		2. Chebishev: Pr(R >= 250) = Pr(R - 100 >= 150) = Pr(R - Ex(R) >= 10 std(R)) <= Pr(|R - Ex(R)| >= 10 std(R)) <= 1/100 <= 0.1 (10 %)
-10. 
+
+				low ----|-----------|-----------|--- high
+							10 std(R)	  10 std(R)
+						
+						Pr(|R - Ex(R)| >= 10 std(R)) - is in high side or low side
+						
+		3. If we want to know only the high side: Might be the same for both low and high if distribution is symmetric wrt Expected value
+10. Theorem: For any random variable R, 
+
+		Pr(R - Ex(R) >= c std(R)) <= 1/(c^2 + 1)
+		Pr(R - Ex(R) <= -c std(R)) <= 1/(c^2 + 1)
+		
+	1. Pr(R <= 250) <= 1/101
+	2. In practice, people know the distribution and the probability is much better
+11. 
+
 
 ## Lec 25 ##
