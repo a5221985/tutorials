@@ -2396,6 +2396,15 @@
 		1. Win if we get exact match
 			1. Pr(win) = 1/10000
 			2. Ex(number of winners) = 10000000/10000 (T = T1 + T2 + ... + T10000000) = 1000
-	8. Pr( >= 2000 winners) <= 
+	8. Pr( >= 2000 winners) <= e^-380 (assuming the numbers people picked are mutually independent)
+		1. But usually people gang up while picking numbers
+		2. If computer is picking mutually independently
+	9. Markov (if not independent): <= 1000/2000 = 1/2
+	10. Independence makes huge difference
+	11. The distribution is binomial distribution
+	12. Pr(>= 1100 winner).
+		1. c = 1.1 => z = 1.1.ln1.1 + 1 - 1.1 > 0.0048
+		2. Pr(>= 1100 winner) <= e^.0048x 1000 <= e^-48 < 1/1000
+			1. We can expect to get really close to the mean
 
 ## Lec 25 ##
