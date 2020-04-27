@@ -2332,7 +2332,7 @@
 ## Lec 24 ##
 1. Very likely to wind up with nearly 50 heads for 100 flips
 2. High variance means more deviation from the expectation
-3. Markov's Theorem: If R is a non-negative random variable, then for all x > 0. Pr(R >= x) <= Ex(R)/x
+3. **Markov's Theorem: If R is a non-negative random variable, then for all x > 0. Pr(R >= x) <= Ex(R)/x**
 	1. Proof: Ex(R) = Ex(R|R >= x).Pr(R >= x) + Ex(R|R < x).Pr(R < x) >= x (R is always atleast x) + 0
 		1. >= x.Pr(R >= x) => Pr(R >= x) <= Ex(R)/x []
 	2. Corollary: If R is a non-negative random variable, then for all c > 0
@@ -2353,7 +2353,11 @@
 	2. Pr(R <= 50)
 		1. Pr(100 - R >= 100 - 50) = Pr(100 - R >= 50
 		2. (100 - 75)/(100 - 50) = 1/2
-8. Chebyshev's Theorem: For all x > 0 & any random variable R (can be negative)
+8. **Chebyshev's Theorem: For all x > 0 & any random variable R (can be negative)**
 	1. Pr(|R - Ex(R)| >= x) <= Var(R)/x^2
+	2. Proof: Pr(|R - Ex(R)| >= x) = Pr((R - Ex(R))^2 >= x^2) <= Ex((R - Ex(R))^2)/x^2 (Using Markov's theorem) <= Var(R)/x^2 []
+	3. Corollary: Pr(|R - Ex(R)| >= c standard_deviation(R)) <= Var(R)/c^2.standard_deviation(R)^2 <= 1/c^2
+9. Example: R = IQ of a random person
+	1. Assume R >= 0
 
 ## Lec 25 ##
