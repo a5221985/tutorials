@@ -2341,6 +2341,7 @@
 4. Example: R = weight of random person
 	1. Suppose Ex(R) = 100. Pr(R >= 200)
 		1. <= 100/200 = 1/2
+	2. What fraction of people can weigh 200 pounds? 1/2 (because if all people weigh 200 pounts, then Ex(R) = 200 (average)
 5. 
 
 ## Lec 25 ##
