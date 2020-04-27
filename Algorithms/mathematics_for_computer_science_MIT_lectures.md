@@ -2406,5 +2406,7 @@
 		1. c = 1.1 => z = 1.1.ln1.1 + 1 - 1.1 > 0.0048
 		2. Pr(>= 1100 winner) <= e^.0048x 1000 <= e^-48 < 1/1000
 			1. We can expect to get really close to the mean
+14. Proof Chernoff for case Tj in {0, 1}
+15. 
 
 ## Lec 25 ##
