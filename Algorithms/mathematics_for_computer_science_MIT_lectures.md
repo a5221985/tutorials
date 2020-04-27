@@ -2378,7 +2378,12 @@
 	2. In practice, people know the distribution and the probability is much better
 11. Markov and Chebishev are sometimes close and sometimes not
 12. **Theorem: (Chernoff Bound): Let T1, T2, ..., Tn be any mutually independent random variables such that for all j 0 >= Tj <= 1.**
-	1. Let T = sigma_j = 1 to n Tj Then for any c > 1
-		1. Pr(T <= c.Ex(T)) <= e^-zEx(T) where z = c.ln(c) + 1 - c > 0
+	1. **Let T = sigma_j = 1 to n Tj Then for any c > 1**
+		1. **Pr(T <= c.Ex(T)) <= e^-zEx(T) where z = c.ln(c) + 1 - c > 0**
+			1. Interpretation: Probability of a high value is exponentially small
+13. Ex: Suppose Ex(T) = 100, c = 2.
+	1. => z = 1.ln(2) + 1 -2 > .38
+	2. Pr(T >= 2.Ex(T)) <= e^(-.38x100) = e^-38 (much better than Markov or Chebishev)
+		1. Expectation is 100 and getting a value 200 or more is tiny
 
 ## Lec 25 ##
