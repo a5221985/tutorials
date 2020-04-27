@@ -2360,5 +2360,8 @@
 9. Example: R = IQ of a random person
 	1. Assume R >= 0, Ex(R) = 100, standard deviation(R) = 15
 	2. Pr(R >= 250)
+		1. Markov: <= Ex(R)/250 = 0.4 (40% chance)
+		2. Chebishev: Pr(R >= 250) = Pr(R - 100 >= 150) = Pr(R - Ex(R) >= 10 std(R)) <= Pr(|R - Ex(R)| >= 10 std(R)) <= 1/100 <= 0.1 (10 %)
+10. 
 
 ## Lec 25 ##
