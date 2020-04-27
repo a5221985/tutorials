@@ -2376,7 +2376,7 @@
 		
 	1. Pr(R <= 250) <= 1/101
 	2. In practice, people know the distribution and the probability is much better
-11. 
-
+11. Markov and Chebishev are sometimes close and sometimes not
+12. Theorem: (Chernoff Bound): Let T1, T2, ..., Tn be any mutually independent random variables such that for all j 0 >= Tj <= 1
 
 ## Lec 25 ##
