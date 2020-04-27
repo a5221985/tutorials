@@ -2334,5 +2334,13 @@
 2. High variance means more deviation from the expectation
 3. Markov's Theorem: If R is a non-negative random variable, then for all x > 0. Pr(R >= x) <= Ex(R)/x
 	1. Proof: Ex(R) = Ex(R|R >= x).Pr(R >= x) + Ex(R|R < x).Pr(R < x) >= x (R is always atleast x) + 0
+		1. >= x.Pr(R >= x) => Pr(R >= x) <= Ex(R)/x []
+	2. Corollary: If R is a non-negative random variable, then for all c > 0
+		1. Pr(R >= c.Ex(R)) <= 1/c
+			1. Proof: Set x = c.Ex(R)
+4. Example: R = weight of random person
+	1. Suppose Ex(R) = 100. Pr(R >= 200)
+		1. <= 100/200 = 1/2
+5. 
 
 ## Lec 25 ##
