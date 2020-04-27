@@ -2385,5 +2385,6 @@
 	1. => z = 1.ln(2) + 1 -2 > .38
 	2. Pr(T >= 2.Ex(T)) <= e^(-.38x100) = e^-38 (much better than Markov or Chebishev)
 		1. Expectation is 100 and getting a value 200 or more is tiny
+	3. It contains a class of binomial distributions
 
 ## Lec 25 ##
