@@ -2333,6 +2333,6 @@
 1. Very likely to wind up with nearly 50 heads for 100 flips
 2. High variance means more deviation from the expectation
 3. Markov's Theorem: If R is a non-negative random variable, then for all x > 0. Pr(R >= x) <= Ex(R)/x
-	1. Proof: Ex(R) = Ex(R|R >= x).Pr(R >= x) + Ex(R|R < x).Pr(R < x)
+	1. Proof: Ex(R) = Ex(R|R >= x).Pr(R >= x) + Ex(R|R < x).Pr(R < x) >= x (R is always atleast x) + 0
 
 ## Lec 25 ##
