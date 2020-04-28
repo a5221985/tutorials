@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+	\begin{align}
+	Pr\{X = k\} & = {n \choose k} p^k (1 - p)^{(n - k)} \\
+	E[X] & = \sum_{k = 0}^{n} k Pr\{X = k\} \\
+	& = \sum_{k = 0}^{n} k {n \choose k} p^k (1 - p)^{(n - k)} \\
+	& = \sum_{k = 0}^{n} k \frac{n!}{k!(n - k)!} p^k (1 - p)^{(n - k)} \\
+	& = \sum_{k = 0}^{n} \frac{n!}{(k - 1)!(n - k)!} p^k (1 - p)^{(n - k)} \\
+	& = np \sum_{k = 0}^{n} \frac{(n - 1)!}{(k - 1)!(n - k)!} p^{(k - 1)} (1 - p)^{(n - k)} \\
+	& = np \sum_{k = 0}^{n} \frac{(n - 1)!}{(k - 1)!((n - 1) - (k - 1))!} p^{(k - 1)} (1 - p)^{((n - 1) - (k - 1))} \\
+	& = np \sum_{k = 0}^{n} {(n - 1) \choose (k - 1)} p^{(k - 1)} (1 - p)^{((n - 1) - (k - 1))} \\
+	& = np \sum_{k = 1}^{n - 1} {(n - 1) \choose (k - 1)} p^{(k - 1)} (1 - p)^{((n - 1) - (k - 1))} \\
+	& = np \sum_{a = 0}^{b} {b \choose a} p^{a} (1 - p)^{(b - a)} \\
+	& = np \times (p + (1 - p))^b \\ 
+	& = np \times 1^b \\
+	& = np \times 1 \\
+	E[X] & = np
+	\end{align}
+\end{document}

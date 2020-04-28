@@ -4019,8 +4019,7 @@
       where H(k) is the hash for the key k and P(k,x) is the probing function
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1577620034317" ID="ID_1379463749" MODIFIED="1577620042229" TEXT="What is linear probing (LP)?">
 <node CREATED="1577620043130" ID="ID_1332539606" MODIFIED="1577620061852" TEXT="LP is a probing method which probes according to a lnear formula, specifically:">
 <node CREATED="1577620062411" ID="ID_1116627164" MODIFIED="1577620099102" TEXT="P(x) = ax + b where a (!=0), be are constants (Note: The constant b is obsolete, do you know why?)">
@@ -4078,8 +4077,7 @@
       GCD(12, 5) = 1 so no cycle should occur!
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1577621576440" ID="ID_1662673749" MODIFIED="1577621592784" TEXT="H(k1) + P(0) mod 12 = 10"/>
 <node CREATED="1577621596789" ID="ID_946609011" MODIFIED="1577621612927" TEXT="H(k2) + P(0) mod 12 = 8"/>
 <node CREATED="1577621613182" ID="ID_1753935856" MODIFIED="1577621624074" TEXT="H(k3) + P(1) mod 12 = 3"/>
@@ -4336,8 +4334,7 @@
       &#160;&#160;1: 00001
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1577851679295" ID="ID_240240701" MODIFIED="1577851685851" TEXT="Index 12 in binary is: 1100">
 <node CREATED="1577851687190" ID="ID_764608857" MODIFIED="1577851715446" TEXT="LSB is at position 3, so this index is responsible for 2^(3-1) = 4 cells below itself"/>
 <node CREATED="1577851932567" ID="ID_312857843" MODIFIED="1577851948622" TEXT="Blue bars represent the range of responsibility for that cell NOT value.">
@@ -4415,8 +4412,7 @@
       Where LSB returns the value of the least significant bit.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -4443,13 +4439,1148 @@
 <node CREATED="1567047947928" ID="ID_210618531" MODIFIED="1567047952477" TEXT="Fenwick tree source code"/>
 </node>
 <node CREATED="1567047959209" ID="ID_1666717418" MODIFIED="1567047961852" POSITION="right" TEXT="AVL Tree">
-<node CREATED="1567047962620" ID="ID_1999519162" MODIFIED="1567047965491" TEXT="Tree rotations"/>
-<node CREATED="1567047966997" ID="ID_1916570050" MODIFIED="1567047973404" TEXT="AVL tree insertions"/>
-<node CREATED="1567047975034" ID="ID_994624740" MODIFIED="1567047980588" TEXT="AVL tree removals"/>
+<node CREATED="1567047962620" ID="ID_1999519162" MODIFIED="1567047965491" TEXT="Tree rotations">
+<node CREATED="1579093933640" ID="ID_42969726" MODIFIED="1579093949094" TEXT="Balanced Binary Search Trees">
+<node CREATED="1579093949464" ID="ID_182218959" MODIFIED="1579093957848" TEXT="What is a BBST?">
+<node CREATED="1579093958648" ID="ID_1107839925" MODIFIED="1579094001925" TEXT="A Balanced Binary Search Tree (BBST) is a self-balancing binary search tree. This type of tree will adjust itself in order to maintain a low (logarithmic) height allowing for faster operations such as insertions and deletions">
+<node CREATED="1579094027668" ID="ID_1676351404" MODIFIED="1579094038931" TEXT="logarithmic height in proportion to the number of nodes"/>
+</node>
+</node>
+<node CREATED="1579094042688" ID="ID_234031541" MODIFIED="1579094136057" TEXT="Complexity">
+<node CREATED="1579094137644" ID="ID_927095581" MODIFIED="1579094150368" TEXT="Ordinary Binary Search Tree">
+<node CREATED="1579094047160" ID="ID_1658828037" MODIFIED="1579094054600" TEXT="Operation">
+<node CREATED="1579094056328" ID="ID_1097475751" MODIFIED="1579094058488" TEXT="Insert">
+<node CREATED="1579094067213" ID="ID_697158423" MODIFIED="1579094070018" TEXT="Average">
+<node CREATED="1579094075558" ID="ID_659238461" MODIFIED="1579094079160" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579094070700" ID="ID_424752239" MODIFIED="1579094072016" TEXT="Worst">
+<node CREATED="1579094072598" ID="ID_1105144433" MODIFIED="1579094074560" TEXT="O(n)"/>
+</node>
+</node>
+<node CREATED="1579094058775" ID="ID_1761090965" MODIFIED="1579094060808" TEXT="Delete">
+<node CREATED="1579094080719" ID="ID_872860342" MODIFIED="1579094082808" TEXT="Average">
+<node CREATED="1579094083137" ID="ID_733659037" MODIFIED="1579094087176" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579094089061" ID="ID_458997549" MODIFIED="1579094091080" TEXT="Worst">
+<node CREATED="1579094091309" ID="ID_373420671" MODIFIED="1579094092912" TEXT="O(n)"/>
+</node>
+</node>
+<node CREATED="1579094061208" ID="ID_736870229" MODIFIED="1579094063272" TEXT="Remove">
+<node CREATED="1579094094119" ID="ID_1877010241" MODIFIED="1579094095808" TEXT="Average">
+<node CREATED="1579094096088" ID="ID_1179719166" MODIFIED="1579094098752" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579094101328" ID="ID_257836943" MODIFIED="1579094102537" TEXT="Worst">
+<node CREATED="1579094102782" ID="ID_12629010" MODIFIED="1579094104304" TEXT="O(n)"/>
+</node>
+</node>
+<node CREATED="1579094063588" ID="ID_1590289130" MODIFIED="1579094065776" TEXT="Search">
+<node CREATED="1579094105509" ID="ID_1060010264" MODIFIED="1579094107160" TEXT="Average">
+<node CREATED="1579094107382" ID="ID_584376835" MODIFIED="1579094109953" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579094111335" ID="ID_932972003" MODIFIED="1579094112921" TEXT="Worst">
+<node CREATED="1579094113137" ID="ID_253460179" MODIFIED="1579094114481" TEXT="O(n)"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579094151209" ID="ID_468096101" MODIFIED="1579094159141" TEXT="Balanced Binary Search Tree">
+<node CREATED="1579094047160" ID="ID_535072652" MODIFIED="1579094054600" TEXT="Operation">
+<node CREATED="1579094056328" ID="ID_1827339870" MODIFIED="1579094058488" TEXT="Insert">
+<node CREATED="1579094067213" ID="ID_1490796261" MODIFIED="1579094070018" TEXT="Average">
+<node CREATED="1579094075558" ID="ID_1869243815" MODIFIED="1579094079160" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579094070700" ID="ID_408308782" MODIFIED="1579094072016" TEXT="Worst">
+<node CREATED="1579094072598" ID="ID_1461122063" MODIFIED="1579094186341" TEXT="O(log(n))"/>
+</node>
+</node>
+<node CREATED="1579094058775" ID="ID_187059269" MODIFIED="1579094060808" TEXT="Delete">
+<node CREATED="1579094080719" ID="ID_1121286632" MODIFIED="1579094082808" TEXT="Average">
+<node CREATED="1579094083137" ID="ID_1177884988" MODIFIED="1579094087176" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579094089061" ID="ID_4247595" MODIFIED="1579094091080" TEXT="Worst">
+<node CREATED="1579094091309" ID="ID_937414989" MODIFIED="1579094192749" TEXT="O(log(n))"/>
+</node>
+</node>
+<node CREATED="1579094061208" ID="ID_1257052869" MODIFIED="1579094063272" TEXT="Remove">
+<node CREATED="1579094094119" ID="ID_690097875" MODIFIED="1579094095808" TEXT="Average">
+<node CREATED="1579094096088" ID="ID_1332749726" MODIFIED="1579094098752" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579094101328" ID="ID_1004859945" MODIFIED="1579094102537" TEXT="Worst">
+<node CREATED="1579094102782" ID="ID_973248483" MODIFIED="1579094200566" TEXT="O(log(n))"/>
+</node>
+</node>
+<node CREATED="1579094063588" ID="ID_1611151126" MODIFIED="1579094065776" TEXT="Search">
+<node CREATED="1579094105509" ID="ID_1436987124" MODIFIED="1579094107160" TEXT="Average">
+<node CREATED="1579094107382" ID="ID_1143303336" MODIFIED="1579094109953" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579094111335" ID="ID_868043785" MODIFIED="1579094112921" TEXT="Worst">
+<node CREATED="1579094113137" ID="ID_886025208" MODIFIED="1579094211205" TEXT="O(log(n))"/>
+</node>
+</node>
+</node>
+<node CREATED="1579094252413" ID="ID_821998499" MODIFIED="1579094253843" TEXT="How?">
+<node CREATED="1579094254063" ID="ID_425717562" MODIFIED="1579094583980" TEXT="Tree Rotations!">
+<node CREATED="1579094263416" ID="ID_908153197" MODIFIED="1579094282315" TEXT="The secret ingredient to most BBST algorithms is the clever usage of a tree invariant and tree rotations."/>
+<node CREATED="1579094286688" ID="ID_1071640508" MODIFIED="1579094320892" TEXT="A tree invariant is a property/rule you impose on your tree that it must meet after every operation. To ensure that the invariant is always satisfied a series of tree rotations are normally applied">
+<node CREATED="1579094501812" ID="ID_1098455811" MODIFIED="1579094513270" TEXT="Tree rotations are applied to maintain the invariant"/>
+</node>
+<node CREATED="1579094583924" ID="ID_1681542612" MODIFIED="1579094608565" TEXT="Q: Why does this work? Why are you alloed to change the structure of a tree like this?">
+<node CREATED="1579094577966" ID="ID_1097124984" MODIFIED="1579094651627" TEXT="Short answer: In teh left tree we know that D &lt; B &lt; E &lt; A &lt; C and this remains true for the right subtree, so we didsn&apos;t break the BST invariant and, therefore, this is a valid transformation."/>
+<node CREATED="1579094721562" ID="ID_1631011578" MODIFIED="1579094724821" TEXT="Long answer">
+<node CREATED="1579094725730" ID="ID_1014065269" MODIFIED="1579094747180" TEXT="Recall that all BBSTs are BSTs so the BST invariant holds. This means that for every node n, n.left &lt; n and n &lt; n.right.">
+<node CREATED="1579094749243" ID="ID_1285673698" MODIFIED="1579094797398" TEXT="NOTE: The above assumes we only have unique values, otherwise we&apos;d have to consider the case where n.left &lt;= n and n &lt;= n.right"/>
+<node CREATED="1579094802173" ID="ID_681905297" MODIFIED="1579094844481" TEXT="It does not matter what the structure of the tree looks; all we care about is that the BST invariant holds. This means we can shuffle/ transform/ rotate the values and nodes in the tree as we please as long as the BST invariant remains satisfied!"/>
+</node>
+</node>
+</node>
+<node CREATED="1579094870115" ID="ID_694705785" MODIFIED="1579094874147" TEXT="Right Rotations">
+<node CREATED="1579094874763" ID="ID_1879457950" MODIFIED="1579094983777">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function right Rotate(A):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B := A.left
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;A.left = B.right
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B.right = A
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return B
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1579095017317" ID="ID_149684406" MODIFIED="1579095028725" TEXT="Parent P may or may not exist">
+<node CREATED="1579095030948" ID="ID_367003070" MODIFIED="1579095102406" TEXT="If P exists, then B must be the child of P">
+<node CREATED="1579095104483" ID="ID_1651779430" MODIFIED="1579095162967" TEXT="NOTE: It&apos;s possible that before the rotation node A had a parent whose left/right pointer referenced it. It&apos;s very iportant that this link be updated to reference B. This is usually done on the recursive callback using the return value of rotateRight."/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579094998227" ID="ID_1421010278" MODIFIED="1579095002126" TEXT="Left Rotations"/>
+<node CREATED="1579095232966" ID="ID_313260436" MODIFIED="1579095301661" TEXT="In some BBST implementations where you often need to access the parent/uncle nodes (such as RB trees), it&apos;s convenient for nodes to not only have a reference to the left and the right child nodes but also the parent node. This can complicate tree rotations because instead of updating three pointers, now you have to update six!">
+<node CREATED="1579095350277" ID="ID_1109986124" MODIFIED="1579095356668" TEXT="RB: Red Black Trees"/>
+<node CREATED="1579095389478" ID="ID_1762656858" MODIFIED="1579095532066">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function rightRotate(A):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;P := A.parent
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B := A.left
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;A.left = B.right
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if B.right != null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;B.right.parent = A
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B.right = A
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;A.parent = B
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B.parent = P
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Update parent down link.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if P != null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if P.left == A:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;P.left = B
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;P.right = B
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return B
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1579095737315" ID="ID_770022336" MODIFIED="1579095767789" TEXT="Summary: BBSTs remain balanced by performing a series of left/right tree rotations when their invariant is not satisfied."/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1567047966997" ID="ID_1916570050" MODIFIED="1567047973404" TEXT="AVL tree insertions">
+<node CREATED="1579095803185" ID="ID_600708070" MODIFIED="1579095809265" TEXT="AVL Tree Introduction">
+<node CREATED="1579095812386" ID="ID_700587606" MODIFIED="1579095842345" TEXT="An AVL tree is one of many types of Balanced Binary Search Trees (BBSTs) which allow for logarightmic O(log(n)) insertion, deletion and search operations."/>
+<node CREATED="1579095843855" ID="ID_161638485" MODIFIED="1579095894265" TEXT="In fact, it was the first type of BBST to be discovered. Soon after, many other types of BBSTs started to emerge including the 2-33 tree, the AA tree, the scapegoat tree, and its main rival, the red-black tree."/>
+</node>
+<node CREATED="1579095943398" ID="ID_1975901335" MODIFIED="1579095949383" TEXT="AVL Tree Invariant">
+<node CREATED="1579095955347" ID="ID_1448879101" MODIFIED="1579095975951" TEXT="The property which keeps an AVL tree balanced is called the Balanced Factor (BF).">
+<node CREATED="1579095977109" ID="ID_437288640" MODIFIED="1579095987943" TEXT="BF(node) = H(node.right) - H(node.left)">
+<node CREATED="1579095990230" ID="ID_1881550410" MODIFIED="1579096015504" TEXT="Where H(x) is the height of node x. Recall that H9x) is calculated as the number of edges between x and the furthest leaf."/>
+<node CREATED="1579096031566" ID="ID_1154959541" MODIFIED="1579096065007" TEXT="The invariant in the AVL which forces it to remain balanced is the requirement that the balance factor is always either -1, 0. or +1">
+<node CREATED="1579096136875" ID="ID_616406160" MODIFIED="1579096147160" TEXT="If tree has only one node, H(x) = 0"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579096163584" ID="ID_1131978128" MODIFIED="1579096167514" TEXT="Node information to store">
+<node CREATED="1579096167759" ID="ID_685519228" MODIFIED="1579096185907" TEXT="The actual value we&apos;re storing in the node. NOTE: THis value must be comparable so we know how to insert it."/>
+<node CREATED="1579096187636" ID="ID_1925609243" MODIFIED="1579096196003" TEXT="A value storing this node&apos;s balance factor."/>
+<node CREATED="1579096204665" ID="ID_1708276508" MODIFIED="1579096211875" TEXT="The height of this node in the tree"/>
+<node CREATED="1579096212615" ID="ID_1694179393" MODIFIED="1579096219875" TEXT="Pointers to the left/right child nodes."/>
+</node>
+<node CREATED="1579096257802" ID="ID_643974396" MODIFIED="1579096273046" TEXT="Q: What if the BF of a node is not in {-1, 0, +1}?">
+<node CREATED="1579096275072" ID="ID_94888803" MODIFIED="1579096285221" TEXT="How do we restore the AVL tree invariant?">
+<node CREATED="1579096286937" ID="ID_259901414" MODIFIED="1579096316627" TEXT="A: If a node&apos;s BF is not in {-1, 0, +1} then the BF of that node is +/- 2 which can be adjusted using tree rotations.">
+<node CREATED="1579096317816" ID="ID_716751821" MODIFIED="1579096329421" TEXT="BF(node) = H(node.right) - H(node.left)">
+<node CREATED="1579096342754" ID="ID_176669732" MODIFIED="1579096361415" TEXT="If BF is -2, then right rotate">
+<node CREATED="1579096435203" ID="ID_1959180588" MODIFIED="1579096437973" TEXT="Left heavy"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579096458532" ID="ID_528377350" MODIFIED="1579096462429" TEXT="Different cases">
+<node CREATED="1579096462659" ID="ID_1580590152" MODIFIED="1579096465357" TEXT="left heavy">
+<node CREATED="1579096465677" ID="ID_710709437" MODIFIED="1579096477227" TEXT="right rotation"/>
+</node>
+<node CREATED="1579096478153" ID="ID_1507100491" MODIFIED="1579096480947" TEXT="left right case">
+<node CREATED="1579096487113" ID="ID_1640467808" MODIFIED="1579096544915" TEXT="left rotate about left child (becomes left heavy)">
+<node CREATED="1579096514676" ID="ID_661407284" MODIFIED="1579096519620" TEXT="right rotate"/>
+</node>
+</node>
+<node CREATED="1579096552747" ID="ID_461095984" MODIFIED="1579096556188" TEXT="right right case">
+<node CREATED="1579096556480" ID="ID_1949126797" MODIFIED="1579096567009" TEXT="left rotation about right child"/>
+</node>
+<node CREATED="1579096568978" ID="ID_162683305" MODIFIED="1579096572532" TEXT="right left case">
+<node CREATED="1579096572880" ID="ID_696177875" MODIFIED="1579096582204" TEXT="right rotate about right child (becomes right heavy)">
+<node CREATED="1579096582794" ID="ID_1750342474" MODIFIED="1579096585788" TEXT="left rotate"/>
+</node>
+</node>
+</node>
+<node CREATED="1579096595787" ID="ID_797890151" MODIFIED="1579096600589" TEXT="Pseudocode">
+<node CREATED="1579096601120" ID="ID_1035435449" MODIFIED="1579096699733">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Public facing insert method. Returns true
+    </p>
+    <p>
+      # on successful insert and false otherwise.
+    </p>
+    <p>
+      function insert(value):
+    </p>
+    <p>
+      &#160;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if value == null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return false
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Only insert unique values
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if !contains(root, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;root = insert(root, value)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;nodeCount = nodeCount + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return true
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Value already exists in tree.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return false
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1579226783419" ID="ID_116654620" MODIFIED="1579226929517">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function insert(node, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node == null: return Node(value)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Invoke the comparator function in whatever
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# programming language you're using
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;cmp := compare(value, node.value)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if cmp &lt; 0:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.left = insert(node.left, value)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;node.right = insert(node.right, value)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Update balance factor and height values.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;update(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Rebalance tree
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return balance(node)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1579226966189" ID="ID_527979982" MODIFIED="1579227052154">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function update(node):
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Variables for left/right subtree heights
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;lh := -1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;rh := -1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node.left != null: lh = node.left.height
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node.right != null: rh = node.right.height
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Update this node's height
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;node.height = 1 + max(lh, rh)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Update balance factor.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;node.bf = rh - lh
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1579227081293" ID="ID_855289016" MODIFIED="1579227118293" TEXT="-1 because if it is added to height of tree with 0 height, it becomes 0"/>
+<node CREATED="1579227133977" ID="ID_541653073" MODIFIED="1579227256827">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function balance(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Left heavy subtree.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node.bf == -2:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if node.left.bf &lt;= 0:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return leftLeftCase(node)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return leftRightCase(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Right heavy subtree.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;else if node.bf == +2:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if node.right.bf &gt;= 0:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return rightRightCase(node)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return rightLeftCase(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Node has balance factor of -1, 0, or +1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# which we do not need to balance
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return node
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1579227274260" ID="ID_378724280" MODIFIED="1579227354442">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function leftLeftCase(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return rightRotation(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function leftRightCase(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;node.left = leftRotation(node.left)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return leftLeftCase(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function rightRightCase(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return leftRotation(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function rightLeftCase(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;node.right = rightRotation(node.right)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return rightRightCase(node)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1579227389334" ID="ID_432613421" MODIFIED="1579227457698">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function rightRotate(A):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B := A.left
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;A.left = B.right
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;B.right = A
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# After rotation update balance
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# factor and height values.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;update(A)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;update(B)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return B
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1579227458873" ID="ID_1640051097" MODIFIED="1579227475516" TEXT="AVL tree rotations require you to call the update method! The left rotation is symmetric">
+<node CREATED="1579227492175" ID="ID_1125035920" MODIFIED="1579227498659" TEXT="Height, balance factor"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1567047975034" ID="ID_994624740" MODIFIED="1567047980588" TEXT="AVL tree removals">
+<node CREATED="1579227595918" ID="ID_1144833440" MODIFIED="1579227604219" TEXT="Removing Elements from a BST">
+<node CREATED="1579227609093" ID="ID_1557558151" MODIFIED="1579227613405" TEXT="Two step process">
+<node CREATED="1579227613651" ID="ID_1333323297" MODIFIED="1579227658292">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        Find the element we wish to remove (if it exists).
+      </li>
+      <li>
+        Replace the node we want to remove with its successor (if any) to maintain the BST invariant.
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+<node CREATED="1579227661062" ID="ID_1416258298" MODIFIED="1579227676191" TEXT="BST invariant: left subtree has smaller elements and right subtree has larger elements."/>
+<node CREATED="1579227708526" ID="ID_494708944" MODIFIED="1579227711728" TEXT="Find phase">
+<node CREATED="1579227711942" ID="ID_246009847" MODIFIED="1579227734611" TEXT="When searching for an element, one of 4 things can happen">
+<node CREATED="1579227735412" ID="ID_1654478131" MODIFIED="1579227798660">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        We hit a null node at which point we know the value does not exist within our BST
+      </li>
+      <li>
+        Comparator value equal to 0 (found it!)
+      </li>
+      <li>
+        Comparator value less than 0 (the value, if it exists, is in the left subtree)
+      </li>
+      <li>
+        Comparator value greater than 0 (the value, if it exists, is in the right subtree)
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+<node CREATED="1579234658734" ID="ID_965855049" MODIFIED="1579234662694" TEXT="find(14)"/>
+<node CREATED="1579350355708" ID="ID_941659754" MODIFIED="1579350360295" TEXT="Remove Phase">
+<node CREATED="1579350360664" ID="ID_1889821671" MODIFIED="1579350363806" TEXT="Four cases">
+<node CREATED="1579350368816" ID="ID_1012747742" MODIFIED="1579350376341" TEXT="1. Node to remove is a leaf node">
+<node CREATED="1579351535871" ID="ID_857308190" MODIFIED="1579351541623" TEXT="Case I: Leaf node">
+<node CREATED="1579351542651" ID="ID_655691814" MODIFIED="1579351555543" TEXT="If the node we wish to remove is a leaf node then we may do so without side effect"/>
+<node CREATED="1579351563112" ID="ID_1841579799" MODIFIED="1579351589332" TEXT="Suppose we want to remove 8 from the BST on the right. First we would find 8 then remove it immediately since it&apos;s a leaf node"/>
+</node>
+</node>
+<node CREATED="1579350377144" ID="ID_533668289" MODIFIED="1579350387695" TEXT="2. Node to remove has a right subtree but no left subtree">
+<node CREATED="1579351914978" ID="ID_1152937955" MODIFIED="1579351929381" TEXT="Case II &amp; III: either the left/right child node is a subtree">
+<node CREATED="1579351930042" ID="ID_1852427935" MODIFIED="1579351951002" TEXT="The successor of the node we are trying to remove in these cases will be the immediate node down from the left/right subtree"/>
+<node CREATED="1579351956648" ID="ID_1090430397" MODIFIED="1579351980392" TEXT="It may be the case that we are removing the root node of the BST, in which case its immediate child becomes the new root, as you would expect"/>
+</node>
+</node>
+<node CREATED="1579350388064" ID="ID_757733435" MODIFIED="1579350399362" TEXT="3. Node to remove has a left subtree but no right subtree"/>
+<node CREATED="1579350399607" ID="ID_744645281" MODIFIED="1579350413184" TEXT="4. Note to remove has both left subtree and a right subtree">
+<node CREATED="1579352165868" ID="ID_1799216853" MODIFIED="1579352179297" TEXT="Case IV: Node to remove has both a left subtree and a right subtree">
+<node CREATED="1579352180386" ID="ID_1576922143" MODIFIED="1579352193184" TEXT="Q: In which subtree will the successor of the node we are tyring to remove be?">
+<node CREATED="1579352201001" ID="ID_1249043285" MODIFIED="1579352226723" TEXT="A: The answer is both! The successor can either be the largest value in the left subtree OR the smallest value in the right subtree ">
+<node CREATED="1579352242539" ID="ID_614386155" MODIFIED="1579352267813" TEXT="Once the successor node has been identified (if it exists), replace the value of the node to remove with teh value in the successor node.">
+<node CREATED="1579352273989" ID="ID_596810682" MODIFIED="1579352326663" TEXT="NOTE: Don&apos;t forget to remove the duplicate value of the successor node that still exists in the tree at this point! One strategy to resolve this is by calling the function again recursively but with the value to remove as the value in the successor node.">
+<node CREATED="1579352439614" ID="ID_1890603907" MODIFIED="1579352452046" TEXT="This will only result in Case I, II or III removal"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579351125470" ID="ID_854498735" MODIFIED="1579351131023" TEXT="Removing Elements from a BST">
+<node CREATED="1579351153747" ID="ID_1107439609" MODIFIED="1579351174405" TEXT="Removing elements from a Binary Search Tree (BST) can be seen as a two-step process:">
+<node CREATED="1579351174925" ID="ID_557906775" MODIFIED="1579351186804" TEXT="1. Find the element we wish to remove (if it exists).">
+<node CREATED="1579351299384" ID="ID_1037544518" MODIFIED="1579351318040" TEXT="When searching our BST for a node with a particular value, one of four things will happen:">
+<node CREATED="1579351318439" ID="ID_906527826" MODIFIED="1579351338070" TEXT="1. We hit a null node at which point we know the value does not exist within our BST"/>
+<node CREATED="1579351338670" ID="ID_1693899714" MODIFIED="1579351348201" TEXT="2. Comparator value equal to 0 (found it!)"/>
+<node CREATED="1579351348703" ID="ID_1670976662" MODIFIED="1579351367337" TEXT="3. Comparator value less than 0 (the value, if it exists, is in the left subtree)"/>
+<node CREATED="1579351368266" ID="ID_694818398" MODIFIED="1579351384522" TEXT="4. Comparator value greater than 0 (the value, if it exists, is in the right subtree)"/>
+</node>
+</node>
+<node CREATED="1579351187297" ID="ID_13185242" MODIFIED="1579351204836" TEXT="2. Replace the node we want to remove with its successor (if any) to maintain the BST invariant.">
+<node CREATED="1579351220438" ID="ID_1086451941" MODIFIED="1579351236927" TEXT="BST invariant: left subtree has smaller elements and right subtree has larger elements"/>
+</node>
+</node>
+</node>
+<node CREATED="1579352491591" ID="ID_679861129" MODIFIED="1579352503252" TEXT="Augmenting BST Removal Algorithm for AVL Tree">
+<node CREATED="1579352503900" ID="ID_79005883" MODIFIED="1579352526056" TEXT="Augmenting the removal algorithm from a plain BST implementation to an AVL tree is just as easy as adding two lines of code:">
+<node CREATED="1579352527416" ID="ID_842378358" MODIFIED="1579352578148">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function remove(node, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;...
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Code for BST item removal here
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;...
+    </p>
+    <p>
+      &#160;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Update balance factor
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;update(node)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Rebalance tree
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return balance(tree)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047981371" ID="ID_76219402" MODIFIED="1567047986021" TEXT="AVL tree source code"/>
 </node>
 <node CREATED="1567047990936" ID="ID_430826137" MODIFIED="1567047995764" POSITION="left" TEXT="Indexed Priority Queue">
-<node CREATED="1567047996676" ID="ID_1465373898" MODIFIED="1567048021205" TEXT="Introduction to indexed priority queues"/>
+<node CREATED="1567047996676" ID="ID_1465373898" MODIFIED="1567048021205" TEXT="Introduction to indexed priority queues">
+<node CREATED="1579352716826" ID="ID_567228589" MODIFIED="1579352732189" TEXT="Recap"/>
+<node CREATED="1579352740226" ID="ID_1341567466" MODIFIED="1579352747366" TEXT="What is an Indexed Priority Queue?">
+<node CREATED="1579352758894" ID="ID_484731373" MODIFIED="1579352804508" TEXT="An Indexed Priority Queue is a traditional priority queue variant which on top of the regular PQ operations supports quick updates and deletions of key-value pairs.">
+<node CREATED="1579352847170" ID="ID_885519984" MODIFIED="1579352865718" TEXT="Suppose a hospital has a waiting root with N people which need attention with different levels of priority">
+<node CREATED="1579352870088" ID="ID_1988323736" MODIFIED="1579352879786" TEXT="Mary is in labour - Priority: 9">
+<node CREATED="1579352970215" ID="ID_1736783784" MODIFIED="1579352973721" TEXT="Highest priority"/>
+</node>
+<node CREATED="1579352880263" ID="ID_691966819" MODIFIED="1579352893774" TEXT="Akarsh has a paper cut - Priority: 1">
+<node CREATED="1579353061429" ID="ID_1340014318" MODIFIED="1579353081623" TEXT="+ open skull (fell on the floor in hospital) - Priority: 10"/>
+</node>
+<node CREATED="1579352894545" ID="ID_601456063" MODIFIED="1579352907056" TEXT="James has an arrow in his leg - Priority: 7"/>
+<node CREATED="1579352907620" ID="ID_399337008" MODIFIED="1579352922052" TEXT="Naida&apos;s stomach hurts - Priority: 3">
+<node CREATED="1579353006547" ID="ID_318149461" MODIFIED="1579353021308" TEXT="Suppose + vomiting - Priority: 6"/>
+</node>
+<node CREATED="1579352922413" ID="ID_1362473896" MODIFIED="1579352933943" TEXT="Richard has a fractured wrist - Priority: 5">
+<node CREATED="1579353038148" ID="ID_858869294" MODIFIED="1579353048663" TEXT="Richard leaves and goes to another clinic"/>
+</node>
+<node CREATED="1579352934205" ID="ID_1339938582" MODIFIED="1579352945910" TEXT="Leah&apos;s stomach hurts - Priority: 3"/>
+</node>
+<node CREATED="1579353110725" ID="ID_941099019" MODIFIED="1579353116022" TEXT="Usefulness of IPQ">
+<node CREATED="1579353168538" ID="ID_351139681" MODIFIED="1579353204744" TEXT="In the hospital example, we saw that it was very important to be able to dynamically update the priority (value) of certain people (keys).">
+<node CREATED="1579353208805" ID="ID_1532092061" MODIFIED="1579353258531" TEXT="The Indexed Priority Queue (IPQ) data structure lets us do this efficiently The first step to using an IPQ is to assign index values to all the keys forming a bidirectional mapping">
+<node CREATED="1579353326730" ID="ID_1801814980" MODIFIED="1579353351222" TEXT="Construct a bidirectional mapping between your N keys and the domain [0, N) using a bidirectional hashtable.">
+<node CREATED="1579353352888" ID="ID_816692537" MODIFIED="1579353366880" TEXT="Key &lt;-&gt; Key Index (ki)">
+<node CREATED="1579353369313" ID="ID_506655875" MODIFIED="1579353374689" TEXT="Mary &lt;-&gt; 0"/>
+<node CREATED="1579353375002" ID="ID_1359361090" MODIFIED="1579353380025" TEXT="Akarsh &lt;-&gt; 1"/>
+<node CREATED="1579353380265" ID="ID_379144029" MODIFIED="1579353384873" TEXT="James &lt;-&gt; 2"/>
+<node CREATED="1579353385100" ID="ID_442645359" MODIFIED="1579353391057" TEXT="Naida &lt;-&gt; 3"/>
+<node CREATED="1579353391295" ID="ID_1614780851" MODIFIED="1579353396545" TEXT="Richard &lt;-&gt; 4"/>
+<node CREATED="1579353396810" ID="ID_1792324839" MODIFIED="1579353401408" TEXT="Leah &lt;-&gt; 5"/>
+</node>
+<node CREATED="1579353773771" ID="ID_825417000" MODIFIED="1579353801619" TEXT="NOTE: This assumes you know how many keys you will have in your IPQ, but this mapping can be constructed cynamically as well"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579353843165" ID="ID_293979139" MODIFIED="1579353846837" TEXT="Reason for mapping">
+<node CREATED="1579353847693" ID="ID_892700928" MODIFIED="1579353865107" TEXT="Q: Why are we mapping keys to indexes in the domain [0, N)?">
+<node CREATED="1579353867896" ID="ID_765132428" MODIFIED="1579353904522" TEXT="A: Typically priority queues are implemented as heaps under the hood which internally use arrays which we want to facilitate indexing into.">
+<node CREATED="1579353907269" ID="ID_787346352" MODIFIED="1579353944203" TEXT="NOTE: Often the keys themselves are integers in the range [0, N) so there&apos;s no need for the mapping, but it&apos;s handy to be able to support any type of key (like names)."/>
+</node>
+</node>
+</node>
+<node CREATED="1579354001144" ID="ID_1352511749" MODIFIED="1579354005316" TEXT="IPQ ADT interface">
+<node CREATED="1579354006369" ID="ID_332864976" MODIFIED="1579354033647" TEXT="If &apos;k&apos; is the key we want to update first get the key&apos;s index: ki = map[k], then use &apos;ki&apos; with the IPQ">
+<node CREATED="1579354035606" ID="ID_1449285761" MODIFIED="1579354046044" TEXT="delete(ki)">
+<node CREATED="1579363303597" ID="ID_1330830669" MODIFIED="1579363307166" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579354046369" ID="ID_1128503342" MODIFIED="1579354050667" TEXT="valueOf(ki)">
+<node CREATED="1579363309727" ID="ID_604655440" MODIFIED="1579363311549" TEXT="O(1)"/>
+</node>
+<node CREATED="1579354051504" ID="ID_1150505900" MODIFIED="1579354055195" TEXT="contains(ki)">
+<node CREATED="1579363314070" ID="ID_1612573116" MODIFIED="1579363316317" TEXT="O(1)"/>
+</node>
+<node CREATED="1579354056113" ID="ID_136879397" MODIFIED="1579354061123" TEXT="peekMinKeyIndex()">
+<node CREATED="1579363318549" ID="ID_1484540501" MODIFIED="1579363320606" TEXT="O(1)"/>
+</node>
+<node CREATED="1579354061985" ID="ID_199943446" MODIFIED="1579354072444" TEXT="pollMinKeyIndex()">
+<node CREATED="1579363323605" ID="ID_1069732998" MODIFIED="1579363327397" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579354072693" ID="ID_1831796570" MODIFIED="1579354078491" TEXT="peekMinValue()">
+<node CREATED="1579363330195" ID="ID_634434001" MODIFIED="1579363333584" TEXT="O(1)"/>
+</node>
+<node CREATED="1579354078714" ID="ID_679048979" MODIFIED="1579354083060" TEXT="pollMinValue()">
+<node CREATED="1579363338531" ID="ID_1431496679" MODIFIED="1579363341318" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579354084091" ID="ID_1208991343" MODIFIED="1579354088636" TEXT="insert(ki, value)">
+<node CREATED="1579363343808" ID="ID_1672888653" MODIFIED="1579363348670" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579354088909" ID="ID_618778371" MODIFIED="1579354093012" TEXT="update(ki, value)">
+<node CREATED="1579363349811" ID="ID_1091615891" MODIFIED="1579363352749" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579354093869" ID="ID_1958953611" MODIFIED="1579354100164" TEXT="decreaseKey(ki, value)">
+<node CREATED="1579363354319" ID="ID_413363524" MODIFIED="1579363357677" TEXT="O(log(n))"/>
+</node>
+<node CREATED="1579354100770" ID="ID_164057649" MODIFIED="1579354107124" TEXT="increaseKey(ki, value)">
+<node CREATED="1579363358850" ID="ID_1575164106" MODIFIED="1579363362678" TEXT="O(log(n))"/>
+</node>
+</node>
+</node>
+<node CREATED="1579363461316" ID="ID_1719164936" MODIFIED="1579363469878" TEXT="Refresher on binary heap DS">
+<node CREATED="1579363470217" ID="ID_720434484" MODIFIED="1579363475717" TEXT="Let i be the current node">
+<node CREATED="1579363476201" ID="ID_189399178" MODIFIED="1579363483279" TEXT="Left child index: 2i + 1"/>
+<node CREATED="1579363483665" ID="ID_1367050776" MODIFIED="1579363488605" TEXT="Right child index: 2i + 2"/>
+</node>
+</node>
+<node CREATED="1579363778312" ID="ID_401005470" MODIFIED="1579363828633" TEXT="Suppose we have N people with different priorities we need to serve. Assume priorities can dynamically change and we always want to serve the person with the lowest priority.">
+<node CREATED="1579363840616" ID="ID_126206018" MODIFIED="1579363854617" TEXT="To figure out who to serve next use a Min IPQ to sort by lowest value first."/>
+<node CREATED="1579363857878" ID="ID_1918727821" MODIFIED="1579363874369" TEXT="Arbitrarily assign each person a unique index value between [0, N)"/>
+<node CREATED="1579363885627" ID="ID_1199473580" MODIFIED="1579363915720" TEXT="Initial values to place inside IPQ. These will be maintained by the IPQ once inserted. Note that values can be any comparable value not only integers">
+<node CREATED="1579363973573" ID="ID_116791375" MODIFIED="1579363990980" TEXT="When we insert (ki, v) pairs into an IPQ we sort by the value associated with each key."/>
+<node CREATED="1579363991756" ID="ID_1134592513" MODIFIED="1579364009602" TEXT="In the heap above we are sorting by smallest value since we&apos;re working with a min heap">
+<node CREATED="1579364029602" ID="ID_1371259595" MODIFIED="1579364051414" TEXT="To access the value for any given key k, find its key index (ki) and do a lookup in the vals array maintained by the IPQ">
+<node CREATED="1579364082263" ID="ID_1595305653" MODIFIED="1579364085833" TEXT="vals[ki]"/>
+</node>
+<node CREATED="1579364164327" ID="ID_1015082327" MODIFIED="1579364186456" TEXT="The array pm is a Position Map we maintain to tell us the index of the node in the heap for a given key index (ki)">
+<node CREATED="1579364232250" ID="ID_687553884" MODIFIED="1579364235173" TEXT="pm[ki]"/>
+</node>
+<node CREATED="1579364318087" ID="ID_536372401" MODIFIED="1579364343062" TEXT="To do inverse lookup we also need to maintain an inverse lookup table denoted: im (Inverse Map)">
+<node CREATED="1579364361119" ID="ID_154588954" MODIFIED="1579364376487" TEXT="Q: Which person (key) is represented in the node at index 2?">
+<node CREATED="1579364515681" ID="ID_477981715" MODIFIED="1579364518505" TEXT="im[2]">
+<node CREATED="1579364521424" ID="ID_378548442" MODIFIED="1579364524152" TEXT="return ki">
+<node CREATED="1579364528145" ID="ID_1072984443" MODIFIED="1579364534023" TEXT="ki gives name"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579364729499" ID="ID_984917488" MODIFIED="1579364736372" TEXT="Insertion">
+<node CREATED="1579365022488" ID="ID_1743111531" MODIFIED="1579365030175" TEXT="Update vals, pm and im">
+<node CREATED="1579365030922" ID="ID_95712922" MODIFIED="1579365044919" TEXT="If swap is done, swap values in pm and im"/>
+</node>
+<node CREATED="1579365067223" ID="ID_1559671449" MODIFIED="1579365073503" TEXT="Insertion Pseudo Code">
+<node CREATED="1579365073820" ID="ID_144808172" MODIFIED="1579365152443">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Inserts a value into the min indexed binary
+    </p>
+    <p>
+      # heap. The key index must not already be in
+    </p>
+    <p>
+      # the heap and the value must not be null.
+    </p>
+    <p>
+      function insert(ki, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;values[ki] = value
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# 'sz' is the current size of the heap
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;pm[ki] = sz
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;im[sz] = ki
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swim(sz)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sz = sz + 1
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1579365201377" ID="ID_1556529784" MODIFIED="1579365303602">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Swims up node i (zero based) until heap
+    </p>
+    <p>
+      # invariant is satisfied.
+    </p>
+    <p>
+      function swim(i):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for (p = (i - 1) / 2; i &gt; 0 and less(i, p)):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;swap(i, p)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = p
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;p = (i - 1) / 2
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function swap(i, j):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;pm[im[j]] = i
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;pm[im[i]] = j
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;tmp = im[i]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;im[i] = im[j]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;im[j] = tmp
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function less(i, j):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return values[im[i]] &lt; values[im[j]]
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579365429339" ID="ID_1024748883" MODIFIED="1579365436053" TEXT="Polling &amp; Removals">
+<node CREATED="1579832618258" ID="ID_1238638412" MODIFIED="1579832683291" TEXT="Polling is still O(log(n)) in an IPQ, but removing is improved from O(n) in a traditional PQ to O(log(n)) since node position lookups are O(1) but repositioning is still O(log(n))">
+<node CREATED="1579833030193" ID="ID_1684509511" MODIFIED="1579833082181" TEXT="Polling root node: The required steps are almost exactly like a regular binary heap">
+<node CREATED="1579832918288" ID="ID_741751112" MODIFIED="1579832929768" TEXT="1. Exchange root node with bottom right node"/>
+<node CREATED="1579832943439" ID="ID_194816796" MODIFIED="1579832968878" TEXT="2. Finally restore heap invariant by moving swapped purple node up or down"/>
+</node>
+</node>
+<node CREATED="1579833234373" ID="ID_1577251238" MODIFIED="1579833242558" TEXT="Removing specific value &quot;Laura&quot;">
+<node CREATED="1579833242953" ID="ID_547331170" MODIFIED="1579833248254" TEXT="Index is 11 (O(1))">
+<node CREATED="1579833255512" ID="ID_1857376730" MODIFIED="1579833266685" TEXT="Swap with last node"/>
+<node CREATED="1579833267780" ID="ID_160637979" MODIFIED="1579833275574" TEXT="Cleanup removed node"/>
+<node CREATED="1579833276246" ID="ID_367675859" MODIFIED="1579833288496" TEXT="Restore heap invariant by moving swapping">
+<node CREATED="1579833296917" ID="ID_950742993" MODIFIED="1579833300151" TEXT="O(log(n))"/>
+</node>
+</node>
+<node CREATED="1579833322625" ID="ID_1734939650" MODIFIED="1579833326784" TEXT="Pseudo Code">
+<node CREATED="1579833327040" ID="ID_900033708" MODIFIED="1579833473308">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Deletes the node with the key index ki
+    </p>
+    <p>
+      # in the heap. The key index ki must exist
+    </p>
+    <p>
+      # and be present in the heap.
+    </p>
+    <p>
+      function remove(ki):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = pm[ki]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swap(i, sz)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sz = sz - 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sink(i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swim(i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;values[ki] = null
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;pm[ki] = -1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;im[sz] = -1
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579833443466" ID="ID_1190426241" MODIFIED="1579833445818" TEXT="sz = size"/>
+<node CREATED="1579833476372" ID="ID_502328078" MODIFIED="1579833493780" TEXT="sink or swim needs to be done (we are not sure)"/>
+<node CREATED="1579833502010" ID="ID_746839747" MODIFIED="1579833594405">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Sinks the node at index i by swapping
+    </p>
+    <p>
+      # itself with the smallest of the left
+    </p>
+    <p>
+      # or the right child node.
+    </p>
+    <p>
+      function sink(i):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;while true:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;left = 2 * i + 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;right = 2 * i + 2
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;smallest = left
+    </p>
+    <p>
+      &#160;&#160;&#160;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if right &lt; sz and less(right, left):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;smallest = right
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if left &gt;= sz or less(i, smallest):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;swap(smallest, i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = smallest
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1579833652477" ID="ID_1344945459" MODIFIED="1579833654624" TEXT="Updates">
+<node CREATED="1579833658215" ID="ID_354424947" MODIFIED="1579833700449" TEXT="Similar to removals, updates in a min indexed binary heap also take O(log(n)) due to O(1) lookup time to find the node and O(log(n)) time to adjust where the key-value pair should appear in the heap">
+<node CREATED="1579833759488" ID="ID_1866672772" MODIFIED="1579833764970" TEXT="Pseudo Code">
+<node CREATED="1579833765346" ID="ID_1269000186" MODIFIED="1579833814090">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Updates the value of a key in the binary
+    </p>
+    <p>
+      # heap. The key index must exist and the
+    </p>
+    <p>
+      # value must not be null.
+    </p>
+    <p>
+      function update(ki, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = pm[ki]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;values[ki] = value
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sink(i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swim(i)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1579833828307" ID="ID_1967965885" MODIFIED="1579833833508" TEXT="Decrease and Increase key">
+<node CREATED="1579833834924" ID="ID_1200869825" MODIFIED="1579833919782" TEXT="In many applications (e.g Dijkstra&apos;s and Prims algorithm) it is often useful to only update a given key to make its value either always smaller (or larger). In the event that a worse value is given the value in the IPQ should not be updated.&#xa;&#xa;In such situations it is useful to define a more restrictive form of update operation we call increaseKey(ki, v) and decreaseKey(ki, v)">
+<node CREATED="1579834130089" ID="ID_954784077" MODIFIED="1579834133963" TEXT="Pseudo Code">
+<node CREATED="1579834134331" ID="ID_1552400065" MODIFIED="1579834223630">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # For both these functions assume ki and value
+    </p>
+    <p>
+      # are valid inputs and we are dealing with a
+    </p>
+    <p>
+      # min indexed binary heap
+    </p>
+    <p>
+      function decreaseKey(ki, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if less(value, values[ki]):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;values[ki] = value
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;swim(pm[ki])
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function increaseKey(ki, value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if less(values[ki], value):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;values[ki] = value
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sink(pm[ki])
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567048022793" ID="ID_526212390" MODIFIED="1567048028448" TEXT="Indexed priority queue source code"/>
 </node>
 </node>

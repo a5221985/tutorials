@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+	\begin{align}
+	p \implies q & = pq + (\neg p)q + (\neg p)(\neg q) \\
+	& = pq + (\neg p)(q + \neg q) \\
+	& = pq + \neg p \\
+	& = (\neg (\neg p))q + \neg p \\
+	p \lor q & = pq + (\neg p)q + p(\neg q) \\
+	& = (\neg p)q + p(q + \neg q) \\
+	& = (\neg p)q + p \\
+	(\neg p) \lor q & = (\neg (\neg p))q + \neg p \\
+	& = pq + \neg p \\
+	p \implies q & = (\neg p) \lor q
+	\end{align}
+\end{document}

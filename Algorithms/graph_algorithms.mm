@@ -405,8 +405,7 @@
       </li>
     </ol>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -433,8 +432,7 @@
       On the recursive callback of the DFS, add the current node to the topological ordering in reverse order.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1578430883642" ID="ID_893719677" MODIFIED="1578431007557" TEXT="Add node if we backtrack from it">
 <node CREATED="1578431015817" ID="ID_7008035" MODIFIED="1578431023482" TEXT="CBEFKADGHIJLM"/>
 </node>
@@ -494,8 +492,7 @@
       &#160;&#160;&#160;&#160;return ordering
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1578431332996" ID="ID_1472840290" MODIFIED="1578431442528">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -536,8 +533,7 @@
       &#160;&#160;&#160;&#160;visitedNodes.add(at)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1578431499763" ID="ID_1951820161" MODIFIED="1578431508451" TEXT="Optimization">
 <node CREATED="1578453250601" ID="ID_175289181" MODIFIED="1578453371173">
@@ -586,16 +582,110 @@
       &#160;&#160;&#160;&#160;return ordering
     </p>
   </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1573695518527" ID="ID_1996042730" MODIFIED="1573695532822" POSITION="right" TEXT="9. Shortest/Longest Path on Directed Acyclic Graph (DAG)">
+<node CREATED="1580779003981" ID="ID_371656419" MODIFIED="1580779029295" TEXT="Directed Acyclic Graph (DAG)">
+<node CREATED="1580779030772" ID="ID_902354082" MODIFIED="1580779070265" TEXT="DAG is a graph with directed edges and no cycles. By definition this means all trees are automatically DAGs since they do not contain cycles.">
+<node CREATED="1580779118215" ID="ID_499502059" MODIFIED="1580779124712" TEXT="Edges must be directed"/>
+</node>
+</node>
+<node CREATED="1580779130910" ID="ID_617945022" MODIFIED="1580779134792" TEXT="SSSP on DAG">
+<node CREATED="1580779135929" ID="ID_680666100" MODIFIED="1580779189720" TEXT="The Single Source Shortest Path (SSSP) problem can be solved efficiently on a DAG in O(V+E) time. This is due to the fact that the nodes can be ordered in a topological ordering via topsort and processed sequentially.">
+<node CREATED="1580779267129" ID="ID_1629016761" MODIFIED="1580779271040" TEXT="Relaxing edges">
+<node CREATED="1580779271216" ID="ID_853305731" MODIFIED="1580779274687" TEXT="Better values"/>
+</node>
+<node CREATED="1580779313561" ID="ID_1390356955" MODIFIED="1580779316120" TEXT="Example:">
+<node CREATED="1580779317281" ID="ID_625577760" MODIFIED="1580779328780" TEXT="topsort: A, B, C, D, G, E, F, H">
+<node CREATED="1580779332792" ID="ID_895709815" MODIFIED="1580779339664" TEXT="A - 0"/>
+<node CREATED="1580779340512" ID="ID_1992210048" MODIFIED="1580779344424" TEXT="B - 3"/>
+<node CREATED="1580779360094" ID="ID_620393437" MODIFIED="1580779362258" TEXT="C - 6"/>
+<node CREATED="1580779377045" ID="ID_461366535" MODIFIED="1580779379809" TEXT="E - 14"/>
+<node CREATED="1580779399003" ID="ID_191185766" MODIFIED="1580779400947" TEXT="D - 7"/>
+<node CREATED="1580779415954" ID="ID_509278229" MODIFIED="1580779443852" TEXT="..."/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1580779511292" ID="ID_1366558161" MODIFIED="1580779516940" TEXT="Longest Path on DAG">
+<node CREATED="1580779517257" ID="ID_902244700" MODIFIED="1580779546276" TEXT="What about the longest path? On a general graph this problem is NP-Hard, but on a DAG this problem is solvable in O(V+E)!">
+<node CREATED="1580779565452" ID="ID_118689106" MODIFIED="1580779593445" TEXT="The trick is to multiply all edge values by -1 then find the shortest path and then multiply the edge values by -1 again!"/>
+</node>
+</node>
+<node CREATED="1580779631252" ID="ID_1575184874" MODIFIED="1580779633933" TEXT="Source Code">
+<node CREATED="1580779635296" ID="ID_531513948" MODIFIED="1580779648253" TEXT="Try"/>
+</node>
+</node>
+<node CREATED="1573695533742" ID="ID_1398295416" MODIFIED="1573695541613" POSITION="left" TEXT="10. Bellman-Ford Algorithm">
+<node CREATED="1580779730908" ID="ID_1392027441" MODIFIED="1580779767327" TEXT="In graph theory, the Bellman-Ford (BF) algorithm is a Single Source Shortest Path (SSSP) algorithm. This means it can find the shortest path from one node to any other node."/>
+<node CREATED="1580779769584" ID="ID_239078602" MODIFIED="1580779823480" TEXT="However, BF is not ideal for most SSSP problems because it has a time complexity of O(EV) It is better to use Dijkstra&apos;s algorithm which is much faster. It is on the order of O((E+V)log(V)) when using a binary heap priority queue">
+<node CREATED="1580779886454" ID="ID_620786156" MODIFIED="1580779941720" TEXT="However, Dijkstra&apos;s algorithm can fail when the graph has negative edge weights. This is when BF becomes really handy because it can be used to detect negative cycles and determine where they occur."/>
+<node CREATED="1580779943247" ID="ID_1668586344" MODIFIED="1580779972530" TEXT="Finding negative cycles can be useful in many types of applications. One particularly neat application arises in finance when performing an arbitrage between two or more markets.">
+<node CREATED="1580780013061" ID="ID_36526663" MODIFIED="1580780028418" TEXT="stock or currency"/>
+</node>
+<node CREATED="1580780046158" ID="ID_1134452445" MODIFIED="1580780050650" TEXT="Negative Cycles">
+<node CREATED="1580780050923" ID="ID_962922063" MODIFIED="1580780062994" TEXT="Negative cycles can manifest themselves in many ways...">
+<node CREATED="1580780167436" ID="ID_1763054225" MODIFIED="1580780174914" TEXT="Net change in a cycle can be negative"/>
+</node>
+</node>
+</node>
+<node CREATED="1580780201101" ID="ID_1110244610" MODIFIED="1580780207460" TEXT="BF Algorithm Steps">
+<node CREATED="1580780208648" ID="ID_462001633" MODIFIED="1580780213342" TEXT="Let&apos;s define a few variables">
+<node CREATED="1580780213547" ID="ID_310844545" MODIFIED="1580780219004" TEXT="Let E be the number of edges."/>
+<node CREATED="1580780219252" ID="ID_1610539069" MODIFIED="1580780226571" TEXT="Let V be the number of vertices"/>
+<node CREATED="1580780226795" ID="ID_761402269" MODIFIED="1580780234305" TEXT="Let S be the id of the starting node"/>
+<node CREATED="1580780235150" ID="ID_1224821635" MODIFIED="1580780249893" TEXT="Let D be an array of size V that tracks the best distance from S to each node."/>
+</node>
+<node CREATED="1580780285921" ID="ID_1666248242" MODIFIED="1580780327439">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      1) Set every entry in D to +infinity
+    </p>
+    <p>
+      2) Set D[S] = 0
+    </p>
+    <p>
+      3) Relax each edge V-1 times:
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1580780363204" ID="ID_1142221885" MODIFIED="1580780429077">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      for (i = 0; i &lt; V-1; i = i + 1):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for edge in graph.edges:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Relax edge (update D with shorter path)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (D[edge.from] + edge.cost &lt; D[edge.to])
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;D[edge.to] = D[edge.from] + edge.cost
+    </p>
+  </body>
 </html>
 </richcontent>
 </node>
 </node>
 </node>
 </node>
-<node CREATED="1578431050182" ID="ID_455384673" MODIFIED="1578431050182" TEXT=""/>
-</node>
-<node CREATED="1573695518527" ID="ID_1996042730" MODIFIED="1573695532822" POSITION="right" TEXT="9. Shortest/Longest Path on Directed Acyclic Graph (DAG)"/>
-<node CREATED="1573695533742" ID="ID_1398295416" MODIFIED="1573695541613" POSITION="left" TEXT="10. Bellman-Ford Algorithm"/>
 <node CREATED="1573695542311" ID="ID_1791814029" MODIFIED="1573695557119" POSITION="right" TEXT="11. Floyd-Warshall All Pairs Shortest Path Algorithm"/>
 <node CREATED="1573695558317" ID="ID_1923307945" MODIFIED="1573695575295" POSITION="left" TEXT="12. Floyd-Warshall All Pairs Shortest Path Algorithm | Source Code"/>
 <node CREATED="1573695576252" ID="ID_1873645889" MODIFIED="1573695584557" POSITION="right" TEXT="13. Bridges &amp; Articulation Points"/>

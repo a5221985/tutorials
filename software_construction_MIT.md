@@ -1391,9 +1391,77 @@
 #### Git: Copy, Commit, Pull, Push, Merge ####
 
 ### Specifications ###
+#### Introduction ####
+1. It's impossible to delegate responsibility for implementing a method without spec
+	1. It is a contract
+		1. Implementer is responsible for meeting the contract
+		2. Client can rely on the contract
+		3. It has demands on both parties
+			1. If spec has pre-condition, client also has resposibilities (to fulfill the pre-conditions)
+2. Topics
+	1. Specification of methods
+	2. Pre-conditions & Post-conditions
+		1. What do they mean to implementor
+		2. What do they mean to client
+	3. Exceptions
+		1. Makes methods safer from bugs
+		2. Makes methods easier to understand
+		
 #### Why Specifications? ####
+1. Bugs arise due to misunderstanding about behavior at interface between two pieces of code
+2. Problems
+	1. Different programmers in a team may have different specs in mind
+3. Solution
+	1. Precise spec in code lets us apportion blame to framents of code (not people)
+4. Benefit
+	1. Good for client of a method (don't have to read code to understand it)
+5. Example: Java Spec for `BigInteger`
+	1. Also has additional docs for corner cases
+6. Benefit to implementer:
+	1. Freedom to change implementation without telling clients
+	2. Code can be faster
+		1. Restricting inputs: may allow implementor to skip expensive check that is no longer necessary (more efficient implementation might exist)
+	3. Contract is like a firewall between client and implementor
+		1. Shields client from details of workingings of unit
+			1. Spec is enough and we don't have to read the source code to use it
+		2. Shields implementor from usage of the unit
+		3. Decoupling - Code of unit and code of client can be changed independently (changes should respect the spec)
+
 #### Behavioral Equivalence ####
+1. Can we substitute one implementation for the other
+2. There are clients that rely on only a subset of possible outputs and ignore the rest
+	1. To substitute one implementation for another
+	2. To know when substitution is possible
+3. A spec should tell what the client depends on
+	1. Example:
+
+			static int find(int[] arr, int val)
+				requires: val occurs exactly once in arr
+				effects: returns index 1 such that arr[i] = val
+
 #### Specification Structure ####
+1. Clauses
+	1. *precondition*: keyword used - `requires`
+		1. It is an obligation on client (caller of method)
+			1. It is a state in which the method must be invoked
+	2. *postcondition*: keyword used - `effects`
+		1. It is an obligation on implementor
+		2. If precondition holds for invoking state, method is obliged to obey postcondition (by returning appropriate values, throwing exceptions, modifying or not modifying objects, ...)
+			1. Logical implication:
+
+					If 
+						the precondition holds when method is called,
+					then
+						the postcondition must hold when method completes
+						
+					If 
+						the precondition does not hold when method is called,
+					then
+						the implementation is not bound by post-condition (free to do anything, termination, throwing exception, returning arbitrary results, making arbitrary modifications included)
+						
+##### Specifications in Java #####
+1. 
+					
 #### Null References ####
 #### What a Specification May Talk About ####
 #### Testing and Specifications ####

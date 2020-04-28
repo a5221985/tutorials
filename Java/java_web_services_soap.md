@@ -1,3 +1,227 @@
+## Developing Top Down Web Services ##
+### Usecase ###
+1. CustomersOrderService - Construct, Read
+2. Steps:
+	1. WSDL:
+	2. Generate Stubs
+	3. Implement the endpoint
+	4. Configure the cf-servlet.xml (spring config file for apache cxf)
+
+### Steps to Construct WSDL First Web Service ###
+1. Steps:
+	1. Construct the Project
+		1. Construct the WSDL
+		2. Generate the Stubs
+	2. Construct the endpoint
+	3. Construct the config class
+	4. Run the application
+
+### Construct the WSDL First Project ###
+1. New > Spring Starter Project
+	1. wsdlfirstws
+	2. Description: WSDL First
+	3. Finish
+2. Dependency:
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		
+3. `application.properties`
+
+		server.context-path=/wsdlfirstws
+		cxf.path=/ # /services is default
+
+### WSDL Construction ###
+1. WSDL - xml document
+2. Root: wsdl definitions element - namespaces to be used
+	1. `targetNamespace` - our own namespace. Applicable to all the requests and responses in our application
+		1. Usually domain name
+	2. `name="CustomerOrderService"` - unique name for our service
+	3. `schema` - all request and response types
+
+			<wsdl:types>
+				<xs:schema xmlns="http://www.w3.org/2001/XML_Schema"
+					xmlns:tns="http://trainings.ws.bharath.com/" elementFormDefault="unqualified"
+					targetNamespace="http://trainings.ws.bharath.com/" version="1.0">
+					<xs:complexType name="order">
+						<xs:sequence>
+							<xs:element name="id" type="xs:integer" />
+							<xs:element maxOccurs="unbounded" name="product" type="tns:product" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:complexType name="product">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="id" type="xs:string" />
+							<xs:element minOccurs="0" name="description" type="xs:string" />
+							<xs:element minOccurs="0" name="quantity" type="xs:integer" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:complexType name="getOrdersRequest">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="customerId" type="xs:integer" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:complexType name="getOrdersResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="order" type="tns:order" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:complexType name="createOrdersRequest">
+						<xs:sequence>
+							<xs:element name="customerId" type="xs:integer" />
+							<xs:element name="order" type="tns:order" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:complexType name="createOrdersResponse">
+						<xs:sequence>
+							<xs:element name="result" type="xs:boolean" />
+						</xs:sequence>
+					</xs:complexType>
+					
+					<xs:element name="getOrdersRequest" type="tns:getOrdersRequest" /> <!-- element definition -->
+					
+					<xs:element name="getOrdersResponse" type="tns:getOrdersResponse" />
+					
+					<xs:element name="createOrdersRequest" type="tns:createOrdersRequest" />
+					
+					<xs:element name="createOrdersResponse" type="tns:createOrdersResponse" />
+			</wsdl:types>
+			
+			<wsdl:message name="getOrdersRequest"> <!-- Analogous to input params to Java methods and outputs -->
+				<wsdl:port element="tns:getOrdersRequest" name="parameters"/>
+				</wsdl:port>
+			</wsdl:message>
+			
+			<wsdl:message name="getOrdersResponse"> <!-- Analogous to input params to Java methods and outputs -->
+				<wsdl:port element="tns:getOrdersResponse" name="parameters"/>
+				</wsdl:port>
+			</wsdl:message>
+			
+			<wsdl:message name="createOrdersRequest"> <!-- Analogous to input params to Java methods and outputs -->
+				<wsdl:port element="tns:createOrdersRequest" name="parameters"/>
+				</wsdl:port>
+			</wsdl:message>
+			
+			<wsdl:message name="createOrdersResponse"> <!-- Analogous to input params to Java methods and outputs -->
+				<wsdl:port element="tns:createOrdersResponse" name="parameters"/>
+				</wsdl:port>
+			</wsdl:message>
+			
+			<wsdl:portType name="CustomerOrdersPortType"> <!-- operations are grouped here - abstract portion -->
+				<wsdl:operation name="getOrders"> <!-- operation -->
+					<wsdl:input message="tns:getOrdersRequest" name="getOrdersRequest">
+					</wsdl:input>
+					<wsdl:output message="tns:getOrdersResponse" name="getOrdersResponse">
+					</wsdl:output>
+				</wsdl:operation>
+				<wsdl:operation name="createOrders"> <!-- operation -->
+					<wsdl:input message="tns:createOrdersRequest" name="createOrdersRequest">
+					</wsdl:input>
+					<wsdl:output message="tns:createOrdersResponse" name="createOrdersResponse">
+					</wsdl:output>
+				</wsdl:operation>
+			</wsdl:portType>
+			
+			<wsdl:binding name="CustomerOrdersServiceSoapBinding"
+				type="tns:CustomerOrdersPortType"> <!-- links the abstract and physical portions -->
+				<soap:binding style="document"
+					transport="http://schemas.xmlsoap.org/soap/http" />
+				<wsdl:operation name="getOrders">
+					<soap:operation soapAction="" style="document" />
+					<wsdl:input name="getOrdersRequest">
+						<soap:body use="literal" /> <!-- binding recommended - entire messages are validated by soap engine -->
+					</wsdl:input>
+					<wsdl:output name="getOrdersResponse">
+						<soap:body use="literal" />
+					</wsdl:output>
+				</wsdl:operation>
+				<wsdl:operation name="createOrders">
+					<soap:operation soapAction="" style="document" />
+					<wsdl:input name="createOrdersRequest">
+						<soap:body use="literal" /> <!-- binding recommended - entire messages are validated by soap engine -->
+					</wsdl:input>
+					<wsdl:output name="createOrdersResponse">
+						<soap:body use="literal" />
+					</wsdl:output>
+				</wsdl:operation>
+				
+				<wsdl:service name="CustomerOrdersService"> <!-- Defines how to consume the web service -->
+					<wsdl:port binding="tns:CustomerOrdersServiceSoapBinding" name="CustomerOrdersPort">
+						<soap:address
+							location="http://localhost:8080/wsdlfirstws/services/customerOrdersService" /> <!-- dynamically changed by cxf with ip address of the server -->
+					</wsdl:port>
+				</wsdl:service>
+			</wsdl:binding>
+
+### Generate the Stubs ###
+1. Search for `cxf codegen plugin` - `cxf-codegen-plugin`
+	1. Apache CXF - link
+
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>3.2.1</version>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot> <!-- generated stubs are copied here - in target directory -->
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/CustomerOrders.wsdl</wsdl> <!-- basedir - src/main/resources/wsdl -->
+									<wsdlLocation>classpath:CustomerOrders.wsdl</wsdlLocation> <!-- above or this can be used -->
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+		1. Paste in `pom.xml` at the end
+		2. Right click - maven > update project
+			1. Stubs are generated
+
+### Construct the CustomerOrders Service ###
+1. Generates both JAXB and JAXWS classes
+	1. Request and Response classes
+	2. PortType class - wraps the operations
+
+			@WebService
+			...
+			
+	3. Service class - 
+	4. Order - pojo (JAXB)
+	5. ObjectFactory - meta data used to construct the objects
+2. Endpoint creation:
+	1. Right click > New > Class
+		1. CustomerOrdersWsImpl
+		2. Add: CustomerOrdersPortType (Interface)
+			1. We don't have to mark the class with any annotations (annotations are present in the interface)
+
+### Implement the init Method ###
+1. 
+
+### Implement the getOrders Method ###
+### Implement the constructOrders Method ###
+### Publish the Endpoint ###
+### Enable Logging Feature ###
+### Run the Application ###
+### Testing using SoapUI ###
+### WSDL First Web Service Assignment ###
+### Section Summary ###
+
 ## Java SOAP Client ##
 ### Introduction ###
 1. Steps
