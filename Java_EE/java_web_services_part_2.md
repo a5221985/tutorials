@@ -625,6 +625,8 @@
 
 ## WS Security - Integrity (Signatures) ##
 ### What are Signatures? ###
+1. 
+
 ### Configure Signature on the Client ###
 ### Run the Test and Verify the Signature ###
 ### Configure to Check for Signature on the Server ###

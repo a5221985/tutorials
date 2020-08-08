@@ -581,7 +581,326 @@
 </node>
 </node>
 </node>
-<node CREATED="1575128487017" ID="ID_909750081" MODIFIED="1575128504163" POSITION="left" TEXT="4. Divide &amp; Conquer: van Emde Boas Trees"/>
+<node CREATED="1575128487017" ID="ID_909750081" MODIFIED="1575128504163" POSITION="left" TEXT="4. Divide &amp; Conquer: van Emde Boas Trees">
+<node CREATED="1588210031503" ID="ID_1079660803" MODIFIED="1588210038770" TEXT="Van Emde Boas">
+<node CREATED="1588210063733" ID="ID_246802170" MODIFIED="1588210080267" TEXT="Used in network routers">
+<node CREATED="1588210345090" ID="ID_1049876593" MODIFIED="1588210348885" TEXT="Routing table">
+<node CREATED="1588210349379" ID="ID_394089122" MODIFIED="1588210357380" TEXT="IP range from this to this send to this port">
+<node CREATED="1588210358404" ID="ID_304913798" MODIFIED="1588210393235" TEXT="Beginnings marked as items in the set">
+<node CREATED="1588210396153" ID="ID_1912124578" MODIFIED="1588210419353" TEXT="given an IP address, we want to get a predecessor or successor problem"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588210082925" ID="ID_352881083" MODIFIED="1588210090293" TEXT="Goal: Maintain n elements">
+<node CREATED="1588210090917" ID="ID_355595957" MODIFIED="1588210098347" TEXT="Predecessor problem: faster"/>
+<node CREATED="1588210105071" ID="ID_1809981372" MODIFIED="1588210112943" TEXT="Among {0, 1, ..., u - 1}">
+<node CREATED="1588210121989" ID="ID_33490982" MODIFIED="1588210132776" TEXT="Subject to Insert, Delete, Successor">
+<node CREATED="1588210200726" ID="ID_1347513832" MODIFIED="1588210210594" TEXT="O(loglogu) time">
+<node CREATED="1588210215859" ID="ID_1891797872" MODIFIED="1588210228571" TEXT="u is reasonable = 2^32 or 2^64">
+<node CREATED="1588210235979" ID="ID_239575233" MODIFIED="1588210313334" TEXT="if u = n^O(1) or n^(log^O(1) n">
+<node CREATED="1588210314893" ID="ID_1218932709" MODIFIED="1588210323646" TEXT="then loglog u = O(log log n)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588210045072" ID="ID_1493732139" MODIFIED="1588210050150" TEXT="Series of improved DSs">
+<node CREATED="1588210460079" ID="ID_958120560" MODIFIED="1588210470377" TEXT="Where might O(log log u) come from?">
+<node CREATED="1588210519130" ID="ID_1344287818" MODIFIED="1588210530088" TEXT="It is like binary searching on levels of tree">
+<node CREATED="1588210550820" ID="ID_757121731" MODIFIED="1588210558491" TEXT="T(k) = T(k/2) + O(1)">
+<node CREATED="1588210563593" ID="ID_1306823824" MODIFIED="1588210566443" TEXT="O(log k)"/>
+</node>
+<node CREATED="1588210579426" ID="ID_319694227" MODIFIED="1588210589350" TEXT="T(log u) = T(log u / 2) + O(1)">
+<node CREATED="1588210599728" ID="ID_799565021" MODIFIED="1588210616995" TEXT="T&apos;(u) = T(sqrt(u)) + O(1)">
+<node CREATED="1588210646609" ID="ID_1556890020" MODIFIED="1588210666289" TEXT="Number of times sqrt applied to a number to reduce it to 1 is log log u"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588210788888" ID="ID_484594955" MODIFIED="1588210813544" TEXT="Bit vector: array of size u. 0 = absent, 1 = present">
+<node CREATED="1588211269777" ID="ID_690173040" MODIFIED="1588211301016" TEXT="0 1 0 0 0 0 0 0 0 1 1 0 0 0 0 1">
+<node CREATED="1588211306108" ID="ID_863661077" MODIFIED="1588211319845" TEXT="Insert, Delete: O(1)"/>
+<node CREATED="1588211321125" ID="ID_588060741" MODIFIED="1588211329480" TEXT="Successor: O(u)">
+<node CREATED="1588211329803" ID="ID_799931090" MODIFIED="1588211339118" TEXT="Keep jumping until I get to the next 1">
+<node CREATED="1588211339570" ID="ID_1876482932" MODIFIED="1588211351528" TEXT="Worst case: length u"/>
+</node>
+</node>
+<node CREATED="1588211367751" ID="ID_1145994345" MODIFIED="1588211388233" TEXT="Clusters">
+<node CREATED="1588211452808" ID="ID_469823517" MODIFIED="1588211510368" TEXT="Take or of two values at each level"/>
+<node CREATED="1588211537005" ID="ID_351662942" MODIFIED="1588211543288" TEXT="Split universe into clusters">
+<node CREATED="1588211553786" ID="ID_1274222068" MODIFIED="1588211565387" TEXT="Size of cluster: sqrt(u)"/>
+</node>
+<node CREATED="1588211625649" ID="ID_1292647195" MODIFIED="1588211634525" TEXT="Insert: O(1) - two steps"/>
+<node CREATED="1588211646702" ID="ID_294847810" MODIFIED="1588211680394" TEXT="Successor(s): - look in x&apos;s cluster, then look for next 1 bit in summary vector, look for first 1 in that cluster">
+<node CREATED="1588211696856" ID="ID_3334031" MODIFIED="1588211701164" TEXT="O(sqrt(u))"/>
+</node>
+<node CREATED="1588211759306" ID="ID_1641260097" MODIFIED="1588211771329" TEXT="if x = i.sqrt(u) + j">
+<node CREATED="1588211771658" ID="ID_1616585255" MODIFIED="1588211778754" TEXT="0 &lt;= j &lt; sqrt(u)">
+<node CREATED="1588211789394" ID="ID_1558130932" MODIFIED="1588211798824" TEXT="i is cluster number and j is position within the cluster">
+<node CREATED="1588211876916" ID="ID_1687433757" MODIFIED="1588211893074" TEXT="high(x) = floor(x/sqrt(u))">
+<node CREATED="1588211969416" ID="ID_1617106350" MODIFIED="1588211978851" TEXT="corresponds to high 1/2 of bits">
+<node CREATED="1588212013430" ID="ID_1743938824" MODIFIED="1588212024293" TEXT="bit shift operations can give this"/>
+</node>
+</node>
+<node CREATED="1588211893699" ID="ID_875727319" MODIFIED="1588211902798" TEXT="low(x) = x mod sqrt(u)">
+<node CREATED="1588211980685" ID="ID_1803091667" MODIFIED="1588212003157" TEXT="corresponds to low 1/2 of bits"/>
+</node>
+<node CREATED="1588211908137" ID="ID_1051261609" MODIFIED="1588211919503" TEXT="index(i, j) = i.sqrt(u) + j"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588212063427" ID="ID_362688605" MODIFIED="1588212071615" TEXT="recurse: V">
+<node CREATED="1588212074088" ID="ID_1071947226" MODIFIED="1588212094963" TEXT="- V.cluster[i] = size - sqrt(u)">
+<node CREATED="1588212112162" ID="ID_1513475567" MODIFIED="1588212124140" TEXT="0 &lt;= i &lt;= sqrt(u)"/>
+</node>
+<node CREATED="1588212103478" ID="ID_925896500" MODIFIED="1588212107047" TEXT="V = size - u"/>
+<node CREATED="1588212129168" ID="ID_596664507" MODIFIED="1588212161869" TEXT="V.summary = size - sqrt(u)"/>
+</node>
+<node CREATED="1588384064785" ID="ID_324519052" MODIFIED="1588384091295" TEXT="Insert(V, x)">
+<node CREATED="1588384142845" ID="ID_1111004218" MODIFIED="1588384728795">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Insert(V.summary, high(x))
+    </p>
+    <p>
+      Insert(V.cluster[high(x)], low(x))
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588384159390" ID="ID_251181830" MODIFIED="1588384164328" TEXT="Which clusters are non-empty">
+<node CREATED="1588384529678" ID="ID_1057469056" MODIFIED="1588384541836" TEXT="T(u) = 2.T(sqrt(u)) + O(1)">
+<node CREATED="1588384551290" ID="ID_1338485725" MODIFIED="1588384567593" TEXT="T(log u) = 2.T(log u / 2) + O(1)">
+<node CREATED="1588384610831" ID="ID_1920581824" MODIFIED="1588384620942" TEXT="O(log u)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588384279950" ID="ID_1045005638" MODIFIED="1588384286196" TEXT="Successor(V, x):">
+<node CREATED="1588384286531" ID="ID_821690564" MODIFIED="1588384456726">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      i = high(x)
+    </p>
+    <p>
+      j = Successor(V.cluster[i], low(x))
+    </p>
+    <p>
+      if j = inf:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = Successor(V.summary, i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;j = Successor(V.cluster[i], -inf)
+    </p>
+    <p>
+      return index(i,j)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588384469265" ID="ID_1391345155" MODIFIED="1588384473729" TEXT="Not log log u">
+<node CREATED="1588384488355" ID="ID_1734571074" MODIFIED="1588384498320" TEXT="Successor is called 3 times potentially">
+<node CREATED="1588384656189" ID="ID_266665594" MODIFIED="1588384662868" TEXT="O(log u)^log 3"/>
+</node>
+</node>
+<node CREATED="1588384783531" ID="ID_775589580" MODIFIED="1588384788475" TEXT="Store minimum">
+<node CREATED="1588384790334" ID="ID_1903048231" MODIFIED="1588385033226">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Insert(V, x):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if x &lt; V.min:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;V.min = x
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if x &gt; V.max
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;V.max = x
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588385063706" ID="ID_1997676699" MODIFIED="1588385084515" TEXT="If I am less than max, then I can go to summary or else I can search in the cluster"/>
+</node>
+</node>
+<node CREATED="1588384854347" ID="ID_94071600" MODIFIED="1588384859277" TEXT="Improved algorithm">
+<node CREATED="1588384860123" ID="ID_1657098173" MODIFIED="1588384873133" TEXT="j = V.cluster[i].min"/>
+</node>
+<node CREATED="1588385139241" ID="ID_457483362" MODIFIED="1588385142883" TEXT="Improved further">
+<node CREATED="1588385143508" FOLDED="true" ID="ID_1532396326" MODIFIED="1588727267363">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Successor(V, x):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;i = high(x)<br />&#160;&#160;&#160;&#160;if low(x) &lt; V.cluster[i]: // if I am on the left of max
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;j = Successor(V.cluster[i], low(x))
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;else: // if I am on the right of max
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = Successor(V.summary, high(x))
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;j = V.cluster[i].min
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return index(i, j)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588385314005" ID="ID_900609524" MODIFIED="1588385319302" TEXT="O(log log u)"/>
+</node>
+</node>
+<node CREATED="1588385637799" ID="ID_935076838" MODIFIED="1588385641120" TEXT="Improvement">
+<node CREATED="1588385686213" ID="ID_1537647113" MODIFIED="1588385699322" TEXT="If V.min is empty, insert in there and stop">
+<node CREATED="1588385726865" ID="ID_1901246081" MODIFIED="1588727923618">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Insert(V, x): if V.min = None: V.min = V.max = x and return
+    </p>
+    <p>
+      if x &lt; V.min: swap x &lt;-&gt; V.min // every item except the min is recursively inserted
+    </p>
+    <p>
+      if x &gt; V.max: V.max = x
+    </p>
+    <p>
+      if V.cluster[high(x)].min = None:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Insert(V.summary, high(x)) // if this is called, the next call is constant time
+    </p>
+    <p>
+      Insert(V.cluster[high(x)], low(x)) // if prev is not called, then this is recursive call
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1588728006013" ID="ID_1487257637" MODIFIED="1588728012446" TEXT="Fix for successor:">
+<node CREATED="1588728013399" ID="ID_1073919653" MODIFIED="1588728021876" TEXT="if x &lt; V.min: return V.min">
+<node CREATED="1588728023585" ID="ID_912513568" MODIFIED="1588728039732" TEXT="Since V.min is not stored recursively">
+<node CREATED="1588728058810" ID="ID_447754618" MODIFIED="1588728071360" TEXT="If we are smaller than V.min, then V.min is the successor"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588728245028" ID="ID_1813395201" MODIFIED="1588728851432">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Delete(V, x):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if x = V.min:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = V.summary.min
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if i = None:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;V.min = V.max = None
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;x = V.min = index(i, V.cluster[i].min) // V.min is not the only item
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Delete(V.cluster[high(x)], low(x)) // undo inserts
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if V.cluster[high(x)].min = None:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Delete(V.summary, high(x))
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if x = V.max: // if we delete the max, then we need to find predecessor
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if V.summary.max = None:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;V.max = V.min // last item left
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = V.summary.max
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;V.max = index(i, V.cluster[i].max)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1588728884629" ID="ID_352613279" MODIFIED="1588728893949" TEXT="Lower bound: Omega(log log u)">
+<node CREATED="1588728905135" ID="ID_1082101034" MODIFIED="1588728934618" TEXT="for u = n^log^(O(1))n &amp; space = O(n plylog n)">
+<node CREATED="1588729002767" ID="ID_1330169065" MODIFIED="1588729008130" TEXT="If log log u = log log n"/>
+<node CREATED="1588729026094" ID="ID_1239090283" MODIFIED="1588729061980" TEXT="space is not too super linear">
+<node CREATED="1588729064839" ID="ID_792666972" MODIFIED="1588729076015" TEXT="Space: O(u)">
+<node CREATED="1588729231771" ID="ID_1751584578" MODIFIED="1588729260321" TEXT="Only store non-empty clusters">
+<node CREATED="1588729276782" ID="ID_1338416577" MODIFIED="1588729296850" TEXT="Trick: V.cluster = hash table instead of an array">
+<node CREATED="1588729305691" ID="ID_636499169" MODIFIED="1588729317421" TEXT="E[X] = O(1)"/>
+<node CREATED="1588729333321" ID="ID_811667757" MODIFIED="1588729341347" TEXT="O(n log log u) space">
+<node CREATED="1588729383031" ID="ID_1998733764" MODIFIED="1588729402752" TEXT="For each item we insert, we may add log log u structures">
+<node CREATED="1588729412057" ID="ID_65140964" MODIFIED="1588729421201" TEXT="Possible to reduce it to O(n)">
+<node CREATED="1588729422265" ID="ID_94879255" MODIFIED="1588729500036" TEXT="if n = log log u, put them in a linked list"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588210050404" ID="ID_957066779" MODIFIED="1588210054671" TEXT="Insert, Successor"/>
+<node CREATED="1588210056341" ID="ID_1720700183" MODIFIED="1588210057731" TEXT="Delete"/>
+<node CREATED="1588210058521" ID="ID_1942699958" MODIFIED="1588210059847" TEXT="Space"/>
+</node>
 <node CREATED="1575128505011" ID="ID_1585701604" MODIFIED="1575128514741" POSITION="right" TEXT="5. Amortization: Amortized Analysis">
 <node CREATED="1576118051970" ID="ID_960643603" MODIFIED="1576118063761" TEXT="Especially if using DS when implementing algorithm"/>
 <node CREATED="1576118082617" ID="ID_1978363410" MODIFIED="1576118101375" TEXT="We care about overall running time of the algorithm rather than individual operations">
@@ -825,34 +1144,8919 @@
 </node>
 </node>
 </node>
-<node CREATED="1575128515795" ID="ID_1184758006" MODIFIED="1575128527826" POSITION="left" TEXT="6. Randomization: Matrix Multiply, Quicksort"/>
-<node CREATED="1575128529126" ID="ID_1679522484" MODIFIED="1575128540630" POSITION="right" TEXT="7. Randomization: Skip Lists"/>
-<node CREATED="1575128541314" ID="ID_1002558514" MODIFIED="1575128556030" POSITION="left" TEXT="8. Randomization: Universal &amp; Perfect Hashing"/>
-<node CREATED="1575128556609" ID="ID_437743897" MODIFIED="1575128565026" POSITION="right" TEXT="9. Augmentation: Range Trees"/>
-<node CREATED="1575128565722" ID="ID_505078054" MODIFIED="1575128574949" POSITION="left" TEXT="10. Dynamic Programming: Advanced DP"/>
-<node CREATED="1575128578747" ID="ID_824053924" MODIFIED="1575128595130" POSITION="right" TEXT="11. Dynamic Programming: All-Pairs Sortest Paths"/>
-<node CREATED="1575128597572" ID="ID_309855821" MODIFIED="1575128610219" POSITION="left" TEXT="12. Greedy Algorithms: Minimum Spanning Tree"/>
-<node CREATED="1575128610931" ID="ID_584218558" MODIFIED="1575128623220" POSITION="right" TEXT="13. Incremental Improvement: Max Flow, Min Cut"/>
-<node CREATED="1575128623972" ID="ID_727944462" MODIFIED="1575128633538" POSITION="left" TEXT="14. Incremental Improvement: Matching"/>
-<node CREATED="1575128634518" ID="ID_1238648892" MODIFIED="1575128646202" POSITION="right" TEXT="15. Linear Programming: LP, reductions, Simplex"/>
-<node CREATED="1575128647035" ID="ID_1204642290" MODIFIED="1575128670999" POSITION="left" TEXT="16. Complexity: P, NP, NP-Completeness, Reductions"/>
-<node CREATED="1575128675493" ID="ID_1396131334" MODIFIED="1575128685090" POSITION="right" TEXT="17. Complexity: Approximation Algorithms"/>
+<node CREATED="1575128515795" ID="ID_1184758006" MODIFIED="1575128527826" POSITION="left" TEXT="6. Randomization: Matrix Multiply, Quicksort">
+<node CREATED="1588729702336" ID="ID_938266142" MODIFIED="1588729709744" TEXT="Randomized Algorithms:">
+<node CREATED="1588729710208" ID="ID_174304255" MODIFIED="1588729826355" TEXT="Randomized or Probabilistic algorithm is that which generates a random number r &lt;= {1, ..., R} and makes decisions based on r&apos;s value">
+<node CREATED="1588729752020" ID="ID_582620327" MODIFIED="1588729761958" TEXT="Sometimes coin flip and some times vector"/>
+<node CREATED="1588729829159" ID="ID_748944945" MODIFIED="1588729835729" TEXT="Assuming true randomness"/>
+<node CREATED="1588729840500" ID="ID_795117286" MODIFIED="1588729924928">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      On the same input on different executions,&#160;
+    </p>
+    <p>
+      &#160;- run for a different number of steps
+    </p>
+    <p>
+      &#160;- produce different outputs (we may get wrong answer)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588729926048" ID="ID_1485777297" MODIFIED="1588729938076" TEXT="We want to calculate the probability">
+<node CREATED="1588729943812" ID="ID_781104179" MODIFIED="1588729968388" TEXT="Incorrect output - we want p to be very small (it may take longer to get there)"/>
+</node>
+<node CREATED="1588729972977" ID="ID_715264386" MODIFIED="1588729986163" TEXT="Probably correct - Monte Carlo algorithms">
+<node CREATED="1588730286167" ID="ID_795480899" MODIFIED="1588730294493" TEXT="Checking product of two matrices">
+<node CREATED="1588730295512" ID="ID_158758339" MODIFIED="1588730304003" TEXT="Probability of error"/>
+</node>
+</node>
+<node CREATED="1588729987854" ID="ID_1278452737" MODIFIED="1588730048411" TEXT="Probably fast - (May be expected polynomial time) - Las Vegas">
+<node CREATED="1588730322394" ID="ID_1900406637" MODIFIED="1588730327420" TEXT="Quick sort">
+<node CREATED="1588730327931" ID="ID_1285901451" MODIFIED="1588730340435" TEXT="Expected time is O(nlogn)"/>
+</node>
+</node>
+<node CREATED="1588730084545" ID="ID_1685327173" MODIFIED="1588730203276" TEXT="Probably correct and probably fast - Atlantic City">
+<node CREATED="1588730224909" ID="ID_1600650417" MODIFIED="1588730228946" TEXT="Primality check"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588809684995" ID="ID_222364444" MODIFIED="1588809690115" TEXT="Matrix Multiply">
+<node CREATED="1588809693352" ID="ID_664355088" MODIFIED="1588809698229" TEXT="C = A x B">
+<node CREATED="1588809698466" ID="ID_148063370" MODIFIED="1588809709070" TEXT="O(n^3) - multiplications only">
+<node CREATED="1588809723238" ID="ID_73687343" MODIFIED="1588809751017" TEXT="multiplys are more sophisticated">
+<node CREATED="1588809928349" ID="ID_230250730" MODIFIED="1588809947584" TEXT="constant factor is 1"/>
+</node>
+</node>
+<node CREATED="1588809779513" ID="ID_933926201" MODIFIED="1588809821598" TEXT="Strassen Multiply two 2 x 2 matrices using 7 multiplications (n^log_2 7) = O(n^2.81)"/>
+<node CREATED="1588809827355" ID="ID_118355540" MODIFIED="1588809835675" TEXT="O(n^2.70)">
+<node CREATED="1588809835989" ID="ID_827898961" MODIFIED="1588809843698" TEXT="70 x 70 matrices"/>
+</node>
+<node CREATED="1588809859571" ID="ID_16363672" MODIFIED="1588809886010" TEXT="Coppersmith-Winograd: O(n^2.376)"/>
+<node CREATED="1588809890482" ID="ID_187075879" MODIFIED="1588809898076" TEXT="O(n^2.373)">
+<node CREATED="1588809909594" ID="ID_349622368" MODIFIED="1588809913963" TEXT="Not impractial">
+<node CREATED="1588809914590" ID="ID_1668191065" MODIFIED="1588809921078" TEXT="Constant factors are much larger"/>
+</node>
+</node>
+</node>
+<node CREATED="1588809989637" ID="ID_1920034197" MODIFIED="1588809997731" TEXT="Get an O(n^2) algorithm">
+<node CREATED="1588809998249" ID="ID_1432367106" MODIFIED="1588810013832" TEXT="if A x B = C, then prob[output = yes] = 1"/>
+<node CREATED="1588810030313" ID="ID_1418550621" MODIFIED="1588810056792" TEXT="if A x B != C, then prob[output = yes] &lt;= 1/2">
+<node CREATED="1588810120738" ID="ID_1788929271" MODIFIED="1588810154650" TEXT="Run k times and prob[output = y] &lt;= 1/2^k"/>
+<node CREATED="1588810188016" ID="ID_1912172109" MODIFIED="1588810226345" TEXT="Example: values are mod 2 (entries = {0, 1})">
+<node CREATED="1588810233641" ID="ID_867159881" MODIFIED="1588810436075">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Freevald's algorithm:
+    </p>
+    <p>
+      Choose a random binary vector r[1...n] such that Pr[ri = 1] = 1/2 independently for i in {1,..., n}
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      If A(Br) = Cr, then output 'YES'
+    </p>
+    <p>
+      else output 'NO'
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588810476523" ID="ID_366199790" MODIFIED="1588810594569" TEXT="Complexity: 3 matrix vector products">
+<node CREATED="1588810629714" ID="ID_1184989892" MODIFIED="1588810670835" TEXT="If AB = C, A(Br) = (AB)r = Cr">
+<node CREATED="1588810673362" ID="ID_1686436461" MODIFIED="1588810683951" TEXT="By associativity: so no false negatives"/>
+</node>
+<node CREATED="1588810773756" ID="ID_291542878" MODIFIED="1588810790464" TEXT="If AB != C">
+<node CREATED="1588810791322" ID="ID_531545291" MODIFIED="1588811049372">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Claim: if AB != C, then Prob[ABr != Cr] &gt;= 1/2
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Let D = AB - C (non zero entry means it is not computed correctly).
+    </p>
+    <p>
+      Our hypothesis D != 0 (at-least 1 entry is not 0)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      We need to show that there are many r's such that Dr != 0 (ABr != Cr != (AB - C)r != 0)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Specifically, Prob[Dr != 0] &gt;= 1/2 for a randomly chosen r
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588811162789" ID="ID_407654732" MODIFIED="1588811710660">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Dr = 0 case: if we have a bad r
+    </p>
+    <p>
+      D = AB - C != 0 =&gt; there exists i, j such that d_ij != 0
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      V has 1 at jth entry and 0s as other entries
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Dv = [0 0 ... 0 k 0 ... 0]^T
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      (Dv)_j = dij != 0
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Take any r that can be chosen by our algorithm such that Dr = 0: r' = r + v (mod 2 arithmetic which gives 1 + 1 = 0)<br />Dr' = D(r + v) = 0 + Dv != 0
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      r to r' is 1 to 1: if r' = r + v = r'' + v, then r = r'' (1 to 1 mapping)<br />
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      (jth column can be made 1 or 0 to make the multiplication non zero)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1588811739908" ID="ID_1415914567" MODIFIED="1588811834885">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      If Dr = 0: discover an r' such that Dr' != 0: r &lt;-&gt; r' is 1 to 1 mapping
+    </p>
+    <p>
+      Number of r' for which Dr' != 0 &gt;= number of r for which Dr = 0
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      =&gt; Pr[Dr != 0] &gt;= 1/2 (where r is randomly chosen)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588811996962" ID="ID_867918595" MODIFIED="1588812000737" TEXT="Quicksort">
+<node CREATED="1588812002076" ID="ID_1772511354" MODIFIED="1588812027100" TEXT="Mergesort: Needs auxilliary space - Asymptotically performant but not practical"/>
+<node CREATED="1588812032014" ID="ID_913449039" MODIFIED="1588812117762">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Divide and conquer:
+    </p>
+    <p>
+      1. In place (no O(n) auxillary space )
+    </p>
+    <p>
+      2. all the work is in divide step
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588812080095" ID="ID_1025445969" MODIFIED="1588812084580" TEXT="Less memory allocation"/>
+<node CREATED="1588812133311" ID="ID_129629768" MODIFIED="1588812141640" TEXT="3 different variants">
+<node CREATED="1588812179047" ID="ID_1668444264" MODIFIED="1588812187633" TEXT="Las Vegas variant">
+<node CREATED="1588812188534" ID="ID_1808992000" MODIFIED="1588812299983">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      n-element array A
+    </p>
+    <p>
+      Divide:
+    </p>
+    <p>
+      1. Pick a pivot element x in A
+    </p>
+    <p>
+      2. Partition the array into subarrays such that
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;L&#160;&#160;&#160;E&#160;&#160;&#160;G
+    </p>
+    <p>
+      [&lt;x|x|&gt;x]
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Conquer: Recursively sort subarrays L &amp; G
+    </p>
+    <p>
+      Combine: Trivial
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588812345809" ID="ID_945492342" MODIFIED="1588812354570" TEXT="CLRS: page 171">
+<node CREATED="1588812395232" ID="ID_1518250132" MODIFIED="1588812397609" TEXT="In place"/>
+</node>
+</node>
+</node>
+<node CREATED="1588812432046" ID="ID_165397504" MODIFIED="1588812539226">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Basic Quicksort:
+    </p>
+    <p>
+      pivot: x = A[1] or A[n] (value)
+    </p>
+    <p>
+      Partition given x -&gt; O(n) time (look at each element and move)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588812542136" ID="ID_582204860" MODIFIED="1588812546142" TEXT="Worst case analysis">
+<node CREATED="1588812566035" ID="ID_781939276" MODIFIED="1588812593573" TEXT="If an Array is reverse sorted">
+<node CREATED="1588812594605" ID="ID_589914321" MODIFIED="1588812606079" TEXT="One side L or G has n - 1 elements, &amp; other 0">
+<node CREATED="1588812608781" ID="ID_320513526" MODIFIED="1588812619715" TEXT="T(n) = T(0) + T(n - 1) + Theta(n)">
+<node CREATED="1588812621281" ID="ID_1024709260" MODIFIED="1588812632059" TEXT="Need to compare all n elements with x"/>
+<node CREATED="1588812644707" ID="ID_1029020789" MODIFIED="1588812654307" TEXT="T(n) = T(n - 1) + Theta(n)">
+<node CREATED="1588812654642" ID="ID_1742766791" MODIFIED="1588812661267" TEXT="Theta(n^2)">
+<node CREATED="1588812687505" ID="ID_1416723504" MODIFIED="1588812699605" TEXT="But works well on random input in practice">
+<node CREATED="1588812700838" ID="ID_35349447" MODIFIED="1588812723294" TEXT="How? Shuffle inputs - do in Theta(n) time -&gt; produces random input">
+<node CREATED="1588812773930" ID="ID_1840257944" MODIFIED="1588812780661" TEXT="Produces balanced L and G">
+<node CREATED="1588812791638" ID="ID_1306306439" MODIFIED="1588812802461" TEXT="Produces Expected Theta(n log n)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588812809800" ID="ID_133809233" MODIFIED="1588812941478">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Intelligent pivot selection method:
+    </p>
+    <p>
+      Linear median finding (of values) - perfectly balanced partitions
+    </p>
+    <p>
+      &#160;&#160;&#160;guarentee balanced L &amp; G using median selection that runs in Theta(n) time
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588812962998" ID="ID_322147831" MODIFIED="1588813051465">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      T(n) = 2.T(n/2) + Theta(n) + Theta(n)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      First Theta(n) for recursive median selection
+    </p>
+    <p>
+      Second Theta(n) for combine step
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588812980079" ID="ID_605346557" MODIFIED="1588812990447" TEXT="Thanks to median based pivot"/>
+<node CREATED="1588813061320" ID="ID_246419170" MODIFIED="1588813081155" TEXT="Too complex: loses to merge sort in practice - because of recursion in recursion">
+<node CREATED="1588813082759" ID="ID_1408729357" MODIFIED="1588813097489" TEXT="In Practice"/>
+</node>
+</node>
+</node>
+<node CREATED="1588813111192" ID="ID_306476206" MODIFIED="1588813200835">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Randomized Quicksort Method:
+    </p>
+    <p>
+      x is chosen at random from array A (index is randomized)
+    </p>
+    <p>
+      expected time is O(n log n) for all input arrays A
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588813259926" ID="ID_329734313" MODIFIED="1588813270966" TEXT="CLRS: p 181 - 4">
+<node CREATED="1588813275966" ID="ID_1991000863" MODIFIED="1588813278260" TEXT="Analysis"/>
+</node>
+</node>
+<node CREATED="1588813279912" ID="ID_710543552" MODIFIED="1588813284995" TEXT="Variant Quicksort">
+<node CREATED="1588813286141" ID="ID_329028999" MODIFIED="1588813290413" TEXT="Easy to analyze"/>
+<node CREATED="1588813308912" ID="ID_1634476391" MODIFIED="1588813325396" TEXT="Called Paranoid Quicksort">
+<node CREATED="1588813326112" ID="ID_1388189020" MODIFIED="1588813359390" TEXT="Try to get balanced partitions: If it fails, it tries again">
+<node CREATED="1588813371813" ID="ID_290325583" MODIFIED="1588813452841">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Repeat:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Choose pivot to be a random element of A
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Perform the partition
+    </p>
+    <p>
+      Until resulting partition is such that
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;|L| &lt;= 3/4|A| and |G| &lt;= 3/4|A|
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588813497069" ID="ID_207740010" MODIFIED="1588813511851" TEXT="Analysis">
+<node CREATED="1588813546470" ID="ID_1006254610" MODIFIED="1588813844702">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;bad&#160;&#160;good bad
+    </p>
+    <p>
+      [&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;]
+    </p>
+    <p>
+      1/4n&#160;&#160;&#160;1/2n 1/4n
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      A call is good with prob &gt;= 1/2
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      T(n) = T(n/4) + T(3n/4) + E(number of iterations).cn
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      c - constant time to choose a random number
+    </p>
+    <p>
+      cn - partitioning time
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      E(number of iterations) = 2 --- (1/p since all are independent)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      =&gt; T(n) = T(n/4) + T(3n/4) + 2.c.n
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588813863562" ID="ID_1216394615" MODIFIED="1588814138143">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      2cn
+    </p>
+    <p>
+      &#160;&#160;1/4.2cn&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3/4.2cn
+    </p>
+    <p>
+      &#160;&#160;&#160;1/16.2cn&#160;&#160;&#160;3/16.2cn&#160;&#160;3/16.2cn&#160;&#160;&#160;&#160;9/16.2cn&#160;
+    </p>
+    <p>
+      &#160;...
+    </p>
+    <p>
+      &#160;&#160;&#160;Theta(1) ... Theta(1)
+    </p>
+    <p>
+      &#160;---&gt; log 4/3(2cn) level (right side) and log(2cn) levels (left side)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      We have 2cn work at each level =&gt; max log_4/3(2cn) levels
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      2cn x log_4/3 (2cn) work = Theta(n log n) (ignoring constants)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128529126" ID="ID_1679522484" MODIFIED="1575128540630" POSITION="right" TEXT="7. Randomization: Skip Lists">
+<node CREATED="1588814310878" ID="ID_1377647306" MODIFIED="1588814324363" TEXT="William Pugh (1989)"/>
+<node CREATED="1588814326883" ID="ID_1643812167" MODIFIED="1588814330743" TEXT="Easy to implement"/>
+<node CREATED="1588814354970" ID="ID_1036222346" MODIFIED="1588814363525" TEXT="Compare with AVL tree or Red-black tree"/>
+<node CREATED="1588814367172" ID="ID_1788441006" MODIFIED="1588814481163">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Maintains a dynamic set of n elements in O(log n) time per operation in expectation and with high probability (stronger than expectation)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588814375712" ID="ID_1523910957" MODIFIED="1588814390619" TEXT="can change it and other operations"/>
+</node>
+<node CREATED="1588814492748" ID="ID_1378064421" MODIFIED="1588814495007" TEXT="Structure">
+<node CREATED="1588814495308" ID="ID_880312484" MODIFIED="1588814567912">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      One sorted doubly linked list
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588814499284" ID="ID_1787975359" MODIFIED="1588814513315" TEXT="to start with (unsorted)"/>
+<node CREATED="1588814547012" ID="ID_155735347" MODIFIED="1588814551342" TEXT="Search takes O(n) time"/>
+<node CREATED="1588814756645" ID="ID_668149735" MODIFIED="1588814793301" TEXT="14 &lt;-&gt; 23 &lt;-&gt; 34 &lt;-&gt; 52 &lt;-&gt; 59 &lt;-&gt; 66 &lt;-&gt; 72 &lt;-&gt; 79"/>
+</node>
+<node CREATED="1588814704370" ID="ID_1098514246" MODIFIED="1588814709134" TEXT="Second linked list">
+<node CREATED="1588814796038" ID="ID_1517483978" MODIFIED="1588814835674" TEXT="14 &lt;-&gt; 34 &lt;-&gt; 42 &lt;-&gt; 72 &lt;-&gt;">
+<node CREATED="1588814873033" ID="ID_38011612" MODIFIED="1588814875971" TEXT="Express line">
+<node CREATED="1588814896297" ID="ID_948696756" MODIFIED="1588814902519" TEXT="(minizing distance travel)">
+<node CREATED="1588814930994" ID="ID_1641544959" MODIFIED="1588814960204" TEXT="Search (66): 14 &lt;-...-&gt; 42 (L1) and 42 &lt;-...-&gt; 66 (L0)"/>
+</node>
+</node>
+</node>
+<node CREATED="1588815071419" ID="ID_928724818" MODIFIED="1588815183471">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Search(x):
+    </p>
+    <p>
+      &#160;&#160;&#160;Walk right in top linked list (L1) until going right would go too far (overshooting is another search type but analysis is painful)
+    </p>
+    <p>
+      &#160;&#160;&#160;Walk down to the bottom list (L0)
+    </p>
+    <p>
+      &#160;&#160;&#160;Walk right in L0 until element is found (or not)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588838314272" ID="ID_1809613763" MODIFIED="1588838372248" TEXT="Analysis: Search cost ~ |L1| + |L0|/|L1|">
+<node CREATED="1588838377423" ID="ID_27881779" MODIFIED="1588838385302" TEXT="If interspersed uniformly">
+<node CREATED="1588840989615" ID="ID_147919068" MODIFIED="1588841000540" TEXT="minimize this: when terms are equal">
+<node CREATED="1588841012210" ID="ID_1152515543" MODIFIED="1588841049874" TEXT="|L1|^2 = |L0| = n =&gt; |L1| = sqrt(n)">
+<node CREATED="1588841144776" ID="ID_839350968" MODIFIED="1588841151587" TEXT="search cost = O(sqrt(n))"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588841208427" ID="ID_571155488" MODIFIED="1588841219377" TEXT="2 sorted lists -&gt; 2 sqrt(n)"/>
+<node CREATED="1588841232241" ID="ID_102309090" MODIFIED="1588841275486" TEXT="3 sorted lists -&gt; 3 n^(1/3)"/>
+<node CREATED="1588841276311" ID="ID_1801835091" MODIFIED="1588841287230" TEXT="k sorted lists -&gt; k n^(1/k)"/>
+<node CREATED="1588841312800" ID="ID_1031873965" MODIFIED="1588841395213" TEXT="log n sorted lists -&gt; log n . n^(1/log(n) = 2 log n"/>
+</node>
+<node CREATED="1588841597138" ID="ID_809930785" MODIFIED="1588841606672" TEXT="Bounding levels in a probabilistic way"/>
+<node CREATED="1588842011738" ID="ID_723873934" MODIFIED="1588842035628" TEXT="If Li has a station, then Li - 1 should have a station">
+<node CREATED="1588842119918" ID="ID_1431955931" MODIFIED="1588842373173">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Insert(x):
+    </p>
+    <p>
+      &#160;&#160;To insert an element x into a skip list, Search(x) to see where x fits into the bottom list.
+    </p>
+    <p>
+      &#160;&#160;Always insert into bottom list
+    </p>
+    <p>
+      &#160;&#160;Insert into some of the lists above (which ones?)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Flip fair coin: if H: promote x to next level up
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;and repeat (Flip and promote)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if T, stop
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588852872721" ID="ID_1126031190" MODIFIED="1588852888804" TEXT="Each head adds one element to prev node">
+<node CREATED="1588852889281" ID="ID_1234548623" MODIFIED="1588852900890" TEXT="We may get new lists"/>
+<node CREATED="1588852993714" ID="ID_249569416" MODIFIED="1588853008346" TEXT="Caveat: There is a finite probability that we may get heads always">
+<node CREATED="1588853009062" ID="ID_1608330975" MODIFIED="1588853026439" TEXT="We need to truncate and decide that we are going to have only p levels"/>
+<node CREATED="1588853098665" ID="ID_528843782" MODIFIED="1588853106391" TEXT="Worst case can be O(n)">
+<node CREATED="1588853106714" ID="ID_1123681652" MODIFIED="1588853112200" TEXT="with certain constraints"/>
+</node>
+</node>
+</node>
+<node CREATED="1588853210015" ID="ID_798410189" MODIFIED="1588853218878" TEXT="If I insert x &lt; lowest term?">
+<node CREATED="1588853219314" ID="ID_148280105" MODIFIED="1588853252702" TEXT="Insert a -inf to start with"/>
+</node>
+</node>
+<node CREATED="1588853140057" ID="ID_398507443" MODIFIED="1588853170837" TEXT="Delete(x): Search &amp; delete at all levels"/>
+<node CREATED="1588853260133" ID="ID_196307837" MODIFIED="1588853289468" TEXT="Warmup lemma: Number of levels in n-element skip list is O(log n) with high probability">
+<node CREATED="1588853297735" ID="ID_1152177206" MODIFIED="1588853330552" TEXT="probability 1 - 1/(n^alpha) where alpha is &gt; 1">
+<node CREATED="1588853334530" ID="ID_1954315484" MODIFIED="1588853344238" TEXT="probability increases as n grows"/>
+</node>
+<node CREATED="1588853356479" ID="ID_1811063649" MODIFIED="1588853361577" TEXT="c.log n">
+<node CREATED="1588853375392" ID="ID_1889100307" MODIFIED="1588853380646" TEXT="alpha also depends on c">
+<node CREATED="1588853396741" ID="ID_1190360242" MODIFIED="1588853406844" TEXT="alpha increases with c">
+<node CREATED="1588853410850" ID="ID_1649639645" MODIFIED="1588853420857" TEXT="higher the constant, more the probability"/>
+</node>
+</node>
+</node>
+<node CREATED="1588853466836" ID="ID_1746227524" MODIFIED="1588853529291" TEXT="Proof: Failure probability (not &lt;= c log n levels) = Pr(&gt; c log n levels) = Pr(some element gets promotes &gt; c log n times)">
+<node CREATED="1588853549507" ID="ID_1361484677" MODIFIED="1588853555195" TEXT="Sequence of inserts (say)"/>
+<node CREATED="1588853642284" ID="ID_142546698" MODIFIED="1588853803776" TEXT="&lt;= n.Pr(a particular element x gets promoted &gt; c log n times)">
+<node CREATED="1588853831893" ID="ID_4383019" MODIFIED="1588853836411" TEXT="union bound">
+<node CREATED="1588853837706" ID="ID_616295238" MODIFIED="1588853847194" TEXT="We don&apos;t know how many of them got promoted">
+<node CREATED="1588853847648" ID="ID_1832338192" MODIFIED="1588853850708" TEXT="1, 2, ..., n"/>
+</node>
+</node>
+<node CREATED="1588853858006" ID="ID_1819029274" MODIFIED="1588853970975" TEXT="&lt;= n. (1/2)^c log n = n/n^c = 1/n^(c - 1) = 1/n^alpha =&gt; alpha = c - 1">
+<node CREATED="1588984821528" ID="ID_617010360" MODIFIED="1588984836955" TEXT="Chernoff&apos;s bound: Hammer to verify high probability">
+<node CREATED="1588985046830" ID="ID_1696660731" MODIFIED="1588985088336" TEXT="If we get further and further away from the expectation, what is the probability that we are going to be so far away">
+<node CREATED="1588985151777" ID="ID_554614322" MODIFIED="1588985166151" TEXT="If 50, r = 0 =&gt; &lt;= 1"/>
+<node CREATED="1588985166560" ID="ID_1578735370" MODIFIED="1588985398289" TEXT="If 75, r = 25 =&gt; &lt;= e^(-2.25^2/100) &lt;= e^(-12.5) ~ 0.000003726653172"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588854079462" ID="ID_146367545" MODIFIED="1588854107087" TEXT="Search: Theorem: Any search in an n - element skip list costs O(log n) with high probability">
+<node CREATED="1588854131623" ID="ID_1480935477" MODIFIED="1588854153227" TEXT="Analyze search backwards (idea)">
+<node CREATED="1588854158554" ID="ID_1317604826" MODIFIED="1588854329455">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      bsearch starts [ends] at node in bottom list
+    </p>
+    <p>
+      At each node visited,
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node was not promoted higher (tails here)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;then we go [came from] left
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node was promoted higher (heads here)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;then we go [came from] up
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;stop [start] when we reach top level (or - inf)
+    </p>
+    <p>
+      &#160;&#160;&#160;
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588854357041" ID="ID_1893707730" MODIFIED="1588854416073">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      66 (came from top)
+    </p>
+    <p>
+      50 (go left)
+    </p>
+    <p>
+      50 (go up)
+    </p>
+    <p>
+      14 (go up)
+    </p>
+    <p>
+      14 (end)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1588854455538" ID="ID_356352206" MODIFIED="1588854461304" TEXT="We want to bound the moves">
+<node CREATED="1588984892382" ID="ID_787601434" MODIFIED="1588984992675" TEXT="Chernoff: Let Y be a random variable representing the total number of tails in a series of m independent coin flips, where each flip has a probability p of coming up heads, then for all r &gt; 0, we have&#xa;&#xa;Pr(Y &gt;= E[Y] + r] &lt;= e^(-2r^2/m)">
+<node CREATED="1588984996874" ID="ID_585996457" MODIFIED="1588985013767" TEXT="If fair coin: E[H] = m/2 or tails"/>
+<node CREATED="1588985017710" ID="ID_1074135364" MODIFIED="1588985039953" TEXT="If p: E[Y = H] = mp"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588985428186" ID="ID_1903133291" MODIFIED="1588985483178" TEXT="Lemma: For any c, there is a constant d such that, with high probability the number of heads in flipping d log n fair coins is at least c log n">
+<node CREATED="1588985606512" ID="ID_1879951511" MODIFIED="1588985639220" TEXT="If c log n is 50, if I flip a coin a 1000 times, I am going to have an overwhelming probabiility of getting 50 H">
+<node CREATED="1588985680176" ID="ID_810033206" MODIFIED="1588985816586">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Tell me what c log n is, I will find you a d such that by invoking Chernoff,&#160;I am going to show you an overwhelming probability that for that d, we are going to get at least c log n heads
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588985829006" ID="ID_1243701469" MODIFIED="1588985833673" TEXT="d = 8c">
+<node CREATED="1588985835540" ID="ID_1727556358" MODIFIED="1588985954511">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      E[Y] = m/2
+    </p>
+    <p>
+      r = d log n - c log n (number of tails)
+    </p>
+    <p>
+      &#160;&#160;= 7c log n
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1588986011263" ID="ID_1929881568" MODIFIED="1588986022777" TEXT="Pr(event A whp &amp; event B whp)"/>
+</node>
+</node>
+</node>
+<node CREATED="1575128541314" ID="ID_1002558514" MODIFIED="1575128556030" POSITION="left" TEXT="8. Randomization: Universal &amp; Perfect Hashing">
+<node CREATED="1588986248512" ID="ID_1290550601" MODIFIED="1588986263470" TEXT="Constant Expected time (not with high probability)">
+<node CREATED="1588986268843" ID="ID_321455682" MODIFIED="1588986282429" TEXT="Tighter bound - constant and not logarithmic"/>
+<node CREATED="1588986289715" ID="ID_1642710863" MODIFIED="1588986299450" TEXT="Weaker than high probability"/>
+</node>
+<node CREATED="1588986306264" ID="ID_487667222" MODIFIED="1588986320068" TEXT="Dictionary problem: Abstarct Data Type (ADT)">
+<node CREATED="1588986323238" ID="ID_404425908" MODIFIED="1588986330732" TEXT="Hash table is implementation"/>
+<node CREATED="1588986336082" ID="ID_1604812868" MODIFIED="1588986392033" TEXT="Maintain set of items, each with a key, subject to - insert (item), delete(item), search(key)">
+<node CREATED="1588986397800" ID="ID_1956548186" MODIFIED="1588986442189" TEXT="search: find item with that key (if key not present we don&apos;t know anything about their neighbors)"/>
+<node CREATED="1588986460956" ID="ID_821282348" MODIFIED="1588986473427" TEXT="insert: assume the key does not exist"/>
+</node>
+</node>
+<node CREATED="1588986489336" ID="ID_1505130620" MODIFIED="1588986519568" TEXT="Hashing: O(1) expected time per operation, O(n) space">
+<node CREATED="1588986524815" ID="ID_1850605675" MODIFIED="1588986563345">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      u = number of all possible keys
+    </p>
+    <p>
+      n = number of keys currently in the data structure
+    </p>
+    <p>
+      m = number of slots in table
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588986596100" ID="ID_102084418" MODIFIED="1588986644750" TEXT="hi {0, 1, ..., u - 1} -&gt; {0, 1, ..., m - 1}"/>
+<node CREATED="1588986653304" ID="ID_1358608804" MODIFIED="1588986674365" TEXT="Hashing with chaining: achieve Theta(1 + alpha)">
+<node CREATED="1588986676120" ID="ID_596469660" MODIFIED="1588986679950" TEXT="alpha = n/m">
+<node CREATED="1588986688220" ID="ID_1946380142" MODIFIED="1588986703650" TEXT="Assuming simple uniform hashing">
+<node CREATED="1588986739421" ID="ID_180324085" MODIFIED="1588986770866" TEXT="Pr_k1 != k2 {h(k1) = h(k2)} = 1/m">
+<node CREATED="1588986806405" ID="ID_142222229" MODIFIED="1588986859668" TEXT="It cannot be non deterministic by generating random number for each key (it must generate the same number for the same key)"/>
+<node CREATED="1588986887510" ID="ID_1476063716" MODIFIED="1588986903849" TEXT="If we give random keys, and if hash function is not crazy, then the statement is true">
+<node CREATED="1588986910750" ID="ID_1329280261" MODIFIED="1588986916298" TEXT="But what about worst case?">
+<node CREATED="1588986927404" ID="ID_764455065" MODIFIED="1588986935012" TEXT="May be everything hashes to the same slot"/>
+</node>
+</node>
+<node CREATED="1589071383068" ID="ID_1848555374" MODIFIED="1589071448161" TEXT="requires assuming keys are random (AVERGAE CASE)">
+<node CREATED="1589071450403" ID="ID_164782813" MODIFIED="1589071458353" TEXT="average case analysis is not necessary">
+<node CREATED="1589071470820" ID="ID_987267738" MODIFIED="1589071553578" TEXT="assuming inputs are random is not always correct"/>
+</node>
+</node>
+<node CREATED="1589071599560" ID="ID_1428305429" MODIFIED="1589071603564" TEXT="Etymology:">
+<node CREATED="1589071603959" ID="ID_308868536" MODIFIED="1589071622784" TEXT="To chop up"/>
+<node CREATED="1589071608008" ID="ID_227654821" MODIFIED="1589071613644" TEXT="cut into small pieces"/>
+<node CREATED="1589071615419" ID="ID_1668876882" MODIFIED="1589071617161" TEXT="axe"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589071777731" ID="ID_139454856" MODIFIED="1589071784154" TEXT="- universal hashing">
+<node CREATED="1589071829898" ID="ID_1669675091" MODIFIED="1589071833846" TEXT="most useful">
+<node CREATED="1589071835627" ID="ID_1946444837" MODIFIED="1589071844043" TEXT="expected to have very few conflicts"/>
+</node>
+<node CREATED="1589071988098" ID="ID_424150965" MODIFIED="1589071995336" TEXT="Works for dynamic data"/>
+<node CREATED="1589072003177" ID="ID_452730746" MODIFIED="1589072005980" TEXT="Idea">
+<node CREATED="1589072006649" ID="ID_1205919258" MODIFIED="1589072088025" TEXT="- choose h randomly from H (universal hash family)">
+<node CREATED="1589072058288" ID="ID_1013324208" MODIFIED="1589072069121" TEXT="This randomness is enough"/>
+</node>
+<node CREATED="1589072092995" ID="ID_391685850" MODIFIED="1589072103888" TEXT="- require H to be universal hash family:">
+<node CREATED="1589072105656" ID="ID_402491077" MODIFIED="1589072152898">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      for all k != k', Pr_h in H {h(k) = h(k')} &lt;= 1/m
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589072233857" ID="ID_1251043405" MODIFIED="1589072325949">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Theorem: for n arbitrary distinct keys
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for random h in H (universal)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;E_h[# keys colliding in slot] &lt;= 1 + alpha
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589072328943" ID="ID_939442206" MODIFIED="1589072722938">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: consider keys k1, k2, ..., kn
+    </p>
+    <p>
+      let I_i,j = {1 if h(ki) = h(kj), 0 else}
+    </p>
+    <p>
+      E[# keys colliding with ki]&#160;&#160;(use indicator random variable(s))
+    </p>
+    <p>
+      = E[sigma_i != j I_i,j + I_i,i]
+    </p>
+    <p>
+      = sigma_j != i E[I_i,j] + 1
+    </p>
+    <p>
+      = sigma_j != i Pr{I_i,j = 1} + 1
+    </p>
+    <p>
+      = sigma_j != i Pr{h(ki) = h(kj)} + 1
+    </p>
+    <p>
+      &lt;= sigma_j != i 1/m + 1(universality)
+    </p>
+    <p>
+      &lt;= 1 + n/m
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1589072770635" ID="ID_1188412652" MODIFIED="1589072776190" TEXT="Bad universal hash family">
+<node CREATED="1589072777897" ID="ID_709233556" MODIFIED="1589072850986" TEXT="H = {h:{0, 1, ..., u - 1} -&gt; {0, 1, ..., m - 1 }}">
+<node CREATED="1589072860138" ID="ID_242315439" MODIFIED="1589072922171" TEXT="Ahead of time choose a random slot for each key and remember that">
+<node CREATED="1589073000374" ID="ID_947506659" MODIFIED="1589073006955" TEXT="Takes too much time and space">
+<node CREATED="1589073010592" ID="ID_1530879103" MODIFIED="1589073028701" TEXT="time &amp; space = Theta(u)"/>
+</node>
+</node>
+</node>
+<node CREATED="1589073059567" ID="ID_749196423" MODIFIED="1589073083086" TEXT="We want a hash function that doesn&apos;t take too much time and space">
+<node CREATED="1589073085265" ID="ID_1728624014" MODIFIED="1589073101142" TEXT="Dot-product hash family:">
+<node CREATED="1589073105490" ID="ID_921767928" MODIFIED="1589073120370" TEXT="- assume m is prime">
+<node CREATED="1589073130930" ID="ID_1099190113" MODIFIED="1589073142646" TEXT="if it doubles, we can find nearby prime number"/>
+</node>
+<node CREATED="1589073152919" ID="ID_720726259" MODIFIED="1589073170398" TEXT="- assume u = m^r for integer r"/>
+<node CREATED="1589073198018" ID="ID_605737034" MODIFIED="1589074104796">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - view key k in base m
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;k = &lt;k0, k1, ..., k_r - 1&gt; (0 &lt;= ki &lt; m) (vector of sub keys - r digits) (order doesn't matter (forwards or backwards))
+    </p>
+    <p>
+      - for key a = &lt;a0, a1, ..., a_r - 1&gt;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;defie h_a(k) = (a.k) mod m = sigma_i = 0 to r - 1 ai ki mod m
+    </p>
+    <p>
+      &#160;H = {h_a | a in {0, 1, ..., u - 1}} (storing 1 number is constant time and space)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589073450806" ID="ID_1107891731" MODIFIED="1589073459690" TEXT="Word RAM (Random Access Machine)">
+<node CREATED="1589073462137" ID="ID_874188365" MODIFIED="1589073817252" TEXT="assumes that manipulating O(1) number of words takes O(1) time &amp; data values (keys) fit in word">
+<node CREATED="1589073871050" ID="ID_42115739" MODIFIED="1589073893898" TEXT="assume h_a(k) in constant time">
+<node CREATED="1589073895183" ID="ID_1697856908" MODIFIED="1589073909537" TEXT="Product can be computed in hardware (assumption)">
+<node CREATED="1589073964999" ID="ID_1241881589" MODIFIED="1589073975805" TEXT="h_a(k) can be done in constant time"/>
+</node>
+<node CREATED="1589073995894" ID="ID_847450470" MODIFIED="1589074004507" TEXT="keys can fit in a word"/>
+<node CREATED="1589074006993" ID="ID_1717616910" MODIFIED="1589074015623" TEXT="we have arrays for random access"/>
+</node>
+</node>
+</node>
+<node CREATED="1589074108377" ID="ID_1072627024" MODIFIED="1589074118166" TEXT="sigma_i = 0 to r - 1 ai ki mod m exists in intel in some form">
+<node CREATED="1589074118977" ID="ID_840132320" MODIFIED="1589074155009" TEXT="If we compute this explicitly, we need O(log_m u) time"/>
+</node>
+</node>
+</node>
+<node CREATED="1589074188965" ID="ID_469899421" MODIFIED="1589074222397" TEXT="Another: h_ab(k) = [(ak + b) mod p] mod m">
+<node CREATED="1589074256422" ID="ID_1301679542" MODIFIED="1589074287226" TEXT="Choose a uniformly random value of a and multiply it by k and add it to another uniformly random value b"/>
+<node CREATED="1589074307063" ID="ID_930140606" MODIFIED="1589074344865">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      H = {h_ab| a, b in {0, ..., u - 1}}
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589074325216" ID="ID_150959862" MODIFIED="1589074332475" TEXT="can be computed in constant time"/>
+</node>
+<node CREATED="1589074350102" ID="ID_101375957" MODIFIED="1589074356105" TEXT="p &gt; m and prime">
+<node CREATED="1589074371198" ID="ID_1807733458" MODIFIED="1589074376637" TEXT="is m prime?"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589074451178" ID="ID_1411895989" MODIFIED="1589074469956" TEXT="Theorem: Dot product H is universal">
+<node CREATED="1589074471190" ID="ID_1040250721" MODIFIED="1589156543153">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: given k != k': (vectors must be distinct)
+    </p>
+    <p>
+      =&gt; differ in some digit d: k_d != k_d'
+    </p>
+    <p>
+      Pr_a{h_a(k) = h_a(k')} = Pr_a {sigma_i = 0 to r - 1 ai.ki = sigma_i = 0 to r - 1 ai.ki' mod m}
+    </p>
+    <p>
+      = Pr{sigma_i = 0 to r - 1 ai.(ki - ki') = 0 (mod m)}
+    </p>
+    <p>
+      = Pr{a_d(k_d - k_d') + sigma_i != d ai(ki - ki') = 0 mod m}
+    </p>
+    <p>
+      = Pr{a_d = -(k_d - k_d')^-1 sigma_i != d ai(ki - ki') = 0 mod m}
+    </p>
+    <p>
+      = Pr{a_d = f(k, k', a0, a1, ..., a_d - 1, a_d + 1, ..., a_r - 1)}
+    </p>
+    <p>
+      = E_(a_i != d) [Pr_a_d {a_d = f(...) mod m}] = 1/m (any choice hitting a value mod m is 1/m)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589156149303" ID="ID_696749356" MODIFIED="1589156170802" TEXT="For every x there is a y such that x.y C= 1 mod m">
+<node CREATED="1589156181537" ID="ID_1621093910" MODIFIED="1589156196109" TEXT="y can be computed in constant time in a reasonable model"/>
+</node>
+<node CREATED="1589156239916" ID="ID_1007361328" MODIFIED="1589156259858" TEXT="Choosing a at random means choosing each of the ai&apos;s uniformly at random"/>
+<node CREATED="1589156748072" ID="ID_116236439" MODIFIED="1589156754246" TEXT="hash function depends on m">
+<node CREATED="1589156754686" ID="ID_1802668822" MODIFIED="1589156777746" TEXT="Everytime we double our table, we have to choose our hash function for new m">
+<node CREATED="1589156781007" ID="ID_710526271" MODIFIED="1589156788325" TEXT="constant expected time"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589071784570" ID="ID_1279562851" MODIFIED="1589071788450" TEXT="- perfect hashing">
+<node CREATED="1589071790937" ID="ID_10250053" MODIFIED="1589071795467" TEXT="Theoretically cooler">
+<node CREATED="1589156948966" ID="ID_1211964013" MODIFIED="1589156966226" TEXT="Static dictionary problem">
+<node CREATED="1589156967290" ID="ID_555796026" MODIFIED="1589156980201" TEXT="Given n keys, support search">
+<node CREATED="1589156981425" ID="ID_684343552" MODIFIED="1589157024629" TEXT="Perfect hashing: O(1) worst case time for search"/>
+<node CREATED="1589157025661" ID="ID_1844235858" MODIFIED="1589157037556" TEXT="O(n) worst-case space"/>
+<node CREATED="1589157040482" ID="ID_173227204" MODIFIED="1589157082797" TEXT="Polynomial (nearly linear)  build time with high probability"/>
+</node>
+<node CREATED="1589157120029" ID="ID_454674422" MODIFIED="1589157126937" TEXT="Idea: 2-level hashing">
+<node CREATED="1589157138761" ID="ID_1134740092" MODIFIED="1589157168980" TEXT="U h1 maps to a table of size m (m = Theta(n))"/>
+<node CREATED="1589157221040" ID="ID_1435134002" MODIFIED="1589157256427" TEXT="h2 maps to a second hash table (second level): instead of storing a linked list, we use a hash table">
+<node CREATED="1589157260383" ID="ID_933484661" MODIFIED="1589157271304" TEXT="We can guarantee 0 collisions in the second hash table">
+<node CREATED="1589157304243" ID="ID_83027296" MODIFIED="1589157973619">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Pick h_1: {0, ..., u - 1} -&gt; {0, 1, ..., m - 1} for universal hash family, m = Theta(n)
+    </p>
+    <p>
+      for each slot j in {0, ..., m - 1}:
+    </p>
+    <p>
+      - lj = # keys (among n) hashing to slot j
+    </p>
+    <p>
+      - pick h_2,j: {0, 1, ..., u - 1} -&gt; {0, 1, ..., lj^2 - 1} from universal hash family
+    </p>
+    <p>
+      1.5) if sigma_j = 0 to m - 1 l_j^2 &gt; c.n then redo step 1
+    </p>
+    <p>
+      2.5) while h_2,j (ki) = h_2,j(ki') for some j, ki != ki' and h1(ki) != h1(ki'), repick h2, j
+    </p>
+    <p>
+      =&gt; no collisions (different keys hashing to the same value)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589157335920" ID="ID_1484569606" MODIFIED="1589157353063" TEXT="m can be chosen to be prime based on n (need not be the same as n)"/>
+<node CREATED="1589157714361" ID="ID_1165071474" MODIFIED="1589157740476" TEXT="Birthday paradox: if there are n people and n^2 birthdays, the probability of collision is 1/2"/>
+<node CREATED="1589158202685" ID="ID_241773437" MODIFIED="1589158219131" TEXT="h2,j is a random choice (if one does not work try another)">
+<node CREATED="1589158224174" ID="ID_1532285943" MODIFIED="1589158238533" TEXT="Expected constant time to pick h2,j"/>
+</node>
+<node CREATED="1589158333753" ID="ID_1261044267" MODIFIED="1589158388757" TEXT="If we search for a k, h1(k) maps to secondary table and h2,j maps exactly to the key (if it exists) or to nothing"/>
+<node CREATED="1589158422129" ID="ID_229906764" MODIFIED="1589158433283" TEXT="How long does it take to build the table?">
+<node CREATED="1589158434246" ID="ID_766607683" MODIFIED="1589160145094">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Pr{h2,j(ki) = h2,j(ki') for some i != i'} &lt;= sigma_i != i' Pr_h2,j {h2,j(ki) = h2,j(ki')} &lt;= 1/li^2 (probability of choosing a good hash function from a family of universal hash functions) (probability of collisions at the second level is the sum of probabilities of all collisions - sum of probabilities of all collisions given a choice of h2,j)
+    </p>
+    <p>
+      &lt;= li . (li - 1)/ 2 x 1/li^2 &lt;= 1/2
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589158488355" ID="ID_6749221" MODIFIED="1589158492462" TEXT="By union bounds"/>
+<node CREATED="1589158505960" ID="ID_1632532290" MODIFIED="1589158518059" TEXT="Number of terms is (li 2)">
+<node CREATED="1589160256027" ID="ID_318554" MODIFIED="1589160343486" TEXT="If there are li items, we have (li 2) collisions possible we care about"/>
+</node>
+<node CREATED="1589158822630" ID="ID_33709060" MODIFIED="1589158839757" TEXT="probability of atleast a 1/2 that there is 0 collisions">
+<node CREATED="1589158841010" ID="ID_501686048" MODIFIED="1589158868814" TEXT="like flipping a coin and get H or keep flipping if we had got T"/>
+</node>
+<node CREATED="1589158898384" ID="ID_1195986908" MODIFIED="1589158954683" TEXT="2 expected trials or O(log n) trials whp (number of levels in a skip list) - number of flips before a get a head (atmost log n)">
+<node CREATED="1589160585090" ID="ID_343004103" MODIFIED="1589160595794" TEXT="This has to be done for each secondary table">
+<node CREATED="1589160596692" ID="ID_618300368" MODIFIED="1589160605998" TEXT="There are m = Theta(n) secondary tables">
+<node CREATED="1589160618882" ID="ID_10429776" MODIFIED="1589160626486" TEXT="How big are secondary tables?">
+<node CREATED="1589160627827" ID="ID_532623813" MODIFIED="1589160642453" TEXT="better not have linear size (li = n)"/>
+<node CREATED="1589160688014" ID="ID_1554160769" MODIFIED="1589160707801" TEXT="li = O(log n) with high probability for all ii">
+<node CREATED="1589160830706" ID="ID_980743775" MODIFIED="1589160843875" TEXT="2 and 2.5 takes O(n log^2 n)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589160898938" ID="ID_1288336189" MODIFIED="1589161152218" TEXT="1.5) E[sigma_j = 0 to m - 1 lj^2] = E[sigma_i = 1 to n sigma_j = 1 to n Ii,j] where Ii,j = {1 if h1(ki) = h1(kj) or 0 else&#xa;sigma_i = 1 to n sigma_j = 1 to n E[Ii,j] &lt;= 1/m (if i != j) = n + 2(n 2)/m = O(n)">
+<node CREATED="1589161046258" ID="ID_372579675" MODIFIED="1589161055157" TEXT="includes item colliding with itself"/>
+<node CREATED="1589161191138" ID="ID_853682039" MODIFIED="1589178865142">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Pr_h1 {sigma_j = 0 to m - 1 lj^2 &gt;= c.n} &lt;= E[sigmalj^2]/c.n = O(n)/cn &lt;= 1/2 (if c is chosen as 2Theta(n)) (back to coin flipping if I flip a coin and I get H, I have the right amount of space &lt; cn amount of space, if I get T, I try again)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      E[# trials] = 2 and O(log n) trials with high probability
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      time for each trial: linear time
+    </p>
+    <p>
+      &#160;&#160;choose 1 hash function and hash all the items, count the number of collision squared (linear time to do)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      O(n log n) time&#160;&#160;whp
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589161229683" ID="ID_1824681115" MODIFIED="1589161235125" TEXT="Markov&apos;s inequality"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589071846277" ID="ID_710083463" MODIFIED="1589071850055" TEXT="0 conflicts">
+<node CREATED="1589071851417" ID="ID_1737124143" MODIFIED="1589071903307" TEXT="assumes static data">
+<node CREATED="1589071859683" ID="ID_631160660" MODIFIED="1589071871150" TEXT="no additions or deletions assumed">
+<node CREATED="1589071910464" ID="ID_1758556773" MODIFIED="1589071922699" TEXT="only search"/>
+<node CREATED="1589071928791" ID="ID_1306142157" MODIFIED="1589071948466" TEXT="needs re-computing ds when inserted or deleted items"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128556609" ID="ID_437743897" MODIFIED="1575128565026" POSITION="right" TEXT="9. Augmentation: Range Trees">
+<node CREATED="1589243773960" ID="ID_1367791733" MODIFIED="1589243822664" TEXT="Idea: Take &quot;off-the-shelf&quot; data structure, and modify to store extra information">
+<node CREATED="1589243841821" ID="ID_1089936321" MODIFIED="1589243854414" TEXT="Easy tree augmentation">
+<node CREATED="1589243866913" ID="ID_667294342" MODIFIED="1589243870641" TEXT="AVL tree">
+<node CREATED="1589243871628" ID="ID_1697184767" MODIFIED="1589243886750" TEXT="store some function of nodes in the sub-tree"/>
+</node>
+<node CREATED="1589243908477" ID="ID_1627289964" MODIFIED="1589243932538" TEXT="Goal: Store f(subtree rooted @ x) at each node x in x.f">
+<node CREATED="1589243945450" ID="ID_273346160" MODIFIED="1589244000679" TEXT="suppose x.f can be computed in O(1) time from x, children &amp; children.f (left-chid.f, right-child.f say)"/>
+<node CREATED="1589244015905" ID="ID_698878372" MODIFIED="1589244059081" TEXT="If modifying set S of nodes, then it costs O(# ancestors of S) to update f fields.">
+<node CREATED="1589244080235" ID="ID_1231993224" MODIFIED="1589244083694" TEXT="rotations say">
+<node CREATED="1589244141541" ID="ID_1119313921" MODIFIED="1589244153961" TEXT="AVL tree - O(log n) because there is single path to root"/>
+</node>
+<node CREATED="1589244084853" ID="ID_1728851478" MODIFIED="1589244087472" TEXT="data say"/>
+<node CREATED="1589244189495" ID="ID_497362265" MODIFIED="1589244196425" TEXT="O(log n) updates in">
+<node CREATED="1589244196739" ID="ID_468282531" MODIFIED="1589244199456" TEXT="AVL trees">
+<node CREATED="1589244236201" ID="ID_116213086" MODIFIED="1589244251236" TEXT="y.f = ... &amp; x.f = ... ..."/>
+</node>
+<node CREATED="1589244199798" ID="ID_1150906254" MODIFIED="1589244206600" TEXT="2-3 trees">
+<node CREATED="1589244274951" ID="ID_508173632" MODIFIED="1589244278973" TEXT="Node split">
+<node CREATED="1589244279345" ID="ID_1838470849" MODIFIED="1589244368496">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;[ | | ]&#160;&#160;&#160;&#160;&#160;=&gt;&#160;&#160;&#160;&#160;[ ]&#160;&#160;&#160;&#160;[ ]
+    </p>
+    <p>
+      /&#160;&#160;|&#160;&#160;|&#160;&#160;\&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;&#160;\ /&#160;&#160;&#160;\
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589244402336" ID="ID_1186297631" MODIFIED="1589244408761" TEXT="Order-statistic trees">
+<node CREATED="1589244411517" ID="ID_112233331" MODIFIED="1589244559873">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      ADT/ interface: In log(n) / operation
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589244418837" ID="ID_1474777522" MODIFIED="1589244435778" TEXT="insert(x)"/>
+<node CREATED="1589244423394" ID="ID_1197408639" MODIFIED="1589244439161" TEXT="delete(x)"/>
+<node CREATED="1589244425739" ID="ID_338531477" MODIFIED="1589244430579" TEXT="successor(x)"/>
+<node CREATED="1589244440839" ID="ID_1601852267" MODIFIED="1589244445177" TEXT="predecessor(x)"/>
+<node CREATED="1589244446117" ID="ID_1281639944" MODIFIED="1589244458290" TEXT="rank(x): index of x in sorted order of items">
+<node CREATED="1589244574538" ID="ID_682873722" MODIFIED="1589244617181" TEXT="- use easy tree augmentation with f(subtree) = # nodes in subtree">
+<node CREATED="1589244617600" ID="ID_1219223808" MODIFIED="1589244638273" TEXT="x.f = 1 + sum(c.f for c in x.children)">
+<node CREATED="1589244653365" ID="ID_980138528" MODIFIED="1589244656244" TEXT="Generic">
+<node CREATED="1589244658899" ID="ID_1448190663" MODIFIED="1589244665314" TEXT="As long as constant number of children"/>
+</node>
+</node>
+<node CREATED="1589244788913" ID="ID_777582165" MODIFIED="1589244922307">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&lt;x
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&gt;x
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;/
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&lt;x
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&lt;x
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&gt;x
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;/
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;x
+    </p>
+    <p>
+      &#160;&#160;&#160;/&#160;&#160;\
+    </p>
+    <p>
+      &#160;/\&#160;&#160;&#160;/\
+    </p>
+    <p>
+      &lt;x&#160;&#160;&gt;x
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589244950246" ID="ID_1271517561" MODIFIED="1589244960330" TEXT="rank(x): number of nodes (keys) &lt; x">
+<node CREATED="1589245042975" ID="ID_1774558587" MODIFIED="1589245166536">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - rank = x.left.size + 1 (0 if staring with this index)
+    </p>
+    <p>
+      - walk up from x to root
+    </p>
+    <p>
+      &#160;&#160;&#160;- whenever we go left x -&gt; x', then
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;rank += x'.left.size + 1
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589245167971" ID="ID_626950229" MODIFIED="1589245191595" TEXT="As long as we have balanced trees, it is O(log n)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589244489163" ID="ID_43412749" MODIFIED="1589244498970" TEXT="select(x): find key of rank i">
+<node CREATED="1589244526831" ID="ID_670939904" MODIFIED="1589244533972" TEXT="in log(n) per operation"/>
+<node CREATED="1589245239030" ID="ID_159947407" MODIFIED="1589245479219">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - x = root
+    </p>
+    <p>
+      - rank = x.left.size + 1
+    </p>
+    <p>
+      - if i = rank: return x
+    </p>
+    <p>
+      - if i &lt; rank:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;x = x.left
+    </p>
+    <p>
+      - if i &gt; rank:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;x = x.right
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;i -= rank
+    </p>
+    <p>
+      repeat -rank ...
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589245688211" ID="ID_755632095" MODIFIED="1589245694323" TEXT="Another possibility">
+<node CREATED="1589245694671" ID="ID_495254943" MODIFIED="1589245700203" TEXT="Maintain rank in each node">
+<node CREATED="1589245700942" ID="ID_967026731" MODIFIED="1589245718519" TEXT="Problem: If we insert new min, then rank of all the nodes change">
+<node CREATED="1589245780920" ID="ID_119092697" MODIFIED="1589245804916" TEXT="In general try to find f such that it doesn&apos;t change very often (when doing operations)">
+<node CREATED="1589245808890" ID="ID_1790334139" MODIFIED="1589245816716" TEXT="f: height (good choice)"/>
+<node CREATED="1589245817067" ID="ID_875104232" MODIFIED="1589245847020" TEXT="f: depth (bad choice - rotation will change many depths)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589245908247" ID="ID_486985520" MODIFIED="1589245914997" TEXT="Level-Linked 2-3 trees">
+<node CREATED="1589245941273" ID="ID_257974075" MODIFIED="1589245949493" TEXT="Add links on all the levels">
+<node CREATED="1589245950402" ID="ID_1130787327" MODIFIED="1589245954840" TEXT="horizontal links">
+<node CREATED="1589245958497" ID="ID_1042051120" MODIFIED="1589246077571">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[ ]&#160;&#160;&#160;&#160;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[ | ]&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;-&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[ ]
+    </p>
+    <p>
+      &#160;&#160;/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      [ ] &lt;-&gt; [ | ] &lt;-&gt; [ ] &lt;-&gt; [ ] &lt;-&gt; [ ]
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1589246092686" ID="ID_210529596" MODIFIED="1589246105223" TEXT="Idea: Store level-left &amp; level-right pointers for each node">
+<node CREATED="1589246143586" ID="ID_539849486" MODIFIED="1589246187214" TEXT="&lt;-&gt; [ | | ] &lt;-&gt; ---&gt; &lt;-&gt; [ ] &lt;-&gt; [ ] &lt;-&gt; ">
+<node CREATED="1589246188206" ID="ID_1920133178" MODIFIED="1589246193699" TEXT="constant time">
+<node CREATED="1589246279507" ID="ID_1150755026" MODIFIED="1589246287001" TEXT="split update"/>
+</node>
+</node>
+<node CREATED="1589246235034" ID="ID_1362892941" MODIFIED="1589246269624" TEXT="&lt;-&gt; [ ] &lt;-&gt; [ ] &lt;-&gt; ===&gt; &lt;-&gt;[ | ] &lt;-&gt;">
+<node CREATED="1589246272629" ID="ID_192737783" MODIFIED="1589246275241" TEXT="constant time">
+<node CREATED="1589246288503" ID="ID_1765049913" MODIFIED="1589246291004" TEXT="merge update"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589246335146" ID="ID_857935418" MODIFIED="1589246339741" TEXT="Finger search property">
+<node CREATED="1589246362028" ID="ID_1178236961" MODIFIED="1589246387015" TEXT="If x, y are close to each other, it should be fast">
+<node CREATED="1589246387356" ID="ID_911292649" MODIFIED="1589246393218" TEXT="best case: O(1)"/>
+<node CREATED="1589246393609" ID="ID_1800182038" MODIFIED="1589246399820" TEXT="worst case: O(log n)"/>
+</node>
+<node CREATED="1589246411121" ID="ID_1962348985" MODIFIED="1589246416094" TEXT="search (x from y)">
+<node CREATED="1589246501429" ID="ID_849043733" MODIFIED="1589246530089" TEXT="O(log | rank(x) - rank(y) |) time">
+<node CREATED="1589246650570" ID="ID_141831676" MODIFIED="1589246688995" TEXT="If y is root and x is predecessor of y and is a leaf: O(log n) time may be required to find x from y">
+<node CREATED="1589246703762" ID="ID_1155872608" MODIFIED="1589246716600" TEXT="Solution: Store data in leaves">
+<node CREATED="1589246757247" ID="ID_1395688057" MODIFIED="1589246767027" TEXT="Don&apos;t put any data in internal nodes">
+<node CREATED="1589246773354" ID="ID_1448358648" MODIFIED="1589246849516">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;x
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;x&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;x
+    </p>
+    <p>
+      &#160;&#160;&#160;/&#160;&#160;&#160;&#160;|&#160;&#160;&#160;\&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;\
+    </p>
+    <p>
+      [1] [2|5] [7] [8] [9]
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589246872205" ID="ID_114187057" MODIFIED="1589247356025" TEXT="Insert:">
+<node CREATED="1589247356437" ID="ID_309877872" MODIFIED="1589247356437" TEXT="">
+<node CREATED="1589247357331" ID="ID_1596282353" MODIFIED="1589247399630" TEXT="[a|b|c| &lt;-&gt; [a|b] [c]">
+<node CREATED="1589247415199" ID="ID_1221384713" MODIFIED="1589247456239">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/\
+    </p>
+    <p>
+      /||\ ---&gt; /\ /\
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589246883061" ID="ID_230462161" MODIFIED="1589246887358" TEXT="Search:">
+<node CREATED="1589246889317" ID="ID_681896367" MODIFIED="1589246898700" TEXT="Simple tree augmentation">
+<node CREATED="1589246908569" ID="ID_287594364" MODIFIED="1589246923308" TEXT="- augment to store min &amp; max of subtrees">
+<node CREATED="1589246964177" ID="ID_1402059958" MODIFIED="1589246984549" TEXT="O(1) given min and max of children"/>
+<node CREATED="1589246993759" ID="ID_579320441" MODIFIED="1589247235374">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1x9
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1x7&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;-&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;8x9
+    </p>
+    <p>
+      &#160;&#160;&#160;/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      [1]&lt;-&gt;[2|5]&lt;-&gt; [7]&lt;-&gt; [8]&lt;-&gt; [9]
+    </p>
+  </body>
+</html></richcontent>
+<font BOLD="true" NAME="SansSerif" SIZE="12"/>
+<node CREATED="1589247261626" ID="ID_1119707695" MODIFIED="1589247271509" TEXT="leaves is special case - need to compare them"/>
+<node CREATED="1589247294235" ID="ID_430793500" MODIFIED="1589247306817" TEXT="If searching for 8, compare min and max and go left or right">
+<node CREATED="1589247320654" ID="ID_1853054846" MODIFIED="1589247327963" TEXT="O(log n)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589247527670" ID="ID_606830783" MODIFIED="1589247788378">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - let a leaf v contain y
+    </p>
+    <p>
+      - if v.min &lt;= x &lt;= y:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;return downward search in v's subtree (check two keys in 2-3 trees)
+    </p>
+    <p>
+      - else if x &lt; v.min: v = v.level-left
+    </p>
+    <p>
+      - else if x &gt; v.max: v = v.level-right
+    </p>
+    <p>
+      - v =&#160;v.parent
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589247790648" ID="ID_865886386" MODIFIED="1589247802733" TEXT="go up until we find a subtree that contains x"/>
+<node CREATED="1589247945902" ID="ID_666226740" MODIFIED="1589248103775">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;x
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;x -&gt; x
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;x -&gt; x
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/
+    </p>
+    <p>
+      &#160;&#160;x &lt;-&gt; x
+    </p>
+    <p>
+      &#160;&#160;&#160;\
+    </p>
+    <p>
+      [ | ]&#160;&#160;[ ]
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589248105248" ID="ID_1774403675" MODIFIED="1589248124820" TEXT="at each iteration, I go left or right and then go up once">
+<node CREATED="1589248125226" ID="ID_862951529" MODIFIED="1589248157133" TEXT="at iteration k, I am at height k">
+<node CREATED="1589248246292" ID="ID_1761186107" MODIFIED="1589248276466" TEXT="2^k to 3^k leaves are skipped">
+<node CREATED="1589248277473" ID="ID_608162897" MODIFIED="1589248285051" TEXT="Omega(2^k)">
+<node CREATED="1589248317767" ID="ID_888939790" MODIFIED="1589248326316" TEXT="minimum number of nodes skipped"/>
+<node CREATED="1589248334656" ID="ID_1224169751" MODIFIED="1589248343865" TEXT="# iterations: O(log d)">
+<node CREATED="1589248344786" ID="ID_1030868668" MODIFIED="1589248353584" TEXT="d = |rank(x) - rank(y)|"/>
+<node CREATED="1589248387684" ID="ID_1473990820" MODIFIED="1589248405345" TEXT="Downward search costs the same as the rest of the search">
+<node CREATED="1589248405751" ID="ID_1428183427" MODIFIED="1589248407931" TEXT="O(log d)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128565722" ID="ID_505078054" MODIFIED="1575128574949" POSITION="left" TEXT="10. Dynamic Programming: Advanced DP">
+<node CREATED="1589307031343" ID="ID_339796193" MODIFIED="1589330467030" TEXT="Longest palyndromic sequence inside a longer sequence">
+<node CREATED="1589330470602" ID="ID_165380307" MODIFIED="1589330476837" TEXT="sub-sequence">
+<node CREATED="1589330477573" ID="ID_1835223762" MODIFIED="1589330482846" TEXT="non-contiguous"/>
+</node>
+<node CREATED="1589330913535" ID="ID_473697057" MODIFIED="1589330920945" TEXT="Examples">
+<node CREATED="1589330921324" ID="ID_1511293786" MODIFIED="1589330923802" TEXT="radar"/>
+<node CREATED="1589330924861" ID="ID_1102227582" MODIFIED="1589330928963" TEXT="t"/>
+<node CREATED="1589330929960" ID="ID_1849266779" MODIFIED="1589330931275" TEXT="a"/>
+<node CREATED="1589330932578" ID="ID_1773177775" MODIFIED="1589330934834" TEXT="bb"/>
+<node CREATED="1589330937744" ID="ID_145630399" MODIFIED="1589330940644" TEXT="redder"/>
+<node CREATED="1589330962008" ID="ID_1566221638" MODIFIED="1589330965272" TEXT="able elba"/>
+</node>
+<node CREATED="1589330970781" ID="ID_275644666" MODIFIED="1589331059038">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Given: A string x[1...n] n &gt;= 1
+    </p>
+    <p>
+      Find longest palyndrome that is a subsequence
+    </p>
+    <p>
+      example: character
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;carac
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589331066325" ID="ID_619085641" MODIFIED="1589331073255" TEXT="answer &gt;= 1 (length)"/>
+<node CREATED="1589331180989" ID="ID_1725624563" MODIFIED="1589331186999" TEXT="underqualified">
+<node CREATED="1589331187688" ID="ID_491123168" MODIFIED="1589331190911" TEXT="deified"/>
+</node>
+<node CREATED="1589331216347" ID="ID_326654162" MODIFIED="1589331222006" TEXT="turboventilator">
+<node CREATED="1589331247080" ID="ID_1159786169" MODIFIED="1589331249519" TEXT="rotator"/>
+</node>
+<node CREATED="1589331307114" ID="ID_359021923" MODIFIED="1589331391959" TEXT="strategy: Li(i, j): Length of the longest palyndromic subsequence for x[i...j] for i &lt;= j j">
+<node CREATED="1589331405552" ID="ID_82432790" MODIFIED="1589331735889">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      define L(i, j):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if i == j: return 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if x[i] == x[j]:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if i + 1 == j: return 2
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else: return 2 + L(i + 1, j - 1)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;else: return max(L(i + 1, j), L(i, j - 1))
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589331806792" ID="ID_841784549" MODIFIED="1589331846346" TEXT="Needs tracing back">
+<node CREATED="1589331968567" ID="ID_1220916128" MODIFIED="1589331972952" TEXT="Exponential">
+<node CREATED="1589331973916" ID="ID_983634388" MODIFIED="1589331987725" TEXT="T(n) = {1 if n = 1, 2T(n - 1) if n &gt; 1">
+<node CREATED="1589331988518" ID="ID_1951898925" MODIFIED="1589331995909" TEXT="2^(n - 1)"/>
+</node>
+</node>
+</node>
+<node CREATED="1589332002256" ID="ID_1441295565" MODIFIED="1589332059956">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Fix: look at L[i, j] and don't recurse if L[i, j] is already computed
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589332018597" ID="ID_1474550475" MODIFIED="1589332023835" TEXT="2-d array (cache)"/>
+<node CREATED="1589332072140" ID="ID_830976333" MODIFIED="1589332083427" TEXT="Formula for computing DP">
+<node CREATED="1589332084255" ID="ID_401750923" MODIFIED="1589332115756" TEXT="Number of subproblems x time to solve each sub-problem given that smaller ones are solved (lookup is O(1))">
+<node CREATED="1589332140308" ID="ID_1141985465" MODIFIED="1589332146738" TEXT="2D array is fine in this case"/>
+<node CREATED="1589332151885" ID="ID_1907661214" MODIFIED="1589332159912" TEXT="Theta(n^2)">
+<node CREATED="1589332160683" ID="ID_1732675491" MODIFIED="1589332168157" TEXT="Theta(n^2) sub-problems"/>
+<node CREATED="1589332234491" ID="ID_1319719026" MODIFIED="1589332256547" TEXT="i, j can vary each from 0...(n - 1)">
+<node CREATED="1589332270014" ID="ID_1184992004" MODIFIED="1589332276274" TEXT="size of array is n^2"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589330526161" ID="ID_443891508" MODIFIED="1589330529014" TEXT="DP Notions">
+<node CREATED="1589330534221" ID="ID_852736849" MODIFIED="1589330621421">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        Characterize structure of optimal solution
+      </li>
+      <li>
+        Decisively define the value of an optimal solution based on optimal solutions of sub-problems
+      </li>
+      <li>
+        Compute value of optimal solution
+      </li>
+      <li>
+        Construct an optimal solution from computed information
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+<node CREATED="1589330639916" ID="ID_861087431" MODIFIED="1589330725566" TEXT="Optimum sub-structure and connection to sub-problems"/>
+<node CREATED="1589330658086" ID="ID_1079024677" MODIFIED="1589330718103" TEXT="recursive de-composition of problem">
+<node CREATED="1589330734990" ID="ID_143180271" MODIFIED="1589330738976" TEXT="write recurrence"/>
+</node>
+<node CREATED="1589330755276" ID="ID_1539777351" MODIFIED="1589330759120" TEXT="Memoize">
+<node CREATED="1589330763344" ID="ID_121111673" MODIFIED="1589330770218" TEXT="We do not repeat the solutions">
+<node CREATED="1589330789935" ID="ID_106642280" MODIFIED="1589330812799" TEXT="Actual computations are bottom up"/>
+</node>
+</node>
+<node CREATED="1589330855998" ID="ID_1076466872" MODIFIED="1589330864440" TEXT="Actual solutions">
+<node CREATED="1589330887695" ID="ID_1798948403" MODIFIED="1589330896439" TEXT="Not just the optimal value"/>
+</node>
+</node>
+</node>
+<node CREATED="1589332307531" ID="ID_1592534431" MODIFIED="1589332426532" TEXT="Optimal BSTs: keys k1, k2, ..., kn (k1 &lt; k2 &lt; ...&lt; kn) &amp; ki = i (for convenience) + weights associated with each of w1, w2, ..., wn (search probabilities)">
+<node CREATED="1589332434530" ID="ID_1002580339" MODIFIED="1589332443713" TEXT="Let the structure be static">
+<node CREATED="1589332444517" ID="ID_1510381005" MODIFIED="1589332468662" TEXT="We search for certain keys more frequently than others">
+<node CREATED="1589332470018" ID="ID_1066668221" MODIFIED="1589332476485" TEXT="wi are numbers">
+<node CREATED="1589332494822" ID="ID_929214475" MODIFIED="1589332509576" TEXT="Probability: wi/(sigma_i = 1 to n wi)"/>
+</node>
+</node>
+</node>
+<node CREATED="1589332536075" ID="ID_980139255" MODIFIED="1589332561341" TEXT="Find BST that minimizes: sigma_i = 1 to n wi.(depth_T(ki) + 1)">
+<node CREATED="1589332570694" ID="ID_1715794916" MODIFIED="1589332574739" TEXT="depth of root = 0"/>
+<node CREATED="1589332578680" ID="ID_975853453" MODIFIED="1589332588221" TEXT="depth one below = 1"/>
+<node CREATED="1589332604243" ID="ID_1246773788" MODIFIED="1589332612877" TEXT="If wi is high, we want depth to be low">
+<node CREATED="1589332614124" ID="ID_144363725" MODIFIED="1589332619625" TEXT="And vice versa"/>
+<node CREATED="1589332652668" ID="ID_1447059551" MODIFIED="1589332660123" TEXT="we have fewer low depth nodes"/>
+</node>
+<node CREATED="1589332744959" ID="ID_1352956303" MODIFIED="1589332767068" TEXT="conversion from one language to the other we want to minimize expected search cost"/>
+</node>
+<node CREATED="1589332832184" ID="ID_1724313685" MODIFIED="1589332845143" TEXT="Enumeration: Exponentially many trees">
+<node CREATED="1589332847885" ID="ID_342986065" MODIFIED="1589332862540" TEXT="n = 2: 1-&gt;2 &amp; 2 -&gt;1">
+<node CREATED="1589332863994" ID="ID_31210346" MODIFIED="1589332878053" TEXT="w1 + 2w2 and 2w1 + w2"/>
+</node>
+<node CREATED="1589332930353" ID="ID_1271489592" MODIFIED="1589332936654" TEXT="n = 3: 5 trees">
+<node CREATED="1589332944903" ID="ID_1934155267" MODIFIED="1589332990673" TEXT="3 -&gt; 2 -&gt; 1, 3 -&gt;1-&gt;2, 2-&gt;1&amp; 2-&gt;3, 1-&gt;3-&gt;2, 1-&gt;2-&gt;3">
+<node CREATED="1589332992440" ID="ID_1640789348" MODIFIED="1589333014822" TEXT="we don&apos;t have mirrors because they may not be bsts"/>
+<node CREATED="1589333018370" ID="ID_250340651" MODIFIED="1589333033642" TEXT="w3 + 2w2 + 3w1"/>
+</node>
+</node>
+</node>
+<node CREATED="1589333073811" ID="ID_580808600" MODIFIED="1589333080845" TEXT="Greedy algorithm">
+<node CREATED="1589333084344" ID="ID_434356164" MODIFIED="1589333097816" TEXT="First try this and check first">
+<node CREATED="1589333102991" ID="ID_1653016072" MODIFIED="1589333109469" TEXT="More optimal than DP">
+<node CREATED="1589333138292" ID="ID_1345537983" MODIFIED="1589333149579" TEXT="Pick kr in some greedy fashion">
+<node CREATED="1589333150051" ID="ID_1463537314" MODIFIED="1589333154189" TEXT="kr - root">
+<node CREATED="1589333160055" ID="ID_1906403296" MODIFIED="1589333165499" TEXT="apply recursively">
+<node CREATED="1589333198025" ID="ID_1986369204" MODIFIED="1589333214146" TEXT="ki...kr-1 &amp; kr+1...kj">
+<node CREATED="1589333222908" ID="ID_1974744519" MODIFIED="1589333263140" TEXT="e(i,j) = cost of optimal BST on ki,ki +1,..., kj"/>
+<node CREATED="1589413658610" ID="ID_9155039" MODIFIED="1589413665403" TEXT="Example that fails">
+<node CREATED="1589413666952" ID="ID_1401299297" MODIFIED="1589413882562">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;2 (w = 10)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      (w = 1)&#160;1&#160;&#160;&#160;&#160;&#160;&#160;&#160;4 (w = 9)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3 (w3 = 8)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589413825325" ID="ID_352058369" MODIFIED="1589413909057" TEXT="1x2 + 10x1 + 9x2 + 8x3= 54"/>
+<node CREATED="1589413912765" ID="ID_10822538" MODIFIED="1589414036879">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3 (w3=8)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;&#160;\
+    </p>
+    <p>
+      &#160;(w2=10) 2&#160;&#160;&#160;&#160;4 (w4=9)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1 (w1=1)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589414041740" ID="ID_1110757306" MODIFIED="1589414063485" TEXT="cost = 1x3 + 10x2 + 8x1 + 9x2 = 41">
+<node CREATED="1589414082495" ID="ID_1397813259" MODIFIED="1589414095564" TEXT="Use top spots for minimum weight nodes"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589414315466" ID="ID_299521846" MODIFIED="1589414318794" TEXT="Use DP">
+<node CREATED="1589414320165" ID="ID_701411893" MODIFIED="1589414353810" TEXT="Guess: Try all of them for the root">
+<node CREATED="1589414360230" ID="ID_555820540" MODIFIED="1589414718565" TEXT="e(i, j) = {wi if i = j, min_i &lt;= r &lt;= j e(i, r - 1) + e(r + 1, j) + w(i, j)">
+<node CREATED="1589414719635" ID="ID_259420976" MODIFIED="1589414742636" TEXT="w(i, j): sum of all the weights from i to j"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589332427640" ID="ID_134696682" MODIFIED="1589414963890">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Row of n coins of values v1, ..., vn (n is even). Select either the first or last coin from the row, remove permanently, receive the value
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589415106374" ID="ID_631188052" MODIFIED="1589415114591" TEXT="4 42 39 19 25 6">
+<node CREATED="1589415189322" ID="ID_461042445" MODIFIED="1589415199873" TEXT="Person who goes first is guarenteed to not lose"/>
+<node CREATED="1589415237815" ID="ID_137106349" MODIFIED="1589415251297" TEXT="flip coin and one of them goes first">
+<node CREATED="1589415262543" ID="ID_608622819" MODIFIED="1589415266631" TEXT="How to play">
+<node CREATED="1589415267615" ID="ID_396867642" MODIFIED="1589415479551">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      First player picks odd numbers:
+    </p>
+    <p>
+      v1 + v3 + ... + v(n - 1) compare with v2 + v4 + ... + vn
+    </p>
+    <p>
+      Second player picks first or last and first player keeps picking odd numbers or even numbers to win
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1589415485581" ID="ID_318096300" MODIFIED="1589415495894" TEXT="Dynamic strategy that gives max value">
+<node CREATED="1589415572370" ID="ID_168799584" MODIFIED="1589415589542" TEXT="Maximize the amount of money when assuming you move firstt">
+<node CREATED="1589415631715" ID="ID_1092311367" MODIFIED="1589415669050" TEXT="Setup: v(i, j): max value we can definitely win if it is our turn and only coins vi, ..., vj remain">
+<node CREATED="1589415672886" ID="ID_1928053514" MODIFIED="1589415684286" TEXT="v(i, i): {just pick i}">
+<node CREATED="1589415704703" ID="ID_1960911806" MODIFIED="1589415713043" TEXT="second player picks last coin">
+<node CREATED="1589415722836" ID="ID_167117130" MODIFIED="1589415732556" TEXT="we need to model what the opponent does"/>
+</node>
+</node>
+<node CREATED="1589415740280" ID="ID_1150976580" MODIFIED="1589415787999" TEXT="v(i, i + 1): pick max(vi, vi + 1)"/>
+<node CREATED="1589415862374" ID="ID_717840508" MODIFIED="1589415891235" TEXT="|v1|...|vi|...| |...|vj|...|vn|">
+<node CREATED="1589415908562" ID="ID_162504593" MODIFIED="1589416074381" TEXT="v(i, j) = max{v(i + 1, j) +vi if I pick vi, if I pick vj}">
+<node CREATED="1589416075544" ID="ID_1474925657" MODIFIED="1589416106765" TEXT="If range is (i + 1, j) or range is (i, j - 1), opponent moves">
+<node CREATED="1589416158499" ID="ID_690812500" MODIFIED="1589416432551">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Solution: v(i + 1, j) subproblem with opponent picking
+    </p>
+    <p>
+      we are guaranteed min{v(i + 1, j - 1), v(i + 2, j)}
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589416452143" ID="ID_216499372" MODIFIED="1589416470558" TEXT="Assuming opponent is as smart or smarter than me (best case scenario)">
+<node CREATED="1589416490650" ID="ID_1682136142" MODIFIED="1589416517102" TEXT="Opponent picks coin to maximize his collection"/>
+</node>
+<node CREATED="1589416522666" ID="ID_474735822" MODIFIED="1589416612139" TEXT="for v(i + 1, j - 1) opponent had picked vj &amp; for v(i + 2, j) the opponent had picked v(i + 1)">
+<node CREATED="1589416656957" ID="ID_1805732796" MODIFIED="1589416753392" TEXT="v(i, j) = max{min{v(i + 1, j - 1), v(i + 2, j)} + vi, min{v(i, j - 2), v(i + 1, j - 1) + vj}">
+<node CREATED="1589416784666" ID="ID_606617700" MODIFIED="1589416810407" TEXT="complexity: number of sub-problems x time it takes to compute the sub-problems">
+<node CREATED="1589416811606" ID="ID_801534609" MODIFIED="1589416823170" TEXT="n^2 x Theta(1) = Theta(n^2)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128578747" ID="ID_824053924" MODIFIED="1575128595130" POSITION="right" TEXT="11. Dynamic Programming: All-Pairs Sortest Paths">
+<node CREATED="1589416903773" ID="ID_1311931110" MODIFIED="1589417617269">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Recall: Single-source sortest paths
+    </p>
+    <p>
+      &#160;- given directed graph G = (V, E), vertex s in V, edge weights w:E -&gt; |R
+    </p>
+    <p>
+      &#160;- find delta(s, v) = shortest-path weight s-&gt;v for all v in V
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589417619517" ID="ID_122709077" MODIFIED="1589417628936" TEXT="delta: inf (if no path)"/>
+<node CREATED="1589417629319" ID="ID_423350770" MODIFIED="1589417646007" TEXT="delta: -inf (if -ve weight cycles) on the way">
+<node CREATED="1589417648617" ID="ID_161643369" MODIFIED="1589417665220" TEXT="we don&apos;t know the path with existing algorithms">
+<node CREATED="1589417672320" ID="ID_1860269780" MODIFIED="1589417678438" TEXT="not hard to get those"/>
+</node>
+</node>
+</node>
+<node CREATED="1589417055820" ID="ID_1705473902" MODIFIED="1589417063912" TEXT="Situation:">
+<node CREATED="1589417081122" ID="ID_475368367" MODIFIED="1589417089318" TEXT="unweighted (w = 1)">
+<node CREATED="1589417136010" ID="ID_894348445" MODIFIED="1589417140272" TEXT="BFS">
+<node CREATED="1589417140831" ID="ID_725607774" MODIFIED="1589417143664" TEXT="O(V + E)"/>
+</node>
+</node>
+<node CREATED="1589417090596" ID="ID_1589743110" MODIFIED="1589417115193" TEXT="non-negative edge weights">
+<node CREATED="1589417145029" ID="ID_82449524" MODIFIED="1589417150634" TEXT="Dijkstra">
+<node CREATED="1589417151425" ID="ID_364548306" MODIFIED="1589417155632" TEXT="O(V log V + E)">
+<node CREATED="1589417156394" ID="ID_526800745" MODIFIED="1589417168803" TEXT="If we use fibonacci heaps"/>
+<node CREATED="1589417200644" ID="ID_933181152" MODIFIED="1589417222914" TEXT="log V for extract key">
+<node CREATED="1589417266159" ID="ID_1744102667" MODIFIED="1589417266918" TEXT="?"/>
+</node>
+<node CREATED="1589417243511" ID="ID_694316177" MODIFIED="1589417252678" TEXT="E constant amortized for decrease key operation">
+<node CREATED="1589417264021" ID="ID_798052122" MODIFIED="1589417265015" TEXT="?"/>
+</node>
+<node CREATED="1589417271471" ID="ID_1387152917" MODIFIED="1589417393292" TEXT="For moderately dense graph with E &gt; V log V ~ O(V + E), if E is O(V), then we lose the log factor"/>
+</node>
+</node>
+</node>
+<node CREATED="1589417117148" ID="ID_1097152872" MODIFIED="1589417119781" TEXT="general">
+<node CREATED="1589417403597" ID="ID_1604534033" MODIFIED="1589417418000" TEXT="Bellman-Ford">
+<node CREATED="1589417419735" ID="ID_1178172854" MODIFIED="1589417423346" TEXT="O(VE)">
+<node CREATED="1589417425346" ID="ID_889136743" MODIFIED="1589417428593" TEXT="Lot slower"/>
+<node CREATED="1589417433713" ID="ID_849011245" MODIFIED="1589417439244" TEXT="If E = Theta(V)">
+<node CREATED="1589417461000" ID="ID_745784367" MODIFIED="1589417466023" TEXT="O(V^2)"/>
+</node>
+<node CREATED="1589417439643" ID="ID_553124970" MODIFIED="1589417448013" TEXT="If E = Theta(V^2)">
+<node CREATED="1589417467212" ID="ID_979775227" MODIFIED="1589417470645" TEXT="O(V^3)"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589417120172" ID="ID_571754291" MODIFIED="1589417130799" TEXT="acyclic (DAGs)">
+<node CREATED="1589417496285" ID="ID_1023991809" MODIFIED="1589417540820" TEXT="Topological sort + 1 round of Bellmon-Ford">
+<node CREATED="1589417542449" ID="ID_380063273" MODIFIED="1589417546077" TEXT="O(V + E)"/>
+</node>
+</node>
+</node>
+<node CREATED="1589417578148" ID="ID_364875513" MODIFIED="1589417586544" TEXT="All-pairs shortest paths">
+<node CREATED="1589417685445" ID="ID_964143817" MODIFIED="1589417709117" TEXT="given G = (V, E, w). Find delta(um v) for all u, v in V">
+<node CREATED="1589417722631" ID="ID_1819907262" MODIFIED="1589417729030" TEXT="Good for pre-processing">
+<node CREATED="1589417729889" ID="ID_1471427302" MODIFIED="1589417741185" TEXT="example: shortest paths between major cities">
+<node CREATED="1589417750325" ID="ID_571620645" MODIFIED="1589417768484" TEXT="Real basis: pre-computed">
+<node CREATED="1589417802271" ID="ID_1094661054" MODIFIED="1589417809371" TEXT="way points are used and pre-computed"/>
+</node>
+</node>
+<node CREATED="1589417864528" ID="ID_462007208" MODIFIED="1589417868876" TEXT="example: internet routing">
+<node CREATED="1589417869344" ID="ID_1515891652" MODIFIED="1589417872563" TEXT="min hops">
+<node CREATED="1589417875734" ID="ID_1417367236" MODIFIED="1589417882890" TEXT="all pairs is pre-computed"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589417914090" ID="ID_846042808" MODIFIED="1589417916397" TEXT="Solutions:">
+<node CREATED="1589417918610" ID="ID_65179353" MODIFIED="1589417926917" TEXT="Run BFS for all v">
+<node CREATED="1589417927750" ID="ID_1903257440" MODIFIED="1589417933293" TEXT="O(VE)">
+<node CREATED="1589417989579" ID="ID_1587519142" MODIFIED="1589417996610" TEXT="If E = Theta(V^2)">
+<node CREATED="1589417997439" ID="ID_633787273" MODIFIED="1589418000791" TEXT="O(V^3)"/>
+</node>
+</node>
+</node>
+<node CREATED="1589417934733" ID="ID_1742939286" MODIFIED="1589417941463" TEXT="Run Dijkstra for all v">
+<node CREATED="1589417942092" ID="ID_356316002" MODIFIED="1589417972042" TEXT="O(V^2 log V + VE)">
+<node CREATED="1589418004325" ID="ID_621570152" MODIFIED="1589418010219" TEXT="If E = Theta(V^2)">
+<node CREATED="1589418010647" ID="ID_355037278" MODIFIED="1589418015650" TEXT="O(V^3)"/>
+</node>
+</node>
+</node>
+<node CREATED="1589417948763" ID="ID_1352918200" MODIFIED="1589417958089" TEXT="Run Bellmon-Ford for all v">
+<node CREATED="1589417958563" ID="ID_983134839" MODIFIED="1589417976347" TEXT="O(V^2E)">
+<node CREATED="1589418017203" ID="ID_1391951378" MODIFIED="1589418022491" TEXT="If E = Theta(V^3)">
+<node CREATED="1589418023190" ID="ID_110100458" MODIFIED="1589418026996" TEXT="O(V^4)"/>
+</node>
+</node>
+</node>
+<node CREATED="1589418031062" ID="ID_73566673" MODIFIED="1589418043978" TEXT="Another General case algorithm">
+<node CREATED="1589418044773" ID="ID_34968864" MODIFIED="1589418049080" TEXT="Johnson&apos;s">
+<node CREATED="1589418049519" ID="ID_449752151" MODIFIED="1589418055284" TEXT="O(V^2 log V + VE)">
+<node CREATED="1589418082318" ID="ID_1232884565" MODIFIED="1589418121193" TEXT="We can run Dijkstras for general case in this case too">
+<node CREATED="1589418133094" ID="ID_1098049232" MODIFIED="1589418139891" TEXT="If E = Theta(V^2)">
+<node CREATED="1589418140918" ID="ID_388467631" MODIFIED="1589418144301" TEXT="O(V^3)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589418164359" ID="ID_36536811" MODIFIED="1589418169864" TEXT="Dynamic programming:">
+<node CREATED="1589418171415" ID="ID_1966866761" MODIFIED="1589418310345">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        subproblems
+      </li>
+      <li>
+        guessing (feature of the solution)
+      </li>
+      <li>
+        recurrence
+      </li>
+      <li>
+        acyclic (topological ordering):
+      </li>
+      <li>
+        original problem
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+<node CREATED="1589418370979" ID="ID_1193617728" MODIFIED="1589418490681" TEXT="subproblems: d_uv^(m) = weight of shortest paths from u  using &lt;= m edges-&gt; v">
+<node CREATED="1589418508225" ID="ID_1967951877" MODIFIED="1589418525485" TEXT="We want to solve d_uv^(n - 1)">
+<node CREATED="1589418530890" ID="ID_1603617512" MODIFIED="1589418587160" TEXT="If we don&apos;t want to repeat the vertices we cover atmost n - 1 edges">
+<node CREATED="1589418612223" ID="ID_1396034294" MODIFIED="1589418620640" TEXT="= d_uv(n) = ...">
+<node CREATED="1589418627680" ID="ID_520577687" MODIFIED="1589418633847" TEXT="if there are no negative weight cycles">
+<node CREATED="1589418663546" ID="ID_373799496" MODIFIED="1589418714787" TEXT="iff no negative diagonal entry: d_vv^(n - 1)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589418770908" ID="ID_1836571950" MODIFIED="1589418820785" TEXT="guessing: what&apos;s the last edge (x, v)">
+<node CREATED="1589418821663" ID="ID_1860880083" MODIFIED="1589418830792" TEXT="we guess previous vertex x"/>
+</node>
+<node CREATED="1589418834839" ID="ID_622962977" MODIFIED="1589418938267" TEXT="recurrence: d_uv^(m) = min(d_u,x^(m - 1) + w(x, v) for x in V), d_uv^(0) = {inf if u != v, 0 if u = v}">
+<node CREATED="1589418967170" ID="ID_47105213" MODIFIED="1589418978183" TEXT="if x = v, it is taken care of by the base case"/>
+</node>
+<node CREATED="1589418988080" ID="ID_189489495" MODIFIED="1589419017216" TEXT="acyclic (topo order):">
+<node CREATED="1589419017950" ID="ID_1218473642" MODIFIED="1589419054390">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;for m = 0, 1, ..., |V| - 1:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for u, v in V:
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589419056256" ID="ID_549488385" MODIFIED="1589419074300" TEXT="we have to do 0 edges, 1 edge, 2 edges, ..."/>
+</node>
+</node>
+<node CREATED="1589419136227" ID="ID_1477885971" MODIFIED="1589419152843">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      full algorithm
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589419143185" ID="ID_1255510255" MODIFIED="1589419644001">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      for m in range(1, |V|):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for u in V:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for v in V:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for x in V:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if d_uv &gt; d_ux + d_xv (or w_xv):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;d_uv = d_ux + d_xv (or w_xv) // relaxation step
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589419234543" ID="ID_947012237" MODIFIED="1589419246994" TEXT="Triangular">
+<node CREATED="1589419247897" ID="ID_793883065" MODIFIED="1589419316782" TEXT="If we know a path from u -&gt; v which has greater weight than u -&gt; x and x -&gt; v then we know a shorter path">
+<node CREATED="1589419379725" ID="ID_690268566" MODIFIED="1589419388851" TEXT="relaxation is always good">
+<node CREATED="1589419389707" ID="ID_1861623544" MODIFIED="1589419415743" TEXT="if triangular inequality is violated, we fix it each time"/>
+</node>
+</node>
+</node>
+<node CREATED="1589419505048" ID="ID_1177705841" MODIFIED="1589419510206" TEXT="superscript is not used">
+<node CREATED="1589419510610" ID="ID_523268690" MODIFIED="1589419516734" TEXT="relaxing more is better">
+<node CREATED="1589419517203" ID="ID_382060574" MODIFIED="1589419553759" TEXT="relaxing using superscript takes cubic space"/>
+<node CREATED="1589419532030" ID="ID_419642087" MODIFIED="1589419548099" TEXT="relaxing not-using superscript takes quadratic space"/>
+</node>
+</node>
+<node CREATED="1589419603231" ID="ID_569934993" MODIFIED="1589419608672" TEXT="O(V^4)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589419790255" ID="ID_694982750" MODIFIED="1589419796665" TEXT="Matrix Multiplication:">
+<node CREATED="1589419802639" ID="ID_367634426" MODIFIED="1589419810462" TEXT="A, B -&gt; C = A.B">
+<node CREATED="1589419822248" ID="ID_580119225" MODIFIED="1589419864504" TEXT="O(n^3), O(n^2.807, O(n^2.376...), O(n^2.3728...)"/>
+<node CREATED="1589419872445" ID="ID_1082418132" MODIFIED="1589419894498" TEXT="c_ij = sigma_k = 1 to n a_ik . b_kj">
+<node CREATED="1589419916635" ID="ID_1103121079" MODIFIED="1589419945139" TEXT="define: (.) = +, (+) = min">
+<node CREATED="1589498330858" ID="ID_489306733" MODIFIED="1589498360081" TEXT="D^(m) = D^(m - 1) (.) W = W^(m)">
+<node CREATED="1589498362410" ID="ID_797616131" MODIFIED="1589498406208">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      W^(0) =&#160;(0 inf inf inf)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(inf 0 inf inf)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(inf inf 0 inf)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(inf inf inf 0)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1589498412900" ID="ID_1886761179" MODIFIED="1589498430003" TEXT="D^(m) = (dij^(m))ij"/>
+<node CREATED="1589498432060" ID="ID_1502197535" MODIFIED="1589498439996" TEXT="W = (w(i, j))ij"/>
+<node CREATED="1589498442346" ID="ID_1998513008" MODIFIED="1589498449245" TEXT="V = {1, 2, ..., n}"/>
+<node CREATED="1589498507714" ID="ID_63410153" MODIFIED="1589498511761" TEXT="This is DP"/>
+<node CREATED="1589498600904" ID="ID_981086363" MODIFIED="1589498630768" TEXT="W^(1) (.) W^(1)"/>
+<node CREATED="1589498633220" ID="ID_853833365" MODIFIED="1589498645204" TEXT="W^(4) (.) W^(8)"/>
+<node CREATED="1589498646300" ID="ID_1067198912" MODIFIED="1589498648400" TEXT="..."/>
+<node CREATED="1589498649838" ID="ID_132025500" MODIFIED="1589498671971" TEXT="W^(n/2) (.) W^(n/2)">
+<node CREATED="1589498678950" ID="ID_133465088" MODIFIED="1589498683245" TEXT="log n times"/>
+<node CREATED="1589498686112" ID="ID_1603410639" MODIFIED="1589498692133" TEXT="O(V^3 log V)"/>
+</node>
+</node>
+<node CREATED="1589498738353" ID="ID_760274016" MODIFIED="1589498741330" TEXT="semiring">
+<node CREATED="1589498744377" ID="ID_1936094863" MODIFIED="1589498752153" TEXT="There is no -">
+<node CREATED="1589498755759" ID="ID_1019659472" MODIFIED="1589498884997" TEXT="min has no inverse">
+<node CREATED="1589498851287" ID="ID_751877758" MODIFIED="1589498897905" TEXT="we cannot re-compute arguments"/>
+</node>
+</node>
+<node CREATED="1589498904651" ID="ID_679408288" MODIFIED="1589498922181" TEXT="Not enough for fancy algorithms">
+<node CREATED="1589498923012" ID="ID_1713330994" MODIFIED="1589498928832" TEXT="Strassan&apos;s say">
+<node CREATED="1589498931024" ID="ID_1322042815" MODIFIED="1589498947906" TEXT="With the technique we cannot do better than O(V^3 log V)"/>
+</node>
+</node>
+</node>
+<node CREATED="1589498791940" ID="ID_1286823883" MODIFIED="1589498793700" TEXT="ring">
+<node CREATED="1589498794640" ID="ID_1477416350" MODIFIED="1589498809345" TEXT="algebra with +, *, distributivity"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589498957811" ID="ID_1701028042" MODIFIED="1589498988382" TEXT="Transitive Closure: t_ij = {1 if there exists path, i -&gt; j, 0 otherwise">
+<node CREATED="1589499041280" ID="ID_1807058676" MODIFIED="1589499075122" TEXT="Here we have (.) = AND and (+) = OR">
+<node CREATED="1589499081182" ID="ID_1047640033" MODIFIED="1589499084601" TEXT="This is a ring">
+<node CREATED="1589499087970" ID="ID_338986088" MODIFIED="1589499112267" TEXT="We can apply O(n^2.3728...)">
+<node CREATED="1589499124432" ID="ID_738877819" MODIFIED="1589499128758" TEXT="For dense graphs"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589499150091" ID="ID_939652287" MODIFIED="1589499189906" TEXT="Floyd-Warshall: DP II">
+<node CREATED="1589499192175" ID="ID_144251745" MODIFIED="1589499197785" TEXT="1. Subproblems">
+<node CREATED="1589499206597" ID="ID_1921271443" MODIFIED="1589499260010" TEXT="c_uv^(k) = weight of shortest path u -&gt; v, whose intermediate vertices {1, 2, ..., k}"/>
+</node>
+<node CREATED="1589499302492" ID="ID_1561194951" MODIFIED="1589499319812" TEXT="2. Guessing:">
+<node CREATED="1589499585999" ID="ID_1367732212" MODIFIED="1589499591011" TEXT="is k in path?"/>
+</node>
+<node CREATED="1589499602101" ID="ID_1614070848" MODIFIED="1589499617038" TEXT="3. Recurrence">
+<node CREATED="1589499618447" ID="ID_1909277252" MODIFIED="1589499657721" TEXT="c_uv^(k) = min{c_uv^(k - 1), c_uk^(k - 1) + C_kv^(k - 1)}">
+<node CREATED="1589499667457" ID="ID_1476579030" MODIFIED="1589499671708" TEXT="O(V^3)"/>
+</node>
+<node CREATED="1589499688298" ID="ID_282945701" MODIFIED="1589499696095" TEXT="C_uv^(0) = w(u, v)">
+<node CREATED="1589499704811" ID="ID_861454678" MODIFIED="1589499711258" TEXT="not using any intermediate edges"/>
+</node>
+</node>
+<node CREATED="1589499790333" ID="ID_218963136" MODIFIED="1589499796414" TEXT="4.">
+<node CREATED="1589499804516" ID="ID_454335194" MODIFIED="1589499854301">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      C = (w(u, v))
+    </p>
+    <p>
+      for k = 1, 2, ..., n:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for u in V:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for v in V:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if C_uv &gt; C_uk + C_kv:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;C_uv = C_uk + C_kv
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589499856580" ID="ID_1289781825" MODIFIED="1589499862952" TEXT="Very good for dense graphs"/>
+</node>
+</node>
+</node>
+<node CREATED="1589499901760" ID="ID_414026059" MODIFIED="1589499919841" TEXT="Johnson&apos;s Algorithm:">
+<node CREATED="1589499922227" ID="ID_123153904" MODIFIED="1589500016350">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      1. find function h: V -&gt; |R such that w_n(u, v) = w(u, v) + h(u) - h(v) &gt;= 0
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589499975261" ID="ID_490829697" MODIFIED="1589499983471" TEXT="Tweaking edge weights"/>
+<node CREATED="1589499992148" ID="ID_1381757057" MODIFIED="1589500000482" TEXT="Heights are added and subtracted">
+<node CREATED="1589502563890" ID="ID_104647420" MODIFIED="1589502568128" TEXT="How to find these?">
+<node CREATED="1589502569638" ID="ID_1714860327" MODIFIED="1589502578500" TEXT="They are related to the shortest paths">
+<node CREATED="1589502580106" ID="ID_578527841" MODIFIED="1589502633432">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      w(u, v) + h(u) - h(v) &gt;= 0
+    </p>
+    <p>
+      h(v) - h(u) &lt;= w(u, v) for all u, v
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      this is a system of difference constraints (special case of linear programming)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589502644645" ID="ID_193735120" MODIFIED="1589502659365" TEXT="can be used to do temporal programming"/>
+<node CREATED="1589502671786" ID="ID_409456818" MODIFIED="1589502689530" TEXT="if the graph has negative weight cycles, the system has no solution">
+<node CREATED="1589502696429" ID="ID_848071885" MODIFIED="1589502730724" TEXT="Thoerem: If (V, E, w) has negative - weight cycle, then no solution to difference constraintss">
+<node CREATED="1589502733933" ID="ID_722283298" MODIFIED="1589502891757">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: Consider negative weight cycle
+    </p>
+    <p>
+      v0 -&gt; v1 -&gt; ... -&gt; vk -&gt; v0
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      h(v1) - h(v0) &lt;= w(v0, v1)
+    </p>
+    <p>
+      h(v2) - h(v1) &lt;= w(v1, v2)
+    </p>
+    <p>
+      ...
+    </p>
+    <p>
+      h(vk) - h(v(k - 1)) &lt;= w(v(k - 1), vk)
+    </p>
+    <p>
+      h(v0) - v(vk) &lt;= w(vk, v0)
+    </p>
+    <p>
+      ------------------------------
+    </p>
+    <p>
+      0 &lt;= w(c) (but &lt; 0) -&gt; 0 &lt; 0 is not true
+    </p>
+    <p>
+      
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1589502923098" ID="ID_44211915" MODIFIED="1589502960679" TEXT="Theorem: If (V, E, w) has no negative-weight cycles, then there exists a solution">
+<node CREATED="1589502963666" ID="ID_1911679700" MODIFIED="1589503193541">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof:
+    </p>
+    <p>
+      add s to V
+    </p>
+    <p>
+      add (s, v) to E for all v in V
+    </p>
+    <p>
+      w(s, v) = 0, for all v in V
+    </p>
+    <p>
+      h(v) = delta(s, v) is finite for all v in V
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589503039480" ID="ID_1945187985" MODIFIED="1589503065472" TEXT="Add new source s so that we can reach every node (each weight is 0)"/>
+<node CREATED="1589503173426" ID="ID_1804157271" MODIFIED="1589503181250" TEXT="Assuming no negative weight cycles"/>
+<node CREATED="1589503205966" ID="ID_353061980" MODIFIED="1589503299306">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      w(u, v) + h(u) - h(v) &gt;= 0
+    </p>
+    <p>
+      w(u, v) + delta(u, v) - delta(s, v) &gt;= 0
+    </p>
+    <p>
+      =&gt; delta(s, v) &lt;= delta(s, v) + w(u, v) (this is triangle inequality) - the whole game is to fix triangle inequality
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589503326976" ID="ID_1495095612" MODIFIED="1589503342533" TEXT="We run Bellmon forde once to find these">
+<node CREATED="1589503409768" ID="ID_1372708671" MODIFIED="1589503423963" TEXT="There is a clear source s to run Bellman-Forde from"/>
+<node CREATED="1589503454404" ID="ID_119361134" MODIFIED="1589503498231" TEXT="We get weight functions on vertices saying how long does it take to reach those vertices (weights will be negative)"/>
+</node>
+</node>
+<node CREATED="1589503576797" ID="ID_27452465" MODIFIED="1589503593259" TEXT="Computed shortest paths in O(V^2 log V + VE)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589500024479" ID="ID_1378899450" MODIFIED="1589500053484" TEXT="2. Run Dijkstra on (V, E, w_h) -&gt; delta_n(u, v)">
+<node CREATED="1589500457288" ID="ID_232373473" MODIFIED="1589502509741" TEXT="|V|^2 log|V| + |V||E|"/>
+</node>
+<node CREATED="1589500057896" ID="ID_1714479024" MODIFIED="1589500090023" TEXT="3. claim: delta(u, v) = delta_h(u, v) - h(u) + h(v)">
+<node CREATED="1589500130581" ID="ID_1767185036" MODIFIED="1589500157208" TEXT="for every path (u, v), only difference is depending on u and v"/>
+<node CREATED="1589500178571" ID="ID_481904625" MODIFIED="1589500184929" TEXT="Proof: ">
+<node CREATED="1589500186663" ID="ID_360068006" MODIFIED="1589500339231">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - consider path p from u to v
+    </p>
+    <p>
+      u = v0, v1, v2, ..., vk = v
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      - w_h(p) = sigma_i = 1 to k w_h(v_(i - 1), v_i) = sigma_i = 1 to k [w(v - 1, vi) + h(v_(i - 1)) - h(v_i)]
+    </p>
+    <p>
+      = w(p) + h(v0) - h(vk) (telescoping)
+    </p>
+    <p>
+      = w(p) + h(u) - h(v)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589500366113" ID="ID_120384785" MODIFIED="1589500382114" TEXT="w(p) = w_h(p) - h(u) + h(v)"/>
+<node CREATED="1589500398652" ID="ID_917717301" MODIFIED="1589500404759" TEXT="Shortest paths preserved"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128597572" ID="ID_309855821" MODIFIED="1575128610219" POSITION="left" TEXT="12. Greedy Algorithms: Minimum Spanning Tree">
+<node CREATED="1589503726823" ID="ID_97088288" MODIFIED="1589503737268" TEXT="Tree: Connected acyclic graph">
+<node CREATED="1589503753674" ID="ID_1645597961" MODIFIED="1589503783760" TEXT="Spanning tree of a graph: Tree that contains all vertices">
+<node CREATED="1589503790938" ID="ID_448459850" MODIFIED="1589503837469" TEXT="subset of edges of G that form a tree &amp; hit all vertices of G">
+<node CREATED="1589503847953" ID="ID_1266559307" MODIFIED="1589503858665" TEXT="If G is disconnected, we can define spanning forest"/>
+</node>
+</node>
+</node>
+<node CREATED="1589503868160" ID="ID_886123462" MODIFIED="1589503925907">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      MST: Given a graph G = (V, E) &amp; edge-weights w: E -&gt; |R
+    </p>
+    <p>
+      find a spanning tree T of minimum total weight = sigma_e in T w(e)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589504006615" ID="ID_61665104" MODIFIED="1589504020428" TEXT="Exponential worst case for brute force algorithm">
+<node CREATED="1589504025390" ID="ID_1649019359" MODIFIED="1589504116166">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;o
+    </p>
+    <p>
+      &#160;&#160;/&#160;&#160;&#160;&#160;\
+    </p>
+    <p>
+      o- o -o
+    </p>
+    <p>
+      \&#160;\&#160;&#160;&#160;/ /
+    </p>
+    <p>
+      &#160;\&#160;&#160;o&#160;&#160;/
+    </p>
+    <p>
+      &#160;&#160;\ o /
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589504145165" ID="ID_287830098" MODIFIED="1589504159393" TEXT="2^n spanning trees in total if there are n internal vertices"/>
+<node CREATED="1589504241139" ID="ID_683453713" MODIFIED="1589504593598" TEXT="Greedy properties:">
+<node CREATED="1589504257517" ID="ID_1467007034" MODIFIED="1589504339854" TEXT="1. Optimal substructure: optimal solution to problem incorporates optimal solution to subproblem(s))">
+<node CREATED="1589504356007" ID="ID_590172351" MODIFIED="1589504427385" TEXT="This is saying that if we can solve smaller subproblems optimally, we can solve the original problem optimally">
+<node CREATED="1589504433079" ID="ID_35688431" MODIFIED="1589504442247" TEXT="This is recurrence that works for DP">
+<node CREATED="1589504443781" ID="ID_221214206" MODIFIED="1589504455531" TEXT="For this to be possible, we need to guess some feature of the solution">
+<node CREATED="1589504456494" ID="ID_1216677356" MODIFIED="1589504482084" TEXT="Ex: MST: guess one of the edges is in the right answer"/>
+</node>
+</node>
+</node>
+<node CREATED="1589504605830" ID="ID_1333664460" MODIFIED="1589504612725" TEXT="Optimal substructure for MST:">
+<node CREATED="1589504650748" ID="ID_1019741902" MODIFIED="1589504709685" TEXT="if e = {u, v} is an edge of some MST">
+<node CREATED="1589504757330" ID="ID_378245975" MODIFIED="1589504778750" TEXT="If we delete e, we get two components"/>
+<node CREATED="1589504965211" ID="ID_455180181" MODIFIED="1589504999240" TEXT="- contract e: merge u &amp; v">
+<node CREATED="1589505047001" ID="ID_1087456001" MODIFIED="1589505255681">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;o&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;o
+    </p>
+    <p>
+      &#160;\ a/ \b&#160;&#160;/&#160;&#160;&#160;&#160;&#160;&#160;&#160;\&#160;&#160;&#160;| min{a, b}
+    </p>
+    <p>
+      &#160;-u -&#160;&#160;v&#160;&#160;&#160;&#160;=&gt; -(u, v)=
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;c\&#160;&#160;/d \&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;&#160;| min{c, d}
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;o&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;o
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589505362060" ID="ID_1922362413" MODIFIED="1589505380625" TEXT="if T&apos; is a MST of G/e, then T&apos; U {e} is an MST of G">
+<node CREATED="1589577297505" ID="ID_49045937" MODIFIED="1589577674946" TEXT="Proof: say MST T* which contains e =&gt; T* - e is spanning tree of G/e (it is connected and has n - 1 edges)&#xa;w(T&apos;) &lt;= w(T* - e)&#xa;w(T&apos; U {e}) = w(T&apos;) + w(e) &lt;= w(T* - e) + w(e) = w(T*)&#xa;&#xa;Therefore T&apos; U {e} is MST"/>
+</node>
+</node>
+</node>
+<node CREATED="1589505284958" ID="ID_1364062326" MODIFIED="1589505293388" TEXT="Dynamic progam:">
+<node CREATED="1589505303557" ID="ID_1882371386" MODIFIED="1589505338247">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - guess edge e in a MST
+    </p>
+    <p>
+      - contract e
+    </p>
+    <p>
+      - recurse
+    </p>
+    <p>
+      - decontract
+    </p>
+    <p>
+      - add e to MST
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589505445314" ID="ID_1905104648" MODIFIED="1589505450263" TEXT="There is no structure">
+<node CREATED="1589505451466" ID="ID_74033742" MODIFIED="1589505469033" TEXT="exponential if we are guessing"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589504271137" ID="ID_1102920909" MODIFIED="1589504548766" TEXT="2. Greedy-choice property: locally optimal choices lead to globally optimal solution">
+<node CREATED="1589504549808" ID="ID_1349574104" MODIFIED="1589504565007" TEXT="There is no guessing (only greedy selection)">
+<node CREATED="1589504568865" ID="ID_1267061897" MODIFIED="1589504579649" TEXT="This is a special case of DP">
+<node CREATED="1589577727517" ID="ID_1774914958" MODIFIED="1589577901549">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Greedy-choice property for MST:
+    </p>
+    <p>
+      - consider any cut (S C V, V - S)
+    </p>
+    <p>
+      - say e is a least weight edge crossing the cut:
+    </p>
+    <p>
+      &#160;&#160;&#160;e = {u, v}, u in S, v in V - S
+    </p>
+    <p>
+      - then e in some MST
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589577975546" ID="ID_718873921" MODIFIED="1589579047047">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: cut &amp; paste argument (greedy algorithms generic method)
+    </p>
+    <p>
+      - let T* be a MST of G
+    </p>
+    <p>
+      - say e is not in T*
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;it has to have some edges that cross the cut (which are not e) (at-least one)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;T* has to connect connect u to v (e = {u, v}) somehow (a unique path) =&gt; there has to be an edge e' in T* (say) that crosses the cut
+    </p>
+    <p>
+      - T* - e' U {e} is a spanning tree
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;e' ({u', v'}) removal does not disconnect the graph because there was a path u, ..., u', v', ..., v before removing e' and if e' is removed, and e is added, there a new path gets constructed u',...,u,v,...,v'
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      w(T* - e' U {e}) = w(T*) - w(e') + w(e)
+    </p>
+    <p>
+      but e is smallest weight edge crossing that cut
+    </p>
+    <p>
+      =&gt; w(e) &lt;= w(e')
+    </p>
+    <p>
+      =&gt; w(T* - e' U {e}) &lt;= w(T*)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Therefore adding e is at-least as good as T* and hence an MST
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589578192555" ID="ID_1537698605" MODIFIED="1589578407217" TEXT="Suppose we have some optimal solution that doesn&apos;t have the property we want (includes e).  Modify it usually by cutting one part of the solution and pasting it in a  different part.  Prove that we still have an optimal solution. Therefore there is an optimal solution (an MST) that has the property we want."/>
+<node CREATED="1589579080203" ID="ID_1601197069" MODIFIED="1589579107159" TEXT="We only modified edges that cross the cut (S, V\S)"/>
+</node>
+<node CREATED="1589579177455" ID="ID_880308533" MODIFIED="1589579181960" TEXT="Prim&apos;s algorithm">
+<node CREATED="1589579202160" ID="ID_454617954" MODIFIED="1589580077095">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - maintain priority queue Q on V\S where v.key = min{w(u,v) | u in S}
+    </p>
+    <p>
+      - initially Q stores V,
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;- s.key = null for arbitrary start vertex s in V
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;- for v in V\{s}: v.key = inf
+    </p>
+    <p>
+      - until Q empty:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;- u = Extract-Min(Q) (=&gt; add u to S)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;- for v in Adj[u]:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if v in Q (v not in S, boolean can be stored to keep this status)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&amp; w(u, v) &lt; v.key:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- v.key = w(u, v)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- v.parent = u
+    </p>
+    <p>
+      - return {{v, v.parent}| v in V}
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589579352873" ID="ID_1273742847" MODIFIED="1589579392571" TEXT="Overall min vertex gives min weight that crosses the cut"/>
+<node CREATED="1589580078218" ID="ID_230699284" MODIFIED="1589580088364" TEXT="Decrease key operation in priority queue (Q)">
+<node CREATED="1589580093048" ID="ID_1825203099" MODIFIED="1589580102678" TEXT="If key changes, we have to re-order items"/>
+</node>
+<node CREATED="1589580381335" ID="ID_1381469351" MODIFIED="1589580923267">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Correctness: Prove invariant (key of every vertex always remains the minimum - proof by induction) - alg implementation detail
+    </p>
+    <p>
+      Another invariant:
+    </p>
+    <p>
+      tree T_S within S is contained in MST of G
+    </p>
+    <p>
+      - by induction: MST T* which contains T_S
+    </p>
+    <p>
+      - T_S -&gt; T_S' = T_S U {e}
+    </p>
+    <p>
+      - greedy choice property: modify T* to include e &amp; T_S
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;we remove some edge e' and add e (e' cannot be in T_S)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;(we maintain the invariant that S C some MST)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589580950513" ID="ID_1526974587" MODIFIED="1589580962447" TEXT="Time: Same as Dijstra">
+<node CREATED="1589580963543" ID="ID_1991556358" MODIFIED="1589580969032" TEXT="O(Vlog V + E)">
+<node CREATED="1589580969906" ID="ID_1293455374" MODIFIED="1589580980759" TEXT="Fibonacci heap implementation"/>
+<node CREATED="1589581021781" ID="ID_1224656754" MODIFIED="1589581030865" TEXT="sum of degree of vertices (2|E|)"/>
+<node CREATED="1589581040548" ID="ID_9808926" MODIFIED="1589581055014" TEXT="|V| times extract is log |V| for each"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589581086331" ID="ID_1165111100" MODIFIED="1589581098275" TEXT="Kruskal&apos;s algorithm">
+<node CREATED="1589581150825" ID="ID_289379964" MODIFIED="1589581432276">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - maintain connected components in MST-so-far T in
+    </p>
+    <p>
+      &#160;Union-Find structure
+    </p>
+    <p>
+      - T = 0
+    </p>
+    <p>
+      - for v in V: Make-Set(v)
+    </p>
+    <p>
+      - sort E, by weight
+    </p>
+    <p>
+      - for e = {u, v} in E (increasing order by weight)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;- if Find-Set(u) != Find-Set(u):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- T = T U {e}
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- Uniton(u, v)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589581210896" ID="ID_1299975786" MODIFIED="1589581234170" TEXT="Using union find we can maintain connected vertices"/>
+<node CREATED="1589581434166" ID="ID_780871041" MODIFIED="1589581451710" TEXT="Union-Find was invented for Kruskal&apos;s algorithm">
+<node CREATED="1589581512460" ID="ID_148379771" MODIFIED="1589581536031" TEXT="Time: Alpha(n) (&lt; log log log log log ...)"/>
+</node>
+<node CREATED="1589581468202" ID="ID_1872299662" MODIFIED="1589581495282" TEXT="A lot of data structures come from algorithms"/>
+<node CREATED="1589581557917" ID="ID_1622452583" MODIFIED="1589581578759" TEXT="O(sort(E) + E alpha(V) + V)">
+<node CREATED="1589583540049" ID="ID_1991824427" MODIFIED="1589583558373" TEXT="Can be reduced to |V| things instead of |E| things"/>
+<node CREATED="1589583563227" ID="ID_1411183681" MODIFIED="1589583621734" TEXT="Algorithm is good if w(e)  are integers {0, 1, ..., n^c}">
+<node CREATED="1589583623270" ID="ID_1096731012" MODIFIED="1589583626951" TEXT="Radix sort">
+<node CREATED="1589583644644" ID="ID_648253163" MODIFIED="1589583655145" TEXT="O(|E|)"/>
+</node>
+</node>
+</node>
+<node CREATED="1589583673884" ID="ID_1957231606" MODIFIED="1589583676763" TEXT="Variation">
+<node CREATED="1589583677634" ID="ID_1599385935" MODIFIED="1589583683255" TEXT="Generating a random spanning tree">
+<node CREATED="1589583684004" ID="ID_715811969" MODIFIED="1589583766280">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Pick a random edge that we have not already picked and add it to the sub-tree
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      - generating all spanning trees with uniform likelihood
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589583779605" ID="ID_493958821" MODIFIED="1589584102140">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Correctness: Invariant: tree T so far in Some MST T* (we maintain the connected components to be in T* always)
+    </p>
+    <p>
+      - assume T in T* (by induction)
+    </p>
+    <p>
+      - T -&gt; T' = T U {e}
+    </p>
+    <p>
+      - use greedy-choice property
+    </p>
+    <p>
+      - with S = CC(u) (we are not deleting anything from T)
+    </p>
+    <p>
+      &#160;=&gt; T' C= T*' (edge removed is not already in T)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128610931" ID="ID_584218558" MODIFIED="1575128623220" POSITION="right" TEXT="13. Incremental Improvement: Max Flow, Min Cut">
+<node CREATED="1589584443500" ID="ID_1607259869" MODIFIED="1589584516373" TEXT="It can used to solve a wide variaty of problems"/>
+<node CREATED="1589584523394" ID="ID_822841052" MODIFIED="1589584739427">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Flow networks: G(V, E) - directed graph
+    </p>
+    <p>
+      two distinguished vertices - source s, sink t (no accumulation in intermediate nodes)
+    </p>
+    <p>
+      each edge (u, v) in E, non-negative capacity C(u, v)
+    </p>
+    <p>
+      If (u, v) is not in E, C(u, v) = 0
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589584659022" ID="ID_1864798556" MODIFIED="1589584671972" TEXT="Kirchoff&apos;s current law"/>
+<node CREATED="1589584795558" ID="ID_1430517915" MODIFIED="1589584799638" TEXT="cycles are allowed"/>
+<node CREATED="1589584960874" ID="ID_1596065317" MODIFIED="1589584985650" TEXT="flow can be associated with each edge"/>
+<node CREATED="1589585545923" ID="ID_215933875" MODIFIED="1589585560644" TEXT="Given a flow network, G, find a flow with maximm value on G">
+<node CREATED="1589674751982" ID="ID_1715459351" MODIFIED="1589674765050" TEXT="Assumptions">
+<node CREATED="1589674777003" ID="ID_340266691" MODIFIED="1589674819516" TEXT="s1 -1-&gt; u -2-&gt;s1">
+<node CREATED="1589674883568" ID="ID_1475477961" MODIFIED="1589674891112" TEXT="Simple cycles are disallowed">
+<node CREATED="1589674987133" ID="ID_1287230868" MODIFIED="1589675002404" TEXT="Transformation:">
+<node CREATED="1589675003577" ID="ID_1318700136" MODIFIED="1589675057796" TEXT="s1 &lt;-1- u&apos; &lt;-1- u -2-&gt;s1">
+<node CREATED="1589675060522" ID="ID_1128800582" MODIFIED="1589675070707" TEXT="add another node u&apos; in between"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589674893182" ID="ID_183537448" MODIFIED="1589674900505" TEXT="s1 -2-&gt;s1">
+<node CREATED="1589674901985" ID="ID_1759043355" MODIFIED="1589674914789" TEXT="Self loop edges disallowed"/>
+</node>
+</node>
+<node CREATED="1589675095961" ID="ID_1497698488" MODIFIED="1589675100281" TEXT="CLRS:">
+<node CREATED="1589675101444" ID="ID_1792183136" MODIFIED="1589675110190" TEXT="positive flow != net flow">
+<node CREATED="1589675111442" ID="ID_37316247" MODIFIED="1589675129375" TEXT="transformation allows us to use only flow"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589675157102" ID="ID_1508961691" MODIFIED="1589675162415" TEXT="Flow:">
+<node CREATED="1589675163583" ID="ID_1286281940" MODIFIED="1589675492200">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Definitions (net flow in texbook): A flow on G is function f: VxV -&gt; R satisfying:
+    </p>
+    <p>
+      Capacity constraint: For all u, v in V, f(u, v) &lt;= c(u, v)
+    </p>
+    <p>
+      Flow conservation: For all u in V - {s, t}, sigma_u in V f(u, v) = 0
+    </p>
+    <p>
+      Skew symmetry: For all, u, v in V, f(u, v) = -f(v, u)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The value of flow f, denoted |f|
+    </p>
+    <p>
+      &#160;&#160;|f| = sigma_v in V f(s, v) = f(s, V) (v is any vertex, this is anything that gets pushed out of s)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589675541431" ID="ID_603942882" MODIFIED="1589675577252" TEXT="if s &lt;-1:2- v4, then f(s, v4) = -f(v4, s)"/>
+<node CREATED="1589675601516" ID="ID_1445894786" MODIFIED="1589675607463" TEXT="Implicit summation notation">
+<node CREATED="1589675667631" ID="ID_296072199" MODIFIED="1589675685165" TEXT="f(s, V): where V is set">
+<node CREATED="1589675686455" ID="ID_282958301" MODIFIED="1589675697489" TEXT="As we enumerate V, we add the quantities"/>
+</node>
+</node>
+<node CREATED="1589675706537" ID="ID_35463181" MODIFIED="1589675712058" TEXT="Simple properties">
+<node CREATED="1589675713272" ID="ID_142229566" MODIFIED="1589675805807">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      f(X, X) = 0
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589675762135" ID="ID_1105351989" MODIFIED="1589675767648" TEXT="No self loop edges"/>
+<node CREATED="1589675779831" ID="ID_1733422720" MODIFIED="1589675789752" TEXT="f(a, b) = f(b, a) = 0"/>
+</node>
+<node CREATED="1589675809146" ID="ID_571164799" MODIFIED="1589675820066" TEXT="f(X, Y) = -f(Y, X)"/>
+<node CREATED="1589675821853" ID="ID_48400656" MODIFIED="1589675992813">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      f(X U Y, Z) = f(X, Z) + f(Y, Z) if X intersect Y = null set
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589675898908" ID="ID_1044590476" MODIFIED="1589675910416" TEXT="To avoid double counting"/>
+</node>
+</node>
+<node CREATED="1589676024671" ID="ID_1352479113" MODIFIED="1589676108883" TEXT="Theorem: |f| = f(V, t)">
+<node CREATED="1589676268031" ID="ID_826167982" MODIFIED="1589676612678">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: |f| = f(s, V) = f(V, V) - f(V - s, V) = -f(V - s, V) = f(V, V - s)
+    </p>
+    <p>
+      = f(V, t) + f(V, V - s - t) = f(V, t) - f(V - s - t, V) = f(V, t)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      f(V - s - t, V) is 0 by conservation property
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1589676729193" ID="ID_1962710" MODIFIED="1589676731292" TEXT="Cuts">
+<node CREATED="1589676732026" ID="ID_1569592579" MODIFIED="1589676844018">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      A cut (S, T) of a flow network G = (V, E) is a partition of V such that s is in S and t is in T
+    </p>
+    <p>
+      If f is a flow on G, then the flow across the cut is f(S, T)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589677068302" ID="ID_168231390" MODIFIED="1589677177420" TEXT="f(S, T) = (s,a: 2 + s,b: 2) + (d,a: -2 + d,b: 1 d,c: -1 + d,t: 2)"/>
+<node CREATED="1589677243577" ID="ID_141761750" MODIFIED="1589677301124" TEXT="If no s-&gt;c then we can use skew symmetry to show that f(s, c) + f(c, s) = 0"/>
+</node>
+<node CREATED="1589677438767" ID="ID_1997816279" MODIFIED="1589677511806" TEXT="Capacity of a cut: c(S, T) = (s,a: 3 + s,b: 2) + (d,b: 1 + d,t: 3)">
+<node CREATED="1589677513552" ID="ID_615530489" MODIFIED="1589677520079" TEXT="Only positive"/>
+<node CREATED="1589677560340" ID="ID_1315190214" MODIFIED="1589677588540" TEXT="Theorem: Value of any flow is bounded by the capacity of any cut">
+<node CREATED="1589677630962" ID="ID_661045657" MODIFIED="1589677637503" TEXT="max flow min cut theorem"/>
+</node>
+<node CREATED="1589677692982" ID="ID_1865877856" MODIFIED="1589677704798" TEXT="Another characterization of flow value:">
+<node CREATED="1589677705859" ID="ID_48138869" MODIFIED="1589677750414" TEXT="Lemma: For any flow f and any cut (S, T) we have |f| = f(S, T)">
+<node CREATED="1589677754173" ID="ID_400296387" MODIFIED="1589677929995">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: f(S, T) = f(S, V) - f(S, S) (since S U T = V)
+    </p>
+    <p>
+      f(S, T) = f(S, V) = f(s, V) + f(S - s, V) (S - s does not contain s and t)
+    </p>
+    <p>
+      = f(s, V) = |f|
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589677986599" ID="ID_593404458" MODIFIED="1589678014543" TEXT="flow through a cut is the flow of the network"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589678073977" ID="ID_1741415043" MODIFIED="1589678078721" TEXT="Residual network">
+<node CREATED="1589678103143" ID="ID_60772581" MODIFIED="1589678184103">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      G_f(V, E_f): strictly positive residual capacities
+    </p>
+    <p>
+      c_f(u, v) = c(u, v) - f(u, v) &gt; 0
+    </p>
+    <p>
+      edges in E_f admit more flow
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589678711748" ID="ID_238050276" MODIFIED="1589678719895" TEXT="This depends on the flow (specific)"/>
+</node>
+<node CREATED="1589678554423" ID="ID_1249250686" MODIFIED="1589678593713" TEXT="If (v, u) is not in E, then c(v, u) = 0, but f(v, u) = -f(u, v)">
+<node CREATED="1589678608985" ID="ID_73349831" MODIFIED="1589678625150" TEXT="Defines extra edges that don&apos;t exist in the original network"/>
+<node CREATED="1589678880669" ID="ID_1324608119" MODIFIED="1589678907073" TEXT="s -2-&gt; a -1-&gt; s">
+<node CREATED="1589679031036" ID="ID_349852656" MODIFIED="1589679044813" TEXT="Ford-Fulkurson Algorithm">
+<node CREATED="1589679045762" ID="ID_1331622155" MODIFIED="1589679074777" TEXT="Augmenting paths in G_f">
+<node CREATED="1589679085229" ID="ID_573950558" MODIFIED="1589679101383" TEXT="If a path exists from s to t, then we can increase the flow">
+<node CREATED="1589679102276" ID="ID_926250536" MODIFIED="1589679107149" TEXT="=&gt; it is not maximum"/>
+<node CREATED="1589679142241" ID="ID_1675689052" MODIFIED="1589679152319" TEXT="If we don&apos;t have any path, then flow is max"/>
+</node>
+<node CREATED="1589679112415" ID="ID_1157699531" MODIFIED="1589679119852" TEXT="We can use DFS or BFS"/>
+<node CREATED="1589679164276" ID="ID_1126518168" MODIFIED="1589679177931" TEXT="Tells what edges to change">
+<node CREATED="1589679244083" ID="ID_336211131" MODIFIED="1589679258049" TEXT="Min of all residual capacities through a path"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589678418014" ID="ID_190827536" MODIFIED="1589678428511" TEXT="Has residual capacities">
+<node CREATED="1589678431752" ID="ID_509938319" MODIFIED="1589678445368" TEXT="Network that points you to places where you can increase the flow">
+<node CREATED="1589678462465" ID="ID_546361890" MODIFIED="1589678481697" TEXT="if capacity of edge is 3 and flow is two, the the residual capacity is 1"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128623972" ID="ID_727944462" MODIFIED="1575128633538" POSITION="left" TEXT="14. Incremental Improvement: Matching">
+<node CREATED="1589728610271" ID="ID_1534671156" MODIFIED="1589728631356" TEXT="Flow network G(V, E) (flow:capacity)">
+<node CREATED="1589728641078" ID="ID_1295856849" MODIFIED="1589728651123" TEXT="All flow entering vertex has to leave the vertex"/>
+<node CREATED="1589728664417" ID="ID_1528928595" MODIFIED="1589728709399" TEXT="Flow value: |f| = f(s, V) = f(V, t)"/>
+<node CREATED="1589729506262" ID="ID_1524644126" MODIFIED="1589729544997" TEXT="Cut: any partition (S, T) such that s is in S and t is in T">
+<node CREATED="1589729549862" ID="ID_375793581" MODIFIED="1589729574076" TEXT="Lemma; |f| - f(S, T) for any cut(S, T)"/>
+<node CREATED="1589729577659" ID="ID_1556626896" MODIFIED="1589729603912" TEXT="Corollary: |f| &lt;= c(S, T) of any cut(S, T)"/>
+</node>
+<node CREATED="1589729686905" ID="ID_550249774" MODIFIED="1589729744796" TEXT="Residual graph: G_f(V, E_f) (depends on flow) with strictly positive residual capacities c_f(u, v) = c(u, v) - f(u, v) &gt; 0"/>
+<node CREATED="1589729749674" ID="ID_1521072411" MODIFIED="1589729777861" TEXT="Augmenting path: Any path from s to t in G_f">
+<node CREATED="1589729786894" ID="ID_1709431685" MODIFIED="1589729835524" TEXT="Residual capacity of an augmenting path C_f(p) = min_u, v) in P C_f(u, v)"/>
+</node>
+<node CREATED="1589729871043" ID="ID_698165266" MODIFIED="1589729878169" TEXT="Ford Fulkerson Algorithm">
+<node CREATED="1589729879510" ID="ID_1167369339" MODIFIED="1589730026878">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      f[u, v] &lt;- 0 for all (u, v)
+    </p>
+    <p>
+      while an augmenting path in G_f exists
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;do augment f by c_f(p)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589729903786" ID="ID_703629048" MODIFIED="1589729918859" TEXT="satisfies edge capacity and flow conversation for initial values"/>
+<node CREATED="1589730035607" ID="ID_941822514" MODIFIED="1589730091073">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      G: s -1:2-&gt;a-1:4-&gt;t
+    </p>
+    <p>
+      G_f: s-1-&gt;a-1-&gt;s, a-3-&gt;t-1-&gt;a
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589730110560" ID="ID_1899658399" MODIFIED="1589730120509" TEXT="Residual capacity from s to t is 1">
+<node CREATED="1589730149282" ID="ID_680011958" MODIFIED="1589730218830">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      s-2:2-&gt;a-2:4-&gt;t
+    </p>
+    <p>
+      G_f1: s&lt;-2-a-2-&gt;t-2-&gt;a
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589730228083" ID="ID_904233799" MODIFIED="1589730234563" TEXT="There is no path from s to t">
+<node CREATED="1589730235544" ID="ID_1964364823" MODIFIED="1589730240083" TEXT="This is the max flow"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589736355921" ID="ID_1145186546" MODIFIED="1589736365101" TEXT="Max-Flow Min-Cut Theorem">
+<node CREATED="1589736371105" ID="ID_39993913" MODIFIED="1589736568231">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Theorem: The following are equivalent:&#160;
+    </p>
+    <ol>
+      <li>
+        |f| = c(S, T) for some cut (S, T) (some cut is saturated) (1 =&gt; 2 needs to be proved)
+      </li>
+      <li>
+        f is a maximum flow (if some cut is saturated, we have max flow) (2 =&gt; 3 needs to be proved)
+      </li>
+      <li>
+        f admits no augmenting paths (3 =&gt; 1 needs to be proved)
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+<node CREATED="1589736599311" ID="ID_455528713" MODIFIED="1589736672568" TEXT="Proof: 1 =&gt; 2. Since |f| &lt;= c(S, T) for any cut (S, T), the assumption that |f| = c(S, T) =&gt; f is a maximum flow since f can&apos;t be increased"/>
+<node CREATED="1589736675474" ID="ID_1282304508" MODIFIED="1589736778291" TEXT="Proof: 2 =&gt; 3. If there were an augmenting path, the flow value can be increased by min(u, v) in P C_f(u, v) &gt; 0, contradicting the maximality of f"/>
+<node CREATED="1589736787392" ID="ID_142139435" MODIFIED="1589737428642">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: 3 =&gt; 1. Suppose f admints no augmenting paths (we cannot reach s to t)
+    </p>
+    <p>
+      Define S = {u in V: There exists a path in G_f from s to u} (put all reachable nodes from s in S)
+    </p>
+    <p>
+      T = V - S: t is in T, s is in S
+    </p>
+    <p>
+      Therefore, (S, T) is a cut
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      G_f:
+    </p>
+    <p>
+      s - - - - - &gt; u | v&#160;&#160;&#160;t (there is not path from u to v (else it would be in S)
+    </p>
+    <p>
+      Let (u, v) be an edge in G (not G_f) - it had some capacity C
+    </p>
+    <p>
+      &#160;&#160;&#160;This happened because it is saturated
+    </p>
+    <p>
+      &#160;&#160;&#160;C_f(u, v) = 0, since if C_f(u, v) &gt; 0, then v is in S not v is in T as assumed
+    </p>
+    <p>
+      Thus, f(u, v) = C(u, v) because C_f(u, v) = C(u, v) - f(u, v) = 0
+    </p>
+    <p>
+      Therefore for every edge if it exists between any u in S and v in T, they are saturated.
+    </p>
+    <p>
+      Summing over all u in S and v in T, yields f(S, T) = C(S, T)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589737465334" ID="ID_531127257" MODIFIED="1589737476107" TEXT="This is convergence proof and correctness proof"/>
+<node CREATED="1589737481965" ID="ID_704576302" MODIFIED="1589737490829" TEXT="Running time">
+<node CREATED="1589737655520" ID="ID_1011294357" MODIFIED="1589737667466" TEXT="There are techniques that work and those don&apos;t work">
+<node CREATED="1589737834703" ID="ID_1063220630" MODIFIED="1589737935717">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a
+    </p>
+    <p>
+      &#160;10^9/ | \10^9
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;s&#160;&#160;&#160;|1 t
+    </p>
+    <p>
+      &#160;10^9\ | /10^9
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589737938066" ID="ID_826548775" MODIFIED="1589737955372" TEXT="10^9 iterations are possible if we choose s-a-b-t and continue">
+<node CREATED="1589737987602" ID="ID_1125318810" MODIFIED="1589737998664" TEXT="Edmonds karp algorithm - analysis">
+<node CREATED="1589738000827" ID="ID_1613782298" MODIFIED="1589738176937">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      breadth-first augmenting path: a shortest path in G_f from s to t where each edge has weight 1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      breadth-first runs faster than others
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589738093749" ID="ID_1787979204" MODIFIED="1589738106930" TEXT="we can get a polynomial bound that did not depend on the capacities"/>
+<node CREATED="1589738181151" ID="ID_1682526701" MODIFIED="1589738206121" TEXT="O(VE) augmentations in the worst case provided we use BFS augmentations">
+<node CREATED="1589738209528" ID="ID_1407218961" MODIFIED="1589738232771" TEXT="all Overall complexity: O(VE^2) time">
+<node CREATED="1589738246592" ID="ID_304358358" MODIFIED="1589738258605" TEXT="Denick independently and similar"/>
+<node CREATED="1589738292484" ID="ID_1863828596" MODIFIED="1589738313999" TEXT="From MIT, King, Rao, Tarjan">
+<node CREATED="1589738315206" ID="ID_1321589343" MODIFIED="1589738345592" TEXT="O(VElog_(E/VlogV) V)"/>
+</node>
+<node CREATED="1589738352537" ID="ID_1798230285" MODIFIED="1589738370664" TEXT="From MIT, Orlin">
+<node CREATED="1589738372314" ID="ID_357266635" MODIFIED="1589738401712" TEXT="O(VE): uses fast matrix multiply"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589738584870" ID="ID_367906682" MODIFIED="1589738590664" TEXT="Applications">
+<node CREATED="1589738592047" ID="ID_1703743816" MODIFIED="1589738597533" TEXT="Baseball elimination">
+<node CREATED="1589739928111" ID="ID_91514602" MODIFIED="1589740072576">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Team|&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;wi (wins) li (losses) ri (to play)
+    </p>
+    <p>
+      NY&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;75&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;59&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;28
+    </p>
+    <p>
+      Baltimore&#160;&#160;&#160;71&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;63&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;28
+    </p>
+    <p>
+      Boston&#160;&#160;&#160;&#160;&#160;&#160;&#160;69&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;65&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;28
+    </p>
+    <p>
+      Toronto&#160;&#160;&#160;&#160;&#160;63&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;71&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;28
+    </p>
+    <p>
+      Detroit&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;28
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589740079881" ID="ID_1484789869" MODIFIED="1589740180059">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      ri, j: against each other
+    </p>
+    <p>
+      -&#160;&#160;&#160;&#160;5&#160;&#160;&#160;&#160;7&#160;&#160;&#160;&#160;4&#160;&#160;&#160;&#160;3
+    </p>
+    <p>
+      5&#160;&#160;&#160;&#160;-&#160;&#160;&#160;&#160;2&#160;&#160;&#160;&#160;4&#160;&#160;&#160;&#160;4
+    </p>
+    <p>
+      7&#160;&#160;&#160;&#160;2&#160;&#160;&#160;&#160;-&#160;&#160;&#160;&#160;4&#160;&#160;&#160;&#160;0
+    </p>
+    <p>
+      4&#160;&#160;&#160;&#160;4&#160;&#160;&#160;&#160;4&#160;&#160;&#160;&#160;-&#160;&#160;&#160;&#160;0
+    </p>
+    <p>
+      3&#160;&#160;&#160;&#160;4&#160;&#160;&#160;&#160;0&#160;&#160;&#160;&#160;0&#160;&#160;&#160;&#160;-
+    </p>
+    <p>
+      NY BA&#160;&#160;Bo&#160;&#160;To&#160;&#160;&#160;D
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589740195273" ID="ID_1033181097" MODIFIED="1589740209606" TEXT="Team i is eliminated if wi + ri &lt; wj for some j"/>
+<node CREATED="1589740272929" ID="ID_135161944" MODIFIED="1589740303161" TEXT="Detroit w5 = 46, l5 = 88, 46 + 28 = 74 &lt; 75">
+<node CREATED="1589740312549" ID="ID_1963335087" MODIFIED="1589740342049" TEXT="Sufficient, but not necessary"/>
+</node>
+<node CREATED="1589760095484" ID="ID_765160081" MODIFIED="1589760115181" TEXT="Flow network to determine if team 5 is eliminated">
+<node CREATED="1589760121005" ID="ID_370692334" MODIFIED="1589760489941">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      s -5-&gt; (1-2)-inf-&gt;1 &amp; 2-w5+r5-w1=1, w5+r5-w2=5-&gt;t
+    </p>
+    <p>
+      &#160;&#160;&#160;-7-&gt; (1-3)-inf-&gt;1 &amp; 3-7-&gt;t
+    </p>
+    <p>
+      &#160;&#160;&#160;-2-&gt; (2-3)-inf-&gt; 2 &amp; 3-&gt;t
+    </p>
+    <p>
+      &#160;&#160;&#160;-4-&gt; (1-4)-inf-&gt; 1 &amp; 4-13-&gt;t
+    </p>
+    <p>
+      &#160;&#160;&#160;-4-&gt; (2-4)-inf-&gt; 2 &amp; 4-&gt;t
+    </p>
+    <p>
+      &#160;&#160;&#160;-4-&gt; (3-4)-inf-&gt; 3 &amp; 4-&gt;t
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      capcities are number of games team i can win and not have more games than team 5
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589760544060" ID="ID_113312365" MODIFIED="1589760645297">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Intuition: Assume team 5 wins all remaining games. Divvy up remaining games so all teams have &lt;= w5 + r5 wins (if we cannot do this then team 5 is not eliminated)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589760710231" ID="ID_196929903" MODIFIED="1589760900842" TEXT="Thoerem: Team 5 is eliminated iff max-flow does not saturate all edges leaving the source (i.e. maxflow &lt; 26 (sum of last 4 capacities)) (saturation corresponds to playing all remaining games)">
+<node CREATED="1589760822336" ID="ID_1560712964" MODIFIED="1589761011245" TEXT="Argument: If you can&apos;t play all the remaining games without exceeding the capacity of i -&gt; t edges . team 5 is eliminated.">
+<node CREATED="1589761040165" ID="ID_796445571" MODIFIED="1589761059688" TEXT="If all games cannot be played then team 5 can survive">
+<node CREATED="1589761195641" ID="ID_710198543" MODIFIED="1589761293477">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Find a min-cut (S, T)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      4 + 4 + 4 + 1 + 5 + 7 = 25 =&gt; elimination (&lt; 26) =&gt; we have not saturated all of the edges that come from S
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1589760907809" ID="ID_1954219012" MODIFIED="1589760907809" TEXT=""/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128634518" ID="ID_1238648892" MODIFIED="1575128646202" POSITION="right" TEXT="15. Linear Programming: LP, reductions, Simplex">
+<node CREATED="1589761424244" ID="ID_268371636" MODIFIED="1589761436067" TEXT="General purpose optimization technique">
+<node CREATED="1589761442232" ID="ID_1994681482" MODIFIED="1589761467714" TEXT="LP can be run instead of max-flow and it is better"/>
+<node CREATED="1589761482031" ID="ID_1692891194" MODIFIED="1589761488403" TEXT="We can do shortest paths"/>
+<node CREATED="1589761489655" ID="ID_1753921579" MODIFIED="1589761498612" TEXT="We can do multi commodity max-flow"/>
+<node CREATED="1589761515559" ID="ID_1887146019" MODIFIED="1589761522450" TEXT="But algorithms are more complicated"/>
+</node>
+<node CREATED="1589761573209" ID="ID_1866611908" MODIFIED="1589761578185" TEXT="Simplex algorithm">
+<node CREATED="1589761578836" ID="ID_1742330504" MODIFIED="1589761584422" TEXT="Iterating over slack forms">
+<node CREATED="1589761602993" ID="ID_392567238" MODIFIED="1589761609166" TEXT="worst case exp time"/>
+<node CREATED="1589761610276" ID="ID_386675095" MODIFIED="1589761616750" TEXT="practically it is efficient">
+<node CREATED="1589761630458" ID="ID_1021772793" MODIFIED="1589761650597" TEXT="Elipsoid method - theoretically polynomial"/>
+<node CREATED="1589761661080" ID="ID_401591881" MODIFIED="1589761687793" TEXT="Interior point methods are more efficient"/>
+</node>
+</node>
+</node>
+<node CREATED="1589761709938" ID="ID_1425301499" MODIFIED="1589761713413" TEXT="Politics">
+<node CREATED="1589761726797" ID="ID_921749249" MODIFIED="1589761739121" TEXT="Minimize money to buy election">
+<node CREATED="1589761755727" ID="ID_1028269900" MODIFIED="1589761779238" TEXT="How to campaign to win an election?">
+<node CREATED="1589761812752" ID="ID_198274159" MODIFIED="1589761843702" TEXT="Estimate votes obtained per dollar spent advertising in support of a partiuclar case">
+<node CREATED="1589761871496" ID="ID_204421114" MODIFIED="1589761889424" TEXT="Different messages to different demographics are allowed">
+<node CREATED="1589761890803" ID="ID_1947364551" MODIFIED="1589761899006" TEXT="Contradictions are allowed"/>
+</node>
+</node>
+</node>
+<node CREATED="1589761913747" ID="ID_1420661119" MODIFIED="1589761918485" TEXT="Policy">
+<node CREATED="1589761948550" ID="ID_1349565641" MODIFIED="1589761953065" TEXT="Build roads">
+<node CREATED="1589762012406" ID="ID_721447223" MODIFIED="1589762047856" TEXT="Urban: -2, Suburban: 5, Rural: 3 (don&apos;t care much)"/>
+</node>
+<node CREATED="1589761954575" ID="ID_1374562816" MODIFIED="1589761958521" TEXT="Gun control">
+<node CREATED="1589762049829" ID="ID_596530356" MODIFIED="1589762065599" TEXT="Urban: 8, Suburban: 2, Rural: -5"/>
+</node>
+<node CREATED="1589761960363" ID="ID_707801355" MODIFIED="1589761973433" TEXT="Farm subsidies">
+<node CREATED="1589762067666" ID="ID_1624222817" MODIFIED="1589762086572" TEXT="0, 0, 10"/>
+</node>
+<node CREATED="1589761976044" ID="ID_301705881" MODIFIED="1589761980946" TEXT="Gasoline Tax">
+<node CREATED="1589762089660" ID="ID_1119841143" MODIFIED="1589762104297" TEXT="10, 0, 2"/>
+</node>
+</node>
+<node CREATED="1589761920858" ID="ID_1994047646" MODIFIED="1589761924123" TEXT="Demographic">
+<node CREATED="1589761927129" ID="ID_127524465" MODIFIED="1589761930448" TEXT="Urban"/>
+<node CREATED="1589761931696" ID="ID_154561641" MODIFIED="1589761941524" TEXT="Suburban"/>
+<node CREATED="1589761942968" ID="ID_261208449" MODIFIED="1589761946057" TEXT="Rural"/>
+</node>
+<node CREATED="1589762151155" ID="ID_611827656" MODIFIED="1589762168205" TEXT="Want a majority in EACH demographic"/>
+<node CREATED="1589762176445" ID="ID_936354590" MODIFIED="1589762317682">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Population: 100,000, 200,000, 50,000
+    </p>
+    <p>
+      Majority: 50,000, 100,000, 25,000 (Population/2)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589762322804" ID="ID_593857494" MODIFIED="1589762335329" TEXT="we want to win by spending minimum amount of money">
+<node CREATED="1589762340094" ID="ID_352434518" MODIFIED="1589762351997" TEXT="We can convert the constraints to linear equations">
+<node CREATED="1589762354833" ID="ID_989989484" MODIFIED="1589762709820">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Algebraic setup:
+    </p>
+    <p>
+      Let X1, X2, X3, X4 denote $ spent per issue.
+    </p>
+    <p>
+      Minimize X1 + X2 + X3 + X4
+    </p>
+    <p>
+      Subject to -2X1 + 8X2 + 0X3 + 10X4 &gt;= 50,000
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;5X1 + 2X2 + 0X3 + 0X4 &gt;= 100,000
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3X1 - 5X2 + 10X3 - 2X4 &gt;= 25,000
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;X1 + X2 + X3 + X4 &gt;= 0
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589762488445" ID="ID_892576458" MODIFIED="1589762531328" TEXT="We want discover find values of variables to optimize cost function"/>
+<node CREATED="1589762537020" ID="ID_732126195" MODIFIED="1589762542140" TEXT="Constraints are linear">
+<node CREATED="1589762543211" ID="ID_1482416558" MODIFIED="1589762556528" TEXT="Quadratic constraints are more complicated"/>
+</node>
+<node CREATED="1589762564847" ID="ID_1884432299" MODIFIED="1589762573735" TEXT="3 demographics =&gt; 3 constraints"/>
+<node CREATED="1589763002299" ID="ID_588081864" MODIFIED="1589763014676" TEXT="Can we solve this linear program in an efficient way?">
+<node CREATED="1589763016947" ID="ID_1920520322" MODIFIED="1589763020700" TEXT="n variables"/>
+<node CREATED="1589763022522" ID="ID_1191620510" MODIFIED="1589763029992" TEXT="m constraints"/>
+<node CREATED="1589763048759" ID="ID_1806441889" MODIFIED="1589763058372" TEXT="We want a runtime that is polynomial in n">
+<node CREATED="1589763112872" ID="ID_857749949" MODIFIED="1589763187906">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Optimim: X1 = 205000/111, X2 = 425000/111, X3 = 0, X4 = 625000/111
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      X1 + X2 + X3 + X4 = 3100000/111
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589763190708" ID="ID_1737847643" MODIFIED="1589763198921" TEXT="Xi are real numbers">
+<node CREATED="1589763259972" ID="ID_737794435" MODIFIED="1589763272632" TEXT="Polynomial time solvable"/>
+</node>
+<node CREATED="1589763221926" ID="ID_1738789858" MODIFIED="1589763235763" TEXT="Integer linear programming is NP-Complete">
+<node CREATED="1589763241245" ID="ID_1039387797" MODIFIED="1589763251030" TEXT="Additional constraint: Xi&apos;s are integral"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589763343727" ID="ID_863279090" MODIFIED="1589763350856" TEXT="Standard form for LP">
+<node CREATED="1589763352081" ID="ID_1730314773" MODIFIED="1589763533766">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - Minimize or maximize linear objective function subject to linear inequalities (or equations)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      variables = x = (x1 x2 ... xn)^T
+    </p>
+    <p>
+      Objective fn: C.x = C1x1 + ... + Cnxn
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Inequalities: A.x &lt;= b
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Max C.x, such that all constraints hold and x &gt;= 0
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589763632497" ID="ID_1251512930" MODIFIED="1589763636657" TEXT="Duality:">
+<node CREATED="1589763639783" ID="ID_1780578241" MODIFIED="1589763646749" TEXT="Certificate of Optimality">
+<node CREATED="1589763650491" ID="ID_89296476" MODIFIED="1589763705705" TEXT="Is there a short certificate that shows LP solution is optimal">
+<node CREATED="1589763706832" ID="ID_1820717711" MODIFIED="1589763723568" TEXT="certificate works only for specific examples"/>
+<node CREATED="1589763728433" ID="ID_589794020" MODIFIED="1589763805174" TEXT="consider 25/222 x (1) + 46/222 x (2) + 14/222 x (3) (equations)">
+<node CREATED="1589763867247" ID="ID_732876158" MODIFIED="1589763893286" TEXT="x1 + x2 + 140/222 x3 + x4 &gt;= 3100000/111">
+<node CREATED="1589764105849" ID="ID_454751123" MODIFIED="1589764136980" TEXT="x1 + x2 + x3 + x4 &gt;= x1 + x2 + 140/222 x3 + x4 &gt;= 3100000/111">
+<node CREATED="1589764139770" ID="ID_1865427051" MODIFIED="1589764159534" TEXT="=&gt; x1 + x2 + x3 + x4 &gt;= 3100000/111"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589764192455" ID="ID_717446031" MODIFIED="1589764196966" TEXT="LP Duality:">
+<node CREATED="1589764204119" ID="ID_1458297774" MODIFIED="1589764270753" TEXT="There will always be a short certificate of optimality that corresponds to some set of coefficents"/>
+<node CREATED="1589764313367" ID="ID_175562888" MODIFIED="1589764409534">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Theorem: max c.x, such that Ax &lt;= b &amp; x &gt;= 0
+    </p>
+    <p>
+      dual form:
+    </p>
+    <p>
+      min b.y
+    </p>
+    <p>
+      A^T.y &gt;= c
+    </p>
+    <p>
+      y &gt;= 0
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589764426445" ID="ID_77784808" MODIFIED="1589764440981" TEXT="algorithms flip between these forms for efficiency">
+<node CREATED="1589764529981" ID="ID_174459441" MODIFIED="1589764543575" TEXT="This can be used to prove the optimality"/>
+</node>
+<node CREATED="1589764444093" ID="ID_518748897" MODIFIED="1589764477467" TEXT="solving dual can solve the primal and vice versa"/>
+</node>
+</node>
+</node>
+<node CREATED="1589764577438" ID="ID_72852840" MODIFIED="1589764586678" TEXT="Converting to standard form">
+<node CREATED="1589764593408" ID="ID_1411794781" MODIFIED="1589764609450" TEXT="Minimize -2x1 + 3x2">
+<node CREATED="1589764620188" ID="ID_533872903" MODIFIED="1589764638236" TEXT="Negate to 2x1 - 3x2 and maximize"/>
+</node>
+<node CREATED="1589764639714" ID="ID_1306314956" MODIFIED="1589764657630" TEXT="Suppose xj does not have a non-nagativity constraints">
+<node CREATED="1589764871534" ID="ID_1101656074" MODIFIED="1589764900060" TEXT="Replace xj with xj&apos; - xj&apos;&apos; where xj&apos; &gt;= 0 &amp; xj&apos;&apos; &gt;= 0">
+<node CREATED="1589764907499" ID="ID_548570042" MODIFIED="1589764918183" TEXT="actual xj can be nagative or positive"/>
+</node>
+</node>
+<node CREATED="1589764925862" ID="ID_1087309246" MODIFIED="1589764997365" TEXT="Equality constraint  x1 + x2 = 7 =&gt; x1 + x2 &lt;= 7 &amp; -x1 - x2 &lt;= -7"/>
+<node CREATED="1589765014661" ID="ID_1343727489" MODIFIED="1589765036586" TEXT="&gt;= constraint translates to &lt;= by -1 multiply"/>
+</node>
+</node>
+<node CREATED="1589765070237" ID="ID_693608374" MODIFIED="1589765076824" TEXT="If there are non-linear constraints">
+<node CREATED="1589765077631" ID="ID_161638809" MODIFIED="1589765089306" TEXT="There is work to do for conversion to linear and solving">
+<node CREATED="1589765120109" ID="ID_914009809" MODIFIED="1589765155867" TEXT="We may have to do reductions to standard linear programming problem">
+<node CREATED="1589765183806" ID="ID_555629210" MODIFIED="1589765219456" TEXT="Reduction can be used to do complexity proofs etc..."/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589765259663" ID="ID_654841911" MODIFIED="1589765271202" TEXT="Solving max-flow using LP">
+<node CREATED="1589765680688" ID="ID_459750177" MODIFIED="1589765924087">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      max sigma_v in V f(s, v) = |F|
+    </p>
+    <p>
+      skew symmetry such that: f(u, v) = -f(v, u) for all u, v in V (linear constraint)
+    </p>
+    <p>
+      conservation: sigma_v in V f(u, v) = 0 (linear constraint)
+    </p>
+    <p>
+      capacity: f(u, v) &lt;= c(u, v) for all u, v in V (linear constraint)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589765927926" ID="ID_726917311" MODIFIED="1589765958049" TEXT="Max-flow algorithm is performant for this (for single flow)"/>
+<node CREATED="1589765965378" ID="ID_126317482" MODIFIED="1589765989551" TEXT="But if we have multiple commodities, this is more general settings">
+<node CREATED="1589765998513" ID="ID_1727353395" MODIFIED="1589766015464" TEXT="Say two commodities: f1, c1, f2, c2">
+<node CREATED="1589766052217" ID="ID_1942047408" MODIFIED="1589766108855" TEXT="If we have single capacity c and two different commodities: f1, f2">
+<node CREATED="1589766109896" ID="ID_1077720769" MODIFIED="1589766135683" TEXT="f1(u, v) + f2(u, v) &lt;= c(u, v)">
+<node CREATED="1589766138252" ID="ID_117861163" MODIFIED="1589766141890" TEXT="This is linear"/>
+</node>
+<node CREATED="1589766145545" ID="ID_1225675775" MODIFIED="1589766158796" TEXT="2f1(u, v) + f1(u, v) &lt;= c(u, v)">
+<node CREATED="1589766159737" ID="ID_1119890285" MODIFIED="1589766171640" TEXT="If trucks take more space then we can put fewer"/>
+</node>
+<node CREATED="1589766175517" ID="ID_553594133" MODIFIED="1589766184682" TEXT="Linear programming can be used here"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589835528899" ID="ID_375976488" MODIFIED="1589835536546" TEXT="Shortest path problem">
+<node CREATED="1589835541183" ID="ID_1629971072" MODIFIED="1589835568401" TEXT="from s"/>
+<node CREATED="1589835569662" ID="ID_1519924245" MODIFIED="1589835572675" TEXT="d[v]">
+<node CREATED="1589835594106" ID="ID_992342784" MODIFIED="1589835606952" TEXT="Go with triangle inequality">
+<node CREATED="1589835612413" ID="ID_53380824" MODIFIED="1589835626882" TEXT="d[v] - d[u] &lt;= w(u, v) for all u, v in E">
+<node CREATED="1589835632161" ID="ID_1225462860" MODIFIED="1589835636483" TEXT="d[s] = 0"/>
+</node>
+<node CREATED="1589835723901" ID="ID_1082935963" MODIFIED="1589835768137">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      d[v] - d[u1] &lt;= w(u1, v)
+    </p>
+    <p>
+      d[v] - d[u2] &lt;= w(u2, v)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      =&gt; min(...)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589835849734" ID="ID_843246287" MODIFIED="1589835961437" TEXT="max sigma_V d[v]">
+<node CREATED="1589835968476" ID="ID_971115852" MODIFIED="1589835972493" TEXT="min returns 0">
+<node CREATED="1589835977325" ID="ID_49452538" MODIFIED="1589835991161" TEXT="=&gt; max forces to eqality"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589836072833" ID="ID_1413842204" MODIFIED="1589836079533" TEXT="How to build the engine?">
+<node CREATED="1589836081429" ID="ID_782456696" MODIFIED="1589836088665" TEXT="Simplex Algorithm">
+<node CREATED="1589836108562" ID="ID_1203330619" MODIFIED="1589836218000">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Flow:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Represent LP in slack form
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Convert one slack form into an equivalent slack form whose objective value has not decreased and has likely increased
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Keep going till the optimal solution becomes obvious (related to certificates)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589836221728" ID="ID_32327875" MODIFIED="1589836226338" TEXT="Exponential">
+<node CREATED="1589836229465" ID="ID_417367471" MODIFIED="1589836243023" TEXT="worst case (m + 1 n)"/>
+</node>
+</node>
+<node CREATED="1589836295115" ID="ID_1062681424" MODIFIED="1589836400030">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Maximize 3X1 + X2 + X3
+    </p>
+    <p>
+      Subject to
+    </p>
+    <p>
+      X1 + X2 + 3X3 &lt;= 30
+    </p>
+    <p>
+      2X1 + 2X2 + 5X3 &lt;= 24
+    </p>
+    <p>
+      4X1 + X2 + 2X3 &lt;= 36
+    </p>
+    <p>
+      X1, X2, X3 &gt;= 0
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589836406229" ID="ID_146368434" MODIFIED="1589836411982" TEXT="Slack form">
+<node CREATED="1589836416559" ID="ID_1841920521" MODIFIED="1589836617325">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      z = 3X1 + X2 + X3
+    </p>
+    <p>
+      X4 = 30 - X1 - X2 - 3X3 (basic variable) (shows how much slack we have in the inequalities that we have in the original problem - if X4 = 0, then we are jammed or if it is a value, then the variables can take variable values)
+    </p>
+    <p>
+      X5 = 24 - 2X1 - 2X2 - 5X3
+    </p>
+    <p>
+      X6 = 36 - 4X1 - X2 - 2X3
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1589836626809" ID="ID_486580356" MODIFIED="1589836642388" TEXT="(X1, X2, X3, X4, X5, X6)">
+<node CREATED="1589836650155" ID="ID_938104979" MODIFIED="1589836658720" TEXT="Original variables are non-basic"/>
+<node CREATED="1589836689593" ID="ID_1699416858" MODIFIED="1589836735959">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Basic solution: Set all non-basic variables to 0
+    </p>
+    <p>
+      Compute values of basic variables
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589836737546" ID="ID_1646094442" MODIFIED="1589836815824">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      3(0) + 1(0) + 2(0) = 0
+    </p>
+    <p>
+      (0, 0, 0, 30, 24, 36)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1589836826043" ID="ID_102582743" MODIFIED="1589836839976" TEXT="Pivoting: Swap a basic variable with non-basic variable">
+<node CREATED="1589836873011" ID="ID_679165932" MODIFIED="1589837016236">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        Select a non-basic variable X_e whose coefficient in objective function is positive
+      </li>
+      <li>
+        Increase the value of X_e as much as possible without violating any of the constraints
+      </li>
+      <li>
+        Variable X_e becomes basic and some other variable becomes non-basic (Similar to Gaussian elimination). (Values of other basic variables &amp; objective function may change)
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+<node CREATED="1589837046955" ID="ID_1300957482" MODIFIED="1589837057779" TEXT="X1 is selected (non-basic)">
+<node CREATED="1589837060788" ID="ID_1907798522" MODIFIED="1589837074370" TEXT="Want to increase value of X1 without violating constraints">
+<node CREATED="1589837160186" ID="ID_1742440473" MODIFIED="1589837204659" TEXT="3rd constraint is tightest one: X1 = 9 - X2/4 - X3/2 - X6/4"/>
+<node CREATED="1589837214165" ID="ID_1401705129" MODIFIED="1589837230257" TEXT="Rewrite the other equations with X6 on the right hand side">
+<node CREATED="1589837231496" ID="ID_476487904" MODIFIED="1589837290677" TEXT="i.e. replace X1 with the above equation"/>
+</node>
+</node>
+</node>
+<node CREATED="1589837368090" ID="ID_1862933490" MODIFIED="1589837372290" TEXT="Convergence">
+<node CREATED="1589837373514" ID="ID_221923344" MODIFIED="1589837458415">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Z = 27 + X2/4 + X3/2 - 3X6/4
+    </p>
+    <p>
+      X1 = 9 - X2/4 - X3/2 - X6/4
+    </p>
+    <p>
+      X4 = 21 - 3X2/4 - 5X3/2 - X6/4
+    </p>
+    <p>
+      X5 = 6 - 3X2/2 - 4X3 + X1/2
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589837492654" ID="ID_341610966" MODIFIED="1589837502423" TEXT="Original basic solution">
+<node CREATED="1589837503960" ID="ID_1487821970" MODIFIED="1589837514341" TEXT="(0, 0, 0, 30, 24, 36)">
+<node CREATED="1589837515903" ID="ID_724158234" MODIFIED="1589837533653" TEXT="Satisfies equations">
+<node CREATED="1589837562556" ID="ID_567994538" MODIFIED="1589837721939">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      and has objective value
+    </p>
+    <p>
+      27 + 1/4.0 + 1/2.0 - 3/4.36 = 0
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Basic solution for II: set nonbasic values are 0
+    </p>
+    <p>
+      (9, 0, 0, 21, 6, 0) -&gt; Objective value is 9x3 = 27
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589837809159" ID="ID_731116171" MODIFIED="1589837813858" TEXT="?????????"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128647035" ID="ID_1204642290" MODIFIED="1575128670999" POSITION="left" TEXT="16. Complexity: P, NP, NP-Completeness, Reductions">
+<node CREATED="1589837851692" ID="ID_1783179601" MODIFIED="1589837946865">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Today: NP-Completeness
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      3 SAT -&gt; Super Mario Bros&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;-&gt; Subset Sum -&gt; Partition -&gt; Rectangle Packing
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;-&gt; 3-Dimensional Matching -&gt; 4-Partition -&gt; Rectangle Packing -&gt; Jigsaw Puzzles
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1589837990181" ID="ID_1590360738" MODIFIED="1589838034516" TEXT="Recall: P = {problems solvable in Polynomial time} -&gt; n^O(1)">
+<node CREATED="1589838037066" ID="ID_401538241" MODIFIED="1589838043466" TEXT="n is size of the problem"/>
+</node>
+<node CREATED="1589838045373" ID="ID_1100042411" MODIFIED="1589838096208" TEXT="NP = {decision problems (Answer is yes or no) solvable in non-deterministic polynomial time}">
+<node CREATED="1589838112840" ID="ID_1118215603" MODIFIED="1589838118662" TEXT="Non-deterministic">
+<node CREATED="1589838120248" ID="ID_1158739580" MODIFIED="1589838149316" TEXT="Can guess one out of polynomially many options in O(1) time">
+<node CREATED="1589838170089" ID="ID_1536573486" MODIFIED="1589838178195" TEXT="Guess is guaranteed to be good"/>
+<node CREATED="1589838180790" ID="ID_839828932" MODIFIED="1589838197674" TEXT="If any guess would lead to a YES answer, then we get such a guess">
+<node CREATED="1589838211703" ID="ID_676548820" MODIFIED="1589838218663" TEXT="Biassed towards YES">
+<node CREATED="1589838293713" ID="ID_789859217" MODIFIED="1589838307522" TEXT="Lucky model of computation"/>
+</node>
+<node CREATED="1589838249090" ID="ID_13796235" MODIFIED="1589838276020" TEXT="If machine gives NO, then there is absolutely no path that leads to a  YES">
+<node CREATED="1589838281652" ID="ID_160079714" MODIFIED="1589838289181" TEXT="A lot of info"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589838315989" ID="ID_1292709428" MODIFIED="1589838451600">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      3 SAT: Given Boolean formula of the form (X1 v X2 v ~X6) ^ (~X2 v X3 v ~X7) ...
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Can you set the variables X1, X2, ... -&gt; {T, F} such that the formula = T
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589838378756" ID="ID_622372039" MODIFIED="1589838407789" TEXT="X1, X2, X3, ~X1, ~X2, ~X3 are literals"/>
+<node CREATED="1589838494197" ID="ID_1607816242" MODIFIED="1589838532521" TEXT="is in NP: guess X1 = T or F, guess X2 = T or F, ... (each guess takes O(1) time) ">
+<node CREATED="1589838533950" ID="ID_869350275" MODIFIED="1589838562002" TEXT="Check formula -&gt; T or F: return YES or NO"/>
+<node CREATED="1589838629933" ID="ID_277238044" MODIFIED="1589838643768" TEXT="Do guessing in the beginning and checking in Polynomial time">
+<node CREATED="1589838687500" ID="ID_278404103" MODIFIED="1589838696615" TEXT="3 SAT can be checked in O(n) time">
+<node CREATED="1589838701897" ID="ID_1164828547" MODIFIED="1589838710882" TEXT="We can do this for YES answers"/>
+<node CREATED="1589838712572" ID="ID_1004556804" MODIFIED="1589838730021" TEXT="If friend says NO, we may have to try all of them"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589838786841" ID="ID_155862170" MODIFIED="1589838819540" TEXT="NP = {decision problems with poly - size certificates &amp; poly-time verifiers for YES inputs}">
+<node CREATED="1589838828864" ID="ID_1034136375" MODIFIED="1589838867062" TEXT="certificates: results of guesses">
+<node CREATED="1589838888652" ID="ID_579989632" MODIFIED="1589838911024" TEXT="Polynomial size: O(n^O(1))"/>
+</node>
+</node>
+<node CREATED="1589838917154" ID="ID_1848854867" MODIFIED="1589838950109" TEXT="X is NP-Complete: if X is in NP &amp; X is NP-Hard">
+<node CREATED="1589838951294" ID="ID_271954223" MODIFIED="1589838967604" TEXT="X is NP-Hard if every problem Y in NP reduces to X">
+<node CREATED="1589838985366" ID="ID_1377520106" MODIFIED="1589839003332" TEXT="Reduction: From problem A -&gt; problem B">
+<node CREATED="1589839005425" ID="ID_65936193" MODIFIED="1589839034167" TEXT="= poly-time algorithm converting A inputs -&gt; equivalent B inputs"/>
+</node>
+<node CREATED="1589839055809" ID="ID_1639458255" MODIFIED="1589839067024" TEXT="It least as hard as all problems in NP"/>
+<node CREATED="1589839107712" ID="ID_661932358" MODIFIED="1589839123512" TEXT="Being in NP means there is at-least a polynomial verification algorithm">
+<node CREATED="1589839139882" ID="ID_1263001532" MODIFIED="1589839163925" TEXT="NP-Complete: You are exactly as hard as all problems in NP (not easier and not harder)">
+<node CREATED="1589839173414" ID="ID_752718475" MODIFIED="1589839239014">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      --P--|--------|--NP-hard--&gt;
+    </p>
+    <p>
+      ---NP-------&gt;|
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NP-Complete
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589839261129" ID="ID_234080533" MODIFIED="1589839271549" TEXT="=&gt; X is not in P unless P = NP"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589839351131" ID="ID_701716731" MODIFIED="1589839377785" TEXT="If B has a polynomial time algorithm, the A has (A -&gt; B is polynomial)">
+<node CREATED="1589839384611" ID="ID_199711204" MODIFIED="1589839391998" TEXT="if B is in P then A is in P"/>
+<node CREATED="1589839394268" ID="ID_273683721" MODIFIED="1589839400775" TEXT="if B is in NP then A is in NP">
+<node CREATED="1589839524302" ID="ID_1798880902" MODIFIED="1589839576613" TEXT="If B is harder problem than A, reducing A -&gt; B makes B is atleast as hard as A"/>
+</node>
+</node>
+</node>
+<node CREATED="1589839611705" ID="ID_1843275170" MODIFIED="1589839637608" TEXT="How to prove X is NP-Complete">
+<node CREATED="1589839678844" ID="ID_1017940591" MODIFIED="1589839733872">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        X is in NP
+      </li>
+      <li>
+        reduce from known NP-complete problem Y to X (NP-Hard)
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+<node CREATED="1589839738496" ID="ID_1383093283" MODIFIED="1589839813800">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        Give a non-deterministic polynomial time algorithm Or
+      </li>
+      <li>
+        give a certificate + verifier
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1589839868703" ID="ID_1281790583" MODIFIED="1589839942990">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      2. Reduction:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;z in NP -&gt; y -&gt; x
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589839957531" ID="ID_1522718479" MODIFIED="1589839975455" TEXT="3-SAT was proved to be NP-Complete">
+<node CREATED="1589839976260" ID="ID_135455438" MODIFIED="1589839986493" TEXT="All problems were reduced to 3-SAT"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589841928882" ID="ID_962744502" MODIFIED="1589841942352" TEXT="Super Mario Bros: is NP-Hard">
+<node CREATED="1589841972869" ID="ID_1305640894" MODIFIED="1589841988446" TEXT="Generalize to arbitrary screen size n x n">
+<node CREATED="1589842038988" ID="ID_706367798" MODIFIED="1589842111583" TEXT="Mario enters variable box (X1) then Mario has to choose either  T or F">
+<node CREATED="1589842113318" ID="ID_614999663" MODIFIED="1589842132114" TEXT="Mario goes from left and fall to left or right"/>
+</node>
+<node CREATED="1589842142583" ID="ID_463446843" MODIFIED="1589842155140" TEXT="Do the same for X1, X2, ... Xn variables">
+<node CREATED="1589842181676" ID="ID_844666367" MODIFIED="1589842192830" TEXT="Build gadgets (for each variable)"/>
+<node CREATED="1589842236508" ID="ID_793743437" MODIFIED="1589842252999" TEXT="Build gadgets (for each clause - in case of 3SAT)">
+<node CREATED="1589842295220" ID="ID_171040900" MODIFIED="1589842331578" TEXT="After visiting X1 gadget, then dip into clause gadgets that contain X1 and then return to X2 and continues ..."/>
+<node CREATED="1589842375008" ID="ID_446929137" MODIFIED="1589842395157" TEXT="Dip into clauses with ~X1 and dips"/>
+<node CREATED="1589842464047" ID="ID_1972605567" MODIFIED="1589842554920" TEXT="After Xn is covered, then traverse through all the clauses and reach the flag to finish the game">
+<node CREATED="1589842605245" ID="ID_1595903422" MODIFIED="1589842623939" TEXT="If we hit any of the Q marks, then star will bounce"/>
+<node CREATED="1589842625101" ID="ID_958346086" MODIFIED="1589842703127" TEXT="At the end when Mario is traversing through all the clause gadgets, then he has to collect the star and walk over flaming bars of death (star is required)"/>
+<node CREATED="1589842839303" ID="ID_715810800" MODIFIED="1589842871814" TEXT="Cross over gadget - no leakage">
+<node CREATED="1589842966082" ID="ID_639681338" MODIFIED="1589843000837" TEXT="One way allow Big mario and can become small mario"/>
+<node CREATED="1589843002210" ID="ID_756751060" MODIFIED="1589843023813" TEXT="One other one allows small mario only and then can change to big mario"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589843079316" ID="ID_121537246" MODIFIED="1589843092585" TEXT="3-Dimensional Matching: 3DM">
+<node CREATED="1589843116639" ID="ID_212040702" MODIFIED="1589843120597" TEXT="3 columns"/>
+<node CREATED="1589843221629" ID="ID_1020128039" MODIFIED="1589843315307">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Given disjoint sets X, Y, Z each size n
+    </p>
+    <p>
+      Given triples T C= X x Y x Z
+    </p>
+    <p>
+      is there a subset S C= T such that every element in X U Y U Z is in exactly one s in S
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1589843538854" ID="ID_897582388" MODIFIED="1589843547467" TEXT="All 3 are compatable matching">
+<node CREATED="1589843603880" ID="ID_1978232662" MODIFIED="1589843649392" TEXT="NP: Guess which elements of T are in S">
+<node CREATED="1589843650827" ID="ID_95568807" MODIFIED="1589843706476" TEXT="At-most n^3 elements (for each element guess yes or no)"/>
+</node>
+<node CREATED="1589843720746" ID="ID_66918022" MODIFIED="1589843725164" TEXT="NP-Hard">
+<node CREATED="1589843799320" ID="ID_772867952" MODIFIED="1589843813398" TEXT="Reduction from 3-SAT to 3DM">
+<node CREATED="1589843834036" ID="ID_979777976" MODIFIED="1589844015216">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      variable Xi -&gt; convert to&#160;
+    </p>
+    <p>
+      
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1589885047021" ID="ID_1199542271" MODIFIED="1589885052959" TEXT="..."/>
+</node>
+<node CREATED="1575128675493" ID="ID_1396131334" MODIFIED="1575128685090" POSITION="right" TEXT="17. Complexity: Approximation Algorithms">
+<node CREATED="1589885111172" ID="ID_131853042" MODIFIED="1589885125804" TEXT="For NP-Hard problems"/>
+<node CREATED="1589885142211" ID="ID_138859112" MODIFIED="1589885155439" TEXT="Prove that heuristic is to some factor optimum">
+<node CREATED="1589885176412" ID="ID_1864964207" MODIFIED="1589885242284" TEXT="Solving: Simple heuristics that are polynomial time  and solve but get approximate solution (within a factor of 2 may be) for every possible input"/>
+<node CREATED="1589885244113" ID="ID_322659770" MODIFIED="1589885256017" TEXT="factor of 2 from small size and 10 for large inputs"/>
+</node>
+<node CREATED="1589885259390" ID="ID_27894869" MODIFIED="1589885265473" TEXT="Approximation schemes"/>
+<node CREATED="1589885268642" ID="ID_225702581" MODIFIED="1589885274546" TEXT="Definitions"/>
+<node CREATED="1589885275566" ID="ID_693363565" MODIFIED="1589885283368" TEXT="Vertex cover"/>
+<node CREATED="1589885284359" ID="ID_942593972" MODIFIED="1589885287877" TEXT="Partition"/>
+<node CREATED="1589885323040" ID="ID_311473825" MODIFIED="1589885331550" TEXT="Elaboration">
+<node CREATED="1589885332746" ID="ID_925996006" MODIFIED="1589885432263" TEXT="An algorithm for a problem of size n has an approximation ratio Rho(n) if for any input, algorithm produces a solution with cost c such that max(c/c_opt, c_opt/c) &lt;= Rho(n)">
+<node CREATED="1589885455888" ID="ID_1562024970" MODIFIED="1589885467198" TEXT="Works for both minimization and maximization problem">
+<node CREATED="1589885472571" ID="ID_892602553" MODIFIED="1589885562779" TEXT="we don&apos;t want to be too much greater than the minimum or too much lesser than the maximum"/>
+</node>
+<node CREATED="1589885595561" ID="ID_850636830" MODIFIED="1589885606351" TEXT="Rho(n) is a constant or an increasing fucntion of n">
+<node CREATED="1589885607229" ID="ID_1883656749" MODIFIED="1589885655157" TEXT="we can bound the function to a constant"/>
+</node>
+<node CREATED="1589885663172" ID="ID_745127854" MODIFIED="1589885669000" TEXT="Example: log(n) approximation">
+<node CREATED="1589885669940" ID="ID_1719008956" MODIFIED="1589885714020" TEXT="we are going to be within logarithmic off the answer"/>
+<node CREATED="1589897229199" ID="ID_449978602" MODIFIED="1589897234983" TEXT="An approximation scheme">
+<node CREATED="1589897346978" ID="ID_617030397" MODIFIED="1589897386152" TEXT="An approximation scheme takes as input epsilon &gt; 0 and for any fixed epsilon,  the scheme is a (1 + epsilon) - approximation algorithm">
+<node CREATED="1589897399005" ID="ID_312348705" MODIFIED="1589897410166" TEXT="family of algorithms">
+<node CREATED="1589897412125" ID="ID_664251422" MODIFIED="1589897424698" TEXT="O(n^2/epsilon) running time">
+<node CREATED="1589897465043" ID="ID_1146232457" MODIFIED="1589897481860" TEXT="if within 10% of optimal, then epsilon = 0.1">
+<node CREATED="1589897488010" ID="ID_972751614" MODIFIED="1589897494942" TEXT="n^20 is bad but exponential">
+<node CREATED="1589897520742" ID="ID_1094998908" MODIFIED="1589897534559" TEXT="Probabilistic time approximation scheme (PTAS)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1575128685812" ID="ID_126710843" MODIFIED="1575128695471" POSITION="left" TEXT="18. Complexity: Fixed-Parameter Algorithms"/>
-<node CREATED="1575128696120" ID="ID_233130072" MODIFIED="1575128722108" POSITION="right" TEXT="19. Synchronous Distributed Algorithms: Symmetry-Breaking. Shortest-Paths Spanning Trees"/>
-<node CREATED="1575128723487" ID="ID_257815467" MODIFIED="1575128748097" POSITION="left" TEXT="20. Asynchronous Distributed Algorithms: Shortest-Paths Spanning Trees"/>
-<node CREATED="1575128752544" ID="ID_1554720755" MODIFIED="1575128761781" POSITION="right" TEXT="21. Cryptography: Hash Functions"/>
-<node CREATED="1575128762688" ID="ID_178988316" MODIFIED="1575128769471" POSITION="left" TEXT="22. Cryptography: Encryption"/>
-<node CREATED="1575128773007" ID="ID_453735574" MODIFIED="1575128783673" POSITION="right" TEXT="23. Cache-Oblivious Algorithms: Medians &amp; Matrices"/>
-<node CREATED="1575128788607" ID="ID_1905066703" MODIFIED="1575128801518" POSITION="left" TEXT="24. Cache-Oblivious Algorithms: Searching &amp; Sorting"/>
-<node CREATED="1575128807321" ID="ID_152927996" MODIFIED="1575128824290" POSITION="right" TEXT="R1. Matrix Multiplication and the Master Theorem"/>
-<node CREATED="1575128825811" ID="ID_970726683" MODIFIED="1575128833319" POSITION="left" TEXT="R2. 2-3 Trees and B-Trees"/>
-<node CREATED="1575128838161" ID="ID_986747565" MODIFIED="1575128852530" POSITION="right" TEXT="R3. Randomized Select and Randomized Quicksort"/>
-<node CREATED="1575128853691" ID="ID_790525664" MODIFIED="1575128881475" POSITION="left" TEXT="R5. Dynamic Programming"/>
-<node CREATED="1575128887665" ID="ID_309317023" MODIFIED="1575128895211" POSITION="right" TEXT="R6. Greedy Algorithms"/>
-<node CREATED="1575128895906" ID="ID_1535815746" MODIFIED="1575128903081" POSITION="left" TEXT="R7. Network Flow and Matching"/>
-<node CREATED="1575128907083" ID="ID_37718225" MODIFIED="1575128914745" POSITION="right" TEXT="R8. NP-Complete Problems"/>
-<node CREATED="1575128919843" ID="ID_117100556" MODIFIED="1575128934626" POSITION="left" TEXT="R9. Approximation Algorithms: Travelling Salesman Problem"/>
-<node CREATED="1575128938492" ID="ID_418849174" MODIFIED="1575128944686" POSITION="right" TEXT="R10. Distributed Algorithms"/>
-<node CREATED="1575128948165" ID="ID_684251560" MODIFIED="1575128957237" POSITION="left" TEXT="R11. Cryptography: More Primitives"/>
+<node CREATED="1575128696120" ID="ID_233130072" MODIFIED="1575128722108" POSITION="right" TEXT="19. Synchronous Distributed Algorithms: Symmetry-Breaking. Shortest-Paths Spanning Trees">
+<node CREATED="1590011094734" ID="ID_891855150" MODIFIED="1590011151003" TEXT="Algorithms that run on networked  processors, or on multiprocessors that share memory"/>
+<node CREATED="1590011152980" ID="ID_375668925" MODIFIED="1590011161159" TEXT="They solve many kinds of problems:">
+<node CREATED="1590011162221" ID="ID_1842314771" MODIFIED="1590011165654" TEXT="Communication"/>
+<node CREATED="1590011166173" ID="ID_1526371850" MODIFIED="1590011170502" TEXT="Data management">
+<node CREATED="1590011213312" ID="ID_767251296" MODIFIED="1590011216723" TEXT="overnetwork"/>
+</node>
+<node CREATED="1590011171546" ID="ID_630736678" MODIFIED="1590011177166" TEXT="Resource management"/>
+<node CREATED="1590011178052" ID="ID_1786996850" MODIFIED="1590011183382" TEXT="Synchronization">
+<node CREATED="1590011222283" ID="ID_753335844" MODIFIED="1590011232286" TEXT="agreement between agents"/>
+</node>
+<node CREATED="1590011184464" ID="ID_568241895" MODIFIED="1590011192134" TEXT="Reaching consensus"/>
+</node>
+<node CREATED="1590011236832" ID="ID_1910212301" MODIFIED="1590011255761" TEXT="They work in difficult settings:">
+<node CREATED="1590011256302" ID="ID_1628439085" MODIFIED="1590011256302" TEXT="">
+<node CREATED="1590011257972" ID="ID_171758128" MODIFIED="1590011268368" TEXT="Concurrent activity at many processing locations"/>
+<node CREATED="1590011269522" ID="ID_123532185" MODIFIED="1590011281062" TEXT="Uncertainty of timing, order of events, inputs">
+<node CREATED="1590011332349" ID="ID_1400665124" MODIFIED="1590011338768" TEXT="inputs at different locations"/>
+</node>
+<node CREATED="1590011281565" ID="ID_1573424675" MODIFIED="1590011293934" TEXT="Failure and recovery of processors, of channels"/>
+</node>
+<node CREATED="1590011371365" ID="ID_1873334243" MODIFIED="1590011381262" TEXT="So they can be complicated">
+<node CREATED="1590011381859" ID="ID_222734639" MODIFIED="1590011394078" TEXT="Hard to design"/>
+<node CREATED="1590011394974" ID="ID_730606776" MODIFIED="1590011400294" TEXT="Hard to prove correct"/>
+<node CREATED="1590011401519" ID="ID_1206643656" MODIFIED="1590011406814" TEXT="Hard to analyze"/>
+</node>
+</node>
+<node CREATED="1590011490455" ID="ID_846826847" MODIFIED="1590011494142" TEXT="Topics">
+<node CREATED="1590011495005" ID="ID_1144818522" MODIFIED="1590011501527" TEXT="A quick introduction">
+<node CREATED="1590011503037" ID="ID_990917836" MODIFIED="1590011520240" TEXT="Two common distributed computing models"/>
+<node CREATED="1590011521520" ID="ID_49411194" MODIFIED="1590011529739" TEXT="A few fundamental algorithms, and"/>
+<node CREATED="1590011530661" ID="ID_1898803447" MODIFIED="1590011539311" TEXT="Techniques for analyzing algorithms"/>
+</node>
+<node CREATED="1590011551095" ID="ID_1409481433" MODIFIED="1590011561533" TEXT="Synchronous distributed algorithms">
+<node CREATED="1590011592344" ID="ID_1458996340" MODIFIED="1590011598222" TEXT="Leader election"/>
+<node CREATED="1590011599076" ID="ID_725695918" MODIFIED="1590011606487" TEXT="Maximal independent set"/>
+<node CREATED="1590011608600" ID="ID_167568795" MODIFIED="1590011616158" TEXT="Breadth-first spanning trees"/>
+<node CREATED="1590011619836" ID="ID_151889076" MODIFIED="1590011624271" TEXT="Shortest paths trees"/>
+</node>
+<node CREATED="1590011574496" ID="ID_142749305" MODIFIED="1590011583656" TEXT="Asynchronous distributed algorithms">
+<node CREATED="1590011663208" ID="ID_1849273411" MODIFIED="1590011671411" TEXT="Breadth-first spanning trees"/>
+<node CREATED="1590011672268" ID="ID_968389498" MODIFIED="1590011677979" TEXT="Shortest paths trees"/>
+</node>
+<node CREATED="1590013241097" ID="ID_1014882427" MODIFIED="1590013248737" TEXT="Models, Proofs, Analysis">
+<node CREATED="1590013250449" ID="ID_1560285587" MODIFIED="1590013268310" TEXT="Important for distributed algorithms, because they are complicated and error-prone"/>
+<node CREATED="1590013269438" ID="ID_963971896" MODIFIED="1590013279865" TEXT="Infinite-state interacting state machines"/>
+<node CREATED="1590013280791" ID="ID_1184817292" MODIFIED="1590013291832" TEXT="Proofs use invariants, proved by induction"/>
+<node CREATED="1590013292856" ID="ID_1620166126" MODIFIED="1590013298729" TEXT="Abstraction relations">
+<node CREATED="1590013322132" ID="ID_542107032" MODIFIED="1590013327612" TEXT="Levels of abstraction">
+<node CREATED="1590013332448" ID="ID_191902113" MODIFIED="1590013344364" TEXT="High level abstract description of an algorithm and prove it"/>
+<node CREATED="1590013345320" ID="ID_1487800959" MODIFIED="1590013354252" TEXT="Lower level detailed description and prove it">
+<node CREATED="1590013370205" ID="ID_328625089" MODIFIED="1590013379145" TEXT="Implements higher level description"/>
+</node>
+</node>
+</node>
+<node CREATED="1590013387867" ID="ID_1575250116" MODIFIED="1590013394140" TEXT="New complexity measures">
+<node CREATED="1590013395371" ID="ID_289603644" MODIFIED="1590013404427" TEXT="Time complexity: Rounds, or real-time">
+<node CREATED="1590013433965" ID="ID_230161795" MODIFIED="1590013474542" TEXT="rounds: synchronous model"/>
+<node CREATED="1590013445445" ID="ID_35524013" MODIFIED="1590013479494" TEXT="approximation to real-time: asynchronous model"/>
+</node>
+<node CREATED="1590013405489" ID="ID_680814466" MODIFIED="1590013421245" TEXT="Communication complexity: Messages, or bits">
+<node CREATED="1590013486984" ID="ID_646950251" MODIFIED="1590013494806" TEXT="count number of messages or bits"/>
+</node>
+</node>
+</node>
+<node CREATED="1590013506584" ID="ID_1723178623" MODIFIED="1590013514023" TEXT="Distributed Networks">
+<node CREATED="1590013515246" ID="ID_1976063971" MODIFIED="1590013527470" TEXT="Based on an undirected graph G = (V, E)">
+<node CREATED="1590013528509" ID="ID_1165312426" MODIFIED="1590013616556">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - n = |V|
+    </p>
+    <p>
+      - Gamma(u), set of neighbors of vertex u.
+    </p>
+    <p>
+      - deg(u) = |Gamma(u)|, number of neighbors of vertex u
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1590013644096" ID="ID_902232918" MODIFIED="1590013676719" TEXT="Associate a process with each graph vertex">
+<node CREATED="1590013678657" ID="ID_1628090008" MODIFIED="1590013686805" TEXT="An infinite-state-automation">
+<node CREATED="1590013723434" ID="ID_250327575" MODIFIED="1590013730113" TEXT="Interact with each other"/>
+</node>
+<node CREATED="1590013687879" ID="ID_21591329" MODIFIED="1590013703441" TEXT="Sometimes refer to processes, or vertices, as nodes."/>
+</node>
+<node CREATED="1590013772758" ID="ID_1823338104" MODIFIED="1590013791196" TEXT="Note: Failures need to be considered">
+<node CREATED="1590013793712" ID="ID_1256139457" MODIFIED="1590013802503" TEXT="What if some of the components fail"/>
+</node>
+</node>
+<node CREATED="1590016988431" ID="ID_486924410" MODIFIED="1590016996915" TEXT="Synchronous Network Model">
+<node CREATED="1590017000946" ID="ID_1007181079" MODIFIED="1590017003806" TEXT="Source">
+<node CREATED="1590017004490" ID="ID_1862337332" MODIFIED="1590017022983" TEXT="Lynch, Distributed Algorithms, Chapter 2"/>
+</node>
+<node CREATED="1590017032405" ID="ID_1510124410" MODIFIED="1590017050200" TEXT="Processes at nodes of an undirected graph, communicate using messages"/>
+<node CREATED="1590017056705" ID="ID_642178132" MODIFIED="1590017088096" TEXT="Each process has output ports, input ports that connect to communication channelss">
+<node CREATED="1590017089087" ID="ID_1511834170" MODIFIED="1590017109857" TEXT="Process at vertex u doesn&apos;t know who its ports&apos; channels connect to">
+<node CREATED="1590017163198" ID="ID_687374720" MODIFIED="1590017176980" TEXT="each process does not know anything about the graph"/>
+</node>
+<node CREATED="1590017131562" ID="ID_1208401872" MODIFIED="1590017149021" TEXT="Knows the ports only by local names, such as 1, 2, ..., where k = deg(u)"/>
+</node>
+<node CREATED="1590017219704" ID="ID_1293445899" MODIFIED="1590017228103" TEXT="Processes need not be distingushable">
+<node CREATED="1590017228614" ID="ID_431596400" MODIFIED="1590017241683" TEXT="Eg: they needn&apos;t have unique identifiers (UIDs)"/>
+<node CREATED="1590017242928" ID="ID_720959072" MODIFIED="1590017255489" TEXT="They just know how many ports they have, and their local names"/>
+</node>
+</node>
+<node CREATED="1590017307398" ID="ID_950710956" MODIFIED="1590017310325" TEXT="Execution">
+<node CREATED="1590017311005" ID="ID_1251580927" MODIFIED="1590017321741" TEXT="An algorithm executes in synchronous rounds"/>
+<node CREATED="1590017323557" ID="ID_432729990" MODIFIED="1590017350651" TEXT="In each round, each process determines, based on its state, the messages to send on all its ports">
+<node CREATED="1590017351876" ID="ID_1168458101" MODIFIED="1590017359885" TEXT="At most one message per port per round"/>
+</node>
+<node CREATED="1590017380670" ID="ID_521850258" MODIFIED="1590017402413" TEXT="Each message gets put into its channel, and delivered to the process at the other end"/>
+<node CREATED="1590017403598" ID="ID_106502547" MODIFIED="1590017419391" TEXT="Then each process computes a new state based on its old state and the arriving messages">
+<node CREATED="1590095929837" ID="ID_1640093475" MODIFIED="1590095937664" TEXT="changes state based on whatever comes in"/>
+</node>
+<node CREATED="1590095945595" ID="ID_657187060" MODIFIED="1590095954053" TEXT="Note on cost:">
+<node CREATED="1590095962933" ID="ID_1663809738" MODIFIED="1590095979931" TEXT="Generally ignore costs of local computation (time and space)"/>
+<node CREATED="1590095980943" ID="ID_25351620" MODIFIED="1590096005704" TEXT="Focus on time (number of rounds) and communication (number of messages or total number of bits)">
+<node CREATED="1590096024963" ID="ID_723923648" MODIFIED="1590096033236" TEXT="More interested in communication costs">
+<node CREATED="1590096039151" ID="ID_145686365" MODIFIED="1590096047090" TEXT="rounds, number of messages or bits"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590096060673" ID="ID_1184725792" MODIFIED="1590096065975" TEXT="Leader Election">
+<node CREATED="1590096066574" ID="ID_1442750207" MODIFIED="1590096081456" TEXT="G = (V, E) is an arbitrary connected (undirected) graph."/>
+<node CREATED="1590096088999" ID="ID_630543302" MODIFIED="1590096105205" TEXT="Goal is for exactly one process to output a special leader signal."/>
+<node CREATED="1590096111719" ID="ID_869141010" MODIFIED="1590096115061" TEXT="Motivation">
+<node CREATED="1590096116006" ID="ID_514855677" MODIFIED="1590096199521">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Leader can take charge of
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590096124969" ID="ID_425405300" MODIFIED="1590096131116" TEXT="Communication">
+<node CREATED="1590096218905" ID="ID_1133174891" MODIFIED="1590096234026" TEXT="inform other nodes about when they can send messages">
+<node CREATED="1590096239282" ID="ID_1948612294" MODIFIED="1590096246592" TEXT="Centralize some of the computation"/>
+</node>
+</node>
+<node CREATED="1590096132386" ID="ID_1404438356" MODIFIED="1590096138432" TEXT="Coordinating data processing"/>
+<node CREATED="1590096139790" ID="ID_1917361746" MODIFIED="1590096146961" TEXT="Allocating resources"/>
+<node CREATED="1590096147938" ID="ID_981576294" MODIFIED="1590096154146" TEXT="Scheduling tasks"/>
+<node CREATED="1590096155431" ID="ID_1125526482" MODIFIED="1590096172915" TEXT="Reaching consensus">
+<node CREATED="1590096258801" ID="ID_959731524" MODIFIED="1590096280547" TEXT="If processes don&apos;t reach an agreement"/>
+</node>
+<node CREATED="1590096173916" ID="ID_1519021206" MODIFIED="1590096175361" TEXT="..."/>
+</node>
+</node>
+<node CREATED="1590096286322" ID="ID_396638486" MODIFIED="1590096292830" TEXT="Simple case: Clique Network">
+<node CREATED="1590096294041" ID="ID_348730432" MODIFIED="1590096305114" TEXT="All vertices are directly connected to all others.">
+<node CREATED="1590096315559" ID="ID_888504649" MODIFIED="1590096322540" TEXT="Processes are identical"/>
+<node CREATED="1590096386580" ID="ID_971380801" MODIFIED="1590096430280" TEXT="Theorem 1: Let G = (V, E) be an n-vertex clique. Then there is no algorithm consisting of deterministic, indistinguishable processes that is guaranteed to elect a leader in G.">
+<node CREATED="1590096577826" ID="ID_728125036" MODIFIED="1590096630830">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof:
+    </p>
+    <p>
+      - For example, consider n = 2
+    </p>
+    <p>
+      - Two identical, deterministic processes
+    </p>
+    <p>
+      - Show by induction that the processes remain in the same state forever...
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1590096677599" ID="ID_873317411" MODIFIED="1590096765730">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: By contradiction
+    </p>
+    <p>
+      Assume an algorithm A that solves the problem.
+    </p>
+    <p>
+      Both processes begin in the same start state.
+    </p>
+    <p>
+      Prove by induciton on the number r of completed rounds that both processes are in identical states after r rounds.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;- Generate the same message.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;- Receive the same message.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;- Make the same state change.
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590096837421" ID="ID_371977827" MODIFIED="1590096867183" TEXT="Since the algorithm solves the leader election problem, eventually one of them gets elected.">
+<node CREATED="1590096895712" ID="ID_634409609" MODIFIED="1590096903131" TEXT="The others will do the same thing">
+<node CREATED="1590096914775" ID="ID_692977787" MODIFIED="1590096936254" TEXT="Contradiction"/>
+</node>
+</node>
+</node>
+<node CREATED="1590096964126" ID="ID_946543339" MODIFIED="1590097045600">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof:
+    </p>
+    <p>
+      - Now consider n &gt; 2
+    </p>
+    <p>
+      - Processes have n - 1 output ports and n - 1 input ports, each set numbered 1, 2, ..., n - 1
+    </p>
+    <p>
+      - Assume ports are connected &quot;consistently&quot;: output port k at a process is connected to input port k at the other end
+    </p>
+    <p>
+      - Show by induction that all the processes remain in the same state forever...
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590097155451" ID="ID_805077330" MODIFIED="1590097284913">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Assume an algorithm A that solves the leader election problem.
+    </p>
+    <p>
+      All processes start in the same state.
+    </p>
+    <p>
+      Prove by induction on the number r of completed rounds that all processes are in identical states after r rounds
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;- for each k, they generate the same message on port k
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;- for each k, they receive the same message on port k
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;- Make the same state changes
+    </p>
+    <p>
+      Since the algorithm solves the leader election problem, eventually some process gets elected.
+    </p>
+    <p>
+      Then everyone gets elected, contradiction
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590097445338" ID="ID_1993499068" MODIFIED="1590097452275" TEXT="Problem with distributed systems">
+<node CREATED="1590097453101" ID="ID_351139524" MODIFIED="1590097466855" TEXT="A basic problem for distributed algorithms: Breaking symmetry"/>
+<node CREATED="1590097467960" ID="ID_1190482283" MODIFIED="1590097485157" TEXT="Deterministic, indistinguishable processes can&apos;t do it."/>
+<node CREATED="1590097490279" ID="ID_641919113" MODIFIED="1590097500655" TEXT="So we need something more"/>
+<node CREATED="1590097552533" ID="ID_1245071976" MODIFIED="1590097555674" TEXT="Solution:">
+<node CREATED="1590097559275" ID="ID_972938170" MODIFIED="1590097612867" TEXT="Unique Identifiers (UID)">
+<node CREATED="1590097613944" ID="ID_217768058" MODIFIED="1590097723526" TEXT="- Assume processes have unique identifiers (UIDs), which they &quot;know&quot;, e.g., each process starts with its own UID in a special state varaible&#xa;- UIDs are elements of some totally-ordered set, e.g., the natural numbers&#xa;- Different UIDs can appear anywhere in the graph, but each can appear only once">
+<node CREATED="1590097764630" ID="ID_1889479244" MODIFIED="1590097772695" TEXT="Algorithm Using UIDs">
+<node CREATED="1590097775938" ID="ID_597188630" MODIFIED="1590097841700" TEXT="Theorem 2: Let G = (V, E) be an n-vertex clique. Then there is an algorithm consisting of deterministic processes with UIDs that is guaranteed to elect a leader in G.">
+<node CREATED="1590098001643" ID="ID_349142958" MODIFIED="1590098005567" TEXT="Algorithm:">
+<node CREATED="1590098006638" ID="ID_592087856" MODIFIED="1590098051575">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - Everyone sends its UID on all its output ports, and collects UIDs received on all its input ports.
+    </p>
+    <p>
+      - The process with the maximum UID elects itself the leader
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1590097847219" ID="ID_245362638" MODIFIED="1590097862721" TEXT="The algorithm takes only 1 round and uses only n^2 point-to-point messages"/>
+</node>
+</node>
+</node>
+<node CREATED="1590097573455" ID="ID_636128687" MODIFIED="1590097577212" TEXT="Randomness">
+<node CREATED="1590098103726" ID="ID_1887458945" MODIFIED="1590098115011" TEXT="Algorithm Using Randomness">
+<node CREATED="1590098115900" ID="ID_1520690830" MODIFIED="1590098146806" TEXT="Idea: Processes choose IDs randomly, from a sufficiently large set so that it is likely that all are different. Then use them like UIDs"/>
+<node CREATED="1590098190744" ID="ID_1848701955" MODIFIED="1590098206150" TEXT="Q: What is a &quot;sufficiently large&quot; set?">
+<node CREATED="1590098214417" ID="ID_1944126157" MODIFIED="1590098491989" TEXT="Lemma 3: Let epsilon be a real, ( &lt; epsilon &lt; 1. Suppose that n processes choose ids uniformly at random, independently, from {1, ..., r}, where r = ceil(n^2 / 2 epsilon). Then with probability at least 1 - epsilon, all the chosen numbers are different">
+<node CREATED="1590098541393" ID="ID_297296734" MODIFIED="1590098666110" TEXT="Proof: The probability of any two particular processes choosing the same number is 1/r. Taking a union bound  for all n^2/2 pairs, the probability is still &lt;= epsilon"/>
+</node>
+<node CREATED="1590098493461" ID="ID_1551406101" MODIFIED="1590098493461" TEXT=""/>
+</node>
+<node CREATED="1590098719559" ID="ID_428346616" MODIFIED="1590098883557" TEXT="Theorem 4: Let G = (V, E) be an n-vertex clique. Then there is an algorithm consisting of randomized, indistinguishable processes that eventually elects a leader in G, with probability 1.&#xa;The algorithm takes expected time &lt;= 1/(1 - e)&#xa;Also, with probability &lt;= 1 - epsilon, the algorithm finishes in only one round">
+<node CREATED="1590098946271" ID="ID_450814629" MODIFIED="1590098951814" TEXT="Algorithm:">
+<node CREATED="1590098954510" ID="ID_1086501840" MODIFIED="1590099013116">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - Processes choose random ids from a sufficiently large space.
+    </p>
+    <p>
+      - Exchange ids; if the maximum is unique, the maximum wins.
+    </p>
+    <p>
+      - Otherwise repeat, as many times as necessary
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590099109714" ID="ID_1965868389" MODIFIED="1590099124273" TEXT="Maximan independent set">
+<node CREATED="1590099774921" ID="ID_234260701" MODIFIED="1590099798741" TEXT="To model what happens in biological system"/>
+<node CREATED="1590099801094" ID="ID_1425298272" MODIFIED="1590099876341">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      General undirected graph network:
+    </p>
+    <p>
+      Problem: Select a subset S of the nodes, so that they form a maximal Independent Set.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Independent: No two neighbors are both in the set
+    </p>
+    <p>
+      Maximal: We can't add any more nodes without violating independence.
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590099960142" ID="ID_453748664" MODIFIED="1590099982898" TEXT="local optimuma  given set"/>
+<node CREATED="1590100165307" ID="ID_827692178" MODIFIED="1590100328735">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Assume:
+    </p>
+    <p>
+      - No UIDs
+    </p>
+    <p>
+      - Processes know a good upper bound on n.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Require:
+    </p>
+    <p>
+      - Compute an MIS S of the entire network graph.
+    </p>
+    <p>
+      - Each process in S should output in, others output out.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Unsolvable by deterministic algorithms, in some graphs.
+    </p>
+    <p>
+      So consider randomized algorithms
+    </p>
+    <p>
+      Applications of distributed MIS:
+    </p>
+    <p>
+      - Communication networks: Selected processes can take charge of communication, convey information to their neighbor processes.
+    </p>
+    <p>
+      - Developmental biology: Distinguish cells in fruit fly's nervous system to become &quot;Sensory Organ Precursor&quot; cells [Afek, Alon, el al, Science]
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590100365668" ID="ID_628378612" MODIFIED="1590100401285" TEXT="If there is a dense graph then we can form an overlay network which receives messages and then communicates to neighbors"/>
+<node CREATED="1590100463051" ID="ID_1313273611" MODIFIED="1590100468934" TEXT="Luby&apos;s MIS algorithm">
+<node CREATED="1590100470727" ID="ID_1726705724" MODIFIED="1590100543757">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Executes in 2-round phases
+    </p>
+    <p>
+      Initially all nodes are active
+    </p>
+    <p>
+      At each phase, some active nodes decide to be in, others decide to be out, algorithm continues to the next phase with a smaller graph.
+    </p>
+    <p>
+      Repeat until all nodes have decided
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590102765559" ID="ID_554125932" MODIFIED="1590102938350">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Behavior of active node u at phase ph:
+    </p>
+    <p>
+      Round 1:
+    </p>
+    <p>
+      - choose a random value r in {1, 2, ..., n^5}, send it to all neighbors.
+    </p>
+    <p>
+      - Receive values from all active neighbors
+    </p>
+    <p>
+      - if r is strictly greater than all received values, then join the MIS, output in
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Round 2:
+    </p>
+    <p>
+      - if you joined the MIS, announce it in messages to all (active) neighbors
+    </p>
+    <p>
+      - if you receive such an announcement, decide not to join the MIS, output out
+    </p>
+    <p>
+      - if you decided one way or the other at this phase, become inactive
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590102989107" ID="ID_319803933" MODIFIED="1590103003979" TEXT="Round 1 does not allow neighbors of chosen MIS node"/>
+<node CREATED="1590103128342" ID="ID_1770915467" MODIFIED="1590103140348" TEXT="IDs are re-generated with each 2-round phase"/>
+<node CREATED="1590103192623" ID="ID_1912321112" MODIFIED="1590103196311" TEXT="Independence">
+<node CREATED="1590103197431" ID="ID_1952175863" MODIFIED="1590103221334" TEXT="Theorem 5: If Luby&apos;s algorithm ever terminates, then the final set S satisfies the independence property">
+<node CREATED="1590103260469" ID="ID_359208488" MODIFIED="1590103313942">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof:
+    </p>
+    <p>
+      - Each node joins S only if it has the unique maximum value in its neighbors, at some phase.
+    </p>
+    <p>
+      - When it does, all its neighbors become inactive
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1590103375196" ID="ID_1856463761" MODIFIED="1590103378437" TEXT="Maximality">
+<node CREATED="1590103379363" ID="ID_1563659019" MODIFIED="1590103399993" TEXT="Theorem 6: If Luby&apos;s algorithm ever terminates, then the final set S satisfies the maximality property">
+<node CREATED="1590103420342" ID="ID_102719935" MODIFIED="1590103461605">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof:
+    </p>
+    <p>
+      - A node becomes inactive only if it joins S or a neighbor joins S.
+    </p>
+    <p>
+      - We continue until all nodes are inactive
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1590103524200" ID="ID_1900429328" MODIFIED="1590103527702" TEXT="Termination">
+<node CREATED="1590103528871" ID="ID_827887160" MODIFIED="1590103542469" TEXT="With probability 1. Luby&apos;s MIS algorithm eventually temrinates"/>
+<node CREATED="1590103560895" ID="ID_1563213920" MODIFIED="1590103585869" TEXT="Theorem 7: With probability at least 1 - 1/n, all nodes decide within 4 log n phases">
+<node CREATED="1590169724087" ID="ID_1879937776" MODIFIED="1590169737330" TEXT="Proof uses a lemma similar to before">
+<node CREATED="1590169738372" ID="ID_293528644" MODIFIED="1590169764010" TEXT="Lemma 8: With probability at least 1 - 1/n^2, in each phase 1, ..., 4 log n, all nodes choose different random values">
+<node CREATED="1590169812197" ID="ID_1867872437" MODIFIED="1590169820880" TEXT="Upto phase 4 log n"/>
+<node CREATED="1590169831874" ID="ID_101331938" MODIFIED="1590169848586" TEXT="So we can essentially pretend that, in each phase, all the random numbers chosen are different">
+<node CREATED="1590169905994" ID="ID_98469806" MODIFIED="1590169922178" TEXT="Key idea: Show the graph gets sufficiently &quot;smaller&quot; in each phase.">
+<node CREATED="1590169923768" ID="ID_708782191" MODIFIED="1590169966010" TEXT="Lemma 9: For each phase ph, the expected number of edges that are live (connect two active nodes) at the end of the phase is at most half the number that were live at the beginning of the phase">
+<node CREATED="1590170008176" ID="ID_277540198" MODIFIED="1590170018487" TEXT="reduce remaining number of edges by constant factor">
+<node CREATED="1590170022117" ID="ID_96679708" MODIFIED="1590171473953">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof:
+    </p>
+    <p>
+      - if node u has some neighbor w whose chosen value is greater than all of w's neighbors and all of u's other neighbors, then u must decide out in phase ph.
+    </p>
+    <p>
+      - Probability that w chooses such a value is at least 1/(deg(u) + deg(w)) - (w and w' cannot cause confusion)
+    </p>
+    <p>
+      - Then the probability node u is &quot;killed&quot; by some neighbor in this way is at least sigma_w in sigma(u) 1/(deg(u) + deg(w))
+    </p>
+    <p>
+      - Now consider an edge {u, v}
+    </p>
+    <p>
+      - Probability that edge {u, v} &quot;dies&quot; &gt;= 1/2 (probability u killed + probability v killed) - (max of probability that it's two endpoints die, it is at-least the average of two end-points getting killed)
+    </p>
+    <p>
+      - So the expected number of edges that die
+    </p>
+    <p>
+      &#160;&#160;&gt;= 1/2 sigma_{u, v} (probability u killed + probability v killed)
+    </p>
+    <p>
+      - The sum includes the &quot;kill probability&quot; for each node u exactly deg(u) times.
+    </p>
+    <p>
+      - So rewrite the sum as: (number of times u appears for each edge is deg(u))
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;1/2 sigma_u deg(u) (probability u killed)
+    </p>
+    <p>
+      - Plug in the probability lower bound:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&gt;= 1/2 sigma_u deg(u) sigma_w in sigma(u) (1/(deg(u) + deg(w)))
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;= 1/2 sigma_u sigma_w in sigma(u) deg(u)/(deg(u) + deg(w))
+    </p>
+    <p>
+      - Expected number of edges that die &gt;= 1/2 sigma_u sigma_w in sigma(u) deg(u)/(deg(u) + deg(w))
+    </p>
+    <p>
+      - Write this expression equivalently as a sum over directed edges (u, v):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;1/2 sigma_(u, v) deg(u)/(deg(u) + deg(v))
+    </p>
+    <p>
+      - Here each undirected edge is counted twice, once for each direction, so this is the same as the following sum over undirected eges
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;1/2 sigma_(u, v) (deg(u) + deg(v))/(deg(u) + deg(v))
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;1/2 |number of undirected edges|
+    </p>
+    <p>
+      - This is half the total number of undirected edges, as needed!
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590170205266" ID="ID_1739937260" MODIFIED="1590170217138" TEXT="if w chooses to be in MIS, then us has to opt out"/>
+</node>
+</node>
+<node CREATED="1590171485537" ID="ID_363344519" MODIFIED="1590171485537" TEXT=""/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590171533553" ID="ID_890183637" MODIFIED="1590171782215">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof sketch:
+    </p>
+    <p>
+      - Lemma 9 implies that the expected number of edges still live after 4 log n phases is at most n^2/2 / 2^(4 log n) = 1/2n^2
+    </p>
+    <p>
+      - Then the probability that any edges remain live is &lt;= 1/2n^2 (by Markov)
+    </p>
+    <p>
+      - The probability that the algorithm doesn't terminate within 4 log n phases &lt;= 1/2n^2 + 1/n^2 &lt; 1/n (probability of clashes is brought in and union bound)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590171810637" ID="ID_551152383" MODIFIED="1590171824143" TEXT="Breadth-First Spanning Trees">
+<node CREATED="1590171825525" ID="ID_562244448" MODIFIED="1590172191275">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      New problem, new setting
+    </p>
+    <p>
+      Assume graph G = (V, E) is connected
+    </p>
+    <p>
+      V includes a distinguished vertex v_0 (leader), which will be the origin (root) of the BFS tree
+    </p>
+    <p>
+      Generally, processes have no knowledge about the graph.
+    </p>
+    <p>
+      Processes have UIDs
+    </p>
+    <p>
+      - Each process knows its own UID
+    </p>
+    <p>
+      - i_0 is the UID of the root v_0
+    </p>
+    <p>
+      - Process with UID i_0 knows it is located at the root
+    </p>
+    <p>
+      We may assume (WLOG) that processes know the UIDs oftheir neighbors, and know which input and output ports are connected to each neighbor
+    </p>
+    <p>
+      Algorithms will be deterministic (or nondeterministic), but not randomized
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Processes must produce a Breadth-First Spanning Tree rooted at vertex v_0
+    </p>
+    <p>
+      - spanning: Branches reach all vertices
+    </p>
+    <p>
+      - Breadth-first: Vertex at distance d from v_0 appears at depth exactly d in the tree
+    </p>
+    <p>
+      Output: Each process i != i_0 should output parent(j), meaning that j's vertex is the parent of i's vertex in the BFS tree.
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590173006037" ID="ID_491796232" MODIFIED="1590173012554" TEXT="Simple BFS algorithm">
+<node CREATED="1590173029471" ID="ID_978015752" MODIFIED="1590173294814">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Processes mark themselves as they get incorporated into the tree.
+    </p>
+    <p>
+      Initially, only i_0 is marked
+    </p>
+    <p>
+      Algorithm for process i:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Round 1:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if i = i_0 then process i sends a search message to its neighbors
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if process i receives a message, then it:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Marks itself
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Selects i_0 as its parent, outputs parent(i_0)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Plans to send at the next round
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Round r &gt; 1:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if process i planned to send, then it sends a search messageto its neighbors.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if process i is not marked and receives a message, then it:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Marks itself
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Selects one sending neighbor, j, as its parent, outputs parent(j)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Plans to send at the next round.
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590173366289" ID="ID_337864688" MODIFIED="1590173380715" TEXT="doesn&apos;t matter which one is chosen as parent"/>
+</node>
+</node>
+</node>
+<node CREATED="1590173392563" ID="ID_1664384353" MODIFIED="1590173398380" TEXT="Nondeterminism">
+<node CREATED="1590173401942" ID="ID_319005869" MODIFIED="1590173560067" TEXT="The algorithm is slightly nondeterministic, in that a process can choose arbitrarily among several possible parents.&#xa;We could make this deterministic, by using a default, like &quot;always choose the sender with smaller UID&quot;.&#xa;But it&apos;s also OK to leave it nondeterministic&#xa;&#xa;For distributed algorithms, nondeterminism is regarded differently from the way it is for sequential algorithms&#xa;A distributed algorithm should work correctly for all ways of solving the nondeterministic choices">
+<node CREATED="1590173648160" ID="ID_833506252" MODIFIED="1590173682080">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Unlike NP and non-determinism (lucky guesses), all non-deterministic choices must be correct in distributed algorithms
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1590173734550" ID="ID_716185405" MODIFIED="1590173756486" TEXT="everybody does stuff at once at each round"/>
+</node>
+</node>
+<node CREATED="1590173765775" ID="ID_1392712269" MODIFIED="1590173779986" TEXT="Q: Why does this algorithm yield a BFS tree?">
+<node CREATED="1590173782246" ID="ID_1356312393" MODIFIED="1590173799062" TEXT="Because all branches are constructed synchronously, growing one hop at each round."/>
+</node>
+<node CREATED="1590173800415" ID="ID_267525" MODIFIED="1590173810032" TEXT="Q: Why does it eventually span all the nodes?">
+<node CREATED="1590173819386" ID="ID_261645406" MODIFIED="1590173852167" TEXT="Because the graph is connected, and any marked node sends messages to its neighbors"/>
+</node>
+<node CREATED="1590173989001" ID="ID_78565077" MODIFIED="1590173993850" TEXT="Correctness:">
+<node CREATED="1590174005566" ID="ID_1607402199" MODIFIED="1590174017565" TEXT="Q: Key invariants describing the state after r rounds?">
+<node CREATED="1590174084415" ID="ID_61428974" MODIFIED="1590174093789" TEXT="State variables, per process:">
+<node CREATED="1590174094975" ID="ID_1112031247" MODIFIED="1590174137524">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      marked, a Boolean, initially true for i_0, false for others
+    </p>
+    <p>
+      parent, a UID or undefined
+    </p>
+    <p>
+      send, a Boolean, initially true for i_0, false for others
+    </p>
+    <p>
+      uid
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1590174186534" ID="ID_1164420112" MODIFIED="1590174191006" TEXT="Invariants:">
+<node CREATED="1590174193215" ID="ID_317873438" MODIFIED="1590174284285">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      At the end of r rounds, exactly the processes at distance &lt;= r from v_0 are marked.
+    </p>
+    <p>
+      A process has the parent defined iff it is marked
+    </p>
+    <p>
+      For any process at distance d from v_0, if its parent is defined, then it is the UID of a process at distance d - 1 from v_0
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590174413633" ID="ID_1288398718" MODIFIED="1590174425339" TEXT="root node is marked but has no parent"/>
+<node CREATED="1590174462105" ID="ID_477932716" MODIFIED="1590174475330" TEXT="Complex algos need book keeping">
+<node CREATED="1590174526668" ID="ID_1680922625" MODIFIED="1590174539543" TEXT="Interactive theorem prover can be used to do book keeping"/>
+<node CREATED="1590174555251" ID="ID_1407090406" MODIFIED="1590174564170" TEXT="Manual proofs also use invariants"/>
+</node>
+</node>
+</node>
+<node CREATED="1590174431794" ID="ID_1364663054" MODIFIED="1590174443340" TEXT="Could use these in a formal correctness proof"/>
+</node>
+</node>
+</node>
+<node CREATED="1590174571803" ID="ID_422386291" MODIFIED="1590174575506" TEXT="Complexity:">
+<node CREATED="1590174585422" ID="ID_934622015" MODIFIED="1590174653790">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Time complexity:
+    </p>
+    <p>
+      Number of rounds until all nodes outputs their parent information.
+    </p>
+    <p>
+      Maximum distance of any node from v_0, which is &lt;= diam
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Message complexity:
+    </p>
+    <p>
+      Number of messages sent by all processes during the entire execution
+    </p>
+    <p>
+      O(|E|)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590174701749" ID="ID_93212257" MODIFIED="1590174714950" TEXT="Every node sends a message only once on each of the edges"/>
+</node>
+</node>
+<node CREATED="1590174718931" ID="ID_1824577335" MODIFIED="1590174728347" TEXT="Bells and Whistles:">
+<node CREATED="1590174732930" ID="ID_1233468347" MODIFIED="1590174786182">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Child pointers:
+    </p>
+    <p>
+      - So far, each process learns its parent, but not its children
+    </p>
+    <p>
+      - To add child pointers, everyone who receives a search message sends back a parent or nonparent response, at the next round
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590174831881" ID="ID_1524819375" MODIFIED="1590174850426" TEXT="In synchronous case, if we don&apos;t get message, then it is known"/>
+</node>
+<node CREATED="1590174856670" ID="ID_705839649" MODIFIED="1590174970774">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Distances:
+    </p>
+    <p>
+      - Augment the algorithm so everyone also learns and outputs its distance from v_0
+    </p>
+    <p>
+      - Each process records its distance from v_0 in a new dist variable, initially 0 for process i_0, and inf for everyone else
+    </p>
+    <p>
+      - Include the dist value in every search message; when an unmarked process receives a search(d) message, it sets its own dist to d + 1
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1590175031679" ID="ID_69954048" MODIFIED="1590175035906" TEXT="Termination">
+<node CREATED="1590175055681" ID="ID_1834313233" MODIFIED="1590175070080" TEXT="Q: How can processes learn when the BFS tree is completed?">
+<node CREATED="1590175072801" ID="ID_641297623" MODIFIED="1590175091656" TEXT="If they knew an upper bound on diam, then they could simply wait until that number of rounds have passed."/>
+</node>
+<node CREATED="1590175113376" ID="ID_1312831493" MODIFIED="1590175126333" TEXT="Q: What if they don&apos;t know anything about the graph?">
+<node CREATED="1590175134351" ID="ID_1582661516" MODIFIED="1590175163174" TEXT="Simply simpler problem: Process i_0 should learn when the tree is done"/>
+<node CREATED="1590175263229" ID="ID_711633712" MODIFIED="1590175358212">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Termination algorithm:
+    </p>
+    <p>
+      - Assume each search message receives a response, parent or nonparent.
+    </p>
+    <p>
+      - After a node has received responses to all its outgoing search messages, it knows who its children are, and knows they are all marked,
+    </p>
+    <p>
+      - The leaves of the tree learn who they are (they receive only nonparent responses)
+    </p>
+    <p>
+      - Now use a convergecast strategy:
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590175441448" ID="ID_1652843022" MODIFIED="1590175453635" TEXT="convergecast is opposite of broadcast">
+<node CREATED="1590175557542" ID="ID_396302236" MODIFIED="1590175622935">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Two step process:
+    </p>
+    <ol>
+      <li>
+        Know it's children (when nodes send parent message)
+      </li>
+      <li>
+        Wait until all children send done messages and then send done message to it's parent
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1590175654802" ID="ID_1860692515" MODIFIED="1590175663012" TEXT="Complexity for termination">
+<node CREATED="1590175672293" ID="ID_1995659650" MODIFIED="1590175692162" TEXT="After the tree is done, it takes &lt;= diam rounds and n messages for the done information to reach i_0"/>
+<node CREATED="1590175732445" ID="ID_417775256" MODIFIED="1590175744824" TEXT="Q: How can all the processes learn that the BFS tree is completed?">
+<node CREATED="1590175745981" ID="ID_1302566109" MODIFIED="1590175762701" TEXT="Process i_0 can broadcast a message to everyone along the edges of the tree">
+<node CREATED="1590175778223" ID="ID_752561035" MODIFIED="1590175789367" TEXT="Takes an additional diam rounds and n messages"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590175806766" ID="ID_1680864818" MODIFIED="1590175832092" TEXT="Applications of Breadth-First Spanning Trees">
+<node CREATED="1590175833373" ID="ID_1915111959" MODIFIED="1590175904498">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Message broadcast:
+    </p>
+    <p>
+      Process i_0 can use a BFS tree with child pointers to broadcast a sequence of messages to all processes in the network
+    </p>
+    <p>
+      Each takes diam rounds and n messages
+    </p>
+    <p>
+      Could pipeline them, so k messages take only diam + k rounds, not diam x k
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1590176011148" ID="ID_1836715078" MODIFIED="1590176120509">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Global computation:
+    </p>
+    <p>
+      Suppose every process starts with some initial value, and process i_0 should determine the value of some function of the set of all processes' values.
+    </p>
+    <p>
+      &#160;- min, max, sum, average,...
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Can use convergecast on a BFS tree
+    </p>
+    <p>
+      Cost of diam rounds and n messages
+    </p>
+    <p>
+      In general, messages may be large, but for many functions, some data aggregation is possible along the way
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1590176220671" ID="ID_1190309423" MODIFIED="1590176296891">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Leader election in a general graph:
+    </p>
+    <p>
+      No distinguished process i_0
+    </p>
+    <p>
+      Processes don't know anything about the graph
+    </p>
+    <p>
+      Everyone can start its own BFS, acting as the root.
+    </p>
+    <p>
+      Use this to determine the maximum UID; process with the max UID is the leader.
+    </p>
+    <p>
+      Cost is O(diam) rounds, O(n|E|) messages
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1590176344229" ID="ID_1219833482" MODIFIED="1590176348771" TEXT="Shortest Paths">
+<node CREATED="1590176353382" ID="ID_891802456" MODIFIED="1590176438310">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Generalize the BFS problem to allow weights on the graph edges, weight_{u, v} for edge {u, v}
+    </p>
+    <p>
+      Connected graph G = (V, E), root vertex v_0, process i_0
+    </p>
+    <p>
+      Processes have UIDs
+    </p>
+    <p>
+      Processes know their neighbors and the weights of their incident edges, but otherwise have no knowledge about the graph
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590176549491" ID="ID_1157790270" MODIFIED="1590176667137">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Processes must produce a Shortest-Paths Spanning Tree rooted at vertex v_0
+    </p>
+    <p>
+      Branches are directed paths from v_0
+    </p>
+    <p>
+      - Spanning: Branches reach all vertices
+    </p>
+    <p>
+      - Shortest paths: The total weight of the tree branch to each node is the minimum total weight for any path from v_0 in G
+    </p>
+    <p>
+      Output: Each process i != i_0 should output parent(j), distance(d), meaning that:
+    </p>
+    <p>
+      - j's vertex is the parent of i's vertex on a shortest path form v_0
+    </p>
+    <p>
+      - d is the total weight of a shortest path from v_0 to j
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590176703375" ID="ID_1925590265" MODIFIED="1590176713582" TEXT="Bellman-Ford Shortest Paths Algorithm">
+<node CREATED="1590176715878" ID="ID_1695232010" MODIFIED="1590176777587">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      State variables:
+    </p>
+    <p>
+      dist, a nonnegative real or inf, representing the shortest known distance from v_0. Initially 0 for process i_0, inf for the others
+    </p>
+    <p>
+      parent, a UID or undefined, initially undefined
+    </p>
+    <p>
+      uid
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1590176810182" ID="ID_702571394" MODIFIED="1590176904673">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Algorithm for process i:
+    </p>
+    <p>
+      At each round:
+    </p>
+    <p>
+      Send a distance(dist) message to all neighbors
+    </p>
+    <p>
+      Receive messages from neighbors; let d_j be the distance received from neighbor j
+    </p>
+    <p>
+      Perform a relaxation step:
+    </p>
+    <p>
+      dist := min(dist, min_j (d_j + weight_{i, j})
+    </p>
+    <p>
+      if dist decreases then set parent := j, where j is any neighbor that produced the raw dist
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590177112781" ID="ID_1661930009" MODIFIED="1590177130803" TEXT="each node weights to get better distance at each step"/>
+<node CREATED="1590177303934" ID="ID_1911023746" MODIFIED="1590177360148">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Correctness:
+    </p>
+    <p>
+      Claim: Eventually, every process i has:
+    </p>
+    <p>
+      dist = minimum weight of a path from i_0 to i, and
+    </p>
+    <p>
+      if i != i_0, parent = the previous node on some shortest path from i_0 to i
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1590177368296" ID="ID_1338301136" MODIFIED="1590177465218">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Key invariant:
+    </p>
+    <p>
+      - for every r, at the end of r rounds, every process i has its dist and parent corresponding to a shortest path from i_0 to i among those paths that consist of at most r edges; if there is no such path, then dist = inf and parent is undefined
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128723487" ID="ID_257815467" MODIFIED="1575128748097" POSITION="left" TEXT="20. Asynchronous Distributed Algorithms: Shortest-Paths Spanning Trees">
+<node CREATED="1590177584584" ID="ID_829120764" MODIFIED="1590178203007" TEXT="Each node knows what is happning to itself and it&apos;s neighbors - many impossibilities"/>
+<node CREATED="1590178226356" ID="ID_1264648900" MODIFIED="1590178241255" TEXT="Topics">
+<node CREATED="1590178242481" ID="ID_351435782" MODIFIED="1590178251028" TEXT="Breadth-First Spanning Trees"/>
+<node CREATED="1590178263507" ID="ID_1269948962" MODIFIED="1590178270479" TEXT="Shortest Paths Trees">
+<node CREATED="1590178758838" ID="ID_157218950" MODIFIED="1590178769839" TEXT="Complexity">
+<node CREATED="1590178770931" ID="ID_862659919" MODIFIED="1590178839702">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Time complexity:
+    </p>
+    <p>
+      Number of rounds until all nodes outputs their parent information
+    </p>
+    <p>
+      Maximum distance of any node from v_0, which is &lt;= diam
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Message complexity:
+    </p>
+    <p>
+      Number of messages sent by all processes during the entire execution
+    </p>
+    <p>
+      O(|E|)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590179064663" ID="ID_1926268053" MODIFIED="1590179091033" TEXT="Invarient: at round r, best distance with max r hops"/>
+<node CREATED="1590179133003" ID="ID_1967054575" MODIFIED="1590179165139" TEXT="The number or rounds until all estimates stabilize: n - 1 (longest simple path to any node)"/>
+</node>
+<node CREATED="1590178775579" ID="ID_550013497" MODIFIED="1590178779486" TEXT="Message complexity">
+<node CREATED="1590179195962" ID="ID_1315027256" MODIFIED="1590179471746" TEXT="Message estimate: O(|E|(n - 1)) = O(n|E|)"/>
+</node>
+</node>
+<node CREATED="1590179373138" ID="ID_136620343" MODIFIED="1590179378728" TEXT="Getting children">
+<node CREATED="1590179391877" ID="ID_821936563" MODIFIED="1590179423387" TEXT="If process sends a distance that does not improve the current&apos; processes&apos;s distance, then it is not parent"/>
+<node CREATED="1590179425207" ID="ID_505753144" MODIFIED="1590179442267" TEXT="If a process sends a distance that does improve the distance, then it is a parent">
+<node CREATED="1590179507402" ID="ID_177991751" MODIFIED="1590179524542" TEXT="It has to send a non-parent message to it&apos;s previous parent (for correction)">
+<node CREATED="1590179554858" ID="ID_1086050645" MODIFIED="1590179570660" TEXT="Previous parent removes this child from it&apos;s list of children"/>
+<node CREATED="1590181395085" ID="ID_45041886" MODIFIED="1590181438074" TEXT="If process improves its own distance, then clears out children set and start over again (send new messages to neighbors and wait)"/>
+</node>
+</node>
+</node>
+<node CREATED="1590181452918" ID="ID_1779189158" MODIFIED="1590181456036" TEXT="Termination">
+<node CREATED="1590181539119" ID="ID_22219427" MODIFIED="1590181548712" TEXT="Problem: Parent keeps changing throughout"/>
+<node CREATED="1590181558395" ID="ID_297385550" MODIFIED="1590181570002" TEXT="How do we know whole thing is finished"/>
+<node CREATED="1590181571458" ID="ID_1988852180" MODIFIED="1590181583184" TEXT="How do we know if node is finished"/>
+<node CREATED="1590181683146" ID="ID_856959851" MODIFIED="1590181699651" TEXT="Convergecast - participating many times">
+<node CREATED="1590181728734" ID="ID_1737799302" MODIFIED="1590181750032" TEXT="For current children, if all have sent done message, then we can send done message to parent">
+<node CREATED="1590181759923" ID="ID_1414407305" MODIFIED="1590181774396" TEXT="Same process can be involved in the converge cast"/>
+<node CREATED="1590181791813" ID="ID_1936174663" MODIFIED="1590181804567" TEXT="Example: single path and long path with small weights">
+<node CREATED="1590181868782" ID="ID_596234628" MODIFIED="1590181896384" TEXT="When a node sends messages to children and they cannot improve their distance, then the node decides to be a leaf"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590182192020" ID="ID_1539774430" MODIFIED="1590182197083" TEXT="Asynchronous">
+<node CREATED="1590182199242" ID="ID_1860572243" MODIFIED="1590182202987" TEXT="No rounds"/>
+<node CREATED="1590182218025" ID="ID_972442879" MODIFIED="1590182235947" TEXT="processes taking steps"/>
+<node CREATED="1590182237085" ID="ID_667679536" MODIFIED="1590182247276" TEXT="messages getting delivered at arbitrary times and order"/>
+<node CREATED="1590182248370" ID="ID_1314286107" MODIFIED="1590182255497" TEXT="processes are out of sync"/>
+<node CREATED="1590182283113" ID="ID_290857231" MODIFIED="1590182288856" TEXT="Result">
+<node CREATED="1590182289846" ID="ID_1180289135" MODIFIED="1590182304250" TEXT="Algorithm can execute in different ways (in any order)">
+<node CREATED="1590182308973" ID="ID_1605210685" MODIFIED="1590182336299" TEXT="But we need to understand abstract properties">
+<node CREATED="1590182349979" ID="ID_1077750982" MODIFIED="1590182362644" TEXT="Properties of executions (instead of what is exactly happeing)"/>
+</node>
+</node>
+</node>
+<node CREATED="1590182398648" ID="ID_970481932" MODIFIED="1590182400800" TEXT="Setup">
+<node CREATED="1590182401729" ID="ID_399180753" MODIFIED="1590182409680" TEXT="Processes are some kind of Automata">
+<node CREATED="1590182787701" ID="ID_1946883271" MODIFIED="1590182832445" TEXT="Process: P_u is process associated with vertex u">
+<node CREATED="1590182870106" ID="ID_416584634" MODIFIED="1590182884768" TEXT="Process actually does not know vertex id u"/>
+<node CREATED="1590182890101" ID="ID_487691774" MODIFIED="1590182901114" TEXT="Puts messages on channel and receive messages from channel"/>
+<node CREATED="1590182904509" ID="ID_1485825401" MODIFIED="1590182926577" TEXT="External inputs and outputs (some one outside is doing someting on it)"/>
+<node CREATED="1590182963011" ID="ID_517182872" MODIFIED="1590182967177" TEXT="It must be live">
+<node CREATED="1590182968301" ID="ID_1385848935" MODIFIED="1590182975484" TEXT="Process must keep doing steps and not stop"/>
+</node>
+<node CREATED="1590182982644" ID="ID_360448033" MODIFIED="1590182985117" TEXT="Example:">
+<node CREATED="1590182986527" ID="ID_966795090" MODIFIED="1590183022379" TEXT="Process that is remembering the max number that it has ever seen">
+<node CREATED="1590183031190" ID="ID_1192779268" MODIFIED="1590183137579" TEXT="Receives some messages and keeps track of max (starts with initial value x_u) and it has for every neighbor it has, a boolean asking  asking whether it has to send to the neighbor">
+<node CREATED="1590183159425" ID="ID_678387205" MODIFIED="1590183184246" TEXT="When process gets new max and then pass it on to all of it&apos;s neighbors"/>
+<node CREATED="1590183205684" ID="ID_574663887" MODIFIED="1590183220390" TEXT="If you are ready to send, send and when done, set send flags to false"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590182411366" ID="ID_1166014417" MODIFIED="1590182425670" TEXT="Channels are also some kind of Autoamata">
+<node CREATED="1590182443669" ID="ID_1676524102" MODIFIED="1590182460498" TEXT="Has inputs and outputs (infinite state automaton)">
+<node CREATED="1590182496322" ID="ID_1914323026" MODIFIED="1590182519961" TEXT="one process sends a message at one end and another process receives the message"/>
+<node CREATED="1590182549109" ID="ID_913843821" MODIFIED="1590182591977" TEXT="Giving explicit model of it&apos;s state and what happens when inputs and outputs occure">
+<node CREATED="1590182592680" ID="ID_1207344887" MODIFIED="1590182596674" TEXT="Ordering">
+<node CREATED="1590182597363" ID="ID_1195310951" MODIFIED="1590182602481" TEXT="FIFO Queue">
+<node CREATED="1590182608670" ID="ID_78246999" MODIFIED="1590182655369" TEXT="Starts out empty, when messages arrive, they get queued and get removed from the beginning">
+<node CREATED="1590182659101" ID="ID_766601450" MODIFIED="1590182664547" TEXT="Pseudocode:">
+<node CREATED="1590182680320" ID="ID_1846581518" MODIFIED="1590182691294" TEXT="Send can come at any time and it is added to end of Queue"/>
+<node CREATED="1590182719700" ID="ID_1787664745" MODIFIED="1590182749244" TEXT="Receive occurs when message is at head of queue and gets removed from the queue"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590183316387" ID="ID_786335744" MODIFIED="1590183324940" TEXT="Connecting all of them together">
+<node CREATED="1590183345655" ID="ID_94508321" MODIFIED="1590183357757" TEXT="Connect processes to inputs of channels and vice versa">
+<node CREATED="1590183367204" ID="ID_28928711" MODIFIED="1590183478132" TEXT="If process has send(m)_u,v matches with channel that has send u, v has input"/>
+</node>
+<node CREATED="1590183558726" ID="ID_1797573508" MODIFIED="1590183562208" TEXT="Steps">
+<node CREATED="1590183562930" ID="ID_1664087744" MODIFIED="1590183581339" TEXT="If someone is doing an action and someone else also has an action">
+<node CREATED="1590183584756" ID="ID_1221844510" MODIFIED="1590183623810" TEXT="process does send and channel has send (they do at the same time - not related)"/>
+</node>
+</node>
+<node CREATED="1590183648871" ID="ID_111801518" MODIFIED="1590183652715" TEXT="Execution">
+<node CREATED="1590183654441" ID="ID_1652514224" MODIFIED="1590183665325" TEXT="In any order, one at a time (steps)">
+<node CREATED="1590183693598" ID="ID_415323652" MODIFIED="1590183702734" TEXT="Everybody takes some steps (channels, processes)"/>
+</node>
+<node CREATED="1590183788955" ID="ID_835673628" MODIFIED="1590183793788" TEXT="Example: max">
+<node CREATED="1590183844880" ID="ID_382620508" MODIFIED="1590183860260" TEXT="When a process gets new max, it updates and sends to the channel"/>
+</node>
+</node>
+<node CREATED="1590183874759" ID="ID_1526341916" MODIFIED="1590183878647" TEXT="Complexity">
+<node CREATED="1590183879316" ID="ID_1149152915" MODIFIED="1590183882894" TEXT="Message">
+<node CREATED="1590183884682" ID="ID_1209183495" MODIFIED="1590183899060" TEXT="O(n|E|)"/>
+</node>
+<node CREATED="1590183900946" ID="ID_546731764" MODIFIED="1590183904980" TEXT="Time complexity">
+<node CREATED="1590183942556" ID="ID_1173652172" MODIFIED="1590183947863" TEXT="Use real time">
+<node CREATED="1590183957486" ID="ID_274020303" MODIFIED="1590183989137" TEXT="Make assumptions about certain basic steps taking at-most  a certain amount of time">
+<node CREATED="1590185044049" ID="ID_1082194057" MODIFIED="1590185058847" TEXT="local computation: time for next step - l"/>
+</node>
+<node CREATED="1590185062672" ID="ID_1333096821" MODIFIED="1590185075520" TEXT="Time to deliver one message which is in channel">
+<node CREATED="1590185108608" ID="ID_461134858" MODIFIED="1590185110786" TEXT="d"/>
+</node>
+<node CREATED="1590185116346" ID="ID_783714535" MODIFIED="1590185166319" TEXT="If we know the upperbounds, we can estimate how long to empty out a queue and how long it takes for messages to propagate through network"/>
+</node>
+<node CREATED="1590185186079" ID="ID_1187827348" MODIFIED="1590185190697" TEXT="Example: let l = 0">
+<node CREATED="1590185199462" ID="ID_862638643" MODIFIED="1590185245412" TEXT="O(diam x n x d)">
+<node CREATED="1590185250958" ID="ID_1015122979" MODIFIED="1590185255014" TEXT="Naive way">
+<node CREATED="1590185269210" ID="ID_702475993" MODIFIED="1590185288915" TEXT="How long does max take to reach a node: At most diameter (lenght of the path)"/>
+<node CREATED="1590185314240" ID="ID_1893063682" MODIFIED="1590185339261" TEXT="How long to wait in each channel: d (at the end of the queue may be - lenght of queue may be n worst case)">
+<node CREATED="1590185345456" ID="ID_1205166855" MODIFIED="1590185353458" TEXT="modeling conjextion on the queue"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590185579889" ID="ID_1866584659" MODIFIED="1590185620417" TEXT="Breadth First Spanning Tree">
+<node CREATED="1590185625272" ID="ID_879341507" MODIFIED="1590185630780" TEXT="They have UIDs"/>
+<node CREATED="1590185710089" ID="ID_1832184968" MODIFIED="1590185716671" TEXT="Output parent when done"/>
+<node CREATED="1590185752345" ID="ID_1441476974" MODIFIED="1590185764465" TEXT="If we run synchronous algorithm asynchronously">
+<node CREATED="1590185788899" ID="ID_311240984" MODIFIED="1590185821047" TEXT="If long path is faster than shorter path, then we have longer path"/>
+<node CREATED="1590186252921" ID="ID_1832437841" MODIFIED="1590186263614" TEXT="Longest path info is still reaching in time d"/>
+</node>
+<node CREATED="1590186314125" ID="ID_191902881" MODIFIED="1590186331915" TEXT="Correction: Relaxation like Bellman-Ford">
+<node CREATED="1590186339332" ID="ID_572233684" MODIFIED="1590186370342" TEXT="Everyone keeps track of hop distance, and change parent if they get shorter path, and propagate new parent">
+<node CREATED="1590186394351" ID="ID_1620017983" MODIFIED="1590186444572">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      if m + 1 &lt; hops then hops = m + 1
+    </p>
+    <p>
+      change parent = node sending m
+    </p>
+    <p>
+      prapagate the new parent
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1590186505616" ID="ID_1412760220" MODIFIED="1590186509010" TEXT="Termination">
+<node CREATED="1590186519482" ID="ID_804311699" MODIFIED="1590186528239" TEXT="We cannot do what we did for synchronization"/>
+<node CREATED="1590186529522" ID="ID_603638518" MODIFIED="1590186537055" TEXT="State higher level abstract properties">
+<node CREATED="1590186544821" ID="ID_162342410" MODIFIED="1590186548931" TEXT="Invariance">
+<node CREATED="1590186556491" ID="ID_1405534652" MODIFIED="1590186564507" TEXT="All distance information is correct">
+<node CREATED="1590186579475" ID="ID_1365047306" MODIFIED="1590186585515" TEXT="parent is correct"/>
+</node>
+</node>
+<node CREATED="1590186549864" ID="ID_1212870509" MODIFIED="1590186553044" TEXT="Others">
+<node CREATED="1590186620074" ID="ID_844992272" MODIFIED="1590186707113" TEXT="If there is at most r hop path, then  it will learn about that by certain time that depends on the lenght of the path a and message delivery time">
+<node CREATED="1590188376958" ID="ID_514575930" MODIFIED="1590188391167" TEXT="How does each node determine termination">
+<node CREATED="1590188443824" ID="ID_236405341" MODIFIED="1590188495016" TEXT="Be in convergecast several times until we reach parent - node sends done to current parent (assumes done)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590186733410" ID="ID_1980716832" MODIFIED="1590186738218" TEXT="Message complexity">
+<node CREATED="1590186739506" ID="ID_986265257" MODIFIED="1590186758614" TEXT="O(|E|n)"/>
+</node>
+<node CREATED="1590186760787" ID="ID_100407207" MODIFIED="1590186764749" TEXT="Time complexity">
+<node CREATED="1590186765844" ID="ID_307151059" MODIFIED="1590186777186" TEXT="O(diam x n x d)">
+<node CREATED="1590186778383" ID="ID_1791105906" MODIFIED="1590188339430" TEXT="Pessimistic">
+<node CREATED="1590186784283" ID="ID_436860973" MODIFIED="1590186790361" TEXT="could be conjestion"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590188545636" ID="ID_65715580" MODIFIED="1590188552270" TEXT="Shortest Path Trees">
+<node CREATED="1590188560426" ID="ID_934977372" MODIFIED="1590188570541" TEXT="Adding weights on the edges"/>
+<node CREATED="1590188591106" ID="ID_1476777335" MODIFIED="1590188598664" TEXT="processes have UIDs"/>
+<node CREATED="1590188599983" ID="ID_390946173" MODIFIED="1590188607049" TEXT="Output distance, parent"/>
+<node CREATED="1590188611415" ID="ID_70262922" MODIFIED="1590188620867" TEXT="Another algorithm: Relaxation">
+<node CREATED="1590188628262" ID="ID_1504392947" MODIFIED="1590188690602" TEXT="Two issues: long path with low weight, longer path may be faster"/>
+<node CREATED="1590188703326" ID="ID_1081124155" MODIFIED="1590188713583" TEXT="Everyone keeps parent and conjectured distance"/>
+<node CREATED="1590188714851" ID="ID_554723338" MODIFIED="1590188726075" TEXT="Keeps messages to send to neighbors"/>
+<node CREATED="1590188727007" ID="ID_1158883174" MODIFIED="1590188730626" TEXT="Queue"/>
+<node CREATED="1590188732211" ID="ID_605761529" MODIFIED="1590188771225" TEXT="When we receive new estimate, check and improve distance, reset the parent and send parent info">
+<node CREATED="1590188787917" ID="ID_189475318" MODIFIED="1590188796651" TEXT="Handles both kinds of corrections">
+<node CREATED="1590188800167" ID="ID_1259045536" MODIFIED="1590188828956" TEXT="better estimate can be obtained at any time due to two both issues"/>
+</node>
+</node>
+</node>
+<node CREATED="1590188843339" ID="ID_37263749" MODIFIED="1590188847345" TEXT="Termination">
+<node CREATED="1590188848607" ID="ID_710025416" MODIFIED="1590188855735" TEXT=" No termination condition">
+<node CREATED="1590189693096" ID="ID_1410190549" MODIFIED="1590189708220" TEXT="Just do converge caste and eventually upto the root"/>
+</node>
+</node>
+<node CREATED="1590188858039" ID="ID_976459036" MODIFIED="1590188862889" TEXT="Invariance">
+<node CREATED="1590188867305" ID="ID_120198231" MODIFIED="1590188877759" TEXT="distance is actual distance so parent is correct"/>
+<node CREATED="1590188890207" ID="ID_1935874506" MODIFIED="1590188926345" TEXT="Time to get estimate for atmost r hops">
+<node CREATED="1590188951416" ID="ID_1107844669" MODIFIED="1590188972568" TEXT="Messages that can pile up can be exponential by the number of nodes in the network">
+<node CREATED="1590189018498" ID="ID_1886622193" MODIFIED="1590189028790" TEXT="delivery can take a long time"/>
+</node>
+</node>
+<node CREATED="1590189047728" ID="ID_1548281409" MODIFIED="1590189052508" TEXT="Upper bound">
+<node CREATED="1590189066418" ID="ID_83047132" MODIFIED="1590189106558" TEXT="O(n!) for number of different paths that we can traverse  to get from v_0 to some node">
+<node CREATED="1590189138706" ID="ID_1730489710" MODIFIED="1590189146707" TEXT="O(n^n|E|) may be"/>
+</node>
+</node>
+</node>
+<node CREATED="1590189195884" ID="ID_1963032415" MODIFIED="1590189201345" TEXT="Bad example:">
+<node CREATED="1590189202456" ID="ID_443740436" MODIFIED="1590189213523" TEXT="Network of k + 2 nodes in a line">
+<node CREATED="1590189215024" ID="ID_1450430746" MODIFIED="1590189244990" TEXT="Detour nodes in between each consecutive pair of nodes"/>
+<node CREATED="1590189247401" ID="ID_697743117" MODIFIED="1590189285102" TEXT="weight 0 path">
+<node CREATED="1590189308070" ID="ID_1108009804" MODIFIED="1590189315589" TEXT="detours could give worse paths">
+<node CREATED="1590189347776" ID="ID_378159538" MODIFIED="1590189357534" TEXT="sends 2^(k + 1) messages">
+<node CREATED="1590189371948" ID="ID_630025791" MODIFIED="1590189387973" TEXT="channel with these messages might take exp time to empty it out"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590189746767" ID="ID_985792156" MODIFIED="1590189750144" TEXT="Course">
+<node CREATED="1590189751767" ID="ID_1326377317" MODIFIED="1590189756737" TEXT="Synchronous"/>
+<node CREATED="1590189757587" ID="ID_1495923784" MODIFIED="1590189762260" TEXT="Asynchronous">
+<node CREATED="1590189793766" ID="ID_323256948" MODIFIED="1590189798430" TEXT="Synchronizers">
+<node CREATED="1590189800679" ID="ID_620411330" MODIFIED="1590189812788" TEXT="logical time"/>
+</node>
+<node CREATED="1590189817067" ID="ID_1028601400" MODIFIED="1590189828309" TEXT="Global snapshots of entire system while it is running"/>
+<node CREATED="1590189849307" ID="ID_462394635" MODIFIED="1590190579371" TEXT="Shared memory">
+<node CREATED="1590190580633" ID="ID_1690910646" MODIFIED="1590190589281" TEXT="Multiporcessors sharing memory"/>
+<node CREATED="1590190601507" ID="ID_1716574508" MODIFIED="1590190608028" TEXT="Multiprocessor problems">
+<node CREATED="1590190608929" ID="ID_1029056529" MODIFIED="1590190611856" TEXT="Mutex"/>
+<node CREATED="1590190612854" ID="ID_1438835491" MODIFIED="1590190617985" TEXT="Fault tollerence">
+<node CREATED="1590190629334" ID="ID_1297611707" MODIFIED="1590190636135" TEXT="study of data objects">
+<node CREATED="1590190637460" ID="ID_23705392" MODIFIED="1590190644229" TEXT="with consistency conditions">
+<node CREATED="1590190648670" ID="ID_1429814060" MODIFIED="1590190673540" TEXT="coherenct access to data at many locations"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590190695623" ID="ID_1869149564" MODIFIED="1590190702061" TEXT="Self stabilization">
+<node CREATED="1590190703195" ID="ID_185971290" MODIFIED="1590190743920" TEXT="If we plunge our system into some arbitrary state, then  we need to converge to a good state"/>
+</node>
+<node CREATED="1590190763944" ID="ID_174474935" MODIFIED="1590190768719" TEXT="New work">
+<node CREATED="1590190773706" ID="ID_525360457" MODIFIED="1590190787685" TEXT="Algorithms with network changing during execution">
+<node CREATED="1590190793653" ID="ID_639911965" MODIFIED="1590190799514" TEXT="Wireless networks"/>
+<node CREATED="1590190809306" ID="ID_501595806" MODIFIED="1590190816156" TEXT="Insect colony algorithms">
+<node CREATED="1590190825981" ID="ID_828052098" MODIFIED="1590190859280" TEXT="What distribution algorithm ants use when researcher smashes one nest"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590189771876" ID="ID_1494257746" MODIFIED="1590189777140" TEXT="Fault tollerence">
+<node CREATED="1590189778538" ID="ID_1044122060" MODIFIED="1590189782268" TEXT="Failure"/>
+<node CREATED="1590189783055" ID="ID_967352480" MODIFIED="1590189790276" TEXT="Maliceous"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128752544" ID="ID_1554720755" MODIFIED="1575128761781" POSITION="right" TEXT="21. Cryptography: Hash Functions">
+<node CREATED="1590235858455" ID="ID_101812876" MODIFIED="1590235876876" TEXT="Applications of hash functions">
+<node CREATED="1590235905713" ID="ID_963881936" MODIFIED="1590235910422" TEXT="Password protection"/>
+<node CREATED="1590235910990" ID="ID_1450595837" MODIFIED="1590235916403" TEXT="Checking integrity of files"/>
+<node CREATED="1590235922341" ID="ID_1493814014" MODIFIED="1590235925399" TEXT="Auctions"/>
+</node>
+<node CREATED="1590235881691" ID="ID_1470118925" MODIFIED="1590235900682" TEXT="New properties of hash functions"/>
+<node CREATED="1590235946659" ID="ID_1691259967" MODIFIED="1590236204699" TEXT="A hash function maps arbitrary strings of data to fixed length output in deterministic public (no secrets for this), &quot;random&quot; manner (we don&apos;t want anyone to discover collisions)">
+<node CREATED="1590236219053" ID="ID_432360887" MODIFIED="1590236263464" TEXT="h: {0, 1}* (length &gt;= 0) -&gt; {0, 1}^d (string of length d)"/>
+<node CREATED="1590236276323" ID="ID_439783024" MODIFIED="1590236341517" TEXT="No secret key. All operations public. Anyone can compute h. Poly-time computation">
+<node CREATED="1590236345703" ID="ID_142546674" MODIFIED="1590236362208" TEXT="Poly-time is not necessarily O(1)">
+<node CREATED="1590236407302" ID="ID_380334946" MODIFIED="1590236413828" TEXT="Ex: MD4, MD5">
+<node CREATED="1590236431290" ID="ID_81156133" MODIFIED="1590236436656" TEXT="d= 128">
+<node CREATED="1590236438401" ID="ID_102122524" MODIFIED="1590236455419" TEXT="2^37 - can be done in few seconds"/>
+</node>
+<node CREATED="1590236464420" ID="ID_952978823" MODIFIED="1590236469723" TEXT="SHA-1">
+<node CREATED="1590236470780" ID="ID_221384026" MODIFIED="1590236474628" TEXT="d=160">
+<node CREATED="1590236475993" ID="ID_873546117" MODIFIED="1590236485357" TEXT="Considered to be broken"/>
+</node>
+<node CREATED="1590236490790" ID="ID_427910823" MODIFIED="1590236494300" TEXT="SHA-3">
+<node CREATED="1590236497007" ID="ID_1462189004" MODIFIED="1590236501324" TEXT="Recommended">
+<node CREATED="1590236531725" ID="ID_1952714544" MODIFIED="1590236539566" TEXT="O(d) computations?"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590236575508" ID="ID_1069542585" MODIFIED="1590236582418" TEXT="Ideal: random oracle">
+<node CREATED="1590236586288" ID="ID_850608211" MODIFIED="1590236596431" TEXT="What is this?">
+<node CREATED="1590236611568" ID="ID_819223660" MODIFIED="1590236619285" TEXT="(Not achievable in practice)"/>
+<node CREATED="1590236621787" ID="ID_31196406" MODIFIED="1590236877716" TEXT="Oracle: on input X in {0, 1}*. If X not in book (infinite  capacities that stores all the compuations ever done and stored in the book)&#xa;Initial entries are filled in using pure randomness&#xa;&#xa;If x is not in book:&#xa;    flip coin d times to determine h(x)&#xa;    record (x, h(x)) in the book&#xa;else: return y where (x, y) in the book (consistency)&#xa;">
+<node CREATED="1590237301391" ID="ID_1725865916" MODIFIED="1590237309531" TEXT="We want to do this in polyspace as well">
+<node CREATED="1590237323250" ID="ID_858070791" MODIFIED="1590237329312" TEXT="impossible"/>
+</node>
+</node>
+</node>
+<node CREATED="1590237379580" ID="ID_357766535" MODIFIED="1590237387079" TEXT="Desirable Properties:">
+<node CREATED="1590237388457" ID="ID_1940283047" MODIFIED="1590260572543">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      OW: One-way (pre-image resistance)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;Infeasible, given y in_R {0, 1}^d to find any x such that h(x) = y
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;x: pre-image of y
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;Going backwards is very hard as computations are complex
+    </p>
+    <p>
+      CR: Collision Resistance
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;It is infeasible to find X, X', such that X != X' and h(X) = h(x') &quot;collision&quot;
+    </p>
+    <p>
+      TCR: Target Collision Resistance (weaker than CR)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;It is infeasible given X, to find X' != X such that h(X) = h(X')<br />PRF: Pseudo-randomness: Behavior is indistinguishable from random (non-linear feedback shift registers, ... can be used to generate pseudo random numbers)<br />NM: Non Malleability: Infeasible given h(X) to produce h(X') where X and X' are &quot;related&quot; (in some fashion)<br />&#160;&#160;&#160;&#160;say X' = X + 1
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590261251629" ID="ID_1652614195" MODIFIED="1590261263244" TEXT="if h is CR =&gt; h is TCR (but not reverse)"/>
+<node CREATED="1590261312856" ID="ID_621357946" MODIFIED="1590261426580" TEXT="If h is OW">
+<node CREATED="1590262100054" ID="ID_1258559662" MODIFIED="1590262115806" TEXT="n is usually a block size (512 bits usually)">
+<node CREATED="1590262124075" ID="ID_446721460" MODIFIED="1590262135500" TEXT="Multiple computations can be done"/>
+</node>
+<node CREATED="1590262218189" ID="ID_328107610" MODIFIED="1590262239362" TEXT="Suppose h&apos; is constructed using xor gate at x1 input">
+<node CREATED="1590262241939" ID="ID_512470875" MODIFIED="1590262250952" TEXT="h&apos;(a, b, x1, ..., xn)">
+<node CREATED="1590262260885" ID="ID_1539996377" MODIFIED="1590262275570" TEXT="We have to know the parity of a and b"/>
+<node CREATED="1590262311784" ID="ID_1862924420" MODIFIED="1590262331736" TEXT="It is OW (because all Xi need to be knows to generate hash"/>
+<node CREATED="1590262336497" ID="ID_1499103235" MODIFIED="1590262356183" TEXT="But if a = b = 1, we get one hash and if a = b = 0, we get the same hash"/>
+</node>
+</node>
+<node CREATED="1590262382529" ID="ID_484602932" MODIFIED="1590263672526" TEXT="CRT =/=&gt; OW">
+<node CREATED="1590262393119" ID="ID_402506445" MODIFIED="1590262402239" TEXT="h is TCR and OW"/>
+<node CREATED="1590265033086" ID="ID_361000788" MODIFIED="1590265066055">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      h'(X) = {0 || X if |X| &lt;= 0, 1 || h(X) otherwise}
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590265071562" ID="ID_1537244947" MODIFIED="1590265172570">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      |X| &lt;= n: clearly different X's produce different h'(X)'s
+    </p>
+    <p>
+      else: h(X) maintains TCR
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590265483962" ID="ID_1774985086" MODIFIED="1590265501539" TEXT="Applications: Password Storage">
+<node CREATED="1590265584513" ID="ID_516522694" MODIFIED="1590265602006" TEXT="128 bits has larger entropy"/>
+<node CREATED="1590265609352" ID="ID_291739314" MODIFIED="1590266037003" TEXT="/etc/passwd">
+<node CREATED="1590265646284" ID="ID_486832685" MODIFIED="1590265664355" TEXT="Store h(pw), not pw, on computer">
+<node CREATED="1590265691265" ID="ID_3284159" MODIFIED="1590265705661" TEXT="If h(pw) is readable, pw cannot be discovered"/>
+</node>
+<node CREATED="1590265711436" ID="ID_1522950619" MODIFIED="1590265729990" TEXT="Use h(pw) to compare against h(pw&apos;) where pw&apos; is the typed password">
+<node CREATED="1590265732773" ID="ID_736827693" MODIFIED="1590265872929" TEXT="Disclosure of h(pw) should not reveal pw need OW: (h(pw) = h(pw&apos;) but pw != pw)">
+<node CREATED="1590265899365" ID="ID_1413470224" MODIFIED="1590265906268" TEXT="Doesn&apos;t require CR or TCR">
+<node CREATED="1590265908606" ID="ID_903034032" MODIFIED="1590265922472" TEXT="System can stop if too many tries are made"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590266009909" ID="ID_1919320229" MODIFIED="1590266015493" TEXT="Password storage"/>
+<node CREATED="1590276371859" ID="ID_385591747" MODIFIED="1590276379260" TEXT="File Modification Detector">
+<node CREATED="1590276403274" ID="ID_1681822969" MODIFIED="1590276558508">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      For each file F, store h(F) securely (h(F)) cannot be modified
+    </p>
+    <p>
+      check if F is modified by recomputing h(F).<br /><br />Want to modify F to F' to keep h(F) = h(F') - TCR
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1590276611427" ID="ID_1444757146" MODIFIED="1590276617909" TEXT="Digital SIgnatures">
+<node CREATED="1590276618838" ID="ID_457358919" MODIFIED="1590276817693">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      PK_A: Alice's Public Key
+    </p>
+    <p>
+      SK_A: Alice's Private Key<br /><br />Signing: sigma = Sign(SK_A, M)<br />Verify: Verify(M, sigma, PK_A) = TRUE/FALSE<br /><br />PK_A should not reveal any info about the secret key SK_A<br />
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590276892781" ID="ID_704552538" MODIFIED="1590276911439" TEXT="For convenience: For large M, easier to sign h(M)">
+<node CREATED="1590277154709" ID="ID_624124387" MODIFIED="1590277157220" TEXT="TCR"/>
+</node>
+<node CREATED="1590277202031" ID="ID_912704934" MODIFIED="1590277277401">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      M, h(M) given<br />Alice signs h(M) but Bob claims Alice signed M' because h(M) = h(M')
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1590277308570" ID="ID_558045639" MODIFIED="1590277338405" TEXT="Commitments">
+<node CREATED="1590277356128" ID="ID_594779992" MODIFIED="1590277516552">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Alice has value X (e.g, an auction bid)
+    </p>
+    <p>
+      Alice computes C(X) (&quot;sealing the bid&quot;) and submits it
+    </p>
+    <p>
+      Auctineer see C(X)
+    </p>
+    <p>
+      When bidding is over, Alice &quot;opens&quot; C(X) to reveal X<br /><br />I cannot know other's bids
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590277535230" ID="ID_1193363311" MODIFIED="1590277585159" TEXT="C(x) should be from Alice ("/>
+<node CREATED="1590277665836" ID="ID_231724418" MODIFIED="1590277889103">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      OW: C(X) should not reveal X
+    </p>
+    <p>
+      CR: Alice should not be able to open this in multiple ways
+    </p>
+    <p>
+      NM: Given C(X) should not be possible to produce C(X + 1)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1590277901196" ID="ID_1290600005" MODIFIED="1590277908459" TEXT="Missing property">
+<node CREATED="1590277930624" ID="ID_1389595808" MODIFIED="1590277945708" TEXT="h&apos;(X) = h(x) || MSB(X)">
+<node CREATED="1590277972886" ID="ID_1753929704" MODIFIED="1590277982680" TEXT="h&apos;(X) is also NM, CR, and OW"/>
+<node CREATED="1590278053156" ID="ID_1134690529" MODIFIED="1590278060080" TEXT="Cannot give away info of bid">
+<node CREATED="1590278286735" ID="ID_372611261" MODIFIED="1590278356413" TEXT="bits of auction must be scrambled (most hash functions should do anyway) unscrambling is not acceptable"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590278363189" ID="ID_1426697651" MODIFIED="1590278369780" TEXT="Look up SHA-3">
+<node CREATED="1590278371053" ID="ID_1016826189" MODIFIED="1590278382362" TEXT="Complexity of SHA-3"/>
+</node>
+</node>
+</node>
+<node CREATED="1575128762688" ID="ID_178988316" MODIFIED="1575128769471" POSITION="left" TEXT="22. Cryptography: Encryption">
+<node CREATED="1590319502681" ID="ID_615644377" MODIFIED="1590319562530" TEXT="Encryption">
+<node CREATED="1590319574102" ID="ID_1737556902" MODIFIED="1590319579462" TEXT="Two kinds of algorithms">
+<node CREATED="1590319580758" ID="ID_423831697" MODIFIED="1590319586393" TEXT="Symmetric key algorithms">
+<node CREATED="1590319628446" ID="ID_1879565486" MODIFIED="1590319634787" TEXT="shared secret"/>
+<node CREATED="1590319819777" ID="ID_378190405" MODIFIED="1590319830746" TEXT="secret key k - 128-bit number">
+<node CREATED="1590319870602" ID="ID_639837530" MODIFIED="1590319875828" TEXT="256 is better"/>
+<node CREATED="1590319878378" ID="ID_1105508125" MODIFIED="1590319884760" TEXT="64 bit is not enough">
+<node CREATED="1590319886010" ID="ID_1247145202" MODIFIED="1590319904507" TEXT="parallelism and fast computers might break"/>
+</node>
+<node CREATED="1590319936859" ID="ID_1891046134" MODIFIED="1590319964969" TEXT="c = e_k(m) where m is plain text, c is cyphertext, e is the encryption function">
+<node CREATED="1590320035271" ID="ID_1579325117" MODIFIED="1590320045209" TEXT="Polytime computation (typically linear time)">
+<node CREATED="1590320047688" ID="ID_461811904" MODIFIED="1590320064291" TEXT="Not polynomial if streaming data needs to be encrypted"/>
+</node>
+</node>
+<node CREATED="1590320067480" ID="ID_425708988" MODIFIED="1590320084404" TEXT="m = d_k(c) where d is decryption function">
+<node CREATED="1590320106051" ID="ID_1786878839" MODIFIED="1590320135757" TEXT="e and d can be similar in complexity and can even be same"/>
+</node>
+<node CREATED="1590320157225" ID="ID_683377831" MODIFIED="1590320171470" TEXT="Reversible operations in e, d">
+<node CREATED="1590320209801" ID="ID_1577943748" MODIFIED="1590320214903" TEXT="+ and -"/>
+<node CREATED="1590320216421" ID="ID_1177546262" MODIFIED="1590320220733" TEXT="xor and xor"/>
+<node CREATED="1590320246789" ID="ID_1475160291" MODIFIED="1590320250115" TEXT="AES">
+<node CREATED="1590320254412" ID="ID_583855354" MODIFIED="1590320258602" TEXT="Well used">
+<node CREATED="1590320259922" ID="ID_1655397833" MODIFIED="1590320264780" TEXT="128 bit mode"/>
+<node CREATED="1590320266100" ID="ID_822739743" MODIFIED="1590320271187" TEXT="256 bit mode"/>
+</node>
+<node CREATED="1590320278106" ID="ID_1199680833" MODIFIED="1590320292322" TEXT="Encryption and decryption are the same">
+<node CREATED="1590320305100" ID="ID_1202723972" MODIFIED="1590320309507" TEXT="Symmetric"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590320419608" ID="ID_602445862" MODIFIED="1590320424888" TEXT="Key exchange">
+<node CREATED="1590320426446" ID="ID_350053499" MODIFIED="1590320436354" TEXT="How does the secret key k get shared?">
+<node CREATED="1590320462859" ID="ID_1586607297" MODIFIED="1590320470952" TEXT="Alice and Bob">
+<node CREATED="1590320482736" ID="ID_1724456115" MODIFIED="1590320486138" TEXT="Puzzle">
+<node CREATED="1590320493392" ID="ID_180899506" MODIFIED="1590320503054" TEXT="Pirates in the Carrebian">
+<node CREATED="1590320510295" ID="ID_780861007" MODIFIED="1590320522147" TEXT="Boxes with locks and keys and message">
+<node CREATED="1590320525488" ID="ID_1061698709" MODIFIED="1590320535934" TEXT="Bob and Alice have their own">
+<node CREATED="1590322096757" ID="ID_594217576" MODIFIED="1590322175859">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        Alice puts message (secret key) in box
+      </li>
+      <li>
+        Alice locks box with K_A -&gt; Bob
+      </li>
+      <li>
+        Bob locks box with K_B -&gt; Alice
+      </li>
+      <li>
+        Alice unlocks K_A &amp; sends box -&gt; Bob
+      </li>
+      <li>
+        Bob unlocks K_B &amp; reads message (key)
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+<node CREATED="1590322206497" ID="ID_781846574" MODIFIED="1590322217926" TEXT="Box within a box? Doesn&apos;t work">
+<node CREATED="1590322224425" ID="ID_1404117353" MODIFIED="1590322232666" TEXT="K_A was put first, then K_B">
+<node CREATED="1590322235177" ID="ID_902225258" MODIFIED="1590322246077" TEXT="Can&apos;t remove K_A without removing K_B">
+<node CREATED="1590322248466" ID="ID_961660900" MODIFIED="1590322253514" TEXT="nested locks"/>
+<node CREATED="1590322305114" ID="ID_969008466" MODIFIED="1590322319558" TEXT="ommutative locks (&amp; keys) required">
+<node CREATED="1590322337221" ID="ID_742978429" MODIFIED="1590322356224" TEXT="Diffie Hellman key exchange: (Assumes commutative locks)">
+<node CREATED="1590322357761" ID="ID_1809965954" MODIFIED="1590322409716">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      G = Fp* (finite field - mod p where p is prime and invertible elements only) {1, ..., p - 1}
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590322420318" ID="ID_1163369439" MODIFIED="1590322574204">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      g is public and p is public
+    </p>
+    <p>
+      Alice:
+    </p>
+    <p>
+      Select random a and compute g^a
+    </p>
+    <p>
+      Sends to Bob
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Bob:
+    </p>
+    <p>
+      Select random b and compute g^b
+    </p>
+    <p>
+      Sends to Alice
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Alice can compute (g^b)^a mod p = K
+    </p>
+    <p>
+      Bob can compute (g^a)^b mod p = K
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Commutativity of exponentiation
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590322603156" ID="ID_1284474739" MODIFIED="1590322624387" TEXT="Mal needs to invert g^a to get a">
+<node CREATED="1590322625668" ID="ID_1813733770" MODIFIED="1590322634506" TEXT="Descrete logarighm problem">
+<node CREATED="1590322646324" ID="ID_1611107952" MODIFIED="1590322661414" TEXT="Not polynomial time solvable">
+<node CREATED="1590322666854" ID="ID_883191735" MODIFIED="1590322683336" TEXT="g^a doesn&apos;t give away anything about a"/>
+</node>
+<node CREATED="1590322689607" ID="ID_1078957660" MODIFIED="1590322704870" TEXT="It is hard: Given g^a =&gt; compute a"/>
+</node>
+</node>
+<node CREATED="1590322716665" ID="ID_87642735" MODIFIED="1590322760738" TEXT="Diffie Hellman problem: Given g^a and g^b, compute g^(ab)">
+<node CREATED="1590322763967" ID="ID_494763717" MODIFIED="1590322767013" TEXT="Hard">
+<node CREATED="1590322855701" ID="ID_1659730291" MODIFIED="1590322870085" TEXT="Computationally hard to reverse">
+<node CREATED="1590322877497" ID="ID_1077090090" MODIFIED="1590322890697" TEXT="But good systems scale with change of parameters">
+<node CREATED="1590322893632" ID="ID_1934726494" MODIFIED="1590322904096" TEXT="Discrete log problem scales"/>
+<node CREATED="1590323013982" ID="ID_1920913360" MODIFIED="1590323027724" TEXT="What if pirates lock the box and have key for the lock">
+<node CREATED="1590323029123" ID="ID_1727776863" MODIFIED="1590323035227" TEXT="Pirates get the key">
+<node CREATED="1590323037717" ID="ID_767426908" MODIFIED="1590323057872" TEXT=" Man in the middle attack! corresponds to the pirates having their own locks and keys">
+<node CREATED="1590323086594" ID="ID_1337571723" MODIFIED="1590323106565" TEXT="Pirates can generate g^c mod p and send instead of g^b mod p"/>
+<node CREATED="1590323159829" ID="ID_1490691033" MODIFIED="1590323166062" TEXT="How to address this">
+<node CREATED="1590323172735" ID="ID_684080246" MODIFIED="1590323182972" TEXT="Alice somehow should authenticate Bob">
+<node CREATED="1590323184802" ID="ID_1123952380" MODIFIED="1590323248484" TEXT="Asymmetric cryptography and authenticity, certification authority">
+<node CREATED="1590323251661" ID="ID_1403131762" MODIFIED="1590323272010" TEXT="Certified public key is associated with ourselves (Verisign, DMV, RMV, ...)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590319587855" ID="ID_145729780" MODIFIED="1590319594866" TEXT="Asymmetric key algorithms">
+<node CREATED="1590319667276" ID="ID_1012840683" MODIFIED="1590319678261" TEXT="RSA - MIT in 1977"/>
+<node CREATED="1590323347686" ID="ID_1402392318" MODIFIED="1590323352170" TEXT="Public key encryption">
+<node CREATED="1590323353070" ID="ID_976734501" MODIFIED="1590323390874" TEXT="Message + public key = ciphertext">
+<node CREATED="1590323427178" ID="ID_730229617" MODIFIED="1590323447084" TEXT="Alice is producing the message and Bob&apos;s public key to generate ciphertext"/>
+<node CREATED="1590323511090" ID="ID_1229195704" MODIFIED="1590323529604" TEXT="Bob takes ciphertext + private key (of Bob) = Message">
+<node CREATED="1590323539555" ID="ID_1101909129" MODIFIED="1590323565476" TEXT="Provided public key P_K does not reveal anything about S_k">
+<node CREATED="1590323571444" ID="ID_809006059" MODIFIED="1590323586672" TEXT="P_k and S_k have some mathematical relationship">
+<node CREATED="1590323595097" ID="ID_1174064209" MODIFIED="1590323615149" TEXT="Adversary has to solve a computationally hard problem to discover S_k using P_k"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590319687937" ID="ID_300243869" MODIFIED="1590319691848" TEXT="Hardness">
+<node CREATED="1590319707692" ID="ID_1412279030" MODIFIED="1590319731247" TEXT="If secret key is not know not known to adversary, it is difficult to ifnd the message">
+<node CREATED="1590319762041" ID="ID_1236206279" MODIFIED="1590319768496" TEXT="NP-Complete?">
+<node CREATED="1590319775889" ID="ID_1489404728" MODIFIED="1590319788805" TEXT="Building algorithms using this?"/>
+</node>
+</node>
+</node>
+<node CREATED="1590323685431" ID="ID_1380585969" MODIFIED="1590323688421" TEXT="RSA">
+<node CREATED="1590323690660" ID="ID_1182557376" MODIFIED="1590323699280" TEXT="Primes and factoring number into primes"/>
+<node CREATED="1590323721641" ID="ID_912413897" MODIFIED="1590323747717" TEXT="Cyphertext should be exactly decryptable to plain text">
+<node CREATED="1590323748891" ID="ID_274755279" MODIFIED="1590323754505" TEXT="Functional requirement">
+<node CREATED="1590323813803" ID="ID_1316673195" MODIFIED="1590324115625">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Alice picks two large secret primes p and q
+    </p>
+    <p>
+      Alice computes N = p.q
+    </p>
+    <p>
+      Chooses an encryption exponent e which satisfies
+    </p>
+    <p>
+      gcd(e, (p - 1)(q - 1)) = 1 (e can be chosen to be prime) - e can be fixed and public (small e encryption is faster) (public key)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Alice public key = (N, e)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Decryption exponent obtained using Extended Euclidean Algorithm by Alice
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      e.d = 1 (mod (p - 1)(q - 1)) (polytime algorithms exist to invert)
+    </p>
+    <p>
+      Alice's pirvate key = (d, p, q)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590324163386" ID="ID_1289482011" MODIFIED="1590324168607" TEXT="Why does this work?">
+<node CREATED="1590324177487" ID="ID_183787891" MODIFIED="1590324187602" TEXT="Format Little Theorem">
+<node CREATED="1590324191865" ID="ID_173791867" MODIFIED="1590324211492" TEXT="m^(p - 1) = 1 (mod p)">
+<node CREATED="1590324216764" ID="ID_1107896122" MODIFIED="1590324222031" TEXT="where p is prime"/>
+</node>
+</node>
+<node CREATED="1590324273053" ID="ID_1421804228" MODIFIED="1590324365835">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Phi = (p - 1)(q - 1)
+    </p>
+    <p>
+      since ed = 1 (mod Phi) given
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Therefore, ed = 1 + k Phi (for some integer k)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      p, q are primes
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590324493895" ID="ID_661285508" MODIFIED="1590324498537" TEXT="Two cases:">
+<node CREATED="1590324500116" ID="ID_397987137" MODIFIED="1590324512083" TEXT="1. gcd(m, p) = 1">
+<node CREATED="1590324606724" ID="ID_1785705579" MODIFIED="1590324728342">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      By Fermat's theorem:
+    </p>
+    <p>
+      (m^(p - 1))^k(q - 1).m = m (mod p)
+    </p>
+    <p>
+      m^(1 + k(p - 1)(q - 1)) = m^(ed)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      =&gt; m^(ed) = m (mod p)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1590324556260" ID="ID_483237370" MODIFIED="1590324584501" TEXT="2. gcd(m, p) = p">
+<node CREATED="1590324750701" ID="ID_876309458" MODIFIED="1590324755299" TEXT="m mod p = 0">
+<node CREATED="1590324757819" ID="ID_1115140941" MODIFIED="1590324772981" TEXT="Exponentiating 0 gives 0 allways"/>
+</node>
+</node>
+</node>
+<node CREATED="1590324781832" ID="ID_1477752491" MODIFIED="1590324791001" TEXT="m^(ed) = m mod p"/>
+<node CREATED="1590324869064" ID="ID_1959186198" MODIFIED="1590324876719" TEXT="We can do the same analysis for q"/>
+<node CREATED="1590324883548" ID="ID_1952560596" MODIFIED="1590324954177">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Therefore, both cases p, q: m^(ed) = m (mod p) &amp; m^(ed) = m (mod q)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Since p &amp; q are distinct primes, m^(ed) = m (mod N)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      c^(d) = (m^e)d mod N
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1590324976423" ID="ID_59137554" MODIFIED="1590324989089" TEXT="Computationally hard part is m^e mod N">
+<node CREATED="1590325005829" ID="ID_1633135871" MODIFIED="1590325060247" TEXT="NSA recommends 8192 bits for N"/>
+</node>
+</node>
+</node>
+<node CREATED="1590324379881" ID="ID_434709927" MODIFIED="1590324405894">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      c = m^e (mod N)
+    </p>
+    <p>
+      m = c^d (mod N)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590324424562" ID="ID_1658095189" MODIFIED="1590324465844" TEXT="m^ed (mod N) = m">
+<node CREATED="1590324467357" ID="ID_899353753" MODIFIED="1590324472825" TEXT="To prove this for any m"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590323756864" ID="ID_1948584882" MODIFIED="1590323807479">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      knowledge of S_k should be hidden given P_k
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590323761216" ID="ID_860666112" MODIFIED="1590323767537" TEXT="Security requirement">
+<node CREATED="1590325130507" ID="ID_1547561355" MODIFIED="1590325135598" TEXT="Hardness of RSA">
+<node CREATED="1590325137331" ID="ID_88634830" MODIFIED="1590325220067">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        Given N, hard to factor into p, q
+      </li>
+      <li>
+        Given e, such that gcd(e, (p - 1)(q - 1)) = 1
+      </li>
+      <li>
+        And C
+      </li>
+      <li>
+        Find m such that m^e = c (mod N)
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+<node CREATED="1590325317621" ID="ID_1264026296" MODIFIED="1590325325218" TEXT="Ring cryptography"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590325385555" ID="ID_1608516625" MODIFIED="1590325392262" TEXT="Hardness">
+<node CREATED="1590325405180" ID="ID_429825694" MODIFIED="1590325417595" TEXT="NP-Complete: Hard in the worst case"/>
+<node CREATED="1590325425903" ID="ID_913470309" MODIFIED="1590325429767" TEXT="Crypto">
+<node CREATED="1590325433701" ID="ID_945432059" MODIFIED="1590325486708" TEXT="Is N composite? in NP but unkown if NP-Complete">
+<node CREATED="1590325498015" ID="ID_243859038" MODIFIED="1590325532768" TEXT="Is a graph 3-colorable? ">
+<node CREATED="1590325537986" ID="ID_405130270" MODIFIED="1590325546444" TEXT="Clique is not 3 colorable"/>
+<node CREATED="1590325551167" ID="ID_1106880869" MODIFIED="1590325563700" TEXT="Checking if graph is 3 colorable is NPC"/>
+<node CREATED="1590325802387" ID="ID_1829078020" MODIFIED="1590325812658" TEXT="Average case is easy"/>
+</node>
+<node CREATED="1590325592763" ID="ID_118630449" MODIFIED="1590325605571" TEXT="S = b1w1 + b2w2 + ... + bnwn">
+<node CREATED="1590325607300" ID="ID_1291557130" MODIFIED="1590325611866" TEXT="Knapsack is NPC"/>
+<node CREATED="1590325618034" ID="ID_1313887791" MODIFIED="1590325623926" TEXT="bi is in {0, 1}">
+<node CREATED="1590325753775" ID="ID_1276977062" MODIFIED="1590325770292" TEXT="average case is easy"/>
+</node>
+<node CREATED="1590325662258" ID="ID_241247644" MODIFIED="1590325747607" TEXT="Encryption was done with one knapsack and decyption with another"/>
+<node CREATED="1590325901305" ID="ID_1052205127" MODIFIED="1590325908369" TEXT="General knapsack">
+<node CREATED="1590325909911" ID="ID_372202504" MODIFIED="1590325913428" TEXT="NPC"/>
+</node>
+<node CREATED="1590325916682" ID="ID_1923577779" MODIFIED="1590325931663" TEXT="Super-increasing knapsack problem: linear time">
+<node CREATED="1590325932856" ID="ID_1374280188" MODIFIED="1590325932856" TEXT="">
+<node CREATED="1590325935230" ID="ID_1780827189" MODIFIED="1590325951316" TEXT="w_j &gt;= sigma_i = 1 to j - 1 w_i">
+<node CREATED="1590325955762" ID="ID_22333009" MODIFIED="1590325979156" TEXT="{2, 3, 6, 13, 27, 52}"/>
+</node>
+</node>
+<node CREATED="1590367735292" ID="ID_1764566796" MODIFIED="1590367780655" TEXT="Private-Key: Super increasing knapsack - PRIVATE TRANSFORM -&gt; &quot;hard&quot; general knapsack problem -&gt; Public key">
+<node CREATED="1590367827034" ID="ID_1553131696" MODIFIED="1590367846263" TEXT="Adversary needs to solve a hard knapsack problem to decrypt"/>
+<node CREATED="1590367855099" ID="ID_244172595" MODIFIED="1590368187647">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      N = 31, M = 105 (private parameters)
+    </p>
+    <p>
+      &#160;private key = {2, 3, 6, 13, 27, 52}
+    </p>
+    <p>
+      &#160;public key = {n x N mod M | for all n in private key}
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;{62, 93, 81, 88, 102, 37}
+    </p>
+    <p>
+      m = 011000
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;= 93 + 81 = 174
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Adversary has to derive 174 = 93 + 81 (reverse is not necessarily an easy problem)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      In the average case, we can break the system
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590368198131" ID="ID_1024355015" MODIFIED="1590368223044" TEXT=" M = C (N^-1 mod M)"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590325820258" ID="ID_814203221" MODIFIED="1590325823426" TEXT="RSA">
+<node CREATED="1590325824664" ID="ID_1310868754" MODIFIED="1590325830610" TEXT="Hard on average case">
+<node CREATED="1590325847777" ID="ID_425762739" MODIFIED="1590325854653" TEXT="Not just worst case"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128773007" ID="ID_453735574" MODIFIED="1575128783673" POSITION="right" TEXT="23. Cache-Oblivious Algorithms: Medians &amp; Matrices">
+<node CREATED="1590368405399" ID="ID_964026996" MODIFIED="1590368411122" TEXT="Topics">
+<node CREATED="1590368412095" ID="ID_1541135216" MODIFIED="1590368416405" TEXT="Memory hierarchy"/>
+<node CREATED="1590368426635" ID="ID_1111917853" MODIFIED="1590368436902" TEXT="External memory &amp; cache-oblivious models"/>
+<node CREATED="1590368440948" ID="ID_523802661" MODIFIED="1590368444475" TEXT="Scanning"/>
+<node CREATED="1590368445428" ID="ID_273384509" MODIFIED="1590368451351" TEXT="Divide and conquer">
+<node CREATED="1590368452291" ID="ID_1141521078" MODIFIED="1590368455322" TEXT="Medians"/>
+<node CREATED="1590368456319" ID="ID_1351554209" MODIFIED="1590368460770" TEXT="Matrix mult"/>
+</node>
+<node CREATED="1590368462828" ID="ID_1682745753" MODIFIED="1590368469211" TEXT="LRU block replacement"/>
+</node>
+<node CREATED="1590368514128" ID="ID_510202932" MODIFIED="1590368538493" TEXT="Assuming: Every element access does not cost the same usually">
+<node CREATED="1590368539771" ID="ID_1825574949" MODIFIED="1590368544334" TEXT="HashMap"/>
+<node CREATED="1590368549292" ID="ID_1708904187" MODIFIED="1590368588669" TEXT="CPU - L1 - L2 - L3 - L4 - RAM (Mem) - Flash - Disk - Cloud">
+<node CREATED="1590368595383" ID="ID_1838605583" MODIFIED="1590368603223" TEXT="Memory hierarchy"/>
+<node CREATED="1590368609549" ID="ID_1492871821" MODIFIED="1590368618136" TEXT="L1 - 10 32 k"/>
+<node CREATED="1590368629088" ID="ID_1989469626" MODIFIED="1590368642738" TEXT="L4 - Hasswel - 100 MB"/>
+<node CREATED="1590368643999" ID="ID_126216384" MODIFIED="1590368656448" TEXT="Main Mem - GBs, TBs"/>
+<node CREATED="1590368666296" ID="ID_433275609" MODIFIED="1590368684560" TEXT="Disk - 4 TB single disk, petabytes with multidisk"/>
+<node CREATED="1590368716702" ID="ID_159166454" MODIFIED="1590368728460" TEXT="Cache oblivious algorithms">
+<node CREATED="1590368729465" ID="ID_1932754794" MODIFIED="1590368741921" TEXT="Deal with things that get slow as we move far away">
+<node CREATED="1590368762902" ID="ID_1476835594" MODIFIED="1590368790770" TEXT="How much can we store within a square inch? CPU has lesser"/>
+<node CREATED="1590368823602" ID="ID_1475374599" MODIFIED="1590368840296" TEXT="On-Chip - Nanoseconds"/>
+<node CREATED="1590368845305" ID="ID_1419873428" MODIFIED="1590368853063" TEXT="Disk - Milliseconds"/>
+</node>
+</node>
+<node CREATED="1590368873203" ID="ID_1799970105" MODIFIED="1590368892313" TEXT="Levels get bigger but higher latency"/>
+<node CREATED="1590368911600" ID="ID_876348109" MODIFIED="1590368926449" TEXT="How fat are the pipes to pump back the data">
+<node CREATED="1590368930132" ID="ID_1887360838" MODIFIED="1590368938313" TEXT="bandwidth can be ~ matched">
+<node CREATED="1590368948333" ID="ID_760314421" MODIFIED="1590368955934" TEXT="We can generally make it large">
+<node CREATED="1590368963993" ID="ID_893806230" MODIFIED="1590368979893" TEXT="Parallelise"/>
+</node>
+</node>
+<node CREATED="1590368995794" ID="ID_1726226055" MODIFIED="1590369010657" TEXT="Fatness of pipes increases when we go lower"/>
+</node>
+<node CREATED="1590369017962" ID="ID_409322747" MODIFIED="1590369029533" TEXT="Blocking to mitigate latency">
+<node CREATED="1590369043012" ID="ID_1259233493" MODIFIED="1590369061470" TEXT="If we ask for a word from memory, we get 32 KBs (say)">
+<node CREATED="1590369071751" ID="ID_1235316895" MODIFIED="1590369076445" TEXT="Whole block">
+<node CREATED="1590369077562" ID="ID_424335728" MODIFIED="1590369083986" TEXT="We can set the block size"/>
+</node>
+</node>
+<node CREATED="1590369098688" ID="ID_1522796000" MODIFIED="1590369105985" TEXT="Amortized cost over block">
+<node CREATED="1590369107410" ID="ID_782730105" MODIFIED="1590369148824" TEXT="letency / block-size + 1/bandwidth (how many words we can read per second)">
+<node CREATED="1590369156378" ID="ID_234312396" MODIFIED="1590369162419" TEXT="latency we cannot control"/>
+</node>
+<node CREATED="1590369375529" ID="ID_1640237490" MODIFIED="1590369407567" TEXT="to work, need algorithms to &quot;use&quot; all elements in a block">
+<node CREATED="1590369409283" ID="ID_62977835" MODIFIED="1590369420155" TEXT="We have to use the entire block and not just one element"/>
+<node CREATED="1590369428418" ID="ID_334551065" MODIFIED="1590369435822" TEXT="Property: Spacial locality"/>
+<node CREATED="1590369485863" ID="ID_1440517958" MODIFIED="1590369497928" TEXT="&amp; re-use blocks in cache (temporal locality)">
+<node CREATED="1590369517717" ID="ID_594828134" MODIFIED="1590369541769" TEXT="when we access a block, we access it fairly soon"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590370417540" ID="ID_509095645" MODIFIED="1590370431613" TEXT="Focus on two levels first">
+<node CREATED="1590370433135" ID="ID_295523344" MODIFIED="1590370440783" TEXT="External-memory model">
+<node CREATED="1590370483201" ID="ID_264436424" MODIFIED="1590370519120" TEXT="If problem size is n, choose the smallest level that fits n (level and previous-level)"/>
+<node CREATED="1590370565815" ID="ID_1912216056" MODIFIED="1590370700643">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      CPU |==Fat Pipe==| CACHE |====| Disk
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590370609788" ID="ID_20817925" MODIFIED="1590370651384" TEXT="Cache size: M/B blocks (Total size M) (B words per block)"/>
+<node CREATED="1590370836337" ID="ID_1426656410" MODIFIED="1590371015607" TEXT="- Count number of memory transfers between the levels = number of blocks read from / written to disk&#xa;- view cache accesses as free (count number of operations)&#xa;- algorithm explicitly reads  &amp; writes blocks">
+<node CREATED="1590370950895" ID="ID_815127556" MODIFIED="1590370959508" TEXT="We want to minimize the count"/>
+<node CREATED="1590371028937" ID="ID_349850462" MODIFIED="1590371038028" TEXT="OS does a bad job with swapping"/>
+</node>
+</node>
+</node>
+<node CREATED="1590371070022" ID="ID_431293603" MODIFIED="1590371079603" TEXT="Cache-oblivious model">
+<node CREATED="1590371081311" ID="ID_247369496" MODIFIED="1590371085709" TEXT="Cleaner algos"/>
+<node CREATED="1590371091699" ID="ID_1735626506" MODIFIED="1590371122085" TEXT="Captures all the levels">
+<node CREATED="1590371125153" ID="ID_1949393954" MODIFIED="1590371144897" TEXT="It is exactly the model but the algorithm doesn&apos;t know the cache parameters (B or M)"/>
+<node CREATED="1590455476479" ID="ID_206259317" MODIFIED="1590455490304" TEXT="Accessing a word in memory">
+<node CREATED="1590455491753" ID="ID_1486786672" MODIFIED="1590455519765" TEXT="assume a giant array of words, let 4 words consist of a block">
+<node CREATED="1590455520801" ID="ID_320204195" MODIFIED="1590455538056" TEXT="If we want to access a word, then an entire block is returned">
+<node CREATED="1590455568214" ID="ID_1719479860" MODIFIED="1590455576352" TEXT="this is done implicitly">
+<node CREATED="1590455578175" ID="ID_65098611" MODIFIED="1590455594129" TEXT="We hope we use the words nearby"/>
+</node>
+</node>
+<node CREATED="1590455617449" ID="ID_1888746200" MODIFIED="1590455669438" TEXT="In steady state, cache will be full">
+<node CREATED="1590455692698" ID="ID_298579185" MODIFIED="1590455714823" TEXT="a few randomized strategy is better"/>
+<node CREATED="1590455722832" ID="ID_594831023" MODIFIED="1590455746082" TEXT="say system evicts least recently used page (LRU) (block in this case)"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590455882059" ID="ID_1639649500" MODIFIED="1590455900345" TEXT="These algorithms are within a factor of the ones where you know B and M"/>
+<node CREATED="1590455933756" ID="ID_1794401523" MODIFIED="1590455962052" TEXT="Easier to port to any memory hierarchy">
+<node CREATED="1590455989379" ID="ID_81113290" MODIFIED="1590456079060" TEXT="We want to minimize block transfers between two layers (multidimensional problem) but we want to minimize weighted average (latency1 x num-blocks 1 + latency2 x num-blocks2 ...)">
+<node CREATED="1590456180007" ID="ID_956579709" MODIFIED="1590456203512" TEXT="Paper by Prof Leiserson, .. Ramachandran"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590456229723" ID="ID_877851819" MODIFIED="1590456242426" TEXT="Algorithms">
+<node CREATED="1590456243519" ID="ID_1998534846" MODIFIED="1590456247483" TEXT="Scanning:">
+<node CREATED="1590456249259" ID="ID_407398673" MODIFIED="1590456343942">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      for i in range(N):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sum += A[i]
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590456346067" ID="ID_904655448" MODIFIED="1590456369225" TEXT="Assume array is stored contiguously (no holes)"/>
+<node CREATED="1590456429459" ID="ID_726319564" MODIFIED="1590456447098" TEXT="cost: ceil(N/B)">
+<node CREATED="1590456455218" ID="ID_659296800" MODIFIED="1590456470798" TEXT="Right in the external memory model but not in cache oblivious model">
+<node CREATED="1590456481752" ID="ID_92095656" MODIFIED="1590456488775" TEXT="Block boundary?"/>
+</node>
+<node CREATED="1590456507511" ID="ID_1030570648" MODIFIED="1590456517987" TEXT="&lt;= ceil(N/B) + 1">
+<node CREATED="1590456519225" ID="ID_409470916" MODIFIED="1590456525697" TEXT="cache oblivious">
+<node CREATED="1590456529319" ID="ID_77170182" MODIFIED="1590456533952" TEXT="O(N/B + 1)">
+<node CREATED="1590456583469" ID="ID_1687319396" MODIFIED="1590456636526" TEXT="Cache oblivious model does not know where the boundaries are"/>
+<node CREATED="1590456649480" ID="ID_650446185" MODIFIED="1590456680729" TEXT="In external memory model we can align array to boundary"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590456689957" ID="ID_1540638558" MODIFIED="1590456699147" TEXT="O(1): Parallel scans">
+<node CREATED="1590456700988" ID="ID_12372446" MODIFIED="1590456741295">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      for i in range(floor(N/2)):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;swap A[i] &lt;-&gt; A[N - i - 1]
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590456796969" ID="ID_1965554999" MODIFIED="1590456803992" TEXT="If M/B &gt;= 2">
+<node CREATED="1590456841684" ID="ID_543268994" MODIFIED="1590456865207" TEXT="Cache stores first block and last block (containing last element)">
+<node CREATED="1590471183874" ID="ID_1699634266" MODIFIED="1590471211108" TEXT="storing 1st block and last block and then 2nd block and last but one block , ..."/>
+<node CREATED="1590471222380" ID="ID_460018211" MODIFIED="1590471228109" TEXT="O(N/B + 1)">
+<node CREATED="1590471231702" ID="ID_1526176828" MODIFIED="1590471243763" TEXT="Good if N &gt; B"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590471257662" ID="ID_756184757" MODIFIED="1590471262838" TEXT="Median finding">
+<node CREATED="1590471301418" ID="ID_151712932" MODIFIED="1590471308319" TEXT="Divide and Conquer">
+<node CREATED="1590471312388" ID="ID_973207627" MODIFIED="1590471764118">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      - algorithm recurses down to O(1) size problems
+    </p>
+    <p>
+      - analysis knows B &amp; M &amp; looks at recursive level where:<br />&#160;&#160;&#160;&#160;- problem fits in O(1) blocks (O(B)) (if problem does not depend on the cache size)<br />&#160;&#160;&#160;&#160;- problem fits in cache (&lt;= M) (if cache size is required)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590471769539" ID="ID_1500798306" MODIFIED="1590471780569" TEXT="Base cases become larger (O(B) or O(M))"/>
+</node>
+</node>
+<node CREATED="1590471801908" ID="ID_1889943610" MODIFIED="1590471817546" TEXT="Unsorted array: (N) worst-case">
+<node CREATED="1590581975666" ID="ID_412472976" MODIFIED="1590581992314" TEXT="T(N) = T(N/5) + T(7/10 N) + O(N)"/>
+<node CREATED="1590581994381" ID="ID_430133992" MODIFIED="1590581997405" TEXT="MT(N)">
+<node CREATED="1590581998469" ID="ID_1503577603" MODIFIED="1590582007049" TEXT="Number of memory block transfers">
+<node CREATED="1590582082469" ID="ID_1432374297" MODIFIED="1590582098016" TEXT="Make sure the medians are stored contiguously">
+<node CREATED="1590582101757" ID="ID_1738660927" MODIFIED="1590582119855" TEXT="Separate array"/>
+</node>
+</node>
+</node>
+<node CREATED="1590583397768" ID="ID_364218425" MODIFIED="1590583528242">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ol>
+      <li>
+        0
+      </li>
+      <li>
+        O(N/B + 1)
+      </li>
+      <li>
+        MT(N/5)
+      </li>
+      <li>
+        O(N/B + 1) (1 - reading scan, 2 writing scan &lt;= x, &gt; x, M/B &gt;= 3)
+      </li>
+      <li>
+        MT(7/10 N)
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
+<node CREATED="1590583530979" ID="ID_1308621970" MODIFIED="1590583557263" TEXT="MT(N) = MT(N/5) + MT(7/10 M) + O(N/B + 1)">
+<node CREATED="1590583592539" ID="ID_1869688223" MODIFIED="1590583604052" TEXT="MT(O(1))?">
+<node CREATED="1590583614261" ID="ID_10235772" MODIFIED="1590583624930" TEXT="If MT(O(1)) = O(1)?">
+<node CREATED="1590584279055" ID="ID_1318101775" MODIFIED="1590584285451" TEXT="Don&apos;t use this base case"/>
+<node CREATED="1590584288830" ID="ID_1894962259" MODIFIED="1590584299250" TEXT="MT(O(B)) = O(1)">
+<node CREATED="1590584304515" ID="ID_1678558623" MODIFIED="1590584329360" TEXT="L&apos;(N) = (N/B)^alpha">
+<node CREATED="1590584331384" ID="ID_1475425462" MODIFIED="1590584342246" TEXT="MT(N) = O(N/B + 1)">
+<node CREATED="1590584345940" ID="ID_1506467548" MODIFIED="1590584358807" TEXT="Substitution and find alpha"/>
+<node CREATED="1590584395984" ID="ID_1252748753" MODIFIED="1590584408389" TEXT="Intiution: recursion cost is dominated by the root">
+<node CREATED="1590584409447" ID="ID_363528189" MODIFIED="1590584418814" TEXT="As we descend down, the cost gets reduced">
+<node CREATED="1590584429404" ID="ID_524777712" MODIFIED="1590584436466" TEXT="The cost is root cost"/>
+<node CREATED="1590584440796" ID="ID_1326428453" MODIFIED="1590584452877" TEXT="As we go down, the cost is reducing geometrically"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590583636840" ID="ID_1339229281" MODIFIED="1590583650520" TEXT="MT(N) &gt;= L(N) = number of leaves in recursion">
+<node CREATED="1590583651896" ID="ID_9167213" MODIFIED="1590583663376" TEXT="L(N) = L(N/5) + L(7/10 N)">
+<node CREATED="1590583671343" ID="ID_1500702801" MODIFIED="1590583677062" TEXT="N^alpha">
+<node CREATED="1590583678316" ID="ID_178726202" MODIFIED="1590583713403" TEXT="N^alpha = (N/5)^alpha + (7/10 N)^alpha">
+<node CREATED="1590583716345" ID="ID_65642731" MODIFIED="1590583737938" TEXT="1 = (1/5)^alpha +  (7/10)^alpha">
+<node CREATED="1590583740100" ID="ID_71123416" MODIFIED="1590583755860" TEXT="alpha ~ 0.83978"/>
+<node CREATED="1590584048283" ID="ID_1364636663" MODIFIED="1590584057452" TEXT="L(N) &gt;= N^(0.8)">
+<node CREATED="1590584161889" ID="ID_1529270772" MODIFIED="1590584207630" TEXT="If B is greater than N^(0.2)">
+<node CREATED="1590584211889" ID="ID_217172065" MODIFIED="1590584220192" TEXT="O(N/B + 1) cannot be achieved"/>
+<node CREATED="1590584222356" ID="ID_1877126747" MODIFIED="1590584232013" TEXT="If B is N, we are way off"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590584492960" ID="ID_1757563129" MODIFIED="1590584499615" TEXT="Matrix multiplication">
+<node CREATED="1590584501269" ID="ID_1489038519" MODIFIED="1590584507022" TEXT="Using divide and conquer">
+<node CREATED="1590584524281" ID="ID_74071920" MODIFIED="1590584531384" TEXT="Matrix mult:">
+<node CREATED="1590584538036" ID="ID_511691102" MODIFIED="1590584553924" TEXT="N x N = N x N . N x N">
+<node CREATED="1590584557799" ID="ID_789521244" MODIFIED="1590584562998" TEXT="Z = X . Y"/>
+</node>
+</node>
+<node CREATED="1590584831807" ID="ID_526384992" MODIFIED="1590584845241" TEXT="Z11|Z12||Z21|Z22|">
+<node CREATED="1590584846599" ID="ID_347769268" MODIFIED="1590584896230" TEXT="= X11|X12 x Y11|Y12 = X11Y11 + X12 Y21">
+<node CREATED="1590584897752" ID="ID_1921099442" MODIFIED="1590584902974" TEXT="computing recursively">
+<node CREATED="1590584925095" ID="ID_380869220" MODIFIED="1590584939524" TEXT="MT(N) = 8MT(N/2) + O(N^2/B + 1)">
+<node CREATED="1590584981491" ID="ID_570620034" MODIFIED="1590585003904" TEXT="Addition is parallel scans - element by element additon and storing in Z vedtor"/>
+<node CREATED="1590585012195" ID="ID_670110359" MODIFIED="1590585028737" TEXT="We need to store MT(N/2) contiguously">
+<node CREATED="1590585030728" ID="ID_1602094206" MODIFIED="1590585074874" TEXT="layout(Z) = layout(Z11) layout(Z12)... layout(Z22)"/>
+<node CREATED="1590585098958" ID="ID_1964515484" MODIFIED="1590585223837">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Base case: MT(sqrt(M/B)) = O(M/B) (why? for duration of this recursion, I will never read any more blocks so I have paid only this cost (because the small problem fills the cache))
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590585140895" ID="ID_646485845" MODIFIED="1590585149708" TEXT="This is the size that fits in cache"/>
+</node>
+<node CREATED="1590585237723" ID="ID_1163324231" MODIFIED="1590585279150" TEXT="N^2/B, 2N^2/B, ....">
+<node CREATED="1590585280507" ID="ID_813828440" MODIFIED="1590585314357" TEXT="Increasing cost per level of the tree (8 children per level)">
+<node CREATED="1590585324074" ID="ID_1452442399" MODIFIED="1590585331670" TEXT="=&gt; leaf level matters">
+<node CREATED="1590585361170" ID="ID_364877431" MODIFIED="1590585402172" TEXT="leaves: 8^(log(N/sqrt(M/B))">
+<node CREATED="1590585404345" ID="ID_125165973" MODIFIED="1590585616077">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      (N/sqrt(M/3))^3 = N^3/(M/3)^(3/2) = Theta(N^3/M^(3/2))
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590585436614" ID="ID_636174859" MODIFIED="1590585461128" TEXT="number of leaves"/>
+<node CREATED="1590585465771" ID="ID_1690665311" MODIFIED="1590585476002" TEXT="Overall cost: number of leaves x cost per leaf">
+<node CREATED="1590585479294" ID="ID_1969235723" MODIFIED="1590585583213" TEXT="MT(N) = O(N^3/M^(3/2) x M/B)">
+<node CREATED="1590585628602" ID="ID_1407976346" MODIFIED="1590585651677" TEXT="O(N^3/(sqrt(M) B))">
+<node CREATED="1590585663071" ID="ID_1869911914" MODIFIED="1590585677300" TEXT="dividing by sqrt of cache size">
+<node CREATED="1590585684732" ID="ID_534211384" MODIFIED="1590585691241" TEXT="much better"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590585699474" ID="ID_1562219889" MODIFIED="1590585706049" TEXT="Strassen">
+<node CREATED="1590585707524" ID="ID_308478993" MODIFIED="1590585712806" TEXT="Same analysis"/>
+</node>
+</node>
+<node CREATED="1590584572878" ID="ID_919706233" MODIFIED="1590584578045" TEXT="Standard algorithm">
+<node CREATED="1590584636733" ID="ID_462777700" MODIFIED="1590584649737" TEXT="Let X be row by row and Y be column by column"/>
+<node CREATED="1590584655254" ID="ID_640373917" MODIFIED="1590584668944" TEXT="Computing Z_ij costs O(N/B + 1)">
+<node CREATED="1590584673042" ID="ID_1178027838" MODIFIED="1590584687719" TEXT="Total cost is O(N^3/B + N^2)">
+<node CREATED="1590584694881" ID="ID_321979703" MODIFIED="1590584698978" TEXT="Not optimal">
+<node CREATED="1590584781268" ID="ID_305521338" MODIFIED="1590584791395" TEXT="Assuming M &lt;= N^2"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590587530531" ID="ID_8827061" MODIFIED="1590587538690" TEXT="LRU Block replacement">
+<node CREATED="1590587541166" ID="ID_1475586524" MODIFIED="1590587566914" TEXT="LRU_M &lt;= 2 OPT_M/2">
+<node CREATED="1590587568326" ID="ID_1294664332" MODIFIED="1590587575011" TEXT="Resource augmentation"/>
+<node CREATED="1590587581213" ID="ID_1961670910" MODIFIED="1590587587560" TEXT="Approximation of cost">
+<node CREATED="1590587611782" ID="ID_882171822" MODIFIED="1590587624571" TEXT="M/2: Approximating resources available to the algorithm">
+<node CREATED="1590587660982" ID="ID_594286768" MODIFIED="1590587670502" TEXT="Changing machine model">
+<node CREATED="1590587671746" ID="ID_940659605" MODIFIED="1590587687240" TEXT="Dividing M by 2">
+<node CREATED="1590587696133" ID="ID_80757253" MODIFIED="1590587718928" TEXT="If we change M by a factor of 2, it will not change the bound for the algo by more than sqrt(2)">
+<node CREATED="1590587731601" ID="ID_1584203435" MODIFIED="1590587751405" TEXT="Changing M by a constant factor will not change the cost of the algorithm"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128788607" ID="ID_1905066703" MODIFIED="1575128801518" POSITION="left" TEXT="24. Cache-Oblivious Algorithms: Searching &amp; Sorting">
+<node CREATED="1590591018771" ID="ID_1951742666" MODIFIED="1590591022623" TEXT="Search">
+<node CREATED="1590591023876" ID="ID_1408499126" MODIFIED="1590591026870" TEXT="binary"/>
+<node CREATED="1590591028102" ID="ID_342308137" MODIFIED="1590591030790" TEXT="B-ary"/>
+<node CREATED="1590591032108" ID="ID_1800457075" MODIFIED="1590591036286" TEXT="cache-oblivious"/>
+<node CREATED="1590688222829" ID="ID_400253237" MODIFIED="1590688230699" TEXT="Details of search:">
+<node CREATED="1590688232281" ID="ID_1773648543" MODIFIED="1590688263942" TEXT="preprocess n elements in comparison model to support predecessor search(x)">
+<node CREATED="1590688265348" ID="ID_679185354" MODIFIED="1590688275028" TEXT="Let the elements be static for simplicity">
+<node CREATED="1590688449600" ID="ID_833916275" MODIFIED="1590688457770" TEXT="1. Binary search in sorted array">
+<node CREATED="1590688537969" ID="ID_926085407" MODIFIED="1590688581402">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      T(N) = T(N/2) + O(1)
+    </p>
+    <p>
+      T(O(B)) = O(1)
+    </p>
+    <p>
+      T(N) = log N - log B = log (N/B)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1590688597199" ID="ID_485718341" MODIFIED="1590688601546" TEXT="2. B-Trees">
+<node CREATED="1590688619959" ID="ID_547481779" MODIFIED="1590688637299" TEXT="If we make degree of each node Theta(B)">
+<node CREATED="1590688654509" ID="ID_696013508" MODIFIED="1590688678514" TEXT="Cost of search is going to be height of the tree: Theta(log_B N)">
+<node CREATED="1590688680690" ID="ID_609115590" MODIFIED="1590688699198" TEXT="When we go down a node, a constant number of blocks are loaded"/>
+<node CREATED="1590688710437" ID="ID_24733382" MODIFIED="1590688738373" TEXT="MT(N) = Theta_B (N) = Theta(log N/ log B)">
+<node CREATED="1590688746033" ID="ID_1140790884" MODIFIED="1590688762889" TEXT="B-Trees makes sense if we know B - not cache oblivious">
+<node CREATED="1590688765631" ID="ID_154702045" MODIFIED="1590688786439" TEXT="inserts can be done with same way"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590688792867" ID="ID_1403546113" MODIFIED="1590688816283" TEXT="3. Van-Emde Boas Layout: Inspired by this DS">
+<node CREATED="1590688836716" ID="ID_872234719" MODIFIED="1590688852123" TEXT="Put elements in BST (perfectly balanced)">
+<node CREATED="1590688875034" ID="ID_1498095844" MODIFIED="1590688940668" TEXT="Top half has sqrt(N) nodes and many sqrt(n) subtrees at the bottom">
+<node CREATED="1590688967933" ID="ID_620059490" MODIFIED="1590688973471" TEXT="Recurse on the layout">
+<node CREATED="1590689023717" ID="ID_741220664" MODIFIED="1590689048458" TEXT="Recursively order top half and concatenate the bottom parts one after the other">
+<node CREATED="1590689100665" ID="ID_1244933170" MODIFIED="1590689115534" TEXT="root, left child, right child, ....">
+<node CREATED="1590689123394" ID="ID_1095725925" MODIFIED="1590689281134">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;2&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;4&#160;&#160;&#160;&#160;&#160;&#160;&#160;7&#160;&#160;&#160;&#160;&#160;&#160;10 &#160;&#160;&#160;&#160;&#160;&#160;&#160;13
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;5&#160;&#160;6&#160;&#160;&#160;8&#160;&#160;9&#160;&#160;11 12&#160;&#160;14&#160;&#160;15
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590689307578" ID="ID_433474049" MODIFIED="1590689319287" TEXT="1, 2, 3, ..., 15">
+<node CREATED="1590689322484" ID="ID_861940921" MODIFIED="1590689344544" TEXT="1 points to 2, 3 and 2 points to 4, 5, ...">
+<node CREATED="1590689360310" ID="ID_1252850587" MODIFIED="1590690014459">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Analysis:
+    </p>
+    <p>
+      Consider first level of recursion where triangles have &lt;= B nodes (at some point when we cut the triangles we get these mini triangles)
+    </p>
+    <p>
+      height of each trainge is ~ log B
+    </p>
+    <p>
+      each chunk is stored consecutively
+    </p>
+    <p>
+      =&gt; occupies &lt;= 2 blocks (it may cross a block boundary and crosses only once)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Search: We only go down when we left or right and we are visiting each triangle when we follow:<br /><br />If we are within a triangle it is free but when we move to a new triangle we pay cost of 2 block transfers&#160;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      MT(N) &lt;= 2 number of traingles visited by a root to node path
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      height of triangle is in [1/2 log B, log B] (approximating to log B)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      length(path) = N
+    </p>
+    <p>
+      Number of traingles we visit is at-most (log N) / (1/2 log B)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # of traingles on path &lt;= log N / 1/2 log B &lt;= 2 log_B N
+    </p>
+    <p>
+      MT(N) &lt;= 2 x 2 log_B N &lt;= 4 log_B N
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      MT(N) is O(log_B N)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590690047177" ID="ID_665345581" MODIFIED="1590690063705" TEXT="Cache oblivious works for many levels with different Bs"/>
+<node CREATED="1590690079354" ID="ID_1317320984" MODIFIED="1590690083927" TEXT="Dynamic?">
+<node CREATED="1590690087516" ID="ID_1538122936" MODIFIED="1590690101833" TEXT="Inserts, deletes and searches can be done in O(log_B N)">
+<node CREATED="1590690124337" ID="ID_1297019552" MODIFIED="1590690136087" TEXT="6.851: Advanced datastructures"/>
+<node CREATED="1590690151447" ID="ID_1518915868" MODIFIED="1590690179054" TEXT="This is not optimal for inserts and deletes"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590591038990" ID="ID_186925981" MODIFIED="1590591041542" TEXT="Sorting">
+<node CREATED="1590591042671" ID="ID_489264390" MODIFIED="1590591050567" TEXT="mergesorts">
+<node CREATED="1590690283868" ID="ID_1192321074" MODIFIED="1590690297998" TEXT="Divide and conquer (seems to work if we do it right)">
+<node CREATED="1590690359461" ID="ID_895808896" MODIFIED="1590690368319" TEXT="merge: 3 parallel scans">
+<node CREATED="1590690370789" ID="ID_1951984797" MODIFIED="1590690380663" TEXT="M/B &gt;= 3">
+<node CREATED="1590690387268" ID="ID_1174145993" MODIFIED="1590690399051" TEXT="two sorted sub arrays + output array">
+<node CREATED="1590690403137" ID="ID_793639684" MODIFIED="1590690414190" TEXT="O(N/B + 1)"/>
+</node>
+</node>
+</node>
+<node CREATED="1590690425131" ID="ID_1860019587" MODIFIED="1590690719576">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Recurrence: MT(N) = 2 MT(N/2) + O(N/B + 1)
+    </p>
+    <p>
+      Base case: MT(cM) = O(M/B)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Use recursion trees to solve recurrences if possible:
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      N/B
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      1/2 N/B&#160;&#160;1/2 N/B
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      ....
+    </p>
+    <p>
+      M/B .....&#160;&#160;(N/B leaves) (serving the nodes at each level)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      height of the tree: logN - log M = log N/M
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      N/B + N/B + ... + N/B (log N/M levels)<br /><br />MT(N) = N/B . log N/M
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590690765759" ID="ID_969067298" MODIFIED="1590690777852" TEXT="better than N log N/B"/>
+<node CREATED="1590690786022" ID="ID_1538450932" MODIFIED="1590690792259" TEXT="Still not optimal"/>
+</node>
+</node>
+</node>
+<node CREATED="1590591051580" ID="ID_1582272893" MODIFIED="1590591055534" TEXT="cache-oblivious"/>
+<node CREATED="1590690199255" ID="ID_1314271859" MODIFIED="1590690203156" TEXT="B-Trees">
+<node CREATED="1590690206014" ID="ID_616969958" MODIFIED="1590690219012" TEXT="N-inserts into (c-o) B-tree">
+<node CREATED="1590690219979" ID="ID_250764038" MODIFIED="1590690238090" TEXT="Theta(N log_B N)">
+<node CREATED="1590690241042" ID="ID_1990915289" MODIFIED="1590690245773" TEXT="Not optimal"/>
+</node>
+</node>
+</node>
+<node CREATED="1590712380117" ID="ID_461752373" MODIFIED="1590712387990" TEXT="M/B - way mergesort">
+<node CREATED="1590712401565" ID="ID_1897029899" MODIFIED="1590712410018" TEXT="merge costs O(N/B + 1)">
+<node CREATED="1590712413789" ID="ID_468917725" MODIFIED="1590712450275" TEXT="For merge we choose the smallest element from each of the M/B blocks in cache (cost is 0)">
+<node CREATED="1590712462524" ID="ID_527851945" MODIFIED="1590712485290" TEXT="MT(N) = M/B MT(N/(M/B)) + O(N/B + 1)">
+<node CREATED="1590712501067" ID="ID_1987299459" MODIFIED="1590712687033">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      height(recursion tree) = log_M/B N/M + 1 = log_M/B N/B . B/M + 1 = log_M/B N/B - log_M/B M/B + 1 = log_M/B N/B
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      =&gt; MT(N) = O(N/B log_M/B N/B)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590712736850" ID="ID_972274130" MODIFIED="1590712744351" TEXT="Not cache oblivious though">
+<node CREATED="1590712746624" ID="ID_944430263" MODIFIED="1590712767588" TEXT="We can do it cache obliviously to get the same bound">
+<node CREATED="1590712771617" ID="ID_1884740396" MODIFIED="1590712818229" TEXT="Cache-oblivious sorting: need tall-cache assumption - M &gt;= B^2 =&gt; M/B &gt;= B (real caches usually this)">
+<node CREATED="1590712832679" ID="ID_475636306" MODIFIED="1590712879340" TEXT="Weaker assumption: M = Omega(B^1.000000001) = M = Omega(B^epsilon) where epsilon &gt; 0">
+<node CREATED="1590712903127" ID="ID_413310672" MODIFIED="1590712951667" TEXT="Do N^epsilon - way merge sort and do divide and conquer merge - funnel sort (messier to analyse)">
+<node CREATED="1590712954860" ID="ID_371981576" MODIFIED="1590712964937" TEXT="similar to triangles we did"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590712997673" ID="ID_174270157" MODIFIED="1590713042545" TEXT="Priority Queue: Each operation costs O(1/B log_M/B N/B) amortized memory transfers">
+<node CREATED="1590713084701" ID="ID_69401797" MODIFIED="1590713105556" TEXT="If we insert N times, we get the sorting bound and if we delete again N times, we get the sorting bound">
+<node CREATED="1590713117728" ID="ID_1999751782" MODIFIED="1590713145693" TEXT="DS generalization for the sorting algorithms">
+<node CREATED="1590713162985" ID="ID_1213944294" MODIFIED="1590713172112" TEXT="6.851: Advanced datastructures"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590591057583" ID="ID_727273208" MODIFIED="1590591062270" TEXT="follow-on classes">
+<node CREATED="1590713215383" ID="ID_1651176413" MODIFIED="1590713813773">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      6.047 - For computational biology - undergrad class
+    </p>
+    <p>
+      6.854 - First Graduate class - (6.046 is last undergraduate class) - advanced algorithms - hardcore - covers a lot of areas of algorithms
+    </p>
+    <p>
+      6.850 - Computational geometry - convex hull, range trees, points, lines, ...
+    </p>
+    <p>
+      6.849 - Folding algorithms -&#160;&#160;paper folding, robotic arm folding, ...
+    </p>
+    <p>
+      6.851 - Advanced datastructures
+    </p>
+    <p>
+      6.852 - Distributed algorithms
+    </p>
+    <p>
+      6.853 - Algorithmic game theory (multi-player and selfish)
+    </p>
+    <p>
+      6.855 - Network optimization (graph algorithms)
+    </p>
+    <p>
+      6.856 - (friend of 6.854) Randomized algorithms - more specialized approach - how randomization makes algorithms simpler and faster
+    </p>
+    <p>
+      6.857 - Security algorithms - Applied cryptography - how to achieve security
+    </p>
+    <p>
+      6.875 - Security algorithms - Theoretical cryptography - proof based
+    </p>
+    <p>
+      6.816 - Multicore programming - parallel computation
+    </p>
+    <p>
+      ---
+    </p>
+    <p>
+      6.045 - Undergrad version, General theory, ...
+    </p>
+    <p>
+      6.840 - General theory, Automata, ..., complexity theory, NP-Completeness
+    </p>
+    <p>
+      6.841 - Advanced complexity theory
+    </p>
+    <p>
+      6.842 - Randomized complexity theory
+    </p>
+    <p>
+      6.845 - Quantum complexity theory
+    </p>
+    <p>
+      6.440 - Coding theory - (signals and systems, codes, bounds on codes)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1590687026652" ID="ID_1981733164" MODIFIED="1590687031438" TEXT="Why LRU?">
+<node CREATED="1590687038614" ID="ID_215566506" MODIFIED="1590687074588" TEXT="Number of block evictions: LRU_M &lt;= 2. OPT_(m/2)">
+<node CREATED="1590687079102" ID="ID_593465373" MODIFIED="1590687099527" TEXT="OPT_(M/2): Whatever best possible we can do over a cache of size M/2">
+<node CREATED="1590687260148" ID="ID_1612642497" MODIFIED="1590688055027">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: divide timeline into maximal phases of M/B distant block accesses.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      LRU_M(phase) &lt;= M/B (all blocks in the phase are accessed more recently than previous phases - M/B block transfers per phase - ignoring carry over from phase to phase)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      OPT_(M/2)(phase) &gt;= 1/2 (M/B) - why? best case for OPT is the entire cache is useful (contains blocks in phase we are looking at at the start of the phase) =&gt; &lt;= 1/2 (M/B) blocks will be &quot;free&quot; (won't cost anything for OPT)
+    </p>
+    <p>
+      by definition, phase has M/B distinct blocks (half of them are going to be free and other half have to be loaded in by OPT)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      OPT have to pay atleast 1/2 of what LRU is paying
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590687448525" ID="ID_900999252" MODIFIED="1590687459138" TEXT="sequence of accesses to blocks">
+<node CREATED="1590687461023" ID="ID_725604207" MODIFIED="1590687466474" TEXT="each block has id"/>
+<node CREATED="1590687492353" ID="ID_1258065108" MODIFIED="1590687500066" TEXT="each phase has M/B blocks"/>
+</node>
+<node CREATED="1590688056273" ID="ID_729372655" MODIFIED="1590688071285" TEXT="Bounding the carry over for OPT"/>
+</node>
+<node CREATED="1590688129789" ID="ID_586282876" MODIFIED="1590688161695" TEXT="Changing cache size could dramatically change the  number of cache reads (disk reads to cache)">
+<node CREATED="1590688162903" ID="ID_135419601" MODIFIED="1590688193603" TEXT="Bound on M is given - polynomial dependency on M - affected by constant factor if we change M by constant factor"/>
+</node>
+</node>
+<node CREATED="1590687114114" ID="ID_1396226827" MODIFIED="1590687123052" TEXT="2 times approximation algorithm"/>
+</node>
+<node CREATED="1590687127203" ID="ID_145320962" MODIFIED="1590687132647" TEXT="Online algorithms">
+<node CREATED="1590687173951" ID="ID_1165720528" MODIFIED="1590687184520" TEXT="Looks at past or future to decide?"/>
+</node>
+<node CREATED="1590687166992" ID="ID_1259634451" MODIFIED="1590687172531" TEXT="Offline algorithm">
+<node CREATED="1590687190492" ID="ID_1943630344" MODIFIED="1590687252269" TEXT="Outside of timeline and sees all of time - gets to see the future (computable but need to know the future)"/>
+</node>
+</node>
+</node>
+<node CREATED="1575128807321" ID="ID_152927996" MODIFIED="1575128824290" POSITION="right" TEXT="R1. Matrix Multiplication and the Master Theorem">
+<node CREATED="1590716106574" ID="ID_1075284704" MODIFIED="1590716113282" TEXT="Divide and Conquer">
+<node CREATED="1590716115626" ID="ID_1431623784" MODIFIED="1590716123617" TEXT="Usually involves recursion"/>
+<node CREATED="1590716131430" ID="ID_932931292" MODIFIED="1590716144081" TEXT="Weighted interval scheduling">
+<node CREATED="1590716156844" ID="ID_535441591" MODIFIED="1590716183372" TEXT="each request has start time and finish time">
+<node CREATED="1590716203384" ID="ID_1020805350" MODIFIED="1590716292404" TEXT="If weights are same, greedy algorithm - choose the earliest finish time"/>
+<node CREATED="1590716329726" ID="ID_1432161925" MODIFIED="1590716420136" TEXT="WIS(1, 2, ..., n) = max_1 &lt;= j &lt;= n {w_j + WIS(R_j) where R_j = {i | s(i) &gt; f(j)}}">
+<node CREATED="1590716422076" ID="ID_1092550643" MODIFIED="1590716426733" TEXT="O(n^2)"/>
+<node CREATED="1590716783209" ID="ID_1509310862" MODIFIED="1590716799176" TEXT="Dynamic programming: Memoize subproblem solutions"/>
+<node CREATED="1590716965145" ID="ID_604095996" MODIFIED="1590717051088" TEXT="WIS(1, 2, ..., n) = max{WIS(2, ..., n), w1 + WIS(R1)}">
+<node CREATED="1590717070666" ID="ID_1270173722" MODIFIED="1590717077256" TEXT="Only two subproblems">
+<node CREATED="1590717079049" ID="ID_984735832" MODIFIED="1590717084787" TEXT="Instead of n"/>
+</node>
+<node CREATED="1590717100391" ID="ID_1801503850" MODIFIED="1590717105389" TEXT="Recursion tree">
+<node CREATED="1590717186013" ID="ID_1490076177" MODIFIED="1590717230615" TEXT="1,...,n -&gt; 2, ..., n, R1, ..., n">
+<node CREATED="1590717241392" ID="ID_1747608202" MODIFIED="1590717252049" TEXT="Random selection has many branches">
+<node CREATED="1590717297775" ID="ID_558106776" MODIFIED="1590717308980" TEXT="Complexity: Sorting - O(n log n)">
+<node CREATED="1590717316344" ID="ID_230770961" MODIFIED="1590717329229" TEXT="Number of unique subproblems: n (left branches)">
+<node CREATED="1590717351134" ID="ID_631282666" MODIFIED="1590717356172" TEXT="Recursion: O(n)"/>
+</node>
+<node CREATED="1590717393672" ID="ID_17960116" MODIFIED="1590717403539" TEXT="Overall complexity: O(n log n)">
+<node CREATED="1590717404881" ID="ID_1542805025" MODIFIED="1590717476637" TEXT="If already sorted, it is O(n)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590717562716" ID="ID_429116875" MODIFIED="1590717574421" TEXT="Strassen - Matrix Multiplication">
+<node CREATED="1590717579677" ID="ID_932692303" MODIFIED="1590717583949" TEXT="Applications:">
+<node CREATED="1590717584990" ID="ID_985559514" MODIFIED="1590717590056" TEXT="Circuit simulation"/>
+<node CREATED="1590717591108" ID="ID_999976255" MODIFIED="1590717595982" TEXT="Climate simulation"/>
+<node CREATED="1590717596734" ID="ID_1264884415" MODIFIED="1590717600086" TEXT="Physics"/>
+<node CREATED="1590717602006" ID="ID_469927803" MODIFIED="1590717605599" TEXT="..."/>
+</node>
+<node CREATED="1590719483493" ID="ID_364965318" MODIFIED="1590719572341">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      C11 = A11 B11 + A12 B21
+    </p>
+    <p>
+      C12 = A11 B11 + A12 B22
+    </p>
+    <p>
+      C21 = A21 B12 + A22 B21
+    </p>
+    <p>
+      C22 = A21 B12 + A22 B22
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590719608350" ID="ID_474931306" MODIFIED="1590719620294" TEXT="8 x (n/2)^3 = n^3"/>
+<node CREATED="1590719634230" ID="ID_1262456453" MODIFIED="1590719716499" TEXT="T(n) = 8 T(n/2) + O((n/2)^2)"/>
+</node>
+<node CREATED="1590722349912" ID="ID_1813082449" MODIFIED="1590722481375">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      M1 = (A11 + A12)(B11 + B22)
+    </p>
+    <p>
+      M2 = (A21 + A22)B11
+    </p>
+    <p>
+      M3 = A11(B12 - B22)
+    </p>
+    <p>
+      M4 = A22(B21 - B11)
+    </p>
+    <p>
+      M5 = (A11 + A12)B22
+    </p>
+    <p>
+      M6 = (A21 + A11)(B11 + B12)
+    </p>
+    <p>
+      M7 = (A12 - A12)(B12 + B22)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590722525969" ID="ID_37841513" MODIFIED="1590722563674">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      C11 = M1 + M4 - M5 - M7
+    </p>
+    <p>
+      C12 = M3 + M5
+    </p>
+    <p>
+      C21 = M2 + M4
+    </p>
+    <p>
+      C22 = M1 - M2 + M3 + M4
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590723479781" ID="ID_1203614897" MODIFIED="1590723505602" TEXT="T(n) = 7 T(n/2) + O(n^2)">
+<node CREATED="1590723515390" ID="ID_887397475" MODIFIED="1590723528790" TEXT="Each subproblem requires only one multiplication"/>
+<node CREATED="1590724507142" ID="ID_556519838" MODIFIED="1590724572058">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      if regular matrix multiply: a = 8, b = 2, c = 2&lt; log_b a = 3
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590724529496" ID="ID_23895464" MODIFIED="1590724546484" TEXT="n^3"/>
+</node>
+<node CREATED="1590724599220" ID="ID_1239855927" MODIFIED="1590724603548" TEXT="a = 7, ...">
+<node CREATED="1590724604853" ID="ID_1013026876" MODIFIED="1590724631284" TEXT="O(n^log_2 7) = O(n^2.87...)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590723589402" ID="ID_241958615" MODIFIED="1590723594273" TEXT="Master Theorem">
+<node CREATED="1590723595477" ID="ID_1772033772" MODIFIED="1590723604842" TEXT="T(n) = aT(n/b) + f(n)">
+<node CREATED="1590723608133" ID="ID_1382187870" MODIFIED="1590723650691" TEXT="T(n) = {if f(n) = O(n^c) where c &lt; log_b a =&gt; Theta(n^(log_b a))">
+<node CREATED="1590723701587" ID="ID_1938471513" MODIFIED="1590723745502" TEXT="if f(n) is not too much work then it depends on the recursion"/>
+</node>
+<node CREATED="1590723658764" ID="ID_563761805" MODIFIED="1590723696485" TEXT="T(n) = {if f(n) = Theta(n^clog^k n), c = log_b a =&gt; Theta(n^-c log(k + 1) n)">
+<node CREATED="1590723825671" ID="ID_1442611709" MODIFIED="1590723830698" TEXT="Somewhere in the middle"/>
+</node>
+<node CREATED="1590723716115" ID="ID_1015922120" MODIFIED="1590723795229" TEXT="T(n) = {if f(n) = Omega(n^c) where c &gt; log_b a =&gt; Theta(f(n))">
+<node CREATED="1590723800960" ID="ID_1202571951" MODIFIED="1590723823687" TEXT="if f(n) dominates, T(n) is roughly the order of f(n)"/>
+</node>
+</node>
+<node CREATED="1590723848566" ID="ID_1002505415" MODIFIED="1590723853029" TEXT="Recursion tree">
+<node CREATED="1590723854381" ID="ID_843632288" MODIFIED="1590724478246">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      n&#160;&#160;--- f(n) work to merge
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      n/b&#160;&#160;n/b&#160;&#160;n/b ... n/b --- a f(n/b) work
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      n/b^2&#160;&#160;n/b^2 ...
+    </p>
+    <p>
+      ...
+    </p>
+    <p>
+      n/b^(log_b n) ...
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      a (branching factor) = 3
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      T(n) = f(n) + a f(n/b) + a^2 f(n/b^2) + ... a^log_b T(1) (T(1) = O(f(1) = constant)
+    </p>
+    <p>
+      T(n) = sigma_i = 0 t a^i f(n/b^i)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      first case: f(n) = O(n^c) where c &lt; log_b a
+    </p>
+    <p>
+      O(sigma a^i(n/b^i)^c = n^c sigma (a/b^c)^i
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      b^c &lt; b^log_b a = a
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      =&gt; n^c (a/b^c)^t
+    </p>
+    <p>
+      =&gt; a^t = a^log_b n = a^(log_a n/ log_b n) = a^(log_a n)(log_b a) = O(^log_b a)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590724480977" ID="ID_438400134" MODIFIED="1590724492611" TEXT="We have to prove lower bound as well to prove Theta"/>
+</node>
+</node>
+</node>
+<node CREATED="1590724664409" ID="ID_628929794" MODIFIED="1590724669705" TEXT="Median finding">
+<node CREATED="1590724671011" ID="ID_1806520143" MODIFIED="1590724729664" TEXT="T(n) = T(ceil(n/5)) + T(7/10 n + 6) + Theta(n)">
+<node CREATED="1590724738611" ID="ID_1924405911" MODIFIED="1590724745437" TEXT="Master theorem doesn&apos;t apply"/>
+<node CREATED="1590724759504" ID="ID_1342814655" MODIFIED="1590724765623" TEXT="f(n) = Theta(n)">
+<node CREATED="1590724777363" ID="ID_1621593767" MODIFIED="1590724788820" TEXT="k1 n &lt;= f(n) &lt;= k2 n"/>
+</node>
+<node CREATED="1590724822577" ID="ID_1953951165" MODIFIED="1590724835982" TEXT="n &lt; N, k1 &lt;= T(n) &lt;= k2 n">
+<node CREATED="1590724837421" ID="ID_1898026070" MODIFIED="1590724948422">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      T(N) &lt;= k2 ceil(N/5) + k2(7/10 N + 6) + A2 N
+    </p>
+    <p>
+      ~ (k2/5 + 7/10 k2 + A2)N + ... &lt;= k2N
+    </p>
+    <p>
+      k2 &gt; 9/10 k2 + A2
+    </p>
+    <p>
+      k2 &gt; 10 A2
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128825811" ID="ID_970726683" MODIFIED="1575128833319" POSITION="left" TEXT="R2. 2-3 Trees and B-Trees">
+<node CREATED="1590753984336" ID="ID_615191656" MODIFIED="1590754007688" TEXT="Every node can have either 2 children or 3 children">
+<node CREATED="1590754017503" ID="ID_1371480610" MODIFIED="1590754029212" TEXT="n keys and n + 1 children is the general rule">
+<node CREATED="1590754097072" ID="ID_121008637" MODIFIED="1590754231330">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;[] ... [] .... [] (n keys)
+    </p>
+    <p>
+      / \.../ \.../ \
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;n + 1 children
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590755531980" ID="ID_614079700" MODIFIED="1590755550505" TEXT="We need this arrangement due to memory hierarchy">
+<node CREATED="1590755576363" ID="ID_99308327" MODIFIED="1590755599464" TEXT="CPU = Cache - Disk">
+<node CREATED="1590755602737" ID="ID_1113509832" MODIFIED="1590755616225" TEXT="Cache access cost can be assumed to be 0"/>
+<node CREATED="1590755622681" ID="ID_403723333" MODIFIED="1590755638801" TEXT="Size of Cache is M of B size blocks"/>
+</node>
+</node>
+<node CREATED="1590755699079" ID="ID_804183673" MODIFIED="1590755717955" TEXT="Idea: Get an entire block from disk, work on that and move onto the next block">
+<node CREATED="1590755741170" ID="ID_766600844" MODIFIED="1590755756243" TEXT="Utilizing an entire disk block before going down the level"/>
+</node>
+</node>
+</node>
+<node CREATED="1590755810388" ID="ID_159916126" MODIFIED="1590755816865" TEXT="# of Children">
+<node CREATED="1590755818749" ID="ID_255459270" MODIFIED="1590755827664" TEXT="Branching factor: 2 in 2-3 trees">
+<node CREATED="1590755841567" ID="ID_1918631613" MODIFIED="1590755880934" TEXT="B &lt;= # of children &lt; 2B">
+<node CREATED="1590756080110" ID="ID_1699572691" MODIFIED="1590756088827" TEXT="Violated by leaves"/>
+</node>
+<node CREATED="1590755885067" ID="ID_1590448799" MODIFIED="1590755898277" TEXT="B - 1 &lt;= # of keys &lt; 2B - 1">
+<node CREATED="1590755910441" ID="ID_567484010" MODIFIED="1590755921401" TEXT="B = 2 in 2-3 tree"/>
+<node CREATED="1590756103475" ID="ID_1232161786" MODIFIED="1590756112021" TEXT="Violated by leaves"/>
+</node>
+<node CREATED="1590755977104" ID="ID_506230270" MODIFIED="1590756026641" TEXT="Root does not have lower bound! It can also have 1 key"/>
+<node CREATED="1590756033199" ID="ID_1055744081" MODIFIED="1590756042853" TEXT="It is completely balanced">
+<node CREATED="1590756046442" ID="ID_631569989" MODIFIED="1590756057408" TEXT="All leaves are at same depth"/>
+</node>
+<node CREATED="1590756142748" ID="ID_783242859" MODIFIED="1590756150534" TEXT="All keys in a node are sorted"/>
+</node>
+</node>
+</node>
+<node CREATED="1590754059444" ID="ID_1567572410" MODIFIED="1590754070126" TEXT="In-order traversal gives sorted order"/>
+<node CREATED="1590756204437" ID="ID_456718473" MODIFIED="1590756214912" TEXT="Operations">
+<node CREATED="1590756218297" ID="ID_138913135" MODIFIED="1590756226737" TEXT="Searching">
+<node CREATED="1590756263886" ID="ID_451865975" MODIFIED="1590756278518" TEXT="O(log (n))"/>
+</node>
+<node CREATED="1590756234327" ID="ID_1349117831" MODIFIED="1590756259356" TEXT="Insertion">
+<node CREATED="1590756516230" ID="ID_1856256145" MODIFIED="1590756522254" TEXT="Split">
+<node CREATED="1590756525309" ID="ID_472338073" MODIFIED="1590756602256" TEXT="If &gt; full, move middle child to middle of parent node">
+<node CREATED="1590756612306" ID="ID_1122948018" MODIFIED="1590756731708">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;... 8 56 ...
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|
+    </p>
+    <p>
+      10 17 21 30 38 42 44
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      to
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;... 8 30 56 ...
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&#160;&#160;&#160;\
+    </p>
+    <p>
+      10 17 21&#160;&#160;&#160;&#160;&#160;38 42 44
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590756736619" ID="ID_1225129725" MODIFIED="1590756755031" TEXT="If parent node is &gt; full, repeat for parent and go upto root">
+<node CREATED="1590756758152" ID="ID_195898623" MODIFIED="1590756776740" TEXT="If root has &gt; 1, split and get new root"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590756982336" ID="ID_969568194" MODIFIED="1590756988978" TEXT="Deletion">
+<node CREATED="1590757169776" ID="ID_1346162225" MODIFIED="1590757217187" TEXT="If any node is underfull, move leftmost element in next sibling to parent position and move parent down to the current node (or rightmost element in left sibling)">
+<node CREATED="1590757220746" ID="ID_1866541933" MODIFIED="1590757311616">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;... 10 42 99 ...
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      19 27&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;51 62 77 83
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      to
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;... 10 51 99 ...
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      19 27&#160;42&#160;&#160;&#160;&#160;&#160;&#160;&#160;62 77 83
+    </p>
+    <p>
+      
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1590757361050" ID="ID_912666347" MODIFIED="1590757399075" TEXT="If two children have barely full nodes, move parent down and merrge the nodes">
+<node CREATED="1590757402320" ID="ID_522945455" MODIFIED="1590757419365" TEXT="Propagate upwards if parent is &lt; full">
+<node CREATED="1590757467473" ID="ID_406530660" MODIFIED="1590757558757">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;... 10 42 99 ...
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      19 27&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;62 77 82
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      to
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;... 10 99 ...
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      19 27&#160;42 62 77 82
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128838161" ID="ID_986747565" MODIFIED="1590758228196" POSITION="right" TEXT="R4. Randomized Select and Randomized Quicksort">
+<node CREATED="1590987081001" ID="ID_664318632" MODIFIED="1590987092878" TEXT="Quick Find">
+<node CREATED="1590987144518" ID="ID_1484642100" MODIFIED="1590987150754" TEXT="Why not groups of 3">
+<node CREATED="1590987171614" ID="ID_1647679004" MODIFIED="1590987178222" TEXT="Doesn&apos;t solve to O(n)"/>
+</node>
+<node CREATED="1590987186189" ID="ID_802466425" MODIFIED="1590987191426" TEXT="Randomized version">
+<node CREATED="1590987193218" ID="ID_1537473720" MODIFIED="1590987403557">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Find(A, n, i): Find ith element from left
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590987211142" ID="ID_1219479362" MODIFIED="1590987358878">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Find(A, n, i):
+    </p>
+    <p>
+      Find random element x
+    </p>
+    <p>
+      Put smaller elements on left
+    </p>
+    <p>
+      Put larger elements on right
+    </p>
+    <p>
+      if i &lt; k:<br />&#160;&#160;&#160;&#160;Find (L, k - 1, i)
+    </p>
+    <p>
+      if i &gt; k:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Find (R, n - k, i - k)
+    </p>
+    <p>
+      if i = k:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;x
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590987411401" ID="ID_443100797" MODIFIED="1590987435017" TEXT="Expected runtime">
+<node CREATED="1590987443107" ID="ID_681824480" MODIFIED="1590987552243" TEXT="T(n) = max{T(k - 1), T(n - k)} + Theta(n)">
+<node CREATED="1590987569539" ID="ID_1637426087" MODIFIED="1590989946423">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      E[T(n)] = Sigma_j = 1 to n Pr(k = j) E max{T(j - 1), T(n - j)}
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;= Pr(j = 1) E[T(n - 1)] + Pr(j = 2) E[T(n - 2)] + ...
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590987748493" ID="ID_45700193" MODIFIED="1590990386781">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      2/n x Sigma_j = ceil(n/2) to n - 1 (ET(j - 1)) + Theta(n)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590989961474" ID="ID_110764131" MODIFIED="1590989967133" TEXT="Since it is symmetric"/>
+<node CREATED="1590990005446" ID="ID_854763203" MODIFIED="1590990010189" TEXT="Take random guess">
+<node CREATED="1590990024896" ID="ID_143833297" MODIFIED="1590990032550" TEXT="E(T(n)) = Theta(n)">
+<node CREATED="1590990039023" ID="ID_479599226" MODIFIED="1590990046600" TEXT="E(T(n)) &lt;= Bn">
+<node CREATED="1590990082194" ID="ID_1390514113" MODIFIED="1590990359111">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      E T(n) &lt;= 2 /n x sigma_j = ceil(n/2) to n B(j - 1) + Theta(n)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;= B sigma_j = ceil(n/2) - 1 to n - 1 j + Theta(n) ~ 3/8 n^2 + O(n)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590990410427" ID="ID_53072786" MODIFIED="1590990416903" TEXT="&lt;= B.n"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590990467459" ID="ID_1674485610" MODIFIED="1590990479178" TEXT="Quick Sort">
+<node CREATED="1590990495673" ID="ID_164381930" MODIFIED="1590990512226" TEXT="T(n) = T(k - 1) + T(n - k) + Theta(n)">
+<node CREATED="1590990515629" ID="ID_829067901" MODIFIED="1590990539599" TEXT="E T(n) = 2/n sigma_j = 1 to n E T(j - 1) + Theta(n)">
+<node CREATED="1590991327094" ID="ID_1750548241" MODIFIED="1590991737304">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Guess: Let E T(n) &lt;= B n^2
+    </p>
+    <p>
+      E T(n) &lt;= Sigma_j = 1 to n E T(j - 1) + Theta(n)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;= 2/n Sigma_j = 1 to n - 1 B . j^2 + Theta(n)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;= 2/n . B. n^3/3 + Theta(n) &lt;= B.n^2 = O(n^2) (but not tight)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      How to guess? E T(n) &lt;= B.n^(1 + epsilon)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      E T(n) &lt;= 2/n. B n^(2 + epsilon) / (2 + epsilon) + Theta(n) &lt;= B. n^(1 + epsilon) = O( n^(n + epsilon))
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590991755379" ID="ID_979558753" MODIFIED="1590991770833" TEXT="E T(n) &lt;= B. n log n">
+<node CREATED="1590991772100" ID="ID_1540594010" MODIFIED="1590991780837" TEXT="Guessing because it is not n^2"/>
+<node CREATED="1590991785602" ID="ID_1842109577" MODIFIED="1590991808348" TEXT="E T(n) &lt;= 2/n Sigma_j = 1 to n - 1 B . j log j + Theta(n)">
+<node CREATED="1590991830846" ID="ID_540168474" MODIFIED="1590991835562" TEXT="Use integral">
+<node CREATED="1590991841140" ID="ID_1974665903" MODIFIED="1590991875059" TEXT="&lt;= 2/n B (1/2 n^2 log n - 1/8 n^2) + Theta(n)">
+<node CREATED="1590991908538" ID="ID_147906090" MODIFIED="1590991914010" TEXT="&lt;= B n log n">
+<node CREATED="1590991918806" ID="ID_914192016" MODIFIED="1590991925438" TEXT="O(n log n)">
+<node CREATED="1590991980341" ID="ID_1539800386" MODIFIED="1590992003080" TEXT="If we show Omega(n log n), then we know that it is Theta(n log n)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590992035646" ID="ID_151214786" MODIFIED="1590992042273" TEXT="Amortized runtime"/>
+<node CREATED="1590992043735" ID="ID_1834290400" MODIFIED="1590992049352" TEXT="Average runtime">
+<node CREATED="1590992054782" ID="ID_54925714" MODIFIED="1590992079073" TEXT="Slightly different from Expected runtime because we are average over different things">
+<node CREATED="1590992214044" ID="ID_1093419777" MODIFIED="1590992219870" TEXT="Taking average over input">
+<node CREATED="1590992228829" ID="ID_432065287" MODIFIED="1590992250651" TEXT="weak argument - need to make assumptions about runtime"/>
+</node>
+</node>
+</node>
+<node CREATED="1590992268423" ID="ID_1386349299" MODIFIED="1590992272479" TEXT="Expected runtime">
+<node CREATED="1590992273548" ID="ID_827828775" MODIFIED="1590992290901" TEXT="We cannot make any assumptions about the input but on the randomness introduced by us"/>
+<node CREATED="1590992306417" ID="ID_85972970" MODIFIED="1590992319700" TEXT="Hard to generate high quantity random numbers">
+<node CREATED="1590992320981" ID="ID_1940616601" MODIFIED="1590992328083" TEXT="Difficult in terms of efficiency"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128853691" ID="ID_790525664" MODIFIED="1575128881475" POSITION="left" TEXT="R5. Dynamic Programming">
+<node CREATED="1590996449797" ID="ID_1740835633" MODIFIED="1590996488590">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      DP: Idea
+    </p>
+    <p>
+      - Divide into sub problems and re-use results
+    </p>
+    <p>
+      - Runtime
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590996506947" ID="ID_1042302746" MODIFIED="1590996521875" TEXT="Ex: robot goes from (1, 1) to (M, N)">
+<node CREATED="1590996813506" ID="ID_381613507" MODIFIED="1590996828936" TEXT="O(MN) - number of sub-problems"/>
+<node CREATED="1590996832999" ID="ID_342094825" MODIFIED="1590996896380" TEXT="Number of unique problems: MN, merge work at every step: 1"/>
+</node>
+</node>
+<node CREATED="1590996905812" ID="ID_1991051382" MODIFIED="1590996910237" TEXT="Make change">
+<node CREATED="1590996914851" ID="ID_429994970" MODIFIED="1590996958955">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      s1 (= 1) &lt; s2 &lt; ... &lt; sm
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1590996939802" ID="ID_816539118" MODIFIED="1590996945509" TEXT="MC(N)">
+<node CREATED="1590997142444" ID="ID_603184974" MODIFIED="1590997162009" TEXT="min_i {MC(N - Si) + 1}">
+<node CREATED="1590997262996" ID="ID_727786756" MODIFIED="1590997321311" TEXT="Number of subproblems: N sub-problems"/>
+<node CREATED="1590997356905" ID="ID_1474872044" MODIFIED="1590997382958" TEXT="Work: N.m (min over m terms)">
+<node CREATED="1590997384319" ID="ID_508298281" MODIFIED="1590997390158" TEXT="Runtime: O(N.m)">
+<node CREATED="1590997674277" ID="ID_1865796293" MODIFIED="1590997696613" TEXT="Input is N means size is log N to represent the input">
+<node CREATED="1590997703985" ID="ID_1823452322" MODIFIED="1590997716893" TEXT="O(N m) =&gt; exponential for input of size log N"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1590997402559" ID="ID_1517964902" MODIFIED="1590997408395" TEXT="Similar to Knapsack">
+<node CREATED="1590997497061" ID="ID_1791495273" MODIFIED="1590997506892" TEXT="MC is -ve of knapsack"/>
+<node CREATED="1590997509404" ID="ID_235266989" MODIFIED="1590997514864" TEXT="NP-Complete"/>
+</node>
+</node>
+<node CREATED="1590997788497" ID="ID_838549695" MODIFIED="1590997793156" TEXT="Rectangular blocks">
+<node CREATED="1590997794519" ID="ID_1431433625" MODIFIED="1590997799533" TEXT="{1, 2, ..., n}">
+<node CREATED="1590997807732" ID="ID_824629343" MODIFIED="1590997812928" TEXT="li, wi, hi"/>
+<node CREATED="1590997823360" ID="ID_12900206" MODIFIED="1590997834420" TEXT="Stack blocks to get max height">
+<node CREATED="1590997835532" ID="ID_1613766352" MODIFIED="1590997857630" TEXT="require l_j &lt; l_i, w_j &lt; w_i">
+<node CREATED="1591001291559" ID="ID_47380975" MODIFIED="1591001405541">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      RB(1, ..., n)&#160;&#160;= max{hi + RB(C^(li, wi))}
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      C^(l, w) = {j | li &lt; l, wj &lt; w}
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591001443866" ID="ID_839872905" MODIFIED="1591001677825">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Runtime: n. n (atmost) (n subproblems, n potential choices)
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591001625119" ID="ID_1968734238" MODIFIED="1591001641252" TEXT="C^(l1, w1), C^(l2, w2), ..."/>
+</node>
+<node CREATED="1591002363336" ID="ID_1498371634" MODIFIED="1591002374444" TEXT="Figuring out compatible sets">
+<node CREATED="1591002434131" ID="ID_689852175" MODIFIED="1591002439049" TEXT="O(n^2)">
+<node CREATED="1591002463213" ID="ID_1210265690" MODIFIED="1591002470978" TEXT="Can be done in O(n log n)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591002597479" ID="ID_908837206" MODIFIED="1591002609330" TEXT="Sor by length and then width {1, 2, ..., n}">
+<node CREATED="1591002625369" ID="ID_174659395" MODIFIED="1591002664622" TEXT="RB(1, ..., n) = max{h1 + RB(C^(l1, w1)), RB(2, ..., n)}">
+<node CREATED="1591002695240" ID="ID_1453008229" MODIFIED="1591002795765" TEXT="Runtime: Subproblems (n) x work (O(1)) = O(n) + O(n log n) (sort) + O(n^2) (if naively) or O(n log n)"/>
+</node>
+</node>
+</node>
+<node CREATED="1591002951725" ID="ID_250783296" MODIFIED="1591002963273" TEXT="Universal and Perfect Hashing">
+<node CREATED="1591002970675" ID="ID_944186550" MODIFIED="1591002975305" TEXT="Why hash?">
+<node CREATED="1591002976887" ID="ID_425987507" MODIFIED="1591002989787" TEXT="0 - m - 1 places"/>
+<node CREATED="1591002991328" ID="ID_1467474513" MODIFIED="1591003163886" TEXT="k0, k1, ..., k(n - 1) maps to one of the slots. If n = Theta(m), each slot should have  constant number of entries&#xa;&#xa;U = {0, 1, ..., u - 1} (u &gt; m^2)">
+<node CREATED="1591013884470" ID="ID_1794832854" MODIFIED="1591013920610" TEXT="Lemma [bad]: If h is deterministic then there always exists a  worst case input">
+<node CREATED="1591013966553" ID="ID_553776779" MODIFIED="1591014026625" TEXT="By pigeon hole principle, if we map all elements of U then each slot can have &gt; m elements. Hence if our input has only the m elements of slot 1, then the Lemma is true"/>
+<node CREATED="1591014048226" ID="ID_1663817512" MODIFIED="1591014151163">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Solution: Randomize h
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      But not truly because h(k) needs to be deterministic.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Solution:&#160;Pick a random h from a family H
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Wait for inputs to arrive
+    </p>
+    <p>
+      If I have too many collisions, I choose another one
+    </p>
+    <p>
+      etc...
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591014189529" ID="ID_142839448" MODIFIED="1591014199160" TEXT="We should not assume anything about our input">
+<node CREATED="1591014286486" ID="ID_355943824" MODIFIED="1591014294495" TEXT="Proof against attacks"/>
+</node>
+<node CREATED="1591014302016" ID="ID_1556133169" MODIFIED="1591014308981" TEXT="Universal Hash Function">
+<node CREATED="1591014311139" ID="ID_92981400" MODIFIED="1591014368337" TEXT="h in H, Pr{h(ki) = h(kj)} &lt;= 1/m">
+<node CREATED="1591014376977" ID="ID_242398829" MODIFIED="1591014381702" TEXT="Best we can get"/>
+<node CREATED="1591014392897" ID="ID_918704495" MODIFIED="1591014409575" TEXT="(ak + b ) mod p) mod m">
+<node CREATED="1591014411678" ID="ID_1917732609" MODIFIED="1591014416733" TEXT="p &gt; u"/>
+<node CREATED="1591014424864" ID="ID_789303695" MODIFIED="1591014670657">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      ak1 + b = ak2 + b + im mod p
+    </p>
+    <p>
+      a(k1 - k2) = im mod p
+    </p>
+    <p>
+      If this happens it is bad a (how many? for i = 1, 2, ... floor(p/m))
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      floor(p/m)/(p - 1) number of a's where a is in {1, ..., p - 1}
+    </p>
+    <p>
+      floor(p/m)/(p - 1) = (floor(p - 1)/m)/(p - 1) (since p an p - 1 do not cross the boundary of m)
+    </p>
+    <p>
+      &lt;= 1/m
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591014684489" ID="ID_1721822925" MODIFIED="1591014690151" TEXT="Picking a random a"/>
+<node CREATED="1591014707917" ID="ID_1108528330" MODIFIED="1591014714997" TEXT="p can also be a random number"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591014730615" ID="ID_552019231" MODIFIED="1591014735584" TEXT="Perfect hashing">
+<node CREATED="1591014742098" ID="ID_1320849468" MODIFIED="1591014747453" TEXT="0 collisions">
+<node CREATED="1591014964251" ID="ID_566706185" MODIFIED="1591014972716" TEXT="Method 1: m = n^2">
+<node CREATED="1591014974850" ID="ID_1194694959" MODIFIED="1591015068217">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      P(no collision) = 1 - P(collision) = 1 - Sigma P(any pair has a collision)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;= 1 - n(n - 1)/2 . 1/m
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;= 1 - n(n - 1)/2 . 1/n^2 &gt; 1/2
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591015075604" ID="ID_1725477470" MODIFIED="1591015089292" TEXT="If I don&apos;t have a P &gt; 1/2, I choose another one"/>
+</node>
+<node CREATED="1591015126961" ID="ID_1554968800" MODIFIED="1591015314622">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      alpha log n &lt; (1/2)^(2 log n) = 1/n^alpha
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      We can try unlimited number of times until we succeed but the running time will be unbounded
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591015198788" ID="ID_1090816192" MODIFIED="1591015229179" TEXT="What is the chance that none of my choices satisfies perfect hashing"/>
+<node CREATED="1591015332870" ID="ID_1046849601" MODIFIED="1591015340590" TEXT="space = O(n^2)">
+<node CREATED="1591015342096" ID="ID_1851684363" MODIFIED="1591015349486" TEXT="size of hash table is n^2"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591015358334" ID="ID_645956600" MODIFIED="1591015379703" TEXT="Goal: space O(n) and polynomial(n) and failure probability must be small">
+<node CREATED="1591015383992" ID="ID_708905988" MODIFIED="1591015389351" TEXT="Two level hashing">
+<node CREATED="1591015393668" ID="ID_317638129" MODIFIED="1591015405985" TEXT="h1, h2,i">
+<node CREATED="1591015410780" ID="ID_1533127298" MODIFIED="1591015434554" TEXT="m1 = l1^2, m2 = l2^2, ...">
+<node CREATED="1591015495099" ID="ID_1496606978" MODIFIED="1591015519936" TEXT="After n log n trials I can resolve all the conflicts in the second level hash tables"/>
+<node CREATED="1591015561801" ID="ID_1881653612" MODIFIED="1591015594149" TEXT="O(n + Sigma(li^2)): P(space is O(n)) &gt; 1/2 (Markov inequality)">
+<node CREATED="1591015626997" ID="ID_275456627" MODIFIED="1591015697637">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Try alpha log n times for the 1st level hash function, until space is O(n)
+    </p>
+    <p>
+      Then choose a universal hash function for the second table until we succeed
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128887665" ID="ID_309317023" MODIFIED="1575128895211" POSITION="right" TEXT="R6. Greedy Algorithms">
+<node CREATED="1591016046466" ID="ID_1816528949" MODIFIED="1591016135006">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      N metals {1, 2, ..., N}
+    </p>
+    <p>
+      Price - Ci/kg (use the metric system)
+    </p>
+    <p>
+      Achieve Value - $ T
+    </p>
+    <p>
+      Minimize - Sigma ki
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;such that Sigma_i ki Ci = T
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591016212279" ID="ID_563573181" MODIFIED="1591016223872" TEXT="Sort by ci (decreasing order)"/>
+<node CREATED="1591016241605" ID="ID_412947386" MODIFIED="1591016248660" TEXT="c1, c2, ..., cn"/>
+<node CREATED="1591016263809" ID="ID_1812089274" MODIFIED="1591016295435" TEXT="wi - Amount of metal i available">
+<node CREATED="1591016318316" ID="ID_1212490964" MODIFIED="1591016346884" TEXT="If T/ci &gt; wi, then use that much or else use all of ci"/>
+</node>
+<node CREATED="1591016404017" ID="ID_430935121" MODIFIED="1591016486825">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: Let us say we use ci instead of ci
+    </p>
+    <p>
+      cj kj / ci (value) &lt; kj (going less than the minimum value)
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1591016498503" ID="ID_1619420414" MODIFIED="1591016695308">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Scheduling n processes:
+    </p>
+    <p>
+      Time - t1, t2, ..., tn
+    </p>
+    <p>
+      Order as - p1, p2, ..., pn
+    </p>
+    <p>
+      Completion Time - Cpi = Sigma_j = 1 to i tpj (when does process i end)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Minimize Average Completion Time = (Sigma_i Cpi)/n
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591019401450" ID="ID_851679570" MODIFIED="1591019407376" TEXT="push lines left">
+<node CREATED="1591019412305" ID="ID_738030410" MODIFIED="1591019424624" TEXT="sort by ti (increasing order)">
+<node CREATED="1591019429969" ID="ID_586334903" MODIFIED="1591019970304">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: Let p1, ..., pn does better than sorted order
+    </p>
+    <p>
+      =&gt; t_pi &gt; t_pj for i &lt; j in the sequence
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Swap pi and pj and it will decrease average completion time
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591019901582" ID="ID_93090077" MODIFIED="1591019912638" TEXT="Delta = t_pi - t_pj"/>
+<node CREATED="1591019983444" ID="ID_186372208" MODIFIED="1591019997540" TEXT="We can decrease by delta for each process we shift left"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591020753100" ID="ID_53137247" MODIFIED="1591020779572" TEXT="Intervals but want to cover all">
+<node CREATED="1591020804292" ID="ID_1265551936" MODIFIED="1591020844862" TEXT="If they clash, new group, if they don&apos;t put in the group">
+<node CREATED="1591020848857" ID="ID_186417306" MODIFIED="1591021031991">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      mth clone is constructed
+    </p>
+    <p>
+      1
+    </p>
+    <p>
+      2
+    </p>
+    <p>
+      3
+    </p>
+    <p>
+      .
+    </p>
+    <p>
+      .
+    </p>
+    <p>
+      .
+    </p>
+    <p>
+      m - 1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      let there be an interval that does not intersect with mth clone, then mth clone belongs to one of the other groups and new group is not required
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1591021079799" ID="ID_1049146882" MODIFIED="1591021101249" TEXT="Online: Let there be a server that receives jobs dynamically">
+<node CREATED="1591021212049" ID="ID_1690275129" MODIFIED="1591021237786" TEXT="Look at remaining time, then switch to small jobs and switch back">
+<node CREATED="1591021282832" ID="ID_84942" MODIFIED="1591021296203" TEXT="Update the remaining times of all the jobs and then run the algorithm">
+<node CREATED="1591021323989" ID="ID_548836325" MODIFIED="1591021333600" TEXT="Assuming all jobs are equally weighted"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128895906" ID="ID_1535815746" MODIFIED="1575128903081" POSITION="left" TEXT="R7. Network Flow and Matching">
+<node CREATED="1591070389338" ID="ID_1267309027" MODIFIED="1591070393291" TEXT="Topics">
+<node CREATED="1591070394666" ID="ID_1763240769" MODIFIED="1591070400090" TEXT="Network flow">
+<node CREATED="1591070454383" ID="ID_929425895" MODIFIED="1591070577003">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      G: transformed to G_f (residue graph)
+    </p>
+    <p>
+      Find a path: s -&gt; t in G_f
+    </p>
+    <p>
+      Augments p (increasing flow on the path) by capacity of the path ( capacity of min edge)
+    </p>
+    <p>
+      f -&gt; f'
+    </p>
+    <p>
+      repeat until G_f doesn't have a path
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591070580174" ID="ID_1332772289" MODIFIED="1591070594975" TEXT="It doesn&apos;t say how to find a path in second step">
+<node CREATED="1591070597746" ID="ID_1376113687" MODIFIED="1591070606961" TEXT="Pathelogical case">
+<node CREATED="1591070616338" ID="ID_734291357" MODIFIED="1591070626863" TEXT="Keep going through middle edge"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591070402197" ID="ID_550126860" MODIFIED="1591070407764" TEXT="Edmond Karp">
+<node CREATED="1591070633349" ID="ID_1013903865" MODIFIED="1591070648709" TEXT="Improvement over Ford-Fulkerson">
+<node CREATED="1591070652219" ID="ID_1718244857" MODIFIED="1591070708799" TEXT="In second step: finds shortest path : p -..-&gt; t">
+<node CREATED="1591070712125" ID="ID_1480918573" MODIFIED="1591070718134" TEXT="least number of hops">
+<node CREATED="1591070727716" ID="ID_405401038" MODIFIED="1591070918606" TEXT="Using BFS">
+<node CREATED="1591071634502" ID="ID_1562330066" MODIFIED="1591071654013" TEXT="O(V + E) ~ O(E) since |V| &lt; |E|"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591071662365" ID="ID_1394427983" MODIFIED="1591071667580" TEXT="Number of iterations">
+<node CREATED="1591097204461" ID="ID_1478272756" MODIFIED="1591097358406" TEXT="Lemma [monotonic]: Delta_f(v): |s -...-&gt; v| in G_f. Delta_f(v) for any v does not decrease (it can only monotonically increase))">
+<node CREATED="1591097361765" ID="ID_821331511" MODIFIED="1591100598739">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: Proof by contradiction
+    </p>
+    <p>
+      Let Delta_f'(v) in new residual graph is &lt; Delta_f(v)
+    </p>
+    <p>
+      define v to be the one with smallest Delta_f'(v)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Delta_f'(v) = Delta_f'(u) + 1
+    </p>
+    <p>
+      Delta_f'(u) + 1 &gt;= Delta_f(u) + 1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Case 1: If (u, v) is in G_f
+    </p>
+    <p>
+      Delta_f(v) &lt;= Delta_f(u) + 1
+    </p>
+    <p>
+      =&gt; Delta_f(v) &lt;= Delta_f'(u) + 1
+    </p>
+    <p>
+      =&gt; Delta_f(v) &lt;= Delta_f'(v)
+    </p>
+    <p>
+      =&gt; Delta_f'(v) &gt;= Delta_f(v)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Case 2: If (u, v) is not in G_f
+    </p>
+    <p>
+      (u, v) is in G_f'
+    </p>
+    <p>
+      =&gt; (v, u) is in G_f and on the path p in G_f (augmented)
+    </p>
+    <p>
+      =&gt; Delta_f(u) = Delta_f(v) + 1
+    </p>
+    <p>
+      =&gt; Delta_f'(v) &gt;= Delta_f(v) + 2
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      This is a contradiction
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1591100605533" ID="ID_447127640" MODIFIED="1591100614628" TEXT="Theorem: O(VE) iterations">
+<node CREATED="1591100700286" ID="ID_692331426" MODIFIED="1591101367562">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: c(p) = c(u, v) (capacity of it's weakest link)
+    </p>
+    <p>
+      (u, v) can be critical O(V) times (needs to be proved)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      if we augment a path s -...-&gt; u -&gt; v - ... -&gt; t, then we eliminate u -&gt; v edge so we get the new path s -...-&gt; v -&gt; u -...-&gt; t
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      we can get back the original path again eliminating (v, u)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Delta_f'(u) = Delta_f'(v) + 1 &gt;= Delta_f(v) + 1 (by lemma)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&gt;= Delta_f(u) + 2
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      =&gt; If (u, v) is augmented twice, Delta_f(u) must increase by atleast 2
+    </p>
+    <p>
+      The Delta_f(u) is bounded by O(V) max (1/2 |V|)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Combining all the edges, the total number of times is O(VE)<br />
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591101410441" ID="ID_1986361957" MODIFIED="1591101422331" TEXT="Dinic&apos;s: O(V^2E)">
+<node CREATED="1591101425573" ID="ID_225347291" MODIFIED="1591101451168" TEXT="Find all shortest paths from s to t and augment all of them at the same time">
+<node CREATED="1591101465183" ID="ID_1900338321" MODIFIED="1591101497232" TEXT="Every iteration, we are destroying all the shortest paths so the next shortest path is &gt; previous one">
+<node CREATED="1591101580636" ID="ID_1780599743" MODIFIED="1591101586806" TEXT="Bounded by O(V)"/>
+</node>
+</node>
+</node>
+<node CREATED="1591070409554" ID="ID_896535697" MODIFIED="1591070417914" TEXT="Bipartite matching &amp; cover">
+<node CREATED="1591101599028" ID="ID_204860243" MODIFIED="1591101628579" TEXT="Several persons and several tasks: An edge means the person can do the task">
+<node CREATED="1591101641361" ID="ID_758123369" MODIFIED="1591101648852" TEXT="Find matching">
+<node CREATED="1591101659011" ID="ID_1715723330" MODIFIED="1591101764540">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      o -- o-\
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;\-o&#160;&#160;|
+    </p>
+    <p>
+      o --/&#160;&#160;&#160;|
+    </p>
+    <p>
+      o-----/
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1591101938733" ID="ID_1744033948" MODIFIED="1591101956213" TEXT="Add source that connects to left group and destination to right group"/>
+<node CREATED="1591101983134" ID="ID_1644715048" MODIFIED="1591101989482" TEXT="Make weights 1"/>
+<node CREATED="1591102004339" ID="ID_197787298" MODIFIED="1591102013021" TEXT="Add directions to edges"/>
+<node CREATED="1591102023749" ID="ID_64867051" MODIFIED="1591102038966" TEXT="max flow = k =&gt; max matching is k">
+<node CREATED="1591102041595" ID="ID_1200010984" MODIFIED="1591102062590" TEXT="Have cut at destination which has k output"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591101794583" ID="ID_554649836" MODIFIED="1591101823320" TEXT="General matching: Find subset of edges such that no two edges connect to the same node"/>
+</node>
+<node CREATED="1591102098422" ID="ID_506652114" MODIFIED="1591102112972" TEXT="Bipartite cover">
+<node CREATED="1591102289115" ID="ID_1921604441" MODIFIED="1591102317405" TEXT="If we have k edges between the nodes, then we need atleast k nodes to cover all the edges">
+<node CREATED="1591102322083" ID="ID_886406438" MODIFIED="1591102336195" TEXT="=&gt; min cover k =&gt; max flow k"/>
+</node>
+<node CREATED="1591102380107" ID="ID_1717228606" MODIFIED="1591102396833" TEXT="We have to prove that we can indead find a cover that is k"/>
+</node>
+</node>
+</node>
+<node CREATED="1575128907083" ID="ID_37718225" MODIFIED="1575128914745" POSITION="right" TEXT="R8. NP-Complete Problems">
+<node CREATED="1591103934545" ID="ID_1875240729" MODIFIED="1591103941380" TEXT="P - Decision Problem">
+<node CREATED="1591103942790" ID="ID_1673950075" MODIFIED="1591103954709" TEXT="x -[ A ] - {0, 1}"/>
+</node>
+<node CREATED="1591103959380" ID="ID_648692091" MODIFIED="1591103969612" TEXT="NP - (x, {0, 1}, c)">
+<node CREATED="1591103974803" ID="ID_891532461" MODIFIED="1591103985798" TEXT="we can verify in polynomial time"/>
+<node CREATED="1591109965358" ID="ID_358319934" MODIFIED="1591109972677" TEXT="A hard =&gt; B hard"/>
+<node CREATED="1591109975973" ID="ID_1586829690" MODIFIED="1591109981831" TEXT="B easy =&gt; A easy"/>
+</node>
+<node CREATED="1591109989761" ID="ID_1010855170" MODIFIED="1591110000360" TEXT="x - [A] -&gt; {0, 1}"/>
+<node CREATED="1591110005064" ID="ID_1780076053" MODIFIED="1591110015049" TEXT="y - [B] -&gt; {0, 1}"/>
+<node CREATED="1591110016953" ID="ID_423981982" MODIFIED="1591110021537" TEXT="R: x -&gt; y">
+<node CREATED="1591110029400" ID="ID_865412349" MODIFIED="1591110039973" TEXT="A(x) = B(R(x))"/>
+</node>
+<node CREATED="1591110073092" ID="ID_1564729651" MODIFIED="1591110079499" TEXT="Problems">
+<node CREATED="1591110080358" ID="ID_1218084372" MODIFIED="1591110087697" TEXT="Hamiltonian Cycle">
+<node CREATED="1591110092407" ID="ID_774111512" MODIFIED="1591110127102" TEXT="Consider a graph: Cycle that visits all vertices and returns to the start vertex">
+<node CREATED="1591110135356" ID="ID_1138284351" MODIFIED="1591110147992" TEXT="Decision: does graph has hamiltonian cycle"/>
+</node>
+</node>
+<node CREATED="1591110154718" ID="ID_911836907" MODIFIED="1591110171516" TEXT="Hamiltonian Path">
+<node CREATED="1591110172624" ID="ID_1025477199" MODIFIED="1591110179264" TEXT="Path that covers all vertices">
+<node CREATED="1591110392690" ID="ID_1499230269" MODIFIED="1591110401279" TEXT="B is in NP">
+<node CREATED="1591110403088" ID="ID_1490458550" MODIFIED="1591110418007" TEXT="Certificate can be used to check the path (O(V))"/>
+</node>
+<node CREATED="1591110424248" ID="ID_1384565886" MODIFIED="1591110428766" TEXT="B is Hard">
+<node CREATED="1591110435180" ID="ID_560990722" MODIFIED="1591110460553" TEXT="A - G = (V, E)">
+<node CREATED="1591110567576" ID="ID_1940994098" MODIFIED="1591110629750" TEXT="Transform it to a graph by splitting a vertex into two v&apos; and v&apos;&apos; with v&apos; containing only incoming edges and v&apos;&apos; containing only outgoing edges">
+<node CREATED="1591110640095" ID="ID_404773487" MODIFIED="1591110646096" TEXT="Cycle =&gt; Path"/>
+<node CREATED="1591110653698" ID="ID_1559163719" MODIFIED="1591110707173" TEXT="Suppose we had a path from v&apos;&apos; to v&apos; which can start at v&apos;&apos; only and end at v&apos; only">
+<node CREATED="1591110714950" ID="ID_1894691682" MODIFIED="1591110722862" TEXT="path =&gt; cycle">
+<node CREATED="1591110727610" ID="ID_1435633780" MODIFIED="1591110734416" TEXT="=&gt; A(G) = B(G&apos;)"/>
+<node CREATED="1591110747931" ID="ID_1670902400" MODIFIED="1591110757430" TEXT="Reduction time: O(V)"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591110462068" ID="ID_876853624" MODIFIED="1591110469437" TEXT="B - G&apos; = (V&apos;, E&apos;)"/>
+</node>
+</node>
+</node>
+<node CREATED="1591110783296" ID="ID_1245987113" MODIFIED="1591110878009" TEXT="k-Clique? G = (V, E)">
+<node CREATED="1591110881280" ID="ID_807483550" MODIFIED="1591110896396" TEXT="Clique: Set of vertices which is a complete graph">
+<node CREATED="1591111263792" ID="ID_777264260" MODIFIED="1591111283295" TEXT="B - Independent set - k">
+<node CREATED="1591111305131" ID="ID_1238133009" MODIFIED="1591111340757" TEXT="set of vertices such that  no pair of vertices has edge between them"/>
+<node CREATED="1591111382133" ID="ID_91761842" MODIFIED="1591111419958" TEXT="Certificate: O(V^2) checking"/>
+<node CREATED="1591111436288" ID="ID_1626462695" MODIFIED="1591111441283" TEXT="Transformation:">
+<node CREATED="1591111444235" ID="ID_878974703" MODIFIED="1591111519361" TEXT="Clique: All edges connected, I - No edge at all">
+<node CREATED="1591111520857" ID="ID_48369462" MODIFIED="1591111536537" TEXT="B: G&apos;(V, ~E)">
+<node CREATED="1591111538056" ID="ID_895727109" MODIFIED="1591111549100" TEXT="Add edge if no edge and remove edge if there is an edge">
+<node CREATED="1591111634740" ID="ID_426927794" MODIFIED="1591111711220">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof:<br /><br />Let us assume there is a clique in G = (V, E)
+    </p>
+    <p>
+      for all u, v in clique, (u, v) is in E
+    </p>
+    <p>
+      =&gt; (u, v) not in E for all u, v in I
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128919843" ID="ID_117100556" MODIFIED="1575128934626" POSITION="left" TEXT="R9. Approximation Algorithms: Travelling Salesman Problem">
+<node CREATED="1591246045942" ID="ID_1776311929" MODIFIED="1591246055094" TEXT="TSP: NP-Hard">
+<node CREATED="1591246110736" ID="ID_1785381314" MODIFIED="1591246121387" TEXT="Const approx is also NP-Hard">
+<node CREATED="1591246153380" ID="ID_268008447" MODIFIED="1591246204541" TEXT="Let us say the optimal solution is v and if the algorithm gives a value within a constant factor cv (&lt; cv)"/>
+<node CREATED="1591246521139" ID="ID_1866513044" MODIFIED="1591246620484">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Metric TSP - Also NP-Hard
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591246544146" ID="ID_139168389" MODIFIED="1591246551397" TEXT="d(x, y) &gt;= 0"/>
+<node CREATED="1591246555465" ID="ID_1092846183" MODIFIED="1591246564601" TEXT="d(x, y) = d(y, x)"/>
+<node CREATED="1591246566528" ID="ID_1793902721" MODIFIED="1591246579464" TEXT="d(x, y) + d(y, z) &gt;= d(x, z)"/>
+<node CREATED="1591246626166" ID="ID_1990275471" MODIFIED="1591246661248" TEXT="2-approx -improve to-&gt; 3/2">
+<node CREATED="1591246666985" ID="ID_243914368" MODIFIED="1591246713854" TEXT="c(S): S - set of edges and c(S) is sum of weights of S">
+<node CREATED="1591246736026" ID="ID_1743000793" MODIFIED="1591246822863">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      (H*_G): Best hamiltonian cycle say
+    </p>
+    <p>
+      c(H*_G)
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591246826623" ID="ID_1435719787" MODIFIED="1591246836094" TEXT="Let us find a min spanning tree">
+<node CREATED="1591246841778" ID="ID_944145448" MODIFIED="1591246861739" TEXT="Let it be rooted min spanning tree">
+<node CREATED="1591246879490" ID="ID_1074760806" MODIFIED="1591246925147" TEXT="Do a DFS on the min-spanning tree and get a cycle: but vertices are visited more than once">
+<node CREATED="1591246964179" ID="ID_51256102" MODIFIED="1591247040302" TEXT="Delete the vertices: bypass the duplicate (assuming complete graph) (by tirangle inequality, this is &lt;= going through another vertex)">
+<node CREATED="1591247075022" ID="ID_1408503597" MODIFIED="1591247092502" TEXT="C -&gt; C&apos; =&gt; c(C&apos;) &lt;= c(C)">
+<node CREATED="1591247103688" ID="ID_588419378" MODIFIED="1591247144447" TEXT="c(C) = 2 x c(T)">
+<node CREATED="1591247148855" ID="ID_475069403" MODIFIED="1591247175212" TEXT="c(C&apos;) &lt;= 2.c(T)">
+<node CREATED="1591247190040" ID="ID_682752400" MODIFIED="1591247210056" TEXT="If we remove an edge from H*_G then we get a spanning tree">
+<node CREATED="1591247216256" ID="ID_1151125561" MODIFIED="1591247234791" TEXT="c(H*_G) &gt;= c(H*_G - e) &gt;= c(T)">
+<node CREATED="1591247241469" ID="ID_1753659719" MODIFIED="1591247269210" TEXT="c(C&apos;) &lt;= 2 c(H*_G)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591249421097" ID="ID_251295409" MODIFIED="1591249440088" TEXT="Let S C= V">
+<node CREATED="1591250665688" ID="ID_958014943" MODIFIED="1591250694752" TEXT="Pick a few vertices">
+<node CREATED="1591250696893" ID="ID_1882586206" MODIFIED="1591250712012" TEXT="Let H*_S be hamiltonian cycle of S">
+<node CREATED="1591250715578" ID="ID_1220603575" MODIFIED="1591250728479" TEXT="c(H*_S) &lt;= c(H*_G)">
+<node CREATED="1591250731823" ID="ID_1052005255" MODIFIED="1591250825747">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Proof: By contradiction
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      H*_G is a cycle with all vertices of G. Skip vertices not in S and we get a new cycle and by triangle inequality the cost of the new cycle is less than the original cycle
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591250840127" ID="ID_1811272291" MODIFIED="1591250847325" TEXT="Perfect Matchings">
+<node CREATED="1591250853421" ID="ID_1690446389" MODIFIED="1591250868987" TEXT="Let us assume G has even number of vertices">
+<node CREATED="1591250915653" ID="ID_157915661" MODIFIED="1591250954639">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <ul>
+      <li>
+        ---------- *
+      </li>
+      <li>
+        -----*
+      </li>
+    </ul>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*-------*
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591250964736" ID="ID_1190738059" MODIFIED="1591250973364" TEXT="min of this">
+<node CREATED="1591250975938" ID="ID_513347205" MODIFIED="1591250984656" TEXT="It is polynomial"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591251019619" ID="ID_285670714" MODIFIED="1591251035336" TEXT="Euler Circuit">
+<node CREATED="1591251040276" ID="ID_476516447" MODIFIED="1591251106995" TEXT="Each vertex has degree 2">
+<node CREATED="1591251222270" ID="ID_47191817" MODIFIED="1591251244231" TEXT="Let us add a few edges to make a spanning tree an Euler circuit">
+<node CREATED="1591251274254" ID="ID_1909850847" MODIFIED="1591251601940" TEXT="Let the set of odd vertices be S">
+<node CREATED="1591251465403" ID="ID_982212449" MODIFIED="1591251487087" TEXT="sigma di = 2|E|">
+<node CREATED="1591251501969" ID="ID_1708600089" MODIFIED="1591251543645" TEXT="sum of degrees of odd vertices should be even =&gt; there are even number of odd vertices"/>
+</node>
+<node CREATED="1591251584045" ID="ID_1705324515" MODIFIED="1591251621077" TEXT="Find perfect matching of S">
+<node CREATED="1591251626798" ID="ID_326461343" MODIFIED="1591251643507" TEXT="Add the new edges to the min-spanning tree"/>
+<node CREATED="1591251646196" ID="ID_280881982" MODIFIED="1591251663580" TEXT="Find the Euler circuit">
+<node CREATED="1591251670123" ID="ID_1972383077" MODIFIED="1591251680264" TEXT="c(C) = c(T) + c(M)">
+<node CREATED="1591251688199" ID="ID_366215602" MODIFIED="1591251787404" TEXT="C -&gt; C&apos; =&gt; c(C&apos;) &lt;= c(C), c(T) &lt;= c(H*_G), c(H*_S) &lt;= c(H*_G)">
+<node CREATED="1591251853228" ID="ID_314130603" MODIFIED="1591251979637" TEXT="Take every other edge in H*_S =&gt; take alternative edges which make a perfect matching =&gt; c(M) &lt;= c(M1) &amp; c(M) &lt;= c(M2) =&gt; 2 c(M) &lt;= c(H*_S) =&gt; c(M) &lt;= 1/2 c(H*_S) &lt;= 1/2 c(H*_G)">
+<node CREATED="1591251982680" ID="ID_720554548" MODIFIED="1591251996895" TEXT="=&gt; c(M) &lt;= 1/2 c(H*_G)"/>
+</node>
+<node CREATED="1591252003067" ID="ID_1160548294" MODIFIED="1591252021282" TEXT="c(C&apos;) &lt;= 3/2 c(H*_G)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1575128938492" ID="ID_418849174" MODIFIED="1575128944686" POSITION="right" TEXT="R10. Distributed Algorithms">
+<node CREATED="1591237658820" ID="ID_1504734999" MODIFIED="1591237665852" TEXT="Leader election">
+<node CREATED="1591237670327" ID="ID_1536421579" MODIFIED="1591237677777" TEXT="Ring topology">
+<node CREATED="1591237723152" ID="ID_1635222774" MODIFIED="1591237730008" TEXT="Each generates an id">
+<node CREATED="1591239313887" ID="ID_960549881" MODIFIED="1591239376498" TEXT="Each node sends it&apos;s id to the right node">
+<node CREATED="1591239386256" ID="ID_1828576625" MODIFIED="1591239390874" TEXT="O(n) rounds"/>
+<node CREATED="1591239413745" ID="ID_602328500" MODIFIED="1591239420784" TEXT="O(n^2) messages">
+<node CREATED="1591239443198" ID="ID_346421735" MODIFIED="1591239451741" TEXT="every message is sent n times"/>
+</node>
+<node CREATED="1591239528876" ID="ID_1247636877" MODIFIED="1591239533362" TEXT="Termination">
+<node CREATED="1591239535105" ID="ID_1075811818" MODIFIED="1591239544607" TEXT="If node receives it&apos;s own id"/>
+</node>
+<node CREATED="1591239635074" ID="ID_1589194800" MODIFIED="1591240876793" TEXT="Can we do better?">
+<node CREATED="1591239646811" ID="ID_1776552973" MODIFIED="1591239658127" TEXT="drop low priority message">
+<node CREATED="1591239768444" ID="ID_292987271" MODIFIED="1591239778420" TEXT="Pathelogical case">
+<node CREATED="1591239780027" ID="ID_1069984145" MODIFIED="1591239788346" TEXT="IDs are reverse sorted">
+<node CREATED="1591239789761" ID="ID_109106784" MODIFIED="1591239847262" TEXT="First round they send each other&apos;s id and then next id which is higher priority and cannot drop any id">
+<node CREATED="1591239993700" ID="ID_1680733313" MODIFIED="1591240003898" TEXT="Worst case: O(n^2)">
+<node CREATED="1591240888631" ID="ID_1823520802" MODIFIED="1591241194578" TEXT="Solution: in round i,  let node to send upto 2^i hops">
+<node CREATED="1591241197170" ID="ID_379858091" MODIFIED="1591241216312" TEXT="If the node is not local max, then it will stop"/>
+<node CREATED="1591241219894" ID="ID_1457883113" MODIFIED="1591241243710" TEXT="If the node is local max, then it will receive saying it is local max">
+<node CREATED="1591241297519" ID="ID_512638286" MODIFIED="1591241307085" TEXT="1/2 of them die in each round"/>
+<node CREATED="1591241315600" ID="ID_503288581" MODIFIED="1591241454535" TEXT="(message, hop, direction)">
+<node CREATED="1591241325492" ID="ID_985884814" MODIFIED="1591241339787" TEXT="hop = 2^i (number of rounds)"/>
+<node CREATED="1591241341971" ID="ID_252290607" MODIFIED="1591241355660" TEXT="When node receives a message, reduces hop by 1"/>
+<node CREATED="1591241406064" ID="ID_897072975" MODIFIED="1591241423828" TEXT="If hop count becomes 0, then the node sends in the reverse direction">
+<node CREATED="1591241507692" ID="ID_1534912866" MODIFIED="1591241517696" TEXT="O(n log n) - message complexity">
+<node CREATED="1591241568613" ID="ID_1493613962" MODIFIED="1591241667047" TEXT="sigma_i to log n n/2^i . 2^(i + 1) (hops) . 2. 2 ~ O(n log n)">
+<node CREATED="1591241746415" ID="ID_1658372488" MODIFIED="1591241762868" TEXT="Works in asynchronous mode as well">
+<node CREATED="1591241768006" ID="ID_512762653" MODIFIED="1591241780427" TEXT="certain nodes might be ahead but that&apos;s okay">
+<node CREATED="1591241949653" ID="ID_704877961" MODIFIED="1591241961538" TEXT="The nodes will eventually converge to the result"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591241993791" ID="ID_1531337421" MODIFIED="1591242002926" TEXT="Number of nodes out there">
+<node CREATED="1591242379415" ID="ID_85930278" MODIFIED="1591242384851" TEXT="Find a spanning tree">
+<node CREATED="1591242445635" ID="ID_1642619493" MODIFIED="1591242453384" TEXT="BFS - spanning tree">
+<node CREATED="1591242454889" ID="ID_518027557" MODIFIED="1591242469779" TEXT="synchronous network">
+<node CREATED="1591242495969" ID="ID_209591561" MODIFIED="1591242514265" TEXT="r sends to it&apos;s neighbors and claims to be it&apos;s children"/>
+<node CREATED="1591242517908" ID="ID_1602388488" MODIFIED="1591242531685" TEXT="neighbors send to their children and repeat"/>
+<node CREATED="1591242545841" ID="ID_1349539832" MODIFIED="1591242671373" TEXT="Asynchronous: BFS spanning tree algorithm finds some spanning tree (not BFS)">
+<node CREATED="1591242673067" ID="ID_1375891928" MODIFIED="1591242715946" TEXT="If r sends to it&apos;s neighbor but neighbor gets the message laste and after gettring from r&apos;s child, then r&apos;s child becomes the parent of the neighbor"/>
+<node CREATED="1591243276360" ID="ID_1818734807" MODIFIED="1591243281750" TEXT="Algorithm">
+<node CREATED="1591243283258" ID="ID_367365408" MODIFIED="1591243294591" TEXT="Initialize parent = some undefined value"/>
+<node CREATED="1591243307722" ID="ID_541305453" MODIFIED="1591243325491" TEXT="on receive(search)_v, u">
+<node CREATED="1591243327445" ID="ID_1744530888" MODIFIED="1591243337882" TEXT="=&gt; v is trying to become a parent">
+<node CREATED="1591243340723" ID="ID_183238038" MODIFIED="1591243540644">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      if parent == undefined:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;set parent = v
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;send(v) += parent(1) // you are my parent
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for w in Gamma(u): // neighbors of u
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;send(w) += search_u, w
+    </p>
+    <p>
+      else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;send(v) += parent(0) // you are not my parent
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1591244161580" ID="ID_1812475382" MODIFIED="1591244181263" TEXT="on receive (parent(b))_w, u">
+<node CREATED="1591244198363" ID="ID_1151464875" MODIFIED="1591245765985">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      if u == v0: // root
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;parent = root
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for w in Gamma(u):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;send(w) += search
+    </p>
+    <p>
+      children = null set
+    </p>
+    <p>
+      if b == 1:
+    </p>
+    <p>
+      &#160;&#160;children += w
+    </p>
+    <p>
+      searched += w // done with w
+    </p>
+    <p>
+      done =
+    </p>
+    <p>
+      if searched == Gamma(u) &amp;&amp; children == done:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;send(parent) += &quot;I'm done(total + 1)&quot;
+    </p>
+    <p>
+      on receive (I'm done(t))w, u
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;done += w
+    </p>
+    <p>
+      total += t
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591245463354" ID="ID_1215464780" MODIFIED="1591245474666" TEXT="converge cast"/>
+<node CREATED="1591245647969" ID="ID_1459125473" MODIFIED="1591245663378" TEXT="Leaves will send done signal first"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591242387813" ID="ID_67831924" MODIFIED="1591242396210" TEXT="sum all children and report to parent"/>
+</node>
+</node>
+<node CREATED="1575128948165" ID="ID_684251560" MODIFIED="1575128957237" POSITION="left" TEXT="R11. Cryptography: More Primitives">
+<node CREATED="1591204425703" ID="ID_90160845" MODIFIED="1591204433471" TEXT="Digital signatures">
+<node CREATED="1591204452340" ID="ID_1488367431" MODIFIED="1591204468437" TEXT="sigma = sign (sk, m)"/>
+<node CREATED="1591204479278" ID="ID_1919870646" MODIFIED="1591204492446" TEXT="T/F = verify(pk, m, signature)"/>
+<node CREATED="1591204511540" ID="ID_718988616" MODIFIED="1591204521706" TEXT="desired properties">
+<node CREATED="1591204634925" ID="ID_1033855603" MODIFIED="1591204643886" TEXT="correctness">
+<node CREATED="1591204650920" ID="ID_348506400" MODIFIED="1591204672108" TEXT="if signature indeed produces sigma, then verify must return T"/>
+</node>
+<node CREATED="1591204679114" ID="ID_1660531415" MODIFIED="1591204686139" TEXT="Unforgeability">
+<node CREATED="1591204696767" ID="ID_380090322" MODIFIED="1591204716350" TEXT="adversary should not be able to produce (m*, sigma*) such that it verifies"/>
+<node CREATED="1591204768949" ID="ID_1815621255" MODIFIED="1591204809666" TEXT="adversaries might have seen messages but he will not be able to send back the signature">
+<node CREATED="1591204874124" ID="ID_1105370162" MODIFIED="1591204894901" TEXT="(m*, sigma*) is not possible for m* != mi (message seen before)"/>
+</node>
+</node>
+</node>
+<node CREATED="1591204908737" ID="ID_1128097448" MODIFIED="1591204926334" TEXT="Digital signatures as inverse of pk encryption">
+<node CREATED="1591204930084" ID="ID_458032066" MODIFIED="1591204935481" TEXT="RSA">
+<node CREATED="1591204938919" ID="ID_1988149935" MODIFIED="1591204949784" TEXT="m^e mod n">
+<node CREATED="1591204973377" ID="ID_139125379" MODIFIED="1591204981985" TEXT="verify function"/>
+</node>
+<node CREATED="1591204952706" ID="ID_1182187414" MODIFIED="1591204960861" TEXT="c^d mod n">
+<node CREATED="1591204963501" ID="ID_1712106778" MODIFIED="1591204970358" TEXT="sign function">
+<node CREATED="1591205040601" ID="ID_1062847090" MODIFIED="1591205049864" TEXT="Unforgeable">
+<node CREATED="1591205052419" ID="ID_1456247486" MODIFIED="1591205061819" TEXT="Does not have secret key">
+<node CREATED="1591205066428" ID="ID_286359828" MODIFIED="1591205072181" TEXT="broken">
+<node CREATED="1591205863706" ID="ID_1312548038" MODIFIED="1591205879801" TEXT="Adv is given (m1, sigma1), (m2, sigma2), ...">
+<node CREATED="1591205902866" ID="ID_895211057" MODIFIED="1591205920961" TEXT="m* = m1.m2, sigma* = sigma1.sigma2"/>
+<node CREATED="1591205971985" ID="ID_1164855283" MODIFIED="1591205998206" TEXT="select sigma, compute m = sigma^e mod n and send (m, sigma)"/>
+</node>
+<node CREATED="1591206357512" ID="ID_1279088570" MODIFIED="1591206381483" TEXT="fix: sign(h(m)), verify(sigma) is h(m)">
+<node CREATED="1591206412103" ID="ID_1185416165" MODIFIED="1591206420653" TEXT="h(m) cannot reveal m">
+<node CREATED="1591206454687" ID="ID_718901255" MODIFIED="1591206496086" TEXT="cannot send (m, sigma) because h(m) = sigma^e mod n">
+<node CREATED="1591234071580" ID="ID_450396683" MODIFIED="1591234081088" TEXT="ANSI x9.31">
+<node CREATED="1591234084163" ID="ID_363534583" MODIFIED="1591234106007" TEXT="hex stream || h(m) || hex stream">
+<node CREATED="1591234123322" ID="ID_213838309" MODIFIED="1591234154361" TEXT="We do not know how to prove secure or know how to break it">
+<node CREATED="1591234157410" ID="ID_648316272" MODIFIED="1591234164049" TEXT="There are other ways"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591234262311" ID="ID_832158172" MODIFIED="1591234277643" TEXT="public-key encryption, digital signature">
+<node CREATED="1591234280186" ID="ID_613579318" MODIFIED="1591234289211" TEXT="asymmetric"/>
+<node CREATED="1591234297259" ID="ID_1220218101" MODIFIED="1591234324291" TEXT="message authentication code">
+<node CREATED="1591234328066" ID="ID_1781431150" MODIFIED="1591234347281" TEXT="integrity check using private key cryptography">
+<node CREATED="1591234369992" ID="ID_1050147795" MODIFIED="1591234399602" TEXT="verifier re-computes &amp; compares">
+<node CREATED="1591234440373" ID="ID_971642089" MODIFIED="1591234448356" TEXT="sigma = MAC(k, m)">
+<node CREATED="1591234456297" ID="ID_517444918" MODIFIED="1591234487447" TEXT="how to get MAC: h(k|||m), h(m||k) doesnt work">
+<node CREATED="1591234491332" ID="ID_1452511395" MODIFIED="1591234509922" TEXT="SHA1: h(k||m) doesn&apos;t work"/>
+<node CREATED="1591234511992" ID="ID_569610454" MODIFIED="1591234523956" TEXT="SHA3: h(k||m) works"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591234687897" ID="ID_1276387908" MODIFIED="1591234718790" TEXT="sign(sk, 1||m) : append counter to not allow others to repeat sending"/>
+<node CREATED="1591234840671" ID="ID_810407100" MODIFIED="1591234880182" TEXT="Google drive: If (f, MAC) exists and we modify to (f&apos;, MAC&apos;) but attacker returns (f, MAC))">
+<node CREATED="1591234896761" ID="ID_585891679" MODIFIED="1591234917086" TEXT="Store h(x1), h(x2), ... on own computer or phone">
+<node CREATED="1591234933764" ID="ID_1932953087" MODIFIED="1591234941596" TEXT="but we need to store locally">
+<node CREATED="1591234950018" ID="ID_347786797" MODIFIED="1591234959246" TEXT="local space complexity: O(n)">
+<node CREATED="1591234968427" ID="ID_1589536024" MODIFIED="1591234986666" TEXT="solution: concatenate all fines and generate single hash">
+<node CREATED="1591234988479" ID="ID_636971228" MODIFIED="1591234993291" TEXT="O(1) space">
+<node CREATED="1591234997536" ID="ID_1112071146" MODIFIED="1591235037839" TEXT="problem: verification - download all the files to verify the hash: O(n)"/>
+<node CREATED="1591235044032" ID="ID_1295991823" MODIFIED="1591235072425" TEXT="Compute hash for all the files if anything changes"/>
+<node CREATED="1591235087217" ID="ID_1352597090" MODIFIED="1591235102703" TEXT="solution: hash tree">
+<node CREATED="1591235104892" ID="ID_856985124" MODIFIED="1591235312927">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sigma_root
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;sigma_s = h(sigma1||sigma2)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sigma_s = h(sigma3||sigma4)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      sigma_1&#160;&#160;&#160;&#160;&#160;&#160;sigma_2&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sigma_3&#160;&#160;&#160;&#160;&#160; sigma_4
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591235383594" ID="ID_323018975" MODIFIED="1591235447764" TEXT="if xi changes, then sigma_i has to change =&gt; sigma_k = h(sigama_i||sigma_j) =&gt; ... =&gt; sigma_root has to change"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591235514849" ID="ID_978302916" MODIFIED="1591235551420" TEXT="{u1, u2, ..., un} =*N mod M =&gt; {w1, w2, ..., wn}">
+<node CREATED="1591235555499" ID="ID_1887954289" MODIFIED="1591235564531" TEXT="S = sigma mi wi"/>
+<node CREATED="1591235566965" ID="ID_1366556715" MODIFIED="1591235715969">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      T = SN^-1 = N^-1 sigma mi wi
+    </p>
+    <p>
+      &#160;&#160;&#160;= N^-1 sigma mi N ui mod M
+    </p>
+    <p>
+      &#160;&#160;&#160;= N N^-1 sigma mi ui mod M
+    </p>
+    <p>
+      &#160;&#160;&#160;= sigma mi ui mod M
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591235758536" ID="ID_412285789" MODIFIED="1591235780524" TEXT="m &gt; sigma ui">
+<node CREATED="1591235783584" ID="ID_426628329" MODIFIED="1591235799438" TEXT="=&gt; T is subset sum"/>
+</node>
+<node CREATED="1591235802752" ID="ID_484298693" MODIFIED="1591235822526" TEXT="if m &lt; sigma ui">
+<node CREATED="1591235830128" ID="ID_1148576016" MODIFIED="1591235836136" TEXT="T = sigma - km">
+<node CREATED="1591235837404" ID="ID_166314671" MODIFIED="1591235848269" TEXT="=&gt; we do not get back the original message">
+<node CREATED="1591235869188" ID="ID_1359165321" MODIFIED="1591235928975">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      d = n/(log max(ui))
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      ui is in [0, m]
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591235935537" ID="ID_295761932" MODIFIED="1591235944184" TEXT="~ n/log m">
+<node CREATED="1591235946026" ID="ID_1299378954" MODIFIED="1591235955110" TEXT="chances are ui are close to m">
+<node CREATED="1591235999435" ID="ID_111486529" MODIFIED="1591236017062" TEXT="if m is small, then ui s must be smalle because m &gt; sigma ui">
+<node CREATED="1591236028148" ID="ID_416137681" MODIFIED="1591236067825" TEXT="=&gt; limited choices for ui  and attacker can attack may be using brute force"/>
+</node>
+<node CREATED="1591236074419" ID="ID_704467365" MODIFIED="1591236083429" TEXT="if m is large">
+<node CREATED="1591236084779" ID="ID_1092321287" MODIFIED="1591236090701" TEXT="low density attacks">
+<node CREATED="1591236101857" ID="ID_1055464705" MODIFIED="1591236117633" TEXT="if 0.645 (heuristics) then it can be attacked"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591236205428" ID="ID_672369885" MODIFIED="1591236214086" TEXT="NP-Hard cryptosystem">
+<node CREATED="1591236215429" ID="ID_418724077" MODIFIED="1591236236357" TEXT="if anyone pics a secret key from avergage case, it is easy to break"/>
+<node CREATED="1591236237598" ID="ID_252254332" MODIFIED="1591236272988" TEXT="if everyone pics from worst case, then there is a huge chance that they pick the same key"/>
+</node>
+</node>
 </node>
 </map>

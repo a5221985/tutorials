@@ -2406,7 +2406,45 @@
 		1. c = 1.1 => z = 1.1.ln1.1 + 1 - 1.1 > 0.0048
 		2. Pr(>= 1100 winner) <= e^.0048x 1000 <= e^-48 < 1/1000
 			1. We can expect to get really close to the mean
-14. Proof Chernoff for case Tj in {0, 1}
-15. 
+14. Chernoff gives better bounds
+15. Proof Chernoff for case Tj in {0, 1}
+	1. Pr(T >= cEx(T)) = Pr(c^T >= c^(cEx(T))) (by insight)
+	2. Applying Markov:
+		1. Pr(T >= cEx(T)) <= Ex(c^T)/c^(cEx(T))
+		2. T = T1 + T2 + ... + Tj => c^T = C^T1.c^T2....c^Tn
+		3. Ex(c^T) = Ex(PI_j = 1 to n c^Tj) = PI_j = 1 to n Ex(c^Tj) (by product rule & mutual independence (since Tj s are mutually independent)
+	3. Ex(c^Tj) = c1.Pr(Tj = 1) + c^0Pr(Tj = 0) = c.Pr(Tj = 1) + 1 - Pr(Tj = 1) = 1 + (c - 1)Pr(Tj = 1) = 1 + (c - 1)Ex(Tj) <= e^(c - 1)Ex(Tj) (since 1 + x <= e^x)
+	4. Ex(c^T) <= Pi_j = 1 to n e^((c - 1)Ex(Tj)) = e^((c - 1)Ex(sigma_j = 1 to n Tj)) = e^((c - 1)Ex(T))
+	5. Pr(T >= cEx(T)) <= e^((c - 1)Ex(T))/c^(cEx(T)) = e^(-cln(c)Ex(T) + (c - 1)Ex(T)) = e^-((cln(c) - c + 1)Ex(T)) = e^-(zEx(T))
+16. **Pr(A > B) = Pr(f(A) > f(B)) <= Ex(f(A))/f(B) (By Markov)**
+	1. Chebishev: squaring function
+	2. Chernoff: Exponentiation
+17. Example: N jobs B1, B2, ..., BN, M servers S1, S2, ..., SN
+	1. N = 100,000, M = 10
+	2. Bj takes Lj time (0 <= Lj <= 1) normalized
+	3. Let L = sigma_j = 1 to N Lj
+	4. Assume L = 25,000
+	5. L/M = 25,000/10 = 2500
+	6. Algorithm: Assign randomly (without thinking about how much load it has) - Akamai servers use this
+		1. Let Rij be load on server Si from job Bj
+		2. Rij = {Lj if Bj assigned to Si - prob 1/m, 0 otherwise - prob 1 - 1/m
+		3. Let Ri be sigma_j = 1 to N Rij = load on Si
+		4. Ex(Ri) = sigma_j = 1 to N Ex(Rij) = sigma_j = 1 to N Lj/m = L/m (optimal)
+18. Pr(Ri >= c.L/m) <= e^(-zL/m) where z = c.ln(c) + 1 - c (Chernoff)
+	1. Let c = 1.1 => z = .0048 => e^-.0048x2599 <= 1/160,000 (any server getting about 10% more load is miniscule)
+	2. Pr(worst of m servers >= cL/m) = Pr(R1 >= cL/m union R2 >= cL/m union ...) <= sigma_i = 1 to m Pr(Ri >= cL/m) <= m/160,000 = 1/16000
 
 ## Lec 25 ##
+1. Random walks
+	1. Gambler's ruin problem:
+	2. Start with $n
+		1. In each bet: win $1 with probability p
+			1. lost $1 with probability 1 - p
+	3. Play until: win $m or lose $n (go broke)
+	4. Ex: Roulette
+		1. p = 18/38 = 9/19 = .473 (almost fair)
+		2. m = $100, n = $1000 (go home with 1100 or with 0)
+	5. Pr(win $100) <= 1/37,648
+2. Page ranking - random walk (Google)
+3. One-dimensional random walk
+	1. 

@@ -5140,6 +5140,548 @@
 </node>
 <node CREATED="1567047981371" ID="ID_76219402" MODIFIED="1567047986021" TEXT="AVL tree source code"/>
 </node>
+<node CREATED="1591450123024" ID="ID_460644724" MODIFIED="1591450128886" POSITION="right" TEXT="Sparse Tables">
+<node CREATED="1591452862873" ID="ID_293282513" MODIFIED="1591452866451" TEXT="Motivation">
+<node CREATED="1591452867670" ID="ID_925580796" MODIFIED="1591452900575" TEXT="Sparse tables are all about doing efficient range queries on static arrays. Range queries come in a variety of flavors, but the most common types are min, max, sum, and gcd range queries"/>
+<node CREATED="1591452911153" ID="ID_1413505100" MODIFIED="1591452940512" TEXT="For instance, we want to know the maximum value between [4, 12], the gcd between [6, 9] or even the sum of the values between [2, 11]"/>
+</node>
+<node CREATED="1591452955337" ID="ID_1763458274" MODIFIED="1591452961010" TEXT="Sparse table intuition">
+<node CREATED="1591452962227" ID="ID_1968632473" MODIFIED="1591452989247" TEXT="Every positive integer can easily be represented as a sum of powers of 2 by its binary representation:">
+<node CREATED="1591452989697" ID="ID_1007407511" MODIFIED="1591453004169" TEXT="19 = 10011 = 2^4 + 2^1 + 2^0 = 19"/>
+</node>
+<node CREATED="1591453006342" ID="ID_1345153366" MODIFIED="1591453167840">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Similarly, any interval [l, r] can be broken down into smaller intervals of powers of 2:
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591453026172" ID="ID_1735897093" MODIFIED="1591453094775" TEXT="[5, 17] = [5, 5 + 2^3) U [13, 13 + 2^2) U [17, 17 + 2^0) = [5, 13) U [13, 17) U [17, 18)"/>
+</node>
+<node CREATED="1591453103275" ID="ID_1848113019" MODIFIED="1591453127650" TEXT="Now, imagine if we could precompute the range query answer (i.e min, max, sum...) for all these intervals and combine them..."/>
+</node>
+<node CREATED="1591453200957" ID="ID_550700241" MODIFIED="1591453206226" TEXT="Range combination function">
+<node CREATED="1591453212120" ID="ID_652088571" MODIFIED="1591453242043" TEXT="A sparse table can help up answer all these questions efficiently. For associative functions, a sparse table can answer range queries in O(log_2 (n))"/>
+<node CREATED="1591453251447" ID="ID_67468090" MODIFIED="1591453269563" TEXT="A function f(x, y) is associative if: f(a, f(b, c)) = f(f(a, b), c) for all a, b, c"/>
+<node CREATED="1591453282278" ID="ID_1516763752" MODIFIED="1591453313893" TEXT="Operations such as addition and multiplication are associative, but functions like subtraction and exponentiation are not. Her&apos;s a counterexample proving subtraction si not associative:">
+<node CREATED="1591453315117" ID="ID_1866303608" MODIFIED="1591453320501" TEXT="Let f(a, b) = a - b">
+<node CREATED="1591453322091" ID="ID_547419118" MODIFIED="1591453353540">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      f(1, g(2, 3)
+    </p>
+    <p>
+      = f(1, 2 - 3)
+    </p>
+    <p>
+      = 1 - (2 - 3)
+    </p>
+    <p>
+      = 2
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1591453354901" ID="ID_869329539" MODIFIED="1591453388976">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      f(g(1, 2), 3)
+    </p>
+    <p>
+      = f(1 - 2, 3)
+    </p>
+    <p>
+      = (1 - 2) - 3
+    </p>
+    <p>
+      = -4
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1591453418223" ID="ID_1890522238" MODIFIED="1591453425734" TEXT="Order of operations does not matter"/>
+</node>
+<node CREATED="1591453440385" ID="ID_1739675308" MODIFIED="1591453475736" TEXT="Logarithmic time range queries are really good, however we can do better. When the range query combination function is &quot;overlap friendly&quot;, then range queries on a sparse table can be answered in O(1)">
+<node CREATED="1591454327953" ID="ID_453655906" MODIFIED="1591454334921" TEXT="overlap agnostic may be"/>
+</node>
+<node CREATED="1591453643664" ID="ID_968143380" MODIFIED="1591453693503" TEXT="Being overlap friendly means a function yields the same answer regardless of whether it is combining ranges which overlap or those that do not."/>
+<node CREATED="1591453695728" ID="ID_1290395241" MODIFIED="1591453967847" TEXT="We say a binary function f(x, y)  is overlap friendly if:">
+<node CREATED="1591453968929" ID="ID_1904766902" MODIFIED="1591453985940" TEXT="f(f(a, b), f(b, c)) = f(a, f(b, c)) for all valid a, b, c"/>
+</node>
+<node CREATED="1591457003883" ID="ID_1164923113" MODIFIED="1591457011914" TEXT="Example:">
+<node CREATED="1591457013547" ID="ID_1711078229" MODIFIED="1591457019204" TEXT="Let f(x, y) = x + y">
+<node CREATED="1591457020807" ID="ID_765211508" MODIFIED="1591457034767" TEXT="r1 = 16, r2 = 7, r3 = 18">
+<node CREATED="1591457054097" ID="ID_1470635131" MODIFIED="1591457064104" TEXT="f(f(r1, r2), f(r2, r3))">
+<node CREATED="1591457084430" ID="ID_1450163092" MODIFIED="1591457099441" TEXT="= f(f(16, 7), f(7, 18) = f(23, 25) = 48"/>
+</node>
+<node CREATED="1591457120846" ID="ID_1225682416" MODIFIED="1591457138905" TEXT="f(r1, f(r2, r3)) = f(16, f(7, 18)) = f(16, 25) = 41"/>
+</node>
+<node CREATED="1591457105318" ID="ID_657201551" MODIFIED="1591457114182" TEXT="summation function double counts the middle interval">
+<node CREATED="1591457145548" ID="ID_730734538" MODIFIED="1591457152694" TEXT="f(x, y) is not overlap friendly"/>
+</node>
+</node>
+<node CREATED="1591457214447" ID="ID_1176678677" MODIFIED="1591457223859" TEXT="Which of the functions are &quot;overlap friendly&quot;?">
+<node CREATED="1591457224363" ID="ID_161620663" MODIFIED="1591457230128" TEXT="f(a, b) = 1 * b">
+<node CREATED="1591457287076" ID="ID_654484436" MODIFIED="1591457288772" TEXT="yes"/>
+</node>
+<node CREATED="1591457230965" ID="ID_173819023" MODIFIED="1591457236256" TEXT="f(a, b) = a * b">
+<node CREATED="1591457326112" ID="ID_386699300" MODIFIED="1591457328027" TEXT="no"/>
+</node>
+<node CREATED="1591457237092" ID="ID_1044657745" MODIFIED="1591457243399" TEXT="f(a, b) = min(a, b)">
+<node CREATED="1591457389853" ID="ID_1525537821" MODIFIED="1591457391450" TEXT="yes"/>
+</node>
+<node CREATED="1591457244628" ID="ID_1315781601" MODIFIED="1591457249823" TEXT="f(a, b) = max(a, b)">
+<node CREATED="1591457392523" ID="ID_967778148" MODIFIED="1591457396301" TEXT="yes"/>
+</node>
+<node CREATED="1591457250932" ID="ID_274331044" MODIFIED="1591457257070" TEXT="f(a, b) = a + b">
+<node CREATED="1591457397825" ID="ID_1760545934" MODIFIED="1591457399565" TEXT="no"/>
+</node>
+<node CREATED="1591457257572" ID="ID_1851283608" MODIFIED="1591457261982" TEXT="f(a, b) = a - b">
+<node CREATED="1591457400876" ID="ID_369828917" MODIFIED="1591457402261" TEXT="no"/>
+</node>
+<node CREATED="1591457262837" ID="ID_877514924" MODIFIED="1591457272913" TEXT="f(a, b) = (a * b) / a, a != 0">
+<node CREATED="1591457403691" ID="ID_1189118236" MODIFIED="1591457443026" TEXT="yes"/>
+</node>
+<node CREATED="1591457274656" ID="ID_134676741" MODIFIED="1591457281430" TEXT="f(a, b) = gcd(a, b)">
+<node CREATED="1591457444706" ID="ID_1196838807" MODIFIED="1591457456399" TEXT="yes"/>
+</node>
+</node>
+</node>
+<node CREATED="1591457479561" ID="ID_1065700821" MODIFIED="1591457488634" TEXT="Table construction">
+<node CREATED="1591457490282" ID="ID_1003545883" MODIFIED="1591457523866" TEXT="The idea behind a sparse table is to precompute the answer for all intervals of size 2^x to efficiently answer range queries between [l, r]."/>
+<node CREATED="1591457785922" ID="ID_1201615244" MODIFIED="1591457808952" TEXT="Let N be the size of the input values array, and let 2^P be the largest power of 2 that fits in the length of the values array">
+<node CREATED="1591457825959" ID="ID_1431334031" MODIFIED="1591457838164" TEXT="P = floor(log_2 (N))">
+<node CREATED="1591457839075" ID="ID_1264187516" MODIFIED="1591457847340" TEXT="floor(log_2 (13)) = 3"/>
+</node>
+<node CREATED="1591458577414" ID="ID_25290333" MODIFIED="1591458596399" TEXT="[4, 2, 3, 7, 1, 5, 3, 3, 9, 6, 7, -1, 4]"/>
+</node>
+<node CREATED="1591466726155" ID="ID_635101113" MODIFIED="1591466730398" TEXT="Table construction">
+<node CREATED="1591466731442" ID="ID_301049615" MODIFIED="1591466820633" TEXT="Begin by initializing a table with P + 1 rows and N columns. Then , fill the first row with the input values&#xa;&#xa;Each cell (i, j) represents the answer for the range [j, j + 2^i) in the original array">
+<node CREATED="1591466825524" ID="ID_564026649" MODIFIED="1591466862349" TEXT="Example: cell (2, 5) represents the answer for the range [5, 9). If we&apos;re building a min sparse table, then the blue cell would have a value of 3">
+<node CREATED="1591466886558" ID="ID_1541130435" MODIFIED="1591466902397" TEXT="4 2 3 7 1 5 3 3 9 6 7 -1 4"/>
+</node>
+<node CREATED="1591466976847" ID="ID_1333103790" MODIFIED="1591466996753" TEXT="The cell (3, 2) represents the answer for the range [2, 10)">
+<node CREATED="1591467011653" ID="ID_1028937942" MODIFIED="1591467047119" TEXT="[2, 2 + 2^3)"/>
+</node>
+<node CREATED="1591467060982" ID="ID_951709336" MODIFIED="1591467077002" TEXT="The cell (1, 7) represents the answer for the range [7, 9)">
+<node CREATED="1591467078146" ID="ID_46562696" MODIFIED="1591467125763" TEXT="[7, 7 + 2^1)"/>
+</node>
+<node CREATED="1591467150198" ID="ID_1705693282" MODIFIED="1591467177531" TEXT="What do we do about the cell (2, 10) which represents the range [10, 14)? This interval reaches outside the bounds of the sparse table.">
+<node CREATED="1591467199260" ID="ID_1254383877" MODIFIED="1591467213587" TEXT="We don&apos;t need to consider partial ranges, so we can simply ignore this cell">
+<node CREATED="1591467223156" ID="ID_1067608247" MODIFIED="1591467230147" TEXT="all cells with invalid intervals"/>
+</node>
+</node>
+</node>
+<node CREATED="1591466787878" ID="ID_798677111" MODIFIED="1591467261720" TEXT="We want to build a min sparse table to be able to do min range queries">
+<node CREATED="1591467262571" ID="ID_88256791" MODIFIED="1591467285830" TEXT="To do min range queries we&apos;ll need the range combination function f(x, y) = min(xy, y) to combine range values">
+<node CREATED="1591467291516" ID="ID_574316042" MODIFIED="1591467309598" TEXT="4 2 3 7 1 5 3 3 9 6 7 -1 4">
+<node CREATED="1591467317498" ID="ID_538103339" MODIFIED="1591467446888" TEXT="More specifically, the range for the cell (i, j) can be split into a left interval [j, j + 2^(i - 1)) and a right interval [j + 2^(i - 1), j + 2^i) whose values would correspond to the cells (i - 1, j) and (i - 1, j + 2^(i - 1)) respectively."/>
+<node CREATED="1591467528400" ID="ID_1413675295" MODIFIED="1591467545874" TEXT="We can finish filling the sparse table by combining values from the previous rows (dynamic programming).">
+<node CREATED="1591467546891" ID="ID_518268089" MODIFIED="1591467591603" TEXT="dp[i][j] = f(dp[i - 1][j], dp[i - 1][j + 2^(i - 1)]) = min(dp[i - 1][j], dp[i - 1][j + 2^(i - 1)])"/>
+<node CREATED="1591467598905" ID="ID_205624320" MODIFIED="1591467606946" TEXT="f(4, 2) = min(4, 2) = 2">
+<node CREATED="1591467615404" ID="ID_1309701035" MODIFIED="1591467696506">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      4 2 3 7 1 5 3 3 9 6 7 -1 4
+    </p>
+    <p>
+      2 2 3 1 1 3 3 3 6 6 -1 -1
+    </p>
+    <p>
+      2 1 1 1 1 3 3 3 -1 -1
+    </p>
+    <p>
+      1 1 1 1 -1 -1
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591467707330" ID="ID_1366747053" MODIFIED="1591467717148" TEXT="Q: What is the minimum value between [1, 11]?">
+<node CREATED="1591467723576" ID="ID_197637120" MODIFIED="1591467855601" TEXT="In the table we&apos;ve already precomputed the answer for all intervals of length 2^x. Let k be the largest power of two that fits in the length of the range between [l, r].&#xa;&#xa;Knowing k we can easily do a lookup in the table to find the minimum in between the ranges [l, l + k] (left interval) and [r - k + 1, r] (right interval) to find the answer for [l, r]. The left and right intervals may overlap, but this doesn&apos;t matter (given the overlap friendly property) so log as the entire range is covered.">
+<node CREATED="1591467920284" ID="ID_1532092369" MODIFIED="1591467965489" TEXT="f(f(1, 8), f(4, 11)) = f(1, -1) = -1"/>
+</node>
+<node CREATED="1591467991446" ID="ID_1874143584" MODIFIED="1591468011422" TEXT="Find the value of p, which gives the largest 2^p that fits in the range [1, 11].">
+<node CREATED="1591468012271" ID="ID_551663287" MODIFIED="1591468026145" TEXT="len = l  - r + 1 = 11 - 1 + 1 # interval length">
+<node CREATED="1591468027396" ID="ID_736569582" MODIFIED="1591468048790" TEXT="p = floor(log_2 (len)) = floor(3.321) = 3 =&gt; k = 2^p = 2^3 = 8"/>
+</node>
+</node>
+<node CREATED="1591468096675" ID="ID_952619153" MODIFIED="1591468119082" TEXT="Knowing p = 3 (index of row 3 in the table) and k = 2^p we can do a lookup for the left and right interval ranges:">
+<node CREATED="1591468120161" ID="ID_1122085019" MODIFIED="1591468306101">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      min(t[p][l], t[p][r - k + 1])
+    </p>
+    <p>
+      min(t[3][1], t[3][11 - 8 + 1])
+    </p>
+    <p>
+      min(t[3][1], t[3][4])
+    </p>
+    <p>
+      min(1 , -1)
+    </p>
+    <p>
+      = -1
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1591468200056" ID="ID_694262757" MODIFIED="1591468219397" TEXT="Q: What is the minimum value between [2, 7]?">
+<node CREATED="1591468240070" ID="ID_88236918" MODIFIED="1591468248634" TEXT="p = 2 =&gt; k = 4"/>
+<node CREATED="1591468249732" ID="ID_1301265527" MODIFIED="1591468373405">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      min(t[p][l], t[p][r - k + 1])
+    </p>
+    <p>
+      min(t[2][2], t[2][4])
+    </p>
+    <p>
+      min(1, 1)
+    </p>
+    <p>
+      = 1
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1591468407363" ID="ID_43841173" MODIFIED="1591468425813" TEXT="Q: What is the minimum value between [3, 5]?">
+<node CREATED="1591468443022" ID="ID_98164412" MODIFIED="1591468463041" TEXT="min(1, 1) = 1"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591468493159" ID="ID_1009882679" MODIFIED="1591468500616" TEXT="Associative Function Queries">
+<node CREATED="1591468502172" ID="ID_513338232" MODIFIED="1591468670944" TEXT="Some functions such as multiplication and summation are associative, but are not overlap friendly. A sparse table can still handle these types of queries, but in O(log_2(n)) rather than O(1). The main issue with non-overlap friendly functions with our previus approach is that overlapping intervals would yield the wrong answer.&#xa;&#xa;The alternative approach to performing a range query is to do a cascading query on the sparse table by breaking the range [l, r] into smaller ranges of size 2^x which do not overlap.&#xa;&#xa;For example, the range [2, 15] can be split into three intervals of lengths 8, 4 and 2:&#xa;= [2, 2 + 2^3) U [10, 10 + 2^2) U [14, 14 + 2^1)&#xa;= [2, 10) U [10, 14) U [14, 16)">
+<node CREATED="1591491745988" ID="ID_661673416" MODIFIED="1591491761342" TEXT="Consider input array: [1, 2, -3, 2, 4, -1, 5]">
+<node CREATED="1591491762733" ID="ID_884952421" MODIFIED="1591491790117" TEXT="Suppose we want to find the product of all the elements between [0, 6] using a sparse table. First, we would construct a table like we did before:">
+<node CREATED="1591491791041" ID="ID_1991348610" MODIFIED="1591491824965">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      1 2 -3 2 4 -1 5
+    </p>
+    <p>
+      2 -6 -6 8 -4 -5
+    </p>
+    <p>
+      -12 -48 24 -40
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591491839475" ID="ID_416396248" MODIFIED="1591491878924" TEXT="Break interval [0, 6] into powers of 2: [0, 2^2) U [4, 4 + 2^1) U [6, 6 + 2^0)">
+<node CREATED="1591491886716" ID="ID_1984777318" MODIFIED="1591491933805" TEXT="Lookup the value of each interval in the table and take the product of all the intervals: table[2][0] &amp; table[1][4] * table[0][6] = -12 * -4 * 5 = 240"/>
+</node>
+<node CREATED="1591491981799" ID="ID_1862844873" MODIFIED="1591492000262" TEXT="Q: What is the product of the interval [1, 5]?">
+<node CREATED="1591492001480" ID="ID_133558866" MODIFIED="1591492022623" TEXT="Break interval [1, 5] into powers of 2: [1, 1 + 2^2) U [5, 5 + 2^0)">
+<node CREATED="1591492023242" ID="ID_1471298289" MODIFIED="1591492058885" TEXT="Lookup the value of each interval in the table and tabke the product of all the intervals: table[2][1] * table[0][5] = -48 * -1 = 48"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591492111892" ID="ID_425179947" MODIFIED="1591492115761" TEXT="Pseudocode">
+<node CREATED="1591492117378" ID="ID_449386975" MODIFIED="1591492331058">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # The number of elements in the input array
+    </p>
+    <p>
+      N = ...
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # P, short for power. The largest 2^p that fits in N
+    </p>
+    <p>
+      P = ... # calculated as: floor(log_2(N))
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # A quick lookup table for floor(log_2(i)), 1 &lt;= i &lt;= N
+    </p>
+    <p>
+      log2 = ... # size N + 1, index 0 unused.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # The sparse table containing integer values
+    </p>
+    <p>
+      dp = ... # P + 1 rows and N columns
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # Index Table (IT) associated with the values in the
+    </p>
+    <p>
+      # sparse table. This table is only useful when we want
+    </p>
+    <p>
+      # to query the index of the min (or max) element in
+    </p>
+    <p>
+      # the range [l, r] rather than the value itself.
+    </p>
+    <p>
+      # The index table doesn't make sense for most other
+    </p>
+    <p>
+      # range query types like gcd or sum.
+    </p>
+    <p>
+      it = ... # P + 1 rows and N columns
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591492477135" ID="ID_1643620594" MODIFIED="1591492725687">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      function BuildMinSparseTable(values):
+    </p>
+    <p>
+      &#160;&#160;N = length(values)
+    </p>
+    <p>
+      &#160;&#160;P = floor(log(N) / log(2))
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;# Quick lookup table for floor(log_2(i)), 1 &lt;= 1 &lt;= N
+    </p>
+    <p>
+      &#160;&#160;log2 = [0, 0, 0, ..., 0] # size N - 1
+    </p>
+    <p>
+      &#160;&#160;for (i = 2, i &lt;= N; i++):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;log2[i] = log2[i / 2] + 1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;# Fill first row
+    </p>
+    <p>
+      &#160;&#160;for (i = 0; i &lt; N; i++):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;dp[0][i] = values[i]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;it[0][i] = i
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;for (p = 1; p &lt;= P; i++):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for (i = 0; i + (1 &lt;&lt; p) &lt;= N; i++):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;left = dp[p - 1][i]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;right = dp[p - 1][i + (1 &lt;&lt; (p - 1))]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;dp[p][i] = min(left, right)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;# Save/propagate the index of smallest element
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if left &lt;= right:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;it[p][i] = it[p - 1][i]
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;it[p][i] = it[p - 1][i + (1 &lt;&lt; (p - 1))]
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591492756163" ID="ID_1289284397" MODIFIED="1591492773700" TEXT="index table: keeps track of index values (a parallel structur) instead of min values"/>
+</node>
+<node CREATED="1591492781115" ID="ID_182213877" MODIFIED="1591492920753">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Query the smallest element in the range [l, r], O(1)
+    </p>
+    <p>
+      function MinQuery(l, r):
+    </p>
+    <p>
+      &#160;&#160;len = r - l + 1
+    </p>
+    <p>
+      &#160;&#160;p = log2[len]
+    </p>
+    <p>
+      &#160;&#160;left = dp[p][l]
+    </p>
+    <p>
+      &#160;&#160;right = dp[p][r - ( 1 &lt;&lt; p) + 1]
+    </p>
+    <p>
+      &#160;&#160;return min(left, right)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # Query the smallest element in the range [l, r] by doing a
+    </p>
+    <p>
+      # cascading min query, O(log_2(n)).
+    </p>
+    <p>
+      function CascadingMinQuery(l, r):
+    </p>
+    <p>
+      &#160;&#160;min_val = +inf
+    </p>
+    <p>
+      &#160;&#160;for (p = log_2[r - l + 1]; l &lt;= r; p = log_2[r - l + 1]):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;min_val = min(min_val, dp[p][l])
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;l += (1 &lt;&lt; p)
+    </p>
+    <p>
+      &#160;&#160;return min_val
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1591493010770" ID="ID_278682397" MODIFIED="1591493109078">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Returns in index of the minimum element in the range [l, r]
+    </p>
+    <p>
+      # in the input values array. If there are multiple smallest
+    </p>
+    <p>
+      # elements, the index of leftmost is returned.
+    </p>
+    <p>
+      function MinIndexQuery(l, r):
+    </p>
+    <p>
+      &#160;&#160;len = r - l + 1
+    </p>
+    <p>
+      &#160;&#160;p = log2[len]
+    </p>
+    <p>
+      &#160;&#160;left = dp[p][l]
+    </p>
+    <p>
+      &#160;&#160;right = dp[p][r - (1 &lt;&lt; p) - 1]
+    </p>
+    <p>
+      &#160;&#160;if left &lt;= right:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return it[p][l]
+    </p>
+    <p>
+      &#160;&#160;return it[p][r - (1 &lt;&lt; p) + 1]
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1567047990936" ID="ID_430826137" MODIFIED="1567047995764" POSITION="left" TEXT="Indexed Priority Queue">
 <node CREATED="1567047996676" ID="ID_1465373898" MODIFIED="1567048021205" TEXT="Introduction to indexed priority queues">
 <node CREATED="1579352716826" ID="ID_567228589" MODIFIED="1579352732189" TEXT="Recap"/>
@@ -5419,8 +5961,7 @@
       &#160;&#160;&#160;&#160;im[sz] = -1
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579833443466" ID="ID_1190426241" MODIFIED="1579833445818" TEXT="sz = size"/>
 <node CREATED="1579833476372" ID="ID_502328078" MODIFIED="1579833493780" TEXT="sink or swim needs to be done (we are not sure)"/>
 <node CREATED="1579833502010" ID="ID_746839747" MODIFIED="1579833594405">
@@ -5481,8 +6022,7 @@
       &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;i = smallest
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -5522,8 +6062,7 @@
       &#160;&#160;&#160;&#160;swim(i)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1579833828307" ID="ID_1967965885" MODIFIED="1579833833508" TEXT="Decrease and Increase key">
 <node CREATED="1579833834924" ID="ID_1200869825" MODIFIED="1579833919782" TEXT="In many applications (e.g Dijkstra&apos;s and Prims algorithm) it is often useful to only update a given key to make its value either always smaller (or larger). In the event that a worse value is given the value in the IPQ should not be updated.&#xa;&#xa;In such situations it is useful to define a more restrictive form of update operation we call increaseKey(ki, v) and decreaseKey(ki, v)">
 <node CREATED="1579834130089" ID="ID_954784077" MODIFIED="1579834133963" TEXT="Pseudo Code">
@@ -5570,8 +6109,7 @@
       &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sink(pm[ki])
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>

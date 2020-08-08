@@ -486,17 +486,233 @@
 	4. Reserve domain names & hosting
 
 ### Page by Page: homepage & TODO ###
-1. 
+1. Homepage: First impression your visitors (potential clients) see
+2. In many cases, this si their first major imporession of you
+3. Keep it simple and get right to the point
+	1. "I make beautiful websites!"
+	2. vs
+	3. "In 2019 I studied Node and after that though about doing freelancing and so here I am..."
+4. Keep editing the website all the time
+5. Capturing a potential client's email can be done in many ways
+	1. Why?
+		1. Put them on a mailing list
+			1. Build an email capture system
+			2. A box in website for client to enter email
+			3. A popup
+		2. Monthly or weekly emails can capture the attention of potential clients - encouraging them to do business with you
+6. TODO:
+	1. Gather some design and layout ideas for your homepage
+		1. Color schemes
+		2. Messaging
+		3. Where are they capturing their email
+		4. What are they enticing their clients with
+	2. Develop ideas for capturing email addresses (pamphlet, ebook, discount, newsletter)
+		1. Send updates
+		2. Newsletter
+		3. ...
+		4. Build trust factor
+7. People usually want something in return for their email
+	1. E-Book
+	2. Pamphlet
+	3. Discount coupon
+	4. Newsletter
+	5. ...
+8. Build trust factor by following up
 
 ### Ideas for Capturing Email Addresses ###
+1. Ideas for capturing email addresses:
+	1. Show a pop-up when user gets to the end of your content
+	2. Show a pop-up when users start navigating away from the site
+	3. Display a sticky top bar with email area
+	4. Include an email area on a sidebar
+	5. Request the address via pop-up after the user starts scrolling
+	6. As a dedicated page
+	7. As a pop-up after users spend a specified amount of time on your site (30 seconds, 2 minutes, etc...)
+
 ### Page by Page: about & TODO ###
+1. About: Share your story
+2. This page is designed to build trust with your audience
+3. You have a name, photo, story, personal stories
+4. Biographical information
+	1. Where you are from
+	2. Where you grew up
+	3. How long have you been doing this
+	4. Talk about pet animals
+	5. Core values
+		1. Do you believe customer comes first
+		2. Do you believe in a solid product
+		3. Do you believe in a beautiful website
+		4. Do you believe in sustainable business practices
+	6. People want to know what motivates you
+		1. Don't give away trade secrets (too personal details a no no!)
+5. Mission statement - keeps us focussed
+	1. Example: Our mission is to mindfully use technology, digital design, and digital strategy for the benefit of people and planet, while simplifying the tech needs and expenses of social entrepreneurs, social enterprise, nonprofits, NGOs, and fellow cooperatives
+6. TODO:
+	1. Work on the first draft of your About seciton:
+		1. Photos to include
+			1. Headshots
+				1. Pets is fine
+		2. Design
+	2. Formula for surviving in the "attention economy": !. Edit. 2. Edit. 3. Edit
+		1. Read it like a person who does not have time but is curious (cutting corners)
+		2. Take as much time as you need
+
 ### Real-world freelance website About pages ###
+1. Select freelancer websites on Google search for "freelance web developer Los Angeles"
+	1. [https://www.losangelesfreelancewebdeveloper.com](https://www.losangelesfreelancewebdeveloper.com)
+	2. [https://www.andrewmart.in](https://www.andrewmart.in)
+	3. [https://andrescruz.net](https://andrescruz.net)
+	4. [http://www.kathykemmis.com](http://www.kathykemmis.com)
+
 ### Page by Page: testimonials & TODO ###
-### Page by Page: serices & TODO ###
+1. People listen to what other people say about you
+2. What do people love about you?
+	1. Testimonials show visitors that you're more than capable
+		1. You solve real people's problems
+	2. Other people vouching for you is priceless
+	3. Include name/job title/website (of person giving testimonial)
+		1. Verifiably - People can check
+	4. Try to include photo if possible
+3. You can have a dedicated page or sprinkled throughout the site
+4. **If we have done some freelancing for somebody else, get their feedback**
+	1. Curtesy to use their website, name and job title
+5. Draft a simple questionaire to solicit feedback from your future clients:
+	1. What did you enjoy about working with me?
+	2. What are your favorite things about your new website?
+	3. What can I do better?
+6. Do not put constructive citicism on a testimonials page
+	1. Use it to improve yourself
+7. Take the best snippets that people tell you and put it one the website
+
+### Page by Page: services & TODO ###
+1. Services: The technical core of what you do
+	1. What do you offer?
+2. What do you offer?
+	1. Go back to your business plan
+		1. Gather info from there as a basis for your services page
+	2. HTML tables work well for this
+		1. Medium plan is pushed front
+		2. Graphics
+			1. Customers can select them
+	3. Be flesible - packages, a la carte, specials, incentives, etc (buy two sites, get one free)
+	4. Incorporate your competitive advantage
+		1. Example: All websites incorporate web design guaranteed to work on mobile devices
+			1. Tell why people should choose you over your competition
+	5. Decide whether to display prices or not
+	6. Customers can bargain
+		1. I want this and don't want that ...
+		2. Can you give me a better price
+		3. Having trouble? We discuss services in detail in the next section
+3. TODO:
+	1. Organize your services to best server your ideal client
+	2. Explore options for enticing packages & plans
+		1. Ex: 5 months maintenance
+		2. Business plan can guide with this
+	3. Iterate over your business plan
+		1. What can be improved
+		2. What can be added
+		3. What can be edited
+
 ### Page by Page: contact & TODO ###
+1. Make that connection - potential clients
+2. Need to have clear contact info as smooth as possible so that they can get in touch with you
+3. Goal: Easy to connect - don't make client client a lot of buttons
+	1. Don't make them copy and paste their email address
+	2. KISS principle: Keep It Simple Sweet heart
+4. What should we include?
+	1. Email form:
+	2. Business phone number - Google Voice works great
+		1. We can customize area code
+		2. Out of state area codes
+			1. Google voice ties it to your city
+			2. It is a call forwarding service
+			3. We can speak directly through the app
+	3. Hyperlinked email with your domain - avoid 3rd party providers
+		1. ex: michail@michaelthefreelancer.com
+	4. Co-working space address: shows to people that I do have a physical space
+5. TODO:
+	1. Brainstorm & research some design and layout ideas for your contact page
+	2. Set up local phone number, set up contact email with your domain (i.e. "info@DittoDev.com")
+
 ### Page by Page: portfolio & TODO ###
+1. Portfolio:
+	1. Showcase your work
+2. Your portfolio exhibits proven capabilities
+3. User personal projects as placeholders for now
+4. **Always add context - why does this project matter?**
+	1. A narrative, a story
+		1. Using PAR statement: Problem, Action, Result
+			1. Example: 
+				1. Challenge: "'We have a tech talen shortage' is a common cry among the media, the government, the private sector, and often, the tech sector itself. I wanted to construct a site highlighting up-and-coming devs who are living, working proof that this is a false narrative"
+				2. Solution: "The Dev Spotlight is an interactive space that pays homage to the original 'net. Featuring a JQuery-based terminal simulator as a navigation bar for "superusers", the site also remains accessible to non-techies with a simple, clearly defined clickable photo gallery along with a clickable About tab."
+					1. Technical implementation details: Skeleton CSS on each dev profile ensures 100% responsive design. I also incorporated colors to reduce eye strain, such as aliceblue instead of white, and a medium gray to replace black text. Finally, I optimized the landing page for mobile users by removing the terminal.
+				3. Outcome: "The Dev Spotlight Series is an avant garde take on design, with progressive enhancement for maximum UX/UI. These developers now have a home that is hip, interactive, and 100% responsive"
+				4. Plus Link
+5. TODO:
+	1. Problem Action Result
+		1. Select two or three of your past projects and add PAR statements
+			1. Own projects
+			2. Client projects
+			3. ...
+
 ### Page by Page: blog & TODO ###
+1. Blog: Rank with local SEO
+2. It is tricky
+	1. Business purpose of blogs:
+		1. Not to share things but to rank with local SEO
+			1. Getting people in your area to find your website
+3. Keyword targetting:
+	1. Each blog post is a new opportunity to rank for a keyword/phrase "freelance web develper Raleigh"
+4. Blogging as a marketing tool:
+	1. Helpful articles for your visitors help them make decisions
+	2. Link to other pages on your site (portfolio, contact)
+	3. Blog is an avenue for building engagement, increasing traffic, emphasizing competitive advantage, showcasing portfolio pieces
+		1. People can know more about you and what you do and get in touch with you
+5. TODO:
+	1. Research competitor blogs:
+	2. Think of 5-10 starter topics/headlines that are appealing to your ideal client
+	3. Start developing rough ideas for content and format. Give them info they can use! Include call to action
+		1. Contact me today for more info
+		2. Go ahead and look at my portfolio
+		3. Give me a call
+		4. (We want readers to take action)
+	4. Iterate over business plan
+
 ### Blog Examples & Blog Title Ideas ###
+1. Blog section on site is a good way to boost SEO rankings
+2. Examples: (how their topics are valuable for potential customers rather than promotional pieces)
+	1. [http://seannicdao.com/category/web-design-and-development-blog/](http://seannicdao.com/category/web-design-and-development-blog/)
+	2. [https://www.amberweinberg.com/category/blog/](https://www.amberweinberg.com/category/blog/)
+	3. [https://www.scoro.com/blog/](https://www.scoro.com/blog/)
+	4. [https://www.razorsocial.com/blog/](https://www.razorsocial.com/blog/)
+	5. [https://www.ideo.com/blog](https://www.ideo.com/blog)
+3. 50 blog headline ideas:
+	1. [https://speckyboy.com/blog-posts-your-web-design-clients-wish- you-would-write/](https://speckyboy.com/blog-posts-your-web-design-clients-wish- you-would-write/)
+	2. WordPress: [Yoast SEO](https://yoast.com/wordpress/plugins/seo/) - plugin for WordPress
+
 ### Page by Page: tech stack ###
+1. The Tech Stack:
+	1. What will you use to build your site?
+2. Your portfolio tech stack should reflect what you offer clients:
+	1. If you're a Joomla developer - use Joomla (plus it's good practice)
+3. If you're building from scratch: test, test, and test again. Site glitches reduce your trust factor
+	1. Junky
+	2. Doesn't load
+	3. Not responsive on mobile
+4. Have a few friends look over a site
+	1. CMS - encouraged
+5. Update business plan
+
+### Section summary ###
+1. Main components of successful freelance website
+2. Site's tech stack/CMS and importance of testing
+3. Researching competition and developing and gathering critically important ideas for own website and it's content
+4. Iterating over business plan multiple times, refining its various components
+
+## Your Services ##
+### Section Introduction + Service Organization ###
+### TODO: Organizing your services ###
+### Outsourcing & Templating + TODO: draft templates ###
+### Monthly Income Opportunities + TODO ###
 ### Section summary ###
 

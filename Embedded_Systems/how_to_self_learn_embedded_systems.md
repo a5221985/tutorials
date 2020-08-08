@@ -20,7 +20,7 @@
 			1. Learn embedded linux kernel programmig
 	5. Work on device driver programming
 3. Learn Computer Architecture
-	1. Read 8086 (x86), 8051, ARM architecture. Theo more it is better
+	1. Read 8086 (x86), 8051, ARM architecture. The more it is better
 		1. Optimized code can be written
 4. Get Familiar with build process
 	1. See how cross-compilation is done
@@ -30,7 +30,7 @@
 		3. ...
 		4. Vim
 	3. Do some projects with arduino/raspberry pi/embedded board/STM32F4
-		1. To understand build process and compilation works
+		1. To understand build process and how compilation works
 5. Learn Basic Electronics (Sensors, Actuators) - hardware architectures, how data is transmitted, interface
 	1. ADC, Sensors, relays, display interface, camera interface
 	2. Learn how to use oscilloscopes, multimeters, **logic analyzers**

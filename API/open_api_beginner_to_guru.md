@@ -371,60 +371,664 @@
 	
 		description: Specification for ApenAPI Course
 		path: {}
-		
-	1. Github: examples: v3.0
 
 ### OpenAPI Specification ###
+1. Github: examples: v3.0
+		1. Tools
+		2. Documentation
+			1. Redoc
+		3. Server and client implementations
+		4. Code generators
+		5. JSON Schema of OpenAPI
+	2. OpenAPI-Documentation
+		1. Dev guidelines
+		2. Schema Spec
+			1. Single source of truth
+
 ### OpenAPI Info Object ###
+1. OpenAPI 3.0
+	1. OpenAPI Object
+		1. openapi: string
+		2. info: Info Object
+		3. servers: [server-object]
+2. Example:
+
+		openapi: 3.0.2
+		info:
+			version: '1.0'
+			title: 'OpenAPI Course'
+			description: Specification for OpenAPI Course
+			termsOfService: http://example.com/terms/
+			contact:
+				name: John Thompton
+				url: https://springframework.guru
+				email: john@springframework.guru
+			license: 
+				name: Apache 2.0
+				url: https://www.apache.org/licenses/LICENSE-2.0.html
+		paths: {}
+			
+
 ### OpenAPI Servers Object ###
+1. It is optional property
+2. Gives end users info about where API is available
+3. Example:
+	1. Variables? optional
+
+			servers:
+				- url: https://dev.example.com
+				  description: Development Server
+			path: {}
+			
+		1. Handy, people can use the URL to exercise the API
+
 ### Assignment 1: Assignment - Add Servers ###
 ### OpenAPI Paths Object ###
+1. Can be empty
+2. Holds array of path item objects
+3. Example:
+
+		/pets/{petId}
+		/pets/mine
+		
+	1. Path item object:
+		1. Verb operations: get, put post, ...
+			1. `get`:
+				1. fields:
+					1. responses:
+						1. description
+						2. headers
+						3. content
+						4. links
+4. Version 1:
+
+		paths:
+			/v1/customers:
+				get:
+					responses:
+						'200':
+							description: List of Customers
+				put:
+					responses:
+						'200':
+							description: List of Customers
+
 ### Assignment 2: Assignment - List Beers ###
 
 ## OpenAPI Schema ##
 ### Introduction ###
 ### JSON Schema ###
+1. Understanding JSON schema - 2009 (still in draft status)
+2. OpenAPI needs data types
+	1. Uses JSON schema
+		1. OpenAPI extends JSON schema
+3. Example:
+	1. string:
+		1. min length
+		2. max length
+		3. regular expressions
+		4. format - datetime, time, email addresses, hostname
+		5. JSON Pointer
+	2. Integer:
+	3. Ranges
+		1. Min
+		2. Max
+	4. Object
+		1. Properties
+			1. it is number or string
+			2. enumerations
+	5. Array
+		1. It is a list of Items
+		2. Validation
+	6. All of: Inherit all properties
+	7. Not of: ...
+
 ### OpenAPI Data Types ###
+1. Integer - int32, int64
+2. Number - float, double
+3. string - 
+4. string - byte (base64 encoded characters)
+5. string binary (octets)
+6. boolean
+7. string - date
+8. string - date-time
+9. string - password
+10. Extensible by properties
+	1. url
+	2. ...
+11. Schema object
+	1. Reference to JSON schema
+	2. Properties
+		1. Overlap with JSON schema (but definitions are adjusted)
+12. Subset fields:
+	1. nullable
+	2. readOnly (not sent in request)
+	3. writeOnly
+	4. deprecated
+13. Example:
+
+		...
+		content:
+			application/json:
+				schema:
+					type: array
+					minItems: 1
+					maxItems: 100
+					items:
+						type: string
+						description: Customer Name
+						minLength: 2
+						maxLength: 100
+
 ### OpenAPI Objects ###
+1. Example:
+
+		description: List of Customers
+		items:
+			type: object
+			description: customer object
+			properties: 
+				id:
+					type: string
+					format: uuid
+				firstName: 
+					type: string
+					minLength: 2
+					maxLength: 100
+					example: John
+				lastName:
+					type: string
+					minLength: 2
+					maxLength: 100
+					example: Thompson
+				address:
+					type: object
+					properties:
+						line1:
+							type: string
+							example: 123 main
+						city:
+							type: string
+							example: St Pete
+						zipCode:
+							type: string
+							example: 33701	
+
 ### OpenAPI Enums ###
+1. Example:
+
+		stateCode:
+			type: string
+			minLength: 2
+			maxLength: 2
+			description: 2 Letter state code
+			# enum: [AL, AK, AZ, AR, CA] # one way
+			enum:
+				- AL
+				- AK
+				- AZ
+				- AR
+				- CA
+
+	1. same data type needs to be used
+
 ### Assignment 3: Assignment - Improve List Beer Response ###
 
 ## OpenAPI Components ##
 ### Introduction ###
+1. Saves coding time
+2. Re-usable
+
 ### OpenAPI Components Object ###
+1. components
+	1. schemas: map of schema objects
+		1. To define common objects (several endpoints can use them)
+		2. A reference is used instead
+
+				{
+					"$ref": "#/components/schemas/Pet" # Looks for map object
+				}
+				
+				{
+					"$ref": "Pet.yaml" # file lookup - can also give fully qualified urls (remove objects)
+				}
+		
+	2. responses
+	3. parameters
+	4. examples
+	5. requestBodies
+	6. headers
+	7. securitySchemes
+	8. links
+	9. callbacks
+
 ### Constructing Reusable Customer Object ###
+1. Example:
+
+		...
+		address:
+			$ref: "#/components/schemas/Address"
+
+		components:
+			schemas:
+				Address: # just a convention used in Java
+					...
+					stateCode:
+						type: string
+						minLength: 2
+						maxLength: 2
+						description: 2 Letter state code
+						# enum: [AL, AK, AZ, AR, CA] # one way
+						enum:
+							- AL
+							- AK
+							- AZ
+							- AR
+							- CA
+				Customer:
+					...
+					address:
+						$ref: "#/components/schemas/Address"
+				CustomerList:
+					type: array
+					minItems: 2
+					maxItems: 100
+					description: List of Customers
+					items:
+						$ref: "#/components/schemas/Customer"
+						
+		...
+		items:
+			$ref: "#/components/schemas/Customer"
+			
+		...
+		schema:
+			$ref: "#/components/schemas/CustomerList"
+			
+	1. Components can be shared
+		1. Bill to address
+		2. Ship to address
+
 ### Assignment 4: Assignment - Construct Reusable Beer Object ###
 ### OpenAPI Object Inheritance ###
+1. Allows us to inherit some properties from an object
+2. Example:
+
+		ItemPagedList:
+			type: object
+			allOf:
+				- $ref: "#/components/schemas/PagedResponse" # inheritance
+			properties:
+				content:
+					$ref: "#/components/schemas/ItemList"
+		PagedResponse:
+			type: object
+			properties:
+				type: object
+				properties:
+					sort:
+						type: object
+						properties:
+							sorted:
+								type: boolean
+							unsorted:
+								type: boolean
+					offset:
+						type: integer
+						format: int32
+					pageSize:
+						type: integer
+						format: int32
+					paged:
+						type: boolean
+					unpaged:
+						type: boolean
+				totalPages:
+					type: integer
+					format: int32
+
 ### Assignment 5: Assignment - Update Beer Object to use Inheritance ###
 
 ## OpenAPI Parameters ##
 ### Introduction ###
+1. OpenAPI: Higher code qaility and less code
+2. Parameters
+	1. Request params
+	2. Query params
+	3. Path params
+	4. Headers
+	5. Cookies
+3. Reuse parameter components
+4. Request and response
+
 ### OpenAPI Parameter Object ###
+1. Path parameters
+	1. `/items/{itemId}`
+2. Query parameters
+	1. `/items?id=###`
+3. Header
+4. Cookie
+5. Properties:
+	1. name
+	2. in: "query", "header", "path", "cookies"
+	3. description
+	4. required: path param: true, query: true or false
+	5. decrecated
+	6. allowEmptyValue: likely to be removed in later version
+6. Serialization properties:
+	1. style
+	2. exclude
+	3. allowReserved
+	4. schema
+	5. example
+	6. examples
+7. Complex:
+	1. Content
+
 ### Describing Query Parameters ###
+1. Page information: page number, page size
+2. example:
+
+		paths:
+			/v1/customers:
+				get:
+					parameters: # This is list of parameters
+						- name: pageNumber
+						  in: query
+						  description: Page Number
+						  schema:
+						  	type: integer
+						  	format: int32
+						  	default: 1
+						- name: pageSize
+						  in: query
+						  description: Page Size
+						  required: false
+						  schema:
+						  	type: integer
+						  	format: int32
+						  	default: 25
+
 ### Assignment 6: Assignment - Add Query Parameters for Beer ###
 ### Assignment 7: Challenge - Parameter Components ###
 ### Describing URL Parameters ###
+1. Path Parameters:
+2. Example:
+
+		paths:
+			...
+			/v1/customers/{customerId}:
+				get:
+					parameters:
+						- name: customerId
+						  in: path
+						  description: Customer Id
+						  required: true
+						  schema:
+						  	type: string
+						  	format: uuid
+					responses:
+						'200':
+							description: Found Customer
+							content:
+								application/json:
+									schema:
+										$ref: "#/components/schemas/Customer"
+
 ### Assignment 8: Assignment - Add URL Parameters for Beer Operations ###
 
 ## OpenAPI Requests ##
 ### Introduction ###
+1. Requests
+2. HTTP methods and definitions
+3. Request bodies
+4. Response bodies
+5. Response codes
+6. Generating code
+
 ### OpenAPI Operation Summeries and Descriptions ###
+1. Properties:
+
+		/v1/customers:
+			get:
+				summary: List Customers
+				description: Get a list of customers in the system
+				...
+				
+		/v1/customers/{customerId}:
+			get:
+				summary: Get Customer By ID
+				description: Get a single **Customer** by its Id value # rich using markdown
+
 ### OpenAPI Operation Tags ###
-### OpenAPI Opeartion Id ###
+1. Groupings:
+	1. Example:
+
+			/v1/customers:
+				get:
+					..
+					tags:
+						- Customers
+					..
+			/v1/customers/{customerId}:
+				get:
+					..
+					tags:
+						- Customers
+			/v1/items:
+				get:
+					..
+					tags:
+						- Items
+			/v1/items{itemId}:
+				get:
+					..
+					tags:
+						- Items
+
+		1. We can have more than one tag
+		2. We can use tagging strategies
+
+				tags:
+					- Items
+					- V1 Items
+
+### OpenAPI Operation Id ###
+1. `operationId` - unique string to identify the operation (among all)
+	1. Optional
+	2. Code generation tools identify this as a unique operation
+2. Java conventions:
+	1. Example:
+
+			/v1/customers:
+				get:
+					summary: List Customers
+					description: Get a list of customers in the system
+					tags:
+						...
+					operationId: listCustomersV1 # visual q v1
+
 ### Describing RESTFul Create ###
+1. Example: 
+
+		/v1/customers:
+		...
+			post:
+				summary: New Customer
+				description: Creation of new customer
+				tags:
+					- Customers
+				requestBody:
+					required: true
+					content: 
+						application/json:
+							schema:
+								$ref: "#/components/schemas/Customer"
+
 ### Describe Response Headers ###
+1. Example:
+
+		/v1/customers:
+		...
+			post:
+				summary: New Customer
+				description: Creation of new customer
+				tags:
+					- Customers
+				requestBody:
+					required: true
+					content: 
+						application/json:
+							schema:
+								$ref: "#/components/schemas/Customer"
+				responses:
+					'201':
+						description: Customer created
+						headers: # headers returned
+							Location: 
+								description: Location of the created customer
+								schema:
+									type: string
+									format: uri
+									example: http://example.com/v1/customers/{assignedIdValue}
+
 ### Read Only Properties ###
+1. Example: id genereation is on server side
+	1. OpenAPI spec: properties
+		1. Fixed fields:
+			1. `readOnly` - should be not sent as part of request and is only provided in response
+			2. `writeOnly` - opposite - example: password
+2. Example:
+
+		Customer:
+			...
+			properties:
+				id:
+					...
+					readOnly: true  # if set, it is ignored
+
 ### Assignment 9: Assignment - Construct Beer Resource ###
 ### Assignment 10: Assignment - Update Beer Resource ###
+### Describing RESTFul Update ###
+1. Example:
+
+		put:
+			summary: Update customer
+			description: Update customer by id.
+			tags:
+				- Customers
+			parameters:
+				- $ref: "#/components/parameters/CustomerIdPathParm"
+			requestBody:
+				required: true
+				content:
+					application/json:
+						schema:
+							$ref: "#/components/schemas/Customer"
+			responses:
+				'204':
+					description: Customer updated
+		...
+		components:
+			parameters:
+				CustomerIdPathParm:
+					- name: customerId
+					  in: path
+					  description: Customer Id
+					  required: true
+			
 ### Describing RESTFul Delete ###
+1. Example:
+
+		/v1/customers/{customerId}:
+			...
+			delete:
+				summary: Delete customer by Id
+				description: Delte a customer by its Id value
+				tags:
+					- Customers
+				operationsId: delteCustomerV1
+				parameters:
+					- $ref: "#/components/parameters/CustomerIdPathParm"
+				response:
+					'200':
+						description: Customer delete
+
 ### Assignment 11: Assignment - Delete Beer Resource ###
 ### Describing Additional Responses ###
+1. Error responses:
+
+		responses:
+			...
+			'400':
+				description: Bad request
+			'409':
+				description: Conflict
+		...
+		responses:
+			...
+			'404':
+				description: Not found
+			'400':
+				description: bad request
+			'409':
+				description: Conflict
+
 ### Assignment 12: Assignment - Additional Responses ###
-### OpenAPI Callabacks ###
+### OpenAPI Callbacks ###
+1. Callback Object
+2. [swagger.io/docs/specification/callbacks/](swagger.io/docs/specification/callbacks/)
+3. Example:
+
+		/v1/customers/{customerId}/orders:
+			...
+			post:
+				...
+				callbacks:
+					orderStatusChange:
+						'${request.body#/orderStatusCallbackUrl}':
+							description: Webhook for order status change notifications
+							post:
+								requestBody:
+									content:
+										application/json:
+											schema:
+												type: object
+												properties:
+													orderId:
+														type: string
+														format: uuid
+													orderStatus:
+														type: string
+																				responses:
+																					'200':
+																						description: Okay
+													1. On order status change, the callback is invoked which is a webhook to send notifications
+													2. A body is also passed to the callback				
 
 ## OpenAPI Security Definitions ##
 ### Introduction ###
+1. Security options
+
 ### OpenAPI Security Scheme ###
+1. Specification:
+	1. Fields and properties
+	2. Many security schemes are supported
+	3. Fields:
+		1. type
+		2. description
+		3. name
+		4. in
+		5. scheme
+		6. bearer
+2. [swagger.io/docs/specification/authentication/](swagger.io/docs/specification/authentication/)
+	1. Better docs
+3. Security scheme:
+	1. http
+	2. apiKey
+	3. oauth2
+	4. openIdConnect
+
 ### Basic Auth with OpenAPI ###
 ### JWT Bearer Token Auth ###
 ### Anonymous Authentication with OpenAPI ###

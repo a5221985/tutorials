@@ -1460,14 +1460,211 @@
 						the implementation is not bound by post-condition (free to do anything, termination, throwing exception, returning arbitrary results, making arbitrary modifications included)
 						
 ##### Specifications in Java #####
-1. 
+1. Case study: Eifel - incorporates preconditions and postconditions as part of language (runtime system, or compiler automatically checks to enfore contracts between clients and implementers)
+2. Java does not have this
+	1. static type checks (alternatives)
+	2. Rest of contract which cannot be written as types:
+		1. Described in comment preceding the method (human verification is required)
+			1. Java documentation comments can be used
+				1. `@param` - parameters
+					1. Pre-conditions can be put here
+				2. `@return` - result(s)
+					1. Post-conditions can be put here
+				3. `@throws` - result(s)
+		2. Example:
+
+				static int find(int[] arr, int val)
+					requires: val occurs exactly once in arr
+					effects: returns index i such that arr[i] = val
+					
+			1. The requirement can be written in Java as:
+
+					/**
+					 * Find a value in an array.
+					 * @param arr array to search, requires that val occurs exactly once in arr
+					 * @param val value to search for
+					 * @return index i such that arr[i] = val
+					 */
+					static int find(int[] arr, int val)
+					
+				1. [Java API Documentation](http://docs.oracle.com/javase/8/docs/api/) - produced from Javadoc comments in [Java standard library source code](http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/tip/src/share/classes/java)
+					1. Eclise can show (and clients of code) useful info
+					2. Enables us to produce HTML documentation in the same format as Java API docs
+						1. [Javadoc Comments](http://javaworkshop.sourceforge.net/chapter4.html) - Introduction, commenting in Java, Javadoc comments
+						2. [How to write Doc Comments](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) - refer to this when writing specification
 					
 #### Null References ####
+1. References to objects and arrays can take `null` value in Java
+	1. => reference does not point to any object
+		1. This is a hole in Java type system
+			1. Primitives cannot be null
+
+					int size = null; // illegal
+					double depth = null; // illegal
+					
+				1. Compiler rejects (static errors)
+			2. Null can be asigned to non-primitive variables
+
+					String name = null;
+					int[] points = null;
+					
+				1. Compiler doesn't complain but may cause errors at runtime
+
+						name.length() // throws NullPointerException
+						points.length() // throws NullPointerException
+						
+					1. `null` is not the same as `""` or `[]`
+						1. methods can be called on `""` or `[]`
+						2. length of `""` and `[]` is 0
+			3. Non-primitives, arrays, collections (say `List`) might contain `null` as value:
+
+					String[] names = new String[] { null };
+					List<Double> sizes = new ArrayList<>();
+					sizes.add(null);
+					
+				1. Likely to cause errors when contents are used
+		2. Problem: `null`s are troublesome and unsafe
+			1. Solution: Remove `null`s from design vocabulary
+				1. `null` values are implicitly disallowed in parameters and return values
+					1. Method can have a pre-condition that parameters must not be `null`
+					2. Method that returns object or array can implicitly have a postcondition that it's return value is non-null
+					3. If method allows `null` values for parameters: (not a good idea)
+						1. We must explicitly state that
+					4. If method returns `null` value: (not a good idea)
+						1. We must explicitly state that
+			2. Explicit declarations using extensions:
+
+					static boolean addAll(@NonNull List<T> list1, @NonNull List<T> list2)
+					
+				1. [checked automatically](http://types.cs.washington.edu/checker-framework/) at compile time/ runtime
+				2. Google's [discussion of `null` in Guava (Java libraries)](https://code.google.com/p/guava-libraries/wiki/UsingAndAvoidingNullExplained)
+					1. Careless use of `null` can cause variatey of bugs
+						1. 95% of collections wern't supposed to have null values in them
+							1. Having ones fail fast
+						2. `null` is ambiguous
+							1. `null` return: What does it mean?
+								1. `Map.get(key)` - if returns null can mean that value stored is `null` or no value exists that matches the key
+							2. `null` can mean failure, success, anything
+							3. Using any other value than `null` makes it clear
+
 #### What a Specification May Talk About ####
+1. Content:
+	1. Parameters
+	2. Return value
+	3. Must not:
+		1. local variables of method
+		2. private fields of method's class
+2. Keep implementation invisible to reader of the spec
+3. Javadoc extracts spec comments and doesn't make source code available to the reader
+
 #### Testing and Specifications ####
+1. *black box* tests:
+	1. Chosen with only the spec in mind
+2. **glass box** tests:
+	1. chosen with knowledge of implementation in mind
+	2. Must also follow the spec
+	3. Advantage:
+		1. Implementation may provide stronger guarantees than spec
+		2. Implementation may have specific behavior where spec is undefined
+			1. test cases should not count on that behavior
+3. Test cases must obey the contract always
+	1. Example: `find`
+
+			static int find(int[] arr, int val)
+				requires: val occurs in arr
+				effects: returns index i such that arr[i] = val
+				
+		1. Stronger precondition: `val` must occur
+		2. Weak post-condition: `val` appears more than once in array
+			1. Doesn't say which index to return
+				1. Test case should not assume that we always have to return the lowest index (not in specification) (even if implementation returns lowest index)
+
+						int[] array = new int[] { 7, 7, 7 };
+						assertEquals(0, find(array, 7)); // bad test case: violates the spec
+						assertEquals(7, array[find(array, 7)]); // correct
+						
+		3. Even if `find` implementation throws an exception if `val` is not found, test case cannot assume that behavior (violates precondition)
+		4. Glass box testing: New test cases that must exercise different parts of implementation in an implementation independent way (it can't go beyond spec)
+
+##### Testing Units #####
+1. Example:
+
+		/** @return the contents of the web page downloaded from url */
+		public static string getWebPage(URL url) { ... }
+		
+		/** @return the words in string s, in the order they appear,
+		 * 			  where a word is a contiguous sequence of
+		 * 			  non-whitespace and non-punctuation characters */
+		public static List<String> extractWords(String s) { ... }
+		
+		/** @return an index mapping a word to the set of URLs
+		 *			  containing that word, for all webpages in the input set */
+		public static Map<String, Set<URL>> makeIndex(Set<URL> urls) {
+			...
+			calls getWebPage and extractWords
+			...
+		}
+		
+	1. Unit testing: write tests of each module of program in isolation
+		1. Good unit test is focused on just single spec
+			1. tests will always rely on specs of Java library methods
+				1. Unit test for one method (custom) should not fail if different method (custom) fails to satisfy the spec
+					1. `extractWords` should not fail if `getWebPage` doesn't satisfy postcondition
+	2. Integration testing: Tests use combination of modules - they make sure different methods have compatible specs
+		1. Callers and implementors of different methods are passing and returning values as other expects
+		2. These cannot replace systematically designed unit tests
+			1. If we test `extractWords` by calling `makeIndex`: we are testing potentially small part of it's input space (possibly outputs of `getWebPage`)
+				1. Bugs may be hiding which may surface if we use `extractWords` independently
+				2. Bugs may be hinding which may surface if we change the implementation of `getWebPage`
+
 #### Specifications for Mutating Methods ####
+1. Describing side effects. Changes to mutable data (in post-condition)
+2. Example: Spec that describes method that mutates an object
+
+		static boolean addAll(List<T> list1, List,T> list2)
+			requires: list1 != list2
+			effects: modifies list1 by adding the elements of list2 to the end of it, and returns true if list1 changes as a result of call
+			
+3. Postcondition: Two constraints
+	1. First: tells how `list1` is modified
+	2. Second: tells how return value is determined
+4. Precondition: Attempting to add elements to itself is undefined
+	1. If `list1` and `list2` are same, algorithm will not terminate - outcome permitted by specification because of precondition
+	2. Implicit: `list1` and `list2` must be valid objects (not `null`)
+5. Another example of mutating method:
+
+		static void sort(List<String> lst)
+			requires: nothing
+			effects: puts lst in sorted order, i.e. lst[i] <= lst[j]
+						for all 0 <= i < j < lst.size()
+						
+6. Example of a method that does not mutate it's argument:
+
+		static List<String> toLowerCase(List<String> lst)
+			requires: nothing
+			effects: returns a new list t where t[i] = lst[i].toLowerCase()
+			
+7. Convention: Mutation is disallowed unless stated otherwise
+	1. `toLowerCase`: can explicitly state as an effect that "lst is not modified"
+		1. But in the absense of postcondition describing mutation, no mutation of inputs can be allowed
+
+### Exceptions ###
+1. How to handle exceptional cases in a way that is safe from bugs and easy to understand
+2. Signature: name, parameters types, return type (core part of spec)
+	1. exceptions: can be included
+
 #### Exceptions for Signaling Bugs ####
+1. `ArrayIndexOutOfBoundsException` - thrown when array index is outside valid range
+2. `NullPointerException` - Thrown when trying to call method on `null` object reference
+3. Info displayed by Java can help us fix the bug
+4. The above are most common exceptions
+5. `ArithmeticException` - thrown for arithmetic errors like integer division by zero
+6. `NumberFormatException` - thrown by methods like `Integer.parseInt` - if string cannot be parsed to integer
+
 #### Exceptions for Special Results ####
+1. Exceptions can be used to improve structure of code that involves procedures with special results
+2. 
+
 #### Checked and Unchecked Exceptions ####
 #### Throwable Hierarchy ####
 #### Exception Design Considerations ####

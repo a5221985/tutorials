@@ -360,6 +360,533 @@
 </node>
 </node>
 </node>
+<node CREATED="1591118854272" ID="ID_131077759" MODIFIED="1591118864510" POSITION="left" TEXT="6.1. Introduction to Trees">
+<node CREATED="1591119010533" ID="ID_1774129512" MODIFIED="1591119021080" TEXT="Definitions and storage representation">
+<node CREATED="1591119023460" ID="ID_1789855975" MODIFIED="1591119027741" TEXT="What is a tree?">
+<node CREATED="1591119044951" ID="ID_1850401848" MODIFIED="1591119053825" TEXT="A tree is an undirected graph with no cycles."/>
+<node CREATED="1591119063760" ID="ID_76257827" MODIFIED="1591119078721" TEXT="Equivalently, a tree it is a connected graph with N nodes and N-1 edges"/>
+</node>
+</node>
+<node CREATED="1591119089438" ID="ID_1584314376" MODIFIED="1591119092017" TEXT="Examples">
+<node CREATED="1591119093342" ID="ID_1701038051" MODIFIED="1591119102121" TEXT="Filesystem structures are inherently trees"/>
+<node CREATED="1591119103058" ID="ID_737120553" MODIFIED="1591119109698" TEXT="Social hierarchies"/>
+<node CREATED="1591119117476" ID="ID_927950573" MODIFIED="1591119135825" TEXT="Abstract syntax trees to decompose source code and mathematical expressions for easy evaluation"/>
+<node CREATED="1591119138712" ID="ID_1387623406" MODIFIED="1591119147341" TEXT="Every webpage is a tree as an HTML DOM structure"/>
+<node CREATED="1591119149412" ID="ID_678744449" MODIFIED="1591119169193" TEXT="The decision outcomes in game theory are often modeled as trees for ease of representation"/>
+<node CREATED="1591119174096" ID="ID_1620578485" MODIFIED="1591119178835" TEXT="Other applications">
+<node CREATED="1591119179424" ID="ID_1275098408" MODIFIED="1591119182867" TEXT="Family trees"/>
+<node CREATED="1591119183709" ID="ID_971802274" MODIFIED="1591119194939" TEXT="File parsting/HTML/JSON/Syntax trees"/>
+<node CREATED="1591119196204" ID="ID_326687146" MODIFIED="1591119206028" TEXT="Many data structures use/are trees:">
+<node CREATED="1591119206635" ID="ID_1651851854" MODIFIED="1591119236532" TEXT="AVL trees, B-tree, red-black trees, segment trees, fenwick trees, treaps, suffix trees, tree maps/sets, etc..."/>
+</node>
+<node CREATED="1591119237996" ID="ID_78053448" MODIFIED="1591119243570" TEXT="Game theory decision trees"/>
+<node CREATED="1591119244260" ID="ID_1854913015" MODIFIED="1591119248132" TEXT="Organization structures"/>
+<node CREATED="1591119248955" ID="ID_1603640349" MODIFIED="1591119252532" TEXT="Probability trees"/>
+<node CREATED="1591119252902" ID="ID_1445229423" MODIFIED="1591119256759" TEXT="Taxonomies"/>
+<node CREATED="1591119257534" ID="ID_1615860033" MODIFIED="1591119258412" TEXT="..."/>
+</node>
+</node>
+<node CREATED="1591119294987" ID="ID_1969402793" MODIFIED="1591119300561" TEXT="Storing undirected trees">
+<node CREATED="1591119301169" ID="ID_182686649" MODIFIED="1591119310739" TEXT="Start by labelling the tree nodes from [0 n)">
+<node CREATED="1591119316592" ID="ID_1725889976" MODIFIED="1591119337822" TEXT="edge list storage representation: [(0, 1), (1, 4), ...]">
+<node CREATED="1591119341805" ID="ID_1229041536" MODIFIED="1591119400653" TEXT="Pros: super fast and easy to iterate over, cheap to store"/>
+<node CREATED="1591119404251" ID="ID_1400996602" MODIFIED="1591119446519" TEXT="Cons: storing a tree as a list lacks the structure to efficiently query all the neighbors of a nodee"/>
+</node>
+</node>
+<node CREATED="1591119453824" ID="ID_1152927696" MODIFIED="1591119460018" TEXT="Adjacency list representation">
+<node CREATED="1591119463565" ID="ID_1075413015" MODIFIED="1591119525362">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      0 -&gt; [1]
+    </p>
+    <p>
+      1 -&gt; [0, 3, 4]
+    </p>
+    <p>
+      2 -&gt; [3]
+    </p>
+    <p>
+      3 -&gt; [1, 2, 6, 7]
+    </p>
+    <p>
+      4 -&gt; [1, 5, 8]
+    </p>
+    <p>
+      5 -&gt; [4]
+    </p>
+    <p>
+      6 -&gt; [3, 9]
+    </p>
+    <p>
+      7 -&gt; [3]
+    </p>
+    <p>
+      8 -&gt; [4]
+    </p>
+    <p>
+      9 -&gt; [6]
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1591119543430" ID="ID_999315505" MODIFIED="1591119551759" TEXT="Adjacency Matrix">
+<node CREATED="1591119562233" ID="ID_440824386" MODIFIED="1591119592240" TEXT="In practice, avoid storing a tree as an adjacency matrix! It&apos;s a huge waste of space to use n^2 memory and only use 2(n - 1) of the matrix cells"/>
+</node>
+</node>
+<node CREATED="1591119618946" ID="ID_1993574608" MODIFIED="1591119624122" TEXT="Rooted Trees!">
+<node CREATED="1591119625469" ID="ID_1962514633" MODIFIED="1591119645331" TEXT="One of the more interesting types of trees is a rooted tree which is a tree with a designated root node">
+<node CREATED="1591119646405" ID="ID_1282380769" MODIFIED="1591119649312" TEXT="Rooted tree">
+<node CREATED="1591119674515" ID="ID_1773048532" MODIFIED="1591119689361" TEXT="Possible for edges to point towards root but rare"/>
+</node>
+</node>
+<node CREATED="1591119887911" ID="ID_384953960" MODIFIED="1591119913202" TEXT="In practice, you always maintain a pointer reference to the root node so that you can access the tree and its contents">
+<node CREATED="1591119928276" ID="ID_1320884854" MODIFIED="1591119941450" TEXT="Each node has access to a list of all its children"/>
+</node>
+<node CREATED="1591119956162" ID="ID_315410286" MODIFIED="1591119979675" TEXT="Sometimes it&apos;s also useful to maintain a pointer to a node&apos;s parent node effectively making edges bidirectional.">
+<node CREATED="1591119990772" ID="ID_1446072480" MODIFIED="1591119994610" TEXT="To traverse upwards"/>
+<node CREATED="1591120010784" ID="ID_1024269480" MODIFIED="1591120034790" TEXT="However, this isn&apos;t usually necessary because you can access a node&apos;s parent on a recursive functions callback">
+<node CREATED="1591120054493" ID="ID_65448357" MODIFIED="1591120060201" TEXT="as we pop frames off the stack"/>
+</node>
+</node>
+<node CREATED="1591120065985" ID="ID_1625925276" MODIFIED="1591120070389" TEXT="Storing rooted trees">
+<node CREATED="1591120070812" ID="ID_1523536275" MODIFIED="1591120083817" TEXT="If your tree is a binary tree, you can store it in a flattened array">
+<node CREATED="1591120093557" ID="ID_1938308463" MODIFIED="1591120147563" TEXT="9 8 7 6 5 1 2 / 2 3 4 / / 2 1">
+<node CREATED="1591120154042" ID="ID_67170925" MODIFIED="1591120178372" TEXT="Value of node is stored in the array and an index is associated with each node"/>
+<node CREATED="1591120204680" ID="ID_1569077391" MODIFIED="1591120225696" TEXT="In this flattened array representation, each node has an assigned index position based on where it is in the tree"/>
+<node CREATED="1591120233272" ID="ID_1750516046" MODIFIED="1591120259600" TEXT="Even nodes which aren&apos;t currently present have an index because they can be mapped back to a unique position in the &quot;index tree&quot; (gray tree)"/>
+<node CREATED="1591120279288" ID="ID_653124397" MODIFIED="1591120298464" TEXT="The root node is always at index 0 and the children of the current node i are accessed relative to position i">
+<node CREATED="1591120302394" ID="ID_809450905" MODIFIED="1591120309804" TEXT="Let i be the index of the current node">
+<node CREATED="1591120310622" ID="ID_529711437" MODIFIED="1591120317585" TEXT="left node: 2*i + 1"/>
+<node CREATED="1591120318282" ID="ID_574294239" MODIFIED="1591120325607" TEXT="right node: 2*i + 2"/>
+</node>
+<node CREATED="1591120336231" ID="ID_697272267" MODIFIED="1591120350146" TEXT="Reciprocally, the parent of node i is: floor((i - 1)/2)"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591119695520" ID="ID_162449792" MODIFIED="1591119700267" TEXT="Binary Tree (BT)">
+<node CREATED="1591119703824" ID="ID_1153488989" MODIFIED="1591119723529" TEXT="Related to rooted trees are binary trees which are trees for which every node has at most two child nodes.">
+<node CREATED="1591119755633" ID="ID_1464834733" MODIFIED="1591119765370" TEXT="Used for efficient operations"/>
+</node>
+<node CREATED="1591119770386" ID="ID_1521059671" MODIFIED="1591119778122" TEXT="Binary Search Trees (BST)">
+<node CREATED="1591119782016" ID="ID_1279079472" MODIFIED="1591119819245" TEXT="Related to binary trees are binary search trees which are trees which satisfy the BST invariant which states that for every node x: x.left.value &lt;= x.value &lt;= x.right.value">
+<node CREATED="1591119854996" ID="ID_1262184122" MODIFIED="1591119874221" TEXT="Unique values: x.left.value &lt; x.value &lt; x.right.value"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591118865991" ID="ID_1867038761" MODIFIED="1591118874460" POSITION="left" TEXT="6.2. Beginner tree algorithms">
+<node CREATED="1591120515315" ID="ID_107907078" MODIFIED="1591120524088" TEXT="Problem 1: leaf node sum">
+<node CREATED="1591120592561" ID="ID_1325092169" MODIFIED="1591120614891" TEXT="When dealing with rooted trees you begin with having a reference to the root node as a starting point for most algorithms">
+<node CREATED="1591120663218" ID="ID_725080659" MODIFIED="1591120672971" TEXT="For rooted trees we can use DFS">
+<node CREATED="1591120703729" ID="ID_1579069319" MODIFIED="1591120707807" TEXT="Algorithm">
+<node CREATED="1591120708863" ID="ID_1223956598" MODIFIED="1591120814872">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # Sums up leaf node values in a tree.
+    </p>
+    <p>
+      # Call function like: leafSum(root)
+    </p>
+    <p>
+      function leafSum(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Handle empty tree case
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if node == null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return 0
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if isLeaf(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return node.getValue()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;total = 0
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for child in node.getChildNodes();
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;total += leafSum(child)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return total
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      function isLeaf(node):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return node.getChildNodes().size() == 0
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591120852963" ID="ID_1503960985" MODIFIED="1591120858845" TEXT="Problem 2: Tree Height">
+<node CREATED="1591120859786" ID="ID_109350164" MODIFIED="1591120881957" TEXT="Find the height of a binary tree. The height of a tree is the number of edges from the root to the lowest leaf">
+<node CREATED="1591667526401" ID="ID_1727269534" MODIFIED="1591667538350" TEXT="Let h(x) be the height of the subtree rooted at node x">
+<node CREATED="1591667570004" ID="ID_116793590" MODIFIED="1591667575281" TEXT="h(a) = 3"/>
+</node>
+<node CREATED="1591667577400" ID="ID_398622863" MODIFIED="1591667619680" TEXT="By themselves, leaf nodes such as node e don&apos;t have children, so they don&apos;t add any additional height to the tree">
+<node CREATED="1591667626698" ID="ID_1403985887" MODIFIED="1591667633864" TEXT="base case: h(leaf node) = 0"/>
+</node>
+<node CREATED="1591667654544" ID="ID_1693478240" MODIFIED="1591667697017" TEXT="Assume node x is not a leaf node, we&apos;re able to formulate a recurrence for the height: h(x) = max(h(x.left), h(x.right)) + 1"/>
+<node CREATED="1591667810364" ID="ID_1103895738" MODIFIED="1591667903722">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # The height of a tree is the number of
+    </p>
+    <p>
+      # edges from the root to the lowest leaf.
+    </p>
+    <p>
+      function treeHeight(node):
+    </p>
+    <p>
+      &#160;&#160;# Handle empty tree case
+    </p>
+    <p>
+      &#160;&#160;if node == null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return -1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;# Identify leaf nodes and return zero
+    </p>
+    <p>
+      &#160;&#160;if node.left == null and node.right == null:<br />&#160;&#160;&#160;&#160;return 0
+    </p>
+    <p>
+      &#160;
+    </p>
+    <p>
+      &#160;&#160;return max(treeHeight(node.left), treeHeight(node.right)) + 1
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591667971538" ID="ID_1113569893" MODIFIED="1591668025227">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # The height of a tree is the number of
+    </p>
+    <p>
+      # edges from the root to the lowest leaf.
+    </p>
+    <p>
+      function treeHeight(node):
+    </p>
+    <p>
+      &#160;&#160;# Handle empty tree case
+    </p>
+    <p>
+      &#160;&#160;if node == null:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;return -1
+    </p>
+    <p>
+      &#160;
+    </p>
+    <p>
+      &#160;&#160;return max(treeHeight(node.left), treeHeight(node.right)) + 1
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591668072493" ID="ID_953923820" MODIFIED="1591668083789" TEXT="null nodes make tree taller by 1 unit"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591118875523" ID="ID_1295837721" MODIFIED="1591118881812" POSITION="left" TEXT="6.3. Rooting a tree">
+<node CREATED="1591668737413" ID="ID_1162012728" MODIFIED="1591668760465" TEXT="Sometimes it&apos;s useful to root an undirected tree to add structure to the problem you&apos;re trying to solve">
+<node CREATED="1591668767386" ID="ID_1265358235" MODIFIED="1591668780043" TEXT="Example: Undirected graph - adjacency list:">
+<node CREATED="1591668780715" ID="ID_1566795335" MODIFIED="1591668820686">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      0 -&gt; [2, 1, 5]
+    </p>
+    <p>
+      1 -&gt; [0]
+    </p>
+    <p>
+      2 -&gt; [3, 0]
+    </p>
+    <p>
+      3 -&gt; [2]
+    </p>
+    <p>
+      4 -&gt; [5]
+    </p>
+    <p>
+      5 -&gt; [4, 6, 0]
+    </p>
+    <p>
+      6 -&gt; [5]
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1591668839427" ID="ID_281521771" MODIFIED="1591668855667" TEXT="We can have directed edges instead of undirected edges"/>
+<node CREATED="1591668944917" ID="ID_1770732135" MODIFIED="1591668951873" TEXT="Ensure well balanced tree"/>
+<node CREATED="1591668956541" ID="ID_1895078593" MODIFIED="1591668968589" TEXT="In some situations it&apos;s also useful to keep have a reference to the parent node"/>
+</node>
+</node>
+</node>
+<node CREATED="1591669824991" ID="ID_23258873" MODIFIED="1591669837635" TEXT="Rooting a tree is easily done depth first">
+<node CREATED="1591669855379" ID="ID_308839063" MODIFIED="1591669924925">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # TreeNode object structure.
+    </p>
+    <p>
+      class TreeNode:
+    </p>
+    <p>
+      &#160;&#160;# Unique integer id to identify this node.
+    </p>
+    <p>
+      &#160;&#160;int id;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;# Pointer to parent TreeNode reference. Only the
+    </p>
+    <p>
+      &#160;&#160;# root node has a null parent TreeNode reference.
+    </p>
+    <p>
+      &#160;&#160;TreeNode parent;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;# List of pointers to child TreeNodes.
+    </p>
+    <p>
+      &#160;&#160;TreeNode[] children;
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1591669971862" ID="ID_71560819" MODIFIED="1591670307307">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # g is the graph/tree represented as an adjacency
+    </p>
+    <p>
+      # list with undirected edges. If there's an edge between
+    </p>
+    <p>
+      # (u, v) there's also an edge between (v, u).
+    </p>
+    <p>
+      # rootId is the id of the node to root the tree from.
+    </p>
+    <p>
+      function rootTree(g, rootId = 0):
+    </p>
+    <p>
+      &#160;&#160;root = TreeNode(rootId, null, [])
+    </p>
+    <p>
+      &#160;&#160;return buildTree(g, root, null)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # Build tree recursively depth first.
+    </p>
+    <p>
+      function buildTree(g, node, parent):<br />&#160;&#160;for childId in g[node.id]:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;# Avoid adding an edge pointing back to the parent.
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if parent != null and childId == parent.id:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;continue
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;child = TreeNode(childId, node, [])
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;node.children.add(child)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;buildTree(g, child, node)
+    </p>
+    <p>
+      &#160;&#160;return node<br />
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1591118882434" ID="ID_1900103747" MODIFIED="1591118888836" POSITION="left" TEXT="6.4. Finding tree center(s)">
+<node CREATED="1591670466017" ID="ID_1228471589" MODIFIED="1591670471966" TEXT="Center(s) of undirected tree">
+<node CREATED="1591670473643" ID="ID_1548643729" MODIFIED="1591670501587" TEXT="An interesting problem when you have an undirectd tree is finding the tree&apos;s center node(s). This could come in handy if we wanted to select a good node to root our tree"/>
+<node CREATED="1591670641961" ID="ID_1806695114" MODIFIED="1591670658019" TEXT="Notice that the center is always the middle vertex or middle two vertices in every longest path along the tree"/>
+<node CREATED="1591670688619" ID="ID_1809278916" MODIFIED="1591670708625" TEXT="Another approach to find the center is to interatively pick off each leaf node layer like we were peeling an onion">
+<node CREATED="1591670727815" ID="ID_788409326" MODIFIED="1591670743357" TEXT="remove outer layers until we reach the center">
+<node CREATED="1591670747204" ID="ID_1897560317" MODIFIED="1591670791302" TEXT="The orange circles represent the degree of each node. Observe that each leaf node will have a degree of 1">
+<node CREATED="1591670819007" ID="ID_1225393624" MODIFIED="1591670875460" TEXT="As we prune nodes also reduce the node degree values. and update the degrees after pruning">
+<node CREATED="1591670908061" ID="ID_1167690851" MODIFIED="1591672347910">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # g - tree represented as an undirected graph
+    </p>
+    <p>
+      function treeCenters(g):
+    </p>
+    <p>
+      &#160;&#160;n = g.numberOfNodes()
+    </p>
+    <p>
+      &#160;&#160;degree = [0, 0, ..., 0] # size n
+    </p>
+    <p>
+      &#160;&#160;leaves = []
+    </p>
+    <p>
+      &#160;&#160;for (i = 0; i &lt; n; i++):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;degree[i] = g[i].size()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;if degree[i] == 0 or degree[i] == 1:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;leaves.add(i)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;degree[i] = 0
+    </p>
+    <p>
+      &#160;&#160;count = leaves.size()
+    </p>
+    <p>
+      &#160;&#160;while count &lt; n:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;new_leaves = []
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for (node : leaves):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;for (neighbor : g[node]):<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; degree[neighbor] = degree[neighbor] - 1
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if degree[neighbor] == 1:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;new_leaves.add(neighbor)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;degree[node] = 0
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;count += new_leaves.size()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;leaves = new leaves
+    </p>
+    <p>
+      &#160;&#160;return leaves # center(s)
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591118889565" ID="ID_1669381314" MODIFIED="1591118898422" POSITION="left" TEXT="6.5. Identifying Isomorphic Trees">
+<node CREATED="1591672653627" ID="ID_322669985" MODIFIED="1591672659215" TEXT="A question of equality"/>
+<node CREATED="1591672662130" ID="ID_108712374" MODIFIED="1591672667942" TEXT="Graph isomorphism">
+<node CREATED="1591672674727" ID="ID_1927672848" MODIFIED="1591672697742" TEXT="The question of asking whether two graphs G1 and G2 are isomorphic is asking whether they are structurally the same"/>
+<node CREATED="1591672702897" ID="ID_1381316039" MODIFIED="1591672722171" TEXT="Even though G1 and G2 are labelled differently and may appear different they are structurally the same graph"/>
+<node CREATED="1591672765904" ID="ID_1978622061" MODIFIED="1591672782842" TEXT="We can also define the notion of a graph isomorphism more rigorously:">
+<node CREATED="1591672784954" ID="ID_5718401" MODIFIED="1591672837634" TEXT="G1(V1, E1) and G2(V2, E2) are isomorphic if there exists a bijection phi between the sets V1 -&gt; V2 such that: For all u, v in V1, (u, v) in E1 &lt;=&gt; (phi(u), phi(v)) in E2">
+<node CREATED="1591672842640" ID="ID_1701332869" MODIFIED="1591672868561" TEXT="In simple terms, for an isomorphism to exist there needs to be a function phi which can map all the nodes/edges in G1 to G2 and vice-versa"/>
+</node>
+<node CREATED="1591673174494" ID="ID_1920099007" MODIFIED="1591673201502" TEXT="Determining if two graphs are isomorphic is not only not obvious to the human ey, but also a difficult problem for computers"/>
+<node CREATED="1591673203284" ID="ID_463019782" MODIFIED="1591673234937" TEXT="It is still an open question as to whether the graph isomorphism problem is NP complete. However, many polynomial time isomorphism algorithms exist for graph subclasses such as trees">
+<node CREATED="1591673276220" ID="ID_200538298" MODIFIED="1591673280028" TEXT="Isomorphic Trees"/>
+<node CREATED="1591673395460" ID="ID_819277811" MODIFIED="1591673402025" TEXT="Identifying Isomorphic Trees"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1591118907712" ID="ID_180265680" MODIFIED="1591118940490" POSITION="left" TEXT="6.6. Identifying Isomorphic Trees Source Code"/>
+<node CREATED="1591118917677" ID="ID_1412600373" MODIFIED="1591118961386" POSITION="left" TEXT="6.7. Topological sort algorithm"/>
+<node CREATED="1591118963218" ID="ID_1270187582" MODIFIED="1591118980202" POSITION="left" TEXT="6.8. Shortest/longest path on a Directed Acyclic Graph (DAG)"/>
 <node CREATED="1573695488375" ID="ID_1462754315" MODIFIED="1573695507915" POSITION="right" TEXT="7. Dijkstra&apos;s Shortest Path Algorithm | Source Code"/>
 <node CREATED="1573695509430" ID="ID_988963723" MODIFIED="1578431050242" POSITION="left" TEXT="8. Topological Sort Algorithm">
 <node CREATED="1578429683039" ID="ID_1258968491" MODIFIED="1578429709330" TEXT="Many real world situations can be modelled as a graph with directed edges where some events must occur before others">
@@ -656,8 +1183,7 @@
       3) Relax each edge V-1 times:
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1580780363204" ID="ID_1142221885" MODIFIED="1580780429077">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -680,8 +1206,7 @@
       &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;D[edge.to] = D[edge.from] + edge.cost
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
