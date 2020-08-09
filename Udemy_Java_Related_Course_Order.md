@@ -1,7 +1,6 @@
 Java Web Services
 Java Web Services Part 2
 OpenAPI: Beginner to Guru
-XML and XML Schema Definition in Easy Steps
 Spring Security Core: Beginner to Guru
 Reactive Programming with Spring Framework 5
 Practical Java concurrency with the Akka Actor Model
@@ -11,6 +10,7 @@ Master Microservices with Spring Boot and Spring Cloud
 Spring Framework DevOps on AWS
 Java Memory Management
 Java Application Performance and Memory Management II
+XML and XML Schema Definition in Easy Steps
 Advanced Object Oriented Analysis of Hard Problems...
 LEARNING PATH: JAVA: High Performing Apps with Java 9
 Building a Search Server with Elasticsearch
