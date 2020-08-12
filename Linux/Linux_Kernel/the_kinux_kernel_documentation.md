@@ -126,7 +126,7 @@
 			return left + right;
 		}
 		
-3. Add following lines to `drivers/misc/kconfig`:
+3. Add following lines to `drivers/misc/Kconfig`:
 
 		config MISC_EXAMPLE
 					bool "My example"
