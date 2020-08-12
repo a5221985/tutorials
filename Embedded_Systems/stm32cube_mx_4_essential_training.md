@@ -138,11 +138,37 @@
 	1. Enabled
 		1. We can select parameters using GUI (instead of code)
 
-## General Purpose Input/Output (GPIO) Projects ##
+## General Purpose Input/ Output (GPIO) Projects ##
 ### Input/ Output ###
-1. 
+1. Right click on the pin (PA5) and select Enter
+	1. Green
+2. Right click on the pin (PA13) and selet Enter
+	1. Button 
+3. SYS (for programming uc)
+	1. Serial Wire (user button but cannot use as wakeup button due to conflict)
+4. Choose folder and Project name: Input_Output
+5. Toolchain: Arm V5
+6. Ok (generates code)
+7. Open project (in Kiel)
+8. Rebuild the project
+9. Right click and go to definition
+10. (Kiel uVision) Click functions > GPIO Module > HAL_GPIO_ReadPin... (double click)
+11. Code:
+
+		while (1)
+		{
+			/* USER CODE END WHILE */
+			buttonStatus = HAL_GPIO_ReadPin(GPIOC, BUTTON_GPIO_Port);
+			/* USER CODE BEGIN 3 */
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, buttonStatus);
+		}
 
 ### Input Interrupt ###
+1. Interrupt lines - Reference manual
+	1. Keil uVision
+		1. Books
+			1. 198: PA0 - Interrupt
+
 ### Notice ###
 
 ## Constructing TIMER (TIM) Projects ##
