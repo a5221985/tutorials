@@ -218,6 +218,30 @@
 4. Select TIM2
 	1. Clock Source: Internal clock
 5. PD13: GPIO_Output
+6. Configuration tab:
+	1. Control
+		1. Prescalar: 48000 (1 ms)
+		2. Counter Period: 1000 (1 s)
+		3. Trigger Event Selection: Update Event
+			1. To keep it updating and going on and on
+		4. NVIC Settings:
+			1. TIM2 global interrupt: Tick
+	2. Generate code:
+		1. Name: DelayS
+		2. MKD+ARM V5
+	3. Open project in Keil
+	4. Rebuild
+		1. Debug:
+			1. Settings:
+				1. Run Download:
+					1. Reset and Run (don't have to press reset button when new code is loaded)
+	5. Code:
+	
+			MX_TIM2_Init();
+			
+			HAL_TIME_Base_Start_IT(&htim2); // starts timer
+			
+			
 
 ### Output Compare Timer ###
 ### Input CaptureTimer ###
