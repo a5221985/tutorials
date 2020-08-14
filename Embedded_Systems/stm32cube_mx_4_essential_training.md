@@ -240,10 +240,29 @@
 			MX_TIM2_Init();
 			
 			HAL_TIME_Base_Start_IT(&htim2); // starts timer
+			...
 			
-			
+			void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+			{
+				UNUSED(htim);
+				
+				HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+			}
 
 ### Output Compare Timer ###
+1. Output Compare: Trigger output based on a particular timestamp
+	1. Output Compare interrupt (hardware interrupt)
+		1. Red - 50 ms
+		2. Orange - 30 ms
+		3. Green - 100 ms
+2. New project in CubeMX
+	1. STM32 Discover
+	2. Clear Pinouts
+	3. PD12 - TIM4_CH1
+	4. PD13 - TIM4_CH2
+	5. PD14 - TIM4_CH3
+	6. PD15 - TIM4_CH4
+
 ### Input CaptureTimer ###
 
 ## Analog-to-Digital Conversion (ADC) ##
