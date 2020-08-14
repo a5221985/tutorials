@@ -168,6 +168,16 @@
 	1. Keil uVision
 		1. Books
 			1. 198: PA0 - Interrupt
+				1. Push button: PA0 - external interrupt line 0
+					1. PB0
+					2. PC0
+					3. ...
+2. New project:
+	1. STM32 Discover Board
+	2. Clear pin out
+	3. PA0 - GPIO_EXTIO
+	4. PD13 - GPIO_Output
+	5. PD12 - GPIO_Output
 
 ### Notice ###
 
