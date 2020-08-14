@@ -178,6 +178,9 @@
 	3. PA0 - GPIO_EXTIO
 	4. PD13 - GPIO_Output
 	5. PD12 - GPIO_Output
+	6. SYS
+		1. Debug:
+			1. Serial Wire
 
 ### Notice ###
 
