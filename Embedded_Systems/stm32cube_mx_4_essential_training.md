@@ -194,12 +194,31 @@
 				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, 1);
 			}
 			
-			
+		1. Open `stm32f4xx_hal_gpio.c` and copy the function (`__weak` means it can be redefined)
 
-### Notice ###
+				__weak void HAL_GPIO_EXTI_Callback(...)
+				
+			1. Change to:
+
+					void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+					{
+						/* Prevent unused argument(s) compilation warning */
+						UNUSED(GPIO_Pin);
+						/* NOTE: This function should not be modified, when the callback is needed,
+									the HAL_GPIO_EXTI_Callback could be implemented in the user file
+						*/
+						HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, 1);
+					}
 
 ## Constructing TIMER (TIM) Projects ##
 ### Basic Delay TIMER ###
+1. Used for accurate delays
+2. New project > STM32 Discover
+3. Clear Pinouts
+4. Select TIM2
+	1. Clock Source: Internal clock
+5. PD13: GPIO_Output
+
 ### Output Compare Timer ###
 ### Input CaptureTimer ###
 
