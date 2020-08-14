@@ -181,6 +181,20 @@
 	6. SYS
 		1. Debug:
 			1. Serial Wire
+	7. GUI
+		1. Click NVIC
+		2. Tick EXTI Line 0
+	8. Generate code:
+		1. Name: External_Interrupt
+		2. MDK-ARM-5
+	9. Open project in Keil
+	10. Code:
+
+			while (1) {
+				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, 1);
+			}
+			
+			
 
 ### Notice ###
 
