@@ -216,10 +216,21 @@
 			2. Learnings
 			3. And share significant piece of new code with each other
 			4. ...
-7. 
+7. If there is already high quality knowledge sharing with team "show and tells", readable code and good documentation, think about trade offs between costs and benefits of frequency of rotations
 
 ### Plan the Day ###
+1. Pairing requires scheduling and coordination
+2. Start with a calendar check
+	1. Agree on number of hours to pair
+	2. Plan around meetings and other tasks
+	3. If one needs to work on themselves, prepare for things to continue without other person (not using other person's code say)
+	4. Keep reminders if there are meetings (especially working on partner's machine)
+	5. If team members pair by default
+		1. Schedule regular coding hours for everyone (simplifies scheduling)
+
 ### Physical Setup ###
+1. 
+
 ### Remote Pairing ###
 ### Have a Donut Together ###
 ### Things to Avoid ###
