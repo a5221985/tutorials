@@ -285,10 +285,51 @@
 
 		static void mock_test_do_expect_default_return(struct kunit *test)
 		{
+			struct mock_test_context *ctx = test->priv;
+			struct mock *mock = ctx->mock;
+			int param0 = 5, param1 = -5;
+			const char *two_param_types[] = {"int", "int"};
+			const void *two_params[] = {&param0, &param1};
+			const void *ret;
 			
+			ret = mock->do_expect(mock,
+										"test_printk", test_printk,
+										two_param_types, two_params,
+										ARRAY_SIZE(two_params));
+			KUNIT_ASSERT_NOT_ERR_OR_NULL(test, ret);
+			KUNIT_EXPECT_EQ(test, -4, *((int *) ret));
 		}
+		
+	1. Method under test should return pointer to value
+	2. If pointer is null or errno, we want to stop the test
+		1. `ASSERT_NOT_ERR_OR_NULL(...)`: should crash test case
 
 ###### Test Suites ######
+1. Test suites: used to reduce duplication in a set of closely related tests
+	1. It is a collection of test cases for a unit of code
+	2. A setup function is invoked before every test case
+	3. A teardown function is invoked after every test case
+2. Example:
+
+		static struct kunit_case example_test_cases[] = {
+			KUNIT_CASE(example_test_foo),
+			KUNIT_CASE(example_test_bar),
+			KUNIT_CASE(example_test_baz),
+			{}
+		};
+		
+		static struct kunit_suite example_test_suite = {
+			.name = "example",
+			.init = example_test_init,
+			.exit = example_test_exit,
+			.test_cases = example_test_cases,
+		};
+		kunit_test_suite(example_test_suite);
+		
+	1. `example_test_suite`: test suite
+		1. Runs test cases: `example_test_foo`, `example_test_bar`, `example_test_baz`
+		2. `example_test_init`: called before each test case
+		3. `example_test_exit`: called after each test case
 
 #### Isolating Behavior ####
 ##### Classes #####
