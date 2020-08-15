@@ -355,7 +355,10 @@
 		1. Class is struct that contains function pointers
 			1. It is a contract between implementers and users
 				1. Forces implementers to use same function signature without having to call function directly
-			2. Function pointers specify pointer to the class (class handle) as one of the params - 
+			2. Function pointers specify pointer to the class (class handle) as one of the params - enables member functions (methods) to have access to member variables (fields)
+				1. Allows same implementation to have multiple instances
+2. Inheritance:
+	1. Class can be overridden by child classes by embedding parent class in child class
 
 ##### Faking Classes #####
 
