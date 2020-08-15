@@ -229,7 +229,13 @@
 		1. Schedule regular coding hours for everyone (simplifies scheduling)
 
 ### Physical Setup ###
-1. 
+1. Need to work closely together in physical space of shared desk
+	1. Need to have attention on each other's needs
+	2. Figure out comfortable setup for both
+2. Rules and/or Guidelines:
+	1. Both need enough space (clear up desk if necessary)
+	2. Both chairs should have enough space
+		1. Clear waste bins and back packs
 
 ### Remote Pairing ###
 ### Have a Donut Together ###
