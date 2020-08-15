@@ -330,8 +330,21 @@
 		1. Runs test cases: `example_test_foo`, `example_test_bar`, `example_test_baz`
 		2. `example_test_init`: called before each test case
 		3. `example_test_exit`: called after each test case
+	2. `kunit_test_suite(...)`: used to register test suite with KUnit framework
+3. Test case will run only if it is associated with a test suite
+4. [Test API](https://www.kernel.org/doc/html/latest/dev-tools/kunit/api/test.html): For more info
 
 #### Isolating Behavior ####
+1. Unit testing: has the ability to limit amount of code under test to single unit.
+	1. Possible by controlling what code gets run when unit under test calls function
+		1. Accomplished through indirection
+			1. Function is exposed as part of an API
+				1. Definition of function can be changed without affecting rest of the code base
+					1. Kernel implementation:
+						1. classes
+						2. structs
+					2. Those provide function pointers
+
 ##### Classes #####
 ##### Faking Classes #####
 
