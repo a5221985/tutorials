@@ -236,8 +236,38 @@
 	1. Both need enough space (clear up desk if necessary)
 	2. Both chairs should have enough space
 		1. Clear waste bins and back packs
+	3. Use either one or two keyboards and/or mice
+		1. Whatever works based on following factors
+			1. Take care of hygiene
+			2. Are we good at sharing keyboard time
+			3. Do we have enough space
+	4. One or two external monitors
+		1. Or screenshare (as in remote pairing)
+			1. Each can use their own laptop keyboards
+	5. Check with partner for particular preferences or needs (large font size, higher contrast, ...)
+	6. Check with partner for unusual IDE or keyboard
+		1. Check if it can be simply switched to standard configuration
+3. Agree on default setup (don't have to discuss again and again) 
 
 ### Remote Pairing ###
+1. Use if
+	1. Distributed team
+	2. Team members work from home
+		1. Ensure stable internet access
+
+#### The Setup ####
+1. A screen sharing solution with the following features:
+	1. See other's machine
+	2. Control other's machine (switching keyboard)
+2. Try company's VC tool first
+3. Open Source tools:
+	1. [jitsi](https://jitsi.org/) - good for lower bandwidths
+	2. [ssh with tmux](https://www.hamvocke.com/blog/remote-pair-programming-with-tmux/)
+	3. [Live Share extension for Visual Studio Code](https://visualstudio.microsoft.com/services/live-share/)
+
+#### Tips ####
+#### The Human Part ####
+
 ### Have a Donut Together ###
 ### Things to Avoid ###
 ### There is Not "THE" Right Way ###
