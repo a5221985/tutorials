@@ -359,8 +359,38 @@
 				1. Allows same implementation to have multiple instances
 2. Inheritance:
 	1. Class can be overridden by child classes by embedding parent class in child class
+	2. When method of child class is called, the pointer passed is that of parent contained within child
+		1. Child can compute pointer to itself (because pointer to parent is always fixed offset from pointer to child
+			1. Offset is offset to parent in the child struct
+3. Example:
+
+		struct shape {
+			int (*area)(struct shape *this);
+		};
+		
+		struct rectangle {
+			struct shape parent;
+			int length;
+			int width;
+		};
+		
+		int rectangle_area(struct shape *this)
+		{
+			struct rectangle *self = container_of(this, struct shape, parent);
+			return self->length * self->width;
+		};
+		
+		void rectangle_new(struct rectangle *self, int length, int width)
+		{
+			self->parent.area = rectangle_area;
+			self->length = length;
+			self->width = width;
+		}
+		
+	1. `container_of`: computes pointer to child from pointer from parent
 
 ##### Faking Classes #####
+1. 
 
 #### KUnit on non-UML Architectures ####
 ##### Running Existing KUnit Tests on Non-UML Architectures #####
