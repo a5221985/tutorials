@@ -266,6 +266,21 @@
 	3. [Live Share extension for Visual Studio Code](https://visualstudio.microsoft.com/services/live-share/)
 
 #### Tips ####
+1. **Use video**
+	1. People communicate through gestures, facial expressions
+		1. Share screen and see pairing partner's video
+			1. Open up an additional call if required
+2. **Planning and designing**
+	1. Use collaborative visualization tools
+		1. Reproduce experience of sketching out things on paper and whiteboard
+3. **Audio experience**
+	1. Go to quiet area
+	2. Use good headset
+		1. With directional microphone if possible
+		2. If noisy: Use push to speak functionality
+		3. Use noise cancelling headphones if possible
+4. [Chelsea Troy's blog on remote pair programming](https://chelseatroy.com/2017/04/01/advanced-pair-programming-pairing-remotely/)
+
 #### The Human Part ####
 
 ### Have a Donut Together ###
