@@ -344,8 +344,19 @@
 						1. classes
 						2. structs
 					2. Those provide function pointers
+						1. Those are provided by implementer
+							1. The functions are architecture specific and are selected at compile time
 
 ##### Classes #####
+1. Construct is not built into C language
+	1. It is derived concept in C
+		1. Used to do object oriented programming
+	2. In Kernel:
+		1. Class is struct that contains function pointers
+			1. It is a contract between implementers and users
+				1. Forces implementers to use same function signature without having to call function directly
+			2. Function pointers specify pointer to the class (class handle) as one of the params - 
+
 ##### Faking Classes #####
 
 #### KUnit on non-UML Architectures ####
