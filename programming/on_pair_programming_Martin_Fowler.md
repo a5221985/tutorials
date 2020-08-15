@@ -282,11 +282,22 @@
 4. [Chelsea Troy's blog on remote pairing](https://chelseatroy.com/2017/04/01/advanced-pair-programming-pairing-remotely/)
 5. **Network lag**
 	1. Switch computers regularly to ensure working on own machine (without lag)
+	2. If scrolling through files
+		1. Use keyboard shortcuts for opening different parts of file or use collapse/un-collapse functionality
 
 #### The Human Part ####
+1. If few of us are remote
+	1. Try to include remote partners in all discussions
+2. If remote person is not known
+	1. Try to have remote coffee together
+3. It can be easier than pairing on site (easier with headphones)
 
 ### Have a Donut Together ###
+1. Celebrate when accomplished a task together (can energize and get you ready for next task)
+
 ### Things to Avoid ###
+1. 
+
 ### There is Not "THE" Right Way ###
 
 ## Benefits ##
