@@ -209,7 +209,7 @@
 5. If no anchor:
 	1. risk that knowledge about problem and solution space may get lost
 6. Junior developers:
-	1. Can stay a bit longer (sufficient time to immerse themselves in a topic)
+	1. Can stay a bit longer (sufficient time to immerse themselves in a topic - gives more knowledge and time to settle)
 
 ### Plan the Day ###
 ### Physical Setup ###
