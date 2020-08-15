@@ -279,7 +279,9 @@
 		1. With directional microphone if possible
 		2. If noisy: Use push to speak functionality
 		3. Use noise cancelling headphones if possible
-4. [Chelsea Troy's blog on remote pair programming](https://chelseatroy.com/2017/04/01/advanced-pair-programming-pairing-remotely/)
+4. [Chelsea Troy's blog on remote pairing](https://chelseatroy.com/2017/04/01/advanced-pair-programming-pairing-remotely/)
+5. **Network lag**
+	1. Switch computers regularly to ensure working on own machine (without lag)
 
 #### The Human Part ####
 
