@@ -332,10 +332,28 @@
 #### Pairing 8 Hours Per Day ####
 1. It is not sustainable
 	1. Too exhausting
+	2. Impractical
+		1. May need to check emails
+		2. May need to have 1:1
+		3. May need to go to meeting
+		4. May need to research/ learn
+2. Plan the day for not 100% coding together
 
 ### There is Not "THE" Right Way ###
+1. There are many approaches
+	1. Depends on
+		1. Styles
+		2. Personalities
+		3. Experience
+		4. Situation
+		5. Task
+		6. ...
+2. Question: Are we getting the promised benefits out of it?
+	1. If not, try out something else, reflect and adjust
 
 ## Benefits ##
+1. 
+
 ### Knowledge Sharing ###
 ### Reflection ###
 ### Keeping Focus ###
