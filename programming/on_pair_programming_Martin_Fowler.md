@@ -296,7 +296,42 @@
 1. Celebrate when accomplished a task together (can energize and get you ready for next task)
 
 ### Things to Avoid ###
-1. 
+1. Pitfalls to avoid:
+
+#### Drifting Apart ####
+1. Avoid reading emails or use phone while pairing
+	1. May be disrespectful to pair
+	2. May distract from the task being worked on
+2. If something really needs attention, be transparent and tell why
+3. Take enough breaks to read emails
+4. Take individual time each day
+
+#### Micro-Management Mode ####
+1. Doesn't give room for other person to think
+	1. Don't give instructions like:
+		1. Now type "System, dot, print, ..."
+		2. Now we need a new class called ...
+		3. Press command shift O ...
+
+#### Impatience ####
+1. Apply 5 seconds rule
+	1. If driver has done something wrong, wait for 5 seconds for commenting
+		1. Driver might already be having it in mind (it may interrupt the flow)
+2. As navigator:
+	1. Do not immediately point out error
+	2. Do not immediately point out upcoming obstacle (may be disruptive to driver's thinking process)
+		1. Wait for driver to correct
+		2. Write a sticky note
+
+#### Keyboard Hogging ####
+1. Am I controlling it all the time?
+2. Am I not letting pairing partner do some typing?
+	1. May limit active participation and can give hard time for partner to focus
+		1. Switch the keyboard frequently
+
+#### Pairing 8 Hours Per Day ####
+1. It is not sustainable
+	1. Too exhausting
 
 ### There is Not "THE" Right Way ###
 
