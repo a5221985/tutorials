@@ -390,7 +390,7 @@
 	1. `container_of`: computes pointer to child from pointer from parent
 
 ##### Faking Classes #####
-1. 
+1. To unit test a method in a class, behavior of method must be controllable (or else unit test might become integration test)
 
 #### KUnit on non-UML Architectures ####
 ##### Running Existing KUnit Tests on Non-UML Architectures #####
