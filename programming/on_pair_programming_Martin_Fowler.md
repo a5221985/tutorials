@@ -358,8 +358,20 @@
 2. Benefits of pair programming:
 	1. Knowledge sharing
 	2. Reflection
+	3. Focus
+	4. Collective code ownership
+	5. 2 modes of thinking
+	6. Code review "on-the-go"
+	7. Keeping the "wip" low
+3. Result:
+	1. Quality: 
+		1. Less errors
+		2. Evolvability
+	2. Team flow
 
 ### Knowledge Sharing ###
+1. Pairing helps spread knowledge on technology, domain on daily basis
+
 ### Reflection ###
 ### Keeping Focus ###
 ### Code Review on-the-go ###
