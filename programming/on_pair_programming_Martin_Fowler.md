@@ -407,7 +407,14 @@
 		1. Helps each other stay on track
 
 #### Practical Tips ####
-1. 
+1. Plan together
+2. Discuss task at hand
+3. Think about steps to make to reach the goal
+4. Put steps on sticky notes
+	1. If remotely:
+		1. Subtasks in ticket management system
+	2. Bring them in the order and go one by one
+5. 
 
 ### Code Review on-the-go ###
 ### Two Modes of Thinking Combined ###
