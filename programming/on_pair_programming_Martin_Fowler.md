@@ -414,9 +414,21 @@
 	1. If remotely:
 		1. Subtasks in ticket management system
 	2. Bring them in the order and go one by one
-5. 
+5. Try with [Pomodoro technique](https://martinfowler.com/articles/on-pair-programming.html#TimeManagement)
+	1. Try to finish one goal with one pomodoro
+6. Communicate well
+	1. Talk about what we are doing
+	2. Demand communication from each other
 
 ### Code Review on-the-go ###
+1. Pairing involves 4 eyes on little and bigger things as we proceed
+	1. More errors are likely to get caught on the way instead of after we are finished
+2. [Refactoring](https://martinfowler.com/tags/refactoring.html)
+	1. It is part of coding
+	2. It is part of pair programming
+
+#### Practical Tips ####
+
 ### Two Modes of Thinking Combined ###
 ### Collective Code Ownership ###
 ### Keeps the Team's WIP Low ###
