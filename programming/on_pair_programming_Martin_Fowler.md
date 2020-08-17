@@ -426,8 +426,17 @@
 2. [Refactoring](https://martinfowler.com/tags/refactoring.html)
 	1. It is part of coding
 	2. It is part of pair programming
+	3. It is easier to improve code when you have someone beside you to discuss approaches or naming things (say)
+3. Code reviews after the fact:
+	1. Disadvantages:
+		1. [To pair or not to pair](https://martinfowler.com/articles/on-pair-programming.html#ToPairOrNotToPair)
 
 #### Practical Tips ####
+1. Ask each other questions
+2. Questions: Powerful tool to understand what we are doing and come to better solutions
+	1. If code is not easy to read and understand for one of us:
+		1. Try different way that is easier to understand
+3. 
 
 ### Two Modes of Thinking Combined ###
 ### Collective Code Ownership ###
