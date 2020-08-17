@@ -371,6 +371,13 @@
 
 ### Knowledge Sharing ###
 1. Pairing helps spread knowledge on technology, domain on daily basis
+2. Pairing prevents silos of knowledge on technology
+3. Two minds discussing a problem improves chances of finding good solution
+	1. Different experiences and perspectives come into play to consider alternatives
+
+#### Practical Tips ####
+1. Must not shy away from pairing on tasks when there is no idea on technology involved or domain
+	1. Must not keep working in area we feel most comfortable and not miss out on learning new things
 
 ### Reflection ###
 ### Keeping Focus ###
