@@ -378,8 +378,23 @@
 #### Practical Tips ####
 1. Must not shy away from pairing on tasks when there is no idea on technology involved or domain
 	1. Must not keep working in area we feel most comfortable and not miss out on learning new things
+2. If team members are working on same topics all the time, mix it up to spread their expertise
+3. Skill matrix:
+	1. Columns: Business topics and tech topics
+	2. Rows: Team members
+	3. Values: Strengths and gaps in each area
+4. Skill matrix can be put on a wall and spreading of knowledge can be planned
 
 ### Reflection ###
+1. Pair programming enables discussion of approaches and solutions
+	1. We don't have to think through them in our own head
+	2. Saying and explaining things loud pushes us to reflect (if we have the right understanding or have a good solution)
+		1. Applies to code and technical design
+		2. Applies to user stories
+
+#### Practical Tips ####
+1. Pre-requisite: Trust between both to ask questions and speak openly about things we don't understand
+
 ### Keeping Focus ###
 ### Code Review on-the-go ###
 ### Two Modes of Thinking Combined ###
