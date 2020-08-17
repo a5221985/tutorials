@@ -352,7 +352,12 @@
 	1. If not, try out something else, reflect and adjust
 
 ## Benefits ##
-1. 
+1. Main goals supported by pair programming:
+	1. Software quality
+	2. Team flow
+2. Benefits of pair programming:
+	1. Knowledge sharing
+	2. Reflection
 
 ### Knowledge Sharing ###
 ### Reflection ###
