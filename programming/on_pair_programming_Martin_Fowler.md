@@ -394,8 +394,21 @@
 
 #### Practical Tips ####
 1. Pre-requisite: Trust between both to ask questions and speak openly about things we don't understand
+	1. Build relationships within the team
+		1. Take time for 1:1 and feedback sessions
 
 ### Keeping Focus ###
+1. Have a structured approach
+2. Communicate explicitly 
+	1. What we are doing
+	2. Where we are heading
+3. Working in solo: Can distract by quickly trying different approach without thinking it through (it may take hours to get back)
+	1. Pairing partner prevents this by focusing on what is important to finish task or story
+		1. Helps each other stay on track
+
+#### Practical Tips ####
+1. 
+
 ### Code Review on-the-go ###
 ### Two Modes of Thinking Combined ###
 ### Collective Code Ownership ###
