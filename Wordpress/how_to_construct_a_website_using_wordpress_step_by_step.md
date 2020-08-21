@@ -165,12 +165,55 @@
 		6. Button text: START BUILDING NOW
 		7. Meny style
 			1. Sticky menu:
-				1. Sticky
+				1. Sticky - comes back when we scroll down
 			2. Menu style
-				1. Inline
+				1. Centered - logo is centered
+				2. Inline - keep it
+		8. Publish
+		9. Click back pointing arrow:
+		10. Header Image: Image that appears in banner - behind
+			1. Select file
+				1. Click open
+			2. Select and Crop
+				1. Skip cropping (if it is not that big)
+				2. Header image height:
+					1. 600
+			3. Publish
+			4. Back pointing arrow
+		11. Back pointing arrow again
+		12. Block Options
+			1. Leave as it is
+		13. Fonts:
+			1. Skip
+		14. Footer widgets
+		15. Widgets
+		16. Colors:
+			1. Primary color: Select color: Change to blue
+				1. If we want to revert: Click default
+		17. Background Image:
+			1. Select image: Upload image
+		18. Theme info: Info about theme
+		19. Menus:
+		20. Additional CSS:
+			1. Advanced web design
+		21. Click x to close options
 
 ## Adding Pages ##
 ### Adding Pages on WordPress (About, Contact, etc) ###
+1. Click on site title: Go back to dashboard:
+	1. Plugins
+		1. Add new:
+			1. Search: Classic editor
+				1. Classic Editor (first option)
+					1. Install
+					2. Activate
+2. Pages:
+	1. Add New
+		1. Title: About Us
+		2. Larger box: content
+			1. Copy and paste
+				1. Toolbar toggle: opens second row of tools
+				2. Can do things like in Word
 
 ## Adding Blog Posts ##
 ### Adding Blog Posts on WordPress ###
