@@ -47,16 +47,73 @@
 			3. Business Plan: Not required
 		2. Enter domain:
 			1. wpsmartway.com
-			2. 
+		3. Domain privacy protection: Optional - don't have to check
+		4. Choose a Hosting plan:
+			1. Package type: Hatchling
+			2. Billing Cycle: Longer the more savings (1 month for tutorial)
+			3. Username, Security Pin
+			4. Personal details
+			5. Payment method
+			6. Add additional services:
+				1. Free SSL - possible
+				2. Uncheck all the others
+			7. Coupon code: CREATEWP1 (for 1 month)
+				1. HOSTING30 - more months
+			8. Checkout Now
 
 ## Installing WordPress and Logging In ##
 ### Installing WordPress and Logging In ###
+1. HostGator: Home page
+	1. Emails:
+		1. Your Account Info
+			1. C-Panel
+			2. Username
+			3. Password
+			4. Important info
+		2. Open control panel
+		3. Copy paste username and password
+		4. Login
+	2. Software:
+		1. Quick install
+			1. One Click installs
+				1. WordPress
+					1. Domainname from dropdown list
+					2. Blog Title: My New Website
+					3. Admin User: MartieDread
+					4. First Name:
+					5. Last Name:
+					6. Email:
+					7. Agree to terms of service
+					8. Install
+			2. Link to site and username and password:
+				1. Open link in new tab
+					1. If white screen - it is taking longer to come up
+				2. Enter username and password given
+				3. Login
+			3. Dashboard opens:
+				1. Site opens when we click on top left link
 
 ## Deleting Demo Content ##
 ### Deleting WordPress DEMO Content ###
+1. Site title - go back to dashboard
+2. Pages:
+	1. Hover over Title
+		1. Trash
+2. Posts:
+	1. Hover over Title
+		1. Trash
+3. Plugins:
+	1. Select all plugins
+	2. Bulk Actions
+	3. De-activate
+	4. Select all plugins
+	5. Bulk Actions
+	6. Delete
+	7. Ok
 
 ## Changing Our Theme ##
 ### Changing Out Theme on WordPress ###
+1. 
 
 ## Customizing Our Theme ##
 ### Customizing Our New WordPress Theme (Rocked) ###
