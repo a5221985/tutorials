@@ -113,10 +113,48 @@
 
 ## Changing Our Theme ##
 ### Changing Out Theme on WordPress ###
-1. 
+1. Appearance:
+	1. Themes installed are shown:
+		1. Can activate other themes
+	2. Click on Add new:
+		1. Use Rocked theme (free)
+			1. Search for rocked
+			2. Click install
+			3. Click activate
+	3. Click the title of website:
+		1. New theme is applied
 
 ## Customizing Our Theme ##
 ### Customizing Our New WordPress Theme (Rocked) ###
+1. Click customize
+	1. Live preview on the right
+	2. Left handside:
+		1. General:
+			1. Preloader text:
+				1. Delete the text (when site is loading don't show anything)
+		2. Click publish
+		3. Header:
+			1. Site branding:
+				1. Site title:
+					1. Demo Site
+				2. Tagline:
+					1. Building WordPress with Martie
+				3. Select image: (Replaces title and tagline)
+					1. Select files
+					2. Click open
+					3. Choose image
+				4. Site Icon:
+					1. Little icon on browser tab
+						1. canva.com - logo and icon can be constructed for free
+						2. Select the image
+						3. Select
+				5. Publish
+				6. Back pointing arrow:
+			2. Header Type:
+				1. Front page header type:
+					1. Image
+				2. Site header type
+					1. Only menu
 
 ## Adding Pages ##
 ### Adding Pages on WordPress (About, Contact, etc) ###
