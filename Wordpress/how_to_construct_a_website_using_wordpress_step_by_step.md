@@ -214,9 +214,65 @@
 			1. Copy and paste
 				1. Toolbar toggle: opens second row of tools
 				2. Can do things like in Word
+			2. Subheaders: Heading 3
+			3. Images:
+				1. New line:
+					1. Click add media
+					2. Upload files
+					3. Select files
+					4. Select an image
+					5. Open
+					6. Right side:
+						1. Alignment: Center
+						2. Size: Full size
+						3. Insert into page
+				2. Click Preview button on right
+				3. Close preview to get back to editor
+			4. A Bit about us:
+				1. Add media
+				2. Add image
+				3. Change settings
+					1. Alignment: Left
+					2. Size: Full size
+	2. Select link text: You can click here to go back home
+		1. Open webpage and copy url
+		2. Highlight text
+		3. Click chain link icon
+			1. Add the link
+		4. Click preview
+	3. If linking to other site:
+		1. Youtube channel: Open page and copy url
+		2. Highlight text
+		3. Click link icon
+		4. Paste link
+		5. Click settings cog
+		6. Open link in a new tab
+		7. Close preview
+	4. Save draft
+	5. Publish - goes live
+	6. Repeat for other pages
+		1. Contacts page
+		2. Services
+		3. FAQ
 
 ## Adding Blog Posts ##
 ### Adding Blog Posts on WordPress ###
+1. Home page:
+	1. Posts:
+		1. sharing news
+		2. Updates
+		3. Tips
+		4. Tricks
+		5. Tutorials
+2. Go to dashboard
+	1. Posts
+		1. Add new
+		2. Title: How to Build a WordPress Website
+		3. Text:
+			1. Copy paste
+			2. Format (as with pages)
+			3. Can add images
+			4. Can add clickable links
 
 ## Changing Our Fonts ##
 ### Changing Our Fonts & Font Sizes (Google Fonts) ###
