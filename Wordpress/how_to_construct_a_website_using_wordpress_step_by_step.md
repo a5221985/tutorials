@@ -273,6 +273,19 @@
 			2. Format (as with pages)
 			3. Can add images
 			4. Can add clickable links
+		4. Categories:
+			1. Add new category
+			2. Type text (new category)
+				1. wordpress tutorials
+		5. Tags
+			1. build a website
+			2. Add
+			3. wordpress
+			4. Add
+			5. webdesign
+			6. Add
+		8. Featured Image (image that is going to appear on the list of posts on home page)
+			1. 
 
 ## Changing Our Fonts ##
 ### Changing Our Fonts & Font Sizes (Google Fonts) ###
