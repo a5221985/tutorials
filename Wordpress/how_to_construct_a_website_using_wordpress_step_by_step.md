@@ -155,6 +155,19 @@
 					1. Image
 				2. Site header type
 					1. Only menu
+			3. Main banner shows up only on home page
+				1. If all pages: select image for both
+			4. Publish
+		4. Header title:
+			1. Header Title: BUILD A WEBSITE?
+		2. Header text:
+			1. Learn how to build it yourself with WordPress in less than 60 minutes
+		6. Button text: START BUILDING NOW
+		7. Meny style
+			1. Sticky menu:
+				1. Sticky
+			2. Menu style
+				1. Inline
 
 ## Adding Pages ##
 ### Adding Pages on WordPress (About, Contact, etc) ###
