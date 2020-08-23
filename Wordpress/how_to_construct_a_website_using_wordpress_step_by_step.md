@@ -427,3 +427,5 @@
 
 ## Congratulations! ##
 ### Congratulations/ What we Built! ###
+1. Done
+2. Website is also mobile friendly

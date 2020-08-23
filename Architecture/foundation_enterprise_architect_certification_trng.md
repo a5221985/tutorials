@@ -4050,19 +4050,22 @@
 	2. Develop baseline data architecture description
 	3. Develop target data architecture description
 	4. Perform gap analysis
-		1. Gaps become work items that go into roadmap
+		1. Gaps become work items that go onto roadmap
 	5. Define candidate roadmap components
 	6. Resolve impacts across the architecture landscape
 		1. Other teams
 		2. Other departments
 			1. Single system will have customer info (say)
+				1. All other systems get info from here
 		3. Involves talking to people, documenting it, buy-in across organization
+			1. Single source of truth and it's impact
 	7. Conduct formal stakeholder review
 	8. Finalize data architecture
+		1. v1.0
 	9. Build architecture definition document
 5. Outputs from Phase C: Data Architecture
 	1. Refined Phase A deliverables
-	2. Draft architecture definition document (work items are in the roadmap and the architecture requirements section, data and architecture requirements sections get filled in with gap analysis)
+	2. Draft architecture definition document (work items are in the roadmap and the architecture requirements section, data and architecture requirements sections get filled in with any gap analysis)
 		1. Baseline data architecture v1.0
 		2. Target data architecture v1.0
 	3. Draft architecture requirements specification - gap analysis
