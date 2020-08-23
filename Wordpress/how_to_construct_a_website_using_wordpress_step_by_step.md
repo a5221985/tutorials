@@ -331,10 +331,53 @@
 
 ## Constructing a Navigation Menu ##
 ### Constructing a Navigation Menu on WordPress ###
-1. 
+1. Re-order menu items:
+	1. Dashboard:
+		1. Appearance: Menus
+			1. Menu name: Main menu
+			2. Create menu
+			3. Pages:
+				1. Click View all
+				2. Check pages to add to menu
+					1. Select Home as well
+			4. Click "Add to Menu"
+			5. Posts
+				1. View all
+					1. Check posts to add
+			6. We can change order by dragging and dropping on right hand side
+				1. Top: Left side of menu
+				2. Bottom: Right side of menu
+				3. Drag Contat Us to bottom
+				4. Drag Our Services below About Us
+				5. Click on Page dropdown
+					1. Navigation Label: FAQ
+			7. Check Primary Menu under Menu Settings
+		2. Save Menu
+	2. Click on site title to view the site
 
 ## Changing Our Sidebar ##
 ### Changing Our WordPress Sidebar (using Widgets) ###
+1. Dashboard:
+	1. Widgets
+		1. Sections in sidebar
+			1. Click on Search:
+				1. Title: Search Bar
+				2. Save
+			2. Click on Recent Posts
+				1. Title: Best Posts
+				2. Number of posts to show: 3
+				3. Save
+			3. Remove META section
+				1. Click on Meta
+				2. Delete
+			4. Remove Archives
+				1. Click on Archives
+				2. Delete
+			5. New widget:
+				1. Select Image widget on left and drag to section
+				2. Select image
+				3. Add to widget
+	2. Open website on new tab
 
 ## Adding a Contact Form ##
 ### Adding a Contact Form on WordPress ###
