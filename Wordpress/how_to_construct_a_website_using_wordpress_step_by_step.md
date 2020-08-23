@@ -278,14 +278,22 @@
 			2. Type text (new category)
 				1. wordpress tutorials
 		5. Tags
-			1. build a website
-			2. Add
-			3. wordpress
-			4. Add
-			5. webdesign
-			6. Add
-		8. Featured Image (image that is going to appear on the list of posts on home page)
-			1. 
+			1. Add: build a website
+			2. Add: wordpress
+			4. Add: webdesign
+			6. Add: Featured Image (image that is going to appear on the list of posts on home page)
+		6. Click Set Featured image:
+			1. Upload image
+			2. Set featured image
+	2. Save Draft or publish
+		1. Click: View post (different from pages)
+			1. Featued image
+			2. Different info
+				1. Publish date
+				2. Author
+				3. Comments section
+		2. Home page:
+			1. Blog post appears with publish date and featured image
 
 ## Changing Our Fonts ##
 ### Changing Our Fonts & Font Sizes (Google Fonts) ###
