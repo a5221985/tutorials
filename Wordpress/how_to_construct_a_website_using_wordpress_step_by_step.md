@@ -294,9 +294,27 @@
 				3. Comments section
 		2. Home page:
 			1. Blog post appears with publish date and featured image
+			2. Publish atleast one blog post to welcome people atleast
 
 ## Changing Our Fonts ##
 ### Changing Our Fonts & Font Sizes (Google Fonts) ###
+1. Click CUstomize (on top)
+	1. Fonts
+		1. Body fonts
+			1. Everything else
+		2. Heading fonts:
+			1. Site title
+			2. Site description
+			3. Subheaders in pages and posts
+			4. ...
+	2. Open new tab: Google.com/fonts
+		1. Google fonts:
+			1. Anton
+				1. Click customize
+					1. Check all boxes
+					2. Copy and paste link and font-family
+			2. Copy only Anton&amp;subset=latin-ext,vietnamese part from link
+			3. Copy only 'Andon', sans-serif part from font-family
 
 ## Constructing a Navigation Menu ##
 ### Constructing a Navigation Menu on WordPress ###
