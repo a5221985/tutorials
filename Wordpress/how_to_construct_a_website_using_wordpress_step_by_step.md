@@ -375,15 +375,55 @@
 				2. Delete
 			5. New widget:
 				1. Select Image widget on left and drag to section
-				2. Select image
-				3. Add to widget
+				2. Add title
+				3. Select image
+				4. Add to widget
+				5. Save
+			6. New widget:
+				1. Drag Text widget
+				2. Add title
+				3. Add text
+				4. Save
+			7. Order:
+				1. Drag Image to top
+				2. Drag Search below
+				3. Text
+				4. Recent Posts
+				5. Recent COmments
+				6. Categories 
 	2. Open website on new tab
 
 ## Adding a Contact Form ##
 ### Adding a Contact Form on WordPress ###
+1. Open a contact page
+2. Install plugin:
+	1. Plugins
+	2. Add New
+	3. Search: Contact form 7
+	4. Install
+	5. Activate
+3. Click Contact
+	1. Right click and copy Shortcode
+	2. Open Pages
+		1. Contact Us page
+		2. Edit
+			1. Paste at the bottom (wherever)
+	3. Publish
+	4. View the site
 
 ## Linking Our CTA Button ##
 ### Linking Our Button (on Banner) ###
+1. Open Home page
+	1. Visit the page (Blog post)
+		1. Copy url:
+	2. Click customize
+	3. Header
+	4. Header Text:
+		1. Button URL:
+			1. Paste
+	5. Publish
+	6. View
+		1. Click on button
 
 ## Congratulations! ##
 ### Congratulations/ What we Built! ###
