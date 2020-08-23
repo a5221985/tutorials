@@ -314,10 +314,24 @@
 					1. Check all boxes
 					2. Copy and paste link and font-family
 			2. Copy only Anton&amp;subset=latin-ext,vietnamese part from link
+				1. Paste in Body font name/style/sets or Heading font name/style/sets
 			3. Copy only 'Andon', sans-serif part from font-family
+				1. Paste in Body font family or Heading font family
+	3. Publish
+		1. Don't use same font from body and heading (they will blend in)
+	4. Font sizes:
+		1. Site title (only if no logo)
+		2. Site description (only if no logo)
+		3. Body font size
+			1. Main text on pages and posts
+				1. 16
+		4. H3
+			1. 35
+	4. Publish
 
 ## Constructing a Navigation Menu ##
 ### Constructing a Navigation Menu on WordPress ###
+1. 
 
 ## Changing Our Sidebar ##
 ### Changing Our WordPress Sidebar (using Widgets) ###
