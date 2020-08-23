@@ -4115,6 +4115,7 @@
 
 ### Phase D - Technology Architecture ###
 1. Purpose is: Develop the **target technology architecture**
+	1. After this planning and putting into calendar etc...
 2. Purpose is: Identify **candidate architecture roadmap** items based on gaps
 3. Inputs to Phase D:
 	1. External reference materials
