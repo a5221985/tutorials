@@ -4161,10 +4161,38 @@
 	2. Coming up with plan
 	3. Prioritise 
 	4. Work with other teams to put the plan into motion
-8. 
+8. Artifacts Produced:
+	1. Catalogs: Technology Standards catalog, Technology Portfolio catalog
+	2. Metrics: Application/ Technology matrix
+	3. Diagrams: Environments and Locations diagram, Platform Decomposition diagram, Processing diagram, Networked Computing/ Hardware diagram, Communications Engineering diagram
+9. Look for opportunities using emerging technologies
+	1. 9.2
+		1. Emerging technologies
+			1. TOGAF changes slower than technology
+			2. Drones, cloud, edge, ...
+				1. Think about the trend and make decisions
 
 ## Continuing with the ADM ##
 ### Phase E - Opportunities and Solutions ###
+1. The purpose is to: generate the initial architecture roadmap
+	1. Finalize roadmap
+		1. List of work items
+		2. Schedule and timelines
+		3. Order
+2. The purpose is to: identify if transition architectures are required
+	1. Temporary stoping points in between
+		1. If the change is too big to do at once
+3. 9.2: The purpose is to: define solution building blocks (SBBs) *new
+	1. Generalizations of SBBs that can be re-used in organization
+4. Inputs to Phase E:
+	1. External reference matarials
+	2. Product information
+	3. Request for Architecture Work (optional) (Prelim Phase)
+	4. Capability assessment (Phase A)
+	5. Communications plan (Phase A)
+	6. Planning methodologies
+	7. Organization Model for Enterprise Architecture (Prelim Phase)
+
 ### Phase F - Migration Planning ###
 ### Phase G - Implementation Governance ###
 ### Phase H - Architecture Change Management ###
