@@ -4124,7 +4124,8 @@
 			1. What hardware (servers)
 			2. Additional servers
 			3. Purchase hosting
-			4. contracts
+			4. Contracts
+			5. Any product info becomes inputs to target tech arch
 	3. Request for Architecture Work (optional) (Prelim Phase)
 	4. Capability assessment (Phase A)
 	5. Communication plan (Phase A)
@@ -4136,6 +4137,31 @@
 	11. Architecture Repository
 	12. Draft Architecture documents and draft requirements (Phase B and C)
 	13. Business, data and application components of an architecture roadmap (Phase B and C)
+4. Steps for Phase D:
+	1. Select reference models, viewpoints, and tools
+	2. Develop baseline technology architecture description
+	3. Develop target technology architecture description
+	4. Perform gap analysis
+	5. Define candidate roadmap components
+		1. Any changes to make to technology based on changes made to data and application
+	6. Resolve impacts across the architecture landscape
+	7. Conduct formal stakeholder review
+	8. Finalize technology architecture
+	9. Construct architecture definition document
+5. Outputs from Phase D:
+	1. Refined Phase A deliverables
+	2. Draft architecture definition document
+		1. Baseline technology architecture v1.0
+		2. Target technology architecture v1.0
+	3. Draft architecture requirements specification - gap analysis
+	4. Technology architecture components of an architecture roadmap
+6. Put into roadmap
+7. Next:
+	1. Analyzing
+	2. Coming up with plan
+	3. Prioritise 
+	4. Work with other teams to put the plan into motion
+8. 
 
 ## Continuing with the ADM ##
 ### Phase E - Opportunities and Solutions ###
