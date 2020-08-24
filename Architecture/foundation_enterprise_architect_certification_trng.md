@@ -4192,6 +4192,13 @@
 	5. Communications plan (Phase A)
 	6. Planning methodologies
 	7. Organization Model for Enterprise Architecture (Prelim Phase)
+	8. Tailored Architecture Framework (Prelim Phase)
+	9. Approved Statement of Architecture Work (Phase A)
+	10. Architecture vision (Phase A)
+	11. Architecture Repository
+	12. Draft architecture documents and draft requirements (BDAT)
+	13. Change requests for existing business programs and projects
+	14. Candidate architecture roadmap components
 
 ### Phase F - Migration Planning ###
 ### Phase G - Implementation Governance ###
