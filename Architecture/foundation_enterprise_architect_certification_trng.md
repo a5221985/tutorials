@@ -4456,7 +4456,24 @@
 
 ## ADM Guidelines and Tools ##
 ### Introduction to ADM Guidelines and Tools ###
+1. ADM Guidelines and Techniques
+	1. Using the TOGAF ADM in the context of a specific Architectural Style
+	2. Architecture Principles
+	3. Stakeholder Management
+	4. Architecture Patterns
+	5. Business Scenarios
+	6. Gap Analysis
+	7. Migration Planning Techniques
+	8. Interoperability Requirements
+	9. Business Transformation Readiness Assessment
+	10. Risk Management
+	11. Capability-Based Planning
+
 ### ADM with Architecture Styles ###
+1. How TOGAF ADM works with different architectural styles (9.2 new)
+	1. Read spec document: Open group about different arch styles
+2. 
+
 ### Architecture Principles ###
 ### Stakeholder Management ###
 ### Architecture Patterns ###
