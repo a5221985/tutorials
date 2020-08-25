@@ -4209,10 +4209,45 @@
 		2. Contracts
 		3. Vendors for hosting
 		4. Budget limitations
+		5. Things that are off limits
+		6. Timelines
 	3. Review and consolidate gap analysis from Phase B to D
 	4. Review consolidated requirements across business functions
 	5. Consolidate and reconcile interoperability requirements
+		1. If conflicting requirements
+		2. Restricted things or open things
+		3. Reconcile among conflicts
+			1. Interoperability between different business units within the organization and with outside organizations are reconciled and consolidated
 	6. Refine and validate dependencies
+		1. Understand dependencies (especially with hardware etc...)
+	7. Confirm readiness and risk for busines transformation
+		1. Ensure business is in a state of knowing that we have got  risks and we are going to be doing business transformation
+			1. This is where we start migration strategy
+	8. Formulate implementation and migration strategy
+		1. How are we going to do this?
+		2. Is internal team going to do it?
+		3. Do we have to hire somebody?
+			1. Putting constraints on them
+	9. Identify and group major work packages
+		1. Translate roadmap into work packages
+			1. To teams
+			2. To projects
+	10. Identify transition architectures
+		1. Done if we cannot get from baseline architecture to target architecture in a single jump
+	11. Construct the architecture roadmap & implementation and migration plan
+		1. What to do and scheduling
+		2. Part of project planning
+			1. Bring in 
+				1. Implementers
+				2. Business units
+				3. Project managers
+6. Outputs from Phase E:
+	1. Refined Phase A deliverables
+	2. Draft architecture definition document - incl. baseline and target, v1.0
+	3. Draft architecture requirements specification - incl. gap analysis
+	4. Capability assessments
+	5. Architecture roadmap, version 0.1
+	6. Implementation and migration plan, version 0.1
 
 ### Phase F - Migration Planning ###
 ### Phase G - Implementation Governance ###
