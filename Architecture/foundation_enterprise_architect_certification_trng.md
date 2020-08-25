@@ -4430,7 +4430,28 @@
 		2. Get it approved to start architecture work
 	5. Architecture contract (updated if necessary)
 	6. Compliance assessments (updated if necessary)
-		1. 
+		1. Ensure things have not changed in terms of compliance
+8. Artifacts Produced: none
+9. Does a proposed change require a new ADM cycle? ADM cycle (central part)
+	1. Ouptcome of phase H: do we need to kickoff a new cycle
+	2. Or support the change as part of change management? (without starting new cycle)
+
+### Requirements Management Phase ###
+1. Technically, it's a phase. But it's constantly running during ADM cycle (also driving the ADM cycle)
+2. Continuous process of handling change during any phase of the ADM process
+3. Being able to handle change at any time is crucial for the ADM to succeed
+	1. If an important requirement comes for Phase B while in Phase F we cannot wait until cycle is complete
+	2. We must handle and adapt to change (hence the phase)
+4. The purpose is: ensure the process is sustained through all phases
+5. The purpose is: manage change while the ADM cycle is in progress
+6. The purpose is: provide the requirements to each ADM phase
+7. The RM Phase manages the "flow" of requirements
+	1. Flow management
+	2. We don't do handling of change in RM phase
+	3. RM flow stops flow for new requrement and go back to Phase B (say)
+		1. The change is handled in Phase B
+8. Requirements Management is the process that manages the repository
+	1. It is the controller of Architecture repository
 
 ## ADM Guidelines and Tools ##
 ### Introduction to ADM Guidelines and Tools ###
