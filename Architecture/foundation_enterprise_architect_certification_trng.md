@@ -4472,9 +4472,30 @@
 ### ADM with Architecture Styles ###
 1. How TOGAF ADM works with different architectural styles (9.2 new)
 	1. Read spec document: Open group about different arch styles
-2. 
+2. As softawe development matures...
+	1. Different architectural styles are used
+	2. Many styles of application architecture have been adopted
+	3. TOGAF does not need to change much based on your style
+		1. Adapt outputs: documents and artifacts to match the style
+			1. But you might want to change the content of your documents to fit
+			2. Architere Content Metamodel
+	4. Adopt different views, models, and tools
+	5. TOGAF has a Service Oriented Architecture work group
+		1. Constructing documents and designing SO requirements specific to that in relationship with TOGAF
+			1. Open Group's website
 
 ### Architecture Principles ###
+1. An enduring set of general rules and guidelines about architecture
+2. Not intended to change very often
+	1. We really want the principles to be like a light that guides (don't want to change very often)
+3. Defined during the Priliminary Phase
+	1. Re-affirmed during vision phase and subsequent phases
+4. Serves as a statement by which you can use to make decisions
+	1. Don't have to debate over paths
+5. Example - Data architecture principle
+	1. Data trustee
+		1. Each data element has a trustee accountable for data quality (person or group)
+
 ### Stakeholder Management ###
 ### Architecture Patterns ###
 ### Business Scenarios ###
