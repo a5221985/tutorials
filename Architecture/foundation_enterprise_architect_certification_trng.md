@@ -4339,8 +4339,39 @@
 	12. Architecture contract
 		1. Optional in TOGAF but highly recommmended
 		2. When we hand over documents to implementation team we need to go over the architecture and get them to commit to stick to the architecture
+			1. Through contract
+			2. If there is change request, it must be reviewed and approved
+			3. Implementation team cannot choose or not to choose to implement something on their own
 	13. Request for architecture work for next ADM cycle (Phase F)
 	14. Implementation and migration plan, version 1.0 (Phase F)
+3. Steps for Phase G
+	1. Confirm Scope and Priorities for Development
+	2. Identify Deployment Resources and Skills
+		1. Understand who is doing
+	3. Guide Development of Solutions Deployment
+		1. We must be a guide and ensure we are always available for help in terms of making certain decisions or making sure what they are discussing is in confirmance
+	4. Perform Enterprise Architecture Compliance Reviews
+		1. If the team is coming up with their own solution level requirements then review their documents to ensure they are compliant
+	5. Implement Business and IT Operations
+	6. Perform Post-Implementation Review and Close the Implementation
+		1. Verify if the contract is met
+		2. Then consider implementation is completed
+		3. If transition architectures
+			1. Each implementation is verified against transition architecture
+			2. Then we go back to phase G for next transition architecture (next phase) - iterative
+			3. Until all are done
+4. Outputs from Phase G
+	1. Architecture contract
+		1. "... joint agreements between development partners and sponsors on the deliverable, quality, and fitness-for-purpose of an architecture"
+		2. Read chapter 23 of the TOGAF 9.2 spec
+	2. Compliance assessments
+		1. When reading their requirements
+		2. Reviewing their work
+		3. Watching their beta
+		4. ...
+	3. Change requests
+		1. If they come back to say we need to make changes to the architecture based on these factors
+	4. Architecture-compliant solutions deployed
 
 ### Phase H - Architecture Change Management ###
 
