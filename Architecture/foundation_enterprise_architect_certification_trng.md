@@ -4279,12 +4279,34 @@
 	15. Implementation and migration plan, version 0.1 (Phase E)
 5. Steps for Phase F
 	1. Confirm management framework interactions
+		1. How company runs in terms of management frameworks
+		2. Do we have project management framework? PMP? Prince 2 etc...
 	2. Assign a business value for each work package
+		1. If we are trying to get a team together to implement then we must be able to unlock say $ 250k or push us closer to business goals in some way
 	3. Estimate resource requirements, project timings, etc...
 	4. Prioritize the migration projects
+		1. Low value and high cost projects have to be pushed to the bottom
 	5. Confirm architecture roadmap and update architecture definition document
+		1. Polishing stage
 	6. Generate implementation and migration plan
+		1. Final plan
 	7. Complete the architecture development cycle, lessons learned
+		1. We are now ready to hand over to implementors
+		2. What did we learn
+		3. What will we do differently the next time?
+		4. How can we grow and architecture team to make this process better?
+6. Outputs from Phase F:
+	1. Implementation and Migration Plan, version 1.0
+	2. Finalized architecture definition document
+	3. Finalized architecture requirements
+	4. Finalized architecture roadmap
+	5. Reusable Architecture Building Blocks (ABBs)
+		1. Can we generalize some of these and re-use them in future cycles?
+	6. Requests for Architecture Work for next ADM cycle (if any)
+		1. Is any more architecture work required so that we can get more work out of this as well?
+	7. Implementation of governance model
+	8. Change requests for architecture capability from lessons learned
+		1. 
 
 ### Phase G - Implementation Governance ###
 ### Phase H - Architecture Change Management ###
