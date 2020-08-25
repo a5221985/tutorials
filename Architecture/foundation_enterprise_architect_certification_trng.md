@@ -4516,9 +4516,39 @@
 	1. Who has no interest is not a stakeholder
 2. As an architect being able to win support for your plans is a skill
 3. Knowing who the most powerful stakeholders are....
-	1. 
+	1. List them
+	2. Know their concerns and address
+4. Makes things easier for approval and budgets
+	1. One person is noisy (may not be drivers)
+	2. One person is eager (may not be drivers)
+5. Can establish a communication plan to keep them informed
+	1. Do they have to be informed after decisions are made?
+	2. Do they have to be in the room while decisions are made?
+	3. If we can win key stokeholder then they can line those that report to them
+	4. Identify problems and conflicts early in order to avoid them
+		1. Someone wants more control over a function or feature
+		2. Another stakeholder might be trying to get that open into less control
+		3. We have to navigate through conflicts
+			1. Understand
+				1. Who those people are
+				2. How important they are
+				3. What their concerns are
+6. TOGAF diagram:
+
+				High	C (Keep Satisfied)	D (Key Players)
+		Power	Low		A (Minimal Effort)	B (Keep Informed)
+							Low					High
+								Level of Interest
+								
+	1. Low level: Don't worry too much
+	2. High power:
+		1. Low level of interest: key player
+		2. High level of interest: key player
 
 ### Architecture Patterns ###
+1. "An idea that has been useful in one practical context and will probably be useful in others" - M. Fowler
+	1. 
+
 ### Business Scenarios ###
 ### Gap Analysis ###
 ### Migration Planning ###
