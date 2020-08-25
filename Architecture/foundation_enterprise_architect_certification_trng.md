@@ -4452,6 +4452,7 @@
 		1. The change is handled in Phase B
 8. Requirements Management is the process that manages the repository
 	1. It is the controller of Architecture repository
+		1. Any requirements that are coming and going between phases is handled by RM
 
 ## ADM Guidelines and Tools ##
 ### Introduction to ADM Guidelines and Tools ###
