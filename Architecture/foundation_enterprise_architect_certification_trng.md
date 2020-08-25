@@ -4400,7 +4400,37 @@
 	12. Architecture contract (Phase G)
 	13. Compliance assessments (Phase G)
 	14. Implementation and migration plan, version 1.0 (Phase F)
-6. 
+6. Steps for Phase H
+	1. Establish Value Realization Process
+		1. If target is saving $750M, then our job is to ensure the value is realized
+		2. Did the process result in ending contract with vendor to cut the cost or shut down the process etc... (if not then work is adding for expenses and not saving money)
+			1. Ensure the value we are expected to get indeed we get
+	2. Deploy Monitoring Tools
+		1. Ensure application remains in compliance
+			1. We are getting sales
+			2. We are getting analytics
+			3. We are tracking the use of those things
+	3. Manage Risks
+	4. Provide Analysis for Architecture Change Management
+	5. Develop Change Requirements to Meet Performance Targets
+		1. Suppose we are not getting the value we thought we would
+			1. (say higher sales)
+			2. Do we need to make small changes to meet performance targets and if so it becomes change request and it becomes part of architecture governance and it can be implemented
+	6. Manage Governance Process
+	7. Activate the Process to Implement Change
+7. Outputs from Phase H (here target becomes the baseline since it is already implemented)
+	1. Architecture updates (maintenance)
+	2. Change to architecture framework and principles (maintenance)
+		1. If we have to move things around
+	3. New Request for Architecture Work (for major changes)
+		1. Inputs to Phase A
+		2. If the changes are large and impactful, we need to start a new phase (ADM cycle)
+	4. Statement of architecture work (updated if necessary) - result of change
+		1. It is a project kickoff document
+		2. Get it approved to start architecture work
+	5. Architecture contract (updated if necessary)
+	6. Compliance assessments (updated if necessary)
+		1. 
 
 ## ADM Guidelines and Tools ##
 ### Introduction to ADM Guidelines and Tools ###
