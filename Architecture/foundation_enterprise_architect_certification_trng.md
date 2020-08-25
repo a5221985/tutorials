@@ -4547,7 +4547,8 @@
 
 ### Architecture Patterns ###
 1. "An idea that has been useful in one practical context and will probably be useful in others" - M. Fowler
-	1. 
+	1. TOGAF has the concept of building blocks: what you use
+		1. Architecture patterns is: when, why and how you use (and limitations)
 
 ### Business Scenarios ###
 ### Gap Analysis ###
