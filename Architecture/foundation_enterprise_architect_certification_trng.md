@@ -4306,9 +4306,42 @@
 		1. Is any more architecture work required so that we can get more work out of this as well?
 	7. Implementation of governance model
 	8. Change requests for architecture capability from lessons learned
-		1. 
+		1. Go back to priliminary phase and touch upon our architecture capability (if we have lessons learned)
+			1. If we have to hire someone
+			2. If we have to modify certain TOGAF steps
+			3. If we have to do certain things earlier
+			4. ...
+7. Artifacts produced: none
 
 ### Phase G - Implementation Governance ###
+1. It assumes that architects are not the implementors
+	1. Don't change hats to then implement
+	2. Our role is to ensure people entrusted to implement are doing it
+2. The purpose is to: ensure _confirmance_
+	1. confirmance: What we plotted out for our architecture is actually being implemented
+3. The purpose is to: perform architecture governance
+	1. If change is required (implementation team has better and cheaper solution)
+		1. The team has to go through the architecture governance process
+		2. If change is approved, it is implemented
+2. Inputs to Phase G
+	1. External reference materials
+	2. Request for Architecture Work (optional) (Prelim Phase)
+	3. Capability assessment (Phase A)
+	4. Organization Model for Enterprise Architecture (Prelim Phase)
+	5. Tailored Architecture Framework (Prelim Phase)
+	6. Approved Statement of Architecture Work (Phase A)
+	7. Architecture vision (Phase A)
+	8. Architecture Repository
+	9. Architecture definition documents and requirements (BDAT)
+	10. Architecture roadmap, version 1.0 (Phase F)
+	11. Implementation governance model
+		1. How do we govern
+	12. Architecture contract
+		1. Optional in TOGAF but highly recommmended
+		2. When we hand over documents to implementation team we need to go over the architecture and get them to commit to stick to the architecture
+	13. Request for architecture work for next ADM cycle (Phase F)
+	14. Implementation and migration plan, version 1.0 (Phase F)
+
 ### Phase H - Architecture Change Management ###
 
 ## ADM Guidelines and Tools ##
