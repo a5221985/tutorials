@@ -4549,8 +4549,13 @@
 1. "An idea that has been useful in one practical context and will probably be useful in others" - M. Fowler
 	1. TOGAF has the concept of building blocks: what you use
 		1. Architecture patterns is: when, why and how you use (and limitations)
+2. Do not currently play a big role in the TOGAF Standard
+3. Once you have developed a number of building blocks, you may want to establish patterns for them
+	1. Min requirements we must have before we use that pattern (call center say)
 
 ### Business Scenarios ###
+1. TOGAF 9.2 made this existing tool more prominent
+
 ### Gap Analysis ###
 ### Migration Planning ###
 ### Interoperability ###
