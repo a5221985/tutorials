@@ -4512,7 +4512,11 @@
 			1. We have a process in place to define or stop or modify principles
 
 ### Stakeholder Management ###
-1. Stakeholder: An individual, team, organization, or class thereof, having an interest in a system
+1. Stakeholder: An individual, team, organization, or class thereof (type), having an interest in a system
+	1. Who has no interest is not a stakeholder
+2. As an architect being able to win support for your plans is a skill
+3. Knowing who the most powerful stakeholders are....
+	1. 
 
 ### Architecture Patterns ###
 ### Business Scenarios ###
