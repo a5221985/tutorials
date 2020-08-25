@@ -4372,8 +4372,35 @@
 	3. Change requests
 		1. If they come back to say we need to make changes to the architecture based on these factors
 	4. Architecture-compliant solutions deployed
+		1. Major milestone
+5. Artifacts Produced: None
 
 ### Phase H - Architecture Change Management ###
+1. It is like holding phase
+	1. Now we are waiting for changes to happen
+2. The purpose is to: maintain architecture lifecycle
+3. The purpose is to: execute architecture governance
+	1. Any changes must go through change request process and governance and approval and documents reflect the changes if approved
+4. The purpose is to: maintain architecture capability
+	1. We might be in here for a while
+	2. Keep mindful that people might move on to other projects but we must not lose the architectural capability
+		1. Ensure when we start the next round of architecture, there is no long gap (like 18 months) and the people are still available and there is still the architecture capability
+5. Inputs to Phase H (not active in constructing artifacts)
+	1. External reference models
+	2. Request for Architecture Work (optional) (Prelim Phase)
+	3. Organization Model for Enterprise Architecture (Prelim Phase)
+	4. Tailored Architecture Framework (Pelim Phase)
+	5. Statement of Architecture Work (Phase A)
+	6. Architecture vision (Phase A)
+	7. Architecture Repository
+	8. Architecture definition documents and requirements (BDAT)
+	9. Architecture roadmap (Phase F)
+	10. Change requests - technology changes, business changes, lessons learned
+	11. Implementation governance model
+	12. Architecture contract (Phase G)
+	13. Compliance assessments (Phase G)
+	14. Implementation and migration plan, version 1.0 (Phase F)
+6. 
 
 ## ADM Guidelines and Tools ##
 ### Introduction to ADM Guidelines and Tools ###
