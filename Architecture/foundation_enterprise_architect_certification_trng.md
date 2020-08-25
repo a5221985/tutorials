@@ -4191,6 +4191,7 @@
 	4. Capability assessment (Phase A)
 	5. Communications plan (Phase A)
 	6. Planning methodologies
+		1. We need to know how our company does planning and get involved
 	7. Organization Model for Enterprise Architecture (Prelim Phase)
 	8. Tailored Architecture Framework (Prelim Phase)
 	9. Approved Statement of Architecture Work (Phase A)
@@ -4198,7 +4199,20 @@
 	11. Architecture Repository
 	12. Draft architecture documents and draft requirements (BDAT)
 	13. Change requests for existing business programs and projects
+		1. Evaluate through governance model
 	14. Candidate architecture roadmap components
+5. Steps for Phase E:
+	1. Determine key corporate change attributes
+		1. How company deals with change
+	2. Determine business constraints
+		1. It is not green field
+		2. Contracts
+		3. Vendors for hosting
+		4. Budget limitations
+	3. Review and consolidate gap analysis from Phase B to D
+	4. Review consolidated requirements across business functions
+	5. Consolidate and reconcile interoperability requirements
+	6. Refine and validate dependencies
 
 ### Phase F - Migration Planning ###
 ### Phase G - Implementation Governance ###
