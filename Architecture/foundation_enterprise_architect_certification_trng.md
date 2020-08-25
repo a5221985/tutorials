@@ -4248,8 +4248,44 @@
 	4. Capability assessments
 	5. Architecture roadmap, version 0.1
 	6. Implementation and migration plan, version 0.1
+		1. Draft version
+		2. Not sine off yet
+7. Artificts Produced
+	1. Diagrams: Product context diagram, benefits diagram
 
 ### Phase F - Migration Planning ###
+1. The purpose is to: Finalize the architecture roadmap and migration plan
+2. The purpose is to: ensure migration plan is aligned with enterprise approach to change
+	1. Understanding business's ability to change is integral into having successful changes
+3. The purpose is to: ensure business value and cost of work packages is understood
+	1. It should increase revenue
+	2. It should reduce cost
+	3. We should be able to narrate good story with numbers that we are going to save this much money and we are going to make this much on the backend
+4. Inputs to Phase F
+	1. External reference materials
+	2. Request for Architecture Work (optional) (Prelim Phase)
+	3. Capability assessment (Phase A)
+	4. Communications plan (Phase A)
+	5. Organization Model for Enterprise Archtiecture (Prelim Phase)
+	6. Governance Models and Frameworks
+	7. Tailored Architecture Framework (Prelim Phase)
+	8. Approved Statement of Architecture Work (Phase A)
+	9. Architecture vision (Phase A)
+	10. Architecture Repository
+	11. Draft architecture documents and draft requirements (BDAT)
+	12. Change requests for existing business programs and projects
+	13. Architecture roadmap, version 0.1 (Phase E)
+	14. Capability Assessment
+	15. Implementation and migration plan, version 0.1 (Phase E)
+5. Steps for Phase F
+	1. Confirm management framework interactions
+	2. Assign a business value for each work package
+	3. Estimate resource requirements, project timings, etc...
+	4. Prioritize the migration projects
+	5. Confirm architecture roadmap and update architecture definition document
+	6. Generate implementation and migration plan
+	7. Complete the architecture development cycle, lessons learned
+
 ### Phase G - Implementation Governance ###
 ### Phase H - Architecture Change Management ###
 
