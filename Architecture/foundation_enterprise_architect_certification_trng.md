@@ -4495,8 +4495,25 @@
 5. Example - Data architecture principle
 	1. Data trustee
 		1. Each data element has a trustee accountable for data quality (person or group)
+			1. If we want to add new data
+				1. Who is responsible for quality of the data
+6. Five elements of a Good Principle:
+	1. Understandability: We can explain in clear and unambiguous way (difficult to violate)
+		1. Everyone should be able to understand
+	2. Robustness: Should be definitive and precise
+		1. Clear
+		2. Defined well
+		3. No vagueness
+	3. Completeness: Covers all of the situations we encounter
+	4. Consistency: Interpreted consistently (not contradicting principles)
+		1. All must be compatable
+	5. Stability: Enduring
+		1. Don't have to change week by week or month by month
+			1. We have a process in place to define or stop or modify principles
 
 ### Stakeholder Management ###
+1. Stakeholder: An individual, team, organization, or class thereof, having an interest in a system
+
 ### Architecture Patterns ###
 ### Business Scenarios ###
 ### Gap Analysis ###
