@@ -4636,9 +4636,35 @@
 		2. We are going to do this in a pilot project first or 
 		3. We are going to do the least risky thing first or
 		4. We are going to do the highest value thing first
-	2. Define whatever order we need to put in place (whatever mitigation strategy we want to use)
+	2. Define whatever order we need to put in place (whatever mitigation strategy we want to use to get around organization's resistence for change)
+9. Example readiness factors:
+	1. Vision
+		1. It is the ability to define and communicate what is that we want to achieve
+			1. If we can get everyone to bind on the vision, that is going to mitigate your resistance for change
+	2. Desire, Willingness, Resolve
+	3. Need
+		1. If there is varying level of need across the organization
+	4. Business Case
+	5. Funding
+	6. Leadership, Sponsor, Champion
+		1. If there is a senior person who is well liked in the organization and who is ready to take your case and can become a champion for change or if the person is resistent to you (it is a challenge)
+	7. Governance
+	8. Accountability
+	9. IT Capacity to Execute
+	10. Enterprise Capacity to Execute
+10. Example Factor: Need
+	1. How strong is the business need for enterprise architecture?
+	2. Does every part of the business recognize this as being required?
+	3. How committed is the senior leadership to this?
+		1. They recognize them as well - readiness factor
+			1. Mitigate, address, re-factor work packages, re-factor business case to strengthen this
 
 ### Risk Management ###
+1. Technique used to mitigate risk when we are implementing an architecture project
+2. What are the risks of migrating to the target architecture?
+	1. Business is about risks and it is about mitigating those risks to reap rewards of taking the risks
+	2. When we define or assign our target architecture, 
+
 ### Capability Planning ###
 
 ## Other Important TOGAF Concepts ##
