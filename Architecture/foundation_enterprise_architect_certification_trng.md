@@ -4712,10 +4712,31 @@
 			5. Call center department
 			6. Design department
 			7. ... (vertical)
-			8. 
+		2. Company is delivering services horizontally
+			1. From design department through development department to technology department upto final customer
+				1. The departments must be rowing the boat in the same direction on particular cadence to give the optimal service to the customer
+3. Many business functions work together to deliver one capability
+4. Example: Ability to construct flawless products (build reputation)
+	1. Apple say
+		1. Who is responsible for these flawless products?
+			1. Requires multiple business functions to work together
+				1. Product design, software development, manufacturing, retail/ sales (they have to work together)
+					1. Entire company must work to give this experience to the customer
+						1. If any of the departments doesn't do a good job, then we are going to fail on the capabilities
+							1. Capabilities crosses functional teams
+							2. Capabilities planning focusses on business outcomes
+5. The company plans for the capability of "flawless products", not just "best sales team"
 
 ## Other Important TOGAF Concepts ##
 ### Architecture Capability Framework and Architecture Governance ###
+1. Other supporting players
+	1. Frameworks:
+		1. Architecture governance
+			1. A system of controls over architecture
+				1. We put governance in place and it is going to be a systemised process for how you make changes to architecture
+					1. It controls how architecture changes
+		2. A system to ensure compliance with architecture
+			1. 
 
 ## Wrapping Up ##
 ### Thank You and Congratulations ###
