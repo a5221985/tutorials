@@ -4736,7 +4736,10 @@
 				1. We put governance in place and it is going to be a systemised process for how you make changes to architecture
 					1. It controls how architecture changes
 		2. A system to ensure compliance with architecture
-			1. 
+			1. Implementation team has signed the contract
+			2. Over months and years down the road, we are ensuring the architecture complies with the definitions constructed and there are no changes to the architecture that has not gone through the governance process
+		3. Effective management of the systems
+		4. Accountability to the business for that
 
 ## Wrapping Up ##
 ### Thank You and Congratulations ###
