@@ -4617,7 +4617,26 @@
 	1. What we do interacts with other people and companies etc...
 
 ### Business Readiness Transformation Assessment BRTA ###
-1. Preliminary phase of ADM: How ready  
+1. Preliminary phase of ADM: How ready the business is for change (how the business handles change)
+2. As an enterprise architect, we must get people to agree to those changes and get the changes implemented and be successful to unlock the business value the changes are designed for
+3. BTRA: It is a tool or system (part of TOGAF spec) that will help to determine the readiness factors of the organization
+4. "evaluating and quantifying an organization's readiness to undergo change"
+5. No point constructing architecture if it'll be ignored
+	1. If implemented then something might happen that makes it a big failure or we are not unlocking any of the value
+6. Understanding how to get your organization to change is key to success
+7. Recommended activities for BRTA
+	1. Determine the readiness factors that will impact the organization
+	2. Present the readiness factors using maturity models
+	3. Assess the readiness factors, including determination of readiness factor ratings
+	4. Assess the risks for each readiness factor and identify improvement actions to mitigate the risk
+	5. Work these actions into Phase E and F implementation and migration plan
+8. The enterprise may not have the readiness to change
+	1. Structure implementation plan to address those to say
+		1. We are going to do this in such a way that it is virtually going to be risk free to the enterprise or
+		2. We are going to do this in a pilot project first or 
+		3. We are going to do the least risky thing first or
+		4. We are going to do the highest value thing first
+	2. Define whatever order we need to put in place (whatever mitigation strategy we want to use)
 
 ### Risk Management ###
 ### Capability Planning ###
