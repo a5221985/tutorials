@@ -4555,6 +4555,15 @@
 
 ### Business Scenarios ###
 1. TOGAF 9.2 made this existing tool more prominent
+2. Library (separate from standard)
+3. What is a business scenario? 4 parts (mentioned in Phase A)
+	1. A business process, application, or set of applications (something operating on the business)
+	2. The business and technology environment
+		1. In what scenario is this application or this people or this process operating
+	3. The people and software systems ("actors") involved
+		1. Similar to Use cases
+	4. The desired outcome
+		1. 
 
 ### Gap Analysis ###
 ### Migration Planning ###
