@@ -4563,9 +4563,30 @@
 	3. The people and software systems ("actors") involved
 		1. Similar to Use cases
 	4. The desired outcome
-		1. 
+		1. What is that we want to happen
+			1. Customer service? Customer should get resolution to problem in timely fashion etc...
+		2. The establish essentially the parts of the business that are trying to drive towards desired business outcome
+4. Anyone should be able to understand a business problem and solution by reading the business scenario
+	1. Example: Consider architecture vision phase
+		1. Suppose we are watching what the business is doing and what the business goal is
+			1. It becomes:
+				1. A neatly laid out business case
+					1. Anyone who reads this should come to very similar conclusion as you (there may be some back and forth regarding what you can do to change the process or improve the application or improve the capability of the business outcome)
+						1. Everyone should be able to follow the pattern
 
 ### Gap Analysis ###
+1. Key step in the BDAT Phases and Migration Planning (Phases B-E)
+2. Gap analysis:
+	1. Baseline architecture
+		1. Architecture as it exists today
+	2. Target archtiecture
+		1. Archtiecture that will exist when you reach the full implementation
+	3. We go through line by line of both the documents and we list out all of the differences
+	4. Gaps: Anything added, changed or intentionally omitted
+		1. Will also identify things accidentally omitted or missing from target architecture that needs to be there
+			1. We can go back and correct target architecture if it is missing a key piece that needs to be there
+				1. Things are not perfect the first time we do this document
+
 ### Migration Planning ###
 ### Interoperability ###
 ### Business Readiness Transformation Assessment BRTA ###
