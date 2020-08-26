@@ -4687,9 +4687,32 @@
 				1. Are the clients going to enjoy serving themselves or are they going to feel that is something that they don't want to do?
 					1. We need to define this risk
 		3. How do you measure it?
-			1. 
+			1. Surveys
+			2. Bring in customers
+				1. Show them the process
+				2. Show them the portal
+				3. Ask for their opinion
+				4. Try to get a broad cross section of clients to get their opinon before we roll this stuff out
+		4. How do you mitigate it?
+			1. Suppose clients in the surveys don't like the portal and are missing talking to someone
+				1. Is there any intermediate step that we can do to assure people that this is a better level of service for them or maintain that the existing level of services are not going away etc...?
+6. And what would the cost to the business be if it comes true?
+	1. If clients do not accept the portal as we dream then what is the cost to the business?
+		1. Are we increasing the cost to run those things but not reducing expenses because customers are not using it etc...
 
 ### Capability Planning ###
+1. "a business planning technique that focusses on business outcomes"
+2. Capabilities are business-driven and ideally business-led
+	1. Designed to combat the fact that organizations are split along functions
+		1. Public or private businesses are organized functionally
+			1. HR department
+			2. Finance department
+			3. Development department
+			4. IT department
+			5. Call center department
+			6. Design department
+			7. ... (vertical)
+			8. 
 
 ## Other Important TOGAF Concepts ##
 ### Architecture Capability Framework and Architecture Governance ###
