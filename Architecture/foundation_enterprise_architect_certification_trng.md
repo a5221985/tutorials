@@ -4614,8 +4614,11 @@
 	1. How data are going to be shared between two business partners in a secure manner to have a pathway between one service and another that needs to talk to each other (say)
 5. Each of the architecture definition phases has elements of interoperability
 6. Architects think about how and what they do interacts with the "outside world" during the process
+	1. What we do interacts with other people and companies etc...
 
 ### Business Readiness Transformation Assessment BRTA ###
+1. Preliminary phase of ADM: How ready  
+
 ### Risk Management ###
 ### Capability Planning ###
 
