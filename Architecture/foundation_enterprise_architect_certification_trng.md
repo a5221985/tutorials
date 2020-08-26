@@ -4663,7 +4663,31 @@
 1. Technique used to mitigate risk when we are implementing an architecture project
 2. What are the risks of migrating to the target architecture?
 	1. Business is about risks and it is about mitigating those risks to reap rewards of taking the risks
-	2. When we define or assign our target architecture, 
+	2. When we define or assign our target architecture, we need to say we are going to run from first base to second base then what are the risks of getting from first base to second base
+		1. Are those acceptable level of risks?
+		2. Is there anything we can do to mitigate that?
+3. Identify them, and track them (measure)
+	1. When we mitigate the risks, we can see that we are actually mitigating them
+4. TOGAF has the concept of Initial Level of Risk and Residual Level of Risk
+	1. Initial level of risk is the risk that exists if you do nothing to mitigate them
+		1. If going from A to B, and we do nothing to mitigate that risk, we need to define what those risks are
+	2. Residual level of risk is the risk that remains after you have mitigated them
+		1. Activities with 0 risk usually have very low reward
+		2. Ensure
+			1. Measures are in place
+			2. Project in place
+			3. Surveys in place
+5. Example: Client acceptance risk
+	1. Goal of ADM process (say) to increase level of self sufficiency of customers
+		1. Self service portal
+			1. Instead of call on phone
+			2. Instead of coming in person to the store
+		2. Push everyone to use the website and self serve (lower cost and increase self sufficiency of customers)
+			1. Risks: Client acceptance risk
+				1. Are the clients going to enjoy serving themselves or are they going to feel that is something that they don't want to do?
+					1. We need to define this risk
+		3. How do you measure it?
+			1. 
 
 ### Capability Planning ###
 
