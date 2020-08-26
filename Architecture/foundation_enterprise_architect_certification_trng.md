@@ -4586,9 +4586,35 @@
 		1. Will also identify things accidentally omitted or missing from target architecture that needs to be there
 			1. We can go back and correct target architecture if it is missing a key piece that needs to be there
 				1. Things are not perfect the first time we do this document
+3. It should be clear and easy to explain why things were added or removed
+	1. Why?
+		1. Added because it should improve this...
+		2. Removed because it is unnecessary etc...
+4. Exam: Steps are not required
+	1. Need to know what gap analysis is and why it is important
 
 ### Migration Planning ###
+1. TOGAF contains a number of tools for migration planning
+	1. Chapter 24
+2. Migration Planning, Phase F (not very huge in test)
+	1. Implementation Factor Assessment & Deduction Matrix
+	2. Consolidated Gaps, Solutions & Dependencies Matrix
+	3. Architecture Definition Increments Table
+	4. Transition Architecture State Evalution Table
+	5. Business Value Assessment Technique
+
 ### Interoperability ###
+1. "the ability to share information and services"
+2. Business Interoperability: how business teams work together (one with other teams and processes that are out of our scope)
+	1. When we are designing documents, requirements etc... should work well with others (stuff that are outside of our scope)
+		1. Scope does not mean we build a firewall and not work with others
+3. Information Interoperability: how data is shared
+	1. Data architecture
+4. Technical Interoperability: how technical services connect to one another
+	1. How data are going to be shared between two business partners in a secure manner to have a pathway between one service and another that needs to talk to each other (say)
+5. Each of the architecture definition phases has elements of interoperability
+6. Architects think about how and what they do interacts with the "outside world" during the process
+
 ### Business Readiness Transformation Assessment BRTA ###
 ### Risk Management ###
 ### Capability Planning ###
