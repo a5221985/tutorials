@@ -4740,8 +4740,10 @@
 			2. Over months and years down the road, we are ensuring the architecture complies with the definitions constructed and there are no changes to the architecture that has not gone through the governance process
 		3. Effective management of the systems
 		4. Accountability to the business for that
-			1. Governance team has to go back to both the corporate (might be executive board) or might be IT governance board or technology governance
-			2. 
+			1. Governance team has to go back to both the corporate (might be executive board) or might be IT governance or technology governance
+				1. We can say, we said we will deliver this and the team delivered this and we can ensure that so many months down the road that we are complying with that
+		2. Governance is layerd within most organizations
+			1. There may not be architecture governance board
 
 ## Wrapping Up ##
 ### Thank You and Congratulations ###
