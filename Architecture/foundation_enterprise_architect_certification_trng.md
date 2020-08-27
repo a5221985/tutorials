@@ -4817,4 +4817,4 @@
 	5. Ensure we know outputs of various phases and be able to easily remember (which phase, which document)
 
 ### Discounts for More Courses ###
-1. [Copy+of+Udemy+Bonus+Lecture+AUG2020.pdf]()
+1. [Copy+of+Udemy+Bonus+Lecture+AUG2020.pdf](Copy+of+Udemy+Bonus+Lecture+AUG2020.pdf)
