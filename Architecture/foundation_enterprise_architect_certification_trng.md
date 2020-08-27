@@ -4804,8 +4804,17 @@
 			1. As we go to Phase G - Implementation, we want to make sure the implementation is in conformance with the architecture defined
 				1. It is part of compliance reviews
 			2. It is also part of compliance when we are in Phase H - waiting mode
-				1. 
+				1. When we are handling change requests, we want to make sure that implementation does not change (no un-approved changes to the environment)
 
 ## Wrapping Up ##
 ### Thank You and Congratulations ###
-### Bonus Lecture ###
+1. Book a date in 2 weeks
+2. Spend rest of the time
+	1. Reading standard
+	2. Review standard
+	3. Read sections that are interesting or vague
+	4. Read through definitions chapters
+	5. Ensure we know outputs of various phases and be able to easily remember (which phase, which document)
+
+### Discounts for More Courses ###
+1. [Copy+of+Udemy+Bonus+Lecture+AUG2020.pdf]()
