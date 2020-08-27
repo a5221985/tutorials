@@ -4780,7 +4780,31 @@
 				1. They agree that we give them exactly what to implement and they implement it
 				2. Phase H: Maintenance mode - they must not change what was implemented without following proper architecture governance
 		7. Architecture compliance
-			1. 
+			1. Different definitions (how implementation matches the definition)
+				1. Irrelevant
+					1. Definition and implementation have nothing in common (between features in architecture and what is implemented)
+				2. Consistent
+					1. Spec has parts of it fully and properly implemented but implementation does not cover every part of the spec and there are parts in implementation that are not part of the spec
+					2. It is not wrong but not perfect
+				3. Compliant
+					1. Implementation is 100% true to the architecture definition except that there are whole parts of the definition that are not implemented
+						1. Implementation is a subset of the overall architecture
+				4. Conformant
+					1. Implementation is a superset of spec
+					2. Implemented the entire spec + more
+				5. Fully conformant
+					1. Perfection!
+					2. Spec and implementation 100% match
+						1. Nothing in architecture that is not fully implemented
+						2. Nothing in the implementation that is not there in the architecture
+				6. Non-conformant
+					1. There are features in architecture spec which are implemented but they are not in accordance with the spec
+						1. They were told to do it but they did something different
+		7. Compliance Reviews
+			1. As we go to Phase G - Implementation, we want to make sure the implementation is in conformance with the architecture defined
+				1. It is part of compliance reviews
+			2. It is also part of compliance when we are in Phase H - waiting mode
+				1. 
 
 ## Wrapping Up ##
 ### Thank You and Congratulations ###
