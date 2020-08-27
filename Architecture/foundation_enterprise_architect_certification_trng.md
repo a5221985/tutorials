@@ -4744,6 +4744,30 @@
 				1. We can say, we said we will deliver this and the team delivered this and we can ensure that so many months down the road that we are complying with that
 		2. Governance is layerd within most organizations
 			1. There may not be architecture governance board
+			2. Levels:
+				1. Corporate governance (outside the scope of enterprise architecture)
+					1. Need to meet with the group once in a while to talk about the long term vision making sure that each department has goals and vision to achieve those goals
+				2. Technology governance (outside the scope of enterprise architecture)
+				3. IT governance (outside the scope of enterprise architecture)
+				4. Architecture governance
+					1. Principles of Good Governance
+						1. Discipline
+							1. Everyone who is involved in governance needs to be committed to adhering and sticking to that process
+								1. We cannot make changes to architecture without the approval of architecture governance board
+									1. Everyone must agree to that and follow it
+						2. Transparency
+							1. All actions are available for inspection
+								1. All decisions must be explicable
+						3. Independence
+							1. We must not have a team or department or individual who has undue influence over making that decision
+							2. We are making decision for the good of the entire organization and it is not that certain department is pulling in their direction and gives rise to conflict of interest
+						4. Accountability
+							1. Architecture governance is responsible for corporate governance and IT governance etc... above it.
+							2. To ensure they have made their decisions and they stand by their decisions (accountable)
+						5. Responsibility
+							1. Everyone involved in the governance has to act responsibly
+						6. Fairness
+							1. Ensure all decisions made on the architecture governance process don't give unfair advantage to any parties (working for entire organization and not favoring a member or particular group at the expense of other parties)
 
 ## Wrapping Up ##
 ### Thank You and Congratulations ###
