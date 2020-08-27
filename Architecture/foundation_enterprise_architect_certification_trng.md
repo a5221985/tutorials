@@ -4742,7 +4742,7 @@
 		4. Accountability to the business for that
 			1. Governance team has to go back to both the corporate (might be executive board) or might be IT governance or technology governance
 				1. We can say, we said we will deliver this and the team delivered this and we can ensure that so many months down the road that we are complying with that
-		2. Governance is layerd within most organizations
+		5. Governance is layerd within most organizations
 			1. There may not be architecture governance board
 			2. Levels:
 				1. Corporate governance (outside the scope of enterprise architecture)
@@ -4768,6 +4768,19 @@
 							1. Everyone involved in the governance has to act responsibly
 						6. Fairness
 							1. Ensure all decisions made on the architecture governance process don't give unfair advantage to any parties (working for entire organization and not favoring a member or particular group at the expense of other parties)
+					2. Architecture Board:
+						1. Cross organization board that makes sure that architecture governance is executed
+						2. It is supposed to be representative of all the key stakeholders in the architecture (not just self appointed arhitect who leads the board but must include senior members across different departments who meet regularly)
+							1. The architectural decisions must represent the entire organization (in that way we can follow the key principles)
+		6. Architecture Contracts
+			1. "joint agreements between development partners and sponsors on the deliverables, quality, and fitness-for-purpose of an architecture"
+				1. When we are kicking off ADM phase (in Phase A) we are agreeing to a statement of work
+				2. Statement of work: It is a contract between sponsors and people who are paying for the architectural work and ourselves that I am going to build an architecture that meets their purposes
+			2. Contracts between implementers and us in Phase J and H that they are going to follow the architecture
+				1. They agree that we give them exactly what to implement and they implement it
+				2. Phase H: Maintenance mode - they must not change what was implemented without following proper architecture governance
+		7. Architecture compliance
+			1. 
 
 ## Wrapping Up ##
 ### Thank You and Congratulations ###
