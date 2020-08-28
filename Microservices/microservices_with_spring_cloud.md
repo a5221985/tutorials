@@ -72,8 +72,32 @@
 2. Spring cloud components are developed
 3. Github repository
 	1. [https://github.com/in28minutes/getting-started-in-5-steps](https://github.com/in28minutes/getting-started-in-5-steps)
+		1. Components
+		2. Ports
+		3. URLs
+		4. Complete code
+		5. Folder for each component
 
 ### Step 00 - 01 - Introduction to Microservices ###
+1. Definitions:
+	1. Small autonomous services that work together - Sam Newman
+	2. There is a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies - James Lewis and Martin Fowler
+	3. In short, the microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API...contd
+	4. These services are built around business capabilities and independently deployable by fully automated deployment machinery...contd
+2. Microservices
+	1. REST
+		1. Usually exposed by REST
+	2. & Small Well Chosen Deployable Units
+		1. Well thought out boundaries
+	3. & Cloud Enabled
+		1. Building set of small u services instead of one monolith
+		2. We can have multiple instances of each of the microservices
+
+				microservice1 -> A1, A2
+				microservice2 -> B1, B2, B3, B4
+				microserivce3 -> C1
+					1. We can bring up another if load is increased
+
 ### Step 00 - 02 - Challenges with Microservices ###
 ### Step 00 - 03 - Introduction to Spring Cloud ###
 ### Step 00 - 04 - Advantages of Microservices Architecture ###
