@@ -154,7 +154,19 @@
 					2. Config server
 					3. API gateway
 				4. Finchley M2 reelase of Spring Cloud
-	3. 
+	3. Operations
+		1. Spring Cloud Config Server
+			1. We can store config for each of the server in Git repo (centralized location)
+				1. Spring Cloud helps us to expose the centralized config to the us
+	4. Dynamic scale up and scale down
+		1. Ribbon (load balancing)
+			1. Example:
+
+								CurrencyCalculationService
+											|
+										Ribbon	- NamingServer
+											/	\
+					CurrencyExchangeService1 CurrencyExchangeService2
 
 ### Step 00 - 04 - Advantages of Microservices Architecture ###
 ### Step 00 - 05 - Microservice Components - Standardizing Ports and URL 
