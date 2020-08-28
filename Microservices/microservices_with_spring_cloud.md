@@ -206,7 +206,15 @@
 	2. We can bring new features faster to market
 
 ### Step 00 - 05 - Microservice Components - Standardizing Ports and URL 
-1. 
+1. Ports (Github - 03.microservices)
+	1. Limits service - 8080, 8081, ...
+	2. Spring Cloud Config Server - 8888
+	3. Currency Exchange Service - 8000, 8001, 8002, ...
+	4. Currency Conversion Service - 8100, 8101, 8102, ...
+	5. Netflix Eureka Naming Server - 8761
+	6. Netflix Zuul API Gateway Server - 8765
+	7. Zipkin Distributed Tracing Server - 9411
+2. URLs (same section)
 
 ### Step 00 - Part 1 - Intro to Limits Microservice and Spring Cloud Config Server ###
 ### IMPORTANT: SPRING BOOT AND SPRING CLOUD VERSIONS ###
