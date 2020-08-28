@@ -3,6 +3,8 @@
 ## Introduction ##
 ### Microservices and RESTful APIs with Spring Boot and Spring Cloud - Preview ###
 ### Congratulations ###
+### Introduction to the Course & Course Guide ###
+
 ### One Thing You Should Do ###
 ### Microservies and RESTful APIs with Spring Boot & Spring Cloud - Course Overview ###
 ### Microservices and RESTful APIs with Spring Boot & Spring Cloud - Git Repository ###
