@@ -167,6 +167,31 @@
 										Ribbon	- NamingServer
 											/	\
 					CurrencyExchangeService1 CurrencyExchangeService2
+					
+				1. Dynamically distribute load
+		2. Naming server (Eureka)
+			1. All instances of microservices would register with naming server
+				1. All us can register
+				2. Service discovery
+					1. Example: CurrencyCalculationService can ask Eureka nameing server -> Give instance of CurrencyExchangeService and Eureka will provide the URL of the service
+						1. Establishes dynamic relationship between the services
+			2. Ribbon (Client Side Load Balancing)
+				1. Example: CurrencyCalculationService will host Ribbon (client)
+					1. Load is distributed only among the instances that it gets from Naming Server
+			3. Feign (Easier REST clients)
+				1. Mechanism to write simple RESTful clients
+	5. Visibility and Monitoring
+		1. Zipkin Distributed Tracing (server)
+			1. Spring Cloud Slout is used to assign ID to request across multiple components
+			2. Zipkin Distributed Tracing is used to trace request across multiple components
+		2. Netflix [Zuul] API Gateway
+			1. uS have common features
+				1. Logging
+				2. Security
+				3. Analytics
+				4. ...
+	6. Fault Tolerance
+		1. Hy
 
 ### Step 00 - 04 - Advantages of Microservices Architecture ###
 ### Step 00 - 05 - Microservice Components - Standardizing Ports and URL 
