@@ -62,6 +62,17 @@
 
 ## Microservices with Spring Cloud ##
 ### Section Introduction - Microservices with Spring Cloud ###
+1. Topics:
+	1. Spring Cloud Config Server and Bus
+	2. Load Balancing with Ribbon and Feign
+	3. Implement Naming Server with Eureka
+	4. Implementing API Gateway with Zuul
+	5. Distributed Tracing with Zipkin
+	6. Fault Tolerence with Hystrix
+2. Spring cloud components are developed
+3. Github repository
+	1. [https://github.com/in28minutes/getting-started-in-5-steps](https://github.com/in28minutes/getting-started-in-5-steps)
+
 ### Step 00 - 01 - Introduction to Microservices ###
 ### Step 00 - 02 - Challenges with Microservices ###
 ### Step 00 - 03 - Introduction to Spring Cloud ###
