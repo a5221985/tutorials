@@ -154,6 +154,7 @@
 					2. Config server
 					3. API gateway
 				4. Finchley M2 reelase of Spring Cloud
+	3. 
 
 ### Step 00 - 04 - Advantages of Microservices Architecture ###
 ### Step 00 - 05 - Microservice Components - Standardizing Ports and URL 
