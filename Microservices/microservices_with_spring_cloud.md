@@ -96,9 +96,33 @@
 				microservice1 -> A1, A2
 				microservice2 -> B1, B2, B3, B4
 				microserivce3 -> C1
-					1. We can bring up another if load is increased
+			
+			1. We can bring up another if load is increased
+
+3. Cloud enabling:
+	1. Set up an architecture such that it would be able to dynamically adjust and be able to bring new instances up and bring the old instances down
 
 ### Step 00 - 02 - Challenges with Microservices ###
+1. Challenges with building us:
+	1. Bounded context
+		1. How to identify boundary?
+		2. What to do in each one of them?
+		3. What should we not do in each one of them?
+		4. We may need business knowledge to establish right boundaries between the us
+			1. Experience:
+				1. It is an evolutionary process
+					1. Try to follow domain driven design (read the book)
+					2. Need to play around
+					3. Try to identify right boundaries at that point in time
+						1. As we gain more knowledge, we must be able to put in more into the microservices
+	2. Configuration management
+		1. Say 10 us, 5 envs, 50 instances
+			1. Lot of work for operations team
+	3. Dynamic scale up and scale down
+		1. Establishing technology to be able to do that
+			1. Based on load, we may have to change the number of instances automatically
+				1. Using dynamic load balancing
+
 ### Step 00 - 03 - Introduction to Spring Cloud ###
 ### Step 00 - 04 - Advantages of Microservices Architecture ###
 ### Step 00 - 05 - Microservice Components - Standardizing Ports and URL 
