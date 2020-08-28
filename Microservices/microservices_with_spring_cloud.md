@@ -137,6 +137,8 @@
 		2. We need fault tolerence in us
 
 ### Step 00 - 03 - Introduction to Spring Cloud ###
+1. 
+
 ### Step 00 - 04 - Advantages of Microservices Architecture ###
 ### Step 00 - 05 - Microservice Components - Standardizing Ports and URL 
 ### Step 00 - Part 1 - Intro to Limits Microservice and Spring Cloud Config Server ###
