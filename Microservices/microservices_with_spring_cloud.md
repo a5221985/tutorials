@@ -122,6 +122,19 @@
 		1. Establishing technology to be able to do that
 			1. Based on load, we may have to change the number of instances automatically
 				1. Using dynamic load balancing
+					1. New ones must be used
+				2. Must be able to dynamically distributed
+	4. Visibility
+		1. If there is a bug
+			1. How to identify where the bug is
+				1. We need centralized logging
+					1. Which microservice caused the problem
+			2. We need monitoring
+				1. To identify which are down
+				2. If there is no enough disk space
+	5. Pack of cards
+		1. If one fundamental us goes down, the other (pack of cards) us go down
+		2. We need fault tolerence in us
 
 ### Step 00 - 03 - Introduction to Spring Cloud ###
 ### Step 00 - 04 - Advantages of Microservices Architecture ###
