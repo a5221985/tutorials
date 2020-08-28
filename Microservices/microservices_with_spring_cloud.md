@@ -137,7 +137,23 @@
 		2. We need fault tolerence in us
 
 ### Step 00 - 03 - Introduction to Spring Cloud ###
-1. 
+1. Spring Cloud
+	1. Components to solve challenges
+	2. Cloud.spring.io
+		1. Spring cloud provides tools for developers to quickly build some of the common patterns in distributed systems (e.g. configuration management, service discovery, circuit brakers, intelligent routing, micro-proxy, control bus, one-time tokens, global locks, leadership election, distributed sessions, cluster state). Coordination of distributed systems leads to boiler plate patterns, and using Spring Cloud developers can quickly stand up services and applications that implement those patterns. They will work well in any distributed environment, including the developer's own laptop, bare metal data centres, and managed platforms such as Cloud Foundary.
+		2. It is not one project
+			1. Projects
+				1. Spring Cloud Netflix
+					1. Played with us architecture
+						1. Components open source
+							1. Eureka, Hystrix, Zuul
+				2. Spring Cloud Config
+					1. Centralized config managmenent
+				3. Spring Cloud Bus
+					1. Enables us and infrastructure components
+					2. Config server
+					3. API gateway
+				4. Finchley M2 reelase of Spring Cloud
 
 ### Step 00 - 04 - Advantages of Microservices Architecture ###
 ### Step 00 - 05 - Microservice Components - Standardizing Ports and URL 
