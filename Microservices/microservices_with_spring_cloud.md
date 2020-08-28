@@ -191,10 +191,23 @@
 				3. Analytics
 				4. ...
 	6. Fault Tolerance
-		1. Hy
+		1. Hystrix
+			1. If services is down, helps to configure default response
 
 ### Step 00 - 04 - Advantages of Microservices Architecture ###
+1. New technology & process adaption (easily)
+	1. Each microservice can be built in different technologies
+		1. Can construct us in specific language
+	2. We can bring in new processes
+2. Dynamic scaling
+	1. We can procure hardware or resources dynamically based on the load
+3. Faster release cycles
+	1. Easier to release
+	2. We can bring new features faster to market
+
 ### Step 00 - 05 - Microservice Components - Standardizing Ports and URL 
+1. 
+
 ### Step 00 - Part 1 - Intro to Limits Microservice and Spring Cloud Config Server ###
 ### IMPORTANT: SPRING BOOT AND SPRING CLOUD VERSIONS ###
 ### Step 01 - Part 2 - Setting up Limits Microservice ###
