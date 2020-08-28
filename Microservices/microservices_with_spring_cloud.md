@@ -34,12 +34,31 @@
 ### Step 15 - Implementing Validations for RESTful Services ###
 ### COURSE UPDATE: HATEOAS Updates ###
 ### Step 16 - Implementing HATEOAS for RESTful Services ###
-### Step 17 - 
-
-### One Thing You Should Do ###
-### Microservies and RESTful APIs with Spring Boot & Spring Cloud - Course Overview ###
-### Microservices and RESTful APIs with Spring Boot & Spring Cloud - Git Repository ###
-### Installing Basic Tools ###
+### Step 17 - Overview of Advanced RESTful Service Features ###
+### Step 18 - Internationalization for RESTful Services ###
+### Step 18 Part 2 - Internationalization for RESTful Services ###
+### Step 19 - Content Negotiation - Implementing Support for XML ###
+### COURSE UPDATE: Disable XML Format Support ###
+### COURSE UPDATE: USE SWAGGER 3.0.0 for Spring Boot 2.2+ ###
+### Step 20 - Configuring Auto Generation of Swagger Documentation ###
+### Step 21 - Introduction to Swagger Documentation Format ###
+### Step 22 - Enchancing Swagger Documentation with Custom Annotations ###
+### Step 23 - Monitoring APIs with Spring Boot Actuator ###
+### Step 24 - Implementing Static Filtering for RESTful Service ###
+### Step 25 - Implementing Dynamic Filtering for RESTful Service ###
+### Step 26 - Verisoning RESTful Services - Basic Approach with URLs ###
+### Step 27 - Versioning RESTful Services - Header and Content Negotiation Approach ###
+### Step 28 - Implementing Basic Authentication with Spring Security ###
+### Step 29 - Overview of Connecting RESTful Service to JPA ###
+### COURSE UPDATE: H2 Database URL ###
+### Step 30 - Constructing User Entity and Some Test Data ###
+### Step 31 - Updating GET Methods on User Resource to Use JPA ###
+### Step 32 - Updating POST and DELETE Methods on User Resorurce to Use JPA ###
+### Step 33 - Constructing Post Entity and Many to One Relationship with User Entity ###
+### Step 34 - Implementing a GET Service to Retrieve All Posts of a User ###
+### Step 35 - Implementing a POST Service to Construct a Post for a User ###
+### Step 36 - Richardson Maturity Model ###
+### Step 37 - RESTful Web Services - Best Practices ###
 
 ## Microservices with Spring Cloud ##
 ### Section Introduction - Microservices with Spring Cloud ###
@@ -47,7 +66,9 @@
 ### Step 00 - 02 - Challenges with Microservices ###
 ### Step 00 - 03 - Introduction to Spring Cloud ###
 ### Step 00 - 04 - Advantages of Microservices Architecture ###
-### Step 00 - 05 - Microservice Components - Standardizing Ports and URL ### Step 00 - Part 1 - Intro to Limits Microservice and Spring Cloud Config Server ###
+### Step 00 - 05 - Microservice Components - Standardizing Ports and URL 
+### Step 00 - Part 1 - Intro to Limits Microservice and Spring Cloud Config Server ###
+### IMPORTANT: SPRING BOOT AND SPRING CLOUD VERSIONS ###
 ### Step 01 - Part 2 - Setting up Limits Microservice ###
 ### Step 02 - Creation of hard coded limits service ###
 ### Step 03 - Enhance limits service to get configuration from application properties ###
