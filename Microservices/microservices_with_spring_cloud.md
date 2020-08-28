@@ -214,9 +214,11 @@
 	5. Netflix Eureka Naming Server - 8761
 	6. Netflix Zuul API Gateway Server - 8765
 	7. Zipkin Distributed Tracing Server - 9411
-2. URLs (same section)
+2. URLs (same page below ports)
 
 ### Step 00 - Part 1 - Intro to Limits Microservice and Spring Cloud Config Server ###
+1.
+
 ### IMPORTANT: SPRING BOOT AND SPRING CLOUD VERSIONS ###
 ### Step 01 - Part 2 - Setting up Limits Microservice ###
 ### Step 02 - Creation of hard coded limits service ###
