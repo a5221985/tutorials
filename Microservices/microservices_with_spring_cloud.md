@@ -5,6 +5,37 @@
 ### Congratulations ###
 ### Introduction to the Course & Course Guide ###
 
+## Introduction to Web Services ##
+### What is a Web Service? ###
+### Important How Questions Related to Web Services ###
+### Web Services - Key Terminology ###
+### Introduction to SOAP Web Services ###
+### Introduction to RESTful Web Services ###
+### SOAP vs RESTful Web Services ###
+
+## Restful Web Services with Spring Boot ##
+### Section Introduction - RESTful Web Services with Spring Boot ###
+### Step 01 - Initializing a RESTful Services Project with Spring Boot ###
+### Fastest Approach to Solve All Your Exceptions ###
+### Step 02 - Understanding the RESTful Services We Would Construct in this Course ###
+### Step 03 - Constructing a Hello World Service ###
+### Step 04 - Enhancing the Hello World Service to Return a Bean ###
+### Step 06 - Enhancing the Hello World Service with a Path Variable ###
+### Step 07 - Constructing User Bean and User Service ###
+### Step 08 - Implementing GET Methods for User Resource ###
+### Step 09 - Implementing POST Method to Construct User Resource ###
+### CODE BACKUP FILE: For Reference ###
+### Step 10 - Enhancing POST Method to Return Correct HTTP Status Code and Location ###
+### Step 11 - Implementing Exception Handling - 404 Resource Not Found ###
+### Step 12 - Implementing Generic Exception Handling for all Resources ###
+### Step 13 - Exercise: User Post Resource and Exception Handling ###
+### Step 14 - Implementing DELETE Method to Delete a User Resource ###
+### COURSE UPDATE: Add Dependency spring-boot-starter-validation ###
+### Step 15 - Implementing Validations for RESTful Services ###
+### COURSE UPDATE: HATEOAS Updates ###
+### Step 16 - Implementing HATEOAS for RESTful Services ###
+### Step 17 - 
+
 ### One Thing You Should Do ###
 ### Microservies and RESTful APIs with Spring Boot & Spring Cloud - Course Overview ###
 ### Microservices and RESTful APIs with Spring Boot & Spring Cloud - Git Repository ###
