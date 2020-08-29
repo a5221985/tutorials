@@ -232,9 +232,32 @@
 	1. Solution: Centralization
 		1. Put all config in Git
 		2. SpringCloudConfigServer takes the config and gives it to the specific us
+			1. If LimitsService wants config for dev env of it's service, it can be provided by SpringCloudConfigServer
+			2. If CurrencyCalculationService wants config for 3rd instance of it's service, SpringCloudConfigServer can provide it
+	2. It is centralized us configuration application
+		1. Git repo can be connected to SpringCloudConfigServer
+4. Example:
+	1. **limits-service-dev.properties**
+
+			limits-service.minimum=2
+			limits-service.maximum=222
+			
+	2. **limits-service-qa.properties**
+
+			limits-service.minimum=3
+			limits-service.maximum=5
+			
+	3. **limits-service.properties**
 
 ### IMPORTANT: SPRING BOOT AND SPRING CLOUD VERSIONS ###
+1. SNAPSHOT, M1, M2, M3, M4 are work in progress
+	1. Spring team is still working on them
+	2. Not recommended
+	3. Version recommended: 2.3.1+
+
 ### Step 01 - Part 2 - Setting up Limits Microservice ###
+1. 
+
 ### Step 02 - Creation of hard coded limits service ###
 ### Step 03 - Enhance limits service to get configuration from application properties ###
 ### Step 04 - Setting up Spring Cloud Config Server ###
