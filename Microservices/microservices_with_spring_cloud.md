@@ -217,7 +217,21 @@
 2. URLs (same page below ports)
 
 ### Step 00 - Part 1 - Intro to Limits Microservice and Spring Cloud Config Server ###
-1.
+1. Centralized application config or centralized us config
+	1. Example:
+		1. CurrencyCalculationService
+		2. CurrencyExchangeService
+		3. LimitsService
+	2. Example:
+		1. DB config
+		2. External service config
+		3. Business logic config
+		4. ...
+2. Example: Currency Exchange Service might have 4 environments
+3. Managing config individually for each application and each environment is a difficult task
+	1. Solution: Centralization
+		1. Put all config in Git
+		2. SpringCloudConfigServer takes the config and gives it to the specific us
 
 ### IMPORTANT: SPRING BOOT AND SPRING CLOUD VERSIONS ###
 ### Step 01 - Part 2 - Setting up Limits Microservice ###
