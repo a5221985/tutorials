@@ -256,7 +256,19 @@
 	3. Version recommended: 2.3.1+
 
 ### Step 01 - Part 2 - Setting up Limits Microservice ###
-1. 
+1. New project:
+	1. Newer version of Spring Boot
+	2. Group: com.in28minutes.microservices
+	3. Artifact: limits-service
+	4. Dependencies:
+		1. Web
+		2. DevTools
+		3. Actuator: Monitoring
+		4. Config Client: Spring-Cloud-Config-Client
+			1. To connect to spring-cloud-config-server
+	5. Generate project
+	6. Unzip and put it in folder
+	7. Import existing maven project in Eclipse
 
 ### Step 02 - Creation of hard coded limits service ###
 ### Step 03 - Enhance limits service to get configuration from application properties ###
