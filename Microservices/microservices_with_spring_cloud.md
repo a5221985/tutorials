@@ -307,9 +307,48 @@
 			
 			// Getters and setters
 		}
+		
+	1. Open: `localhost:8080/limits`
 
 ### Step 03 - Enhance limits service to get configuration from application properties ###
+1. application.properties
+
+		limits-service.minimum=99
+		limits-service.maximum=9999
+		
+2. Configuration properties: Configuration.java
+
+		@Component
+		@ConfigurationProperties("limits-service")
+		public class Configuration {
+			private int minimum;
+			private int maximum;
+			
+			// Getters and setters
+		}
+		
+3. LimitsConfigurationController.java
+
+		@Autowired
+		private Configuration configuration;
+		
+		...
+			return new LimitConfiguration(configuration.getMaximum(), configuration.getMinimum());
+		}
+
 ### Step 04 - Setting up Spring Cloud Config Server ###
+1. New Spring boot project
+2. group id: com.in28minutes.microservices
+3. artifact id: spring-cloud-config-server
+4. search: config server
+5. Remove web, ... and keep DevTools and config server
+6. Import it into eclipse
+7. Dependency: spring-cloud-config-server
+8. application.properties
+
+		spring.application.name=spring-cloud-config-server
+		server.port=8888
+
 ### Step 05 - Installing Git ###
 ### Step 06 - Creation of Local Git Repository ###
 ### Step 07 - Connect Spring Cloud Config Server to Local Git Repository ###
