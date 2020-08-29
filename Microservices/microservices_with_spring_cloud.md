@@ -269,7 +269,6 @@
 	5. Generate project
 	6. Unzip and put it in folder
 	7. Import existing maven project in Eclipse
-	
 
 ### Step 02 - Creation of hard coded limits service ###
 ### Step 03 - Enhance limits service to get configuration from application properties ###
