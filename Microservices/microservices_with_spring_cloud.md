@@ -350,7 +350,17 @@
 		server.port=8888
 
 ### Step 05 - Installing Git ###
+1. Install local git
+2. download git and install
+
 ### Step 06 - Creation of Local Git Repository ###
+1. Click Try Git link in Git home page
+	1. Type the commands and shows results
+2. Open terminal
+3. New directory: mkdir git-localconfig-repo
+4. `cd git-localconfig-repo`
+5. `git init`
+
 ### Step 07 - Connect Spring Cloud Config Server to Local Git Repository ###
 ### Step 08 - Configuration for Multiple Environments in Git Repository ###
 ### Step 09 - Connect Limits Service to Spring Cloud Config Server ###
