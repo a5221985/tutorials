@@ -269,8 +269,45 @@
 	5. Generate project
 	6. Unzip and put it in folder
 	7. Import existing maven project in Eclipse
+	8. Run the application
+		1. Right click run as Java Application
 
 ### Step 02 - Creation of hard coded limits service ###
+1. We want LimitsService to get config from SpringCloudConfigServer
+2. Open **application.properties**
+
+		spring.application.name=limits-service
+		
+3. New Controller: LimitsConfigurationController
+
+		@RestController
+		public class LimitsConfigurationController {
+		
+			@GetMapping("/limits")
+			public LimitConfiguration retrieveLimitsFromConfigurations() {
+				return new LimitConfiguration(1000, 1);			
+			}
+		}
+		
+4. `bean.LimitConfiguration.java`
+
+		public class LimitConfiguration {
+			int maximum;
+			int minimum;
+			
+			protected LimitConfiguration() {
+			
+			}
+			
+			public LimitConfiguration(int maximum, int minimum) {
+				super();
+				this.maximum = maximum;
+				this.minimum = minimum;
+			}
+			
+			// Getters and setters
+		}
+
 ### Step 03 - Enhance limits service to get configuration from application properties ###
 ### Step 04 - Setting up Spring Cloud Config Server ###
 ### Step 05 - Installing Git ###
