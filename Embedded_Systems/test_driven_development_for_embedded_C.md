@@ -40,3 +40,37 @@
 			1. If doesn't fail, the function is already declared
 		3. Make it pass
 			1. Just enough code to pass new and all prior tests
+		4. Refactoring is safe
+		5. Repeat until done
+			1. If we cannot think of any more tests, we are done
+9. TDD produces regression test suite
+10. TDD provides documentation for each behavior
+11. Make sure we test every line and branch...
+12. We do test and code in parallel
+	1. When all tests are written, the coding is done
+13. Small steps:
+	1. Mistakes are discovered quickly (it was introduced recently)
+	2. Previously defined tests might fail
+14. Example:
+	1. Circular buffer
+		1. Pointer to an array
+		2. List of tests:
+			1. Initially empty
+			2. Transition to empty
+			3. Transition to full
+			4. Transition from full
+			5. Put-Get FIFO
+			6. Put to full
+			7. Get from empty
+			8. Filled but not wrapped around
+			9. wrap around
+	2. We don't have to be exhaustive because, when we get into details, we can find tests that we didn't think of while we are brainstorming
+	3. Pattern:
+	
+			Start -> Choose a test -> Write the test - compilation error -> Make the test compile - Compilation error - back
+			- Link error -> Make the test link - Link error - back
+			Write the test - compiles cleanly -> Make the test pass
+			Make the test pass - Programming error - back
+			Make the test pass - All tests pass -> refactor (Make it right) - All tests pass -> Choose a test - No more tests -> Done
+			
+		1. Test harness: CPPUTEST TEST_GROUP
