@@ -46,4 +46,22 @@ Why Agile Software development works
 		3. Empirical process vs Defined process
 			1. Process
 				1. Input and controls -> process -> output
-					1. 
+					1. Cake: Take same amount of ingredients, cook for the same amount of time and we get the output
+			2. Impirical:
+				1. Inputs and controls -> process -> output
+					1. Output -> Inspect, adjust -> Inputs and controls
+						1. Shower: check with hand and decide
+				2. Chemical engineering
+					1. Dupont:
+						1. If we know the inputs, we need to use defined process
+						2. If we have unknowns, we need to use Impirical process
+							1. Unknowns: people
+								1. **We need to constantly inspect output and put it in feedback loop**
+						3. Use card-walls for feedback to the team (visibility to everybody not just project managers)
+							1. Everyone should understand what is going on
+						4. Knowing build system feedback
+							1. Working software is feedback and indicator of progress
+								1. Does it build well
+								2. What stage is it going through
+								3. If build breaks, everyone can tell
+									1. cc-board
