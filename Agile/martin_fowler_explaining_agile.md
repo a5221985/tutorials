@@ -41,3 +41,5 @@ Why Agile Software development works
 		2. Most effective way to communicate: Whiteboard
 			1. Paper or email will most likely fail
 				1. Cannot ship paper and expect to get perfectly useful software
+			2. **Individuals and interactions over processes and tools**
+			3. **Customer collaboration over contract negotiation**
