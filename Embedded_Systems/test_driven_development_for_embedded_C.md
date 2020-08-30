@@ -74,3 +74,27 @@
 			Make the test pass - All tests pass -> refactor (Make it right) - All tests pass -> Choose a test - No more tests -> Done
 			
 		1. Test harness: CPPUTEST TEST_GROUP
+
+				TEST_GROUP(CircularBuffer)
+				{
+					CircularBuffer *buffer;
+					
+					void setup()
+					{
+						buffer = CircularBuffer_Create();
+					}
+					
+					void teardown()
+					{
+						CircularBuffer_Destroy(buffer);
+					}
+				}
+				
+			1. `setup()` is called before each TEST. `Teardown()` is called after each test
+			2. For both C and C++
+		2. Test case:
+
+				TEST(CircularBuffer, empty_after_creation)
+				{
+					CHECK_TRUE(CircularBuffer_IsEmpty(buffer));
+				}
