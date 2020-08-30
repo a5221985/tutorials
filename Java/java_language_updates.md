@@ -33,3 +33,17 @@
 2. This makes code more readable and reduces amount of required boilerplate code
 
 #### Java Language Changes for Java SE 9 ####
+1. Module system
+	1. It is named self-describing collection of code and data
+	2. Code is organized as a set of packages containing
+		1. Types
+			1. Java classes
+			2. Java interfaces
+		2. Data
+			1. Resources
+			2. Static info
+2. Modules can export or encapsulate packages
+	1. They can express dependencies on other modules explicitly
+	2. [Project Jigsaw](http://openjdk.java.net/projects/jigsaw/)
+3. [More Concise try-with-resources Statements](https://docs.oracle.com/en/java/javase/14/language/try-resources.html#GUID-A920DB06-0FD1-4F9C-8A9A-15FC979D5DA3)
+4. [Small language Changes in Java SE 9](https://docs.oracle.com/en/java/javase/14/language/small-language-changes.html#GUID-16A5183A-DC0D-4A96-B9D8-AAC9671222DD)
