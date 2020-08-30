@@ -13,7 +13,23 @@
 3. [Switch Expressions](https://docs.oracle.com/en/java/javase/14/language/switch-expressions.html#GUID-BA4F63E3-4823-43C6-A5F3-BAA4A2EF3ADC)
 
 #### Java Language Changes for Java SE 13 ####
+1. Text blocks:
+	1. Multiline string literals that don't require common escape sequences
+2. `switch` expressions
+	1. `yeild` statement instead of `break`
+		1. [Switch expressions](http://www.oracle.com/pls/topic/lookup?ctx=javase13&id=JSLAN-GUID-BA4F63E3-4823-43C6-A5F3-BAA4A2EF3ADC#GUID-BA4F63E3-4823-43C6-A5F3-BAA4A2EF3ADC)
+
 #### Java Language Changes for Java SE 12 ####
+1. `switch` expressions
+2. `case` label that prevents fall through
+3. [Switch Expressions](http://www.oracle.com/pls/topic/lookup?ctx=javase12&id=JSLAN-GUID-BA4F63E3-4823-43C6-A5F3-BAA4A2EF3ADC)
+
 #### Java Language Changes for Java SE 11 ####
+1. `var` - identifier
+	1. [Local Variable Type Instance](https://docs.oracle.com/en/java/javase/14/language/local-variable-type-inference.html#GUID-D2C58FE6-1065-4B50-9326-57DD8EC358AC)
+
 #### Java Language Changes for Java SE 10 ####
+1. Inferring type of local variables from context
+2. This makes code more readable and reduces amount of required boilerplate code
+
 #### Java Language Changes for Java SE 9 ####
