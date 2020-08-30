@@ -20,3 +20,10 @@ Why Agile Software development works
 					2. Continuous integration
 					3. Refactoring
 					4. Simple design
+				3. The techniques enable it to happen
+					1. **Very important part of agile**
+						1. Must not take only the management stuff
+			3. "In past the man was first; in the future the system must be first" - Frederick Winslow Taylor
+				1. People were deciding what to do
+				2. Now people may define a process to follow and everyone else should confirm to that process
+					1. Process designers
