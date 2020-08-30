@@ -65,3 +65,17 @@ Why Agile Software development works
 								2. What stage is it going through
 								3. If build breaks, everyone can tell
 									1. cc-board
+										1. Green - successful
+										2. Dark green pulsing - currently building and last build succeeded
+										3. Red - last build failed
+										4. Dark red pulsing - currently building but last build failed
+						5. Testing:
+								1. Layering
+									1. Earlier in the cycle using fast tests like unit tests
+									2. Later in the cycle, using longer and forceful tests
+										1. End-to-end acceptance tests
+										2. Performance tests
+										3. ...
+						6. Pair programming (part of feedback loop) - only one part works at a time (kind of)
+							1. Person typing is more active with left brain (how)
+							2. Person navigating thinks more holistically (why)
