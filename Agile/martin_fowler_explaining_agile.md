@@ -43,3 +43,7 @@ Why Agile Software development works
 				1. Cannot ship paper and expect to get perfectly useful software
 			2. **Individuals and interactions over processes and tools**
 			3. **Customer collaboration over contract negotiation**
+		3. Empirical process vs Defined process
+			1. Process
+				1. Input and controls -> process -> output
+					1. 
