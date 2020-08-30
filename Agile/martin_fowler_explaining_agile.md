@@ -27,3 +27,17 @@ Why Agile Software development works
 				1. People were deciding what to do
 				2. Now people may define a process to follow and everyone else should confirm to that process
 					1. Process designers
+					2. Slot people into different components (traditional)
+			4. "In the title. [of this article] I refer to people as "components". That is how people are treated in the process/ methodology design literature. The mistake in this approach is that "people" are highly variable and non-linear, with unique success and failure modes. Those factors are first-order, not negligible factors. Failure of process and methodology disigners to account for them contributes to the sorts of unplanned project trajectories we so often see." - Alistair Cockburn: Characterizing People as Non-Linear First order components in Software Development
+				1. If people are more important than process then they decide the process
+					1. People come first and process comes next
+						1. "A bad process will beat a good person every time" - Edwards Deming (attr)
+	2. Agile:
+		1. Why does it work aspects:
+			1. Communication: it trumps technology
+				1. It is more important
+					1. Software usually fails due to people
+				2. We are highly social creatures
+		2. Most effective way to communicate: Whiteboard
+			1. Paper or email will most likely fail
+				1. Cannot ship paper and expect to get perfectly useful software
