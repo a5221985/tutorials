@@ -76,6 +76,14 @@ Why Agile Software development works
 										1. End-to-end acceptance tests
 										2. Performance tests
 										3. ...
-						6. Pair programming (part of feedback loop) - only one part works at a time (kind of)
+						6. Pair programming (part of feedback loop) - only one part works at a time (kind of) - so full brain works with pair programming
 							1. Person typing is more active with left brain (how)
 							2. Person navigating thinks more holistically (why)
+				3. "In software development, "perfect" is a verb, not an adjective" - Kent Beck - Extreme Programming Explained (2nd Ed)
+					1. It is not what we achieve but what we constantly try to achieve
+				4. Retrospectives:
+					1. How well is the development process working
+					2. What are the things we are doing well and what are the things we are struggling with, what are the things puzzling us
+					3. How do we change our software process in order to change these things
+					4. Team must own the software process
+						1. How to change it is a constant process
