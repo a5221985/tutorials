@@ -357,11 +357,28 @@
 1. Click Try Git link in Git home page
 	1. Type the commands and shows results
 2. Open terminal
-3. New directory: mkdir git-localconfig-repo
+3. New directory: `mkdir git-localconfig-repo`
 4. `cd git-localconfig-repo`
 5. `git init`
+6. **spring-cloud-config-server**
+	1. Right click
+	2. Build Path
+	3. Link Source
+	4. Browse to folder > spring-microservices > 03.microservices > git-localconfig-repo
+7. Right click on git-localconfig-repo
+	1. New > text file
+		1. limits-service.properties
+			
+				limits-service.minimum=8
+				limits-service.maximum=8888
+				
+			1. `git add -A`
+			2. `git commit -m "first commit"`
 
 ### Step 07 - Connect Spring Cloud Config Server to Local Git Repository ###
+1. Right click on `git-localconf-repo` - copy the location (local github repo)
+2. spring-cloud-config-server > application.properties
+
 ### Step 08 - Configuration for Multiple Environments in Git Repository ###
 ### Step 09 - Connect Limits Service to Spring Cloud Config Server ###
 ### Step 10 - Configuring Profiles for Limits Service ###
