@@ -460,10 +460,31 @@
 			1. Only at startup, the values are picked up so we need to restart limits-service
 
 ### Step 11 - A review of Spring Cloud Config Server ###
-1. 
+1. To connect another microservice
+	1. Define the configs and commit them to Git
+	2. Connect Currency Exchange Service to SpringCloudConfigServer
+2. All application config is in one place and it is secure
+	1. We have multiple instances of services to be deployed in cloud and it is convenient to put the config in Git
+3. Spring Cloud Bus
 
 ### Step 12 - Introduction to Currency Conversion and Currency Exchange Microservice ###
+1. CurrencyExchangeService
+	1. Uses JPA to talk to database and returns exchange value
+		1. **http://localhost:8000/currency-exchange/from/EUR/to/INR**
+2. CurrencyCalculationService
+	1. Uses CurrencyExchangeService to get exchange
+		1. **http://localhost:8100/currency-converter/from/USD/to/INR/quantity/1000**
+
+#### IMPORTANT: Spring Boot And Spring Cloud Versions ####
+1. SNAPSHOT, M1, M2, M3, M4 are work in progress
+	1. Spring team is still working on them
+		1. They are not recommended
+2. Use: 2.3.1+
+
 ### Step 13 - Setting up Currency Exchange Microservice ###
+1. REST Service for `currency-exchange`
+2. Conversion factor
+
 ### Step 14 - Creation of simple hard coded currency exchange service ###
 ### Step 15 - Setting up Dynamic Port in the Response ###
 ### Step 16 - Configure JPA and Initialized Data ###
