@@ -419,9 +419,37 @@
 				1. Properties are in order of priority
 					1. QA properties
 					2. Default properties
+2. Limits-service has logic to take the highest priority values automatically
 
 ### Step 09 - Connect Limits Service to Spring Cloud Config Server ###
+1. limits-service:
+	1. application.properties - default
+	2. To talk to spring-cloud-config-server and pick up the properties from it
+		1. Rename the file `application.properties` to:
+			1. `bootstrap.properties`
+			
+					spring.application.name=limits-service # very important to pick up values from Git local repo
+					spring.cloud.config.uri=http://localhost:8888 # connects to spring cloud config service
+					
+				1. Restart the limits-service
+					1. Picks up default profile
+		2. **http://localhost:8080/limits**
+			1. Shows properties values
+
+### Debugging Problems with Spring Cloud Config Server ###
+1. Debugging us problems can be difficult
+2. [Troubleshooting guide](https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ#debugging-problems-with-spring-cloud-config-server)
+	1. Use chrome browser
+
 ### Step 10 - Configuring Profiles for Limits Service ###
+1. Dev profile and QA profile
+	1. Config for limits-service is coming from Git repo
+		1. Advantage - config is separated from deployment of the service
+2. bootstrap.properties
+
+		...
+		spring.profiles.active=dev
+
 ### Step 11 - A review of Spring Cloud Config Server ###
 ### Step 12 - Introduction to Currency Conversion and Currency Exchange Microservice ###
 ### Step 13 - Setting up Currency Exchange Microservice ###
