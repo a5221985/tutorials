@@ -726,6 +726,8 @@
 					
 		2. New method:
 
+				@Autowired
+				private 
 				
 				@GetMapping("/currency-converter-feign/...")
 				public CurrencyConversionBean ... {
