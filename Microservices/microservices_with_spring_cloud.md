@@ -523,6 +523,8 @@
 			@Autowired
 			private Environment environment;
 		
+### Step 15 - Setting up Dynamic Port in the Response ###
+		
 			public ExchangeValue retrieveExchangeValue(...) {
 				ExchangeValue exchangeValue = new ExchangeValue(...);
 				exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port"));
@@ -531,10 +533,66 @@
 
 	1. For two instances to run we cannot set in application.properties
 	2. Right click on project > Run configurations
-		1. 
+		1. Duplicate config (right click and duplicate)
+			1. Arguments: `-Dserver.port=8001`
+				1. Apply
+			2. Open: `http://localhost:8001/currency-exchange/from/USD/to/INR`
+				1. We can now connect to any of them
 
-### Step 15 - Setting up Dynamic Port in the Response ###
 ### Step 16 - Configure JPA and Initialized Data ###
+1. Simple JPA connection to in memory database
+2. pom.xml
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+		
+	1. ExchangeValue
+
+			@Entity
+			...
+			
+				@Id
+				private Long id;
+				...
+				
+3. `src/main/resources/data.sql`
+
+		insert into exchange_value (id, from, to, conversion_multiple)
+		values (10001, 'USD', 'INR', 65);
+		insert into exchange_value (id, from, to, conversion_multiple)
+		values (10001, 'EUR', 'INR', 75);
+		insert into exchange_value (id, from, to, conversion_multiple)
+		values (10001, 'AUD', 'INR', 50);
+		
+	1. application.properties
+
+			spring.jpa.show-sql=true
+			spring.h2.console.enable=true
+			
+		1. Start application - error!!!
+			1. `from` is a keyword in SQL and cannot be used
+
+					@Column(name = "currency_from")
+					private String from;
+					
+					@Column(name = "currency_to")
+					private String to;
+					
+				1. Table:
+
+						insert into exchange_value (id, currency_from, currency_to, conversion_multiple)
+						values (10001, 'USD', 'INR', 65);
+						insert into exchange_value (id, from, to, conversion_multiple)
+						values (10001, 'EUR', 'INR', 75);
+						insert into exchange_value (id, from, to, conversion_multiple)
+						values (10001, 'AUD', 'INR', 50);
+
 ### Step 17 - Creation of JPA Repository ###
 ### Step 18 - Setting up Currency Conversion Microservice ###
 ### Step 19 - Creation of service for currency conversion ###
