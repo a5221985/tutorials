@@ -683,7 +683,54 @@
 	2. Start currency conversion service
 
 ### Step 21 - Using Feign REST Client for Service Invocation ###
-1. 
+1. To call REST service (we want code to be simpler than what was written)
+	1. Feign makes it easy to invoke other services
+	2. Feign provides integration with Ribbon - client side load balancer
+2. `pom.xml`
+
+		<dependencyManagement>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-dependencies</artifactId>
+					<version>${spring-cloud-version}</version>
+					<type>pom</type>
+					<scope>import</scope>
+				</dependency>
+			</dependencies>
+		</dependencyManagement>
+		...
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		
+	1. Enable feign:
+
+			@EnableFeignClients("com.in28minutes.microservices.currencyconversionservice")
+			@SpringBootApplication
+			public class CurrencyConversionServiceApplication {
+				public static void main(String[] args) {
+					...
+				}
+			}
+			
+		1. Feign proxy needs to be constructed
+			1. New interface: CurrencyExchangeServiceProxy.java
+
+					@FeignClient(name="currency-exchange-service", url="localhost:8000") // from application.properties
+					public interface CurrencyExchangeServiceProxy {
+						@GetMapping("/currency-exchange/from/{from}/to/{to}")
+						public CurrencyConversionBean retrieveExchangeValue(@PathVariable String from, @PathVariable String to);
+					}
+					
+		2. New method:
+
+				
+				@GetMapping("/currency-converter-feign/...")
+				public CurrencyConversionBean ... {
+					
+				}
 
 ### Step 22 - Setting up client side load balancing with Ribbon ###
 ### Step 23 - Running client side load balancing with Ribbon ###
