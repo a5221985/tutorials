@@ -448,9 +448,20 @@
 2. bootstrap.properties
 
 		...
-		spring.profiles.active=dev
+		spring.profiles.active=dev # picks up properties from limits-services-dev.properties
+		
+	1. Another way: VM args, Java application args
+	2. Open http://localhost:8080/limits
+		1. If we change the values, we must commit and only then they are picked up
+
+				git add *
+				git commit -m "removed configuration for maximum"
+				
+			1. Only at startup, the values are picked up so we need to restart limits-service
 
 ### Step 11 - A review of Spring Cloud Config Server ###
+1. 
+
 ### Step 12 - Introduction to Currency Conversion and Currency Exchange Microservice ###
 ### Step 13 - Setting up Currency Exchange Microservice ###
 ### Step 14 - Creation of simple hard coded currency exchange service ###
