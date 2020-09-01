@@ -586,15 +586,54 @@
 					
 				1. Table:
 
-						insert into exchange_value (id, currency_from, currency_to, conversion_multiple)
-						values (10001, 'USD', 'INR', 65);
-						insert into exchange_value (id, from, to, conversion_multiple)
-						values (10001, 'EUR', 'INR', 75);
-						insert into exchange_value (id, from, to, conversion_multiple)
-						values (10001, 'AUD', 'INR', 50);
+						insert into exchange_value (id, currency_from, currency_to, conversion_multiple, port)
+						values (10001, 'USD', 'INR', 65, 0);
+						insert into exchange_value (id, currency_from, currency_to, conversion_multiple, port)
+						values (10001, 'EUR', 'INR', 75, 0);
+						insert into exchange_value (id, currency_from, currency_to, conversion_multiple, port)
+						values (10001, 'AUD', 'INR', 50, 0);
+						
+					1. localhost:8000/h2-console
+
+							SELECT * FROM EXCHANGE_VALUE;
 
 ### Step 17 - Creation of JPA Repository ###
+1. ExchangeValueRepository.java
+
+		public interface ExchangeValueRepository extends JpaRepository<ExchangeValue, Long> {
+			ExchangeValue findByFromAndTo(String from, String to);
+		}
+		
+2. CurrencyExchangeService
+
+		@Autowired
+		private ExchangeValueRepository repository;
+		
+		...
+		ExchangeValue exchangeValue = repository.findByFromAndTo(from, to);
+		...
+		return exchangeValue;
+		
+	1. Check id: 10001
+	2. Query is shown on Console
+		
+
 ### Step 18 - Setting up Currency Conversion Microservice ###
+1. New microservice:
+	1. `com.in28minutes.microservices`
+	2. `currency-conversion-service`
+	3. Dependencies
+		1. Web
+		2. DevTools
+		3. Actuator
+		4. Config Client
+	3. Generate project
+	4. Import to Eclipse
+2. `src/main/resources/application.properties`
+
+		spring.application.name=currency-conversion-service
+		server.port=8100
+
 ### Step 19 - Creation of service for currency conversion ###
 ### Step 20 - Invoking Currency Exchange Microservice from Currency Conversion Micro ###
 ### Step 21 - Using Feign REST Client for Service Invocation ###
