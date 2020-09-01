@@ -379,6 +379,8 @@
 1. Right click on `git-localconf-repo` - copy the location (local github repo)
 2. spring-cloud-config-server > application.properties
 
+		spring.cloud.config.server.git.uri=file:///<location-of-local-git-repo> # can also give internet address as well
+
 ### Step 08 - Configuration for Multiple Environments in Git Repository ###
 ### Step 09 - Connect Limits Service to Spring Cloud Config Server ###
 ### Step 10 - Configuring Profiles for Limits Service ###
