@@ -642,7 +642,7 @@
 		public class CurrencyConversionController {
 			@GetMapping("/currency-converter/from/{from}/to/{to}/quantity/{quantity}")
 			public CurrencyConversionBean convertCurrency(@PathVariable String from, @PathVariable String to, @PathVariable BigDecial quantity) {
-				
+				return new CurrencyConversionBean(1L, from, to, BigDecimal.ONE, quantity, quantity, 0);
 			}
 		}
 		
@@ -661,9 +661,30 @@
 				//Generate constructor using fields
 				//Generate getters and setters
 			}
+			
+		1. Start the application
 
 ### Step 20 - Invoking Currency Exchange Microservice from Currency Conversion Micro ###
+1. Using RestTemplate
+
+		public class CurrencyConversionController {
+			...
+			Map<String, String> uriVariables = new HashMap<>();
+			uriVariables.put("from", from);
+			uriVariables.put("to", to);
+			
+			ResponseEntity<CurrencyConversionBean> responseEntity = new RestTemplate().getForEntity("http://localhost:8000/currency-exchange/from/{from}/to/{to}", CurrencyConversionBean.class, uriVariables);
+			CurrencyConversionBean response = responseEntity.getBody();
+			
+			return new CurrencyConversionBean(response.getId(), from, to, response.getConversionMultipl(), quantity, quantity.mutlipy(response.getConversionMultiple()), response.getPort());
+		}
+		
+	1. Start currency exchange service
+	2. Start currency conversion service
+
 ### Step 21 - Using Feign REST Client for Service Invocation ###
+1. 
+
 ### Step 22 - Setting up client side load balancing with Ribbon ###
 ### Step 23 - Running client side load balancing with Ribbon ###
 ### Step 24 - Understand the need for a Naming Server ###
