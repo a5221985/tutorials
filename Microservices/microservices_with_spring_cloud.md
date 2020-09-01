@@ -484,8 +484,55 @@
 ### Step 13 - Setting up Currency Exchange Microservice ###
 1. REST Service for `currency-exchange`
 2. Conversion factor
+3. Controller: CurrencyExchangeController.java
+
+		@RestController
+		public class CurrencyExchangeController {
+			
+			@GetMapping("/currency-exchange/from/{from}/to/{to}")
+			public ExchangeValue retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
+				return new ExchangeValue(1000L, from, to, BigDecimal.valueOf(65));
+			}
+		}
+		
+	1. cmd+1
+		1. ExchangeValue.java
+
+				public class ExchangeValue {
+					private Long id;
+					private String from;
+					private String to;
+					private BigDecimal conversionMultiple;
+					
+					// Generate no args constructor
+					// Generate constructor using fields
+					// Generate getters and setters
+				}
 
 ### Step 14 - Creation of simple hard coded currency exchange service ###
+1. CurrencyCalculationService can talk to any of multiple CurrencyExchangeService instances (port is distinguishing here) - typically not a good practice
+2. ExchangeValue.java
+
+		private int port;
+		...
+		// Generate getter and setter for port
+		
+		
+		public class CurrencyExchangeController {
+		
+			@Autowired
+			private Environment environment;
+		
+			public ExchangeValue retrieveExchangeValue(...) {
+				ExchangeValue exchangeValue = new ExchangeValue(...);
+				exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port"));
+				return exchangeValue;
+			}
+
+	1. For two instances to run we cannot set in application.properties
+	2. Right click on project > Run configurations
+		1. 
+
 ### Step 15 - Setting up Dynamic Port in the Response ###
 ### Step 16 - Configure JPA and Initialized Data ###
 ### Step 17 - Creation of JPA Repository ###
