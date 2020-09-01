@@ -380,8 +380,46 @@
 2. spring-cloud-config-server > application.properties
 
 		spring.cloud.config.server.git.uri=file:///<location-of-local-git-repo> # can also give internet address as well
+		
+3. URL: http://localhost:8888/limits-service/default
+	1. Error page:
+		1. Need to enable Spring Cloud Config Server
+
+				@EnableConfigServer // Important!!!
+				@SpringBootApplication
+				...
+				
+			1. Property values get retrieved
+				1. Path also
+		2. SpringCloudConfigServer is connected to Git
+		3. SpringCloudConfigServer has config of LimitsService
+	2. We can store config for other services and for multiple environments
 
 ### Step 08 - Configuration for Multiple Environments in Git Repository ###
+1. DEV, QA, STAGE, PROD environments
+	1. `limits-service.properties` - default config
+	2. `limits-service-dev.properties` - for dev env
+
+			limits-service.minimum=1
+			limits-service.maximum=111
+	
+	3. `limits-service-qa.properties`
+
+			limits-service.minimum=2
+			#limits-service.maximum=222 # - picked up from default file
+		
+	4. Commit the files: Allways
+		1. Local repository - only then they will be available to SpringCloudConfigServer
+
+				git add -A
+				git status
+				git commit -m "Dev and QA properties"
+				
+			1. **http://localhost:8888/limits-service/qa**
+				1. Properties are in order of priority
+					1. QA properties
+					2. Default properties
+
 ### Step 09 - Connect Limits Service to Spring Cloud Config Server ###
 ### Step 10 - Configuring Profiles for Limits Service ###
 ### Step 11 - A review of Spring Cloud Config Server ###
