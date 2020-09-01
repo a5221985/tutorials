@@ -635,6 +635,33 @@
 		server.port=8100
 
 ### Step 19 - Creation of service for currency conversion ###
+1. http://localhost:8100/currency-converter/from/USD/to/INR/quantity/1000
+2. CurrencyConversionController.java
+
+		@RestController
+		public class CurrencyConversionController {
+			@GetMapping("/currency-converter/from/{from}/to/{to}/quantity/{quantity}")
+			public CurrencyConversionBean convertCurrency(@PathVariable String from, @PathVariable String to, @PathVariable BigDecial quantity) {
+				
+			}
+		}
+		
+	1. CurrencyConversionBean
+
+			CurrencyConversionBean {
+				private Long id;
+				private String from;
+				private String to;
+				private BigDecimal conversionMultiple;
+				private BigDecimal quantity;
+				private totalCalculatedAmount;
+				private int port;
+				
+				//Generate no arg constructor
+				//Generate constructor using fields
+				//Generate getters and setters
+			}
+
 ### Step 20 - Invoking Currency Exchange Microservice from Currency Conversion Micro ###
 ### Step 21 - Using Feign REST Client for Service Invocation ###
 ### Step 22 - Setting up client side load balancing with Ribbon ###
