@@ -16,3 +16,13 @@
 4. TDD - Test harness separates code from hardware
 	1. First get the code working without the hardware
 	2. Then test the code with the hardware
+5. TDD related to code analysis?
+	1. Orthogonality there
+		1. Pair programming is good for TDD
+			1. We find problems much quicker
+	2. TDD is dynamic analysis
+		1. What does code do?
+	3. Static analysis solves a different problem
+		1. Gives warnings to developers who are violating good practices or unsafe code
+	4. We need both
+		1. All of those things are important for good quality code 
