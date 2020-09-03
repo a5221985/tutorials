@@ -29,3 +29,5 @@
 6. TDD path:
 	1. Problems it helps with:
 		1. Defect prevention - demonstrate the technique
+		2. There are other benefits
+	2. Show what problems it is solving
