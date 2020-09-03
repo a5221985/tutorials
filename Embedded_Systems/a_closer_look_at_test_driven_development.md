@@ -25,4 +25,7 @@
 	3. Static analysis solves a different problem
 		1. Gives warnings to developers who are violating good practices or unsafe code
 	4. We need both
-		1. All of those things are important for good quality code 
+		1. All of those things are important for good quality code
+6. TDD path:
+	1. Problems it helps with:
+		1. Defect prevention - demonstrate the technique
