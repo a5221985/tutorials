@@ -11,7 +11,17 @@
 ### Rooting a Tree ###
 ### Finding Tree Center(s) ###
 ### Identifying Isomorphic Trees ###
-1. 
+1. Equality
+2. Graph isomorphism:
+	1. The question of asking whether two graphs G1 and G2 are isomorphic is asking whether they are structurally the same.
+	2. Even though G1 and G2 are labelled differently and may appear different they are structurally the same graph.
+	3. We can also define the notion of a graph isomorphism more rigorously:
+
+			G1(V1, E1) and G2(V2, E2) are isomorphic if there exists a bijection phi between the sets V1 -> V2 such that:
+			
+			for all u, v in V1, (u, v) in E1 <=> (phi(u), phi(v)) in E2
+			
+		1. In simple terms, for an isomorphism to exist there needs to be a function phi which can map all the nodes/ edges in G1 to G2 and vice-versa
 
 ### Identifying Isomorphic Trees Source Code ###
 
