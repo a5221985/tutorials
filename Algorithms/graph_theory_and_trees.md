@@ -22,6 +22,8 @@
 			for all u, v in V1, (u, v) in E1 <=> (phi(u), phi(v)) in E2
 			
 		1. In simple terms, for an isomorphism to exist there needs to be a function phi which can map all the nodes/ edges in G1 to G2 and vice-versa
+		2. Determining if two graphs are isomorphic is not only not obious to the human eye, but also a difficult problem for computers.
+		3. It is still an open question as to whether the graph isomorphism problem is NP complete. However, many polynomial time isomorphism algorithms exist for graph subclasses such as trees.
 
 ### Identifying Isomorphic Trees Source Code ###
 
