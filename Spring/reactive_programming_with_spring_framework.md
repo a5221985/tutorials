@@ -266,14 +266,49 @@
 			@Test
 			public void fluxTestFilter() throws Exception {
 				Flux<Person> people = Flux.just(micheal, fiona, sam, jessie);
+				people.filter(person -> person.getFirstName().equals(fiona.getFirstName()))
+							.subscribe(person -> log.info(person.sayMyName()));
+			}
+			
+			@Test
+			public void fluxTestDelayNoOutput() throws Exception {
+				Flux<Person> people = Flux.just(micheal, fiona, sam, jessie);
+				people.delayElements(Duration.ofSeconds(1))
+						.subscribe(person -> log.info(person.sayMyName())); // emits every second but test terminates before that
+			}
+			
+			@Test
+			public void fluxTestDelay() throws Exception {
+				CountDownLatch countDownLatch = new CountDownLatch(1);
 				
+				Flux<Person> people = Flux.just(micheal, fiona, sam, jessie);
+				people.delayElements(Duration.ofSeconds(1))
+						.doOnComplete(countDownLatch::countDown)
+						.subscribe(person -> log.info(person.sayMyName())); // emits every second but test terminates before that
+				countDownLatch.await(); // waits here because countDown value is 1 but when it becomes 0, it passes through
+			}
+			
+			@Test
+			public void fluxTestFilterDelay() throws Exception {
+				CountDownLatch countDownLatch = new CountDownLatch(1);
+				
+				Flux<Person> people = Flux.just(micheal, fiona, sam, jessie);
+				people.delayElements(Duration.ofSeconds(1))
+						.filter(person -> person.getFirstName().contains("i"))
+						.doOnComplete(countDownLatch::countDown)
+						.subscribe(person -> log.info(person.sayMyName())); // emits every second but test terminates before that
+				countDownLatch.await();
 			}
 		}
 
 ### Conclusion ###
+1. Reactive deals with streams of data
+2. Future is passed on and all logic is triggered at once
 
 ## Section 3: Netflux Example Spring Reactive Application ##
 ### Introduction ###
+1. 
+
 ### Create a New Spring Boot Project ###
 ### Create Domain Model ###
 ### Creating Spring Data Reactive Repositories ###
