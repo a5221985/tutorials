@@ -307,9 +307,14 @@
 
 ## Section 3: Netflux Example Spring Reactive Application ##
 ### Introduction ###
-1. 
+1. Netflux example
+2. MongoDB and reactive driver with mongodb
+3. Return movies from Netflux
+4. Josh's presentation is good
 
 ### Create a New Spring Boot Project ###
+1. New Project - Spring Boot Initializer
+
 ### Create Domain Model ###
 ### Creating Spring Data Reactive Repositories ###
 ### Initializing Data With Spring Boot Command Line Runner ###
