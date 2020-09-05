@@ -111,6 +111,27 @@
 		2. JMS messages, RESTful service calls, Twitter feed, Stock trades, list of data from a database
 	4. A stream is a sequence of events ordered in time
 	5. Events you want to listen to
+5. Asynchronous
+	1. Events are captured asynchronously
+	2. A function is defined to execute when an event is emitted
+	3. Another function is defined if an error event is emitted
+	4. Another function is defined when complete event is emitted
+6. GoF Observer Pattern
+	1. Subject
+		1. It changes and notifies obeservers
+	2. Observer
+		1. Takes action
+7. ReactiveX Observable
+	1. If for some reason observable terminates abnormally, with an error, the vertical line is replaced by an X
+8. Non-Blocking
+	1. The concept of using non-blocking is important
+	2. In blocking, the code will stop and wait for more data (ie reading from disk, network, etc)
+	3. Non-blocking in contrast, will process available data, ask to be notified when more is available, then continue
+		1. Thread goeas on to something else
+9. Example:
+	1. JSON parsing blocks
+	2. Database takes time
+10. 
 
 ### Reactive Streams ###
 ### Reactive Programming Examples with Spring ###
