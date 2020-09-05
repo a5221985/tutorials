@@ -131,9 +131,26 @@
 9. Example:
 	1. JSON parsing blocks
 	2. Database takes time
-10. 
+10. Back pressure
+	1. The ability of subscriber to throttle data
+		1. Give 10 records or 1000 records ...
+			1. It allows communication between subscriber and publisher
+				1. If client is getting overwhelmed, we want to back it down
+11. Failures as Messages
+	1. Exceptions are not thrown in a traditional sense
+		1. Would break processing of stream
+	2. Exceptions are processed by a handler function
+		1. Handled gracefully
+12. Key take aways
+	1. Reactive programming focuses on processing streams of data (don't overuse this)
+	2. Traditional CRUD applications are still alive and well
 
 ### Reactive Streams ###
+1. Reactive Streams API
+	1. Goal is to construct a standard for asynchronous stream processing with non-blocking back pressure
+	2. Reactive Streams started in 2013 by engineers from Netflix, Pivotal, Lightbend (formerly Typesafe), Red Hat, Twitter, and Oracle
+	3. Reactive Streams is a set of 4 interfaces which defines the API
+
 ### Reactive Programming Examples with Spring ###
 ### Conclusion ###
 
