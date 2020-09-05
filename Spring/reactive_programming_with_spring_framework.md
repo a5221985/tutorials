@@ -68,11 +68,28 @@
 	4. Message Driven
 		1. Reactive systems rely on asynchronous message passing to establish a boundary between components
 			1. This ensures loose coupling, isolation, and location transparency
-		2. Message passing enables load management, elasticity, and flow control
-		3. Location transparent messaging makes management of failures possible
+		2. Message passing enables load management, elasticity, and flow control - distributed systems say (JMS, webservice call, ...)
+		3. Location transparent messaging makes management of failures possible - not concerned about specific servers
 		4. Non-blocking communication allows recipients to only consume resources while active, leading to less system overhead
+5. Spring cloud native
+	1. Netflix|OSS + Spring Boot + Docker
+		1. Kubernetes
+		2. Docker swarm
+		3. Zuul
+		4. Eureka
+	2. When a microservice starts, it registers iteself with jHipster registry and gets its config from Spring Cloud Config and registers itself with Eureka
+		1. Zuul proxy can route to microservice
+		2. If microservice goes down, another one comes and registers
+	3. Logstash and Kibana
+		1. Collection of logs from multiple nodes
+6. Reactive programming with reactive systems
+	1. Reactive programming is a useful implementation technique
+	2. Reactive programming focuses on non-blocking, asynchronous execution - a key characteristic of reactive systems
+	3. Reactive programming is just one tool in building reactive systems
 
 ### What is Reactive Programming? ###
+1. 
+
 ### Reactive Streams ###
 ### Reactive Programming Examples with Spring ###
 ### Conclusion ###
