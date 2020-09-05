@@ -9,9 +9,45 @@
 5. Templates
 6. Standard template library
 7. New features
-	1. 
+	1. Rvalue References
+	2. Move Semantics
+	3. Non-static data member initializers
+	4. Initializer lists
+	5. Delegating constructors
+	6. Automatic type inference
+	7. Null pointer constant
+	8. Range-base for
+	9. Raw string literals
+	10. nullptr
+	11. Lambda expressions
+	12. Concurrency
+	13. Variadic templates
+	14. Type aliases
+	15. Strongly-typed enums
+	16. Deleted functions
+	17. Explicit virtual overrides
+8. Debuggin in disassembly
+9. C++ with modern C++
 
 ### Required Software ###
+1. Compilers
+2. Visual Studio 2015/2017/2019 community edition
+3. Windows:
+	1. Visual Studio 2015/2017/2019
+	2. Code:Blocks - requires a separate compiler
+	3. Cevelop - requires a separate compiler
+	4. Eclipse CDT - requires a separate compiler (same as Cevelop)
+	5. MinGW
+4. Linux (Ubuntu, CentOS, etc)
+	1. GNU C++ Compiler
+		1. `sudo apt-get install g++`
+	2. Cevelop
+	3. Eclipse CDT (same as Cevelop)
+5. MacOS
+	1. XCode [Appstore]
+	2. Cevelop
+	3. Eclipse CDT (same as Cevelop)
+
 ### Visual Studio 2015 Installation ###
 ### Visual Studio 2017 Installation ###
 ### Code::Blocks Installation ###
