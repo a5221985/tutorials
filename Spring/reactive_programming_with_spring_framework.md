@@ -219,7 +219,20 @@
 			}
 		}
 		
-		
+		@Sl4j
+		public class ReactiveExamplesTest {
+			@Test
+			public void monoTest() throws Exception {
+				//Create new person mono
+				Mono<Person> personMono = Mono.just(michael); // mono object from given object
+				
+				// get person object from mono publisher
+				Person person = personMono.block(); // returns the actual object
+				
+				// output name
+				log.info(person.sayMyName());
+			}
+		}
 
 ### Conclusion ###
 
