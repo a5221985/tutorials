@@ -148,8 +148,35 @@
 ### Reactive Streams ###
 1. Reactive Streams API
 	1. Goal is to construct a standard for asynchronous stream processing with non-blocking back pressure
-	2. Reactive Streams started in 2013 by engineers from Netflix, Pivotal, Lightbend (formerly Typesafe), Red Hat, Twitter, and Oracle
+	2. Reactive Streams started in 2013 by engineers from Netflix, Pivotal, Lightbend (formerly Typesafe - Rod Johnson - founder of Spring has worked in board of directors, Lightbend supports Scala), Red Hat, Twitter, and Oracle
 	3. Reactive Streams is a set of 4 interfaces which defines the API
+2. Reactive streams
+	1. Under JEP-266 - Reactive streams is now part of Java 8 JDK
+	2. Adoption: Akka streams, MongoDB, Ratpack, Reactive Rabbit, Project Reactor (Spring 5), RxJava (Netflix), Slick 3.0, Vert.x 3.0, Cassandra, ElasticSearch, Kafka, Play
+3. Interfaces
+	1. Publisher
+		1. Unbounded number of elements
+	2. Subscriber
+		1. Consumes from publisher
+	3. Subscription
+		1. Request, cancel
+	4. Processor
+4. Reactive strams with backpressure
+	1. Demand (BP)
+	2. Subscription <-> Subscriber
+	3. Subscription <-> Publisher
+	4. Publisher <-Events-> Subscriber
+		1. Publisher publishes events which are consumed by subscriber
+		2. Subscription is used by subscriber to give feedback on demand (back pressure)
+5. Spring MVC and Spring WebFlux
+	1. `@Controller`/ `@RequestMapping`
+	2. spring-webmvc
+	3. Router functions
+	4. spring-webflux
+	5. Servlet API - traditional is not reactive
+	6. HTTP/ Reactive Streams
+	7. Servlet Container
+	8. Tomcat, Jetty, Netty, Undertow
 
 ### Reactive Programming Examples with Spring ###
 ### Conclusion ###
