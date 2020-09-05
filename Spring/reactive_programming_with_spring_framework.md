@@ -18,9 +18,12 @@
 
 ### Code Examples in GitHub ###
 1. Beginning and ending source code
+2. Right click and commit directory
 
 ## Section 2: Introduction to Reactive Programming ##
 ### Introduction ###
+1. 
+
 ### Reactive Manifesto ###
 ### What is Reactive Programming? ###
 ### Reactive Streams ###
