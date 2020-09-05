@@ -232,6 +232,42 @@
 				// output name
 				log.info(person.sayMyName());
 			}
+			
+			@Test
+			public void monoTransform() throws Exception {
+				// Construct new person mono
+				Mono<Person> personMono = Mono.just(fioma);
+				
+				PersonCommand command = personMono.map(person -> { // type transformation
+					return new PersonCommand(person);
+				}).block(); // block doesn't execute unless somthing blocks on it
+				
+				log.info(command.sayMyName());
+			}
+			
+			@Test(expected = NullPointerException.class)
+			public void monoFilter() throws Exception {
+				Mono<Person> personMono = Mono.just(sam);
+				
+				// filter example
+				Person samAxe = personMono
+									.filter(person -> person.getFirstName().equalsIgnoreCase("foo"))
+									.block();
+									
+				log.info(samAxe.sayMyName()); // throws NPE
+			}
+			
+			@Test
+			public void fluxTest() throws Exception {
+				Flux<Person> people = Flux.just(michael, fiona, sam, jessie); // 0 or many
+				people.subscribe(person -> log.info(person.sayMyName());
+			}
+			
+			@Test
+			public void fluxTestFilter() throws Exception {
+				Flux<Person> people = Flux.just(micheal, fiona, sam, jessie);
+				
+			}
 		}
 
 ### Conclusion ###
