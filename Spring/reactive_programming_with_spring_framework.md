@@ -22,9 +22,39 @@
 
 ## Section 2: Introduction to Reactive Programming ##
 ### Introduction ###
-1. 
+1. What is reactive programming
+2. Common terminologies
+3. New paradigm but old concepts
 
 ### Reactive Manifesto ###
+1. Published in 2013
+2. Available at [www.reactivemanifesto.org](www.reactivemanifesto.org)
+3. Authors: Jonas Boner (Akka founder), Dave Farley, Roland Kuhn, and Martin Thompson
+	1. For big scale systems
+4. The term "Reactive" is getting a bit overloaded in the IT community
+5. Reactive:
+	1. Reactive systems - architecture and design pattern (arch level)
+		1. ie. Cloud native
+		2. Cloud based apps
+		3. Large scale self healing
+		4. Amazon
+	2. Rective programming - more granular (code level)
+		1. Generally event based
+		2. Async non-blocking programming technique
+		3. Even can be within reactive system
+	3. Functional Reactive Programming (FRP)
+		1. Often confused with Reactive Programming
+6. Reactive Manifesto
+	1. Responsive
+		1. The system responds in a timely manner
+		2. Responsiveness is the cornerstone of usability and utility (cornerstone for building - first stone)
+		3. Responsiveness also means problems may be detected quickly and dealt with effectively - self healing
+		4. Responsive systems provide rapid and consistent response times
+		5. Consistent behaviour simplifies error handling, builds end user confidence, and encourages further interaction - bad connection cannot keep it consistent 
+	2. Elastic
+	3. Resilient
+	4. Message Driven
+
 ### What is Reactive Programming? ###
 ### Reactive Streams ###
 ### Reactive Programming Examples with Spring ###
