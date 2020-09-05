@@ -176,9 +176,51 @@
 	5. Servlet API - traditional is not reactive
 	6. HTTP/ Reactive Streams
 	7. Servlet Container
-	8. Tomcat, Jetty, Netty, Undertow
+	8. Tomcat, Jetty, Netty, Undertow - reactive implementations
+		1. Netty is robust
+		2. Tomcat is simpler and widely used
+6. Spring Reactive Types
+	1. Two new reactive types are introduced with Spring Framework 5
+	2. 'Mono' is a publisher with zero or one elements in data stream
+	3. 'Flux' is a publisher with zero or MANY eleemnts in the data stream
+	4. Both types implement the Reactive Streams Publisher interface
+7. Inside spring we can probably work with many publishers
+8. We can leverage the reactive types when using controllers
 
 ### Reactive Programming Examples with Spring ###
+1. Example:
+
+		@Data
+		@NoArgsConstructor
+		@AllArgsConstructor
+		public class Person {
+			private String firstName;
+			private String lastName;
+			
+			public String sayMyName() {
+				return "My Name is " + firstName + " " + lastName + ".";
+			}
+		}
+		
+		@Data
+		@NoArgsConstructor
+		@AllArgsConstructor
+		public class PersonCommand {
+			public PersonCommand(Person person) {
+				this.firstName = person.getFirstName();
+				this.lastName = person.getLastName();
+			}
+			
+			private String firstName;
+			private String lastName;
+			
+			public String sayMyName() {
+				return "My Name is " + firstName + " " + lastName + ".";	
+			}
+		}
+		
+		
+
 ### Conclusion ###
 
 ## Section 3: Netflux Example Spring Reactive Application ##
