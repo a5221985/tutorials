@@ -52,8 +52,25 @@
 		4. Responsive systems provide rapid and consistent response times
 		5. Consistent behaviour simplifies error handling, builds end user confidence, and encourages further interaction - bad connection cannot keep it consistent 
 	2. Elastic
+		1. The system stays responsive under varying workload
+		2. Reactive systems can react to changes in the input rate by increasing or decreasing resources allocated to service inputs
+		3. Reactive systems achieve elasticity in a cost effective way on commodity hardware and software platforms
+		4. Example: amazon.com
+			1. Cheaper servers are used
+			2. Kubernetes automatically scales up and down
 	3. Resilient
+		1. System stays responsive in the face of failure
+		2. Resilience is achieved by replication, containment, isolation, and delegation
+		3. Failures are contained within each component - single part should not take down entire system
+		4. Parts of the system can fail, without compromising the system as a whole
+		5. Recovery of each component is delegated to another - redundancy
+		6. High-availability is ensured by replication where necessary - microservices load balancing say, rabitmq
 	4. Message Driven
+		1. Reactive systems rely on asynchronous message passing to establish a boundary between components
+			1. This ensures loose coupling, isolation, and location transparency
+		2. Message passing enables load management, elasticity, and flow control
+		3. Location transparent messaging makes management of failures possible
+		4. Non-blocking communication allows recipients to only consume resources while active, leading to less system overhead
 
 ### What is Reactive Programming? ###
 ### Reactive Streams ###
