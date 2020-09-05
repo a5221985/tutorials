@@ -88,7 +88,29 @@
 	3. Reactive programming is just one tool in building reactive systems
 
 ### What is Reactive Programming? ###
-1. 
+1. Reactive programming
+	1. Reactive programming is an asynchronous programming paradigm focused on streams of data
+	2. "Reactive programs also maintain a continuous interaction with their environment, but at a speed which is determined by the environment, not the program itself. Interactive programs work at their own pace and mostly deal with communication, while reactive programs only work in response to external demands and mostly deal with accurate interrupt handling. Real-time programs are usually reactive" - Gerad Berry, French Computer Scientist
+		1. Mainly processing events or stream of events
+2. Common use cases
+	1. External service calls
+	2. Highly concurrent message consumers - batch processing can be done - batch of data (efficency)
+	3. Spreadsheets
+	4. Abstraction over asynchronous processing
+		1. Abstract whether or not your program is synchronous or asynchronous - programmer is usually kept away from details
+3. Features of Reactive Programming
+	1. Data streams
+	2. Asynchronous
+	3. Non-blocking
+	4. Backpressure
+	5. Failures as Messages
+4. Data streams
+	1. Data streams can be just about anything
+	2. Types of messages
+		1. Mouse clicks, or other user interactions
+		2. JMS messages, RESTful service calls, Twitter feed, Stock trades, list of data from a database
+	4. A stream is a sequence of events ordered in time
+	5. Events you want to listen to
 
 ### Reactive Streams ###
 ### Reactive Programming Examples with Spring ###
