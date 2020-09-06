@@ -605,8 +605,25 @@
 	2. Functional style languages will encourage immutability
 	3. BUT immutability is not strictly enforced
 		1. Java is a Functianal Style Language
+			1. It is not 100%
+12. Functions
+	1. Can be passed objects
+	2. Can construct object
+	3. Can return objects
+13. Higher Order Functions
+	1. Can be passed objects and functions
+	2. Can construct objects and functions
+	3. Can return objects and functions
+	4. Java supports higher order functions
 
 ### Functional Programming Examples ###
+1. Example:
+	1. 4 properties of a function
+		1. name
+		2. return type
+		3. parameter list
+		4. body
+
 ### Closures, Effectively Final and Lazy Evaluation ###
 ### Conclusion ###
 
