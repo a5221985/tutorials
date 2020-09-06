@@ -1064,10 +1064,21 @@
 			dogs.reduce((a, b) -> a + " - " + b).subscribe(System.out::println);
 
 ### Conclusion ###
-1. 
+1. With streams, we need to ask for output (in some way) to get the results
+	1. `subscribe` - reactive
 
 ## Section 6: Spring WebFlux Quote Service ##
 ### Introduction to Spring WebFlux ###
+1. Class - for stock quotes
+2. 10 stock quotes
+3. Prices on quotes
+4. Timestamp
+5. Stream of quotes - coming out of it
+6. Spring WebFlux
+7. Endpoints
+	1. x stock quotes
+	2. Stream of stock quotes for ever
+
 ### Initial Spring Boot Project Creation ###
 ### Quote Object ###
 ### Quote Generator Service ###
