@@ -722,11 +722,56 @@
 			System.out.println(dogs.stream()
 									.filter(dog -> dog.length() == 6)
 									.collect(Collectors.toList())
-									.size(); // nothing is mutating
+									.size()); // nothing is mutating
 		}
 		
 
 ### Closures, Effectively Final and Lazy Evaluation ###
+1. Example:
+
+		@Test
+		public void lambdaExample() throws Exception {
+			List<String> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+			
+			numbers.stream()
+					.map(number -> number * 2)
+					.forEach(System.out::println);
+		}
+		
+		@Test
+		public void closureExample() throws Exception {
+			List<String> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+			
+			Integer multiplier = 2; // lexical scope (this is effectively final)
+			
+			//final Integer multiplier = 2; // lexical scope (this is effectively final)
+			
+			numbers.stream()
+					.map(number -> number * multiplier)
+					// lambda 'closes over' variable in lexical scope
+					// i.e. 'closure'
+					.forEach(System.out::println);
+					
+			// multiplier = 3; // cannot change this
+		}
+		
+		@Test
+		public void breakingFinal() throws Exception {
+			List<String> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+			
+			final Integer[] multiplier = {2}; // lexical scope (this is effectively final)
+			
+			Stream<Integer> numberStream = numbers.stream()
+					.map(number -> number * multiplier[0]);
+					
+			// multiplier[0] = 3; // This is legal - this value will be used instead of 2, lazy evaluation - map function is called when forEach is invoked next
+			
+			numberStream.forEach(System.out::println);
+		}
+		
+	1. All streams are lazily evaluated in Java 8
+
+
 ### Conclusion ###
 
 ## Section 5: Using Java Streams ##
