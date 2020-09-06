@@ -500,10 +500,18 @@
 			1. Runs indefinitely
 
 ### Conclusion ###
+1. Emitting events indefinitely is difficult with traditional Java
 
 ## Section 4: Introduction to Functional Programming in Java ##
 ### Introduction ###
+1. Key features of Functional programming
+2. Good to know for streaming
+3. Concepts are important
+4. This section: Fundamentals of functional programming
+
 ### What is Functional Programming? ###
+1. It is a paradigm shift - needs patience
+
 ### Functional Programming Examples ###
 ### Closures, Effectively Final and Lazy Evaluation ###
 ### Conclusion ###
