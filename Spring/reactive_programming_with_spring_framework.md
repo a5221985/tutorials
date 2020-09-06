@@ -1092,9 +1092,49 @@
 8. Select directory
 9. Project:
 
+		@Data
+		@NoArgsConstructor
+		public class Quote {
+			private static final MathContext MATH_CONTEXT = new MathContext(2);
+			
+			private String ticker;
+			private BigDecimal price;
+			private Instant instant;
+			
+			public Quote(String ticker, BigDecimal price) {
+				this.ticker = ticker;
+				this.price = price;
+			}
+			
+			public Quote(String ticker, Double price) {
+				this.ticker = ticker;
+				this.price = new BigDecimal(price, MATH_CONTEXT);
+			}
+		}
 		
+	1. Enable annotation processing for lombok
+	2. Decompile - lombok adds methods
 
 ### Quote Object ###
+1. Interface:
+
+		public interface QuoteGeneratorService {
+			Flux<Quote> fetchQuoteStream(Duration period);
+		}
+		
+2. Implementation:
+
+		@Service
+		public classs QuoteGeneratorServiceImpl implements QuoteGeneratorService {
+			private final MathContext mathContext = new MathContext(2);
+			private final Random random = new Random();
+			private final List<Quote> prices = new ArrayList<>();
+			
+			public QuoteGeneratorServiceImpl() {
+				this.prices.add(new Quote("AAPL", 160.16));
+			}
+		}
+
 ### Quote Generator Service ###
 ### Spring WebFlux Quote Handler ###
 ### Spring WebFlux Quote Router ###
