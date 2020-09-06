@@ -1311,12 +1311,23 @@
 		}
 
 ### Spring WebFlux Quote Service on GitHub ###
+1. Github code
+2. Docker containers
+
 ### Conclusion ###
+1. Coming up:
+2. Consumer in next part
+3. Reactive MongoDB
 
 ## Section 7: Reactive MongoDB Quote Application ##
 ### Introduction ###
 ### Introduction to MongoDB ###
 ### Data Model ###
-### 
+### Spring WebFlux Client ###
+### Running Stock Quote Microservice ###
+### Running MongoDB ###
+### QuoteRunner ###
+### QuoteMonitorService ###
+### Tailable Cursors with MongoDB ###
 
 ## Section 8: Appendix A - Using GitHub ##
