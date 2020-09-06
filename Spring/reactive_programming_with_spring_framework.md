@@ -1146,11 +1146,12 @@
 				// We use here Flux.generate to construct quotes
 				// iterating on each stock starting at index 0
 				return Flux.generate(() -> 0,
-											(BiFunction<Integer, SynchronousQuote>, Integer>) (index, sink) -> {
+											(BiFunction<Integer, SynchronousSink<Quote>, Integer>) (index, sink) -> { // Synchronous sink - to synchronize across calls
 												Quote updatedQuote = updatedQuote(this.prices.get(index));
 												sink.next(updatedQuote);
-												return ++index % this.prices.size();
+												return ++index % this.prices.size(); // mutating data but not good practice
 											})
+											
 			}
 		}
 
