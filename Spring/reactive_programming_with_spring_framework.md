@@ -1184,13 +1184,54 @@
 				
 				quoteFlux.take(220000)
 							.subscribe(System.out::println);
+							
+				
 			}	
 			
 			@Test
-			public void fetchQuoteStreamCountDown() throws Exception {...}
+			public void fetchQuoteStreamCountDown() throws Exception {
+				//get quoteFlux of quotes
+				Flux<Quote> quoteFlux = quoteGeneratorService.fetchQuoteStream(Duration.ofMillis(100L));
+				
+				//subscriber lambda
+				Consumer<Quote> println = System.out::println;
+				
+				//error handler
+				Consumer<Throwable> errorHandler = e -> System.out.println("Some Error Occurred");
+				
+				//set Countdown latch to 1
+				CountDownLatch countDownLatch = new CountDownLatch(1);
+				
+				//runnable called upon complete, countdown latch
+				Runnable allDone = () -> countDownLatch.countDown();
+				
+				quoteFlux.take(10)
+							.subscribe(println, errorHandler, allDone);
+							
+				countDownLatch.await();
+			}
 		}
 
 ### Quote Generator Service ###
+1. Handler
+	1. `web.QuoteHandler`
+
+			@Component
+			public class QuoteHandler {
+				private final QuoteGeneratorService quoteGeneratorService;
+				
+				public QuoteHandler(QuoteGeneratorService quoteGeneratorService) {
+					this.quoteGeneratorService = quoteGeneratorService;
+				}
+				
+				public Mono<ServerResponse> fetchQuote(ServerRequest request) {
+					int size = Integer.parseInt(request.queryParam("size").orElse("10"));
+					return ok().contentType(MediaType.APPLICATION_JSON)
+									.body(this.quoteGeneratorService.fetchQUoteStream(Duration.ofMillis(100))
+									.take(size), Quote.class);
+				} 
+			}
+
 ### Spring WebFlux Quote Handler ###
 ### Spring WebFlux Quote Router ###
 ### Steaming Quotes ###
