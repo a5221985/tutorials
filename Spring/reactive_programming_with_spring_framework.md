@@ -466,7 +466,7 @@
 1. Problem:
 2. Terminal:
 	1. `curl http://localhost:8080/movies`
-	2. `curl http://localhost:8080/movies/
+	2. `curl http://localhost:8080/movies/`
 
 ### Conclusion ###
 
