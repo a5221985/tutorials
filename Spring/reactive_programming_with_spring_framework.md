@@ -771,12 +771,30 @@
 		
 	1. All streams are lazily evaluated in Java 8
 
-
 ### Conclusion ###
+1. Powerful toolset
+2. It is a paradigm shift
 
 ## Section 5: Using Java Streams ##
 ### Introduction ###
+1. Functional APIs and Streams
+2. Collection handling is easy with the Streams
+3. Examples
+
 ### Introduction to Java Streams ###
+1. What is a stream?
+	1. At the simplext, a stream is a sequence of elements
+	2. A 'stream' is not a collection
+	3. Collections are in-memory data structures
+	4. Collections are eagerly computed
+	5. Streams can operate on collections
+	6. Streams are lazily evaluated
+		1. Computed at runtime
+		2. The entire stream is evaluated only when someone asks for the result
+	7. Sources of streams can be Collections, Arrays, and I/O resources
+	8. Java collections include: Set, SortedSet, List, Map, SortedMap, and Deque
+	9. Implementing classes include: LinkedList, ArrayList, HashSet, LinkedHashSet, TreeSet, HashMap, TreeMap, WeakHashMap, LinkedHashMap, IdentityHashMap
+
 ### Java 8 Streams Examples ###
 ### Spring Framework Reactive Streams Examples ###
 ### Conclusion ###
