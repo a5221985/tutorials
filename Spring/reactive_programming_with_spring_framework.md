@@ -889,6 +889,65 @@
 					.collect(Collectors.joining(", "));
 					
 			System.outprintln(dogString);
+			
+		@Test
+		...
+			List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+			
+			IntSummaryStatistics statistics = numbers.stream()
+					.mapToInt(x -> x) // simple operation
+					.summaryStatistics();
+					
+			System.outprintln(statistics);
+			
+		@Test
+		...
+			List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+			
+			OptionalInt max = numbers.stream()
+					.mapToInt(x -> x) // simple operation
+					.max();
+					
+			System.outprintln(max.getAsInt());
+			
+		@Test
+		...
+			List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+			
+			int sum = numbers.stream()
+					.mapToInt(x -> x) // simple operation
+					.sum();
+					
+			System.outprintln(sum);
+			
+		@Test
+		...
+			List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+			
+			Integer numbersSum = numbers.stream()
+					.collect(Collectors.summingInt(value -> value));
+					
+			System.outprintln(numbersSum);
+			
+		@Test
+		...
+			List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+			
+			Map<Integer, Set<String>> groupedMap = dogs.stream()
+					.collect(Collectors.groupingBy(String::length, Collectors.toSet()));
+					
+			groupedMap.entrySet().stream()
+					.forEach(System.out::println);
+					
+		@Test
+		...
+			List<List<Integer>> listOfLists = Arrays.asList(Arrays.asList(1, 2, 3), Arrays.asList(4, 5, 6));
+			
+			List<Integer> numbers = listOfLists.stream()
+											.flatMap(Collection::stream) // stream numbers of each list, "flattening" stream
+											.collect(Collectors.toList());
+					
+			number.forEach(System.out::println);
 
 
 ### Spring Framework Reactive Streams Examples ###
