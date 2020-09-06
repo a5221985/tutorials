@@ -828,10 +828,47 @@
 	8. minBy/ maxBy - returns min or max
 6. Stream Collectors - Map Results
 	1. `groupingBy()` - returns map grouped by criteria given
-	2. `portioningBy()` - returns map of true / false elements matching/ not matching given perdicate
+	2. `portioningBy()` - returns map of true / false elements matching/ not matching given perdicates
+7. Custom Collectors
+	1. Custom Stream Collectors can be constructed by implementing the interface 'Collector'
 
 ### Java 8 Streams Examples ###
-1. 
+1. Examples:
+
+		@Test
+		...
+			List<String> dogs = Arrays.asList(...);
+			
+			dogs.stream()
+					.forEach(System.out::println);
+					
+		@Test
+		...
+			List<String> dogs = ...
+			
+			dogs.stream()
+					.map(String::length)
+					.forEach(System.out::println);
+					
+		@Test
+		...
+			dogs.stream()
+					.filter(s -> s.length() == 6)
+					.forEach(System.out::println);
+					
+		@Test
+		...
+			dogs.stream()
+					.filter(s -> s.length() == 6)
+					.limit(2)
+					.forEach(System.out::println);
+					
+		@Test
+		...
+			dogs.stream()
+					.filter(s -> s.length() == 6)
+					.sorted()
+					.forEach(System.out::println);
 
 ### Spring Framework Reactive Streams Examples ###
 ### Conclusion ###
