@@ -535,6 +535,50 @@
 			
 			System.out.println(dogCount);
 		}
+		
+5. Functional Programming:
+	1. "In computer science, functional programming is a programming paradigm - a style of building the structure and elements of computer programs - that treats computation as the evaluation of mathematical functions and avoids **changing-state and mutable data.**" Source: Wikipedia
+	2. Functional example:
+
+			@Test
+			public void countDogsWithEightCharactersDecd() throws Exception {
+				/*
+				Get count of dogs with 6 characters in name
+				*/
+				
+				List<String> dogs = Arrays.asList("Vizsla", "Lab", "Golden", "GSP", "Poodle", "Yorkie", "Mutt");
+				
+				System.out.println(dogs
+										.stream()
+										.filter(dog -> dog.length() == 6)
+										.collect(Collectors.toList())
+										.size());
+			}
+			
+6. Imperative vs Declarative
+	1. Imperative
+		1. We say how to do it
+		2. Mutable
+		3. Has side effects
+		4. Pass Objects
+		5. Hard to Compose
+		6. Not Threadsafe
+			1. Need to take care of synchronization
+	2. Declarative
+		1. We say what to do
+		2. Immutable (Transforms)
+		3. No side effects
+		4. Can also pass functions
+		5. Functions Composition
+		6. Threadsafe (for free)
+7. Mutability
+	1. Mutabile - objects that can change
+
+			dogCount = 0;
+			...
+			dogCount++;
+	
+	2. Immutable - objects that do not change
 
 ### Functional Programming Examples ###
 ### Closures, Effectively Final and Lazy Evaluation ###
