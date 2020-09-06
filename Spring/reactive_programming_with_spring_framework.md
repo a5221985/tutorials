@@ -314,8 +314,28 @@
 
 ### Create a New Spring Boot Project ###
 1. New Project - Spring Boot Initializer
+2. netflux-example
+3. Lombok, MongoDB, Reactive MongoDB, Embdded MongoDB
+4. New folder: netflux-example
+5. Gradle project
+6. Use default gradle wrapper
+7. compile dependency: `...flapdoodle.embed.mongo`
+8. Settings > Build, Execution, Deployment > Compiler > Annotation Processors (for Project Lonbok)
+	1. Enable Annotation processing
 
 ### Create Domain Model ###
+1. Entity: `Movie` object
+2. Github branch: domain
+
+		@Document
+		@Data
+		public class Movie {
+			private String id;
+			
+			@NonNull
+			private String title;
+		}
+
 ### Creating Spring Data Reactive Repositories ###
 ### Initializing Data With Spring Boot Command Line Runner ###
 ### Create Service Layer ###
