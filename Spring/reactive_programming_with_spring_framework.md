@@ -948,9 +948,29 @@
 											.collect(Collectors.toList());
 					
 			number.forEach(System.out::println);
-
+			
+		@Test
+		...
+			List<String> dogs = Arrays.asList(...);
+			
+			String reducedString = dogs.stream()
+												.reduce((a, b) -> a + " - " + b) // returns Optional
+												.get();
+					
+			System.out.println(reducedString);
 
 ### Spring Framework Reactive Streams Examples ###
+1. Overlap exists between Spring Reactive Streams and Java Reactive streams
+2. Example:
+
+		@Test
+		public void simpleStreamExample() throws Exception {
+			Flux<String> dogs = Flux.just("Vizsla", "Lab", "Golden", "GSP", "Poodle", "Yorkie", "Mutt");
+			
+			dogs.toStream() // toStream: subscribes to Publisher and gets all values out of it
+					.forEach(System.out::println);
+		}
+
 ### Conclusion ###
 
 ## Section 6: Spring WebFlux Quote Service ##
