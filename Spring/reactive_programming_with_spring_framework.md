@@ -869,6 +869,27 @@
 					.filter(s -> s.length() == 6)
 					.sorted()
 					.forEach(System.out::println);
+					
+		@Test
+		...
+			dogs.stream()
+					.filter(s -> s.length() == 6)
+					.sorted()
+					.collect(Collectors.joining(", "));
+					
+			System.outprintln(dogString);
+			
+		@Test
+		...
+			dogs.stream()
+					.filter(s -> s.length() == 6)
+					.limit(3)
+					.map(String::toUpper())
+					.sorted()
+					.collect(Collectors.joining(", "));
+					
+			System.outprintln(dogString);
+
 
 ### Spring Framework Reactive Streams Examples ###
 ### Conclusion ###
