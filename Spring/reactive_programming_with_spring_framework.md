@@ -815,8 +815,24 @@
 	2. Collecting 'And Then - allows collection of result, then operation on result
 	3. joining() - String operations
 	4. counting() - return count of operations
+5. Stream Collectors - Numbers
+	1. Applies to Java Numbers - Double, Long, Int - (xx)
+	2. SummarizingXX - returns statistical information object containing
+		1. average
+		2. count
+		3. min
+		4. max
+		5. sum
+	6. averagingXX - returns average
+	7. summingXX - returns sum
+	8. minBy/ maxBy - returns min or max
+6. Stream Collectors - Map Results
+	1. `groupingBy()` - returns map grouped by criteria given
+	2. `portioningBy()` - returns map of true / false elements matching/ not matching given perdicate
 
 ### Java 8 Streams Examples ###
+1. 
+
 ### Spring Framework Reactive Streams Examples ###
 ### Conclusion ###
 
