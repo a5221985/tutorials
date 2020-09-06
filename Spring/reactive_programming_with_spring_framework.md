@@ -623,6 +623,59 @@
 		2. return type
 		3. parameter list
 		4. body
+2. Example:
+
+		@Test
+		public void functionWith4Things() throws Exception {
+			Thread t1 = new Thread(new Runnable () {
+				@Override
+				public void run() {
+					System.out.println("In thread 1");
+				}
+			});
+			
+			t1.start();
+			
+			System.out.println("In Main test");
+		}
+		
+		@Test
+		public void lambdaExpression() throws Exception {
+			/*
+			// lambda expression
+			// (parameter list) -> body
+				* 1. name: anonymous
+			* 2. retuurn type can be inferred
+			* 3. parameter list
+			* 4. body
+			*/
+			Thread t1 = new Thread(() -> System.out.println("Silence of the lambdas"));
+			// ^ Constructor is a higher order function,
+			// function is a first class citizen
+			
+			t1.start();
+			System.out.println("In Main Test");
+		}
+		
+		@Test
+		public void listIteratorHighCeremony() throws Exception {
+			List<String> dogs = Arrays.asList("Vizsla", "Lab", "Golden", "GSP", "Poodle", "Yorkie", "Mutt");
+			
+			for (int i = 0; i < dogs.size(); i++) {
+				System.out.println(dogs.get(i));
+			}
+			
+			// very complex, requires a log of knowledge of code, a lot to go wrong
+		}
+		
+		@Test
+		public void listIteratorLessCeremonyExternalIter() throws Exception {
+			List<String> dogs = Arrays.asList("Vizsla", "Lab", "Golden", "GSP", "Poodle", "Yorkie", "Mutt");
+			
+			for (String dog : dogs) {
+				System.out.println(dog);
+			}
+		}
 
 ### Closures, Effectively Final and Lazy Evaluation ###
 ### Conclusion ###
