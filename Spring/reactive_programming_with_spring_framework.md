@@ -511,6 +511,30 @@
 
 ### What is Functional Programming? ###
 1. It is a paradigm shift - needs patience
+2. Within objects we do procedural programming
+3. Imperative programming:
+	1. In computer science, imperative programming is a programming paradigm that uses statements that change a program's state. In much the same way that the imperative mood in natural languages expresses commands, an imperative program consists of commands for the computer to perform." Source: Wikipedia
+		1. Series of statements to do multiple things
+4. Example:
+
+		@Test
+		public void countDogsWithEightCharactersImpd() throws Exception {
+			/*
+			Get count of dogs with 6 charactes in name
+			*/
+			
+			List<String> dogs = Arrays.asList("Vizsla", "Lab", "Golden", "GSP", "Poodle", "Yorkie", "Mutt");
+			
+			int dogCount = 0;
+			
+			for (String dog : dogs) {
+				if (dog.length() == 6) {
+					dogCount++;
+				}
+			}
+			
+			System.out.println(dogCount);
+		}
 
 ### Functional Programming Examples ###
 ### Closures, Effectively Final and Lazy Evaluation ###
