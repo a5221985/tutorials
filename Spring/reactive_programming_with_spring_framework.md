@@ -1265,7 +1265,50 @@
 ### Testing Quote Service ###
 1. Integration test:
 
-		@RunWith(
+		@RunWith(SpringRunner.class)
+		@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+		public class webfluxStockQuoteServiceApplicationTest {
+			@Autowired
+			private WebTestClient webTestClient; // pre-configued by Spring framework - ready to go web test client
+			
+			@Test
+			public void testFetchQuotes() {
+				webTestClient
+							.get()
+							.uri("/quotes?size=20") // set size = 20
+							.accept(MediaType.APPLICATION_JSON)
+							.exchange()
+							.expectStatus().isOk()
+							.expectHeader().contentType(MediaType.APPLICATION_JSON)
+							.expectBodyList(Quote.class)
+							.hasSize(20)
+							.consumeWith(allQuotes -> {
+								assertThat(allQuotes.getResponseBody()).hasSize(20);
+							});
+			}
+			
+			@Test
+			public void testStreamQuotes() throws InterruptedException {
+				//set Countdown latch to 10
+				CountDownLatch countDownLatch = new CountDownLatch();
+				
+				webTestClient
+							.get()
+							.uri("/quotes")
+							.accept(MediaType.APPLICATION_STREAM_JSON)
+							.exchange()
+							.returnResult(Quote.class)
+							.getResponseBody()
+							.take(10)
+							.subscribe(quote -> {
+								assertThat(quote.getPrice()).isPositive();
+								countDownLatch.countDown();
+							});
+							
+				countDownLatch.await();
+				System.out.println("Test complete");
+			}
+		}
 
 ### Spring WebFlux Quote Service on GitHub ###
 ### Conclusion ###
