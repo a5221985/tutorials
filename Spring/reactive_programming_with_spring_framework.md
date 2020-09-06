@@ -324,20 +324,68 @@
 	1. Enable Annotation processing
 
 ### Create Domain Model ###
-1. Entity: `Movie` object
+1. Entity: `model.Movie` object
 2. Github branch: domain
 
 		@Document
-		@Data
+		@Data // Getters, setters, requiredArgsConstructor, toString, equals, hashCode
+		@NoArgsConstructor
 		public class Movie {
 			private String id;
 			
 			@NonNull
 			private String title;
 		}
+		
+3. `model.MovieEvent`
+
+		@Data
+		@NoArgsConstructor
+		public class MovieEvent {
+			private String movieId;
+			private Date date;
+		}
 
 ### Creating Spring Data Reactive Repositories ###
+1. `ReactiveMongoRepository<I, ID>` - uses Mono, Flux
+2. New package - `repositories`
+3. New class - `MovieRepository`
+
+		public interface MovieRepository extends ReactiveMongoRepository<Movie, String> {
+		}
+
 ### Initializing Data With Spring Boot Command Line Runner ###
+1. Another Lombok annotation
+
+		@AllArgsConstructor
+		...
+		
+2. Another dependency: WebFlux dependency
+3. `CommandLineRunner` - executes `run` method when Spring Boot application starts
+
+		@Component
+		public class BootstrapCLR implements CommandLineRunner {
+			private final MovieRepository movieRepository;
+			
+			public BootstrapCLR(MovieRepository movieRepository) {
+				this.movieRepository = movieRepository;
+			}
+			
+			@Override
+			public void run(String... args) throws Exception {
+				// clear old data
+				movieRepository.deleteAll().block(); // returns mono publisher
+				
+				Flux.just("Silence of the Lombok", "", "Enter the Mono<Void>", "The Fluxxinator",
+							"Back to the Future", "Meet the Fluxes", "Lord of the Fluxes")
+							.map(title -> new Movie(title, UUID.randomUUID().toString()))
+							.flatMap(movieRepositories::save)
+							.subscribe(null, null, () -> {
+								movieRepository.findAll().subscribe(System.out::println);
+							});
+			}
+		}
+
 ### Create Service Layer ###
 ### Create Rest Endpoint ###
 ### Running The Reactive Spring Boot Application ###
