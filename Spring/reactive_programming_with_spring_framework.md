@@ -1014,8 +1014,57 @@
 			dogs.map(String::length)
 					.doOnEach(System.out::println) // signal object `onNext()`
 					.subscribe();
+					
+		@Test
+		...
+			Flux<String> dogs = Flux.just(...);
+			
+			dogs.filter(s -> s.length() == 6) // similar to Java streams
+					.subscribe(System.out::println);
+					
+		@Test
+		...
+			dogs.filter(s -> s.length() == 6)
+					.take(2) // limit elements
+					.subscribe(System.out::println);
+					
+		@Test
+		...
+			dogs.filter(s -> s.length() == 6)
+					.take(2)
+					.sort()
+					.subscribe(System.out::println);
+					
+		@Test
+		...
+			dogs.filter(s -> s.length() == 6)
+					.take(2)
+					.sort()
+					.collect(Collectors.joining(", ")) // converts from Flux to Mono<String>
+					.subscribe(System.out::println);
+					
+		@Test
+		...
+			listFlux.flatMap(list -> Flux.fromIterable(list))
+						.flatMap(lists -> Flux.fromIterable(lists))
+						.subscribe(System.out::println);
+						
+		@Test
+		...
+			listFlux.flatMap(list -> Flux.fromIterable(
+							list.stream()
+									.flatMap(Collection::stream) // mixing reactive stream and Java stream
+						.collect(Collectors.toList())
+						.subscribe(System.out::println);
+						
+		@Test
+		...
+			Flux<String> dogs = ...
+			
+			dogs.reduce((a, b) -> a + " - " + b).subscribe(System.out::println);
 
 ### Conclusion ###
+1. 
 
 ## Section 6: Spring WebFlux Quote Service ##
 ### Introduction to Spring WebFlux ###
