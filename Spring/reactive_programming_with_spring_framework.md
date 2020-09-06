@@ -376,7 +376,7 @@
 				// clear old data
 				movieRepository.deleteAll().block(); // returns mono publisher
 				
-				Flux.just("Silence of the Lombok", "", "Enter the Mono<Void>", "The Fluxxinator",
+				Flux.just("Silence of the Lombok", "AEon Flux", "Enter the Mono<Void>", "The Fluxxinator",
 							"Back to the Future", "Meet the Fluxes", "Lord of the Fluxes")
 							.map(title -> new Movie(title, UUID.randomUUID().toString()))
 							.flatMap(movieRepositories::save)
@@ -385,8 +385,55 @@
 							});
 			}
 		}
+		
+	1. Another way:
+
+			movieRepository.deleteAll().thenMany(
+				Flux.just("Silence of the Lombok", "AEon Flux", "Enter the Mono<Void>", "The Fluxxinator",
+							"Back to the Future", "Meet the Fluxes", "Lord of the Fluxes")
+							.map(title -> new Movie(title, UUID.randomUUID().toString()))
+							.flatMap(movieRepositories::save)
+							.subscribe(null, null, () -> {
+								movieRepository.findAll().subscribe(System.out::println);
+							});
+			); // returns mono publisher
 
 ### Create Service Layer ###
+1. `MovieService` interface
+
+		public interface MovieService {
+			Flux<MovieEvent> events(String movieId);
+			Mono<Movie> byMovieById(String id);
+			Flux<Movie> getAllMovies();
+		}
+		
+2. Implement the interface:
+
+		public class MovieServiceImpl implements MovieService {
+			private final MovieRepository;
+			
+			public MovieServiceImpl(MovieRepository movieRepository) {
+				this.movieRepository = movieRepository;
+			}
+			
+			@Override
+			public Flux<MovieEvent> events(String movieId) {
+				return Flux.<MovieEvent>generate(movieEventSynchronousSink -> {
+					movieEventSynchronousSink.next(new MovieEvent(movieId, new Data());
+				});
+			}
+			
+			@Override
+			public Mono<Movie> getMovieById(String id) {
+				return this.movieRepository.findById();
+			}
+			
+			@Override
+			public Flux<Movie> getAllMovies() {
+				return this.movieRepository.findAll();
+			}
+		}
+
 ### Create Rest Endpoint ###
 ### Running The Reactive Spring Boot Application ###
 ### Conclusion ###
