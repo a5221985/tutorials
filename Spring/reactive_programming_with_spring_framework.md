@@ -466,7 +466,38 @@
 1. Problem:
 2. Terminal:
 	1. `curl http://localhost:8080/movies`
-	2. `curl http://localhost:8080/movies/`
+	2. `curl http://localhost:8080/movies/1`
+		1. Takes string as ID
+3. BootstrapCLR.java
+
+		...
+		.map(title -> new Movie(title))
+		.flatMap(...)
+		.subscription(...)
+		...
+		
+	1. Movie.java
+
+			@RequiredArgsConstructor
+			...
+			
+4. File > Invalidate Caches/ Restart... (if cache is stale - Lombok say)
+5. Run the application
+6. Events:
+
+		http://localhost:8080/movies/<id>/events
+		
+	1. Hangs
+	2. No termination
+		1. `curl` problem - not getting proper types
+			1. Buffering things up
+		2. Solution:
+
+				@GetMapping(value = "/{id}/events", produces = MediaType.TEST_EVENT_STREAM_VALUE)
+				...
+				
+		3. Re-run
+			1. Runs indefinitely
 
 ### Conclusion ###
 
