@@ -1092,7 +1092,8 @@
 8. Select directory
 9. Project:
 
-		@Data
+### Quote Object ###
+@Data
 		@NoArgsConstructor
 		public class Quote {
 			private static final MathContext MATH_CONTEXT = new MathContext(2);
@@ -1115,7 +1116,7 @@
 	1. Enable annotation processing for lombok
 	2. Decompile - lombok adds methods
 
-### Quote Object ###
+### Quote Generator Service ###
 1. Interface:
 
 		public interface QuoteGeneratorService {
@@ -1212,7 +1213,7 @@
 			}
 		}
 
-### Quote Generator Service ###
+### Spring WebFlux Quote Handler ###
 1. Handler
 	1. `web.QuoteHandler`
 
@@ -1232,10 +1233,40 @@
 				} 
 			}
 
-### Spring WebFlux Quote Handler ###
 ### Spring WebFlux Quote Router ###
+1. Router
+
+		@Configuration
+		public class QuoteRouter {
+		
+			@Bean
+			public RouterFunction<ServerResponse> route(QuoteHandler handler) {
+				return RouterFunctions.route(GET("/quotes")
+												.and(accept(MediaType.APPLICATION_JSON)), handler::fetchQuotes);
+			}
+		}
+
 ### Steaming Quotes ###
+1. QuoteHandler
+
+		...
+		public Mono<ServerResponse> streamQuotes(ServerRequest request) {
+			return ok().contentType(MediaType.APPLICATION_STREAM_JSON)
+						.body(this.quoteGeneratorService.fetchQuoteStream(Duration.ofMillis(200)), Quote.class);
+		}
+		
+2. QuoteRouter
+
+		...
+		RouterFunctions
+		.route(...)
+		.andRoute(GET("/quotes").and(accept(MediaType.APPLICATION_STREAM_JSON)), handler::streamQuotes);
+
 ### Testing Quote Service ###
+1. Integration test:
+
+		@RunWith(
+
 ### Spring WebFlux Quote Service on GitHub ###
 ### Conclusion ###
 
