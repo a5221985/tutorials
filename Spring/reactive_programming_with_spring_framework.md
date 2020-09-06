@@ -1078,8 +1078,20 @@
 7. Endpoints
 	1. x stock quotes
 	2. Stream of stock quotes for ever
+8. **Routers**
+9. Consuming - other courses may be
 
 ### Initial Spring Boot Project Creation ###
+1. Spring Initalizer - jdk
+2. guru.springframework
+3. webflux-stock-quote-service
+4. Java - 1.8
+5. Maven
+6. MS - milestone
+7. Reactive Web, Lombok
+8. Select directory
+9. 
+
 ### Quote Object ###
 ### Quote Generator Service ###
 ### Spring WebFlux Quote Handler ###
