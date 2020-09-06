@@ -1132,6 +1132,25 @@
 			
 			public QuoteGeneratorServiceImpl() {
 				this.prices.add(new Quote("AAPL", 160.16));
+				this.prices.add(new Quote("MFST", 77.74));
+				this.prices.add(new Quote("GOOG", 847.24));
+				this.prices.add(new Quote("ORCL", 49.51));
+				this.prices.add(new Quote("IBM", 159.34));
+				this.prices.add(new Quote("INTC", 39.29));
+				this.prices.add(new Quote("RHT", 84.29));
+				this.prices.add(new Quote("VMW", 92.21));
+			}
+			
+			@Override
+			public Flux<Quote> fetchQuoteStream(Duration period) {
+				// We use here Flux.generate to construct quotes
+				// iterating on each stock starting at index 0
+				return Flux.generate(() -> 0,
+											(BiFunction<Integer, SynchronousQuote>, Integer>) (index, sink) -> {
+												Quote updatedQuote = updatedQuote(this.prices.get(index));
+												sink.next(updatedQuote);
+												return ++index % this.prices.size();
+											})
 			}
 		}
 
