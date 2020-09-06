@@ -716,6 +716,14 @@
 		}
 		
 		@Test
+		public void countDogsWithEightCharactersDec() throws Exception {
+			List<String> dogs = Arrays.asList("Vizsla", "Lab", "Golden", "GSP", "Poodle", "Yorkie", "Mutt");
+			
+			System.out.println(dogs.stream()
+									.filter(dog -> dog.length() == 6)
+									.collect(Collectors.toList())
+									.size(); // nothing is mutating
+		}
 		
 
 ### Closures, Effectively Final and Lazy Evaluation ###
