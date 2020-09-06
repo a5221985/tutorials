@@ -794,6 +794,27 @@
 	7. Sources of streams can be Collections, Arrays, and I/O resources
 	8. Java collections include: Set, SortedSet, List, Map, SortedMap, and Deque
 	9. Implementing classes include: LinkedList, ArrayList, HashSet, LinkedHashSet, TreeSet, HashMap, TreeMap, WeakHashMap, LinkedHashMap, IdentityHashMap
+2. Types of Streams
+	1. Stream - provides sequential stream of elements
+	2. ParallelStream - enables a multithreaded stream
+		1. Use with caution (JVM determines the parameters but it can be tuned)
+		2. Not an automatic performance improvement
+		3. Likely to slow down processing of smaller data sets
+			1. Good for 1000s or 10s of 1000s of elements
+			2. Try and benchmark it
+			3. Web services in production work with multiple threads
+3. Stream operations
+	1. forEach - execute operation on each element
+	2. map - transform element
+	3. filter - remove elements based on given criteria
+	4. limit - limit the number of elements processed (s number of elements)
+	5. sorted - sort the stream
+4. Stream Collectors
+	1. Streams can be 'collected' to Java collections
+		1. `toList`, `toMap`, `toSet`
+	2. Collecting 'And Then - allows collection of result, then operation on result
+	3. joining() - String operations
+	4. counting() - return count of operations
 
 ### Java 8 Streams Examples ###
 ### Spring Framework Reactive Streams Examples ###
