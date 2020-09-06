@@ -1151,8 +1151,43 @@
 												sink.next(updatedQuote);
 												return ++index % this.prices.size(); // mutating data but not good practice
 											})
-											
+											// We want to emit them with a specific period:
+											// to do so, we zip that Flux with a Flux.interval
+											.zipWith(Flux.interval(period).map(t -> t.getT1()) //emitted at a rate
+											// Because values are generated in batches,
+											// we need to set their timestamp after their creation
+											.map(quote -> {
+												quote.setInstant(Instant.now());
+												return quote;
+											})
+											.log("guru.springframework.service.QuoteGenerator");
 			}
+			
+			private Quote updateQuote(Quote quote) {
+				BigDecimal priceChange = quote.getPrice()
+												.multiply(new BigDecimal(0.05 * this.random.nextDouble()), this.mathContext);
+				return new Quote(quote.getTicker(), quote.getPrice().add(priceChange));
+			}
+		}
+		
+		public class QuoteGeneratorServiceImplTest {
+			QuoteGeneratorServiceImpl quoteGeneratorService = new QuoteGeneratorServiceImpl();
+			
+			@Before
+			public void setUp() throws Exception {
+			}
+			
+			@Test
+			public void fetchQuoteStream() throws Exception {
+				// get quoteFlux of quotes
+				Flux<Quote> quoteFlux = quoteGeneratorService.fetchQuoteStream(Duration.ofMillis(1L));
+				
+				quoteFlux.take(220000)
+							.subscribe(System.out::println);
+			}	
+			
+			@Test
+			public void fetchQuoteStreamCountDown() throws Exception {...}
 		}
 
 ### Quote Generator Service ###
