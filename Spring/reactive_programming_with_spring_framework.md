@@ -970,6 +970,50 @@
 			dogs.toStream() // toStream: subscribes to Publisher and gets all values out of it
 					.forEach(System.out::println);
 		}
+		
+		@Test
+		public void simpleStreamExample2() throws Exception {
+			Flux<String> dogs = Flux.just(...);
+			
+			dogs.subscribe(System.out::println);
+		}
+		
+		@Test
+		public void simpleStreamExample2() throws Exception {
+			Flux<String> dogs = Flux.just(...);
+			
+			dogs.doOnEach(dog -> System.out.println(dog.get()))).subscribe(); // subscribe is required to invoke the stream and get the output - prints null at the end because we do not have when done
+		}
+		
+		@Test
+		public void simpleStreamExample2() throws Exception {
+			Flux<String> dogs = Flux.just(...);
+			
+			dogs.subscribe((s) -> {System.out.println(s);}), null, (() -> {System.out::println("Woot! all Done");})); // consumer for each element, error consumer, when done
+		}
+		
+		@Test
+		...
+			Flux<String> dogs = Flux.just(...);
+			
+			// subscriber lambda
+			Consumer<String> println = System.out::println;
+			
+			// error handler
+			Consumer<String> errorHandler = e -> System.out.println("Some Error Occurred");
+			
+			// runnable upon complete
+			Runnable allDone = () -> System.out.println("Woot! All Done!");
+			
+			// trigger subscription
+			dogs.subscribe(println, errorHandler, allDone);
+			
+		@Test
+		...
+			Flux<String> dogs = Flux.just(...);
+			dogs.map(String::length)
+					.doOnEach(System.out::println) // signal object `onNext()`
+					.subscribe();
 
 ### Conclusion ###
 
