@@ -579,6 +579,32 @@
 			dogCount++;
 	
 	2. Immutable - objects that do not change
+8. Mutability vs Immutability
+	1. Mutable objects are error prone and hard to understand
+	2. Immutable objects are easier to use
+	3. Immutable objects are thread safe
+	4. Mutable objects open the door to concurrency problems
+9. Final variables in Java
+	1. Final variables in Java can still be mutated
+	2. Once initialized, the variable cannot be re-assigned
+	3. BUT - state of the object can change, if properties are not final
+10. Good programming habbit - Spring community
+
+		@Service
+		public class MovieServiceImpl implements MovieService {
+			private final MovieRepository movieRepository; // reference will never change
+			
+			public MovieServiceImpl(MovieRepository movieRepository) {
+				this.movieRepository = movieRepository;
+			}
+		}
+		
+11. Pure Functional vs Functional Style
+	1. Pure functional languages will not allow any mutability
+		1. Haskel is an example
+	2. Functional style languages will encourage immutability
+	3. BUT immutability is not strictly enforced
+		1. Java is a Functianal Style Language
 
 ### Functional Programming Examples ###
 ### Closures, Effectively Final and Lazy Evaluation ###
