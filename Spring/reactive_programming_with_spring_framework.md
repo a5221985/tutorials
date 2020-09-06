@@ -417,10 +417,10 @@
 			}
 			
 			@Override
-			public Flux<MovieEvent> events(String movieId) {
-				return Flux.<MovieEvent>generate(movieEventSynchronousSink -> {
+			public Flux<MovieEvent> events(String movieId) { // generates events for processing
+				return Flux.<MovieEvent>generate(movieEventSynchronousSink -> { // it is async operation that generates objects for us
 					movieEventSynchronousSink.next(new MovieEvent(movieId, new Data());
-				});
+				}).delayElements(Duration.ofSeconds(1)); // generates every one second
 			}
 			
 			@Override
@@ -435,7 +435,39 @@
 		}
 
 ### Create Rest Endpoint ###
+1. Rest controller
+
+		@RestController
+		@ReqestMapping("/movies")
+		public class MovieController {
+			private final MovieService movieService;
+			
+			public MovieController(MovieService movieService) {
+				this.movieService = movieService;
+			}
+			
+			@GetMapping(value = "/{id}/events")
+			Flux<MovieEvent> streamMovieEvents(@PathVariable String id) {
+				return movieService.events(id);
+			}
+			
+			@GetMapping(value = "/{id}")
+			Mono<Movie> getMovieById(@PathVariable String id) { // 0 or 1 instance
+				return movieService.getMovieById(id);
+			}
+			
+			@GetMapping
+			Flux<Movie> getAllMovies() { // 0 or many instances
+				return movieService.getAllMovies();
+			}
+		}
+
 ### Running The Reactive Spring Boot Application ###
+1. Problem:
+2. Terminal:
+	1. `curl http://localhost:8080/movies`
+	2. `curl http://localhost:8080/movies/
+
 ### Conclusion ###
 
 ## Section 4: Introduction to Functional Programming in Java ##
