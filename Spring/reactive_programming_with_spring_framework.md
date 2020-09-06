@@ -676,6 +676,47 @@
 				System.out.println(dog);
 			}
 		}
+		
+		@Test
+		public void listInternalIterConsumer() throws Exception {
+			List<String> dogs = Arrays.asList("Vizsla", "Lab", "Golden", "GSP", "Poodle", "Yorkie", "Mutt");
+			
+			dogs.forEach(new Consumer<String>() {
+				@Override
+				public void accept(String s) {
+					System.out.println(s);
+				}
+			});
+		}
+		
+		@Test
+		public void listInternalIterLambdaMethod() {
+			List<String> dogs = Arrays.asList("Vizsla", "Lab", "Golden", "GSP", "Poodle", "Yorkie", "Mutt");
+			dogs.forEach((String s) -> System.out.println(s));
+		}
+		
+3. Functional interface:
+
+		@FunctionalInterface
+		public interface Consumer<T> {
+			//...
+		}
+		
+4. Further cleanup:
+
+		@Test
+		public void listInternalIterLambdaMethodTpyeInference() throws Exception {
+			...
+			dogs.forEach(s -> System.out.println(s));
+		}
+		
+		@Test
+		public void listINtervalIterLambdaMethodTypeJavaMethodRef {
+			dogs.forEach(System.out::println); // Compiler can interpret
+		}
+		
+		@Test
+		
 
 ### Closures, Effectively Final and Lazy Evaluation ###
 ### Conclusion ###
