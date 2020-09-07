@@ -19,6 +19,25 @@
 2. Techniques and patterns for integrating multiple applications and databases
 3. Get true understanding of enterprise architecture by examining the context and goals of EA implementation
 
+## Introduction ##
+1. Top 10 most desired salaries
+2. But very little written about it
+3. Introduction
+	1. Experience
+		1. Bad architectures
 
+## Architecture Soft Skills Part 1 ##
+1. 
 
-## Software Architecture Fundamental ##
+## Continuous Delivery ##
+## Architecture Soft Skills Part 2 ##
+## Understanding Large Codebases ##
+## Architecting for Change ##
+## Architecture Patterns Part 1 ##
+## Architecture Patterns Part 2 ##
+## Design Patterns ##
+## Architecture Anti-Patterns Part 1 ##
+## Architecture Anti-Patterns Part 2 ##
+## Tooling and Documentation ##
+## Integration Architecture Fundamentals ##
+## Enterprise Architecture Concepts and Fundamentals ##
