@@ -1332,6 +1332,44 @@
 	4. MongoDB is a NoSQL database
 	5. MongoDB documents are stored in BSON
 		1. Binary JSON
+2. History
+	1. 10gen developed
+	2. MongoDB - changed name
+	3. Originally PaaS
+3. Why use MongoDB?
+	1. MongoDB is great for high insert systems
+		1. Such as sensor readings, social media systems, advertising systems
+	2. Good when you need schema flexibility
+	3. Can also support a high number of reads per second
+4. It is sclalable	
+	1. It can run on minimum hardware
+	2. It can be replicated
+5. Why avoid mongodb?
+	1. MongoDB has no concept of transactions
+		1. No ACID
+		2. No locking for transactional support, hence faster inserts
+	2. Not good for concurrent updates
+	3. Lots of jokes about MongoDB losing data
+		1. If we have multiple updates on same record, then MongoDB is not good
+			1. Losing one or two likes on facebook is no big deal
+			2. Losing numbers in bank transactions is a big deal
+6. MongoDB Terminology
+	1. RDBMS
+		1. Database
+		2. Table
+		3. Row
+		4. Column
+		5. Table Join
+		6. Primary Key
+		7. Aggregation
+	2. MongoDB
+		1. Database
+		2. Collection
+		3. Document
+		4. Field
+		5. Embedded Documents
+		6. Primary Key
+		7. Aggregation Pipeline
 
 ### Data Model ###
 ### Spring WebFlux Client ###
