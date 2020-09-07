@@ -1172,5 +1172,8 @@
 1. Export > Server Stub > Spring
 2. Open the project in IntelliJ
 	1. We only have Maven POM (Not Gradle)
+3. On server side:
+	1. V1ApiController
 
 ### Conclusion ###
+1. Done
