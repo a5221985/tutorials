@@ -1416,8 +1416,18 @@
 			private String path;
 			
 			public Flux<Quote> getQuoteStream() {
+				Strung url = "http://" + host + port;
+			
+				log.debug("Url Set is: " + url);
+				
 				return WebClient.builder()
-							.baseUrl()
+							.baseUrl(url)
+							.build()
+							.get()
+							.uri(path)
+							.accept(MediaType.APPLICATION_STREAM_JSON)
+							.retrieve()
+							.bodyToFlux(Quote.class); // Streams forever
 			}
 		}
 		
@@ -1430,8 +1440,27 @@
 		logging.level.guru.springframework = debug
 
 ### Running Stock Quote Microservice ###
+1. Running Quote Service on 8081
+
+		server.port = 8081
+		
+	1. Run the Quote service
+
 ### Running MongoDB ###
+1. How to run it from docker
+	1. Docker for Java developers
+2. `docker run -p 27017:27017 -d mongo`
+	1. `-d` - run in background
+	2. Gets latest if no tag
+	3. `docker ps`
+		1. Gives interesting name if not specified
+3. It automatically connected
+	1. **Robo 3T** - MongoDB client
+		1. Available for multiple OSs
+
 ### QuoteRunner ###
+1. 
+
 ### QuoteMonitorService ###
 ### Tailable Cursors with MongoDB ###
 
