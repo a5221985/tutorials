@@ -1085,13 +1085,64 @@
 		1. Can provide username and password
 
 ### JWT Bearer Token Auth ###
-1. 
+1. Example:
+
+		security:
+			...
+			- JwtAuthToken: []
+		components:
+			seuritySchemes:
+				...
+				JwtAuthToken:
+					type: http
+					scheme: bearer
+					bearerFormat: JWT
+					
+2. Swagger UI:
+	1. Click Authorize
 
 ### Anonymous Authentication with OpenAPI ###
+1. Operation security:
+
+		paths:
+			/v1/customers:
+				get:
+					...
+				security: [] # do not need security - overrides spec level security
+				
+			/b1/customers/{customerId}:
+				get:
+					...
+				security: []
+				
+2. Third party tools may not work with empty array as defined perviously
 
 ## OpenAPI Code Gen ##
 ### Introduction ###
+1. Standards can be defined in OpenAPI itself
+2. Final section:
+	1. Code generation
+		1. Tooling overview
+			1. Node
+			2. NPM
+			3. Docker
+			4. Maven
+			5. Gradle
+			6. ...
+		2. Swagger Hub
+			1. Code generation
+				1. Java Client
+				2. Server Stub
+					1. Spring framework
+				3. C# - not here
+3. Other operations:
+	1. Server side mocks
+	2. Client side mocks
+	3. Rich documentation
+
 ### OpenAPI Code Gen ###
+1. 
+
 ### OpenAPI Generated Java Client ###
 ### OpenAPI Generated Java Server ###
 ### Conclusion ###
