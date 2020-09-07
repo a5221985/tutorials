@@ -1321,7 +1321,18 @@
 
 ## Section 7: Reactive MongoDB Quote Application ##
 ### Introduction ###
+1. Spring Data MongoDB - Reactive streaming support exists
+2. Other DBs have reactive types
+
 ### Introduction to MongoDB ###
+1. About MongoDB
+	1. MongoDB is a document oriented database
+	2. The work Mongo is defived from Humongous
+	3. Developed in C++
+	4. MongoDB is a NoSQL database
+	5. MongoDB documents are stored in BSON
+		1. Binary JSON
+
 ### Data Model ###
 ### Spring WebFlux Client ###
 ### Running Stock Quote Microservice ###
