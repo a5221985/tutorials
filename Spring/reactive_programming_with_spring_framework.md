@@ -1416,7 +1416,7 @@
 			private String path;
 			
 			public Flux<Quote> getQuoteStream() {
-				Strung url = "http://" + host + port;
+				Strung url = "http://" + host + ":" + port;
 			
 				log.debug("Url Set is: " + url);
 				
@@ -1459,9 +1459,38 @@
 		1. Available for multiple OSs
 
 ### QuoteRunner ###
-1. 
+1. QuoteRunner
+
+		@Component // comment it out for not streaming quotes
+		public class QuoteRunner implements CommandLineRunner {
+			private final StockQuoteClient stockQuoteClient;
+			
+			public QuoteRunner(StockQuoteClient stockQuoteClient) {
+				this.stockQuoteClient = stockQuoteClient;
+			}
+			
+			@Override
+			public void run(String... args) throws Exception {
+				Flux<Quote> quoteFlux = stockQuoteClient.getQuoteStream();
+				
+				quoteFlux.subscribe(System.out::println);
+			}
+		}
 
 ### QuoteMonitorService ###
+1. `service.QuoteMonitorService`
+
+		@Service
+		public class QuoteMonitorService implements ApplicationListener<ContextRefreshedEvent> { // Pure Spring and not Spring Boot
+			private final StockQuoteClient stockQuoteClient;
+			private final QuoteRepository quoteRepository;
+			
+			public QuoteMonitorService(StockQuoteClient stockQuoteClient, QuoteRepository quoteRepository) {
+				this.stockQuoteClient = stockQuoteClient;
+				this.quoteRepository = quoteRepository;
+			}
+		}
+
 ### Tailable Cursors with MongoDB ###
 
 ## Section 8: Appendix A - Using GitHub ##
