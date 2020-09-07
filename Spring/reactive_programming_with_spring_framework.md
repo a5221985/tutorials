@@ -1373,7 +1373,7 @@
 7. Spring Data: MongoDB makes is easy
 	1. Don't have to modify schema to add property - DB migration is simpler
 
-### Data Model ###
+### Initial Spring Boot Project Creation ###
 1. New project:
 	1. guru.springframework
 	2. mongodb-reactive-stock-quote-service
@@ -1383,8 +1383,52 @@
 	6. Lombok, Reactive Web, Reactive MongoDB, Embedded MongoDB
 	7. Select directory
 	8. Finish
+	9. Enable Annotation Processing
+
+### Data Model ###
+1. `domain.Quote`
+
+		@Data
+		@Document
+		public class Quote {
+		
+			@Id
+			private String id;
+			private String ticker;
+			private BigDecimal price;
+			private Instant instant;
+		}
+		
+2. `repositories.QuoteRepository`
+
+		public interface QuoteRepository extends ReactiveMongoRepository<Quote, String> {
+		}
 
 ### Spring WebFlux Client ###
+1. `client.StockQuoteClient`
+
+		@Data
+		@Component
+		@ConfigurationProperties("guru")
+		public class StockQuoteClient {
+			private String host;
+			private String port;
+			private String path;
+			
+			public Flux<Quote> getQuoteStream() {
+				return WebClient.builder()
+							.baseUrl()
+			}
+		}
+		
+2. `application.properties`
+
+		guru.host = localhost
+		guru.port = 8081
+		guru.path = /quotes
+		
+		logging.level.guru.springframework = debug
+
 ### Running Stock Quote Microservice ###
 ### Running MongoDB ###
 ### QuoteRunner ###
