@@ -1141,8 +1141,36 @@
 	3. Rich documentation
 
 ### OpenAPI Code Gen ###
-1. 
+1. [openapi-generator.tech](openapi-generator.tech)
+1. Options:
+	1. Clients
+	2. Servers
+	3. Schemas
+	4. Docs
+5. With Maven, Gradle, Docker, NPM, Homebrew
+6. Generators
+	1. Client generators
+	2. Server generators
+	3. Documentation generators
+7. Each generator is configurable
 
 ### OpenAPI Generated Java Client ###
+1. Specifications:
+	1. Swagger Hub (can change anytime)
+		1. Export > Download API
+			1. YAML Resolved
+		2. Export > Client SDK
+			1. Only subset is available
+				1. Java
+2. Open the project in IntelliJ
+	1. Has java code to call the APIs
+3. Has authentication
+4. It has tests to run the APIs
+	1. Stubs
+
 ### OpenAPI Generated Java Server ###
+1. Export > Server Stub > Spring
+2. Open the project in IntelliJ
+	1. We only have Maven POM (Not Gradle)
+
 ### Conclusion ###
