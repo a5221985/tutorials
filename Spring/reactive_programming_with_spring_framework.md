@@ -1481,7 +1481,7 @@
 1. `service.QuoteMonitorService`
 
 		@Service
-		public class QuoteMonitorService implements ApplicationListener<ContextRefreshedEvent> { // Pure Spring and not Spring Boot
+		public class QuoteMonitorService implements ApplicationListener<ContextRefreshedEvent> { // Pure Spring and not Spring Boot - old school way
 			private final StockQuoteClient stockQuoteClient;
 			private final QuoteRepository quoteRepository;
 			
@@ -1489,7 +1489,22 @@
 				this.stockQuoteClient = stockQuoteClient;
 				this.quoteRepository = quoteRepository;
 			}
+			
+			@Override
+			public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+				stockQuoteClient.getQuoteStream()
+									.log("quote-montior-service")
+									.subscribe(quote -> {
+										Mono<Quote> savedQuote = quoteRepository.save(quote);
+										System.out.println("I saved a quote! Id: " + savedQuote.block().getId());
+									});
+			}
 		}
+		
+	1. Restart Spring Boot
+	2. Open Robo3T
+
+### Constructing Capped Collections in MongoDB ###
 
 ### Tailable Cursors with MongoDB ###
 
