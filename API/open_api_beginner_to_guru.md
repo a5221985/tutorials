@@ -1028,9 +1028,65 @@
 	2. apiKey
 	3. oauth2
 	4. openIdConnect
+4. Definition:
+
+		coponents:
+			securitySchemes:
+			
+				BasicAuth:
+					type: http
+					scheme: basic
+					
+				BearerAuth:
+					type: http
+					scheme: bearer
+					
+				...
+				
+5. Applying security:
+
+		security:
+			- ApiKeyAuth: []
+			- OAuth2:
+				- read
+				- write
+
+	1. Property at root level (security)
+	2. Applied to entire OpenAPI doc
+		1. This can be overridden at operation level
+			1. Check docs
+6. Take away:
+	1. Two step process:
+		1. Define security scheme
+		2. Apply
+			1. Global
+			2. Local
+7. Scopes
+	1. Like roles
+		1. OAuth2
+		2. OpenID Connect
+	2. Some organizations use and some don't
+	3. `BasicAuth: []` - odd!
+	4. Read scope, write scope
 
 ### Basic Auth with OpenAPI ###
+1. Setup of Basic Auth
+
+		security: # All endpoints
+			- BasicAuth: []
+		components:
+			securitySchemes:
+				BasicAuth:
+					type: http
+					scheme: basic
+					
+2. Swagger UI:
+	1. Click Authorize
+		1. Can provide username and password
+
 ### JWT Bearer Token Auth ###
+1. 
+
 ### Anonymous Authentication with OpenAPI ###
 
 ## OpenAPI Code Gen ##
