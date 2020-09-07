@@ -1367,11 +1367,23 @@
 		2. Collection
 		3. Document
 		4. Field
-		5. Embedded Documents
+		5. Embedded Documents (similar to table joins - reference of docs)
 		6. Primary Key
 		7. Aggregation Pipeline
+7. Spring Data: MongoDB makes is easy
+	1. Don't have to modify schema to add property - DB migration is simpler
 
 ### Data Model ###
+1. New project:
+	1. guru.springframework
+	2. mongodb-reactive-stock-quote-service
+	3. maven
+	4. Description: MogoDB for Reactive Stock Quote Service
+	5. Latest stable release of Spring Boot
+	6. Lombok, Reactive Web, Reactive MongoDB, Embedded MongoDB
+	7. Select directory
+	8. Finish
+
 ### Spring WebFlux Client ###
 ### Running Stock Quote Microservice ###
 ### Running MongoDB ###
