@@ -1541,4 +1541,16 @@
 4. Tailable cursor is buggy or may be due to max size in mongo
 
 ## Section 8: Appendix A - Using GitHub ##
-2.
+1. [GitHub](https://www.youtube.com/watch?v=w3jLJU7DT5E)
+2. Operations:
+	1. [Checkout](https://www.youtube.com/watch?v=HwrPhOp6-aM&t=10s&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=2)
+	2. [Branch](https://www.youtube.com/watch?v=H5GJfcp3p4Q&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=2)
+	3. [Ignore](https://www.youtube.com/watch?v=4VBG9FlyiOw&t=0s&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=4)
+	4. [Move](https://www.youtube.com/watch?v=ipdgyfPq8FE&t=0s&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=5)
+	5. [Remove](https://www.youtube.com/watch?v=jtuHOIlfS2Q&t=0s&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=6)
+	6. [Log](https://www.youtube.com/watch?v=Ew8HQsFyVHo&t=0s&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=7)
+	7. [Diff](https://www.youtube.com/watch?v=RXSriVcoI70&t=0s&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=8)
+	8. [Init](https://www.youtube.com/watch?v=WxMFZncm12s&t=0s&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=10)
+	9. [Config](https://www.youtube.com/watch?v=ZChtKFLiaNw&t=0s&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=11)
+	10. [Setup](https://www.youtube.com/watch?v=7Inc0G0wutk&t=0s&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=12)
+	11. [Merge](https://www.youtube.com/watch?v=yyLiplDQtf0&t=0s&list=PL0lo9MOBetEHhfG9vJzVCTiDYcbhAiEqL&index=13)
