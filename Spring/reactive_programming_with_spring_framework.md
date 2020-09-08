@@ -1524,5 +1524,21 @@
 			@Tailable
 			Flux<Quote> findWithTailableCursorBy();
 		}
+		
+3. QuoteRunner
+
+		@Override
+		public void run(String... args) throws Exception { // listening to insert action of mongo and gets them here
+			Flux<Quote> quoteFlux = repository.findWithTailableCursorBy();
+			
+			Disposable disposable = quoteFlux.subscribe(quote -> {
+				System.out.println("Id: " + quote.getId());
+			});
+			
+			disposable.dispose(); // imporatant - closing connection or else it may fall through
+		}
+		
+4. Tailable cursor is buggy or may be due to max size in mongo
 
 ## Section 8: Appendix A - Using GitHub ##
+2.
