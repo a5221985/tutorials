@@ -1505,9 +1505,24 @@
 	2. Open Robo3T
 
 ### Constructing Capped Collections in MongoDB ###
-1. 
-
+1. Reactive mongo
+	1. We can open cursor and stream data out of mongo collection (based on what is inserted)
+2. It works only on capped collection
+	1. Drop the collection
+	2. Construct new collection
+		1. Quote
+		2. Advanced:
+			1. Maximum size in bytes: 100,000
+			2. Cap: 1000 docs (capped collection)
 
 ### Tailable Cursors with MongoDB ###
+1. Implementing tailable collection
+	1. Watch when inserted and receive a copy of that
+2. Example:
+
+		public interface QuoteRepository extends ReactiveMongoRepository<Quote, String> {
+			@Tailable
+			Flux<Quote> findWithTailableCursorBy();
+		}
 
 ## Section 8: Appendix A - Using GitHub ##
