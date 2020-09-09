@@ -19,7 +19,30 @@
 	1. Who is the course for?
 	2. Why take this course? What to expect from it?
 	3. Course author
-2. 
+2. Who is this course for?
+	1. It is for building good concept in web application & software architecture & for strenthening fundamentals
+	2. Building software is like fitting lego blocks
+	3. Helps with software engineering interviews
+		1. Especially for full stack
+3. Why take this course? What to expect from it?
+	1. Components & concepts when designing architecture of web apps
+	2. Architectural styles
+		1. Client server
+		2. Peer to peer decentralized architecture
+		3. Microservices
+		4. Fundamentals of data flow in web apps
+		5. Layers
+		6. Scalability
+		7. High availability
+		8. ...
+	3. Techniques of picking the right architecture and technology stack to implement use cases
+	4. Uses cases
+		1. What technology and architecture fits best
+		2. Technology trade-offs
+	5. Course is for entrepreneurial journey
+4. Course Author
+	1. HP Enterprise - Full-stack developer in Technical Solutions - R & D team
+	2. [LinkedIn Profile](https://www.linkedin.com/in/shivang-sarawagi-b7b5881b/)
 
 ### Significance of Software Architecture ### 
 
