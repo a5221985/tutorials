@@ -15,6 +15,12 @@
 5. Technology trade-offs
 
 ### About This Course ###
+1. Topics:
+	1. Who is the course for?
+	2. Why take this course? What to expect from it?
+	3. Course author
+2. 
+
 ### Significance of Software Architecture ### 
 
 ## Different Tiers in Software Architecture ##
