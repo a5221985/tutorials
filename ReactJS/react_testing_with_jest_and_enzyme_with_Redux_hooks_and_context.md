@@ -75,11 +75,38 @@
 			3. Web server
 2. Can also install project from scratch or use existing project
 	1. For certain OSs we may need manual configuration
-		1. 
+		1. Skip create-react-app and go to next lecture
+3. `npx`
+	1. We will be using npx with create-react-app
+		1. Downloads the latest version of create-react-app templates every time
+		2. Not dependent on when you last installed create-react-app
+			1. `npx` will grab the latest upto date version
+		3. `npx` comes with npm 5.2+ and higher
+		4. If you have an older version of npm and can't upgrade
+			1. Go to [https://github.com/facebook/create-react-app](https://github.com/facebook/create-react-app)
+			2. Follow link "instructions for older npm versions"
+	2. `npx create-react-app demo`
 
 ### Next Lecture is Optional ###
+1. Next lecture is for people who cannot use `create-react-app` or who don't want it
+	1. Skip the next lecture if `create-react-app` is okay
+
 ### OPTIONAL: Setting up Jest Without create-react-app ###
 ### Demo of Jest Watch Mode ###
+1. `cd demo`
+2. Open ide: `code .`
+3. `npm test`
+	1. Runs jest under the hood
+		1. If no changes, then it does not run
+			1. `App.js`
+				1. Remove boiler plate:
+
+						<div className="App">
+							<h1>Learn React Testing</h1>
+						</div>
+						
+					1. Runs tests when we save
+
 ### More About Jest Watch Mode, Test Files and Tests ###
 ### Enzyme Introduction and Setup ###
 ### Using Enzyme in a Test ###
