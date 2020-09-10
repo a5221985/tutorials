@@ -134,8 +134,59 @@
 		2. If we change a file, the tests re-run
 3. How does Jest know which files to run?
 	1. Look for files in `src` with `.test.js`
+	2. `App.test.js`
+		1. Structure
+			1. First: name of test
+			2. Second: anonymous function
+				1. If any errors are thrown, the test fails
+					1. Example:
+
+							throw new Error;
+						
+						1. `expect` - assertions
 
 ### Enzyme Introduction and Setup ###
+1. Enzyme:
+	1. Constructs virtual DOM for testing
+	2. Allows testing without a browser
+		1. We want to know how components render and how they respond to input
+		2. `create-react-app` uses React DOM
+		3. Enzyme uses React DOM
+			1. Has better toolkit
+				1. Search through DOM
+					1. jQuery style selectors
+				2. Simulate simple events
+					1. Click on node in virtual dom, blur element
+				3. Shallow Rendering
+					1. Render components only one level deep
+					2. Render parent, but use placeholders for children (wont render)
+						1. Cleaner and quicker testing
+					3. Example:
+						1. Shallow
+
+								<div id="word-input-form">
+									<p>Input Word Here!</p>
+									<InputFieldComponent /> <!- Child -->
+									<SubmitButtonComponent /> <!- Child -->
+								</div>
+							
+						1. Mount:
+
+								<div id="word-input-form">
+									<p>Input Word Here!</p>
+									<div>
+										<span>Enter some text</span>
+										<input type="text">
+									</div>
+									<button type="submit">
+										Submit
+									</button>	
+								</div>
+								
+				4. Enzyme provides access to component's props and state
+					1. Manipulate values
+					2. Examine / test for values (test them)
+
 ### Using Enzyme in a Test ###
 ### Types of Tests ###
 ### Testing Tradeoffs ###
