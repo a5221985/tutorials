@@ -107,7 +107,28 @@
 						
 					1. Runs tests when we save
 
+							yarn test --no-watchman --all (works)
+							yarn test --no-watchman (works)
+							
+4. Change to
+
+		<div className="App">
+			<h1>{title}</h1>
+		</div>
+		
+	1. Tests fail	
+
 ### More About Jest Watch Mode, Test Files and Tests ###
+1. More about Jest
+	1. Watch mode
+	2. How Jest tests are structured
+2. Watch mode
+	1. Watches for changes and re-runs tests if there are changes
+		1. Only watches for changes since last commit
+			1. Tests are not re-run
+	2. Git already exists
+	3. Quit - w (to see more)
+
 ### Enzyme Introduction and Setup ###
 ### Using Enzyme in a Test ###
 ### Types of Tests ###
