@@ -43,9 +43,40 @@
 2. [jotto-redux](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-redux/package-lock.json)
 
 ### TDD: What and Why ###
-1. 
+1. Write tests before writing code
+	1. Write "shell" function (version of code enough to call tests)
+	2. Write tests
+	3. Tests fails
+		1. "red-green" testing
+			1. Tests fail before code is written
+				1. Easier to write tests that pass regardless of what the code does
+	4. Write code
+	5. Test passes
+2. Why TDD?
+	1. More efficient (manual tests needs more effort and time - repetition is necessary in testing)
+		1. Re-run tests "for free" after changes
+			1. If we write automated tests at the end, we have not built up test suite that was run all along when the code was built
+	2. Better code
+		1. Better organized (plan before you code)
+		2. More testable (no rewriting code for tests)
+			1. Untestable code doesn't exist
+		3. Fewer bugs (caught sooner, regression)
+			1. All tests get run when we make a change
+		4. Great code coverage
+			1. It should not be the goal since it may take too much effort to get the last few % of coverage
+				1. TDD usually gives excellent coverage
 
 ### create-react-app ###
+1. `npm` package
+	1. Generates React applications
+		1. Scratch?
+			1. Configuration
+			2. Webpack
+			3. Web server
+2. Can also install project from scratch or use existing project
+	1. For certain OSs we may need manual configuration
+		1. 
+
 ### Next Lecture is Optional ###
 ### OPTIONAL: Setting up Jest Without create-react-app ###
 ### Demo of Jest Watch Mode ###
