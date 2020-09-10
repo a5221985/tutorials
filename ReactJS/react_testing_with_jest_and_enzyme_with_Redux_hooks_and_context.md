@@ -186,6 +186,10 @@
 				4. Enzyme provides access to component's props and state
 					1. Manipulate values
 					2. Examine / test for values (test them)
+2. Install Enzyme
+	1. Three packages - dev dependencies (only for development and not for production)
+	2. `npm install --save-dev enzyme jest-enzyme enzyme-adapter-react-16` (version depends on latest)
+	3. `yarn add --dev enzyme jest-enzyme enzyme-adapter-react-16`
 
 ### Using Enzyme in a Test ###
 ### Types of Tests ###
