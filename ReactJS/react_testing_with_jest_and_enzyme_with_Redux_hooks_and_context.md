@@ -128,6 +128,12 @@
 			1. Tests are not re-run
 	2. Git already exists
 	3. Quit - w (to see more)
+		1. Commit to git
+			1. When we run test, tests do not run (comitted)
+				1. 	`a` - runs all tests
+		2. If we change a file, the tests re-run
+3. How does Jest know which files to run?
+	1. Look for files in `src` with `.test.js`
 
 ### Enzyme Introduction and Setup ###
 ### Using Enzyme in a Test ###
