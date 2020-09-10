@@ -1,8 +1,50 @@
 # React Testing with Jest and Enzyme - with Redux, Hooks and Context #
 ## Introduction to Jest, Enzyme and TDD ##
 ### Welcome and Introduction ###
+1. Use testing to improve React code
+	1. Better organization
+	2. More maintainable
+	3. Fewer bugs
+2. Intro to Jest and Enzyme
+	1. With create-react-app
+	2. With app from scratch
+3. Testing a simple React app
+	1. Component state
+	2. Component elements
+4. Redux (One track) - either this or next
+	1. Word game
+		1. Testing connected Redux components
+		2. Testing action creators and reducers
+		3. Testing Redux Thunk and Axios
+		4. Testing Redux Props and Action Creator Calls
+			1. Ensures components calls action creators at the right time
+5. Hooks and Context (another track)
+	1. Word game
+		1. Testing useState, useEffect and useReducer hooks
+		2. Testing simple context
+			1. App level state for value
+		3. Testing context with embedded state
+6. Course assumes you know
+	1. JavaScript
+	2. Basic React and Redux
+		1. Hooks and Context does not use Redux
+	3. Bery basic git
+7. By the end of this course, you will be able to...
+	1. Write unit and integration tests
+	2. for React, Redux, hooks and contexts
+	3. using Jest and Enzyme
+
 ### Versions used in this course ###
+1. Versions used:
+	1. React: 16.9.0
+	2. Jest: 24.8.0
+	3. Enzyme: 3.10.0
+	4. Redux: 4.0.4
+2. [jotto-redux](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-redux/package-lock.json)
+
 ### TDD: What and Why ###
+1. 
+
 ### create-react-app ###
 ### Next Lecture is Optional ###
 ### OPTIONAL: Setting up Jest Without create-react-app ###
