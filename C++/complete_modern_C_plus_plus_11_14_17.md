@@ -107,4 +107,3 @@
 ### Move Semantics - Implementation (C++11) ###
 ### Copy Elision ###
 ### Move Semantics - std::move Function (C++11) ###
-
