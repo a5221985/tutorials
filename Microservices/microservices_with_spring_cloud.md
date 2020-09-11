@@ -739,9 +739,40 @@
 			1. We are concerned about how proxy is connecting or getting details
 
 ### Step 22 - Setting up client side load balancing with Ribbon ###
+1. Example: Multiple instances exist of "currency-exchange-service"
+	1. One instance of "currency-conversion-service" can talk to only one instance of "currency-exchange-service" now
+	2. Ribbon: Used to distribute calls
+		1. Enable ribbon CurrencyCalculationService
+2. CurrencyConversionService
 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-ribbon</artifactId>
+		</dependency>
+		
+	1. Enable ribbon on Proxy:
+
+			@FeignClient(name="currency-exchange-service")
+			@RibbonClient(name="currency-exchange-service")
+			public interface CurrencyExchangeServiceProxy {
+				...
+			}
+			
+		1. application.properties (of currency-conversion-service)
+
+				spring.application.name=currency-conversion-service
+				server.port=8100
+				currency-exchange-service.ribbon.listOfServers=http://localhost:8000,http://localhost:8001
+				
+			1. Just give list of multiple services
 
 ### Step 23 - Running client side load balancing with Ribbon ###
+1. Start the applications (currency-exchange-service and currency-conversion-service)
+2. `currency-exchange-service`
+	1. Start service configured on `8000`
+	2. Start service configured on `8001`
+		1. Right click
+
 ### Step 24 - Understand the need for a Naming Server ###
 ### Step 25 - Setting up Eureka Naming Server ###
 ### Step 26 - Connecting Currency Conversion Microservice to Eureka ###
