@@ -706,7 +706,7 @@
 		</dependency>
 		
 	1. Enable feign:
-
+	
 			@EnableFeignClients("com.in28minutes.microservices.currencyconversionservice")
 			@SpringBootApplication
 			public class CurrencyConversionServiceApplication {
