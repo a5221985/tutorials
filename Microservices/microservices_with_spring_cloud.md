@@ -729,7 +729,7 @@
 				@Autowired
 				private 
 				
-				@GetMapping("/currency-converter-feign/...")
+				@GetMapping("/currency-converter-feign/from/{from}/to/{to}/quantity/{quantity}")
 				public CurrencyConversionBean ... {
 					
 				}
