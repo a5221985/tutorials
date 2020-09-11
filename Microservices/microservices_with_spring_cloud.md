@@ -721,20 +721,26 @@
 					@FeignClient(name="currency-exchange-service", url="localhost:8000") // from application.properties
 					public interface CurrencyExchangeServiceProxy {
 						@GetMapping("/currency-exchange/from/{from}/to/{to}")
-						public CurrencyConversionBean retrieveExchangeValue(@PathVariable String from, @PathVariable String to);
+						public CurrencyConversionBean retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to); // need to specify path variable strings for feign
 					}
 					
 		2. New method:
 
 				@Autowired
-				private 
+				private CurrencyExchangeServiceProxy proxy;
 				
 				@GetMapping("/currency-converter-feign/from/{from}/to/{to}/quantity/{quantity}")
-				public CurrencyConversionBean ... {
+				public CurrencyConversionBean convertCurrencyFeign(@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity) {
+					CurrencyConversionBean response = proxy.retrieveExchangeValue(from, to);
 					
+					return new CurrencyConversionBean(response.getId(), from, to, response. ..., quantity, quantity.multiply(response.getConversionMultiple()), ...);
 				}
+				
+			1. We are concerned about how proxy is connecting or getting details
 
 ### Step 22 - Setting up client side load balancing with Ribbon ###
+
+
 ### Step 23 - Running client side load balancing with Ribbon ###
 ### Step 24 - Understand the need for a Naming Server ###
 ### Step 25 - Setting up Eureka Naming Server ###
