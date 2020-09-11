@@ -836,7 +836,7 @@
 
 ### Step 27 - Connecting Currency Exchange Microservice to Eureka ###
 ### Step 28 - Distributing calls using Eureka and Ribbon ###
-### Step 29 - A review of implementing Eureka, Ribbon and Feign ###
+### Step 29 - A Review of Implementing Eureka, Ribbon and Feign ###
 ### Step 30 - Introduction to API Gateways ###
 ### Step 31 - Setting up Zuul API Gateway ###
 ### Step 32 - Implementing Zuul Logging Filter ###
