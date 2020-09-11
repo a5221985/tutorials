@@ -807,8 +807,33 @@
 	3. CurrencyExchangeService - needs to connect to EurekaNamingServer
 	4. Configure Ribbon - to find details from EurekaNamingServer
 2. Eureka - offered by Netflix
+	1. New project:
+		1. groupId: com.in28minutes.microservices
+		2. artifactId: netflx-eureka-naming-server
+		3. Dependencies: Eureka Server, Config Client (to store config), Actuator, DevTools
+		4. Generate Project
+		5. Import into Eclipse
+3. Enable Eureka Server
+
+		@SpringBootApplication
+		@EnableEurekaServer
+		...
+
+	1. application.properties
+
+			spring.application.name=netflix-eureka-naming-server
+			server.port=8761
+			eureka.client.register-with-eureka=false
+			eureka.client.fetch-registry=false
+			
+		1. Open: `http://localhost:8761`
+			1. UI for Eureka:
+				1. Shows status
+				2. Instances currency registered
 
 ### Step 26 - Connecting Currency Conversion Microservice to Eureka ###
+1. 
+
 ### Step 27 - Connecting Currency Exchange Microservice to Eureka ###
 ### Step 28 - Distributing calls using Eureka and Ribbon ###
 ### Step 29 - A review of implementing Eureka, Ribbon and Feign ###
