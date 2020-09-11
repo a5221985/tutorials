@@ -840,15 +840,15 @@
 ### Step 30 - Introduction to API Gateways ###
 ### Step 31 - Setting up Zuul API Gateway ###
 ### Step 32 - Implementing Zuul Logging Filter ###
-### Step 33 - Executing a request through Zuul API Gateway ###
-### Step 34 - Setting up Zuul API Gateway between microservice invocations ###
+### Step 33 - Executing a Request Through Zuul API Gateway ###
+### Step 34 - Setting up Zuul API Gateway between Microservice Invocations ###
 ### Step 35 - Introduction to Distributed Tracing ###
 ### Step 36 - Implementing Spring Cloud Sleuth ###
 ### Step 37 - Introduction to Distributed Tracing with Zipkin ###
 ### Step 38 - Installing Rabbit MQ ###
 ### Step 39 - Setting up Distributed Tracing with Zipkin ###
-### Step 40 - Connecting microservices to Zipkin ###
-### Step 41 - Using Zipkin UI Dashboard to trace requests ###
+### Step 40 - Connecting Microservices to Zipkin ###
+### Step 41 - Using Zipkin UI Dashboard to Trace Requests ###
 ### Step 42 - Understanding the need for Spring Cloud Bus ###
 ### Step 43 - Implementing Spring Cloud Bus ###
 ### Step 44 - Fault Tolerance with Hystrix ###
@@ -858,3 +858,30 @@
 ## Thanks ##
 ### Bonus Lecture: Out Best Courses ###
 ### Thank You ###
+
+## Appendix - Introduction to Spring Boot in 10 Steps ##
+### 0005 - Section Introduction 04 - Introduction to Spring Boot in 10 Steps ###
+### Step 1: Introduction to Spring Boot - Goals and Important Features ###
+### Step 2: Developing Spring Applications Before Spring Boot ###
+### Step 3: Using Spring Initializr to Construct a Project ###
+### Step 4: Constructing a Simple REST Controller ###
+### Step 5: What is Spring Boot Auto Configuration? ###
+### Step 6: Spring Boot vs Spring vs Spring MVC ###
+### Step 7: Spring Boot Starter Projects - Starter Web and Starter JPA ###
+### Step 8: Overview of Different Spring Boot Starter Projects ###
+### Step 9: Spring Boot Actuator ###
+### Step 10: Spring Boot Developer Tools ###
+
+## Appendix - Introduction to JPA in 10 Steps ##
+### Section Introduction - Introduciton to JPA in 10 Steps ###
+### Step 1: Object Relational Impedence Mismatch ###
+### Step 2: World Before JPA - JDBC, Spring JDBC and myBatis ###
+### Step 3: Introduction to JPA ###
+### Step 4: Constructing a JPA Project using Spring Initializr ###
+### COURSE UPDATE: H2 Database URL ###
+### Step 5: Defining a JPA Entity - User ###
+### Step 6: Defining a Service to Manage the Entity - UserService and EntityManager ###
+### Step 7: Using a Command Line Runner to Save the User to Database ###
+### Step 8: Magic of Spring Boot and In Memory Database H2 ###
+### Step 9: Introduction to Spring Data JPA ###
+### Step 10: More JPA Repository: findById and findAll ###
