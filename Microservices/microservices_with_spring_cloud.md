@@ -771,9 +771,27 @@
 2. `currency-exchange-service`
 	1. Start service configured on `8000`
 	2. Start service configured on `8001`
-		1. Right click
+		1. Open `Run Configurations`
+		2. Right click on `CurrencyExchangeServiceApplication8000`
+		3. Duplicate
+		4. Arguments
+		
+				-Dserver.port=8002
+				
+		5. Run
+3. Launch `currency-conversion-service`
+4. Request: `http://localhost:8100/currency-converter-feign/from/EUR/to/INR/quantity/10000`
+	1. Refresh multiple times and port changes
+
+### Debugging Problems with Feign and Ribbon ###
+1. It is difficult to debug multiple components
+2. Troubleshooting guide: [https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ#debugging-problems-with-feign-and-ribbon](https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ#debugging-problems-with-feign-and-ribbon)
 
 ### Step 24 - Understand the need for a Naming Server ###
+1. Naming Server:
+	1. Say we start another instance of currency-exchange-service
+		1. We want to increase and decrease dynamically
+
 ### Step 25 - Setting up Eureka Naming Server ###
 ### Step 26 - Connecting Currency Conversion Microservice to Eureka ###
 ### Step 27 - Connecting Currency Exchange Microservice to Eureka ###
