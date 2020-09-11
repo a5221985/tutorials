@@ -791,8 +791,23 @@
 1. Naming Server:
 	1. Say we start another instance of currency-exchange-service
 		1. We want to increase and decrease dynamically
+			1. Naming Server - required - EurekaNamingServer
+				1. All instances of microservices register with the naming server (whenever microservice comes up)
+		2. When a service wants to talk to another service
+			1. It would talk to naming server and ask what are the locations or instances of currency-exchange-service
+		3. Important features of naming service
+			1. Service registration
+			2. Service discovery
+				1. microservice asks naming server for details
 
 ### Step 25 - Setting up Eureka Naming Server ###
+1. Steps:
+	1. EurekaNamingServer - component needs to be constructed
+	2. CurrencyCalculationService - needs to connect to EurekaNamingServer
+	3. CurrencyExchangeService - needs to connect to EurekaNamingServer
+	4. Configure Ribbon - to find details from EurekaNamingServer
+2. Eureka - offered by Netflix
+
 ### Step 26 - Connecting Currency Conversion Microservice to Eureka ###
 ### Step 27 - Connecting Currency Exchange Microservice to Eureka ###
 ### Step 28 - Distributing calls using Eureka and Ribbon ###
