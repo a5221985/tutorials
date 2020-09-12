@@ -300,7 +300,18 @@
 	2. business layer
 	3. service layer
 	4. data access layer
-2. 
+2. Example:
+
+	![layers_in_architecture_logical](layers_in_architecture_logical.jpeg)
+	
+3. Layers are at code level
+	1. Layers represent organization of code (breaking it into components)
+	2. Tiers involve physicall separation of components
+4. The layers can be used in any tiered application
+	1. Single
+	2. Two
+	3. Three
+	4. N
 
 ### Different Tiers in Software Architecture Quiz ###
 
