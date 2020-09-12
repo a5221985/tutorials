@@ -411,13 +411,51 @@
 
 		test('renders without error', ... {
 			const wrapper = shallow(<App />);
+			const appComponent = wrapper.find("[data-test='component-app']"); // component-<name-of-component>
+			expect(appComponent.length).toBe(1);
 		});
 		
 	1. Open Enzyme API reference
 		1. Shallow rendering:
 			1. Finds every node and returns a new shallow wrapper
+	2. Fixing:
+
+			<div data-test="component-app">
+			...
+			</div>
 
 ### OPTIONAL: Removing data-test Attributes for Production ###
+1. Remove data-test attributes from production code
+
+		<div ...>
+			<h1>App</h1>
+		</div>
+		
+	1. `yarn start`
+2. Install package:
+
+		yarn add --dev babel-plugin-react-remove-properties
+		
+	1. `npm <package>` - google
+	2. `npm run eject` - makes config editable by us
+		1. Puts config in package.json
+		2. Puts other config files in the application
+	3. `git commit -m "backup"`
+	4. `npm run eject`
+3. Edit `package.json`
+
+		"babel": {
+			"env": {
+				"production": {
+				
+				}
+			}
+		}
+		
+	1. search `npm babel plugin react-remove-properties` - copy "env"
+
+			
+
 ### More data-test Attribute Tests ###
 ### DRY Refactor ###
 ### Test Initial State ###
