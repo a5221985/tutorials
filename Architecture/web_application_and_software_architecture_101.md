@@ -317,6 +317,17 @@
 
 ## Web Architecture ##
 ### What is Web Architecture? ###
+1. Involves multiple components
+	1. Database
+	2. Message queue
+	3. Cache
+	4. UI
+2. All components run in conjunction with each other to form online service
+3. Web architecture knowledge is important to software engineers
+4. Example:
+
+	![web_architecture](web_architecture.jpeg)
+
 ### Client Server Architecture ###
 ### Client ###
 ### Types of Client ###
