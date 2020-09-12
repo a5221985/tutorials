@@ -44,7 +44,26 @@
 	1. HP Enterprise - Full-stack developer in Technical Solutions - R & D team
 	2. [LinkedIn Profile](https://www.linkedin.com/in/shivang-sarawagi-b7b5881b/)
 
-### Significance of Software Architecture ### 
+### Significance of Software Architecture ###
+1. Topics:
+	1. Significance of web apps
+	2. Significance of software architecture
+	3. Reason behind learning architecture
+2. Headings:
+	1. Importance of getting app architecture right
+	2. Overview of software development process
+		1. POC
+	3. Course design
+
+#### Importance of Getting App Architecture Right ####
+1. Get the base right
+2. Architecture is base and must be carefully thought
+	1. To avoid major design changes
+	2. To avoid code refactoring at a later point
+3. Re-design eats up time
+	1. May push shipping dates (may be by months)
+	2. May waste engineering and financial resources to do this
+4. Before we touch code and get hands dirty, get the architecture right
 
 ## Different Tiers in Software Architecture ##
 ### Introduction ###
