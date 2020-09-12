@@ -323,7 +323,23 @@
 										1. You and your team will determine what works best for you
 
 ### Why There is a Snapshot Testing in this Course ###
-1. 
+1. Snapshot testing
+	1. Feature of Jest
+		1. Jest includes "snapshot testing"
+			1. A way to freeze a component (at certain point in time)
+			2. Test fails if there are any changes (from frozen output)
+	2. No snapshots in the course
+		1. No TDD is possible with snapshot
+			1. We cannot construct output of component exactly and write code based on that
+		2. Brittle (any change to component will break snapshot tests)
+		3. Difficult to diagnose
+			1. Too easy to ignore failure and update (snapshot)
+				1. Without checking
+	3. No test intent
+		1. If there's a failure, does test still meet spec?
+			1. Is it legimate failure or not? Hard to tell
+				1. There is not desciption for the intent of the test for snapshot tests
+	4. 
 
 ## Simple React App: Click Counter ##
 ### Course Repository on Github ###
