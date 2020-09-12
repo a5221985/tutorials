@@ -176,6 +176,12 @@
 1. A two-tier application involves a client and a server.
 	1. The client would contain user interface & business logic in one machine
 	2. Backend could be database running on different machine
+		1. It is hosted by business
+2. Example:
+
+	![two_tier_architecture](two_tier_architecture.jpeg)
+	
+
 
 ### Three Tier Applications ###
 ### N Tier Applications ###
