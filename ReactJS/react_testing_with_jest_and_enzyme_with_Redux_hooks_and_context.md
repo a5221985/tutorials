@@ -368,9 +368,31 @@
 		
 		Enzyme.configure({ adapter: new EnzymeAdapter() });
 		
+		test("renders without error", () => {
+			
+		});
+		
+		test("renders increment button", () => {
+		
+		});
+		
+		test("renders conter display", () => {
+		
+		});
+		
+		test("counter starts at 0", () => {
+			
+		});
+		
+		test("clicking button increments the counter in display", () => {
+		
+		});
+		
 	1. Must have atleast one test - Jest doesn't accept no tests
 
 ### Test Component Rendering ###
+1. 
+
 ### OPTIONAL: Removing data-test Attributes for Production ###
 ### More data-test Attribute Tests ###
 ### DRY Refactor ###
