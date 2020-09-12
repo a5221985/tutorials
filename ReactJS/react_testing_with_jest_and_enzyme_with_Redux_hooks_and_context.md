@@ -266,8 +266,17 @@
 				1. Testing implementation is brittle (easily broken when app still works)
 					1. If we change internals, the app should still work
 	2. Feature to test
-		1. App 
-			
+		1. App keeps counter of button click count
+			1. `onClick` function for button calls `incrementCounter` function
+			2. Counter display increments by one
+		2. Steps;
+			1. Set initial state
+			2. Simulate button click
+			3. Check displayed count to see that it was incremented by one
+		3. Testim implementation: (not recommended)
+			1. Set initial state
+			2. Simulate button click
+			3. Check to see if particular function was called
 
 ### Why There is a Snapshot Testing in this Course ###
 
