@@ -228,7 +228,7 @@
 						//expect(wrapper).toBeFalsy();
 					});
 					
-				1. Mocha and Chai are used in general
+				1. Mocha and Chai are used in general for expectations
 				2. Jest has it's own expect API
 					1. Jest main page:
 						1. Docs:
@@ -240,7 +240,23 @@
 			2. TDD: Ensures test fails first and then the code is written to ensure the failing test passes
 
 ### Types of Tests ###
+1. Categories of tests
+	1. Unit Tests
+		1. tests one piece of code (usually one function)
+			1. Very modular and narrow and isolated in scope
+	2. Integration Tests
+		1. How multiple units work together
+			1. Google for Unit vs Integration test
+	3. Acceptance / End-to-end (E2E) Tests
+		1. How a user would interact with app
+			1. Usually selenium or cyprus is used to check end to end (if user interaction goes to database and back again)
+2. In the course:
+	1. Unit and integration tests
+	2. No server tests or selenium
+
 ### Testing Tradeoffs ###
+1. 
+
 ### Why There is a Snapshot Testing in this Course ###
 
 ## Simple React App: Click Counter ##
