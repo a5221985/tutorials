@@ -339,12 +339,37 @@
 		1. If there's a failure, does test still meet spec?
 			1. Is it legimate failure or not? Hard to tell
 				1. There is not desciption for the intent of the test for snapshot tests
-	4. 
+	4. If used it's alongside traditional tests
+		1. You'll decide what's right for you
 
 ## Simple React App: Click Counter ##
 ### Course Repository on Github ###
+1. [Course Repository on GitHub](https://github.com/flyrightsister/udemy-react-testing-projects)
+
 ### Demo and Start Click Counter App ###
+1. Using `create-react-app`
+2. `create-react-app click-counter`
+3. Click and count goes up
+	1. One element displays count
+	2. One element (button) increments count
+	3. Count is kept in component state
+4. Developing structures for simple app
+5. Installing Enzyme: `yarn add --dev enzyme jest-enzyme enzyme-adapter-react-16`
+
 ### Set up Enzyme and Write Tests ###
+1. Deprecation warnings - enzyme specific and not to worry
+2. Open `App.test.js`
+
+		// Remove react dom
+		import Enzyme, { shallow } from "enzyme";
+		import EnzymeAdapter from "enzyme-adapter-react-16";
+		
+		...
+		
+		Enzyme.configure({ adapter: new EnzymeAdapter() });
+		
+	1. Must have atleast one test - Jest doesn't accept no tests
+
 ### Test Component Rendering ###
 ### OPTIONAL: Removing data-test Attributes for Production ###
 ### More data-test Attribute Tests ###
