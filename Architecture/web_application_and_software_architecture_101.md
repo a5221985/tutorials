@@ -187,8 +187,30 @@
 
 #### Need for two tier app ####
 1. Examples: To-do list app, planner app, productivity app
+	1. No business significant harm (if code is accessed by third person)
+	2. Advantages:
+		1. UI and code reside on same machine and hence fewer network calls to backend server
+			1. Application latency is kept low
+2. To-do list save:
+	1. When user is done constructing to-do list he then persists changes to database
+3. Online browser
+4. App-based games
+	1. games files are downloaded the only once when user uses app for the first time
+	2. Network calls are again made to keep game state persistent
+5. Fewer service calls => less money spent on servers
+6. How is choice made?
+	1. Business requirements dependent
+	2. Use case dependent
+7. One can keep UI and business logic on client or move business logic to dedicated backend (three-tier app)
 
 ### Three Tier Applications ###
+1. Popular
+	1. Largely used in industry
+		1. Simple websites
+			1. Blogs
+			2. News websites
+			3. ...
+
 ### N Tier Applications ###
 ### Different Tiers in Software Architecture Quiz ###
 
