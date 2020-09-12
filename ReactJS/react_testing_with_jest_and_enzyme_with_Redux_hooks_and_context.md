@@ -391,7 +391,31 @@
 	1. Must have atleast one test - Jest doesn't accept no tests
 
 ### Test Component Rendering ###
-1. 
+1. `App.js`
+2. Class based component and state (hooks and contexts later)
+3. Edit:
+
+		import React, { Component } from 'react';
+		...
+		
+		class App extends Component {
+			render() {
+				return (
+					<div data-test=""></div> <!-- attribute only for test purposes and should not be change -->
+				);
+			}
+		}
+		...
+		
+4. Tests:
+
+		test('renders without error', ... {
+			const wrapper = shallow(<App />);
+		});
+		
+	1. Open Enzyme API reference
+		1. Shallow rendering:
+			1. Finds every node and returns a new shallow wrapper
 
 ### OPTIONAL: Removing data-test Attributes for Production ###
 ### More data-test Attribute Tests ###
