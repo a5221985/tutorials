@@ -354,7 +354,22 @@
 	2. Technologies used to implement clients in web applications
 
 #### Client ####
-1. 
+1. Client holds UI
+2. UI: Presentation part of the application
+	1. Written in
+		1. HTML
+		2. JS
+		3. CSS
+3. It is responsible for look & feel of app
+4. Client can be:
+	1. Mobile app
+	2. Desktop
+	3. Tablet (iPad)
+	4. Web based console
+		1. Commands
+5. Architecture example:
+
+	![client_architecture](client_architecture.jpeg)
 
 ### Types of Client ###
 ### Server ###
