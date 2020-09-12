@@ -150,7 +150,15 @@
 	1. No network latency
 		1. Every main component is on same machine
 		2. Hence adds to performance of software
-		3. 
+		3. No requests to backend server
+			1. Does not make user experience slow
+	2. Caveat: Performance depends on how powerful the machine is
+		1. Depends on hardware requirements & software
+	3. Data of user stays in machine and doesn't need transmission over network
+		1. Ensures data safety at highest level
+
+#### Disadvantages of Single Tier Applications ####
+1. 
 
 ### Two Tier Applications ###
 ### Three Tier Applications ###
