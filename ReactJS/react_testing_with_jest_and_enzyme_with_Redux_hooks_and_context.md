@@ -209,7 +209,35 @@
 	3. No error thrown, then tests pass
 
 ### Using Enzyme in a Test ###
-1. 
+1. Shallow:
+
+		import Enzyme, { shallow } from 'enzyme';
+		...
+		test('renders without creashing', () => {
+			const wrapper = shallow(<App />) // returns a shallow wrapper
+		});
+		
+	1. Enzyme js docs:
+		1. Shallow rendering:
+			1. `debug()` - returns DOM as a string
+
+					test(...) {
+						...
+						console.log(wrapper.debug());
+						expect(wrapper).toBeTruthy(); // not null, not undefined, not empty string
+						//expect(wrapper).toBeFalsy();
+					});
+					
+				1. Mocha and Chai are used in general
+				2. Jest has it's own expect API
+					1. Jest main page:
+						1. Docs:
+							1. Expectations
+								1. `toBe()`
+								2. `stringContianing()`
+								3. `toBeTruthy()`
+								4. ...
+			2. TDD: Ensures test fails first and then the code is written to ensure the failing test passes
 
 ### Types of Tests ###
 ### Testing Tradeoffs ###
