@@ -255,7 +255,19 @@
 	2. No server tests or selenium
 
 ### Testing Tradeoffs ###
-1. 
+1. Testing Goal #1:
+	1. Easy maintainance of tests
+		1. Test behavior, not implementation
+			1. Ideally, do not want to re-write tests after a refactor
+			2. Keep in mind when writing tests
+			3. Test behavior (what the app should do)
+				1. Not how app works or how app implements it
+			4. Then, if implementation changes, tests remain the same
+				1. Testing implementation is brittle (easily broken when app still works)
+					1. If we change internals, the app should still work
+	2. Feature to test
+		1. App 
+			
 
 ### Why There is a Snapshot Testing in this Course ###
 
