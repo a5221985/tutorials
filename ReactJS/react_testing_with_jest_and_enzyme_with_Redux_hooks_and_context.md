@@ -447,16 +447,32 @@
 		"babel": {
 			"env": {
 				"production": {
-				
+					"plugins": [
+						["react-remove-properties", {"properties": ["data-test"]}]
+					]
 				}
-			}
+			},
+			"presets": [
+			...
+			]
 		}
 		
 	1. search `npm babel plugin react-remove-properties` - copy "env"
-
-			
+	2. Production build:
+		1. `npm run build`
+		2. `sudo npm install -g serve`
+		3. `serve -s build`
+		4. Open: `http://localhost:5000`
+4. Review:
+	1. `npm install --save-dev babel-plugin-react-remove-properties`
+	2. `npm run eject`
+	3. Update babel config
+	4. Production build
+	5. Data-test attributes are gone!
 
 ### More data-test Attribute Tests ###
+1. 
+
 ### DRY Refactor ###
 ### Test Initial State ###
 ### Test Button Click ###
