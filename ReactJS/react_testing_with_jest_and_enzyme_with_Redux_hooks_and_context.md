@@ -277,6 +277,7 @@
 			1. Set initial state
 			2. Simulate button click
 			3. Check to see if particular function was called
+				1. It only tests if code is going through right stages and not the behavior that user expects
 
 ### Why There is a Snapshot Testing in this Course ###
 
