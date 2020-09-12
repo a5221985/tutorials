@@ -210,8 +210,47 @@
 			1. Blogs
 			2. News websites
 			3. ...
+2. Three-tier application:
+	1. In three-tier application, user interface, application logic & database lie on different machines & have different tiers. They are physically separated
+3. Example:
+
+	![three_tier_architecture](three_tier_architecture.jpeg)
+	
+4. Example: Simple blog
+	1. UI - HTML, JS, CSS
+	2. Backend - Apache (say)
+	3. Database - MySQL (say)
+5. This architecture is best for simple use cases
 
 ### N Tier Applications ###
+1. N-Tier applications and components
+2. Topics covered:
+	1. N-Tier app
+	2. Why need for so many tiers?
+	3. Single responsibility principle
+	4. Separation of concerns
+	5. Difference between layers and tiers
+
+#### N-Tier Application ####
+1. An N-tier app is app which has more than three components involved
+2. What components?
+	1. Cache
+	2. Message queues for asynchronous behavior
+	3. Load balancers
+	4. Search servers for searching through massive amounts of data
+	5. Components involved in processing massive amounts of data
+	6. Components running heterogeneous tech commonly known as web services etc...
+3. Examples: Social applications
+	1. Instagram
+	2. Facebook
+4. Examples: Large scale industry services
+	1. Uber
+	2. Airbnb
+5. Note:
+	1. N-tier apps are called **distributed apps**
+		1. Not safe to use this term yet
+			1. It brings in complex stuff with it
+
 ### Different Tiers in Software Architecture Quiz ###
 
 ## Web Architecture ##
