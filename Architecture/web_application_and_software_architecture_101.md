@@ -168,7 +168,14 @@
 	1. As it depends on config of user's machine
 
 ### Two Tier Applications ###
-1. 
+1. Topics:
+	1. Two tier applications
+	2. Need for two tier applications
+
+#### Two Tier Application ####
+1. A two-tier application involves a client and a server.
+	1. The client would contain user interface & business logic in one machine
+	2. Backend could be database running on different machine
 
 ### Three Tier Applications ###
 ### N Tier Applications ###
