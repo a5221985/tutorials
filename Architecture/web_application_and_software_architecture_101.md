@@ -327,9 +327,35 @@
 4. Example:
 
 	![web_architecture](web_architecture.jpeg)
+	
+5. The example is typical architecture of web application used in majority of applications running online
+6. We need to know the components well to build upon the architecture for more complex requirements
+7. Next: Every component in detail
 
 ### Client Server Architecture ###
+1. Architecture example:
+
+	![client_server_architecture](client_server_architecture.jpeg)
+	
+2. Client-server architecture is fundamental building block of the web
+	1. Works on request-response model
+		1. Client sends request to server for info
+		2. Server responds with info
+	2. Examples:
+		1. Wordpress blog
+		2. Facebook
+		3. Twitter
+		4. Bank app
+3. Small percent of business websites use **peer to peer architecture**
+
 ### Client ###
+1. Topics
+	1. Client
+	2. Technologies used to implement clients in web applications
+
+#### Client ####
+1. 
+
 ### Types of Client ###
 ### Server ###
 ### Communication Between the Client & the Server ###
