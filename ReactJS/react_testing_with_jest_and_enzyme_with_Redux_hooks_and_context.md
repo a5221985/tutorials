@@ -190,8 +190,27 @@
 	1. Three packages - dev dependencies (only for development and not for production)
 	2. `npm install --save-dev enzyme jest-enzyme enzyme-adapter-react-16` (version depends on latest)
 	3. `yarn add --dev enzyme jest-enzyme enzyme-adapter-react-16`
+3. Using enzyme in code:
+	
+		//import { render } from '@testing-library/react'; - not required
+		import Enzyme from 'enzyme';
+		import EnzymeAdapter from 'enzyme-adapter-react-16';
+		
+		...
+		Enzyme.configure({ adapter: new EnzymeAdapter() }); // new instance of enzyme adapter
+		
+		// Remove existing test code
+		
+		test('renders without crashing', () => {
+		}); 
+		
+	1. Own file which runs before each test file
+	2. Adapter - tells what type of code to expect - React 16 code
+	3. No error thrown, then tests pass
 
 ### Using Enzyme in a Test ###
+1. 
+
 ### Types of Tests ###
 ### Testing Tradeoffs ###
 ### Why There is a Snapshot Testing in this Course ###
