@@ -250,6 +250,43 @@
 	1. N-tier apps are called **distributed apps**
 		1. Not safe to use this term yet
 			1. It brings in complex stuff with it
+				1. Confusing
+
+#### Why the Need for So Many Tiers? ####
+1. Two design principles can be used to explain this:
+	1. Single Responsibility Principle
+	2. Separation of Concerns
+
+#### Single Responsibility Principle ####
+1. Giving only one responsiblity to a component
+	1. Let it execute it with perfection
+		1. Examples:
+			1. Saving data
+			2. Running app logic
+			3. Ensure delivery of message throughout system
+2. Advantages:
+	1. Flexibility
+	2. Easier management
+		1. Example: Upgrading DB server (like OS or patch) does not impact other components or service running
+			1. Even if OS is installed, database would go down
+			2. Rest of the application will still be up and only database dependent features are affected
+	3. We can have dedicated teams
+	4. We can have dedicated code repos for each component
+3. Stored procedures violates SRP
+	1. Business logic is in DB
+		1. If database needs to be changed, how do we migrate the business logic?
+			1. Migrate to new database?
+			2. Refactor app code and squeeze in stored proc logic?
+	2. DB should not have business logic
+		1. It must be used to only persist data
+4. Hence separate tier for each component
+
+#### Separation of Concerns ####
+1. Means be concerned about my work only and stop worrying about rest of the stuff
+	1. Principle acts at all levels of service
+		1. Tier level
+		2. Code level
+2. 
 
 ### Different Tiers in Software Architecture Quiz ###
 
