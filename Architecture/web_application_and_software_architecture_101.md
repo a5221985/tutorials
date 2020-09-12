@@ -85,6 +85,13 @@
 	3. We can understand pros and cons of tech, performance, other tech limitations if any
 	4. Helps with learning curve if working with completely new tech
 		1. Product owners, stakeholders have something concrete to play with to base their further decisions on
+	5. For solo indie developer or small group
+		1. Pic the POC and start with the main code
+	6. Showcase POC to stakeholders
+		1. If everyone is satisfied, main repo is created and first dev branch on GitHub
+3. It is important to
+	1. Get architecture right the first time
+	2. Get knowledge of web architecture across to developers
 
 ## Different Tiers in Software Architecture ##
 ### Introduction ###
