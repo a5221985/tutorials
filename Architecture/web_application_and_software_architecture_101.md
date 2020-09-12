@@ -158,9 +158,18 @@
 		1. Ensures data safety at highest level
 
 #### Disadvantages of Single Tier Applications ####
-1. 
+1. Business will not have control over application
+	1. Once software is shipped, no code or feature changes can be done until customer manually updates by connecting to remote server or downloading & installing patch
+	2. Example: Buggy game in 90s once shipped, nothing could be done
+	3. Solution: Product testing must be thorough - no room for mistakes
+2. Code in single-tier apps is vulnerable to being tweeked & reverse engineered
+3. Security is minimal
+4. Performance & look and feel can get inconsistent 
+	1. As it depends on config of user's machine
 
 ### Two Tier Applications ###
+1. 
+
 ### Three Tier Applications ###
 ### N Tier Applications ###
 ### Different Tiers in Software Architecture Quiz ###
