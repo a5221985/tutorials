@@ -370,6 +370,21 @@
 5. Architecture example:
 
 	![client_architecture](client_architecture.jpeg)
+	
+#### Technologies Used to Implement Clients in Web Apps ####
+1. Client is window to application
+2. Open Source technos popular for web-based UIs
+	1. ReactJS
+	2. AngularJS
+	3. VueJS
+	4. JQuery
+	5. ...
+3. Different platforms need different frameworks and libraries for front-end
+	1. Mobile phones
+		1. Android tools
+		2. iOS tools
+		3. Windows Tools
+4. [Developer Survey of StackOverflow](https://insights.stackoverflow.com/survey/2019#technology)
 
 ### Types of Client ###
 ### Server ###
