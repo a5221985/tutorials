@@ -181,7 +181,12 @@
 
 	![two_tier_architecture](two_tier_architecture.jpeg)
 	
+3. Why two-tier apps?
+4. Why not host business logic on different machine & control it?
+5. Is app code not vulnerable to being accessed by third person?
 
+#### Need for two tier app ####
+1. Examples: To-do list app, planner app, productivity app
 
 ### Three Tier Applications ###
 ### N Tier Applications ###
