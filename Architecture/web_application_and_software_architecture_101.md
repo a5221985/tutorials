@@ -286,7 +286,13 @@
 	1. Principle acts at all levels of service
 		1. Tier level
 		2. Code level
-2. 
+2. Keeping components separate makes them re-usable
+	1. Different services can use same:
+		1. DB
+		2. Messaging server
+		3. Other component
+	2. Caveat: They must not be tightly coupled
+3. 
 
 ### Different Tiers in Software Architecture Quiz ###
 
