@@ -292,7 +292,15 @@
 		2. Messaging server
 		3. Other component
 	2. Caveat: They must not be tightly coupled
-3. 
+3. Loosely coupled components makes scaling service easy in future when things grow
+
+#### Difference Between Layers & Tiers ####
+1. Layers in industry mean
+	1. User interface layer
+	2. business layer
+	3. service layer
+	4. data access layer
+2. 
 
 ### Different Tiers in Software Architecture Quiz ###
 
