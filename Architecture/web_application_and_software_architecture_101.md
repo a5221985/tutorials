@@ -64,6 +64,27 @@
 	1. May push shipping dates (may be by months)
 	2. May waste engineering and financial resources to do this
 4. Before we touch code and get hands dirty, get the architecture right
+5. Software development is iterative and evolutionary process
+	1. We always don't get things perfect in the first go
+		1. It is not an excuse for not doing homework
+
+#### An Overview of the Software Development Process ####
+1. Requirement gathering and analysis
+	1. Architects, developers and product owners spend time discussing requirements
+2. When business requirements are done, we study use cases which we have to implement
+	1. This involves figuring out corner cases as early as possible
+	2. This involves fitting lego blocks together
+	3. This may invole writing high level design documents
+3. Once requirements, use cases, corner cases are done, research on picking right technology stack to implement the use cases
+
+#### Proof of Concept ####
+1. Once tech stack is picked, we write POC
+2. What is POC?
+	1. Helps get closer, hands-on-view of technology
+	2. Helps us implement basic use case
+	3. We can understand pros and cons of tech, performance, other tech limitations if any
+	4. Helps with learning curve if working with completely new tech
+		1. Product owners, stakeholders have something concrete to play with to base their further decisions on
 
 ## Different Tiers in Software Architecture ##
 ### Introduction ###
