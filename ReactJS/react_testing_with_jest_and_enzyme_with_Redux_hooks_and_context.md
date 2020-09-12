@@ -278,8 +278,52 @@
 			2. Simulate button click
 			3. Check to see if particular function was called
 				1. It only tests if code is going through right stages and not the behavior that user expects
+			4. Testing implementation (function name) - can change
+				1. Not behavior (display update)
+2. Testing Goal #2
+	1. Easy diagnosis of failing tests
+		1. If a test fails, we don't want to spend too much time digging through the test code or production code to see why test failed
+	2. Feature to test
+		1. Shopping cart for custom t-shirt
+			1. Select t-shirt style
+			2. Select size
+			3. Select color
+			4. Select number of shirts to order
+			5. Type in text to put on shirt
+			6. ...
+			7. Add t-shirt to the cart
+		2. Difficult-to-Diagnose test
+			1. Test that the cart has the correct contents after the entire process
+			2. Why difficult?
+				1. If it fails, which step was the problem?
+			3. Test failure alone doesn't tell you
+				1. Need to investigate
+					1. Takes more time
+			4. Want efficiency in diagnosing failing tests
+				1. Not spend much time diagnosing why tests fail
+		3. Solution:
+			1. Make it easier to diagnose
+				1. After each user action
+					1. Test expected internal state change
+					2. or. alternatively test that a particular function was called
+						1. Isn't testing state or function calls testing implementation?
+							1. Yes you just told us NOT TO DO!
+								1. Yes
+									1. Balance/ tradeoff
+										1. Granular (unit) testing leads to ...
+											1. Ease of diagnosis
+											2. Brittle tests
+										2. Broader (integration) testing leads to...
+											1. More robust tests
+											2. More difficult to find out what caused the issue
+												1. Easy to write but difficult to diagnose compared to unit tests
+									2. Sometimes you'll optimize for ease of diagnosis
+									3. Sometimes you'll optimize for less brittle tests
+									4. Find your own balance between the two!
+										1. You and your team will determine what works best for you
 
 ### Why There is a Snapshot Testing in this Course ###
+1. 
 
 ## Simple React App: Click Counter ##
 ### Course Repository on Github ###
