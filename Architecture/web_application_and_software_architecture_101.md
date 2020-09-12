@@ -128,9 +128,30 @@
 	5. Caching
 3. Web service components:
 
+	![Web service component](application_tiers.jpeg)
 		
+4. Next: types of tiers and real examples
 
 ### Single Tier Applications ###
+1. A single-tier application is an application where the user interface, backend business logic & the database all reside in the same machine
+2. Example: User interface, backend server, database all reside in same machine
+
+	![single_tier_architecture](single_tier_architecture.jpeg)
+	
+3. Examples:
+	1. Desktop apps
+		1. MS Office
+		2. PC Games
+		3. Image editing software
+			1. Gimp
+	
+#### Advantages of Single Tier Applications ####
+1. Main upside:
+	1. No network latency
+		1. Every main component is on same machine
+		2. Hence adds to performance of software
+		3. 
+
 ### Two Tier Applications ###
 ### Three Tier Applications ###
 ### N Tier Applications ###
