@@ -93,8 +93,43 @@
 	1. Get architecture right the first time
 	2. Get knowledge of web architecture across to developers
 
+#### Course Design ####
+1. Two parts:
+	1. Concepts & Architectural components involved in designing web applications
+		1. Insights into tiers of software applications
+			1. Monolithic repos
+			2. Microservices
+			3. Peer to peer architecture
+			4. ...
+	2. Second part:
+		1. Use cases for designing architecture for apps (we use in day to day life)
+2. Understanding how apps are designed from bare bones
+	1. Thought process of picking right tech stack for use case ...
+
 ## Different Tiers in Software Architecture ##
 ### Introduction ###
+1. Tier:
+	1. What is it?
+	2. What are it's components?
+2. Different tiers involved in software landscape (bird's eye view)
+3. What we learn?
+	1. What is tier?
+	2. Why do software apps have different tiers? What is need for them?
+	3. How to decide the number of tiers in app?
+
+#### What is a Tier? ####
+1. Tier: logical separation of components in application or service
+	1. Separation is at physical at component level (not code level)
+2. Components?
+	1. Database
+	2. Backend application server
+	3. User interface
+	4. Messaging
+	5. Caching
+3. Web service components:
+
+		
+
 ### Single Tier Applications ###
 ### Two Tier Applications ###
 ### Three Tier Applications ###
