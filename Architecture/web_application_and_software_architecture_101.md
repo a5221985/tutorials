@@ -746,9 +746,38 @@
 7. [Further reading on Stream API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Concepts)
 
 #### Summary ####
-1. 
+1. Persistent connection between client and server - technologies used
+2. Ajax use case: Dynamically update web page by polling server at regular intervals
+3. Long polling use case: Connection open time is slightly longer than polling mechanism
+4. Web sockets use case: Bi-directional data flow
+5. Server sent events: data flow from server to client
+6. Technology that best fits depends on use cases
 
 ### Client-Side Vs Server-Side Rendering ###
+1. Topics:
+	1. Client-side rendering - How does a browser render a web page?
+	2. Server-side rendering
+	3. Use cases for server-side & client-side rendering
+
+#### Client-Side Rendering - How Does A Browser Render A Web Page? ####
+1. When user request web page from server & browser receives response
+	1. Browser has to render response on window in the form of HTML page
+2. Browser components for this:
+	1. Browser engine
+	2. Rendering engine
+	3. JavaScript interpreter
+	4. Networking & the UI backend
+	5. Data storage etc...
+2. Browser has significant work to convert response from server into HTML page
+3. Rendering engine constructs DOM tree, renders & paints construction
+	1. This needs time
+
+#### Server-Side Renderig ####
+1. To avoid rendering time on client UI is rendered on server
+	1. HTML is generated in serve and directly sent to UI
+
+#### Use Cases for Server-Side & Client-Side Rendering ####
+
 ### Web Architecture Quiz - Part 2 ###
 
 ## Scalability ##
