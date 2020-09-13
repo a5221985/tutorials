@@ -536,9 +536,22 @@
 			2. Provide endpoints
 				1. Response is in JSON or other standard data transport format
 					1. Client handles data in whatever way they want
-			3. Multiple types of clients can be introduced without
+			3. Multiple types of clients can be introduced without considering backend implementation
+			4. To access public data of social network
+				1. Use their REST API
 
 #### API Gateway ####
+1. API Gateway architecture:
+
+	![api_gateway_architecture](api_gateway_architecture.jpeg)
+	
+2. REST-API - single entry point into system (gateway)
+	1. It encapsulates business logic
+	2. It handles all client requests
+	3. It takes care of authorization
+	4. It takes care of authentication
+	5. It can sanitize input data & other necessary tasks
+	6. 
 
 ### HTTP Push & Pull - Introduction ###
 ### HTTP Pull - Polling with Ajax ###
