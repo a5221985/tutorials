@@ -612,6 +612,18 @@
 #### AJAX - Asynchronous JavaScript & XML ####
 1. AJAX: Asynchronous JavaScript & XML
 	1. Used for adding asynchronous behaviour to web page
+2. AJAX Example:
+
+	![ajax_model](ajax_model.jpeg)
+	
+3. AJAX enables fetching updated data from server automatically sending requests over and over at stipulated intervals
+	1. When updates are received
+		1. A section of web page is updated dynamically by callback method
+			1. Example: News websites, Sports websites (without reload)
+4. `XMLHttpRequest`
+	1. AJAX uses the object to send requests to server
+	2. It is built in browser
+	3. It uses JavaScript to update HTML DOM
 
 ### HTTP Push - Based Technologies ###
 ### Client-Side Vs Server-Side Rendering ###
