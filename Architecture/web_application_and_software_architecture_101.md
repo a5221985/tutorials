@@ -559,7 +559,28 @@
 1. Topics
 	1. HTTP PULL
 	2. HTTP PUSH
-2. 
+2. Two modes of data transfer between client and server
+	1. HTTP PUSH
+	2. HTTP PULL
+
+#### HTTP PULL ####
+1. For every response, there has to be a request
+	1. Client sends request
+	2. Server responds with data
+2. Client pull data from server when it requires
+	1. Does it over and over to fetch updated data
+3. Bandwidth is consumed for every request and response to and from server
+4. Every hit on server costs business money & adds load on server
+5. If there is no updated info on server when client sends request:
+	1. Client doesn't know that - so sends request over and over
+		1. Not ideal
+		2. Wastage of resources
+		3. May bring down server - if excessive pulls
+
+#### HTTP PUSH ####
+1. Client sends request for info to server
+	1. For first time
+2. Then server keeps pushing new updates to client whenever available
 
 ### HTTP Pull - Polling with Ajax ###
 ### HTTP Push - Based Technologies ###
