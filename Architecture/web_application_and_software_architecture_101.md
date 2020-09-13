@@ -511,7 +511,9 @@
 	2. REST-based service will expose url to all clients to fetch user details using url
 
 #### Decoupling Clients & the Backend Service ####
-1. 
+1. Backend service doesn't worry about client implementation
+	1. It calls out to multiple clients and says
+		1. "Hey "
 
 #### Application Development Before the REST API ####
 
