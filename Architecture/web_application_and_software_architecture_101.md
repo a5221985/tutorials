@@ -497,10 +497,21 @@
 	4. Caching: Servers can cache response that improves performance
 2. Stateless communication:
 	1. Every communication between client and server is a new one
+		1. No info or memory carries over from previous communications
+			1. Client has to send authentication info whenever it interacts with backend (backend then figures out if client is authorized to access data)
+3. Decoupling of front end and back end:
+	1. REST API decouples backend & client
 
 #### REST Endpoint ####
+1. API/REST/Backend endpoint means url of service:
+
+		https://myservice.com/users/{username}
+		
+	1. It is a backend endpoint to fetch user details of particular user from service
+	2. REST-based service will expose url to all clients to fetch user details using url
 
 #### Decoupling Clients & the Backend Service ####
+1. 
 
 #### Application Development Before the REST API ####
 
