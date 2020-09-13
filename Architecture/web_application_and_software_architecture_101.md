@@ -714,9 +714,39 @@
 	1. Servers can initiate data transmission towards client once client has established connection with initial request
 	2. Helps get rid of huge number of blank request-response cycles
 		1. Cuts down bandwidth consumption by notches
+3. **Implementation:**
+	1. Backend language must support the technology
+	2. On UI: HTML5 Event source API is used to receive data in-coming from backend
+4. Note: Once client establishes connection with server, data flow is in one direction only (from server to client)
+5. Use cases:
+	1. Real-time feed
+		1. Twitter
+		2. Stock quotes on UI
+		3. Real-time notifications
+6. [Good resource for further reading on SSE](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
 
 #### Streaming Over HTTP ####
+1. Use cases:
+	1. Large data needs to be streamed over HTTP by breaking into smaller chunks
+2. **Implementation: HTML5 & JavaScript Stream API**
+3. Streaming API Example:
+
+	![streaming_api](streaming_api.jpeg)
+	
+4. Used for multimedia content over HTTP
+	1. Large images
+	2. Video
+	3. ...
+5. Video:
+	1. We can view partially downloaded video as it continues to download
+		1. Playing downloaded chunks on the client
+6. Setup:
+	1. Client & Server agree to confirm to some streaming settings
+		1. Helps them figure out when stream begins and ends over HTTP request-response model
+7. [Further reading on Stream API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Concepts)
+
 #### Summary ####
+1. 
 
 ### Client-Side Vs Server-Side Rendering ###
 ### Web Architecture Quiz - Part 2 ###
