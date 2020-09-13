@@ -783,7 +783,27 @@
 #### Use Cases for Server-Side & Client-Side Rendering ####
 1. Server-side rendering is good for static content (WordPress Blogs)
 	1. Good for SEO (crawlers can read the generated content)
-2. 
+2. Modern websites are dependent on Ajax
+	1. Content for a module or section of a page must be fetched and rendered on the fly
+3. Server side rendering generates entire page on server instead of sending just required content to client
+	1. Consumes unnecessary bandwidth
+	2. Fails to provide smooth user experience
+		1. If number of concurrent users on website rises, it puts unnecessary load on server
+4. Client side rendering:
+	1. Good for Ajax based websites
+5. Hybrid approach can be used
+	1. To get most out of both techniques
+		1. Home page can use server side rendering
+		2. Other static content can use server side rendering
+		3. Dynamic pages can use client side rendering
+6. Important concepts:
+	1. Monolithic architecture
+	2. Micro-services
+	3. Scalability
+	4. High availability
+	5. Distributed systems
+	6. What are nodes in distributed systems? Why are they important to software design?
+7. The components help to understand rest of the web components better
 
 ### Web Architecture Quiz - Part 2 ###
 
