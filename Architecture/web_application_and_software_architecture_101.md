@@ -600,7 +600,18 @@
 5. Next: Details
 
 ### HTTP Pull - Polling with Ajax ###
-1. 
+1. HTTP pull using polling over AJAX
+2. Topics:
+	1. AJAX - Asynchronous JavaScript & XML
+3. Two ways of pulling/ fetching data from server
+	1. HTTP GET request to server manually by triggering an event
+		1. Clicking button
+		2. Invoking other element
+	2. Fetching data dynamically at regular intervals using AJAX without human intervention
+
+#### AJAX - Asynchronous JavaScript & XML ####
+1. AJAX: Asynchronous JavaScript & XML
+	1. Used for adding asynchronous behaviour to web page
 
 ### HTTP Push - Based Technologies ###
 ### Client-Side Vs Server-Side Rendering ###
