@@ -627,7 +627,7 @@
 5. JQuery - AJAX is used with this framework to implement asynchronous behaviour on UI
 6. Polling - Requesting information server at regular intervals
 
-### HTTP Push - Based Technologies ###
+### HTTP Push ###
 1. Topics
 	1. Time to Live (TTL)
 	2. Persistent Connection
@@ -653,8 +653,38 @@
 	![http_push_based_communication](http_push_based_communication.jpeg)
 
 #### Heartbeat Interceptors ####
+1. How is persistent connection possible?
+	1. Solution: Heartbean interceptors
+		1. These are blank request responses between client and server to prevent browser from killing connection
+2. Isn't it resource intensive?
 
 #### Resource Intensive ####
+1. It is
+	1. Persistent connections consume lot of resources in comparison to HTTP pull behaviour
+	2. When is establishing persistent connection useful?
+		1. Browser-based multi-player game has large amount of request-response activity within certain time
+			1. It is better from user experience standpoint
+2. Implementation strategies:
+	1. Ajax long polling
+	2. Web sockets
+	3. Server-sent events
+	4. ...
+
+### HTTP Push - Based Technologies ###
+1. Topics:
+	1. Web Sockets
+	2. AJAX - Long Polling
+	3. HTML5 Event Source API & Server Sent Events
+	4. Streaming Over HTTP
+	5. Summary
+
+#### Web Sockets ####
+1. Preferred if bi-directional low latency data flow from client to server & back is required
+
+#### AJAX - Long Polling ####
+#### HTML5 Event Source API & Server Sent Events ####
+#### Streaming Over HTTP ####
+#### Summary ####
 
 ### Client-Side Vs Server-Side Rendering ###
 ### Web Architecture Quiz - Part 2 ###
