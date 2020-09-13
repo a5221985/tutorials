@@ -556,6 +556,11 @@
 4. Next: HTTP Pull & Push-based communication mechanisms
 
 ### HTTP Push & Pull - Introduction ###
+1. Topics
+	1. HTTP PULL
+	2. HTTP PUSH
+2. 
+
 ### HTTP Pull - Polling with Ajax ###
 ### HTTP Push - Based Technologies ###
 ### Client-Side Vs Server-Side Rendering ###
