@@ -551,7 +551,9 @@
 	3. It takes care of authorization
 	4. It takes care of authentication
 	5. It can sanitize input data & other necessary tasks
-	6. 
+		1. Before providing access to app resources
+3. REST API is interface for communication between client and server over HTTP
+4. Next: HTTP Pull & Push-based communication mechanisms
 
 ### HTTP Push & Pull - Introduction ###
 ### HTTP Pull - Polling with Ajax ###
