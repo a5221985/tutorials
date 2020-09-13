@@ -27,6 +27,7 @@
 ### Code Reviews Improve the Speed of Development ###
 1. Reviewing code can take a long time
 	1. Especially if there are questions about patch or discussions which arise through the patch
+2. Point of software development isn't producing code or features. It's to construct functioning product
 
 ### Code Reviews Encourage a Healthy Engineering Culture ###
 ## Process ##
