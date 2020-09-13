@@ -513,9 +513,17 @@
 #### Decoupling Clients & the Backend Service ####
 1. Backend service doesn't worry about client implementation
 	1. It calls out to multiple clients and says
-		1. "Hey "
+		1. "Hey everyone, this is url address of resource/info you need. Hit it whenever you need the resource. Any client with required authorization can access it"
+2. Different clients can have different code bases:
+	1. Mobile browser
+	2. Desktop browser
+	3. Tablet
+	4. API Testing tool
+3. New types of clients and modification of client code has no effect on functionality of backend service
+	1. Clients and backend services are decoupled
 
 #### Application Development Before the REST API ####
+1. 
 
 #### API Gateway ####
 
