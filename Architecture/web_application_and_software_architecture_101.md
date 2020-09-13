@@ -523,7 +523,10 @@
 	1. Clients and backend services are decoupled
 
 #### Application Development Before the REST API ####
-1. 
+1. Before REST-API, backend code was tightly coupled with client
+	1. JSP (Java Server Page) is an example
+		1. Business logic is put in JSP tags
+			1. Makes code refactoring and adding new features difficult (logic got spread across different layers)
 
 #### API Gateway ####
 
