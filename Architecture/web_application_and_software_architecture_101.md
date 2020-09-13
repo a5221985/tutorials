@@ -710,6 +710,10 @@
 	1. Client does not poll for data
 		1. Server automatically pushes data to client whenever updates are available
 			1. Incoming messages from server are treated as events
+2. With this approach:
+	1. Servers can initiate data transmission towards client once client has established connection with initial request
+	2. Helps get rid of huge number of blank request-response cycles
+		1. Cuts down bandwidth consumption by notches
 
 #### Streaming Over HTTP ####
 #### Summary ####
