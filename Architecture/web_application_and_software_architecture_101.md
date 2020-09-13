@@ -413,8 +413,48 @@
 
 #### What is a Web Server? ####
 1. Task of web server: receive requests from client & provide response after executing business logic (based on request params received from client)
+2. Every service needs server to run (which run online)
+	1. Application servers: Servers running web applications
+3. Other types of servers:
+	1. Proxy server
+	2. Mail server
+	3. File server
+	4. Virtual server
+4. Server config and type can differ depending on use case
+	1. Example: Backend app code written in Java
+		1. Apache Tomcat
+		2. Jetty
+	2. Example: Simple use cases - hosting websites
+		1. Apache HTTP Server
+5. All components of web app need server
+	1. Database
+	2. Message queue
+	3. Cache
+	4. ...
+	5. UI - also hosted on dedicated server in modern apps
+
+#### Server-Side Rendering ####
+1. Server-side rendering: Server can be used to render UI on backend and send rendered data to client
+2. There are pros and cons of this technique
 
 ### Communication Between the Client & the Server ###
+1. Topics:
+	1. Request-Response Model
+	2. HTTP Protocol
+	3. REST API & API Endpoints
+	4. Real World Example of Using a REST API
+
+#### Request-Response Model ####
+1. Client-server have request-response model
+2. Client sends request and server responds with data
+3. If no request, then no response
+
+#### HTTP Protocol ####
+
+#### REST API & API Endpoints ####
+
+#### Real World Example of Using a REST API ####
+
 ### Web Architecture Quiz - Part 1 ###
 ### What is a REST API? ###
 ### HTTP Push & Pull - Introduction ###
