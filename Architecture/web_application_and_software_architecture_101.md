@@ -535,7 +535,8 @@
 			1. No worry about clients
 			2. Provide endpoints
 				1. Response is in JSON or other standard data transport format
-					1. Client 
+					1. Client handles data in whatever way they want
+			3. Multiple types of clients can be introduced without
 
 #### API Gateway ####
 
