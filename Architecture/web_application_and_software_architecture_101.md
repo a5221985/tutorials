@@ -475,6 +475,37 @@
 
 ### Web Architecture Quiz - Part 1 ###
 ### What is a REST API? ###
+1. Topics:
+	1. What is REST?
+	2. REST API
+	3. REST Endpoint
+	4. Decoupling Clients & Backend Service
+	5. Application Development Before the REST API
+	6. API Gateway
+
+#### What is REST? ####
+1. REST: Representational State Transfer
+	1. Software architectural style for implementing web services
+	2. RESTful web services:
+		1. Web services implemented using REST architectural style
+
+#### REST API ####
+1. It is an API implementation that adheres to REST architectural constraints
+	1. Acts as interface
+	2. Communication between client & server is over HTTP
+	3. Takes advantage of HTTP methodologies to establish communication between client and server
+	4. Caching: Servers can cache response that improves performance
+2. Stateless communication:
+	1. Every communication between client and server is a new one
+
+#### REST Endpoint ####
+
+#### Decoupling Clients & the Backend Service ####
+
+#### Application Development Before the REST API ####
+
+#### API Gateway ####
+
 ### HTTP Push & Pull - Introduction ###
 ### HTTP Pull - Polling with Ajax ###
 ### HTTP Push - Based Technologies ###
