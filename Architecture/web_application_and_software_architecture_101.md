@@ -581,6 +581,16 @@
 1. Client sends request for info to server
 	1. For first time
 2. Then server keeps pushing new updates to client whenever available
+	1. Advantage: Client doesn't have to send requests multiple times for data
+		1. Saves network bandwidth
+		2. Cuts down load on server (significantly)
+3. Example: Callback
+	1. Client phones server for info
+	2. Server responds:
+		1. "Hey!! I don't have info right now but I'll call back whenever it is available"
+	3. Example: User notifications
+		1. If an event happens in backend, we get notified
+			1. Implementation: Ajax on client side (Asynchronous JavaScript & XML)
 
 ### HTTP Pull - Polling with Ajax ###
 ### HTTP Push - Based Technologies ###
