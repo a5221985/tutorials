@@ -775,6 +775,10 @@
 #### Server-Side Renderig ####
 1. To avoid rendering time on client UI is rendered on server
 	1. HTML is generated in serve and directly sent to UI
+2. It ensures faster rendering of UI
+	1. Averts UI loading time in browser window
+		1. Page is already constructed
+			1. No much assembling & rendering work for browser
 
 #### Use Cases for Server-Side & Client-Side Rendering ####
 
