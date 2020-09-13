@@ -527,6 +527,15 @@
 	1. JSP (Java Server Page) is an example
 		1. Business logic is put in JSP tags
 			1. Makes code refactoring and adding new features difficult (logic got spread across different layers)
+			2. Separate code/ classes were required for handling requests from different types of clients
+				1. One servlet for mobile client
+				2. One servlet for web-based client
+				3. ...
+		2. REST API:
+			1. No worry about clients
+			2. Provide endpoints
+				1. Response is in JSON or other standard data transport format
+					1. Client 
 
 #### API Gateway ####
 
