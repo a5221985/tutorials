@@ -387,7 +387,33 @@
 4. [Developer Survey of StackOverflow](https://insights.stackoverflow.com/survey/2019#technology)
 
 ### Types of Client ###
+1. Two Types:
+	1. Thin client
+	2. Thick client
+
+#### Thin Client ####
+1. Holds just UI of app
+2. It has no business logic
+3. For each action, client sends request to backend server
+4. Client types example:
+
+	![client_types](client_types.jpeg)
+	
+#### Thick Client ####
+1. Thick client holds all or some part of business logic (Two tier apps)
+2. Examples:
+	1. Utility app
+	2. Online games
+	3. ...
+
 ### Server ###
+1. Topics
+	1. What is a Web Server?
+	2. Server-Side Rendering
+
+#### What is a Web Server? ####
+1. Task of web server: receive requests from client & provide response after executing business logic (based on request params received from client)
+
 ### Communication Between the Client & the Server ###
 ### Web Architecture Quiz - Part 1 ###
 ### What is a REST API? ###
