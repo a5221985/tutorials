@@ -680,8 +680,23 @@
 
 #### Web Sockets ####
 1. Preferred if bi-directional low latency data flow from client to server & back is required
+2. Use cases:
+	1. Messaging
+	2. Chat applications
+	3. Real time social streams
+	4. Browser based massive multiplayer games (quite a number of read writes in comparison to regular web app)
+3. With web-sockets, we can keep the client-server connection as long as we want
+4. Use case: Bi-direction data
+	1. It does not work over HTTP
+	2. It runs over TCP
+		1. Both server and client must support web-sockets (or else it wont work)
+5. [The WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+6. [Introducing WebSockets - Bringing Sockets to the Web](https://www.html5rocks.com/en/tutorials/websockets/basics/)
 
 #### AJAX - Long Polling ####
+1. It lies between Ajax & Web Sockets
+	1. Instead of immediately returning response, server holds response until it finds an update to be sent to client
+
 #### HTML5 Event Source API & Server Sent Events ####
 #### Streaming Over HTTP ####
 #### Summary ####
