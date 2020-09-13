@@ -590,9 +590,18 @@
 		1. "Hey!! I don't have info right now but I'll call back whenever it is available"
 	3. Example: User notifications
 		1. If an event happens in backend, we get notified
-			1. Implementation: Ajax on client side (Asynchronous JavaScript & XML)
+			1. Implementation: Ajax on client side (Asynchronous JavaScript & XML) to server in HTTP pull based mechanism
+4. HTTP Push based mechanisms:
+	1. Ajax Long Polling
+	2. Web Sockets
+	3. HTML5 Event Source
+	4. Message Queues
+	5. Streaming over HTTP
+5. Next: Details
 
 ### HTTP Pull - Polling with Ajax ###
+1. 
+
 ### HTTP Push - Based Technologies ###
 ### Client-Side Vs Server-Side Rendering ###
 ### Web Architecture Quiz - Part 2 ###
