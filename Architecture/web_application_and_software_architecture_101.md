@@ -450,10 +450,28 @@
 3. If no request, then no response
 
 #### HTTP Protocol ####
+1. Protocol used for communication
+	1. Over World Wide Web
+2. HTTP protocol:
+	1. It is request-response protocol that defines how info is transmitted across web
+	2. It is stateless protocol
+		1. Every process over HTTP is executed independently & has no knowledge of previous process
+	3. [good resource](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
 #### REST API & API Endpoints ####
+1. N-tier: Every client must hit REST end-point to fetch data from backend
+2. Backend app code has REST-API implemented which acts as interface to outside world requests
+	1. Every request must hit REST-endpoints to fetch data
+		1. Client written by business
+		2. Third party clients which consume data
+3. REST API Architecture:
+
+	![rest_api_Architecture](rest_api_Architecture.jpeg)
 
 #### Real World Example of Using a REST API ####
+1. To write an application that keeps track of birthdays of friends and send a reminder couple of days before event date
+2. Client can hit Facebook Social Graph API (REST-API) to get data & then run business logic on data
+3. There are advantages of REST based API
 
 ### Web Architecture Quiz - Part 1 ###
 ### What is a REST API? ###
