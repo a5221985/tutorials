@@ -809,6 +809,14 @@
 
 ## Scalability ##
 ### What is Scalability? ###
+1. Topics
+	1. What is scalability?
+	2. What is latency?
+	3. Measuring latency
+		1. Network latency
+		2. Application latency
+	4. Why is low latency so important for online services?
+
 ### Types of Scalability ###
 ### Which Scalability Approach is Right For Your App? ###
 ### Primary Bottlenecks that Hurt the Scalability of Our Application ###
