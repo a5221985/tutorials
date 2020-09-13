@@ -624,8 +624,16 @@
 	1. AJAX uses the object to send requests to server
 	2. It is built in browser
 	3. It uses JavaScript to update HTML DOM
+5. JQuery - AJAX is used with this framework to implement asynchronous behaviour on UI
+6. Polling - Requesting information server at regular intervals
 
 ### HTTP Push - Based Technologies ###
+1. Topics
+	1. Time to Live (TTL)
+	2. Persistent Connection
+	3. Heartbeat Interceptors
+	4. Resource Intensive
+
 ### Client-Side Vs Server-Side Rendering ###
 ### Web Architecture Quiz - Part 2 ###
 
