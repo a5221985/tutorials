@@ -696,8 +696,21 @@
 #### AJAX - Long Polling ####
 1. It lies between Ajax & Web Sockets
 	1. Instead of immediately returning response, server holds response until it finds an update to be sent to client
+	2. Connection stays a bit longer (than polling)
+		1. Server doesn't return empty response
+		2. If connection breaks, client has to re-establish connection to server
+2. Advantages:
+	1. Smaller number of requests sent from client to server (in comparison to regular polling)
+		1. Reduces network bandwidth consumption
+3. Use cases:
+	1. Simple asynchronous data fetch (if we do not want to poll server too frequently)
 
 #### HTML5 Event Source API & Server Sent Events ####
+1. Different approach:
+	1. Client does not poll for data
+		1. Server automatically pushes data to client whenever updates are available
+			1. Incoming messages from server are treated as events
+
 #### Streaming Over HTTP ####
 #### Summary ####
 
