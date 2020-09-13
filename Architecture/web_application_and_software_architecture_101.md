@@ -781,6 +781,9 @@
 			1. No much assembling & rendering work for browser
 
 #### Use Cases for Server-Side & Client-Side Rendering ####
+1. Server-side rendering is good for static content (WordPress Blogs)
+	1. Good for SEO (crawlers can read the generated content)
+2. 
 
 ### Web Architecture Quiz - Part 2 ###
 
