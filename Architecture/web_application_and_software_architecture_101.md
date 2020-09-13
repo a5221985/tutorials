@@ -634,6 +634,28 @@
 	3. Heartbeat Interceptors
 	4. Resource Intensive
 
+#### Time to Live (TTL)####
+1. In HTTP Pull - There is Time to Live (TTL) for every request.
+	1. 30 seconds, 60 seconds (varies with browser)
+		1. If client does not receive response from server withing TTL, browser kills connection & client must send request hoping it would receive data from server before TTL ends again.
+2. Open connections consume resources
+	1. There is limit on number of open connections a server can handle at one point in time
+	2. If connections are not closed and new ones introduced, server will run out of memory
+3. Solution: TTL is used to avoid this issue
+4. Problem: Suppose we are certain that response will take more time than TTL set by browser?
+
+#### Persistent Connection ####
+1. Persistent connection between client and server
+	1. It is a network connection between client & server that remains open for further requests & responses, as opposed to being closed after single communication
+2. HTTP Push-based communication between client and server
+3. Example push based communication:
+
+	![http_push_based_communication](http_push_based_communication.jpeg)
+
+#### Heartbeat Interceptors ####
+
+#### Resource Intensive ####
+
 ### Client-Side Vs Server-Side Rendering ###
 ### Web Architecture Quiz - Part 2 ###
 
