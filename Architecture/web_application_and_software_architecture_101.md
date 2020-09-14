@@ -941,6 +941,9 @@
 	1. It has the ability to scale up and down dynamically
 	2. One has ability to pay only for resources required by app (economic reason)
 2. If site has heavy traffic influx, more server nodes get added & when it doesn't, dynamically added nodes are removed
+	1. Cloud elasticity - stretching and returning to original infrastructural computaional capacity
+3. Multiple server nodes on backend helps with website staying alive online all the time (even if few server nodes crash)
+	1. High availability
 
 ### Which Scalability Approach is Right For Your App? ###
 ### Primary Bottlenecks that Hurt the Scalability of Our Application ###
