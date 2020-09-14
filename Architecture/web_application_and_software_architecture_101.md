@@ -821,6 +821,23 @@
 	2. Why is it important?
 	3. Why is everyone talking about it?
 	4. Is it important to scale systems?
+	5. What are the plans or contingencies to scale when app or platform experiences significant traffic growth?
+3. Chapter - deep dive into scalability
+	1. Covers:
+		1. What does scalability mean (in context of web applications)
+		2. What does scalability mean in context of distributed systems or cloud computing?
+		3. ...
+
+#### What is Scalability? ####
+1. It means ability of application to handle & withstand increased workload without sacrificing latency
+	1. Example: 
+		1. If app takes x seconds to respond to user request, it should take same x seconds to respond to each of million concurrent user requests on the app
+	2. Backend infrastructure should not cumble under load of million concurrent requests
+		1. It should scale well when subjected to heavy traffic load
+		2. It should maintain latency of the system
+2. Scalable application example:
+
+	![scalabile_application_example](scalabile_application_example.jpeg)
 
 ### Types of Scalability ###
 ### Which Scalability Approach is Right For Your App? ###
