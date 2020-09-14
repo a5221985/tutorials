@@ -886,9 +886,33 @@
 	1. Slight lag in in-game event ruins whole experience
 		1. Gamer with high latency internet connection will have slow response time despite having best reaction time of all players in arena
 3. Example: Algorithmic trading
-	1. 
+	1. Must process events within milliseconds
+		1. Fintech companies have dedicated networks to run low latency trading
+			1. Regular network wont cut it
+4. [Huawei, Hibernia Atlantic laying fiber-optic link cables across Atlantic Ocean between London and New York](https://www.telegraph.co.uk/technology/news/8753784/The-300m-cable-that-will-save-traders-milliseconds.html)
+	1. $300M was spent to save traders 6 milliseconds of latency
 
 ### Types of Scalability ###
+1. Topics: Two types - Vertical and Horizontal
+	1. What is Vertical Scaling?
+	2. What is Horizontal Scaling?
+	3. Cloud Elasticity
+2. For application to scale:
+	1. It needs solid computing power
+		1. Solution: Servers should be powerful to handle increased loads
+	2. Two ways to scale an application
+		1. Vertical scaling
+		2. Horizontal scaling
+
+#### What is Vertical Scaling? ####
+1. Adding more power to a server
+	1. Ex: Increasing RAM from 16 Gigs to 32 Gigs
+2. Scaling example:
+
+	![vertical_scaling](vertical_scaling.jpeg)
+	
+3. 
+
 ### Which Scalability Approach is Right For Your App? ###
 ### Primary Bottlenecks that Hurt the Scalability of Our Application ###
 ### How to Improve & Test the Scalability of Our Application? ###
