@@ -15,3 +15,21 @@
 		2. By misunderstanding the original programmer's intent
 	3. Both tyeps of bugs can be reduced...
 		1. ...by following a set of bug-reducing coding rules!
+	4. Solution: Document the rules
+4. MISRA-C Guidelines (medical devices, avionics, ...)
+	1. Guidelines for use of the C language
+		1. in critical systems
+	2. A carefully-rationalized _subset_ of C (used to increase safety and reliability of code)
+		1. We highly recommend following it
+		2. But MISRA-C is a set of guidelines
+			1. _NOT_ a coding standard
+				1. Style is not addressed at all
+	3. Barr Group's standard is compatible with MISRA-C
+5. Coding standard enforcement
+	1. To be effective, coding standards must be both:
+		1. Enforceable
+			1. Favor objective, enforceable rules over unenforceable ones
+			2. Enforce automatically with tools whenever possible
+		2. And Enforced
+			1. By the entire team, and its standard processes
+			2. Few, if any, exceptions allowed (and documented)
