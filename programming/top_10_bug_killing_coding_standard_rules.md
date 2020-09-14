@@ -28,8 +28,10 @@
 5. Coding standard enforcement
 	1. To be effective, coding standards must be both:
 		1. Enforceable
-			1. Favor objective, enforceable rules over unenforceable ones
+			1. Favor objective, enforceable rules over unenforceable ones (by tool for instance)
 			2. Enforce automatically with tools whenever possible
 		2. And Enforced
 			1. By the entire team, and its standard processes
 			2. Few, if any, exceptions allowed (and documented)
+6. Rule: Braces ({}) shall always surround the blocks of code (also known as compound statements) following if, else, switch, while, do, and for keywords.
+	1. Single statements and empty statements following these keywords shall also always be surrounded by braces
