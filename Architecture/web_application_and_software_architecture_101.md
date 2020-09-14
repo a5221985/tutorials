@@ -856,6 +856,28 @@
 2. Latency has two parts:
 	1. Network latency
 	2. Application latency
+3. Example: Latency model:
+
+	![latency_model](latency_model.jpeg)
+	
+#### Network Latency ####
+1. It is the time the network takes for sending data packet from point A to point B
+	1. Network should be efficient enough to handle increased traffic load on website
+		1. Workaround strategy:
+			1. To cut down network latency:
+				1. Businesses use CDN & try to deploy servers across globe as close to end-user as possible
+
+#### Application Latency ####
+1. The amount of time, the application takes to process a user request
+2. Ways to cut-down application latency:
+	1. First step:
+		1. Run stress test on application
+		2. Run load test on application
+		3. Scan for bottlenecks that slow down system as a whole
+
+#### Why is Low Latency So Important for Online Services? ####
+1. Impact of latency: It plays majore role in determining if online business wins or loses customer
+	1. No one likes to wait for a response on a website
 
 ### Types of Scalability ###
 ### Which Scalability Approach is Right For Your App? ###
