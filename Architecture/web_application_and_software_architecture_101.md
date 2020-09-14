@@ -911,7 +911,23 @@
 
 	![vertical_scaling](vertical_scaling.jpeg)
 	
-3. 
+3. Vertical scaling: It is called scaling up
+	1. Power of hardware is increased
+	2. Advantage: Simplest way to scale
+		1. No code refactoring
+		2. No complex configurations (horizontal scaling might need code refactoring)
+	3. Disadvantage: Capacility limit on single server
+		1. Example: Adding floors to a multi-floor building (we can add only to a certain point)
+			1. One cannot scale building to the moon
+			2. Solution: Building more buildings
+				1. Horizontal scaling
+
+#### What is Horizontal Scaling? ####
+1. Aka Scaling out
+	1. Adding more hardware to existing hardware resource pool
+		1. Increases computational power of system as a whole
+
+#### Cloud Elasticity ####
 
 ### Which Scalability Approach is Right For Your App? ###
 ### Primary Bottlenecks that Hurt the Scalability of Our Application ###
