@@ -816,6 +816,11 @@
 		1. Network latency
 		2. Application latency
 	4. Why is low latency so important for online services?
+2. Scalability:
+	1. What is it?
+	2. Why is it important?
+	3. Why is everyone talking about it?
+	4. Is it important to scale systems?
 
 ### Types of Scalability ###
 ### Which Scalability Approach is Right For Your App? ###
