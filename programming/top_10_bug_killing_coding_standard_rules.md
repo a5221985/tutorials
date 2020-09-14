@@ -35,3 +35,33 @@
 			2. Few, if any, exceptions allowed (and documented)
 6. Rule: Braces ({}) shall always surround the blocks of code (also known as compound statements) following if, else, switch, while, do, and for keywords.
 	1. Single statements and empty statements following these keywords shall also always be surrounded by braces
+		1. No braces is confusing to other developers
+7. DON'T
+
+		if (5 == foo)
+			bar(); // Indenting not sufficient; use braces also
+		always_run();
+		
+		if (5 == foo)
+			// bar();
+		always_run(); will be executed only when foo == 5!
+		
+		if (5 == foo)
+			bar();
+			fred(); // will always be executed
+		always_run();
+		
+8. DO
+
+		if (5 == foo)
+		{
+			// All code inside the braces conditionally executed.
+			bar();
+		}
+		always_run();
+		
+9. Rule: The const keyword shall be used whenever possible, including:
+	1. To declare variables that should not be changed after initialization
+	2. To define call-by-reference function parameters that should not be modified
+	3. To define fields in structs and unions that cannot be modified (e.g. in a struct overlay for memory-mapped I/O register)
+	4. As a strongly typed alternative to #define for numerical constants
