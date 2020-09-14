@@ -971,8 +971,28 @@
 			1. They hold application data
 				1. If a server goes down, all static data is lost
 					1. App will be in an inconsistent state
+	2. Solution: Using persistent memory
+		1. Key-value store (migrate state/static variable from class)
+	3. Solution: Another solution is functional programming
+		1. Functions don't retain any state
+2. Estimating traffic: Have a ballpark figure in mind of how much traffic will it have to deal with?
+3. Adoption of microservices architecture:
+	1. Adopted early by certain teams
+	2. Deployed on cloud
+	3. Result: Workloads are distributed horizontally on the fly
+4. Microservices architecture:
+
+	![microservices_architecture](microservices_architecture.jpeg)
+	
+5. Advantages of horizontal scaling:
+	1. No limit to augmenting hardware capacity
+	2. Data is replicated across geographical regions
+		1. How?
+			1. Nodes & data centres are set up across the globe
+6. Next: Cloud, serverless, microservices
 
 #### Which Scalability Approach is Right for Your App? ####
+1. 
 
 ### Primary Bottlenecks that Hurt the Scalability of Our Application ###
 ### How to Improve & Test the Scalability of Our Application? ###
