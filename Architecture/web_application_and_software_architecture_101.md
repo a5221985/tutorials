@@ -926,6 +926,15 @@
 1. Aka Scaling out
 	1. Adding more hardware to existing hardware resource pool
 		1. Increases computational power of system as a whole
+2. Horizontal scaling example:
+
+	![horizontal_scaling](horizontal_scaling.jpeg)
+	
+3. Increased traffic influx can be dealt with increased computational capacity
+	1. There is not limit on how much we can scale horizontally (assuming infinite resources)
+		1. Servers and data-centers can be added indefinitely
+	2. We can also dynamically scale in real-time as traffic on website increases & decreases over a period of time
+		1. Vertical scaling requires pre-planning & stipulated time
 
 #### Cloud Elasticity ####
 
