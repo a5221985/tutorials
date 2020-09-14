@@ -838,6 +838,24 @@
 2. Scalable application example:
 
 	![scalabile_application_example](scalabile_application_example.jpeg)
+	
+#### What is Latency? ####
+1. Latency: Amount of time system takes to respond to a user request
+	1. If system takes 2 seconds to respond to a request, the latency is 2 seconds
+2. Efficient software systems strive for minimum latency
+	1. If traffic builds up, latency should not go up
+		1. If latency remains the same, we can say, the application scaled well with increased load and is highly scalable
+3. Big-O notation: Ideal case - O(1) for any algorithm (constant time: for key-value database say)
+	1. O(n^2): where n is size of dta set
+		1. This is not scalable
+			1. If size of data set increases, the system needs more computational power to proces tasks
+4. How do we measure latency?
+
+#### Measuring Latency ####
+1. It is time difference between action that user takes on  website (can be event like click of a button) & system response in reaction to event
+2. Latency has two parts:
+	1. Network latency
+	2. Application latency
 
 ### Types of Scalability ###
 ### Which Scalability Approach is Right For Your App? ###
