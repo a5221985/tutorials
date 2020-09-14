@@ -946,6 +946,34 @@
 	1. High availability
 
 ### Which Scalability Approach is Right For Your App? ###
+1. Topics:
+	1. Pros & Cons of Vertical & Horizontal Scaling
+	2. What about the code? Why does the code need to change when it has to run on multiple machines?
+	3. Why scalability Approach Is Right for Your App?
+
+#### Pros & Cons of Vertical & Horizontal Scaling ####
+1. Vertical scaling:
+	1. Simpler than horizontal scaling
+		1. No code changes
+		2. No complex distributed system config
+		3. Less administrative efforts
+		4. Less monitoring
+		5. Less management efferts
+	2. Downside
+		1. Availability risk
+			1. Fewer powerful servers
+				1. They may go down and may take down the entire website (doesn't happen for horizontal scaling - highly available)
+
+#### What about the Code? Why does the code need to change when it has to run on multiple machines? ####
+1. Code needs to be stateless in a distributed environment
+	1. What is the meaning of this?
+		1. Not static instances in class
+			1. They hold application data
+				1. If a server goes down, all static data is lost
+					1. App will be in an inconsistent state
+
+#### Which Scalability Approach is Right for Your App? ####
+
 ### Primary Bottlenecks that Hurt the Scalability of Our Application ###
 ### How to Improve & Test the Scalability of Our Application? ###
 ### Scalability Quiz ###
