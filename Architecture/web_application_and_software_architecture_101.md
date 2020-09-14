@@ -878,6 +878,15 @@
 #### Why is Low Latency So Important for Online Services? ####
 1. Impact of latency: It plays majore role in determining if online business wins or loses customer
 	1. No one likes to wait for a response on a website
+		1. If user gets response within stipulated time, then okay or else he bounces off to another site
+			1. Market researches show this effect
+		2. Use case: If money is involved, zero latency is what businesses want
+			1. If that was possible
+2. Example: Massive multiplayer games
+	1. Slight lag in in-game event ruins whole experience
+		1. Gamer with high latency internet connection will have slow response time despite having best reaction time of all players in arena
+3. Example: Algorithmic trading
+	1. 
 
 ### Types of Scalability ###
 ### Which Scalability Approach is Right For Your App? ###
