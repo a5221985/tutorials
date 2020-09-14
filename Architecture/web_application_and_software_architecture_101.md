@@ -937,6 +937,10 @@
 		1. Vertical scaling requires pre-planning & stipulated time
 
 #### Cloud Elasticity ####
+1. Why cloud computing?
+	1. It has the ability to scale up and down dynamically
+	2. One has ability to pay only for resources required by app (economic reason)
+2. If site has heavy traffic influx, more server nodes get added & when it doesn't, dynamically added nodes are removed
 
 ### Which Scalability Approach is Right For Your App? ###
 ### Primary Bottlenecks that Hurt the Scalability of Our Application ###
