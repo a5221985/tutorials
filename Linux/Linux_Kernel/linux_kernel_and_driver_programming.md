@@ -34,6 +34,47 @@
 						4. OpenAt
 						5. GetTID
 				2. Another way is file system
+					1. If we write something to a file, both userspace and kernel space can access it
+						1. It needs to have proper privileges though
+						2. Driver does not deal with privileges but policies on top of drivers deal with privileges
+3. The entire Linux core is written using file system architecture
+	1. It will treat everything as a file
+		1. User space can access file using set of APIs
+			1. Suppose kernel can send data to user space
+				1. Kernel can define a file
+				2. Kernel can then expose the file to user space with a set of APIs
+				3. Kernel can write to the file
+				4. User space can access the file using APIs such as system calls
+	2. This mode of communication is followed throughout kernel
+4. Filesystem structure
+	1. `include/linux/fs.h`
+
+			file_operations {
+				seek
+				read
+				write
+				async_read
+				async_write
+				...
+			}
+			
+5. Two kinds of devices
+	1. Character device
+		1. Data is transmitted as a stream of characters
+			1. mouse
+			2. keyboard
+			3. joystick
+		2. We cannot navigate back and forth (we have lost that data)
+		3. For slower devices
+	2. Block device
+		1. Hard-drive
+			1. We can navigate back and forth between lba's
+				1. Navigable
+		2. For faster devices
+6. Other architecture
+	1. Networking
+		1. Stream based
+7. Module: [https://www.youtube.com/watch?v=OFDRRTLtlHM](https://www.youtube.com/watch?v=OFDRRTLtlHM)
 
 ## Character Device Driver Part 2 ##
 ## Character Device Driver Part 3 ##
