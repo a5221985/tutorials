@@ -80,8 +80,8 @@
 		static int __init driver_init(void)
 		{
 			int status;
-			my_dev = MKDEV(100, 0); /* Major and Minor Number */ // major number: identifier for device uniquely in system
-			register_chrdev_region(my_dev, 1, devname);
+			my_dev = MKDEV(100, 0); /* Major and Minor Number */ // major number: identifier for device uniquely in system - massages to construct a unique number
+			register_chrdev_region(my_dev, 1, devname); // statically assigning major and minor numbers, runtime allocation is also possible, 1 - 100, 0 (2 - 100, 0 & 100, 1)
 			
 			my_cdev = cdev_alloc();
 			cdev_init(my_cdev, &device_fops);
@@ -105,6 +105,7 @@
 		
 	1. Two devices cannot have the same combination of major, minor numbers
 		1. Say 100, 0
+		2. `/dev` - for device nodes (not another place)
 
 ## Character Device Driver Part 2 ##
 1. Suppose they have same combination, then system will treat both of them as a single device (not two devices)
@@ -116,7 +117,9 @@
 			3. ...
 			4. We can use non used number
 		2. Block devices
-			1. 
+			1. Minor number has no restrictions
+				1. It is better to give unique numbers
+					1. If interrupt occurs for one device, if there is a clash, other device (with same combination) can respond to the interrupt
 
 ## Character Device Driver Part 3 ##
 ## Character Device Driver Part 4 ##
