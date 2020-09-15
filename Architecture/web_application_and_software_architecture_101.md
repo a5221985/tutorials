@@ -999,8 +999,22 @@
 2. If app is public-facing social app (say)
 	1. Fitness app
 	2. Traffic is expected to spike exponentially in the near future
+		1. High availability is important
+		2. Horizontal scalability is important
+3. Solution:
+	1. Build application to deploy to cloud
+	2. Keep horizontal scalability in mind from start
 
 ### Primary Bottlenecks that Hurt the Scalability of Our Application ###
+1. Topics
+	1. Database
+	2. Application architecture
+	3. Not Using Caching in the Application Wisely
+	4. Inefficient Configuration & Setup of Load Balancers
+	5. Adding Business Logic to the Database
+	6. Not Picking the Right Database
+	7. At the Code Level
+
 ### How to Improve & Test the Scalability of Our Application? ###
 ### Scalability Quiz ###
 
