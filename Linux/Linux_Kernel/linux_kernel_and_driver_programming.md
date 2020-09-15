@@ -74,8 +74,49 @@
 6. Other architecture
 	1. Networking
 		1. Stream based
-7. Module: [https://www.youtube.com/watch?v=OFDRRTLtlHM](https://www.youtube.com/watch?v=OFDRRTLtlHM)
+7. Module: [https://www.youtube.com/watch?v=HFMI-hDL5kQ](https://www.youtube.com/watch?v=HFMI-hDL5kQ)
+8. Example:
+
+		static int __init driver_init(void)
+		{
+			int status;
+			my_dev = MKDEV(100, 0); /* Major and Minor Number */ // major number: identifier for device uniquely in system
+			register_chrdev_region(my_dev, 1, devname);
+			
+			my_cdev = cdev_alloc();
+			cdev_init(my_cdev, &device_fops);
+			
+			status = cdev_add(my_cdev, my_dev, 1);
+			
+			if (status < 0) {
+				pr_info("Driver init failed\n");
+				return status;
+			}
+			
+			memset(buffer, '\0', PAGE_SIZE);
+			return 0;
+		}
+		
+		static void __exit driver_exit(void)
+		{
+			cdev_del(my_cdev);
+			unregister_chrdev_region(my_dev, 1);
+		}
+		
+	1. Two devices cannot have the same combination of major, minor numbers
+		1. Say 100, 0
 
 ## Character Device Driver Part 2 ##
+1. Suppose they have same combination, then system will treat both of them as a single device (not two devices)
+2. `cat /proc/devices`
+	1. List of devices it is using currently
+		1. Character devices
+			1. 1 mem
+			2. 2 ...
+			3. ...
+			4. We can use non used number
+		2. Block devices
+			1. 
+
 ## Character Device Driver Part 3 ##
 ## Character Device Driver Part 4 ##
