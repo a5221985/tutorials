@@ -995,6 +995,10 @@
 1. If app is expected to receive minimal consistent traffic:
 	1. Example: Utility, tool (internal say)
 		1. Single server will suffice (for the traffic)
+	2. Virtical scaling is okay if traffic is not expected to increase significantly
+2. If app is public-facing social app (say)
+	1. Fitness app
+	2. Traffic is expected to spike exponentially in the near future
 
 ### Primary Bottlenecks that Hurt the Scalability of Our Application ###
 ### How to Improve & Test the Scalability of Our Application? ###
