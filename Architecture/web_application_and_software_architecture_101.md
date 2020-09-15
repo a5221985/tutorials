@@ -992,7 +992,9 @@
 6. Next: Cloud, serverless, microservices
 
 #### Which Scalability Approach is Right for Your App? ####
-1. 
+1. If app is expected to receive minimal consistent traffic:
+	1. Example: Utility, tool (internal say)
+		1. Single server will suffice (for the traffic)
 
 ### Primary Bottlenecks that Hurt the Scalability of Our Application ###
 ### How to Improve & Test the Scalability of Our Application? ###
