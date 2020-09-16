@@ -1187,7 +1187,26 @@
 1. Topics
 	1. What is High Availability?
 	2. How Important Is High Availability To Online Services?
-2. 
+2. It is the norm today to have highly available computing infrastructure
+	1. More with cloud
+3. Cover frequently asked questions such as:
+	1. What is it?
+	2. Why is it so important to business?
+	3. What is a highly available cluster?
+	4. How do cloud platforms ensure high availability of the services running on them?
+	5. What is fault tolerance & redundancy? How are they related to high availability?
+
+#### What Is High Availability? ####
+1. HA is the ability of the system to stay online despite having fialures at the infrastructural level in real-time
+2. Sole mission of highly available systems:
+	1. Stay online & stay connected
+	2. Analogy: Backup generators to ensure continous power supply in case of power outages
+3. Expressed as %:
+	1. 99.99999% - the service will be up for the % of time
+		1. Often used in SLA (Service Level Agreement) of cloud platforms
+
+#### How Important Is High Availability To Online Services? ####
+1. 
 
 ### Reasons for Systems Failures ###
 ### Achieving High Availability - Fault Tolerence ###
