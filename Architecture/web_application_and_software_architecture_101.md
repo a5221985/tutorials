@@ -1100,6 +1100,9 @@
 	4. Check which processes are eating up too much resources
 	5. Find out the bottlenecks
 	6. Eliminate them
+2. Profiling is dynamic analysis of code
+	1. It helps measure space and time complexity of code
+	2. It enables to figure out issues like concurrency 
 
 ##### Caching #####
 ##### CDN (Content Delivery Network) #####
