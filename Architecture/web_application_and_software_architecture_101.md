@@ -1091,7 +1091,16 @@
 		1. The best practices can be implemented even before real pre-production testing is done on application
 
 #### Tuning The Performance Of The Application - Enabling It To Scale Better ####
+
 ##### Profiling #####
+1. Profile the application in and out thoroughly
+	1. Run application profiler
+	2. Run code profiler
+	3. Check which processes are taking too long
+	4. Check which processes are eating up too much resources
+	5. Find out the bottlenecks
+	6. Eliminate them
+
 ##### Caching #####
 ##### CDN (Content Delivery Network) #####
 ##### Data Compression #####
