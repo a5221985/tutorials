@@ -1145,6 +1145,19 @@
 			1. Hardware level
 			2. Software level
 3. Services & components need to be tested individually and collectively
+4. What to consier while testing for scalability?
+	1. CPU usage
+	2. Network bandwidth consumption
+	3. Throughput
+	4. Number of requests processed within stipulated time
+	5. Latency
+	6. Memory usage of program
+	7. End-user experience when system is under heavy load
+	8. ...
+5. In the testing phase, simulated traffic is routed to system to study
+	1. How system behaves under heavy load
+	2. How application scales under heavy load
+	3. Contingencies are planned for unforeseen situations
 
 ### Scalability Quiz ###
 
