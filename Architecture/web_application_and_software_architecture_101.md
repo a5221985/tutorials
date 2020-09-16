@@ -1206,9 +1206,58 @@
 		1. Often used in SLA (Service Level Agreement) of cloud platforms
 
 #### How Important Is High Availability To Online Services? ####
-1. 
+1. If social applications go down for a bit and bounce back, it might not impact business that much
+2. If there is a mission critical system like the following, such systems cannot afford to go down at any time
+	1. Aircraft systems
+	2. Spacecrafts
+	3. Mining machines
+	4. Hospital servers
+	5. Findance stock market systems
+3. Smooth functioning of mission-critical systems relies on continual connectivity with their network/servers
+	1. We might need super highly available infrastructures
+4. Usually services do not want to go down (critical or not)
+	1. Solution:
+		1. Fault tolerance
+		2. Redundancy
+5. Elaboration next
 
 ### Reasons for Systems Failures ###
+1. Topics
+	1. Software Crashes
+	2. Hardware Failures
+	3. Human Errors
+	4. Planned Downtime
+2. Reasons for systems failure
+
+#### Software Crashes ####
+1. Applications crash (on mobile phones, desktops)
+	1. Corrupt software files
+	2. OS crashing
+	3. Memory-hogging unresponsive processes
+	4. Software running on cloud nodes crash unpredictably
+		1. They may take down the entire node
+
+#### Hardware Failures ####
+1. Overloaded CPU
+2. Overloaded RAM
+3. Overloaded hard disk
+4. Node goes down
+5. Network outages
+
+#### Human Errors ####
+1. Biggest reason
+	1. Flawed configurations
+	2. ...
+2. [This is an interesting read about Google's mistake in network config](https://thenextweb.com/google/2017/08/28/google-japan-internet-blackout/)
+
+#### Planned Downtime ####
+1. Routine maintenance operations
+2. Patching of software
+3. Hardware upgrades
+4. ...
+
+#### HA Systems Designed to Overcome the Failures ####
+
 ### Achieving High Availability - Fault Tolerence ###
 ### Redundancy ###
 ### Replication ###
