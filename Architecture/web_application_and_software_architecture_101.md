@@ -1100,12 +1100,30 @@
 	4. Check which processes are eating up too much resources
 	5. Find out the bottlenecks
 	6. Eliminate them
-2. Profiling is dynamic analysis of code
-	1. It helps measure space and time complexity of code
-	2. It enables to figure out issues like concurrency 
+2. Profiling:
+	1. Dynamic analysis of code
+	2. It enables to
+		1. Measure space complexity of code
+		2. Measure time complexity of code
+		3. Figure out concurrency errors
+		4. Figure out memory errors
+		5. Figure out robustness
+		6. Figure out safety of program
+3. [https://en.wikipedia.org/wiki/List_of_performance_analysis_tools](https://en.wikipedia.org/wiki/List_of_performance_analysis_tools)
 
 ##### Caching #####
+1. Cache wisely
+2. Cache everywhere
+3. Cache all static content  
+4. Hit DB only when it is required
+	1. Try to serve all read requests from cache
+	2. Use **write through** cache
+
 ##### CDN (Content Delivery Network) #####
+1. CDN further reduces latency of application
+	1. How?
+		1. Proximity of data to requesting user
+
 ##### Data Compression #####
 ##### Avoid Unnecessary Client Server Requests #####
 
