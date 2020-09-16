@@ -1083,6 +1083,21 @@
 		4. Data Compression
 		5. Avoid Unnecessary Client Server Requests
 	2. Testing the Scalability Of Our Application
+2. Common & best strategies to fine tune performance of web application
+	1. If application is performance optimized, it can withstand more traffic load with less resource consumption (as compared to application not optimized for performance)
+3. Application's performance is directly proportional to it's scalability
+	1. If application is not performant, it will not scale well
+	2. Advantage of performance optimization:
+		1. The best practices can be implemented even before real pre-production testing is done on application
+
+#### Tuning The Performance Of The Application - Enabling It To Scale Better ####
+##### Profiling #####
+##### Caching #####
+##### CDN (Content Delivery Network) #####
+##### Data Compression #####
+##### Avoid Unnecessary Client Server Requests #####
+
+#### Testing the Scalability Or Our Application ####
 
 ### Scalability Quiz ###
 
