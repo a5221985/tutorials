@@ -1159,6 +1159,21 @@
 	2. How application scales under heavy load
 	3. Contingencies are planned for unforeseen situations
 		1. As per anticipated traffic, appropriate hardware & computational power is provisioned to handle traffic smoothly **with some buffer**
+6. Load and Stress tests are run on the application
+	1. JMeter can be used for
+		1. Concurrent user test (If working on Java ecosystem)
+	2. Cloud based testing tools are available to simulate tests scenarios (with few mouse clicks)
+7. Businesses test systems for scalability to handle traffic surge
+	1. Example: Sports website
+		1. Prepares for sports event day
+	2. Example: e-commerce website
+		1. Gets ready for festival season
+8. [How production engineers support global events on Facebook](https://engineering.fb.com/production-engineering/how-production-engineers-support-global-events-on-facebook/)
+9. [How hotstrar a video streaming service scaled with 10 million concurrent users](https://www.8bitmen.com/how-hotstar-scaled-with-10-3-million-concurrent-users-an-architectural-insight/)
+10. Tools popular in industry:
+	1. Cadviser
+	2. Prometheus
+	3. Grafana
 
 ### Scalability Quiz ###
 
