@@ -1023,8 +1023,18 @@
 	3. But database is single monolith
 		1. One server is given the onus of handling data requests from all server nodes of workload
 			1. Bottleneck
+	4. Server nodes handle millions of requests but response time of the requests & latency of application is very high due to single database (only so much it can handle)
+2. Solution:
+	1. Database needs to be scaled as well
+		1. Wise use of data partitioning
+		2. Sharding (?)
+		3. Use multiple database servers
 
 #### Application Architecture ####
+1. Poor design can become a bottleneck
+	1. Common mistake: all processes are scheduled sequentially
+		1. Not using asynchronous processes
+		2. Not using asynchronous modules
 
 #### Not Using Caching In the Application Wisely ####
 
