@@ -1171,9 +1171,14 @@
 8. [How production engineers support global events on Facebook](https://engineering.fb.com/production-engineering/how-production-engineers-support-global-events-on-facebook/)
 9. [How hotstrar a video streaming service scaled with 10 million concurrent users](https://www.8bitmen.com/how-hotstar-scaled-with-10-3-million-concurrent-users-an-architectural-insight/)
 10. Tools popular in industry:
-	1. Cadviser
+	1. Cadvisor (Container Advisor?)
 	2. Prometheus
-	3. Grafana
+	3. Grafana (Web based dashboard)
+11. Example: Dashboard monitoring architecture flow
+
+	![dashboard_monitoring_architecture_flow](dashboard_monitoring_architecture_flow.jpeg)
+	
+12. [Pre-Production Monitoring](https://www.8bitmen.com/what-is-grafana-why-use-it-everything-you-should-know-about-it/)
 
 ### Scalability Quiz ###
 
