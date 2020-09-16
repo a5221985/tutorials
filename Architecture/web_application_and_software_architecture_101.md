@@ -1064,7 +1064,7 @@
 2. For not so strong consistency (but need horizontal scalability on the fly)
 	1. NoSQL database
 3. Need suitable tech or else it has profound impact on latency of entire application negatively
-	1. [Martin Fowler's talk on NoSQL]()
+	1. [Martin Fowler's talk on NoSQL](https://www.youtube.com/watch?v=qI_g07C_Q5I&t=1953s)
 
 #### At the Code Level ####
 
