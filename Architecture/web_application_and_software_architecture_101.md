@@ -1125,9 +1125,26 @@
 		1. Proximity of data to requesting user
 
 ##### Data Compression #####
+1. Use apt compression algorithms to compress data
+2. Store data in compressed form
+3. Advantages:
+	1. Compressed data consumes less bandwidth
+		1. Download speed on client will be faster
+
 ##### Avoid Unnecessary Client Server Requests #####
+1. Avoid unnecessary round trips between client & server
+	1. Try to club multiple requests into one
 
 #### Testing the Scalability Or Our Application ####
+1. After basic performance testing of application
+	1. Do capacity planning
+		1. Provisioning of right amount of hardware & computing power
+2. Testing application for scalability:
+	1. Testing approach for scalability depends on system
+		1. Testing can be performed at
+			1. Hardware level
+			2. Software level
+3. Services & components need to be tested individually and collectively
 
 ### Scalability Quiz ###
 
