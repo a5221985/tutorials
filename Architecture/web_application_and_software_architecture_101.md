@@ -1158,6 +1158,7 @@
 	1. How system behaves under heavy load
 	2. How application scales under heavy load
 	3. Contingencies are planned for unforeseen situations
+		1. As per anticipated traffic, appropriate hardware & computational power is provisioned to handle traffic smoothly **with some buffer**
 
 ### Scalability Quiz ###
 
