@@ -1014,6 +1014,27 @@
 	5. Adding Business Logic to the Database
 	6. Not Picking the Right Database
 	7. At the Code Level
+2. Points in application that can become bottlenecks
+
+#### Database ####
+1. Consider a well architected application
+	1. Workload runs on multiple nodes
+	2. It has ability to horizontally scale
+	3. But database is single monolith
+		1. One server is given the onus of handling data requests from all server nodes of workload
+			1. Bottleneck
+
+#### Application Architecture ####
+
+#### Not Using Caching In the Application Wisely ####
+
+#### Inefficient Configuration & Setup of Load Balancers ####
+
+#### Adding Business Logic to the Database ####
+
+#### Not Picking the Right Database ####
+
+#### At the Code Level ####
 
 ### How to Improve & Test the Scalability of Our Application? ###
 ### Scalability Quiz ###
