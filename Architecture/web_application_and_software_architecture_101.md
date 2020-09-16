@@ -1059,6 +1059,12 @@
 	1. Needs significant amount of refactoring when migrating to different database
 
 #### Not Picking the Right Database ####
+1. For transactions & strong consistency
+	1. Relational database
+2. For not so strong consistency (but need horizontal scalability on the fly)
+	1. NoSQL database
+3. Need suitable tech or else it has profound impact on latency of entire application negatively
+	1. [Martin Fowler's talk on NoSQL]()
 
 #### At the Code Level ####
 
