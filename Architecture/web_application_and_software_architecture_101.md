@@ -1035,12 +1035,28 @@
 	1. Common mistake: all processes are scheduled sequentially
 		1. Not using asynchronous processes
 		2. Not using asynchronous modules
+	2. **Solution: asynchronous processing**
+		1. Example: If user uploads a dodument on portal
+			1. Sending confirmation email
+			2. Sending notification to all subscribers/listeners to the upload event should be done asynchronously
+		2. **Forward the tasks to messaging server**
+			1. Instead of doing sequentially & making user wait
 
 #### Not Using Caching In the Application Wisely ####
+1. Caching can be deployed in several layers of application
+	1. It speeds up response time by notches
+	2. It intercepts all requests going to database (reducing overall load on it)
+2. Solution: Use caching exhaustively throughout application to speed up things significantly
 
 #### Inefficient Configuration & Setup of Load Balancers ####
+1. Using too many or too few load balancers impacts latency of the application
 
 #### Adding Business Logic to the Database ####
+1. Database is not a place to put business logic
+	1. It makes application tightly coupled to database
+	2. It puts unnecessary load on the database
+2. Cons:
+	1. Needs significant amount of refactoring when migrating to different database
 
 #### Not Picking the Right Database ####
 
