@@ -1067,8 +1067,23 @@
 	1. [Martin Fowler's talk on NoSQL](https://www.youtube.com/watch?v=qI_g07C_Q5I&t=1953s)
 
 #### At the Code Level ####
+1. Inefficient and badly written code has potential to take down entire service in production
+	1. Using unnecessary loops or nested loops
+	2. Writing tightly coupled code
+	3. Not paying attention to the Big-O complexity while writing the code.
+		1. May need firefighting in production
+2. More details next
 
 ### How to Improve & Test the Scalability of Our Application? ###
+1. Topics
+	1. Tuning The Performance of the Application - Enabling It To Scale Better
+		1. Profiling
+		2. Caching
+		3. CDN (Content Delivery Network)
+		4. Data Compression
+		5. Avoid Unnecessary Client Server Requests
+	2. Testing the Scalability Of Our Application
+
 ### Scalability Quiz ###
 
 ## High Availability ##
