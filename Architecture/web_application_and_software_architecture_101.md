@@ -1184,6 +1184,11 @@
 
 ## High Availability ##
 ### What is High Availability? ###
+1. Topics
+	1. What is High Availability?
+	2. How Important Is High Availability To Online Services?
+2. 
+
 ### Reasons for Systems Failures ###
 ### Achieving High Availability - Fault Tolerence ###
 ### Redundancy ###
