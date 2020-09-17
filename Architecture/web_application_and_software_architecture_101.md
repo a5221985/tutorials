@@ -1428,8 +1428,26 @@
 	![load_balancing_at_different_components](load_balancing_at_different_components.jpeg)
 
 #### Performing Health Checks of The Servers With Load Balancers ####
+1. Load balancer should be aware of the running status of servers to route all user requests to running servers in cluster
+	1. Load balancers perform halth checks of machines in cluster
+		1. Load balancer usually maintains a list of machines that are up and running in cluster in real-time
+			1. If a machine goes down, it is removed from the list
+				1. Machines that are down are known as out of service instances
+		2. User requests are forwarded to only the machines that are in service
+2. Synomyms:
+	1. Node
+	2. Server
+	3. Server Node
+	4. Instance
+	5. Machine
+3. If **out-of-service** instance comes back online and becomes in-service
+	1. Load balancer updates the list
+	2. Starts routing future requests to that particular instance (all over again)
+4. Next: DNS Domain Name System
 
 ### Understanding DNS - Part 1 ###
+1. 
+
 ### Understanding DNS - Part 2 ###
 ### DNS Load Balancing ###
 ### Load Balancing Methods ###
