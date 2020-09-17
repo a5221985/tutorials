@@ -1498,6 +1498,11 @@
 		1. `.com` top-level domain nameserver will contain information on domains using `.com`
 		2. `.edu` top-level domain nameserver will hold info on domains using `.edu`
 		3. Example: 
+			1. `amazon.com` - DNS resolver will route request to `.com` top-level domain name server
+	6. Top-level domain name server returns IP address of `amazon.com` domain name server
+	7. `amazon.com` domain name server is last server in DNS query lookup process
+		1. It is called **Authoritative nameserver**
+		2. This is owned by owner of domain name
 
 ### DNS Load Balancing ###
 ### Load Balancing Methods ###
@@ -1538,7 +1543,6 @@
 ### Time Series Database ###
 ### Wide-Column Database ###
 ### Database Quiz - Part 3 ###
-
 
 ## Caching ##
 ### Introduction ###
