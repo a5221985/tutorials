@@ -1527,7 +1527,9 @@
 3. To spread user traffic across different clusters in different data centers
 	1. Load balancing is used
 		1. **It is setup at DNS level on authoritative server**
-4. 
+4. Example: Authoritative server DNS
+
+	![authoritative_server_dns](authoritative_server_dns.jpeg)
 
 #### Limitations of DNS Load Balancing ####
 
