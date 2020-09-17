@@ -1369,12 +1369,33 @@
 	1. It contains a set of nodes running in conjunction with each other that ensures high availability of service
 2. Heartbeat network: Nodes in cluster are connected by private network called heartbeat network
 	1. The network monitors each node and status of each node in cluster
-	2. State management: Single state across all nodes in cluster is achieved with help of shared distributed memory
+	2. State management: Single state across all nodes in cluster is achieved with
+		1. Shared distributed memory
+		2. Distributed co-ordination service (*Zookeeper* say)
+3. Example: Highly available cluster
+
+	![highly_available_cluster](highly_available_cluster.jpeg)
+	
+4. Techniques for HA used by clusters
+	1. Disk mirroring or RAID Redundant Array of Independent Disks
+	2. Redundant network connections
+		1. If primary network goes down, backup network takes over
+	3. Redundant electrical power
+	4. ...
+5. Multiple HA clusters:
+	1. Run in one geographical zone ensuring
+		1. Minimum downtime 
+		2. Continual service
+6. Next chapter: Load balancing
 
 ### High Availability Quiz ###
 
 ## Load Balancing - ( - New - ) ##
 ### Introduction to Load Balancing ###
+1. Topics
+	1. What is Load Balancing?
+	2. Performing Health Checks of The Servers With Load Balancers
+
 ### Understanding DNS - Part 1 ###
 ### Understanding DNS - Part 2 ###
 ### DNS Load Balancing ###
