@@ -1416,6 +1416,16 @@
 5. Example: Load balancer
 
 	![load_balancer](load_balancer.jpeg)
+	
+6. Load balancers can be setup to efficiently manage traffic directed towards any component of the application
+	1. Backend application server
+	2. Database component
+	3. Message queue
+7. Purpose:
+	1. To uniformly spread request load across machines in clusters powering the components
+8. Example: Load balancing
+
+	![load_balancing_at_different_components](load_balancing_at_different_components.jpeg)
 
 #### Performing Health Checks of The Servers With Load Balancers ####
 
