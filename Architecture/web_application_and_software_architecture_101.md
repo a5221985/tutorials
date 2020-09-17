@@ -1305,6 +1305,22 @@
 2. Example: High Availability - Redundancy
 
 	![high_availability_redundancy](high_availability_redundancy.jpeg)
+	
+3. Active-passive HA mode:
+	1. There are a few instances of nodes active and a few in standby
+	2. The standby instances of nodes (redundant passive nodes) take over if any of the active instances go down (faiure)
+4. Applications: Zero downtime is ensured by making the components redundant
+	1. GPS
+	2. Aircrafts
+	3. Communication satellites
+
+#### Getting Rid of Single Points of Failure ####
+1. Distributed systems are popular because they get rid of single points of failure present in monolithic architecture
+	1. Large number of distributed nodes work in conjunction with each other to achieve single synchronous application state
+	2. Redundant nodes make sure there are no single points of failure in the system
+		1. If a node goes down, redundant nodes take its place
+			1. System as a whole remains un-impacted
+2. 
 
 ### Replication ###
 ### High Availability Clustering ###
