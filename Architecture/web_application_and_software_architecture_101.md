@@ -1275,7 +1275,37 @@
 	1. If a baclend node fails, few services of the app (image upload, post likes ...) may stop working but application as a whole will still be up
 		1. This is technically **fail soft** 
 
+#### Designing a Highly Available Fault-Tolerant Service - Architecture ####
+1. HA at application level is achieved by breaking down the entire service architecturally into smaller loosely coupled services called **micro-services**
+2. Example: Microservice architecture:
+
+	![microservice_architecture](microservice_architecture.jpeg)
+	
+3. Advantages of breaking monolith into microservices:
+	1. Easier management
+	2. Easier development
+	3. Ease of adding new features
+	4. Ease of maintenance
+	5. High availability
+4. Each microservice takes the burden of running different features of application
+	1. Image upload
+	2. Comment
+	3. Instant messaging
+	4. ...
+5. If few of the services go down, the application is still up
+
 ### Redundancy ###
+1. Topics:
+	1. Redundancy - Active-Passive HA Mode
+	2. Getting Rid of Single Points of Failure
+	3. Monitoring & Automation
+
+#### Redundancy - Active-Passive HA Mode ####
+1. Redundancy - Redundancy is duplicating the components or instances & keeping them on standby to take over in case the active instances go down. It's the fail-safe, backup mechanism
+2. Example: High Availability - Redundancy
+
+	![high_availability_redundancy](high_availability_redundancy.jpeg)
+
 ### Replication ###
 ### High Availability Clustering ###
 ### High Availability Quiz ###
