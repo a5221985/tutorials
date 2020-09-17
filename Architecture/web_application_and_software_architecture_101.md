@@ -1493,6 +1493,11 @@
 		1. DNS is a distributed system setup in large data centers managed by ISPs
 			1. Data centers: contain clusters of servers optimized to process DNS queries in minimal time (milliseconds)
 			2. Top level domain for `amazon.com` is `.com`
+	4. DNS Resolver receives address of top-level domain nameserver
+	5. DNS Resolver sends request to top-level domain nameserver (to fetch details of domain name)
+		1. `.com` top-level domain nameserver will contain information on domains using `.com`
+		2. `.edu` top-level domain nameserver will hold info on domains using `.edu`
+		3. Example: 
 
 ### DNS Load Balancing ###
 ### Load Balancing Methods ###
