@@ -1396,6 +1396,24 @@
 	1. What is Load Balancing?
 	2. Performing Health Checks of The Servers With Load Balancers
 
+#### What is Load Balancing? ####
+1. Useful if
+	1. Traffic load increases
+	2. To stay highly available
+2. Load balancers distribute heavy traffic load across servers running in cluster
+	1. They use different algorithms
+	2. Advantage:
+		1. Averts risk of convergence of all traffic on service to single or few machines in cluster
+		2. If traffic is converged only on few machines, it will overload them and cause
+			1. Increase of latency of application
+			2. Performance hit
+			3. Failure of entire system
+		3. Load balancing avoids the mess
+3. Scenario 1: If node goes down when a request is processed
+	1. Load balancer automatically routes future requests to other up and running servers in cluster enabling service as a whole to stay available
+
+#### Performing Health Checks of The Servers With Load Balancers ####
+
 ### Understanding DNS - Part 1 ###
 ### Understanding DNS - Part 2 ###
 ### DNS Load Balancing ###
