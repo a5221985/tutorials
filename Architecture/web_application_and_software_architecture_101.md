@@ -1466,9 +1466,28 @@
 3. [Wikipedia resource for IP addresses](https://en.wikipedia.org/wiki/IP_address)
 
 #### How Does Domain Name System Work? ####
-1. 
+1. **DNS querying:**
+	1. When url is typed in browser and enter is hit, it is called **DNS querying**
+2. Four key components (group of servers) that make up DNS infrastructure
+	1. DNS Recursive Nameserver aka DNS Resolver
+	2. Root Nameserver
+	3. Top-Level Domain Nameserver
+	4. Authoritative Nameserver
+3. Next:
+	1. How does DNS query lookup process work
+	2. Role of the servers in lookup process
 
 ### Understanding DNS - Part 2 ###
+1. Topics:
+	1. DNS query lookup process:
+	2. Role of servers in DNS infrastructure
+2. Steps:
+	1. User types domain name in to browser and hits enter
+	2. Browser sends request to DNS recursive nameserver (DNS resolver)
+		1. DNS resolver: Receives client request and forwards it to Root nameserver to get address of Top-Level domain nameserver
+	3. DNS Recursive nameserver (managed by ISP Internet Service Provider)
+		1. DNS is a distributed system setup in large data centers managed by ISPs
+
 ### DNS Load Balancing ###
 ### Load Balancing Methods ###
 ### Load Balancing Quiz ###
