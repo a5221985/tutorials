@@ -1573,9 +1573,20 @@
 		1. Number of existing open connections to a server
 		2. Compute utilization
 		3. ...
-2. 
+2. Cons:
+	1. Physical hardware is involved so we need maintenance and updates (just like any other server hardware)
+	2. They are expensive to setup as compared to software load balancers
+	3. Upkeep may require certain skillset
+		1. IT team & network specialists
+			1. Hard for developers to wrap their head around but needs vendor assistance
+				1. Hence developers prefer software load balancers
+	4. May need overprovisioning them to deal with peak traffic (not required for software load balancers)
 
 #### Software Load Balancers ####
+1. Pros:
+	1. It can be installed on commodity hardware and VMs
+	2. Cost-effective and offer more flexibility to developers
+	3. Easy to upgrade and provision (as compared to hardware load balancers)
 
 #### Algorithms/ Traffic Routing Approaches Leveraged By Load Balancers ####
 ##### Round Robin & Weighted Round Robin #####
