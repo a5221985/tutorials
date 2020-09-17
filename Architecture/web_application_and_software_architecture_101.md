@@ -1567,6 +1567,13 @@
 3. Both hardware based and software based load balancing is common ways to balance traffic load on large scale services
 
 #### Hardware Load Balancers ####
+1. HLBs are highly performant physical hardware
+	1. Located in front of application servers
+	2. Load is distributed based on 
+		1. Number of existing open connections to a server
+		2. Compute utilization
+		3. ...
+2. 
 
 #### Software Load Balancers ####
 
