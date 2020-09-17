@@ -1410,7 +1410,10 @@
 			3. Failure of entire system
 		3. Load balancing avoids the mess
 3. Scenario 1: If node goes down when a request is processed
-	1. Load balancer automatically routes future requests to other up and running servers in cluster enabling service as a whole to stay available
+	1. Load balancer automatically routes future requests to other up and running servers in cluster
+		1. Enabling service as a whole to stay available
+4. Load balancer is single point of contact for all client requests
+	1. 
 
 #### Performing Health Checks of The Servers With Load Balancers ####
 
