@@ -1446,6 +1446,26 @@
 4. Next: DNS Domain Name System
 
 ### Understanding DNS - Part 1 ###
+1. Topics:
+	1. Domain Name System
+	2. How Does Domain name System Work?
+2. Every machine online is part of world wide web (www)
+	1. It has unique IP address
+		1. Enables it to be contacted by other machines on web using IP address
+			1. IP: Internet protocol
+				1. Protocol that facilitates delivery of data packets from one machine to other using IP addresses
+				2. Example: 2001:db8:0:1234:0:567:8:1
+					1. To fetch content from the server, user has to type in unique IP address of server in browser url tab
+						1. This is not a viable option (in terms of our memory)
+3. Solution: Domain names
+	1. It is easier to work with
+
+#### Domain Name System ####
+1. DNS averts the need to remember long IP addresses to visit a website by mapping easy to remember domain names to IP addresses
+2. Example: amazon.com
+3. [Wikipedia resource for IP addresses](https://en.wikipedia.org/wiki/IP_address)
+
+#### How Does Domain Name System Work? ####
 1. 
 
 ### Understanding DNS - Part 2 ###
