@@ -1367,6 +1367,9 @@
 ### High Availability Clustering ###
 1. High availability cluster: Aka fail-over cluster
 	1. It contains a set of nodes running in conjunction with each other that ensures high availability of service
+2. Heartbeat network: Nodes in cluster are connected by private network called heartbeat network
+	1. The network monitors each node and status of each node in cluster
+	2. State management: Single state across all nodes in cluster is achieved with help of shared distributed memory
 
 ### High Availability Quiz ###
 
