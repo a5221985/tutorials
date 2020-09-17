@@ -1530,6 +1530,10 @@
 4. Example: Authoritative server DNS
 
 	![authoritative_server_dns](authoritative_server_dns.jpeg)
+	
+5. It enables authoritative server to return different IP addresses of certain domain to clients
+	1. Each time it receives a query for IP, it returns a list of IP addresses of a domain to client
+	2. For each request, the authoritative serve changes order of IP addresses in the list in round-robin fashion
 
 #### Limitations of DNS Load Balancing ####
 
