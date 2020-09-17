@@ -1355,9 +1355,19 @@
 	1. Advantages:
 		1. Avoids single point of failure in context of data centre
 		2. Reduces latency to a large extant because of proximity of data to user
-3. 
+3. Criticality of the system:
+	1. High availability and fault-tolerant decisions are subject to
+		1. How critical the system is?
+		2. What are the odds that the components will fail?
+		3. ...
+4. Further availability:
+	1. Multi-cloud platforms are used by businesses to deploy their workloads for further availability
+		1. If one cloud provider goes south, another is a backkup
 
 ### High Availability Clustering ###
+1. High availability cluster: Aka fail-over cluster
+	1. It contains a set of nodes running in conjunction with each other that ensures high availability of service
+
 ### High Availability Quiz ###
 
 ## Load Balancing - ( - New - ) ##
