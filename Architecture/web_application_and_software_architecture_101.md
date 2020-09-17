@@ -1320,9 +1320,27 @@
 	2. Redundant nodes make sure there are no single points of failure in the system
 		1. If a node goes down, redundant nodes take its place
 			1. System as a whole remains un-impacted
-2. 
+2. Bottlenecks: Single points of failure at application level
+	1. Detect bottlenecks in performance testing and get rid of them asap
+
+#### Monitoring & Automation ####
+1. Systems should be well monitored in real-time to detect bottlenecks or single points of failures
+2. Self-healing:
+	1. Automation gives instances the power to self-recover without human intervention
+3. Systems can add or remove instances on the fly as per requirements
+4. Automation cuts down failures which are mostly caused due to human errors
 
 ### Replication ###
+1. Topics:
+	1. Replication - Active-Active HA Mode
+	2. Geographical Distribution of Workload
+
+#### Replication - Active-Active HA Mode ####
+1. Replication: Having a number of similar nodes running workload together
+	1. No standby or passive instances
+2. When a single or few nodes go down, remaining nodes bear the load of the service
+	1. Load balancing is used
+
 ### High Availability Clustering ###
 ### High Availability Quiz ###
 
