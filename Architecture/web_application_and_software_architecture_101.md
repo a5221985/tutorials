@@ -1257,8 +1257,17 @@
 4. ...
 
 #### HA Systems Designed to Overcome the Failures ####
+1. More details next
 
 ### Achieving High Availability - Fault Tolerence ###
+1. Topics:
+	1. What is Fault Tolerance?
+	2. Designing a Highly Available Fault-Tolerant Service-Architecture
+2. Fault Tolerance: An approach to achieve HA
+
+#### What is Fault Tolerance? ####
+1. Fault tolerance is the ability of the system to stay up despite taking hits
+
 ### Redundancy ###
 ### Replication ###
 ### High Availability Clustering ###
