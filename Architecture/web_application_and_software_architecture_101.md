@@ -1524,6 +1524,10 @@
 1. Authoritative server returns the IP address of domain
 2. Problem: `amazon.com` needs more than single machine to run it's services
 	1. The services are deployed across multiple data centers in different geographical locations across the globe
+3. To spread user traffic across different clusters in different data centers
+	1. Load balancing is used
+		1. **It is setup at DNS level on authoritative server**
+4. 
 
 #### Limitations of DNS Load Balancing ####
 
