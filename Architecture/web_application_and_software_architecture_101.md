@@ -1340,6 +1340,22 @@
 	1. No standby or passive instances
 2. When a single or few nodes go down, remaining nodes bear the load of the service
 	1. Load balancing is used
+3. Example: High availability - replication
+
+	![high_availability_replication](high_availability_replication.jpeg)
+	
+4. This is active-active high availability mode
+	1. All components of system are active at any time
+
+#### Geographical Distribution of Workload ####
+1. Contingency for natural disasters
+	1. Data centre regional power outages
+	2. ...
+2. Workloads are distributed across different data centres across the world in different geographical zones
+	1. Advantages:
+		1. Avoids single point of failure in context of data centre
+		2. Reduces latency to a large extant because of proximity of data to user
+3. 
 
 ### High Availability Clustering ###
 ### High Availability Quiz ###
