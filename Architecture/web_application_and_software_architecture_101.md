@@ -1566,6 +1566,16 @@
 	3. Software-based Load Balancing
 3. Both hardware based and software based load balancing is common ways to balance traffic load on large scale services
 
+#### Hardware Load Balancers ####
+
+#### Software Load Balancers ####
+
+#### Algorithms/ Traffic Routing Approaches Leveraged By Load Balancers ####
+##### Round Robin & Weighted Round Robin #####
+##### Least Connections #####
+##### Random #####
+##### Hash #####
+
 ### Load Balancing Quiz ###
 
 ## Monolith & Microservices ##
