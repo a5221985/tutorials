@@ -1413,7 +1413,9 @@
 	1. Load balancer automatically routes future requests to other up and running servers in cluster
 		1. Enabling service as a whole to stay available
 4. Load balancer is single point of contact for all client requests
-	1. 
+5. Example: Load balancer
+
+	![load_balancer](load_balancer.jpeg)
 
 #### Performing Health Checks of The Servers With Load Balancers ####
 
