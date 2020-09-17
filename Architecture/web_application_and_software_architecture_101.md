@@ -1267,6 +1267,13 @@
 
 #### What is Fault Tolerance? ####
 1. Fault tolerance is the ability of the system to stay up despite taking hits
+2. It is equiped to handle faults
+3. It is an essential element in designing life-critical systems
+4. A few of the instances/nodes of many go offline & bounce back all the time
+	1. In case of internal failures, system could work at a reduced level but will not go down entirely
+5. Social networking application:
+	1. If a baclend node fails, few services of the app (image upload, post likes ...) may stop working but application as a whole will still be up
+		1. This is technically **fail soft** 
 
 ### Redundancy ###
 ### Replication ###
