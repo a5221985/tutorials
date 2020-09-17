@@ -1534,10 +1534,38 @@
 5. It enables authoritative server to return different IP addresses of certain domain to clients
 	1. Each time it receives a query for IP, it returns a list of IP addresses of a domain to client
 	2. For each request, the authoritative serve changes order of IP addresses in the list in round-robin fashion
+	3. As client receives list, it sends request to first IP address on the list to fetch the data from website
+		1. Why list?
+			1. To enable it to use other IPs in case first doesn't return response within stipulated time
+	4. If another client sends request for IP to authoritative server,
+		1. IP addresses are re-ordered and another IP is put on the top of the list following round-robin algorithm
+6. When client hits IP, it may hit another load balancer (at data center that manages clusters)
 
 #### Limitations of DNS Load Balancing ####
+1. Doesn't take existing load on servers into account
+2. Doesn't account for content
+3. Doesn't account for request processing time
+4. Doesn't account for in-service status
+5. If machine is out of service and IP addresses are cached by client's machine and DNS resolver, request can be sent to the server
+6. Advantages of DNS load balancing:
+	1. Easy and less expensive way of setting up load balancing on service
+7. [Round Robin DNS](https://en.wikipedia.org/wiki/Round-robin_DNS)
 
 ### Load Balancing Methods ###
+1. Topics
+	1. Hardware Load Balancers
+	2. Software Load Balancers
+	3. Algorithms/ Traffic Routing Approaches Leveraged By Load Balancers
+		1. Round Robin & Weighted Round Robin
+		2. Least Connections
+		3. Random
+		4. Hash
+2. Three modes of load balancing
+	1. DNS Load Balancing
+	2. Hardware-based Load Balancing
+	3. Software-based Load Balancing
+3. Both hardware based and software based load balancing is common ways to balance traffic load on large scale services
+
 ### Load Balancing Quiz ###
 
 ## Monolith & Microservices ##
