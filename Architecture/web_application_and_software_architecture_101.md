@@ -1473,6 +1473,10 @@
 	2. Root Nameserver
 	3. Top-Level Domain Nameserver
 	4. Authoritative Nameserver
+3. Domain name system:
+	
+	![domain_name_system](domain_name_system.jpeg)
+	
 3. Next:
 	1. How does DNS query lookup process work
 	2. Role of the servers in lookup process
@@ -1487,6 +1491,8 @@
 		1. DNS resolver: Receives client request and forwards it to Root nameserver to get address of Top-Level domain nameserver
 	3. DNS Recursive nameserver (managed by ISP Internet Service Provider)
 		1. DNS is a distributed system setup in large data centers managed by ISPs
+			1. Data centers: contain clusters of servers optimized to process DNS queries in minimal time (milliseconds)
+			2. Top level domain for `amazon.com` is `.com`
 
 ### DNS Load Balancing ###
 ### Load Balancing Methods ###
