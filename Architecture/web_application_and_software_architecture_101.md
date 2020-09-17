@@ -1503,8 +1503,30 @@
 	7. `amazon.com` domain name server is last server in DNS query lookup process
 		1. It is called **Authoritative nameserver**
 		2. This is owned by owner of domain name
+	8. DNS Resolver fires query to authoritative nameserver & then rerutns IP address of `amazon.com`
+	9. DNS Resolver caches data
+	10. DNS Resolver forwards it to client
+	11. Browser sends request to the IP address of `amazon.com`
+3. Usually DNS info is cached and DNS servers don't have to do so much re-routing each time client requests IP of website
+4. DNS info is also cached in local machines
+	1. Browsing devices with TTL Time to Live
+		1. Modern browsers do this automatically to cut down DNS query lookup time when revisting website
+5. Example: DNS lookup process
+
+	![dns_lookup_process](dns_lookup_process.jpeg)
 
 ### DNS Load Balancing ###
+1. Topics:
+	1. DNS Load Balancing
+	2. Limitations of DNS Load Balancing
+
+#### DNS Load Balancing ####
+1. Authoritative server returns the IP address of domain
+2. Problem: `amazon.com` needs more than single machine to run it's services
+	1. The services are deployed across multiple data centers in different geographical locations across the globe
+
+#### Limitations of DNS Load Balancing ####
+
 ### Load Balancing Methods ###
 ### Load Balancing Quiz ###
 
