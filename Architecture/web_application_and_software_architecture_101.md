@@ -1778,6 +1778,18 @@
 
 #### What is a Microservices Architecture? ####
 1. Definition: In microservices architecture, different features/ tasks are split into separate respective modules/ codebases which work in conjunction with each other forming a large service as a whole
+2. Advantages
+	1. Principles:
+		1. Single responsiblity principle
+		2. Separation of concerns
+	2. Easier and cleaner in the following aspects
+		1. App maintenance
+		2. Feature development
+		3. Testing
+		4. Deployment
+3. Accommodating every feature in a single repo is complex
+	1. Maintenance nightmare
+4. 
 
 ### When Should You Pick A Microservices Architecture? ###
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 1 ###
