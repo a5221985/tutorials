@@ -1726,14 +1726,36 @@
 	3. When Should You Pick a Monolithic Architecture?
 
 #### Pros of Monolithic Architecture ####
+##### Simplicity #####
+1. Monolithic applications are simple to develop, test, deploy, monitor and manage since everything resides in one repo
+2. No complexity of 
+	1. Handling different components
+	2. Making them work in conjunction with each other
+	3. Monitoring different components
+	4. ...
 
 #### Cons of Monolithic Architecture ####
-
 ##### Continuous Deployment #####
+1. It is a pain
+	1. Even minor code change in a layer needs re-deployment of entire application
+
 ##### Regression Testing #####
+1. Once deployment is done, we need thorough regression testing of entire application (layers are tightly coupled with each other)
+	1. Change in one layer may impact other layers significantly
+
 ##### Single Points of Failure #####
+1. Monoliths have single point of failure
+	1. If any layer has a bug, it can take down the entire application
+
 ##### Scalability Issues #####
+1. Flexibility & scalability is an issue
+	1. Change in one layer needs change and testing in all layers
+		1. More tricky if code size changes
+
 ##### Cannot Leverage Heterogeneous Technologies #####
+1. We cannot use heterogeneous technologies in single code base
+	1. Compatibility issues
+
 ##### Not Cloud-Ready, Hold State #####
 ##### When Should You Pick a Monolithic Architecture? #####
 
