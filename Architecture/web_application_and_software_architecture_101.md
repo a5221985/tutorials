@@ -1587,6 +1587,19 @@
 	1. It can be installed on commodity hardware and VMs
 	2. Cost-effective and offer more flexibility to developers
 	3. Easy to upgrade and provision (as compared to hardware load balancers)
+	4. LBaaS - Load Balancer as a Service (online)
+		1. Can be directly plugged into application without setup
+	5. More advanced as compared to DNS load balancing
+		1. They consider many parameters to route traffic across servers
+			1. Content that servers host
+			2. Cookies
+			3. HTTP headers
+			4. CPU utilization
+			5. Memory utilization
+			6. Load on the network
+		2. Continual health checks are performed on servers to keep updated list of in-service machines
+2. Software load balancers are peferred over hardware load balancers because the latter need specialists to manage
+3. [HAProxy]()
 
 #### Algorithms/ Traffic Routing Approaches Leveraged By Load Balancers ####
 ##### Round Robin & Weighted Round Robin #####
