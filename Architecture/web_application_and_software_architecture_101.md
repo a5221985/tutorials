@@ -1682,6 +1682,14 @@
 3. Example: Monolithic architecture
 
 	![monolithic_architecture](monolithic_architecture.jpeg)
+	
+4. All layers of app are in same code base (UI, business, data access)
+5. Layers of web app:
+	1. Controller
+	2. Service Layer Interface
+	3. Class Implementations of Interface
+	4. Business Logic goes into Object Domain Model
+	5. Business Logic goes into Service (a portion of it)
 
 ### When Should You Pick a Monolithic Architecture? ###
 ### What is a Microservice Architecture? ###
