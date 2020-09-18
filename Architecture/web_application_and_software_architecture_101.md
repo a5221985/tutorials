@@ -1671,6 +1671,18 @@
 
 ## Monolith & Microservices ##
 ### What is a Monolithic Architecture? ###
+1. Topics:
+	1. What is a Monolithic Architecture?
+
+#### What is a Monolithic Architecture? ####
+1. Definition: Application has monolithic architecture if it contains the entire application code in a single codebase
+2. Monolithic application:
+	1. Self-contained
+	2. Single tiered
+3. Example: Monolithic architecture
+
+	![monolithic_architecture](monolithic_architecture.jpeg)
+
 ### When Should You Pick a Monolithic Architecture? ###
 ### What is a Microservice Architecture? ###
 ### When Should You Pick A Microservices Architecture? ###
