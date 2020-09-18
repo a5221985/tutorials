@@ -1792,7 +1792,17 @@
 			1. Smoothens the development process
 3. Accommodating every feature in a single repo is complex
 	1. Maintenance nightmare
-4. 
+4. Scalability:
+	1. We need to scale out if we cannot scale up further
+		1. Microservices architecture is inherently designed to scale
+5. Example: Microservice architecture scalable
+
+	![microservice_architecture_scalable](microservice_architecture_scalable.jpeg)
+	
+6. Every service has separate database
+	1. No single point of failure
+	2. No system bottlenecks
+7. Next: Pros and cons of microservices architecture
 
 ### When Should You Pick A Microservices Architecture? ###
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 1 ###
