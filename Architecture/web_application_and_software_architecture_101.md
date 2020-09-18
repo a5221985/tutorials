@@ -1599,11 +1599,37 @@
 			6. Load on the network
 		2. Continual health checks are performed on servers to keep updated list of in-service machines
 2. Software load balancers are peferred over hardware load balancers because the latter need specialists to manage
-3. [HAProxy]()
+3. [HAProxy](https://www.haproxy.com/): Software load balancer widely used by big guns in industry
+	1. GitHub
+	2. Reddit
+	3. Instagram
+	4. AWS
+	5. Tumblr
+	6. StackOverflow
+	7. ...
+4. Software load balancers use several algorithms to route traffic across machines
+5. Next: Algorithms
 
 #### Algorithms/ Traffic Routing Approaches Leveraged By Load Balancers ####
 ##### Round Robin & Weighted Round Robin #####
+1. Round Robin Algorithm: Sends IP address of machines sequentially to clients
+	1. The following are not taken into consideration:
+		1. Load on servers
+		2. CPU consumption
+		3. ...
+2. Weighted Round Robin:
+	1. Weights are assigned based on server's compute & traffic handling capacity
+	2. Traffic is then routed to them using Round Robin Algorithm
+	3. Pros:
+		1. Traffic is converged to machines that can handle higher traffic load
+			1. Efficient use of resources
+	4. Applications:
+		1. Useful when service is deployed in different data centers having different compute capacities
+			1. More traffic can be directed to larger data centers with more machines
+
 ##### Least Connections #####
+
+
 ##### Random #####
 ##### Hash #####
 
