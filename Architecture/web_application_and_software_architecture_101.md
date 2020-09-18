@@ -1706,8 +1706,37 @@
 9. There are tradeoffs with the above approach and there is no standard solution
 	1. Wise decision:
 		1. Pick loosely coupled stateless microservices architecture right from start if it is expected to grow at quite a pace in the future
+			1. Re-writing stuff is costly
+				1. Stripping down things from tightly coupled architecture and re-writing stuff demands lot of resources and time
+		2. But if requirements are simple, why bother writing microservices architecture?
+			1. Running different modules in conjuction with each other isn't a cakewalk
+10. Next: Pros and cons of monolithic architecture
 
 ### When Should You Pick a Monolithic Architecture? ###
+1. Topics:
+	1. Pros of Monolithic Architecture
+		1. Simplicity
+	2. Cons of Monolithic Architecture
+		1. Continuous Deployment
+		2. Regression Testing
+		3. Single Points of Failure
+		4. Scalability Issues
+		5. Cannot Leverage Heterogeneous Technologies
+		6. Not Cloud-Ready, Hold State
+	3. When Should You Pick a Monolithic Architecture?
+
+#### Pros of Monolithic Architecture ####
+
+#### Cons of Monolithic Architecture ####
+
+##### Continuous Deployment #####
+##### Regression Testing #####
+##### Single Points of Failure #####
+##### Scalability Issues #####
+##### Cannot Leverage Heterogeneous Technologies #####
+##### Not Cloud-Ready, Hold State #####
+##### When Should You Pick a Monolithic Architecture? #####
+
 ### What is a Microservice Architecture? ###
 ### When Should You Pick A Microservices Architecture? ###
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 1 ###
