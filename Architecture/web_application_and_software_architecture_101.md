@@ -1805,6 +1805,31 @@
 7. Next: Pros and cons of microservices architecture
 
 ### When Should You Pick A Microservices Architecture? ###
+1. Topics:
+	1. Pros of Microservice Architecture
+		1. No Single Point of Failure
+		2. Leverage the Heterogeneous Technologies
+		3. Independent & Continuous Deployments
+	2. Cons of Microservices Architecture
+		1. Complexities in Management
+		2. No Strong Consistency
+	3. When Should You Pick a Microservices Architecture?
+
+#### Pros of Microservice Architecture ####
+##### No Single Points of Failure #####
+1. Even if few of the services go down, the application as a whole is still up
+
+##### Leverage the Heterogeneous Technologies #####
+1. 
+
+##### Independent & Continuous Deployments #####
+
+#### Cons of Microservices Architecture ####
+##### Complexities in Management #####
+##### No Strong Consistency #####
+
+#### When Should You Pick a Microservices Architecture? ####
+
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 1 ###
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 2 ###
 ### Monolith & Microservices Quiz ###
