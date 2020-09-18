@@ -1787,6 +1787,9 @@
 		2. Feature development
 		3. Testing
 		4. Deployment
+	3. If project is large, it is expected to be managed by several different teams
+		1. If modules are deparate, they can be assigned to respective teams with minimum fuss
+			1. Smoothens the development process
 3. Accommodating every feature in a single repo is complex
 	1. Maintenance nightmare
 4. 
