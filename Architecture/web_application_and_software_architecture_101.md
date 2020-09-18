@@ -1755,11 +1755,30 @@
 ##### Cannot Leverage Heterogeneous Technologies #####
 1. We cannot use heterogeneous technologies in single code base
 	1. Compatibility issues
+		1. Tricky to use Java and NodeJS in a single code base (may not even be possible)
 
 ##### Not Cloud-Ready, Hold State #####
+1. Monolithic applications hold state in state variables hence not cloud ready
+	1. Applications to be cloud native to work smoothly & be consistent on cloud must be:
+		1. distributed
+		2. stateless
+
 ##### When Should You Pick a Monolithic Architecture? #####
+1. When requirements are pretty simple
+2. App is expected to handle limited amount of traffic
+	1. Example: Internal tax calculation app
+	2. Use cases where business is certain that ther won't be exponential growth in user base and traffic over time
+3. Dev teams could start with monolith and then scale out to distributed microservices architecture
+	1. Helps team deal with complexity of application step by step as and when required:
+		1. [This is exactly what LinkedIn did](https://engineering.linkedin.com/architecture/brief-history-scaling-linkedin)
 
 ### What is a Microservice Architecture? ###
+1. Topics:
+	1. What is a Microservices Architecture?
+
+#### What is a Microservices Architecture? ####
+1. Definition: In microservices architecture, different features/ tasks are split into separate respective modules/ codebases which work in conjunction with each other forming a large service as a whole
+
 ### When Should You Pick A Microservices Architecture? ###
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 1 ###
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 2 ###
