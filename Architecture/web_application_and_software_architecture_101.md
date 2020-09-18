@@ -1688,8 +1688,24 @@
 	1. Controller
 	2. Service Layer Interface
 	3. Class Implementations of Interface
-	4. Business Logic goes into Object Domain Model
+	4. Business Logic goes into Object Domain Model (a portion of it)
 	5. Business Logic goes into Service (a portion of it)
+	6. Business Logic goes into Business Layer (a portion of it)
+	6. Business Logic goes into Repository/DAO Layer (a portion of it)
+6. Example: Layers of Web Application
+
+	![web_application_layers](web_application_layers.jpeg)
+	
+7. Advantages with monoliths:
+	1. Simple to build
+	2. Simple to test
+	3. Simple to deploy
+8. A strategy used by business
+	1. Move forward with monolithic architecture
+	2. Branch out to distributed microservices architecture later on
+9. There are tradeoffs with the above approach and there is no standard solution
+	1. Wise decision:
+		1. Pick loosely coupled stateless microservices architecture right from start if it is expected to grow at quite a pace in the future
 
 ### When Should You Pick a Monolithic Architecture? ###
 ### What is a Microservice Architecture? ###
