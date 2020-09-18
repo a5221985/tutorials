@@ -1628,10 +1628,37 @@
 			1. More traffic can be directed to larger data centers with more machines
 
 ##### Least Connections #####
-
+1. Traffic is routed to machine that has least open connections of all machines in cluster
+2. Two approaches:
+	1. First approach: Assumes all requests will consume equal amount of server resources & traffic is routed to the machine having least open connections
+		2. Cons:
+			1. There is a possibility that machine with least open connections might be already processing requests demanding most of the CPU power (more traffic must not be routed to this machine)
+	2. Second approach: 
+		1. Takes the following into consideration
+			1. CPU utilization
+			2. Request processing time
+		2. Criteria for routing is:
+			1. Machines with
+				1. Less request processing time
+				2. Less CPU utilization
+				3. Least open connections
+3. Applications:
+	1. For long opened connections
+		1. Persistent connections
+			1. Example: Gaming applications
 
 ##### Random #####
+1. Traffic is randomly routed to servers
+2. Load balancer may find similar servers in terms of the following and randomly route the traffic
+	1. Existing load
+	2. Request processing time
+	3. ...
+
 ##### Hash #####
+1. Source IP where request is coming from and request URL are hadhed to route traffic to the backend server
+	1. Source IP ensures that request of client with certain IP will always be routed to same server
+		1. Better user experience
+			1. Server has already processed initial client requests and holds client's data in local memory
 
 ### Load Balancing Quiz ###
 
