@@ -1659,6 +1659,13 @@
 	1. Source IP ensures that request of client with certain IP will always be routed to same server
 		1. Better user experience
 			1. Server has already processed initial client requests and holds client's data in local memory
+				1. No need to fetch client session data from session memory of cluster & process
+					1. Reduces latency
+		2. Enables client to re-establish connection with same server if connection drops
+	2. URL hashing ensures that requests with the url always hits certain cache that already has data on it
+		1. Ensures no cache miss
+			1. Avoids duplicating data in every cache and thus efficient implementation of caching
+2. Next: Monoliths and Microservices
 
 ### Load Balancing Quiz ###
 
