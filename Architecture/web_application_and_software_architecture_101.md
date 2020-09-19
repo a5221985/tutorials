@@ -2046,8 +2046,24 @@
 			1. During checkout, website may recommend related games to user as upsells
 			2. Use can also apply coupons & gift cards if he has any
 		4. **Payment Component**: Payment UI component offers different payment options to user & facilitates order payment once user enters his card details on page
+2. Every UI component has dedicated microservice running on backend powering particular UI component
+	1. Each component is managed by dedicated full-stack teams
+3. Complete UI of app is rendered combining different individual UI components called Mirco Frontends
 
 ### The Need for Micro Frontends ###
+1. Topics:
+	1. Easier Co-ordination with the Front End Devs
+	2. Leveraging the Right Technology
+
+#### Easier Co-ordination With the Front End Devs ####
+1. How to divide:
+	1. Each team may own a dedicated page in applcation (checkout page say)
+	2. Each team may own components that fit in certain page (game category component on home page)
+	3. Each team can own a combination of dedicated page and/or smaller UI component(s) of another page
+	4. Fragments: Smaller components that integrate into a page
+
+#### Leveraging the Right Technology ####
+
 ### Micro Frontends Integration ###
 
 ## Database ##
