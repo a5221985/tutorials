@@ -2132,11 +2132,27 @@
 			1. Web components is a suite of different technologies allowing you to construct re-usable custom elements - with their functionality encapsulated away from the rest of your code - and utilize them in your web apps
 				1. [Web Components: The Secret Ingredient Helping Power The Web](https://www.youtube.com/watch?v=YBwgkr_Sbx0)
 	2. Single SPA: JavaScript framework for frontend microservices that enables developers to build their frontend leveraging different JavaScript frameworks
-		1. [Introduction to Single SPA]()
+		1. [Introduction to Single SPA](https://www.youtube.com/watch?v=L4jqow7NTVg)
+		2. [Canopy Tax](https://www.getcanopy.com/) - cloud-based accounting software for working professionals
+			1. It leverages Single SPA framework to build micro frontends
+		3. [A Step by Step Guide to Single Spa by Canopy](https://medium.com/canopy-tax/a-step-by-step-guide-to-single-spa-abbbcb1bedc6)
+9. Next: Server Side Integration
 
 #### Server-Side Integration ####
+1. Complete pre-built page of website is delivered to client from server (instead of sending individual micro-frontends to client and then having them clubbed there)
+	1. Cuts down loading time of website on client significantly
+		1. Browser does not have to do any heavy lifting
+	2. Needs separate logic on server to integrate micro-frontends
 
 #### Technology & Frameworks Facilitating Server Side Integration ####
+1. [Zalando](https://www.zalando.com/) - fashion e-commerce company in Europse that uses [Project Mosaic](https://www.mosaic9.org/)
+	1. [Zalando Recipe for Scalable Frontends](https://www.youtube.com/watch?v=m32EdvitXy4&feature=youtu.be)
+2. [Open Components](https://opencomponents.github.io/)
+	1. Open source micro frontends framework used for integrating micro frontends on server
+3. [Open Table](https://www.opentable.com/) - San Francisco based online restaurant reservation company
+	1. It uses Open Components Framework to manage micro frontends
+	2. [Here is a talk on YouTube](https://www.youtube.com/watch?v=M4OXXRdCpyQ) - on their approach
+4. [Server Side Includes SSI](https://en.wikipedia.org/wiki/Server_Side_Includes) - server-side scripting language used for clubbing content of multiple web pages on webserver
 
 ## Database ##
 ### Introduction & Types of Data ###
