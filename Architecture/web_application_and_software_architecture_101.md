@@ -2031,6 +2031,21 @@
 
 #### Micro Frontends E-Commerce Application Example ####
 1. E-Commerce: Micro frontends is popular with E-Commerce websites
+	1. Online game store:
+		1. Delivers DVDs of all kinds of video games for desktops and consoles
+			1. Xbox, Nintendo Switch, Play Station, ...
+	2. Gamestore may have many different UI components
+		1. **Search component**: search bar on top centre of website that enables users to search games based on keywords
+			1. If user runs a search, component enables user to filter search results based on several options
+				1. price range
+				2. type of console
+				3. game genre
+				4. ...
+		2. **Game Category Component**: Component displays popular and widely searched games of different categories on home page of website
+		3. **Add to Cart & Checkout Component**: The UI component enables users to add games of their liking to cart and proceed with checkout filling in address & other required info to make final payment
+			1. During checkout, website may recommend related games to user as upsells
+			2. Use can also apply coupons & gift cards if he has any
+		4. **Payment Component**: Payment UI component offers different payment options to user & facilitates order payment once user enters his card details on page
 
 ### The Need for Micro Frontends ###
 ### Micro Frontends Integration ###
