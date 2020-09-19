@@ -2081,6 +2081,15 @@
 				1. There are use cases where:
 					1. Plain JavaScript, HTML, CSS suffice
 					2. Advanced frameworks like React, Angular & Vue are required for certain features
+			2. If multiple teams are using the same technology, they can work on different versions of the technology
+				1. Libraries can be upgraded independently without impacting other UI components
+2. Example: Website UI built as Micro Frontends
+
+	![website_ui_built_as_micro_frontends](website_ui_built_as_micro_frontends.jpeg)
+	
+3. Use cases:
+	1. Micro frontends are good for medium to large websites (not so useful for simple use cases)
+		1. Multiple technologies bring architectural & maintenance complexities with them
 
 ### Micro Frontends Integration ###
 
