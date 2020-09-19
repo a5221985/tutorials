@@ -1858,9 +1858,36 @@
 		2. Each component can be developed separately keeping
 			1. Single Responsibility Priciple
 			2. Separation of Concerns Principle
-3. 
+3. Three approaches:
+	1. Picking a monolithic architecture
+	2. Picking a microservice architecture
+	3. Starting with monolithic architecture and later scale out into microservice architecture
+4. Instructor's suggestion:
+	1. Keeping things simple
+	2. Understand requirements thoroughly
+	3. Build something when you need it
+	4. Keep evolving code iteratively
 
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 1 ###
+1. Topics:
+	1. Fault Isolation
+	2. Development Team Autonomy
+	3. Segment - From Monolith to Microservices and Back Again to Monolith
+2. This lesson:
+	1. Trade-offs involved when choosing between monolith and microservices architecture
+
+#### Fault Isolation ####
+1. Microservices architecture makes it easy for us to isolate faults and debug them
+	1. If glitch occurs in a service, we can fix the issue in that service without need to scan entire codebase in order to locate and fix that issue
+		1. This is known as fault isolation
+	2. If service goes down due to the fault, other services are up and running
+		1. This is minimal impact on the system
+
+#### Development Team Autonomy ####
+1. 
+
+#### Segment - From Monolith to Microservices and Back Again to Monolith ####
+
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 2 ###
 ### Monolith & Microservices Quiz ###
 
