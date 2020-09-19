@@ -1901,7 +1901,24 @@
 		2. Development and deployment autonomy over their modules with separate deployment pipelines
 	2. Code management is easier (really?)
 	3. It is easier to scale individual services based on traffic load patterns (agree)
-	4. 
+3. If we need to move fast
+	1. Lauch a lot of featurs quick to market and scale
+		1. Microservices is a good bet
+4. Cons:
+	1. Increase in complexity of architecture
+	2. Needs the following:
+		1. Distributed logging
+		2. Monitoring
+		3. Inter-Service Communication
+		4. Service Discovery
+		5. Alerts
+		6. Tracing
+		7. Build & release pipelines
+		8. Health checks
+		9. ...
+		10. May also need custom tooling from scratch
+5. There are tradeoffs involved (no perfect or best solution)
+	1. We need to be crystal on our use case and decide what architecture suits our needs the best
 
 #### Segment - From Monolith to Microservices and Back Again to Monolith ####
 
