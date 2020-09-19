@@ -1987,6 +1987,13 @@
 	1. [Centrifuge: A Reliable System For Delivering Billions of Events Per Day](https://segment.com/blog/introducing-centrifuge/)
 
 #### Istio - The Move From Microservices to a Monolith ####
+1. [Istio](https://istio.io/)
+	1. Open source service mesh:
+	2. It enables to connect secure, control and observe microservices
+	3. It enables us to control over how microservices share data with each other
+2. It transitioned form microservices to monolith architecture
+3. [Istio is An Example of When Not to Do Microservices](https://blog.christianposta.com/microservices/istio-as-an-example-of-when-not-to-do-microservices/)
+4. [Microservices - Are They Still Worth It?](https://www.youtube.com/watch?v=sZd4xTQlrIE&t=44s)
 
 ### Monolith & Microservices Quiz ###
 
