@@ -1999,6 +1999,17 @@
 
 ## Micro Frontends (- New -) ##
 ### Introduction to Micro Frontends ###
+1. Topics:
+	1. What are Micro Frontends?
+	2. Micro Frontends E-Commerce Application Example
+
+#### What are Micro Frontends? ####
+1. Micro frontends: Separate loosely coupled components of UI
+	1. Deployed using principles of microservices on front end
+
+#### Micro Frontends E-Commerce Application Example ####
+
+
 ### The Need for Micro Frontends ###
 ### Micro Frontends Integration ###
 
