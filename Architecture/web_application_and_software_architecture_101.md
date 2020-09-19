@@ -2195,10 +2195,32 @@
 2. SQL (Structured query language) is generally used to manage structured data
 
 #### Unstructured Data ####
+1. Unstructured data has no definite structure
+	1. It is heterogeneous type of data comprising
+		1. Text
+		2. Image files
+		3. Video
+		4. Multimedia files
+		5. pdfs
+		6. Blob objects
+		7. word documents
+		8. machine-generated data
+		9. ...
+2. Kind of data encountered in data analytics
+	1. Data streams in from multiple sources such as IoT devices, social networks, web portals, industry sensors ... into analytics systems
+3. **Unstructured data cannot be directly processed**
+	1. Raw data (initial data) needs to flow through a data preparation state which segregates it based on business logic
+	2. Then it runs analytics algorithms on it
 
 #### Semi-structured Data ####
+1. It is a mix of structured & unstructured data
+2. Usually stored in data transport formats:
+	1. XML
+	2. JSON
+3. It is handled as per business requirements
 
 #### User state ####
+1. 
 
 ### Relational Database ###
 ### When Should You Pick A Relational Database? ###
