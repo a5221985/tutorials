@@ -1822,15 +1822,42 @@
 ##### Leverage the Heterogeneous Technologies #####
 1. Each component interacts with the other via REST API Gateway interface
 2. Each component can leverage polyglot persistence architecture
+	1. Polyglot persistence:
+		1. Using multiple database types like SQL, NoSQL etc...
 3. Each component can use technologies such as Java, Python, Ruby, NodeJS ... together
 
 ##### Independent & Continuous Deployments #####
+1. Deployment can be independent & continuous
+2. A team can be dedicated for every microservice
+3. Each microservice can be scaled without impacting other services
 
 #### Cons of Microservices Architecture ####
 ##### Complexities in Management #####
+1. Many nodes run together (distributed)
+2. Managing and monitoring gets complex
+	1. Additional components such as Apache Zookeeper, distributed tracing service are required for monitoring
+3. More skilled resources are required
+	1. May be a dedicated team
+
 ##### No Strong Consistency #####
+1. Strong consistency is hard to guarantee in distributed environment
+	1. Things are eventually conistent across nodes (distributed design causes this)
 
 #### When Should You Pick a Microservices Architecture? ####
+1. It is for complex use cases
+2. It is for apps that expect traffic to increase exponentially in future
+	1. Example: fancy social network application
+		1. Components typically used:
+			1. Messaging
+			2. Real-time chat
+			3. LIVE video streaming
+			4. Image uploads
+			5. Like
+			6. Share
+			7. ...
+		2. Each component can be developed separately keeping
+			1. Single Responsibility Priciple
+			2. Separation of Concerns Principle
 
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 1 ###
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 2 ###
