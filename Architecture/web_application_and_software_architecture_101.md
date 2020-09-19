@@ -2006,9 +2006,31 @@
 #### What are Micro Frontends? ####
 1. Micro frontends: Separate loosely coupled components of UI
 	1. Deployed using principles of microservices on front end
+	2. It is more of architectural design decision & development appraoch (it is not a technology)
+		1. What does it mean?
+			1. Microservices provide complete autonomy to teams deploying them
+			2. They are loosely coupled
+			3. They provide fault isolation
+			4. It offers freedom to pick the technology stack to individual teams to develop certain service
+	5. Micro frontends has same upsides to front-end development
+		1. Generally despite having a microservice architecture on the backend, front end is monolith (developed by dedicated front-end team)
+2. Example: Monolithic Frontend
+
+	![monolithic_frontend](monolithic_frontend.jpeg)
+	
+3. Micro frontends:
+	1. The application (UI) is split into vertical slices
+		1. Single slice goes from UI to database
+			1. Each slice is owned by a dedicated team
+				1. front-end devs of each slice develop UI component only of that service
+				2. Team chooses their desired technology
+	2. All the components then are integrated together to form complete UI of application
+4. Example: Team with microfrontends
+
+	![team_with_microfrontends](team_with_microfrontends.jpeg)
 
 #### Micro Frontends E-Commerce Application Example ####
-
+1. E-Commerce: Micro frontends is popular with E-Commerce websites
 
 ### The Need for Micro Frontends ###
 ### Micro Frontends Integration ###
