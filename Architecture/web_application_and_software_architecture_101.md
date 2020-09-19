@@ -1884,7 +1884,14 @@
 		1. This is minimal impact on the system
 
 #### Development Team Autonomy ####
-1. 
+1. If monolith:
+	1. If number of developers and teams working on single codebase grows beyond certain number
+		1. It may impede productivity and velocity of teams
+	2. As size of codebase increases, compile-time & time required to run the tests increases
+		1. Entire codebase has to be compiled as opposed to compiling module we work on (really?)
+	3. If code changes are made by another team
+		1. It may have direct impact on features we develop
+		2. It may break the functionality of our feature
 
 #### Segment - From Monolith to Microservices and Back Again to Monolith ####
 
