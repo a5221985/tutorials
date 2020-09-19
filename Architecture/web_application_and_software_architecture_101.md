@@ -2118,7 +2118,21 @@
 	
 3. Checkout microservice: hosted on AWS (say) with link https://www.aws.amazon.com/onlinegamestore/checkout
 4. Payment service: hosted on Google Cloud with link https://www.cloud.google.com/onlinegamestore/payment
-5. 
+5. If navigation takes place from checkout page to payment page, address in browser changes from AWS URL to Google Cloud URL visible to end-user
+	1. Iframes can be used to integrate within a specific page
+6. Cons: 90s way of building websites (connecting web-pages using links and iframes)
+	1. [Google reasons why not to use iframes in page content](https://stackoverflow.com/questions/23178505/good-reasons-why-not-to-use-iframes-in-page-content)
+7. Micro-services frontends integration using iframes:
+
+	![micro_frontends_integration_using_iframes](micro_frontends_integration_using_iframes.jpeg)
+	
+8. Other modern ways: (recommended by trainer)
+	1. Client-side: Web components, [Single SPA](https://single-spa.js.org/)
+		1. Mozilla docs:
+			1. Web components is a suite of different technologies allowing you to construct re-usable custom elements - with their functionality encapsulated away from the rest of your code - and utilize them in your web apps
+				1. [Web Components: The Secret Ingredient Helping Power The Web](https://www.youtube.com/watch?v=YBwgkr_Sbx0)
+	2. Single SPA: JavaScript framework for frontend microservices that enables developers to build their frontend leveraging different JavaScript frameworks
+		1. [Introduction to Single SPA]()
 
 #### Server-Side Integration ####
 
