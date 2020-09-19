@@ -1951,7 +1951,10 @@
 		1. APIs are server side destinations (there are over a 100 of them)
 	2. Initial stage:
 		1. API injested events from different sources to distributed message queue
-			1. 
+		2. Queue moved event payload to different destination APIs
+2. Example: Event distribution monolith architecture:
+
+	![event_distribution_monolith_architecture](event_distribution_monolith_architecture.jpeg)
 
 #### Istio - The Move From Microservices to a Monolith ####
 
