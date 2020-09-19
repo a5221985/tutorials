@@ -2090,8 +2090,39 @@
 3. Use cases:
 	1. Micro frontends are good for medium to large websites (not so useful for simple use cases)
 		1. Multiple technologies bring architectural & maintenance complexities with them
+			1. Additional logic may be required to bring the components together
+		2. There could be compatibility issues
+		3. There could be performance issues
+4. [Engineering Culture at Spotify](https://labs.spotify.com/2014/03/27/spotify-engineering-culture-part-1/)
+5. Next: How micro frontends are integrated with each other
 
 ### Micro Frontends Integration ###
+1. Topics:
+	1. Client-Side Integration of Micro Frontends
+	2. Server-Side Integration
+	3. Technology & Frameworks Facilitating Server Side Integration
+2. Once we have micro-frontends for online game store, we need to integrate them together to have functional website
+	1. Two ways we can do this:
+		1. By integrating micro frontends on the client
+		2. By integrating micro frontends on the server
+3. Similar to client side and server side rendering
+	1. Additional logic is required for integration of UI components
+4. Next: client side integration process
+
+#### Client-Side Integration of Micro Frontends ####
+1. One naive way to integrate (according to trainer): Micro-frontends with unique links
+	1. Links are placed on website to navigate to certain micro-frontend
+2. Example: Link Integration
+
+	![link_integration_of_micro_frontends](link_integration_of_micro_frontends.jpeg)
+	
+3. Checkout microservice: hosted on AWS (say) with link https://www.aws.amazon.com/onlinegamestore/checkout
+4. Payment service: hosted on Google Cloud with link https://www.cloud.google.com/onlinegamestore/payment
+5. 
+
+#### Server-Side Integration ####
+
+#### Technology & Frameworks Facilitating Server Side Integration ####
 
 ## Database ##
 ### Introduction & Types of Data ###
