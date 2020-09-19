@@ -1921,6 +1921,16 @@
 	1. We need to be crystal on our use case and decide what architecture suits our needs the best
 
 #### Segment - From Monolith to Microservices and Back Again to Monolith ####
+1. [Segment](https://segment.com/)
+	1. First started with monolith and then split it into microservices
+	2. Later reverted to monolith architecture
+2. Why?
+	1. Microservices:
+		1. For fault isolation - minimized damage cause by system
+			1. Since fault is usually confined to (not necessarily) one service (as opposed to entire system and bringing it down)
+		2. Easy debugging of issues
+		3. A glitch in monolith has the potential to impact the entire system
+		4. A separate microservice was constructed for every data provider
 
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 2 ###
 ### Monolith & Microservices Quiz ###
