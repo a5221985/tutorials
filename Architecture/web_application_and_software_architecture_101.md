@@ -2153,6 +2153,12 @@
 	1. It uses Open Components Framework to manage micro frontends
 	2. [Here is a talk on YouTube](https://www.youtube.com/watch?v=M4OXXRdCpyQ) - on their approach
 4. [Server Side Includes SSI](https://en.wikipedia.org/wiki/Server_Side_Includes) - server-side scripting language used for clubbing content of multiple web pages on webserver
+5. [AutoScout24](https://www.autoscout24.com/)
+	1. Internet car portal from Europe
+	2. SSI Server Side Includes technology is used to build micro-frontends
+		1. [They gave a talk about micro frontends approach](https://www.thoughtworks.com/talks/a-high-performmance-solution-to-microservice-ui-composition)
+6. [Page building using Micro-Frontends and Server-Side Includes](https://itnext.io/page-building-using-micro-frontends-c13c157958c8)
+	1. [Podium](https://podium-lib.io/)
 
 ## Database ##
 ### Introduction & Types of Data ###
