@@ -1945,6 +1945,12 @@
 	1. Segment High-Level Architecture
 	2. Istio - The Move From Microservices to a Monolith
 
+#### Segment High-Level Architecture ####
+1. Data infrastructure ingests hundreds of thousands of events every second
+	1. Events are directed to APIs & Webhooks via message queue
+
+#### Istio - The Move From Microservices to a Monolith ####
+
 ### Monolith & Microservices Quiz ###
 
 ## Micro Frontends (- New -) ##
