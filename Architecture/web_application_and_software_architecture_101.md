@@ -1931,8 +1931,20 @@
 		2. Easy debugging of issues
 		3. A glitch in monolith has the potential to impact the entire system
 		4. A separate microservice was constructed for every data provider
+			1. Increase in number of microservices led to increase in complexity of architecture significantly (taking a toll on productivity)
+			2. Defects with regards to microservices increased significantly
+				1. Resources were dedicated to handle microservices related issues
+					1. Operational overhead - slowed down the organization
+	2. Monolith:
+		1. To overcome above issues, team moved to monolith
+			1. They gave up fault isolation etc...
+		2. The monolith is called Centrifuge
 
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 2 ###
+1. Topics:
+	1. Segment High-Level Architecture
+	2. Istio - The Move From Microservices to a Monolith
+
 ### Monolith & Microservices Quiz ###
 
 ## Micro Frontends (- New -) ##
