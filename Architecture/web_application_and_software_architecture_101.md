@@ -2158,10 +2158,48 @@
 	2. SSI Server Side Includes technology is used to build micro-frontends
 		1. [They gave a talk about micro frontends approach](https://www.thoughtworks.com/talks/a-high-performmance-solution-to-microservice-ui-composition)
 6. [Page building using Micro-Frontends and Server-Side Includes](https://itnext.io/page-building-using-micro-frontends-c13c157958c8)
-	1. [Podium](https://podium-lib.io/)
+	1. [Podium](https://podium-lib.io/) - framework that facilitates easy server-side composition of micro frontends
+	2. [Finn.no](https://www.finn.no/) - Norwegian classified ad website
+		1. Website uses Podium framework
 
 ## Database ##
 ### Introduction & Types of Data ###
+1. Topics:
+	1. What is a Database?
+	2. Structured Data
+	3. Unstructured Data
+	4. Semi-structured Data
+	5. User state
+
+#### What is a Database? ####
+1. Database: component required to persist data
+	1. data can be in many forms:
+		1. Structured
+		2. Unstructured
+		3. Semi-structured
+		4. User state data
+2. [web_application_architecture](web_application_architecture.jpeg)
+	1. Classification of data before delving into databases
+
+#### Structured Data ####
+1. It is a type of data that conforms to certain structure
+	1. Stored in database typically in normalized fashion
+	2. No data preparation logic is required for structured data before processing it
+	3. Direct interaction can be done with this kind of data
+2. Example of structured data:
+	1. Personal details of customer stored in database row
+		1. Customer id - integer type
+		2. Name - string type (with character limit)
+3. The types are well defined:
+	1. For example with string type, without worry for errors or exceptions, we can run String operations on it
+2. SQL (Structured query language) is generally used to manage structured data
+
+#### Unstructured Data ####
+
+#### Semi-structured Data ####
+
+#### User state ####
+
 ### Relational Database ###
 ### When Should You Pick A Relational Database? ###
 ### NoSQL Databases - Introduction ###
