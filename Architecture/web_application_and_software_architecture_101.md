@@ -1965,7 +1965,26 @@
 				2. Enabled scaling of system
 5. Example: Segment microservices architecture
 
-	![]()
+	![segment_microservices_architecture](segment_microservices_architecture.jpeg)
+	
+6. If certain queues got flooded, it did not impact the event delivery of other services
+7. When business gained traction, additional destinations were added
+	1. Each destination had separate microservice and queue
+		1. Increased the complexity of the architecture
+8. Separate services had seperate event throughput & traffic load patterns
+	1. Single scale policy couldn't be applied on all queues
+	2. Every service and queue needed to be scaled differently based on traffic load pattern
+		1. Had to be done manually
+9. Auto-scaling:
+	1. Was implemented in infrastructure
+	2. Every service had distinct CPU & memory requirements
+		1. This needed manual tuning of the insfrastructure
+			1. Means more queues needed more resources for maintenance
+	3. Solution:
+		1. Segment reverted to monolith calling infrastructure as centrifuge
+			1. Combined all individual queues for different destinations into single monolith service
+10. Centrifuge architecture: [Goodbye Microservices: From 100s of Problem Children to 1 Superstar](https://segment.com/blog/goodbye-microservices/)	
+	1. [Centrifuge: A Reliable System For Delivering Billions of Events Per Day](https://segment.com/blog/introducing-centrifuge/)
 
 #### Istio - The Move From Microservices to a Monolith ####
 
