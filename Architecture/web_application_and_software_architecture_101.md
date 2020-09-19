@@ -1901,6 +1901,7 @@
 		2. Development and deployment autonomy over their modules with separate deployment pipelines
 	2. Code management is easier (really?)
 	3. It is easier to scale individual services based on traffic load patterns (agree)
+	4. 
 
 #### Segment - From Monolith to Microservices and Back Again to Monolith ####
 
