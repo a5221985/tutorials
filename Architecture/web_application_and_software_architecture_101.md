@@ -1955,6 +1955,8 @@
 2. Example: Event distribution monolith architecture:
 
 	![event_distribution_monolith_architecture](event_distribution_monolith_architecture.jpeg)
+	
+3. Note: Message queue, webhook, data injestion are discussed later
 
 #### Istio - The Move From Microservices to a Monolith ####
 
