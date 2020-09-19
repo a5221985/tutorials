@@ -1892,6 +1892,15 @@
 	3. If code changes are made by another team
 		1. It may have direct impact on features we develop
 		2. It may break the functionality of our feature
+	4. Thorough regression testing is required every time anyone pushes new code or update to production
+	5. As code is pushed to production, we need all teams to stop working on codebase until change is pushed to production (really?)
+	6. Code pushed by certain team may require approval from other teams in organization working on same codebase (bottleneck)
+2. If microservices:
+	1. Separate teams have 
+		1. Complete ownership of codebases
+		2. Development and deployment autonomy over their modules with separate deployment pipelines
+	2. Code management is easier (really?)
+	3. It is easier to scale individual services based on traffic load patterns (agree)
 
 #### Segment - From Monolith to Microservices and Back Again to Monolith ####
 
