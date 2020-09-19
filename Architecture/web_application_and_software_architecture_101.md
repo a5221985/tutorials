@@ -1948,6 +1948,10 @@
 #### Segment High-Level Architecture ####
 1. Data infrastructure ingests hundreds of thousands of events every second
 	1. Events are directed to APIs & Webhooks via message queue
+		1. APIs are server side destinations (there are over a 100 of them)
+	2. Initial stage:
+		1. API injested events from different sources to distributed message queue
+			1. 
 
 #### Istio - The Move From Microservices to a Monolith ####
 
