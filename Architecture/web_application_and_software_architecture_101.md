@@ -1820,7 +1820,9 @@
 1. Even if few of the services go down, the application as a whole is still up
 
 ##### Leverage the Heterogeneous Technologies #####
-1. 
+1. Each component interacts with the other via REST API Gateway interface
+2. Each component can leverage polyglot persistence architecture
+3. Each component can use technologies such as Java, Python, Ruby, NodeJS ... together
 
 ##### Independent & Continuous Deployments #####
 
