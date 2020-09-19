@@ -1858,6 +1858,7 @@
 		2. Each component can be developed separately keeping
 			1. Single Responsibility Priciple
 			2. Separation of Concerns Principle
+3. 
 
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 1 ###
 ### Monolith & Microservices - Understanding the Trade-Offs - Part 2 ###
