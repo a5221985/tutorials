@@ -2054,15 +2054,33 @@
 1. Topics:
 	1. Easier Co-ordination with the Front End Devs
 	2. Leveraging the Right Technology
-
-#### Easier Co-ordination With the Front End Devs ####
-1. How to divide:
+2. How to divide:
 	1. Each team may own a dedicated page in applcation (checkout page say)
 	2. Each team may own components that fit in certain page (game category component on home page)
 	3. Each team can own a combination of dedicated page and/or smaller UI component(s) of another page
 	4. Fragments: Smaller components that integrate into a page
+3. Example: UI fragment integration
+
+	![ui_fragment_integration](ui_fragment_integration.jpeg)
+	
+4. Why split monolith UI?
+
+#### Easier Co-ordination With the Front End Devs ####
+1. Averts need for dedicated front-end team
+2. Front-end devs work along with backend devs in same team
+	1. Saves time spent in cross-team coordination between backend microservices and front-end teams
+3. Communication is quick and not so formal (how?)
+4. Improves team's productivity
+5. Enables them to deliver better UX (more effective coordination between backend and frontend devs)
 
 #### Leveraging the Right Technology ####
+1. Micro frontends are loosely coupled
+	1. They can be developed leveraging different technologies
+		1. Single UI technology does not have to be used to build entire front-end
+			1. Multiple technologies exist for front-ends + JavaScript frameworks
+				1. There are use cases where:
+					1. Plain JavaScript, HTML, CSS suffice
+					2. Advanced frameworks like React, Angular & Vue are required for certain features
 
 ### Micro Frontends Integration ###
 
