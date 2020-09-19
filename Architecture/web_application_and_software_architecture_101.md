@@ -1957,6 +1957,15 @@
 	![event_distribution_monolith_architecture](event_distribution_monolith_architecture.jpeg)
 	
 3. Note: Message queue, webhook, data injestion are discussed later
+4. If events are moved to a single queue, some events failed to deliver to destinations and were retried by queue after stipulated time intervals
+	1. Enables queue to contain both new and failed events - waiting to be retried
+		1. This flooded the queue which caused delays of delivery of events to destinations
+			1. Solution: Engineering team at Segment split monolith into microservices and constructed a separate microservice for every destination
+				1. Each service contained its own queue
+				2. Enabled scaling of system
+5. Example: Segment microservices architecture
+
+	![]()
 
 #### Istio - The Move From Microservices to a Monolith ####
 
