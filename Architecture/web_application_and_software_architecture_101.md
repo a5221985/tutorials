@@ -2290,6 +2290,7 @@
 	2. Large Community
 	3. Storing Relationships
 	4. Popular Relational Databases
+2. 
 
 ### NoSQL Databases - Introduction ###
 ### Features of NoSQL Databases ###
