@@ -2290,7 +2290,25 @@
 	2. Large Community
 	3. Storing Relationships
 	4. Popular Relational Databases
-2. 
+2. Use cases:
+	1. Stock trading app
+	2. Banking app
+	3. Finance-based app
+	4. ... (where lot of relationships have to be stored)
+		1. Social network like Facebook
+
+#### Transactional & Data Consistency ####
+1. If software has to do with money or numbers then following are important
+	1. Transactions
+	2. ACID
+	3. Data consistency
+2. Relational DBs are good for transactions & data consistency
+	1. ACID rule compliant
+	2. Battle tested over ages
+
+#### Large Community ####
+#### Storing Relationships ####
+#### Popular Relational Databases ####
 
 ### NoSQL Databases - Introduction ###
 ### Features of NoSQL Databases ###
