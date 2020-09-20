@@ -2233,6 +2233,39 @@
 2. There are different types of databases with specific use cases
 
 ### Relational Database ###
+1. Topics:
+	1. What is a Relational Database?
+	2. What are Relationships?
+	3. Data Consistency
+	4. ACID Transactions
+
+#### What is a Relational Database? ####
+1. Common & widely used DB type in industry
+2. It saves data containing relationships (not really from the definition - it is more mathematical term)
+	1. One to One
+	2. One to Many
+	3. Many to Many
+	4. Many to One
+3. It has relational model
+4. SQL is primary data query language used to interact with relational databases
+5. MySQL - popular example of database
+
+#### What are Relationships? ####
+1. Example: Customer buying 5 different books from bookstore
+	1. Let C1 be id of account on bookstore
+	2. C1 is linked to 5 different books B1, B2, B3, B4, B5
+2. One-to-Many relationship
+	1. Simple implementation
+		1. one table contains details of all customers
+		2. another table contains all products in inventory
+	2. One row in customers table correspond to multiple rows in product inventory table
+	3. If we pull object with id C1, we can find out what books C1 purchased via relationship model
+
+#### Data Consistency ####
+1. 
+
+#### ACID Transactions ####
+
 ### When Should You Pick A Relational Database? ###
 ### NoSQL Databases - Introduction ###
 ### Features of NoSQL Databases ###
