@@ -2262,11 +2262,35 @@
 	3. If we pull object with id C1, we can find out what books C1 purchased via relationship model
 
 #### Data Consistency ####
-1. 
-
+1. Relational databases ensure saving data in normalized fashion
+	1. Normalized data:
+		1. Unique entity occurs in only one place/ table
+			1. In simplest and atomic form and is not spread throughout database
+		2. Helps in maintaining consistency of data
+			1. In future, we can update only in that one place
+				1. Every fetch operation gets the updated data
+2. If data was spread in different places:
+	1. One may have to update new value of entity everywhere
+		1. May cause inconsistency (how?)
+			
 #### ACID Transactions ####
+1. Relational databases ensure ACID transactions
+	1. ACID: Atomicity, Consistency, Isolation, Durability
+2. ACID transaction:
+	1. If transaction in system occurs (financial transaction say) it will be executed with perfection without affecting any other processes or transactions (system will have new state after transaction which is durable & consistent) or if anything else happens (during transaction), the entire operation is rolled back
+	2. When transaction happens, systems moves from State A to State B
+		1. Both states are consistent and durable
+			1. Relational database ensures that either system is in State A or State B at all times but not in an in-between state
+				1. If a transition is initiated from State A to State B but something fails, then system goes back to State A
+				2. If a transition is initiated from State A to State B and everything goes well, then system transitions from State A to State B
 
 ### When Should You Pick A Relational Database? ###
+1. Topics:
+	1. Transactions & Data Consistency
+	2. Large Community
+	3. Storing Relationships
+	4. Popular Relational Databases
+
 ### NoSQL Databases - Introduction ###
 ### Features of NoSQL Databases ###
 ### When to Pick a NoSQL Database? ###
