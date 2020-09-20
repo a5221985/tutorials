@@ -2220,7 +2220,17 @@
 3. It is handled as per business requirements
 
 #### User state ####
-1. 
+1. Data containing user state is info of activity which user performs on website
+	1. Example:
+		1. If e-commerce website is browsed
+			1. User might browse through product categories
+			2. User can change preferences
+			3. User can add few products to reminder list for price drops
+		2. The activity is user state
+			1. When user logs in next time, he can continue from where he left off
+				1. User would not feel that he is starting fresh and all previous activity is lost
+		3. Storing user state improves browsing experience & conversion rate for business
+2. There are different types of databases with specific use cases
 
 ### Relational Database ###
 ### When Should You Pick A Relational Database? ###
