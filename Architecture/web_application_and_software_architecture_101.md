@@ -2307,10 +2307,53 @@
 	2. Battle tested over ages
 
 #### Large Community ####
+1. Seasoned engineers are easily available
+
 #### Storing Relationships ####
+1. Good for storing a lot of relationships
+	1. Which friends live in particular city?
+	2. Which friend already ate at restaurant you plan to visit today?
+2. Relational databases are built to store relationships
+	1. Used by big guns in the industry like [Facebook as the main user-facing database](https://www.8bitmen.com/what-database-does-facebook-use-a-1000-feet-deep-dive/)
+
 #### Popular Relational Databases ####
+1. MySQL - it is open source relationship database written in C, C++
+2. Microsoft SQL Server - proprietary RDBMS written by Microsoft in C, C++
+3. PostgreSQL - open-source RDBMS written in C
+4. MariaDB
+5. Amazon Aurora
+6. Google Cloud SQL
+7. ...
+8. Next: non-relational databases
 
 ### NoSQL Databases - Introduction ###
+1. Topics:
+	1. What is a NoSQL Database?
+	2. How is a NoSQL Database Different From a Relational Database?
+	3. Scalability
+	4. Clustering
+
+#### What is a NoSQL Database? ####
+1. NoSQL databases have no SQL
+	1. They are typically JSON-based databases built for Web 2.0
+2. They are built for high frequency read & writes
+	1. Typically for social applications
+		1. Twitter
+		2. LIVE real-time sports apps
+		3. Online massive multi-player games
+		4. ...
+
+#### How is a NoSQL Database Different From a Relational Database? ####
+1. Why NoSQL databases when relational databases were doing fine, were battle-tested, well adopted by industry & had no major persistence issues?
+
+#### Scalability ####
+1. Big limitation with SQL based relational databases: Scalability
+	1. Scaling relational databases is not trivial
+		1. They need to be sharded or replicated to run them smoothly on cluster
+			1. Needs careful thought and human intervention (what is sharding and replication?)
+
+#### Clustering ####
+
 ### Features of NoSQL Databases ###
 ### When to Pick a NoSQL Database? ###
 ### Is NoSQL More Performant than SQL? ###
