@@ -2411,12 +2411,30 @@
 		1. In relational databases, since entities are normalized, there is no inconsistency issues (entities reside in one place only)
 
 #### No Support for ACID Transactions ####
+1. NoSQL distributed databases do not provide ACID transactions (at least not globally - only to a certain entity hierarchy or small region where they can lock down nodes to update them)
+	1. Transactions in distributed systems come with terms and conditions applied
 
 #### Conclusion ####
+1. Google Cloud Datastore
+	1. One does not have to be a pro in database design to write application
+		1. Don't have to manage joins, relations, n+1 query issues (?) ...
+			1. Fetch with key - O(1) operation - this makes NoSQL Dbs fast
+2. Extra calls to backend can be made more efficient by caching frequently accessed data
 
 #### Popular NoSQL Databases ####
+1. MongoDB
+2. Redis
+3. Neo4J
+4. Cassandra
+5. Next: uses cases that fit for NoSQL
 
 ### When to Pick a NoSQL Database? ###
+1. Topics:
+	1. Handling a Large Number of Read Write Operations
+	2. Flexibility With Data Modeling
+	3. Eventual Consistency Over Strong Consistency
+	4. Running Data Analytics
+
 ### Is NoSQL More Performant than SQL? ###
 ### Database Quiz - Part 1 ###
 ### Polyglot Peristance ###
