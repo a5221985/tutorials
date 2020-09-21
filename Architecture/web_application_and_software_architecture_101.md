@@ -2353,6 +2353,10 @@
 			1. Needs careful thought and human intervention (what is sharding and replication?)
 
 #### Clustering ####
+1. NoSQL dbs are designed to run intelligently on clusters
+	1. With minimal human intervention
+	2. With self-healing capabilities
+		1. Infrastructure is intelligent enough to self-recover from faults
 
 ### Features of NoSQL Databases ###
 ### When to Pick a NoSQL Database? ###
