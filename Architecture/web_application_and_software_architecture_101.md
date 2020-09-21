@@ -2435,6 +2435,14 @@
 	3. Eventual Consistency Over Strong Consistency
 	4. Running Data Analytics
 
+#### Handling a Large Number of Read Write Operations ####
+
+#### Flexibility With Data Modeling ####
+
+#### Eventual Consistency Over Strong Consistency ####
+
+#### Running Data Analytics ####	
+
 ### Is NoSQL More Performant than SQL? ###
 ### Database Quiz - Part 1 ###
 ### Polyglot Peristance ###
