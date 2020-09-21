@@ -2405,11 +2405,10 @@
 			4. ...
 
 #### Cons of NoSQL Databases ####
+##### Inconsistency #####
 1. Entities might become inconsistent at the same time (since entity is spread throughout the database one has to update new values in all the places)
 	1. If we do not update, it makes the entity inconsistent
 		1. In relational databases, since entities are normalized, there is no inconsistency issues (entities reside in one place only)
-
-##### Inconsistency #####
 
 #### No Support for ACID Transactions ####
 
