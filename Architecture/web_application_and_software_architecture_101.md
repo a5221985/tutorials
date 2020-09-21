@@ -2376,7 +2376,45 @@
 	6. No Support for ACID Transactions
 	7. Conclusion
 	8. Popular NoSQL Databases
-2. 
+2. NoSQL dbs are built to run on clusters in distributed environment (powering Web 2.0 websites)
+3. Next: Features of NoSQL dbs
+
+#### Pros of NoSQL Databases ####
+1. They are more developer friendly
+	1. How?
+
+#### Gentle Learning Curve ####
+1. How?
+	1. Learning curve is less than relational databases
+		1. One needs to learn well normalized tables when dealing with relational databases (is it?)
+			1. One needs to setup relationships trying to minimize joins ...
+
+#### Schemaless ####
+1. Schemas have to be defined carefully to avoid issues in the future
+	1. Things are designed to be consistent
+	2. Things are designed to be need and tidy
+2. NoSQL doesn't enforce strict schemas
+	1. One can work on data as they want
+		1. Entities have no relationships
+3. Pros and Cons:
+	1. Flexibility is good or bad at times
+		1. For developer the following might seem to be good
+			1. Flexibility
+			2. Developer-friendly
+			3. No joins and relationships
+			4. ...
+
+#### Cons of NoSQL Databases ####
+1. Entities might become inconsistent at the same time (since entity is spread throughout the database one has to update new values in all the places)
+	1. If we do not update, it makes the entity inconsistent
+
+##### Inconsistency #####
+
+#### No Support for ACID Transactions ####
+
+#### Conclusion ####
+
+#### Popular NoSQL Databases ####
 
 ### When to Pick a NoSQL Database? ###
 ### Is NoSQL More Performant than SQL? ###
