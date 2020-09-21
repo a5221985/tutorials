@@ -2357,8 +2357,27 @@
 	1. With minimal human intervention
 	2. With self-healing capabilities
 		1. Infrastructure is intelligent enough to self-recover from faults
+	3. (Q - why cant relational databases have these capabilities?)
+	4. NoSQL dbs had to sacrifice Strong consistency (ACID Transactions etc... to scale horizontally over cluster & across data centres)
+		1. Data with NoSQL dbs are eventually consistent as opposed to strongly consistent
+			1. Distributed nature is perferred over consistency
+2. NoSQL database design results in the sacrifice of:
+	1. Strong consistency
+	2. Transactions
+3. Next: Features of NoSQL databases
 
 ### Features of NoSQL Databases ###
+1. Topics:
+	1. Pros of NoSQL Databases
+	2. Gentle Learning Curve
+	3. Schemaless
+	4. Cons of NoSQL Databases
+	5. Inconsistency
+	6. No Support for ACID Transactions
+	7. Conclusion
+	8. Popular NoSQL Databases
+2. 
+
 ### When to Pick a NoSQL Database? ###
 ### Is NoSQL More Performant than SQL? ###
 ### Database Quiz - Part 1 ###
