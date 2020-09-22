@@ -2510,9 +2510,40 @@
 2. Polyglot persistence - leveraging multiple databases
 
 ### Database Quiz - Part 1 ###
-1. 
 
 ### Polyglot Peristance ###
+1. Topics:
+	1. What is Polyglot Persistence?
+	2. Real World Use Case
+	3. Relational Database
+	4. Key Value Store
+	5. Wide Column Database
+	6. ACID Transactions & Strong Consistency
+	7. Graph Database
+	8. Document Oriented Store
+	9. Downside of This Approach
+
+#### What is Polyglot Persistence? ####
+1. Polyglot persistence - using several different persistence technologies to fulfill different persistence requirements in an application
+
+#### Real World Use Case ####
+1. Social network like Facebook
+
+#### Relational Database ####
+1. 
+
+#### Key Value Store ####
+
+#### Wide Column Database ####
+
+#### ACID Transactions & Strong Consistency ####
+
+#### Graph Database ####
+
+#### Document Oriented Store ####
+
+#### Downside of This Approach ####
+
 ### Multi-Model Databases ###
 ### Eventual Consistency ###
 ### Strong Consistency ###
