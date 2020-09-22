@@ -2445,11 +2445,30 @@
 		2. These databases can handle more concurrent traffic & big amount of data with minimal latency
 
 #### Flexibility With Data Modeling ####
-1. 
+1. During initial phases of development (when not sure about data model, database design)
+	1. Things may change at a rapid pace
+		1. Solution: NoSQL database (offers more flexibility) (is it?)
 
 #### Eventual Consistency Over Strong Consistency ####
+1. NoSQL is good if we give up on Strong consistency and when we do not need transactions
+	1. Example: Social networking website (Twitter)
+		1. If tweet of a celebrity blows up and everyone is liking and re-tweeting from around the world
+			1. It does not matter if count of likes goes up or down a bit for a short while
+				1. 5 million 500 actual likes against 5 million 250 likes for some time is okay (eventually consensus might be reached)
+2. When large app is deployed on hundreds of servers spread across globe, geographically distributed nodes take some time to reach global consensus
+	1. Until consensus is reached, the value of the entity is inconsistent
+		1. The value of entity eventually gets consistent after a short while (how?)
+			1. This is called **eventual consistency**
 
-#### Running Data Analytics ####	
+#### Running Data Analytics ####
+1. NoSQL databases are a good fit for data analytics use cases
+	1. To deal with massive influx of data
+		1. Solution: There are dedicated databases for these use cases
+			1. Time-Series databases
+			2. Wide-Column
+			3. Document Oriented
+			4. ...
+2. Next: Performance comparison of SQL and NoSQL technologies
 
 ### Is NoSQL More Performant than SQL? ###
 ### Database Quiz - Part 1 ###
