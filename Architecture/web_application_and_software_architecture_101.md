@@ -2548,9 +2548,12 @@
 		2. HBase
 
 #### ACID Transactions & Strong Consistency ####
-1. 
+1. Business want's to run ads on portal
+	1. For this we need payments system
+		1. Relational database is appropriate for strong consistency
 
 #### Graph Database ####
+1. 
 
 #### Document Oriented Store ####
 
