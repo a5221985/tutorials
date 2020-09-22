@@ -2558,10 +2558,43 @@
 2. To run search for other users, business pages ... on portal & could connect with them
 
 #### Document Oriented Store ####
+1. We can use document datastore like ElasticSearch (for search)
+	1. Product is good for scalable search feature
+		1. All search related data can be persisted in elastic store
+2. Example: Polyglot persistence
+
+	![polyglot_persistence](polyglot_persistence.jpeg)
 
 #### Downside of This Approach ####
+1. Increased complexity to make different technologies work together
+	1. A lot of effort is required to build, manage and monitor polyglot persistence systems
+	2. Solution: Multi-model databases
 
 ### Multi-Model Databases ###
+1. Topics:
+	1. What are Multi-Model Databases?
+	2. Popular Multi-Model Databases
+
+#### What are Multi-Model Databases? ####
+1. Certain databases support one data model
+	1. Relational database
+	2. Graph database
+	3. ...
+2. Multi-model databases
+	1. Different data models can be used in a single database system
+		1. Graph
+		2. Document-Oriented
+		3. Relational
+		4. ...
+	2. The need to manage multiple persistence technologies in single service is averted
+		1. Operational complexity is reduced as a consequence
+	3. Different data models can be used with a single API
+3. Multi-model databases:
+
+	![multi_model_databases](multi_model_databases.jpeg)
+
+#### Popular Multi-Model Databases ####
+
 ### Eventual Consistency ###
 ### Strong Consistency ###
 ### CAP Theorem ###
