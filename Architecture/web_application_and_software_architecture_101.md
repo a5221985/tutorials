@@ -2594,8 +2594,36 @@
 	![multi_model_databases](multi_model_databases.jpeg)
 
 #### Popular Multi-Model Databases ####
+1. Examples:
+	1. Arongo DB
+	2. Cosmos DB
+	3. Orient DB
+	4. Couchbase
+2. Next: Eventual Consistency, Strong Consistency, ...
 
 ### Eventual Consistency ###
+#### What is Eventual Consistency? ####
+1. It is a consistency model which enables datastore to be highly available (as a side effect)
+	1. It is known as optimistic replication (good for distributed systems)
+
+#### Real World Use Case ####
+1. Example: Microblogging website deployed in multiple regions
+	1. Each geographical region has multiple data center zones: North, east, west, south
+	2. Each of the zones has multiple clusters
+	3. Each cluster has multiple server nodes running
+2. Datastore nodes are spread across the world which micro-blogging site uses for persisting data
+	1. There is no single point of failure (advantage)
+	2. The data store service is highly available
+		1. If few nodes go down, persistence service as a whole is up
+3. Suppose a celebrity makes a post on website which everyone starts liking around the world
+	1. A user in Japan likes a post which increases like count of post from 100 to 101
+	2. A user in America clicks on post and sees like count as 100 (not 101)
+	3. Why?
+		1. Updated value of post like counter needs time to move from Japan to America and update server nodes running in America
+			1. The user in America sees the old value during this time (inconsistency)
+			2. After a while if page is refreshed, 101 is seen
+	4. **Eventual consistency**: The data was initially inconsistent but eventually got consistent across server nodes deployed around the world
+
 ### Strong Consistency ###
 ### CAP Theorem ###
 ### Database Quiz - Part 2 ###
