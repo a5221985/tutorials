@@ -2436,8 +2436,16 @@
 	4. Running Data Analytics
 
 #### Handling a Large Number of Read Write Operations ####
+1. We can look towards NoSQL databases when we need to scale fast
+	1. When?
+		1. When there are a lot of read-write operations on website
+		2. When dealing with large amount of data
+	2. How?
+		1. These databases have ability to add nodes on the fly
+		2. These databases can handle more concurrent traffic & big amount of data with minimal latency
 
 #### Flexibility With Data Modeling ####
+1. 
 
 #### Eventual Consistency Over Strong Consistency ####
 
