@@ -2553,7 +2553,9 @@
 		1. Relational database is appropriate for strong consistency
 
 #### Graph Database ####
-1. 
+1. To enhance user experience of application, we need to start recommending content to users to keep them engaged
+	1. Graph database is good fit for recommendation system
+2. To run search for other users, business pages ... on portal & could connect with them
 
 #### Document Oriented Store ####
 
@@ -2581,7 +2583,7 @@
 ## Message Queue ##
 ### Introduction to Message Queues ###
 ### Publish Subscribe Model ###
-### point to Point Model ###
+### Point to Point Model ###
 ### Notification Systems & Real-Time Feeds with Message Queues ###
 ### Handling Concurrent Requests with Message Queues ###
 ### Message Queue Quiz ###
