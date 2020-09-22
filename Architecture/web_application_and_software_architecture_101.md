@@ -2530,7 +2530,11 @@
 1. Social network like Facebook
 
 #### Relational Database ####
-1. 
+1. Example: Storing relationships like
+	1. Friends of user
+	2. Friends of friends
+	3. What they like
+	4. What food preferences they have in common
 
 #### Key Value Store ####
 
