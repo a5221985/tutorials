@@ -2493,11 +2493,25 @@
 	1. We can pick the one that best fits with the use case
 		1. One can pick what works for them
 3. Next: How to pick right tech stack for app
+4. Performance:
+	1. Depends on application & database design
+		1. If more joins are used with SQL - response takes time
+		2. If all relationships and joins are removed, SQL becomes just like NoSQL
 
 #### Real World Case Studies ####
+1. [Facebook uses MySQL for storing its social graph of millions of users](https://www.8bitmen.com/what-database-does-facebook-use-a-1000-feet-deep-dive/)
+	1. DB engine had to be changed and certain tweeks made but MySQL fits well
+2. [Quora - interesting read](https://www.quora.com/Why-does-Quora-use-MySQL-as-the-data-store-instead-of-NoSQLs-such-as-Cassandra-MongoDB-or-CouchDB-Are-they-doing-any-JOINs-over-MySQL-Are-there-plans-to-switch-to-another-DB) - uses MySQL efficiently
+3. Note: Well designed SQL data store will probably be more performant than a not so well-designed NoSQL store
+
 #### Using Both SQL & NoSQL Database In An Application ####
+1. We can use both
+	1. Large scale online serivices use a mix of both to implement their systems and achiecve desited behaviour
+2. Polyglot persistence - leveraging multiple databases
 
 ### Database Quiz - Part 1 ###
+1. 
+
 ### Polyglot Peristance ###
 ### Multi-Model Databases ###
 ### Eventual Consistency ###
