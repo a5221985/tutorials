@@ -2623,8 +2623,40 @@
 			1. The user in America sees the old value during this time (inconsistency)
 			2. After a while if page is refreshed, 101 is seen
 	4. **Eventual consistency**: The data was initially inconsistent but eventually got consistent across server nodes deployed around the world
+4. Example: Eventual consistency
+
+	![eventual_consistency](eventual_consistency.jpeg)
+	
+5. What if both users in Japan and America like the post and another user in Europe accesses it?
+	1. All nodes may have different values and may take time to reach consensus
+	2. Pros: System can add new nodes on the fly without need to block any of the nodes
+		1. Nodes are available to end users to make updates at all times
+		2. Highly available: Many users can make updates simultaneously
+6. Use cases: 
+	1. Eventual consistency is good of use cases where accuracy of values doesn't matter
+	1. Keeping count of users watching Live video stream online (say)
+		1. couple of counts up and down won't matter much
+7. Use cases where eventual consistency is not acceptable:
+	1. Banking
+	2. Stock market
+8. Next: Strong consistency
 
 ### Strong Consistency ###
+1. Topics:
+	1. What is Strong Consistency?
+	2. Real World Use Case
+	3. ACID Transaction Support
+
+#### What is Strong Consistency? ####
+1. Strong consistency means: data must be consistent all the time
+	1. All server nodes across the world must contain same value of an entity at any point in time
+		1. How to implement?
+			1. Locking down nodes during updates
+
+#### Real World Use Case ####
+
+#### ACID Transaction Support ####
+
 ### CAP Theorem ###
 ### Database Quiz - Part 2 ###
 ### Types of Databases ###
