@@ -2471,6 +2471,32 @@
 2. Next: Performance comparison of SQL and NoSQL technologies
 
 ### Is NoSQL More Performant than SQL? ###
+1. Topics:
+	1. Why do Popular Tech Stacks Always Pick NoSQL Databases?
+	2. Real World Case Studies
+	3. Using Both SQL & NoSQL Database In An Application
+2. Is NoSQL more performant than SQL?
+	1. Answer: no
+		1. Both relational and non-relational databases are equally performant (from technology point of view)
+	2. Difference?
+		1. How we use the technology in design that affects the performance
+3. One can pick the database based on use case
+
+#### Why Do Popular Tech Stacks Always Pick NoSQL Databases? ####
+1. Example: MEAN (MongoDB, ExpressJS, AngularJS/ReactJS, NodeJS)
+	1. Most apps online have common use cases and the tech stacks cover them
+	2. There are commercial reasons as well
+		1. Tutorials online
+		2. Mass promotion of popular tech stacks
+			1. These resources make it easy for beginners to pick them up and write applications as opposed to running solo research on other techs
+2. We don't have to stick with popular stacks
+	1. We can pick the one that best fits with the use case
+		1. One can pick what works for them
+3. Next: How to pick right tech stack for app
+
+#### Real World Case Studies ####
+#### Using Both SQL & NoSQL Database In An Application ####
+
 ### Database Quiz - Part 1 ###
 ### Polyglot Peristance ###
 ### Multi-Model Databases ###
