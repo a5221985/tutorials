@@ -2681,10 +2681,13 @@
 				1. Developers ensure that all strongly consistent entity nodes reside in same geographic zone to make ACID transactions possible
 2. Next: CAP theorem
 
+### CAP Theorem ###
 #### What is CAP Theorem? ####
 1. **CAP** - **Consistency**, **Available**, **Partition Tolerence**
+2. Partition Tolerance: Means fault tolerance
+	1. System is tolerant of failures or partitions
+		1. Works if even a few nodes go downf
 
-### CAP Theorem ###
 ### Database Quiz - Part 2 ###
 ### Types of Databases ###
 ### Graph Databases ###
