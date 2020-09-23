@@ -2665,8 +2665,24 @@
 		2. Once locks are lifted, other users can like the post (they had to wait until the first user finished liking and all nodes reached consensus)
 	2. Cons: Such waiting is not desirable for social media applications
 4. Suppose users are seeing different prices for same stock at a single point in time and updating concurrently (chaos)
+	1. Solution: Strong consistency (lock all nodes for updates)
+		1. Implementation: Queuing all requests
+			1. CAP theorem - key for implementing consistency models
+				1. Strong consistency is a hit for High Availability
+					1. ACID transactions are implemented in this manner
 
 #### ACID Transaction Support ####
+1. Distributed systems like NoSQL databases do not support ACID transactions globally (by design)
+	1. NoSQL tech is designed to be highly available and scalable
+		1. Locking down nodes makes is similar to SQL
+	2. NoSQL databases (typically) do not support ACID transactions
+		1. Even if they do, they have other terms and conditions applied
+			1. Transaction support is limited to a geographic zone or and entity hierarchy
+				1. Developers ensure that all strongly consistent entity nodes reside in same geographic zone to make ACID transactions possible
+2. Next: CAP theorem
+
+#### What is CAP Theorem? ####
+1. **CAP** - **Consistency**, **Available**, **Partition Tolerence**
 
 ### CAP Theorem ###
 ### Database Quiz - Part 2 ###
