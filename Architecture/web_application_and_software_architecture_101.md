@@ -2659,9 +2659,12 @@
 
 	![strong_consistency](strong_consistency.jpeg)
 
-1. Only one user can like at a time
+3. Only one user can like at a time
 	1. When user in Japan updates likes, the value is replicated globally across all the nodes
 		1. When all nodes reach consensus, the locks get lifted
+		2. Once locks are lifted, other users can like the post (they had to wait until the first user finished liking and all nodes reached consensus)
+	2. Cons: Such waiting is not desirable for social media applications
+4. Suppose users are seeing different prices for same stock at a single point in time and updating concurrently (chaos)
 
 #### ACID Transaction Support ####
 
