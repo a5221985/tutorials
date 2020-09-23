@@ -2654,6 +2654,14 @@
 			1. Locking down nodes during updates
 
 #### Real World Use Case ####
+1. When user in Japan likes the post, all nodes across different geographical zones have to be locked down to prevent any concurrent updates
+2. Example: Strong consistency
+
+	![strong_consistency](strong_consistency.jpeg)
+
+1. Only one user can like at a time
+	1. When user in Japan updates likes, the value is replicated globally across all the nodes
+		1. When all nodes reach consensus, the locks get lifted
 
 #### ACID Transaction Support ####
 
