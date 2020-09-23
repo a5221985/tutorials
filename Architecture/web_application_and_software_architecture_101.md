@@ -2686,7 +2686,7 @@
 1. **CAP** - **Consistency**, **Available**, **Partition Tolerence**
 2. Partition Tolerance: Means fault tolerance
 	1. System is tolerant of failures or partitions
-		1. Works if even a few nodes go downf
+		1. Works if even a few nodes go down
 
 ### Database Quiz - Part 2 ###
 ### Types of Databases ###
