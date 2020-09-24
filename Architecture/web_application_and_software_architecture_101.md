@@ -2973,12 +2973,40 @@
 		Caching is key to the performance of any kind of application. It ensures low latency and high throughput. An application with caching will certainly do better than an application without caching, simply because it returns the response in less time as opposed to the application without a cache implemented.
 		
 2. Caching in web application means copying frequently accessed data from database (which is disk-based hardware) and storing it in RAM Random Access Memory hardware
+3. Example: Caching in a web application
+
+	![caching_in_a_web_application](caching_in_a_web_application.jpeg)
+	
+4. RAM-based hardware provides faster access than disk-based hardware
+	1. How is high throughput achieved?
+		1. Throughput: Number of network calls (request-response) between client and server within stipulated time
+		2. RAM-based hardware can handle more requests than disk-based hardware (on which databases run)
 
 #### Caching Dynamic Data ####
+1. Dynamic data: Data which changes more often
+	1. It has expiry time or TTL - Time To Live
+		1. Cache Invalidation: After TTL ends, data is purged from the cache and newly updated data is stored
 
 #### Caching Static Data ####
+1. Static data - images, font files, CSS, ...
+	1. This data does not change often & can be easily cached on client-side in browser or other local memory
+	2. CDN - Content Delivery Network
+		1. CDN can also be used to cache static data
 
 ### How Do I Figure If I Need A Cache in My Application? ###
+1. Topics:
+	1. Different Components In the Application Architecture Where the Cache Can Be Used
+2. Cache can be used instead of not using it
+	1. Any layer can use cache
+3. Database caching: Most common
+	1. Alleviates stress on database by intercepting requests routed to database for data
+	2. Cache returns all frequently accessed data
+
+#### Different Components In the Application Architecture Where the Cache Can Be Used ####
+1. Example: Caching in web application
+
+	![caching_in_web_application](caching_in_web_application.jpeg)
+
 ### Reducing the Application Deployment Costs via Caching ###
 ### Caching Strategies ###
 ### Caching Quiz ###
