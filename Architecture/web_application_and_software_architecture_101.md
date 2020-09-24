@@ -2717,6 +2717,23 @@
 3. Next: Other types of databases (Other than SQL, NoSQL Document stores)
 
 ### Graph Databases ###
+1. Topics:
+	1. What is a Document Oriented Database?
+	2. Popular Document Oriented Databases
+	3. When do I Pick a Document Oriented Data Store for My Project?
+	4. Real Life Implementations
+
+#### What is a Document Oriented Database? ####
+1. Definition:
+
+		Document Oriented databases are the main types of NoSQL databases. They store data in a document-oriented model in independent documents. The data is generally semi-structured & stored in a JSON-like format
+
+##### Popular Document Oriented Databases #####
+
+#### When Do I Pick a Document Oriented Data Store for My Project? ####
+
+##### Real Life Implementations #####
+
 ### Key Value Database ###
 ### Time Series Database ###
 ### Wide-Column Database ###
