@@ -2688,6 +2688,12 @@
 	1. System is tolerant of failures or partitions
 		1. **Works if even a few nodes go down**
 3. **We have to pick any two of Consistency, Availability & Partition Tolerance**
+	1. Explanation:
+
+			CAP Theorem simply states that in case of a network failure, when a few of the nodes of the system are down, we have to make a choice between Availability & Consistency
+			
+		1. If we pick Availability: This means if few of the nodes go down, other nodes are available to users for making updates
+			1. In such a situation, system is inconsistent as nodes which are down don't get updated with new data
 
 ### Database Quiz - Part 2 ###
 ### Types of Databases ###
