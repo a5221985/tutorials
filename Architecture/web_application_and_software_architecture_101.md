@@ -2684,9 +2684,10 @@
 ### CAP Theorem ###
 #### What is CAP Theorem? ####
 1. **CAP** - **Consistency**, **Available**, **Partition Tolerence**
-2. Partition Tolerance: Means fault tolerance
+2. **Partition Tolerance**: Means fault tolerance
 	1. System is tolerant of failures or partitions
-		1. Works if even a few nodes go down
+		1. **Works if even a few nodes go down**
+3. **We have to pick any two of Consistency, Availability & Partition Tolerance**
 
 ### Database Quiz - Part 2 ###
 ### Types of Databases ###
