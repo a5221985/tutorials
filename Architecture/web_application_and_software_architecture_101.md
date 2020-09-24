@@ -2854,8 +2854,34 @@
 	7. Implementing a pub-sub system
 
 #### Real Life Implementations ####
+1. Example:
+	1. [Inovonics uses Redis to drive real-time analytics on millions of sensor data](https://redislabs.com/customers/inovonics/)
+	2. [Microsoft uses Redis to handle the traffic spike on its platforms](https://redislabs.com/docs/microsoft-relies-redis-labs/)
+	3. [Google Cloud uses Memcache to Implement Caching on Their Cloud Platform](https://cloud.google.com/appengine/docs/standard/python/memcache/)
 
 ### Time Series Database ###
+1. Topics:
+	1. What is a Time Series Database?
+	2. What is Time Series Data?
+	3. Why Store Time Series Data?
+	4. Popular Time Series Databases
+	5. When to Pick a Time Series Database?
+	6. Real Life Implementations
+
+#### What is a Time Series Database? ####
+1. Time-Series databases are optimized for tracking & persisting time series data
+
+#### What is Time Series Data? ####
+1. It is data containing data points associated with occurrence of event wrt time
+
+#### Why Store Time Series Data? ####
+
+#### Popular Time Series Databases ####
+
+#### When to Pick a Time Series Database? ####
+
+#### Real Life Implementations ####
+
 ### Wide-Column Database ###
 ### Database Quiz - Part 3 ###
 
