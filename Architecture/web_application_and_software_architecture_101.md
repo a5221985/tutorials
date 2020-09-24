@@ -2714,9 +2714,9 @@
 	5. Graph database
 	6. Time-Series database
 	7. Databases dedicated to mobile apps
-3. Next: Other types of databases (Other than SQL, NoSQL Document stores)
+3. Next: Other types of databases (Other than SQL)
 
-### Graph Databases ###
+### Documented Oriented Database ###
 1. Topics:
 	1. What is a Document Oriented Database?
 	2. Popular Document Oriented Databases
@@ -2755,6 +2755,47 @@
 ##### Real Life Implementations #####
 1. [SEGA uses Mongo-DB to improve the experience for millions of mobile gamers](https://www.mongodb.com/blog/post/sega-hardlight-migrates-to-mongodb-atlas-simplify-ops-improve-experience-mobile-gamers)
 2. [Coinbase scaled from 15k requests per min to 1.2 million requests per minute with MongoDB](https://www.mongodb.com/customers/coinbase)
+
+### Graph Databases ###
+1. Topics:
+	1. What is a Graph Database?
+	2. Featurs of a Graph Database
+	3. When Do I Pick a Graph Database?
+	4. Real Life Implementations
+
+#### What is a Graph Database? ####
+1. Graph databases are part of NoSQL database family
+	1. Data is stored as nodes/vertices and edges in the form of relationships
+2. Example: Graph database
+
+	![graph_database](graph_database.jpeg)
+	
+3. Each *Node* is a graph databse that represents an entity
+	1. Entity:
+		1. Person
+		2. Place
+		3. Business
+		4. ...
+	2. Edge: Represents relationship between entities
+4. Why use graph databases if we already have SQL based relational databases?
+
+#### Features of a Graph Database ####
+1. Two reasons:
+	1. Visualization:
+		1. Helps visualize how entities are related & how things fit together
+	2. Low latency:
+		1. The relationships are stored a bit differently form how relational databases store relationships
+			1. Relationships in Graph databases are not calculated at the query time (as it happens with joins in relational databases)
+				1. Relationships are persisted as edges and we just need to fetch them (no computation at query time)
+2. Example: Google maps:
+	1. Nodes represent cities
+	2. Edges represent connections between them
+	3. To figure out roads between cities, we don't need joins to figure out relationship between cities when we run the query
+		1. Just fetch the edges which are already stored in database
+
+#### When Do I Pick Graph Database? ####
+
+#### Real Life Implementations ####
 
 ### Key Value Database ###
 ### Time Series Database ###
