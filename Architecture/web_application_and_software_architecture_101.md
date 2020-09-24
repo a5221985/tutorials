@@ -2960,6 +2960,24 @@
 
 ## Caching ##
 ### Introduction ###
+1. Topics:
+	1. What is Caching?
+	2. Caching Dynamic Data
+	3. Caching Static Data
+2. We need our answers quick for a request (we are impatient usually for response from the web)
+	1. Solution: Caching
+
+#### What is Caching? ####
+1. Definition:
+
+		Caching is key to the performance of any kind of application. It ensures low latency and high throughput. An application with caching will certainly do better than an application without caching, simply because it returns the response in less time as opposed to the application without a cache implemented.
+		
+2. Caching in web application means copying frequently accessed data from database (which is disk-based hardware) and storing it in RAM Random Access Memory hardware
+
+#### Caching Dynamic Data ####
+
+#### Caching Static Data ####
+
 ### How Do I Figure If I Need A Cache in My Application? ###
 ### Reducing the Application Deployment Costs via Caching ###
 ### Caching Strategies ###
