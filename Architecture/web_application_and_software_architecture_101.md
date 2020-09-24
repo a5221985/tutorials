@@ -3031,7 +3031,14 @@
 7. Key-value data stores are also widely used in in-memory data stream processing and running analytics
 
 ### Reducing the Application Deployment Costs via Caching ###
+1. Topics:
+	1. Real Life Use Case
+	2. Conclusion
+2. Deployment cost of application can be reduced using cache (how?)
 
+#### Real Life Use Case ####
+
+#### Conclusion ####
 
 ### Caching Strategies ###
 ### Caching Quiz ###
