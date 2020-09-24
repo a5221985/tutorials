@@ -2699,7 +2699,7 @@
 			1. Ensures strong consistency of the system as all nodes will have same entity values
 	2. Picking between **consistency** and **availability** depends on our use case and business requirements
 		1. Picking one out of the two is due to design of distributed systems (trade-off)
-			1. We can't have both availability and consistency at the same time (network latency, time complexity of the algorithms involved, quickness of node going up are reasons)
+			1. We can't have both availability and consistency at the same time (network latency, time complexity of the distributed algorithms involved, quickness of node going up are certain reasons)
 
 ### Database Quiz - Part 2 ###
 ### Types of Databases ###
