@@ -2794,10 +2794,67 @@
 		1. Just fetch the edges which are already stored in database
 
 #### When Do I Pick Graph Database? ####
+1. To build:
+	1. Social network graph
+	2. Knowledge network graph
+	3. AI-based apps
+	4. Recommendation engines
+	5. Fraud analysis app
+	6. Storing genetic data
+	7. ...
+2. Pros:
+	1. Visualization of data with minimum latency
+	2. Example: Neo4J
+
+#### Real Life Implementations ####
+1. Real-life implementations:
+	1. [Walmart shows product recommendations to its customers in real-time using Neo4J graph database](https://neo4j.com/case-studies/walmart/)
+	2. [NASA users Neo4J to store "lessons learned" data from their previous missions to educate the scientists & engineers](https://neo4j.com/blog/david-meza-chief-knowledge-architect-nasa/)
+
+### Key Value Database ###
+1. Topics:
+	1. What is a Key Value Database?
+	2. Features of a Key Value Database
+	3. Popular Key Value Databases
+	4. When Do I Pick a Key Value Databases?
+	5. Real Life Implementations
+
+#### What is a Key Value Database? ####
+1. Key-value databases are part of NoSQL family
+	1. Key-value method is used to store and quickly fetch data with minimum latency
+
+#### Features of a Key Value Database ####
+1. Use case: To implement caching (due to minimum latency ensured)
+	1. Key: unique identifier
+	2. value: associated with key
+		1. Can be block of text
+		2. ...
+		3. Can be a complex object graph
+2. Data can be fetched in constant time: O(1)
+3. No query language is required to fetch data
+4. Both the above factor can ensure minimum latency (as possible)
+
+#### Popular Key Value Databases ####
+1. Redis
+2. Hazelcast
+3. Riak
+4. Voldemort
+5. Memcache
+
+#### When Do I Pick a Key Value Database? ####
+1. Use case: If we need to fetch data fast and easily and without much backend processing
+	1. They are efficient in pulling off scenarios where super-fast data fetch is order of the day
+2. Use cases of key value databases:
+	1. Caching
+	2. Persisting user state
+	3. Persisting user sessions
+	4. Managing real-time data
+	5. Implementing queues
+	6. Constructing leaderboards in online games & web apps
+	7. Implementing a pub-sub system
 
 #### Real Life Implementations ####
 
-### Key Value Database ###
 ### Time Series Database ###
 ### Wide-Column Database ###
 ### Database Quiz - Part 3 ###
