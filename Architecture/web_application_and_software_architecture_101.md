@@ -2694,6 +2694,12 @@
 			
 		1. If we pick Availability: This means if few of the nodes go down, other nodes are available to users for making updates
 			1. In such a situation, system is inconsistent as nodes which are down don't get updated with new data
+				1. When the nodes come up, and if user fetchs data from them, they'll return old values they had when they went down
+		2. If we pick Consistency: We need to lock down all the nodes for further writes until nodes which ahve gone down (apparently) come back online
+			1. Ensures strong consistency of the system as all nodes will have same entity values
+	2. Picking between **consistency** and **availability** depends on our use case and business requirements
+		1. Picking one out of the two is due to design of distributed systems (trade-off)
+			1. We can't have both availability and consistency at the same time (network latency, time complexity of the algorithms involved, quickness of node going up are reasons)
 
 ### Database Quiz - Part 2 ###
 ### Types of Databases ###
