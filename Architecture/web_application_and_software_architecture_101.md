@@ -2905,11 +2905,55 @@
 4. ...
 
 #### When to Pick a Time Series Database? ####
-1. 
+1. If we need to manage data in real-time & continually over long period of time
+	1. Time-series databases are built to deal with data, streaming in real-time
+		1. Use case: 
+			1. Fetching data from IoT devices
+			2. Running analytics
+			3. Monitoring
+			4. Autonomous trading platform
+				1. Deals with changing stock prices in real-time
 
 #### Real Life Implementations ####
+1. [IBM uses Influx DB to run analytics for real-time cognitive fraud detection](https://www.influxdata.com/customer/ibm/)
+2. [Spiio uses Influx DB to remotely monitor vertical lining green walls & plant installations](https://www.influxdata.com/customer/customer_case_study_spiio/)
 
 ### Wide-Column Database ###
+1. Topics:
+	1. What is a Wide Column Database?
+	2. Popular Wide Column Databases
+	3. When to Pick a Wide Column Database?
+	4. Real-Life Implementations
+
+#### What is a Wide Column Database? ####
+1. They belong to NoSQL family of databases
+	1. Use cases: For handling massive amounts of data (Big data)
+		1. Perfect for analytical use cases
+			1. They have:
+				1. High performance & scalable architecture
+2. Aka **column-oriented** databases
+	1. Each record has dynamic number of columns
+		1. A record can have billions of columns
+
+#### Popular Wide Column Databases ####
+1. Cassandra
+2. HBase
+3. Google BigTable
+4. Scylla DB
+5. ...
+
+#### When to Pick a Wide Column Database? ####
+1. For big data
+	1. To injest it
+	2. To run analytics on it
+2. Wide column databases are built to ensure
+	1. Scalability
+	2. Performance
+	3. High availability
+	4. ...
+
+#### Real-Life Implementations ####
+
 ### Database Quiz - Part 3 ###
 
 ## Caching ##
