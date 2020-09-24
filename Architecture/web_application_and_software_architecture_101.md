@@ -2727,12 +2727,34 @@
 1. Definition:
 
 		Document Oriented databases are the main types of NoSQL databases. They store data in a document-oriented model in independent documents. The data is generally semi-structured & stored in a JSON-like format
+		
+	1. Data model is similar to the application code (only JS based applications)
+		1. Easier to store and query data for developers (JS)
+	2. Document oriented stores are suitable for Agile software development methodology (it is easier to change things with evolving demands when working with them)
 
 ##### Popular Document Oriented Databases #####
+1. MongoDB
+2. CouchDB
+3. OrientDB
+4. Google Cloud Datastore
+5. Amazon Document DB
 
 #### When Do I Pick a Document Oriented Data Store for My Project? ####
+1. If working with **semi-structured data** and need **flexible schema** that would change often
+	1. Something flexible might be needed that could be changed over time with minimum fuss - Pick document-oriented data store
+2. Use cases of document oriented databases
+	1. Real-time feeds
+	2. Live sports apps
+	3. Writing product catalogues
+	4. Inventory management
+	5. Storing user comments
+	6. Web-based multiplayer games
+3. The above provide horizontal scalability, performant read-writes
+ (CRUDs where much relational logic is not involved - quick persistence and retrieval of data is supported)
 
 ##### Real Life Implementations #####
+1. [SEGA uses Mongo-DB to improve the experience for millions of mobile gamers](https://www.mongodb.com/blog/post/sega-hardlight-migrates-to-mongodb-atlas-simplify-ops-improve-experience-mobile-gamers)
+2. [Coinbase scaled from 15k requests per min to 1.2 million requests per minute with MongoDB](https://www.mongodb.com/customers/coinbase)
 
 ### Key Value Database ###
 ### Time Series Database ###
