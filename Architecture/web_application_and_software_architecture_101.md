@@ -3006,8 +3006,33 @@
 1. Example: Caching in web application
 
 	![caching_in_web_application](caching_in_web_application.jpeg)
+	
+2. Caching can be used in multiple places
+	1. In client browser to cache static data
+	2. With database to intercept all data requests (in REST API implementation etc...)
+	3. We can look for patterns:
+		1. All frequently accessed data from any component in the application can be cached
+		2. Example: Joins in databases
+			1. They are notorious for making response slow (more joins => more latency)
+				1. Cache can avert need for running joins each time just by storing data in demand
+3. Even if database goes down, cache would continue to serve data requests
+4. Caching is core of HTTP protocol
+	1. [This is a good resource to read more about it](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching)
+5. User sessions can be stored in a cache
+	1. It can be implemented at any layer of application
+		1. OS level
+		2. Network level
+		3. CDN
+		4. Database
+	2. Implementations:
+		1. Key-value stores (for web-applications)
+6. Caches can also be used for cross-module communication in microservices architecture by saving shared data commonly accessed by all services
+	1. Good option for microservices communication
+7. Key-value data stores are also widely used in in-memory data stream processing and running analytics
 
 ### Reducing the Application Deployment Costs via Caching ###
+
+
 ### Caching Strategies ###
 ### Caching Quiz ###
 
