@@ -2873,12 +2873,39 @@
 
 #### What is Time Series Data? ####
 1. It is data containing data points associated with occurrence of event wrt time
+	1. Data points are tracked
+	2. Data points are monitored
+	3. Data points are finally aggregated based on certain business logic
+2. Time-Series data is ingested from
+	1. IoT devices
+	2. self-driving vehicles
+	3. industry sensors
+	4. social networks
+	5. stock market financial data
+	6. ...
+3. Why store so much time series data?
 
 #### Why Store Time Series Data? ####
+1. If we study data streaming-in from apps helps track behaviour of system
+	1. Helps us study
+		1. User patterns
+		2. Anomalies
+		3. How are things changing over time
+2. Use case: Analytics (primarily)
+	1. Deducing conclusions
+	2. Making future business decisions (looking at results of analytics)
+	3. Helps product evolve continually
+3. General databases are not good for handling time series data
+	1. IoT has popularized these databases
 
 #### Popular Time Series Databases ####
+1. Influx DB
+2. Timescale DB
+3. Prometheus
+4. ...
 
 #### When to Pick a Time Series Database? ####
+1. 
 
 #### Real Life Implementations ####
 
