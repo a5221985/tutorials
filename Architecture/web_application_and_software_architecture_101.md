@@ -2700,9 +2700,22 @@
 	2. Picking between **consistency** and **availability** depends on our use case and business requirements
 		1. Picking one out of the two is due to design of distributed systems (trade-off)
 			1. We can't have both availability and consistency at the same time (network latency, time complexity of the distributed algorithms involved, quickness of node going up are certain reasons)
+		2. Nodes around the globe will take time to reach consensus
+			1. zero-latency is nearly impossible unsless data gets transferred instantly (network latency)
 
 ### Database Quiz - Part 2 ###
 ### Types of Databases ###
+1. Different types of databases are available catering to specific use cases
+2. Topics:
+	1. Document-Oriented database
+	2. Key-value datastore
+	3. Wide-column database
+	4. Relational database
+	5. Graph database
+	6. Time-Series database
+	7. Databases dedicated to mobile apps
+3. Next: Other types of databases (Other than SQL, NoSQL Document stores)
+
 ### Graph Databases ###
 ### Key Value Database ###
 ### Time Series Database ###
