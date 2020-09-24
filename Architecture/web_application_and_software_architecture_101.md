@@ -2953,6 +2953,8 @@
 	4. ...
 
 #### Real-Life Implementations ####
+1. [Netflix uses Cassandra as the backend database for the streaming service](https://medium.com/netflix-techblog/tagged/cassandra)
+2. [Adobe uses HBase for processing large amounts of data](https://hbase.apache.org/poweredbyhbase.html)
 
 ### Database Quiz - Part 3 ###
 
