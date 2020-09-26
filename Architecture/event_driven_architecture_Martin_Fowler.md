@@ -74,11 +74,14 @@
 		2. Debugging (we can re-play the events and check what happened)
 		3. Historing state
 		4. Alternative state (if anything in between needs to be changed, the rest of the events can be replayed to get the current state)
-		5. Memory image (
+		5. Memory image (don't have to store in relational database (?))
+			1. Everything runs from memory
+				1. Memory is very large now
+					1. Persistence store is only for logs (and snapshots may be)
 	2. Cons:
-		1. Unfamiliar
-		2. External Systems
-		3. Event Schema
+		1. Unfamiliar (harder to work with)
+		2. External Systems (cannot call external system again to rebuild - need to store that)
+		3. Event Schema (if I change the code that processes the events, how do I store events to replay them?)
 		4. Identifiers
 		5. Asynchrony?
 		6. Versioning?
