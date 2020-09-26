@@ -65,3 +65,20 @@
 2. Log has all the events that ever changed
 	1. We can rebuild the entire state from the log (this is vital)
 3. Example: Git, SVN, CVS
+	1. Snapshots are also used in between
+		1. History behind that is not considered for rebuilding current state
+4. Example: Counting ledger (credit, debits, ...)
+5. How to use?
+	1. Pros:
+		1. Audit
+		2. Debugging (we can re-play the events and check what happened)
+		3. Historing state
+		4. Alternative state (if anything in between needs to be changed, the rest of the events can be replayed to get the current state)
+		5. Memory image (
+	2. Cons:
+		1. Unfamiliar
+		2. External Systems
+		3. Event Schema
+		4. Identifiers
+		5. Asynchrony?
+		6. Versioning?
