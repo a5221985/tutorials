@@ -106,9 +106,11 @@
 	2. Store both internal event and outside event
 
 ## CQRS ##
-1. Command Query Responsibility Segregation
+1. Command Query Responsibility Segregation (query, command)
 	1. Two components (Separate pieces of software)
 		1. One for reads
 		2. One for updates
 2. Command is used only for update (read is part of it but mainly update logic)
-	1. Does 
+	1. Complex business logic for updates but less frequently updated
+		1. Calculate all the derived data in read model (read model can go to UI)
+		2. Command model does calculation
