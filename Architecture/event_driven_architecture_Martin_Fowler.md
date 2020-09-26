@@ -1,4 +1,5 @@
 # Event Driven Architecture #
+## Event Notifiction Pattern ##
 1. Event - important part
 2. Event-driven
 3. Insurance company:
@@ -33,7 +34,7 @@
 			1. Just looking at the code is not sufficient
 				1. This is a tradeoff
 
-## Variation - Event Driven ##
+## Event-Carried State Transfer Pattern ##
 1. Previous - knowing that event occurred is sufficient
 	1. To find what changed, Insurance Quoting wants to find out Customer Management
 		1. Solution: Put more info into the event (no back and fortch required)
@@ -53,7 +54,7 @@
 			1. Eventual consistency (more decoupling)
 3. This is less common pattern (as a last resort)
 
-## Event Sourcing ##
+## Event Sourcing Pattern ##
 1. What is it?
 	1. Changing address
 		1. Remove old address
@@ -105,7 +106,7 @@
 	1. Don't have any business logic in between event and storage (versioning mess can occur)
 	2. Store both internal event and outside event
 
-## CQRS ##
+## CQRS Pattern ##
 1. Command Query Responsibility Segregation (query, command)
 	1. Two components (Separate pieces of software)
 		1. One for reads
@@ -114,3 +115,13 @@
 	1. Complex business logic for updates but less frequently updated
 		1. Calculate all the derived data in read model (read model can go to UI)
 		2. Command model does calculation
+3. Problems:
+	1. Do we really need it?
+		1. Example: Reporting database - read only (generated for reports)
+			1. Pipelines of transformations
+		2. The key: The command model is used only for updates (not for reads)
+
+## Original Article ##
+1. [https://martinfowler.com/articles/201701-event-drivern.html](https://martinfowler.com/articles/201701-event-drivern.html)
+	1. Different links
+	2. Summary
