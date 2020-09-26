@@ -40,5 +40,28 @@
 			1. This just reduces the burden
 				1. Cons: But may be all the information is not required all the time
 				2. Listener might need additional information than what exists and need to go back to customer management system
-2. Solution: **Event-carries state transfer**
+2. Solution: **Event-carried state transfer** (Similar to REST)
 	1. Using events to transfer state
+		1. Insurance quoting system does not contact customer management system
+			1. Insurance quoting system will keep all the data that it is ever going to need
+				1. Customer management system broadcasts all the data the downstream ssytems are going to have
+					1. Only stuff that I need
+		2. Availability: If customer management system goes down, I just don't care
+			1. Storage is cheap
+	2. Problems:
+		1. Replicated data
+			1. Eventual consistency (more decoupling)
+3. This is less common pattern (as a last resort)
+
+## Event Sourcing ##
+1. What is it?
+	1. Changing address
+		1. Remove old address
+		2. Add new address
+	2. Event: Object is constructed when address changed
+		1. Popped into separate storage area (log)
+	3. The event is then processed
+		1. The address is changed when event is processed
+2. Log has all the events that ever changed
+	1. We can rebuild the entire state from the log (this is vital)
+3. Example: Git, SVN, CVS
