@@ -37,3 +37,6 @@
 1. Previous - knowing that event occurred is sufficient
 	1. To find what changed, Insurance Quoting wants to find out Customer Management
 		1. Solution: Put more info into the event (no back and fortch required)
+			1. This just reduces the burden
+				1. Cons: But may be all the information is not required all the time
+				2. Listener might need additional information than what exists and need to go back to customer management system
