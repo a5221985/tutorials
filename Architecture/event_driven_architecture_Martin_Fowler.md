@@ -93,4 +93,22 @@
 		1. Suppose changing function name
 			1. It only sees textual diffs and commit message
 				1. Intension capturing is required (refactoring)
-					1. Difficult to capture
+					1. Difficult to capture (Java and Python are different - capturing technology specific details is hairy)
+7. We want to capture intension
+	1. Internal intension captured as event (reason for changing it)
+		1. Input or Internal knowledge of the world (percieved)
+	2. Output event broadcast to outside world events
+		1. Fix bugs
+		2. Replay
+		3. Re-announce it
+8. Simple solution:
+	1. Don't have any business logic in between event and storage (versioning mess can occur)
+	2. Store both internal event and outside event
+
+## CQRS ##
+1. Command Query Responsibility Segregation
+	1. Two components (Separate pieces of software)
+		1. One for reads
+		2. One for updates
+2. Command is used only for update (read is part of it but mainly update logic)
+	1. Does 
