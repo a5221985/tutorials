@@ -88,3 +88,9 @@
 		6. Versioning?
 			1. Complicated
 				1. If application state is changed can I process last year?
+6. What do we record as event?
+	1. How to represent?
+		1. Suppose changing function name
+			1. It only sees textual diffs and commit message
+				1. Intension capturing is required (refactoring)
+					1. Difficult to capture
