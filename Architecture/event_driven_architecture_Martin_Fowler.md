@@ -40,3 +40,5 @@
 			1. This just reduces the burden
 				1. Cons: But may be all the information is not required all the time
 				2. Listener might need additional information than what exists and need to go back to customer management system
+2. Solution: **Event-carries state transfer**
+	1. Using events to transfer state
