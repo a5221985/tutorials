@@ -20,3 +20,20 @@
 5. Event is treated as an abject
 6. Cons: 
 	1. Events can be talked about
+7. Commands & events
+	1. Command: Customer management system explicitly tells what to do
+	2. Event: Customer management just says something changed and doesn't expect anything
+		1. Doesn't want to care - use event
+8. Pros:
+	1. Other systems can subscribe to the notification without telling customer management system
+		1. We don't have to tell them (de-coupling)
+9. Cons:
+	1. Difficult to figure out what is going on
+		1. Solution: Need to look at the flow of messages
+			1. Just looking at the code is not sufficient
+				1. This is a tradeoff
+
+## Variation - Event Driven ##
+1. Previous - knowing that event occurred is sufficient
+	1. To find what changed, Insurance Quoting wants to find out Customer Management
+		1. Solution: Put more info into the event (no back and fortch required)
