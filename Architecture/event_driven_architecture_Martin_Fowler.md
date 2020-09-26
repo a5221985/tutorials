@@ -82,6 +82,9 @@
 		1. Unfamiliar (harder to work with)
 		2. External Systems (cannot call external system again to rebuild - need to store that)
 		3. Event Schema (if I change the code that processes the events, how do I store events to replay them?)
-		4. Identifiers
-		5. Asynchrony?
+		4. Identifiers (needs to be dealt with to replay)
+		5. Asynchrony? hard to reason about
+			1. Local commits are synchronous but collaboration is asynchronous
 		6. Versioning?
+			1. Complicated
+				1. If application state is changed can I process last year?
