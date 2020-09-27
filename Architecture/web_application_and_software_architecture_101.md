@@ -3038,10 +3038,36 @@
 
 #### Real Life Use Case ####
 1. Stock market based gaming app
+2. Algorithm would trigger price movement of stocks every second
+	1. Too many database writes costs a fortune (every hour could be too much)
+		1. Solution used: Memcache
+			1. Batch operation at regular intervals updates database
+			2. Memcache is much faster than disk based database
 
 #### Conclusion ####
+1. Turned out cheaper
+	1. Don't want to persist each and every info in database
+		1. One can use cache to store not so mission-critical info
+2. Next: Caching strategies
 
 ### Caching Strategies ###
+1. Topics:
+	1. Cache Aside
+	2. Read-Through
+	3. Write-Through
+	4. Write-Back
+2. Why different strategies?
+
+#### Cache Aside ####
+1. Most common
+2. Used to reduce hits on database as much as possible
+
+#### Read-Through ####
+
+#### Write-Through ####
+
+#### Write-Back ####
+
 ### Caching Quiz ###
 
 ## Message Queue ##
