@@ -3297,8 +3297,25 @@
 2. Example: Notification system & real-time feed via polling
 
 	![notification_system_and_real_time_feed_via_polling](notification_system_and_real_time_feed_via_polling.jpeg)
+	
+3. Cons:
+	1. Polling database often is expensive
+		1. Consumes a lot of bandwidth
+		2. Puts a lot of unnecessary load on database
+	2. Display of post will not be in real-time
+		1. Until database is polled, post will not be displayed
 
 #### Push-Based Approach ####
+1. Using message queue:
+2. User post will have distributed transaction (say)
+	1. One transaction updates database
+	2. One transaction posts payload (message content) to message queue
+	3. Notification system and real-time feed establishes persistent connection with database (for real-time streaming of data)
+3. Example: REST API vs Realtime API
+
+	![rest_api_vs_streaming_api](rest_api_vs_streaming_api.jpeg)
+	
+4. Message queue on receipt of message will asynchronously push immediately to connections of user which are online (no need for polling)
 
 ### Handling Concurrent Requests with Message Queues ###
 ### Message Queue Quiz ###
