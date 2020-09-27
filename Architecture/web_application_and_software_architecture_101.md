@@ -3291,6 +3291,12 @@
 	1. Poll the database at regular short intervals if any of the connections have new update or not
 		1. First we find all connections of user
 		2. Next we run check for every connection one by one (to check if there are any posts)
+			1. If there are new posts, query will pull all new posts of connections of user and display on home page
+				1. A notification is also sent to user (tracking count using notification counter column in User table)
+					1. Also adding extra AJAX poll query from client for new notifications
+2. Example: Notification system & real-time feed via polling
+
+	![notification_system_and_real_time_feed_via_polling](notification_system_and_real_time_feed_via_polling.jpeg)
 
 #### Push-Based Approach ####
 
