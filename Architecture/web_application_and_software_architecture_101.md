@@ -3256,6 +3256,39 @@
 	1. Real-World Use Case
 	2. Pull-Based Approach
 	3. Push-Based Approach
+2. An insight into how notification systems and real-time feeds are designed with message queues
+	1. Web 2.0 applications are really complex
+		1. Involve
+			1. Machine learning
+			2. Understanding user behaviour
+			3. Recommending new relevant info
+			4. Integration of other modules with them
+3. How to implement notification system from bare bones?
+
+#### Real-World Use Case ####
+1. Consier social network such as Facebook
+	1. Using relational database
+	2. Using message queue to add asynchronous behaviour to application
+2. Users may have
+	1. Many friends
+	2. Many followers
+3. It is many-to-many relationship
+	1. One user has many friends
+	2. He is friend of many users
+4. Example: Graph Database use case
+
+	![graph_database_use_case](graph_database_use_case.jpeg)
+	
+5. If user adds new post on website
+	1. The post is persistend in database
+		1. User table
+		2. Post table
+	2. It is one-to-many relationship (between user and posts)
+	3. As the post is persisted, it needs to be sent to friends and followers on home pages (send notification if desired)
+
+#### Pull-Based Approach ####
+
+#### Push-Based Approach ####
 
 ### Handling Concurrent Requests with Message Queues ###
 ### Message Queue Quiz ###
