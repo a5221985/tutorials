@@ -3148,8 +3148,18 @@
 		3. System has to send email to registered email id of user
 		4. User must click on confirmation email for sign-up event confirmation
 			1. Website does not wait until it sends email to user
+				1. The task is assigned as asynchronous background process to a message queue
+					1. User continues to browse website while email confirmation is sent to user
+	3. Message queues can also be used for notification systems
+		1. Such as Facebook notifications
 
 #### Message Queue In Running Batch Jobs ####
+1. Example: Batch job which updated stock prices at regular intervals in database was run by message queue
+2. Participants of message queue:
+	1. Producer - sends messages
+	2. Consumer - receives messages
+	3. Queue
+3. Producer and consumer don't have to reside on same machine to communicate
 
 ### Publish Subscribe Model ###
 ### Point to Point Model ###
