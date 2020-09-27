@@ -3316,6 +3316,12 @@
 	![rest_api_vs_streaming_api](rest_api_vs_streaming_api.jpeg)
 	
 4. Message queue on receipt of message will asynchronously push immediately to connections of user which are online (no need for polling)
+5. TTL: TTL can be used by message queue (temp storage) for connectiosn of user to come online & then push updates to them
+6. Key-value store: it can be used to store details of user required to push notifications to his connections (ids of connections etc...)
+	1. Averts polling database (querying) for connections
+7. Pros:
+
+	![notification_system_and_real_time_feed_via_message_queue](notification_system_and_real_time_feed_via_message_queue.jpeg)
 
 ### Handling Concurrent Requests with Message Queues ###
 ### Message Queue Quiz ###
