@@ -3091,14 +3091,28 @@
 
 #### Write-Through ####
 1. Each info written to DB goes through cache (before data is written to DB, cache is updated)
-	1. High consistency between cache and database
+	1. High consistency between cache and database (adds latency during write operations)
+2. Works for write heavy workloads? (how?)
+3. Use cases: used with other caching strategies for optimized performance
 
 #### Write-Back ####
+1. Significant cost optimization
+2. Data is written to cache (instead of database)
+	1. Cache writes to database after some delay
+		1. If there are a lot of writes, we can reduce the freqency of database writes to cut down load & associated costs
+3. Cons: If cache fails before DB is updated, data might get lost
+4. Usage: May be used with other caching strategies
 
 ### Caching Quiz ###
 
 ## Message Queue ##
 ### Introduction to Message Queues ###
+1. Topics:
+	1. What is a Message Queue?
+	2. Features of a Message Queue
+	3. Real World Example of a Message Queue
+	4. Message Queue in Running Batch Jobs
+
 ### Publish Subscribe Model ###
 ### Point to Point Model ###
 ### Notification Systems & Real-Time Feeds with Message Queues ###
