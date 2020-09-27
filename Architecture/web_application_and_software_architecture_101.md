@@ -3114,8 +3114,19 @@
 	4. Message Queue in Running Batch Jobs
 
 #### What is a Message Queue? ####
+1. Definition:
+
+		Message queue as the name says is a queue which routes messages from the source to the destination or we can say from the sender to the receiver
+		
+2. It follows FIFO (First In First Out) policy
+	1. Message sent first is delivered first
+		1. Messages may have priority attached to them (priority queue)
+3. FIFO Queue:
+
+	![fifo_queue](fifo_queue.jpeg)
 
 #### Features of a Message Queue ####
+1. Message queues facilitate asyn behaviour
 
 #### Real World Example of a Message Queue ####
 
