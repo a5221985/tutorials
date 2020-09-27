@@ -3126,9 +3126,28 @@
 	![fifo_queue](fifo_queue.jpeg)
 
 #### Features of a Message Queue ####
-1. Message queues facilitate asyn behaviour
+1. Message queues facilitate async behaviour
+	1. Allows modules to communicate with each other in background without hindering their primary tasks
+2. Message queues facilitate cross-module communication
+	1. This is key in
+		1. Service-oriented architecture
+		2. Microservices architecture
+	2. It allows communication in heterogeneous environment
+	3. It also provides storage for storing messages until they are processed & consumed by consumer
 
 #### Real World Example of a Message Queue ####
+1. Example Email
+	1. Sender and receiver don't have to be online at the same time to communicate with each other
+		1. Sender sends email to email server
+		2. Receiver reads it when he/she comes online
+2. Use cases:
+	1. To run background processes, tasks, jobs
+	2. Example:
+		1. Consider user signing up on a portal
+		2. Once user signs up, user is navigated to home page immediately
+		3. System has to send email to registered email id of user
+		4. User must click on confirmation email for sign-up event confirmation
+			1. Website does not wait until it sends email to user
 
 #### Message Queue In Running Batch Jobs ####
 
