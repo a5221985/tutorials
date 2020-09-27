@@ -3160,8 +3160,41 @@
 	2. Consumer - receives messages
 	3. Queue
 3. Producer and consumer don't have to reside on same machine to communicate
+4. Rules for routing:
+	1. Priority to messages
+	2. Message acknowledgements
+	3. Re-trial of failed messages
+	4. Size: Can be indefinite (based on infrastructure of the business)
+5. Next: Publish subscribe message routing model
 
 ### Publish Subscribe Model ###
+1. Topics:
+	1. What is a Publish Subscribe Model?
+	2. Exchanges
+
+#### What is a Publish Subscribe model? ####
+1. Definition:
+
+		A Publish-Subscribe model is the model where multiple consumers receive the same message sent from a single or multiple producers.
+		
+2. Example: Publish subscribe pattern
+
+	![publish_subscribe_pattern](publish_subscribe_pattern.jpeg)
+	
+3. Example: Newspaper service
+	1. Consumers subscribe to newspaper service
+	2. Service delivers news to multiple consumers of the service each day
+4. Example: Online world
+	1. We sometimes subscribe to topics in applications
+	2. Applications continually notify of new updates on particular segment
+		1. Sports
+		2. Politics
+		3. Economics
+		4. ...
+
+#### Exchanges ####
+1. 
+
 ### Point to Point Model ###
 ### Notification Systems & Real-Time Feeds with Message Queues ###
 ### Handling Concurrent Requests with Message Queues ###
