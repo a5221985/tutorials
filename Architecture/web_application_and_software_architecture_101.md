@@ -3037,6 +3037,7 @@
 2. Deployment cost of application can be reduced using cache (how?)
 
 #### Real Life Use Case ####
+1. Stock market based gaming app
 
 #### Conclusion ####
 
