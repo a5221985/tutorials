@@ -3113,6 +3113,14 @@
 	3. Real World Example of a Message Queue
 	4. Message Queue in Running Batch Jobs
 
+#### What is a Message Queue? ####
+
+#### Features of a Message Queue ####
+
+#### Real World Example of a Message Queue ####
+
+#### Message Queue In Running Batch Jobs ####
+
 ### Publish Subscribe Model ###
 ### Point to Point Model ###
 ### Notification Systems & Real-Time Feeds with Message Queues ###
