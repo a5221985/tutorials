@@ -3201,6 +3201,19 @@
 2. Example: Publish-Subscribe pattern with exchange
 
 	![publish_subscribe_pattern_with_exchange](publish_subscribe_pattern_with_exchange.jpeg)
+	
+3. Exchange types:
+	1. Direct
+	2. Topic
+	3. Headers
+	4. Fanout
+4. [RabbitMQ article for insight into how the exchanges work](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
+5. Fanout Exchange Type:
+	1. Used to broadcast messages from queue
+		1. Exchange pushes message to queue
+		2. Consumers will receive the message
+	2. Binding: Relationship between exchange and queue
+	3. Example: Updates of new content generated in real-time on social apps by business or individuals (who are followed by a lot of people)
 
 ### Point to Point Model ###
 ### Notification Systems & Real-Time Feeds with Message Queues ###
