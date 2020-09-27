@@ -3090,6 +3090,7 @@
 3. Developers can pre-load cache with info which is expected to be requested most by users
 
 #### Write-Through ####
+1. Each info written to DB goes through cache (before data is written to DB)
 
 #### Write-Back ####
 
