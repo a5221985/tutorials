@@ -3332,8 +3332,26 @@
 				1. Continue with persistence into database
 					1. Refresh of home page causes pole to database (as a backup)
 			2. Roll-back
+9. Implementation:
+	1. Custom distributed transaction code
+	2. Distributed transaction managers (frameworks offer)
+10. Certain process or flow repeats itslef when
+	1. Users trigger events (visiting public place, eating at a restaurant, ...)
+11. Solution must serve us well and fulfill business requirements
+	1. Optimize in iterations
+		1. First get skeleton in place
+		2. Optimize notch by notch
+12. [How Does LinkedIn Identify Its users Online?](https://www.8bitmen.com/linkedin-real-time-architecture-how-does-linkedin-identify-its-users-online/)
 
 ### Handling Concurrent Requests with Message Queues ###
+1. Topics:
+	1. Using a Message Queue to Handle the Traffic Surge
+	2. How Facebook Handles Concurrent Requests on its Live Video Streaming Service With a Message Queue?
+
+#### Using a Message Queue to Handle the Traffic Surge ####
+
+#### How Facebook Handles Concurrent Requests On Its Live Video Streaming Service with a Message Queue? ####
+
 ### Message Queue Quiz ###
 
 ## Stream Processing ##
