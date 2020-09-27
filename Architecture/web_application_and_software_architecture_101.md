@@ -3090,7 +3090,8 @@
 3. Developers can pre-load cache with info which is expected to be requested most by users
 
 #### Write-Through ####
-1. Each info written to DB goes through cache (before data is written to DB)
+1. Each info written to DB goes through cache (before data is written to DB, cache is updated)
+	1. High consistency between cache and database
 
 #### Write-Back ####
 
