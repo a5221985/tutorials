@@ -3193,7 +3193,14 @@
 		4. ...
 
 #### Exchanges ####
-1. 
+1. Pub-sub pattern implementation
+	1. Message queues have exchanges
+		1. Exchange: It further pushes messages to queues based on exchange type and rules set
+			1. They are like telephone exchanges
+				1. They route messages from sender to receiver through infrastructure (based on certain logic - routing algorithm)
+2. Example: Publish-Subscribe pattern with exchange
+
+	![publish_subscribe_pattern_with_exchange](publish_subscribe_pattern_with_exchange.jpeg)
 
 ### Point to Point Model ###
 ### Notification Systems & Real-Time Feeds with Message Queues ###
