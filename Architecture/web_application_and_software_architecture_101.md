@@ -3322,6 +3322,16 @@
 7. Pros:
 
 	![notification_system_and_real_time_feed_via_message_queue](notification_system_and_real_time_feed_via_message_queue.jpeg)
+	
+8. Distribution transactions complications:
+	1. They can work as a single unit
+		1. If database persistence fails, entire transaction is rolled back
+			1. There wont be any message push to message queue
+		2. If message queue push fails: Two options
+			1. Proceed
+				1. Continue with persistence into database
+					1. Refresh of home page causes pole to database (as a backup)
+			2. Roll-back
 
 ### Handling Concurrent Requests with Message Queues ###
 ### Message Queue Quiz ###
