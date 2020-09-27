@@ -3287,6 +3287,10 @@
 	3. As the post is persisted, it needs to be sent to friends and followers on home pages (send notification if desired)
 
 #### Pull-Based Approach ####
+1. Not using message queues approach:
+	1. Poll the database at regular short intervals if any of the connections have new update or not
+		1. First we find all connections of user
+		2. Next we run check for every connection one by one (to check if there are any posts)
 
 #### Push-Based Approach ####
 
