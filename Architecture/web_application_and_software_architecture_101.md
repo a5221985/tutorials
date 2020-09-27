@@ -3061,8 +3061,33 @@
 #### Cache Aside ####
 1. Most common
 2. Used to reduce hits on database as much as possible
+3. Data is *lazy-loaded* in the cache
+	1. If user sends request for data
+	2. System first looks for it in cache
+		1. If present, it is simply returned
+		2. If not present, data is fetched from database and cache updated and then returned to user
+4. Use case: Read heavy workloads
+	1. Data is not much frequently updated
+		1. Example: 
+			1. User profile data
+				1. User name
+				2. User account number
+				3. ...
+	2. Write:
+		1. **Data is directly written to database**
+			1. Cons: Could make data in cache inconsistent
+				1. Solution: TTL
+					1. After the stipulated time period, data is invalidated in cache
 
 #### Read-Through ####
+1. Similar to Cache Aside but Cache is always consistent with database
+	1. Cache library or cache framework takes the burden of maintaining consistency with backend
+	2. Info is lazy loaded in cache
+		1. When user requests it
+2. First time request results in cache miss
+	1. Backend updates the cache
+	2. Result is returned to the user
+3. Developers can pre-load cache with info which is expected to be requested most by users
 
 #### Write-Through ####
 
