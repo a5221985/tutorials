@@ -3214,9 +3214,49 @@
 		2. Consumers will receive the message
 	2. Binding: Relationship between exchange and queue
 	3. Example: Updates of new content generated in real-time on social apps by business or individuals (who are followed by a lot of people)
+6. Next: Details of how real-time feeds and notification systems work in social networks (powered by message queues)
 
 ### Point to Point Model ###
+1. Topics:
+	1. What is Point to Point Model?
+	2. Messaging Protocols
+	3. Technology Used to Implement the Messaging Protocols
+
+#### What is Point to Point Model? ####
+1. Definition:
+
+		Point to point communication is a pretty simple use case where the message from the producer is consumed by only one consumer
+		
+2. Example: Point to point message queue model
+
+	![point_to_point_message_queue_model](point_to_point_message_queue_model.jpeg)
+	
+3. It is one-to-one relationship
+	1. Multiple combinations are possible with this messaging model
+		1. Adding multiple producers to queue
+		2. Adding multiple consumers to queue
+			1. Only one of the consumers can consume a message
+				1. Entity to entity communication
+
+#### Messaging Protocols ####
+1. Two popular protocols:
+	1. [AMQP - Advanced Message Queue Protocol](https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol)
+	2. [STOMP - Simple or Stream Text Oriented Message Protocol](https://en.wikipedia.org/wiki/Streaming_Text_Oriented_Messaging_Protocol)
+
+#### Technology Used to Implement the Messaging Protocols ####
+1. Examples:
+	1. RabbitMQ
+	2. ActiveMQ
+	3. Apache Kafka
+	4. ...
+2. Next: How notification systems work with message queues
+
 ### Notification Systems & Real-Time Feeds with Message Queues ###
+1. Topics:
+	1. Real-World Use Case
+	2. Pull-Based Approach
+	3. Push-Based Approach
+
 ### Handling Concurrent Requests with Message Queues ###
 ### Message Queue Quiz ###
 
