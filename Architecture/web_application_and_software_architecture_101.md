@@ -3352,6 +3352,12 @@
 1. [Eventual Consistency](https://www.educative.io/collection/page/6064040858091520/6411938009448448/6373547041619968)
 2. [Strong Consistency](https://www.educative.io/collection/page/6064040858091520/6411938009448448/5677430486335488)
 3. Use Case: Message queue to manage high number of concurrent requests to update entity
+	1. When users want to update entity concurrently, we can queue all update requests in high throughput message queue
+		1. The messages are processed in FIFO order sequentially
+			1. Pros:
+				1. Highly available (how?)
+				2. Open to updation (how?)
+				3. Consistent (how?)
 
 #### How Facebook Handles Concurrent Requests On Its Live Video Streaming Service with a Message Queue? ####
 
