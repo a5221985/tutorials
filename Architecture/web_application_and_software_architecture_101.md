@@ -3360,6 +3360,17 @@
 				3. Consistent (how?)
 
 #### How Facebook Handles Concurrent Requests On Its Live Video Streaming Service with a Message Queue? ####
+1. Handling concurrent user requests on LIVE video streaming service (Queus are used)
+2. When popular person goes LIVE, there is a surge of user requests on LIVE streaming server
+	1. Cache is used to intercept the traffic
+		1. Cons: Cache is not populated with real-time data before requests arrive
+			1. Results in cache miss
+				1. Requests hit streaming server
+					1. Solution: All user requests for same data are queued
+						1. Cache is populated with same data
+						2. Each of the queue requests are served from cache
+3. [Facebook's Live Streaming Architecture](https://engineering.fb.com/ios/under-the-hood-broadcasting-live-video-to-millions/)
+4. Next chapter: 
 
 ### Message Queue Quiz ###
 
