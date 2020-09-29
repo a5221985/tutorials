@@ -3381,9 +3381,18 @@
 	2. Use Cases for Data Stream Processing
 
 #### Rise of Data-Driven Systems ####
-1. 
+1. Data-driven is trend
+	1. Example: IoT
+		1. Entities are generating and transmitting data online at unprecedented rate
+		2. They are communicating with each other and taking decisions without (mostly) human intervention
 
 #### Use Cases for Data Stream Processing ####
+1. IoT devices
+	1. Industry sensors
+	2. Smart cities
+	3. Electronic devices
+	4. Wearable healthcare body sensors
+2. 
 
 ### Data Ingestion ###
 ### Different Ways of Ingesting Data & the Challenges Involved ###
