@@ -3392,7 +3392,9 @@
 	2. Smart cities
 	3. Electronic devices
 	4. Wearable healthcare body sensors
-2. 
+2. Sophisticated backend system is required to gather meaningful info
+	1. Archive/purge not so meaningful data
+3. 
 
 ### Data Ingestion ###
 ### Different Ways of Ingesting Data & the Challenges Involved ###
