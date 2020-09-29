@@ -3370,12 +3370,21 @@
 						1. Cache is populated with same data
 						2. Each of the queue requests are served from cache
 3. [Facebook's Live Streaming Architecture](https://engineering.fb.com/ios/under-the-hood-broadcasting-live-video-to-millions/)
-4. Next chapter: 
+4. Next chapter: Stream processing
 
 ### Message Queue Quiz ###
 
 ## Stream Processing ##
 ### Introduction ###
+1. Topics:
+	1. Rise of Data-Driven Systems
+	2. Use Cases for Data Stream Processing
+
+#### Rise of Data-Driven Systems ####
+1. 
+
+#### Use Cases for Data Stream Processing ####
+
 ### Data Ingestion ###
 ### Different Ways of Ingesting Data & the Challenges Involved ###
 ### Data Ingestion Use Cases ###
