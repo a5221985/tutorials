@@ -3394,7 +3394,8 @@
 	4. Wearable healthcare body sensors
 2. Sophisticated backend system is required to gather meaningful info
 	1. Archive/purge not so meaningful data
-3. 
+3. More data one has, better the systems evolve (Businesses rely on data)
+	1. Businesses need customer data to make future plans & projections
 
 ### Data Ingestion ###
 ### Different Ways of Ingesting Data & the Challenges Involved ###
