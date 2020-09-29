@@ -3349,6 +3349,9 @@
 	2. How Facebook Handles Concurrent Requests on its Live Video Streaming Service With a Message Queue?
 
 #### Using a Message Queue to Handle the Traffic Surge ####
+1. [Eventual Consistency](https://www.educative.io/collection/page/6064040858091520/6411938009448448/6373547041619968)
+2. [Strong Consistency](https://www.educative.io/collection/page/6064040858091520/6411938009448448/5677430486335488)
+3. Use Case: Message queue to manage high number of concurrent requests to update entity
 
 #### How Facebook Handles Concurrent Requests On Its Live Video Streaming Service with a Message Queue? ####
 
