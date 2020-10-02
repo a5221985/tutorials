@@ -353,6 +353,51 @@
 1. Learning Objectives
 	1. Why organizations build API?
 	2. What is needed to build successful API?
+2. API's Value Proposition?
+	1. Makes the **asset of value** easily accessible within & outside the bounds of the organization
+		1. Suppose data is of value
+			1. Entities inside and outside organization can access (who have interest)
+	2. Examples:
+		1. Asset of Value:
+			1. Data | Integration
+				1. The Weather Company
+				2. FedEx
+			2. Service | Product
+				1. NETFLIX (movies, programs are assets)
+					1. Sony is accessing the APIs
+				2. twilio (communication features as APIs)
+					1. sms
+					2. vidio calls
+					3. voice calls
+			3. Social (data of users)
+				1. Facebook
+					1. APIs - business users can access
+				2. Twitter
+3. Why make Asset of Value easily accessible?
+4. What's in it for the owner?
+	1. Business benefits
+		1. Direct Revenue - owner organization constructs new revenue stream by way of exposing data and services (subscription model)
+			1. twilio
+			2. AWS
+			3. The Weather Company
+	2. Indirect Benefits (no direct revenue)
+		1. ebay
+		2. FedEx
+		3. indeed
+		4. Why?
+			1. Ebay - to expand partner ecosystem
+			2. FedEx - For competitive advantage
+			3. indeed - Brand recognition
+			4. Agility
+			5. Social good
+			6. ...
+		5. Think about our organization
+			1. Atria Healthcare:
+				1. Data can be accessed by government for records
+				2. Data can be accessed by partners for augmenting additional services
+				3. Data can be used by business for analytics
+					1. How is business doing
+					2. How can business be improved
 
 ## REST API Architectural Constraints ##
 ### Introduction to REST Architecture Constraints ###
