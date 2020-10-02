@@ -730,6 +730,13 @@
 			4. DELETE - deletion
 
 ## Designing REST API ##
+### API Endpoint URL ###
+### Walk Through: Setup the API URI for ACME API ###
+### HTTP API Request flow and HTTP Status Code ###
+### API Data Format Setup ###
+### Setup the Demo/ Test Environment ###
+### Walkthrough: Creation of Vacations API in Node JS ###
+
 ### API Value Chain ###
 1. Learning objectives
 	1. Describe the API value chain
@@ -928,16 +935,26 @@
 	5. models/Vacations.js
 
 ### REST API Error Handling Practices ###
-
-
+### Application Error Handling Patterns ###
 ### Walkthrough: Implementation of Error Handling for POST API ###
+
+## REST API Handling Change - Versioning Patterns ##
 ### Handling Changes to API ###
 ### Versioning the API ###
+### Walk through: ACME API Versioning ###
+
+## REST API Cache Control Patterns ##
 ### API Caching (1 of 2) Concepts & Design Decisions ###
 ### API Caching (2 of 2) Cache Control Directive ###
 ### Demo - API Caching Using Cache-Control Directives ###
 ### Building Support for Partial Responses ###
 ### Building Support for Pagination ###
+
+## REST API Response Data Handling Patterns ##
+### Building Support for Partial Responses ###
+### Walk Through: Setup Partial Response Support in ACME API ###
+### Building Support for Pagination ###
+### Walk Through: Building Support for Pagination in ACME API ###
 
 ## REST API Security ##
 ### REST API Security - Introduction ###
