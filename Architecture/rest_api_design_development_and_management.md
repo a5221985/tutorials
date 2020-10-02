@@ -346,6 +346,13 @@
 	3. API Explorer
 		1. Get
 			1. Parameters
+				1. JSON
+				2. ...
+
+### API Value Chain ###
+1. Learning Objectives
+	1. Why organizations build API?
+	2. What is needed to build successful API?
 
 ## REST API Architectural Constraints ##
 ### Introduction to REST Architecture Constraints ###
