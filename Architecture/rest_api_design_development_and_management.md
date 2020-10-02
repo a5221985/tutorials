@@ -423,6 +423,18 @@
 		2. Best practices & Guidelines
 		3. Use right tools, technology, skills, knowledge
 8. Why Build API?
+	1. What _asset_ of _value_ does your org hold?
+		1. Data?
+		2. Service?
+		3. Capabilities?
+	2. Who will get the MOST benefit from these asset?
+		1. Internal stakeholders?
+		2. External entity?
+		3. Partners?
+	3. Is there a _Business Value_ in making the asset easily accessible?
+		1. For our organization
+	4. Are there partners who will help in _delivering the value_?
+		1. Ecosystems around APIs
 
 ## REST API Architectural Constraints ##
 ### Introduction to REST Architecture Constraints ###
