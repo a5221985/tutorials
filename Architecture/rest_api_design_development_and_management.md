@@ -373,7 +373,7 @@
 				1. Facebook
 					1. APIs - business users can access
 				2. Twitter
-3. Why make Asset of Value easily accessible?
+3. Why make **Asset of Value** easily accessible?
 4. What's in it for the owner?
 	1. Business benefits
 		1. Direct Revenue - owner organization constructs new revenue stream by way of exposing data and services (subscription model)
@@ -398,6 +398,30 @@
 				3. Data can be used by business for analytics
 					1. How is business doing
 					2. How can business be improved
+				4. Data can be used by other companies for advertisements
+				5. Data can be accessed from other clients (mobile apps, desktop apps, ...)
+				6. Indirect benefits:
+					1. Recognition - other companies don't have this feature
+						1. Competitive edge
+5. End consumer of the asset:
+	1. Individual users
+		1. Public domain users
+			1. Using
+				1. Browsers
+				2. Apps from App stores
+			2. Add value on top of assets exposed by the company
+	2. Enterprise users (users who are mostly involved in carrying out business functions)
+		1. SAAS solutions
+		2. Packaged solutions
+		3. Home grown applications
+6. Apps Deliver the Value
+	1. Apps are used to deliver value added asset to end user
+7. API Developer: (but must also understand customer's needs, understand needs of app developers, support app development process)
+	1. Cusotmer - App developer
+	2. Must follow
+		1. REST API Design Principles
+		2. Best practices & Guidelines
+		3. Use right tools, technology, skills, knowledge
 
 ## REST API Architectural Constraints ##
 ### Introduction to REST Architecture Constraints ###
