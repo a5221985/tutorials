@@ -422,6 +422,7 @@
 		1. REST API Design Principles
 		2. Best practices & Guidelines
 		3. Use right tools, technology, skills, knowledge
+8. Why Build API?
 
 ## REST API Architectural Constraints ##
 ### Introduction to REST Architecture Constraints ###
