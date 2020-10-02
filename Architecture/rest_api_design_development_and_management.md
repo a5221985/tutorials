@@ -324,6 +324,29 @@
 				1. Internal monitoring must be done to ensure key performance aspects are being met and SLA is met
 6. API provider as a good practice must always define and manage SLA for all APIs
 
+### Example REST API Walkthrough ###
+1. Ticketmaster:
+	1. Public and partner APIs
+	2. Management of access to APIs
+	3. SLAs for each type of API
+2. Ticketmaster - e-tickets for different concerts, ...
+	1. Developer portal:
+		1. Getting started
+			1. Data model
+		2. GET YOUR API KEY
+			1. New account
+			2. Approaval - automated
+			3. Use credentials
+		3. Distribution paterners
+		4. Certified partners
+	2. SLA:
+		1. 5000 API calls per day
+			1. 5 requests / second
+				1. We can increase
+	3. API Explorer
+		1. Get
+			1. Parameters
+
 ## REST API Architectural Constraints ##
 ### Introduction to REST Architecture Constraints ###
 1. Learning objectives
