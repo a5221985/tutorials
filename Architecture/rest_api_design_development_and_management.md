@@ -694,6 +694,41 @@
 	2. Domain objects can be treated as resources
 	3. HATEOAS: Client manages state by using media/links sent by server
 
+### WebApp Versus REST API Architecture ###
+1. Learning Objectives:
+	1. Architectural Similarities
+	2. Architectural Differences
+2. WWW:
+	1. Massively scalable distributed application
+	2. Forms the basis for REST API Architecture
+		1. Proven technologies are used for REST API
+3. www vs REST
+	1. www and REST support
+		1. Client-Server
+		2. Layered
+		3. Caching
+		4. Code on Demand
+		5. HATEOUS
+	2. www
+		1. URI: No hard & fast rules
+		2. Statelessness:
+			1. Depends on needs
+			2. Web server can manage
+		3. HTTP methods:
+			1. Typically uses GET & POST
+	3. REST
+		1. URI: Strick rules & best practices
+			1. Contract
+			2. Resources identity
+		2. Statelessness
+			1. Server never tracks the client's state
+				1. If client sends request, it sends state related data along with the request
+		3. HTTP Method:
+			1. POST - creation
+			2. GET - retrieval
+			3. PUT - Update
+			4. DELETE - deletion
+
 ## Designing REST API ##
 ### API Value Chain ###
 1. Learning objectives
