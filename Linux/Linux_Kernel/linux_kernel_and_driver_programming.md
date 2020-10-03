@@ -216,3 +216,25 @@
 
 ## Character Device Driver Part 4 ##
 1. [http://youtu.be/zJn4IbIbhmE](http://youtu.be/zJn4IbIbhmE)
+	1. Best character device module
+2. Dynamically allocating major and minor numbers
+		
+		dev_t my_dev;
+		...
+		alloc_chrdev_region(&my_dev, 0, 1, *shakilk1729);
+		
+	1. `my_dev` is filled by the API
+	2. 0 - starting from 0 (baseminor)
+	3. 1 - 1 device node (100, 0) (count)
+	4. (name)
+3. Documentation:
+	1. [www.fsl.cs.synysb.edu/kernel-api/re940.html](www.fsl.cs.synysb.edu/kernel-api/re940.html)
+4. Printing
+
+		pr_info("Major number= %d minor number = %d\n", MAJOR(my_dev), MINOR(my_dev)); // extracts major and minor numbers from the unique number
+		
+	1. udev infrastructure - for on the fly creation (not look into what was allocated and use it)
+5. Next:
+	1. USB
+	2. Networking
+	3. Dummy filesystems
