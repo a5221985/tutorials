@@ -127,6 +127,8 @@
 	3. `MKDEV` - massages major and minor numbers to generate unique number
 	4. `cdev_alloc()` - allocation of memory
 	5. `cdev_init()` - buffer where it maps to device operations
+	6. `cdev_add()` - maps `my_cdev` (operations) to `my_dev` (number)
+	7. `memset(buffer, '\0', PAGE_SIZE)`
 
 			static struct file_operations device_fops = {
 				.owner = THIS_MODULE,
@@ -141,8 +143,43 @@
 			
 			// called from user space using write or fwrite
 			static ssize_t device_write(, buffer, size of buffer, position) {
+				int nbytes = lbuf + copy_from_user(buffer + *ppos, buf, lbuf); // copies from user to kernel space
+				*ppos += nbytes;
+				pr_info (..., buffer, nbytes);
 				
+				return nbytes;
 			}
+			
+			static void __exit driver_exit(void) {
+				cdev_del(my_cdev);
+				unregister_chrdev_region(my_dev); // major numbers, minor numbers, infrastructure
+			}
+			
+		1. Running:
+
+				lsmod | grep -i char
+				insmod char_driver_demo.ko
+				lsmod | grep -i char
+				mknod /dev/shakilk1729 c 100 0 # manually constructing node
+				ls -l /dev/shakilk1729
 
 ## Character Device Driver Part 3 ##
+1. Continuation
+
+		cat /dev/shakilk1729
+		echo "hello" > /dev/shakilk1729
+		cat /dev/shakilk1729 # acts like a file
+		dmesg
+		mknod /dev/shakilk17291 c 100 0
+		cat /dev/shakilk17291 (acts like the same device as before)
+		
+2. Syscall - kernel communication using interrupt
+	1. `open()` - `sys_open()`
+
+			SYSCALL_DEFINE(open, const char __user *, filename, int, flags, int, mods)
+			{
+				call do_sys_open(),
+				retu = do_sys_open(AT_FDCWD
+			}
+
 ## Character Device Driver Part 4 ##
