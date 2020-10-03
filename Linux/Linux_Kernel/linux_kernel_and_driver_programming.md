@@ -119,7 +119,30 @@
 		2. Block devices
 			1. Minor number has no restrictions
 				1. It is better to give unique numbers
-					1. If interrupt occurs for one device, if there is a clash, other device (with same combination) can respond to the interrupt
+					1. If interrupt occurs for one device, if there is a clash, other device (with same combination) can respond to the interrupt (duplicate read, read loss)
+	2. `register_chrdev_region` - api for statically assigning major and minor numbers
+		1. There is one for runtime
+		2. Second param - number of minor numbers required
+		3. `/dev` is used for devices allways (?)
+	3. `MKDEV` - massages major and minor numbers to generate unique number
+	4. `cdev_alloc()` - allocation of memory
+	5. `cdev_init()` - buffer where it maps to device operations
+
+			static struct file_operations device_fops = {
+				.owner = THIS_MODULE,
+				.write = device_write,
+				.open = device_open,
+				.read = device_read,
+			};
+			
+			static int device_open(...)
+				// locking may be required - for one driver,
+				// locking for re-entrance or spin lock, ...
+			
+			// called from user space using write or fwrite
+			static ssize_t device_write(, buffer, size of buffer, position) {
+				
+			}
 
 ## Character Device Driver Part 3 ##
 ## Character Device Driver Part 4 ##
