@@ -238,3 +238,10 @@
 	1. USB
 	2. Networking
 	3. Dummy filesystems
+6. Insert module	
+	1. `dmesg` - prints major and minor numbers
+	2. `mknod /dev/shakil1729 c 249 0` (take the numbers from the `dmesg`)
+	3. `echo "hello" > /dev/shakil1729`
+	4. `cat /dev/shakil1729`
+7. We can also use file open functions for the device in program
+	1. We can write and read from user program
