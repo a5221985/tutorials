@@ -179,7 +179,40 @@
 			SYSCALL_DEFINE(open, const char __user *, filename, int, flags, int, mods)
 			{
 				call do_sys_open(),
-				retu = do_sys_open(AT_FDCWD
+				ret = do_sys_open(AT_FDCWD, filename, flags, mode);
+				return value return by do_sys_open(),
+				return ret;
 			}
+			
+		1. Syscalls maps inputs to registers and emits an interrupt
+3. Gettid example:
+
+		#include <sys/syscall.h>
+		#include <sys/types.h>
+		#include <stdio.h>
+		#include <unistd.h>
+		#include <stdlib.h>
+		
+		int main()
+		{
+			pid_t tid;
+			tid = syscall(SYS_gettid); // raw syscall and there is no wrapper (we are wrapping it here)
+			printf("Thread ID: %d\n", tid);
+			printf("PID is: %d\n", getpid());
+			return 0;
+		}
+		
+	1. `gcc test_syscalls.c`
+	2. `./a.out`
+	3. `echo hello > /dev/shakilk1729`
+		1. It is converted to write system call
+		2. write internally calls SYS_write
+		3. Switches to kernel mode and sends data to kernel
+	4. `cat /dev/shakilk1729`
+		1. It is converted to read system call
+		2. Read internally calls SYS_read
+		3. Switches to kernel mode and reads data from kernel and copies to user space
+		4. Cat then displays the data
 
 ## Character Device Driver Part 4 ##
+1. [http://youtu.be/zJn4IbIbhmE](http://youtu.be/zJn4IbIbhmE)
