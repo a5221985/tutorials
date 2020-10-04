@@ -64,7 +64,21 @@
 ### IPC Using fork and pipe fd ###
 1. Fork and pipe
 
-		int fd = open(filename, flag) // unbuffered - directly goes to kernel (may do its own buffering)
-		FILE *fptr = fopen(pathname, mode); // associated with file descriptor which kernel maintains
+		int fd = open(filename, flag) // unbuffered - directly goes to kernel (may do its own buffering, firmware buffering is possible)
+		FILE *fptr = fopen(pathname, mode); // associated with file descriptor which kernel maintains, buffered data (on application side), linux kernel can do buffering and disk can also do
+	1. Kernel uses algorithms to flush data and where to write the data
+2. Fork constructs new process
+	1. If parent has fds, then child will inherit (IPC trick)
+	2. Other types of IPCs
+		1. Shared memory
+		2. Semaphores
+		3. Sockets
+		4. Netlinks
+3. `man 2 pipe`
+
+		int pipe(int pipefd[2]);
+		
+	1. Kernel internally opens a file and returns a fd
+		1. pipefd[0] will have the actual value
 
 ### popen IPC ###
