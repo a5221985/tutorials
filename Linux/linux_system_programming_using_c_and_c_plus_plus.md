@@ -206,4 +206,15 @@
 
 ## Section 3: Lab Setup and Virtualization ##
 ### Introduction to Virtualization ###
+1. What is Virtualization?
+	1. Virtualization is a means using which we run one operating system inside other to have the benefit of two or more operating systems running in the same physical device
+	2. Constructs a mechanism to emulate a hardware so that multiple Operating systems can be used in the same physical machine, each of the virtual machines or guests see exclusive access to underlying hardware
+2. What is Hypervisor?
+	1. Hypervisor is a piece of software which makes virtualization possible by abstracting guest machine from the physical hardware
+		1. Shares hardware
+			1. Authority to ensure sharing
+	2. Hypervisor abstracts or constructs a layer to separate or share resoruces like CPU, RAM, Disk, Keyboard and Peripherals or devices like USB stick, microphone etc
+3. OS talks to physical hardware directly usually
+	1. 
+
 ### Hypervisor and Its Type ###
