@@ -149,5 +149,33 @@
 				exit(0);
 			}
 		}
+		
+	1. Run the program
 
 ### popen IPC ###
+1. IPC - popen is an IPC mechanism
+	1. popen - pipe stream to or from a process (non-named pipe)
+
+			FILE *popen(const char *command, const char *type)
+			
+		1. It is a unidirectional pipe
+			1. `command` - could be binary or executable file or command
+			2. `type` - read or write
+			3. `P1 | P2` - only P1 can send data to P2 and not the other way
+		2. Shell pipe
+
+				vi text.txt
+				
+						Hi there
+						
+				cat text.txt
+				cat text.txt | wc -w # pipe to next command
+				
+		3. C version:
+
+				#include <stdio.h>
+				int main()
+				{
+					printf("hello there\n");
+					return 0;
+				}
