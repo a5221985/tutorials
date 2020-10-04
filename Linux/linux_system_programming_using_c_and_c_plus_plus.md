@@ -227,5 +227,9 @@
 5. Type 1: VMWare ESXI (different from workstation (desktop))
 	1. Directly runs on physical hardware and manages gues OSs
 		1. Enterprise solution
+6. Host versus Guest Machine
+	1. Host machines are the ones which directly interface with the hardware and guest machiens are the ones which interface with hibervisor (serves its request)
+	2. Hypervisor may send the request to kernel using Hyper-calls (Equivalent of system call as in Xen) or it interfaces with kernel directly as in KVM
+		1. It depends on whether hypervisor is of Type-I or Type-II
 
 ### Hypervisor and Its Type ###
