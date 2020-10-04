@@ -184,22 +184,26 @@
 					char buffer[BUFSIZ + 1]; // BIFSIZ - 8192 in Linux
 					int chars_read; // num of chars read
 					
-					memset(buffer, '\0', sizeof(buffer));
+					memset(buffer, '\0', sizeof(buffer)); // makes all 0s
 					
-					read_fp = popen("./hello", "r");
+					read_fp = popen("./hello", "r"); // opens pipe to the process, we can also run `ls -l`
 					
 					if (read_fp != NULL)
 					{
-						chars_read = fread(buffer, sizeof(char), BUFSIZ, read_fp);
+						chars_read = fread(buffer, sizeof(char), BUFSIZ, read_fp); // file stream pointer is used, number of bytes, buffer
 						if (chars_read > 0)
 						{
 							printf("Data received is:-\n%s\n", buffer);
 						}
 						
 						pclose(read_fp);
-						exit(EXIT_STATUS);
+						exit(EXIT_SUCCESS);
 					}
 					exit(EXIT_FAILURE);
 				}
 				
 			1. `file <file-name>` **(M)**
+
+## Section 3: Lab Setup and Virtualization ##
+### Introduction to Virtualization ###
+### Hypervisor and Its Type ###
