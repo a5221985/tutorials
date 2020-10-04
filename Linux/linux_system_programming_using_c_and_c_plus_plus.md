@@ -231,5 +231,15 @@
 	1. Host machines are the ones which directly interface with the hardware and guest machiens are the ones which interface with hibervisor (serves its request)
 	2. Hypervisor may send the request to kernel using Hyper-calls (Equivalent of system call as in Xen) or it interfaces with kernel directly as in KVM
 		1. It depends on whether hypervisor is of Type-I or Type-II
+7. Xen: Guest OS sets trap and hypercall is called based on trap
 
 ### Hypervisor and Its Type ###
+1. Types of Hypervisors
+	1. There are two types of Hypervisors namely Type-I and Type-II
+2. Type-I
+	1. A bare metal hypervisor isntalled directly on the physical hardware is called as Type-I hypervisor
+	2. Type-I hypervisors are more suitable for enterprise due to licensing cost and physical hardware requirement (no open source alternatives?)
+	3. Some Type-I hypervisors like ESXi or Microsoft Hyper-V can only be installed on Specific hardware
+	4. Type-I hypervisor is more performance centric
+	5. Drawback for type-I is they are mostly not free
+	6. Type-I hypervisor usually supports more RAM, CPU Cores and Disk
