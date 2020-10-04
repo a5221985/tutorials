@@ -55,3 +55,16 @@
 	1. Same fd is accessible to child as well
 	2. `O_TRUNC` - clears file for writing
 	3. `lseek` - resets pointer to start in this case
+		1. `man 2 lseek` # developers manual
+			1. SEEK_SET - offset is set to offest bytes from the beginning of the file
+			2. SEEK_CUR - current postion + indicated bytes
+			3. SEEK_END - size of file + offset
+
+## Section 2: Interprocess Communication in Linux (IPC) ##
+### IPC Using fork and pipe fd ###
+1. Fork and pipe
+
+		int fd = open(filename, flag) // unbuffered - directly goes to kernel (may do its own buffering)
+		FILE *fptr = fopen(pathname, mode); // associated with file descriptor which kernel maintains
+
+### popen IPC ###
