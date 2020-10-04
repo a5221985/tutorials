@@ -179,3 +179,5 @@
 					printf("hello there\n");
 					return 0;
 				}
+				
+			1. `file <file-name>` **(M)**
