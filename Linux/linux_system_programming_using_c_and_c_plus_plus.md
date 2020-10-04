@@ -94,6 +94,60 @@
 			1. Parent writes data and child reads the data
 5. Example:
 
+		#include <unistd.h>
+		#include <sys/types.h> <!-- types -->
+		#include <errno.h> <!-- perror, str value for errors -->
+		#include <stdio.h> <!-- printf, scanf -->
+		#include <stdlib.h> <!-- standard library malloc, calloc ... ->
+		#include <string.h> <!-- string support -->
 		
+		int main()
+		{
+			int pipe_fd[2];
+			pid_t pid;
+			char buffer[100];
+			int r_num;
+			memset(buffer, 0, sizeof(buffer));
+			char *data = "Hello There";
+			
+			if (pipe(pipe_fd) < 0)
+			{
+				print("pipe construct error\n");
+				return -1;
+			}
+			
+			if ((pid = fork()) == 0)
+			{
+				// Child process
+				// pipe_fd[0] and pipe_fd[1] are available here
+				// pipe_fd[0] is read end of pipe
+				
+				printf("Pid of child_process=%d= pid_of_childs_parents=%d\n", getpid(), getppid());
+				close(pipe_fd[1]);
+				
+				if ((r_num = read(pipe_fd[0], buffer, sizeof(buffer))) > 0)
+				{
+					printf("Data read from the child using pipe is = %s\n", buffer);
+				}
+				
+				sleep(1);
+				close(pipe_fd[0]);
+				exit(0);
+			} 
+			else if (pid > 0)
+			{
+				// pipe_fd[0] and pipe_fd[1] are available here
+				// pipe_fd[1] is write end of pipe
+				printf("Pid of Parent_process = %d= pid_of_Parents_parent= %d\n", getpid(), getppid());
+				close(pipe_fd[0]);
+				
+				sleep(1);
+				if (write(pipe_fd[1], data, strlen(data)) != -1)
+					printf("Parent Wrote the data = %s\n", data);
+				sleep(1);
+				close(pipe_fd[1]);
+				exit(0);
+			}
+		}
 
 ### popen IPC ###
