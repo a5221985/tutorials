@@ -80,6 +80,20 @@
 		
 	1. Kernel internally opens a file and returns a fd
 		1. pipefd[0] will have the actual file descriptor (not returned as output)
-		2. 
+4. Example:
+
+		pipe()
+		
+		P1 <- fd[0] (read end) -  P2
+		P1 - fd[1] (write end) -> P2
+		
+	1. fork() - (if parent writes to fd[1] then child will read using fd[0] & vice versa)
+		1. Child will get both file descriptors
+		2. Suppose we close fd0 in parent
+		3. Suppose we close fd1 in child
+			1. Parent writes data and child reads the data
+5. Example:
+
+		
 
 ### popen IPC ###
