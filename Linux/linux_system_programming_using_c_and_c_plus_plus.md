@@ -79,6 +79,7 @@
 		int pipe(int pipefd[2]);
 		
 	1. Kernel internally opens a file and returns a fd
-		1. pipefd[0] will have the actual value
+		1. pipefd[0] will have the actual file descriptor (not returned as output)
+		2. 
 
 ### popen IPC ###
