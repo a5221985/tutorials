@@ -252,3 +252,7 @@
 	3. More Suitable for Desktop and PC environments
 	4. Supports fewer physical resources. For example it may or may not support 512 GB RAM
 	5. Less performant than type-I hypervisor due to hosted OS acting in between, but still very good for Lab, students and development purpose
+		1. All calls go through host OS
+4. Architecturally they are different
+5. Example: VMware ESXI, KVM(Free) (need to have a know how, libvert), Microsoft Hyper-V (Free but subject to Windoes Licensing cost), Citrix Hypervisor, Oracle VirtualBox (Previously owned by Sun Microsystems) Free, VMware Workstation (For Windows and Linux), VMWare Fusion (For Mac Only), Parallels Desktop (For Mac Only)
+	1. KVM GUI?
