@@ -215,6 +215,17 @@
 			1. Authority to ensure sharing
 	2. Hypervisor abstracts or constructs a layer to separate or share resoruces like CPU, RAM, Disk, Keyboard and Peripherals or devices like USB stick, microphone etc
 3. OS talks to physical hardware directly usually
-	1. 
+	1. OS can talk to Hypervisor and Hypervisor can talk to Hardware (Type 2)
+4. Need for Hypervisor or Virtualization
+	1. Helps to develop and test solutions for multiple platforms from the same physical device
+	2. We can have the advantage of Windows GUI along with Linux's kernel and Shell access for better productivity
+	3. Helps in managing multiple OSs easily within the same physical hardware
+	4. Can be used for Malware detection as isolated network
+		1. Want to understand how malware behaves
+			1. May do anything to the machine (file creation, deletion, corruption, hijack system ...)
+	5. State can be maintained with snapshot for experiment. Like testing incompatible sets of packages with apt-get, or yum or python's pip
+5. Type 1: VMWare ESXI (different from workstation (desktop))
+	1. Directly runs on physical hardware and manages gues OSs
+		1. Enterprise solution
 
 ### Hypervisor and Its Type ###
