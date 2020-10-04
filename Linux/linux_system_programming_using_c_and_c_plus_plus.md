@@ -238,8 +238,17 @@
 	1. There are two types of Hypervisors namely Type-I and Type-II
 2. Type-I
 	1. A bare metal hypervisor isntalled directly on the physical hardware is called as Type-I hypervisor
-	2. Type-I hypervisors are more suitable for enterprise due to licensing cost and physical hardware requirement (no open source alternatives? KVM is free but has no user interface - may need own wrappers (spawing VM, refreshing VM, ... - library - libvert))
+	2. Type-I hypervisors are more suitable for enterprise due to licensing cost and physical hardware requirement (no open source alternatives? **KVM** is free but has no user interface - may need own wrappers (spawing VM, refreshing VM, ... - library - libvert) - need KVM internals knowledge)
 	3. Some Type-I hypervisors like ESXi or Microsoft Hyper-V can only be installed on Specific hardware
 	4. Type-I hypervisor is more performance centric
 	5. Drawback for type-I is they are mostly not free
 	6. Type-I hypervisor usually supports more RAM, CPU Cores and Disk
+		1. Example: 512 GB of RAM
+			1. Type-II may not support this huge ram
+	7. Examples: Oracle VM, Microsoft Hyper-V, VMWare ESXi, VMWare VSphere
+3. Type-2 Hypervisor
+	1. Type-2 Hypervisors are also called hosted hypervisor
+	2. Some of the type-2 hypervisors like Oracle's virtual box and Xen are free
+	3. More Suitable for Desktop and PC environments
+	4. Supports fewer physical resources. For example it may or may not support 512 GB RAM
+	5. Less performant than type-I hypervisor due to hosted OS acting in between, but still very good for Lab, students and development purpose
