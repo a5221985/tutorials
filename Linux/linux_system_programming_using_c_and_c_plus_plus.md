@@ -173,11 +173,33 @@
 				
 		3. C version:
 
+				#include <unistd.h> <!-- unix standard header file -->
+				#include <stdlib.h>
 				#include <stdio.h>
+				#include <string.h> <!-- string manipulation -->
+				
 				int main()
 				{
-					printf("hello there\n");
-					return 0;
+					FILE *read_fp; // file pointer
+					char buffer[BUFSIZ + 1]; // BIFSIZ - 8192 in Linux
+					int chars_read; // num of chars read
+					
+					memset(buffer, '\0', sizeof(buffer));
+					
+					read_fp = popen("./hello", "r");
+					
+					if (read_fp != NULL)
+					{
+						chars_read = fread(buffer, sizeof(char), BUFSIZ, read_fp);
+						if (chars_read > 0)
+						{
+							printf("Data received is:-\n%s\n", buffer);
+						}
+						
+						pclose(read_fp);
+						exit(EXIT_STATUS);
+					}
+					exit(EXIT_FAILURE);
 				}
 				
 			1. `file <file-name>` **(M)**
