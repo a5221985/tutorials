@@ -3397,9 +3397,52 @@
 3. More data one has, better the systems evolve (Businesses rely on data)
 	1. Businesses need customer data to make future plans & projections
 	2. Businesses need to understand user's needs and behaviour
-		1. 
+		1. For better products
+		2. For making smarter decisions
+		3. For running effective ad campaigns
+		4. For recommending new products to customers
+		5. For gaining better insights into market
+		6. ...
+			1. Customer-centric products
+			2. Increases customer loyalty
+4. Use case for streaming data:
+	1. Tracking service efficiency
+		1. Everything is okay signal (IoT devices (used by millions) say)
+	2. Implementations:
+		1. Time-series databases
+			1. Used to persist and run queries on real-time data (ingested from IoT devices)
+5. Next: Components in data stream processing
+	1. Key architectures in data processing
 
 ### Data Ingestion ###
+1. Topics
+	1. What is Data Ingestion?
+	2. Layers of Data Processing Setup
+	3. Data Standardization
+	4. Data Processing
+	5. Data Analysis
+	6. Data Visualiazation
+	7. Data Storage & Security
+
+#### What is Data Ingestion? ####
+1. Definition:
+
+		Data Ingestion is a collective term for the process of collecting data streaming-in from several different sources and making it ready to be processed by the system.
+		
+	1. 
+
+#### Layers of Data Processing Setup ####
+
+#### Data Standardization ####
+
+#### Data Processing ####
+
+#### Data Analysis ####
+
+#### Data Visualization ####
+
+#### Data Storage & Security ####
+
 ### Different Ways of Ingesting Data & the Challenges Involved ###
 ### Data Ingestion Use Cases ###
 ### Data Pipelines ###
