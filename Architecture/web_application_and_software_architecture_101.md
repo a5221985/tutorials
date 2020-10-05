@@ -3396,6 +3396,8 @@
 	1. Archive/purge not so meaningful data
 3. More data one has, better the systems evolve (Businesses rely on data)
 	1. Businesses need customer data to make future plans & projections
+	2. Businesses need to understand user's needs and behaviour
+		1. 
 
 ### Data Ingestion ###
 ### Different Ways of Ingesting Data & the Challenges Involved ###
