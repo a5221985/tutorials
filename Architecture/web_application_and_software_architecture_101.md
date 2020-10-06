@@ -3512,10 +3512,20 @@
 		1. Data can be ingested in batches
 			1. Example: popularity of sport in region over period of time
 4. Challenges when ingesting massive amounts of data:
-	1. 
+	1. Next - general use-cases
 
 #### Challenges with Data Ingestion ####
 ##### Slow Process #####
+1. Data ingestion is slow process
+	1. Why?
+		1. Sources send data in different formats & syntax, metadata (heterogeneous data)
+			1. Needs transformation into common format - JSON, ... (understood usually by analytics systems)
+				1. Conversion is tedious (needs computing resources & time)
+		2. Flowing data needs to be staged at several stages in the pipeline
+			1. It is picked and processed and moved ahead
+		3. Security
+			1. 
+
 ##### Complex & Expensive #####
 ##### Moving Data Around is Risky #####
 
