@@ -3636,8 +3636,53 @@
 
 #### What is ETL? ####
 1. ETL: Extract Transform Load
+2. Extract: Fetching data from single or multiple data sources
+3. Transform: Transform extracted heterogeneous data into standard format based on rules of business
+4. Load: Moving transformed data to data warehouse or a data storage location (for further processing)
+5. ETL vs Data pipeline:
+	1. Similar but ETL is done in batches (not streaming in real time)
+	2. This is not obsolete but needed if batch processing is needed for the project
+		1. Lambda & Kappa architectures of distributed data processing (next)
+6. Popular data processing tools:
+	1. **Apache Flink**
+	2. Storm
+	3. Spark
+	4. **Kafka**
+	5. ...
+7. **The tools facilitate processing data in a cluster, distributed environment via data pipelines**
+8. [Netflix case study of how they migrated from batch ETL to Stream processing using Kafka & Flink](https://www.infoq.com/articles/netflix-migrating-stream-processing/)
+9. Next:
+	1. What is distributed data processing?
+	2. How does it work?
 
 ### Distributed Data Processing ###
+1. Topics:
+	1. What is Distributed Data Processing?
+	2. Distributed Data Processing Technologies
+		1. MapReduce - Apache Hadoop
+		2. Apache Spark
+		3. Apache Storm
+		4. Apache Kafka
+2. Concepts:
+	1. How is distributed data processing different from centralized data processing system?
+	2. What architectures are involved in it?
+	3. ...
+
+#### What is Distributed Data Processing? ####
+1. Definition:
+
+		Distributed data processing means diverging large amounts of data to several different nodes, running in a cluster, for parallel processing
+
+#### Distributed Data Processing technologies ####
+
+##### MapReduce - Apache Hadoop #####
+
+##### Apache Spark #####
+
+##### Apache Storm #####
+
+##### Apache Kafka #####
+
 ### Lambda Architecture ###
 ### Kappa Architecture ###
 ### Stream Processing Quiz ###
