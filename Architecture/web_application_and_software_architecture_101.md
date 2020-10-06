@@ -3676,6 +3676,15 @@
 	1. All nodes execute allotted tasks parallelly
 	2. The nodes are coordinated by node-co-ordinator
 		1. Apache Zookeeper - popular node co-ordinator used in industry
+2. Advantages:
+	1. Nodes are distributed
+		1. Tasks are executed parallelly
+			1. Scalable
+			2. Highly available
+	2. Workload can be scaled
+		1. Horizontally
+		2. Vertically
+	3. Data made redundant & replicated across cluster to avoid data loss
 
 #### Distributed Data Processing technologies ####
 
