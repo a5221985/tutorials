@@ -3581,7 +3581,10 @@
 3. **As new data is persisted in main storage, it is asynchronously rivered to Elasticsearch server in real-time for indexing**
 
 #### Log Processing ####
-1. 
+1. Usually enterprise projects (non-hobby projects) would be running on cluster
+	1. Microservices generates massive amount of logs generated over a period of time
+		1. Logs: a way to move back in time, track errors, study behaviour of system
+			1. Need to stream logs to a central place for holistical study of behaviour
 
 ### Data Pipelines ###
 ### Distributed Data Processing ###
