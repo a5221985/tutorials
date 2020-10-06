@@ -3774,8 +3774,53 @@
 3. Batch processing:
 	1. Cons: Takes time (massive data business has produced over time)
 	2. Pros: High accuracy, comprehensive results
+4. Real-time streaming data processing:
+	1. Pros: Quick access to insights
+	2. Cons: Small portion of data hence less accurate and less comprehensive (as compared to batch processing)
+5. Lambda architecture: Makes most of two approaches
+
+#### Layers of the Lambda Architecture ####
+1. Three layers
+	1. Batch layer
+		1. Deals with results acquired via batch processing data
+	2. Speed layer
+		1. Deals with data from real-time straming data processing
+	3. Serving layer
+		1. Combines results from both (batch and speed layers)
 
 ### Kappa Architecture ###
+1. Topics:
+	1. What is Kappa Architecture?
+	2. Layers of Kappa Architecture
+
+#### What is Kappa Architecture? ####
+1. Definition
+
+		In Kappa architecture, all the data flows through a single data streaming pipeline as opposed to the Lambda architecture which has different data streaming layers that converge into one
+		
+2. Kappa data processing architecture:
+
+	![kappa_data_processing_architecture](kappa_data_processing_architecture.jpeg)
+	
+3. Real-time and batch processing data flows through single streaming pipeline 
+	1. Pros: reduces complexity of managing separate layers for processing data
+
+#### Layers of Kappa Architecture ####
+1. Kappa has 2 layers
+	1. Speed
+		1. Stream processing layer
+	2. Serving
+		1. Final layer
+2. Kappa is not alternative for Lambda
+	1. Both have their uses
+3. Use case:
+	1. Kappa is used if batch and streaming analytics are fairly identical in system
+	2. Lambda is used if batch and straming analytics are not identical
+4. Challenges:
+	1. Setting up and managing distributed data processing system is not trivial
+		1. Requires years of work in perfecting system
+		2. Strong consistency of data is not promised by distributed system
+
 ### Stream Processing Quiz ###
 
 ## More On Architecture ##
