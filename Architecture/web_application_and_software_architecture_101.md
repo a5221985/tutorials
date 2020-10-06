@@ -3538,10 +3538,31 @@
 
 ##### Complex & Expensive #####
 1. Data flow process is resource intensive
+	1. Lot of heavy lifting is required to prepare data before ingestion into system
+		1. Dedicated team might be required
+2. Available tools & frameworks may not serve their needs
+	1. We may need to write custom solution
+3. Gobblin:
+	1. Data ingestion tool by LinkedIn
+		1. LinkedIn had 15 data ingestion pipelines which caused challenges
+			1. [To tackle this problem, LinkedIn wrote Gobblin in-hause](https://engineering.linkedin.com/data-ingestion/gobblin-big-data-ease)
+				1. It is now part of Apache Software Foundation: [Gobblin](https://engineering.linkedin.com/blog/2018/01/gobblin-enters-apache-incubation)
+4. Semantics of external data can change sometimes (not under our control)
+	1. Needs changes in backend data processing code
+		1. IoT machines are evolving at a rapid pace
 
 ##### Moving Data Around is Risky #####
+1. Moving data around may open a possibility of a breach
+	1. It is vulnerable
+		1. Several staging areas are used (this needs meeting security standards at all times)
 
 ### Data Ingestion Use Cases ###
+1. Topics
+	1. Moving Big Data Into Hadoop
+	2. Streaming Data from Databases to Elasticsearch Server
+	3. Log Processing
+	4. Stream Processing Engines for Real-Time Events
+
 ### Data Pipelines ###
 ### Distributed Data Processing ###
 ### Lambda Architecture ###
