@@ -3585,8 +3585,25 @@
 	1. Microservices generates massive amount of logs generated over a period of time
 		1. Logs: a way to move back in time, track errors, study behaviour of system
 			1. Need to stream logs to a central place for holistical study of behaviour
+				1. Solutions: ELK Elastic LogStach Kibana stack
+
+#### Stream Processing Engines for Real-Time Events ####
+1. Real-time streaming, data processing (core component in systems with LIVE info (sports say))
+	1. Architecture should support
+		1. Efficient ingestions of data
+		2. Efficient analysis of data
+		3. Figuring out behaviour in real-time
+		4. Quick push updated info to fans
+2. Solutions: For large scale data processing in online applications
+	1. Kafka
+	2. Apache Spark
+	3. Samza
+	4. Kinesis
+3. Example: [Netflix's real-time streaming platform](https://medium.com/netflix-techblog/keystone-real-time-stream-processing-platform-a3ee651812a)
 
 ### Data Pipelines ###
+1. 
+
 ### Distributed Data Processing ###
 ### Lambda Architecture ###
 ### Kappa Architecture ###
