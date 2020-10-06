@@ -3602,7 +3602,19 @@
 3. Example: [Netflix's real-time streaming platform](https://medium.com/netflix-techblog/keystone-real-time-stream-processing-platform-a3ee651812a)
 
 ### Data Pipelines ###
-1. 
+1. Topics:
+	1. What are Data Pipelines?
+	2. Features of Data Pipelines
+	3. What is ETL?
+
+#### What are Data Pipelines? ####
+1. Definition:
+
+		Data pipelies are the core component of a data processing infrastructure. They facilitate the efficient flow of data from one point to another & also enable the developers to apply filters on the data streaming-in in real-time
+
+#### Features of Data Pipelines ####
+
+#### What is ETL? ####
 
 ### Distributed Data Processing ###
 ### Lambda Architecture ###
