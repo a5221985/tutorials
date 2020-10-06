@@ -3465,7 +3465,14 @@
 	2. **It is classified into different flows and routed to different destinations**
 
 #### Data Analysis ####
-1. 
+1. Once routed, analytics in run on data
+	1. Includes
+		1. Execution of analytics models
+			1. Predictive modelling
+			2. Statistical analytics
+			3. Text analytics
+			4. ...
+		2. Analytics occur in data analytics layer
 
 #### Data Visualization ####
 
