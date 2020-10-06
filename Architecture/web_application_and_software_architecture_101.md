@@ -3758,6 +3758,23 @@
 7. Next: Architectures involved
 
 ### Lambda Architecture ###
+1. Topics:
+	1. What is Lambda Architecture?
+	2. Layers of the Lambda Architecture
+
+#### What is Lambda Architecture? ####
+1. Definition:
+
+		Lambda is a distributed data processing architecture that leverages both the batch & the real-time streaming data processing approaches to tackle the latency issues arising out of the batch processing approach. It joins the results from both the approaches before presenting it to the end user.
+		
+2. Lambda data processing architecture:
+
+	![lambda_data_processing_architecture](lambda_data_processing_architecture.jpeg)
+	
+3. Batch processing:
+	1. Cons: Takes time (massive data business has produced over time)
+	2. Pros: High accuracy, comprehensive results
+
 ### Kappa Architecture ###
 ### Stream Processing Quiz ###
 
