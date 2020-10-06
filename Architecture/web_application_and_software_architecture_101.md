@@ -3580,6 +3580,9 @@
 2. Use case: Streaming & indexing large amount of data from legacy storage to ElasticSearch (for search capability)
 3. **As new data is persisted in main storage, it is asynchronously rivered to Elasticsearch server in real-time for indexing**
 
+#### Log Processing ####
+1. 
+
 ### Data Pipelines ###
 ### Distributed Data Processing ###
 ### Lambda Architecture ###
