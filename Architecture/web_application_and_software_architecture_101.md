@@ -3434,12 +3434,38 @@
 			1. Algorithms are run on the data and archived (eventually)
 
 #### Layers of Data Processing Setup ####
+1. Stages/layers of data processing setup:
+	1. Data collection layer
+	2. Data query layer
+	3. Data processing layer
+	4. Data visualization layer
+	5. Data storage layer
+	6. Data security layer
+2. Data ingestion
+
+	![data_ingestion](data_ingestion.jpeg)
 
 #### Data Standardization ####
+1. Data that sreams from different sources is not in homogeneous structured format
+2. Data streams into system at different speeds & sizes
+	1. From:
+		1. Web-based services
+		2. Social networks
+		3. IoT devices
+		4. Industrial machines
+		5. ...
+	2. Every stream of data has different semantics
+3. To make data uniform and fit for processing:
+	1. Data must be collected and converted into standardized format to avoid future processing issues
+		1. Occurrs in *Data collection and preparation layer*
 
 #### Data Processing ####
+1. Next the standardized data is routed to *Data processing layer*
+	1. Data is processed based on business requirements
+	2. **It is classified into different flows and routed to different destinations**
 
 #### Data Analysis ####
+1. 
 
 #### Data Visualization ####
 
