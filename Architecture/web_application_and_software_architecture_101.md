@@ -3530,7 +3530,8 @@
 3. **How to achieve realtime data ingestion?**
 	1. Data processing technology and frameworks are evolving (which can beat traditional data processing systems)
 	2. Analytics info obtained from real-time processing is not accurate & holistic
-		1. Analytics continually runs on limited set of data
+		1. Analytics continually runs on limited set of data (as it streams)
+			1. More time we spend on studying data, the more the accuracy of results is
 
 ##### Complex & Expensive #####
 ##### Moving Data Around is Risky #####
