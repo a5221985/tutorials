@@ -3562,6 +3562,23 @@
 	2. Streaming Data from Databases to Elasticsearch Server
 	3. Log Processing
 	4. Stream Processing Engines for Real-Time Events
+2. Next: Data streaming use cases commonly required in industry
+
+#### Moving Big Data into Hadoop ####
+1. Most popular use case
+2. Big data sources
+	1. IoT devices
+	2. Social apps
+	3. ...
+3. Data streams through data pipelines
+	1. Moves into most popular distributed data processing framework Hadoop (for analytics ...)
+
+#### Streaming Data from Databases to Elasticsearch Server ####
+1. Elasticsearch - opensource framework to implement search in web apps
+	1. Defacto search framework used in industry (due to advanced features)
+	2. Open source: enables businesses to write own custom solutions
+2. Use case: Streaming & indexing large amount of data from legacy storage to ElasticSearch (for search capability)
+3. **As new data is persisted in main storage, it is asynchronously rivered to Elasticsearch server in real-time for indexing**
 
 ### Data Pipelines ###
 ### Distributed Data Processing ###
