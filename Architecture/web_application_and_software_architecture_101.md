@@ -3532,8 +3532,13 @@
 	2. Analytics info obtained from real-time processing is not accurate & holistic
 		1. Analytics continually runs on limited set of data (as it streams)
 			1. More time we spend on studying data, the more the accuracy of results is
+				1. Architectures for data processing:
+					1. Lambda architecture
+					2. Kappa architecture
 
 ##### Complex & Expensive #####
+1. Data flow process is resource intensive
+
 ##### Moving Data Around is Risky #####
 
 ### Data Ingestion Use Cases ###
