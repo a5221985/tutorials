@@ -3672,6 +3672,10 @@
 1. Definition:
 
 		Distributed data processing means diverging large amounts of data to several different nodes, running in a cluster, for parallel processing
+		
+	1. All nodes execute allotted tasks parallelly
+	2. The nodes are coordinated by node-co-ordinator
+		1. Apache Zookeeper - popular node co-ordinator used in industry
 
 #### Distributed Data Processing technologies ####
 
