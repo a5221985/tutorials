@@ -3482,6 +3482,7 @@
 
 #### Data Storage & Security ####
 1. Moving data is vulnerable to security breaches
+	1. Ensures secure movement of data
 
 ### Different Ways of Ingesting Data & the Challenges Involved ###
 ### Data Ingestion Use Cases ###
