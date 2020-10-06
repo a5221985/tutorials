@@ -3611,10 +3611,31 @@
 1. Definition:
 
 		Data pipelies are the core component of a data processing infrastructure. They facilitate the efficient flow of data from one point to another & also enable the developers to apply filters on the data streaming-in in real-time
+		
+2. Today's enterprises are (usually) data driven
+	1. Hence data pipelines become important to them for scalable analytics systems
 
 #### Features of Data Pipelines ####
+1. Features of pipelines:
+	1. Ensure smooth flow of data
+	2. Enables business to apply filters and business logic on streaming data
+	3. Avert any bottlenecks & redundancy in data flow
+	4. Facilitate parallel processing of data
+	5. Avoid data being corrupted
+2. Pipelines work on set of rules predefined by engineering teams
+	1. Data is routed without manual intervention (automated)
+		1. Data extraction
+		2. Data transformation
+		3. Data combination
+		4. Data validation
+		5. Data converging (from multiple streams into one)
+3. Parallel processing of data
+	1. Done by managing multiple streams (distributed data processing - next)
+4. ETL - limitation: cannot handle real-time streaming
+	1. Solution: Data pipelines
 
 #### What is ETL? ####
+1. ETL: Extract Transform Load
 
 ### Distributed Data Processing ###
 ### Lambda Architecture ###
