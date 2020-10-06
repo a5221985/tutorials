@@ -3685,12 +3685,40 @@
 		1. Horizontally
 		2. Vertically
 	3. Data made redundant & replicated across cluster to avoid data loss
+3. Distributed data processing:
+
+	![distributed_data_processing](distributed_data_processing.jpeg)
+	
+4. Distributed environment advantages:
+	1. Helps accomplish task in significantly less amount of time
+		1. Tasks are shared by several nodes
+			1. Centralized system may need queue to process one by one
 
 #### Distributed Data Processing technologies ####
+1. Popular technologies for large scale data processing
 
 ##### MapReduce - Apache Hadoop #####
+1. MapReduce - programming model for distributed data processing across several different machines in cluster
+	1. Tasks are distributed to several machines
+	2. Machines run work in parallel
+	3. Machines manage communication and data transfer within different parts of system
+2. Map: sorting data based on parameter
+3. Reduce: Summarizing sorted data
+4. Implementation: Apache Hadoop (MapReduce programming model)
+	1. Used by:
+		1. Twitter (for analytics)
+		2. Facebook (for storing big data)
 
 ##### Apache Spark #####
+1. Open source cluster computing framework
+2. Provides high performance for 
+	1. batch processing
+	2. real-time in-stream processing
+3. Works with many types of data sources
+4. Facilitates parallel execution of work in cluster
+5. It has cluster manager
+	1. Facilitates communication between different nodes running together in cluster
+6. It has distributed data storage
 
 ##### Apache Storm #####
 
