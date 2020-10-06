@@ -3472,11 +3472,16 @@
 			2. Statistical analytics
 			3. Text analytics
 			4. ...
-		2. Analytics occur in data analytics layer
+		2. Analytics occur in *data analytics layer*
 
 #### Data Visualization ####
+1. After analytics is run
+	1. Info is routed to *Data visutalization layer*
+		1. This layer presents data to the stakeholders (usually in web-based dashboard)
+			1. Example: Kibana (data visualization tool)
 
 #### Data Storage & Security ####
+1. Moving data is vulnerable to security breaches
 
 ### Different Ways of Ingesting Data & the Challenges Involved ###
 ### Data Ingestion Use Cases ###
