@@ -3719,10 +3719,43 @@
 5. It has cluster manager
 	1. Facilitates communication between different nodes running together in cluster
 6. It has distributed data storage
+	1. For storage of big data
+	2. Spark integration with distributed data stores:
+		1. Cassandra
+		2. HDFS
+		3. MapReduce File System
+		4. Amazon S3
+		5. ...
 
 ##### Apache Storm #####
+1. It is distributed stream processing framework
+2. It is used for processing massive amounts of streaming data
+3. Use cases:
+	1. Real-time analytics
+	2. Machine learning
+	3. Distributed remote procedure calls
+	4. ...
 
 ##### Apache Kafka #####
+1. Open source distributed stream processing & messaging platform
+2. Written in
+	1. Java
+	2. Scala
+3. Developed by LinkedIn
+4. Model:
+	1. Storage:
+		1. Has distributed scalable pub/sub message queue
+			1. Helps read & write strams of data as messaging system
+5. Kafka is used for real time features
+	1. Notification platforms
+	2. Managing streams of massive amounts of data
+	3. Monitoring website activity & metrics
+	4. Messaging
+	5. Log aggregation
+6. Choice:
+	1. Batch processing: Hadoop
+	2. Real-time streaming data: Spark, Kafka, Storm
+7. Next: Architectures involved
 
 ### Lambda Architecture ###
 ### Kappa Architecture ###
