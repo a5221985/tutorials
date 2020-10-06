@@ -3483,8 +3483,42 @@
 #### Data Storage & Security ####
 1. Moving data is vulnerable to security breaches
 	1. Ensures secure movement of data
+2. Data storage layer
+	1. For persisting data
+3. Data analytics:
+	1. It is deep
+		1. In depth microscopic view of each layer needs **dedicated analytics course**
+4. Next: ways in which data can be injested
 
 ### Different Ways of Ingesting Data & the Challenges Involved ###
+1. Topics:
+	1. Different Ways to Injest Data
+	2. Challenges with Data Ingestion
+		1. Slow Process
+		2. Complex & Expensive
+		3. Moving Data Around is Risky
+
+#### Different Ways to Ingest Data ####
+1. Two primary ways
+	1. Real-time
+	2. Batches (runs at regular intervals)
+2. Picking the type: Depends on business requirements
+3. Use cases:
+	1. Real-time
+		1. Reading medical data (time is of critical importance - time, life and money are linked)
+			1. Heartbeat (wearable IoT device)
+			2. Blood pressure (wearable IoT device)
+	2. Reading trends over time
+		1. Data can be ingested in batches
+			1. Example: popularity of sport in region over period of time
+4. Challenges when ingesting massive amounts of data:
+	1. 
+
+#### Challenges with Data Ingestion ####
+##### Slow Process #####
+##### Complex & Expensive #####
+##### Moving Data Around is Risky #####
+
 ### Data Ingestion Use Cases ###
 ### Data Pipelines ###
 ### Distributed Data Processing ###
