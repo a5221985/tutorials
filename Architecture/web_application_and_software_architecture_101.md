@@ -3429,7 +3429,7 @@
 
 		Data Ingestion is a collective term for the process of collecting data streaming-in from several different sources and making it ready to be processed by the system.
 		
-	1. Data injested from IoT devices & other sources into system 
+	1. Data processing system: Data is injested from IoT devices & other sources into system to be analysed
 
 #### Layers of Data Processing Setup ####
 
