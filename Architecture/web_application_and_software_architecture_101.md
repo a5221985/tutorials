@@ -3524,7 +3524,13 @@
 		2. Flowing data needs to be staged at several stages in the pipeline
 			1. It is picked and processed and moved ahead
 		3. Security
-			1. 
+			1. Each stage may have to authenticate & verify (to meet organizations security standards)
+2. Traditional data ingestion systems may need weeks if not months to get useful info
+	1. ETL is not effective anymore
+3. **How to achieve realtime data ingestion?**
+	1. Data processing technology and frameworks are evolving (which can beat traditional data processing systems)
+	2. Analytics info obtained from real-time processing is not accurate & holistic
+		1. Analytics continually runs on limited set of data
 
 ##### Complex & Expensive #####
 ##### Moving Data Around is Risky #####
