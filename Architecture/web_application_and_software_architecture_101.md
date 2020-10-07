@@ -3825,6 +3825,12 @@
 
 ## More On Architecture ##
 ### Event Driven Architecture - Part 1 ###
+1. Topics:
+	1. What is Blocking?
+	2. What is Non-Blocking?
+2. Web 2.0 applications
+	1. 
+
 ### Event Driven Architecture - Part 2 ###
 ### Web Hooks ###
 ### Shared Nothing Architecture ###
