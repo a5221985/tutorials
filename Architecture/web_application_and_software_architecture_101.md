@@ -3915,8 +3915,35 @@
 	![event_driven_architecture](event_driven_architecture.jpeg)
 
 #### Technologies for Implementing the Event Driven Architecture ####
+1. Example: Spring framework added Spring Reactor module, NodeJS, Akka.io, Play, ...
+2. Thread-based frameworks: Reactive event-driven applications are difficult to implement (right away)
+	1. Dealing with threads, shared mutable state, locks ... is complex
+3. Everything is treated as a stream in event-driven system (abstraction)
+	1. Developers don't have to worry about managing low level memory stuff
+4. Examples of data streams:
+	1. Transaction events
+	2. Changing stock market prices
+	3. User events on online shopping application
+	4. ...
+5. NodeJS - single threaded non-blocking framework
+	1. It can handle IO intensive tasks
+		1. Uses event loop architecture: [Event loop architecture](https://nodejs.org/fa/docs/guides/event-loop-timers-and-nexttick/)
+6. [LinkedIn uses Play framework for identifying online status of users](https://www.8bitmen.com/linkedin-real-time-architecture-how-does-linkedin-identify-its-users-online/)
+7. Traditional tech is not obsolete but has it's own use cases
+	1. NodeJS is not a good fit for CPU intensive tasks
+		1. Examples: Graphics rendering, ML algorithms, data in enterprise systems... (need transactions and blocking ...)
+8. Next: Guidelines to picking up the right backend tehcnology
 
 ### Web Hooks ###
+1. Topics:
+	1. What are Web Hooks?
+	2. How do Web Hooks Work?
+
+#### What are Web Hooks? ####
+1. 
+
+#### How Do Web Hooks Work? ####
+
 ### Shared Nothing Architecture ###
 ### Hexagonal Architecture ###
 ### More on Architecture Quiz - Part 1 ###
