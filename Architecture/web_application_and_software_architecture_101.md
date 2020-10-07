@@ -4046,6 +4046,7 @@
 	2. Torrent
 3. P2P Network
 	1. It is a network in which computers (nodes) can communicate with each other without need of central server
+		1. Rules out possibility of single point of failure
 
 ### Peer to Peer Architecture - Part 2 ###
 ### Decentralized Social Networks ###
