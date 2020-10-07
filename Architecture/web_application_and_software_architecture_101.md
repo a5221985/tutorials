@@ -3984,6 +3984,29 @@
 2. Hexagonal architecture:
 
 	![hexagonal_architecture](hexagonal_architecture.jpeg)
+	
+3. Focus: Making components
+	1. Independent
+	2. Loosely coupled
+	3. Easy to test
+4. Application must be testable (without any changes) by:
+	1. Humans
+	2. Automated tests
+	3. Mock databases
+	4. Mock middleware
+	5. With UI
+	6. Without UI
+5. Pattern:
+	1. **Domain** (business logic) is at the core
+		1. External entities cannot directly access this component
+	2. **Ports** (outer layer) are like API, interface
+		1. All input to app goes through interface
+	3. **Adapters** (outer layer) - implementations of the interface
+		1. These convert data obtained from Ports to be processed by business logic
+6. Business logic is at the center
+7. Input/Output is at the edge of the structure
+8. Hexagonal shape: Just a visual representation of the architecture
+	1. Prevous name: **Ports and Adapters pattern**
 
 #### Real World Code Implementation ####
 
