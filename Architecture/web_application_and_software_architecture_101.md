@@ -4021,6 +4021,15 @@
 2. Layers of a web application
 
 	![layers_of_a_web_application](layers_of_a_web_application.jpeg)
+	
+3. Hexagoal approach is an evolution of layered architecture (not entirely different)
+	1. If Business logic stays in one place
+		1. Problem: large repos may have too many layers beside regular service, repo & business ones
+			1. Business logic gets scattered across layers
+				1. Makes testing, refactoring, pluggability difficult
+					1. Business logic in stored procecures
+					2. Business logic coupled with UI in JSP (Java Server Pages)
+	2. 
 
 ### More on Architecture Quiz - Part 1 ###
 ### Peer to Peer Architecture - Part 1 ###
