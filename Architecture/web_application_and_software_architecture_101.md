@@ -3829,7 +3829,10 @@
 	1. What is Blocking?
 	2. What is Non-Blocking?
 2. Web 2.0 applications
-	1. 
+	1. Reactive programming
+	2. Event-driven architecture
+	3. Blocking & Non-blocking
+3. What are reactive programming, event-driven architecture, blocking & non-blocking?
 
 ### Event Driven Architecture - Part 2 ###
 ### Web Hooks ###
