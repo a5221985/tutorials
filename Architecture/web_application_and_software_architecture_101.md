@@ -4035,6 +4035,18 @@
 
 ### More on Architecture Quiz - Part 1 ###
 ### Peer to Peer Architecture - Part 1 ###
+1. Topics:
+	1. What is a Peer to Peer (P2P) Network?
+	2. What Does a Central Server Mean?
+	3. Downsides of Centralized Systems
+	4. What is a Decentralized Architecture?
+	5. Advantages of a Peer to Peer Network
+2. P2P architecture use cases: (seeding, leeching...)
+	1. Blockchain technology
+	2. Torrent
+3. P2P Network
+	1. It is a network in which computers (nodes) can communicate with each other without need of central server
+
 ### Peer to Peer Architecture - Part 2 ###
 ### Decentralized Social Networks ###
 ### Federated Architecture ###
