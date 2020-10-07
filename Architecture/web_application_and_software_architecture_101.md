@@ -4029,7 +4029,9 @@
 				1. Makes testing, refactoring, pluggability difficult
 					1. Business logic in stored procecures
 					2. Business logic coupled with UI in JSP (Java Server Pages)
-	2. 
+	2. Business logic must not be coupled with UI and persistence layers
+		1. Only an inside component must hold the business logic
+			1. Then outside layer, ports and adapters can have (databases, message queues, APIs ...)
 
 ### More on Architecture Quiz - Part 1 ###
 ### Peer to Peer Architecture - Part 1 ###
