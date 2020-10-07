@@ -3853,8 +3853,50 @@
 	1. Cons: Not consistent - function might throw an error without returning a result but code in the sequence is still executed
 	2. Pros: Good for IO (Input-Output) intensive operations
 		1. IO intensive: disk, hardware based operations, communication network operations...
+2. Next:
+	1. What are events?
+	2. What is event-driven architecture?
+	3. What technologies are used to implement it?
 
 ### Event Driven Architecture - Part 2 ###
+1. Topics:
+	1. What are Events?
+	2. Event-Driven Architecture
+	3. Technologies for Implementing the Event Driven Architecture
+
+#### What are Events? ####
+1. Two kinds of processes in general exist
+	1. CPU intensive
+	2. IO intensive
+		1. Events in web-app context
+			1. If lot of IO operations are occurring, it means lot of events are occurring over a period of time
+				1. Event:
+					1. Tweet
+					2. Click of a button
+					3. HTTP request
+					4. Ingested message
+					5. Change in value of a variable
+					6. ...
+2. Web 2.0 real-time apps have lot of events
+	1. Example:
+		1. Request-response between client and server
+			1. Online game
+			2. Messaging app
+			3. ...
+	2. **Stream of events**: Events happening too often (stream-processing may be required)
+
+#### Event-Driven Architecture ####
+1. Reactive or Event-driven architecture - It is a non-blocking architecture
+	1. Popular in web application development
+2. Examples:
+	1. NodeJS
+	2. Java
+		1. Play
+		2. Akka.io
+3. The frameworks and technologies are built for modern high IO scalable applications
+
+#### Technologies for Implementing the Event Driven Architecture ####
+
 ### Web Hooks ###
 ### Shared Nothing Architecture ###
 ### Hexagonal Architecture ###
