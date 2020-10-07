@@ -3833,6 +3833,26 @@
 	2. Event-driven architecture
 	3. Blocking & Non-blocking
 3. What are reactive programming, event-driven architecture, blocking & non-blocking?
+	1. Examples of techs gaining popularity:
+		1. NodeJS, Play, Tornado, [Akka.io](http://akka.io/)
+	2. Why?
+		1. Demands of modern software application development
+			1. Real-time apps need:
+				1. Persistent connections
+				2. Asynchronous behaviour
+
+#### What is Blocking? ####
+1. Blocking: flow of execution is blocked waiting for a process to complete
+	1. Until process completes, it cannot move on
+		1. Example: every line of code invokes another function
+			1. Flow is blocked until external function returns response
+				1. A solution: Asynchronous behaviour - annotate and move the task to separate thread (not usual)
+
+#### What is Non-Blocking? ####
+1. Flow doesn't wait for first function called to return response. It moves on to execute next lines of code
+	1. Cons: Not consistent - function might throw an error without returning a result but code in the sequence is still executed
+	2. Pros: Good for IO (Input-Output) intensive operations
+		1. IO intensive: disk, hardware based operations, communication network operations...
 
 ### Event Driven Architecture - Part 2 ###
 ### Web Hooks ###
