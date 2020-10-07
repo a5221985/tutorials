@@ -3962,9 +3962,31 @@
 	1. Websites notify us when they publish new content
 
 ### Shared Nothing Architecture ###
-1. 
+1. Shared nothing architecture:
+	1. If modules work in conjunction with each other, they often share RAM, disk, database etc...
+		1. If architecture of system where modules or services share nothing
+2. Definition:
+
+		Shared Nothing Architecture means eliminating all single points of failure. Every module has its own memory, own disk. So even if several modules in the system go down, the other modules online stay unaffected. It also helps with the scalability and performance.
+		
+3. Next: Hexagonal architecture
 
 ### Hexagonal Architecture ###
+1. Topics:
+	1. What is a Hexagonal Architecture?
+	2. Real World Code Implementation
+
+#### What is a Hexagonal Architecture? ####
+1. The architecture has 3 components:
+	1. Ports
+	2. Adapters
+	3. Domain
+2. Hexagonal architecture:
+
+	![hexagonal_architecture](hexagonal_architecture.jpeg)
+
+#### Real World Code Implementation ####
+
 ### More on Architecture Quiz - Part 1 ###
 ### Peer to Peer Architecture - Part 1 ###
 ### Peer to Peer Architecture - Part 2 ###
