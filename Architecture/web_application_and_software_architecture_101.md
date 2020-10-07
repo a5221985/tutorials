@@ -3894,6 +3894,25 @@
 		1. Play
 		2. Akka.io
 3. The frameworks and technologies are built for modern high IO scalable applications
+	1. They can handle big number of concurrent connections with minimal resource consumption
+	2. Modern applications may need fully asynchronous model to scale (web frameworks provide reliable behaviour in distributed environment)
+		1. Capabilities:
+			1. Can run on cluster
+			2. Can handle large scale concurrent scenarios
+			3. Can tackle problems that occur in clustered environment
+	3. The technologies and frameworks enable us write code without worrying about how to handle
+		1. Multi-threads
+		2. Thread-lock
+		3. Out of memory issues (due ot IO ...)
+4. Event-driven reactive architecture
+	1. Reacting to events occurring regularly - code is written to react to events instead of sequentially moving through lines of codes
+		1. Stream of events
+			1. System must be continously monitoring the stream to react to events
+	2. It is all about processing **asynchronous data streams**
+		1. App is inherently asynchronous
+5. Event-driven architecture:
+
+	![event_driven_architecture](event_driven_architecture.jpeg)
 
 #### Technologies for Implementing the Event Driven Architecture ####
 
