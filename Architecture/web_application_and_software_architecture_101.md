@@ -3940,11 +3940,30 @@
 	2. How do Web Hooks Work?
 
 #### What are Web Hooks? ####
-1. 
+1. Example: API which provides exclusive events on Baseball
+	1. Suppose API is consumed by lot of third-party services that fetch info from the API (add some flavour to it) and present it to users
+		1. Problems: Too many API requests too freqently if an event occurs may crush the server (spike)
+			1. Server may not be able to keep up with the requests (even if event has not occurred yet if polling is used)
+		2. Solution: WebHooks
+			1. They are like callbacks
+				1. Calls you back when new info is available
+2. Webhooks: Enables communication between services without middleware
+	1. It uses event-based mechanism
 
 #### How Do Web Hooks Work? ####
+1. Consumers register an HTTP endpoint with service with a unique API key (like a phone number - to call on that number when an event occurs)
+2. Whenever new info is available on backend:
+	1. Server fires HTTP event to all registered endpoints of consumers (notifies them of new update)
+3. Web Hook:
+
+	![web_hook](web_hook.jpeg)
+	
+4. Examples: Browser notifications
+	1. Websites notify us when they publish new content
 
 ### Shared Nothing Architecture ###
+1. 
+
 ### Hexagonal Architecture ###
 ### More on Architecture Quiz - Part 1 ###
 ### Peer to Peer Architecture - Part 1 ###
