@@ -4007,8 +4007,20 @@
 7. Input/Output is at the edge of the structure
 8. Hexagonal shape: Just a visual representation of the architecture
 	1. Prevous name: **Ports and Adapters pattern**
+		1. Analogy:
+			1. Computer ports - input interface to external devices
+			2. Adapters - converts signals obtained from ports to be processed by chips inside
 
 #### Real World Code Implementation ####
+1. Layered architecture?
+	1. Controller
+	2. Service layer interface
+	3. Class implementations of interface
+	4. Business logic goes in Domain model
+	5. Repository classes
+2. Layers of a web application
+
+	![layers_of_a_web_application](layers_of_a_web_application.jpeg)
 
 ### More on Architecture Quiz - Part 1 ###
 ### Peer to Peer Architecture - Part 1 ###
