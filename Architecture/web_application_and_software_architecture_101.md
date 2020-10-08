@@ -4382,8 +4382,46 @@
 	3. Running monitoring & analytics (on large amount of data)
 2. Requirements: Performance is critical for CPU and memory intensive apps
 	1. High latency & memory consumption can blow up the economy of a tech company
+		1. Regular scripting languages are not good for number crunching
+	2. Solution: Tech commonly used in industry to write - performant, scalable, distributed systems
+		1. C++
+			1. Low-level memory manipulation features
+			2. More control over memory to developers when writing distributed systems
+				1. [Majority of the cryptocurrencies are written using this language](https://en.wikipedia.org/wiki/List_of_cryptocurrencies)
+		2. Rust
+			1. Similar to C++
+				1. High performance
+				2. Safe concurrency
+			2. Gaining popularity among dev circles
+		3. Java, Scala, Erlang - good picks
+			1. Most large scale enterprise systems are written in Java
+				1. [Elastisearch](https://en.wikipedia.org/wiki/Elasticsearch) - open-source real-time search and analytics engine is written in Java
+			2. Erlang
+				1. Functional language
+				2. Built in support for concurrency
+				3. Built in support for Fault-tolerance
+				4. Built in support for distribution
+				5. Facilitates development of massively scalable systems
+				6. [Good read on Erlang](https://stackoverflow.com/questions/1636455/where-is-erlang-used-and-why)
+			3. Go
+				1. To write apps for multi-core machines
+				2. For handling large amount of data
+			4. Julia
+				1. Dynamic programming language
+				2. Built for high performance
+				3. For running computations
+				4. For numerical analytics
+3. Next: Things to keep in mind when researching on picking fitting tech stack for project
 
 ### Key Things to Remember When Picking the Tech Stack ###
+Topics:
+	1. Be Thorough with the Requirements
+	2. See if What We Already Know Fits the Requirements
+	3. Does the Tech We Have Picked Has an Active Community? How is the Documentation & the Support?
+	4. Is the Tech Being Used by Big Guns in Production?
+	5. Check the License. Is it Open Source?
+	6. Availability of Skilled Resources on the Tech
+
 ### Conclusion ###
 
 ## Case Studies ##
