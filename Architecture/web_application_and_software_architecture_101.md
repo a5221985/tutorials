@@ -4430,10 +4430,37 @@
 		1. Example: database
 			1. Is it relational or document oriented database?
 			2. Is it semi structured or no structure?
+			3. Large data and expected to grow exponentially?
+			4. Small data and expected to grow at manageable pace unto certain limit?
+		2. Will monolithic architecture server the requirements well?
+		3. Does it need splitting up into several modules?
+			1. If different technologies are required if things don't work with one technology or not
 
 #### See if What We Already Know Fits the Requirements ####
+1. It is easier to build new apps with tech we already know
+	1. Steep learning curve can be avoided with new tech
+2. Things are clearer if we use tech we are familiar with
+	1. Nitty-gritty
+	2. Familiarity with errors & exceptions
+	3. Knowledge to fix the errors 
+		1. Helps release features at quick pace
+3. Avoid running for shiny new toys unless we need them
+	1. If new tech throws an exception that we have never seen before, and we cannot find solution online - no help
 
 #### Does the Tech We Have Picked Has An Active Community? How is the Documentation & the Support? ####
+1. Tech that we pick has to have an active community
+	1. Check GitHub
+	2. Check StackOverflow
+	3. ...
+2. Docs should be smooth and easy to comprehend
+3. Larger the community, the better it is
+	1. Active community means
+		1. Updated tools
+		2. Updated libraries
+		3. Updated frameworks
+		4. ...
+	2. Check if official support exists for the tech
+		1. If we are stuck we might need help
 
 #### Is the Tech Being Used by Big Guns in Production? ####
 
