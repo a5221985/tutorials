@@ -4092,8 +4092,44 @@
 	3. Writing to physical memory is also expensive and resource intensive and also additional courier expenses are incurred
 2. Solution: Peer to peer file sharing
 	1. Almost no costs
+		1. Implementations: BitTorrent (common P2P protocol to distribute data and large electronic files over internet)
+			1. A torrent file is created
+			2. Share the torrent file with all folks
+				1. Folks have to put the torrent in bittorrent client & start the download
+				2. The folks can host (seed) files for others to simultaneously download
+3. Next: deep dive into P2P architecture
 
 ### Peer to Peer Architecture - Part 2 ###
+1. Topics:
+	1. What is a Peer to Peer Architecture? How Does it Work?
+	2. Types of P2P Networks
+		1. Unstructured Network
+		2. Structured Network
+		3. Hybrid Network
+
+#### What is a Peer to Peer Architecture? How Does it Work? ####
+1. P2P architecture is designed around several nodes in network taking part equally acting as client and server
+2. Architecture:
+
+	![peer_to_peer_architecture](peer_to_peer_architecture.jpeg)
+	
+3. Data is exchanged over TCP IP (like HTTP protocol in client-server model)
+	1. P2P has overlay network over TCP IP
+		1. The network enables users to connect directly
+		2. Takes care of complexities and heavy lifting
+		3. Nodes/Peers are indexed & discoverable in the overlay network
+		4. Large file is transfered between nodes by dividing it into chunks of equal size in non-sequential order
+			1. 75 GB file say
+		5. Other nodes in network which need the file locate the system containing the file
+		6. The nodes download the file in chunks
+		7. The donwloaded chunk is hosted simultaneously (makes it available to other users)
+
+#### Types of P2P Networks ####
+
+##### Structured Network #####
+
+##### Hybrid Model #####
+
 ### Decentralized Social Networks ###
 ### Federated Architecture ###
 ### More on Architecture Quiz - Part 2 ###
