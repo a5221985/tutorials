@@ -4539,8 +4539,15 @@
 	4. Offers real-time traffic conditions
 	5. Offers API for writing map-based games like Pokemon Go
 	6. ...
+2. The massive sucessful services are result of years of evolution and iterative development
+	1. Built feature by feature for years and perfected
+		1. Google-maps started as desktop-based software written in C++ & evolved over years
 
 #### Read-Heavy Application ####
+1. This application is read-heavy & not write-heavy
+	1. End-users are not generating content in application over time
+		1. Some write is performed but negligible in comparison to write-heavy apps like Twitter or Instagram
+2. Solution: Caching (reducing load on database)
 
 #### Data Type: Spatial ####
 
