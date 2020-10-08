@@ -4151,6 +4151,18 @@
 
 ##### Hybrid Model #####
 1. Implementations: Majority of blockchain startups
+2. What is hybrid model?
+	1. Cherry-picking good stuff from all models
+		1. P2P
+		2. client-server
+		3. ...
+3. In p2p network, no single entity has full control
+	1. For control, we need a server (client-server model)
+4. Pros of P2P network:
+	1. More availability - to take it down, we need to take down all nodes (may be across the globe)
+	2. Highly scalable - load is not put on single node (and is usually shared)
+		1. Bandwidth and storage space is also shared
+		2. Auto-scaling - when new users use the app, system scales automatically
 
 ### Decentralized Social Networks ###
 ### Federated Architecture ###
