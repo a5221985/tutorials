@@ -4073,10 +4073,25 @@
 2. Cons: data breaches happen, government gets access to data
 	1. Data is sometimes sold to third parties for profits
 3. Example: National security, enterprise officials cannot use central server messaging apps (not secure)
+4. Second: If natural disaster occurs say (earthquake, infrastructure failure, org going out of business)
+	1. Communication is broken
+5. Third: Suppose there is lot of content on social media and one day organization might just delete all of that (this is a big loss)
+6. P2P networks are resilient to all the scenarios. They have decentralized architecture
+
+	![p2p_architecture](p2p_architecture.jpeg)
 
 #### What is a Decentralized Architecture? ####
+1. No one has control over own data
+2. No one has power to delete the data (all participants have equal rights)
+3. If servers are dead, one can still communicate with each other via peer to peer connection
 
 #### Advantages of a Peer to Peer Network ####
+1. Sharing huge data (gigabytes) with friends
+	1. Messengers have memory limit
+	2. Uploading to cloud needs a lot of storage space
+	3. Writing to physical memory is also expensive and resource intensive and also additional courier expenses are incurred
+2. Solution: Peer to peer file sharing
+	1. Almost no costs
 
 ### Peer to Peer Architecture - Part 2 ###
 ### Decentralized Social Networks ###
