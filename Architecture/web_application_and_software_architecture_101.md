@@ -4176,8 +4176,28 @@
 			2. Peer to Peer digital cryptocurrencies like Bitcoin, Peercoin
 			3. GitTorrent (a decentralized GitHub which uses BitTorrent and Bitcoin)
 			4. Twister (decentralized microblogging service - uses WebTorrent for media attachments)
+6. Next: Federated architecture - extension of decentralized architecture (used in decentralized social networks)
 
 ### Decentralized Social Networks ###
+1. Topics:
+	1. What is a Decentralized Social Network?
+	2. What are the Features of Decentralized Social Networks?
+		1. Bring Your Own Data
+		2. Ensuring the Safety of Our Data
+		3. Economic COmpensation to the Parties Involved in the Network
+		4. Infrastructure Ease
+2. What are decentralized social networks? 
+3. Why should we care about them?
+4. How is decentralized social network different from centrlaized social network?
+
+#### What is a Decentralized Social Network? ####
+
+#### What are the Features of Decentralized Social Networks? ####
+
+##### Bring Your Own Data #####
+##### Ensuring the Safety of Our Data #####
+##### Economic Compensation to the Parties Involved in the Network #####
+
 ### Federated Architecture ###
 ### More on Architecture Quiz - Part 2 ###
 
