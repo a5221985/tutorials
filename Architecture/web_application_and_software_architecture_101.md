@@ -4463,12 +4463,35 @@
 		1. If we are stuck we might need help
 
 #### Is the Tech Being Used by Big Guns in Production? ####
+1. If big guns use it, it might mean it is battle-tested
+	1. Might be usable in production
+		1. We might not face issues with scalability, security, ... and design related issues
+		2. The code base is mostly continually patched with new updates, bugs & design fixes
+	2. Engineering blogs can be scanned to get more info on how they have implemented the tech
 
 #### Check the License. Is it Open Source? ####
+1. Open-source technology helps us write custom features (if original solution does not have it)
+	1. One need not rely on original author for new features
+2. Open-source products are usually free to use
+3. Open-source tech (popular ones at-least) usually has larger community (since code is open)
+	1. Anyone can fork it
+	2. Anyone can start writing new features or fix known bugs
 
 #### Availability of Skilled Resources on the Tech ####
+1. If business gains traction:
+	1. One needs to move at quick pace & roll out new features within stipulated time
+		1. This needs enough skilled resources in industry on tech we pick
+			1. It is easier to find MySQL admin or Java developer than the ones on newer technologies
 
 ### Conclusion ###
+1. Overview:
+	1. UI to backend layers
+	2. Caching
+	3. Database
+	4. Messaging
+	5. Data processing
+	6. Pipelines
+	7. ...
 
 ## Case Studies ##
 ### A Web-Based Mapping Service ###
