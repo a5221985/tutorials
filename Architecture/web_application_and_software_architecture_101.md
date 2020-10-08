@@ -4414,13 +4414,32 @@
 3. Next: Things to keep in mind when researching on picking fitting tech stack for project
 
 ### Key Things to Remember When Picking the Tech Stack ###
-Topics:
+1. Topics:
 	1. Be Thorough with the Requirements
 	2. See if What We Already Know Fits the Requirements
 	3. Does the Tech We Have Picked Has an Active Community? How is the Documentation & the Support?
 	4. Is the Tech Being Used by Big Guns in Production?
 	5. Check the License. Is it Open Source?
 	6. Availability of Skilled Resources on the Tech
+2. Picking appropriate tech stack is crucial for success of business
+	1. Once choice is made it is difficult to change it
+
+#### Be Thorough with the Requirements ####
+1. Need to be crystal clear as to what we are going to build (no room for hazyness)
+	1. Need to be clear on what we are looking for
+		1. Example: database
+			1. Is it relational or document oriented database?
+			2. Is it semi structured or no structure?
+
+#### See if What We Already Know Fits the Requirements ####
+
+#### Does the Tech We Have Picked Has An Active Community? How is the Documentation & the Support? ####
+
+#### Is the Tech Being Used by Big Guns in Production? ####
+
+#### Check the License. Is it Open Source? ####
+
+#### Availability of Skilled Resources on the Tech ####
 
 ### Conclusion ###
 
