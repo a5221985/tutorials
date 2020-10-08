@@ -4236,9 +4236,41 @@
 2. Win-win for everyone
 
 ##### Infrastructure Ease #####
-1. 
+1. Single entity does not bear entire cost of infrastructure (it is decentralized)
+	1. Possibility of network going down is negligible probabilistically (unless such a disaster strikes)
+	2. Individual developer can build cool stuff without worrying about server costs
+		1. Data (like blockchain ledger) is replicated across nodes
+		2. If few nodes go down, data is not lost
+2. Social networks are written on protocols and software which are open source
+	1. Community can improve the code
+	2. Community can build awesome features
+3. **ActivityPub**
+	1. It is open decentralized social networking protocol
+	2. It provides API for modifying & accessing content on network
+	3. It provides API for communicating with other pods in federation
+4. Decentralized web applications are expected to grab big chunk of market share
+5. Next: Federated architecture
 
 ### Federated Architecture ###
+1. Topics:
+	1. What is a Federated Architecture?
+	2. How is Federated Architecture Implemented in Decentralized Social Networks?
+	3. What is the Need for Pods?
+
+#### What is a Federated Architecture? ####
+1. It is extension to decentralized architecture
+	1. Examples:
+		1. Powers social networks
+			1. Mastadon
+			2. Minds
+			3. Diaspora
+2. Federated: Group of semi-autonomous entities exchanging info with each other
+	1. Example analogy: States of a country managed by state governments
+
+#### How is Federated Architecture Implemented in Decentralized Social Networks? ####
+
+#### What is the Need for Pods? ####
+
 ### More on Architecture Quiz - Part 2 ###
 
 ## Picking the Right Technology ##
