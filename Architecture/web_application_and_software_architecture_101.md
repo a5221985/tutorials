@@ -4338,12 +4338,50 @@
 1. P2P distributed search engine (say)
 2. P2P Live TV radio service (say)
 3. Example: LiveStation by Microsoft
+4. Solution:
+	1. JavaScript
+		1. Protocols: DAT, IPFS
+			1. FreedomJS: Framework for P2P web apps that work with modern web browsers
+5. [Netflix researching on Peer to peer technology for streaming data](https://arstechnica.com/information-technology/2014/04/netflix-researching-large-scale-peer-to-peer-technology-for-streaming/)
 
 #### CRUD-Based Regular Application ####
+1. Example: Online movie booking portal
+2. Example: Tax filing app
+3. CRUD (Create Read Update Delete)
+	1. Most common form of web-apps built for businesses
+		1. Online booking portal
+		2. App collecting user data or social site
+		3. ...
+	2. They are based on MVC (Model View Controller) architecture (on backend)
+4. UI: React, Angular, Vue
+5. Popular technologies for the use cases
+	1. Spring MVC
+	2. Python Django
+	3. Ruby on Rails
+	4. PHP Laravel
+	5. ASP .NET MVC
 
 #### Simple, Small Scale Applications ####
+1. Examples:
+	1. Simple online form
+	2. Simple app to integrate with social media (that run within iFrame of portal)
+	3. Browser-based games
+		1. Airline
+		2. Football manager
+		3. Strategy
+2. Can use PHP
+	1. Other frameworks:
+		1. Spring boot (verbosity and configuration is minimized)
+		2. Ruby on Rails
+	2. Pros of PHP: Hosting is cheaper (good for simple use cases)
 
 #### CPU & Memory Intensive Applications ####
+1. CPU intensive, memory intensive and computational tasks on backend
+	1. Big Data processing
+	2. Parallel processing
+	3. Running monitoring & analytics (on large amount of data)
+2. Requirements: Performance is critical for CPU and memory intensive apps
+	1. High latency & memory consumption can blow up the economy of a tech company
 
 ### Key Things to Remember When Picking the Tech Stack ###
 ### Conclusion ###
