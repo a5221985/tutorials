@@ -4266,8 +4266,22 @@
 			3. Diaspora
 2. Federated: Group of semi-autonomous entities exchanging info with each other
 	1. Example analogy: States of a country managed by state governments
+		1. Partially self governing
+		2. Power is exercised to run things smoothly
+		3. State govts share info with each other & with central government (complete autonomy)
+	2. Technically:
+		1. It is under research, development & evolution
+		2. No standard rules
+			1. Developers and architects can have their own rules (not under control of single entity)
 
 #### How is Federated Architecture Implemented in Decentralized Social Networks? ####
+1. Parts:
+	1. Servers or pods: There are many
+		1. Linked to each other
+		2. Share info with each other
+		3. Can be hosted by individuals (as in decentralized network)
+		4. New pods hosted grows the network
+	2. Large number of nodes subscribe to pods
 
 #### What is the Need for Pods? ####
 
