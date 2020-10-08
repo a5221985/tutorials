@@ -4123,12 +4123,34 @@
 		5. Other nodes in network which need the file locate the system containing the file
 		6. The nodes download the file in chunks
 		7. The donwloaded chunk is hosted simultaneously (makes it available to other users)
+			1. Segmented P2P file transfer
+4. Network is classified into structured, unstructured and hybrid models based on how peers are linked with each other in network
 
 #### Types of P2P Networks ####
+##### Unstructured Network #####
+1. Notes/peers keep conneting with each other randomly (no structure, no rule)
+	1. Just connect and grow the network
+2. There is no indexing of nodes
+3. If data is required, we need to scan all the nodes
+	1. O(n) in complexity (n is number of nodes in the network)
+	2. Resource intensive
+	3. Suppose billion systems are connected and if file is stored in one system
+		1. Worst case is that we need to search n - 1 nodes to get the location of the file (O(n))
+	4. Implementations:
+		1. Gossip
+		2. Kazaa
+		3. Gnutella
 
 ##### Structured Network #####
+1. Structured P2P network holds proper indexing of nodes or topology
+	1. Makes it easier to search for specific data
+2. This kind of network implements **distributed hash table** to index nodes
+	1. Index: It is like index of a book to find a piece of information in the book (instead of search the whole book)
+3. Implementation:
+	1. BitTorrent
 
 ##### Hybrid Model #####
+1. Implementations: Majority of blockchain startups
 
 ### Decentralized Social Networks ###
 ### Federated Architecture ###
