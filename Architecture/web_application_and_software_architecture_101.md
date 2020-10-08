@@ -4281,14 +4281,33 @@
 		2. Share info with each other
 		3. Can be hosted by individuals (as in decentralized network)
 		4. New pods hosted grows the network
+			1. If links between pods breaks temporarily, network is still up
+				1. Nodes subscribed to the single pod can communicate with each other (atleast)
 	2. Large number of nodes subscribe to pods
+2. Federated architecture:
+
+	![federated_architecture](federated_architecture.jpeg)
 
 #### What is the Need for Pods? ####
+1. Can the nodes not be linked to each other (like in regular peer to peer network)?
+	1. Cons of having pods:
+		1. Node discovery: Pods faciliate this
+			1. In P2P there is not an easy way to discover other nodes (there is a need for centralized node registry)
+				1. Alternative - run scan through the network to discover other nodes (time consuming and tedious)
+				2. Solution: Pod
+2. Next: Picking right server-side tehcnology
 
 ### More on Architecture Quiz - Part 2 ###
 
 ## Picking the Right Technology ##
 ### How to Pick the Right Server-Side Technology? ###
+1. Topics:
+	1. Real-Time Data Interaction
+	2. Peer-to-Peer Web Application
+	3. CRUD-based Regular Application
+	4. Simple, Small Scale Applications
+	5. CPU & Memory Intensive Applications
+
 ### Key Things to Remember When Picking the Tech Stack ###
 ### Conclusion ###
 
