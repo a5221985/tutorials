@@ -4219,10 +4219,24 @@
 ##### Bring Your Own Data #####
 1. Our own data can be carried to myriad of applications
 	1. Blockchain economy leverages in video games
+		1. in-game currency bought by players (swords, powers, ...) can be carried forward and used in other games (based on decentralized protocol)
+		2. If game goes offline, the in-game items bought still hold value
 
 ##### Ensuring the Safety of Our Data #####
+1. No evesdropping of private orgs on our data
+2. We can decide with whom we want to share our data
+3. Data is encrypted for everyone including tech team of network
+4. No selling of data for personal profits
+
 ##### Economic Compensation to the Parties Involved in the Network #####
+1. Examples: Diaspora, Sola, Friendica have features that would financially compensate all parties involved in network
+	1. Users get compensated for awsome stuff shared online
+	2. Users get compensated (in tokens or equity ... as per economic policy of network) if they share computing power to host network
+	3. Teams (involved in moderating network, developers writing features) get compensated by enabling content-relevant ads on network (or by token-based economy of platform)
+2. Win-win for everyone
+
 ##### Infrastructure Ease #####
+1. 
 
 ### Federated Architecture ###
 ### More on Architecture Quiz - Part 2 ###
