@@ -4307,6 +4307,43 @@
 	3. CRUD-based Regular Application
 	4. Simple, Small Scale Applications
 	5. CPU & Memory Intensive Applications
+2. There is no direct mapping between use case X and technology Y
+	1. Business requirements are a factor
+		1. Give uniqueness to the use case
+			1. There is room for creativity
+3. Following are general scenarios or common use cases & fitting backend technology
+
+#### Real-Time Data Interaction ####
+1. If application needs real-time interaction with backend server
+	1. Streaming data to and fro
+		1. Example: Messaging application
+		2. Real-time browser-based massive multiplayer game
+		3. Real-time collaborative text editor
+		4. Audio-video streaming app (Spotify, Netflix etc...)
+	2. Solution:
+		1. Persistent connection between client and server
+		2. Non-blocking technology on back-end
+	3. Implementations:
+		1. NodeJS
+		2. Python with Tornado
+		3. Java:
+			1. Spring Reactor
+			2. Play
+			3. [Akka.io](http://akka.io/)
+		4. Go through architecture, concepts in dev docs (for further insight into how things work, what other techs and concepts can be leveraged to implement the use case ...)
+			1. [Uber used NodeJS to write their core trip execution engine](https://eng.uber.com/uber-tech-stack-part-two/)
+				1. It can manage large number of concurrent connections
+
+#### Peer to Peer Web Application ####
+1. P2P distributed search engine (say)
+2. P2P Live TV radio service (say)
+3. Example: LiveStation by Microsoft
+
+#### CRUD-Based Regular Application ####
+
+#### Simple, Small Scale Applications ####
+
+#### CPU & Memory Intensive Applications ####
 
 ### Key Things to Remember When Picking the Tech Stack ###
 ### Conclusion ###
