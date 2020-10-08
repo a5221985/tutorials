@@ -4162,7 +4162,20 @@
 	1. More availability - to take it down, we need to take down all nodes (may be across the globe)
 	2. Highly scalable - load is not put on single node (and is usually shared)
 		1. Bandwidth and storage space is also shared
+			1. No third party server bandwidth costs and storage costs required
 		2. Auto-scaling - when new users use the app, system scales automatically
+	3. Secure - no third party intervention
+		1. Share stuff only with friends we intend to share
+5. Decentralized web:
+	1. Disruptive tech
+		1. Use case examples:
+			1. Blockchain
+			2. Cryptocurrency
+		2. Implementations:
+			1. Tradepal
+			2. Peer to Peer digital cryptocurrencies like Bitcoin, Peercoin
+			3. GitTorrent (a decentralized GitHub which uses BitTorrent and Bitcoin)
+			4. Twister (decentralized microblogging service - uses WebTorrent for media attachments)
 
 ### Decentralized Social Networks ###
 ### Federated Architecture ###
