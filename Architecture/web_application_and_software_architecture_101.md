@@ -4047,6 +4047,36 @@
 3. P2P Network
 	1. It is a network in which computers (nodes) can communicate with each other without need of central server
 		1. Rules out possibility of single point of failure
+		2. All computers in network have equal rights
+4. Seeder & leecher
+	1. node acts as both seeder and leecher at the same time
+		1. If some of the computers go down, rest of the network is up
+	2. Seeder: node which hosts data on its system and provides bandwidth to upload data to network
+	3. Leecher: node which downloads data from network
+5. Peer to peer architecture:
+
+	![peer_to_peer_architecture](peer_to_peer_architecture.jpeg)
+	
+#### What Does a Central Server Mean? ####
+1. Use case: Messaging app (centralized systes)
+	1. First user sends message from his device
+	2. Message moves on server of ogranization hosting messaging service
+		1. Central server
+	3. From messaging server, message is routed to destination (device of user receiving message)
+2. What is the issue? 
+
+#### Downsides of Centralized Systems ####
+1. First: Central server has access to all messages
+	1. It can read
+	2. It can share with associates
+	3. ... (not secure)
+2. Cons: data breaches happen, government gets access to data
+	1. Data is sometimes sold to third parties for profits
+3. Example: National security, enterprise officials cannot use central server messaging apps (not secure)
+
+#### What is a Decentralized Architecture? ####
+
+#### Advantages of a Peer to Peer Network ####
 
 ### Peer to Peer Architecture - Part 2 ###
 ### Decentralized Social Networks ###
