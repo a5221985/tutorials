@@ -4492,9 +4492,74 @@
 	5. Data processing
 	6. Pipelines
 	7. ...
+	8. Tiers in software arch
+	9. Communication over web
+	10. Scalability
+	11. High availability
+	12. Monolith
+	13. Microservices
+	14. Notification systems working principle
+	15. Webhooks working principle
+	16. Best database?
+	17. Best backend?
+	18. Front-end languages?
+	19. Web architecture
+	20. Monolith vs microservice and use cases
+	21. Technology to pick based on use case
+	22. Research on tech
+2. Next: Case studies
 
 ## Case Studies ##
 ### A Web-Based Mapping Service ###
+1. Topics:
+	1. A Little Background on Google Maps
+	2. Read-Heavy Application
+	3. Data Type: Spatial
+	4. Database
+	5. Architecture
+	6. Backend Technology
+	7. Monolith vs Microservice
+		1. APIs
+	8. Server-Side Rendering of Map Tiles
+	9. User Interface
+	10. Real-Time Features
+2. This is not system design lesson
+	1. No database design
+	2. No traffic estimations
+	3. No code
+	4. ...
+3. Covers only architectural aspects of service
+4. Covers how do concepts learn't apply
+
+#### A Little Background on Google Maps ####
+1. [Google Maps](https://cloud.google.com/maps-platform/)
+	1. It is web-based mapping service by Google
+	2. Offers satellite imagery
+	3. Offers route planning features
+	4. Offers real-time traffic conditions
+	5. Offers API for writing map-based games like Pokemon Go
+	6. ...
+
+#### Read-Heavy Application ####
+
+#### Data Type: Spatial ####
+
+#### Database ####
+
+#### Architecture ####
+
+#### Backend Technology ####
+
+#### Monolith vs Microservice ####
+
+##### APIs #####
+
+#### Server-Side Rendering of Map Tiles ####
+
+#### User Interface ####
+
+#### Real-Time Features ####
+
 ### A Baseball Game Ticket Booking Web Portal ###
 
 ## Mobile Apps ( - New - ) ##
