@@ -4191,12 +4191,38 @@
 4. How is decentralized social network different from centrlaized social network?
 
 #### What is a Decentralized Social Network? ####
+1. Decentralized social networks have servers spread across the globe
+2. The servers are hosted by individuals
+3. No one has autonomous control over network (everyone has equal say)
+4. Pros:
+	1. No scalability issues
+		1. Scalability is directly proportional to number of users joining & active on network
+	2. No evesdrops on conversations or has rights to modify our data at whim
+		1. We can host data from our systems (sending to third-party server is not required)
+5. BYOD - Bring Your Own Data
+6. What does it mean?
+	1. User data layer is separate
+	2. The data runs on standardized protocols
+		1. The protocols are designed for decentralized web
+		2. Data formats & protocols are consistent across networks & apps
+	3. Getting out of social network doesn't kill the data (it is kept with us)
+		1. If we sign up into another app, it is carried to that app
+7. Implementations:
+	1. Minds
+	2. Mastodon
+	3. Diaspora
+	4. Friendica
+	5. Sola
+	6. ...	
 
 #### What are the Features of Decentralized Social Networks? ####
-
 ##### Bring Your Own Data #####
+1. Our own data can be carried to myriad of applications
+	1. Blockchain economy leverages in video games
+
 ##### Ensuring the Safety of Our Data #####
 ##### Economic Compensation to the Parties Involved in the Network #####
+##### Infrastructure Ease #####
 
 ### Federated Architecture ###
 ### More on Architecture Quiz - Part 2 ###
