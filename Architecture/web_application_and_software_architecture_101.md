@@ -4770,9 +4770,35 @@
 2. UI can be made responsive
 	1. Fans can access it via devices with different screen sizes
 		1. UI should be smart enough to adjust itslef based on screen size
+	2. Implementation:
+		1. CSS3 from ground up
+		2. Bootstrap JS - open source and supports responsive design out of the box
+	3. Frameworks:
+		1. React JS
+		2. Angular JS
+		3. Vue JS
+	4. Why frameworks?
+		1. Popular in industry
+		2. Businesses prefer to use them to standardize behaviour & implementation of apps
 
 ## Mobile Apps ( - New - ) ##
 ### Introduction ###
+1. Topics:
+	1. The Arrival of Handheld Devices
+	2. The Transition from Desktop to Mobile
+
+#### The Arrival of Handheld Devices ####
+1. Mobile devices seem to have max market penetration globally
+	1. Approx 60 to 70% of users are accessing online services through mobile devices (as compared to desktops or laptops)
+	2. Possible reasons:
+		1. Accessibility
+		2. Ease of use
+		3. Portability (can carry mobiles almost anywhere)
+		4. Doesn't need much expertise to operate mobile phone
+	3. Mobile devices are well designed even for new users
+
+#### The Transition from Desktop to Mobile ####
+
 ### Before You Design Your Mobile App ###
 ### Responsive Interfaces ###
 ### Types of Mobile Apps - Part 1 ###
