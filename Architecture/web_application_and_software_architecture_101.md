@@ -4550,8 +4550,39 @@
 2. Solution: Caching (reducing load on database)
 
 #### Data Type: Spatial ####
+1. Mapping app has spatial data
+	1. Data with objects representing geometric info like
+		1. Points
+		2. Lines
+		3. Polygons
+	2. Data also has alphanumeric stuff
+		1. [Geohash](https://en.wikipedia.org/wiki/Geohash)
+			1. Latitudes
+			2. Longitutes
+			3. GIS - Geographical Information System data
+			4. ...
+	3. Solution: Dedicated spatial databases are available to persist this kind of data
+		1. MySQL
+		2. [MongoDB](https://docs.mongodb.com/manual/core/geospatial-indexes/)
+		3. [CouchDB](https://github.com/couchbase/geocouch/)
+		4. Neo4J
+		5. [Redis](https://github.com/EverythingMe/geodis)
+		6. [Google Big Query GIS](https://cloud.google.com/bigquery/docs/gis-intro)
+			1. They also suppoert persistence of spatial data
+				1. Plugin installation may be required
+		7. [Spacial databases](https://en.wikipedia.org/wiki/Spatial_database)
 
 #### Database ####
+1. Coordinates are stored in database
+2. If user runs search for specific location
+	1. Coordinates are fetched from db
+	2. Coordinates (numbers) are converted into map image
+3. Traffic surge can occur during
+	1. Peek office hours
+	2. Festivals
+	3. Major events in city
+4. Dynamic horizontal scalability is required to manage traffic spikes
+	1. App must be elastic to scale up and down on the fly
 
 #### Architecture ####
 
