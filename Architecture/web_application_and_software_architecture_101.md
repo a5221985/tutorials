@@ -4720,8 +4720,14 @@
 
 #### Database ####
 1. Key thing: 
+	1. Sale of tickets online
+		1. Needs foolproof payment system (fans need to be taken care of properly)
+	2. This needs strong consistency & trnasactional support
+		1. Needs ACID compliance
+			1. Relational database: MySQL (say)
 
 #### Handling Concurrency ####
+1. 
 
 ##### Message Queue #####
 
