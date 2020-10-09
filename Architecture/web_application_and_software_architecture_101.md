@@ -4821,6 +4821,25 @@
 	3. Mobile Friendly - Responsive
 	4. What Approach Should You Choose For Your Business?
 	5. Real Life Examples
+2. If we are in initial planning & design phase of service or have web-based service up and running
+	1. Do thorough market research in niche before writing mobile app for service
+		1. It may be a good to have but not necessary
+			1. Mobile app may involve significant cost and a dedicated mobile team
+			2. Mobile app development has steep learning curve
+				1. Hand-held devices are battery powered
+					1. CPU, Storage, RAM, Data are limited
+				2. It needs different approach
+					1. Facbook, Instagram etc.. do a lot of R & D & strategizing when developing apps
+
+#### Mobile Only ####
+
+#### Mobile First ####
+
+#### Mobile Friendly - Responsive ####
+
+#### What Approach Should You Choose For Your Business? ####
+
+#### Real Life Examples ####
 
 ### Responsive Interfaces ###
 ### Types of Mobile Apps - Part 1 ###
