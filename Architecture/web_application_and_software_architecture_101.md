@@ -4808,9 +4808,20 @@
 	2. Better engagement rate was observed via mobile versions
 		1. Montly Active Users (MOU) increased
 		2. Daily Active Users (DAU) increased
-	3. 
+3. Mobile devices are bringing in large (may be majority) of traffic for business
+4. Next:
+	1. Mobile-only
+	2. Mobile-first
+	3. Mobile-friendly
 
 ### Before You Design Your Mobile App ###
+1. Topics:
+	1. Mobile Only
+	2. Mobile First
+	3. Mobile Friendly - Responsive
+	4. What Approach Should You Choose For Your Business?
+	5. Real Life Examples
+
 ### Responsive Interfaces ###
 ### Types of Mobile Apps - Part 1 ###
 ### Types of Mobile Apps - Part 2 ###
