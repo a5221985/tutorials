@@ -4796,8 +4796,19 @@
 		3. Portability (can carry mobiles almost anywhere)
 		4. Doesn't need much expertise to operate mobile phone
 	3. Mobile devices are well designed even for new users
+	4. There is a trend where businesses are opting for mobile first approach
 
 #### The Transition from Desktop to Mobile ####
+1. Smartphone hardware significantly improved
+	1. Cool cameras
+	2. Better memory
+	3. ...
+2. Many games transitioned to mobile devices
+	1. Better user retention was observed
+	2. Better engagement rate was observed via mobile versions
+		1. Montly Active Users (MOU) increased
+		2. Daily Active Users (DAU) increased
+	3. 
 
 ### Before You Design Your Mobile App ###
 ### Responsive Interfaces ###
