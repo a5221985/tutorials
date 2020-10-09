@@ -4727,11 +4727,27 @@
 			1. Relational database: MySQL (say)
 
 #### Handling Concurrency ####
-1. 
+1. Application should be able to handle high number of concurrent connections
+	1. There could be a surge of fans at the portal (may be at the time it is made available)
+	2. Number of requests may be much more than tickets available
+		1. n requests might come for one ticket
+2. How to implement the scenario?
 
 ##### Message Queue #####
+1. One approach: Queu all ticket buying requests in message queue
+	1. Apply FIFO principle
+		1. Handling concurrent reqeusts with message 	queue
 
 ##### Database Locks #####
+1. Use right transaction isolation level
+	1. Ensures consistency in database
+		1. [Good read on it](https://en.wikipedia.org/wiki/Isolation_(database_systems))
+		2. [Snapshot Isolation](https://en.wikipedia.org/wiki/Snapshot_isolation)
+	2. Can only be implemented with ACID compliant databases (like MySQL)
+		1. In e-commerce sites or booking travel tickets: tickets shown on website are not accurate (they are cached values)
+			1. When user moves on to buy particular ticket, checks out cart:
+				1. System polls database for accurate value
+				2. System locks resource for transaction
 
 #### Caching ####
 
