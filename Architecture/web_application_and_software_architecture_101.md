@@ -4583,12 +4583,45 @@
 	3. Major events in city
 4. Dynamic horizontal scalability is required to manage traffic spikes
 	1. App must be elastic to scale up and down on the fly
+		1. We can pick up from multiple databases
+			1. Relational
+			2. Non-relational
+				1. Choice: Map does not contain many relationships (doesn't need normalization for non-redundancy)
+					1. Co-ordinates are fetched and processed on request
+				2. NoSQL is inherently horizontally scalable
+		2. Since it is read heavy, relational database can also be used with cacing
+			1. Real-time use cases with lot of updates is a challenge (how?)
+5. Features of Google Maps:
+	1. Real-time live traffic patterns
+	2. Real-time info on congested routes
+	3. Real-time suggestion of alternative routes as we drive
+	4. ...
 
 #### Architecture ####
+1. Client-server architecture
+	1. We need control over the service
+	2. P2P may not be a good option 
 
 #### Backend Technology ####
+1. Server side languages:
+	1. Java
+	2. Scala
+	3. Python
+	4. Go
+2. Mature backend stack is okay
+	1. Java
+		1. It is performant
+		2. Heavily used for writing scalable distributed systems
+		3. Heavily used for enterprise development
 
 #### Monolith vs Microservice ####
+1. Which one?
+	1. Need to go through the features of the service
+		1. Core feature
+			1. Map search
+			2. Plan routes based on different modes of travel (car, walking, cycling, ...)
+			3. When trip starts, map offers alternative route locations in real-time
+			4. Service need to adjust map based on user's real-time location & destination
 
 ##### APIs #####
 
