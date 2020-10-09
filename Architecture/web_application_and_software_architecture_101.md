@@ -4621,9 +4621,24 @@
 			1. Map search
 			2. Plan routes based on different modes of travel (car, walking, cycling, ...)
 			3. When trip starts, map offers alternative route locations in real-time
-			4. Service need to adjust map based on user's real-time location & destination
+			4. Service needs to adjust map based on user's real-time location & destination
 
 ##### APIs #####
+1. Google offers different APIs (for third party developers)
+	1. Direction API
+	2. Distance Matrix API
+		1. How much time it might take to reach a destination depending on mode of travel
+			1. Walking
+			2. Flying
+			3. Driving
+		2. Realtime alternative routes are displayed with predictive modelling (based on machine learning algorithms)
+	3. Geocoding API
+		1. For coverting numbers into actual places & back
+	4. Places API
+	5. Roads API
+	6. Elevation API
+	7. Time Zone API
+	8. Custom search API
 
 #### Server-Side Rendering of Map Tiles ####
 
