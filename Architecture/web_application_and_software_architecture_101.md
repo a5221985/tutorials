@@ -4661,10 +4661,49 @@
 			1. The map can be broken down into tiles that enable system to generate only part of the map user engages with
 			2. Smaller times also help with zoom in and out options
 				1. Only sections of map are refreshed in tiles
+				2. Rendering entire map each time is resource intensive
+			3. The map can be generated in server and tiles can be cached
+				1. A dedicated map server might be required to render teh tiles on the backend
+2. Web based map service:
+
+	![a_web_based_map_service](a_web_based_map_service.jpeg)
 
 #### User Interface ####
+1. UI can be written in JS and HTML5
+	1. JQuery is fine for simple requirements (as per author)
+	2. React, Angular can also be used
+	3. UI can have JS events enabled to 
+		1. Interact with the map
+		2. Pin locations
+		3. Search for places
+		4. Draw markers
+		5. Draw vectors on map
+		6. ...
+2. Implementation:
+	1. [OpenLayers](https://openlayers.org/) - open source UI library for making maps work with web browsers
+		1. Helps not write everything from ground up
+3. Flow:
+	1. User runs search for location on backend
+	2. Request is routed to tile cache
+	3. Cache which has pre-generated tiles sits between UI and map server
+		1. If requested tile is present in cache, it is sent to UI
+		2. If not, map server hits database and fetches coordinates and related data & generates the tile
 
 #### Real-Time Features ####
+1. To implement real-time features
+	1. Need to establish persistent connection with server
+	2. Cons: 
+		1. Resource intensive
+		2. Limits on number of concurrent connections servers can handle
+	3. Real-time features can be implemented only if it is really required
+2. [How Hotstar a Video Streaming Service Scaled with Over 10 Million Concurrent Users](https://www.8bitmen.com/how-hotstar-scaled-with-10-3-million-concurrent-users-an-architectural-insight/)
+3. Summary:
+	1. Covered
+		1. Backend
+		2. Database
+		3. Caching
+		4. UI
+		5. Google Maps service
 
 ### A Baseball Game Ticket Booking Web Portal ###
 
