@@ -4706,6 +4706,31 @@
 		5. Google Maps service
 
 ### A Baseball Game Ticket Booking Web Portal ###
+1. Topics:
+	1. Database
+	2. Handling Concurrency
+		1. Message Queue
+		2. Database Locks
+	3. Caching
+	4. Backend Tech
+	5. User Interface
+2. What is covered:
+	1. Understanding of architecture
+	2. Key points to consider when desiging application like baseball game online ticket booking portal
+
+#### Database ####
+
+#### Handling Concurrency ####
+
+##### Message Queue #####
+
+##### Database Locks #####
+
+#### Caching ####
+
+#### Backend Tech ####
+
+#### User Interface ####
 
 ## Mobile Apps ( - New - ) ##
 ### Introduction ###
