@@ -4653,6 +4653,14 @@
 #### Server-Side Rendering of Map Tiles ####
 1. Search service:
 	1. If user searches for specific location, service has to match search text with name of location in database and pull up coordinates of place
+	2. How to convert coordinates into an image?
+	3. Should the image be rendered on the client or on the server?
+		1. Server side rendering can be used because it can be cached for future requests
+			1. Image is static content and can be same for all the users
+		2. Single image need not be generated of the full map
+			1. The map can be broken down into tiles that enable system to generate only part of the map user engages with
+			2. Smaller times also help with zoom in and out options
+				1. Only sections of map are refreshed in tiles
 
 #### User Interface ####
 
