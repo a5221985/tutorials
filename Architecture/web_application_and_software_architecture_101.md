@@ -4719,6 +4719,7 @@
 	2. Key points to consider when desiging application like baseball game online ticket booking portal
 
 #### Database ####
+1. Key thing: 
 
 #### Handling Concurrency ####
 
