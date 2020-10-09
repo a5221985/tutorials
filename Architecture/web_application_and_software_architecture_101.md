@@ -4639,6 +4639,15 @@
 	6. Elevation API
 	7. Time Zone API
 	8. Custom search API
+	9. Gaming API (for map based games)
+	
+		![mapping_service](mapping_service.jpeg)
+		
+2. One may not implement everything in first relaest but monolith is not perferrable (according to author)
+	1. Microservices approach:
+		1. Separate service for each feature
+			1. Cleaner
+				1. Helps service scale and stay highly available
 
 #### Server-Side Rendering of Map Tiles ####
 
