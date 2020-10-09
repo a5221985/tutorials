@@ -4750,10 +4750,26 @@
 				2. System locks resource for transaction
 
 #### Caching ####
+1. Can pick any of popular caches
+	1. Redis
+	2. Memcache
+	3. Hazelcast
+2. Users can just browse website to look at current price of tickets and not buy them
+	1. Caching everts such load on database
 
 #### Backend Tech ####
+1. Examples: Java, Scala, Python, Go, ...
+2. To send notifications to users
+	1. RabbitMQ
+	2. Kafka
 
 #### User Interface ####
+1. App is a CRUD app
+	1. Persistent conection is not necessary
+	2. Simple Ajax queries should work
+2. UI can be made responsive
+	1. Fans can access it via devices with different screen sizes
+		1. UI should be smart enough to adjust itslef based on screen size
 
 ## Mobile Apps ( - New - ) ##
 ### Introduction ###
