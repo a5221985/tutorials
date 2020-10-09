@@ -4648,8 +4648,11 @@
 		1. Separate service for each feature
 			1. Cleaner
 				1. Helps service scale and stay highly available
+			2. If few services (real-time traffic, elevation API ...) go down, core search could remain unaffected
 
 #### Server-Side Rendering of Map Tiles ####
+1. Search service:
+	1. If user searches for specific location, service has to match search text with name of location in database and pull up coordinates of place
 
 #### User Interface ####
 
