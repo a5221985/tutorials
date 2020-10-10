@@ -4900,6 +4900,12 @@
 1. [Myntra.com](http://myntra.com/)
 	1. 30% of revenue was from desktop
 		1. Dedicated platforms have costs too - so the desktop version was ditched
+2. If most of the sales are happening via mobile client regardless of the fact that maximum traffic was coming from desktop
+	1. We can write a mobile app (for money)
+3. Pixel Federation:
+	1. Browser & app based gaming company
+		1. [In 2017 they launched an app that got over 8.1 million downloads](https://portal.pixelfederation.com/en/blog/article/seaport-2018-highlights)
+4. Conclusion: research in the niche is important before writing any code
 
 ### Responsive Interfaces ###
 ### Types of Mobile Apps - Part 1 ###
