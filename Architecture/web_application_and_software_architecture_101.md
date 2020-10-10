@@ -4894,8 +4894,12 @@
 						1. A mobile app that can be installed to track all meals throughout the data anywhere he enjoys meals (home, cafeteria, ...)
 							1. Mobile-first approach might work here
 					2. Web-based interface is a good to have (in the initial stages of startup)
+			4. **Firebase: Enables writing app without investing too much time in setting up backend infrastructure**
 
 #### Real Life Examples ####
+1. [Myntra.com](http://myntra.com/)
+	1. 30% of revenue was from desktop
+		1. Dedicated platforms have costs too - so the desktop version was ditched
 
 ### Responsive Interfaces ###
 ### Types of Mobile Apps - Part 1 ###
