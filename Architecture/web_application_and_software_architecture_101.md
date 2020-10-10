@@ -4832,8 +4832,20 @@
 					1. Facbook, Instagram etc.. do a lot of R & D & strategizing when developing apps
 
 #### Mobile Only ####
+1. Business operates only via mobile
+2. Mobile website or mobile app on play store or both
+	1. But apps are moved forward with when going mobile-only (which drives majority of traffic)
+	2. Mobile websites run on mobile browsers (built primarily for engaging traffic coming from google search)
+		1. Users are then routed to respective apps
+			1. Example: Pokemon Go
 
 #### Mobile First ####
+1. UI of service is designed in such a way that users of business will use idea that majority of users of business will use its services (via mobile client)
+2. Desktop based website interface is secondary
+3. Mobile interface is shown to customers first
+	1. It is built to usually contain everything that user would need to fully experience a service and interact with all of the features (than desktop app)
+4. Designers would first design mobile interface and then desktop and tablet interfaces are designed (based on mobile interface)
+5. Business first goes to market with app or browser-based mobile website
 
 #### Mobile Friendly - Responsive ####
 
