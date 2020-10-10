@@ -4846,10 +4846,35 @@
 	1. It is built to usually contain everything that user would need to fully experience a service and interact with all of the features (than desktop app)
 4. Designers would first design mobile interface and then desktop and tablet interfaces are designed (based on mobile interface)
 5. Business first goes to market with app or browser-based mobile website
+6. Example: [Mytra.com](http://myntra.com/)
+	1. Online fashion retail business
+		1. Majority of revenue seems to have got generated from mobile app (70%...)
+		2. Desktop website has been gotten rid off
+			1. [Myntra re-opened its desktop website but is still a mobile-first business](https://yourstory.com/2016/05/myntra-desktop-website)
 
 #### Mobile Friendly - Responsive ####
+1. Websites that are friendly for mobile but originally built to render on desktop browsers
+	1. Responsive websites
+		1. Grid based design
+		2. They adapt themselves based on screen size of device
+		3. These are web-first or desktop-first
+		4. Websites are divided into rows and columns containing grids
+			1. As screen size gets smaller, grids re-arrange themselves based on screen size
+		2. Responsive website:
+
+			![responsive_website](responsive_website.jpeg)
+			
+2. Desktop-based responsive website will automatically render for all screen sizes
+	1. Challenge: We may not have 100% control over how responsive website renders on different devices
+		1. Some elements of page may be hidden
+		2. Some elemetns of page may not render in a way we would like
+		3. CSS-media queries will also not be as good as mobile-first built website
+			1. **Mobile-first strategy can be used if majority of traffic comes-in from mobile**
 
 #### What Approach Should You Choose For Your Business? ####
+1. Important things:
+	1. How are users of existing business (in same niche) are accessing the website?
+	2. 
 
 #### Real Life Examples ####
 
