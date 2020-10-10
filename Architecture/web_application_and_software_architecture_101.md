@@ -4874,7 +4874,26 @@
 #### What Approach Should You Choose For Your Business? ####
 1. Important things:
 	1. How are users of existing business (in same niche) are accessing the website?
-	2. 
+	2. Do the businesses have app on popular app stores or they operate just via websites?
+		1. If app exists, how many downloads are done?
+		2. What is their primary traffic & social discovery sources? (how users find service)
+		3. What is platform wise revenue generation?
+			1. Difficult to get that info if it is not public info
+				1. One can estimate looking at the traffic
+	3. Implementations: Business analytics tools (with browser extensions and services)
+2. Type of service offered to users plays decisive role in building a strategy for approaching market
+	1. One can figure out if we need to go ahead with or without mobile app
+		1. Example: for service in health niche
+			1. To enable users to track eating habits
+			2. To suggest healthy alternatives available
+			3. Offer social features for user engagement & retention
+				1. What is the best strategy?
+				2. Do we need mobile app?
+				3. Does web-based website suffice?
+					1. It is inconvenient for user to open laptop or rus hto desktop every time he wants to input or check calories of food he just ate
+						1. A mobile app that can be installed to track all meals throughout the data anywhere he enjoys meals (home, cafeteria, ...)
+							1. Mobile-first approach might work here
+					2. Web-based interface is a good to have (in the initial stages of startup)
 
 #### Real Life Examples ####
 
