@@ -60,10 +60,29 @@
 ##### Step 4: Defining Data Model #####
 1. Defining data model in early part of interview will clarify how data will flow between different components of system
 	1. Also helps in data partitioning and management later
-		1. Candidate needs to identify entities of the system
-		2. Candidate needs to identify how the entities interact with each other
+		1. Need to identify entities of the system
+		2. Need to identify how the entities interact with each other
+		3. Need to identify different aspects of management
+			1. Storage
+			2. Transportation
+			3. Encryption
+			4. ...
+	2. Example: Twitter
+		1. User: UserID, Name, Email, DoB, CreationData, LastLogin, etc...
+		2. Tweet: TweetID, Content, TweetLocation, NumberOfLikes, TimeStamp, etc...
+		3. UserFollow: UserID1, UserID2
+		4. FavoriteTweets: UserID, TweetID, TimeStamp
+2. Implementation:
+	1. Which database system should we use?
+		1. Will NoSQL like Cassandra best fit our needs?
+		2. Should we use MySQL-Like solution?
+		3. Which type of block storage should we use for photos and videos?
 
 ##### Step 5: High-Level Design #####
+1. Draw block diagram with 5-6 boxes representing core components of system
+	1. Enough components need to be drawn to solve the actual problem from end-to-end
+2. Example: For Twitter
+
 ##### Step 6: Detailed Design #####
 ##### Step 7: Identifying and Resolving Bottlenecks #####
 ##### Summary #####
