@@ -163,9 +163,40 @@
 	2. Less likely to mistype shorter URLs
 4. Examples:
 
+		https://www.educative.io/collection/page/5668639101419520/5649050225344512/5668600916475904/
 		
+		shortened to:
+		
+		http://tinyurl.com/jlg8zpc
+		
+	1. It is nearly 1/3rd the size of actual URL
+5. The service is used to optimize links across devices
+	1. Utility:
+		1. Tracking individual links to analyze audience and campaign performance
+		2. Hiding original URLs
+6. [tinyurl.com](http://tinyurl.com/)
+	1. Spend time on options their service offers
 
 #### Requirements and Goals of the System ####
+1. Note:
+
+		You should always clarify requirements at the beginning of the interview. Be sure to ask questions to find the exact scope of the system that the interviewer has in mind
+		
+2. URL shortening system should meet the following functional requirements:
+	1. Given a URL, service should generate shorter and unique alias of it (called short link)
+	2. Link should be short enough to be easily copied and pasted into applications
+	3. When users access a short link, service should redirect them to original link
+	4. Users should optionally be able to pick custom short link for URL
+	5. Links will expire after standard default timespan.
+		1. Users can specify expiration time
+3. Non-functional requirements:
+	1. System should be highly available
+		1. If service is down, URL redirections will start failing
+	2. URL redirection should happen in real-time with minimal latency
+	3. Shortened links should not be guessable (not predictable)
+4. Extended Requirements:
+	1. Analytics; e.g. how many times a redirection happened?
+	2. Service should be accessible through REST APIs by other services
 
 #### Capacity Estimation and Constraints ####
 
