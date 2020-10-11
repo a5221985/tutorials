@@ -93,6 +93,8 @@
 	![high_level_design_of_twitter](high_level_design_of_twitter.html) 
 
 ##### Step 6: Detailed Design #####
+1. 
+
 ##### Step 7: Identifying and Resolving Bottlenecks #####
 ##### Summary #####
 
