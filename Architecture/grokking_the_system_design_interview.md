@@ -140,7 +140,52 @@
 	4. System APIs
 	5. Database Design
 		1. Database Schema
-	6. 
+	6. Basic System Design and Algorithm
+	7. Encoding Actual URL
+	8. Generating Keys Offline
+	9. Data Partitioning and Replication
+	10. Cache
+	11. Load Balancer (LB)
+	12. Purging or DB Cleanup
+	13. Telemetry
+	14. Security and Permissions
+
+#### Why do we need URL shortening? ####
+1. URL shortening is used to construct shorter aliases for long URLs
+	1. Short links
+2. Users are redirected to original URL when they hit short links
+3. Advantages:
+	1. Save space when
+		1. Displayed
+		2. Printed
+		3. Messaged
+		4. Tweeted
+	2. Less likely to mistype shorter URLs
+4. Examples:
+
+		
+
+#### Requirements and Goals of the System ####
+
+#### Capacity Estimation and Constraints ####
+
+#### System APIs ####
+
+#### Database Design ####
+
+#### Basic System Design and Algorithm ####
+
+#### Data Partitioning and Replication ####
+
+#### Cache ####
+
+#### Load Balancer (LB) ####
+
+#### Purging or DB Cleanup ####
+
+#### Telemetry ####
+
+#### Security and Permissions ####
 
 ### Designing Pastebin ###
 ### Designing Instagram ###
