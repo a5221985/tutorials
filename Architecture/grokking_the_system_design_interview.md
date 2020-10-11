@@ -18,6 +18,21 @@
 	1. Needs above average performance in the top companies
 		1. Good performance can give higher position and higher salary (shows candidate's ability to handle complex systems)
 
+#### Step by Step Approach to Solve Design Problems ####
+##### Step 1: Requirements Clarifications #####
+1. Ask about exact scope of the problem
+	1. **Clarify ambiguities** early in the interview is critical
+		1. If end goals of a system are defined clearly then success is more likely
+	2. Clarify essential **parts of system that needs to be focussed** on in 35-40 minutes interview
+
+##### Step 2: Back-of-the-envelope Estimation #####
+##### Step 3: System Interface Definition #####
+##### Step 4: Defining Data Model #####
+##### Step 5: High-Level Design #####
+##### Step 6: Detailed Design #####
+##### Step 7: Identifying and Resolving Bottlenecks #####
+##### Summary #####
+
 ### Designing a URL Shortening Service Like TinyURL ###
 ### Designing Pastebin ###
 ### Designing Instagram ###
