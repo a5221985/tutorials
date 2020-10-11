@@ -82,6 +82,15 @@
 1. Draw block diagram with 5-6 boxes representing core components of system
 	1. Enough components need to be drawn to solve the actual problem from end-to-end
 2. Example: For Twitter
+	1. We might need multiple application servers for
+		1. Read/write requests
+		2. Load balancers in front of them for traffic distributions
+			1. If more reads than writes are expected, separate servers may be planned for them
+		3. An efficient database is required for persistence (to store all tweets, support huge number of reads)
+			1. Distributed file storage system may be required for photos and videos
+3. High level design of twitter:
+
+	![high_level_design_of_twitter](high_level_design_of_twitter.html) 
 
 ##### Step 6: Detailed Design #####
 ##### Step 7: Identifying and Resolving Bottlenecks #####
