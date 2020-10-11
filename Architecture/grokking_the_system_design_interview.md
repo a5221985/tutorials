@@ -111,11 +111,37 @@
 	5. What components need good load balancing?
 
 ##### Step 7: Identifying and Resolving Bottlenecks #####
-1. 
+1. Discuss bottlenecks and mitigation strategy
+	1. Is there single point of failure in system?
+	2. What are we doing to mitigate them?
+	3. Do we have enough replicas of data?
+		1. If we lose a few servers, can we still server users?
+	4. Do we have different copies of services running?
+		1. A few failures should not cause total system shutdown
+	5. How is performance of service monitored?
+		1. Do we get alerts when critical components fail?
+		2. Do we get alerts when performance degrades?
 
 ##### Summary #####
+1. For success in system design interviews:
+	1. Preparation
+	2. Being organized
+2. The above steps can be followed to stay on track and cover all different aspects while designing a system
 
 ### Designing a URL Shortening Service Like TinyURL ###
+1. TinyURL short description:
+	1. Service will provide short aliases redirecting to long URLs
+2. Examples: bit.ly, goo.gl, qlink.me, ...
+3. Difficulty level: Easy
+4. Topics
+	1. Why do we need URL shortening?
+	2. Requirements and Goals of the System
+	3. Capacity Estimation and Constraints
+	4. System APIs
+	5. Database Design
+		1. Database Schema
+	6. 
+
 ### Designing Pastebin ###
 ### Designing Instagram ###
 ### Designing Dropbox ###
