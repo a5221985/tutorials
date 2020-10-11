@@ -24,10 +24,45 @@
 	1. **Clarify ambiguities** early in the interview is critical
 		1. If end goals of a system are defined clearly then success is more likely
 	2. Clarify essential **parts of system that needs to be focussed** on in 35-40 minutes interview
+2. Example: Twitter like service
+	1. Questions to ask:
+		1. Will users of service be able to post tweets and follow other people?
+		2. Should we also design to construct and display user's timeline?
+		3. Will tweets contain photos and videos?
+		4. Are we focusing on backend only or are we developing front-end too?
+		5. Will users be able to search tweets?
+		6. Do we need to display hot trending topics?
+		7. Will there be any push notification for new (or important) tweets?
+	2. The questions determine how our end design will look like
 
 ##### Step 2: Back-of-the-envelope Estimation #####
+1. Scale of system being design needs to be estimated
+	1. Helps later when focusing on
+		1. Scaling
+		2. Partitioning
+		3. Load balancing
+		4. Caching
+	2. Questions:
+		1. What scale is expected from the system (e.g., number of new tweets, number of tweet views, number of timeline generations per sec., etc.)?
+		2. How much storage will we need? We will have different storage requirements if users can have photos and videos in their tweets
+		3. What network bandwidth usage are we expecting? This will be crucial in deciding how we will manage traffic and balance load between servers
+
 ##### Step 3: System Interface Definition #####
+1. Define APIs expected from system
+	1. Establishes exact contract
+	2. Ensures that requirements have got validated
+	3. Examples:
+			
+			postTwee(user_id, tweet_data, tweet_location, user_location, timestamp, ...)
+			generateTimeline(user_id, current_time, user_location, ...)
+			markTweetFavorite(user_id, tweet_id, timestamp, ...)
+
 ##### Step 4: Defining Data Model #####
+1. Defining data model in early part of interview will clarify how data will flow between different components of system
+	1. Also helps in data partitioning and management later
+		1. Candidate needs to identify entities of the system
+		2. Candidate needs to identify how the entities interact with each other
+
 ##### Step 5: High-Level Design #####
 ##### Step 6: Detailed Design #####
 ##### Step 7: Identifying and Resolving Bottlenecks #####
