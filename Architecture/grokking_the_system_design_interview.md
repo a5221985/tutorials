@@ -1,6 +1,16 @@
 # Grokking the System Design Interview #
 ## System Design Problems ##
 ### System Design Interviews: A Step by Step Guide ###
+1. Topics:
+	1. Step 1: Requirements Clarifications
+	2. Step 2: Back-of-the-envelope Estimation
+	3. Step 3: System Interface Definition
+	4. Step 4: Defining Data Model
+	5. Step 5: High-Level Design
+	6. Step 6: Detailed Design
+	7. Step 7: Identifying and Resolving Bottlenecks
+	8. Summary
+
 ### Designing a URL Shortening Service Like TinyURL ###
 ### Designing Pastebin ###
 ### Designing Instagram ###
