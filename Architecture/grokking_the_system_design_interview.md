@@ -10,6 +10,13 @@
 	6. Step 6: Detailed Design
 	7. Step 7: Identifying and Resolving Bottlenecks
 	8. Summary
+2. Software engineers struggle with system design interviews (SDIs) due to
+	1. Unstructured nature of SDIs - open-ended design problem that doesn't have a standard answer
+	2. Lack of experience in developing complex, large scale systems
+	3. No enough preparation for SDIs
+3. This needs deliberate preparation as in coding interviews - Google, Facebook, Amazon, Microsoft, ... needs it
+	1. Needs above average performance in the top companies
+		1. Good performance can give higher position and higher salary (shows candidate's ability to handle complex systems)
 
 ### Designing a URL Shortening Service Like TinyURL ###
 ### Designing Pastebin ###
