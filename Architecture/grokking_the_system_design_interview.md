@@ -93,9 +93,26 @@
 	![high_level_design_of_twitter](high_level_design_of_twitter.html) 
 
 ##### Step 6: Detailed Design #####
-1. 
+1. Dig deeper into two or three major components
+	1. Interviewer's feedback usually guides us to different parts of the system for further discussion
+	2. We may be able to present different approaches
+		1. Also discuss pros and cons
+			1. Justify why we prefer one approach on the other
+				1. Discuss tradeoffs clearly and keep system constraints in mind
+2. Constraints:
+	1. For massive amount of data
+		1. How to partition data to distribute it to multiple databases?
+		2. Should we store all data of user on same database?
+			1. Does it cause issues?
+	2. How to handle hot users who tweet a lot or follow lots of people?
+	3. User's timeline can contain the most recent tweets (and relevant)
+		1. Does it need storing data in a way that is optimized for scanning latest tweets?
+	4. To which layer cache can be introduced to speed up?
+	5. What components need good load balancing?
 
 ##### Step 7: Identifying and Resolving Bottlenecks #####
+1. 
+
 ##### Summary #####
 
 ### Designing a URL Shortening Service Like TinyURL ###
