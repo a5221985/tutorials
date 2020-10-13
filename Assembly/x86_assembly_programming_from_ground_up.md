@@ -1729,6 +1729,32 @@
 
 ### Coding: Computing Signed Multiplication and Division ###
 ### Coding: Understanding C/C++ Calling Conventions ###
+1. Allocation of space on stack
+2. Proper use of commonly used x86 instructions
+3. New project > CPPCallingConventions > Windows Console App
+	1. Right Click > Add New Item > C++ File > CalculateSum.asm
+	2. Right click on project > Build dependencies > Build Customisations > MASM
+	3. Right click on asm file > Properties > Item Type > Microsoft Macro Assembler
+4. 6 args - first 3 inputs, sum of nums, sum of squares, sum of cubes
+5. CPP file:
+
+		extern "C" void CalculateSum(int a, int b, int c, int* s1, int* s2, int* s3);
+		
+6. ASM file:
+
+		.386
+		.model flat, c
+		.code
+		
+		CalculateSum proc
+		; function prolog
+			push ebp		; non volatile register
+			mov ebp, esp
+			sub esp, 12	; allocates 12 bytes of local storage space on stack, x86 stack grows downwards to lower address
+			push ebx		; non volatile register
+			push esi
+			push edi
+
 ### Coding: Declaring Global Variables in C/C++ and using them in Assembly ###
 ### Coding: Experimenting with Conditional Codes ###
 
