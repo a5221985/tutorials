@@ -1763,6 +1763,27 @@
 			mov esi, [ebp + 24]		; esi = 's2'
 			mov edi, [ebp + 28]		; edi = 's3'
 			
+		; compute s1 = a + b + c
+			mov [ebp - 12], eax
+			add [ebp - 12], ebx		; not very efficient (regs can be used)
+			add [ebp - 12], ecx		; a + b + c
+			
+		; compute s2 = a*a + b*b + c*c
+			imul eax, eax				; a * a
+			imul ebx, ebx				; b * b
+			imul ecx, ecx				; c * c
+			mov [ebp - 8], eax
+			add [ebp - 8], ebx
+			add [ebp - 8], ecx
+			
+		; compute s3 = a*a*a + b*b*b + c*c*c
+			imul eax, [ebp + 8]		; a * a * a
+			imul ebx, [ebp + 12]	; b * b * b
+			imul ecx, [ebp + 16]	; c * c * c
+			mov [ebp - 4], eax
+			add [ebp - 4], ebx
+			add [ebp - 4], ecx		; a*a*a + b*b*b + c*c*c
+			
 	1. Stack structure:
 
 			High Mem						
