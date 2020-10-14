@@ -1754,6 +1754,14 @@
 			push ebx		; non volatile register
 			push esi		; non volatile register
 			push edi		; non volatile register
+		
+		; load arguments;
+			mov eax, [ebp + 8]		; eax = 'a'
+			mov ebx, [ebp + 12]		; ebx = 'b'
+			mov ecx, [ebp + 16]		; ecx = 'c'
+			mov edx, [ebp + 20]		; edx = 's1'
+			mov esi, [ebp + 24]		; esi = 's2'
+			mov edi, [ebp + 28]		; edi = 's3'
 			
 	1. Stack structure:
 
