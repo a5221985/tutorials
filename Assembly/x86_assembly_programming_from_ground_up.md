@@ -1860,7 +1860,7 @@
 		FibVals	dword	0, 1, 2, 3, 5, 8, 13, 21
 					dword	34, 55, 89, 144, 233, 377, 610
 		
-		NumFibVals	dword($ - FibVals)/sizeof dword			
+		NumFibVals	dword($ - FibVals)/sizeof dword ; $ - current location counter value (offset from beginning of current memory block), gives number of dwords in FibVals			
 		
 3. CPP
 
