@@ -1749,11 +1749,30 @@
 		CalculateSum proc
 		; function prolog
 			push ebp		; non volatile register
-			mov ebp, esp	; 
+			mov ebp, esp	; when ebp is used to access function args, positive displacement is used, when local variables are used, negative displacement is used
 			sub esp, 12	; allocates 12 bytes of local storage space on stack, x86 stack grows downwards to lower address
 			push ebx		; non volatile register
 			push esi		; non volatile register
 			push edi		; non volatile register
+			
+	1. Stack structure:
+
+			High Mem						
+						s3					+28
+						s2					+24
+						s1					+20
+						c					+16
+						b					+12
+						a					+8
+						Return address	+4
+						old EBP			0	<- EBP
+						Temp s3			-4
+						Temp s2			-8
+						Temp s1			-12
+						OLD EBX			-16
+						OLD ESI			-20
+						OLD SDI			-24	<- ESP
+			Low Mem	
 
 ### Coding: Declaring Global Variables in C/C++ and using them in Assembly ###
 ### Coding: Experimenting with Conditional Codes ###
