@@ -1783,6 +1783,10 @@
 			mov [ebp - 4], eax
 			add [ebp - 4], ebx
 			add [ebp - 4], ecx		; a*a*a + b*b*b + c*c*c
+		
+		; save s1, s2, s3
+			mov eax, [ebp - 12]		; s1
+			mov [edx], eax			; moves back to s1
 			
 	1. Stack structure:
 
