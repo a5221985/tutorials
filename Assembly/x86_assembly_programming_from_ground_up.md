@@ -1860,7 +1860,33 @@
 		FibVals	dword	0, 1, 2, 3, 5, 8, 13, 21
 					dword	34, 55, 89, 144, 233, 377, 610
 		
-		NumFibVals	dword($ - FibVals)/sizeof dword ; $ - current location counter value (offset from beginning of current memory block), gives number of dwords in FibVals			
+		NumFibVals	dword($ - FibVals)/sizeof dword ; $ - current location counter value (offset from beginning of current memory block), gives number of dwords in FibVals
+		
+				public		NumFibVals ; make it accessible in C++
+				
+		.code
+		MemoryAddressing		proc
+			push ebp
+			mov ebp, esp
+			push ebx
+			push esi
+			push edi
+			
+			xor eax, eax
+			mov ecx, [ebp + 8]	; i
+			cmp ecx, 0			; subtracts source from destination and sets appropriate flags
+			jl InvalidIndex
+			cmp ecx, [NumFibVals]
+			jge InvalidIndex
+			
+		; Egl - base register
+			mov ebx, offset FibVals	; ebx - FibVals
+			mov esi, [ebp + 8]		; esi = i
+			shl esi, 2				; esi = i * 4
+			add ebx, esi				; ebx = FibVals + i*4
+			mov eax, ebx				; loads table value
+			mov edi, [ebp + 12]
+			mov [edi], eax			; saves in v1
 		
 3. CPP
 
