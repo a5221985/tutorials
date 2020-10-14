@@ -1891,9 +1891,35 @@
 		; Eg2 - base register + displacement
 			mov esi, [ebp + 8]
 			shl esi, 2
-			mov eax, [esi + FibVals]	; eax, FibVals + i*4
+			mov eax, [esi + FibVals]	; eax = *(FibVals + i*4)
 			mov edi, [ebp + 16]
 			mov [edi], eax
+		
+		; Eg3 - base register + index register
+			mov ebx, offset FibVals
+			mov esi, [ebp + 8]		; i
+			shl esi, 2
+			mov eax, [ebx + esi]	; eax = *(FibVals + i*4)
+			mov edi, [ebp + 20]
+			mov [edi], eax
+			
+		; Eg4 - base register + index register * scale factor
+			mov ebx, offset FibVals
+			mov esi, [ebp + 8]
+			mov eax, [ebx + esi * 4]
+			mov edi, [ebp + 24]
+			mov [edi], eax
+			mov eax, 1
+			
+		InvalidIndex:
+			pop edi
+			pop esi
+			pop ebx
+			pop ebp
+			
+			ret
+		MemoryAddressing endp
+			end
 		
 3. CPP
 
