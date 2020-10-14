@@ -1852,6 +1852,15 @@
 2. MemoryAddressingDemo.asm
 
 		.386
+		.model flat, c
+		
+		; block of memory with data
+		; int fibVals[] = {0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610};
+		.const
+		FibVals	dword	0, 1, 2, 3, 5, 8, 13, 21
+					dword	34, 55, 89, 144, 233, 377, 610
+		
+		NumFibVals	dword($ - FibVals)/sizeof dword			
 		
 3. CPP
 
