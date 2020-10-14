@@ -1749,11 +1749,11 @@
 		CalculateSum proc
 		; function prolog
 			push ebp		; non volatile register
-			mov ebp, esp
+			mov ebp, esp	; 
 			sub esp, 12	; allocates 12 bytes of local storage space on stack, x86 stack grows downwards to lower address
 			push ebx		; non volatile register
-			push esi
-			push edi
+			push esi		; non volatile register
+			push edi		; non volatile register
 
 ### Coding: Declaring Global Variables in C/C++ and using them in Assembly ###
 ### Coding: Experimenting with Conditional Codes ###
