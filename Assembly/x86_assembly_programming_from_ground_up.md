@@ -1926,6 +1926,19 @@
 		extern "C" int MemoryAddressing(int i, int *v1, int *v2, int *v3, int &v4);
 		extern "C" int NumFibVals;
 		
+		int main()
+		{
+			int v1 = 0, v2 = 0, v3 = 0, v4 = 0;
+			int rv;
+			
+			for (int i = 0; i <= NumFibVals; i++)
+			{
+				rv = MemoryAddressing(i, &v1, &v2, &v3, &v4);
+				printf("rv: %2d, v1: %2d, v2: %2d, v3: %2d, v4: %2d\n", rv, v1, v2, v3, v4);
+			}
+			return 0;
+		}
+		
 	1. Why use `extern "C"`?
 		1. Since program is in C++
 			1. If the function was implemented or compiled in C
@@ -1952,6 +1965,19 @@
 				#ifdef __cplusplus
 				}
 				#endif
+				
+4. Which mode is recommended:
+	1. Factors to consider
+		1. Register availability
+		2. Number of times and instruction is expected to execute
+		3. Instruction ordering
+		4. Memory space vs execution time tradeoffs
+		5. Hardware features
+			1. Processors
+			2. Microarchitecture
+			3. Memory and cache sizes
+	2. Using simple instruction forms (instead of complex ones) to reference operand in memory
+		1. Drawback: Longer code and more space is used by instructions
 
 ### Coding: Declaring Global Variables in C/C++ and using them in Assembly ###
 ### Coding: Experimenting with Conditional Codes ###
