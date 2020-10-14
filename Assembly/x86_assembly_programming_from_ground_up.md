@@ -1977,9 +1977,16 @@
 			2. Microarchitecture
 			3. Memory and cache sizes
 	2. Using simple instruction forms (instead of complex ones) to reference operand in memory
-		1. Drawback: Longer code and more space is used by instructions
+		1. Drawback: 
+			1. Longer code and more space is used by instructions
+			2. May need extra instructions to preserve non-volatile registers
 
 ### Coding: Declaring Global Variables in C/C++ and using them in Assembly ###
+1. Topics:
+	1. Integer sizes on x86
+	2. Extra instructions
+	3. Feature: Global variable of C++ in assembly
+
 ### Coding: Experimenting with Conditional Codes ###
 
 ## Working with Arrays ##
