@@ -1820,7 +1820,7 @@
 						Temp s1			-12
 						OLD EBX			-16
 						OLD ESI			-20
-						OLD SDI			-24	<- ESP
+						OLD EDI			-24	<- ESP
 			Low Mem	
 			
 	2. If a function has 0 params, it does not have to initialize stack frame pointer
