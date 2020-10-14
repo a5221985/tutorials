@@ -1879,14 +1879,21 @@
 			cmp ecx, [NumFibVals]
 			jge InvalidIndex
 			
-		; Egl - base register
-			mov ebx, offset FibVals	; ebx - FibVals
+		; Eg1 - base register
+			mov ebx, offset FibVals	; ebx = FibVals
 			mov esi, [ebp + 8]		; esi = i
 			shl esi, 2				; esi = i * 4
 			add ebx, esi				; ebx = FibVals + i*4
 			mov eax, ebx				; loads table value
 			mov edi, [ebp + 12]
 			mov [edi], eax			; saves in v1
+			
+		; Eg2 - base register + displacement
+			mov esi, [ebp + 8]
+			shl esi, 2
+			mov eax, [esi + FibVals]	; eax, FibVals + i*4
+			mov edi, [ebp + 16]
+			mov [edi], eax
 		
 3. CPP
 
