@@ -1787,6 +1787,22 @@
 		; save s1, s2, s3
 			mov eax, [ebp - 12]		; s1
 			mov [edx], eax			; moves back to s1
+			mov eax, [ebp - 8]
+			mov [esi], eax
+			mov eax, [ebp - 4]
+			mov [edi], eax
+			
+		; epilog
+			pop edi
+			pop esi
+			pop ebx					; if ebx is not use, this is not required
+			mov esp, ebp				; release local memory
+			pop ebp					; restores ebp
+			
+			ret
+			
+		CalculateSum endp
+			end
 			
 	1. Stack structure:
 
@@ -1806,6 +1822,9 @@
 						OLD ESI			-20
 						OLD SDI			-24	<- ESP
 			Low Mem	
+			
+	2. If a function has 0 params, it does not have to initialize stack frame pointer
+	3. If an assembly 
 
 ### Coding: Declaring Global Variables in C/C++ and using them in Assembly ###
 ### Coding: Experimenting with Conditional Codes ###
