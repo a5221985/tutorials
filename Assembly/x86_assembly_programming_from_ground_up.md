@@ -1844,6 +1844,25 @@
 			return 0;
 		}
 
+### Coding: Experimenting with Different Addressing Modes ###
+1. Topics:
+	1. How to use modes
+	2. Define assembly language lookup table
+	3. Accessing global variables declared in C++
+2. MemoryAddressingDemo.asm
+
+		.386
+		
+3. CPP
+
+		extern "C" int MemoryAddressing(int i, int *v1, int *v2, int *v3, int &v4);
+		extern "C" int NumFibVals;
+		
+	1. Why use `extern "C"`?
+		1. Since program is in C++
+			1. The function was implemented or compiled in C
+			2. This instructs compiler or linker to use C naming & calling conventions (instead of C++ name mangling and C++ calling conventions)
+
 ### Coding: Declaring Global Variables in C/C++ and using them in Assembly ###
 ### Coding: Experimenting with Conditional Codes ###
 
