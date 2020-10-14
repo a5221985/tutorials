@@ -1860,8 +1860,30 @@
 		
 	1. Why use `extern "C"`?
 		1. Since program is in C++
-			1. The function was implemented or compiled in C
-			2. This instructs compiler or linker to use C naming & calling conventions (instead of C++ name mangling and C++ calling conventions)
+			1. If the function was implemented or compiled in C
+			2. This instructs compiler or linker to use C naming & calling conventions (instead of C++ name mangling (decorating with additional info for passing more semantic info from compiler to linker) and C++ calling conventions)
+				1. Well written libraries will have this already within their definition or declaration
+					1. Flexibly exports to C and C++
+		2. Note: C++ is misunderstood to be a superset of C but there are incompatibilities
+			1. `bool` is in C but not in C++
+			2. `_Bool` is in C99 but not in C++
+		3. How to include in library?
+
+				//
+				// C_library.h
+				//
+				
+				#ifdef __cplusplus
+				extern "C" {
+				#endif
+				
+				//
+				// ... prototypes for C_library go here ...
+				//
+				
+				#ifdef __cplusplus
+				}
+				#endif
 
 ### Coding: Declaring Global Variables in C/C++ and using them in Assembly ###
 ### Coding: Experimenting with Conditional Codes ###
