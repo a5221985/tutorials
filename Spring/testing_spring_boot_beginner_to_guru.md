@@ -42,9 +42,38 @@
 		}
 
 ### BDD Verification in Mockito ###
-1. 
+1. Verification:
+
+		@Test
+		void findByIdBddTest() {
+			// Given
+			Speciality speciality = new Speciality();
+		given(specialityRepository.findById(1L)).willReturn(Optional.of(speciality));
+			
+			// When
+			Speciality foundSpeciality = service.findById(1L);
+			
+			// Then
+			assertNotNull(foundSpeciality);
+			then(specialityRepository).should(times(1)).findById(anyLong());
+			// then(specialityRepository).shouldHaveNoMoreInteractions();
+		}
 
 ### Refactoring Speciality Service to BDD ###
+1. Test
+
+		@Test
+		void findByIdTest() {
+			//given
+			Speciality speciality = new Speciality();
+			
+			//when
+			service.delete(speciality);
+			
+			//then
+			then(specialityRepository).should().delete(any(Speciality.class));
+		}
+
 ### Assignment - BDD Visit Service ###
 ### Assignment Review ###
 ### Conclusion ###
