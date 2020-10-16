@@ -73,7 +73,32 @@
 			//then
 			then(specialityRepository).should().delete(any(Speciality.class));
 		}
+		
+	1. Given-when-then style improves quality of testing
 
 ### Assignment - BDD Visit Service ###
+1. Convert test `VisitSDJpaServiceTest` to BDD
+2. Add given-when-then comments
+3. User Mockito BDD methods - `given` and `then`
+
+### Assignment Review ###
+### Conclusion ###
+1. Could be a preference
+
+## Spring Framework Testing Context ##
+### Introduction ###
+### Yanny or Laurel? ###
+### Yanny or Laurel Service Beans ###
+### JUnit4 Laurel Test ###
+### Assignent Construct Yanny JUnit 4 Test with Spring Context ###
+### Assignment Review Construct Yanny JUnit 4 Test with Spring Context ###
+### JUnit 5 Laurel Test ###
+### Assignment Construct Yanny JUnit 5 Test with Spring Context ###
+### Assignment Review Construct Yanny JUnit 5 Test with Spring Context ###
+### Using Inner Class Configuration ###
+### Using Component Scans ###
+### Setting Active Profiles for Tests ###
+### Spring Test Properties ###
+### Assignment - Construct Profile for Properties ###
 ### Assignment Review ###
 ### Conclusion ###
