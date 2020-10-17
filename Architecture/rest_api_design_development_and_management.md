@@ -747,7 +747,8 @@
 			2. `app` is subdomain
 			3. `developer` is subdomain
 		3. Separate URL is also possible:
-			1. 
+			1. https://api.walmartlabs.com
+			2. https://services.expediapartnercentral.com
 	4. version: version of API
 	5. id: resource id
 
