@@ -1105,6 +1105,13 @@
 		1. git clone https://github.com/acloudfan/REST-API-Course-V2.git
 		2. VSCode
 			1. `npm install`
+		3. Folders:
+			1. `api` - source code for apis
+			2. `data` - test data
+			3. `db` - code for connecting to remote db
+			4. `models` - schema defintiions in js files
+			5. `tests` - js code for populating collections with documents
+			6. `index.js` - for launching API
 
 ### Walkthrough: Creation of Vacations API in Node JS ###
 
