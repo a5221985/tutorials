@@ -1237,7 +1237,7 @@
 				GET http://localhost:3000/v1/vacations
 				POST http://localhost:3000/v1/vacations
 				
-						Body: JSON body
+						Raw Body: JSON body
 
 ### API Value Chain ###
 1. Learning objectives
@@ -1436,6 +1436,7 @@
 	4. db/Settings.js, db/Vacations.js
 	5. models/Vacations.js
 
+## REST API Error Handling Practices ##
 ### REST API Error Handling Practices ###
 ### Application Error Handling Patterns ###
 ### Walkthrough: Implementation of Error Handling for POST API ###
