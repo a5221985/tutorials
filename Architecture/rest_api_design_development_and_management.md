@@ -1438,6 +1438,16 @@
 
 ## REST API Error Handling Practices ##
 ### REST API Error Handling Practices ###
+1. Learning Objectives:
+	1. Application errors
+	2. Optoins for send back errors (detailed eror info)
+	3. Best practices for HTTP status codes
+2. Application errors:
+	1. HTTP Header
+		1. Status-code - HTTP call status
+		2. Reason-Phase - Information message (RFC2616) - header fields (do not customize message)
+		3. 
+
 ### Application Error Handling Patterns ###
 ### Walkthrough: Implementation of Error Handling for POST API ###
 
