@@ -764,7 +764,44 @@
 			1. Software products can have multiple versions at the same time
 			2. Multiple versions can be actively consumed by consumers
 				1. Insulates API consumers from API changes
+					1. Consumers can switch if they want on their own schedule instead of being forced to switch along with the API version
+			3. It is optional
+				1. There are other ways to manage APIs
+					1. Headers
+					2. Query params
 	5. id: resource id
+		1. If `id` is not specified, it can imply that the operation can be carried out on the entire collection
+		2. Examples: https://services.expeciapartnercentral.com/products/properties
+			1. Get can return a collection of properties
+			2. https://services.expeciapartnercentral.com/products/properties/property-id - specific property
+	6. Root URL:
+		1. **https://domain/product/version**/resource/{id}
+2. Summary:
+	1. Base URL
+	2. Grouping
+	3. Version
+	4. Resource
+	5. Id
+
+### Practices for Resource Names, Actions & Associations ###
+1. Learning Objectives:
+	1. Resource Naming
+	2. Actions
+	3. Associations
+2. Resource Naming: (Nouns)
+	1. Yelp: /businesses (plural - more common)
+		1. /businesses/{id}
+	2. LinkedIn: /people
+		1. /people/{id}
+	3. The Movie DB: /list (singular)
+		1. /list/{id}
+3. Operations on Resource:
+	1. Create, Retrieve, Update, Delete
+		1. HTTP method is used
+	2. What if the operation is NOT a CRUD operation?
+		1. e.g. Calculations
+		2. e.g. Reporting
+		3. Solution: Specify action using a verb
 
 ### Walk Through: Setup the API URI for ACME API ###
 ### HTTP API Request flow and HTTP Status Code ###
