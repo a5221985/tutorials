@@ -802,6 +802,33 @@
 		1. e.g. Calculations
 		2. e.g. Reporting
 		3. Solution: Specify action using a verb
+			1. Example: Spotify: https://api.spotify.com/v1/search (verb)
+		4. The specified action may not apply to any resource
+			1. Example: https://api.spotify.com/v1/search
+				1. Does NOT apply to any specific resource in the API
+			2. Exmaple:
+				1. Uber: /estimates/price
+				2. Twitter: /friendships/lookup (friendship collection lookup)
+		5. Practice: Define ACTION as part of resource hierarchy
+			1. `/resource/action`
+4. Resource Associations:
+	1. Resource relationships:
+		1. e.g. Orders have Items
+		2. e.g. People have Followers
+			1. `/people/{id}/followers` - all followers of the user
+	2. Example:
+		1. E-Trade: Accounts have Transactions
+			1. https://api.etrade.com/v1/accounts/{accountIdKey}/transactions
+			2. https://api.etrade.com/v1/accounts/{accountIdKey}/transactions/{transId}
+		2. Expedia:
+			1. properties/{propId}/roomTypes/{roomId}/amenities
+		3. The Weather Company:
+			1. geocode/{latitude}/{longitude}/forecast/daily/{days}
+	3. Too much nesting is not good:
+		1. Maximum 3 levels is recommended
+			1. Alternative: Subquery to avoid deep nesting
+5. Summary:
+	1. 
 
 ### Walk Through: Setup the API URI for ACME API ###
 ### HTTP API Request flow and HTTP Status Code ###
