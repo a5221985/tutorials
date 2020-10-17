@@ -889,7 +889,25 @@
 	1. HTTP API Call flow
 	2. Contract specification overview (parts)
 	3. HTTP Status Code (by server)
-2. 
+2. REST API Call flow
+	1. REST client - HTTP VERB -> RESTful API
+		1. Request
+			1. Query params
+			2. HTTP header
+			3. Body
+		2. Response
+			1. HTTP header
+			2. Body
+	2. Defined independently for each of the HTTP methods
+		1. GET
+		2. POST
+		3. PUT
+		4. DELETE
+3. Uniform Interface - Contract
+	1. Contract between client and server
+	2. API developer needs to provide
+		1. Endpoint: http://.../vacations
+		2. Query parameters
 
 ### API Data Format Setup ###
 ### Setup the Demo/ Test Environment ###
