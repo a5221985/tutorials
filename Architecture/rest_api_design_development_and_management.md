@@ -991,7 +991,17 @@
 			1. Only part of the data can be sent
 			2. Example: PATH http://api.acme.com/vacations/121?validTill=3/1/2022
 	3. PUT/PATCH - requirements:
-		1. Endpoint - 
+		1. Endpoint - http://acme.../vacations/{id}
+		2. Parameters - http://acme.../vacations/subquery
+		3. Body:
+			1. Request body contains the Resource data to update
+			2. API design may require use of standard | custom header
+		4. Status Codes:
+			1. 200 Success - Updated Resource in Body
+			2. 201 Created - Body data optional
+			3. 204 No Content - No content in Body
+			4. 4xx Bad request
+			5. 5xx Issue in processing
 
 ### API Data Format Setup ###
 ### Setup the Demo/ Test Environment ###
