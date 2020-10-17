@@ -1051,11 +1051,61 @@
 	2. HTTP Headers: (PayPal)
 		1. Accept: application/json
 		2. Accept: application/csv
-	3. Resource format suffix
+	3. Resource format suffix (The Weather Channel)
 		1. Usig .<format>
 			1. forecast/daily/{days}day.json
+4. Response
+	1. HTTP Header
+		1. 200 Success - if request type is supported and processed successfully
+		2. 415 - Unsupported type
+		3. 5xx Issue in processing
+		4. Content-Type: application/json
+	2. Ensure proper documentation of all supported formats
+5. Summary:
+	1. Support for multiple data formats
+		1. Query params
+		2. HTTP headers
+		3. Resource format suffix
+	2. Client requests the specific data format
+	3. For unsupported formats API returns HTTP 415
 
 ### Setup the Demo/ Test Environment ###
+1. Test Environment Setup:
+	1. ACME Vacations API
+2. Steps:
+	1. Setup DB instance - acmetravel
+	2. Clone repository
+	3. Setup DB connection (in code)
+	4. Execute code to populate DB
+3. Whitelist your IP address - for MongoDB
+	1. Get your IP address (public address)
+		1. Google - IPv4 address
+	2. Whitelist IP address in MongoDB cloud
+		1. Cloud mongo db
+			1. Network access
+			2. Add IP address
+			3. Temporary can be enabled (6 hours)
+	3. MongoDB cloud:
+		1. Collections
+		2. Add my own data > Create Database
+			1. Database name: acmetravel
+			2. collection name: vacations
+		3. Indexes:
+			1. Fields:
+				
+					{
+						"name:" "1"
+					}
+					
+			2. Options:
+			
+					{ background : true, unique : true } // package names are unique within collection
+					
+	4. Github code
+		1. git clone https://github.com/acloudfan/REST-API-Course-V2.git
+		2. VSCode
+			1. `npm install`
+
 ### Walkthrough: Creation of Vacations API in Node JS ###
 
 ### API Value Chain ###
