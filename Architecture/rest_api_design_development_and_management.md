@@ -880,8 +880,17 @@
 			1. DELETE /vacations/1001/reviews/10
 7. Summary:
 	1. ACME API Root URL: https://api.acme.com/v1
+	2. Vacations Package Resource: /vacations, /vacations/{id}
+	3. Vacation Package Search: /vacations/search?destination=Bahamas
+	4. Vacations Package Associations: /vacations/{vacation-id}/photographs/, /vacations/{vacation-id}/reviews/
 
 ### HTTP API Request flow and HTTP Status Code ###
+1. Learning Objectives:
+	1. HTTP API Call flow
+	2. Contract specification overview (parts)
+	3. HTTP Status Code (by server)
+2. 
+
 ### API Data Format Setup ###
 ### Setup the Demo/ Test Environment ###
 ### Walkthrough: Creation of Vacations API in Node JS ###
