@@ -828,9 +828,35 @@
 		1. Maximum 3 levels is recommended
 			1. Alternative: Subquery to avoid deep nesting
 5. Summary:
-	1. 
+	1. Resource names should be nouns, Use of plurals suggested
+	2. Actions can be verbs; may be standalone or apply to resource
+	3. Avoid nesting over 3 levels for associated resources
 
 ### Walk Through: Setup the API URI for ACME API ###
+1. Learning Objectives:
+	1. API URL
+	2. Resource
+	3. Search action
+	4. Associations
+		1. Vacatioins with other resources
+2. Who is the consumer of ACME API?
+	1. App developer
+	2. End user experience cannot be ignored
+		1. When designing we need to think about end consumer's experience
+		2. Is your API providing the capabilities for building the end consumer's experience
+3. ACME API Bae & Root URL
+	1. https://**api**.acme.com
+	2. Product can be ignored (not complicated)
+	3. version: v1
+	4. Root URL: https://api.acme.com/v1
+4. ACME API Resources
+	1. Resource names should be nouns
+		1. vacations
+			1. https://api.acme.com/v1/vacations
+			2. https://api.acme.com/v1/vacations/{id}
+5. ACME API for Search
+	1. Users may 
+
 ### HTTP API Request flow and HTTP Status Code ###
 ### API Data Format Setup ###
 ### Setup the Demo/ Test Environment ###
