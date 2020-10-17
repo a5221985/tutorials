@@ -855,7 +855,31 @@
 			1. https://api.acme.com/v1/vacations
 			2. https://api.acme.com/v1/vacations/{id}
 5. ACME API for Search
-	1. Users may 
+	1. Users may like to find Vacation packages by destination:
+
+			GET /vacations/destination/{Bahamas}
+			
+	2. Users may like to find Vacation packages by:
+		1. Destiantion
+		2. Price
+		3. Number of days
+		4. ...
+		4. Solution: More generic capability
+
+				GET /vacations/search?destination=Bahamas&numberofdays=5
+				
+			1. Query params
+6. ACME API Associations
+	1. vacations -> photographs (users) (Customers will upload pictures)
+		1. App developers should be able to show some pictures for the destination to give end users experience for buying the package
+	2. vacations -> reviews (Customers will review packages & assign stars)
+	3. Solution:
+		1. /vacations/{vacation-id}/photographs
+			1. /vacations/1001/photographs - App dev can pull all photographs associated with vacation package with id 1001
+		2. /vacations/{vacation-id}/reviews/{review-id}
+			1. DELETE /vacations/1001/reviews/10
+7. Summary:
+	1. ACME API Root URL: https://api.acme.com/v1
 
 ### HTTP API Request flow and HTTP Status Code ###
 ### API Data Format Setup ###
