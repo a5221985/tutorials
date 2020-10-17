@@ -1008,8 +1008,53 @@
 		1. Endpoint - http://acme.../vacations
 			1. http://acme.../vacations/{id}
 		2. Parameters - http://acme.../vacations/subquery
+		3. Body: Not required
+			1. API design may require use of standard | custom header
+		4. Status codes:
+			1. 200 Success - Deleted Resource in Body
+			2. 204 No Content - No content in Body (delete is successful)
+			3. 4xx, 5xx
+		5. Body: Depends on status code returned
+8. Can I use POST for updating?
+	1. Yes
+		1. Twitter uses just GET and POST for all their API!!!
+			1. https://developer.twitter.com
+				1. API Reference
+					1. Only GET and POST
+						1. POST account/settings - partial updates
+						2. POST saved_searches/destroy/:id
+	2. The suggestions are commonly adopted practice; some guidelines
+9. Uber: https://developer.uber.com:
+	1. How does UBER use HTTP Headers in their API?
+10. Summary:
+	1. Use the appropriate HTTP methods
+		1. Maintain consistency
+	2. Send back appropriate HTTP status code
 
 ### API Data Format Setup ###
+1. Learning Objectives:
+	1. Supporting multiple data formats
+	2. What should be the Data format for Reqests and Responses?
+		1. MOST value to your customer (JSON is a misconception)
+			1. JSON
+			2. XML
+			3. CSV
+		2. Build support for multiple formats (if possible)
+			1. If not think of multi format support as a feature of API
+2. Client Decides the Format
+	1. JSON - receives JSON
+		1. Error if no support
+3. Supporting multiple Data formats
+	1. Query params:
+		1. /news?output=json
+		2. /news?output=csv
+	2. HTTP Headers: (PayPal)
+		1. Accept: application/json
+		2. Accept: application/csv
+	3. Resource format suffix
+		1. Usig .<format>
+			1. forecast/daily/{days}day.json
+
 ### Setup the Demo/ Test Environment ###
 ### Walkthrough: Creation of Vacations API in Node JS ###
 
