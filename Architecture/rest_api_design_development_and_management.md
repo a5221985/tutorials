@@ -908,8 +908,47 @@
 	2. API developer needs to provide
 		1. Endpoint: http://.../vacations
 		2. Query parameters
+		3. Request: POST, GET, PUT, DELETE
+		4. HTTP Headers supported:
+			1. Standard header such as Accepts
+			2. Custom headers
+		5. Body:
+			1. Format
+				1. Data format e.g. JSON
+				2. Request Schema
+		6. Response:
+			1. HTTP Header
+				1. HTTP Status Code
+				2. Standard | Custom Headers
+			2. Body:
+				1. Data format e.g., JSON
+				2. Response Schema
+4. HTTP Server always sends status code in header
+	1. Status response text - info message related to status code
+	2. 3 Digit Return Standard Return Codes
+		1. First digit represents the classification
+			1. 5 classifications
+				1. 1xx - informations (100 - continue)
+				2. 2xx - Success (200 - OK)
+				3. 3xx - Redirection (307 - Temporary Redirect)
+				4. 4xx - Client Error (404 - Not Found)
+				5. 5xx - Server Error (500 - Internal Server Error)
+		2. Documented in RFC2616 - https://www.w3.org/Protocols/rfc2616/rfc2616.html
+	3. Note: Do not invent new codes - Use the standard HTTP Codes for your REST API
+5. Example: Etsy
+	1. https://www.etsy.com/developers
+		1. API
+			1. JSON, JSONP
+		2. All 4 verbs
+		3. Response formats
+		4. Response codes
+6. Summary:
+	1. Contract: Endpoint, query params, request, response, headers
+	2. 3 digit number
 
 ### API Data Format Setup ###
+1. 
+
 ### Setup the Demo/ Test Environment ###
 ### Walkthrough: Creation of Vacations API in Node JS ###
 
