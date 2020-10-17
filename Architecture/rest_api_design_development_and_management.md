@@ -736,6 +736,16 @@
 		https://domain/product/version/resource/{id}
 		
 	1. product (optional): grouping name
+		1. Packages
+			1. Logicall grouping of resources
+				1. If org is building multiple APIs. Each of the APis can have dedicated end points and built by different teams
+				2. This is optional
+					1. If it is a small company then it can be ignored
+				3. Makes it easier for the client to understand APIs
+				4. Examples:
+					1. https://app.ticketmaster.com/**discovery**/...
+					2. https://app.ticketmaster.com/**account**/...
+					3. https://app.ticketmaster.com/**partners**/...
 	2. resource: REST resource
 	3. https://domain: base URL
 		1. Examples:
@@ -750,6 +760,10 @@
 			1. https://api.walmartlabs.com
 			2. https://services.expediapartnercentral.com
 	4. version: version of API
+		1. API can be treated as a software product
+			1. Software products can have multiple versions at the same time
+			2. Multiple versions can be actively consumed by consumers
+				1. Insulates API consumers from API changes
 	5. id: resource id
 
 ### Walk Through: Setup the API URI for ACME API ###
