@@ -731,6 +731,26 @@
 
 ## Designing REST API ##
 ### API Endpoint URL ###
+1. Scheme:
+
+		https://domain/product/version/resource/{id}
+		
+	1. product (optional): grouping name
+	2. resource: REST resource
+	3. https://domain: base URL
+		1. Examples:
+			1. https://api.paypal.com
+			2. https://app.ticketmaster.com
+			3. https://developer.uber.com
+		2. Note: DO NOT use your www sub-domain for API
+			1. `api` is subdomain
+			2. `app` is subdomain
+			3. `developer` is subdomain
+		3. Separate URL is also possible:
+			1. 
+	4. version: version of API
+	5. id: resource id
+
 ### Walk Through: Setup the API URI for ACME API ###
 ### HTTP API Request flow and HTTP Status Code ###
 ### API Data Format Setup ###
