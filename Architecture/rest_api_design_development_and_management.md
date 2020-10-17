@@ -1112,8 +1112,37 @@
 			4. `models` - schema defintiions in js files
 			5. `tests` - js code for populating collections with documents
 			6. `index.js` - for launching API
+	5. Cluster connection
+		1. `mongodb+srv://<user>:<password>@cluster0-46e5h.mongodb.net/dbname...`
+			1. admin, admin123
+			2. cluster- host name
+			3. ... - additional params
+4. Connection:
+	1. `node tests/TestDBOps.js`
+	2. Open Connect > Connect your application
+		1. Copy connection string
+		2. `db` folder
+			1. clouddb.js
+				1. Change cluster address
+		3. Testing:
+			1. data/vacations.js is used to populate
+			2. `node .\tests\TestDbOps.js`
+	3. Goto collections, check
+5. Summary:
+	1. Setup Ready for experiementation | demo
 
 ### Walkthrough: Creation of Vacations API in Node JS ###
+1. Demo - Vacations Resource UI
+	1. ACME Vacations API
+	2. Construct the API for vacations:
+		1. GET /v1/vacations - getting vacations
+		2. POST /v1/vacations - new vacation packages
+2. api/v1/vacations.js
+	1. API routes | code - uses express - https://www.npmjs.com/package/express
+3. models/vacations.js
+	1. Mongoose schema - https://mongoosejs.com/docs
+4. index.js
+	1. API Listener Application - for launching listener
 
 ### API Value Chain ###
 1. Learning objectives
