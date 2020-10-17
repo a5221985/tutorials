@@ -1143,6 +1143,22 @@
 	1. Mongoose schema - https://mongoosejs.com/docs
 4. index.js
 	1. API Listener Application - for launching listener
+5. Model:
+
+		var VacationsSchema = settings.mongoose.Schema(
+			{
+				// Name of the vacation package - BAHAMAS1000 - primary key
+				name: {type:String, required:[true, 'name is needed']},
+				description: {type.String, required: true},
+				// ACME offers resorts & cruise vacation package
+				type: {type:String, enum: ['resort', 'cruise']},
+				// Destination city
+				destinations: [{city: String, country: String}],
+				// Includes - what all does the package include
+				includes : [{
+					what: {type: String, enum: ['flight', 'meals', 'cruise', 'hotel', 'rentalcar', 'excursions', 'misc']},
+					description: {type: String, required: false}
+				}],
 
 ### API Value Chain ###
 1. Learning objectives
