@@ -1174,6 +1174,70 @@
 				soldout: {type: Boolean, required: true, default: false}
 			}
 		);
+		
+	1. GET - Retrieved from MongoDB
+	2. POST - Adds a document to MongoDB
+6. API:
+
+		var RESOURCE_NAME = 'Vacations';
+		var VERSION = 'v1';
+		var URI = '/' + VERSION + '/' + RESOURCE_NAME;
+		
+		// Setup the vacations db
+		var db = require('../../db/Vacations')
+		
+		module.exports = function(router) {
+			'use strict';
+			
+			// RETRIEVE all active vacation packages
+			// Active = validTill >= today's date
+			router.route(URI).get(function (req, res, next) {
+				console.log("GET Vacations");
+				//1. Setup query criteria for the active packages
+				var criteria = {validTill : {$gte : new Date()}}
+				
+				//2. execute the query
+				db.select(criteria, function (err, docs) {
+					if (err) { // error connecting to db
+						console.log(err);
+						res.status(500);
+						res.send("Error connecting to db");
+					} else {
+						if (docs.length == 0) {
+							res.status(404);
+						}
+						console.log("Retrieved vacations = %d", docs.length);
+						res.send(docs);
+					}
+				});
+			}
+			
+			// CREATE new vacation packages
+			router.route(URI).post(function (req, res, next) {
+				console.log("POST Vacations");
+				
+				//1. Get the data
+				var doc = req.body;
+				
+				//2. Call the insert method
+				db.save(doc, function (err, saved) {
+					if (err) {
+						// The returned error need to be defined better - in this exaple it...
+						res.status(400).send(err);
+					} else {
+						res.send(saved);
+					}
+				});
+			});
+			
+	1. Testing:
+		1. `node .\index.js`
+		2. PostMan:
+
+				GET http://localhost:3000/v1/vacations
+				POST http://localhost:3000/v1/vacations
+				
+						Body: JSON body
 
 ### API Value Chain ###
 1. Learning objectives
