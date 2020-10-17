@@ -969,7 +969,29 @@
 	2. Body:
 		1. May return the new resource instance (data e.g. JSON)
 		2. May return link to new resource instance
-			1. http://.../vacations/1423
+			1. http://.../vacations/1423 (link is returned by server)
+5. Retrieve Resource - GET
+	1. Endpoint: http://acme.../vacations
+		1. https://acme.../vacations/{id}
+	2. Query paramters:
+		1. http://acme.../vacations/subquery
+	3. API design may require use of standard | custom header
+	4. Request body is optional (retrieval)
+	5. Status codes:
+		1. 200 OK - if server was able to retrieve successfully
+		2. 4xx Bad request - 404 Resource Not found
+		3. 5xx Issue in processing - 500 
+	6. Body:
+		1. Collection of Resources
+		2. Single instance of the requested resource
+6. Updating the Resource - PUT/PATCH
+	1. PUT - Update ALL of the attributes of the resource
+	2. PATCH - Update SOME of the attributes of the resource
+		1. For large objects it may be performant
+			1. Only part of the data can be sent
+			2. Example: PATH http://api.acme.com/vacations/121?validTill=3/1/2022
+	3. PUT/PATCH - requirements:
+		1. Endpoint - 
 
 ### API Data Format Setup ###
 ### Setup the Demo/ Test Environment ###
