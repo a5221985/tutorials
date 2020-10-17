@@ -946,9 +946,32 @@
 	1. Contract: Endpoint, query params, request, response, headers
 	2. 3 digit number
 
-### API Data Format Setup ###
-1. 
+### Implementing REST API CRUD Operations ###
+1. Learning Objectives:
+	1. Request | Response fro CRUD
+	2. HTTP Status Code
+2. Use appropriate HTTP verb from CRUD
+	1. PATCH
+	2. OPTIONS
+	3. TRACE
+	4. HEAD
+	5. CONNECT
+3. Constructing a Resrouce:
+	1. Endpoint: https://acme.../vacations
+		1. http://acme.../vacations/{id}/review
+	2. Request body contains the Resource representation
+	3. API design may require use of standard | custom header
+4. Constructing a Resource Reponse:
+	1. Header:
+		1. 2xx Success (201 created)
+		2. 4xx Bad Request (400 Missing required field)
+		3. 5xx Issue in processing (503 Database unreachable)
+	2. Body:
+		1. May return the new resource instance (data e.g. JSON)
+		2. May return link to new resource instance
+			1. http://.../vacations/1423
 
+### API Data Format Setup ###
 ### Setup the Demo/ Test Environment ###
 ### Walkthrough: Creation of Vacations API in Node JS ###
 
