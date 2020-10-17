@@ -1002,6 +1002,12 @@
 			3. 204 No Content - No content in Body
 			4. 4xx Bad request
 			5. 5xx Issue in processing
+		5. Body: Depends on HTTP status code
+7. Deleting the resource
+	1. DELETE
+		1. Endpoint - http://acme.../vacations
+			1. http://acme.../vacations/{id}
+		2. Parameters - http://acme.../vacations/subquery
 
 ### API Data Format Setup ###
 ### Setup the Demo/ Test Environment ###
