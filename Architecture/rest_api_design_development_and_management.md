@@ -1475,6 +1475,24 @@
 5. Should I use ALL HTTP Codes?
 	1. Limit the number
 		1. Average 10 codes in use
+		2. Commonly used HTTP Status codes
+			1. 200 OK
+			2. 201 Created
+			3. 400 Bad Request
+			4. 404 Not Found
+			5. 401 Unauthorized
+			6. 403 Forbidden
+			7. 415 Unsupported media
+			8. 500 Server Error
+6. Why should I limit it?	
+	1. Hard for API development team to manage
+		1. Need to maintain consistency
+	2. Difficult to handle by App developers to handle
+7. Examples:
+	1. Expedia - supports 14 error codes (slightly higher)
+	2. TomTom - supports 6 (slightly lower)
+8. Summary:
+	1. Error information ONLY in HTTP header
 
 ### Application Error Handling Patterns ###
 ### Walkthrough: Implementation of Error Handling for POST API ###
