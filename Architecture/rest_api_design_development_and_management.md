@@ -1622,6 +1622,19 @@
 1. Demo - Vacations API Error Handling
 	1. ACME Vacations API
 		1. Construct the Error Response template
+		2. Setup the API specific error codes
+		3. Implement validation & DB error handling
+	2. POST /v1/vacations
+2. What will happen?
+	1. Insert/ Add a vacation package with the name that already exist?
+	2. What will be the error message?
+		1. Status code: 400
+			1. Don't send error messages reported by tools such as database
+				1. It does not make sense to app developer
+				2. If tool changes, the error message may change and app developer has to change his app
+	3. https://github.com/acloudfan/REST-API-Course-V2
+	4. git checkout errorhandling
+	5. If DB connection error: Check the DB_URI parameters in db/clouddb.js
 
 ## REST API Handling Change - Versioning Patterns ##
 ### Handling Changes to API ###
