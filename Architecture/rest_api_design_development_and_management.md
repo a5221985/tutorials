@@ -1453,7 +1453,28 @@
 		3. Standardize the Application error across all API
 3. REST API Error Flow
 	1. REST client sends request to REST Server
-	2. 
+	2. REST Server sends error response
+	3. REST client logs the error message for end user to check
+		1. API sends error in combination of Header | Body (need to decide)
+4. Error Response Options
+	1. Error information ONLY in HTTP header
+		1. Status-code - 2xx, 4xx, 5xx
+		2. Reason-Phrase - Information message (OK, Bad Request, Error)
+		3. x-Custom-Header - For additional information
+			1. Example: Entsy - https://www.etsy.com/developers/documentation
+				1. `X-Error-Detail` - additiondal details
+	2. Error information ONLY in Body
+		1. Always return HTTP Status Code = 200, OK
+		2. Error information in standard format (Facebook was using this)
+			1. Least preferred approach
+	3. Error information in Header + Body
+		1. HTTP Code = 2xx?
+			1. Read Body or Resource information/ link
+			2. Read Body for Error information
+		2. Example: Uber - developer.uber.com (preferred approach)
+5. Should I use ALL HTTP Codes?
+	1. Limit the number
+		1. Average 10 codes in use
 
 ### Application Error Handling Patterns ###
 ### Walkthrough: Implementation of Error Handling for POST API ###
