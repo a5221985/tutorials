@@ -1560,13 +1560,68 @@
 		}
 		
 		{
-			code: 7001
-			text: "Required field vacation 'name' is missing",
-			hints: ["Please check that user has provided non null value of 'name'"],
+			code: 7002
+			text: "Required field vacation 'number of nights' is missing",
+			hints: ["Please check that user has provided a number (between 1 & 31)"],
 			info: "http://developer.acme.com/error#RequiredFields"
 		}
+		
+7. Examples: PayPal
+
+		{
+			"name": "ERROR_NAME",
+			"message": "Error message.",
+			"debug_id": "debug_ID",
+			"details": [
+				{
+					"fields": "field_name",
+					"value": "value_passed",
+					"location": "field_location",
+					"issue": "problem_with_field",
+					"description": "Error description"
+				}
+			],
+			"links": [
+				{
+					"https://error_documentation_link",
+					"rel": "information_link",
+					"encType": "application/json"
+				}
+			]
+		}
+		
+	1. https://developer.paypal.com/docs/api/reference/api-responses/#http-status-codes
+8. Response Envelope:
+	1. Envelope - very few APIs implement
+	2. 2 parts
+
+			Status: {..}
+			Payload: {..}
+			...
+			
+		1. Status: status of the call including errors
+			1. If there are errors, error list is populated, else it is null
+				1. Payload can be null if errors exist
+	3. Example: Expedia
+
+			public class ResponseWrapperDTO<T> implements Serializable {
+				private T entity;
+				private List<ErrorDTO> errors;
+			}
+			
+		1. Entity is actual resource
+		2. Errors - list of error or null
+9. Summary:
+	1. Standardize the error responses
+	2. App | API Status code
+	3. Make it informative
+	4. Envelope
+		1. Response always include the status along with payload
 
 ### Walkthrough: Implementation of Error Handling for POST API ###
+1. Demo - Vacations API Error Handling
+	1. ACME Vacations API
+		1. Construct the Error Response template
 
 ## REST API Handling Change - Versioning Patterns ##
 ### Handling Changes to API ###
