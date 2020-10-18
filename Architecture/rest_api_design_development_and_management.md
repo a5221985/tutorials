@@ -1446,7 +1446,14 @@
 	1. HTTP Header
 		1. Status-code - HTTP call status
 		2. Reason-Phase - Information message (RFC2616) - header fields (do not customize message)
-		3. 
+	2. Body:
+		1. API designer defines the format
+		2. May contain Application status code
+			1. Defined by API designer
+		3. Standardize the Application error across all API
+3. REST API Error Flow
+	1. REST client sends request to REST Server
+	2. 
 
 ### Application Error Handling Patterns ###
 ### Walkthrough: Implementation of Error Handling for POST API ###
