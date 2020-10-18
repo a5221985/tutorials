@@ -1635,6 +1635,12 @@
 	3. https://github.com/acloudfan/REST-API-Course-V2
 	4. git checkout errorhandling
 	5. If DB connection error: Check the DB_URI parameters in db/clouddb.js
+	6. Demo - Vacations API
+		1. Setup the error codes and description for API specific errors
+		2. Construct the template for the error response body
+		3. Code a utility function for constructing the error responses
+		4. Implement the error handling code for POST /vacations
+			1. Send back Status code = 400 for duplicates & validation errors
 
 ## REST API Handling Change - Versioning Patterns ##
 ### Handling Changes to API ###
