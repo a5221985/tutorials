@@ -1530,17 +1530,41 @@
 6. Example: Vacations Error Template
 
 		// Meant for the developer
-		test: message,
-		timestamp: new Date(),
+		test: message, // high level message
+		timestamp: new Date(), // timestamp
 		// POST, GET ...
 		method: httpMethod,
 		// Endpoint information
-		endpoint: endpointInformation,
+		endpoint: endpointInformation, // http://api.acme.com/v1/vacations
 		// An array of all errors
-		errors: errorList,
+		errors: errorList,	// An array of errors
 		// OPTIONAL -
 		// Use only during development
-		payload: receivedPayload
+		payload: receivedPayload // Full request payload - use for debug only (may contain sensitive info - dont log)
+		
+		Array:
+		{
+			code: Application-Specific-Error-Code,
+			text: "Message describing the error",
+			hints: ["hints to the developer on the potential issues"], // hints on resolution
+			info: "Link to more information" // link to docs
+		}
+		
+7. Examples:
+
+		{
+			code: 7001
+			text: "Required field vacation 'name' is missing",
+			hints: ["Please check that user has provided non null value of 'name'"],
+			info: "http://developer.acme.com/error#RequiredFields"
+		}
+		
+		{
+			code: 7001
+			text: "Required field vacation 'name' is missing",
+			hints: ["Please check that user has provided non null value of 'name'"],
+			info: "http://developer.acme.com/error#RequiredFields"
+		}
 
 ### Walkthrough: Implementation of Error Handling for POST API ###
 
