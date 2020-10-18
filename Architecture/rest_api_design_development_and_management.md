@@ -1493,8 +1493,55 @@
 	2. TomTom - supports 6 (slightly lower)
 8. Summary:
 	1. Error information ONLY in HTTP header
+	2. Error information ONLY in Body
+	3. Error information in Header + Body (Body is in a standard format)
+		1. Recommended
+	4. Limit the number of HTTP status codes (suggested 10)
 
 ### Application Error Handling Patterns ###
+1. Learning Objectives:
+	1. Setting up common Error Format
+	2. Response envelope
+		1. Pattern
+2. Error Response Consumer
+	1. Meant for use by the application developer
+		1. To define Runtime behaviour
+		2. To log in persistence storage
+			1. Root cause analysis
+			2. Error reports
+3. How to design Error Response?
+	1. Error response should be informative & actionable
+		1. App developer should be able to figure out what action needs to be taken to fix the issue
+			1. Required field say
+		2. Simple
+		3. Consistent
+			1. Different error message formats is challenging to deal
+4. Make it informative
+	1. Links to API documentation in the error message
+	2. Hints to address the issue
+	3. Send messages that may be presented directly to end users
+5. Application | API Status Code
+	1. Define & Use *Numeric* Application status code
+		1. Example: error code = 7002
+			1. Required field vacation 'description' is missing
+	2. Maintain | Share the app codes wth ALL developers in team
+		1. Must be maintained like any other development asset
+		2. Do not have multiple app codes for same status
+6. Example: Vacations Error Template
+
+		// Meant for the developer
+		test: message,
+		timestamp: new Date(),
+		// POST, GET ...
+		method: httpMethod,
+		// Endpoint information
+		endpoint: endpointInformation,
+		// An array of all errors
+		errors: errorList,
+		// OPTIONAL -
+		// Use only during development
+		payload: receivedPayload
+
 ### Walkthrough: Implementation of Error Handling for POST API ###
 
 ## REST API Handling Change - Versioning Patterns ##
