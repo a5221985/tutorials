@@ -4965,6 +4965,49 @@
 4. Next: Types of mobile apps
 
 ### Types of Mobile Apps - Part 1 ###
+1. Topics:
+	1. Native App
+	2. Technologies for Writing Native Apps
+	3. Hybrid App
+	4. Technologies for Writing Hybrid Apps
+		1. React Native
+		2. Apache Cordova - PhoneGap
+		3. Ionic Framework
+		4. Flutter
+2. Mobile apps are apps that we download from Google Play Store or iPhone App Store & install
+3. Two types of mobile apps
+	1. Native
+	2. Hybrid
+4. Next: Popular technologies for the types
+5. Next: Why is it important for developers to pick the right type of app to implement their use case?
+6. Next: Why do we need diferent types of mobile apps? What are the pain points these app types are trying to solve?
+7. Next: Whick app type, hybrid or native, will suite best for my use case? We'll discuss this with some real-life examples
+
+#### Native App ####
+1. Apps built for particular OS (Android, iOS, Windoes-based)
+	1. They function only on OS there are built for
+		1. Andrid OS app will not work on Apple OS
+2. Native apps interact directly with the OS and device hardware
+	1. No wrapper
+	2. No middleware
+	3. No adapter
+3. They have full access to device hardware like
+	1. Camera
+	2. Sensors
+	3. ...
+4. Pros:
+	1. High performance
+	2. Consistent user interface
+	3. Look and feel of native OS
+
+#### Technologies for Writing Native Apps ####
+
+#### Technologies for Writing Hybrid Apps ####
+##### React Native #####
+##### Apache Cordova - PhoneGap #####
+##### Ionic Framework #####
+##### Flutter #####
+
 ### Types of Mobile Apps - Part 2 ###
 ### Choosing Between A Native & A Hybrid App ###
 ### Progressive Web Apps ###
