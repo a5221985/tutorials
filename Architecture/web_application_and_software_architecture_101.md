@@ -4999,8 +4999,46 @@
 	1. High performance
 	2. Consistent user interface
 	3. Look and feel of native OS
+5. Native App:
+
+	![native_app](native_app.jpeg)
+	
+6. Pros:
+	1. No lag issues when rendering UI animations (like slider movement, hiding and displaying UI elements ...)
+	2. UI is pretty responsive
+		1. When user clicks on UI, it changes almost immediately if it is to (no lag)
+7. Development:
+	1. Native apps are developed using APIs and SDKs provided by native OS
+	2. Examples: Android apps of LinkedIn, Tinder, Hike
 
 #### Technologies for Writing Native Apps ####
+1. Mobile OS supports certain set of technologies for writing an app that would run on it
+	1. Android OS:
+		1. Java
+		2. Kotlin
+		3. C++
+		4. [Official Android Developer Documentation is Good Starting Place](https://developer.android.com/guide?hl=en)
+	2. iOS:
+		1. Swift
+		2. Objective C
+		3. Cocoa Touch Framework
+		4. [Apple developer docs](https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/)
+	3. Every respective mobile OS supports different set of technologies to enable developers to build apps for its platform
+
+#### Hybrid App ####
+1. They are hybrid between native and web-based technologies
+2. They can be installed from app stores (just like native apps)
+3. They can access hardware and communicate with OS
+4. Primarily built using open based technologies
+	1. HTML5
+	2. CSS
+	3. JS
+5. They run in native container and communicate with native OS via a wrapper or middle layer
+	1. Middle layer enables open web technologies to talk to native OS
+		1. Makes hybrid apps a bit slower than native apps (performance wise and rendering of UI)
+6. Hybrid apps:
+
+	![hybrid_apps](hybrid_apps.jpeg)
 
 #### Technologies for Writing Hybrid Apps ####
 ##### React Native #####
