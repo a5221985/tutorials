@@ -4911,8 +4911,39 @@
 1. Topics:
 	1. Designing Responsive Websites
 2. How can we develop responsive websites for our service
+	1. Two appraoches:
+		1. Mobile first
+			1. Design website for small screen & then let it adapt for bigger desktop screen
+		2. Web first
+			1. Design website for bigger screen and then let it adapt for smaller screens
+3. There are plethora of smart devices availabe in market with different unique screen sizes
+	1. Smart TVs
+	2. Kindle
+	3. Android-powered devices
+	4. IoT devices
+	5. Blackberry
+	6. Windows handheld phones
+	7. Apple products (iPhone, iPad, ...)
+	8. Super tiny smart watch screens
+4. It is challenging for developers to write applications for every screen size
+	1. Solution: Responsive interface
+		1. Popular saying:
+			1. Content should be like water, it should take the shape of the vessel it is poured in
+5. Next: Popular technologies used by developers for responsive interfaces
 
 #### Designing Responsive Websites ####
+1. If I am not a designer, I cannot hire a designer and I am a backend developer, pick [BootstrapJS](https://getbootstrap.com/)
+	1. BootstrapJS - it is production grade open-source CSS framework for designing responsive user interfaces
+		1. Contains
+			1. CSS
+			2. JS features
+			3. Animations
+			4. Typography
+			5. Form elements
+			6. Buttons
+			7. ...
+		2. We don't have to write anything from ground up
+			1. Plug elements together and build the website
 
 ### Types of Mobile Apps - Part 1 ###
 ### Types of Mobile Apps - Part 2 ###
