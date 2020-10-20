@@ -4944,6 +4944,25 @@
 			7. ...
 		2. We don't have to write anything from ground up
 			1. Plug elements together and build the website
+			2. There are lot of templates & plugins (free & premium)
+				1. Offer more than core framework
+				2. If feature does not exist online, we can write one since it is open source
+		3. Learning curve is not that steep
+			1. grid-based approach is recommended by trainer
+			2. Responsive design:
+
+				![responsive_design](responsive_design.jpeg)
+				
+		4. Twitter wrote it to have consistency across all user interfaces of internal tools
+		5. [Projects Built using Bootstrap Framework](https://expo.getbootstrap.com/)
+2. [jQuery Mobile](https://jquerymobile.com/) - another popular framework for responsive websites
+	1. Written and maintained by jQuery project team
+3. Other frameworks:
+	1. Skeleton
+	2. HTML5 Boilerplate
+	3. Less Framework
+	4. ...
+4. Next: Types of mobile apps
 
 ### Types of Mobile Apps - Part 1 ###
 ### Types of Mobile Apps - Part 2 ###
