@@ -5039,9 +5039,28 @@
 6. Hybrid apps:
 
 	![hybrid_apps](hybrid_apps.jpeg)
+	
+7. Popular frameworks for hybrid apps:
+	1. React-Native
+	2. Ionic
+	3. Cordova
+	4. ...
 
 #### Technologies for Writing Hybrid Apps ####
+1. Popular technologies as follows:
+
 ##### React Native #####
+1. [React Native](https://facebook.github.io/react-native/)
+2. Written in JS and developed by Facebook
+3. It can be used to develop for Android, iOS, Windows, ...
+4. It was used by facebook for 
+	1. Ad manager
+	2. Analytics
+	3. Group app
+5. It had highest number of contributors for any repo in GitHub in 2018
+6. Companies using React Native for their mobile apps:
+	1. [Boomberg]()
+
 ##### Apache Cordova - PhoneGap #####
 ##### Ionic Framework #####
 ##### Flutter #####
