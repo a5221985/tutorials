@@ -4908,6 +4908,12 @@
 4. Conclusion: research in the niche is important before writing any code
 
 ### Responsive Interfaces ###
+1. Topics:
+	1. Designing Responsive Websites
+2. How can we develop responsive websites for our service
+
+#### Designing Responsive Websites ####
+
 ### Types of Mobile Apps - Part 1 ###
 ### Types of Mobile Apps - Part 2 ###
 ### Choosing Between A Native & A Hybrid App ###
