@@ -5059,11 +5059,34 @@
 	3. Group app
 5. It had highest number of contributors for any repo in GitHub in 2018
 6. Companies using React Native for their mobile apps:
-	1. [Boomberg]()
+	1. [Boomberg](https://www.techatbloomberg.com/blog/bloomberg-used-react-native-develop-new-consumer-app/)
+	2. [Walmart](https://medium.com/walmartlabs/react-native-at-walmartlabs-cdd140589560#.ueonqqloc)
+	3. [Uber Eats](https://eng.uber.com/ubereats-react-native/)
+	4. [Discord](https://blog.discordapp.com/why-discord-is-sticking-with-react-native-ccc34be0d427)
 
 ##### Apache Cordova - PhoneGap #####
+1. [Apache Cordova](https://cordova.apache.org/) - Open source and hybrid released by Adobe
+2. Can be used to build mobile apps for Android, iOS using HTML, JavaScript, CSS
+3. Ionic Framework & PhoneGap etc... are built on top of Cordova
+	1. PhoneGap - Adobe's commercial version of Cordova
+4. Adobe provides following for mobile development using PhoneGap
+	1. Tools
+	2. Entire ecosystem
+5. [List of apps developed using PhoneGap](https://phonegap.com/app/)
+
 ##### Ionic Framework #####
+1. [Ionic](https://ionicframework.com/) - open-source SDK for writing hybrid mobile apps built on top of Apache Cordova and Angular JS
+2. [Companies developing apps using Ionic framework](https://ionicframework.com/customers)
+
 ##### Flutter #####
+1. [Flutter](https://flutter.dev/) - open-source hybrid mobile app SDK by Google
+2. It can be used to develop apps for Android, iOS, Windoes, Mac, Linux, Google Fuchsia & Web.
+3. Apps developed using Flutter are:
+	1. [Square](https://squareup.com/us/en/flutter)
+	2. [Google Assistant](https://developers.googleblog.com/2019/05/Flutter-io19.html)
+4. Full list of apps developed using Flutter: [List of apps](https://flutter.dev/showcase)
+5. [Wikipedia Resource](https://en.wikipedia.org/wiki/Mobile_app_development)
+	1. List of mobile app dev tools, SDKs & platforms for writing mobile apps
 
 ### Types of Mobile Apps - Part 2 ###
 ### Choosing Between A Native & A Hybrid App ###
