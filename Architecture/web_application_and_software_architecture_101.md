@@ -5089,6 +5089,29 @@
 	1. List of mobile app dev tools, SDKs & platforms for writing mobile apps
 
 ### Types of Mobile Apps - Part 2 ###
+1. Topics:
+	1. Cross-Platform App Development Pain Points - The Need for Hybrid Apps
+	2. Issues with Hybrid Apps
+	3. Real Life Examples
+		1. Airbnb Ditacked React-Native For Native Tech
+		2. Udacity Abandoned React Native
+		3. Facebook Admitted Counting Big On Html5 For Their Mobile App was a Mistake
+2. What is the need for hybrid apps?
+	1. When we have native apps
+	2. When native apps are performant
+	3. When native apps have consistent UI
+	4. Why does Business want to compromise on UX by using Hybrid app?
+3. There are pain points with Native app development
+
+#### Cross-Platform App Development Pain Points - The Need for Hybrid Apps ####
+
+#### Issues With Hybrid Apps ####
+
+#### Real Life Examples ####
+##### Airbnb Ditched React-Native for Native Tech #####
+##### Udacity Abandoned React Native #####
+##### Facebook Admitted Counting Big on HTML5 for Their Mobile App was a Mistake #####
+
 ### Choosing Between A Native & A Hybrid App ###
 ### Progressive Web Apps ###
 ### Mobile Backend as a Service ###
