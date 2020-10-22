@@ -1641,6 +1641,39 @@
 		3. Code a utility function for constructing the error responses
 		4. Implement the error handling code for POST /vacations
 			1. Send back Status code = 400 for duplicates & validation errors
+3. Vacations API - Error Codes
+	1. Using 4 digit error code
+		1. Code = 5000 - Unknown Error
+		2. Code = 6xxx - Any database error such as duplicate keys
+		3. Code = 7xxx - Validation Error
+4. `git branch`
+5. `git checkout errorhandling`
+	1. util
+		1. error.js
+
+				exports.errors = { // errors specific to vacations
+					// This is a catch all error
+					// Ideally this should never be thrown
+					UNKNOWN_ERROR : {
+						code: 5000,
+						text: "Unknown error !!!",
+						hints: ["Please contact development team with information on 'how to reproduce this error'. THank you for ..."]
+						info: "http://developer.acme.com/unknownerror"
+					}
+					
+					PACKAGE_ALREADY_EXISTS: {
+						code: 6000,
+						text: "Vacation package with the provided 'code' already exists",
+						hints: ["Please use PUT for update instead of POST"],
+						info: "http://developer.acme.com/errors#6000"
+					},
+					
+					// All required/ missing field errors start with number 7
+					MISSING_PACKAGE_NAME: {
+						code: 7001,
+						text: "Required field vacation 'name' is missing",
+						...
+					}
 
 ## REST API Handling Change - Versioning Patterns ##
 ### Handling Changes to API ###
