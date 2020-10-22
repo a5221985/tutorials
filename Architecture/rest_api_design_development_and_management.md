@@ -1953,9 +1953,49 @@
 		1. Gives enough time to app developers for accessing the new api (typically 3 months)
 			1. Consider organization processes
 	2. Mark the previous version as deprecated
+		1. For new apps developers can access only the latest version
+	3. Publish a roll out plan in advance
+	4. Manage changelog that clearly shows the reason for new version
+		1. Developer should understand the value in the change
+		2. Developer should understand what has changed
+			1. New feature?
+			2. Bug fixes?
+5. Summary
+	1. Develop practices for managing API version lifecycle
+	2. Construct a roadmap for your app developers
+		1. Phases in lifecycle
+			1. Available -> Deprecated -> Retired
+			2. App developers should understand the timelines of the phases
 
 ## REST API Cache Control Patterns ##
 ### API Caching (1 of 2) Concepts & Design Decisions ###
+1. Learning Objectives:
+	1. Benefits of caching
+	2. Design decisions for cache implementation
+2. Who Caches?
+	1. API consumer (browser, mobile app, ...)
+		1. ISPs infrastructure
+		2. Edge of Enterprise (Firewall is surrounded)
+			1. API management software
+			2. Data power
+			3. Call is authenticated and rules applied in Gateway
+				1. Other Gateway funcitons:
+					1. SSL offloading
+					2. Transformation on data
+					3. ...
+		3. Internal API
+		4. Database
+	2. Caching can occur at
+		1. Client caching - Browser cache, app cache
+		2. ISP caching
+		3. Gateway caching
+		4. Midtier caching (web app or node app)
+		5. DB Caching (sql or nosql db)
+3. Why Cache?
+	1. Improves performance
+	2. Higher scalability/ Throughput (of app or API)
+		1. 
+
 ### API Caching (2 of 2) Cache Control Directive ###
 ### Demo - API Caching Using Cache-Control Directives ###
 ### Building Support for Partial Responses ###
