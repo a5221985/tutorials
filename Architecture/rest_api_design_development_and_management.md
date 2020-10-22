@@ -2352,7 +2352,54 @@
 			1. Cursor = "Random string"
 				1. Points to a specific item (in collection)
 					1. Item = 10299
-			2. 
+			2. When API is invoked, it sends:
+				1. Envelope based response
+
+						{
+							"data": [
+								... Endpoint data is here
+							],
+							"paging": {
+								"cursors": {
+									"after": "sgasdfjlsdjfjlf=",
+									"before": "sdjglasdjflsdf"
+								},
+								"previous": "https://graph.facebook.com/me/albums?..."
+								"next": "https://graph.facebook.com/me/albums?..."
+							}
+						}
+						
+					1. Metadata for paging exists
+						1. `before` - pointing to beginning of the page
+						2. `after` - pointing to end of the page
+						3. `previous` - previous page
+						4. `next` - next page
+					2. Meta data may be sent back in the response header
+7. Offset based pagination
+	1. Commonly used approach
+		1. GET /../hotels?offset=6&limit=5
+			1. offset - starting row
+			2. limit - number of rows (count)
+	2. Example: LinkedIn
+		1. /people?start=50&count=25
+	3. Example: Facebook
+		1. /friends?offset=50&limit=25
+	4. Example: Twitter
+		1. /search?page=3&rpp=25 (rows per page)
+8. HTTP Link Header
+	1. Use of Link Header a.k.a web linking
+		1. https://tools.ietf.org/html/rfc5988
+		2. It is a way to construct relationship between resources
+			1. Example: GitHub
+				1. https://api.github.com/search/code?q=addClass
+					
+						HTTP Header:
+						Link: <https://api.github.com/user/repos?page=3&per_page=100>; rel="next",<https://api.github.com/user/repos?page=50&per_page=100>; rel="last"
+						
+					1. URL - to previous or next page
+					2. Relationship - next page or last page
+9. Summary:
+	1. 
 
 ### Walk Through: Building Support for Pagination in ACME API ###
 
