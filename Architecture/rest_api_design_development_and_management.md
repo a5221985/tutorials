@@ -1672,8 +1672,49 @@
 					MISSING_PACKAGE_NAME: {
 						code: 7001,
 						text: "Required field vacation 'name' is missing",
+						hints: ["Please check that user has provided the non null value for 'name'"],
+						info: "http://developer.acme.com/error#RequiredFields"
+					},
+					MISSING_PACKAGE_DESCRIPTION: {
+						code: 7002,
+						text: "Required field vacation 'description' is missing",
+						hints: ["Please check that user has provided the non null value for description"],
+						info: "http://developer.acme.com/error#RequiredFields"
+					},
+					MISSING_PACKAGE_NUM_OF_NIGHTS: {
+						code: 7003,
+						text: "Required field vacation 'number of nights' is missing",
+						hints: ["Please check that user has provided a number (between 1 & 31)"],
+						info: "http://developer.acme.com/error#RequiredFields"
+					},
+					// All format errors beging with 8
+					FORMAT_NUM_OF_NIGHTS: {
+						code: 8001,
+						text: ...
 						...
 					}
+					
+		2. Utility methods:
+
+				/**
+				 * Utility methods
+				 * Constructs error error response body to be sent back to the caller
+				 */
+				exports.create = function (message.httpMethod, endpointInformation, errorList, receivedPayload) {
+					return {
+						// Meant for the developer
+						text: message,
+						timestamp: new Date(),
+						// POST, GET, ...
+						method: httpMethod,
+						// Endpoint information
+						endpoint: endpointInformation,
+						// An array fo all errors
+						errors: errorList,
+						// OPTIONAL: Use only during development
+						payload: receivedPayload
+					}
+				}
 
 ## REST API Handling Change - Versioning Patterns ##
 ### Handling Changes to API ###
