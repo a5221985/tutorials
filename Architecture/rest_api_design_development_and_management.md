@@ -2007,9 +2007,42 @@
 		3. Security
 	2. Examples: HTML, PDF, JPEG, CSS, JavaScript, Flash, ... (static data)
 		1. Not time sensitive
-		2. Not changed freqently
+		2. Not changed frequently
 		3. Security is not an issue
-			1. 
+			1. Solution: Can be cached as long as possible (even for months)
+	3. API data:
+		1. Time sensitive
+		2. Changes frequently
+		3. Security is important
+			1. Examples:
+				1. Stock market - changes very frequently, time sensitive, trades needs security (how trading is done and what is being traded)
+				2. News - minutes (not time sensitive - no financial loss if not read), security is not an issue
+				3. Customer profile - may be time sensitive, may not change frequently, security must be very high (don't in intermediaries)
+				4. ACME Vacation packages - speed of change (24 hours), may be time sensitive especially for discounts for limited time period (don't cache and offer might expire), security is not a concern (data is in public domain)
+4. Design decisions:
+	1. Which component should control the caching?
+		1. API controls caching behaviour
+	2. What to cache? Who can cache?
+		1. Previous three aspects are considered
+			1. Time sensitivity
+			2. Changes frequently or not
+			3. Security
+		2. Who can cache?
+			1. APIs can control who can cache
+				1. Can app cache?
+				2. ...
+	3. For how long is the cache data valid?
+		1. Depends on nature of data
+			1. Speed of change
+			2. Time sensitivity
+5. Easy way of caching
+	1. HTTP Cache Control Directives
+6. Summary
+	1. Benefits
+		1. Enhances performance
+		2. Leads to higher scalability
+	2. Data to cache (what data to cache)
+		1. 
 
 ### API Caching (2 of 2) Cache Control Directive ###
 ### Demo - API Caching Using Cache-Control Directives ###
