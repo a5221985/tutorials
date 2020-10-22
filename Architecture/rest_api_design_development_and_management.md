@@ -2042,9 +2042,50 @@
 		1. Enhances performance
 		2. Leads to higher scalability
 	2. Data to cache (what data to cache)
-		1. 
+		1. Speed of change
+		2. Time sensitivity
+		3. Security requirements
+	3. Design decisions
+		1. Who can cache?
+		2. For how long?
 
 ### API Caching (2 of 2) Cache Control Directive ###
+1. Learning Objectives
+	1. Cache-Control directives for API
+2. Cache Control Directives
+	1. HTTP Specifications RFC 2626: https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9
+	2. Allows API designer or developer to control caching behaviour of API
+		1. Who can cache
+		2. How long
+		3. Under what conditions
+3. "Cache-Control directives must be obeyed by all caching mechanisms along the request/response chain"
+	1. When API sends response to request, it sends back Cache-Control header with directives
+	2. Cache control directives are read by touch points
+		1. Edge gateways
+		2. ISP infrastructure components
+		3. Browser
+	3. If components are following RFC2616, then they must obey the cache control directives
+	4. Request can also have cache-control directives
+		1. It can override caching behaviour implemented by API developer
+4. Cache-Control:
+	1. Examples:
+
+			Cache-Control: "private, max-age=60"
+			
+5. API can control
+	1. Who can cache the response?
+	2. For how long?
+	3. Under what conditions?
+6. App can
+	1. Override caching behavior of API
+	2. Protect sensitive data from being cached
+7. Public vs Private
+	1. Sensitive data should not be cached on intermediaries
+		1. Example: Banking application
+			1. Account details
+				1. Private data is meant for a single user
+					1. Cache-Control: "private, max-age=60"
+
 ### Demo - API Caching Using Cache-Control Directives ###
 ### Building Support for Partial Responses ###
 ### Building Support for Pagination ###
