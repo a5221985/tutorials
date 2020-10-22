@@ -2399,9 +2399,64 @@
 					1. URL - to previous or next page
 					2. Relationship - next page or last page
 9. Summary:
-	1. 
+	1. Pagination support in REST API provide multiple benefits
+		1. Better performance, optimal resource usage
+	2. Common ways to implement Pagination
+		1. Cursor based
+		2. Offset based
+		3. Link header
 
 ### Walk Through: Building Support for Pagination in ACME API ###
+1. Learning Objectives:
+	1. ACME API - hotels
+2. `git checkout pagination`
+3. MongoDB:
+	1. Set the Starting Point of the Result Set
+		1. The `skip()` method controls the starting point of the results set. The following operation skips the first 5 documents in the bios collection and returns all remaining documents
+		
+				db.bios.find().skip(5)
+				
+	2. Limit the Number of Documents to Return
+		1. The `limit()` method limits the number of documents in the result set. The following operation returns at most 5 documents in the bios collection:
+
+				db.bios.find().limit(5)
+				
+		2. http://localhost:3000/v1/hotels?fields=name&limit=5&offset=0
+4. api/hotels.js
+
+		var pagination = {limit:0, offset:0}
+		if (req.query && req.query.limit !== undefined) {
+			// checks should be made that limit is a number
+			pagination.limit = req.query.limit
+		}
+		if (req.query && req.query.offset !== undefined) {
+			// checks should be made that limit is a number
+			pagination.offset = req.query.offset
+		}
+		
+		//2. Setup options
+		var options = {fields: fields, pagination: pagination}
+		console.log(options)
+		
+		//3. execute the query
+		db.select(criteria, options, function (err, docs) {
+			...
+
+5. db/hotels.js
+
+		exports.select = function (criteria, options, callback) {
+			// local variable for capturing limit & offset
+			var lim = 0
+			var off = 0
+			if (options.pagination !== undefined) {
+				if (options.pagination.limit !== undefined) lim = parseInt(options.pagination.limit)
+				if (options.pagination.offset !== undefined) off = parseIn(options.pagination.offset)
+			}
+			
+			model.Hotels.find(criteria, function (err, data) {
+				callback(err, data)
+			}).select(options.fields).limit(lim).skip(off)
+		}
 
 ## REST API Security ##
 ### REST API Security - Introduction ###
