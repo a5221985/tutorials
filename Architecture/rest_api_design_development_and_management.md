@@ -1754,6 +1754,33 @@
 					}
 					return apiErrors.create(message, method, endpoint, errorList, payload)
 				}
+				
+				var processValidationErrors = function (err) {
+					var errorList = []
+					// Check if there is an issue with the Num of Nights
+					if (err.errors.numberOfNights) {
+						if (err.errors.numberOfNights.kind === apiErrors.kinds.MIN_ERROR
+							|| err.errors.numberOfNights.kind === apiErrors.kinds.MIN_MAX
+							|| err.errors.numberOfNights.kind === apiErrors.kinds.NUMBER_ERROR) {
+							errorList.push(apiErrors.errors.FORMAT_NUM_OF_NIGHTS)	
+						}
+					}
+					// Check if name of the package is missing
+					if (err.errors.name) {
+						if (err.errors.name.kind === apiErrors.kinds.REQUIRED) {
+							errorList.push(apiErrors.errors.MISSING_PACKAGE_NAME)
+						}
+					}
+					// Check if description of the package is missing
+					if (err.errors.description) {
+						if (err.errors.description.kind === apiErrors.kinds.REQUIRED) {
+							errorList.push(apiErrors.errors.MISSING_PACKAGE_DESCRIPTION)
+						}
+					}
+					
+					return errorList;
+				}
+				
 
 ## REST API Handling Change - Versioning Patterns ##
 ### Handling Changes to API ###
