@@ -1994,7 +1994,22 @@
 3. Why Cache?
 	1. Improves performance
 	2. Higher scalability/ Throughput (of app or API)
-		1. 
+		1. If 30 calls/second were expected but when it goes up to say 60 calls/second
+			1. Bottleneck: Database - 50 calls/second
+				1. Caching: in Midtier
+					1. Database is not hit for every call
+						1. Response is returned from cache
+	3. The closer the caching to the API consumer, the better is the performance, scalability and throughput
+4. What to cache? How long?
+	1. Factors
+		1. Speed of data change
+		2. Time sensitivity of data
+		3. Security
+	2. Examples: HTML, PDF, JPEG, CSS, JavaScript, Flash, ... (static data)
+		1. Not time sensitive
+		2. Not changed freqently
+		3. Security is not an issue
+			1. 
 
 ### API Caching (2 of 2) Cache Control Directive ###
 ### Demo - API Caching Using Cache-Control Directives ###
