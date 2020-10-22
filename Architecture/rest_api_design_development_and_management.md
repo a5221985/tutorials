@@ -1858,9 +1858,42 @@
 		1. If no
 	2. Common good practices
 		1. Eliminate or minimize impact on app developers
-		2. 
+		2. Provide planning opportunity to the app developers
+			1. Don't simply change API and ask developers to change their implementation with a deadline
+		3. Support backward compatibility (if possible)
+		4. Provide support to app developers with the changes
+			1. Documentation
+			2. Sample code
+		5. Minimize change frequency e.g. once per 6 months (or quarter is okay)
+		6. Version your API right form day #1
+9. Summary
+	1. Breaking changes require API consumers to change
+	2. Back end changes may be breaking or non-breaking
+	3. Follow good practices
+		1. Avoid frequence changes
+		2. Focus on app developers (impact, minimization of impact)
+		3. Provide backward compatibility
 
 ### Versioning the API ###
+1. Learning Objectives
+	1. Managing API Versioning
+	2. Versioning patterns
+2. REST API product versioning
+	1. API versioning managed like any other product
+	2. Having a clear version roadmap is importat
+		1. version1 -> version2 (provide app developers with a roadmap for change)
+	3. Support for multiple versions is needed (support both)
+3. Consumer specifies version
+	1. App developers can switch between versions (easily)
+		1. They can migrate at any time)
+	2. Aspects
+		1. How will consumer specify version?
+		2. What will be the format for version information?
+4. Options:
+	1. HTTP Header - Use a custom header - x-myapi-version: 1.2
+	2. Query Parameter - Use a Query Parameters - /posts?version=1.2
+	3. URL Path - URL Path Parameter - /v2/products
+
 ### Walk through: ACME API Versioning ###
 
 ## REST API Cache Control Patterns ##
