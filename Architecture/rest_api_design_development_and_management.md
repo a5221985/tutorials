@@ -1715,6 +1715,45 @@
 						payload: receivedPayload
 					}
 				}
+				
+				// Mongoose validation error types
+				exports.kinds = {
+					REQUIRED: "required",
+					NOT_VALID: "notvalid",
+					NUMBER_ERROR: "number",
+					MIN_ERROR: "min",
+					MAX_ERROR: "max",
+				}
+		
+		3. vacations.js
+
+				db.save(doc, function (err, saved) {
+					if (err) {
+						// Constructs error response
+						// EARLIER it was >>> res.status(400).send("err")
+						var userError = processMongooseErrors(apiMessages.errors.API_MESSAGE_CREATE_FAILED, ...);
+						res.setHeader('content-type', 'application/json')
+						res.status(400).send(userError)
+					} else {
+						res.send(saved)
+					}
+				});
+				
+				var processMongooseErrors = function (message, method, endpoint, err, payload) {
+					var errorList = []
+					// Check for validation error
+					if (err.name == 'ValidationError') {
+						errorList = processValidationErrors(err)
+					} else if (err.code == 11000) {
+						// it could be database error - 11000 is for duplicate key
+						errorList.push(apiErrors.errors.PACKAGE_ALREADY_EXISTS)
+					} else {
+						var errUnknown = apiErrors.errors.UNKNOWN_ERROR
+						errUnknown.payload = err
+						errorList = [apiErrors.errors.UNKNOWN_ERROR]
+					}
+					return apiErrors.create(message, method, endpoint, errorList, payload)
+				}
 
 ## REST API Handling Change - Versioning Patterns ##
 ### Handling Changes to API ###
