@@ -2099,7 +2099,31 @@
 					1. Banking data
 					2. Medical records
 		3. `Cache-Control: "no-store, max-age=60"`
-			1.  
+			1. Data will not be stored anywhere in any touch point (not browser as well)
+	3. `no-cache`, `ETag` HTTP Header
+		1. Preventing any caching on any touch point in api pathway
+			1. API consumer always gets data from server by invoking the API
+				1. Use case: Subsequent request to the same URL will return different data
+					1. Disadvantage: We are losing the benefit of caching
+						1. To prevent this: `ETag` header can be used
+							1. `ETag` header can be used to check if the data has changed
+								1. API sends `ETag` header - set to hash
+									1. API consumer then sends `ETag` header value
+									2. API implementation compares `ETag` of previous response (sent by consumer) with `ETag` of new data
+										1. If values are same, then it sends back Response HTTP Header code: 304 (Message: Not modified)
+										2. If API consumer receives 304, it simply uses data it is holding
+										3. If values are different, then server sends Code 200 (Message: OK) with new response and new `ETag` value
+	4. `max-age` - API developer can control how long the cache value is valid
+		1. Lifetime of the cache data or its validity
+			1. In seconds
+			2. Example: `max-age=60` - Cached data is valid for 60 seconds
+			3. Example: `Cache-Control: private, max-age=60`
+				1. Browser can cache the data
+				2. No intermediaries can cache the data
+				3. Maximum validity of the cache value is 60 seconds
+			4. Example: `Cache-Control: "no-cache"`
+				1. Touch points cannot cache
+				2. Browser can validate by sending `ETag` value
 
 ### Demo - API Caching Using Cache-Control Directives ###
 ### Building Support for Partial Responses ###
