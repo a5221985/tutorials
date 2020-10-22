@@ -2161,12 +2161,39 @@
 		1. `Cache-Control: "no-cache"`
 			1. Browser will always make call to server
 3. https://github.com/acloudfan/REST-API-Caching
+	1. server.js
 
-### Building Support for Partial Responses ###
-### Building Support for Pagination ###
+			app.get('/cachetest', function (req, res) {
+				// Set the headers
+				res.header('Cache-Control', 'public, max-age=" + MAX_AGE)
+				
+				// Increment the counter
+				counter++
+				console.log('recvd ' + counter)
+				
+				// Response data
+				data = {
+					value: 'Hello Cache !!!",
+					counter: counter
+				};
+				res.send(JSON.stringify(data));
+			});
+			
+		1. http://localhost:3000
+	2. index.html
+
+			var suppressCache = false
+			...
+			headers: {"Cache-Control" " "no-cache"}
+			...
+			
+		1. Counter gets incremented each time
 
 ## REST API Response Data Handling Patterns ##
 ### Building Support for Partial Responses ###
+1. Learning Objectives
+	1. 
+
 ### Walk Through: Setup Partial Response Support in ACME API ###
 ### Building Support for Pagination ###
 ### Walk Through: Building Support for Pagination in ACME API ###
