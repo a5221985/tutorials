@@ -1841,7 +1841,24 @@
 	4. Delete an operation (breaking)
 		1. GET /vacationsByDestination -> generic search /vacations?destination=<...>
 5. API exposes backend dbs or services to developer
-	1. If db or services api changes, 	
+	1. If db or services api changes, API can break
+		1. If it can be absorbed by API without changing it's interface to app developers, then it is not a breaking change for app developers
+		2. If it cannot be absorbed by API without changing it's interface to app developers, it is a breaking change for app developers
+	2. Can be a breaking or Non-breaking change
+		1. It can be minimized
+6. Minor change
+	1. App developer doesn't have to make changes to app right away
+	2. Example: Change in some attribute length
+		1. 50 chars to 75 chars changed in DB
+7. Major change
+	1. Example: Discount calculation requires additional info
+		1. App has to change
+8. Handling Change:
+	1. Avoid changes: is the change really adding value?
+		1. If no
+	2. Common good practices
+		1. Eliminate or minimize impact on app developers
+		2. 
 
 ### Versioning the API ###
 ### Walk through: ACME API Versioning ###
