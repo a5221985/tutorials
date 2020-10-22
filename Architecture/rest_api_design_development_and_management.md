@@ -1928,6 +1928,31 @@
 1. Learning Objectives
 	1. ACME API Version strategy
 	2. Managing multiple API versions
+2. ACME API Versioning
+	1. API versioning Mandatory
+		1. "v" followed by Major version only
+		2. In URL
+	2. Example:
+		1. GET https://api.acmetravel.com/v1/vacations
+		2. POST https://api.acmetravel.com/v2/vacations/{id}/reviews
+3. API Change Strategy
+	1. Quarterly release cycle
+		1. Q1
+			1. Version-1 - Available
+		2. Q2
+			1. Version-2 - Available (for both existing an newer developers)
+			2. Version-1 - deprecated (no longer available for subscription to newer app developers)
+		3. Q3
+			1. Version-1 - retire (not available for existing developers)
+		4. Q4
+			1. Version-2 - Deprecate
+			2. Version-3 - Available
+	2. 2 versions are available at any time
+4. Multiple version support key points	
+	1. Support at least 1 previous version for a period of time
+		1. Gives enough time to app developers for accessing the new api (typically 3 months)
+			1. Consider organization processes
+	2. Mark the previous version as deprecated
 
 ## REST API Cache Control Patterns ##
 ### API Caching (1 of 2) Concepts & Design Decisions ###
