@@ -2124,8 +2124,44 @@
 			4. Example: `Cache-Control: "no-cache"`
 				1. Touch points cannot cache
 				2. Browser can validate by sending `ETag` value
+8. Practices
+	1. Take advantage of caching especially for high volume API
+	2. Consider `no-store` and `private` for sensitive data
+	3. Provide the validation tag (`ETag`) especially for large responses (for `no-cache`)
+		1. Prevents network latency
+	4. Carefully decide on the optimal `max-age`
+		1. Come up with an optimum value depending on the refresh speed of data
+			1. Test it before releasing
+9. Summary:
+	1. Checkout RFC2616
+	2. Server can use to instruct intermediaries and browser on how to cache and manage cache
+	3. API can set in header
+	4. Consumer can override
+	5. Can be set on the Request/ Response header
+		1. `private/public` (public by default)
+			1. All intermediaries can cache
+		2. `no-store` - data is not backup up
+			1. For medical or bank account data
+		3. `no-cache, ETag` - If data is changing at low frequency or if frequency of change is unpredictable
+			1. API consumer will always requests to server
+				1. `ETag` is used to check with server if data has changed, if not, consumer can re-use the data it is already holding
+		4. `max-age` - control lifetime of cached data
+			1. Needs to be set carefully
 
 ### Demo - API Caching Using Cache-Control Directives ###
+1. Cache-Control
+	1. API Provider Controlling the caching
+		1. `max-age`
+	2. API Consumer overrides the caching
+		1. `no-cache`
+2. Example: NodeJS backend, Browser based front-end with jQuery
+	1. NodeJS increments a counter if request is sent (`max-age=5`)
+	2. Browser will get counter value from cache if cache is still valid
+	3. Scenario 2: Suppress Caching
+		1. `Cache-Control: "no-cache"`
+			1. Browser will always make call to server
+3. https://github.com/acloudfan/REST-API-Caching
+
 ### Building Support for Partial Responses ###
 ### Building Support for Pagination ###
 
