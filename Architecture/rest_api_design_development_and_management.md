@@ -2256,10 +2256,54 @@
 			1. Fields
 				1. ?fields=city,airportCode
 3. Steps:
-	1. Construct new collection in the DB hotels
-	2. Switch the branch to partialresponse
-	3. Update db/clouddb.js
-	4. Populate the hotels collection with data 	
+	1. Construct new collection in the DB **hotels**
+	2. Switch the branch to **partialresponse**
+	3. Update **db/clouddb.js**
+	4. Populate the hotels collection with data **tests/TestHotelsDbOps.js**
+	5. Invoke the API GET **v1/hotels**	
+4. Hotels collection in Atlas MLabs
+5. `git checkout partialresponse`
+6. hotels.js
+	1. `./TestHotelsDbOps.js`
+7. Projection
+	1. The projection parameter determines which fields are returned in the matching documents. The projection parameter takes a document of the following form:
+		
+			{ field1: <value>, field2: <value> ... }
+			
+		1. The <value> can be any of the following:
+			1. 1 or true to include the field in the return documents
+			2. 0 or false to exclude the field
+	2. https://docs.mongodb.com/manual/reference/method/db.collection.find/#find-projection
+8. Example: hotels.js
+
+		// CREATE multiple vacation packages
+		exports.saveMany = function (rows, callback) {
+			model.Hotels.insertMany(rows, function (err, docs) {
+				callback(err, docs)
+			})
+		}
+		
+		// RETRIEVE hotels packages based on criteria & fields
+		// https://docs.mongodb.com/manual/reference/method/db.collection.find/#find-projection
+		// options = {
+		//		fields: {/** Projection **/}
+		// }
+		exports.select = function (criteria, options, callback) {
+			model.Hotels.find(criteria, function (err, data) {
+				callback(err, data);
+			}).select(options.fields);
+		}
+		
+9. API
+
+		//1. fields
+		var fields = {}
+		if (req.query && req.query.fields !== undefined) {
+			fields = createFields(req.query.fields)
+		}
+		
+		//2. Setup options
+		var options = {fields:fields}
 
 ### Building Support for Pagination ###
 ### Walk Through: Building Support for Pagination in ACME API ###
