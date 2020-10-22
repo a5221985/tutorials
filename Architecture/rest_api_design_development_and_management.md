@@ -1893,8 +1893,41 @@
 	1. HTTP Header - Use a custom header - x-myapi-version: 1.2
 	2. Query Parameter - Use a Query Parameters - /posts?version=1.2
 	3. URL Path - URL Path Parameter - /v2/products
+5. Versions Formats:
+	1. Date - Use date of release as version - 2010-04-01
+	2. major.minor - Typically prefixed with letter v = v2.8
+	3. Number - Typically prefixed with letter v = v4
+6. Example: Twilio
+	1. URL Path - https://api.twilio.com/2010-04-01
+		1. Date
+	2. AWS
+		1. Query params - https://sts.amazon.aws.com/?Version=2011--6-05
+	3. The Movie Database
+		1. Number: https://api.themoviedb.org/4
+	4. Uber - URL Path with v{Number}
+		1. /api/v2/authorize-get
+	5. Stripe
+		1. Major & Minor
+			1. Major Version: URL Path - v{Number}
+			2. Minor Version: HTTP Header - Date
+		2. Example:
+
+				https://api.stripe.com/v1/changes -u ...: -H "Stripe-Version: 2020-03-02"
+7. Summary
+	1. Support multiple versions in parallel
+		1. Specification options
+			1. HTTP Header
+			2. Query parameter
+			3. URL path
+		2. Formats (commonly prefixed with v for number based)
+			1. Date
+			2. major.minor
+			3. Number	
 
 ### Walk through: ACME API Versioning ###
+1. Learning Objectives
+	1. ACME API Version strategy
+	2. Managing multiple API versions
 
 ## REST API Cache Control Patterns ##
 ### API Caching (1 of 2) Concepts & Design Decisions ###
