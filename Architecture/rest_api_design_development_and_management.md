@@ -2304,8 +2304,56 @@
 		
 		//2. Setup options
 		var options = {fields:fields}
+		...
+		
+		// Utility function to construct JSON
+		// Simply parse the received fields and construct a valid JSON object
+		// {field1:1, field2:1, ...}
+		function createFields(str) {
+			var arr = str.split(',')
+			str = '{'
+			for (var i = 0; i < arr.length; i++) {
+				str += '\"' + arr[i] + '\":1'
+				if (i < arr.length - 1) str += ","
+			}
+			str += '}'
+			return JSON.parse(str)
+		}
+		
+		...
+		require('./api/v1/hotels')(router);
 
 ### Building Support for Pagination ###
+1. Learning Objectives:
+	1. Why support pagination?
+	2. Common implementation patterns
+2. Pagination
+	1. "API Consumer" in control of response
+		1. Asks for "Number of rows" needed
+		2. Example: Web - GET /../hotels (Number of rows = 50)
+		3. Example: Mobile - Get /../hotels (Number of rows = 10)
+3. GET /../hotels {Page2}
+	1. Only page 2 is returned
+		1. Restricts number of rows returned to a page
+4. Benefits:
+	1. Better performance & optimized resource usage
+		1. CPU, Memory, Bandwidth
+	2. Common API version for all consumers
+		1. E.g., to support multiple devices, use cases - form factors
+5. Design options:
+	1. Cursor based - Facebook (also offset based)
+	2. Offset based - LinkedIn
+		1. Most popular
+	3. Use of HTTP header - GitHub
+6. Cursors for Pagination
+	1. Facebook: https://developers.facebook.com/docs/graph-api/using-graph-api/#paging
+		1. Cursor = "Control structure that enables traversal of records"
+		2. Cursor based pagination considered most efficient
+			1. Cursor = "Random string"
+				1. Points to a specific item (in collection)
+					1. Item = 10299
+			2. 
+
 ### Walk Through: Building Support for Pagination in ACME API ###
 
 ## REST API Security ##
