@@ -1792,6 +1792,56 @@
 		1. Changes are easier to manage
 	2. External developers and partners
 		1. Changes to API will impact external & internal consumers
+			1. We don't know who they are (we may not be able to contact them even)
+3. Example: Original API
+	1. /deals
+
+			{
+				discounts: [{
+					{package: "Bahama01", description:"...",price:499,discount:0.1},
+					...
+				}]
+			}
+			
+		1. Access
+
+				data.discounts[0].package
+				data.discounts[0].description
+				data.discounts[0].price
+				data.discounts[0].discount
+				
+	2. Non Breaking Change (not breaking existing app code)
+
+			{..., pictures: ["links"]}
+		
+		1. Access - this does not break other apps
+
+				data.discounts[0].pictures[0]
+				
+	3. Breaking change
+
+			{
+				deals: [{ // changed from discounts
+					...
+				}]
+			}
+			
+		1. Existing code:
+
+				data.discounts[0].package // -> data.deals[0].package
+				
+			1. Breaking change
+4. API Changes:
+	1. Adding a new operation or resource (non-breaking)
+		1. GET /hotels
+	2. Adding optional parameters or properties (non-breaking)
+		1. GET /vacations?limit=3
+	3. Change the HTTP verb or methods (breaking)
+		1. PUT /vacations -> POST /vacations
+	4. Delete an operation (breaking)
+		1. GET /vacationsByDestination -> generic search /vacations?destination=<...>
+5. API exposes backend dbs or services to developer
+	1. If db or services api changes, 	
 
 ### Versioning the API ###
 ### Walk through: ACME API Versioning ###
