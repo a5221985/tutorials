@@ -2084,7 +2084,22 @@
 		1. Example: Banking application
 			1. Account details
 				1. Private data is meant for a single user
-					1. Cache-Control: "private, max-age=60"
+					1. `Cache-Control: "private, max-age=60"` (if private is not specified in Cache-Control, it is public)
+						1. Not cached in intermediaries (Edge gateway, ISP infrastructure)
+						2. But can get cached in browser
+	2. `no-store` - 
+		1. Browsers write data to local file system
+			1. To implement cache
+			2. Back key function
+			3. Display info from history
+			4. ...
+		2. Local data can get backed up and may end up in the hands of people who should not have access to it
+			1. Sensitive data should not be stored anywhere
+				1. Examples:
+					1. Banking data
+					2. Medical records
+		3. `Cache-Control: "no-store, max-age=60"`
+			1.  
 
 ### Demo - API Caching Using Cache-Control Directives ###
 ### Building Support for Partial Responses ###
