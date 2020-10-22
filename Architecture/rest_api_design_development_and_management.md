@@ -1784,6 +1784,15 @@
 
 ## REST API Handling Change - Versioning Patterns ##
 ### Handling Changes to API ###
+1. Learning Objectives: (Applies to any software)
+	1. Breaking & Non breaking changes
+	2. Best practices for handling API changes
+2. API Changes
+	1. Internal developers generally consume (controlled environment)
+		1. Changes are easier to manage
+	2. External developers and partners
+		1. Changes to API will impact external & internal consumers
+
 ### Versioning the API ###
 ### Walk through: ACME API Versioning ###
 
