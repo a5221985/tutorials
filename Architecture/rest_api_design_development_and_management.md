@@ -2192,7 +2192,18 @@
 ## REST API Response Data Handling Patterns ##
 ### Building Support for Partial Responses ###
 1. Learning Objectives
-	1. 
+	1. Granularity control
+	2. API implementation (options for partial responses)
+2. Common Endpoint Challenge
+	1. Browser based app connects to API
+		1. More screen space
+			1. All details can be shown
+				1. All data of vacation
+	2. Mobile app connects to API
+		1. May be only package summary
+			1. Uses part of received data
+				1. Unnecessary use of resources
+3. Same size fits all doesn't work with mobile client's perspective
 
 ### Walk Through: Setup Partial Response Support in ACME API ###
 ### Building Support for Pagination ###
