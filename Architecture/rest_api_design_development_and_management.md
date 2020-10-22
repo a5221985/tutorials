@@ -2204,8 +2204,63 @@
 			1. Uses part of received data
 				1. Unnecessary use of resources
 3. Same size fits all doesn't work with mobile client's perspective
+4. Best practice: Client controls response data
+	1. Send just x, y, z attributes
+		1. REST Client controls granularity
+5. Benefits: Partial Response
+	1. Mobile
+		1. Better performance
+		2. Low battery usage
+		3. Optimal use of CPU/memory
+	2. Server
+		1. No multiple endpoints required
+			1. Common API endpoints
+6. Supporting Partial Responses
+	1. Custom build Partial Response support
+	2. Use GraphQL (Facebook)
+		1. Different way of building API
+7. Field specification
+	1. Single query parameter
+		1. Holds expression that identifies the fields
+			1. a.k.a Projections
+		2. Examples:
+			1. LinkedIn: /people/me?fields={Expression}
+				1. /people/me?fields=firstname,lastname
+					1. Has rules
+						1. LinkedIn Dev Portal
+							1. API Guide > API Concepts > Field Projections
+								1. Also has child resources
+	2. Multiple Query parameters
+		1. Provides ways to filter the fields in response
+		2. Examples:
+			1. Meetup:
+				1. Supports multiple query parameters to define filters
+					1. only - restricts fields or attributes of resources we need
+					2. ommit - to ommit fields out of all of the attributes
+				2. https://www.meetup.com/meetup_api
+					1. Filters
+8. Summary
+	1. Client in control of granularity
+		1. Good for mobile
+			1. Better performance, optimal resource usage
+	2. API provides a way to specify the fields of interest
+		1. Field projections
+		2. Filters
 
 ### Walk Through: Setup Partial Response Support in ACME API ###
+1. Learning Objectives
+	1. ACME API for Hotels
+2. ACME Partial Response
+	1. Hotels
+		1. GET http://api.acme.com/hotels
+			1. Fields
+				1. ?fields=city,airportCode
+3. Steps:
+	1. Construct new collection in the DB hotels
+	2. Switch the branch to partialresponse
+	3. Update db/clouddb.js
+	4. Populate the hotels collection with data 	
+
 ### Building Support for Pagination ###
 ### Walk Through: Building Support for Pagination in ACME API ###
 
