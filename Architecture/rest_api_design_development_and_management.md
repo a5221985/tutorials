@@ -2626,7 +2626,42 @@
 
 ### Securing API with Tokens & JWT ###
 1. Learning Objectives
-	1. 
+	1. Understanding of Tokens
+	2. Javascript Web Tokens (JWT)
+2. Building Node API with JWT based authentication
+3. Token Based Authentication
+	1. Dreamz -> ACME
+		1. /token {credentials}
+		2. <- token (stored in {Token} on backend)
+		3. /resource {Token}
+			1. ACME validates {Token}
+				1. If Token has expired, it responds with 401
+				2. Else responds with 200 OK
+	2. Issues: Basic Authentication
+		1. {Credentials} are stored on client side (anyone can hack into the system and steal them)
+		2. Solution: Token based authentication
+			1. Dreamz (server) sends {Credentials} to ACME
+			2. ACME generates {Token} and stores locally
+			3. ACME sends {Token} to Dreamz
+			4. Dreamz sends {Token} back to mobile app
+			5. Mobile app invokes ACME API using {Token}
+				1. Dreamz engineers do not have to hardcode {Credentials} in mobile app (API consumer can control tokens)
+4. Tokens?
+	1. Encoding string
+		1. Hashing or private key for encryption
+	2. Eliminates the need for sessions on API
+		1. HTTP Header
+		2. Query parameters
+		3. Request body
+	3. Issuer can control the validity
+		1. Expiry (Issuer can decide when token will expire)
+			1. How frequently the client has to validate their credentials
+		2. Revocation
+			1. Token can be revoked at any point in time by the issuer
+5. A Standard way:
+	1. JWT - Facebook, Twitter, LinkedIn
+6. JWT:
+	1. Header(Base64 encoded).Payload(Registerd/Public/Private Claims)(Base64 encoded).Signature(hashing of header and 
 
 ### Securing API with API Key & Secret ###
 ### API Authorization Using OAuth 2.0 ###
