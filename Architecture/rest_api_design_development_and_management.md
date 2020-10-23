@@ -2847,6 +2847,26 @@
 			}
 			
 			exports.auth = auth
+			
+	4. tokenstore.js
+
+			module.exports = {
+				add: function (token, payload) {
+					tokens[token] = payload
+				},
+				
+				isValid: function (token) {
+					if (tokens[token] === undefined) return false;
+					
+					if (tokens[token].exp <= new Date()) {
+						var ndx = tokens.indexOf(token)
+						tokens.splice(ndx, 1)
+						return false
+					} else {
+						return true
+					}
+				}
+			}
 	
 ### Securing API with API Key & Secret ###
 ### API Authorization Using OAuth 2.0 ###
