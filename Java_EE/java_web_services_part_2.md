@@ -44,6 +44,9 @@
 	1. Maven - Update Project
 		1. Latest dependencies should get pulled
 
+### Download the Completed Projects ###
+1. [Download the Completed Projects](https://www.udemy.com/course/javawebservicespart2/learn/lecture/6389730#overview)
+
 ## SOAP Web Service Creation ##
 ### Simple Usecase ###
 1. Using Java first approach
