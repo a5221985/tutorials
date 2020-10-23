@@ -2784,7 +2784,70 @@
 					}
 				}
 			}
+			
+	2. app.js
 
+			var jwtAuth = require(__dirname + '/tokens/jwtauth')
+			var jwtValidate = require(__dirname + '/tokens/validator')
+			
+			// Express app setup
+			var app = express();
+			app.use(bodyParser.json())
+			var router = express.Router();
+
+			// This is the passport middleware function that gets called first
+			var auth = jwtAuth.auth
+			router.post('/token', auth, function (req, res) {
+				res.send('token');
+			});	
+			
+			auth = jwtValidate.auth
+			router.get('/private', auth, function (req, res) {
+				res.send('Access granted to private resource!!!')
+			});
+			
+		1. `node app`
+		2. http://localhost:3000/private - 401
+		3. http://localhost:3000/token - 401
+		4. POST http://localhost:3000/token
+
+				{"name: "sam", "password": "sam123"}
+				
+			1. Do Base64 decoding
+	3. validator.js
+
+			var auth = function (req, res, next) {
+				// Token sent by the client HTTP header X-ACME-Token
+				var token = req.headers[jwtAuth.params[ACME_TOKEN_HEADER];
+				// console.log(token)
+				if (token === undefined) {
+					// Send 401 with reason for failure
+					res.statusMessage = 'Unauthorized : Token not provided!!!'
+					res.sendStatus('401').end()
+					// Do NOT call next()
+				} else {
+					// Decode the header
+					try {
+						var decoded = jwt.decode(token, jwtAuth.params.JWT_TOKEN_SECRET)
+					} catch (e) {
+						// Decode exception
+						res.statusMessage = 'Unauthorized : Invalid Token!!!'
+						res.sendStatus('401')
+						return;
+					}
+					
+					// Token is valid so check if it's expired
+					if (!tokenStore.isValid(token)) {
+						res.statusMessage = 'Unauthorized : Token invalid or Expired!!!'
+						res.sendStatus('401')
+						return;
+					}
+					next();
+				}
+			}
+			
+			exports.auth = auth
+	
 ### Securing API with API Key & Secret ###
 ### API Authorization Using OAuth 2.0 ###
 ### API Security - Functional Attack ###
