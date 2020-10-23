@@ -2867,8 +2867,26 @@
 					}
 				}
 			}
+			
+		1. Next is /private
+
+				http://localhost:3000/private
+				
+					x-acme-token: <token>
+					
+			1. expiry is 30 seconds
+10. Summary:
+	1. Tokens are encoded strings used for authentication
+		1. JWT - Header, Payload, Signature
+		2. Tokens may be set to expire
+		3. Tokens may be revoked (by API provider or issuer of token at any time)
 	
 ### Securing API with API Key & Secret ###
+1. Learning Objectives
+	1. What is an API Key & Secret?
+		1. How they are different from user id and password
+	2. Design decisions - key/secret implementation
+
 ### API Authorization Using OAuth 2.0 ###
 ### API Security - Functional Attack ###
 
