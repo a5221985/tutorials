@@ -2909,9 +2909,16 @@
 				import hmac
 				import sha
 				
-				h = hmac.new("lsdjgSOGkj325jlSGDlKJ90usdglksSGSlkjls", HTTP-HEADER)
+				h = hmac.new("<secret>", HTTP-HEADER)
 			
+				// signature is applied on http header and then base64 encoded
 				base64.encodestring(h.digest()).strip()
+				
+			1. Amazon knows the <secret> so it is applied to generate same signature and compare and authenticate and S3 access is allowed
+5. How is the key used?
+	1. API key in combination with Secret is used for **authentication**
+	2. Usage **analytics**
+	3. 
 
 ### API Authorization Using OAuth 2.0 ###
 ### API Security - Functional Attack ###
