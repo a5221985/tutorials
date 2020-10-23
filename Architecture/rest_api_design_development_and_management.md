@@ -2690,11 +2690,44 @@
 					2. `exp` - Expiry timestamp
 					3. `nbf` - Not before timestamp
 					4. ...
-				2. Public (used to identify API consumer or user) - anyone can suggest new public claims (there is a registry
+				2. Public (used to identify API consumer or user) - anyone can suggest new public claims (there is a registry for public claims or public attributes that can be used for deciding what public claims we want to include in token)
 					1. name
 					2. email
 					3. phone_number
 					4. ...
+				3. Private (not standard, publisher and consumer can decide on what claims to include in the payload)
+					1. {agreed upon by consumer & provide}
+					3. Risk - private claims can collide with registered or public claims (careful)
+		3. Example:
+
+				{
+					exp: 28282828,
+					iss: "acloudfan",
+					name: "sam k"
+				}
+				
+			1. Goes through base64 encoding
+		4. Link: http://www.iana.org/assignments/jwt/jwt.xhtml
+			1. Claim names and descriptions
+				1. Registered and public claims
+	3. Signature
+		1. Base64 encoded header + "." + Base64 encoded payload
+		2. Hash the resulting string with secret (key)
+			1. API provider needs to keep the key secret
+			2. If exposed, unauthorized entity can impersonate API provider
+8. Demo: Simple JWT Authentication
+	1. Solution: https://github.com/acloudfan/REST-API-Course-Security.git
+		1. Branch: tokens
+	2. Demo flow: Simple JWT Authentication
+		1. jwt-simple (package)
+		2. Steps:
+			1. Consumer invokes provider (endpoint) with {Credentials} in body
+
+					/token
+					
+						Body: {Credentials}
+						
+			
 
 ### Securing API with API Key & Secret ###
 ### API Authorization Using OAuth 2.0 ###
