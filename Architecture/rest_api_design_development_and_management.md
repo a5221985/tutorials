@@ -2918,7 +2918,23 @@
 5. How is the key used?
 	1. API key in combination with Secret is used for **authentication**
 	2. Usage **analytics**
-	3. 
+		1. Helps API provider and consumer as to how API is used
+	3. Getting **tokens** from API provider
+		1. Anonumous access for mobile app
+	4. Rate limiting
+		1. Example: Twitter - APIs are used internally and externally
+			1. Internal - unlimited
+			2. External - Call volume = 180 calls / 15 minutes
+				1. 429 - too many requests if not
+6. Walmart:
+	1. Sign in
+	2. key: 5 calls per second, 5000 calls per day
+7. Design Decisions
+	1. Sending the API Key & Secret/ Signature
+		1. HTTP Header
+		2. Query parameters
+		3. Request body
+	2. API Key & secret management
 
 ### API Authorization Using OAuth 2.0 ###
 ### API Security - Functional Attack ###
