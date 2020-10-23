@@ -2886,6 +2886,32 @@
 	1. What is an API Key & Secret?
 		1. How they are different from user id and password
 	2. Design decisions - key/secret implementation
+2. API Key & Secret
+	1. Similar to user/ password *BUT* not the same
+		1. API key and secret are meant for applications and machines (not for humans)
+		2. They are long random strings that are NOT easy to crack
+	2. **API Key** identifies an API consumer
+		1. Client key or Client id
+	3. **API Secret** is used by client to prove its identity
+		1. Can be used as Password (in basic auth or token based auth)
+		2. Can be used as Digital signature
+3. Digital Signature
+	1. Dreamz - API key + Digital Signature -> ACME
+		1. API Secret - generated using hash function on header and payload
+		2. ACME holds keys and secret for every consumer
+			1. Identifies API caller based on key
+			2. Validates signature because it knows the secret for the API consumer on the Dreamz end
+4. Example: Amazon AWS REST services
+	1. http://s3.amazonaws.com/doc/s3-developer-guide/RESTAuthentication.html
+		1. Application developer can allow anonymous access to S3
+
+				import base64
+				import hmac
+				import sha
+				
+				h = hmac.new("lsdjgSOGkj325jlSGDlKJ90usdglksSGSlkjls", HTTP-HEADER)
+			
+				base64.encodestring(h.digest()).strip()
 
 ### API Authorization Using OAuth 2.0 ###
 ### API Security - Functional Attack ###
