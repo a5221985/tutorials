@@ -2727,7 +2727,63 @@
 					
 						Body: {Credentials}
 						
+			2. Credentials are used to issue a token (jwtauth.js)
+			3. The token is stored in memory token store (tokenstore.js)
+			4. Token is returned to caller
+			5. Caller then invokes /private with Token in header
 			
+					/private
+					
+						Header: {Token}
+						
+			6. Token is validated against token store (validator.js)
+9. Code:
+	1. jwtauth.js
+
+			var jwtParams = {
+				JWT_TOKEN_SECRET: 'whateversecret',
+				JWT_TOKEN_ISSUER: 'ACME Travels',
+				ACME_TOKEN_HEADER: 'x-acme-token',
+				JWT_TOKEN_EXPIRY: 30 /** Set the expiry after 30 seconds */
+			};
+			
+			// Issues the token
+			var auth = function (req, res) {
+				if (req.body) {
+					// Body has the username & password
+					var user = users.checkCredentials(req.body.name, req.body.password); // checking if credentials are good (401 or 200)
+					// console.log(req.body)
+					if (user) {
+						// Authenticated
+						var expires = moment().add(jwtParams.JWT_TOKEN_EXPIRY, 'seconds').valueOf();
+						// Construct the PAYLOAD
+						var payload = {
+							// Registered claims
+							exp: expires,
+							iss: jwtParams.JWT_TOKEN_ISSUER,
+							// Public claims
+							name: user.name,
+							email: user.email
+						}
+						
+						console.log("Constructed payload")
+						console.log(payload)
+						
+						// Encode the token
+						// HEADER internally created by jwt-simple
+						var token = jwt.encode(payload, jwtParams.JWT_TOKEN_SECRET);
+						
+						// Add the token to token store
+						tokenStore.add(token, payload)
+						
+						// Return the token to the caller
+						res.json({ token: token });
+					} else {
+						// User not found or password incorrect
+						res.sendStatus(401);
+					}
+				}
+			}
 
 ### Securing API with API Key & Secret ###
 ### API Authorization Using OAuth 2.0 ###
