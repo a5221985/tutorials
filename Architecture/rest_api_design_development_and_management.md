@@ -2625,6 +2625,9 @@
 				exports.auth = auth;
 
 ### Securing API with Tokens & JWT ###
+1. Learning Objectives
+	1. 
+
 ### Securing API with API Key & Secret ###
 ### API Authorization Using OAuth 2.0 ###
 ### API Security - Functional Attack ###
