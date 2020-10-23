@@ -2681,6 +2681,20 @@
 				}
 				
 			1. Goes through Base64 encoding
+	2. Payload
+		1. Heaviest part
+		2. Contains "Claims"
+			1. CLaims: JSON attributes & elements
+				1. Registered
+					1. `iss` - issuer e.g., "acloudfan.com"
+					2. `exp` - Expiry timestamp
+					3. `nbf` - Not before timestamp
+					4. ...
+				2. Public (used to identify API consumer or user) - anyone can suggest new public claims (there is a registry
+					1. name
+					2. email
+					3. phone_number
+					4. ...
 
 ### Securing API with API Key & Secret ###
 ### API Authorization Using OAuth 2.0 ###
