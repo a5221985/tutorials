@@ -2661,7 +2661,26 @@
 5. A Standard way:
 	1. JWT - Facebook, Twitter, LinkedIn
 6. JWT:
-	1. Header(Base64 encoded).Payload(Registerd/Public/Private Claims)(Base64 encoded).Signature(hashing of header and 
+	1. Header(Base64 encoded).Payload(Registerd/Public/Private Claims)(Base64 encoded).Signature(hashing of header and payload along with a secret)
+	2. It is self contained
+		1. Contains all info about user and token
+	3. It is JSON based
+	4. Standard RFC 7519
+7. Parts: (http://www.iana.org/assignments/jwt/jwt.xhtml)
+	1. Header
+		1. Type - "JWT"
+		2. Hashing algorithm
+			1. "HS256"
+			2. "HMAC"
+			3. ...
+		3. Example:
+
+				{
+					type: "JWT",
+					alg: "HMAC"
+				}
+				
+			1. Goes through Base64 encoding
 
 ### Securing API with API Key & Secret ###
 ### API Authorization Using OAuth 2.0 ###
