@@ -1987,8 +1987,43 @@
 	2. Extra instructions
 	3. Feature: Global variable of C++ in assembly
 2. IntegersEx.asm
+	1. long -> quad word (assembly)
+	2. short -> word (assembly)
+	3. int -> double word (assembly)
+	4. Code: C++
 
-		
+			extern "C" char GlChar = 10;
+			extern "C" short GlShort = 20;
+			extern "C" int GlInt = 30;
+			extern "C" long long GLongLong = 0x000000000ffffffff;
+			
+			extern "C" void IntegerAddition(char a, short b, int c, long long d);
+			
+	5. Assembly
+
+			.386
+			.model flat, c
+			
+			extern GlChar:byte
+			extern GlShort:word
+			extern GlInt:dword
+			extern GLongLong:qword
+			
+			.code
+			IntegerAddition proc
+			push ebp
+			mov ebp, esp
+			; Compute GlChar += a
+			mov al, [ebp + 8]
+			add [GlChar], al
+			; Compute GlShort += b
+			mov ax, [ebp + 12]
+			add [GlShort], ax
+			; Compute GlInt += c
+			mov eax, [ebp + 16]
+			add [GlInt], eax
+			; Compute GLongLong += d
+			mov rax, [
 
 ### Coding: Experimenting with Conditional Codes ###
 
