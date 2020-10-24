@@ -2935,6 +2935,42 @@
 		2. Query parameters
 		3. Request body
 	2. API Key & secret management
+		1. How will API provider manage API key and secret?
+			1. Interface is required to invalidate keys and secrets
+	3. Security Scheme
+		1. How will API key and secret be used to implement security
+	4. API key/secret provisioning
+		1. App developer needs API key and secret somewhere
+			1. How to provide API and secret?
+				1. Web page?
+				2. E-Mail?
+	5. Rate limiting & analytics
+		1. If supporting rate limiting and analytics, how do we do it?
+8. The above are challenging to implement in API code
+	1. Solution: Use API management platform
+		1. Takes care of challenges
+		2. Provide additional features to make APIs richer (management without writing code for management)
+		3. Examples:
+			1. apigee
+			2. API Management by IBM
+			3. Mashary
+			4. MuleSoft
+9. Summary:
+	1. User ID and Password is for human consumption
+	2. API keys are long strings of random characters
+	3. API Key/Secret is issued by the API provider
+		1. Consumer identity (key and secret)
+		2. Provide security
+		3. Allows for Rate limiting
+	4. Design considerations related to key/secret management
+	5. API provider is tasked with
+		1. How to provide API key
+		2. How consumer is provided with API key
+			1. Basic authentication?
+			2. Signature creation?
+		3. How is API key created and managed?
+		4. How is consumer get access to the API key and secret?
+	6. API management platform can be used to handle the above challenges
 
 ### API Authorization Using OAuth 2.0 ###
 ### API Security - Functional Attack ###
