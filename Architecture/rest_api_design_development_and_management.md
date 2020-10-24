@@ -2993,6 +2993,19 @@
 		4. End user is in control of their data (_scope_)
 			1. Can control what data the application can access
 		5. Application/Client needs an _API key_ & _secret_
+4. Authorization Scope Grant (common used method)
+	1. Uses Social Login Scheme
+		1. Example: Uses facebook credentials to provide 3rd party access to data
+	2. Three parties involved
+		1. User - who owns data
+		2. Application or Client {consumer} - API consumer
+		3. Provider of API
+			1. Two parts
+				1. Authorization server
+				2. Resource or API Server
+	3. Procedure
+		1. Application sends Authorization request to User (for access)
+		2. 
 
 ### API Security - Functional Attack ###
 
