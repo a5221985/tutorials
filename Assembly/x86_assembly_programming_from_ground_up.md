@@ -2053,6 +2053,32 @@
 		
 		extern "C" int SignedMinB(int a, int b, int c);
 		extern "C" int SignedMaxB(int a, int b, int c);
+		
+4. Assembly
+
+		.model flat, c
+		.code
+		; find min()
+		SignedMinA proc
+			push ebp
+			mov ebp, esp
+			mov eax, [ebp + 8]	; eax = 'a'
+			mov ecx, [ebp + 12]	; ecx = 'b'
+			
+			cmp eax, ecx
+			jle @F			; nearest @@ forward label if <=
+			mov eax, ecx	; eax = min(a, b)
+			
+		@@:mov ecx, [ebp + 16]
+			cmp eax, ecx
+			jle @F
+			mov eax, ecx	; eax = min(a, b, c)
+			
+		@@:
+			pop ebp
+			ret
+		SignedMinA endp
+		end
 
 ## Working with Arrays ##
 ### Coding: Iterating through Array Elements ###
