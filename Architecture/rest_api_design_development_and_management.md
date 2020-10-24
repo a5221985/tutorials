@@ -2973,6 +2973,27 @@
 	6. API management platform can be used to handle the above challenges
 
 ### API Authorization Using OAuth 2.0 ###
+1. Learning Objectives
+	1. OAuth2.0 Framework
+	2. Design decisions for implementing OAuth2.0
+2. Customer Information
+	1. /customer-info (writing blogs, pictures, ...)
+	2. Dreamz would like to send email offers based on customer preferences
+		1. Dreamz wants access from ACME to customer data
+			1. Not acceptable to ACME (customer owns the data)
+		2. Solution: Dreamz whould ask customer for access
+			1. Get Customer Authorization
+			2. /customer-info + Proof of Authorization from customer
+			3. Then Dreamz gets access to data
+3. OAuth 2.0
+	1. Flexible Authorization framework
+		1. Defined in https://tools.ietf.org/html/rfc6749
+		2. Uses different types of _tokens_
+		3. Describes 5 methods (_grants_) for acquiring access tokens
+		4. End user is in control of their data (_scope_)
+			1. Can control what data the application can access
+		5. Application/Client needs an _API key_ & _secret_
+
 ### API Security - Functional Attack ###
 
 ## REST API Specifications Using Swagger 2.0/OAI ##
