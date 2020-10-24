@@ -2993,7 +2993,7 @@
 		4. End user is in control of their data (_scope_)
 			1. Can control what data the application can access
 		5. Application/Client needs an _API key_ & _secret_
-4. Authorization Scope Grant (common used method)
+4. Authorization Scope Grant (commonly used method)
 	1. Uses Social Login Scheme
 		1. Example: Uses facebook credentials to provide 3rd party access to data
 	2. Three parties involved
@@ -3005,7 +3005,13 @@
 				2. Resource or API Server
 	3. Procedure
 		1. Application sends Authorization request to User (for access)
-		2. 
+		2. User looks at scope and Grants authorization
+			1. Application receives authorization token
+		3. Application sends Authorization grant to authorization server
+		4. Authorization server looks at authorization token and if it is good, then it sends access token
+		5. Application repeatedly uses access token (until it has expired) to request access to protected resource
+			1. Refresh token can be used
+		6. Resource or API Server provides resource info 
 
 ### API Security - Functional Attack ###
 
