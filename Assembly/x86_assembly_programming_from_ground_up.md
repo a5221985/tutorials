@@ -2045,7 +2045,14 @@
 1. Topics:
 	1. Condition codes
 		1. Conditional mov
-2. 
+2. Minimum and maximum value between two numbers
+3. c++
+
+		extern "C" int SignedMinA(int a, int b, int c);
+		extern "C" int SignedMaxA(int a, int b, int c);
+		
+		extern "C" int SignedMinB(int a, int b, int c);
+		extern "C" int SignedMaxB(int a, int b, int c);
 
 ## Working with Arrays ##
 ### Coding: Iterating through Array Elements ###
