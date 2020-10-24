@@ -2011,21 +2011,41 @@
 			
 			.code
 			IntegerAddition proc
-			push ebp
-			mov ebp, esp
-			; Compute GlChar += a
-			mov al, [ebp + 8]
-			add [GlChar], al
-			; Compute GlShort += b
-			mov ax, [ebp + 12]
-			add [GlShort], ax
-			; Compute GlInt += c
-			mov eax, [ebp + 16]
-			add [GlInt], eax
-			; Compute GLongLong += d
-			mov rax, [
+				push ebp
+				mov ebp, esp
+				; Compute GlChar += a
+				mov al, [ebp + 8]
+				add [GlChar], al
+				; Compute GlShort += b
+				mov ax, [ebp + 12]
+				add [GlShort], ax
+				; Compute GlInt += c
+				mov eax, [ebp + 16]
+				add [GlInt], eax
+				; Compute GLongLong += d - 64 bit
+				mov eax, [ebp + 20]
+				mov edx, [ebp + 24]
+				add dword ptr [GLongLong], eax
+				adc dword ptr [GLongLong], edx
+				pop ebp
+				ret
+			IntegerAddition endp
+			end
+			
+	6. C++
+
+			IntegerAddition(3, 5, -37, 11);
+			printf("Int value %d", GlInt);
+			printf("Char value %d", GlChar);
+			printf("Short value %d", GlShort);
+			printf("Long Long value %d", GLongLong);
+			return 0;
 
 ### Coding: Experimenting with Conditional Codes ###
+1. Topics:
+	1. Condition codes
+		1. Conditional mov
+2. 
 
 ## Working with Arrays ##
 ### Coding: Iterating through Array Elements ###
