@@ -1277,16 +1277,26 @@
 	2. LimitsConfigurationController.java
 
 			@GetMapping("/fault-tolerance-example")
-			@HystrixCommand(fallbackMethod)
+			@HystrixCommand(fallbackMethod = "fallbackRetrieveConfiguration")
 			public LimitConfiguration retrieveLimitsFromConfigurations() {
-				throw new RuntimeException("");
+				throw new RuntimeException("Not available"); // some exception is thrown
 			}
-
-### FAQ 01 - Microservices Characteristics ###
-### FAG 02 - What do you do next? ###
+			
+			public LimitConfiguration fallbackRetrieveConfiguration() {
+				return new LimitConfiguration(999, 9); // some basic behavior is offered in case exception occurs
+			}
+			
+		1. Avoids ripple effect due to failure of a single service
 
 ## Thanks ##
 ### Bonus Lecture: Our Best Courses ###
+1. Learning paths:
+	1. Spring & Spring Boot Developer
+	2. Full Stack with React & Angular
+	3. Microservices - Docker & Kubernetes
+	4. Cloud with AWS, Azure & PCF
+	5. AWS with Docker & Kubernetes
+
 ### Thank You ###
 
 ## Appendix - Introduction to Spring Boot in 10 Steps ##
