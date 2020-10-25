@@ -990,8 +990,23 @@
 3. Going through Zuul API gateway:
 	1. **http://localhost:8765/{application-name}/{uri}**
 		1. http://localhost:8765/currency-exchange-service/currency-exchange/from/EUR/to/INR
+			1. Content is logged in Console
 
 ### Step 34 - Setting up Zuul API Gateway between Microservice Invocations ###
+1. Calls should go through Zuul API Gateway proxy
+	1. All services are registered in Eureka
+2. CurrencyExchangeServiceProxy
+
+		@FeignClient(name = "netflix-zuul-api-gateway-server") // talk to Eureka and get the api gateway url
+		@RibbonClient(name = "currency-exchange-service")
+		public interface CurrencyExchangeServiceProxy {
+			@GetMapping("/currency-exchange-service/currency-exchange/from/{from}/to/{to}")
+			public CurrencyConversionBean retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to);
+		}
+		
+	1. http://localhost:8100/currency-converter-feign/from/USD/to/INR/quantity/10
+		1. Going through feign
+
 ### Step 35 - Introduction to Distributed Tracing ###
 ### Step 36 - Implementing Spring Cloud Sleuth ###
 ### Step 37 - Introduction to Distributed Tracing with Zipkin ###
