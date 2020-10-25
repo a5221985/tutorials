@@ -899,10 +899,22 @@
 			
 		1. Eureka is already is configured to get the urls
 4. Wait for 30 s to 60 s for the entire application to be up and running properly
-5. The requests are distributed using round-robbin
+5. The requests are distributed using round-robbin to currency-exchange-service
+	1. If one of the instances goes down, the other instance receives requests
+
+### Debugging Problems with Naming Server (Eureka) and Ribbon ###
+1. [Step by Step Guide](https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ#debugging-problems-with-naming-server-eureka-and-ribbon)
 
 ### Step 29 - A Review of Implementing Eureka, Ribbon and Feign ###
+1. Feign - easy to write REST client code
+2. Ribbon - load balancer
+3. Eureka - naming server (service registration, service discovery)
+	1. Ribbon talks to Eureka and gets currency exchange service urls
+4. Small microservices can talk to each other
+
 ### Step 30 - Introduction to API Gateways ###
+1. 
+
 ### Step 31 - Setting up Zuul API Gateway ###
 ### Step 32 - Implementing Zuul Logging Filter ###
 ### Step 33 - Executing a Request Through Zuul API Gateway ###
