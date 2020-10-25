@@ -3149,9 +3149,48 @@
 					1. XPath
 					2. JSON Path
 					3. XSLT
+		2. Example: SQL Injection attack - simulation
+			1. https://github.com/acloudfan/API-Security-Simulation
+			2. sqlfiddle.com (used to test mysql schema and mysql queries)
+
+					CREATE TABLE users (...)
+					INSERT INTO users (...)
+					
+					select * from users where name="John" AND pass="456";
+					
+			3. sqlInjection.js
+
+					var sql = "SELECT * FROM users WHERE name = '" + name + "' AND pass = '" + pass + "'";
+					
+				1. Username: admin -- (comments out rest of the query)
+				1. Password: does not matter
+			
 	2. Fuzzing (Random input to understand vulnerabilities)
+		1. Hacker tries to understand loopholes or weaknesses of the API
+		2. Also refers to the testing technique
+		3. Hacker sends random input
+			1. Gets errors
+				1. Analyzes response to discover vulnerabilities
+			2. Can launch DOS attack (say)
+		4. Solution:
+			1. Test the API with fuzzing in mind
+			2. Do not send back the internal errors
+				1. E.g., SQL exceptions (queries etc...)
+					1. Wrap with API errors
 	3. Cross Site Forgery (attack script on user's browser)
+		1. Attacker forces an end user to execute script
+		2. Attacker prompts with a link (to end user)
+			1. Link can be sent in email or web page
+			2. When user clicks on link, hacker's script gets received
+			3. Script executes
+				1. It invokes API
+				2. API can return data which hacker can access
+		3. Solution: OWASP
+			1. Use POST instead of GET
+			2. Break transaction into smaller steps
+			3. Add custom headers
 	4. Session/Token Hijacking (Theft of access token from user's browser)
+		1. 
 
 ## REST API Specifications Using Swagger 2.0/OAI ##
 ### Requirements Analysis Process & Intro to REST Specifications ###
