@@ -1218,7 +1218,35 @@
 				2. Commit the change to git
 				3. Run the POST request
 
+						http://localhost:8080/actuator/refresh (Spring Boot 2.0.0+)
+						http://localhost:8081/actuator/refresh
+						
+		3. Suppose 100 instances of limits services are running
+			1. Maintenance nightmare (each change to config, we have to call many urls)
+			2. Solution: One URL can be used (If hit all are refreshed)
+
 ### Step 43 - Implementing Spring Cloud Bus ###
+1. Spring Cloud Bus - Kafka, RabbitMQ (AMQP)
+	1. Connect both limits-service and SpringCloudConfigServer
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+			</dependency>
+			
+		1. application.properties
+
+				management.endpoints.web.exposure.include=*
+				
+		2. Launch the applications
+	2. Upgrade config
+		1. change min to 2
+		2. Commit the change
+		3. **http://localhost:8080/actuator/bus-refresh** (refreshes for all instances)
+2. How does it work?
+	1. Spring Cloud Bus is run over RabbitMQ
+	2. 
+
 ### Step 44 - Fault Tolerance with Hystrix ###
 ### FAQ 01 - Microservices Characteristics ###
 ### FAG 02 - What do you do next? ###
