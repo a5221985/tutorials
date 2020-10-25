@@ -1143,9 +1143,22 @@
 				java -jar zipkin-server-2.5.2-exec.jar
 
 ### Step 40 - Connecting Microservices to Zipkin ###
-1. 
+1. Dependencies: All us pom.xml
+
+		<!-- 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+		</dependency>
+		<!-- AMQP Protocol - Default connection to RabbitMQ -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+		</dependency>
 
 ### Step 41 - Using Zipkin UI Dashboard to Trace Requests ###
+
+
 ### Step 42 - Understanding the need for Spring Cloud Bus ###
 ### Step 43 - Implementing Spring Cloud Bus ###
 ### Step 44 - Fault Tolerance with Hystrix ###
