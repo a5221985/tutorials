@@ -1074,8 +1074,21 @@
 	2. Run request to currency conversion service
 		1. A log with id is generated for currency conversion service
 		2. A log with same id is generated for currency exchange service
+			1. list of ids (fore each service request)
+	3. Problem: Looking into logs of each service is not easy for debugging purposes and connecting the requests is also challenging
+		1. Solution: Zipkin - distributed tracing service
+			1. Provides centralized dashboard
+5. If all applications are slowing down, remove actuator and devtools
 
 ### Step 37 - Introduction to Distributed Tracing with Zipkin ###
+1. Centralize all logs from all microservices
+	1. Has a dashboard
+		1. Gives consolidated report
+			1. A solution: ELK stack can be used
+2. Another solution: Zipkin distributed tracing server
+	1. Log message is put in Queue (RabbitMQ)
+	2. ZipkinDistributedTracingServer can use database (in-memory is also fine)
+
 ### Step 38 - Installing Rabbit MQ ###
 ### Step 39 - Setting up Distributed Tracing with Zipkin ###
 ### Step 40 - Connecting Microservices to Zipkin ###
