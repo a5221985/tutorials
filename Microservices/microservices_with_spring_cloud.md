@@ -832,7 +832,18 @@
 				2. Instances currency registered
 
 ### Step 26 - Connecting Currency Conversion Microservice to Eureka ###
-1. 
+1. Connecting Currency Conversion Service and Currency Exchange Service to Eureka server
+2. Go to pom.xml of currency-conversion-service
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		
+3. CurrencyConversionServiceApplication.java
+
+		@EnableDiscoveryClient // 
+		...
 
 ### Step 27 - Connecting Currency Exchange Microservice to Eureka ###
 ### Step 28 - Distributing calls using Eureka and Ribbon ###
