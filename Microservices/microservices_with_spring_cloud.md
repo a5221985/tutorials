@@ -1245,9 +1245,43 @@
 		3. **http://localhost:8080/actuator/bus-refresh** (refreshes for all instances)
 2. How does it work?
 	1. Spring Cloud Bus is run over RabbitMQ
-	2. 
+	2. At application startup, all microservice instances register with cloud bus
+	3. When there is change to config in any instance, it would send an event over spring cloud bus
+	4. Spring cloud bus propagates the event to all the other instances registered with it
+3. When amqp dependency is added and saved, spring boot automatically configures connection with RabbitMQ
 
 ### Step 44 - Fault Tolerance with Hystrix ###
+1. Problem: If any of the microservices are down, then they can bring down the entire dependency chain of microservices
+
+		CurrencyCalculationService -> CurrencyExchangeService -> LimitsService
+		
+	1. If LimitsService goes down, the other dependent services may go down as well
+2. Fault tolerance:
+	1. If a service is not availabe, then dependent service provides default respnonse (graceful behaviour)
+	2. Hystrix helps us to build fault tolerance into microservices
+3. Dependencies: Limits-Service
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+		
+	1. LimitsServiceApplication.java
+
+			@SpringBootApplication
+			@EnableHystrix
+			public class LimitsServiceApplication {
+				...
+			}
+			
+	2. LimitsConfigurationController.java
+
+			@GetMapping("/fault-tolerance-example")
+			@HystrixCommand(fallbackMethod)
+			public LimitConfiguration retrieveLimitsFromConfigurations() {
+				throw new RuntimeException("");
+			}
+
 ### FAQ 01 - Microservices Characteristics ###
 ### FAG 02 - What do you do next? ###
 
