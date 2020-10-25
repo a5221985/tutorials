@@ -3039,9 +3039,32 @@
 			3. ...
 	4. Example:
 		1. https://developer.spotify.com/web-api/authorization-guide/#authorization-code-flow
-			1. Authorization Scope Grant
-			2. Client Credentials Grant
-			3. Implicit Grant
+			1. Authorization Scope Grant - Can fetch user's data by requesting access, uses secret key (client provided), access token can be refreshed
+			2. Client Credentials Grant - uses secret key (client provided) (other two are not applicable)
+				1. Client id and secret can be used to invoke some of the APIs
+					1. No authorization involved
+					2. No user data is accessible
+						1. Only public data is accessible
+							1. Showing info in graphical format (say)
+					3. Steps:
+						1. Application requests access to token (provides client_id, client_secret, grant_type)
+						2. Spotify account service returns access token
+						3. Application can use access token to request Web API using the access_token
+						4. Spotify Web API returns requested (unscoped) data (as JSON Object)
+			3. Implicit Grant (can access user data, other two are not applicable)
+				1. It is used in scenarios where client_secret cannot be protected
+					1. Example when writing single page application that will run in browser (JS is used)
+						1. If client_secret is embedded in code, it is accessible by hacker
+						2. Same for mobile apps
+				2. No authorization flow is involved
+					1. One can get access to user data (access_token is directly provided)
+					2. Flow:
+						1. Application requests authorization to access data (sends client_id, response_type, redirect_url, state, scope)
+						2. Spotify accounts service displays scopes & prompts user to login (if required)
+						3. User logs in, authorizes access
+						4. Spotify accounts service redirects to application passing access token (access_token, token_type, expires_in, state are sent)
+						5. Application uses access token in requests to Web API (access_token is used)
+						6. Spotify Web API returns requested data (as JSON Object say)
 			4. Refersh Token Grant
 
 ### API Security - Functional Attack ###
