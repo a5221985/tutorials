@@ -953,6 +953,8 @@
 
 		@Component
 		public class ZuulLoggingFilter extends ZuulFilter {
+			private Logger logger = LoggerFactor.getLogger(this.getClass());
+		
 			@Override
 			public boolean shouldFilter() { // apply filter or not
 				return true; // for every request it must be applied
@@ -961,6 +963,7 @@
 			@Override
 			public Object run() { // actual logic
 				HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
+				logger.info("request -> {} request uri -> {}", request, request.getRequestUri());
 				return null;
 			}
 			
@@ -974,8 +977,20 @@
 				return 1;
 			}
 		}
+		
+	1. Filters can be added for
+		1. Security
+		2. Rate limiting
+		3. ...
 
 ### Step 33 - Executing a Request Through Zuul API Gateway ###
+1. Lauch API Gateway Server
+	1. Pre-requisite (should be running): Eureka, CurrencyExchangeService, CurrencyConversionService
+2. Eureka has the other services registered
+3. Going through Zuul API gateway:
+	1. **http://localhost:8765/{application-name}/{uri}**
+		1. http://localhost:8765/currency-exchange-service/currency-exchange/from/EUR/to/INR
+
 ### Step 34 - Setting up Zuul API Gateway between Microservice Invocations ###
 ### Step 35 - Introduction to Distributed Tracing ###
 ### Step 36 - Implementing Spring Cloud Sleuth ###
