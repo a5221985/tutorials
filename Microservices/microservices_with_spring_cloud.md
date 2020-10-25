@@ -1006,8 +1006,22 @@
 		
 	1. http://localhost:8100/currency-converter-feign/from/USD/to/INR/quantity/10
 		1. Going through feign
+			1. The request gets logged (going through API Gateway)
+3. CurrencyConversionService
+
+		http://localhost:8765/currency-conversion-service/currency-converter-feign/from/USD/to/INR/quantity/10
+		
+4. Two log entries should appear
+	1. One for currency conversion service
+	2. One from currency exchange service
+5. Helps in central control of logging, security, analytics can be performed, ...
+
+### Debugging Problems with Zuul API Gateway ###
+1. [Step by Step Guide](https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ#debugging-problems-with-zuul-api-gateway)
 
 ### Step 35 - Introduction to Distributed Tracing ###
+1. 
+
 ### Step 36 - Implementing Spring Cloud Sleuth ###
 ### Step 37 - Introduction to Distributed Tracing with Zipkin ###
 ### Step 38 - Installing Rabbit MQ ###
