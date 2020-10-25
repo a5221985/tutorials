@@ -1096,9 +1096,33 @@
 			1. Pre-requisites - Erlang
 			2. Mac: https://www.rabitmq.com/install-homebrew.html
 				1. There is a link for Erlang
-2. 
+				2. `brew update`
+				3. `brew install rabbitmq`
+2. Launching RabbitMQ:
+	1. `/usr/local/sbin/rabbitmq-server`
+		1. `~/.bash_profile`
+
+				export PATH=/usr/local/sbin:$PATH
+				
+		2. `source ~/.bash_profile`
+		3. `rabbitmq-server`
+
+### Update to Step 39 - Running Zipkin on Windows ###
+1. If you get 404 while downloading jar, use curl command to download
+
+		curl -sSL https://zipkin.io/quickstart.sh | bash -s
+		java -jar zipkin.jar
+		
+	1. https://zipkin.io/pages/quickstart
+	2. Run the following command to run Zipkin on Server (Windows)
+
+			set RABBIT_URI=amqp://localhost
+			java -jar zipkin-server-2.7.0-exec.jar
 
 ### Step 39 - Setting up Distributed Tracing with Zipkin ###
+1. Services -> RabbitMQ -> ZipkinDistributedTracingServer -> Database
+2. Setup (install and connect to RabbitMQ)
+
 ### Step 40 - Connecting Microservices to Zipkin ###
 ### Step 41 - Using Zipkin UI Dashboard to Trace Requests ###
 ### Step 42 - Understanding the need for Spring Cloud Bus ###
