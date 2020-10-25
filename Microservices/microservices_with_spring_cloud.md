@@ -944,10 +944,37 @@
 
 		apring.application.name=netflix-zuul-api-gateway-server
 		server.port=8765
-		eureka.client.server-url.
-
+		eureka.client.server-url.default-zone=http://localhost:8761/eureka
 
 ### Step 32 - Implementing Zuul Logging Filter ###
+1. Logging feature
+	1. Any request that goes through gateway is logged
+2. ZuulLoggingFilter.java
+
+		@Component
+		public class ZuulLoggingFilter extends ZuulFilter {
+			@Override
+			public boolean shouldFilter() { // apply filter or not
+				return true; // for every request it must be applied
+			}
+			
+			@Override
+			public Object run() { // actual logic
+				HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
+				return null;
+			}
+			
+			@Override
+			public String filterType() { // when should filtering happen: before request? (pre) after request? (post) error request? (error)
+				return "pre";
+			}
+			
+			@Override
+			public int filterOrder() { // if multiple filters exists, security, logging, ..., set the order here
+				return 1;
+			}
+		}
+
 ### Step 33 - Executing a Request Through Zuul API Gateway ###
 ### Step 34 - Setting up Zuul API Gateway between Microservice Invocations ###
 ### Step 35 - Introduction to Distributed Tracing ###
