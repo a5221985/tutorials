@@ -869,8 +869,38 @@
 		eureka.client.service-url.deault-zone=http://localhost:8761/eureka
 		
 4. Bring it up and check that two instance of currency exchange service are registered with eureka naming service
+5. Problem: we are hardcoding currency exchange service url in currency conversion service
+	1. Solution: We want to get the urls from eureka
+
+### Course Update: Exclude dependency on jackson-dataformat.xml ###
+1. Open bug with `spring-cloud-starter-netflix-eureka-client`
+	1. It uses `jackson-dataformat-xml`
+		1. Returns xml responses instead of JSON in browser
+			1. Solution: Add exclusion for `jackson-dataformat-xml`
+
+					<dependency>
+						<groupId>org.springframework.cloud</groupId>
+						<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+						<exclusions>
+							<exclusion>
+								<groupId>com.fasterxml.jackson.dataformat</groupId>
+								<artifactId>jackson-dataformat-xml</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
 
 ### Step 28 - Distributing calls using Eureka and Ribbon ###
+1. CurrencyCalculationService wants to get url of CurrencyExchangeService from Eureka
+2. Ribbon needs to get instance URL of currency exchange service from naming server
+3. CurrencyConversionService
+	1. application.properties
+
+			#currency-exchange-service.ribbon.listOfServers=http://localhost:8000,http://localhost:8001
+			
+		1. Eureka is already is configured to get the urls
+4. Wait for 30 s to 60 s for the entire application to be up and running properly
+5. The requests are distributed using round-robbin
+
 ### Step 29 - A Review of Implementing Eureka, Ribbon and Feign ###
 ### Step 30 - Introduction to API Gateways ###
 ### Step 31 - Setting up Zuul API Gateway ###
