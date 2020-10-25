@@ -1156,10 +1156,40 @@
 			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
 		</dependency>
 
-### Step 41 - Using Zipkin UI Dashboard to Trace Requests ###
+### Updates to Step 40: Use spring-cloud-starter-zipkin and spring-rabbit ###
+1. If Spring Boot >= 2.1.*:
+	1. `spring-cloud-starter-zipkin`
+	2. `spring-rabbit`
+		1. Instead of `spring-cloud-sleuth-zipkin` and `spring-cloud-starter-bus-amqp`
 
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-zipkin<artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-rabbit</artifactId>
+				</dependency>
+
+### Step 41 - Using Zipkin UI Dashboard to Trace Requests ###
+1. Fire a request and check zipkin dashboard
+	1. Start all services
+		1. CurrencyCalculationService
+		2. Zipkin - started from commandline using jar for Spring Boot >= 2.0.0
+		3. CurrencyExchangeService
+		4. Eureka
+		5. Zuul
+		6. Ribbon
+2. Check Eureka to check if all services are running
+3. We can connect Zipkin to Eureka
+4. Request: http://localhost:8100/currency-converter-feign/from/EUR/to/INR/quantity/10
+5. Open zipkin dashboard: localhost:9411/zipkin
+	1. Trace: currency-conversion-service, Find Trace
+		1. Click on individual steps to get more details
 
 ### Step 42 - Understanding the need for Spring Cloud Bus ###
+1. 
+
 ### Step 43 - Implementing Spring Cloud Bus ###
 ### Step 44 - Fault Tolerance with Hystrix ###
 ### FAQ 01 - Microservices Characteristics ###
