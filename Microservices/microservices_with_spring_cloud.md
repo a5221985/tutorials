@@ -913,9 +913,21 @@
 4. Small microservices can talk to each other
 
 ### Step 30 - Introduction to API Gateways ###
-1. 
+1. API Gateways (used to implement common features for all of the microservices)
+	1. Authentication, authorization and security
+	2. Rate Limits
+	3. Fault Tolerance
+		1. If a service is not up, a default response needs to be returned
+	4. Service Aggregation
+		1. If a consumer has to make 15 services for a single process, they can be aggregated into a single call
+2. All the calls between microservices go through the API gateway
+3. API gateway provides common features
+	1. \+ logging
+4. API gateways are good for debugging and doing analytics
 
 ### Step 31 - Setting up Zuul API Gateway ###
+1. 
+
 ### Step 32 - Implementing Zuul Logging Filter ###
 ### Step 33 - Executing a Request Through Zuul API Gateway ###
 ### Step 34 - Setting up Zuul API Gateway between Microservice Invocations ###
