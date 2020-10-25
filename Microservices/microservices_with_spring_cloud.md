@@ -926,7 +926,26 @@
 4. API gateways are good for debugging and doing analytics
 
 ### Step 31 - Setting up Zuul API Gateway ###
-1. 
+1. Three steps:
+	1. Creation of component for Zull API Gateway server
+	2. What it should do when it gets a request
+	3. All requests are configured to pass through the API gateway
+2. New Project:
+	1. ArtifactId: netflix-zuul-zpi-gateway-server
+	2. Dependencies: Zuul, Eureka Discovery (We want to see Zuul instance in Eureka), Actuator, DevTools
+3. NetflixZuulApiGatewayServerApplication.java
+
+		@EnableZuulProxy // Required on Zuul server
+		@EnableDiscoveryClient
+		@SpringBootApplication
+		...
+		
+4. application.properties (copy from Currency Conversion)
+
+		apring.application.name=netflix-zuul-api-gateway-server
+		server.port=8765
+		eureka.client.server-url.
+
 
 ### Step 32 - Implementing Zuul Logging Filter ###
 ### Step 33 - Executing a Request Through Zuul API Gateway ###
