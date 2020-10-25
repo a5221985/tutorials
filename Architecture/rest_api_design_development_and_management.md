@@ -3115,9 +3115,12 @@
 		2. Implicit grant (authorization flow is not needed, client provides credentials, authorization is carried out by server and access token is issued to client)
 		3. Resource owner credentials grant
 			1. Requires user to provide credentials to client (not recommended)
-		4. 
+		4. Client Credentials Grant (certain data is public, no need for authorization)
+			1. Client has to provide client_id and/or client_secret (optional)
+		5. Refresh Token Grant (Part of authorization scope grant - refresh token can be used for re-validating access token)
 
 ### API Security - Functional Attack ###
+1. Learning Objectives:
 
 ## REST API Specifications Using Swagger 2.0/OAI ##
 ### Requirements Analysis Process & Intro to REST Specifications ###
