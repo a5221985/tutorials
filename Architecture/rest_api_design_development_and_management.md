@@ -3190,7 +3190,22 @@
 			2. Break transaction into smaller steps
 			3. Add custom headers
 	4. Session/Token Hijacking (Theft of access token from user's browser)
-		1. 
+		1. Attacker prompts user with a link
+		2. User clicks on the link
+		3. User recieves hacker's script
+		4. Hacker's script has access/ session tokens
+			1. Script can invoke API using access token
+			2. Script can also send access token to attacker
+			3. Attacker can directly use the access token to invoke the API
+		5. Solution: OWASP
+			1. Ensure expiry of token (do not have long validity)
+			2. Un-predictable token patterns (use complex patterns for creation)
+			3. Additional security headers (don't rely just on access tokens)
+6. Solution to Functional Attacks
+	1. Best way is testing
+		1. Come up with test cases that represents functional attacks on the APIs
+			1. Use findings to make changes to APIs
+	2. Follow best practices for coding
 
 ## REST API Specifications Using Swagger 2.0/OAI ##
 ### Requirements Analysis Process & Intro to REST Specifications ###
