@@ -1366,7 +1366,9 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 		
-	1. 
+	1. Stop and start takes more time than enabling devtools
+		1. Loads only application beans (not beans in maven dependencies)
+			1. application relation beans only
 
 ## Appendix - Introduction to JPA in 10 Steps ##
 ### Section Introduction - Introduciton to JPA in 10 Steps ###
