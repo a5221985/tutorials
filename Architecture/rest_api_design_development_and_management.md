@@ -3077,6 +3077,8 @@
 					7. Spotify Accounts Service returns requested data (as JSON Object say)
 					8. When access_token expires, Application requests refreshed access token (passing client_id, client_secret, grant_type, refresh_token)
 					9. Spotify Accounts Service returns new access token 
+			5. Resource Owner Credentials Grant
+				1. 
 
 ### API Security - Functional Attack ###
 
