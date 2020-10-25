@@ -1020,9 +1020,33 @@
 1. [Step by Step Guide](https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ#debugging-problems-with-zuul-api-gateway)
 
 ### Step 35 - Introduction to Distributed Tracing ###
-1. 
+1. If service is not working fine. We want to debug
+	1. How to find out the defect?
+		1. Solution: Distributed tracing
+			1. We want one place where we can go to see what happened to that particular request
+2. There are multiple components
+	1. business components
+	2. service helpers (Zuul, Eureka, Ribbon, ...)
+3. Implementation:
+	1. Sleuth + Zipkin
+		1. Sleuth: Assigning ID to request (to trace it across component)
+		2. Zipkin: Distributed tracing system
+			1. All logs from all services are put in message queue (implementation: RabbitMQ)
+			2. The messages are sent to Zipkin server where it is consolidated and one can look through different requests and find what happened to a specific request
 
 ### Step 36 - Implementing Spring Cloud Sleuth ###
+1. Where to use?
+	1. One can trace it across components
+		1. currency-conversion-service
+		2. currency-exchange-service
+		3. zuul service
+2. Zuul service
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+
 ### Step 37 - Introduction to Distributed Tracing with Zipkin ###
 ### Step 38 - Installing Rabbit MQ ###
 ### Step 39 - Setting up Distributed Tracing with Zipkin ###
