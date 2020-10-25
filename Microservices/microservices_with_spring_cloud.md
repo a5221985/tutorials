@@ -1046,6 +1046,31 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
+		
+	1. NetflixZuulApiGatewayServerApplication.java
+
+			...
+			@Bean
+			public Sampler defaultSampler() { // >= 2.0.0
+				return Sampler.ALWAYS_SAMPLER;
+			}
+			
+	2. CurrencyConversionService, CurrencyExchangeService
+		1. Same configuration
+3. Launch applications in correct order
+4. Logs in other services
+
+		// CurrentExchangeController
+		public ExchangeValue retrieveExchange() {
+			...
+			logger.info("{}", exchangeValue);
+			
+		// CurrentConversionController
+		public CurrencyConversionBean convertCurrencyFeign() {
+			...
+			logger.info("{}", response);
+			
+	1. Sleuth
 
 ### Step 37 - Introduction to Distributed Tracing with Zipkin ###
 ### Step 38 - Installing Rabbit MQ ###
