@@ -1087,9 +1087,17 @@
 			1. A solution: ELK stack can be used
 2. Another solution: Zipkin distributed tracing server
 	1. Log message is put in Queue (RabbitMQ)
-	2. ZipkinDistributedTracingServer can use database (in-memory is also fine)
+	2. ZipkinDistributedTracingServer can use database (in-memory is used here)
 
 ### Step 38 - Installing Rabbit MQ ###
+1. GitHub repo
+	1. Installation instructions for specific tools are available
+		1. RabbitMQ:
+			1. Pre-requisites - Erlang
+			2. Mac: https://www.rabitmq.com/install-homebrew.html
+				1. There is a link for Erlang
+2. 
+
 ### Step 39 - Setting up Distributed Tracing with Zipkin ###
 ### Step 40 - Connecting Microservices to Zipkin ###
 ### Step 41 - Using Zipkin UI Dashboard to Trace Requests ###
