@@ -1187,8 +1187,36 @@
 	1. Trace: currency-conversion-service, Find Trace
 		1. Click on individual steps to get more details
 
+### Debugging Problems with Zipkin ###
+1. [Troubleshooting Guide - Step by Step Instructions](https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ#debugging-problems-with-zipkin)
+
 ### Step 42 - Understanding the need for Spring Cloud Bus ###
-1. 
+1. Problem: 
+	1. Lauch: limit-service, SpringCloudConfigServer
+		1. Active profile - qa
+		2. Lauch another instance of limit-service - 8081
+			1. VM args: -Dserver.port=8081
+			2. http://localhost:8081/limits
+	2. Suppose we change min value to 22
+		1. Commit it in git
+		
+				git add *
+				git commit -m "qa minimum"
+				
+		2. Refreshing browser page keeps the old values
+			1. How to reflect the change?
+				1. POST http://localhost:8080/application/refresh
+					1. Full authentication is required error (Spring Boot 2.0.0+ We would get a Resource Not Found Error)
+					2. **Must have `spring-boot-starter-actuator` in limits service**
+						1. Turn off security:
+							1. application.properties
+
+									management.endpoints.web.exposure.include=* # Enable all actuator URLs
+									
+			2. Restart applications
+				1. Change to 22
+				2. Commit the change to git
+				3. Run the POST request
 
 ### Step 43 - Implementing Spring Cloud Bus ###
 ### Step 44 - Fault Tolerance with Hystrix ###
@@ -1196,7 +1224,7 @@
 ### FAG 02 - What do you do next? ###
 
 ## Thanks ##
-### Bonus Lecture: Out Best Courses ###
+### Bonus Lecture: Our Best Courses ###
 ### Thank You ###
 
 ## Appendix - Introduction to Spring Boot in 10 Steps ##
