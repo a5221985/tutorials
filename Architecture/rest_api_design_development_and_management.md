@@ -3205,7 +3205,27 @@
 	1. Best way is testing
 		1. Come up with test cases that represents functional attacks on the APIs
 			1. Use findings to make changes to APIs
-	2. Follow best practices for coding
+	2. Follow best practices for coding and REST API
+	3. Construct a process for code review (or adopt peer programming)
+		1. Functional attacks can be tested
+	4. Test & Monitor continuously; Invest in tools (for functional attacks)
+		1. HttpMaster (API & REST Development and Test Tool)
+		2. Parasoft
+		3. SoapUI
+	5. Select an appropriate security model for API
+	6. Consider an API gateway or API management solution
+		1. Prevents attack calls from reaching API
+	7. Set aside budget for API testing
+		1. In Planning phase
+7. Summary:
+	1. Hacker exploits functional weaknesses
+		1. OWASP - non-profit - best practices and suggestions
+	2. SQL Injection
+	3. Fuzzing
+	4. Cross Site Forgery
+	5. Session/ Token Hijacking
+	6. Follow security best practices for implementing your API
+	7. Thorough testing is the way to go
 
 ## REST API Specifications Using Swagger 2.0/OAI ##
 ### Requirements Analysis Process & Intro to REST Specifications ###
