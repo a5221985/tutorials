@@ -3121,6 +3121,37 @@
 
 ### API Security - Functional Attack ###
 1. Learning Objectives:
+	1. Go through resource section - kinds of threats - [https://www.udemy.com/course/rest-api/learn/lecture/6039114#content](https://www.udemy.com/course/rest-api/learn/lecture/6039114#content)
+	2. Functional attacks
+	3. Common functional attacks
+2. OWASP
+	1. Open Web Application Security Project
+		1. https://www.owasp.org (security threats and how to prevent APIs from getting hacked)
+		2. Best practices for web application security
+		3. How to secure REST APIs
+3. Functional attacks
+	1. Hacker or attacker expoits the functional weakness exposed by API
+	2. Attacker can go through same apps
+	3. Attacker can directly attack the API
+	4. Attacker can force customer to launch the attack (cross site forgery)
+5. Types of functional attacks
+	1. SQL injection (usually with data driven application)
+		1. Understands flow of app
+			1. Form say which invokes API
+			2. API invokes DB using SQL
+			3. Attacker can insert SQL code instead of form data
+				1. SQL statement gets tampered
+					1. Attacker can
+						1. Read sensitive data
+						2. Modify or delete data
+						3. Take admin action on DB (shutting it down say)
+				2. Can also be carried out using
+					1. XPath
+					2. JSON Path
+					3. XSLT
+	2. Fuzzing (Random input to understand vulnerabilities)
+	3. Cross Site Forgery (attack script on user's browser)
+	4. Session/Token Hijacking (Theft of access token from user's browser)
 
 ## REST API Specifications Using Swagger 2.0/OAI ##
 ### Requirements Analysis Process & Intro to REST Specifications ###
