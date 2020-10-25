@@ -3078,7 +3078,44 @@
 					8. When access_token expires, Application requests refreshed access token (passing client_id, client_secret, grant_type, refresh_token)
 					9. Spotify Accounts Service returns new access token 
 			5. Resource Owner Credentials Grant
-				1. 
+				1. User needs to share the credentials with the client (or app)
+					1. Can lead to misuse
+					2. Not supported by Spotify - to protect the user credentials
+				2. May be used for Trusted applications
+					1. e.g. ACME Travel may use it for their own mobile application
+						1. Not a good practice
+		4. Scope:
+			1. List of scopes well documented by Spotify
+				1. - : public data for all users
+				2. playlist-read-private : read access to user's private playlists
+				3. playlist-modify-public : Write access to a user's public playlists
+				4. streaming : to control playback of spotify track
+8. OAuth2.0 Design Decisions
+	1. Scopes of the user data (API)
+		1. What is public data and what is private data
+	2. Type of OAuth grants to be supported
+		1. Use Authorization || Implicit Grant for Private data
+		2. Use Client Credentials for Public data
+			1. Vacation package data
+			2. email address is private data
+				1. Implicit grant is required
+				2. Client credentials may also be used
+			3. For trusted clients would you use "Resource Credentials grant"?
+				1. Stay away from it
+	3. Implementing the OAuth
+		1. Complex task
+			1. Build - Passport, OAuth strategy, ... (but not recommended)
+				1. Better solution: API Management Platform
+9. Summary:
+	1. OAuth2.0 is an authorization framework
+		1. De-factor standard for APIs
+	2. 5 Grant types
+		1. Authorization scope grant (user provides authorization for scopes requested by client)
+			1. Client gets access token
+		2. Implicit grant (authorization flow is not needed, client provides credentials, authorization is carried out by server and access token is issued to client)
+		3. Resource owner credentials grant
+			1. Requires user to provide credentials to client (not recommended)
+		4. 
 
 ### API Security - Functional Attack ###
 
