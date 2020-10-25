@@ -1133,8 +1133,18 @@
 4. Zipkin dashboard:
 	1. http://localhost:9411
 		1. Find Traces - nothing as of now
+		2. Ensure it is running as background service
+		3. Configuration: To connect to RabbitMQ (Mac)
+
+				RABBIT_URI=amqp://localhost java -jar zipkin-server-2.5.2-exec.jar
+				
+				# Windows:
+				set RABBIT_URI=amqp://localhost
+				java -jar zipkin-server-2.5.2-exec.jar
 
 ### Step 40 - Connecting Microservices to Zipkin ###
+1. 
+
 ### Step 41 - Using Zipkin UI Dashboard to Trace Requests ###
 ### Step 42 - Understanding the need for Spring Cloud Bus ###
 ### Step 43 - Implementing Spring Cloud Bus ###
