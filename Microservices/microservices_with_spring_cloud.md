@@ -1071,6 +1071,9 @@
 			logger.info("{}", response);
 			
 	1. Sleuth adds id to requests
+	2. Run request to currency conversion service
+		1. A log with id is generated for currency conversion service
+		2. A log with same id is generated for currency exchange service
 
 ### Step 37 - Introduction to Distributed Tracing with Zipkin ###
 ### Step 38 - Installing Rabbit MQ ###
