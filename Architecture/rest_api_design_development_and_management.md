@@ -3065,7 +3065,18 @@
 						4. Spotify accounts service redirects to application passing access token (access_token, token_type, expires_in, state are sent)
 						5. Application uses access token in requests to Web API (access_token is used)
 						6. Spotify Web API returns requested data (as JSON Object say)
-			4. Refersh Token Grant
+			4. Refersh Token Grant (all that applies to Authorization token 
+				1. Flow:
+					1. Application requests authorization to access data (passes client_id, response_type, redirect_url, state, scope)
+					2. Spotify accounts service displays scopes & prompts user to login (if required)
+					3. User logs in, authorizes access
+					4. User requests access and refresh tokens (using client_id, client_secret, grant_type, code, redirect_url)
+					4. Spotify Accounts Service returns access and refresh tokens (passing access_token, token_type, expires_in, refresh_token)
+					5. Client can store refresh token (persistence store) for later use
+					6. Application uses access token in requests to Web API (passes access_token)
+					7. Spotify Accounts Service returns requested data (as JSON Object say)
+					8. When access_token expires, Application requests refreshed access token (passing client_id, client_secret, grant_type, refresh_token)
+					9. Spotify Accounts Service returns new access token 
 
 ### API Security - Functional Attack ###
 
