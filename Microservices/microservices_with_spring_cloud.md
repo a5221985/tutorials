@@ -1291,13 +1291,15 @@
 ## Thanks ##
 ### Bonus Lecture: Our Best Courses ###
 1. Learning paths:
-	1. Spring & Spring Boot Developer
-	2. Full Stack with React & Angular
-	3. Microservices - Docker & Kubernetes
-	4. Cloud with AWS, Azure & PCF
-	5. AWS with Docker & Kubernetes
+	1. Spring & Spring Boot Developer - https://links.in28minutes.com/udemy-bonus-learning-path-01
+	2. Full Stack with React & Angular - https://links.in28minutes.com/udemy-bonus-learning-path-02
+	3. Microservices - Docker & Kubernetes - https://links.in28minutes.com/udemy-bonus-learning-path-03
+	4. Cloud with AWS, Azure & PCF - https://links.in28minutes.com/udemy-bonus-learning-path-04
+	5. AWS with Docker & Kubernetes - https://links.in28minutes.com/udemy-bonus-learning-path-05
 
 ### Thank You ###
+1. Microservices is a young field and can expect changes
+2. Challenges and solutions
 
 ## Appendix - Introduction to Spring Boot in 10 Steps ##
 ### 0005 - Section Introduction 04 - Introduction to Spring Boot in 10 Steps ###
@@ -1310,6 +1312,33 @@
 ### Step 7: Spring Boot Starter Projects - Starter Web and Starter JPA ###
 ### Step 8: Overview of Different Spring Boot Starter Projects ###
 ### Step 9: Spring Boot Actuator ###
+1. pom.xml
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		
+	1. Monitoring around the application
+		1. We can read metadata
+			1. Beans configured
+			2. How auto config worked
+			3. How many times a specific service is called
+			4. How many times a specific service has failed
+	2. Actuator exposes REST services which are compliant with HAL standard
+	3. We need a hal browser
+
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-rest-hal-browser</artifactId>
+			</dependency>
+			
+		1. http://localhost:8080/actuator or http://localhost:8080/application or http://localhost:8080 (newer version)
+		2. Click links provided
+		3. Configuration:
+
+				management.endpoint.web.exposure.include=* # all management endpoints
+
 ### Step 10: Spring Boot Developer Tools ###
 
 ## Appendix - Introduction to JPA in 10 Steps ##
