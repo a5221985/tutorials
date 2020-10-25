@@ -3017,6 +3017,32 @@
 		1. Issued after user logs in and authorizes
 	2. Access Token
 		1. Credential for accessing the protected resource
+			1. Used by app or client
+			2. Provider may define multiple types
+				1. Different types are associated with different scopes
+					1. Limits which APIs can be invoked
+			3. Expiry is set by issuer (or API provider)
+	3. Refresh Token
+		1. If Access token has expired
+			1. It is provided along with access token
+		2. It may be used for extending access token validity
+			1. It is used to obtain new access token
+6. Facebook access token types
+	1. Not standard but defined by facebook
+7. Spotify
+	1. Music streaming to multiple devices
+	2. Users can free/paid account listen to music, manage playlists
+	3. API for developers are provided
+		1. https://developer.spotify.com/showcase/
+			1. BBC (client)
+			2. Shazam (client)
+			3. ...
+	4. Example:
+		1. https://developer.spotify.com/web-api/authorization-guide/#authorization-code-flow
+			1. Authorization Scope Grant
+			2. Client Credentials Grant
+			3. Implicit Grant
+			4. Refersh Token Grant
 
 ### API Security - Functional Attack ###
 
