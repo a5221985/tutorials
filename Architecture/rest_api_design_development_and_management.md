@@ -3012,6 +3012,11 @@
 		5. Application repeatedly uses access token (until it has expired) to request access to protected resource
 			1. Refresh token can be used
 		6. Resource or API Server provides resource info 
+5. OAuth2.0 Tokens
+	1. Authorization Token (Proof of authorization)
+		1. Issued after user logs in and authorizes
+	2. Access Token
+		1. Credential for accessing the protected resource
 
 ### API Security - Functional Attack ###
 
