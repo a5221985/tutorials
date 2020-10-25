@@ -842,10 +842,34 @@
 		
 3. CurrencyConversionServiceApplication.java
 
-		@EnableDiscoveryClient // 
+		@EnableDiscoveryClient // To register with naming server
 		...
+		
+4. application.properties
+
+		eureka.client.service-url.default-zone=http://localhost:8761/eureka
+		
+5. Bring up the service and check Eureka dashboard for availability of the service
 
 ### Step 27 - Connecting Currency Exchange Microservice to Eureka ###
+1. pom.xml of currency-exchange-service
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		
+2. CurrencyExchangeServiceApplication.java
+
+		@EnableDiscoverClient // To register with naming server
+		...
+		
+3. application.properties
+
+		eureka.client.service-url.deault-zone=http://localhost:8761/eureka
+		
+4. Bring it up and check that two instance of currency exchange service are registered with eureka naming service
+
 ### Step 28 - Distributing calls using Eureka and Ribbon ###
 ### Step 29 - A Review of Implementing Eureka, Ribbon and Feign ###
 ### Step 30 - Introduction to API Gateways ###
