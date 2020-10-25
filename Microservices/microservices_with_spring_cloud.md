@@ -1070,7 +1070,7 @@
 			...
 			logger.info("{}", response);
 			
-	1. Sleuth
+	1. Sleuth adds id to requests
 
 ### Step 37 - Introduction to Distributed Tracing with Zipkin ###
 ### Step 38 - Installing Rabbit MQ ###
