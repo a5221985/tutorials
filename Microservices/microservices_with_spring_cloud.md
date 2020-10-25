@@ -1337,9 +1337,36 @@
 		2. Click links provided
 		3. Configuration:
 
-				management.endpoint.web.exposure.include=* # all management endpoints
+				management.endpoint.web.exposure.include=* # all management endpoints - performance impact (only enable what is required)
+			
+			1. Install Spring Tools plugin for auto complete of application.properties
+	4. http://localhost:8080
+		1. HAL browser
+			1. We can browser through actuator: Type /actuator
+				1. auditevents
+				2. beans - all spring beans configured
+				3. /health
+				4. /conditions
+					1. configured and not configured beans
+				5. heap dump
+				6. thread dump
+				7. metrics:
+
+						/actuator/metrics/jvm.memory.used
+						
+				8. httptrace - all requests executed
+					1. Details of requests
+				9. mappings - things mapped to uris
 
 ### Step 10: Spring Boot Developer Tools ###
+1. Auto restart when changes are made
+
+		<dependency>
+			<groupId>org.springframework.bean</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		
+	1. 
 
 ## Appendix - Introduction to JPA in 10 Steps ##
 ### Section Introduction - Introduciton to JPA in 10 Steps ###
