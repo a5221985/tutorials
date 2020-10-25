@@ -1122,6 +1122,17 @@
 ### Step 39 - Setting up Distributed Tracing with Zipkin ###
 1. Services -> RabbitMQ -> ZipkinDistributedTracingServer -> Database
 2. Setup (install and connect to RabbitMQ)
+	1. New project > Zipkin client was available before but not now
+3. Search `zipkin quickstart`
+	1. Docker
+	2. Java
+		1. `wget -O <url>` - copy the url
+			1. paste it in browser (may not work)
+			2	Download jar file
+		2. `java -jar zipkin-server-<version>-exec.jar` (Java 8 is min)
+4. Zipkin dashboard:
+	1. http://localhost:9411
+		1. Find Traces - nothing as of now
 
 ### Step 40 - Connecting Microservices to Zipkin ###
 ### Step 41 - Using Zipkin UI Dashboard to Trace Requests ###
