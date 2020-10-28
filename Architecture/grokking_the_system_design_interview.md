@@ -410,8 +410,23 @@
 			![load_balancing_at_different_levels](load_balancing_at_different_levels.png)
 
 #### Benefits of Load Balancing ####
+1. Users experience faster, uninterruted service
+	1. One doesn't have to wait for single struggling server to finish its previous tasks
+		1. Requests are immediately passed on to more readily available resource
+2. Service providers experience less downtime and higher throughput
+	1. Full server failure does not affect end user experience as load balancer will route around it to healthy server
+3. Load balancer makes it easier for sys admins to handle incoming requests while decreasing wait time for users
+4. Smart load balancer features
+	1. Predictive analytics - determining traffic bottlenecks before they happen
+		1. Gives organization actionable insights
+			1. Key to automation
+			2. Helps drive business decisions
+5. Sys admins experience fewer failed or stressed components
+	1. load balancing has several devices perform little bit of work
 
 #### Load Balancing Algorithms ####
+1. How does load balancer choose backend server?
+	1. LBs consider two factors before forwarding request to backend server
 
 #### Redundant Load Balancers ####
 
