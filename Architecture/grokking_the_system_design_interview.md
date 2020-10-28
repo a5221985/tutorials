@@ -268,6 +268,12 @@
 
 #### Scalability ####
 1. It is the capability of system, process, or a network to grow and manage increased demand
+	1. A distributed system that can continuously evolve to support growing amount of work is considered to be scalable
+2. Reasons of scaling
+	1. Increased data volume (or)
+	2. Increased amount of work
+		1. Number of transactions
+3. Scalable system would like to achieve scaling without performance loss
 
 #### Reliability ####
 
