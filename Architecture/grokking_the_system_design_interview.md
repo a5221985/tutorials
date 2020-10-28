@@ -328,9 +328,30 @@
 	3. Spares availability
 	4. Logistics considerations
 4. Reliability:
-	1. It is availability over time (considering full-range of possible real-world conditions that can occur)
+	1. It is availability over time (considering full-range of possible real-world conditions that can occur - (roadblocks ...))
+		1. Aircraft that can make it through any possible weather safely is more reliable than one that has vulnerabilities to possible conditions
+
+##### Reliability vs. Availability #####
+1. If system is reliable, it is available
+	1. If a system is available, it is not necessarily reliable
+		1. High reliability contributes to high availability
+			1. It is possible to achieve high availability even with unreliable product by minimizing repair time and ensuring spares are always available whenever needed
+2. Example: Online retail store (has 99.99% availability for first two years after launch)
+	1. System was launched without information security testing
+		1. Customers are unaware that system is not very reliable
+			1. System is vulnerable to likely risks
+	2. System might face information security incidents in third year
+		1. May result in extremely low availability for extended periods (of time)
+			1. May cause reputational and financial damage to customers 
 
 #### Efficiency ####
+1. How to measure efficiency of a distributed system
+	1. Assume an operation that runs in a distributed manner, delivers set of items as a result
+	2. Two standard measures of efficiency:
+		1. Response time (or latency)
+			1. Denotes delay to obtain first item
+		2. Throughput (or bandwidth)
+			1. Number of items delivered in a given time unit (e.g. in a second)
 
 #### Serviceability or Manageability ####
 
