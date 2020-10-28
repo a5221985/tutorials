@@ -370,8 +370,34 @@
 
 #### Serviceability or Manageability ####
 1. Aspect: How easy it is to operate and maintain?
+	1. Serviceability or manageability
+		1. How easy it is to operate and maintain
+		2. It is the simplicity and speed with which system can be repaired or maintained
+			1. If time to fix failed system increases, then availability will decrease
+		3. Manageability:
+			1. Things to consider
+				1. Ease of diagnosing & understanding problems when they occur
+				2. Ease of making updates or modifications
+				3. Simplicity of operating the system
+					1. Does it routinely operate without failure or exceptions?
+2. Early detection of faults can decrease or avoid system downtime
+	1. Example: Some enterprise systems can automatically call service center (without human intervention) when system experiences system fault
 
 ### Load Balancing ###
+1. Topics:
+	1. Benefits of Load Balancing
+	2. Load Balancing Algorithms
+	3. Redundant Load Balancers
+2. Load Balancer (LB) - a critical component of distributed system
+	1. It helps spread traffic across cluster or servers
+		1. To improve responsiveness and availability of applications, websites or databases
+
+#### Benefits of Load Balancing ####
+
+#### Load Balancing Algorithms ####
+
+#### Redundant Load Balancers ####
+
 ### Caching ###
 ### Data Partitioning ###
 ### Indexes ###
