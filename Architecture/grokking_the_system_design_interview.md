@@ -274,6 +274,20 @@
 	2. Increased amount of work
 		1. Number of transactions
 3. Scalable system would like to achieve scaling without performance loss
+	1. Performance of system (though designed or claimed) to be scalable, declines with system size
+		1. Due to management or environment cost
+			1. Examples:
+				1. Network speed may become slower (machines may tend to be far apart from one another)
+			2. Some taks may not be distributed
+				1. May be due to inherent atomic nature
+				2. May be due to some flaw in system design
+		2. Speed up obtained by distribution may get limited at some point
+			1. Scalable architecture avoids the situation and attempts to balance load on all participating nodes evenly
+4. Horizontal vs. Vertical Scaling:
+	1. Horizontal scaling:
+		1. Scaling by adding more servers into pool of resources
+	2. Vertical scaling:
+		1. 
 
 #### Reliability ####
 
