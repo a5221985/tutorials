@@ -355,6 +355,9 @@
 	3. Two measures correspond to following unit costs:
 		1. Number of messages globally sent by the nodes of the system regardless of the message size
 		2. Size of messages representing the volume of data exchanges
+2. Complexity of operations supported by distributed data structures (e.g. searching for specific key in distributed index)
+	1. These can be characterized as function of one of the cost units above
+		1. Analysis in terms of 'number of messages' is over-simplistic
 
 #### Serviceability or Manageability ####
 
