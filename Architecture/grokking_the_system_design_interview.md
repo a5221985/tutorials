@@ -287,9 +287,22 @@
 	1. Horizontal scaling:
 		1. Scaling by adding more servers into pool of resources
 	2. Vertical scaling:
-		1. 
+		1. Usually limited to the capacity of a single server
+			1. Scaling beyond the capacity may often 
+				1. involve downtime
+				2. involve upper limit
+5. Good examples of horizontal scaling:
+	1. [Cassandra](https://en.wikipedia.org/wiki/Apache_Cassandra)
+	2. [MongoDB](https://en.wikipedia.org/wiki/MongoDB)
+6. Both provide easy way to scale horizontally
+	1. One can add more machines to meet growing needs
+7. Good example of vertical scaling is MySQL
+	1. Provides easy way for vertical scaling by switching from smaller machines to bigger machines
+		1. May involve downtime
 
 #### Reliability ####
+1. It is the probability a system will fail in a given period (of time)
+	1. A distributed system is considered reliableif it keeps delivering its services even when one or several of its software or hardware components fail
 
 #### Availability ####
 
