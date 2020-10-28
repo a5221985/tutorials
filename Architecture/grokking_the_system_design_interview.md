@@ -391,6 +391,19 @@
 2. Load Balancer (LB) - a critical component of distributed system
 	1. It helps spread traffic across cluster or servers
 		1. To improve responsiveness and availability of applications, websites or databases
+	2. LB keeps track of status of all resources while distributing requests
+		1. If a server
+			1. Is not able to take new requests
+			2. Is not responding
+			3. Has elevated error rate
+		2. LB will stop sending traffic to it
+3. LB (typically) sits between client and server accepting incoming network and app traffic and
+	1. Distributes traffic across multiple backend servers (using various algorithms)
+		1. If application requests are balanced across multiple servers
+			1. LB reduces individual server load
+			2. LB prevents any one application server from becoming single point of failure
+		2. This strategy increases overall app availability and responsiveness
+4. 
 
 #### Benefits of Load Balancing ####
 
