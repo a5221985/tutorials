@@ -403,7 +403,11 @@
 			1. LB reduces individual server load
 			2. LB prevents any one application server from becoming single point of failure
 		2. This strategy increases overall app availability and responsiveness
-4. 
+4. To utilize full scalability and redundancy
+	1. Try to balance load at each layer of system
+		1. Adding LBs at 3 places:
+
+			![load_balancing_at_different_levels](load_balancing_at_different_levels.png)
 
 #### Benefits of Load Balancing ####
 
