@@ -352,6 +352,9 @@
 			1. Denotes delay to obtain first item
 		2. Throughput (or bandwidth)
 			1. Number of items delivered in a given time unit (e.g. in a second)
+	3. Two measures correspond to following unit costs:
+		1. Number of messages globally sent by the nodes of the system regardless of the message size
+		2. Size of messages representing the volume of data exchanges
 
 #### Serviceability or Manageability ####
 
