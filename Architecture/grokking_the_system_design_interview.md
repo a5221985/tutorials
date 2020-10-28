@@ -236,7 +236,47 @@
 
 ## Glossary of System Design Basics ##
 ### System Design Basics ###
+1. Things to consider when designing large systems
+	1. What are the different architectural pieces that can be used?
+	2. How do the pieces work with each other?
+	3. How can we best utilize the pieces: what are the right tradeoffs?
+2. Investing on scaling before it is needed is generally not a smart business proposition
+	1. But some forethought into design can save valuable tiem and resources in future
+3. Topics:
+	1. Core building blocks of scalable systems
+		1. The concepts would benefit in understanding distributed system concepts
+	2. Next:
+		1. Consistent hashing
+		2. CAP Theorem
+		3. Load Balancing
+		4. Caching
+		5. Data Partitioning
+		6. Indexes
+		7. Proxies
+		8. Queues
+		9. Replication
+		10. Choosing between SQL vs. NoSQL
+4. Next: key characteristics of distributed systems
+
 ### Key Characteristics of Distributed Systems ###
+1. Topics: (key characteristics)
+	1. Scalability
+	2. Reliability
+	3. Availability
+	4. Efficiency
+	5. Serviceability or Manageability
+
+#### Scalability ####
+1. It is the capability of system, process, or a network to grow and manage increased demand
+
+#### Reliability ####
+
+#### Availability ####
+
+#### Efficiency ####
+
+#### Serviceability or Manageability ####
+
 ### Load Balancing ###
 ### Caching ###
 ### Data Partitioning ###
