@@ -433,6 +433,9 @@
 	1. LBs should forward traffic to only healthy backend servers
 		1. To monitor health of backend server
 			1. "Health checks" - attempts to connect to backend servers to ensure that servers are listening
+				1. If a server fails health check
+					1. It is automatically removed from pool
+						1. Traffic will not be forwarded until it responds to health checks again
 
 #### Redundant Load Balancers ####
 
