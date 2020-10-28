@@ -436,6 +436,19 @@
 				1. If a server fails health check
 					1. It is automatically removed from pool
 						1. Traffic will not be forwarded until it responds to health checks again
+3. LB methods:
+	1. **Least Connection Method** - Directs traffic to server with fewest active connections
+		1. Useful if there are a large number of persistent client connections evenly distributed between servers
+	2. **Least Response Time Method** - Directs traffic to server with fewest active connections and lowest average response time
+	3. **Least Bandwidth Method** - Method selects server that is currently serving least amount of traffic measured in megabits per second (Mbps)
+	4. **Round Robin Method** - Cycles through list of servers and sends each new request to next server
+		1. When it reaches end of list, starts over at the beginning
+			1. Useful when servers are of equal specification & not many persistent connections
+	5. **Weighted Round Robin Method** - If servers have different processing capacities
+		1. Each server is assigned weight (integer value that indicates processing capacity)
+		2. Servers with higher weights receive new connections before the ones with less weights
+		3. Servers with higher weights receive more connections than servers with less weights
+	6. **IP Hash** - Hash of IP address of client is calculated to redirect request to server
 
 #### Redundant Load Balancers ####
 
