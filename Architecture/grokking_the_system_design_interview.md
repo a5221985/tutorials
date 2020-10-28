@@ -451,6 +451,15 @@
 	6. **IP Hash** - Hash of IP address of client is calculated to redirect request to server
 
 #### Redundant Load Balancers ####
+1. LB can be single point of failure
+	1. Solution: Second LB can be connected to first to form cluster
+		1. Each LB monitors health of other
+			1. Each LB is equally capable of serving traffic and failure detection
+		2. If main LB fails, second LB takes over
+2. Resources
+	1. [What is Load Balancing](https://avinetworks.com/what-is-load-balancing/)
+	2. [Introduction to architecting systems](https://lethain.com/introduction-to-architecting-systems-for-scale/)
+	3. [Load Balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
 
 ### Caching ###
 ### Data Partitioning ###
