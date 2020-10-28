@@ -427,6 +427,12 @@
 #### Load Balancing Algorithms ####
 1. How does load balancer choose backend server?
 	1. LBs consider two factors before forwarding request to backend server
+		1. They first ensure server they choose is actually responding appropriately to requests
+		2. Then use pre-configured algorithm to select one from set of healthy servers
+2. Health Checks - 
+	1. LBs should forward traffic to only healthy backend servers
+		1. To monitor health of backend server
+			1. "Health checks" - attempts to connect to backend servers to ensure that servers are listening
 
 #### Redundant Load Balancers ####
 
