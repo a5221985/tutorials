@@ -303,8 +303,32 @@
 #### Reliability ####
 1. It is the probability a system will fail in a given period (of time)
 	1. A distributed system is considered reliableif it keeps delivering its services even when one or several of its software or hardware components fail
+		1. It is one of the main characteristics of a distributed system
+			1. A failing machine can be replaced with a healthy one (to ensure completion of requested task)
+2. Consider e-commerce store: [Amazon](https://en.wikipedia.org/wiki/Amazon_(company))
+	1. Primary requirement:
+		1. A user transaction should never be canceled due to failure of machine that is running that transaction
+			1. If user has added an item to their shopping cart, system is expected to not lose it
+				1. Reliable distributed system achieves this through redundancy of both software components and data
+					1. If server carrying user's shopping cart fails, another server that has exact replica of shopping cart should replace it
+						1. Cons: Redundancy has cost associated (to be paid upfront)
+							1. Needed to eliminate **single point of failure**
 
 #### Availability ####
+1. It is the time a system remains operational to perform its required function in specific period (of time)
+	1. Measured as percentage of time the 
+		1. System
+		2. Service or 
+		3. Machine remains operational under normal conditions
+2. Example: Aircraft that can be flown for many hours a month (without downtime) can be said to have high availability
+3. Factors to account for:
+	1. Maintainability
+		1. If aircraft is down for maintenance, it is said to be not available during that time
+	2. Repair time
+	3. Spares availability
+	4. Logistics considerations
+4. Reliability:
+	1. It is availability over time (considering full-range of possible real-world conditions that can occur)
 
 #### Efficiency ####
 
