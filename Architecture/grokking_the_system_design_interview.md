@@ -358,8 +358,18 @@
 2. Complexity of operations supported by distributed data structures (e.g. searching for specific key in distributed index)
 	1. These can be characterized as function of one of the cost units above
 		1. Analysis in terms of 'number of messages' is over-simplistic
+			1. Ignores impact of many aspects
+				1. network topology
+				2. network load
+				3. network variations
+				4. heterogeneity of 
+					1. software components involved in data processing & routing
+					2. hardware components involved in data processing & routing
+			2. It is difficult to develop a precise cost model that would accurately take into account all performance factors
+				1. Solution: Rough but robust estimates of system behaviour
 
 #### Serviceability or Manageability ####
+1. Aspect: How easy it is to operate and maintain?
 
 ### Load Balancing ###
 ### Caching ###
