@@ -548,8 +548,32 @@
 	4. Most Recently Used (MRU): Discards, in contrast to LUR, the most recently used items first
 	5. Least Frequently Used (LFU): Counts how often an item is needed
 		1. Items used least often are discarded first
+	6. Random Replacement (RR): Randomly selects candidate item and discards it to make space when necessary
+2. Resources:
+	1. [Cache](https://en.wikipedia.org/wiki/Cache_(computing))
+	2. [Introduction to architecting systems](https://lethain.com/introduction-to-architecting-systems-for-scale/)
 
 ### Data Partitioning ###
+1. Topics:
+	1. Partitioning Methods
+	2. Partitioning Criteria
+	3. Common Problems of Data Partitioning
+2. It is a technique to break up big database (DB) into many smaller parts
+	1. A process of splitting DB/table across multiple machines
+		1. Used to improve
+			1. Manageability
+			2. Performance
+			3. Availability
+			4. Load balancing (of application)
+	2. Justification: After certain scale point, it is cheaper and more feasible to scale horizontally by adding more machines than to grow vertically by adding beefier servers
+
+#### Partitioning Methods ####
+1. Many schemes exist that one could use to decide how to break up app database into multiple smaller DBs
+
+#### Partitioning Criteria ####
+
+#### Common Problems of Data Partitioning ####
+
 ### Indexes ###
 ### Proxies ###
 ### Redundancy and Replication ###
