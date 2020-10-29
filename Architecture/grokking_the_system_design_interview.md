@@ -490,7 +490,31 @@
 	2. Not taxing downstream levels
 
 #### Application Server Cache ####
-1. 
+1. Placing cache on request layer node enables local storage of response data
+	1. If a request is made to service, node will quickly return local cached data (if it exists)
+	2. If requested data is not in cache, the node will query data from disk
+2. Cache locations:
+	1. Cache on a single request layer node can be located in
+		1. Memory (fast)
+		2. Local disk (faster than going to network storage)
+3. If request layer is expanded to many nodes, each node can host its own cache
+	1. If load balancer randomly distributes requests across nodes?
+		1. Same requests might go to different nodes and increase cache misses
+			1. Solutions:
+				1. Global caches
+				2. Distributed caches
+
+#### Content Distribution Network (CDN) ####
+1. CDNs are caches for sites serving large amounts of **static media**
+	1. A request will first ask CDN for a piece of static media
+	2. CDN serves content if it has it locally available
+	3. If content is not locally available, CDN will query back-end servers for the file
+	4. CDN caches the file locally
+	5. CDN then serves it to requesting user
+
+#### Cache Invalidation ####
+
+#### Cache Eviction Policies ####	
 
 ### Data Partitioning ###
 ### Indexes ###
