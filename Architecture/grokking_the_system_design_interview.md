@@ -465,7 +465,26 @@
 1. Topics:
 	1. Application server cache
 	2. Content Distribution Network (CDN)
-	3. 
+	3. Cache Invalidation
+	4. Cache Eviction Policies
+2. LB helps scale horizontally across indefinitely increasing number of servers
+3. Caching benefits:
+	1. Enables better use of resources that already exist
+	2. Makes certain unattainable product requirements feasible
+4. Principle used:
+	1. Caching takes advantage of locality of reference princple
+		1. Recently requested data is likely to be requested again
+5. Caching uses:
+	1. Used in almost every layer of computing
+		1. Hardware
+		2. Operating Systems
+		3. Web Browsers
+		4. Web Applications
+		5. ...
+6. Cache is like short-term memory
+	1. It has limited amount of space
+	2. It is typically faster than original data source
+	3. It usually contains most recently accessed item
 
 ### Data Partitioning ###
 ### Indexes ###
