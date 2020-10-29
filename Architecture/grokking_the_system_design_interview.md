@@ -511,8 +511,21 @@
 	3. If content is not locally available, CDN will query back-end servers for the file
 	4. CDN caches the file locally
 	5. CDN then serves it to requesting user
+2. If system is not large enough to have its own CDN, future transition can be eased using separate subdomain
+	1. e.g. static.yourservice.com
+		1. A lightweight http server like Nginx can be used
+		2. In future, DNS can be cut-over from the servers to CDN later
 
 #### Cache Invalidation ####
+1. Cache needs some maintenance for keeping it coherent with source of truth (e.g. database)
+	1. If data is modified in database
+		1. The data should be invalidated in cache (else inconsistent application behaviour)
+			1. Solution: Cache invalidation (three main schemes are used)
+				1. **Write-through cache**: Data is written into cache and database at the same time
+					1. Cached data is for fast retrieval
+					2. Complete data consistency (between cache and storage) since same data is written to storage
+					3. The scheme ensures that nothing gets lost in case of crash, power failure, or other system disruptions
+						1. If one or both go down, the entire write is rolled back?
 
 #### Cache Eviction Policies ####	
 
