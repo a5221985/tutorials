@@ -524,10 +524,30 @@
 				1. **Write-through cache**: Data is written into cache and database at the same time
 					1. Cached data is for fast retrieval
 					2. Complete data consistency (between cache and storage) since same data is written to storage
-					3. The scheme ensures that nothing gets lost in case of crash, power failure, or other system disruptions
+					3. Pros: The scheme ensures that nothing gets lost in case of crash, power failure, or other system disruptions
 						1. If one or both go down, the entire write is rolled back?
+					4. Cons: Every write must be done twice before returning success to client
+						1. Higher latency for write operations
+				2. **Write-around cache**: Similar to write-through cache but data is directly written to storage (bypassing cache)
+					1. Pros: Avoids flooding cache with write operations which will not be re-read
+					2. Cons: Read request for recently written data will cause "cache miss"
+						1. Needs to be read from slower back-end storage and experience higher latency
+				3. **Write-back cache**: Data is written to cache alone and completion is immediately confirmed to client
+					1. Write to permanent storage is done after specified intervals or under certain conditions
+					2. Pros: Low latency and high throughput for write-intensive applications
+					3. Cons: Risk of data loss in case of a crash or other adverse events
+						1. Only copy is in cache
 
-#### Cache Eviction Policies ####	
+#### Cache Eviction Policies ####
+1. Common cache eviction policies:
+	1. First In First Out (FIFO): Cache evicts first block accessed first 
+		1. Without regard to how often or how many times it was accessed before
+	2. Last In First Out (LIFO): Cache evicts block accessed most recently first 
+		1. Without regard to how often or how many times it was accessed before
+	3. Least Recently Used (LRU): Discards least recently used items first
+	4. Most Recently Used (MRU): Discards, in contrast to LUR, the most recently used items first
+	5. Least Frequently Used (LFU): Counts how often an item is needed
+		1. Items used least often are discarded first
 
 ### Data Partitioning ###
 ### Indexes ###
