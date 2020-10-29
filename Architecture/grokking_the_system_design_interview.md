@@ -485,6 +485,12 @@
 	1. It has limited amount of space
 	2. It is typically faster than original data source
 	3. It usually contains most recently accessed item
+7. Caches are often found at level nearest to front end
+	1. Implemented to return data quickly
+	2. Not taxing downstream levels
+
+#### Application Server Cache ####
+1. 
 
 ### Data Partitioning ###
 ### Indexes ###
