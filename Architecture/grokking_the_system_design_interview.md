@@ -462,6 +462,11 @@
 	3. [Load Balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
 
 ### Caching ###
+1. Topics:
+	1. Application server cache
+	2. Content Distribution Network (CDN)
+	3. 
+
 ### Data Partitioning ###
 ### Indexes ###
 ### Proxies ###
