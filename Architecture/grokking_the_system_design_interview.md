@@ -568,7 +568,11 @@
 	2. Justification: After certain scale point, it is cheaper and more feasible to scale horizontally by adding more machines than to grow vertically by adding beefier servers
 
 #### Partitioning Methods ####
-1. Many schemes exist that one could use to decide how to break up app database into multiple smaller DBs
+1. Many schemes can be used to decide how to break up app database into multiple smaller DBs
+2. Most popular schemes
+	1. Horizontal partitioning
+	2. Vertical partitioning
+	3. Directory based partitioning
 
 #### Partitioning Criteria ####
 
