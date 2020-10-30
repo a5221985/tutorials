@@ -590,9 +590,23 @@
 					1. Place user profile info in one DB server
 					2. Place friend lists on another
 					3. Place photos on third server
-	2. 
+	2. Pros: Straight forward to implement & has low impact on application
+	3. Cons: If app experiences additional growth, it may be necessary to further partition a feature specific DB across various servers
+		1. E.g. may not be possible for a single server to handle all metadata queries for 10 billion photos by 140 million users
+5. **Directory Based Partitioning**:
+	1. Loosely coupled approach (work around the issues above)
+		1. Construct a lookup service which knows current partitioning scheme and abstracts it away from DB access code
+			1. To find out where particular data entity resides
+				1. Query directory server (that holds mapping between each tuple key to its DB server)
+			2. Pros: Enables us to perform tasks as follows without any impact on the application
+				1. Adding servers to DB pool
+				2. Changing partionining scheme
 
 #### Partitioning Criteria ####
+1. **Key or Hash-based Partitioning**:
+2. **List Partitioning**:
+3. **Round-Robin Partitioning**:
+4. **Composite Partitioning**:
 
 #### Common Problems of Data Partitioning ####
 
