@@ -573,6 +573,8 @@
 	1. Horizontal partitioning
 	2. Vertical partitioning
 	3. Directory based partitioning
+3. **Horizontal partioning**:
+	1. We put different rows into different tables
 
 #### Partitioning Criteria ####
 
