@@ -604,6 +604,15 @@
 
 #### Partitioning Criteria ####
 1. **Key or Hash-based Partitioning**:
+	1. A hash function is applied to some key attributes of entity being stored (e.g. number of db servers) that yields the partition number
+		1. Example: If we have 100 DB servers, and our ID is numeric value that gets incremented by one each time new record is inserted
+			1. Hash function could be: ID % 100
+				1. This gives server number which can be used to store/ read that record
+			2. Pros: Ensures uniform allocation of data among servers
+			3. Cons: Fixes number of DB servers
+				1. If new servers are added, hash function needs to be changed which requires redistribution of data and downtime for service
+					1. Solution: **Consistent hashing**
+
 2. **List Partitioning**:
 3. **Round-Robin Partitioning**:
 4. **Composite Partitioning**:
