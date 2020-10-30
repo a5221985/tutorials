@@ -631,6 +631,11 @@
 #### Common Problems of Data Partitioning ####
 1. On partitioned database, there are extra constriants on operations that can be performed
 	1. Reason: Operations across **multiple tables** or **multiple rows in same table** will no longer run on same server
+2. Following are additional constraints and complexities introduced by partitioning
+3. **Joins and Denormalization**
+	1. 
+4. **Referential Integrity**
+5. **Rebalancing**
 
 ### Indexes ###
 ### Proxies ###
