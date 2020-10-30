@@ -575,6 +575,22 @@
 	3. Directory based partitioning
 3. **Horizontal partioning**:
 	1. We put different rows into different tables
+		1. Example: If storing places in table
+			1. locations with Zip codes < 10000 are stored in one table & places with codes >= 10000 are stored in a separate table
+				1. Range based partitioning (different ranges go into different tables)
+					1. This is called **data sharding**
+	2. Problem: If value used to partition is not chosen carefully, partitioning scheme will lead to unbalanced servers
+		1. Splitting assumes, places will be evenly distributed across different zip codes
+			1. May not be valid because there may be different places in thickly populated areas like Manhatten as compared to suburb cities
+4. **Vertical Partitioning**:
+	1. Data is divided to store tables related to specific feature in their own server
+		1. Example: If building instagram like application
+			1. Suppose we want to store data related to users
+				1. Photos they upload, people they follow
+					1. Place user profile info in one DB server
+					2. Place friend lists on another
+					3. Place photos on third server
+	2. 
 
 #### Partitioning Criteria ####
 
