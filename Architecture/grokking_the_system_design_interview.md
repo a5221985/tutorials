@@ -614,10 +614,23 @@
 					1. Solution: **Consistent hashing**
 
 2. **List Partitioning**:
+	1. Each partition is assigned a list of values
+		1. When a new record needs to be inserted, we can see which partition contains our key and store it there
+			1. Examples: All users living in Iceland, Norway, Sweden, Finland, or Denmark will be stored in a partition for Nordic countries
+
 3. **Round-Robin Partitioning**:
+	1. Simple strategy that ensures uniform data distribution
+		1. If there are `n` partitions, `i` tuple is assigned to partition (`i mod n`)
+
 4. **Composite Partitioning**:
+	1. Any of the above partitioning schemes are combined to devise new scheme
+	2. Example: List partitioning scheme followed by hash based partitioning scheme
+		1. Consistent hashing - may be considered as a composite partitioning scheme
+			1. Hash reduces key space to a size that can be listed
 
 #### Common Problems of Data Partitioning ####
+1. On partitioned database, there are extra constriants on operations that can be performed
+	1. Reason: Operations across **multiple tables** or **multiple rows in same table** will no longer run on same server
 
 ### Indexes ###
 ### Proxies ###
