@@ -775,6 +775,36 @@
 	4. SQL vs. NoSQL - Which one to use?
 	5. Reasons to use SQL database
 	6. Reasons to use NoSQL database
+2. Two main types of solutions:
+	1. SQL - Relational databases
+	2. NoSQL - Non-relational databases
+3. The two differ in:
+	1. The way they are built
+	2. Kind of information they store
+	3. Storage method they use
+4. Relational databases are structured and have predefined schemas
+	1. Example: Phone books (for storing phone numbers and addresses)
+5. Non-relational databases are unstructured, distributed, and have dynamic schema (like file folders that hold everything from person's address and phone number to Facebook 'likes' and online shopping preferences)
+
+#### SQL ####
+1. Relational database store data in rows and columns
+	1. Each row contains all the info about one entity
+	2. Each column contains all separate data points
+2. Examples: MySQL, Oracle, MS SQL Server, SQLite, PostgreSQL, MariaDB
+
+#### NoSQL ####
+1. Common types of NoSQL:
+2. **Key-Value Stores**: Data is stored in array of key-value pairs
+	1. 'key' - attribute name (linked to value)
+	2. 'value'
+3. Examples: Redis, Voldemort, Dynamo
+4. **Document Databases**: Data is stored in documents (instead of rows and columns in a table)
+	1. documents are grouped together into collections
+	2. Each doc can have a different structure (does not have to follow a common schema)
+	3. Exmaples: CouchDB, MongoDB
+
+#### High Level Differences Between SQL and NoSQL ####
+#### SQL vs. NoSQL - Which One to Use? ####
 
 ### CAP Theorem ###
 ### Consistent Hashing ###
