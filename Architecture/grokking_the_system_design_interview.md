@@ -646,7 +646,20 @@
 				1. Apps may also need to run regular SQL jobs to clean up dangling references
 
 5. **Rebalancing**
-	1. 
+	1. Reasons for changing partitioning scheme:
+		1. Data distribution is not uniform
+			1. Example: lot of places with one zip code cannot fit into one database partition
+		2. There is lot of load on a partition
+			1. Example: Too many requests handled by DB partition dedicated to user photos
+	2. Solutions:
+		1. More DB partitions or
+		2. Rebalancing of existing partitions
+			1. Impact: partitioning scheme changed
+				1. Downtime may be required (or else hard to change)
+			2. Directory based scheme makes rebalancing palatable experience
+				1. Cons:
+					1. Complexity of the system is higher
+					2. Another single point of failure is introduced
 
 ### Indexes ###
 ### Proxies ###
