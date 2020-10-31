@@ -633,8 +633,16 @@
 	1. Reason: Operations across **multiple tables** or **multiple rows in same table** will no longer run on same server
 2. Following are additional constraints and complexities introduced by partitioning
 3. **Joins and Denormalization**
-	1. 
+	1. Joins on database running on one server is straight forward
+		1. If database is partitioned and spread across multiple machines
+			1. It is not feasible to perform joins that span database partitions
+				1. Joins will not be performance efficient (data has to be compiled from multiple servers)
+					1. Workaround: Denormalize the database so that queries that required joins can be performed from single table
+						1. Cons: Services has to deal with issues of denormalization which includes inconsistency
 4. **Referential Integrity**
+	1. Trying to enforce data integrity constraints such as foreign keys in a partitioned database can be extremely difficult
+		1. **Most RDBMS do not support foreign key constraints across databases on different database servers**
+
 5. **Rebalancing**
 
 ### Indexes ###
