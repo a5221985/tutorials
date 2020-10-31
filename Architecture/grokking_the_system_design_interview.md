@@ -747,13 +747,39 @@
 		1. Example: If there is only one copy of file stored on single server
 			1. If we lose the server, the file gets lost
 				1. Solution: Redundant copies of the file
-3. 
+3. Plays a key role in removing single points of failure in a system
+	1. If crisis exists, it provides a backup
+	2. Example: If two instances are running in production, if one of the instances fails, system can failover to other one
+		1. Primary server - Failover -> Secondary server
+		2. Active data - data replication -> mirrored data
+4. [Replication](https://en.wikipedia.org/wiki/Replication_(computing)) - Means sharing information to ensure consistency between redundant resources
+	1. Example:
+		1. Software components
+		2. Hardware components
+	2. Done to/for
+		1. Improving reliability
+		2. [Fault-tolerance](https://en.wikipedia.org/wiki/Fault_tolerance)
+		3. Accessibility
+5. Replication is popularly used in db management systems (DBMS)
+	1. Primary-replica relationship between original and copies
+		1. Primary server gets all the updates
+		2. The updates ripple through to replica servers
+			1. Replica outputs message stating that it has received update successfully
+				1. This allows sending subsequent updates
 
 ### SQL vs. NoSQL ###
+1. Topics:
+	1. SQL
+	2. NoSQL
+	3. High level differences between SQL and NoSQL
+	4. SQL vs. NoSQL - Which one to use?
+	5. Reasons to use SQL database
+	6. Reasons to use NoSQL database
+
 ### CAP Theorem ###
 ### Consistent Hashing ###
 ### Long-Polling vs WebSockets vs Server-Send Events ###
 
-## Appending ##
+## Appendix ##
 ### Contact Us ###
 ### Other Courses ###
