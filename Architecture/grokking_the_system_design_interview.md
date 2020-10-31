@@ -660,8 +660,13 @@
 				1. Cons:
 					1. Complexity of the system is higher
 					2. Another single point of failure is introduced
+						1. i.e. lookup service/ database
 
 ### Indexes ###
+1. Topics:
+	1. Example: A library catalog
+	2. How do Indexes decrease write performance?
+
 ### Proxies ###
 ### Redundancy and Replication ###
 ### SQL vs. NoSQL ###
