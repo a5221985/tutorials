@@ -928,6 +928,10 @@
 	2. A partition tolerant system can sustain any amount of network failure that doesn't result in failure of entire network
 	3. Implementation: Data is sufficiently replicated across combinations of nodes and networks to keep system up through intermittent outages
 
+	![cap_theorem_with_examples](cap_theorem_with_examples.jpeg)
+	
+5. 
+
 ### Consistent Hashing ###
 ### Long-Polling vs WebSockets vs Server-Send Events ###
 
