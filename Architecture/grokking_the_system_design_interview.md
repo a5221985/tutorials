@@ -898,9 +898,26 @@
 	1. Big data - contributing factor to success of NoSQL dbs
 		1. Handles data differently than traditional dbs
 	2. Examples: MongoDB, CouchDB, Cassandra, HBase
-2. 
+2. Reasons:
+	1. For storing large volumes of data that have little or no structure
+		1. NoSQL databases have no limits on types of data one can store together
+		2. New types can be added as need changes
+		3. One can store data in document-based database without having to define what "types" of data those are in advance
+	2. For making most of cloud computing and storage
+		1. Cloud based storage is excellent cost-saving solution
+			1. Cons: Requires data to be easily spread across multiple servers to scale up
+		2. Commodity (affordable, smaller) hardware on-site or in cloud saves hassle of additional software
+		3. Example: NoSQL dbs like Cassandra are designed to be scaled across multiple data centers out of the box (without many headaches)
+	3. For rapid development
+		1. NoSQL Dbs don't have to be prepared ahead of time
+			1. Good for quick iterations
+				1. Quick updates to data structure (without much downtime between versions)
+		2. Relational database slows us down in this regard
 
 ### CAP Theorem ###
+1. CAP Theorem: 
+	1. It is impossible for a distributed software system to simultaneously provide more than two out of three of the following garantees (CAP)
+
 ### Consistent Hashing ###
 ### Long-Polling vs WebSockets vs Server-Send Events ###
 
