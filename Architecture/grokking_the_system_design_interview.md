@@ -667,6 +667,23 @@
 	1. Example: A library catalog
 	2. How do Indexes decrease write performance?
 
+#### Example: A Library Catalog ####
+1. Library catalog is a register that contains list of books found in library
+	1. Catalog is organized as a database table generally with four columns
+		1. Book title
+		2. Book writer
+		3. Book Subject
+		4. Date of publication
+2. There are two catalogs
+	1. One catalog is sorted by book title
+	2. One catalog is sorted by writer name
+3. 
+
+#### How Do Indexes Decrease Write Performance? ####
+1. Index can speed up data retrieval but can be large due to additional keys (slows down data insertion & update)
+2. If adding rows or making updates to existing rows for table with active index
+	1. We have to update the index as well
+
 ### Proxies ###
 ### Redundancy and Replication ###
 ### SQL vs. NoSQL ###
