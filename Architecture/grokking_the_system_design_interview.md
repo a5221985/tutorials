@@ -1012,6 +1012,31 @@
 				
 			1. HTTP Protocol
 
+#### Ajax Polling ####
+1. Polling - standard technique used by majority AJAX apps
+2. Working principle:
+	1. Client repeatedly polls (or requests) server for data
+		1. Client makes request and waits for server to respond with data
+		2. If no data, server sends empty response
+	2. Steps:
+		1. Client opens connection and requests data from server using regular HTTP
+		2. Requested webpage sends requests to server at regular intervals (0.5 seconds say)
+		3. Server calculates response and sends it back, like regular HTTP traffic
+		4. Client repeats 1 to 3 steps periodically to get updates from server
+3. Ajax Polling protocol:
+
+		Client - Request -> Server
+		Client <- Response - Server
+		Client - Request -> Server
+		Client <- Response - Server
+		Client - Request -> Server
+		Client <- Response - Server
+
+#### HTTP Long-Polling ####
+1. 
+
+#### Server-Sent Events (SSEs) ####
+
 ## Appendix ##
 ### Contact Us ###
 ### Other Courses ###
