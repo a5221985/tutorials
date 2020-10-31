@@ -828,7 +828,34 @@
 						2. It is self indexing and hence occupies less disk space than relational database management system (RDBMS) containing same data
 
 #### High Level Differences Between SQL and NoSQL ####
+1. **Storage**: 
+	1. SQL
+		1. stores data in tables
+		2. Each row represents an entity
+		3. Each column represents data point about the entity
+		4. Example: Columns for Car entity could be: 'Color', 'Make', 'Model', ...
+	2. NoSQL
+		1. Have different data storage models
+			1. Key-value based
+			2. Document based
+			3. Graph based
+			4. Columnar
+2. **Schema**:
+	1. SQL
+		1. Each record confirms to a fixed schema
+			1. Columns must be decided and chosen before data entry
+			2. Each row must have data for all columns
+		2. If schema needs to be modified:
+			1. It can involve modifying whole database
+			2. May require going offline
+3. **Querying**:
+4. **Scalability**:
+5. **Reliability or ACID Compliancy (Atomicity, Consistency, Isolation, Durability)**:
+
 #### SQL vs. NoSQL - Which One to Use? ####
+
+##### Reasons to Use SQL Database #####
+##### Reasons to Use NoSQL Database #####
 
 ### CAP Theorem ###
 ### Consistent Hashing ###
