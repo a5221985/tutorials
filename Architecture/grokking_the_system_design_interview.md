@@ -1073,7 +1073,24 @@
 		2. This way, two-way (bidirectional) ongoing conversation can be established between client and server
 
 #### Server-Sent Events (SSEs) ####
+1. Client establishes persistent and long-term connection with server
+2. Server uses the connection to send data to client
+3. If client wants to send data
+	1. Needs to use another technology or protocol
+4. Steps:
+	1. Client requests data from server using regular HTTP
+	2. Requested web-page opens connection to server
+	3. Server sends data to client whenever new info is available
+5. Use cases:
+	1. For real-time traffic from server to client
+	2. If server is generating data in a loop and sending multiple events to client
 
 ## Appendix ##
 ### Contact Us ###
+1. hello@designgurus.org
+2. Feedback: feedback@designgurus.org
+
 ### Other Courses ###
+1. [Grokking the Coding Interview](https://www.educative.io/collection/5668639101419520/5671464854355968)
+2. [Grokking the Object Oriented Design Interview](https://www.educative.io/collection/5668639101419520/5692201761767424)
+3. [Grokking Dynamic Programing Patterns for Coding Interviews](https://www.educative.io/collection/5668639101419520/5633779737559040)
