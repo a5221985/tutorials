@@ -642,8 +642,11 @@
 4. **Referential Integrity**
 	1. Trying to enforce data integrity constraints such as foreign keys in a partitioned database can be extremely difficult
 		1. **Most RDBMS do not support foreign key constraints across databases on different database servers**
+			1. Workaround: Referential integrity needs to be enforced in application code
+				1. Apps may also need to run regular SQL jobs to clean up dangling references
 
 5. **Rebalancing**
+	1. 
 
 ### Indexes ###
 ### Proxies ###
