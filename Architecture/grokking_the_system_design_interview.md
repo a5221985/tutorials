@@ -975,6 +975,20 @@
 	5. When new host is added, it takes it's share from few hosts without touching other's shares
 
 #### How Does it Work? ####
+1. Consistent hashing maps key to an integer
+	1. If output is in the range of [0, 256]
+	2. Imagine integers placed on a ring and values are wrapped around
+2. Working principle
+	1. Given a list of cache servers, hash them to integers in the range
+	2. To map a key to a server:
+		1. Hash it to a single integer
+		2. Move clockwise on the right until finding the first cache it encounters
+		3. The cache (encountered) is the one that contains the key
+	3. If new server say D needs to be added, keys originally residing in C will split
+		1. Some of the keys will be shifted to D (others will not be touched)
+	4. To remove a cache or if cache fails say A, all keys originally mapped to A will fall into B
+		1. Only the A's keys will need to be moved to B (other keys will not be affected)
+3. For load balancing, real data is randomly distributed and may not be uniform
 
 ### Long-Polling vs WebSockets vs Server-Send Events ###
 
