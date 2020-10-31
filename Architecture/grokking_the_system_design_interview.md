@@ -989,8 +989,28 @@
 	4. To remove a cache or if cache fails say A, all keys originally mapped to A will fall into B
 		1. Only the A's keys will need to be moved to B (other keys will not be affected)
 3. For load balancing, real data is randomly distributed and may not be uniform
+	1. May make keys on caches unbalanced
+		1. Solution: Virtual replicas for caches
+			1. Each cache is not mapped to a single point on the ring but to multiple points on the ring (replicas)
+				1. Each cache is associated with multiple portions of the ring
+4. If hash function mixes well as number of replicas increases, keys will be more balanced
 
-### Long-Polling vs WebSockets vs Server-Send Events ###
+### Long-Polling vs WebSockets vs Server-Sent Events ###
+1. Topics:
+	1. Ajax Polling
+	2. HTTP Long-Polling
+	3. WebSockets
+	4. Server-Sent Events (SSEs)
+2. Long-polling, websockets, server-sent events - popular communication protocols (between client (web browser say) and web server)
+	1. HTTP Web request sequence
+		1. Client opens a connection and requests data from server
+		2. Server calculates response
+		3. Server sends response back to client on opened request
+
+				client - Request -> Server
+				client <- Response - Server
+				
+			1. HTTP Protocol
 
 ## Appendix ##
 ### Contact Us ###
