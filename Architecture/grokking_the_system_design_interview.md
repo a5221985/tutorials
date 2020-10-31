@@ -930,7 +930,12 @@
 
 	![cap_theorem_with_examples](cap_theorem_with_examples.jpeg)
 	
-5. 
+5. One cannot build general data store that is continually available, sequentially consistent, tolerant to any partition failures
+	1. One can build system that has only two of the properties
+		1. To be consistent, all nodesshould see same set of updates in same order
+		2. If network loses a partition, updates in one partition may not make it to the other partitions before client reads from out-of-date partition after having read from up to date partition
+			1. To avoid this, the only thing that can be done is to stop serving requests from out-of-date partition
+				1. => Service is no longer 100% available
 
 ### Consistent Hashing ###
 ### Long-Polling vs WebSockets vs Server-Send Events ###
