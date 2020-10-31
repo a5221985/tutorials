@@ -938,6 +938,33 @@
 				1. => Service is no longer 100% available
 
 ### Consistent Hashing ###
+1. Topics:
+	1. What is Consistent Hashing?
+	2. How does it work?
+2. Distributed Hash Table (DHT): Fundamental component used in distributed scalable systems
+	1. Hash tables need
+		1. Key
+		2. Value
+		3. Hash function
+			1. Maps key to location where value is stored
+
+					index = hash_function(key)
+					
+3. Use case: Distributed caching system
+	1. When new cache host is added to system, all existing mappings are broken
+		1. Pain point of maintenance if caching system contains lots of data
+			1. It is impractical to schedule downtime to update all caching mappings
+	2. It may not be load balanced
+		1. If data is non-uniformly distributed, it is more evident
+			1. Standard assumption: Data is not distributed uniformly
+				1. It may translate to certain caches becoming hot and saturated while others idle and almost empty
+4. Solution: Consistent hashing
+
+#### What is Consistent Hashing? ####
+1. It is useful strategy (especially for distributed caching systems DHTs)
+
+#### How Does it Work? ####
+
 ### Long-Polling vs WebSockets vs Server-Send Events ###
 
 ## Appendix ##
