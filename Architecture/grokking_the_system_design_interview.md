@@ -917,6 +917,16 @@
 ### CAP Theorem ###
 1. CAP Theorem: 
 	1. It is impossible for a distributed software system to simultaneously provide more than two out of three of the following garantees (CAP)
+2. **Consistency**
+	1. All nodes see the same data at the same time
+	2. Implementation: Updating several nodes before allowing further read
+3. **Availability**
+	1. Every request gets a response on success/failure
+	2. Implementation: Replication of data across different servers
+4. **Partition Tolerance**
+	1. System continues to work despite message loss or partial failure
+	2. A partition tolerant system can sustain any amount of network failure that doesn't result in failure of entire network
+	3. Implementation: Data is sufficiently replicated across combinations of nodes and networks to keep system up through intermittent outages
 
 ### Consistent Hashing ###
 ### Long-Polling vs WebSockets vs Server-Send Events ###
