@@ -726,9 +726,29 @@
 3. Types of proxies:
 4. Open Proxy
 	1. [Open Proxy](https://en.wikipedia.org/wiki/Open_proxy) - It is a proxy server that is accessible by any internet user
-		1. Proxy server only allows users within network group (closed proxy) to store and forward Internet services such as DNS or web pages to reduce and control bandwidth used by the group
+		1. Generally a proxy server only allows users within network group (closed proxy) to store and forward Internet services such as DNS or web pages to reduce and control bandwidth used by the group
+		2. Open proxy allows any user on the internet to be able to use this forwarding service
+			1. Two famous open proxies
+				1. **Anonymous Proxy** Proxy reveals its identity as a server but does not disclose initial IP address
+					1. The proxy server can be discovered easily but it hides user's IP addresses (beneficial for some users)
+				2. **Transparent Proxy** Proxy server identifies itself
+					1. with support of HTTP headers, first IP address can be viewed
+					2. Pros: It has an ability to cache the websites
+	2. [Reverse Proxy](https://en.wikipedia.org/wiki/Reverse_proxy) - retrieves resources on behalf of client from one or more servers
+		1. Resources are returned to the client
+			1. It appears as though the resources have originated from the proxy server itself
 
 ### Redundancy and Replication ###
+1. [Redundancy](https://en.wikipedia.org/wiki/Redundancy_(engineering)) - It is the duplication of the following of a system
+	1. Critical components or
+	2. Critical functions
+2. They are in the form of a backup or failsafe
+	1. They are used to improve system performance
+		1. Example: If there is only one copy of file stored on single server
+			1. If we lose the server, the file gets lost
+				1. Solution: Redundant copies of the file
+3. 
+
 ### SQL vs. NoSQL ###
 ### CAP Theorem ###
 ### Consistent Hashing ###
