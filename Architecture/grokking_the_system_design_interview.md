@@ -1060,6 +1060,17 @@
 				Client <- Response - Server
 				
 #### WebSockets ####
+1. [Full Duplex](https://en.wikipedia.org/wiki/Duplex_(telecommunications)#Full_duplex) - communication channels are provided by websockets
+	1. Also provides persistent connection between client and server
+		1. Both parties can use the connection to send data at any time
+2. How does it work?
+	1. Client establishes websocket connection through the process called websocket handshake
+	2. If the process succeeds, client and server can exchange data in both directions (at any time)
+3. Pros: 
+	1. Lower overheads
+	2. Real-time data transfer between client and server
+		1. Done using standardized way for server to send content to browser (without being asked by client) and allowing messages to be passed back and forth keeping connection open
+		2. This way, two-way (bidirectional) ongoing conversation can be established between client and server
 
 #### Server-Sent Events (SSEs) ####
 
