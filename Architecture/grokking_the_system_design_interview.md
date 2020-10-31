@@ -719,6 +719,14 @@
 	1. Proxy server can cache it and serve it to all clients without going back to remote server
 
 		![proxy_server](proxy_server.jpeg)
+		
+#### Proxy Server Types ####
+1. Proxies can reside on client's local server
+2. Proxies can reside between client and remote server
+3. Types of proxies:
+4. Open Proxy
+	1. [Open Proxy](https://en.wikipedia.org/wiki/Open_proxy) - It is a proxy server that is accessible by any internet user
+		1. Proxy server only allows users within network group (closed proxy) to store and forward Internet services such as DNS or web pages to reduce and control bandwidth used by the group
 
 ### Redundancy and Replication ###
 ### SQL vs. NoSQL ###
