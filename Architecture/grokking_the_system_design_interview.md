@@ -802,6 +802,30 @@
 	1. documents are grouped together into collections
 	2. Each doc can have a different structure (does not have to follow a common schema)
 	3. Exmaples: CouchDB, MongoDB
+5. **Wide-Column Databases**: In columnar databases, we have column families
+	1. Column families are containers for rows
+	2. We don't need to know all the columns upfront (unlike relational databases)
+	3. Each row does not need to have the same number of columns
+	4. Use cases: for large datasets
+	5. Examples: Cassandra, HBase
+		1. More reasearch:
+			1. Data is stored in columns
+			2. Goal is to efficiently write and read data to and from hard disk storage
+				1. To speed up time it takes to return a query (?)
+					1. All column i values are physically together
+					2. column (i + 1) values follow after that
+				2. Example:
+
+						ID	Last	First	Bonus
+						1	Doe		John	8000
+						2	Smith	Jane	4000
+						3	Beck	Sam		1000
+						
+					1. Stored as: 1,2,3;Doe,Smith,Beck;John,Jane,Sam;8000,4000,1000;
+					2. Advantages: 
+						1. Data can be highly compressed (?)
+							1. Permits rapid columnar operations - MIN, MAX, SUM, COUNT, AVG
+						2. It is self indexing and hence occupies less disk space than relational database management system (RDBMS) containing same data
 
 #### High Level Differences Between SQL and NoSQL ####
 #### SQL vs. NoSQL - Which One to Use? ####
