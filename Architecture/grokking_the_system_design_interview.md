@@ -962,6 +962,17 @@
 
 #### What is Consistent Hashing? ####
 1. It is useful strategy (especially for distributed caching systems DHTs)
+	1. Allows distributing data across cluster
+		1. In a way that minimizes reorganization (when nodes are added and/or removed)
+			1. Hence the caching system is easier to scale up and down
+2. Consistent hashing: Working principle
+	1. When hash table is resized (e.g. new cache host is added to system), only k/n keys need to be remapped
+		1. k - total number of keys
+		2. n - total number of servers
+	2. If only `mod` is used to hash, all keys need to be remapped (not efficient)
+	3. Objects are mapped to same host if possible
+	4. When host is removed from system, objects on the system are shared by other hosts
+	5. When new host is added, it takes it's share from few hosts without touching other's shares
 
 #### How Does it Work? ####
 
