@@ -683,8 +683,43 @@
 1. Index can speed up data retrieval but can be large due to additional keys (slows down data insertion & update)
 2. If adding rows or making updates to existing rows for table with active index
 	1. We have to update the index as well
+		1. Decreases write performance
+			1. Applies to the following operations
+				1. Insert
+				2. Update
+				3. Delete
+	2. Indexes are added to increase search query performance
+		1. If database is used to mostly write to and to read from
+			1. Decreasing the performance of writing with indexes is not worth the increase in performance of reading
+3. [Database Indexes](https://en.wikipedia.org/wiki/Database_index)
 
 ### Proxies ###
+1. Topics:
+	1. Proxy Server Types
+		1. Open Proxy
+		2. Reverse Proxy
+2. Proxy: It is an intermediate server between client and back-end server
+	1. Clients connect to proxy servers to make request for service like
+		1. Web page
+		2. File
+		3. Connection
+		4. ...
+	2. [Proxy Server](https://en.wikipedia.org/wiki/Proxy_server)
+		1. It is a piece of software or hardware that acts as intermediary for requests from clients
+			1. These are used for seeking resources from other servers
+	3. Usage:
+		1. To filter requests
+		2. To log requests
+		3. To transform requests
+			1. By adding/ removing headers
+			2. By encrypting/ decrypting
+			3. By compressing a resource
+		4. It's cache can serve a lot of requests
+3. If multiple clients access particular resource
+	1. Proxy server can cache it and serve it to all clients without going back to remote server
+
+		![proxy_server](proxy_server.jpeg)
+
 ### Redundancy and Replication ###
 ### SQL vs. NoSQL ###
 ### CAP Theorem ###
