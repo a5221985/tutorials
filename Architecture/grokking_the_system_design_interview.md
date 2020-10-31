@@ -879,10 +879,26 @@
 	2. NoSQL DBs: Sacrifice ACID compliance for performance and scalability
 	
 #### SQL vs. NoSQL - Which One to Use? ####
-1. 
+1. There is no one size fits all solution
+2. Businesses rely on both relational and non-relational databases (for different needs)
+3. NoSQL dbs are gaining popularity for their speed and scalability
+4. Highly structured SQL database may perform better in certain situations
+5. Using right technology depends on the use case
 
 ##### Reasons to Use SQL Database #####
+1. Reasons:
+	1. If we need to ensure ACID compliance
+		1. Reduces anomalies and protects integrity of database
+			1. Prescribes exactly how transactions interact with database
+		2. NoSQL dbs sacrifice ACID compliance for scalability and processing speed
+			1. e-commerce and financial applications need ACID compliant database (hence relational dbs are preferred)
+
 ##### Reasons to Use NoSQL Database #####
+1. When other components of the application are fast and seamless, NoSQL dbs prevent data from being the bottleneck
+	1. Big data - contributing factor to success of NoSQL dbs
+		1. Handles data differently than traditional dbs
+	2. Examples: MongoDB, CouchDB, Cassandra, HBase
+2. 
 
 ### CAP Theorem ###
 ### Consistent Hashing ###
