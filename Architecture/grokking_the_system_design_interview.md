@@ -1033,7 +1033,33 @@
 		Client <- Response - Server
 
 #### HTTP Long-Polling ####
-1. 
+1. A variation of traditional polling technique (allows server to push info to client whenever data is available)
+2. Client requests info from server (as in normal polling)
+	1. Server may not respond immediately
+		1. Technique is also called "Hanging GET"
+		2. If server does not have data for client (yet) it does not send empty response
+			1. Server holds the request and waits until some data becomes available
+			2. Once data becomes available, full response is sent to client
+		3. Client immediately re-requests info from server so that server will almost always have an available waiting request
+			1. Server can use it to deliver data in response to an event
+3. Life cycle of app using HTTP long-polling:
+	1. Client makes initial request using regular HTTP and waits for response
+	2. Server delays it's respons until update is available (or timeout has occurred)
+	3. If update is available, server sends full response to client
+	4. Client (typically) sends new long-poll request
+		1. Immediately upon receiving response or
+		2. After a pause (to allow for acceptable latency period)
+	5. Each long-poll request has a timeout
+		1. Client has to reconnect periodically after connection is closed (due to timeout)
+
+				Client - Request -> Server
+				Client - Re-connect -> Server
+				Client - Re-connect -> Server
+				Client - Re-connect -> Server
+				Client - Re-connect -> Server
+				Client <- Response - Server
+				
+#### WebSockets ####
 
 #### Server-Sent Events (SSEs) ####
 
