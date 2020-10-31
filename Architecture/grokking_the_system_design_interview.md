@@ -848,11 +848,38 @@
 		2. If schema needs to be modified:
 			1. It can involve modifying whole database
 			2. May require going offline
+	2. NoSQL
+		1. Schemas are dynamic
+		2. Columns can be added on the fly
+		3. Each row (or equivalent) doesn't have to contain data for each 'column'
 3. **Querying**:
+	1. SQL
+		1. We can use SQL (Structured Query Language) for defining and manipulating data
+			1. Powerful
+	2. NoSQL
+		1. Queries are focused on collection of documents
+			1. UnQL (Unstructured Query Language)
+				1. Different DBs have different syntax for UnSQL
 4. **Scalability**:
-5. **Reliability or ACID Compliancy (Atomicity, Consistency, Isolation, Durability)**:
+	1. SQL
+		1. Vertically scalable (in many common situations)
+			1. We can achieve this by increasing horsepower (Memory, CPU, ...)
+		2. Horizontal scaling (across multiple servers) is challenging and time-consuming process
+	2. NoSQL
+		1. Horizontally scalable
+			1. One can add more servers easily in NoSQL database infrastructure (to handle more traffic)
+			2. Cheap commodity hardware or cloud instances can host NoSQL databases
+				1. Cost effective than vertical scaling
+		2. NoSQL technologies also distribute data across servers automatically 
 
+5. **Reliability or ACID Compliancy (Atomicity, Consistency, Isolation, Durability)**:
+	1. Relational DBs:
+		1. Many are ACID compliant
+			1. Better for data reliability, safe guarantees of transactions
+	2. NoSQL DBs: Sacrifice ACID compliance for performance and scalability
+	
 #### SQL vs. NoSQL - Which One to Use? ####
+1. 
 
 ##### Reasons to Use SQL Database #####
 ##### Reasons to Use NoSQL Database #####
