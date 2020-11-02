@@ -20,3 +20,9 @@
 					2. See how companies are viewing through their ATS (application tracking system)
 		2. [GitHub](https://github.com/dtaivpp)
 			1. Have some side projects
+	6. Match the Job description
+		1. 3+ years of software experience or equivalents (prove the point)
+			1. Factor for elimination
+	2. Companies known to shop for talent by looking at who contributes to
+		1. Open source
+		2. Leader boards on **Kaggle**
