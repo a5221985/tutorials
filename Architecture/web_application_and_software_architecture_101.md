@@ -5154,8 +5154,46 @@
 		1. Hybrid app approach is not recommended in this case (by instructor)
 
 #### When Should We Pick a Hybrid App for Our Use Case? ####
-1. 
+1. Reasons:
+	1. App requirements are simple (no complexity)
+		1. No addition of complex features expected
+		2. Example: News app
+			1. Also give same look and feel across all platforms
+	2. Dedicated code bases cannot be afforded but need to hit the market
+		1. Two approaches (based on choice or other criteria)
+			1. Launch native app on one platform
+			2. Write hybrid app
+	3. Need to test waters with pre-alpha release or MVP (Minimum Viable Product)
+		1. Hybrid technology enables us to quickly launch MVP (written with open web technologies)
+	4. We have team that is not fluent with native tech (may take a lot of time to learn the tech)
+		1. It is a tradeoff between costs and performance
+		2. Developer sentiment is another aspect
+2. We can find businesses in the same niche, research on what techs they have used to write their apps
 
 ### Progressive Web Apps ###
+1. Topics:
+	1. What are Progressive Web Apps?
+	2. The Need for PWAs
+	3. Will PWAs Replace Native Apps?
+	4. Examples of Progressive Web Apps
+		1. BookMyShow PWA
+		2. Flipkart PWA
+		3. Twitter PWA
+
+#### What are Progressive Web Apps? ####
+1. 
+
+#### The Need for PWAs ####
+
+#### Will PWAs Replace Native Apps? ####
+
+#### Examples of Progressive Web Apps ####
+
+##### BookMyShow PWA #####
+
+##### Flipkart PWA #####
+
+##### Twitte PWA #####
+
 ### Mobile Backend as a Service ###
 ### Epilogue ###
