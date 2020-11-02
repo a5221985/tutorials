@@ -5121,6 +5121,41 @@
 ##### Facebook Admitted Counting Big on HTML5 for Their Mobile App was a Mistake #####
 
 ### Choosing Between A Native & A Hybrid App ###
+1. Topics:
+	1. When Should We Pick a Native App for Our Use Case?
+	2. When Should We Pick a Hybrid App for Our Use Case?
+
+#### When Should We Pick a Native App for Our Use Case? ####
+1. Points to consider:
+	1. Heavy graphic and hardware requirements
+		1. Mobile game
+		2. Game streaming app
+			1. We need performance (any lag is unacceptable)
+	2. Heavy UI animations
+		1. Fancy social app with lot of animations
+		2. Finance app containing lot of real-time charts and graphs & stuff
+			1. Any lag is unacceptable
+				1. We need responsiveness & reliability
+	3. Pretty complex app that relies on hardware access
+		1. Hardware:
+			1. Camera
+			2. Sensors
+			3. GPS
+			4. ...
+		2. We may have to write a lot of platform specific code
+		3. Examples: GPS, sensor-based health and setp-tracking app
+	4. When look & feel of app and user experience should be just like native OS
+		1. UI needs to be flawless
+	5. When other businesses have same niche competition with native apps
+		1. User's may not use the app when competetors have better apps
+	6. When app always needs to support new OS features
+		1. As soon as they are released
+	7. If business can afford dedicated teams for iOS & Android
+		1. Hybrid app approach is not recommended in this case (by instructor)
+
+#### When Should We Pick a Hybrid App for Our Use Case? ####
+1. 
+
 ### Progressive Web Apps ###
 ### Mobile Backend as a Service ###
 ### Epilogue ###
