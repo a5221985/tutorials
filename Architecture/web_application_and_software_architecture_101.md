@@ -5213,10 +5213,21 @@
 
 #### Examples of Progressive Web Apps ####
 ##### BookMyShow PWA #####
+1. [Bookmyshow.com](http://bookmyshow.com/) - online ticket booking platform
+	1. [After launch of PWA](https://developers.google.com/web/showcase/2017/bookmyshow) - exponential increase upto 80% on conversion rates
+		1. Lighter than android app, smaller than ios app
 
 ##### Flipkart PWA #####
+1. [Flipkart.com](http://flipkart.com/) - e-commerce website
+	1. Engagement rate increased 3x, conversion rate went up by 70%, reduction in data usage by 3x
+		1. [Full account](https://developers.google.com/web/showcase/2016/flipkart)
 
 ##### Twitte PWA #####
+1. [Progressive web app in 2017](https://developers.google.com/web/showcase/2017/twitter)
+	1. Increased pages per session by 65%, 20% decrease in bounce rate, 75% increase in Tweets
+2. [List of businesses that launched PWAs](https://pwa.rocks/)
+3. [Google Developer's Resource for Writing PWA](https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0)
+4. [Mozilla docs for gaining more knowledge on PWAs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
 
 ### Mobile Backend as a Service ###
 ### Epilogue ###
