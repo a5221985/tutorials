@@ -5181,14 +5181,37 @@
 		3. Twitter PWA
 
 #### What are Progressive Web Apps? ####
-1. 
+1. PWAs are apps with look and feel of native apps that can run in browser of both mobile and desktop devices & can also be installed (from browser on device of user)
+	1. If installed on device, PWAs run in their own window without address bar or browser tab (just like native apps)
+		1. When PWA is opened in browser, + sign is shown in address bar
+			1. On clicking, it will isntall app on device with shortcut on home screen
 
 #### The Need for PWAs ####
+1. PWAs are preferred over responsive websites
+	1. Reasons: They have same look and feel of native apps
+		1. Instead of directing users to native apps, native app user experience can be offered in browser
+			1. User can also choose to install the app on device
+	2. PWAs have access to underlying OS and hardware
+2. PWAs are developed using open web technologies (HTML, CSS, JS) and frameworks like Angular, React, Ionic, Google Polymer, ...
+	1. No native tech learning curve
+		1. Write once run anywhere
+3. PWAs can run in mobile and desktop browsers and can be installed on desktops as well
+4. PWAs can work offline
+5. PWAs have push notifications like native apps
+6. PWAs can be indexed by search engines
+7. PWAs links can be shared
+8. PWAs do not need updates like native apps
+	1. If PWA is opened, it will allways have latest version
 
 #### Will PWAs Replace Native Apps? ####
+1. No
+	1. Native apps are for performance, user experience and other reasons discussed
+2. PWA is not good for CPU intensive game
+3. PWAs compete with responsive mobile websites
+	1. App like experience instead of mobile webiste
+		1. E-Commerce website is not perferred over app-like experience
 
 #### Examples of Progressive Web Apps ####
-
 ##### BookMyShow PWA #####
 
 ##### Flipkart PWA #####
