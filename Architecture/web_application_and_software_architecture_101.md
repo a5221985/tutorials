@@ -5102,8 +5102,16 @@
 	3. When native apps have consistent UI
 	4. Why does Business want to compromise on UX by using Hybrid app?
 3. There are pain points with Native app development
+	1. Solutio: Turn to hybrid apps to overcome the pain points
 
 #### Cross-Platform App Development Pain Points - The Need for Hybrid Apps ####
+1. We need to develop dedicated apps for every platform if native:
+	1. Android
+	2. iOS
+	3. Windows
+	4. Blackberry
+	5. ...
+2. Developing & maintaining dedicated mobile app for every OS is biggest pain point of cross-platform app development
 
 #### Issues With Hybrid Apps ####
 
