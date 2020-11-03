@@ -83,3 +83,45 @@
 	1. Company twitter account
 	2. Company facebook page
 	3. Instagram account
+	4. Share with others
+	5. Network with people in industry - LinkeIn ...
+
+## Website & Portfolio ##
+1. Construct a clean and professional website to show clients what you offer
+2. Items: (nice looking, clean website)
+	1. Keep it simple (no too much content required) - 3 page website or single landing page with multiple sections (with portfolio)
+		1. Explain more when you talk to client
+			1. What is that we do
+			2. Services we offer
+			3. Include some of our work
+				1. Some personal projects will do
+				2. Website or app developed for family or friends or other clients
+	2. Describe the services you offer
+	3. Show my best work
+
+## Pricing ##
+1. Pricing is different for everyone depending on different factors
+2. Items:
+	1. Fixed vs. hourly
+		1. Can be biased based on kind of work (more value more cost)
+	2. Experience and skill are valuable
+	3. What are you offering the client?
+	4. Fixed services
+		1. Packages (if fixed price be clear on what is being given)
+			1. Set amount of mockups
+			2. Gatsby or Wordpress
+			3. Contact form
+			4. Database functionality
+
+## Client Proposals ##
+1. Make sure you and client are on the same page
+2. Items:
+	1. The exact price and the exact work to be done
+		1. What functionality is being provided
+		2. Support and how long?
+		3. Including hosting and domain
+			1. Explain how the pricing works (annual fee etc...)
+	2. Extimatd timeline
+	3. Include any extra services (hosting, SEO, etc)
+	4. Support duration
+	5. **Construct new proposals for added work**
