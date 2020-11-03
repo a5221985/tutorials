@@ -35,4 +35,51 @@
 	1. City hall - pay
 	2. Open business checking account in Bank
 		1. Checks with company name
-		2. 
+		2. Debit card with company name
+4. legalzoom - website
+	1. Different types of licenses
+		1. Sole ... - single owner but can have help from family and friends
+		2. LLC / S-Corp - if hiring people
+			1. needs accountant or advisor - very useful
+				1. For tax reasons?
+5. One can define the salary that we can take every month
+	1. The money goes from business account to personal checking
+		1. We need to do two taxes
+			1. Personal taxes for salary
+			2. Corporate taxes
+	2. Need accountant for this stuff (trust worthy one)
+		1. Good recommendations
+		2. Good Reviews
+
+## Payments & Invoicing ##
+1. Setup business bank account and multiple ways to accept payments from clients
+2. Items
+	1. Business checks & debit card
+	2. PayPal business account (for this we need proof for business - DBA should do it)
+	3. Credit card processing
+	4. Set up invoicing (very important)
+		1. Have copies for tax reasons
+		2. Services
+		3. Cost
+		4. Company info
+		5. Client info
+		6. Have invoice id
+3. Integrate payments into website
+	1. Stripe
+	2. Square
+	3. PayPal
+
+## Branding ##
+1. Website, company identity
+2. Construct brand for company or yourself as an individual
+3. Items
+	1. Logo
+	2. Color scheme
+	3. Fonts
+	4. Business cards & other promotional materials
+		1. **mr print** - physical flyers
+4. Brand should be same in website, social media, business cards
+5. Social media:
+	1. Company twitter account
+	2. Company facebook page
+	3. Instagram account
