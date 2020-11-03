@@ -5230,6 +5230,30 @@
 4. [Mozilla docs for gaining more knowledge on PWAs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
 
 ### Mobile Backend as a Service ###
-1. 
+1. Topics:
+	1. What is Mobile Backend as a Service?
+	2. When Should You Use a Mobile Backend as a Service?
+
+#### What is Mobile Backend as a Service? ####
+1. MBaaS - cloud-based service model
+	1. Takes care of backend infrastructure of mobile app
+		1. Leaves us to only take care of business logic and user interface
+2. What are the things a MBaaS takes care of? What features does it bring along?
+	1. There are other key features (besides business logic and ui) - makes it service worthy
+		1. User authentication
+		2. Integration with social networks
+		3. Push notifications
+		4. Real-time database
+		5. Caching
+		6. Data storage
+		7. Messaging
+		8. Chat integration
+		9. Integration of third-party tools
+		10. Analytics
+		11. Crash reporting
+		12. ...
+3. Mobile backend as a service:
+
+	![mobile_backend_as_a_service](mobile_backend_as_a_service.jpeg)
 
 ### Epilogue ###
