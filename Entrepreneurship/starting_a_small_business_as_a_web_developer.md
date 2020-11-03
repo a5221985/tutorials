@@ -134,7 +134,38 @@
 1. Find ways to get your name out there
 2. Items:
 	1. Local businesses
-	2. Website SEO
+		1. What can be done to improve the website
+		2. Let them know how it can be made better
+			1. Online payments
+			2. Blogs to reach more people
+			3. ...
+	2. Website SEO (make site SEO friendly)
+		1. Someone good at this can be hired
 	3. Online ads
+		1. Google Ad words
+		2. Facebook Ads
 	4. Freelance gigs (Upwork, etc)
+		1. Not great paying
 	5. Word of mouth
+		1. Takes a while to build this
+
+## Scaling Your Business ##
+1. Always look for ways to grow
+2. Items:
+	1. Hire people, either online or in house
+		1. Source to freelancers or (from upwork) - outsourcing
+		2. Hire someone in house
+			1. LLC or S-Corp
+			2. Need to setup payroll (need accountant)
+	2. Commercial space
+	3. New services
+		1. Adding mobile apps
+		2. Adding desktop apps
+		3. Software as a Service product
+		4. Design
+			1. Logos
+			2. Business Cards
+			3. Outsourcing
+		5. Resell hosting
+		6. SEO
+			1. Offered as a service
