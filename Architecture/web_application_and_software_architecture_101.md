@@ -5104,7 +5104,7 @@
 3. There are pain points with Native app development
 	1. Solutio: Turn to hybrid apps to overcome the pain points
 
-#### Cross-Platform App Development Pain Points - The Need for Hybrid Apps ####
+#### Cross-Platform App Development Pain Points - The Need for Hybrid Apps #### ---- **needs to be completed**
 1. We need to develop dedicated apps for every platform if native:
 	1. Android
 	2. iOS
@@ -5318,4 +5318,7 @@
 ### Epilogue ###
 1. contact@8bitmen.com - feedback, suggestions, ...
 2. [LinkedIn profile](https://www.linkedin.com/in/shivang-sarawagi-b7b5881b/)
-3. [8bitmen.com]()
+3. [8bitmen.com](http://8bitmen.com/) - Blog
+	1. Decentralized web
+	2. Software architecture
+	3. Architectures of large scale internet services
