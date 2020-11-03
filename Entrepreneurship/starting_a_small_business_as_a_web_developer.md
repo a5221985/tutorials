@@ -169,3 +169,8 @@
 		5. Resell hosting
 		6. SEO
 			1. Offered as a service
+				1. Upsell
+		7. Digital marketing
+			1. Can hire someone (if we don't know)
+			2. Offer it as a service
+				1. Also fun to work with other people
