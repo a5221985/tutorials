@@ -43,7 +43,7 @@
 	9. What is my competition; what is my competitive advantage?
 	10. What is my action plan; what steps do I need to take in the next month, quarter, year?
 
-### Business plan bullet point - Why an I doing this? ###
+### Business plan bullet point - Why am I doing this? ###
 1. What is my purpose in freelancing?
 	1. Recall the exercise you did in the introduction of this course
 	2. Independence, financial, career shift, something else?
