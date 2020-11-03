@@ -5114,10 +5114,31 @@
 2. Developing & maintaining dedicated mobile app for every OS is biggest pain point of cross-platform app development
 
 #### Issues With Hybrid Apps ####
+1. Not as performant and as smooth as native apps
+	1. they run inside native container
+	2. They talk to underlying OS via middle layer
+		1. Slows down performance a bit and introduce lag
+2. Certain frameworks claim to be as performant or better (but running in production should be as performant as claimed)
+3. Certain businesses switched to hybrid and bad to native app to achieve desired user experience
 
 #### Real Life Examples ####
 ##### Airbnb Ditched React-Native for Native Tech #####
+1. [blog posts](https://medium.com/airbnb-engineering/react-native-at-airbnb-f95aa460be1c) - Experience of developing mobile app with react native
+	1. Since website used React JS
+2. After couple of years, React-Native was abandoned for native tech (due to performance issues - especially during app initialization, initial render time, with app launch screen, when navigating between different screens, experienced dropped frames)
+	1. Several patches were written to get desired native functionality
+		1. Some trivial stuff that could be donw with native tech was difficult to pull off with React-Native
+	2. Lack of type safety with JS made it difficult to scale & development turned out to be difficult for engineers (who were used to default type-safety checks)
+		1. Lack of type safety made code refactoring difficult
+3. [React Native at Airbnb](https://medium.com/airbnb-engineering/react-native-at-airbnb-f95aa460be1c)
+
 ##### Udacity Abandoned React Native #####
+1. Due to increased number of Android-specific features requested by users
+	1. Android team was relunctant to go with hybrid approach
+	2. Long term maintenance costs of React-Native were high
+3. UX consistency issues were encountered across platforms
+4. [Full account](https://engineering.udacity.com/react-native-a-retrospective-from-the-mobile-engineering-team-at-udacity-89975d6a8102)
+
 ##### Facebook Admitted Counting Big on HTML5 for Their Mobile App was a Mistake #####
 
 ### Choosing Between A Native & A Hybrid App ###
