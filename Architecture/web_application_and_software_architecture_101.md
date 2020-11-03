@@ -5112,7 +5112,20 @@
 	4. Blackberry
 	5. ...
 2. Developing & maintaining dedicated mobile app for every OS is biggest pain point of cross-platform app development
-3. 
+3. Each OS supports specific set of technologies for apps (no common ground, no common technology supported by all platforms)
+4. Dedicated teams amy be required for each platform
+	1. Android: Java, Kotlin or C++
+	2. iOS: Swift (Object C)
+5. If a different OS comes in market supporting different set of technologies for it's own platform
+6. During startup, there are no enough resources (developers + money) to set up dedicated teams and codebases for each platform
+	1. One may need common codebase that is portable
+		1. It can be built once and run anywhere
+			1. Solution: Hybrid apps
+				1. Developed used open web technologies (HTML5, JS)
+					1. Development teams working on web are familiar with the technology and doesnt have to go through steep learning curve to build apps
+				2. Businesses do not need dedicated teams for different platforms
+					1. Same codebase can be deployed on multiple platforms (with minor modifications) - saves time and money
+7. Hybrid tech comes with it's pros and cons
 
 #### Issues With Hybrid Apps ####
 1. Not as performant and as smooth as native apps
