@@ -5280,4 +5280,29 @@
 	2. [AWS Amplify](https://aws.amazon.com/amplify/)
 	3. [Parse](https://parseplatform.org/) - Facebook (early leader but shut down)
 
+#### When Should You Use a Mobile Backend as a Service? ####
+1. MBaaS is great for mobile-only services
+	1. Where we do not need or don't already have custom backend up and running for our service
+2. **All business logic resides on client** (mobile app)
+	1. Fat client
+3. Use cases:
+	1. Mobile games
+	2. Messaging apps
+	3. to-do list kind of apps
+4. Caveat: If we need new feature and would require business logic on server, we need to design custom backend from bare bones
+5. Other approach:
+	1. If we start with custom backend and write mobile client (convential way), one can 
+		1. Easily customize design of service
+		2. Introduce new clients
+	2. We need to introduce dedicated API for respective clients
+6. Custom backend for mobile app
+	
+	![custom_backend_for_mobile_app](custom_backend_for_mobile_app.jpeg)
+	
+7. Hybrid approach:
+	1. MBaaS and Custom backend can be setup in same app
+		1. If legacy enterprise system needs to be integrated with mobile app
+			1. Example: Backing app - needsd legacy enterprise backend to cross verify data entered by user each time say
+		2. If we need additional features that custom backend server hosts
+
 ### Epilogue ###
