@@ -121,7 +121,20 @@
 		2. Support and how long?
 		3. Including hosting and domain
 			1. Explain how the pricing works (annual fee etc...)
-	2. Extimatd timeline
+	2. Extimated timeline
+		1. Give longer timeline and try to deliver earlier
+		2. Give exact quote for exact work (no confusion on what should be included and not)
 	3. Include any extra services (hosting, SEO, etc)
 	4. Support duration
 	5. **Construct new proposals for added work**
+		1. Get signatures for proposals
+3. Have templates
+
+## Promotion ##
+1. Find ways to get your name out there
+2. Items:
+	1. Local businesses
+	2. Website SEO
+	3. Online ads
+	4. Freelance gigs (Upwork, etc)
+	5. Word of mouth
