@@ -1,7 +1,7 @@
 # Starting a Small Business as a Web Developer #
 ## Find a Place to Work ##
 1. Find quiet place to work everyday
-	1. Home office (basement, studio)
+	1. Home office (basement, studio) (**done**)
 	2. Commercial space (not required when starting)
 	3. Shared space (not best as of now)
 		1. Cheaper than commercial space
