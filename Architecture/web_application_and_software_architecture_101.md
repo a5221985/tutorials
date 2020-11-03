@@ -5255,5 +5255,29 @@
 3. Mobile backend as a service:
 
 	![mobile_backend_as_a_service](mobile_backend_as_a_service.jpeg)
+	
+4. The above features are taken care by MBaaS (during bootstrapping phase)
+	1. Writing and maintaining all those features on our own from bare bones is nearly impossible unless we have a team
+5. There are cloud-based freemium services - free tier
+	1. These are good for single developers
+	2. Deploy the app to cloud
+		1. Show it to community
+		2. Have initial customers
+		3. Get feedback
+		4. Pitch it to potential investors (without paying anything to hosting & infrastructure)
+6. Cloud service provided indie solo developers to bootstrap business
+	1. Also get a foothold in market by just focussing on idea implementation part (letting cloud service to take care of the rest)
+7. [Why use the cloud? How a cloud is different than traditional computing?](https://www.8bitmen.com/why-use-cloud-how-is-cloud-computing-different-from-traditional-computing/) - insight
+8. MBaaS typically offers API for every feature
+	1. API for authentication
+	2. API for real-time database
+	3. API for messaging
+	4. ...
+9. App can interact with API and exchange info
+10. We also do not have to manage the infrastructure (cuts down time it takes to develop app by notches)
+11. Examples:
+	1. [Google Firebase](https://firebase.google.com/)
+	2. [AWS Amplify](https://aws.amazon.com/amplify/)
+	3. [Parse](https://parseplatform.org/) - Facebook (early leader but shut down)
 
 ### Epilogue ###
