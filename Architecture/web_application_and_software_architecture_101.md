@@ -5104,7 +5104,7 @@
 3. There are pain points with Native app development
 	1. Solutio: Turn to hybrid apps to overcome the pain points
 
-#### Cross-Platform App Development Pain Points - The Need for Hybrid Apps #### ---- **needs to be completed**
+#### Cross-Platform App Development Pain Points - The Need for Hybrid Apps ####
 1. We need to develop dedicated apps for every platform if native:
 	1. Android
 	2. iOS
@@ -5112,6 +5112,7 @@
 	4. Blackberry
 	5. ...
 2. Developing & maintaining dedicated mobile app for every OS is biggest pain point of cross-platform app development
+3. 
 
 #### Issues With Hybrid Apps ####
 1. Not as performant and as smooth as native apps
@@ -5140,6 +5141,14 @@
 4. [Full account](https://engineering.udacity.com/react-native-a-retrospective-from-the-mobile-engineering-team-at-udacity-89975d6a8102)
 
 ##### Facebook Admitted Counting Big on HTML5 for Their Mobile App was a Mistake #####
+1. In 2012
+2. Big mistake investing too much time and resources writing mobile app with HTML5 instead of using native tech
+	1. Mobile strategy relied too much on open web technologies
+3. [Here is full account on VentureBeat](https://venturebeat.com/2012/09/11/facebooks-zuckerberg-the-biggest-mistake-weve-made-as-a-company-is-betting-on-html5-over-native/)
+4. Interesting reads:
+	1. [Who Will Steal Android From Google?](https://medium.com/@steve.yegge/who-will-steal-android-from-google-af3622b6252e)
+	2. [The Story of Firefox OS](https://medium.com/@bfrancis/the-story-of-firefox-os-cb5bf796e8fb)
+5. Next: Right mobile app type for our usecase (Hybrid or native)
 
 ### Choosing Between A Native & A Hybrid App ###
 1. Topics:
