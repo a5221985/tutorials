@@ -5304,5 +5304,18 @@
 		1. If legacy enterprise system needs to be integrated with mobile app
 			1. Example: Backing app - needsd legacy enterprise backend to cross verify data entered by user each time say
 		2. If we need additional features that custom backend server hosts
+	2. MBaaS with Custom Backend
+
+		![mbaas_with_custom_backend](mbaas_with_custom_backend.jpeg)
+		
+8. Cons:
+	1. No much control over backend may result in vendor lock-in
+		1. Like [parse.com](http://parse.com/) if service provider closes the service
+		2. If vendor doesn't upgrade the service (may result in severe security flaws)
+		3. If vendor stops adding new features
+		4. If vendor's future billing rules are not acceptable
 
 ### Epilogue ###
+1. contact@8bitmen.com - feedback, suggestions, ...
+2. [LinkedIn profile](https://www.linkedin.com/in/shivang-sarawagi-b7b5881b/)
+3. [8bitmen.com]()
