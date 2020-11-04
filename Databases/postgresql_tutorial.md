@@ -43,6 +43,11 @@
 		6. Click save 
 	11. [Download sample database](https://www.postgresqltutorial.com/postgresql-sample-database/)
 	12. Unzip it
+	13. Right click on **dvdrental** and select **Restore...**
+	14. Select directory as Format (1)
+	15. Select directory that contains sample database as Filename (2)
+	16. Enter role as **postgres**
+	17. Click **Restore**
 
 ## Section 1: Querying Data ##
 
