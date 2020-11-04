@@ -1,5 +1,6 @@
 # PostgreSQL Tutorial #
-1. The tutorial helps understand PostgreSQL quickly
+1. [https://www.postgresqltutorial.com/postgresql-getting-started/](https://www.postgresqltutorial.com/postgresql-getting-started/)
+2. The tutorial helps understand PostgreSQL quickly
 2. Many practical examples are given
 3. How to solve the examples innovatively
 4. Who is this course for?
@@ -13,7 +14,29 @@
 	1. How to install PostgreSQL on Windows, Linux, MacOS
 	2. How to connect using psql tool
 	3. How to load sample database into PostgreSQL for practicing
-2.
+2. Topics
+	1. How to install PostgreSQL on Windows, Linux and macOS
+	2. How to connect to PostgreSQL using `psql` tool
+	3. How to load sample database into PostgreSQL for practicing
+3. Getting Started
+	1. [What is PostgreSQL](https://www.postgresqltutorial.com/what-is-postgresql/) - Introduces PostgreSQL and it's applications in software stack
+	2. [Introduction to PostgreSQL Sample Database](https://www.postgresqltutorial.com/postgresql-sample-database/) - dvdrental
+4. PostgreSQL on Windows
+5. PostgreSQL on Linux
+6. PostgreSQL on MacOS
+	1. [Install PostgreSQL on MacOS](https://www.postgresqltutorial.com/install-postgresql-macos/) - how to download, how to install, how to restore sample database into PostgreSQL database server
+		1. [Download Installer](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+	2. Launch wizard
+	3. Select directory where it must be installed (`/Library/PostgreSQL/12`)
+	4. Select components to install (uncheck stack builder)
+	5. Specify directory where PostgreSQL stores data (`/Library/PostgreSQL/12/data`)
+	6. Enter password for user account (keep it)
+	7. Specify port: 5432
+	8. Select locale (locale of current OS by default)
+	9. Install
+	10. Load sample database
+		1. Launch **pgAdmin**
+		2. Enter password
 
 ## Section 1: Querying Data ##
 
