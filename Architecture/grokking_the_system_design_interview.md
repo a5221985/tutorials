@@ -232,6 +232,7 @@
 ### Designing Yelp or Nearby Friends ###
 ### Designing Uber Backend ###
 ### Design Ticketmaster ###
+
 ### Additional Resources ###
 1. [Dynamo](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) - Highly Available Key-Value Store
 2. [Kafka](http://notes.stephenholiday.com/Kafka.pdf) - A distributed messaging system for Log processing
