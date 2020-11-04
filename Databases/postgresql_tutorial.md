@@ -60,6 +60,41 @@
 	2. Mobile applications
 	3. Analytics applications
 
+### Common Use Cases of PostgreSQL ###
+1. Robust database in LAPP stack
+	1. Linux, Apache, PostgreSQL, PHP (or Python and Perl)
+	2. Usually used as robust back-end database
+2. General purpose transaction database
+	1. Primary database in many applications
+3. Geospatial database
+	1. [PostGIS extension](https://postgis.net/) - extension supports geospatial databases for geographpic information systems (GIS)
+4. Language support
+	1. Popular programming languages
+		1. Python
+		2. Java
+		3. C#
+		4. C/C++
+		5. Ruby
+		6. JavaScript (Node.js)
+		7. Perl
+		8. Go
+		9. Tcl
+
+### PostgreSQL Feature Highlights ###
+1. Similar to the ones offered by enterprise-class database management systems:
+	1. User-defined types (?)
+	2. Table inheritance (?)
+	3. Sophisticated locking mechanism
+	4. [Foreign key referential integrity](https://www.postgresqltutorial.com/postgresql-foreign-key/)
+	5. [Views](https://www.postgresqltutorial.com/postgresql-views/), rules, [Subquery](https://www.postgresqltutorial.com/postgresql-subquery/)
+	6. Nested transactions (savepoints)
+	7. Multi-version concurrency control (MVCC)
+	8. Asynchronous replication
+2. Recent versions support
+	1. Native Microsoft Windows Server version
+	2. Tablespaces
+	3. Point-in-time recovery
+
 ## Section 1: Querying Data ##
 
 ## Section 2: Filtering Data ##
