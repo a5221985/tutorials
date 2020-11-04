@@ -6,6 +6,14 @@
 	1. If looking to learn PostgreSQL fast and easily
 	2. If we want to develop applications using PostgreSQL as a back-end database management system
 	3. Migrating from other dbms such as MySQL, Oracle, Microsoft SQL Server to PostgreSQL
+5. Tutorial demonstrates unique features of PostgreSQL (most advanced open-source database management system?)
+
+## Getting Started ##
+1. Introduction:
+	1. How to install PostgreSQL on Windows, Linux, MacOS
+	2. How to connect using psql tool
+	3. How to load sample database into PostgreSQL for practicing
+2.
 
 ## Section 1: Querying Data ##
 
