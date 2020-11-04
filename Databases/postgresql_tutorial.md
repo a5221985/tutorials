@@ -136,7 +136,23 @@
 	5. 1 domain
 	6. 13 sequences
 
+### Basic PostgreSQL Tutorial ###
+1. Querying data from single table using basic data selection
+	1. Selecting columns
+	2. Sorting result sets
+	3. filtering rows
+2. Joining multiple tables
+	1. Using set operations
+	2. Constructing subquery
+3. Managing database tables
+	1. Creation of new table
+	2. Modification of existing tables
+
 ## Section 1: Querying Data ##
+1. [Select](https://www.postgresqltutorial.com/postgresql-select/) - show how to query data from single table
+2. [Column aliases](https://www.postgresqltutorial.com/postgresql-column-alias/) - assigning temporary names to columns or **expressions** in query
+3. [Order By](https://www.postgresqltutorial.com/postgresql-order-by/) - How to sort result set returned from query
+4. [Select Distinct](https://www.postgresqltutorial.com/postgresql-select-distinct/) - Define clauses that remove duplicate rows in result set
 
 ## Section 2: Filtering Data ##
 
