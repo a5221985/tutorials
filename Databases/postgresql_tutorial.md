@@ -154,6 +154,22 @@
 3. [Order By](https://www.postgresqltutorial.com/postgresql-order-by/) - How to sort result set returned from query
 4. [Select Distinct](https://www.postgresqltutorial.com/postgresql-select-distinct/) - Define clauses that remove duplicate rows in result set
 
+### PostgreSQL Select ###
+1. Summary: How to use basic PostgreSQL select statement to query from single table
+	1. [Connecting to PostgreSQL database tutorial](https://www.postgresqltutorial.com/connect-to-postgresql-database/)
+2. SELECT - statement is one of most complex statements in PostgreSQL
+	1. It has many clauses to form a flexible query
+3. SELECT is broken down into shorter easy-to-understand tutorials (covering the clauses)
+4. Clauses of SELECT
+	1. [DISTINCT](https://www.postgresqltutorial.com/postgresql-select-distinct/) - used to select distinct rows
+	2. [ORDER BY](https://www.postgresqltutorial.com/postgresql-order-by/) - used to sort rows
+	3. [WHERE](https://www.postgresqltutorial.com/postgresql-where/) - Filter rows using this clause
+	4. [LIMIT](https://www.postgresqltutorial.com/postgresql-limit/), [FETCH](https://www.postgresqltutorial.com/postgresql-fetch/) - used to select subset of rows from table
+	5. [GROUP BY](https://www.postgresqltutorial.com/postgresql-group-by/) - Group rows into groups
+	6. [HAVING](https://www.postgresqltutorial.com/postgresql-having/) - Filter groups using this clause
+	7. [INNER JOIN](https://www.postgresqltutorial.com/postgresql-inner-join/), [LEFT JOIN](https://www.postgresqltutorial.com/postgresql-left-join/), [FULL OUTER JOIN](https://www.postgresqltutorial.com/postgresql-full-outer-join/), [CROSS JOIN](https://www.postgresqltutorial.com/postgresql-cross-join/) - used to join tables using [joins](https://www.postgresqltutorial.com/postgresql-joins/)
+	8. [UNION](https://www.postgresqltutorial.com/postgresql-union/), [INTERSECT](https://www.postgresqltutorial.com/postgresql-intersect/), [EXCEPT](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-except/) - used to perform set operations
+
 ## Section 2: Filtering Data ##
 
 ## Section 3: Joining Multiple Tables ##
