@@ -37,6 +37,12 @@
 	10. Load sample database
 		1. Launch **pgAdmin**
 		2. Enter password
+		3. Right click on PostgreSQL 12 and select **Create** > **Database..**
+		4. Enter **dvdrental** as database
+		5. Enter **postgres** as owner
+		6. Click save 
+	11. [Download sample database](https://www.postgresqltutorial.com/postgresql-sample-database/)
+	12. Unzip it
 
 ## Section 1: Querying Data ##
 
