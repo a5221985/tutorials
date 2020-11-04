@@ -94,6 +94,47 @@
 	1. Native Microsoft Windows Server version
 	2. Tablespaces
 	3. Point-in-time recovery
+3. PostgreSQL is designed to be extensible
+	1. It allows user to define
+		1. Own data types
+		2. Own index types
+		3. Own functional languages
+		4. ...
+	2. A custom plugin can be developed (to replace parts that we don't like)
+		1. Example: adding new optimizer
+
+### Who Uses PostgreSQL ###
+1. Apple
+2. Fujitsu
+3. Red Hat
+4. Cisco
+5. Juniper Networks
+6. Instagram
+7. ...
+
+### PostgreSQL Sample Database ###
+1. DVD Rental Database (of a DVD rental store)
+2. Objects
+	1. 15 tables
+		1. actor - stores actors data including first name, last name
+		2. film - stores film data such as title, release year, length, rating, etc...
+		3. film_actor - stores the relationships between films and actors
+		4. category - stores film's categories data
+		5. film_category - stores relationships between films and categories
+		6. store - contains store data including manager staff and address
+		7. inventory - stores inventory data
+		8. rental - stores rental data
+		9. payment - stores customer's payments
+		10. staff - stores staff data
+		11. customer - stores customer data
+		12. address - stores address data for staff and customers
+		13. city - stores city names
+		14. country - stores country names
+	2. 1 trigger
+	3. 7 views
+	4. 8 functions
+	5. 1 domain
+	6. 13 sequences
 
 ## Section 1: Querying Data ##
 
