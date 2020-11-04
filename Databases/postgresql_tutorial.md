@@ -49,6 +49,17 @@
 	16. Enter role as **postgres**
 	17. Click **Restore**
 
+### What is PostgreSQL ###
+1. It is advanced, enterprise-class open-source relational database system
+2. It supports the following querying options
+	1. SQL (relational)
+	2. JSON (non-relational)
+3. It is highly stable db backed by 20 years of development by open-source community
+4. Use cases:
+	1. Web applications
+	2. Mobile applications
+	3. Analytics applications
+
 ## Section 1: Querying Data ##
 
 ## Section 2: Filtering Data ##
