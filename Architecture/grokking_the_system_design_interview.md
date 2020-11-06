@@ -228,6 +228,28 @@
 		3. hastebin.com
 		4. priatebin.net
 	3. Difficulty level: Easy
+2. Topics:
+	1. What is Patebin?
+	2. Requirements and Goals of the System
+	3. Some Design Considerations
+	4. Capacity Estimation and Constraints
+	5. System APIs
+	6. Database Design
+		1. Database Schema
+	7. High Level Design
+	8. Component Design
+	9. Application Layer
+	10. Datastore Layer
+	11. Purging or DB Cleanup
+	12. Data Partioning and Replication
+	13. Cache and Load Balancer
+	14. Security and Permissions
+
+#### What is Pastebin? ####
+
+#### Requirements and Goals of the System ####
+
+
 
 ### Designing Instagram ###
 ### Designing Dropbox ###
