@@ -404,6 +404,23 @@
 							Metadata storage
 
 #### Component Design ####
+##### Application Layer #####
+1. Processes all incoming and outgoing requests
+2. App layer will be talking to backend data store components to serve requests
+3. **How to handle a write-request?**
+	1. Upon receiving write-request, the server will generate six-letter random string
+		1. Serves as key of the paste (if user has not provided custom key)
+	2. App server will then store contents of paste and generated key in database
+		1. After successful insertion, server can return key to user
+			1. Possible failure: Insertion failure due to duplicate key (could match an existing one)
+				1. Keep retrying until we don't see failure due to duplicate key
+					1. If custom key is already present in database, return an error to user
+	2. Another solution:
+		1. Run standalone Key Generation Service (KGS)
+			1. Generates random six letters strings beforehand and stores then in database (key-DB)
+		2. When new paste arrives, take one of already generated key and use it
+			1. Makes it fast (not duplications or collisions)
+4. 
 
 #### Purging or DB Cleanup ####
 
