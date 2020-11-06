@@ -219,7 +219,15 @@
 #### Security and Permissions ####
 
 ### Designing Pastebin ###
-1. 
+1. Pastebin:
+	1. Users can store plain text
+		1. Users can enter piece of text and get randomly generated URL to access it
+	2. Similar services:
+		1. patebin.com
+		2. controlc.com
+		3. hastebin.com
+		4. priatebin.net
+	3. Difficulty level: Easy
 
 ### Designing Instagram ###
 ### Designing Dropbox ###
