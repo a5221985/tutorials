@@ -254,10 +254,44 @@
 	1. Go through differnt options offered
 
 #### Requirements and Goals of the System ####
+1. Functional requirements:
+	1. Users should be able to upload or 'paste' data and get unique URL to access it
+	2. Usrers can upload text only
+	3. Data and links will expire after specific timespan automatically
+		1. Users can specify expiration time
+	4. Users can pick custom alias for their paste
+2. Non functional requirements
+	1. System should be highly reliable (any data uploaded should not be lost)
+	2. System should be highly available
+		1. If service is down, users cannot access their pastes
+	3. Users can access pastes in real-time with minimum latency
+	4. Paste links should not be guessable (not predictable)
+3. Extended requirements
+	1. Analytics e.g. how many times a paste was created?
+	2. Our service should also be accessible through REST APIs by other services
 
 #### Some Design Considerations ####
+1. Similar to URL Shortening service but with additional design considerations
+	1. What amount of text user can paste at a time?
+		1. Limit: Pastes not bigger than 10 MB (to stop abuse of service)
+	2. Should there be size limits on custom URLs?
+		1. Users can pick any URL they like (not mandatory to provide)
+			1. It is reasonable to impose size limit on custom URLs
+				1. Consistent URL database
 
 #### Capacity Estimation and Constraints ####
+1. Service will be:
+	1. Read heavy - more read requests compared to new Paste creation (can assume 5:1 ratio between read and write)
+2. **Traffic estimates**: Not expected to have traffic similar to Twitter or Facebook
+	1. Assumption: 1 million new pastes added to system everyday
+		1. => 5 million reads per day
+	2. New pastes per second:
+
+			1M / (24 hours * 3600 seconds) ~= 12 pastes / sec
+			
+	3. Paste reads per second:
+	
+			5M / (24 hours * 3600 seconds) ~= 58 reads/ sec
 
 #### System APIs ####
 
