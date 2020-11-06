@@ -426,6 +426,22 @@
 			2. Can keep some keys in memory so that whenever server needs them, it can provide them quickly
 				1. The keys can be moved to used keys table immediately
 					1. Ensures each server gets unique keys
+						1. If server dies before using all keys in memory, we lose those keys and can be ignored because there are other keys
+		5. **Isn't KGS a single point of failure?**
+			1. It is
+				1. Solution: Stand by replica of KGS - whenever primary server dies, replicate can take over to generate and provide keys
+		6. **Can each app server cache some keys from key-DB?**
+			1. Yes
+				1. Can speed things up
+					1. Cons: If application server dies before consuming all keys, we lose the keys (acceptable because we have many unique six letter keys - much more than we require)
+		7. **How does it handle a paste read request?**
+			1. If paste read request is received, application server layer contacts datastore
+			2. Datastore searches for key, and if found, it returns paste's contents
+				1. If not found, error code is returned
+
+##### Datastore Layer #####
+1. Divided into two:
+	1. Metadata database: Relational database like MySQL or Distributed Key-Value store like Dynamo or Cassandra can be used
 
 #### Purging or DB Cleanup ####
 
