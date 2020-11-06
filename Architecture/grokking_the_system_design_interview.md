@@ -601,6 +601,14 @@
 7. We need to store relationships between users and photos to know who owns which photo
 8. We need to store list of people a user follows
 9. Solution: Wide-column datastore like [Cassandra](https://en.wikipedia.org/wiki/Apache_Cassandra)
+	1. UserPhoto table:
+		1. 'key' is 'UserID'
+		2. 'value' is list of 'PhotoIDs' (ownded by user) (stored in different columns)
+	2. UserFollow table:
+		1. Similar scheme
+10. Cassandra (key-value stores) maintain number of replicas to offer reliability
+	1. Delete's don't get applied instantly
+		1. Data is retained for certain days (to support undeleting) before getting removed from system permanently
 
 #### Data Size Estimation ####
 
