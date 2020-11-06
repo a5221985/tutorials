@@ -497,8 +497,23 @@
 #### What is Instagram? ####
 1. Instagram is social networking service
 2. It enables users to upload and share their photos and videos with other users
+3. Instagram users can choose sharing info publicly or privately
+	1. Publicly shared info can be seen by any other user
+	2. Privately shared info can be seen by specified set of users only
+4. It also enables users to share through other social networking platforms
+	1. Facebook
+	2. Twitter
+	3. Flickr
+	4. Tumblr
+5. Simpler version of Instagram - user can share photos & follow other users
+6. News feed (of each user) - consists of top photos of all people user follows
 
 #### Requirements and Goals of the System ####
+1. **Functional Requirements**
+	1. Users should be able to upload/ download/ view photos
+	2. Users can perform searches based on photo/ video titles
+	3. Users can follow other users
+	4. System should generate and display user's News Feed consisting of top photos from all people the user follows
 
 #### Some Design Considerations ####
 
