@@ -246,10 +246,34 @@
 	14. Security and Permissions
 
 #### What is Pastebin? ####
+1. Enables users to store plain text or images over network (internet say)
+	1. This generates unique URLs to access uploaded data
+2. Pros: Enables sharing data over network quickly
+	1. Users can just pass URL to let other users see it
+3. [pastebin.com](http://pastebin.com/) - try it ('Paste')
+	1. Go through differnt options offered
 
 #### Requirements and Goals of the System ####
 
+#### Some Design Considerations ####
 
+#### Capacity Estimation and Constraints ####
+
+#### System APIs ####
+
+#### Database Design ####
+
+#### High Level Design ####
+
+#### Component Design ####
+
+#### Purging or DB Cleanup ####
+
+#### Data Partitioning and Replication ####
+
+#### Cache and Load Balancer ####
+
+#### Security and Permissions ####
 
 ### Designing Instagram ###
 ### Designing Dropbox ###
