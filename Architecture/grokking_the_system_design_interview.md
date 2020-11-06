@@ -442,16 +442,41 @@
 ##### Datastore Layer #####
 1. Divided into two:
 	1. Metadata database: Relational database like MySQL or Distributed Key-Value store like Dynamo or Cassandra can be used
+	2. Object storage: Amazon S3
+		1. If we reach full capacity, we can increase it by adding more servers
+2. Detailed component design:
+
+		clients -> Load balancer -> Application servers -> Load balancer -> Object storage (-> Block Cache)
+		-> Metadata Cache <- Metadata storage
+									^
+									|
+								Cleanup Service
+									|
+									v
+								key-DB - - - -> key-DB (stand-by)
+												    ^
+												    |
+										Key Generation Service (few)
+												    |
+												    v
+												 Application Servers
 
 #### Purging or DB Cleanup ####
+1. [Designing a URL Shortening service](https://www.educative.io/collection/page/5668639101419520/5649050225344512/5668600916475904)
 
 #### Data Partitioning and Replication ####
+1. [Designing a URL Shortening service](https://www.educative.io/collection/page/5668639101419520/5649050225344512/5668600916475904)
 
 #### Cache and Load Balancer ####
+1. [Designing a URL Shortening service](https://www.educative.io/collection/page/5668639101419520/5649050225344512/5668600916475904)
 
 #### Security and Permissions ####
+1. [Designing a URL Shortening service](https://www.educative.io/collection/page/5668639101419520/5649050225344512/5668600916475904)
 
 ### Designing Instagram ###
+1. Requirements: Photo-sharing service
+	1. Users can upload photos to share them with other users
+
 ### Designing Dropbox ###
 ### Designing Facebook Messenger ###
 ### Designing Twitter ###
