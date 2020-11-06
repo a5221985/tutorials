@@ -596,6 +596,11 @@
 			1. Challenge when we need to scale
 				1. [SQL vs NoSQL](https://www.educative.io/collection/page/5668639101419520/5649050225344512/5728116278296576/)
 5. We can store photos in distributed file storage like [HDFS](https://en.wikipedia.org/wiki/Apache_Hadoop), [S3](https://en.wikipedia.org/wiki/Amazon_S3)
+6. The schema defined can be stored in a distributed key-value store (to enjoy benefits offered by NoSQL)
+	1. Metadata related to photos can go to a table where 'key' would be 'PhotoID' and 'value' would be object containing PhotoLocation, UserLocation, CreationTimestamp, etc...
+7. We need to store relationships between users and photos to know who owns which photo
+8. We need to store list of people a user follows
+9. Solution: Wide-column datastore like [Cassandra](https://en.wikipedia.org/wiki/Apache_Cassandra)
 
 #### Data Size Estimation ####
 
