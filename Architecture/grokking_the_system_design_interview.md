@@ -360,8 +360,48 @@
 	1. Successful deletion return `true`, else `false`
 
 #### Database Design ####
+1. Observation about nature of data we are storing:
+	1. Need to store billions of records
+	2. Each meta data object stored can be small (less than 1KB)
+	3. Each paste object stored can be of medium size (can be few MB)
+	4. No relationships between records
+		1. Except for storing which user added what paste
+	5. Service is read heavy
+
+##### Database Schema: #####
+1. Two tables:
+	1. One for storing info about pastes
+	2. Second for storing other user's data
+
+			Paste
+				PK: URLHash: varchar(16)
+				ContentKey: varchar(512)
+				ExpirationDate: datetime
+				UserID: int
+				CreationDate: datetime
+				
+			User
+				PK: UserID: int
+				Name: varchar(20)
+				Email: varchar(32)
+				CreationDate: datetime
+				LastLogin: datetime
+				
+		1. `URLHash` - URL equivalent of TinyURL
+		2. `ContentKey` - reference to external object storing contents of paste (later) 
 
 #### High Level Design ####
+1. An application layer can serve all the read and write requests
+	1. It can talk to a storage layer to store & retrieve data
+2. Storage can be segregated with
+	1. One database storing metadata realted to each paste, users, ...
+	2. Seond database storing paste contents in some object storage (like [Amazon S3](https://en.wikipedia.org/wiki/Amazon_S3))
+		1. Allows us to scale them individually
+
+				Client -> Application server -> Object storage
+									|
+									v
+							Metadata storage
 
 #### Component Design ####
 
