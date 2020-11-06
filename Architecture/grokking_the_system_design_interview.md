@@ -476,6 +476,51 @@
 ### Designing Instagram ###
 1. Requirements: Photo-sharing service
 	1. Users can upload photos to share them with other users
+2. Similar Services:
+	1. Flickr, Picasa
+3. Difficulty: Medium
+4. Topics:
+	1. What is Instagram?
+	2. Requirements and Goals of the System
+	3. Some Design Considerations
+	4. Capacity Estimation and Constraints
+	5. High Level System Design
+	6. Database Schema
+	7. Data Size Estimation
+	8. Component Design
+	9. Reliability and Redundancy
+	10. Data Sharing
+	11. Ranking and News Feed Generation
+	12. News Feed Creation with Sharded Data
+	13. Cache and Load Balancing
+
+#### What is Instagram? ####
+1. Instagram is social networking service
+2. It enables users to upload and share their photos and videos with other users
+
+#### Requirements and Goals of the System ####
+
+#### Some Design Considerations ####
+
+#### Capacity Estimation and Constraints ####
+
+#### High Level System Design ####
+
+#### Database Schema ####
+
+#### Data Size Estimation ####
+
+#### Component Design ####
+
+#### Reliability and Redundancy ####
+
+#### Data Sharding ####
+
+#### Ranking and News Feed Generation ####
+
+#### News Feed Creation with Sharded Data ####
+
+#### Cache and Load Balancing ####
 
 ### Designing Dropbox ###
 ### Designing Facebook Messenger ###
