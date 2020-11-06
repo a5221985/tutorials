@@ -419,8 +419,13 @@
 		1. Run standalone Key Generation Service (KGS)
 			1. Generates random six letters strings beforehand and stores then in database (key-DB)
 		2. When new paste arrives, take one of already generated key and use it
-			1. Makes it fast (not duplications or collisions)
-4. 
+			1. Makes it fast (no duplications or collisions)
+		3. KGS ensures that all keys stored in db are unique
+		4. KGS can use two tables to store keys:
+			1. When a key is used, it can move to used keys table
+			2. Can keep some keys in memory so that whenever server needs them, it can provide them quickly
+				1. The keys can be moved to used keys table immediately
+					1. Ensures each server gets unique keys
 
 #### Purging or DB Cleanup ####
 
