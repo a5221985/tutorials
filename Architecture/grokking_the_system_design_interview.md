@@ -549,8 +549,46 @@
 		400GB * 365 (days a year) * 10 (years) ~= 1425TB
 
 #### High Level System Design ####
+1. We need to support 2 scenarios
+	1. To upload photos
+	2. To view/ search photos
+2. We need [object storage](https://en.wikipedia.org/wiki/Object_storage) servers
+3. We need database servers to store metadata info about photos
+
+		client(s) - upload image -> Image Hosting System <-> Image Storage
+		Image Hosting System <-> Image Metadata
 
 #### Database Schema ####
+1. Tip: **Defining the DB schema in the early stages of the interview would help to understand the data flow among various components and later would guide towards data partitioning**
+2. What to store?
+	1. Data about users
+	2. Uploaded photos
+	3. People they follow
+	4. Index on (PhotoID, CreationDate) - we need to fetch recent photos first
+3. DB schema:
+
+		Photo
+			PK: PhotoID: int
+			UserID: int
+			PhotoPath: varchar(256)
+			PhotoLatitude: int
+			PhotoLongitude: int
+			UserLatitude: int
+			UserLongitude: int
+			CreationDate: datetime
+			
+		User
+			PK: UserID: int
+			Name: varchar(20)
+			Email: varchar(32)
+			DateOfBirth: datetime
+			CreationDate: datetime
+			LastLogin: datetime
+			
+		UserFollow
+			PK:
+				UserID1: int
+				UserID2: int
 
 #### Data Size Estimation ####
 
