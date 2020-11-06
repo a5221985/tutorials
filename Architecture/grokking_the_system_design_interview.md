@@ -589,6 +589,13 @@
 			PK:
 				UserID1: int
 				UserID2: int
+				
+4. Straight forward approach to store above data:
+	1. RDBMS like MySQL
+		1. Requires joins
+			1. Challenge when we need to scale
+				1. [SQL vs NoSQL](https://www.educative.io/collection/page/5668639101419520/5649050225344512/5728116278296576/)
+5. We can store photos in distributed file storage like [HDFS](https://en.wikipedia.org/wiki/Apache_Hadoop), [S3](https://en.wikipedia.org/wiki/Amazon_S3)
 
 #### Data Size Estimation ####
 
