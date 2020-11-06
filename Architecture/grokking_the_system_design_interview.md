@@ -514,10 +514,39 @@
 	2. Users can perform searches based on photo/ video titles
 	3. Users can follow other users
 	4. System should generate and display user's News Feed consisting of top photos from all people the user follows
+2. **Non-Functional Requirements**
+	1. Service needs to be highly available
+	2. Acceptable latency of system is 200ms for News feed generation
+	3. Consistency can take a hit (in the interest of availability) if user doesn't see a photo for a while, it should be fine
+	4. System should be highly reliable; any uploaded photo or video should never be lost
+3. **Not in scope**
+	1. Adding tags to photos
+	2. Searching photos on tags
+	3. Commenting on photos
+	4. Tagging users to photos
+	5. Who to follow
+	6. ...
 
 #### Some Design Considerations ####
+1. System would be read-heavy
+	1. We can focus on building system that can retrieve photos quickly
+2. Aspects:
+	1. Practically, users can upload as many photos as they like
+		1. Efficient management of storage is crucial factor in designing the system
+	2. Low latency is expected while viewing photos
+	3. Data should be 100% reliable. If user uploads a photo, system will guarantee that it will never be lost
 
 #### Capacity Estimation and Constraints ####
+1. Assuming we have 500M total users with 1M daily active users
+2. 2M new photos every day, 23 new photos every second
+3. Average photo file size => 200KB
+4. Total space required for 1 day of photos
+
+		2M * 200KB => 400 GB
+		
+5. Total space required for 10 years
+
+		400GB * 365 (days a year) * 10 (years) ~= 1425TB
 
 #### High Level System Design ####
 
