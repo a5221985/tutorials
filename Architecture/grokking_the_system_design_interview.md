@@ -326,8 +326,38 @@
 	1. Following 80-20 rule
 		1. 20% of pastes generates 80% of traffic
 			1. We need to cache 20% pastes (high demand)
+				1. 5M read requests per day are expected: We need to cache 10 GB of pastes
+
+						0.2 * 5 M * 10 KB = 10 GB
 
 #### System APIs ####
+1. SOAP or REST API can be used to expose the service
+2. Following could be the definitions for create/retrieve/delete:
+
+		addPaste(api_dev_key, paste_data, custom_url=None, user_name=None, paste_name=None, expire_date=None)
+		
+	1. Parameters:
+		1. `api_dev_key` (`string`): API developer key of registered account
+			1. Can be used to throttle users based on allocted quota
+		2. `paste_data` (`string`): Text data of paste
+		3. `custom_url` (`string`): Optional custom URL
+		4. `user_name` (`string`): Optional username to be used to generate URL
+		5. `paste_name` (`string`): Optional name of paste
+		6. `expire_date` (`string`): Optional expiration date for paste
+	2. Returns: (`string`)
+		1. Successful insertion returns URL through which paste can be accessed
+		2. On failure, returns error code
+3. Similarly: Retrieve API
+
+		getPaste(api_dev_key, api_paste_key)
+		
+	1. `api_paste_key` - string representing Paste Key of paste to be retrieved
+		1. API will return textual data of paste
+4. Similarly: Delete API
+
+		deletePaste(api_dev_key, api_paste_key)
+		
+	1. Successful deletion return `true`, else `false`
 
 #### Database Design ####
 
