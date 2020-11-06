@@ -292,6 +292,40 @@
 	3. Paste reads per second:
 	
 			5M / (24 hours * 3600 seconds) ~= 58 reads/ sec
+			
+3. **Storage estimates**: Users can upload max 10MB of data
+	1. Generally: source code, configs, logs (not huge texts)
+		1. Assuming each paste size = 10 KB
+	2. Total storage: 1M * 10 KB => 10 GB/day
+		1. ~ 36TB for 10 years
+			1. 3.6 billion pastes in 10 years
+	3. To generate and store unique keys for each paste
+		1. If base64 encoding is used: we might need 6 letters strings:
+		
+				64^6 ~= 68.7 billion unique strings ([A-Z, a-z, 0-9, ., -] - 26 + 26 + 10 + 1 + 1 = 64)
+				
+	4. If one byte is used to store 1 character: Total size required for 3.6B keys:
+
+			3.6B * 6 => 22 GB
+			
+		1. Negligible compared to 36TB
+			1. 70% capacity model is assumed to keep some margin (we don't want to use more than 70% of total storage capacity at any point)
+				1. => 51.4 TB
+4. **Bandwidth estimates**: 
+	1. For write requests, we expect 12 new pastes per second - 120 KB of ingress per second
+
+			12 * 10 KB => 120 KB/s
+			
+			
+	2. For read requests, we expect 58 requests per second. Total data egres (sent to users) will be 0.6 MB/s
+
+			58 * 10 KB => 0.6 MB/s
+			
+5. The ingress and egress are not big, the numbers can be kept in mind while designing service
+6. **Memory estimates**: Some of the hot pastes (frequently accessed ones) can be cached
+	1. Following 80-20 rule
+		1. 20% of pastes generates 80% of traffic
+			1. We need to cache 20% pastes (high demand)
 
 #### System APIs ####
 
