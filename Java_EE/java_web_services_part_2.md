@@ -887,7 +887,7 @@
 ### Some Refactoring ###
 
 ## Test the Application ##
-### Creaetion of Users and Roles ###
+### Creation of Users and Roles ###
 ### Launch the Application ###
 ### Authenticate and Receive the Token ###
 ### Access the REST Endpoints ###
