@@ -717,13 +717,60 @@
 		outProps.put(WSHandlerConstants.ACTION, "UsernameToken Encrypt");
 		...
 		outProps.put(WSHandlerConstants.ENCRYPTION_USER, "myservicekey"); // interceptor is used to retrieve the server's public key from keystore
+		outProps.put(WSHandlerConstants.ENC_PROP_FILE, "etc/clientKeyStore.properties"); // keystore info is stored here
 
 ### Creation of the Property File ###
+1. src/main/resources/etc/clientKeyStore.properties (editable text configuration) - client side
+
+		org.apache.ws.security.crypto.merlin.keystore.file=keystore/clientKeystore.jks
+		org.apache.ws.security.crypto.merlin.keystore.password=cspass
+		org.apache.ws.security.crypto.merlin.keystore.type=jks
+		org.apache.ws.security.crypto.merlin.keystore.alias=myclientkey # used to retrieve private key of client
+		
+2. More properties: wss4j configuration (in Google)
+
 ### Update the PasswordCallbackHandler ###
+1. PasswordCallbackHandler.java - on client side
+
+		public PasswordCallbackHandler() {
+			...
+			passwords.put("myclientkey", "ckpass");
+		}
+
 ### Add Decryption Action ###
+1. On server side
+2. sumws project
+	1. cxf-servlet.xml
+
+			<bean ...>
+				<constructor-arg>
+					<map>
+						<entry key="action" value="UsernameToken Encrypt"/>
+						...
+						<entry key="decryptionPropFile" value="etc/serviceKeystore.properties"/>
+						...
+
 ### Creation of the Property File ###
+1. Copy folder `etc` from client project and paste it under src/main/resources
+2. Rename it to serviceKeystore.properties
+
+		org.apache.ws.security.crypto.merlin.keystore.file=keystore/serviceKeystore.jks
+		org.apache.ws.security.crypto.merlin.keystore.password= sspass
+		org.apache.ws.security.crypto.merlin.keystore.type=jks
+		org.apache.ws.security.crypto.merlin.keystore.alias= myservicekey
+
 ### Update the PasswordCallbackHandler ###
+1. Set password: PasswordCallbackHandler.java
+
+		public PasswordCallbackHandler() {
+			...
+			passwords.put("myservicekey", "skpass");
+		} 
+
 ### Test Encryption and Decryption ###
+1. Run as maven install
+2. Right click on sumws -> Run as > Run on server
+
 ### Enable Encryption on the Server ###
 ### Enable Decryption on the Client ###
 
