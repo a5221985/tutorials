@@ -688,12 +688,36 @@
 		3. `keytool -genkey -keyalg RSA -sigalg SHA1withRSA -validity 600 -alias myclientkey -keypass ckpass -storepass cspass -keystore clientKeystore.jks -dname "cn=Bharath"`
 
 ### Export the Public Keys ###
-1. 
+1. `keytool -export -rfc -keystore clientKeystore.jks -storepass cspass -alias myclientkey -file MyClient.cer`
+2. `keytool -export -rfc -keystore serviceKeystore.jks -storepass sspass -alias myservicekey -file MyService.cer`
 
 ### Import the Certificates ###
+1. `keytool -import -trustcacerts -keystore serviceKeystore.jks -storepass sspass -alias myclientkey -file MyClient.cer -noprompt`
+	1. Certificate gets added
+2. `keytool -import -trustcacerts -keystore clientKeystore.jks -storepass cspass -alias myservicekey -file MyService.cer -noprompt`
+
 ### The Trustcacerts Flag ###
+1. `-trustcacerts` - needed because they are self signed
+	1. if not used, self signed certificates are rejected by keytool
+	2. flag tells - this certificate must be considered as a chain for certificates in `cacerts` of JDK (?)
+		1. `cacerts` has verisign signed certificates
+			1. Keytool checks cacerts which can be trusted and hence the import works
+
 ### Copy the Keystores to Projects ###
+1. Certificates can be deleted (keystores already have them)
+2. Project:
+	1. src/main/resources/keystore
+		1. paste server side keystore
+	2. src/main/resources/keystore
+		1. paste client side keystore
+
 ### Configure Encryption Action and Properties ###
+1. SumWSTest.java
+
+		outProps.put(WSHandlerConstants.ACTION, "UsernameToken Encrypt");
+		...
+		outProps.put(WSHandlerConstants.ENCRYPTION_USER, "myservicekey"); // interceptor is used to retrieve the server's public key from keystore
+
 ### Creation of the Property File ###
 ### Update the PasswordCallbackHandler ###
 ### Add Decryption Action ###
