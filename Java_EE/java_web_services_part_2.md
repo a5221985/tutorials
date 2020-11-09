@@ -653,13 +653,25 @@
 			3. `ou` - organization unit
 			4. `o` - organization
 			5. `c` - country
+3. `mykeystore.jks` file is generated
 
 ### Export the Public Certificate ###
+1. `keytool -export -rfc -keystore mykeystore.jks -storepass mystorepass -alias mykey -file MyCert.cer`
+	1. `rfc` - character stream (readable and not binary)
+		1. It can be imported into server keystore (the above is client's keystore)
+
 ### Quiz 3: Encryption and Decryption Concepts  ###
 
 ## WS Security - Confidentiality (Encryption/ Decryption) ##
 ### Steps to Enable Encryption ###
+1. Steps: Encryption and decryption
+	1. Add enryption action and properties (wss 4j interceptors need)
+	2. Creation of property file which has key store info
+	3. Update the PasswordCallback (using new username and password)
+
 ### Creation of the Key Pairs ###
+1. 
+
 ### Export the Public Keys ###
 ### Import the Certificates ###
 ### The Trustcacerts Flag ###
