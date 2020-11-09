@@ -770,6 +770,8 @@
 ### Test Encryption and Decryption ###
 1. Run as maven install
 2. Right click on sumws -> Run as > Run on server
+	1. Launches default link
+	2. Paste the link in browser
 
 ### Enable Encryption on the Server ###
 ### Enable Decryption on the Client ###
