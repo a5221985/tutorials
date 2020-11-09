@@ -634,8 +634,26 @@
 		1. keystore - public & private key are stored
 			1. password protected
 		2. For each private key we give an alias (username) and password
+			1. To access private key, we provide alias and password
+		3. public key can be exported into a certificate
+		4. certificate can be distributed accross applications
+			1. User can use public key and enrypt
+			2. Signature: public key is used to verify if signature is from the user
 
 ### Generate a Key Pair using the Keytool ###
+1. `keytool` - gives options
+	1. jdk../bin path must be in PATH
+2. Folder: `tempcerts`
+	1. Get info an path
+	2. `keytool`
+		1. GOogle for java keytool (oracle docs is good)
+		2. `keytool -genkeypair -alias mykey -keypass mykeypass -keystore mykeystore.jks -storepass mystorepass -validity 100 -dname "cn=bharath Thippireccy,ou=ws,o=Bharath Inc,c=US"` (days)
+			1. `-dname` user friendly readable info that will be displayed in browser or by other tools
+			2. `cn` - common name
+			3. `ou` - organization unit
+			4. `o` - organization
+			5. `c` - country
+
 ### Export the Public Certificate ###
 ### Quiz 3: Encryption and Decryption Concepts  ###
 
