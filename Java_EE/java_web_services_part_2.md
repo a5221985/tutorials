@@ -604,7 +604,33 @@
 
 ## Encryption and Decryption Concepts ##
 ### Confidentiality Introduction ###
+1. Confidentiality:
+	
+		EMart -------> Bharath Bank Payment Gateway
+		
+			Pirates of the Weberian (should not have access to actual message)
+			
+	1. Mathematical procedure is used to convert text to garbled text and back
+		1. Algorithm takes key as input + data to produce encrypted data
+			1. Even if algorithm is known, key is secret
+2. Two types
+	1. Symmetric encryption
+		1. single key is used by both
+			1. AES
+			2. Blowfish
+		2. Cons: If there are multiple users, a private key needs to be maintained per user (expensive)
+	2. Asymmetric encryption (public key)
+		1. public & private keys are generated (one pair on either side)
+			1. Only server side can be used
+		2. public key is used to encrypt
+			1. Shared with public
+		3. private key is used to decrypt
+			1. Even if public key is known, private key is required to do the decryption
+		4. Examples: RSA
+
 ### The Java Keytool ###
+1. 
+
 ### Generate a Key Pair using the Keytool ###
 ### Export the Public Certificate ###
 ### Quiz 3: Encryption and Decryption Concepts  ###
