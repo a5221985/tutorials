@@ -811,13 +811,21 @@
 	2. Run as > Run on server
 2. Run junit test on client SumWSTest
 	1. Fails - client is not decrypting
-3. Class:
+3. Class (client)
 
 		calculateSumShouldReturnAValidResult() {
 			...
 			
+			HashMap<String, Object> inProps = new HashMap<>();
+			inProps.put(WSHandlerConstants.ACTION, "Encrypt");
+			inProps.put(WSHandlerConstants.DEC_PROP_FILE, "etc/clientKeyStore.properties");
+			inProps.put(WSHandlerConstants.PW_CALLBACK_CLASS, PasswordCallbackHandler.class.getName()); // password is used to open keystore for private key
 			
 			WSS4JInInterceptor wssIn = new WSS4JInterceptor(inProps);
+			
+			endpoint.getInInterceptors().add(wssIn);
+			
+	1. Re-run test: It should pass
 
 ## WS Security - Integrity (Signatures) ##
 ### What are Signatures? ###
