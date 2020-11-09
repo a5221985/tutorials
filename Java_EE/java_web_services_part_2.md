@@ -829,7 +829,11 @@
 
 ## WS Security - Integrity (Signatures) ##
 ### What are Signatures? ###
-1. 
+1. Integrity - 
+	1. Data is not tampered on the way - done using signatures
+		1. Fixed length value obtained from message by applying an algorithm on it
+			1. Private key is used
+				1. It calculated Hash - sent along with message
 
 ### Configure Signature on the Client ###
 ### Run the Test and Verify the Signature ###
