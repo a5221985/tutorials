@@ -772,8 +772,20 @@
 2. Right click on sumws -> Run as > Run on server
 	1. Launches default link
 	2. Paste the link in browser
+3. Run SumWsTest (client)
+	1. Encrypts body of SOAP message
+4. Go to Tomcat console
+	1. Check inbound message
+		1. Cypher value
+		2. Key information
+
+### What just happened? ###
+1. 
 
 ### Enable Encryption on the Server ###
+1. cxf-servlet.xml
+	1. serviceKeystore.properties
+
 ### Enable Decryption on the Client ###
 
 ## WS Security - Integrity (Signatures) ##
