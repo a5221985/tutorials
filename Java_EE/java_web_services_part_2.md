@@ -670,9 +670,26 @@
 	3. Update the PasswordCallback (using new username and password)
 
 ### Creation of the Key Pairs ###
-1. 
+1. This step is required for both client side and service side
+2. Steps for creation of keys:
+	1. Generate the key pairs for the provider and client (private and public keys)
+	2. Export the public keys in to certificate files
+	3. Import the certificates in to alternate keystores
+		1. Public key of provider into client keystore
+		2. Public key of client into provider keystore
+			1. provider encrypts using public key of client
+			2. client decrypts using it's own private key
+			3. ...
+3. New folder
+	1. `certs`
+		1. Go to the folder
+		2. `keytool -genkey -keyalg RSA -sigalg SHA1withRSA -validity 600 -alias myservicekey -keypass skpass -storepass sspass -keystore serviceKeystore.jks -dname "cn=Bharath"`
+			1. Server side keystore
+		3. `keytool -genkey -keyalg RSA -sigalg SHA1withRSA -validity 600 -alias myclientkey -keypass ckpass -storepass cspass -keystore clientKeystore.jks -dname "cn=Bharath"`
 
 ### Export the Public Keys ###
+1. 
+
 ### Import the Certificates ###
 ### The Trustcacerts Flag ###
 ### Copy the Keystores to Projects ###
