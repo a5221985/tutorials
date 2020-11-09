@@ -632,7 +632,7 @@
 ### Designing an API Rate Limiter ###
 ### Designing Twitter Search ###
 ### Designing a Web Crawler ###
-### Designig Facebook's Newsfeed ###
+### Designing Facebook's Newsfeed ###
 ### Designing Yelp or Nearby Friends ###
 ### Designing Uber Backend ###
 ### Design Ticketmaster ###
