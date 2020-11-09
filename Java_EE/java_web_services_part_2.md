@@ -780,13 +780,44 @@
 		2. Key information
 
 ### What just happened? ###
-1. 
+1. Interceptor uses encryption user to fetch public key (using properties)
+2. public key is used to encrypt
+3. On server side ation Encrypt also does decryption
+4. On server side, decryption
+	1. Uses password to open keystore
+	2. Gets private key and decrypts
 
 ### Enable Encryption on the Server ###
-1. cxf-servlet.xml
-	1. serviceKeystore.properties
+1. Same steps as in client
+2. cxf-servlet.xml
+
+		<jaxws:outInterceptors>
+			<bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+				<constructor-arg>
+					<map>
+						<entry key="action" value="Encrypt"/>
+						<entry key="passwordType" value="PasswordText"/>
+						<entry key="passwordCallbackRef" value="myPasswordCallback"/> <!-- for keystore password info -->
+						<entry key="encryptionProperties" value="etc/serviceKeystore.properties"/>
+						<entry key="encryptionUser" value="myClientKey"/> <!-- client alias because we need public key of client -->
+					</map>
+				</constructor-arg>
+			</bean>
+		</jaxws:outInterceptors>
 
 ### Enable Decryption on the Client ###
+1. Run server side application:
+	1. `mvn install`
+	2. Run as > Run on server
+2. Run junit test on client SumWSTest
+	1. Fails - client is not decrypting
+3. Class:
+
+		calculateSumShouldReturnAValidResult() {
+			...
+			
+			
+			WSS4JInInterceptor wssIn = new WSS4JInterceptor(inProps);
 
 ## WS Security - Integrity (Signatures) ##
 ### What are Signatures? ###
