@@ -629,7 +629,11 @@
 		4. Examples: RSA
 
 ### The Java Keytool ###
-1. 
+1. Keytool
+	1. Key and certificate management utility
+		1. keystore - public & private key are stored
+			1. password protected
+		2. For each private key we give an alias (username) and password
 
 ### Generate a Key Pair using the Keytool ###
 ### Export the Public Certificate ###
