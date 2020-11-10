@@ -1225,9 +1225,33 @@
 
 ## Creation of the Authorization Server and Resource Server ##
 ### Creation of the WebSecurityConfiguration ###
-1. 
+1. Configuration
+	1. Java based security configuration
+	2. Override methods
+2. com.bharath.oauth.config.WebSecurityConfiguration
+
+		@Configuration
+		@EnableWebSecurity
+		public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+			
+			@Override
+			protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+				auth.userDetailsService(userDeatilsService);
+			}
+			
+		}
 
 ### Creation of User of the UserDetailsService ###
+1. UserDetailsService uses Repository to retrieve the user details
+2. com.bharath.oauth.config.CustomUserDetailsService
+
+		public class CustomUserDetailsService implements UserDetailsService {
+			@Override
+			public UserDetails loadUserByUsername(String arg0) throws UsernameNotFoundException {
+			
+			}
+		}
+
 ### Expose the AuthenticationManager Bean ###
 ### Creation of the AuthorizationServerConfiguration ###
 ### Configure the Services ###
