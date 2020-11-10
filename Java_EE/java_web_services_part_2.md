@@ -1493,9 +1493,37 @@
 1. Download zip file from resources: https://www.udemy.com/course/javawebservicespart2/learn/lecture/7225456#content
 2. Import in STS
 3. Web service exposes patient data
+	1. JaxRS is used
+	2. `cxf-servlet.xml` - spring config
+		1. ws resource
+			1. providers
+		2. endpoints
+			1. jax-rs
+4. localhost:8080/restws/services
+	1. Json response is expected
 
 ### Step 1 - Add Maven Dependency ###
+1. pom.xml
+2. Search for cxf swagger maven dependency
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-service-description-swagger</artifactId>
+			<version>3.1.11</version>
+		</dependency>
+
 ### Step 2 - Configure the Swagger CXF Feature ###
+1. cxf-servlet.xml
+
+		<bean id="swaggerFeature" class="org.apache.cxf.jaxrs.swagger.Swagger2Feature"> <!-- command + shift + t for class -->
+			<property name="resourcePackage" value="com.bharaththippireddy.trainings.jaxrs"/> <!-- search for cxf swagger feature - apache docs : tells packages to be scanned for REST resources-->
+		</bean>
+		<jaxrs:server ...>
+			...
+			<jaxrs:features>
+				<ref bean="swaggerFeature"/>
+			</jaxrs:features>
+
 ### Step 3 - Use the Swagger API ###
 ### Swagger in Action ###
 ### Enable Swagger UI ###
