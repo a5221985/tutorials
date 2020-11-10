@@ -916,17 +916,44 @@
 1. SumWsTest.java (client side)
 
 		outProps.put(..ACTION, "UsernamToken ... Timestamp");
+		...
+		inProps.put(..ACTION, "... Timestamp"); // for incoming messages
 		
 2. cxf-servlet.xml (server side)
 
+		<jaxws:inInterceptors>
+			...
+			<entry key="action" value="... Timestamp"/>
+			
+		<jaxws:outInterceptors>
+			...
+			<entry key="action" value="... Timestamp"/> <!-- for protection of client -->
+
 ### Run a Test ###
+1. Start the server
+2. Run SumWsTest.java
+	1. Switch to tomcat console
+	2. Copy inbound soap message
+
+			<wsse:Security>
+				...
+				<wsu:Timestamp ...>
+					...
+
 ### Time to Live ###
+1. SumWsTest.java
+
+		outProps.put("timeToLive", "30"); // 30 seconds
+		
+	1. Run the test
+		1. Copy the inbound message
+
 ### Quiz 5: Timestamp ###
 
 ## Securing Parts of the Message ##
 ### Introduction ###
 ### Encrypt the Signature Part on the Client ###
-### Enrrypt the Signature Part on the Provider and Test ###
+### Encrypt the Signature Part on the Provider and Test ###
 ### use Timestamp Part in the Signature ###
 ### Download the Complicated Projects ###
 
