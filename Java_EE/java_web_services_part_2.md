@@ -897,9 +897,28 @@
 
 ## WS Security - Non Repudiation (Timestamp) ##
 ### What is Timestamp? ###
-1. 
+1. Replay attack -
+	1. Hacker gets hold of message
+	2. Hacker replays as many times as he wants (used to crash)
+2. Solution:
+	1. Using timestamp in `<wsse:Security>`
+
+			<wsse:Security>
+				<wsu:Timestamp>
+					<wsu:Created>2017-01-12T10:02:24.547Z</wsu:Created>
+					<wsu:Expires>2017-01-12T10:02:54.547Z</wsu:Expires> <!-- Time to live is 30 seconds -->
+				</wsu:Timestamp>
+			</wsse:Security>
+			
+		1. If server receives the message after it is expired, server rejects it
 
 ### Enable Timestamp on the Client and Provider ###
+1. SumWsTest.java (client side)
+
+		outProps.put(..ACTION, "UsernamToken ... Timestamp");
+		
+2. cxf-servlet.xml (server side)
+
 ### Run a Test ###
 ### Time to Live ###
 ### Quiz 5: Timestamp ###
