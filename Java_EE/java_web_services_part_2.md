@@ -1322,22 +1322,53 @@
 				return tokenServices;
 			}
 		}
-
-### Configure the ResourceId ###
-1. Client information: configuration of all clients that are going to access the REST API
+		
+2. Client information: configuration of all clients that are going to access the REST API
 
 		@Override
 		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 			clients.inMemory().withClient("myClientapp").authorizationGrantType("password", "refresh_token").scopes("read", "write").secret("9999"); // unique id for client, permissions granted to the scopes
 		}
 
-### Creation of the ResourceServerConfiguration ###
+### Configure the ResourceId ###
 1. Resource ID:
 
-		clients.inMemory(). ... .resourcesIds(RESOURCE_ID);
+		private static final String RESOURCE_ID = "myrestservice"; // same resource id must be used in resource server (unique resource id)
+		...
+		clients.inMemory(). ... .resourcesIds(RESOURCE_ID); // we can have a list
+		// remove super.confugure...
+
+### Creation of the ResourceServerConfiguration ###
+1. Extend ResourceServerConfigurerAdapter
+2. Steps:
+	1. Configure resource_id
+	2. Configure map roles
+3. Configuration: com.bharath.oauth.config.ResourceServerConfiguration
+
+		@Configuration
+		@EnableResourceServer
+		public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
+		
+			private static final String RESOURCE_ID = "myrestservice";
+		
+			@Override
+			public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+				resources.resourceId(RESOURCE_ID); // what resource should be secured
+			}
+			
+		}
 
 ### Map the Roles to REST URIs ###
+1. ResourceServerConfiguration
+
+		@Override
+		public void configure(HttpSecurity http) throws Exception {
+			http.authorizeRequests().antMatchers("/admin/*").hasRole("ADMIN").antMatchers("/hello/*").authenticated(); // url pattern of one of the controllers, only user with Admin role can access this URL, if user is authenticated, hello can be accessed
+		}
+
 ### Change the Spring Security Filter Order ###
+1. 
+
 ### Some Refactoring ###
 
 ## Test the Application ##
