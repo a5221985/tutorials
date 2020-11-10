@@ -1072,8 +1072,51 @@
 		1. Web
 		2. JPA
 		3. HSQLDB
+		4. Security
+			1. Uses data from database
+
+### UPDATE - Latest Spring Boot and OAUTH Dependency ###
+1. Use latest version of Boot 2.x
+2. OAuth - It is not longer part of group id: (google for it)
+
+		<dependency>
+			<groupId>org.springframework.security.oauth.boot</groupId>
+			<artifactId>spring-security-oauth2-autoconfigure</artifactId> <!-- autoconfiguration -->
+			<version>2.2.4.RELEASE</version> <!-- needs to be specified -->
+		</dependency>
 
 ### Creation of the Controllers ###
+1. Controllers - 3
+	1. Home
+	2. User
+	3. Admin
+2. Home:
+	1. src/main/java
+		1. com.bharath.oauth.controller
+		2. HomeController
+
+				@RestController
+				public class HomeController {
+				
+					@RequestMapping("/")
+					public String home() {
+						return "Home Page";
+					}
+					
+				}
+				
+		3. UserController
+
+				@RestController
+				public class UserController {
+				
+					@RequestMapping("/hello/{name}")
+					public String hello(String name) {
+						return "Hello " + name;
+					}
+					
+				}
+
 ### Run the Application ###
 
 ## Loading Users and Roles ##
