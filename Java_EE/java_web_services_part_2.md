@@ -1187,14 +1187,33 @@
 		}
 
 ### Define the JPA Relationships ###
-1. Roles
+1. Roles: User.java
 
 		@ManyToMany
-		@JoinTable
+		@JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "role_id")}) // two columns which map user to multiple roles and role to multiple users
 		private Set<Role> roles;
+		
+2. UserRole.java
+
+		@ManyToMany(mappedBy = "roles") // already defined in User, roles is attribute of mapping class
+		Set<User> users;
 
 ### Implement the GrantAuthority Interface ###
+1. Role class
+
+		public class Role implements GrantedAuthority {
+			...
+			@Override
+			public String getAuthority() {
+				return name; // role is returned
+			}
+		}
+		
+	1. Returns authority back
+	2. Used to check what role the user has
+
 ### Creation of the UserRepository ###
+1. UserRepository > `findUserByName` - used to fetch user
 
 ## Creation of the Authorization Server and Resource Server ##
 ### Creation of the WebSecurityConfiguration ###
