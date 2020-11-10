@@ -1579,3 +1579,5 @@
 	3. [Gradle for Java Developers](https://www.udemy.com/course/gradle-for-java-developers/?couponCode=ED248E4ECAC86EB53D73)
 	4. [Node JS Made Easy for MEAN and MERN Stack](https://www.udemy.com/course/nodejs-in-easy-steps/?couponCode=E84987A584AA2A34CCDA)
 	5. [Devops Tools and AWS for Java Microservices Develoeprs](https://www.udemy.com/course/devops-tools-and-aws-for-java-microservice-developers/?couponCode=3F04B0ED37636EA46379)
+10. Other Courses:
+	1. [Other Courses](https://www.udemy.com/course/javawebservicespart2/learn/lecture/7870850#content)
