@@ -1446,7 +1446,20 @@
 		Headers: Authorization - Bearer <new-token>
 
 ### Debug and Step Through the Application ###
-
+1. Add breakpoints in configuration methods
+2. Add breakpoints in controller methods
+3. Add breakpoints in services class
+4. Run in debug mode - ignore the errors
+5. Breakpoints order:
+	1. authenticationManagerBean
+	2. configure(AuthorizationServerEndpointsConfigurer ...)
+	3. configure(ClientDetailsServiceConfigurer ...)
+	4. tokenServices(...)
+	5. configure(REsourceServerSecurityConfigurer ...)
+	6. configure(HttpSecurity http)
+	7. configure(AuthenticationManagerBuilder auth)
+6. Hit send from postman:
+	1. loadUserByUsername(...)
 
 ## Swagger Quick Start ##
 ### Introduction ###
