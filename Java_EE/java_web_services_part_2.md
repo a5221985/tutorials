@@ -957,7 +957,31 @@
 	1. It can be tampered so that message is lost (mischief)
 
 ### Encrypt the Signature Part on the Client ###
+1. SumWsTest.java
+
+		outProps.put(WSHandlerConstants.ACTION, "UsernameToken Signature Encrypt Timestamp"); // switch Signature and Encrypt
+		...
+		outProps.put(WSHandlerConstants.ENCRYPTION_PARTS, "{Element}{http://www.w3.org/2000/09/xmldsig#}Signature;{Content}{http://schemas.xmlsoap.org/soap/envelope/}Body"); // which parts we want encrypted, seach of soap in soap:Body
+		
+	1. `Element`: an element
+	2. `Content`: only content of element
+	3. We have to provide complete namespace
+	4. Only the items explicitly mentioned are encrypted (no default)
+
 ### Encrypt the Signature Part on the Provider and Test ###
+1. Service side
+2. cxf-servlet.xml
+
+		<jaxws:outInterceptors>
+			...
+			<entry key="action" value="Signature Encrypt Timestamp"/>
+			...
+			<entry key="encryptionParts" value="{Element}{http://www.w3.org/2000/09/xmldsig#}Signature;{Content}{http://schemas.xmlsoap.org/soap/envelope/}Body"/>
+			
+	1. Restart server
+3. Run `SumWsTest.java`
+4. Go to Tomcat console: Check inbound and outbound messages
+
 ### use Timestamp Part in the Signature ###
 ### Download the Complicated Projects ###
 
