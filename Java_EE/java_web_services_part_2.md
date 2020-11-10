@@ -1148,6 +1148,7 @@
 			private Integer id;
 			private String name;
 			private String password;
+			private Set<Role> roles; // many-to-many
 			
 			// Getters and setters
 		}
@@ -1157,15 +1158,41 @@
 		public class UserRole {
 			private Integer id;
 			private String name;
-			private Set<User> users;
+			private Set<User> users; // many-to-many
 			
 			// Getters and setters
 		}
-		
-	1. 
 
 ### Mark Entities with JPA Annotations ###
+1. Annotations:
+
+		@Entity
+		public class User {
+			@Id
+			private Integer id;
+			@NotEmpty
+			private String name;
+			@NotEmpty
+			private Set<Role> roles;
+			...
+		}
+		
+		@Entity
+		public class UserRole {
+			@Id
+			private Integer id;
+			@NotEmpty
+			private String name;
+			...
+		}
+
 ### Define the JPA Relationships ###
+1. Roles
+
+		@ManyToMany
+		@JoinTable
+		private Set<Role> roles;
+
 ### Implement the GrantAuthority Interface ###
 ### Creation of the UserRepository ###
 
