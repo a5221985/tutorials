@@ -1565,3 +1565,17 @@
 
 ## Wrap Up ##
 ### Bonus Lecture ###
+1. [http://www.bharaththippireddy.com](http://www.bharaththippireddy.com)
+2. [LinkedIn](https://www.linkedin.com/in/thippireddybharath/)
+3. [Facebook](https://business.facebook.com/Bharath-Thippireddy-Net-114548718634098)
+4. [YouTube](https://www.youtube.com/thippireddybharath)
+5. [Instagram](https://www.instagram.com/bharaththippireddy)
+6. [Spring Boot Project Development using Angular and React](https://www.youtube.com/watch?v=gTXdtAufHS4)
+7. [Complete Python Stack from core Python to Django REST Framework](https://www.youtube.com/watch?v=o7vlmB_jxzo)
+8. [Angular and React Project Creation with Java or Node Backend](https://www.youtube.com/watch?v=ohMkKFkq5c8)
+9. Discounted courses:
+	1. [Spring Security Fundamentals](https://www.udemy.com/course/spring-security-fundamentals/?couponCode=BFF3DC21203A37B54F84)
+	2. [Yoga for Beginners](https://www.udemy.com/course/yoga-for-beginners-mind-body-spirit/?couponCode=DCF1A32F40066CC901F4)
+	3. [Gradle for Java Developers](https://www.udemy.com/course/gradle-for-java-developers/?couponCode=ED248E4ECAC86EB53D73)
+	4. [Node JS Made Easy for MEAN and MERN Stack](https://www.udemy.com/course/nodejs-in-easy-steps/?couponCode=E84987A584AA2A34CCDA)
+	5. [Devops Tools and AWS for Java Microservices Develoeprs](https://www.udemy.com/course/devops-tools-and-aws-for-java-microservice-developers/?couponCode=3F04B0ED37636EA46379)
