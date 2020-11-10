@@ -1367,12 +1367,27 @@
 		}
 
 ### Change the Spring Security Filter Order ###
-1. 
+1. Recent versions:
+2. application.properties (else there is a problem with ordering)
+
+		security.oauth2.resource.filter-order=3
 
 ### Some Refactoring ###
+1. User.java
+
+		@ManyToMany(fetch = FetchType.EAGER) // fetched when application loads
+		...
+		
+2. Move CustomUserDetailsService.java to com.bharath.oauth.services
 
 ## Test the Application ##
 ### Creation of Users and Roles ###
+1. Download sql.zip folder from https://www.udemy.com/course/javawebservicespart2/learn/lecture/8000440#content
+	1. import.sql and paste it in src/main/resources (tables are automatically created)
+
+### UPDATE - Configure PasswordEncoder ###
+1. 
+
 ### Launch the Application ###
 ### Authenticate and Receive the Token ###
 ### Access the REST Endpoints ###
