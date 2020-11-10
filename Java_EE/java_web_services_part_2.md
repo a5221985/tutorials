@@ -864,13 +864,41 @@
 ### Configure to Check for Signature on the Server ###
 1. Right click on server: Restart
 2. SumWsTest.java - Run the test
+3. Go to tomcat console
+	1. Open payload
+
+			<wsse:Security
+				...
+				<ds:SignedInfo>
+					...
+					<ds:SignatureValue>signature</ds:SignatureValue>
+					<ds:KeyInfo ...>
 
 ### Sign the Message on the Server ###
+1. cxf-servlet.xml
+
+		<jaxws:outInterceptor>
+			...
+			<entry key="action" value="Enrypt Signature"/>
+			...
+			<entry key="signaturePropFile" value="etc/serviceKeystore.properties"/>
+			<entry key="signatureUser" value="myservicekey"/>
+
 ### Verify the Signature on the Client ###
+1. SumWsTest.java
+
+		inProps.put(WSHandlerConstants.ACTION, "Encrypt Signature");
+		...
+		inProps.put(WSHandlerConstants.SIG_PROP_FILE", "etc/clientKeyStore.properties"); // public key of server is pulled from here
+2. Run the JUnit test
+3. Copy outbound message	
+
 ### Quiz 4: Integrity ###
 
 ## WS Security - Non Repudiation (Timestamp) ##
 ### What is Timestamp? ###
+1. 
+
 ### Enable Timestamp on the Client and Provider ###
 ### Run a Test ###
 ### Time to Live ###
