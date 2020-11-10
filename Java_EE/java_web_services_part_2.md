@@ -1460,9 +1460,12 @@
 	7. configure(AuthenticationManagerBuilder auth)
 6. Hit send from postman:
 	1. loadUserByUsername(...)
+	2. hell(...)
 
 ## Swagger Quick Start ##
 ### Introduction ###
+1. 
+
 ### CXF Swagger Feature ###
 ### Swagger Java Annotations ###
 ### Download and Import the Project ###
