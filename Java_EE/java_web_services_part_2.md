@@ -981,9 +981,28 @@
 	1. Restart server
 3. Run `SumWsTest.java`
 4. Go to Tomcat console: Check inbound and outbound messages
+	1. Signature element is replaced with CipherValues
+		1. For body <soap:Body ...> exists (only content is encrypted) 
 
 ### use Timestamp Part in the Signature ###
-### Download the Complicated Projects ###
+1. Signature signs body by default
+2. Including timestamp (hacker can change the timestamp) - signing it will validate it
+3. SumWsTest.java
+
+		outProps.put(WSHandlerConstants.SIGNATURE_PARTS, "UsernameToken Timestamp Signature Encrypt"); // Order matters. Operations are applied in the order specified
+		...
+		outProps.put(WSHandlerConstants.SIGNATURE_PARTS, "{Element}{<wsu-namespace>}Timestamp;{Element}{<soap-namespace>}Body");
+		
+4. cxf-servlet.xml
+
+		<jaxws:outInterceptors>
+			...
+			<entry key="signatureParts" value="Timestamp Signature Encrypt"/> <!-- Order matters! -->
+			...
+			<entry key="signatureParts" value="{Element}{<wsu-namespace>}Timestamp;{Element}{<soap-namespace>}Body"/>
+			
+5. Restart server
+6. Run the test
 
 ## Implement OAuth 2 Security for REST Using Spring Boot ##
 ### OAUTH Concepts ###
