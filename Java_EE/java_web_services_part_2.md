@@ -1142,6 +1142,28 @@
 
 ## Loading Users and Roles ##
 ### Creation of the User and Role Entities ###
+1. New class: oauth.data.entities.User
+
+		public class User {
+			private Integer id;
+			private String name;
+			private String password;
+			
+			// Getters and setters
+		}
+		
+2. oauth.data.entities.UserRole
+		
+		public class UserRole {
+			private Integer id;
+			private String name;
+			private Set<User> users;
+			
+			// Getters and setters
+		}
+		
+	1. 
+
 ### Mark Entities with JPA Annotations ###
 ### Define the JPA Relationships ###
 ### Implement the GrantAuthority Interface ###
@@ -1149,7 +1171,7 @@
 
 ## Creation of the Authorization Server and Resource Server ##
 ### Creation of the WebSecurityConfiguration ###
-### Creation and User of the UserDetailsService ###
+### Creation of User of the UserDetailsService ###
 ### Expose the AuthenticationManager Bean ###
 ### Creation of the AuthorizationServerConfiguration ###
 ### Configure the Services ###
