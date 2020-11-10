@@ -1464,11 +1464,36 @@
 
 ## Swagger Quick Start ##
 ### Introduction ###
-1. 
+1. What is Swagger? Why do we need it?
+2. It is a standard way to document RESTful web services
+	1. JSON/YAML format document
+	2. The document can be generated from source code
+	3. The dodument can be hand written (but need to be very good at swagger spec) - useful to generate code for different languages (when starting up a project)
+		1. **Swagger Editor** can be used (handy)
+3. Search for Swgger Specification
+	1. It defines all elements that can go into a document
+		1. Open API Specification (Swagger is an implementation)
+	2. Swagger UI:
+		1. It is generated from swagger spec document (on the fly) using HTML/CSS/JS
+4. Swagger codegen - Generate client code and server code
+5. This is similar to WSDL file
 
 ### CXF Swagger Feature ###
+1. Search for CXF Swagger:
+	1. Apache CXF Swagger2Feature:
+		1. Follow the steps (Spring config is used here)
+
 ### Swagger Java Annotations ###
+1. Search for Swagger Java Annotations
+	1. Annotations 1.5.X ...
+		1. Quick Annotation Overview
+			1. `@Api` - Marks a class as a Swagger resource
+
 ### Download and Import the Project ###
+1. Download zip file from resources: https://www.udemy.com/course/javawebservicespart2/learn/lecture/7225456#content
+2. Import in STS
+3. Web service exposes patient data
+
 ### Step 1 - Add Maven Dependency ###
 ### Step 2 - Configure the Swagger CXF Feature ###
 ### Step 3 - Use the Swagger API ###
