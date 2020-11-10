@@ -1386,10 +1386,35 @@
 	1. import.sql and paste it in src/main/resources (tables are automatically created)
 
 ### UPDATE - Configure PasswordEncoder ###
-1. 
+1. 2.x
+2. All passwords should be encoded
+3. AuthorizationServerConfiguration
+
+		.secret(passwordEncoder().encode("9999")).
+		...
+		@Bean
+		public BCryptPasswordEncoder passwordEncoder() { //Mandatory, Bean uses this to encode password and compare 
+			return new BCryptPasswordEncoder();
+		}
+		
+	1. Secrets should also be encoded (not plain text)
 
 ### Launch the Application ###
+1. Go to .m2 folder
+	1. Delete the repository within
+2. Right click > Run as > Maven clean
+3. Right click > Run as > Maven install (no outdated dependencies)
+4. Play > autoDemo
+
 ### Authenticate and Receive the Token ###
+1. Start testing OAuth application
+2. Open postman
+
+		POST: http://localhost:8080/oauth/token (automatically exposed here)
+		Authorization: Basic Auth
+		username: myclientapp
+		password: 9999
+
 ### Access the REST Endpoints ###
 ### Debug and Step Through the Application ###
 
