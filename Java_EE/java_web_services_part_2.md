@@ -1246,15 +1246,53 @@
 2. com.bharath.oauth.config.CustomUserDetailsService
 
 		public class CustomUserDetailsService implements UserDetailsService {
+			@Autowired
+			UserRepository userRepository;
+		
 			@Override
-			public UserDetails loadUserByUsername(String arg0) throws UsernameNotFoundException {
-			
+			public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+				User user = userRepository.findByName(name);
+				return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), user.getRoles()); // Spring knows how to use this object
+			}
+		}
+		
+3. Injection into WebSecurityConfiguration
+
+		@Autowired
+		CustomUserDetailsService userDetailsService;
+		...
+			auth.userDetailsService(userDetailsService);
+
+### Expose the AuthenticationManager Bean ###
+1. WebSecurityConfiguration
+
+		...
+		@Bean // exposes returned object as a bean
+		@Override
+		public AuthenticationManager authenticationManagerBean() throws Exception {
+			return super.authenticationManagerBean();
+		}
+
+### Creation of the AuthorizationServerConfiguration ###
+1. AuthorizationServer - key piece (Extends AuthorizationServerConfiguration adapter)
+	1. Configure
+		1. TokenStore
+		2. AuthenticationManager
+		3. UserDetailsService
+2. com.bharath.oauth.config.AuthorizationServerConfiguration
+
+		@Configuration
+		@EnableAuthorizationServer
+		public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter { // need dependency
+			@Override
+			configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+				super.configure(endpoints);
 			}
 		}
 
-### Expose the AuthenticationManager Bean ###
-### Creation of the AuthorizationServerConfiguration ###
 ### Configure the Services ###
+1. 
+
 ### Creation and Exposure of the TokenServices Bean ###
 ### Configure the ResourceId ###
 ### Creation of the ResourceServerConfiguration ###
