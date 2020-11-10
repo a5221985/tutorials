@@ -1536,9 +1536,29 @@
 ### Swagger in Action ###
 1. Run application on server: Run as > Maven clean, Run as > Maven Install
 2. Right click > Run as > Run on server
+3. Grab url and open in browser: localhost:8080/restws/services
+	1. Swagger url is shown instead of 
+		1. Click on the link - JSON spec is generated
+			1. Uses default values
+4. Swagger UI - can be used to interact with Web Application
 
 ### Enable Swagger UI ###
+1. Add maven dependency: Automatically generates UI
+	1. Search for swagger ui maven dependency
+		1. Use latest version
+
+				<dependency>
+					<groupId>org.webjars</groupId>
+					<artifactId>swagger-ui</artifactId>
+					<version>3.0.10</version>
+				</dependency>
+				
+2. Re run the application: Run on server
+3. localhost:8080/restws/services
+	1. Click on the link - UI
+
 ### CRUD Using Swagger UI ###
+1. Go to endpoint: patients (in mem database)
 
 ## Wrap Up ##
 ### Bonus Lecture ###
