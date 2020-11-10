@@ -1111,13 +1111,34 @@
 				public class UserController {
 				
 					@RequestMapping("/hello/{name}")
-					public String hello(String name) {
+					public String hello(@PathVariable("name") String name) {
+						return "Hello " + name;
+					}
+					
+				}
+
+		4. AdminController
+
+				@RestController
+				public class AdminController {
+				
+					@RequestMapping("/admin")
+					public String hello(@PathVariable("name") String name) {
 						return "Hello " + name;
 					}
 					
 				}
 
 ### Run the Application ###
+1. Run as Spring Boot Application
+2. Spring Boot enables basic authentication by default:
+	1. Password is generated (copy it)
+	2. Username: user
+3. Launch: localhost:8080
+	1. username: user
+	2. password: paste password copied
+	3. localhost:8080/hello/Bharath
+	4. localhost:8080/admin
 
 ## Loading Users and Roles ##
 ### Creation of the User and Role Entities ###
