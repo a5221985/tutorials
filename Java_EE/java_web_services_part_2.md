@@ -1214,9 +1214,19 @@
 
 ### Creation of the UserRepository ###
 1. UserRepository > `findUserByName` - used to fetch user
+	1. Used by `CustomUserService`
+	2. This is in turn used by `CustomUserDetailsService`
+	3. This is used by `AuthorityServer`
+2. com.bharath.oauth.data.repositories.UserRepository (Implement CRUDRepository)
+
+		public interface UserRepository extends CrudRepository<User, Integer> {
+			User findByName(String name);
+		}
 
 ## Creation of the Authorization Server and Resource Server ##
 ### Creation of the WebSecurityConfiguration ###
+1. 
+
 ### Creation of User of the UserDetailsService ###
 ### Expose the AuthenticationManager Bean ###
 ### Creation of the AuthorizationServerConfiguration ###
