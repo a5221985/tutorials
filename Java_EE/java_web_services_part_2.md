@@ -1012,9 +1012,42 @@
 		2. **Google oauth playground**
 
 ### OAUTH in REST ###
-1. 
+1. Application authenticates against another application
+2. Mobile application authenticates against another application
+3. Apps authenticate with Authorization server (instead of with services)
+	1. Authorization server
+		1. Configured
+		2. One instance
+		3. It knows about all the access details
+			1. Usernames
+			2. Passwords
+			3. Roles
+4. Authorization server returns a token based on authentication success
+5. App sends request along with token to app server
+	1. App server has resource server
+		1. Resource server communicates with authorization server to ensure that the token is valid and it has appropriate roles to access application server
+6. Each application server has its own resource server
 
 ### What are you going to create? ###
+1. Three RESTful endpoints
+2. OAuth security
+	1. Configure DB entities
+		1. User
+		2. Roles
+		3. In-memory hsql db
+		4. Repository that can load user by name
+	2. Configure OAuth for the application
+		1. WebSecurityConfiguration
+		2. AuthorizationServerConfiguration - for receiving username and password from end client and generates a token
+		3. ResourceServer - Used when clients communicate with token
+			1. It is for communicating with authorization server to verify that the token is okay & user has appropriate roles to access the resources
+	3. Test our application:
+		1. Use PostMan
+
+				localhost:8080/oauth/token # for authorization server
+				
+				
+
 ### Install Spring Tool Suite ###
 ### Configure JDK in STS ###
 ### Install Postman ###
