@@ -1559,6 +1559,9 @@
 
 ### CRUD Using Swagger UI ###
 1. Go to endpoint: patients (in mem database)
+	1. Enter id:
+		1. Execute
+	2. Can also modify body and pass
 
 ## Wrap Up ##
 ### Bonus Lecture ###
