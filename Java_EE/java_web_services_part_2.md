@@ -1006,7 +1006,14 @@
 
 ## Implement OAuth 2 Security for REST Using Spring Boot ##
 ### OAUTH Concepts ###
+1. Concepts:
+	1. Java Web Services Part I - concepts are explained
+		1. Why and when to and not to use oauth
+		2. **Google oauth playground**
+
 ### OAUTH in REST ###
+1. 
+
 ### What are you going to create? ###
 ### Install Spring Tool Suite ###
 ### Configure JDK in STS ###
