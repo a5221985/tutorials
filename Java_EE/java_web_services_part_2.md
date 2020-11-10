@@ -1291,11 +1291,51 @@
 		}
 
 ### Configure the Services ###
-1. 
+1. com.bharath.oauth.config.AuthorizationServerConfiguration
+
+		TokenStore tokenStore = new InMemoryTokenStore();
+		
+		@Autowired
+		@Qualifier("authenticationManagerBean") // exposed used this name
+		AuthenticationManager authenticationManager;
+		
+		@Autowired
+		UserDetailsService userDetailsService;
+		
+		@Override
+		public void configure(...) throws Exception {
+			endpoints.tokenStore(tokenStore).authenticationManager(authenticationManager).userDetailsService(userDetailsService);
+		}
+
+		endpoints.tokenStore(tokenStore);
 
 ### Creation and Exposure of the TokenServices Bean ###
+1. TokenServices Bean:
+
+		@Bean
+		@Primary // service used as primary instead of Spring's internal one
+		public class AuthorizationServerConfiguration ... {
+			...
+			public DefaultTokenServices tokenServices() {
+				DefaultTokenServices tokenServices = new DefaultTokenServices();
+				tokenServices.setTokenStore(this.tokenStore);
+				return tokenServices;
+			}
+		}
+
 ### Configure the ResourceId ###
+1. Client information: configuration of all clients that are going to access the REST API
+
+		@Override
+		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+			clients.inMemory().withClient("myClientapp").authorizationGrantType("password", "refresh_token").scopes("read", "write").secret("9999"); // unique id for client, permissions granted to the scopes
+		}
+
 ### Creation of the ResourceServerConfiguration ###
+1. Resource ID:
+
+		clients.inMemory(). ... .resourcesIds(RESOURCE_ID);
+
 ### Map the Roles to REST URIs ###
 ### Change the Spring Security Filter Order ###
 ### Some Refactoring ###
