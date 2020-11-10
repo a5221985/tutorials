@@ -1520,12 +1520,23 @@
 		</bean>
 		<jaxrs:server ...>
 			...
-			<jaxrs:features>
+			<jaxrs:features> <!-- enabled feature for jaxrs endpoint -->
 				<ref bean="swaggerFeature"/>
 			</jaxrs:features>
 
 ### Step 3 - Use the Swagger API ###
+1. PatientService.java
+
+		@Api
+		@Path(...)
+		...
+		public interface PatientService {
+			...
+
 ### Swagger in Action ###
+1. Run application on server: Run as > Maven clean, Run as > Maven Install
+2. Right click > Run as > Run on server
+
 ### Enable Swagger UI ###
 ### CRUD Using Swagger UI ###
 
