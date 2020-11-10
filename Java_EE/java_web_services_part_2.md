@@ -1044,17 +1044,35 @@
 	3. Test our application:
 		1. Use PostMan
 
-				localhost:8080/oauth/token # for authorization server
+				localhost:8080/oauth/token # sent to authorization server, returns <token>
 				
-				
+				localhost:8080/hello/bharath # to the app server
+				Headers: Authorization - Bearer <token>
 
 ### Install Spring Tool Suite ###
+1. Installation is done
+
 ### Configure JDK in STS ###
+1. Done
+
 ### Install Postman ###
+1. Done
 
 ## Creation of Spring Boot REST Application ##
 ### Completed Project for Your Reference ###
+1. Download OAuth2 demo project - from resources
+
 ### Creation of REST Project ###
+1. File > New > Spring Starter Project
+	1. Name: oauthDemo
+	2. Group: com.bharath.oauth
+	3. Package: com.bharath.oauth
+	4. Description: Demo project for Spring OAuth
+	5. Dependencies:
+		1. Web
+		2. JPA
+		3. HSQLDB
+
 ### Creation of the Controllers ###
 ### Run the Application ###
 
