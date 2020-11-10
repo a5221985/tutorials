@@ -1414,9 +1414,39 @@
 		Authorization: Basic Auth
 		username: myclientapp
 		password: 9999
+		
+		Body: Form Data or x-www-form-encoded (encodes spaces)
+		username: john
+		password: password
+		grant_type: password
+		scopes: read write
+		
+	1. access_token is returned
 
 ### Access the REST Endpoints ###
+1. Copy the contents access_token
+2. Endpoint:
+
+		GET: localhost:8080/hello/bharath
+		Headers: Authorization - Bearer <token>
+		
+		
+		POST: http://localhost:8080/oauth/token (automatically exposed here)
+		Authorization: Basic Auth
+		username: myclientapp
+		password: 9999
+		
+		Body: Form Data or x-www-form-encoded (encodes spaces)
+		username: bharath
+		password: password
+		grant_type: password
+		
+		
+		GET: localhost:8080/admin/bharath
+		Headers: Authorization - Bearer <new-token>
+
 ### Debug and Step Through the Application ###
+
 
 ## Swagger Quick Start ##
 ### Introduction ###
@@ -1431,4 +1461,4 @@
 ### CRUD Using Swagger UI ###
 
 ## Wrap Up ##
-### Discounts on my Other Courses ###
+### Bonus Lecture ###
