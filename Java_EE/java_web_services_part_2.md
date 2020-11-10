@@ -952,6 +952,10 @@
 
 ## Securing Parts of the Message ##
 ### Introduction ###
+1. Encryption and signature by default is done on SOAP body
+2. Signature value is based on SOAP body only
+	1. It can be tampered so that message is lost (mischief)
+
 ### Encrypt the Signature Part on the Client ###
 ### Encrypt the Signature Part on the Provider and Test ###
 ### use Timestamp Part in the Signature ###
