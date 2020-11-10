@@ -836,8 +836,35 @@
 				1. It calculated Hash - sent along with message
 
 ### Configure Signature on the Client ###
+1. Steps:
+	1. Add the action and properties
+2. SumWsTest.java
+
+		outProps.put(WSHandlerConstants.ACTION, "UsernameToken Encryption Signature");
+		...
+		outProps.put(WSHandlerConstants.SIGNATURE_USER, "myclientkey"); // private key is used
+		outProps.put(WSHandlerConstants.SIG_PROP_FILE, "etc/clientKeyStore.properties"); // different store can be used than the one for encryption
+
 ### Run the Test and Verify the Signature ###
+1. Server side:
+2. cxf-servlet.xml
+
+		<jaxws:inInterceptors>
+			...
+			<constructor-arg>
+				<map>
+					<entry key="action" value="UsernameToken Encrypt Signature"/>
+					...
+					<entry key="signaturePropFile" value="etc/serviceKeystore.properties"/>
+				</map>
+			</constructor-arg>
+			...
+		</jaxws:inInterceptors>
+
 ### Configure to Check for Signature on the Server ###
+1. Right click on server: Restart
+2. SumWsTest.java - Run the test
+
 ### Sign the Message on the Server ###
 ### Verify the Signature on the Client ###
 ### Quiz 4: Integrity ###
