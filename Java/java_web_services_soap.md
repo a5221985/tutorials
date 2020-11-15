@@ -1165,10 +1165,37 @@
 		2. MySQL
 		3. Search of cxf spring boot jaxws dependency (Google)
 
-				
+				<dependency>
+					<groupId>org.apache.cxf</groupId>
+					<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+					<version>3.2.6</version>
+				</dependency>
 
 ### Construct the Data Access Layer ###
+1. Goto STS
+2. New Class:
+	1. com.bharath.ws.soap.entities.Product
+
+			@Entity
+			public class Product {
+				@Id
+				private int id;
+				private String name;
+				private String description;
+				private int price;
+				
+				// Getters and setters
+			}
+
+3. New Interface:
+	1. com.bharath.ws.soap.repos.ProductRepository
+
+			public interface ProductRepository extends JpaRepository<Product, Integer> {
+			}
+
 ### Construct the Web Services Layer ###
+1. 
+
 ### Implement the Endpoint Methods ###
 ### Mark the Endpoint with jax-ws Annotations ###
 ### Publish the Endpoint ###
