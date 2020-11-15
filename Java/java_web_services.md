@@ -28,6 +28,41 @@
 	4. Apache CXF
 	5. Section 16 to the end
 
+## Completed Projects and Troubleshooting ##
+### GITHub URL ###
+1. [https://github.com/bharaththippireddy](https://github.com/bharaththippireddy)
+
+### Troubleshooting ###
+1. Maven related issues
+	1. Goto `.m2` folder/directory
+	2. Delete the `repository` folder
+	3. Do `mvn clean install`
+	4. Right click on project > Maven > Update Project
+
+### Java 10 and Higher ###
+1. Search for Jaxb maven dependency (was part of JDK prior to 10)
+	1. It is part of Java EE
+		1. Take **JAXB API** latest version
+
+				<dependency>
+					<groupId>javax.xml</groupId>
+					<artifactId>jaxb-api</artifactId>
+					<version>2.1</version>
+				</dependency>
+				
+### Using Latest Versions ###
+1. Always up to date
+	1. Spring Boot upgrade to latest
+	2. Apache CXF jaxws/jaxrs spring boot maven
+	3. cxf-codegen-plugin (latest version is preferred)
+	4. Maven > Update Project
+	5. application.properties
+
+			server.servlet.context-path=/wsdlfirstws
+			
+2. Library incompabilities
+	1. Delete `.m2/repository`
+
 ## Web Services - The Big Picture ##
 ### Course Introduction ###
 1. Refresh by refering to lectures once a week
