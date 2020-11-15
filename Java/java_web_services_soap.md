@@ -1124,10 +1124,15 @@
 	3. Configure (enter Root password)
 
 ### Install MySQL and MySQL workbench ###
-1. [https://corlewsolutions.com/](https://corlewsolutions.com/)
+1. MySQL Workbench - client for MySQL
+2. Steps:
+	1. Download installer
+	2. Install MySQL & MySQL workbench (choose Workbench option)
+	3. Configure MySQL (enter root password)
+3. Link: search for mysql install: [https://corlewsolutions.com/](https://corlewsolutions.com/)
 
 ### Launch MySQL workbench and Construct a Database ###
-
+1. 
 
 ### Construct DB Table ###
 ### Construct the Project ###
