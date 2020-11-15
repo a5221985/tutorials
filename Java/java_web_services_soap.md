@@ -1240,6 +1240,7 @@
 ### Implement the Endpoint Methods ###
 1. Implementation:
 
+		@Service
 		public class ProductWsImpl implements ProductWs {
 		
 			@Autowired
@@ -1291,6 +1292,36 @@
 ### Publish the Endpoint ###
 1. Goto hellowebservice: Grab WebServiceConfig.java
 
+		@Configuration
+		public class WebServiceConfig {
+			@Autowired
+			private Bus bus;
+			
+			@Autowired
+			private ProductWs productService;
+			
+			@Bean
+			public Endpoint endpoint() {
+				Endpoint endpoint = new EndpointImpl(bus, productService);
+				endpoint.publish("/products");
+				return endpoint;
+			}
+		}
+
 ### Configure the Properties ###
+1. application.properties
+
+		server.servlet.context-path=/productcrud
+		cxf.path=/
+		
+		spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+		spring.datasource.username=root
+		spring.datasource.password=test
+
 ### Run and Access the wsdl ###
+1. Run as > Spring Boot App
+2. http://localhost:8080/productcrud/
+3. Copy the wsdl link
+
 ### Test Using SoapUI ###
+1. 
