@@ -1130,6 +1130,23 @@
 	2. Install MySQL & MySQL workbench (choose Workbench option)
 	3. Configure MySQL (enter root password)
 3. Link: search for mysql install: [https://corlewsolutions.com/](https://corlewsolutions.com/)
+4. Configuration:
+	1. Open MySQL.prefPane
+	2. Select **Configuration** tab
+	3. Click **Select** against **Configuration File** option
+		1. Select `/private/etc/my.cnf`
+		2. In `/etc/my.cnf` add the following:
+
+				[mysqld]
+				skip-grant-tables
+				
+		3. Restart mysqld as follows:
+			1. `ps aux | grep mysql`
+			2. `kill -9 <pid1> <pid2> ...` (grab pids of all mysql related processes)
+		4. MySQLD gets restarted automatically
+		5. Run the following to connect:
+
+				/usr/local/mysql-8.0.16-macos10.14-x86_64/bin/mysql -uroot -ppassword
 
 ### Launch MySQL workbench and Construct a Database ###
 1. Launch MySQL workbench
