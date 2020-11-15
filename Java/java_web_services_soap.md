@@ -1132,10 +1132,41 @@
 3. Link: search for mysql install: [https://corlewsolutions.com/](https://corlewsolutions.com/)
 
 ### Launch MySQL workbench and Construct a Database ###
-1. 
+1. Launch MySQL workbench
+	1. MySQL COnnections +
+	2. Username: root
+	3. Connection Name: Local
+	4. Test Connection: Enter password
+	5. Double click on icon
+	6. New > Query Tab
+2. SQL
+
+		create database mydb
+		
+	1. Click on lightning icon
 
 ### Construct DB Table ###
+1. SQL:
+
+		use mydb;
+
+		create table product (id int, name varchar(20), description varchar(20), price int);
+		
+		select * from product;
+
 ### Construct the Project ###
+1. Go to STS
+2. New starter project:
+	1. name: productcrud
+	2. group: com.bharath.soap
+	3. Description: Product CRUD Operations
+	4. Dependencies:
+		1. JPA (Hibernate is JPA provider my default)
+		2. MySQL
+		3. Search of cxf spring boot jaxws dependency (Google)
+
+				
+
 ### Construct the Data Access Layer ###
 ### Construct the Web Services Layer ###
 ### Implement the Endpoint Methods ###
