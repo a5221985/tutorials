@@ -1194,11 +1194,103 @@
 			}
 
 ### Construct the Web Services Layer ###
-1. 
+1. New Interface:
+	1. com.bharath.ws.soap.ProductWs
+
+			public interface ProductWs {
+				
+				List<Product> getProducts();
+				
+				Product getProduct(int id);
+				
+				Product constructProduct(Product product);
+				
+				Product updateProduct(Product product);
+				
+				// delete
+			}
+			
+	2. com.bharath.ws.soap.ProductWsImpl
+
+			public class ProductWsImpl implements ProductWs {
+				
+				@Override
+				List<Product> getProducts() {
+				
+				}
+				
+				@Override
+				Product getProduct(int id) {
+				
+				}
+				
+				@Override
+				Product constructProduct(Product product) {
+				
+				}
+				
+				@Override
+				Product updateProduct(Product product) {
+				
+				}
+				
+				// delete
+			}
 
 ### Implement the Endpoint Methods ###
+1. Implementation:
+
+		public class ProductWsImpl implements ProductWs {
+		
+			@Autowired
+			private ProductRepository productRepos;
+				
+			@Override
+			List<Product> getProducts() {
+				retrurn productRepo.findAll();
+			}
+			
+			@Override
+			Product getProduct(int id) {
+				return productRepo.findById(id).get(); // Optional product
+			}
+			
+			@Override
+			Product constructProduct(Product product) {
+				return productRepo.save(product);
+			}
+			
+			@Override
+			Product updateProduct(Product product) {
+				return productRepo.save(product); // checks if object exists
+			}
+			
+			// delete
+			
+			// Getters and setters
+		}
+
 ### Mark the Endpoint with jax-ws Annotations ###
+1. ProductWS
+
+		@WebService
+		public interface ProductWs {
+			@WebMethod
+			List<Product> getProducts();
+			
+			@WebMethod
+			Product getProduct(int id);
+			
+			@WebMethod
+			Product createProduct(Product product);
+			
+			@WebMethod
+			Product updateProduct(Product product);
+		}
+
 ### Publish the Endpoint ###
+1. Goto hellowebservice: Grab WebServiceConfig.java
+
 ### Configure the Properties ###
 ### Run and Access the wsdl ###
 ### Test Using SoapUI ###
