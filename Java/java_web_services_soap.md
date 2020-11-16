@@ -315,6 +315,11 @@
 		4. Add Binding 
 
 ### Section Summary ###
+1. Order processing WSDL first WS
+	1. WSDL File
+	2. Generate Stubs (wsdl2java codegen plugin) (pom.xml)
+	3. Implement the endpoint (interface generated is used)
+	4. Publish the endpoint
 
 ## Java SOAP Client ##
 ### Introduction ###
