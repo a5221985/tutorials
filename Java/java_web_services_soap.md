@@ -307,7 +307,12 @@
 	4. Description: Mac BOOK RPO
 
 ### WSDL First Web Service Assignment ###
-1. 
+1. Delete orders method starting with WSDL file
+	1. Change WSDL
+		1. Modify xml schema if required
+		2. Add Message
+		3. Add Operation under port types
+		4. Add Binding 
 
 ### Section Summary ###
 
