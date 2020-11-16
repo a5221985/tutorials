@@ -1341,4 +1341,4 @@
 3. Copy the wsdl link
 
 ### Test Using SoapUI ###
-1. 
+1. Copy wsdl link and paste in SoapUI
