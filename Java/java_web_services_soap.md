@@ -217,9 +217,33 @@
 			1. We don't have to mark the class with any annotations (annotations are present in the interface)
 
 ### Implement the init Method ###
-1. 
+1. CustomerOrdersWsImpl
+
+		Map<BigInteger, List<Order>> customerOrders = new HashMap<>();
+		int currentId;
+		
+		public CustomerOrderWsImpl() {
+			init();
+		}
+		
+		public void init() {
+			List<Order> orders = new ArrayList<>();
+			Order order = new Order();
+			order.setId(BigInteger.valueOf(1)); // default for stubs
+			
+			Product product = new Product();
+			product.setId("1");
+			product.setDescription("IPhone");
+			product.setQuantity(BigInteger.valueOf(3));
+			order.getProduct().add(product);
+			orders.add(order);
+			
+			customerOrders.put(BigInteger.valueOf((++currentId), orders);
+		}
 
 ### Implement the getOrders Method ###
+1. 
+
 ### Implement the constructOrders Method ###
 ### Publish the Endpoint ###
 ### Enable Logging Feature ###
