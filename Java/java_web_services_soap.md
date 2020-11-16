@@ -160,6 +160,12 @@
 					</wsdl:port>
 				</wsdl:service>
 			</wsdl:binding>
+			
+### Download Skeleton WSDL ###
+1. [https://www.udemy.com/course/java-web-services/learn/lecture/20280735#content](https://www.udemy.com/course/java-web-services/learn/lecture/20280735#content)
+2. Change the name to `CustomerOrders.wsdl`
+3. Paste it in `src/main/resources/wsdl`
+4. Eclipse has support for wsdl (not STS)
 
 ### Generate the Stubs ###
 1. Search for `cxf codegen plugin` - `cxf-codegen-plugin`
@@ -1342,3 +1348,7 @@
 
 ### Test Using SoapUI ###
 1. Copy wsdl link and paste in SoapUI
+2. Open Request 1
+	1. Enter values
+	2. Submit
+3. Check database
