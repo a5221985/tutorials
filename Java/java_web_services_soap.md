@@ -240,16 +240,75 @@
 			
 			customerOrders.put(BigInteger.valueOf((++currentId), orders);
 		}
+		
 
 ### Implement the getOrders Method ###
-1. 
+
+		@Override
+		public GetOrdersResponse getOrders(GetOrdersRequest request) {
+			BigInteger customerId = request.getCustomerId();
+			List<Order> orders = customerOrders.get(customerId);
+			GetOrdersResponse orders = new GetOrdersResponse();
+			response.getOrder().addAll(orders); // response has empty list
+			return orders;
+		}
 
 ### Implement the constructOrders Method ###
+
+		@Override
+		public CreateOrdersResponse createOrders(CreateOrdersRequest request) {
+			BigInteger customerId = request.getCustomerId();
+			Order order = request.getOrder();
+			
+			List<Order> orders = customerOrders.get(customerId);
+			orders.add(order);
+			
+			CreateOrderResponse response = new CreateOrderResponse();
+			response.setResult(true);
+			
+			return response;
+		}
+
+
 ### Publish the Endpoint ###
+1. src/main/java/com.bharath.ws.soap.config.WebServiceConfig.java
+
+		@Bean
+		public Endpoint endpoint() {
+			Endpoint endpoint = new EndpointImpl(bus, new CustomerOrdersService());
+			...
+		}
+
 ### Enable Logging Feature ###
+1. Enable logging:
+
+		@Features(features = "org.apache.cxf.feature.LoggingFeature")
+		public class CustomerOrdersWsImpl implements CustomerOrdersPortType {
+			...
+		}
+
 ### Run the Application ###
+1. Run as Spring Boot Application
+2. http://localhost:8080/wsdlfirstws
+	1. Click on the wsdl link
+
 ### Testing using SoapUI ###
+1. Copy the URL from browser
+2. New SOAP Project:
+	1. Name: customerordersservice
+	2. Wsdl: url
+	3. Test Suit enabled
+3. getOrders - test case
+	1. Customer ID: 1
+4. createOrders - test case
+	1. Customer ID: 1
+	2. Order ID: 2
+	3. Product ID: 2
+	4. Description: Mac BOOK RPO
+
 ### WSDL First Web Service Assignment ###
+1. 
+
 ### Section Summary ###
 
 ## Java SOAP Client ##
