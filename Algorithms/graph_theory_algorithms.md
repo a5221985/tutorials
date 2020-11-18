@@ -16,6 +16,18 @@
 2. Graph Isomorphism
 	1. The question of asking whether two graphs G1 and G2 are isomorphic is asking whether they are structurally the same.
 	2. Even though G1 and G2 are labelled differently and may appear different they are structurally the same graph
+3. Graph Isomorphism (definition)
+	1. We can also define the notion of a graph isomorphism more rigorously:
+	2. G1(V1, E1) and G2(V2, E2) are isomorphic if there exists a bijection phi between the sets V1 -> V2 such that:
+		1. For all u, v in V1, (u, v) is in E1 <=> (phi(u), phi(v)) is in E2
+	3. In simple terms, for an isomorphism to exist there needs to be a function phi which can map all the nodes/ edges in G1 to G2 and vice-versa
+4. Determining if two graphs are isomorphic is not only not obvious to the human eye, but also a difficult problem for computers.
+5. It is still an open question as to whether the graph isomorphism problem is NP complete. However, many polynomial time isomorphism algorithms exist for graph subclasses such as trees
+6. Isomorphic Trees:
+	1. Identifying Isomorphic Trees
+		1. There are several very quick probabilistic (usually hash or heuristic based) algorithms for identifying isomorphic trees. These tend to be fast, but also error prone due to hash collisions in a limited integer space.
+			1. Good for competitive programming or a lot of trees
+		2. The method we'll be looking at today involves serializing a tree into a unique encoding. This unique encoding is simply a unique string that represents a tree, if another tree has the same encoding then they are isomorphic.
 
 ### Identifying Isomorphic Trees Source Code ###
 
