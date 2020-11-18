@@ -28,6 +28,15 @@
 		1. There are several very quick probabilistic (usually hash or heuristic based) algorithms for identifying isomorphic trees. These tend to be fast, but also error prone due to hash collisions in a limited integer space.
 			1. Good for competitive programming or a lot of trees
 		2. The method we'll be looking at today involves serializing a tree into a unique encoding. This unique encoding is simply a unique string that represents a tree, if another tree has the same encoding then they are isomorphic.
+7. Identifying Isomorphic Trees
+	1. We can directly serialize unrooted tree, but in practice serializing a rooted tree is typically easier code wise
+	2. However, one caveat to watch out for if we're going to root our two trees T1 and T2 to check if they're isomorphic is to ensure that the same root node is selected in both trees before serializing/ encoding the trees.
+		1. This can be done by finding center of a tree
+8. Procedure:
+	1. Find the center(s) of the original tree. We'll see how to handle the case where either tree can have more than 1 center shortly.
+	2. Root the tree at the centre nodes
+	3. Generate the encoding for each tree and compare the serialized trees for equality
+		1. The tree encoding is simply a sequence of left '(' and right ')' brackets. However, you can also think of them as 1's and 0's (i.e a large number) if you prefer
 
 ### Identifying Isomorphic Trees Source Code ###
 
