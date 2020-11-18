@@ -52,7 +52,46 @@
 							()
 							
 		1. Notice that the labels get **sorted** when combined, this is important (larger child label first)
-	3. 
+	3. (((())())(()())(()))
+11. Tree Encoding Summary
+	1. In summary of what we did for AHU:
+		1. Leaf nodes are assigned Knuth tuples '()' to begin with
+		2. Every time you move up a layer the labels of the previous subtrees get sorted lexicographically and wrapped in brackets.
+		3. You cannot process a node until you have processed all its children
+12. Unrooted tree encoding pseudocode
+
+		# Returns whether two trees are isomorphic.
+		# Parameters tree1 and tree2 are undirected trees
+		# stored as adjacency lists.
+		function treesAreIsomorphic(tree1, tree2):
+			tree1_centers = treeCenters(tree1)
+			tree2_centers = treeCenters(tree2)
+			
+			tree1_rooted = rootTree(tree1, tree1_centers[0])
+			tree1_encoded = encode(tree1_rooted)
+			
+			for center in tree2_centers:
+				tree2_rooted = rootTree(tree2, center)
+				tree2_encoded = encode(tree2_rooted)
+				# Two trees are isomorphic if their encoded
+				# canocinal forms are equal.
+				if tree1_encoded == tree2_encoded:
+					return True
+			return False
+			
+13. Rooted trees are sorted recursively in TreeNode objects:
+
+		# TreeNode object structure.
+		class TreeNode:
+			# Unique integer id to identify this node.
+			int id;
+			
+			# Pointer to parent TreeNode reference. Only the
+			# root node has a null parent TreeNode reference.
+			TreeNode parent;
+			
+			# List of pointers to child TreeNodes.
+			TreeNode[] children;
 
 ### Identifying Isomorphic Trees Source Code ###
 
