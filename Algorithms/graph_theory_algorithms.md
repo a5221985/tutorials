@@ -113,10 +113,21 @@
 			return "(" + result + ")"
 
 ### Identifying Isomorphic Trees Source Code ###
-1. 
+1. github.com/williamfiset/algorithms
 
 ## Classic Graph Theory Algorithms ##
 ### Topological Sort Algorithm ###
+1. What is top sort? Where is it used? How to find topological ordering?
+2. Many real world situations can be modelled as a graph with directed edges where some events must occur before others
+	1. School class prerequisites
+	2. Program dependencies
+	3. Event scheduling
+	4. Assembly instructions
+	5. Etc...
+3. Example: Suppose you are a student at university X and you want to take class H, then you must take classes A, B, D and E as prerequisites. In this sense there is an ordering on the nodes of the graph.
+	1. We can use topological sort to come up with an order in which we can take courses such that we don't take a class for which we have not satisfied the pre-requisites.
+4. Example: Another canocial example where an ordering on the nodes of the graph matters is for program build dependencies. A program cannot be built unless its dependencies are first built.
+
 ### Shortest/Longest Path on a Directed Acyclic Graph (DAG) ###
 ### Dijkstra's Shortest Path Algorithm ###
 ### Dijkstra's Shortest Path Algorithm | Source Code ###
