@@ -127,6 +127,13 @@
 3. Example: Suppose you are a student at university X and you want to take class H, then you must take classes A, B, D and E as prerequisites. In this sense there is an ordering on the nodes of the graph.
 	1. We can use topological sort to come up with an order in which we can take courses such that we don't take a class for which we have not satisfied the pre-requisites.
 4. Example: Another canocial example where an ordering on the nodes of the graph matters is for program build dependencies. A program cannot be built unless its dependencies are first built.
+5. A topological ordering is an ordering of the nodes in a directed graph where for each directed edge from node A to node B, node A appears before node B in the ordering.
+6. The topological sort algorithm can find a topological ordering in O(V + E) time!
+	1. In a topological ordering, all edges point to the right
+7. NOTE: Topological orderings are NOT unique
+8. Directed Acyclic Graphs (DAG)
+	1. Not every graph can have a topological ordering. A graph which contains a **cycle** cannot have a valid ordering
+9. The only type of graph which has a valid topological ordering is a Directed Acyclic Graph (DAG). These are graphs with directed edges and no cycles.
 
 ### Shortest/Longest Path on a Directed Acyclic Graph (DAG) ###
 ### Dijkstra's Shortest Path Algorithm ###
