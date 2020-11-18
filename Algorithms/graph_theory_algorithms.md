@@ -79,7 +79,7 @@
 					return True
 			return False
 			
-13. Rooted trees are sorted recursively in TreeNode objects:
+13. Rooted trees are sorted recursively in TreeNode objects: (To keep tree data structure organised)
 
 		# TreeNode object structure.
 		class TreeNode:
@@ -92,8 +92,28 @@
 			
 			# List of pointers to child TreeNodes.
 			TreeNode[] children;
+			
+14. Unrooted tree encoding pseudocode
+
+		function encode(node):
+			if node == null:
+				return "" # enables leaf nodes to have ()
+				
+			labels = []
+			for child in node.children():
+				labels.add(encode(child))
+				
+			# Regular lexicographic sort
+			sort(labels)
+			
+			result = ""
+			for label in labels:
+				results += label
+				
+			return "(" + result + ")"
 
 ### Identifying Isomorphic Trees Source Code ###
+1. 
 
 ## Classic Graph Theory Algorithms ##
 ### Topological Sort Algorithm ###
