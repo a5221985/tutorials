@@ -134,6 +134,17 @@
 8. Directed Acyclic Graphs (DAG)
 	1. Not every graph can have a topological ordering. A graph which contains a **cycle** cannot have a valid ordering
 9. The only type of graph which has a valid topological ordering is a Directed Acyclic Graph (DAG). These are graphs with directed edges and no cycles.
+	1. How do I verify that my graph does not contain a directed cycle?
+	2. Answer: One method is to use Tarjan's strongly connected component algorithm which can be used to find these cycles.
+10. By definition, all rooted trees have a topological ordering since they do not contain any cycles
+	1. One way to topologically sort:
+		1. Pick out leaf nodes (in any order)
+		2. Then their parents
+		3. Repeat until no more nodes are left
+11. **Topological sort algorithm (general DAG)**
+	1. Pick an unvisited node
+	2. Beginning with the selected node, do a Depth First Search (DFS) exploring only unvisited nodes.
+	3. On the recursive callback of the DFS, add the current node to the topological ordering in reverse order
 
 ### Shortest/Longest Path on a Directed Acyclic Graph (DAG) ###
 ### Dijkstra's Shortest Path Algorithm ###
