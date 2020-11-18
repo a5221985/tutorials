@@ -37,6 +37,22 @@
 	2. Root the tree at the centre nodes
 	3. Generate the encoding for each tree and compare the serialized trees for equality
 		1. The tree encoding is simply a sequence of left '(' and right ')' brackets. However, you can also think of them as 1's and 0's (i.e a large number) if you prefer
+		2. It should also be possible to reconstruct the tree solely from the encoding. This is left as an exercise to the reader...
+9. The AHU (Aho, Hopcroft, Ullman) algorithm is a clever serialization technique for representing a tree as a unique string.
+	1. Unlike many tree isomorphism invariants and heuristics, AHU is able to capture a complete history of a tree's degree spectrum and structure ensuring a deterministic method of checking for tree isomorphisms.
+	2. Let's have a closer look...
+10. Tree encoding:
+	1. Start by assigning all leaf nodes Knuth tuples: '()'
+	2. Process all nodes with grayed out children and combine the labels of their children nodes and wrap them in brackets.
+
+									0
+			(()())		2			1	(())	3
+				6		7	4		5 (())		8
+				()		()	()		9			()
+							()
+							
+		1. Notice that the labels get **sorted** when combined, this is important (larger child label first)
+	3. 
 
 ### Identifying Isomorphic Trees Source Code ###
 
