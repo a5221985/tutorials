@@ -1,0 +1,114 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Coding Interview Tips\
+\
+Chitchat like a pro:\
+Most interviewers like to chit chat about your background\
+	Metacognition about coding: Do you think about how to code well?\
+	Ownership/ Leadership: Do you see your work through to completion? Do you fix things that aren\'92t quite right, even if you don\'92t have to?\
+	Communication: Would chatting with you about a technical problem be useful or painful?\
+\
+1. Have at least one:\
+	1. example of an interesting technical problem you solved\
+	2. example of an interpersonal conflict you overcame\
+	3. example of leadership or ownership\
+	4. story about what you should have done differently in a past project\
+	5. piece of trivia about your favourite language, and something you do and don\'92t like about said language\
+	6. question about the company\'92s product/ business\
+	7. question about the company\'92s engineering strategy (testing, scrum, etc)\
+\
+2. Nerd out about stuff: Show you\'92re proud of what you\'92ve done, you\'92re amped about what they\'92re doing, and you have opinions about languages and workflows\
+\
+Communication:\
+1. Communication is key once we get into coding questions\
+	1. Candidate who needed some help along the way but communicated clearly can be even better than a candidate who breezed through the question\
+2. Understand what kind of problem it is: Two types of problems\
+	1. Coding: interviewer wants to see you write clean, efficient code for a problem\
+	2. Chitchat: Interviewer wants you to talk about something.\
+		1. Questions are either:\
+			1. high-level system design (\'93How would you build a Twitter clone?\'94)\
+			2. trivia (\'93What is hoisting in Javascript?\'94)\
+				1. It may be a lead in for real question\
+					1. \'93How quickly can we sort a list of integers? Good, now suppose instead of integers we had \'85\'94\
+3. Before writing ask interviewer if you should write code for that (or else it may be just chitchat)\
+\
+Make it feel like you\'92re on a team:\
+	1. Interviewer wants to know what it feels like to work through a problem with you\
+		1. Make the interviewer feel collaborative\
+	2. Use \'93we\'94 instead of \'93I\'94\
+		1. \'93If we did a breadth-first search we\'92d get an answer in O(n) time.\'94\
+	3. If we get to choose between coding on paper and coding on whiteboard:\
+		1. Choose whiteboard\
+			1. You will be situated next to interviewer (facing the problem rather than across the table)\
+\
+Think out loud:\
+	1. Say: \'93Let\'92s try doing it this way - not sure yet if it\'92ll work\'94\
+	2. If you are stuck, just say what you\'92re thinking and say what might work\
+		1. Say what you thought could work and why it doesn\'92t work (may also go for trivial chitchat questions)\
+			1. If question is explain Javascript closures\
+				1. \'93It\'92s something to do with scope and putting stuff in a function\'94 - probably will get 90% credit\
+\
+Say you don\'92t know\
+	1. If touching on a fact (e.g. language-specific trivia, a hairy bit of runtime analysis), don\'92t try to appear to know something you don\'92t. Instead, say \'93I\'92m not sure, but I\'92d guess $thing, because\'85\'94 The because can involve ruling out other options by showing they have nonsensical implications, or pulling examples from other languages or other problems\
+\
+Slow the eff down\
+1. Don\'92t confidently blurt out an answer right away.\
+	1. If it is right, you still have to explain it\
+	2. If it is wrong you\'92ll seem reckless\
+2. You don\'92t win anything for speed\
+	1. It may annoy interviewer by cutting her off or appearing to jump to conclusions\
+\
+Get unstuck\
+1. Sometimes we get stuck. Relax. It doesn\'92t mean you\'92ve failed. Keep in mind that interviewer usually cares more about your ability to cleverly poke problem from a few different angles than your ability to stumble into correct answer. When hope seems lost, keep poking\
+2. Draw pictures: Don\'92t waste time trying to think in head. Think on board. Draw couple different test inputs. Draw how you would get the desired output by hand. Then think about translating your approach into code\
+3. Solve a simpler version of the problem: Not sure how to find the 4th largest item in the set? think about how to find the 1st largest item and see if you can adapt that approach\
+4. Write a nice, inefficient solution and optimise it later: use brute force. Do whatever it takes to get some kind of answer\
+5. Think out loud more: Say what you know. Say what you though might work and why it won\'92t work. You might realise it actually does work, or a modified versions does. Or you might get a hint\
+6. Wait of a hint: Don\'92t stare at your interviewer expectantly, but do take a brief second to \'93think\'94 - your interviewer might have already decided to give you a hint and is just waiting to avoid interrupting\
+7. Think about the bounds on space and runtime: If you\'92re not sure if you can optimise solution, think about it loud. For example:\
+	1. \'93I have to at least look at all of the items, so I can\'92t do better than O(n).\'94\
+	2. \'93The brute force approach is to test all possibilities, which is O(n^2)\'94.\
+	3. \'93The answer will contain n^2 items, so I must at least spend that amount of time.\'94\
+\
+Get your thoughts down:\
+1. Don\'92t trip over yourself. Focus on getting your thoughts down first and worry about details at the end\
+\
+Call a helper function and keep moving: If you can\'92t immediately think of how to implement some part of your algorithm, big or small, just skip over it. Write a call to a reasonably-named helper function,\
+	1. say \'93this will do X\'94 and keep going.\
+If helper function is trivial, we might even get away with never implementing it\
+\
+Don\'92t worry about syntax: Just breeze through it. Revert to English if you have to. Just say you\'92ll get back to it\
+\
+Leave yourself plenty of room: We may need to add code or notes in between lines later. Start at the top of the board and leave a blank line between each line\
+\
+Save off-by-one checking for the end: Don\'92t worry about whether for loop should have \'93<\'93 or \'93<=\'93. Write a checkmark to remind yourself to check it at the end. Just get the general algorithm down.\
+\
+Use descriptive variable names: This will take time but it will prevent you from losing track of what code is doing. Use \'91names_to_phone_numbers\'94 instead of \'93nums\'94. Imply the type in the name (good for Python or JavaScript). \
+	1. Functions returning booleans should start with \'93is_*\'94\
+	2. Variables that hold a list should end with \'93s.\'94\
+\
+Choose standards that makes sense\
+\
+Clean up when you\'92re done\
+Walk through your solution by hand, out loud, with an example input: Write down what values the variables hold as program is running.\
+	1. We don\'92t get points for doing it in our hand\
+		1. Helps us find bugs and clear up confusion (Interviewer might have)\
+\
+Loop for off-by-one errors: Should your for loop use a \'93<=\'93 instead of a \'93<\'93?\
+\
+Test edge cases: Might include sites, single-item sets, or negative numbers. Bonus: mention unit tests!\
+\
+Don\'92t be boring: Some interviewers won\'92t care about these cleanup steps. If unsure, say something like: \'93Then I\'92d usually check the code against some edge cases - should we do that next?\'94\
+\
+Practice:\
+1. No substitute for running practice questions\
+2. Actually write code with pen and paper: Don\'92t fumble when it is time for real interview\
+\
+https://www.interviewcake.com/all-questions - practice questions that mirror the interview process by offering hints when you\'92re stuck and nudges if algorithm could be improved\
+ \
+}
