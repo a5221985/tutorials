@@ -25,6 +25,23 @@
 	2. Container invokes `service` method
 		1. Request and response objects are passed
 		2. [Writing Service Methods](https://docs.oracle.com/javaee/7/tutorial/servlets005.htm#BNAFV)
+	3. If container needs to remove servlet, it finalizes servlet by calling servlet's `destroy` method.
+		1. [Finalizing a Servlet](https://docs.oracle.com/javaee/7/tutorial/servlets010.htm#BNAGS)
+
+### Handling Servlet Lifecycle Events ###
+1. One can monitor and react to events in servlet's lifecycle by defining listener objects whose methods get invoked when lifecycle events occur.
+	1. To use listener objects,
+		1. Define and specify listener class
+
+#### Defining the Listener Class ####
+1. Defined by implementing a listener interface
+	1. Events that can be monitored for:
+		1. Web context object - Initialization and destruction - `javax.servlet.ServletContextListener` and `ServletContextEvent`
+		2. Web context object - Attribute added, removed, or replaced - `javax.servlet.ServletContextAttributeListener` and `ServletContextAttributeEvent`
+		3. Session object - Creation, invalidation, activation, passivation, and timeout - `javax.servlet.http.HttpSessionListener`, `javax.servlet.http.HttpSessionActivationListener`, `HttpSessionEvent`
+		4. Session object - Atribute added, removed, or replaced - `javax.servlet.http.HttpSessionAttributeListener` and `HttpSessionBindingEvent`
+
+### Handling Servlet Errors ###
 
 ## Sharing Information ##
 ## Constructing and Initializing a Servlet ##
