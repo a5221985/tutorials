@@ -40,10 +40,40 @@
 		2. Web context object - Attribute added, removed, or replaced - `javax.servlet.ServletContextAttributeListener` and `ServletContextAttributeEvent`
 		3. Session object - Creation, invalidation, activation, passivation, and timeout - `javax.servlet.http.HttpSessionListener`, `javax.servlet.http.HttpSessionActivationListener`, `HttpSessionEvent`
 		4. Session object - Atribute added, removed, or replaced - `javax.servlet.http.HttpSessionAttributeListener` and `HttpSessionBindingEvent`
+		5. Request object - A servlet request has started being processed by web components - `javax.servlet.ServletRequestListener` and `ServletRequestEvent`
+		6. Request object - Attribute added, removed, or replaced - `javax.servlet.ServletRequestAttributeListener` and `ServletRequestAttributeEvent`
+2. `@WebListener` - used to define listener to get events for operations on particuler web application context
+	1. Classes annotated with `@WebListener` **(M)**
+
+			javax.servlet.ServletContextListener
+			javax.servlet.ServletContextAttributeListener
+			javax.servlet.ServletRequestListener
+			javax.servlet.ServletRequestAttributeListener
+			javax.servlet.http.HttpSessionListener
+			javax.servlet.http.HttpSessionAttributeListener
+			
+3. Example: Following code implements two of the listeners
+
+		import javax.servlet.ServletContextAttributeListener;
+		import javax.servlet.ServletContextListener;
+		import javax.servlet.annotation.WebListener;
+		
+		@WebListener()
+		public class SimpleServletListener implements ServletContextListener, ServletContextAttributeListener {
+			// ...
+		}
 
 ### Handling Servlet Errors ###
+1. Exceptions can occur when servlet executes
+2. The following page gets shown when exception occurs
+
+		A Servlet Exception Has Occurred
+		
+	1. This can be overridden by specifying error page for given exception
 
 ## Sharing Information ##
+1. 
+
 ## Constructing and Initializing a Servlet ##
 ## Writing Service Methods ##
 ## Filtering Requests and Responses ##
