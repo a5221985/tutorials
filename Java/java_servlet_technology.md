@@ -89,7 +89,19 @@
 		4. Page scope object - `javax.servlet.jsp.JspContext` - JSP page that constructs the object
 
 ### Controlling Concurrent Access to Shared Resources ###
-1. 
+1. In multithreaded server, shared resources can be accessed concurrently
+2. (In addition to scope object attributes) shared resources include
+	1. in-memory data
+		1. Instance or class variables
+		2. External objects (files, database connections, network connections)
+3. Concurrent access can arise in many situations
+	1. Multiple web components accessing objects stored in web context
+	2. Multiple web components accessing objects stored in a session
+	3. Multiple threads within a web component accessing instance variables.
+		1. **Web container typically constructs a thread to handle each request**
+			1. To ensure servlet instance handles only one request at a time?
+				1. Servlet can implement `SingleThreadModel` **(M)** interface
+					1. No two threads can execute concurrently in servlet's service method
 
 ## Constructing and Initializing a Servlet ##
 ## Writing Service Methods ##
