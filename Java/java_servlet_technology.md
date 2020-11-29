@@ -72,6 +72,23 @@
 	1. This can be overridden by specifying error page for given exception
 
 ## Sharing Information ##
+1. Web components (like other objects) work with other objects (usually) to accomplish their tasks
+2. Web components can do so by doing the following:
+	1. Using private helper objects (example: JavaBeans components)
+	2. Sharing objects that are attributes of public scope
+	3. Using database
+	4. Invoking other web resources
+		1. [Invoking Other Web Resources](https://docs.oracle.com/javaee/7/tutorial/servlets007.htm#BNAGI)
+
+### Using Scope Objects ###
+1. Collaborating web components share info by means of objects maintained as attributes of four scope objects
+	1. Using `getAttribute` & `setAttribute` methods of the class representing scope
+		1. Web context scope object - `javax.servlet.ServletContext` - Accessible from web components within a web context. [Accessing the Web Context](https://docs.oracle.com/javaee/7/tutorial/servlets008.htm#BNAGL)
+		2. Session scope object - `javax.servlet.http.HttpSession` - Accessed by web components handling request that belongs to session. [Maintaining Client State](https://docs.oracle.com/javaee/7/tutorial/servlets009.htm#BNAGM)
+		3. Request scope object - Subtype of `javax.servlet.ServletRequest` - Accessed by web components handling the request
+		4. Page scope object - `javax.servlet.jsp.JspContext` - JSP page that constructs the object
+
+### Controlling Concurrent Access to Shared Resources ###
 1. 
 
 ## Constructing and Initializing a Servlet ##
