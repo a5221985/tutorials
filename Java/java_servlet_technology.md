@@ -314,7 +314,17 @@
 					1. stand-in stream prevents servlet from closing original response stream when it completes
 						1. This allows filter to modify servlet's response
 2. How to pass stand-in stream to servlet?
-	1. Filter constructs a response wrapper that overrides `getWriter` or `getOutputStream`
+	1. Filter constructs a response wrapper that overrides `getWriter` or `getOutputStream` to return the stand-in stream
+		1. Wrapper is passed to `doFilter` method of filter chain
+		2. Wrapper methods default to calling through to wrapped request or response object
+			1. To override request methods
+				1. Wrap request in object that extends either
+					1. `ServletRequestWrapper` or
+					2. `HttpServletRequestWrapper`
+			2. To override response methods
+				1. Wrap response in object that extends either
+					1. `ServletResponseWrapper` or
+					2. `HttpServletResponseWrapper`
 
 ### Specifying Filter Mappings ###
 
