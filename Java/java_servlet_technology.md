@@ -110,7 +110,13 @@
 	1. Solution: [Synchronization using threads](http://docs.oracle.com/javase/tutorial/essential/concurrency/)
 
 ## Constructing and Initializing a Servlet ##
-1. `@WebServlet` is used to define servlet component in web application
+1. `@WebServlet` **(M)** is used to define servlet component in web application
+	1. The annotation is specified on a class
+	2. It contains metadata about servlet declared
+		1. Must declare at least one URL pattern
+			1. Two ways to do it:
+				1. `urlPatterns` attribute (when other attributes are also used)
+				2. `value` attribute (when it is the only attribute)
 
 ## Writing Service Methods ##
 ## Filtering Requests and Responses ##
