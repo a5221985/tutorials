@@ -432,8 +432,19 @@
 			javax.servlet.forward.query_string
 			
 		1. `forward` method should be used to given another resource responsibility for replying to user
+			1. If `ServletOutputStream` or `PrintWriter` have already been accessed in servlet, we cannot use this method
+				1. `IllegalStateException` will get thrown
 
 ## Accessing the Web Context ##
+1. Context in which web components execute is an object that implements `ServletContext` interface
+	1. Web context is retrieved using `getServletContext` method
+	2. Web context:
+		1. Provides methods for accessing
+			1. Initialization parameters
+			2. Resources associated with the web context (?)
+			3. Object-valued attributes
+			4. Logging capabilities
+
 ## Maintaining Client State ##
 ## Finalizing a Servlet ##
 ## Uploading Files with Java Servlet Technology ##
