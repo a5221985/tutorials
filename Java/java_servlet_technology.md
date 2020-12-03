@@ -308,6 +308,13 @@
 ### Programming Customized Requests and Responses ###
 1. There are many ways for filter to modify request or response
 	1. Example: Filter can add attribute to request or can insert data in response
+		1. Filter that needs to modify response must capture response before it is returned to client
+			1. Procedure to do that:
+				1. Pass stand-in stream to serlvet (that generates response)
+					1. stand-in stream prevents servlet from closing original response stream when it completes
+						1. This allows filter to modify servlet's response
+2. How to pass stand-in stream to servlet?
+	1. Filter constructs a response wrapper that overrides `getWriter` or `getOutputStream`
 
 ### Specifying Filter Mappings ###
 
