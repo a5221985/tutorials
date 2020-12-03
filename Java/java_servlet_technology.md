@@ -224,8 +224,28 @@
 2. `javax.servlet.http.HttpServletResponse` - has fields representing HTTP headers
 	1. Status codes
 		1. Used to indicate reason a request is not satisfied or that request has been redirected
+	2. Cookies
+		1. Used to store application-specific information at client
+		2. User session: Cookies can be used to track id information of a user session
+			1. [Session Tracking](https://docs.oracle.com/javaee/7/tutorial/servlets009.htm#BNAGR)
 
 ## Filtering Requests and Responses ##
+1. **filter** - It is an object that can transform header and content (or both) of request or response
+	1. Difference as compared to web components:
+		1. usually do not themselves construct response
+		2. It has functionality that can be attached to any kind of web resource
+			1. It should not have any dependency on a web resource (for which it is a filter)
+				1. It can be composed with more than one type of web resource
+2. Tasks performed by a filter:
+	1. Query request and act accordingly
+	2. Block request-and-response pair from passing any further
+	3. Modify request headers and data
+		1. Done by providing customized version of request
+	4. Modify response headers and data
+		1. Done by providing customized version of response
+3. Applications of filters:
+	1. 
+
 ## Invoking Other Web Resources ##
 ## Accessing the Web Context ##
 ## Maintaining Client State ##
