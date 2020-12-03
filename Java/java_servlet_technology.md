@@ -180,6 +180,9 @@
 			
 		1. Request path is composed of:
 			1. **Context path** - concatenation of `/` with context root of servlet's web application
+			2. **Servlet path** - Path section that corresponds to **component alias** that activated this request
+				1. Path starts with `/`
+			3. **Path info** - Part of request path that is not part of context path or servlet path
 
 ### Constructing Responses ###
 
