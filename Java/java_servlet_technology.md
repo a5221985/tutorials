@@ -292,9 +292,21 @@
 				1. Next entity is **resource** at the end of chain (forwarded to web component or static resource)
 			2. Else
 				1. It is next filter that was configured in WAR
-			3. 
+			3. Filter invokes next entity by calling `doFilter` on chain object
+				1. Request and response are passed that the original filter was called with (or wrapped versions that it might have instantiated)
+				2. Alternatively:
+					1. Filter can choose to block request by not making call to invoke next entity
+						1. In this case:
+							1. Filter is responsible for filling up the response
+		5. Examine response headers after invoking next filter in chain
+		6. Throw exception to indicate error in processing
+5. `init` and `destroy` must be imlemented in addition to `doFilter`
+	1. `init` - called by container when filter is instantiated
+		1. If initialization parameters need to be passed to filter:
+			1. Retrieve them from `FilterConfig` object passed to `init`
 
 ### Programming Customized Requests and Responses ###
+1. 
 
 ### Specifying Filter Mappings ###
 
