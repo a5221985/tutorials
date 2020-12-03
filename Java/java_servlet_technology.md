@@ -102,6 +102,7 @@
 			1. To ensure servlet instance handles only one request at a time?
 				1. Servlet can implement `SingleThreadModel` **(M)** interface
 					1. No two threads can execute concurrently in servlet's service method
+					2. Implementation: Web container synchronizes access to single instance of servlet or by maintaining a pool of web component instances and dispatching each new request to free instance
 
 ## Constructing and Initializing a Servlet ##
 ## Writing Service Methods ##
