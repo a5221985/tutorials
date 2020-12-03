@@ -135,8 +135,35 @@
 				2. Specify `initParams` attribute of `@WebServlet` annotation
 					1. It contains `@WebInitParams` annotation
 		3. If servlet cannot complete initialization process, it throws `UnavailableException`
+3. Use init parameter to provide data needed to a particular serlvet
+4. A context parameter provides data available to all components of web application
 
 ## Writing Service Methods ##
+1. Service provided by servlet is
+	1. In `service` method of `GenericServlet`
+	2. In `do`*Method* methods (*Method* can be `Get`, `Delete`, `Options`, `Post`, `Put`, or `Trace`) of `HttpServlet` object (or any other protocol-specific methods defined by class that implements `Servlet` interface)
+2. **service method** is used for any method in servlet class that provides service to client
+3. General pattern of service method:
+	1. Extract info from request
+	2. Access external resources
+	3. Populate response (based on info)
+4. HTTP Servlets - procedure to populate response
+	1. Retrieve an output stream from response
+	2. Fill in response headers
+	3. Write body content to output stream
+5. Response headers must be set before the response is committed
+	1. Web container will ignore attempt to set or add headers after response has been committed
+6. Next: How to get info from requests and generate responses
+
+### Getting Information from Requests ###
+1. Request contains data passed between client and servlet
+	1. All requests implement - `ServletRequest` interface
+		1. `ServletRequest` - has methods for accessing following info
+			1. Parameters - typically used to convey info between clients and servlets
+			2. Object-valued attributes - typically used to pass info between web container and servlet or between collaborating servlets
+
+### Constructing Responses ###
+
 ## Filtering Requests and Responses ##
 ## Invoking Other Web Resources ##
 ## Accessing the Web Context ##
