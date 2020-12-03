@@ -256,6 +256,17 @@
 	1. Chain is specified when web application containing component is deployed and instantiated when web container loads component
 
 ### Programming Filters ###
+1. API is defined by: `Filter`, `FilterChain`, `FilterConfig` interfaces in `javax.servlet` package
+	1. `Filter` - used to implement filter
+		1. `@WebFilter` annotation is used to define a filter in web application
+			1. It is specified on a class & contains metadata about filter being declared
+			2. It must specify atleast one URL pattern
+				1. `urlPatterns` - used to define url patterns (used if other attributes are also used)
+				2. `value` - used to define single url pattern (used if it is the only attribute)
+			3. Other attributes are optional (they have default settings)
+2. Classes annotated with `@WebFilter` must implement `Filter` interface
+3. `initParams` is used to add config data to filter in `@WebFilter`
+	1. Contains `@WebInitParam` annotation **(M)**
 
 ### Programming Customized Requests and Responses ###
 
