@@ -421,6 +421,17 @@
 	1. One web component do preliminary processing of request
 	2. Another component generate response
 2. Example: We want to partially process a request and then transfer to another component (depending on nature of request)
+3. To transfer control to another web component, invoke `forward` of `RequestDispatcher`
+	1. Request URL is set to the path of forwarded page
+	2. Original URI and it's parts are saved as following request attributes:
+	
+			javax.servlet.forward.request_uri
+			javax.servlet.forward.context_path
+			javax.servlet.forward.servlet_path
+			javax.servlet.forward.path_info
+			javax.servlet.forward.query_string
+			
+		1. `forward` method should be used to given another resource responsibility for replying to user
 
 ## Accessing the Web Context ##
 ## Maintaining Client State ##
