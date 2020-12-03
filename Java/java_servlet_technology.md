@@ -196,6 +196,34 @@
 		2. query string is appended to URL when form with `GET` HTTP method is submitted
 
 ### Constructing Responses ###
+1. Response contains data passed between server and client
+	1. All responses implement `ServletResponse` interface. The interface defines methods to do:
+		1. Retrieve output stream to use to send data to client
+			1. `PrintWriter` - to send character data
+				1. Returned by `getWriter` method
+			2. `ServletOutputStream` - to send binary data in Multipurpose Internet Mail Extensions (MIME) body response
+				1. Returned by `getOutputStream`
+			2. To mix binary and text data (as multipart response)
+				1. Use `ServletOutputStream`
+					1. Need to manage character sections manually
+		2. Indicate content type (example: `text/html`) being returned by response with `setContentType(String)`
+			1. Method must be called before response is committed
+			2. Registry of content type names: [Internet Assigned Numbers Authority (IANA)](http://www.iana.org/assignments/media-types/)
+		3. Indicate whether to buffer output with `setBufferSize(int)`
+			1. Default behaviour:
+				1. Any content written to output stream is immediately sent to client
+			2. Buffering:
+				1. Content is written first before sending anything back to client
+					1. Use case: gives servlet more time to set appropriate status codes and headers or forward to another web resource
+						1. *Partially written content?*
+			3. Method must be called before any content is written or before response is committed
+		4. Set localization information:
+			1. Locale
+			2. Character encoding
+				1. [Internationalizing and Localizing Web Applications](https://docs.oracle.com/javaee/7/tutorial/webi18n.htm#BNAXU)
+2. `javax.servlet.http.HttpServletResponse` - has fields representing HTTP headers
+	1. Status codes
+		1. Used to indicate reason a request is not satisfied or that request has been redirected
 
 ## Filtering Requests and Responses ##
 ## Invoking Other Web Resources ##
