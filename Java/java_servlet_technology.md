@@ -180,9 +180,20 @@
 			
 		1. Request path is composed of:
 			1. **Context path** - concatenation of `/` with context root of servlet's web application
-			2. **Servlet path** - Path section that corresponds to **component alias** that activated this request
+			2. **Servlet path** - Path section that corresponds to **component alias** that activated this request (?)
 				1. Path starts with `/`
 			3. **Path info** - Part of request path that is not part of context path or servlet path
+		2. `getContextPath` - to access context path
+		3. `getServletPath` - to access servlet path
+		4. `getPathInfo` - to get other parts
+3. URI always has the three parts
+	1. Irrespective of encoding differences between request URI and path parts
+4. Query strings
+	1. Composed of set of params and values
+		1. Individual params are retrieved using `getParameter` method
+	2. Two ways to generate query strings
+		1. query string can explicitly appear in web page
+		2. query string is appended to URL when form with `GET` HTTP method is submitted
 
 ### Constructing Responses ###
 
