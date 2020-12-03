@@ -319,7 +319,7 @@
 		2. Wrapper methods default to calling through to wrapped request or response object
 			1. To override request methods
 				1. Wrap request in object that extends either
-					1. `ServletRequestWrapper` or
+					1. `ServletRequestWrapper` **(M)** or
 					2. `HttpServletRequestWrapper`
 			2. To override response methods
 				1. Wrap response in object that extends either
@@ -327,6 +327,18 @@
 					2. `HttpServletResponseWrapper`
 
 ### Specifying Filter Mappings ###
+1. Web container uses filter mappings to decide how to apply filters to web resources
+	1. Filter mapping
+		1. Matches filter to web component **by name** or to web resource by **URL pattern**
+		2. Filters are invoked in order in which filter mappings appear in filter mapping list or WAR
+			1. Filter mapping list:
+				1. Specified in deployment descriptor
+					1. Using NetBeans IDE
+					2. Coding list in XML
+2. Example: To log every request to a web application
+	1. Map hit counter filter to URL pattern `/*`
+3. A filter can be mapped to one or more web resources
+4. More than one filter can be mapped to a web resource (Many-to-Many)
 
 #### To Specify Filter Mappings Using NetBeans IDE ####
 
