@@ -117,6 +117,18 @@
 			1. Two ways to do it:
 				1. `urlPatterns` attribute (when other attributes are also used)
 				2. `value` attribute (when it is the only attribute)
+2. Classes annotated with `@WebServlet` must extend: `javax.servlet.http.HttpServlet`
+	1. Example:
+
+			import javax.servlet.annotation.WebServlet;
+			import javax.servlet.http.HttpServlet;
+			
+			@WebServlet("/report")
+			public class MoodServlet extends HttpServlet {
+				...
+			}
+			
+		1. Web container initializes servlet after loading and instantiating servlet class and before delivering requests from clients
 
 ## Writing Service Methods ##
 ## Filtering Requests and Responses ##
