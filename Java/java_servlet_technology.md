@@ -399,6 +399,29 @@
 	2. If resource is not available, or if server has not implemented `RequestDispatcher` object for the type of resource, `getRequestDispatcher` will return `null`
 		1. Serlvet should deal with this condition
 
+### Including Other Resources in the Response ###
+1. It is often useful to include another web resource (such as banner content or copyright info) in response returned from web component
+	1. How to do that?
+		1. Invoke the following method of `RequestDispatcher`
+
+				include(request, response);
+				
+2. If resource is static: `include` method enables programmatic server-side includes
+3. If resource is web component: effect of the method is to
+	1. Send request to included web component
+	2. Execute web component
+	3. Include result of execution in response from containing servlet
+4. Included web component has access to request object but is limited in what it can do with response object
+	1. It can write to body of response and commit a response
+	2. It cannot set headers or call any method that affects headers of response
+		1. `setCookie` say
+
+### Transferring Control to Another Web Component ###
+1. In certain applications, we might want to have
+	1. One web component do preliminary processing of request
+	2. Another component generate response
+2. Example: We want to partially process a request and then transfer to another component (depending on nature of request)
+
 ## Accessing the Web Context ##
 ## Maintaining Client State ##
 ## Finalizing a Servlet ##
