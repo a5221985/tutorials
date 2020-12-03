@@ -386,6 +386,18 @@
 	1. Web compoenent indirectly invokes another web resource by embedding URL that points to another web component in content returned to client
 3. Direct method:
 	1. While a web component is executing, it directly invokes another resource by either including content of another resource or forwarding a request to another resource
+4. To invoke resource available on server that is running web component:
+	1. First obtain `RequestDispatcher` object by using `getRequestDispatcher("URL")` method
+		1. It can be obtained either from:
+			1. Request or
+			2. Web context
+		2. The two methods have slightly different behaviour
+		3. Method takes path to requested resource as an argument
+			1. Request can take relative path
+				1. That does not begin with `/`
+					1. But Web context - requires absolute path
+	2. If resource is not available, or if server has not implemented `RequestDispatcher` object for the type of resource, `getRequestDispatcher` will return `null`
+		1. Serlvet should deal with this condition
 
 ## Accessing the Web Context ##
 ## Maintaining Client State ##
