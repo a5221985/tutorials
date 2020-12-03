@@ -369,8 +369,20 @@
 	9. Click **OK**
 	10. To constrain how filter is applied to requests follow the steps below:
 		1. Expand **Filter Mappings** node
+		2. Select filter from list of filters
+		3. Click **Add**
+		4. In Add Filter Mapping dialog box, select one of following dispatcher types
+			1. **REQUEST** - Only when request comes directly from client
+			2. **ASYNC** - Only when asynchronous request comes from client
+			3. **FORWARD** - Only when request has been forwarded to a component ([Transferring Control to Another Web Component](https://docs.oracle.com/javaee/7/tutorial/servlets007.htm#BNAGK))
+			4. **INCLUDE** - Only when request is being processed by a component that has been included ([Including Control to Another Web Component](https://docs.oracle.com/javaee/7/tutorial/servlets007.htm#BNAGJ))
+			5. **ERROR** - Only when request is being processed with error page mechanism ([Handling Servlet Errors](https://docs.oracle.com/javaee/7/tutorial/servlets002.htm#BNAFN))
+		5. We can direct filter to be applied to any combinations of preceding situations by selecting multiple dispatcher types
+			1. Defautl is **REQUEST** if no types are specified
 
 ## Invoking Other Web Resources ##
+1. Web components can invoke other web resources directly and indirectly
+
 ## Accessing the Web Context ##
 ## Maintaining Client State ##
 ## Finalizing a Servlet ##
