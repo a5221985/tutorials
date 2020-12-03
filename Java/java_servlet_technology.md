@@ -306,7 +306,8 @@
 			1. Retrieve them from `FilterConfig` object passed to `init`
 
 ### Programming Customized Requests and Responses ###
-1. 
+1. There are many ways for filter to modify request or response
+	1. Example: Filter can add attribute to request or can insert data in response
 
 ### Specifying Filter Mappings ###
 
