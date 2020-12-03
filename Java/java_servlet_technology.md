@@ -161,6 +161,25 @@
 		1. `ServletRequest` - has methods for accessing following info
 			1. Parameters - typically used to convey info between clients and servlets
 			2. Object-valued attributes - typically used to pass info between web container and servlet or between collaborating servlets
+			3. Info about protocol used to communicate request & about client and server involved in request (?)
+			4. Info relevant to localization
+	2. An input stream can be retrieved and data be manually parsed
+		1. `BufferedReader` - for character data
+			1. Returned by request's `getReader` method
+		2. `ServletInputStream` **(M)** - to read binary data
+			1. Returned by `getInputStream`
+2. HTTP servlets are passed HTTP request object - `HttpServletRequest`
+	1. It contains
+		1. Request URL
+		2. HTTP headers
+		3. Query string
+		4. ...
+	2. HTTP request URL has following parts
+
+			http://[host]:[port][request-path]?[query-string]
+			
+		1. Request path is composed of:
+			1. **Context path** - concatenation of `/` with context root of servlet's web application
 
 ### Constructing Responses ###
 
