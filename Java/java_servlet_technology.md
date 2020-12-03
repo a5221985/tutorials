@@ -382,6 +382,10 @@
 
 ## Invoking Other Web Resources ##
 1. Web components can invoke other web resources directly and indirectly
+2. Indirect method:
+	1. Web compoenent indirectly invokes another web resource by embedding URL that points to another web component in content returned to client
+3. Direct method:
+	1. While a web component is executing, it directly invokes another resource by either including content of another resource or forwarding a request to another resource
 
 ## Accessing the Web Context ##
 ## Maintaining Client State ##
