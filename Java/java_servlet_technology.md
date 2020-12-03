@@ -340,7 +340,35 @@
 3. A filter can be mapped to one or more web resources
 4. More than one filter can be mapped to a web resource (Many-to-Many)
 
+	![filter_to_servlet_mapping](filter_to_servlet_mapping.png)
+	
+	1. F1 is mapped to S1, S2, S3
+	2. F2 is mapped to S2
+	3. F3 is mapped to S1, S2
+5. Filter chain:
+	1. It is one of the objects passed to `doFilter` method of filter
+	2. Chain is formed indirectly by means of filter mappings
+		1. Order of filters in chain is same as order in which filter mappings appear in web app deployment descriptor
+6. Invocation:
+	1. When filter is mapped to servlet S1, web container invokes `doFilter` of F1
+	2. `doFilter` method of each filter in S1's filter chain is invoked by preceding filter in chain by means of `chain.doFilter` method
+	3. F1's call to `chain.doFilter` invokdes `doFilter` of F3 (F3 follows F1)
+	4. When F3's `doFilter` completes, control returns to F1's `doFilter`
+
 #### To Specify Filter Mappings Using NetBeans IDE ####
+1. Steps:
+	1. Expand application's project node in **Project** tab
+	2. Expand **Web Pages** and **WEB-INF** nodes under project node
+	3. Double click **web.xml**
+	4. Click **Filters** at the top of editor window
+	5. Expand **Servlet Filters** node in editor window
+	6. Click **Add Filter Element** to map filter to web resource by name or by URL pattern
+	7. In Add Servlet Filter dialog box, enter name of filter in **Filter Name** field
+	8. Click **Browse** to locate servlet class to which filter applies
+		1. We can include wildcard characters so that you can apply filter to more than one servlet
+	9. Click **OK**
+	10. To constrain how filter is applied to requests follow the steps below:
+		1. Expand **Filter Mappings** node
 
 ## Invoking Other Web Resources ##
 ## Accessing the Web Context ##
