@@ -244,7 +244,24 @@
 	4. Modify response headers and data
 		1. Done by providing customized version of response
 3. Applications of filters:
-	1. 
+	1. Authentication
+	2. Logging
+	3. Image conversion
+	4. Data compression
+	5. Encryption
+	6. Tokenizing streams
+	7. XML transformations
+	8. ...
+4. A web resource can be configured to be filtered by a chain of - zero, one, or more filters in specific order
+	1. Chain is specified when web application containing component is deployed and instantiated when web container loads component
+
+### Programming Filters ###
+
+### Programming Customized Requests and Responses ###
+
+### Specifying Filter Mappings ###
+
+#### To Specify Filter Mappings Using NetBeans IDE ####
 
 ## Invoking Other Web Resources ##
 ## Accessing the Web Context ##
