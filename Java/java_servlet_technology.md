@@ -267,6 +267,32 @@
 2. Classes annotated with `@WebFilter` must implement `Filter` interface
 3. `initParams` is used to add config data to filter in `@WebFilter`
 	1. Contains `@WebInitParam` annotation **(M)**
+	2. Example: Specifying initialization parameter
+
+			import javax.servlet.Filter;
+			import javax.servlet.annotation.WebFilter;
+			import javax.servlet.annotation.WebInitParam;
+			
+			@WebFilter(filterName = "TimeOfDayFilter",
+			urlPatterns = {"/*"},
+			initParams = {
+				@WebInitParam(name = "mood", value ="awake")
+			})
+			public class TimeOfDayFilter implements Filter {
+				...
+			
+4. Most important method in `Filter` interface is `doFilter`
+	1. The method is passed request, response, filter chain objects
+	2. The method can perform the following:
+		1. Examine request headers
+		2. Customize request object if fiter wishes to modify request headers or data
+		3. Customize response object if filter wishes to modify response headers or data
+		4. Invoke next entity in filter chain
+			1. If current filter is last filter in chain that ends with target web component or static resource
+				1. Next entity is **resource** at the end of chain (forwarded to web component or static resource)
+			2. Else
+				1. It is next filter that was configured in WAR
+			3. 
 
 ### Programming Customized Requests and Responses ###
 
