@@ -103,8 +103,15 @@
 				1. Servlet can implement `SingleThreadModel` **(M)** interface
 					1. No two threads can execute concurrently in servlet's service method
 					2. Implementation: Web container synchronizes access to single instance of servlet or by maintaining a pool of web component instances and dispatching each new request to free instance
+				2. Caveat: The interface does not prevent synchronization problems that result from web components accessing shared resources
+					1. Static class variables
+					2. External objects
+4. If resources are accessed concurrently, they can be used in inconsistent fashion
+	1. Solution: [Synchronization using threads](http://docs.oracle.com/javase/tutorial/essential/concurrency/)
 
 ## Constructing and Initializing a Servlet ##
+1. `@WebServlet` is used to define servlet component in web application
+
 ## Writing Service Methods ##
 ## Filtering Requests and Responses ##
 ## Invoking Other Web Resources ##
