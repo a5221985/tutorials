@@ -129,6 +129,12 @@
 			}
 			
 		1. Web container initializes servlet after loading and instantiating servlet class and before delivering requests from clients
+		2. Customization of the process:
+			1. To allow servlet to read persistent config data, initialize resources, perform any other one-time activities:
+				1. Override `init` method of `Servlet` interface or
+				2. Specify `initParams` attribute of `@WebServlet` annotation
+					1. It contains `@WebInitParams` annotation
+		3. If servlet cannot complete initialization process, it throws `UnavailableException`
 
 ## Writing Service Methods ##
 ## Filtering Requests and Responses ##
