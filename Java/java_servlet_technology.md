@@ -444,6 +444,7 @@
 			2. Resources associated with the web context (?)
 			3. Object-valued attributes
 			4. Logging capabilities
+2. Counter's access methods
 
 ## Maintaining Client State ##
 ## Finalizing a Servlet ##
