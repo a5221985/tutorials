@@ -449,7 +449,10 @@
 	2. Incremented value of counter is recorded in log
 
 ## Maintaining Client State ##
-1. 
+1. Applications may require series of requests from client be associated with one another
+	1. Example: Web application can save state of user's shopping cart across requests
+		1. Application is responsible for maintaining such state called **sesion** (Since HTTP is stateless)
+			1. To support apps that need to maintain state, Java Servlet technology provides API for managing sessions & allows mechanisms for implementing sessions
 
 ### Accessing a Session ###
 ### Associating Objects with a Session ###
