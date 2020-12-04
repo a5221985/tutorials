@@ -446,8 +446,17 @@
 			4. Logging capabilities
 2. Counter's access methods are synchronized to prevent incompatible operations by servlets running concurrently
 	1. Filter retrieves counter object by using context's `getAttribute` method
+	2. Incremented value of counter is recorded in log
 
 ## Maintaining Client State ##
+1. 
+
+### Accessing a Session ###
+### Associating Objects with a Session ###
+### Session Management ###
+#### To Set the Timeout Period Using NetBeans IDE ####
+### Session Tracking ###
+
 ## Finalizing a Servlet ##
 ## Uploading Files with Java Servlet Technology ##
 ## Asynchronous Processing ##
