@@ -444,7 +444,8 @@
 			2. Resources associated with the web context (?)
 			3. Object-valued attributes
 			4. Logging capabilities
-2. Counter's access methods
+2. Counter's access methods are synchronized to prevent incompatible operations by servlets running concurrently
+	1. Filter retrieves counter object by using context's `getAttribute` method
 
 ## Maintaining Client State ##
 ## Finalizing a Servlet ##
