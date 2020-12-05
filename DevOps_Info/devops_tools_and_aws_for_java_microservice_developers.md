@@ -36,6 +36,8 @@
 
 			@Entity
 			public class Coupon {
+				@Id
+				@GeneratedValue(strategy = GenerationType.IDENTITY) // **(M)**
 				private long id;
 				private String code;
 				private BigDecimal discount;
@@ -43,9 +45,38 @@
 			
 				// Setters and getters
 			}
+			
+	2. New interface: com.bharath.springcloud.CouponRepo
+		1. Extends: JPARepository<Coupon, Long>
 
 ### Construct RestController ###
+1. New class: com.bharath.springcloud.controllers.CouponRestController
+	
+		@RestController
+		@RequestMapping("/couponapi")
+		public class CouponRestController {
+		
+			@Autowired
+			CouponRepo repo;
+		
+			@RequestMapping(value = "/coupons", method = RequestMethod.POST)
+			public Coupon create(Coupon coupon) {
+				return repo.save(coupon); // has id
+			}
+			
+			@RequestMapping(value = "/coupons/{code}", method = RequestMethod.GET)
+			public Coupon getCoupon(String code) {
+				return repo.findByCode(code); // generate this
+			}
+		}
+
 ### Configure DataSource ###
+1. application.properties
+
+		spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+		spring.datasource.username=root
+		spring.datasource.password=password
+
 ### Test ###
 ### Construct the Product Microservice Project Model and Repository ###
 ### Construct the RestController ###
