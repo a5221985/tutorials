@@ -6,9 +6,17 @@
 
 ### Usecase ###
 1. Microservices
-	1. MS1 - Product Service -> DB
+	1. MS1: Product Service -> DB (has price and description passed by client)
+		1. -Coupon Code-> MS2 (for getting discount)
+		2. Client -> MS1
+	2. MS2: Coupon Service -> DB (has coupon details)
+		1. REST API
+			1. Creation of Coupon
+			2. Get Coupon details
 
 ### Construct the DB Tables ###
+1. Download SQL from: 
+
 ### Construct the Project ###
 ### Construct Model and Repository ###
 ### Construct RestController ###
