@@ -17,9 +17,33 @@
 ### Construct the DB Tables ###
 1. Download SQL from: https://www.udemy.com/course/devops-tools-and-aws-for-java-microservice-developers/learn/lecture/19384786#content
 2. Import it in MySQLWorkbench
+3. id - auto_increment
 
 ### Construct the Project ###
+1. New > Spring Starter
+	1. Name: couponservice
+	2. Group: com.bharath.springcloud
+	3. Artifact: couponservice
+	4. Package: com.bharath.springcloud
+	5. Dependencies:
+		1. Spring Web
+		2. Spring Data JPA
+		3. MySQL Driver
+
 ### Construct Model and Repository ###
+1. Right click on package:
+	1. New class: com.bharath.springcloud.model.Coupon
+
+			@Entity
+			public class Coupon {
+				private long id;
+				private String code;
+				private BigDecimal discount;
+				private String expDate;
+			
+				// Setters and getters
+			}
+
 ### Construct RestController ###
 ### Configure DataSource ###
 ### Test ###
