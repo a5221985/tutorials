@@ -76,6 +76,16 @@
 		spring.datasource.url=jdbc:mysql://localhost:3306/mydb
 		spring.datasource.username=root
 		spring.datasource.password=password
+		
+2. CouponRestController
+
+		public Coupon create(@RequestBody Coupon coupon) {
+			...
+		}
+		
+		public Coupon getCoupon(@PathVariable("code") String code) {
+			...
+		}
 
 ### Test ###
 ### Construct the Product Microservice Project Model and Repository ###
