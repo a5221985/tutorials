@@ -15,7 +15,8 @@
 			2. Get Coupon details
 
 ### Construct the DB Tables ###
-1. Download SQL from: 
+1. Download SQL from: https://www.udemy.com/course/devops-tools-and-aws-for-java-microservice-developers/learn/lecture/19384786#content
+2. Import it in MySQLWorkbench
 
 ### Construct the Project ###
 ### Construct Model and Repository ###
