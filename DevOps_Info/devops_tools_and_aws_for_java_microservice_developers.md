@@ -123,7 +123,7 @@
 ### Construct Auto Scaling Group ###
 ### Test ###
 
-## AWS Cloudwatch Monitoing and SNS ##
+## AWS Cloudwatch Monitoring and SNS ##
 ### Cloudwatch Service ###
 ### Simple Notification Services ###
 ### Construct Topic and Subscription ###
