@@ -96,6 +96,15 @@
 				"discount": 10
 				"expDate": "12/12/2020" 
 			}
+			
+	2. Run: GET: http://localhost:8080/couponapi/coupons/SUPERSALE
+
+			{
+				"id": 1
+				"code": "SUPERSALE",
+				"discount": 10
+				"expDate": "12/12/2020" 
+			}
 
 ### Construct the Product Microservice Project Model and Repository ###
 ### Construct the RestController ###
