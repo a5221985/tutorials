@@ -88,6 +88,15 @@
 		}
 
 ### Test ###
+1. Open PostMan:
+	1. Run: POST: http://localhost:8080/couponapi/coupons
+
+			{
+				"code": "SUPERSALE",
+				"discount": 10
+				"expDate": "12/12/2020" 
+			}
+
 ### Construct the Product Microservice Project Model and Repository ###
 ### Construct the RestController ###
 ### Configure DataSource ###
