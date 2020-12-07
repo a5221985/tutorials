@@ -561,6 +561,8 @@
 		}
 
 ### Notifying Methods to Shut Down ###
+1. To ensure clean shutdown, `destroy` method should not release shared resources until all service requests have completed
+	1. A part of doing this 
 
 ### Constructing Polite Long-Running Methods ###
 
