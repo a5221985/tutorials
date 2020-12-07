@@ -462,10 +462,16 @@
 		3. If request does not have a session, a session is created
 
 ### Associating Objects with a Session ###
-1. 
+1. If attribute values are objects, they can be associated with a session by name
+	1. The attributes are accessible by any web component that belongs to same web context and is handling request that is part of same session
+	2. Application can notify web context and session listener objects of servlet lifecycle events
+		1. [Handling Servlet Lifecycle Events](https://docs.oracle.com/javaee/7/tutorial/servlets002.htm#BNAFJ)
+	3. 
 
 ### Session Management ###
-1. 
+1. HTTP client has no way to signal that it no longer needs a session,
+	1. Each session has an associated timeout (to reclaim the resources)
+	2. 
 
 #### To Set the Timeout Period Using NetBeans IDE ####
 ### Session Tracking ###
