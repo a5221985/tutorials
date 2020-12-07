@@ -597,12 +597,37 @@
 				} catch (InterruptedException e) {
 				}
 			}
-		}
-		
+		}	
 
 ### Constructing Polite Long-Running Methods ###
+1. Last step in providing clean shutdown:
+	1. Make long-running methods behave politely
+		1. Methods should check value of the field that notifies them of shutdowns and should interrupt their work, if necessary
+2. Example:
+
+		public void doPost(...) {
+			...
+			for (i = 0; ((i < lotsOfStuffToDo) && !isShuttingDown()); i++) {
+				try {
+					partOfLongRunningOperation(i);
+				} catch (InterruptedException e) {
+					...
+				}
+			}
+		}
 
 ## Uploading Files with Java Servlet Technology ##
+1. In prior versions of Servlet spec, implementing file uploads required use of external libraries or complex input processing
+2. Java Servlet spec now has viable solution to problem in generic and portable way
+	1. It supports file uploads out of the box
+		1. Any web container that implements the spec can parse multipart requests and make mime attachments available through
+			1. `HttpServletRequest` object
+3. New annotation: `javax.servlet.annotation.MultipartConfig` - used to indicate that servlet on which it is declared expects requests to be ade using `multipart/form-data` MIME type
+
+### The @MultipartConfig Annotation ###
+
+### The getParts and getPart Methods ###
+
 ## Asynchronous Processing ##
 ## Nonblocking I/O ##
 ## Protocol Upgrade Processing ##
