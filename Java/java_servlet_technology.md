@@ -466,14 +466,35 @@
 	1. The attributes are accessible by any web component that belongs to same web context and is handling request that is part of same session
 	2. Application can notify web context and session listener objects of servlet lifecycle events
 		1. [Handling Servlet Lifecycle Events](https://docs.oracle.com/javaee/7/tutorial/servlets002.htm#BNAFJ)
-	3. 
+	3. Objects can also be notified of certain events which is related to their association with session
+		1. When object is added or removed from session:
+			1. The object must implement `javax.servlet.http.httpSessionBindingListener` interface
+		2. When session to which object is attached is passivated or activated:
+			1. Passivation or activation occurs when object is moved between virtual machines
+			2. Passivation or activation occurs when object is saved to or restored from persistent storage
+			3. Object must implement `javax.servlet.http.HttpSessionActivationListener` interface to receive notifications
 
 ### Session Management ###
 1. HTTP client has no way to signal that it no longer needs a session,
 	1. Each session has an associated timeout (to reclaim the resources)
-	2. 
+2. Timeout period can be accessed using session's
+	1. `getMaxInactiveInterval`
+	2. `setMaxInactiveInterval`
+3. Notes:
+	1. To ensure an active session is not timed out, periodically access the session by using service methods
+		1. This resets session's time-to-live counter
+	2. When particular client interaction is finished, use session's `invalidate` method to invalidate a session on server side and remove session data
 
 #### To Set the Timeout Period Using NetBeans IDE ####
+1. In deployment descriptor:
+	1. Open project if not already opened
+	2. Expand node of your project in **Projects** tab
+	3. Expand **Web Pages** and **WEB-INF** nodes under project node
+	4. Double click `web.xml`
+	5. Click **General** at top of editor
+	6. In **Session Timeout** field, enter an integer value
+		1. It represents number of minutes of inacitivity that must pass before session times out
+
 ### Session Tracking ###
 1. Several methods can a web container use to associate a session with user
 	1. All methods involve passing an identifier between client and server
@@ -486,6 +507,17 @@
 			1. `encodeURL(url)` - includes session ID in URL if cookies are disabled or else, returns URL unchanged
 
 ## Finalizing a Servlet ##
+1. Web container may determine that servlet should be removed from service
+	1. Example: 
+		1. When container wants to reclaim memory resources
+		2. When container is being shut down
+
+### Tracking Service Requests ###
+
+### Notifying Methods to Shut Down ###
+
+### Constructing Polite Long-Running Methods ###
+
 ## Uploading Files with Java Servlet Technology ##
 ## Asynchronous Processing ##
 ## Nonblocking I/O ##
