@@ -465,8 +465,19 @@
 1. 
 
 ### Session Management ###
+1. 
+
 #### To Set the Timeout Period Using NetBeans IDE ####
 ### Session Tracking ###
+1. Several methods can a web container use to associate a session with user
+	1. All methods involve passing an identifier between client and server
+		1. Identifier can be:
+			1. Maintained by client as a cookie
+			2. includes by web component in every URL that is returend to client
+2. If application uses session objects
+	1. We must ensure that session tracking is enabled by having application rewrite URLs whenever client turns off cookies
+		1. Done by calling response's `encodeURL(url)` method on all URLs returned by servlet
+			1. `encodeURL(url)` - includes session ID in URL if cookies are disabled or else, returns URL unchanged
 
 ## Finalizing a Servlet ##
 ## Uploading Files with Java Servlet Technology ##
