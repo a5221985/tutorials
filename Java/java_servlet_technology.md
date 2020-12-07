@@ -455,7 +455,15 @@
 			1. To support apps that need to maintain state, Java Servlet technology provides API for managing sessions & allows mechanisms for implementing sessions
 
 ### Accessing a Session ###
+1. Sessions are represented by `HttpSession` object
+	1. A session is accessed by calling `getSession` method of request object
+		1. Method returns current session associated with the request
+		2. or
+		3. If request does not have a session, a session is created
+
 ### Associating Objects with a Session ###
+1. 
+
 ### Session Management ###
 #### To Set the Timeout Period Using NetBeans IDE ####
 ### Session Tracking ###
