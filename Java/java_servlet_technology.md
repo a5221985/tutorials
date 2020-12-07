@@ -511,6 +511,11 @@
 	1. Example: 
 		1. When container wants to reclaim memory resources
 		2. When container is being shut down
+2. Container calls `destroy` method of `Servlet` interface
+	1. In this method, we release resources servlet is using and save persistent state
+		1. Releases database object constructed in `init` method
+3. Servlet's service methods should be complete when servlet is removed
+	1. Server tries to ensure this by calling `destroy` only after all service requests have returned or after server-specific grace period (whichever comes first)	
 
 ### Tracking Service Requests ###
 
