@@ -562,7 +562,43 @@
 
 ### Notifying Methods to Shut Down ###
 1. To ensure clean shutdown, `destroy` method should not release shared resources until all service requests have completed
-	1. A part of doing this 
+	1. A part of doing this is to check service counter
+	2. Another part is to notify long-running methods that it is time to shutdown
+		1. For this another field is required
+			1. The field should have the usual access methods
+2. Example:
+
+		public class ShutdownExample extends HttpServlet {
+			private boolean shuttingDown;
+			...
+			// Access methods for shuttingDown
+			protected synchronized void setShuttingDown(boolean flag) {
+				shuttingDown = flag;
+			}
+			
+			protected synchronized boolean isShuttingDown() {
+				return shuttingDown;
+			}
+		}
+		
+3. Exmaple: `destroy`
+
+		public void destroy() {
+			/* Check to see whether there are still service methods */
+			/* running, and if there are, tell them to stop. */
+			if (numServices() > 0) {
+				setShuttingDown(true);
+			}
+			
+			/* Wait for the service methods to stop. */
+			while (numServices() > 0) {
+				try {
+					Thread.sleep(interval);
+				} catch (InterruptedException e) {
+				}
+			}
+		}
+		
 
 ### Constructing Polite Long-Running Methods ###
 
