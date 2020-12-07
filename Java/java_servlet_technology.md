@@ -516,6 +516,12 @@
 		1. Releases database object constructed in `init` method
 3. Servlet's service methods should be complete when servlet is removed
 	1. Server tries to ensure this by calling `destroy` only after all service requests have returned or after server-specific grace period (whichever comes first)	
+		1. If servlet has operations that may run longer than server's grace period, operations could still be running when `destroy` is called
+			1. Ensure threads still handling client requests complete
+4. Next: How to do the following:
+	1. Keep track of how many threads are currently running `service` method
+	2. Provide clean shutdown by having `destroy` method notify long-running threads of shutdown and wait for them to complete
+	3. Have long-running methods poll periodically to check for shutdown and, if necessary, stop working, clean up, and return
 
 ### Tracking Service Requests ###
 
