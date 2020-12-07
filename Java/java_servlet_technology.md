@@ -524,6 +524,41 @@
 	3. Have long-running methods poll periodically to check for shutdown and, if necessary, stop working, clean up, and return
 
 ### Tracking Service Requests ###
+1. To track service requests:
+	1. Include in servlet class a field that counts number of service methods running
+		1. The field should have synchronized access methods to increment, decrement and return its value
+2. Implementation
+
+		public class ShutdownExample extends HttpServlet {
+			private int serviceCounter = 0;
+			...
+			// Access methods for serviceCounter
+			protected synchronized void enteringServiceMethod() {
+				serviceCounter++;
+			}
+			
+			protected synchronized void leavingServiceMethod() {
+				serviceCounter--;
+			}
+			
+			protected synchronized int numServices() {
+				return serviceCounter;
+			}
+		}
+		
+3. `service` method should increment service counter each time method is entered and should decrement counter each time method returns
+	1. This is one time `HttpServlet` subclass should override `service` method
+	2. New method should call `super.service` to preserve functionality of original `service` method
+4. Implementation:
+
+		protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			enteringServiceMethod();
+			try {
+				super.service(req, resp);
+			} finally {
+				leavingServiceMethod();
+			}
+		}
 
 ### Notifying Methods to Shut Down ###
 
