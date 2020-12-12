@@ -1,9 +1,11 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue109;\red255\green255\blue10;\red255\green255\blue10;
-\red255\green255\blue255;\red255\green255\blue255;\red11\green76\blue180;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c50196;\cssrgb\c99942\c98555\c0;\cssrgb\c99942\c98555\c0;
-\cssrgb\c100000\c100000\c100000;\cssrgb\c100000\c100000\c100000;\cssrgb\c1961\c38824\c75686;\cssrgb\c0\c0\c0;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue109;\red253\green128\blue8;\red255\green255\blue10;
+\red255\green255\blue10;\red255\green255\blue255;\red255\green255\blue255;\red11\green76\blue180;\red0\green0\blue0;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c50196;\cssrgb\c100000\c57637\c0;\cssrgb\c99942\c98555\c0;
+\cssrgb\c99942\c98555\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c100000\c100000\c100000;\cssrgb\c1961\c38824\c75686;\cssrgb\c0\c0\c0;
+}
 \paperw11900\paperh16840\margl1440\margr1440\vieww11100\viewh13960\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -16,11 +18,13 @@
 * \ul Working API Documentation:\ulnone  Paired with teammate to extract API calls made by UI and Mobile App to define PostMan collections to share with team. This enabled the team to diagnose issues by isolating layer(s) for debugging and identifying root causes quickly. Many high priority issues were fixed quickly with the PostMan collection.\
 * \ul Pro-Tem App:\ulnone  Proposed, architected and developed a self-learning proxy application that caches client requests, service responses and replays them when actual service is unavailable. This enabled development team to continue with development and testing process during service downtime. The app also has a feature to notify the team and vendor if the service is down through e-mail and slack (configurable).\
 * \ul Service Extension Framework:\ulnone  Proposed, architected, and developed a framework for extending the functionality of proprietary third party services. The framework achieved this by providing extension points to plug custom logic for pre-processing and post-processing requests and responses respectively flowing to and from the services. This minimised dependency of client application on the vendor service for extending the functionality of the service and also provided a platform for client to migrate from vendor application (feature by feature) to an in-house application.\
-* \ul API Testing Framework (work-in-progress):\ulnone  Architected and led a team to develop MVP for a generic API testing framework for running tests against REST API and SOAP API. The framework is designed to be decoupled from the actual test suite that can be versioned independently. The application is required to automatically run a suite of tests on API whenever changes are pushed to the API. This also enables teams to maintain an integration test suite for the API.\
-* \ul Automated Vendor Application Deployment:\ulnone  Paired with teammate and developed a python 2.x based application to deploy a third-party vendor application on Linux server(s). The application handled automatic unpacking of artefacts, selectively copying files and running selenium based browser configuration. This automation reduced deployment time from 1 - 1.5 hours of manual effort to 3 - 5 minutes and also freed development team to focus on stories and issues.\
+* \ul Automated Vendor Application Deployment:\ulnone  Paired with teammate and developed a python 2.x based application to deploy a third-party vendor application on Linux server(s). The application handled automatic unpacking of artefacts, selectively copying files and running selenium based browser configuration. This automation reduced deployment time from 1 - 1.5 hours of manual effort to 3 - 5 minutes and also freed development team to focus on user stories and issues.\
 * \ul API Test Suite:\ulnone  Worked with team to define and maintain a collection of PostMan tests for in-house and third party services. This aided all the teams in testing the client applications and debugging production related issues.\
-* \ul Automated Issue Locator App:\ulnone  A Hackathon idea that won a price is a POC for an application that can intercept request-response flow across a multi-tiered application and generate reports consisting of all the requests and responses involved in the event of a failure. The application enables reproducing the issue quickly and aid in narrowing down on a specific layer for further analysis. The application can also track history and provide search capability if the same or similar issue recurred.\
-* \ul Agile for Infrastructure Automation:\ulnone  Proposed and presented a strategy for leveraging agile methodology for CI-CD pipelines and infrastructure automation. The strategy involves developing infrastructure code in small deployable increments and maintaining the infrastructure code in source control. This strategy enables streamlining the DevOps process and also handling complex setup as small incremental changes.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 * \ul API Testing Framework (work in progress):\ulnone  Architected and led a team to develop MVP for a generic API testing framework for running tests against REST API and SOAP API. The framework is designed to be decoupled from the actual test suite that can be versioned independently. The application can be leveraged to run a suite of tests on API automatically whenever changes are pushed. This also enables teams to maintain an integration test suite for the API.\
+* \ul Automated Issue Locator App (work in progress):\ulnone  A Hackathon idea that won a price is a POC for an application that can intercept request-response flow across a multi-tiered application and generate reports consisting of all the requests and responses involved in the event of a failure. The application enables reproducing the issue quickly and aid in narrowing down on a specific layer for further analysis. The application can also track history and provide search capability if the same or similar issue recurred.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 * \ul Agile for Infrastructure Automation:\ulnone  Proposed and presented a strategy for leveraging agile methodology for CI-CD pipelines and infrastructure automation. The strategy involves developing infrastructure code in small deployable increments and maintaining the infrastructure code in source control. This strategy enables streamlining the DevOps process and also handling complex setup as small incremental changes.\
 * \ul Jira Dashboard Plugins:\ulnone  Developed Jira plugins (Gadgets) to display Bamboo deployment metrics and Test automation report on Jira dashboard.\
 * \ul CI-CD Pipeline Setup for Java based Web Applications:\ulnone  Defined branching and merging strategy and Jenkins jobs for building and deploying a Multi-tier Web application consisting of UI, backend and persistence layers. Wrote puppet modules to automatically provision the environments for the applications. The solution automated infrastructure setup and build and deployment process.\
 * \ul SVN Hooks:\ulnone  Developed Perl scripts to enforce rules on commits such as naming conventions and access control for version control system. The solution enabled maintaining discipline and standards across the team.\
@@ -32,7 +36,7 @@ https://marketplace.atlassian.com/plugins/com.addteq.confluence.plugin.mscgen.ms
 https://marketplace.atlassian.com/plugins/com.addteq.jira.plugin.mscgen.JIRA- Mscgen/cloud/overview
 \fs24 \cf0 \kerning1\expnd0\expndtw0 ) available in Atlassian Marketplace.\
 * \ul REST API for JIRA and Bamboo:\ulnone  Paired with team lead to develop a framework for exposing Jira and Bamboo operations as REST API endpoints to perform CRUD operations using automation scripts. The framework enabled extending the REST API of the tools for automated provisioning and configuration of  development environments.\
-* \ul Bulk Migration of Requirements to Confluence:\ulnone  Developed a Ruby based application to process business requirements captured in MS Excel spreadsheets and migrate the requirements to Confluence as a well formatted site. This enabled development team to track requirements at a centralised location and share the requirements with stakeholders.\
+\cb3 * \ul Bulk Migration of Requirements to Confluence:\ulnone  Developed a Ruby based application to process business requirements captured in MS Excel spreadsheets and migrate the requirements to Confluence as a well formatted site. This enabled development team to track requirements at a centralised location and share the requirements with stakeholders.\cb1 \
 * \ul Infrastructure as Code (IoC):\ulnone  Developed and maintained Puppet modules to provision Stage and Production environments, automate installation and configuration of Jenkins, Jenkins plugins, build and deployment jobs and software tools (MySQL, SonarQube, etc\'85).\
 \
 
@@ -96,11 +100,11 @@ Requirement: A user friendly registration form for customers with details releva
 
 \b Languages:
 \b0  \
-	* Java 8+ & 7, XML & XSD, UML 2, Linux command-line tools, Bash scripting, Python 3.x, \cb3 SQL\cb1 , HTML5 (learning), CSS3 (learning), JavaScript - ES6 (learning), Ruby (programmed in the past), Perl (programmed in the past)\
+	* Java 8+ & 7, XML & XSD, UML 2, Linux command-line tools, Bash scripting, Python 3.x, \cb4 SQL\cb1 , HTML5 (learning), CSS3 (learning), JavaScript - ES6 (learning), Ruby (programmed in the past), Perl (programmed in the past)\
 
 \b Frameworks:
 \b0  \
-	* Spring 4.x, Spring Boot 2.x, \cb3 Spring Cloud\cb1 , Hibernate 4.x, React JS (learning), React-Native (learning), Express JS (learning)\
+	* Spring 4.x, Spring Boot 2.x, \cb4 Spring Cloud\cb1 , Hibernate 4.x, React JS (learning), React-Native (learning), Express JS (learning)\
 
 \b Technologies:
 \b0  \
@@ -124,7 +128,7 @@ Requirement: A user friendly registration form for customers with details releva
 
 \b Build Tools:
 \b0  \
-	* Apache Maven 3, \cb4 Gradle\cb1 , Apache ANT (used in the past)\
+	* Apache Maven 3, \cb5 Gradle\cb1 , Apache ANT (used in the past)\
 
 \b Continuous Integration & Deployment Tools:
 \b0  \
@@ -160,11 +164,11 @@ Requirement: A user friendly registration form for customers with details releva
 
 \b Persistence Tools:
 \b0  \
-	* MySQL, \cb5 Elasticsearch\cb1 , PostgreSQL, \cb3 MongoDB\cb6 , \cb3 Redis\cb1 \
+	* MySQL, \cb6 Elasticsearch\cb1 , PostgreSQL, \cb4 MongoDB\cb7 , \cb4 Redis\cb1 \
 
 \b Orchestration Tools:
 \b0  \
-	* \cb3 Kubernetes\cb6 \
+	* \cb4 Kubernetes\cb7 \
 \
 
 \b Education:\
@@ -200,7 +204,7 @@ Project: API Development & Management\
 Responsibilities:\
 	1. Own and maintain API module (Digital Services) with team. Collaborate with team to identify and share tasks . Mentor team for solving challenging problems.\
 	2. Meet with team on a daily basis to identify blockers and come up with technical solutions to get un-blocked.\
-	3. Collaborate with product owner, module leads and rest of the team in backlog grooming to discuss technical challenges, \cb5 estimate efforts \cb6 and also propose alternative solutions if any.\
+	3. Collaborate with product owner, module leads and rest of the team in backlog grooming to discuss technical challenges, \cb6 estimate efforts \cb7 and also propose alternative solutions if any.\
 	4. Implement and evangelise good software design principles and tools (such as UML) to come up with designs for user stories and discuss with team to improve the design if possible.\
 	5. Implement features for the user stores using TDD and/ or BDD in Java, Java EE Web Services, Spring (3.x), Hibernate (4.x), XML, JSON, JUnit and Mockito\
 	6. Work with and mentor team (if necessary) to ensure that good software development practices and tools such as SOLID principles, design patterns, TDD, UML, code coverage, static code analysis, and code review are implemented to produce good quality software application.\
@@ -209,9 +213,9 @@ Responsibilities:\
 
 \b Environment:
 \b0 \
-	1. Languages: Java\cb3  (7, 8, 13)\cb6 , Python\cb3  (2.x, 3.x)\cb6 \
-	2. Technologies: Java EE, Spring, Spring Boot, Hibernate, \cb3 UML 2\cb6 \
-	3. Tools: Eclipse (Enterprise Edition), Sprint Tool Suite (STS), VS Code, Elasticsearch, Oracle\cb5 , Docker, SonarCube, \cb6 Linux Commandline tools\
+	1. Languages: Java\cb4  (7, 8, 13)\cb7 , Python\cb4  (2.x, 3.x)\cb7 \
+	2. Technologies: Java EE, Spring, Spring Boot, Hibernate, \cb4 UML 2\cb7 \
+	3. Tools: Eclipse (Enterprise Edition), Sprint Tool Suite (STS), VS Code, Elasticsearch, Oracle\cb6 , Docker, SonarCube, \cb7 Linux Commandline tools\
 \
 
 \b DevOps Lead (Official position: Software Development Advisor)
@@ -225,10 +229,10 @@ Responsibilities:\
 	5. Develop solutions to automate what can be automated using scripting or any third party tools.\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\b \cf0 \cb5 Environment:\
+\b \cf0 \cb6 Environment:\
 	
-\b0 1. Languages: \cb3 Bash\cb5 \
-	2. Tools: Atlassian Bamboo, Python (2.x)\cb6 \
+\b0 1. Languages: \cb4 Bash\cb6 \
+	2. Tools: Atlassian Bamboo, Python (2.x)\cb7 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 \
 
@@ -244,9 +248,9 @@ Responsibilities:\
 		* Researched and documented steps to install and open TCP ports in firewall for Content Management System (CMS) layer for enabling HTTPS. \
 		* Worked with CMS team to identify and fix an outdated SOAP client by regenerating stubs from WSDL in a POC and then integrating it with the CMS module.\
 	5. \ul Intra-Company Hackathon Participation: Rescue Bots\ulnone  - Conceptualised, designed and developed a POC for a system of flying vehicles, ground vehicles and centralised control unit which can collaborate and coordinate to perform rescue operation in the event of a disaster. Each vehicle performs a specific task such as search for victims, delivery of aid packets or actual rescue. The project is now open sourced (open for contributions) - 
-\fs29\fsmilli14667 \cf7 \cb1 \expnd0\expndtw0\kerning0
+\fs29\fsmilli14667 \cf8 \cb1 \expnd0\expndtw0\kerning0
 https://github.com/technicalrescuers/rescue_bots/tree/development 
-\fs24 \cf8 \uc0\u8232 \
+\fs24 \cf9 \uc0\u8232 \
 
 \b GE GXS India Technology Centre - Bangalore, India Jul 2007 - Feb 2011\
 Software Engineer\
