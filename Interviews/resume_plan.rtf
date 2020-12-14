@@ -314,14 +314,25 @@ Project: Architect a Solution to Migrate Jira from Virtual Machine to AWS\
 \ul Responsibilities:
 \b0 \
 	\cf9 \ulnone 1. Developed Jira REST API client script using command line tools (curl, xmlstartlet for parsing xml, jq for parsing json) to process Bitbucket commit messages and automatically invoke transitions in Jira workflow from \'93In Development\'94 to \'93Code Committed\'94 which enabled busy teams to focus only on manual transitions in the workflow.\
-	2. Developed Bamboo REST API client script using command line tools to fetch build status of the application and automatically invoke transition in Jira workflow from \'93Code Committed\'94 to \'93Build Succeeded\'94 or \'93Build Failed\'94 which enabled busy teams to focus only on manual transitions in the workflow.\
+	2. Developed Bamboo REST API client script using command line tools to fetch build status of the application and automatically invoke transition in Jira workflow from \'93Code Committed\'94 to \'93Build Succeeded\'94 or \'93Build Failed\'94 which tied commits to build statuses.\
+	3. Defined Git hook scripts to enforce development team to provide Jira ID in commit messages for Jira REST API client script to associate commits to Jira stories for automated transitions to work.\
+	4. Mentored junior developers on Atlassian tools to bring them up to speed and share the tasks among the team.\
 \
 
-\b \cf9 Project: CI-CD Build and Deployment Pipeline and Infrastructure Setup for C# .Net Application for Customer\
+\b \cf9 Project: CI-CD Build and Deployment Pipeline and Infrastructure Setup for N-Tier JavaScript/Java/PostgreSQL based Web Application
+\b0 \cf9 \
+
+\b \cf9 \ul \ulc9 Responsibilities:
+\b0 \cf9 \ulnone \
+	1. 
+\b \cf9 \
+\
+Project: CI-CD Build and Deployment Pipeline and Infrastructure Setup for C# .Net Application for Customer\
+\ul Responsibilities\ulnone \
 	
 \b0 \cf9 1. Provisioned Bamboo build agent for building client\'92s C# .Net application in a dedicated AWS EC2 Windows 2012 R2 instance and established communication with Cloud based Bamboo server for horizontal scalability which enabled offloading build process to a separate machine and avoid overloading Bamboo server.\
 	2. Setup SonarQube standalone server on AWS EC2 instance and configured project with SonarQube scanner (MSBuild.SonarQube.Runner.exe) for static code analysis with report generation in SonarQube dashboard for enabling client to monitor quality of code produced by development team.\
-	3. Configured build and deployment pipeline for C# .Net application in Bamboo consisting of phases such as automatic code checkout, compilation, running automated tests, static code analysis and deployment to remove server by invoking command-line tools such as MSBuild and MSTest to build and deploy the application to a higher environments (development, stage and production) on code commit.
+	3. Configured build and deployment pipeline for C# .Net application in Bamboo consisting of phases such as automatic code checkout, compilation, running automated tests, static code analysis and deployment to remove server (IIS server on Windows) by invoking command-line tools (MSBuild, MSTest) to build and deploy the application to a higher environments (development, stage and production) on code commit.
 \b \cf9 \
 \
 JP Morgan Chase - Columbus, OH, USA - Apr 2014 to Jun 2015\
