@@ -302,13 +302,13 @@ Project: Architect a Solution to Migrate Jira from Standalone Virtual Machine to
 
 \b \ul Responsibilities:
 \b0 \ulnone \
-	1. Setup CI-CD pipelines for an N-Tier web application to be able to run the application in a single node or in a cluster of nodes (with redundancy and load balancing features) in AWS cloud for quick feedbacks on commits and also for minimisation of manual intervention.\
-	2. Automated Infrastructure setup using Puppet modules to setup tools for CI-CD pipelines such as Jenkins with plugins (build server), SonarQube (static code analysis), Nexus (artefact repository) and tools for running the application such as JDK, Tomcat, Node.js, PostgreSQL, Maven, Postfix, Gulp and Bower which enabled teams to spin up nodes quickly with requisite configuration and facility to scale up or down horizontally or vertically.\
-	4. CI-CD pipeline setup consisted of different phases such as building Java module using Maven, JavaScript module using NPM, Bower and Gulp and deploying PostgreSQL SQL dump files, static code analysis (with code coverage) using SonarQube, running automated tests and finally deploying the artefacts to target environments (development, stage and production) or versioning artefacts in repository such as Nexus which automated build and deployment of all the modules.\
+	1. Setup CI-CD pipelines for an N-Tier web application to be able to run the application in a single node or in a cluster of nodes (with redundancy and load balancing features) in AWS cloud for quick feedbacks on commits and for minimisation of manual effort.\
+	2. Automated Infrastructure setup using Puppet modules to setup tools for CI-CD pipelines such as Jenkins with plugins (build server), SonarQube (static code analysis), Nexus (artefact repository) and tools for running the application such as JDK, Tomcat, Node.js, PostgreSQL, Maven, Postfix, Gulp and Bower which enabled teams to spin up nodes quickly with requisite configuration and easily scale up or down horizontally or vertically.\
+	4. The CI-CD pipeline setup consisted of different phases for building the Java module using Maven, JavaScript module using NPM, Bower and Gulp and deploying PostgreSQL SQL script files, performing static code analysis (with code coverage) using SonarQube, running automated tests and finally deploying the artefacts to target environments (development, stage and production) or versioning artefacts in Nexus which automated build and deployment of all the modules.\
 	\cb5 5. A challenging problem with PostgreSQL deployment where   
 \b \cb1 \
 	
-\b0 6. Setup a Jenkins job to auto merge development branch with master branch if development branch build and deployment succeeded. The setup assumes that the build and deployment cycle is a sufficient verification and validation for the incremental changes (w.r.t stable master branch) pushed to the development branch.\
+\b0 6. Setup a Jenkins job to auto merge development branch into master branch if the build and deployment of the development branch succeeded. The setup assumed that the build and deployment consisted of automated tests sufficient enough for validating the incremental changes in the development branch.\
 \
 
 \b Environment:\
