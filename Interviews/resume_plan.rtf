@@ -321,9 +321,9 @@ Project: Architect a Solution to Migrate Jira from Standalone Virtual Machine to
 Project: CI-CD Build and Deployment Pipeline and Infrastructure Setup for C# .Net Application for Customer\
 \ul Responsibilities\ulnone \
 	
-\b0 1. Provisioned Bamboo build agent for building client\'92s C# .Net application in a dedicated AWS EC2 Windows 2012 R2 instance and established communication with Cloud based Bamboo server for horizontal scalability which enabled offloading build process to a separate machine and avoid overloading Bamboo server.\
-	2. Setup SonarQube standalone server on AWS EC2 instance and configured project with SonarQube scanner (MSBuild.SonarQube.Runner.exe) for static code analysis with report generation in SonarQube dashboard for enabling client to monitor quality of code produced by development team.\
-	3. Configured build and deployment pipeline for C# .Net application in Bamboo consisting of phases such as automatic code checkout, compilation, running automated tests, static code analysis and deployment to remove server (IIS server on Windows) by invoking command-line tools (MSBuild, MSTest) to build and deploy the application to a higher environments (development, stage and production) on code commit.
+\b0 1. Provisioned Bamboo build agent for building a C# .Net application in a dedicated AWS EC2 Windows 2012 R2 instance and established communication with cloud based Bamboo server which enabled offloading the build process to a separate machine (horizontal scaling) and avoid overloading Bamboo server (load balancing).\
+	2. Setup SonarQube standalone server on AWS EC2 instance and configured the C# .Net project with SonarQube scanner (MSBuild.SonarQube.Runner.exe) for static code analysis which generated reports in SonarQube dashboard for client to get feedback on code quality.\
+	3. Configured build and deployment pipeline for C# .Net application in Bamboo consisting of phases such as automatic code checkout, compilation, running automated tests, static code analysis and deployment to remote server (IIS server on Windows) by invoking command-line tools (MSBuild, MSTest) on code commit.
 \b \
 \
 \
