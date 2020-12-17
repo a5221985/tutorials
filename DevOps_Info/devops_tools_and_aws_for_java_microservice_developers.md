@@ -284,7 +284,29 @@
 	2. Upload jar to S3
 	3. Access the jar from ec2 and test
 2. Launch EC2 instance
-	1. 
+	1. Amzon Linux 2 - free tier
+	2. Defaults are good
+	3. Key pair is generated
+	4. Run the following commands in AWS EC2
+
+			yum install -y mariadb-server (open source version of mysql (has most features of mysql)
+			systemctl enable mariadb
+			systemctl start mariadb
+			mysql_secure_installation (to reset password - hit enter (no password) then set password)
+			mysql -uroot -p
+			----- Java -----
+			yum install java-1.8.0-openjdk
+			alternatives --config java (check what jdks are installed and enter 1)
+			
+		1. Connect to EC2
+		2. `sudo -i`
+		3. Run the commands
+		4. Creation of database
+
+				create database mydb;
+				
+			1. copy and paste product and coupon table creation commands
+		5. Install java
 
 ### Use S3 Deploy Jar and Test ###
 ### Automate App Launch ###
