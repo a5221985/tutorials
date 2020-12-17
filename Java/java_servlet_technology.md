@@ -629,7 +629,8 @@
 ### The getParts and getPart Methods ###
 
 ## Asynchronous Processing ##
-1. 
+1. Web containers in app servers usually use a server thread per client request
+	1. If there is heavy load, containers need large amount of threads to serve all client requests
 
 ## Nonblocking I/O ##
 ## Protocol Upgrade Processing ##
