@@ -258,9 +258,29 @@
 		1. Buckets
 			1. Create Bucket
 				1. Naming convension: Unique across AWS (read the rules)
-					1. Cannot start or end with .
+					1. Cannot start or end with . (can start with lowercase letter or number)
+					2. Region: Default region (accessible across all regions)
+					3. Name: bharaths3demo
+					4. Block all public access?
+		2. Open bucket
+			1. Folders can be created, files can be uploaded, other actions are possible
+				1. Example: New file
+				2. Drag and drop in console
+					1. If it is selected, all properties are shown (download, copy path, select from (move form one location to another))
+			2. Access: Using object URL
+				1. https://bharaths3demo.s3.us-east-2.amazonaws.com/s3.txt
+					1. Permissions: (bucket level & object level)
+						1. Public access
+							1. Turn off Block all public access
+				2. Select object
+					1. Make public
+					2. Click s3.txt
+						1. This can be used to host html sites
+						2. This can be used by DevOps engineers to pick files
 
 ### Launch Instance and Setup the Instance ###
+1. 
+
 ### Use S3 Deploy Jar and Test ###
 ### Automate App Launch ###
 ### Install Stress Command ###
