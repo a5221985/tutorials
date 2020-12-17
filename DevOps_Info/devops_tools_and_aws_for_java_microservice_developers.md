@@ -163,7 +163,47 @@
 2. Run as Spring Boot App
 3. Test endpoint
 
+		http://localhost:9090/productapi/products
+
+		{
+			"name": "IPhone",
+			"description": "Awesome",
+			"price": 1000
+		}
+
 ### Integrating Microservices ###
+1. ProductRestController
+
+		@Entity
+		public class Product {
+			...
+			@Transient // only used to handle incoming data
+			private String couponCode;
+			...
+			// getters and setters
+		}
+		
+		@RestController
+		@RequestMapping("/productapi")
+		public class ProductRestController {
+			...
+			@Autowired
+			private RestTemplate restTemplate;
+			...
+			@RequestMapping(value = "/products", method = RequestMethod.POST)
+			public Product create(@RequestBody Product product) {
+				restTemplate.getForObject("", Coupon.class);
+			}
+			...
+		}
+		
+		com.bharath.springcloud.dto.Coupon
+		
+		public class Coupon {
+			// copy from Coupon entity
+		}
+		
+
 ### Integration Test ###
 
 ## Manual Deployment to AWS using EC2 using S3 ##
