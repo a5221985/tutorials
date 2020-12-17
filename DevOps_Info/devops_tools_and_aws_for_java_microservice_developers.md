@@ -279,7 +279,12 @@
 						2. This can be used by DevOps engineers to pick files
 
 ### Launch Instance and Setup the Instance ###
-1. 
+1. EC2 and S3
+	1. Launch an EC2 instance
+	2. Upload jar to S3
+	3. Access the jar from ec2 and test
+2. Launch EC2 instance
+	1. 
 
 ### Use S3 Deploy Jar and Test ###
 ### Automate App Launch ###
