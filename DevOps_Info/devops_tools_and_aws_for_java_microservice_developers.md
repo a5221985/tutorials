@@ -116,13 +116,53 @@
 		3. Spring Web
 2. New class > com.bharath.springcloud.model.Product
 
+		@Entity
 		public class Product {
+		
+			@Id
+			@GeneratedValue(strategy = GenerationType.IDENTITY)
+			private Long id;
+			private String name;
+			private String description;
+			private BigDecimal price;
 			
+			// Getters and setters
+		}
+		
+3. New interface: ProductRepo
+
+		public interface ProductRepo extends JpaRepository<Product, Long> {
 		}
 
 ### Construct the RestController ###
+1. New class > ProductRestController
+
+		@RestController
+		@RequestMapping("/productapi")
+		public class ProductRestController {
+		
+			@Autowired
+			private ProductRepo repo;
+		
+			@RequestMapping(value = "/products", method = RequestMethod.POST)
+			public Product create(@RequestBody Product product) {
+				return repo.save(product);
+			}
+			
+		}
+
 ### Configure DataSource ###
+1. application.properties
+	1. Product service: Copy from coupon service
+
 ### Test ###
+1. Product service: application.properties
+
+		server.port = 9090
+		
+2. Run as Spring Boot App
+3. Test endpoint
+
 ### Integrating Microservices ###
 ### Integration Test ###
 
