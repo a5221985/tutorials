@@ -224,10 +224,42 @@
 		
 
 ### Integration Test ###
+1. Product Service: application.properties
 
+		couponService.url = http://localhost:9091/couponapi/coupons/
+		
+2. Coupon Service: application.properties
+
+		server.port = 9091
+		
+3. Run couponservice as spring boot app
+
+		{
+			"name": "MAC",
+			...
+			"couponCode": "SUPERSALE"
+		}
+		
+	1. deducts discount
 
 ## Manual Deployment to AWS using EC2 using S3 ##
 ### S3 ###
+1. AWS S3 service
+	1. S3: Simple Storage Service
+		1. Object based storage
+			1. EC2 - uses Elastic block storage (EBS) or Elastic File Storage (EFS)
+		2. Buckets need to be defined
+			1. Upto 100 buckets (if exceeding, AWS needs to be requested for more)
+			2. Upto 5 GB (for free tier)
+			3. Upto 20000 GETs (downloads per month)
+			4. Upto 2000 PUTs (uploads per month)
+2. Goto AWS Console
+	1. Search for S3
+		1. Buckets
+			1. Create Bucket
+				1. Naming convension: Unique across AWS (read the rules)
+					1. Cannot start or end with .
+
 ### Launch Instance and Setup the Instance ###
 ### Use S3 Deploy Jar and Test ###
 ### Automate App Launch ###
