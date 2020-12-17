@@ -189,10 +189,15 @@
 			...
 			@Autowired
 			private RestTemplate restTemplate;
+			
+			@Value("${couponService.url}")
+			private String couponServiceUrl;
 			...
 			@RequestMapping(value = "/products", method = RequestMethod.POST)
 			public Product create(@RequestBody Product product) {
-				restTemplate.getForObject("", Coupon.class);
+				Coupon coupon = restTemplate.getForObject("http://localhost:8081/couponapi/coupons/" + product.getCouponCode(), Coupon.class);
+				product.setPrice(product.getPrice().subtract(coupon.getDiscount()));
+				return repo.save(product);
 			}
 			...
 		}
@@ -203,8 +208,23 @@
 			// copy from Coupon entity
 		}
 		
+	1. Product Service: application.properties
+
+			couponService.url = http://localhost:8081/couponapi/coupons
+			
+	2. Main class:
+
+			@SpringBootApplication
+			public class ProductServiceApplication {
+				public RestTemplate restTemplate() {
+					return new RestTemplate();
+				}
+				...
+			}
+		
 
 ### Integration Test ###
+
 
 ## Manual Deployment to AWS using EC2 using S3 ##
 ### S3 ###
