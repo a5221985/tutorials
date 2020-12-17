@@ -107,6 +107,19 @@
 			}
 
 ### Construct the Product Microservice Project Model and Repository ###
+1. Construct Project, Model, Repository
+	1. New project > productservice
+	2. Description: Product Service
+	3. Dependencies:
+		1. MySQL Driver
+		2. Spring Data JPA
+		3. Spring Web
+2. New class > com.bharath.springcloud.model.Product
+
+		public class Product {
+			
+		}
+
 ### Construct the RestController ###
 ### Configure DataSource ###
 ### Test ###
