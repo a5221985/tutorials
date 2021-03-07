@@ -111,6 +111,11 @@
 					1. Application must handle eventually consistent data
 
 ## Related Patterns ##
-1. [Saga]()
+1. [Saga](https://microservices.io/patterns/data/saga.html), and [Domain event](https://microservices.io/patterns/data/domain-event.html) - initiated the need for this pattern
+2. [CQRS](https://microservices.io/patterns/data/cqrs.html) - needs to be used along with event sourcing
+3. Event sourcing implements [Audit logging](https://microservices.io/patterns/observability/audit-logging) pattern
 
 ## See Also ##
+1. [Eventuate]() - a platform for developing applications with Event sourcing and CQRS
+2. [Articles about event sourcing and CQRS](http://eventuate.io/articles.html)
+3. [How eventuate implements snapshots](https://blog.eventuate.io/2017/03/07/eventuate-local-now-supports-snapshots/)
