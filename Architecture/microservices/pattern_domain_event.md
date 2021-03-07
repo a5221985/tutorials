@@ -12,7 +12,9 @@
 1. How does a service publish an event when it updates it's data?
 
 ## Solution ##
-1. Organize business logic of service as a collection of DDD [aggregates]()
+1. Organize business logic of service as a collection of DDD [aggregates](https://microservices.io/patterns/data/aggregate.html)
+2. Aggregates emit domain events when they constructed or updated
+3. The domain events are published by service for other services to consume
 
 ## Related Patterns ##
 1. [Saga](https://microservices.io/patterns/data/saga.html), [CQRS](https://microservices.io/patterns/data/cqrs.html) - initiate the need for this pattern
