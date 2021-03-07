@@ -1,0 +1,667 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12560\viewh13820\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 1. What is Java?\
+2. What are the differences between C++ and Java?\
+3. List the features of Java Programming Language.\
+4. What do you understand by Java virtual machine?\
+5. What is the difference between JDK, JRE, and JVM?\
+6. How many types of memory areas are allocated by JVM?\
+7. What is JIT compiler?\
+8. What is the platform?\
+9. What are the main differences between the Java platform and other platforms?\
+10. What gives Java its \'91write once and run anywhere\'92 nature?\
+11. What is class loader?\
+12. Is Empty .java file name a valid source file name?\
+13. Is delete, next, main, exit or null keyword in java?\
+14. If I don\'92t provide any arguments on the command line, then what will the value stored in the String array passed into the main() method, empty or NULL?\
+15. What if I write static public void instead of public static void?\
+16. What is the default value of the local variables?\
+17. What are the various access specifiers in Java?\
+18. What is the purpose of static methods and variables?\
+19. What are the advantages of Packages in Java?\
+20. What is the output of the following Java program?\
+	\
+	class Test \{\
+		public static void main (String args[]) \{\
+			System.out.println(10 + 20 + \'93Javatpoint\'94);\
+			System.out.println(\'93Javatpoint\'94 + 10 + 20);\
+		\}\
+	\}\
+\
+21. What is the output of the following Java program?\
+\
+	class Test \{\
+		public static void main(String args[]) \{\
+			System.out.println(10 * 20 + \'93Javatpoint\'94);\
+			System.out.println(\'93Javatpoint\'94 + 10 * 20);\
+		\}\
+	\}\
+\
+22. What is the output of the following Java program?\
+\
+	class Test \{\
+		public static void main(String args[]) \{\
+			for (int i = 0; 0; i++) \{\
+				System.out.println(\'93Hello Javatpoint\'94);\
+			\}\
+		\}\
+	\}\
+\
+OOPs Concepts:\
+23. What is object-oriented programming?\
+24. What is an object?\
+25. What is the difference between an object-oriented programming language and object-based programming language?\
+26. What will be the initial value of an object reference which is defined as an instance variable?\
+27. What is the constructor?\
+28. How many types of constructors are used in Java?\
+29. What is the purpose of a default constructor?\
+30. Does constructor return any value?\
+31. Is constructor inherited?\
+32. Can you make a constructor final?\
+33. Can we overload the constructors?\
+34. What do you understand by copy constructor in Java?\
+35. What are the differences between the constructors and methods?\
+36. What is the output of the following Java program?\
+\
+	public class Test \{\
+		Test(int a, int b) \{\
+			System.out.println(\'93a = \'93 + a + \'93 b = \'93 + b);\
+		\}\
+\
+		Test(int a, int b) \{\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 			System.out.println(\'93a = \'93 + a + \'93 b = \'93 + b);\
+		\}\
+\
+		public static void main(String args[]) \{\
+			byte a = 10;\
+			byte b = 15;\
+			Test test = new Test(a, b);\
+		\}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 	\}\
+\
+37. What is the output of the following Java program?\
+\
+	class Test \{\
+		int i;\
+	\}\
+\
+	public class Main \{\
+		public static void main(String[] args) \{\
+			Test test = new Test();\
+			System.out.println(test.i);\
+		\}\
+	\}\
+\
+38. What is the output of the following Java program?\
+\
+	class Test \{\
+		int test_a, test_b;\
+\
+		Test (int a, int b) \{\
+			test_a = a;\
+			test_b = b;\
+		\}\
+\
+		public static void main(String args[]) \{\
+			Test test = new Test();\
+			System.out.println(test.test_a + \'93 \'93 + test.test_b);\
+		\}\
+	\}\
+\
+39. What is the static variable?\
+40. What is the static method?\
+41. What are the restrictions that are applied to the Java static methods?\
+42. Why is the main method static?\
+43. Can we override the static methods?\
+44. What is the static block?\
+45. Can we execute a program without main() method?\
+46. What if the static modifier is removed from the signature of the main method?\
+47. What is the difference between static (class) method and instance method?\
+48. Can we make constructors static?\
+49. Can we make the abstract methods static in Java?\
+50. Can we declare the static variables and methods in an abstract class?\
+51. What is 
+\b this
+\b0  keyword in Java?\
+52. What are the main uses of this keyword?\
+53. Can we assign the reference to 
+\b this
+\b0  variable?\
+54. Can 
+\b this
+\b0  keyword be used to refer static members?\
+55. How can constructor chaining be done using this keyword?\
+56. What are the advantages of passing 
+\b this
+\b0  into a method instead of the current class object itself?\
+57. What is the inheritance?\
+58. Why is the inheritance used in Java?\
+59. Which class is the superclass for all the classes?\
+60. Why is the multiple inheritance not supported in Java?\
+61. What is aggregation?\
+62. What is composition?\
+63. What is the difference between aggregation and composition?\
+64. Why does Java not support pointers?\
+65. What is 
+\b super
+\b0  in Java?\
+66. How can constructor chaining be done by using the 
+\b super
+\b0  keyword?\
+67. What are the main uses of the 
+\b super
+\b0  keyword?\
+68. What are the differences between 
+\b this
+\b0  and 
+\b super
+\b0  keyword?\
+69. What is the output of the following Java program?\
+70. Can you use 
+\b this()
+\b0  and 
+\b super()
+\b0  both in a constructor?\
+71. What is object cloning?\
+72. What is method overloading?\
+73. Why is method overloading not possible by changing the return type in Java?\
+74. Can we overload the methods by making them static?\
+75. Can we overload the 
+\b main()
+\b0  method?\
+76. What is method overloading with type promotion?\
+77. What is the output of the following Java program?\
+\
+	class OverloadingCalculator3 \{\
+		void sum(int a, long b) \{\
+			System.out.println(\'93a method invoked\'94);\
+		\}\
+\
+		void sum(long a, int b) \{\
+			System.out.println(\'93b method invoked\'94);\
+		\}\
+\
+		public static void main(String[] args) \{\
+			OverloadingCalculator3 obj = new OverloadingCalculator3();\
+			obj.sum(20, 20);\
+		\}\
+	\}\
+\
+78. What is method overriding?\
+79. Can we override the static method?\
+80. Why can we not override static method?\
+81. Can we override the overloaded method?\
+82. Difference between method Overloading and Overriding.\
+83. Can we override the private methods?\
+84. Can we change the scope of the overridden method in the subclass?\
+85. Can we modify the throws clause of the superclass method while overriding it in the subclass?\
+86. What is the output of the following Java program?\
+87. Can you have virtual functions in Java?\
+88. What is covariant return type?\
+89. What is the output of the following Java program?\
+90. What is the final variable?\
+91. What is the final method?\
+92. What is the final class?\
+93. What is the final blank variable?\
+94. Can we initialise the final blank variable?\
+95. Can you declare the main method as final?\
+96. What is the output of the following Java program?\
+\
+	class Main \{\
+		public static void main(String[] args) \{\
+			final int i;\
+			i = 20;\
+			System.out.println(i);\
+		\}\
+	\}\
+\
+97. What is the output of the following Java program?\
+\
+	class Base \{\
+		protected final void getInfo() \{\
+			System.out.println(\'93method of Base class\'94);\
+		\}\
+	\}\
+\
+	class Derived extends Base \{\
+		protected final void getInfo() \{\
+			System.out.println(\'93method of Derived class\'94);\
+		\}\
+\
+		public static void main(String[] args) \{\
+			Base obj = new Base();	\
+			obj.getInfo();\
+		\}\
+	\}\
+\
+98. Can we declare a constructor as final?\
+99. Can we declare an interface as final?\
+100. What is the difference between the final method and abstract method?\
+\
+OOPs: Polymorphism\
+101. What is the difference between compile-time polymorphism and runtime polymorphism?\
+102. What is Runtime Polymorphism?\
+103. Can you achieve Runtime Polymorphism by data members?\
+104. What is the difference between static binding and dynamic binding?\
+105. What is the output of the following Java program?\
+106. What is Java instanceOf operator?\
+\
+OOPs: Abstraction\
+107. What is abstraction?\
+108. What is the difference between abstraction and encapsulation?\
+109. What is abstract class?\
+110. Can there be an abstract method without an abstract class?\
+111. Is the following program written correctly? If yes then what will be the output of the program?\
+112. Can you use abstract and final both with a method?\
+113. Is it possible to instantiate the abstract class?\
+114. What is interface?\
+115. Can you declare an interface method static?\
+116. Can an interface be final?\
+117. What is a marker interface?\
+118. What are the differences between abstract class and interface?\
+119. Can we define private and protected modifiers for the members in interfaces?\
+120. When can an object reference be cast to an interface reference?\
+121. How to make a read-only class in Java?\
+122. How to make a write-only class in Java?\
+123. What are the advantages of Encapsulation in Java?\
+124. What is package?\
+125. What are the advantages of defining packages in Java?\
+126. How to define packages in java?\
+127. How can we access some class in another class in Java?\
+128. Do I need to import java.lang package any time? Why?\
+129. Can I import same package/class twice? Will the JVM load the package twice at at runtime?\
+130. What is the static import?\
+131. How many types of exception can occur in a Java program?\
+132. What is Exception Handling?\
+133. Explain the hierarchy of Java Exception classes?\
+134. What is the difference between Checked Exception and Unchecked Exception?\
+135. What is the base class for Error and Exception?\
+136. Is it necessary that each try block must be followed by a catch block?\
+137. What is the output of the following Java program?\
+138. What is finally block?\
+139. Can finally block be used without a catch?\
+140. Is there any case when finally will not be executed?\
+141. What is the difference between throw and throws?\
+142. What is the output of the following Java program?\
+\
+	public class Main \{\
+		public static void main(String[] args) \{\
+			try \{\
+				throw 90;\
+			\} catch (int e) \{\
+				System.out.println(\'93Caught the exception \'93  + e);\
+			\}\
+		\}\
+	\}\
+\
+143. What is the output of the following Java program?\
+\
+	class Calculation extends Exception \{\
+		public Calculation() \{\
+			System.out.println(\'93Calculation class is instantiated\'94);\
+		\}\
+\
+		public void add(int a, int b) \{\
+			System.out.println(\'93The sum is \'93 + (a + b));\
+		\}\
+	\}\
+\
+	public class Main \{\
+		public static void main(String[] args) \{\
+			try \{\
+				throw new Calculation();\
+			\} catch (Calculation c) \{\
+				c.add(10, 20);\
+			\}\
+		\}\
+	\}\
+\
+144. Can an exception be rethrown?\
+145. Can subclass overriding method declare an exception if parent class method doesn\'92t throw an exception?\
+146. What is exception propagation?\
+147. What is the output of the following Java program?\
+\
+	public class Main \{\
+		void a() \{\
+			try \{\
+				System.out.println(\'93a(): Main called\'94);\
+				b();\
+			\} catch (Exception e) \{\
+				System.out.println(\'93Exception is caught\'94);\
+			\}\
+		\}\
+\
+		void b() \{\
+			try \{\
+				System.out.println(\'93b(): Main called\'94);\
+				c();\
+			\} catch (Exception e) \{\
+				throw new Exception();\
+			\} finally \{\
+				System.out.println(\'93finally block is called\'94);\
+			\}\
+		\}\
+\
+		void c() throws Exception \{\
+			throw new Exception();\
+		\}\
+\
+		public static void main(String[] args) \{\
+			Main m = new Main();\
+			m.a();\
+		\}\
+	\}\
+\
+148. What is the output of the following Java program?\
+		\
+	public class Calculation \{\
+		int a;\
+\
+		public Calculation(int a) \{\
+			this.a = a;\
+		\}\
+\
+		public int add() \{\
+			a = a + 10;\
+			try \{\
+				a = a + 10;\
+				try \{\
+					a = a * 10;\
+					throw new Exception();\
+				\} catch (Exception e) \{\
+					a = a - 10;\
+				\}\
+			\} catch (Exception e) \{\
+				a = a - 10;\
+			\}\
+			return a;\
+		\}\
+\
+		public static void main(String[] args) \{\
+			Calculation c = new Calculation(10);\
+			int result = c.add();\
+			System.out.println(\'93result = \'93 + result);\
+		\}\
+	\}\
+\
+String\
+149. What is String Pool?\
+150. What is the meaning of immutable regarding String?\
+151. Why are the objects immutable in Java?\
+152. How many ways can we construct the string object?\
+153. How many objects will be created in the following code?\
+154. Why java uses the concept of the string literal?\
+155. How many objects will be created in the following code?\
+156. What is the output of the following Java program?\
+\
+	public class Test \{\
+		public static void main(String[] args) \{\
+			String a = new String(\'93Sharma is a good player\'94);\
+			String b = \'93Sharma is a good player\'94;\
+		\
+			if (a == b) \{\
+				System.out.println(\'93a == b\'94);\
+			\}\
+\
+			if (a.equals(b)) \{\
+				System.out.println(\'93a equals b\'94);\
+			\}\
+		\}\
+	\}\
+\
+157. What is the output of the following Java program?\
+\
+	public class Test \{\
+		public static void main(String[] args) \{\
+			String s1 = \'93Sharma is a good player\'94;\
+			String s2 = new String(\'93Sharma is a good player\'94);\
+			s2 = s2.intern();\
+			System.out.println(s1 == s2);\
+		\}\
+	\}\
+\
+158. What are the differences between String and StringBuffer?\
+159. What are the differences between StringBuffer and StringBuilder?\
+160. How can we construct an immutable class in Java?\
+161. What is the purpose of 
+\b toString()
+\b0  method in Java?\
+162. Why 
+\b charArray()
+\b0  is preferred over 
+\b String
+\b0  to store the password?\
+163. Write a Java program to count the number of words present in a string?\
+164. Name some classes present in 
+\b java.util.regex
+\b0  package\
+165. How the metacharacters are different from the ordinary characters?\
+166. Write a regular expression to validate a password. A password must start with an alphabet and followed by alphanumeric characters; its length must be in between 8 to 20\
+167. What is the output of the following Java program?\
+168. What are the advantages of Java inner classes?\
+169. What is a nested class?\
+170. What are the disadvantages of using inner classes?\
+171. What are the types of inner classes (non-static nested class) used in Java?\
+172. Is there any difference between nested classes and inner classes?\
+173. Can we access the non-final local variable, inside the local inner class?\
+174. How many class files are created on compiling the OuterClass in the following program?\
+\
+	public class Person \{\
+		String name, age, address;\
+		\
+		class Employee \{\
+			float salary = 10000;\
+		\}\
+\
+		class BusinessMen \{\
+			final String gstin = \'93dsaklgjlskdfjl\'94;\
+		\}\
+\
+		public static void main(String[] args) \{\
+			Person p = new Person();\
+		\}\
+	\}\
+\
+175. What are anonymous inner classes?\
+176. What is the nested interface?\
+177. Can a class have an interface?\
+178. Can an interface have a class?\
+179. What is Garbage Collection?\
+180. What is gc()?\
+181. How is garbage collection controlled?\
+182. How can an object be unreferenced?\
+183. What is the purpose of the 
+\b finalize()
+\b0  method?\
+184. Can an unreferenced object be referenced again?\
+185. What kind of thread is Garbage collector thread?\
+186. What is the difference between final, finally and finalise?\
+187. What is the purpose of the Runtime class?\
+188. How will you invoke any external process in Java?\
+189. Give the hierarchy of InputStream and OutputStream class\
+190. What do you understand by an IO stream?\
+191. What is the difference between the Reader/Writer class hierarchy and the InputStream/OutputStream class hierarchy?\
+192. What are the super most classes for all the streams?\
+193. What are the FileInputStream and FileOutputStream?\
+194. What is the purpose of using BufferedInputStream and BufferedOutputStream classes?\
+195. How to set the Permissions to a file in Java?\
+196. What are FilterStreams?\
+197. What is an I/O filter?\
+198. In Java, How many ways you can take input from the console?\
+\
+Serialization\
+199. What is serialisation?\
+200. How can you make a class serialisable in Java?\
+201. How can you avoid serialisation in child class if the base class is implementing the Serialisable interface?\
+202. Can a Serialised object be transferred via network?\
+203. What is Deserialization?\
+204. What is the transient keyword?\
+205. What is Externalizable?\
+206. What is the difference between Serialisable and Externalizable interface?\
+\
+Networking\
+207. Give a brief description of Java socket programming?\
+208. What is Socket?\
+209. What are the steps that are followed when two computers connect through TCP?\
+210. Write a program in Java to establish a connection between client and server?\
+211. How do I convert a numeric IP address like 192.18.97.39 into a hostname like java.sun.com?\
+\
+Reflection\
+212. What is reflection?\
+213. What is the purpose of using java.lang.Class class?\
+214. What are the ways to instantiate the Class class?\
+215. What is the output of the following Java program?\
+216. What is the purpose of using java?\
+217. Can you access the private method from outside the class?\
+\
+Miscellaneous\
+218. What are wrapper classes?\
+219. What are auto boxing and unboxing? When does it occur?\
+220. What is the output of the below Java program?\
+\
+	public class Test1 \{\
+		public static void main(String[] args) \{\
+			Integer i = new Integer(201);\
+			Integer j = new Integer(201);\
+			if (i == j) \{\
+				System.out.println(\'93hello\'94);\
+			\} else \{\
+				System.out.println(\'93bye\'94);\
+			\}\
+		\}\
+	\}\
+\
+221. What is object cloning?\
+222. What are the advantages and disadvantages of object cloning?\
+223. What is a native method?\
+224. What is the purpose of the strictfp keyword?\
+225. What is the purpose of the System class?\
+226. What comes to mind when someone mentions a shallow copy in Java?\
+227. What is a singleton class?\
+228. Write a Java program that prints all the values given at command-line\
+229. Which containers use a border layout as their default layout?\
+230. Which containers use a FlowLayout as their default layout?\
+231. What are peerless components?\
+232. Is there any difference between a Scrollbar and a ScrollPane?\
+233. What is a lightweight component?\
+234. What is a heavyweight component?\
+235. What is an applet?\
+236. Can you write a Java class that could be used both as an applet as well as an application?\
+\
+Internationalization\
+237. What is Locale?\
+238. How will you land a specific locale?\
+\
+Java Bean\
+239. What is a JavaBean?\
+240. What is the purpose of using the Java Bean?\
+241. What do you understand by the bean persistent property?\
+\
+RMI\
+242. What is RMI?\
+243. What is the purpose of stub and skeleton?\
+244. What are the steps involved to write RMI based programs?\
+245. What is the use of HTTP-tunneling in RMI?\
+246. What is JRMP?\
+247. Can RMI and CORBA based applications interact?\
+248. How to perform Bubble Sort in Java?\
+249. How to perform Binary Search in Java?\
+250. How to perform Selection Sort in Java?\
+251. How to perform Linear Search in Java?\
+252. How to perform Merge Sort in Java?\
+253. How to perform Quicksort in Java?\
+254. Write a program in Java to construct a double linked list containing n nodes\
+255. Write a program in Java to find the maximum and minimum value node from a circular linked list\
+256. Write a program in Java to calculate the difference between the sum of the odd level and even level nodes of Binary Tree.\
+\
+Multithreading & Concurrency\
+1. What is multithreading?\
+2. What is a thread?\
+3. Differentiate between process and thread?\
+4. What do you understand by inter-thread communication?\
+5. What is the purpose of wait() method in Java?\
+6. Why must wait() method be called from the synchronised block?\
+7. What are the advantages of multithreading?\
+8. What are the states in the lifecycle of a Thread?\
+9. What is the difference between preemptive scheduling and time slicing?\
+10. What is context switching?\
+11. Differentiate between the Thread class and Runnable interface for constructing a Thread?\
+12. What does join() method do?\
+13. Describe the purpose and working of sleep() method\
+14. What is the difference between wait() and sleep() method?\
+15. Is it possible to start a thread twice?\
+16. Can we call the run() method instead of start()?\
+17. What about the daemon threads?\
+18. Can we make the user thread as daemon thread is the thread is started?\
+19. What is shutdown hook?\
+20. When should we interrupt a thread?\
+21. What is synchronisation?\
+22. What is the purpose of the Synchronised block?\
+23. Can Java object be locked down for exclusive use by a given thread?\
+24. What is static synchronisation?\
+25. What is the difference between notify() and notifyAll()?\
+26. What is a deadlock?\
+27. How to detect a deadlock condition? How can it be avoided?\
+28. What is Thread Scheduler in Java?\
+29. Does each thread have its stack in multithreaded programming?\
+30. How is the safety of a thread achieved?\
+31. What is race-condition\
+32. What is the volatile keyword in Java?\
+33. What do you understand by thread pool?\
+\
+Concurrency\
+34. What are the main components of concurrency API?\
+35. What is the Executor interface in Concurrency API in Java?\
+36. What is BlockingQueue?\
+37. How to implement producer-consumer problem by using BlockingQueue?\
+38. What is the difference between Java Callable interface and Runnable interface?\
+39. What is the Atomic action in Concurrency in Java?\
+40. What is lock interface in Concurrency API in Java?\
+41. Explain the ExecutorService Interface?\
+42. What is the difference between Synchronous programming and Asynchronous programming regarding a thread?\
+43. What do you understand by Callable and Future in Java?\
+44. What is the difference between ScheduledExecutorService and ExecutorService interface?\
+45. Define FutureTask class in Java? \
+\
+Java Collections\
+1. What is the Collection framework in Java?\
+2. What are the main differences between array and collection?\
+3. Explain various interfaces used in Collection framework\
+4. What is the difference between ArrayList and Vector?\
+5. What is the difference between ArrayList and LinkedList\
+6. What is the difference between Iterator and ListIterator?\
+7. What is the difference between Iterator and Enumeration?\
+8. What is the difference between List and Set?\
+9. What is the difference between HashSet and TreeSet?\
+10. What is the difference between Set and Map?\
+11. What is the difference between HashSet and HashMap?\
+12. What is the difference between HashMap and TreeMap?\
+13. What is the difference between HashMap and Hashtable?\
+14. What is the difference between Collection and Collections?\
+15. What is the difference between Comparable and Comparator?\
+16. What do you understand by BlockingQueue?\
+17. What is the advantage of Properties file?\
+18. What does the hashCode() method do?\
+19. Why we override equals() method?\
+20. How to synchronise List, Set, and Map elements?\
+21. What is the advantage of the generic collection?\
+22. What is hash-collision in Hashtable and how it is handled in Java?\
+23. What is the Dictionary class?\
+24. What is the default size of load factor in hashing based collection?\
+25. What do you understand by fail-fast?\
+26. What is the difference between Array and ArrayList?\
+27. What is the difference between the length of an Array and size of ArrayList?\
+28. How to convert ArrayList to Array and Array to ArrayList?\
+29. How to make Java ArrayList Read-Only?\
+30. How to remove duplicates from ArrayList?\
+31. How to reverse ArrayList?\
+32. How to sort ArrayList in descending order?\
+33. How to synchronise ArrayList?\
+34. When to use ArrayList and LinkedList?}

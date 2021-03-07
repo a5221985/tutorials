@@ -1,0 +1,228 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red247\green247\blue247;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c97647\c97647\c97647;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12600\viewh13760\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 DevOps Roadmap:\
+1. 2 Main departments\
+	1. Development\
+		1. Developing of application\
+		2. Testing of application\
+	2. Operations\
+		1. Deployment of application\
+		2. Maintained on server\
+	3. DevOps - Is in between the two\
+\
+Development:\
+	1. Tech stack\
+		1. Languages\
+		2. Build tools\
+	2. Code repo\
+		1. Git\
+DevOps Engineer Responsibilities:\
+	1. How developers work\
+	2. Which Git Workflow\
+	3. How application is configured (to talk to other services or dos)\
+	4. Automated testing\
+\
+Operating System & Linux\
+	1. Infrastructure\
+		1. Cloud server\
+			1. configured to run applications\
+	2. Responsibilities:\
+		1. Prepare the infrastructure to run the application\
+			1. Linux basics\
+			2. Comfortable using CLI\
+			3. Shell commands\
+			4. Linux File System\
+			5. Server management - how to administer and SSL into server\
+\
+Networking and Security\
+	1. Firewall, Proxy Servers\
+	2. Load Balancers\
+	3. HTTP/HTTPS (How application can be made accessible from outside)\
+	4. IP/ DNS Name Resolution\
+	5. DevOps vs IT Operations (differentiation)\
+		1. Understand and know the BASICS\
+			1. Advanced OS and networking skills required (to administer servers from start to finish)\
+				1. Own professions\
+					1. System administrators\
+					2. Network engineers\
+					3. Security engineers\
+			2. Know the concepts to the extent that you can prepare the server to run the application but not to take over management of the infrastructure\
+\
+Containers\
+	1. Containers are becoming the defacto software packaging model\
+		1. Skills\
+			1. Virtualisation\
+			2. Containers\
+				1. Manage containerised application on a server\
+				2. Docker\
+					1. To manager containers\
+\
+How to release the application?\
+	1. Main tasks and responsibilities\
+		1. DevOps\
+			1. Continuously (CI/CD)\
+			2. Automated (efficient and fast)\
+\
+Build automation and CI/CD\
+	1. Run tests & package app (jar or zip)\
+		1. Build Tools and Package Manager (We need to understand how these packaging and testing applications work)\
+			1. Maven\
+			2. Gradle\
+			3. NPM (JS applications)\
+		2. Artefact Repository\
+			1. Build Docker Image -> pushed to: (we need to understand how to define and manage artefact repositories - Automated)\
+				1. Nexus\
+				2. Dockerhub\
+		3. Build Automation\
+			1. Pipeline - runs automated on CI server\
+				1. Jenkins\
+					1. Connect to artefact repository\
+						1. Continuous Integration\
+			2. Deploy to server\
+				1. Continuous Deployment (Code changes are deployed continuously on a deployment server)\
+	2. Sending notifications to team about pipeline state\
+		1. Slack\
+	3. Handling failures\
+\
+CI/CD Pipeline\
+	1. Responsibilities\
+		1. Configure complete CI/CD Pipeline\
+			1. Should be continuous (infinite cycle)\
+				1. code -> build -> test -> release -> deploy -> operate -> monitor -> plan -> code\
+\
+DevOps Bootcamp:\
+	1. Description\
+\
+Cloud Providers:\
+	1. Cloud providers (instead of managing own infrastructure)\
+		1. Infrastructure as a Service (AWS, Google Cloud, Microsoft Azure)\
+			1. Learn at least 1 cloud provider\
+	2. Advantages:\
+		1. Saves cost of setting up own infrastructure\
+		2. Offer a range of services\
+			1. Load balancing\
+			2. Backup\
+			3. Clustering\
+			4. Security\
+			5. \'85\
+	3. AWS: (the services are platform-specific) - learn them\
+		1. Firewalls\
+		2. Rout tables\
+		3. \'85\
+		4. Only learn services you actually need (to deploy and run my specific application)\
+\
+Container Orchestration\
+	1. Containers need to be managed\
+		1. For small applications\
+			1. Docker Swarm\
+			2. Docker Compose\
+		2. For microservices - we need a more powerful tool\
+			1. Kubernetes\
+				1. Learn kubernetes\
+					1. How kubernetes works\
+					2. How to administer and manager cluster\
+					3. How to deploy application in it\
+\
+Monitoring\
+	1. Track performance\
+		1. Infra problems\
+		2. App problems\
+		3. User related problems (if users are facing any issues)\
+	2. Responsibilities\
+		1. Setup Monitor software\
+		2. Setup monitoring infrastructure\
+			1, For\
+				1, Kubernetes cluster\
+				2. Server running the cluster\
+	3. Learn\
+		1. Prometheus or\
+		2. Nagios\
+		3. \'85\
+\
+Infrastructure as Code\
+	1. Environments: (manual construction and maintenance - time consuming and error prone)\
+		1. Production env\
+		2. Testing env\
+		3. Development env\
+	2. How?\
+		1. use code to\
+			1. Construct infrastructure\
+			2. Configure to run and deploy your app\
+		2. Two types of tools:\
+			1. Infrastructure provisioning tools\
+				1. Terraform\
+			2. Configuration management tools\
+				1. Ansible\
+				2. Chef\
+				3. Puppet\
+	3. More efficient\
+	4. Transparent (to know in which state environment is)\
+	5. Easy to replicate and recover\
+\
+Scripting Language\
+	1. Responsibilities\
+		1. Closely work with developers and system administrators\
+		2. Automating tasks for development & operations (small applications to automate tasks)\
+			1. Backups\
+			2. System monitoring\
+			2. Cron jobs\
+			4. Network management\
+	2. Skills\
+		1. Know a scripting language (learn one of them)\
+			1. OS specific\
+				1. bash\
+				2. powershell\
+			2. OS independent\
+				1. Python (most demanded)\
+					1. popular\
+					2. easy to learn\
+					3. easy to read\
+					4. many libraries\
+						1. db connections\
+						2. OS tasks\
+						3. Cloud connections\
+				2. Ruby\
+				3. Go\
+		\
+Version Control\
+	1. Code written for\
+		1. Construction of infrastructure\
+		2. Configuration of infrastructure\
+		3. Management of infrastructure\
+	2. The Infrastructure and Code has to be managed using version control\
+		1. Git repos (learn Git)\
+			1. Github\
+			2. Gitlab\
+\
+How many tools do I have to learn?\
+	1. 1 tool in each category (sufficient)\
+		1. DEV concepts\
+		2. OS Systems & Linux Basics (Linux)\
+		3. Networking & Security\
+		4. CI/ CD (Jenkins)\
+		5. Cloud Providers (AWS)\
+		6. Scripting Languages (Python)\
+		7. Containers (Docker)\
+		8. Container Orchestration (Kubernetes)\
+		9. Monitoring (Nagios)\
+		10. Infrastructure as Code (Ansible, Terraform)\
+		11. Version Control (Git)\
+	2. Next: Switching to an alternative tools will be much easier (after knowing the concepts with one set of tools)\
+\
+DevOps Bootcamp:\
+	1. https://www.techworld-with-nana.com/devops-bootcamp\
+	2. {\field{\*\fldinst{HYPERLINK "https://www.youtube.com/redirect?event=video_description&v=9pZ2xmsSDdo&q=https%3A%2F%2Fbit.ly%2F3mPIaiU&redir_token=QUFFLUhqbWVGS1NhY01hR2ZWdUpBcnQ2QXRQNVRGTy1WQXxBQ3Jtc0trcDkxZWg0eDYzYVduX25wWFZ3b25TdXNzWGZXQ205VUlYTGhRMUpMNFZLVzN3cElhV0U4VjJBS0JkZzJsYlJVT3MtSy1EaFFYQ1pHUjVZT3dfTVhlVUdfcTVSY0ZCbURmamJCMmRVNHJJRFRqRHhUMA%3D%3D"}}{\fldrslt 
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 https://bit.ly/3mPIaiU}}\
+\
+	\
+\
+\
+\
+\
+}

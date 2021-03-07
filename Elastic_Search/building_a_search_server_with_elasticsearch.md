@@ -844,20 +844,37 @@
 			$scope.results.documents = [];
 			$scope.results.documentCount = null;
 
+			$scope.resultsPage = 0;
+			
 			$scope.noResults = false;
 		}
+		
+		$scope.getNextPage = function () {
+			$scope.resultsPage++;
+			getResults(); // we don't have to reset results
+		}
+		
+		$scope.$watchGroup(['results', 'noResults', 'isSearching'], function () {
+			var documentCount = $scope.results.documentCount;
+			
+			if (!documentCount || documentCount <= $scope.results.documents.length || $scope.noResults || $scope.isSearching) {
+				$scope.canGetNextPage = false;
+			} else {
+				$scope.canGetNextPage = true;
+			}
+		}); // to observe multiple state properties in return of value whenever they are changed
 
 		var getResults = function () {
 			$scope.isSearching = true;
 
-			searchService.search($scope.results.searchTerms).then(function (es_return) {
+			searchService.search($scope.results.searchTerms, $scope.resultsPage).then(function (es_return) {
 				var total_hits = es_return.hits.total;
 
 				if (totalHits > 0) {
-					setTimeout(function() {
+					//setTimeout(function() {
 						$scope.results.documentCount = totalHits;
-						$scope.results.documents = searchService.formatResults(es_return.hits.hits)
-					}, 30);
+						$scope.results.documents.push.apply($scope.results.documents, searchService.formatResults(es_return.hits.hits));
+					//}, 300);
 				} else {
 					$scope.noResults = true;
 				}					
@@ -870,7 +887,7 @@
 			});
 		}
 		...
-		this.search = function (searchTerms) {
+		this.search = function (searchTerms, resultsPage) {
 			...
 			esClient.search([
 				index: 'library',
@@ -880,7 +897,8 @@
 							_all: searchTerms
 						}
 					}
-				}
+				},
+				from: resultsPage * 10
 			]);
 		}
 
@@ -895,6 +913,8 @@
 		
 			...
 		
+			<button ng-click="getNextPage()" ng-if="canGetNextPage" class="load-next">Load More Results</button>
+		
 			<div class="throbber" ng-if="isSearching">
 				SEARCHING &hellip;
 			</div>
@@ -902,7 +922,11 @@
 
 ## The Advanced Search Functionality ##
 ### Highlighting ###
-1. 
+1. In this section, we are going to take a look at...
+	1. Adding highlighted snippets to our results
+	2. Sorting the results by changing the field for the same
+	3. Grouping results into aggregations
+2. 
 
 ### Sorting ###
 ### Aggregations ###

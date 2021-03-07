@@ -140,12 +140,12 @@
 1. Spring Cloud
 	1. Components to solve challenges
 	2. Cloud.spring.io
-		1. Spring cloud provides tools for developers to quickly build some of the common patterns in distributed systems (e.g. configuration management, service discovery, circuit brakers, intelligent routing, micro-proxy, control bus, one-time tokens, global locks, leadership election, distributed sessions, cluster state). Coordination of distributed systems leads to boiler plate patterns, and using Spring Cloud developers can quickly stand up services and applications that implement those patterns. They will work well in any distributed environment, including the developer's own laptop, bare metal data centres, and managed platforms such as Cloud Foundary.
+		1. Spring cloud provides tools for developers to quickly build some of the common patterns in distributed systems (e.g. configuration management, service discovery, circuit brakers, intelligent routing, micro-proxy, control bus, one-time tokens, global locks, leadership election, distributed sessions, cluster state). Coordination of distributed systems leads to boiler plate patterns, and using Spring Cloud developers can quickly stand up services and applications that implement those patterns. They will work well in any distributed environment, including the developer's own laptop, bare metal data centres, and managed platforms such as **Cloud Foundary**.
 		2. It is not one project
 			1. Projects
 				1. Spring Cloud Netflix
 					1. Played with us architecture
-						1. Components open source
+						1. Components open sourced
 							1. Eureka, Hystrix, Zuul
 				2. Spring Cloud Config
 					1. Centralized config managmenent
@@ -173,7 +173,7 @@
 			1. All instances of microservices would register with naming server
 				1. All us can register
 				2. Service discovery
-					1. Example: CurrencyCalculationService can ask Eureka nameing server -> Give instance of CurrencyExchangeService and Eureka will provide the URL of the service
+					1. Example: CurrencyCalculationService can ask Eureka naming server -> Give instance of CurrencyExchangeService and Eureka will provide the URL of the service
 						1. Establishes dynamic relationship between the services
 			2. Ribbon (Client Side Load Balancing)
 				1. Example: CurrencyCalculationService will host Ribbon (client)
@@ -182,7 +182,7 @@
 				1. Mechanism to write simple RESTful clients
 	5. Visibility and Monitoring
 		1. Zipkin Distributed Tracing (server)
-			1. Spring Cloud Slout is used to assign ID to request across multiple components
+			1. Spring Cloud Slouth is used to assign ID to request across multiple components
 			2. Zipkin Distributed Tracing is used to trace request across multiple components
 		2. Netflix [Zuul] API Gateway
 			1. uS have common features
@@ -319,7 +319,7 @@
 2. Configuration properties: Configuration.java
 
 		@Component
-		@ConfigurationProperties("limits-service")
+		@ConfigurationProperties("limits-service") // **(M)**
 		public class Configuration {
 			private int minimum;
 			private int maximum;
@@ -420,6 +420,16 @@
 					1. QA properties
 					2. Default properties
 2. Limits-service has logic to take the highest priority values automatically
+
+### COURSE UPDATE: Limits Service with >= 2.4.0 of SPRING BOOT ###
+1. Add the following dependency:
+
+		<dependency>
+		   <groupId>org.springframework.cloud</groupId>
+		   <artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+		
+2. Restart the server
 
 ### Step 09 - Connect Limits Service to Spring Cloud Config Server ###
 1. limits-service:
@@ -566,9 +576,9 @@
 		insert into exchange_value (id, from, to, conversion_multiple)
 		values (10001, 'USD', 'INR', 65);
 		insert into exchange_value (id, from, to, conversion_multiple)
-		values (10001, 'EUR', 'INR', 75);
+		values (10002, 'EUR', 'INR', 75);
 		insert into exchange_value (id, from, to, conversion_multiple)
-		values (10001, 'AUD', 'INR', 50);
+		values (10003, 'AUD', 'INR', 50);
 		
 	1. application.properties
 
@@ -589,9 +599,9 @@
 						insert into exchange_value (id, currency_from, currency_to, conversion_multiple, port)
 						values (10001, 'USD', 'INR', 65, 0);
 						insert into exchange_value (id, currency_from, currency_to, conversion_multiple, port)
-						values (10001, 'EUR', 'INR', 75, 0);
+						values (10002, 'EUR', 'INR', 75, 0);
 						insert into exchange_value (id, currency_from, currency_to, conversion_multiple, port)
-						values (10001, 'AUD', 'INR', 50, 0);
+						values (10003, 'AUD', 'INR', 50, 0);
 						
 					1. localhost:8000/h2-console
 
@@ -676,7 +686,7 @@
 			ResponseEntity<CurrencyConversionBean> responseEntity = new RestTemplate().getForEntity("http://localhost:8000/currency-exchange/from/{from}/to/{to}", CurrencyConversionBean.class, uriVariables);
 			CurrencyConversionBean response = responseEntity.getBody();
 			
-			return new CurrencyConversionBean(response.getId(), from, to, response.getConversionMultipl(), quantity, quantity.mutlipy(response.getConversionMultiple()), response.getPort());
+			return new CurrencyConversionBean(response.getId(), from, to, response.getConversionMultiple(), quantity, quantity.mutlipy(response.getConversionMultiple()), response.getPort());
 		}
 		
 	1. Start currency exchange service
@@ -701,7 +711,7 @@
 		</dependencyManagement>
 		...
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
+			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 		
@@ -736,7 +746,7 @@
 					return new CurrencyConversionBean(response.getId(), from, to, response. ..., quantity, quantity.multiply(response.getConversionMultiple()), ...);
 				}
 				
-			1. We are concerned about how proxy is connecting or getting details
+			1. We are not concerned about how proxy is connecting or getting details
 
 ### Step 22 - Setting up client side load balancing with Ribbon ###
 1. Example: Multiple instances exist of "currency-exchange-service"
@@ -745,9 +755,25 @@
 		1. Enable ribbon CurrencyCalculationService
 2. CurrencyConversionService
 
+		<parent>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-parent</artifactId>
+			<version>2.3.1.RELEASE</version> <!-- Ribbon is not working with version >= 2.4 -->
+			<relativePath/> <!-- lookup parent from repository -->
+		</parent>
+	 
+		<properties>
+			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+			<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+			<java.version>1.8</java.version>
+			<spring-cloud.version>Hoxton.SR5</spring-cloud.version>
+			<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		</properties>
+		...
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-ribbon</artifactId>
+			<version>1.4.7.RELEASE</version>
 		</dependency>
 		
 	1. Enable ribbon on Proxy:
@@ -829,7 +855,7 @@
 		1. Open: `http://localhost:8761`
 			1. UI for Eureka:
 				1. Shows status
-				2. Instances currency registered
+				2. Instances currently registered
 
 ### Step 26 - Connecting Currency Conversion Microservice to Eureka ###
 1. Connecting Currency Conversion Service and Currency Exchange Service to Eureka server
@@ -838,6 +864,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
+			<version>1.4.7.RELEASE</version>
 		</dependency>
 		
 3. CurrencyConversionServiceApplication.java
@@ -857,6 +884,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
+			<version>1.4.7.RELEASE</version>
 		</dependency>
 		
 2. CurrencyExchangeServiceApplication.java
@@ -873,14 +901,14 @@
 	1. Solution: We want to get the urls from eureka
 
 ### Course Update: Exclude dependency on jackson-dataformat.xml ###
-1. Open bug with `spring-cloud-starter-netflix-eureka-client`
+1. Open bug with `spring-cloud-starter-eureka`
 	1. It uses `jackson-dataformat-xml`
 		1. Returns xml responses instead of JSON in browser
 			1. Solution: Add exclusion for `jackson-dataformat-xml`
 
 					<dependency>
 						<groupId>org.springframework.cloud</groupId>
-						<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+						<artifactId>spring-cloud-starter-eureka</artifactId>
 						<exclusions>
 							<exclusion>
 								<groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -927,7 +955,7 @@
 
 ### Step 31 - Setting up Zuul API Gateway ###
 1. Three steps:
-	1. Creation of component for Zull API Gateway server
+	1. Creation of component for Zuul API Gateway server
 	2. What it should do when it gets a request
 	3. All requests are configured to pass through the API gateway
 2. New Project:
@@ -1060,12 +1088,12 @@
 3. Launch applications in correct order
 4. Logs in other services
 
-		// CurrentExchangeController
+		// CurrencyExchangeController
 		public ExchangeValue retrieveExchange() {
 			...
 			logger.info("{}", exchangeValue);
 			
-		// CurrentConversionController
+		// CurrencyConversionController
 		public CurrencyConversionBean convertCurrencyFeign() {
 			...
 			logger.info("{}", response);
@@ -1192,9 +1220,9 @@
 
 ### Step 42 - Understanding the need for Spring Cloud Bus ###
 1. Problem: 
-	1. Lauch: limit-service, SpringCloudConfigServer
+	1. Launch: limit-service, SpringCloudConfigServer
 		1. Active profile - qa
-		2. Lauch another instance of limit-service - 8081
+		2. Launch another instance of limit-service - 8081
 			1. VM args: -Dserver.port=8081
 			2. http://localhost:8081/limits
 	2. Suppose we change min value to 22
@@ -1257,7 +1285,7 @@
 		
 	1. If LimitsService goes down, the other dependent services may go down as well
 2. Fault tolerance:
-	1. If a service is not availabe, then dependent service provides default respnonse (graceful behaviour)
+	1. If a service is not availabe, then dependent service provides default response (graceful behaviour)
 	2. Hystrix helps us to build fault tolerance into microservices
 3. Dependencies: Limits-Service
 
@@ -1383,3 +1411,62 @@
 ### Step 8: Magic of Spring Boot and In Memory Database H2 ###
 ### Step 9: Introduction to Spring Data JPA ###
 ### Step 10: More JPA Repository: findById and findAll ###
+
+## Docker with Microservices using Spring Boot and Spring Cloud - V2 ##
+### Step 00 - Match made in Heaven - Docker and Microservices ###
+### Step 01 - Installing Docker - Docker ###
+### RECOMMENDATION - Use PowerShell in Windows! ###
+### Step 02 - Your First Docker Usecase - Deploy a Spring Boot Application ###
+### Step 03 - Docker Concepts - Registry, Repository, Tag, Image and Containers ###
+### Step 04 - Playing with Docker Images and Containers ###
+### Step 05 - Understanding Docker Architecture - Docker Client, Docker Engine ###
+### Step 06 - Why is Docker Popular ###
+### Step 07 - Playing with Docker Images ###
+### Step 08 - Playing with Docker Containers ###
+### Step 09 - Playing with Docker Commands - stats, system ###
+### Step 10 - Introduction to Distributed Tracing ###
+### Step 11 - Launching Zipkin Container using Docker ###
+### Step 12 - Connecting Currency Exchange Microservice with Zipkin ###
+### Step 13 - Connecting Currency Conversion Microservice & API Gateway with Zipkin ###
+### Link for the Next Lecture ###
+### Step 14 - Getting Setup with Microservices for Constructing Container Images ###
+### Step 15 - Constructing Container Image for Currency Exchange Microservice ###
+### Step 16 - Getting Started with Docker Compose - Currency Exchange Microservice ###
+### Step 17 - Running Eureka Naming Server with Docker Compose ###
+### Step 18 - Running Currency Conversion Microservice with Docker Compose ###
+### Step 19 - Running Spring Cloud API Gateway with Docker Compose ###
+### Step 20 - Running Zipkin with Docker Compose ###
+### Step 21 - Running Zipkin and RabbitMQ with Docker Compose ###
+
+## Kubernetes with Microservices using Docker, Spring Boot and Spring Cloud ##
+### Step 00 - Docker, Kubernetes and Microservices - Made for each other ###
+### Step 01 - Getting Started with Docker, Kubernetes and Google Kubernetes Engine ###
+### Step 02 - Constructing Google Cloud Account ###
+### Step 03 - Constructing Kubernetes Cluster with Google Kubernete Engine (GKE) ###
+### Step 04 - Review Kubernetes Cluster and Learn Few Fun Facts about Kubernetes ###
+### Step 05 - Deploy Your First Spring Boot Application to Kubernetes Cluster ###
+### Commands Executed in this Section ###
+### Step 06 - Quick Look at Kubernetes Concepts - Pods, Replica Sets and Deployment ###
+### Step 07 - Understanding Pods in Kubernetes ###
+### Step 08 - Understanding ReplicaSets in Kubernetes ###
+### Step 09 - Understanding Deployment in Kubernetes ###
+### Step 10 - Quick Review of Kubernetes Concepts - Pods, Replica Sets & Deployments ###
+### Step 11 - Understanding Services in Kubernetes ###
+### Step 12 - Quick Review of GKE on Google Cloud Console ###
+### Step 13 - Understanding Kubernetes Architecture - Master Node and Nodes ###
+### Link to Next Lecture ###
+### Step 14 - Setup Currency Exchange & Conversion Microservices - Kubernetes ###
+### Step 15 - Container Images for Exchange & Currency Conversion Microservices ###
+### Step 16 - Deploy Microservices to Kubernetes & Understand Service Discovery ###
+### Step 17 - Constructing Declarative Configuration Kubernetes YAML for Microservices ###
+### Step 18 - Clean up Kubernetes YAML for Microservices ###
+### Step 19 - Enable Logging and Tracing APIs in Google Cloud Platform ###
+### Step 20 - Deploying Microservices using Kubernetes YAML Configuration ###
+### Step 21 - Playing with Kubernetes Declarative YAML Configuration ###
+### Step 22 - Constructing Environment Variables to Enable Microservice Communication ###
+### Step 23 - Understanding Centralized Configuration in Kubernetes - Config Maps ###
+### Step 24 - Exploring Centralized Logging and Monitoring in GKE ###
+### Step 25 - Exploring Microservices Deployments with Kubernetes ###
+### Step 26 - Configuring Liveness and Readiness Probes for Microservices with K8S ###
+### Step 27 - Autoscaling Microservices with Kubernetes ###
+### Step 28 - Delete Kubernetes Cluster and Thank You!
