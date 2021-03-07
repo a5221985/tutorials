@@ -18,4 +18,18 @@
 
 ## What Architect Does ##
 1. Traditional
-	1. Architectus Matrixis
+	1. Architectus Matrixis (Architect in Matrix)
+		1. He is in suit and we don't understand what he is speaking
+		2. He conceives the perfect system (at-least what he things so)
+		3. The dirty work of implementation is done by lesser minions
+		4. This is not effective and needs beuracratic process to get approvals to change the architecture
+			1. Bottlenecks
+			2. Fear of innovations
+			3. Time consuming
+			4. Adds considerable risks and millions of dollars
+		5. Drawbacks
+			1. Big and complex designs
+				1. Code is written after design (usually never right)
+				2. Doesn't capture the user's true needs (we learn as we work usually)
+				3. Doesn't allow for learning
+				4. We might build it perfectly but we are delivering the wrong thing
