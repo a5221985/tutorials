@@ -21,9 +21,23 @@
 		1. Whenever state of business entity changes, new event is appended to list of events
 			1. Saving of event is a single operation (it is inherently atomic)
 		2. Application re-constructs an entity's current state by replaying the events
-	2.  
+	2. Application persists event in event store (which is database of events)
+		1. store has API to add and retrieve entity's events
+		2. store also behaves like a message broker
+			1. An API is provided that enables services to subscribe to events
+			2. When service saves event in event store, it is delivered to all interested subscribers
+	3. Some entities (Customer say) can have large number of events
+		1. To optimize loading:
+			1. Application can periodically save a snapshot of an entity's current state
+				1. To re-construct current state, application finds most recent snapshot and events that have occurred since the snapshot (only fewer events to replay) 
 
 ## Example ##
+1. [Customers and Orders](https://github.com/eventuate-examples/eventuate-examples-java-customers-and-orders) - application built using Event Sourcing and [CQRS](https://microservices.io/patterns/data/cqrs.html)
+	1. [Eventuate](http://eventuate.io/)
+2. Example:
+
+	![event_sourcing_example](event_sourcing_example.png)
+
 ## Resulting Context ##
 ## Related Patterns ##
 ## See Also ##
