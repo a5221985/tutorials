@@ -41,6 +41,55 @@
 3. Instead of storing current state of each order as a row in **ORDERS** table
 	1. Application persists each Order as sequence of events
 	2. CustomerService can subscribe to order events and update it's own state
+4. Order aggregate
+
+		public class Order extends ReflectiveMutableCommandProcessingAggregate<Order, OrderCommand> {
+			private OrderState state;
+			private String customerId;
+			
+			public OrderState getState() {
+				return state;
+			}
+			
+			public List<Event> process(CreateOrderCommand cmd) {
+				return EventUtil.events(new OrderCreatedEvent(cmd.getCustomerId(), cmd.getOrderTotal()));
+			}
+			
+			public List<Event> process(ApproveOrderCommand cmd) {
+				return EventUtil.events(new OrderApprovedEvent(customerId));
+			}
+			
+			public List<Event> process(RejectOrderCommand cmd) {
+				return EventUtil.events(new OrderRejectedEvent(customerId));
+			}
+			
+			public void apply(OrderCreatedEvent event) {
+				this.state = OrderState.CREATED;
+				this.customerId = event.getCustomerId();
+			}
+			
+			public void apply(OrderApprovedEvent event) {
+				this.state = OrderState.APPROVED;
+			}
+			
+			public void apply(OrderRejectedEvent event) {
+				this.state = OrderState.REJECTED;
+			}
+		}
+		
+5. Event handler (In CustomerService) that subscribes to Order events
+
+		@EventSubscriber(id = "customerWorkflow")
+		public class CustomerWorkflow {
+			@EventHandlerMethod
+			public CompletableFuture<EntityWithIdAndVersion<Customer>> reserveCredit(EventHandlerContext<OrderCreatedEvent> ctx) {
+				OrderCreatedEvent event = ctx.getEvent();
+				Money orderTotal = event.getOrderTotal();
+				String cutomerId = event.getCustomerId();
+				String orderId = ctx.getEntityId();
+				return ctx.update(Customer.class, customerId, new ReserveCreditCommand(orderTotal, orderId));
+			}
+		}
 
 ## Resulting Context ##
 ## Related Patterns ##
