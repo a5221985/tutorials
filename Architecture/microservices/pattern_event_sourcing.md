@@ -38,7 +38,9 @@
 
 	![event_sourcing_example](event_sourcing_example.png)
 	
-3. Instead of storing current state each order as a row in **ORDERS** table
+3. Instead of storing current state of each order as a row in **ORDERS** table
+	1. Application persists each Order as sequence of events
+	2. CustomerService can subscribe to order events and update it's own state
 
 ## Resulting Context ##
 ## Related Patterns ##
