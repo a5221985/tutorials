@@ -87,6 +87,18 @@
 			2. The architect should make sure that the developers are completent architects who understand and consider architectural issues as they work
 			3. Main design responsibility: assures coherence across the system
 			
-					Reviews work
-					Makes suggestions
-					Helps refine processes
+					Reviews work (of all teams)
+					Makes suggestions (points out what a given team is doing doesn't mesh well with the system)
+					Helps refine processes (gives teams alternatives and let them choose - not simply solve the problem on his own)
+					
+			4. Architect must ensure that the development team understands the code better than architects do
+				1. Team can come with better solution than any single individual can
+			5. Agile architect keeps the big picture in their heads
+				1. If one did this rather than that to ensure it works with another team's product
+				2. Architect nudges the structure of the entire system based on experience
+			6. Good architects understand when their ideas are flawed and are ready to take directions from the teams
+	6. Advantages:
+		1. Avoids single point of failure (collaboration)
+		2. Everybody understands how system works and why things are done in a certain way
+		3. Work happens continuously
+	7. Architect ensures team makes good decisions and not make decisions himself
