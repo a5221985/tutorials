@@ -62,3 +62,31 @@
 	2. We don't waste time on design that we don't want to build but we don't know what we need to build until we put working software into people's hands
 		1. Build very small things and release them constantly
 		2. Let them evolve based on feedback
+		3. New requirements emerge constantly as software comes together
+			1. **Inspect and Adapt Loop** - Agile
+			
+					Build/refine -> Deploy -> Review -> Talk to users -> Build/ refine
+		
+		4. Start only with design that is enough for the first chunk built
+		5. Get feedback and modify the design based on the feedback (learn and design incrementally as we build the system)
+		6. It is a whole different way of approaching architecture
+		7. Idea
+			1. If we are not sure, we run an experiment
+			2. If the experiment succeeds, we keep the code and underlying architecture
+			3. If the experiemnt fails, we throw both of them out and try something else
+				1. Use the learning (as an asset) to build something better
+		8. Agile folks - the cost of rebuilding is better than building the wrong thing
+	3. Everybody is an architect - at some level in the team
+	4. Nobody asks permission to experiment - we just try (Architect doesn't give permissions)
+	5. Architect works in a support role
+		1. Servent Leader (Agile architect)
+		
+				Teaching -> Coaching -> Coordinating
+				
+			1. As opposed to making opaque decisions implemented by unthinking code monkeys
+			2. The architect should make sure that the developers are completent architects who understand and consider architectural issues as they work
+			3. Main design responsibility: assures coherence across the system
+			
+					Reviews work
+					Makes suggestions
+					Helps refine processes
