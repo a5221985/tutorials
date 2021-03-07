@@ -47,3 +47,18 @@
 				3. It is a bottleneck (lean terms)
 					1. The speed of the entire software development system is controlled by the speed of the slowest part
 						1. Single architect's decision
+			4. UML - metaphor of building architecture taken too far
+				1. It is more efficient to use programming language
+				2. The actual code might deviate from the pictures very quickly
+					1. If tools are used to keep picture in sync with the code, then the picture is a mess and not an architecture
+			5. This architecture style doesn't fit agile world
+
+## Architecture Today ##
+1. Agile
+	1. It welcomes changes
+		1. We don't commit to a design too soon
+			1. We learn about the problems as we solve them
+			2. Learning as we work
+	2. We don't waste time on design that we don't want to build but we don't know what we need to build until we put working software into people's hands
+		1. Build very small things and release them constantly
+		2. Let them evolve based on feedback
