@@ -37,6 +37,8 @@
 2. Example:
 
 	![event_sourcing_example](event_sourcing_example.png)
+	
+3. Instead of storing current state each order as a row in **ORDERS** table
 
 ## Resulting Context ##
 ## Related Patterns ##
