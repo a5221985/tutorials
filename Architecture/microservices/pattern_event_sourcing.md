@@ -90,7 +90,27 @@
 				return ctx.update(Customer.class, customerId, new ReserveCreditCommand(orderTotal, orderId));
 			}
 		}
+		
+	1. `OrderCreated` - event processed (by attempting to reserve credit for orders customer)
 
 ## Resulting Context ##
+1. Advantages
+	1. Solves a key problem involving event-driven architecture and gives a reliable mechanism to publish events whenever state changes
+	2. It persists events (rather than domain objects)
+		1. Avoids object-relational impledence mismatch
+	3. Provides 100% reliable audit log of changes made to business entity
+	4. Makes it possible to implement temporal queries that determine state of entity at any point in time
+	5. Event sourcing based business logic consists of loosely coupled business entities that exchange events (?)
+		1. Makes it easier to migrate from monolithic application to microservices
+2. Disadvantages
+	1. Unfamiliar style of programming - hence some learning curve
+	2. Event store is difficult to query
+		1. Queries should re-construct the state of business entities
+			1. Slightly complex and inefficient
+				1. Solution - Application must use CQRS to implement queries
+					1. Application must handle eventually consistent data
+
 ## Related Patterns ##
+1. [Saga]()
+
 ## See Also ##
