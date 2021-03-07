@@ -1,0 +1,21 @@
+# Software Architecture Foundations #
+## What is Software Architecture ##
+1. Architect (Noun)
+	1. Designer of complete systems
+		1. The structure of the complete system
+			1. They don't fill in implementation details
+		2. It is not just plugging in existing blocks (like lego blocks)
+			1. Example: Architect does not make the choice of database (like pre-built windows for a building)
+				1. It can be done at the end (or not made at all)
+			2. Architect does not structure the building around pre-built windows
+	2. Describes entire structures and systems (they have purpose)
+		1. Purpose - It should fit the owners (tailored based on how it will be used)
+			1. It should fit the domains
+2. All effective architectures reflect the needs of customers and the domain and business they are working
+	1. Best architecture reflects the structure of real world
+		1. Start with customer (user's problem) and go down (find the best way to solve the problem)
+	2. It is not just technical but also involves value judegements (it takes years of work to build that judgement)
+
+## What Architect Does ##
+1. Traditional
+	1. Architectus Matrixis
