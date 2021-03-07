@@ -33,3 +33,17 @@
 				2. Doesn't capture the user's true needs (we learn as we work usually)
 				3. Doesn't allow for learning
 				4. We might build it perfectly but we are delivering the wrong thing
+				5. Example: Upfront design (as in ATC by IBM) may become obsolete by the time it gets implemented
+			2. Lack of Flexibility
+				1. We discover design flaws, implementation issues, new requirements as we start implementing
+					1. If the design is large and complex
+						1. Painful bureaucratic processes
+						2. Not following the design
+						3. Random improvisation
+			3. Slows down development process
+				1. Enormous cost to development
+				2. Centralized architect-making decisions
+					1. Team might be waiting to get the design (waste of money)
+				3. It is a bottleneck (lean terms)
+					1. The speed of the entire software development system is controlled by the speed of the slowest part
+						1. Single architect's decision
