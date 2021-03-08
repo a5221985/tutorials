@@ -39,7 +39,27 @@
 	5. The **Order Service**'s event handler either approves or rejects the **Order**
 
 ## Example: Orchestration-based saga ##
+
+	![orchestration_saga_example](orchestration_saga_example.png)
+	
+1. e-commerce application that using the orchestration based saga for creation of order could have the following steps:
+	1. The **Order Service** receives the **POST /orders** request and **Create Order** saga orchestrator is created
+	2. The saga orchestrator instantiates and **Order** in the **PENDING** state
+	3. It then sends a **Reserve Credit** command to the **Customer Service**
+	4. The **Customer Service** attempts to reserve credit
+	5. It then sends back a reply message indicating the outcome
+	6. The saga orchestrator either approves or rejects the **Order**
+
 ## Resulting Context ##
+1. Advantages
+	1. Enables application to maintain data consistency across multiple services without using distributed transactions
+2. Disadvantages
+	1. Programming model is more complex
+		1. Example: Developer must design compensating trnasactions that explicitly undo changes made earlier in a saga
+3. Other issues to address
+	1. To be reliable, service must automatically update it's database and publish a message / event.
+		1. Traditional mechanism of distributed transaction that spans database and message broker cannot be used
+
 ## Related Patterns ##
 ## Learn More ##
 ## Example Code ##
