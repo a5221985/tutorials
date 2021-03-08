@@ -22,10 +22,21 @@
 		6. **Concurrency = Multitasking**
 			1. Note: We don't need multiple cores to achieve concurrency
 				1. Can also be achieved with single core
-	2. Performance
+	2. Performance - parallelism
 		1. With single core: An illusion of multiple tasks executing in parallel can be created using just a single core
 		2. With multiple cores we can truly run tasks completely in parallel
 		3. Impact: Completing a complex task much faster
+		4. Finish more work in the same period of time
+		5. For high scale service -
+			1. Fewer machines
+			2. Less money spent on hardware
+			3. More money in your pocket
+	3. Caveat
+		1. Multithreaded programming is fundamentally different from single threaded programming
+			1. Intuition that we have with single thread might break when using multiple threads
+				1. Solution: The course will lay the groundwork, and learn all the tools to become a successful multithreaded programming developer
+					1. We can write highly performant and responsive applications
+3. 
 
 ### Operating Systems Fundamentals - Part 2 ###
 ### Quiz 1: Threading and Operating Systems Fundamentals Quiz ###
