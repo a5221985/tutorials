@@ -71,6 +71,14 @@
 ## Learn More ##
 1. Blog posts:
 	1. [Overview of Sagas](https://chrisrichardson.net/post/antipatterns/2019/07/09/developing-sagas-part-1.html)
-	2. []()
+	2. [Saga coordination mechanisms: choreography and orchestration](https://chrisrichardson.net/post/sagas/2019/08/04/developing-sagas-part-2.html)
+	3. [Implementing choreography-based sagas](https://chrisrichardson.net/post/sagas/2019/08/15/developing-sagas-part-3.html)
+	4. [Implementing orchestration-based sagas](https://chrisrichardson.net/post/sagas/2019/12/12/developing-sagas-part-4.html)
+2. [Example application](https://github.com/microservice-patterns/ftgo-application)
+	1. [Eventuate Tram Sagas framework](https://github.com/eventuate-tram/eventuate-tram-sagas) - is used
+3. [Presentations on sagas and asynchronous microservices](https://microservices.io/presentations)
 
 ## Example Code ##
+1. [Choreography-based saga](https://github.com/eventuate-tram/eventuate-tram-examples-customers-and-orders) - services publish domain events using [Eventuate Tram framework](https://github.com/eventuate-tram/eventuate-tram-core)
+2. [Orchestration-based saga](https://github.com/eventuate-tram/eventuate-tram-sagas-examples-customers-and-orders) - where the **Order Service** uses a saga orchestrator
+3. [Choreography and event sourcing-based saga](https://github.com/eventuate-examples/eventuate-examples-java-customers-and-orders) - where services publish domain events using [Eventuate event sourcing framework](http://eventuate.io/)
