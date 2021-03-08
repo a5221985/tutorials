@@ -59,7 +59,18 @@
 3. Other issues to address
 	1. To be reliable, service must automatically update it's database and publish a message / event.
 		1. Traditional mechanism of distributed transaction that spans database and message broker cannot be used
+			1. **One of the patterns listed below must be used instead**
 
 ## Related Patterns ##
+1. Database per service pattern - initiates the need for this pattern
+2. Patterns used to atomically update stte and publish messages/ events:
+	1. Event sourcing
+	2. Transactional Outbox
+3. Choreography-based saga can publish events using Aggregates and Domain events
+
 ## Learn More ##
+1. Blog posts:
+	1. [Overview of Sagas](https://chrisrichardson.net/post/antipatterns/2019/07/09/developing-sagas-part-1.html)
+	2. []()
+
 ## Example Code ##
