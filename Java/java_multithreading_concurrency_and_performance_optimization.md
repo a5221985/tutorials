@@ -1,6 +1,32 @@
 # Java Multithreading, Concurrency & Performance Optimization #
 ## Introduction ##
 ### Motivation & Operating Systems Fundamentals - Part 1 ###
+1. Motivation - Concurrency and Parellelism
+2. What threads are - Introuction to OS
+3. Why we need Threads?
+	1. Responsiveness
+		1. Example: Waiting for customer support
+			1. Late response from a person
+			2. No feedback from an application
+		2. We want to avoid this frustration to users
+		3. Example: Online store web application
+			1. Suppose a user has made a request to the application and database operation is taking a long time
+			2. Second user tries to send request to the application but the application is busy and the request will not be served (might wait or fail)
+		4. Solution: Multiple requests can be served simultaneously by serving each request in a separate thread
+		5. Responsiveness is particularly critical in applications with a User Interface
+			1. Move player - showing images, playing movie, moving mouse gives instant feedback
+				1. Can be achieved by using multiple threads, with a separate thread for each task
+					1. Otherwise generally very hard to achieve
+			2. Achieved by multi-tasking between threads
+				1. Done quickly by the OS - to give illusion that all the tasks are executing simultaneously
+		6. **Concurrency = Multitasking**
+			1. Note: We don't need multiple cores to achieve concurrency
+				1. Can also be achieved with single core
+	2. Performance
+		1. With single core: An illusion of multiple tasks executing in parallel can be created using just a single core
+		2. With multiple cores we can truly run tasks completely in parallel
+		3. Impact: Completing a complex task much faster
+
 ### Operating Systems Fundamentals - Part 2 ###
 ### Quiz 1: Threading and Operating Systems Fundamentals Quiz ###
 
@@ -63,3 +89,7 @@
 ### Atomic Integers & Lock Free E-Commerce ###
 ### Quiz 14: Lock-Free Algorithms, Data-Structures & Techniques ###
 ### Atomic References, Compare And Set, Lock-Free High Performance Data Structure ###
+
+## Beyond Multithreading - Final Lecture ##
+### Distributed Systems, Big Data & Performance ###
+### Bonus Material - Courses Links and Coupons ###
