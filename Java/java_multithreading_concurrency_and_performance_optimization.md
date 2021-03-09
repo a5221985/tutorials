@@ -36,7 +36,25 @@
 			1. Intuition that we have with single thread might break when using multiple threads
 				1. Solution: The course will lay the groundwork, and learn all the tools to become a successful multithreaded programming developer
 					1. We can write highly performant and responsive applications
-3. 
+4. What threads are - Introduction to OS
+	1. OS - loaded from disk into memory
+		1. It takes over and provides an abstraction layer for us and helps us interact with hardware and CPU (focus is shifted to developing apps instead of managing hardware resources)
+		2. application stays on disk first
+			1. OS takes program and an instance of the program is created in memory (the instance is called a process or context)
+				1. Each process is completely isolated from other processes in the system
+				2. A process consists of metadata
+					1. PID
+					2. Files opened for reading and writing
+					3. Program instructions
+					4. Heap
+					5. Main thread
+						1. Contains
+							1. Stack
+							2. Instruction pointer
+		3. In a multithreaded application, each thread comes with its own stack and ip
+			1. All rest of the components in the process are shared by all threads
+			2. Stack - it is a region of memory, where local variables are stored, and passed into functions
+			3. Instruction pointer - Address of the next instruction to execute
 
 ### Operating Systems Fundamentals - Part 2 ###
 ### Quiz 1: Threading and Operating Systems Fundamentals Quiz ###
