@@ -146,7 +146,7 @@
 ### Tips About Coding Lectures and Debugging Instructions ###
 1. 
 
-### Threads Creation - Part 1, Thread Capabilities & Debugging ###
+### Threads Creation - Part 1, Thread Capabilities & De	bugging ###
 ### Threads Creation - Part 2, Thread Inheritance ###
 ### Quiz 2: Thread Creation ###
 ### Coding Exercise 1: Thread Creation - MultExecutor ###
