@@ -101,8 +101,16 @@
 				1. Music - loading and playing through speakers
 				2. User Interface - responds to user input (mouse clicks, keyboard buttons)
 			2. Text Editor - has two threads
-				1. File Saver
+				1. File Saver - saves file every two seconds
 				2. User Interface
+		2. Suppose there is one core and 4 threads we need to decide how to schedule on the core
+			1. Who runs first?
+				1. Say: FCFS (fair)
+					1. File Saver, Text Editor UI, Music Player, Music Player UI
+						1. Problem - Long thread can cause starvation (if long thread arrived first, it will cause starvation to other threads)
+							1. May cause User Interface threads being unresponsive - Bad User experience (if the UI thread is starving)
+				2. Observation - UI threads are typically shorter (they just respond to a user input and update screen)
+					1. 
 	3. Threads vs Processes
 
 ### Quiz 1: Threading and Operating Systems Fundamentals Quiz ###
