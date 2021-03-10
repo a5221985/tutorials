@@ -152,7 +152,42 @@
 ### Flight CheckIn Usecase ###
 
 ## Construct the Java Backend ##
+### Construct the DB Schema ###
+### Install Java ###
+### Install STS ###
+### Download the Executable Java Application ###
+### Download the Completed Source Code ###
+### Construct the Project ###
+### Construct the Entities ###
+### Mark Then with JPA Annotations ###
+### Define Relations ###
+### Construct the Repositories ###
+### findFlights API ###
+### saveReservation API ###
+### Implement saveReservation ###
+### findReservation ###
+### updateReservation ###
+### Configure The Data Source and Run ###
+### Add Flights ###
+### Filter Flights ###
+### Test Filter Flights using Postman ###
+### Test Save and Find Reservation ###
+### Test Update ###
+### Construct and Test FindFlight ###
+### Add Cross Site Origin Support ###
+### Introduction ###
+
 ## Construct a Flight Reservation App ##
+### Construct the Project ###
+### Construct Components ###
+### Configure Routing ###
+### Implement findFlights ###
+### Implement Display Flights ###
+### Render Flights ###
+### Select Flights ###
+### Implement Passenger Details Component ###
+### Capture Passenger Details ###
+
 ## Project 2 Usecase ##
 ## Construct the REST Backend ##
 ## Frontend Development Using REACT ##
