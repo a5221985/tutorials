@@ -168,7 +168,13 @@
 		1. Main thread is `main`
 		2. New thread takes time (for scheduling by OS)
 3. `Thread` class capabilities
-	1. 
+	1. Give a name to thread
+
+			thread.setName("New Worker Thread");
+			
+	2. We can set static priority for a thread programmatically
+
+			thread.setPriority(Thread.MAX_PRIORITY); 
 
 ### Threads Creation - Part 2, Thread Inheritance ###
 ### Quiz 2: Thread Creation ###
