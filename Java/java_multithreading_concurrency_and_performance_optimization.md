@@ -140,8 +140,6 @@
 	2. How thread scheduling works in the Operating System
 	3. When to prefer Multithreaded over Multi-Processes architecture
 
-### Quiz 1: Threading and Operating Systems Fundamentals Quiz ###
-
 ## Threading Fundamentals - Thread Creation ##
 ### Tips About Coding Lectures and Debugging Instructions ###
 1. 
