@@ -142,7 +142,7 @@
 
 ## Threading Fundamentals - Thread Creation ##
 ### Tips About Coding Lectures and Debugging Instructions ###
-1. 
+
 
 ### Threads Creation - Part 1, Thread Capabilities & De	bugging ###
 ### Threads Creation - Part 2, Thread Inheritance ###
