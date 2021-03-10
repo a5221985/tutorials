@@ -141,10 +141,13 @@
 	3. When to prefer Multithreaded over Multi-Processes architecture
 
 ## Threading Fundamentals - Thread Creation ##
-### Tips About Coding Lectures and Debugging Instructions ###
-
-
 ### Threads Creation - Part 1, Thread Capabilities & De	bugging ###
+1. What we learn in this lecture
+	1. Thread creation with `java.lang.Runnable`
+	2. `Thread` class capabilities
+	3. Thread Debugging
+2. Simple java project
+
 ### Threads Creation - Part 2, Thread Inheritance ###
 ### Quiz 2: Thread Creation ###
 ### Coding Exercise 1: Thread Creation - MultExecutor ###
