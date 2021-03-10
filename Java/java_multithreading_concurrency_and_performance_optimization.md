@@ -99,7 +99,10 @@
 		1. Example: Doing homework in text editor, listening to music
 			1. Music player - has two threads
 				1. Music - loading and playing through speakers
-				2. User Interface - 
+				2. User Interface - responds to user input (mouse clicks, keyboard buttons)
+			2. Text Editor - has two threads
+				1. File Saver
+				2. User Interface
 	3. Threads vs Processes
 
 ### Quiz 1: Threading and Operating Systems Fundamentals Quiz ###
