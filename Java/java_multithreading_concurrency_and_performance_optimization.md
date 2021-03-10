@@ -192,8 +192,7 @@
 			});
 			
 		1. If an uncaught exception gets thrown in any of the threads spawned from main thread will be caught by the handler
-		2. Purpose: To clean
-
+		2. Purpose: To clean up some of the resources or log additional data to enable us troubleshoot any issues after the fac
 ### Threads Creation - Part 2, Thread Inheritance ###
 ### Quiz 2: Thread Creation ###
 ### Coding Exercise 1: Thread Creation - MultExecutor ###
