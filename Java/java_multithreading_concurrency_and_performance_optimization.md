@@ -55,6 +55,10 @@
 			1. All rest of the components in the process are shared by all threads
 			2. Stack - it is a region of memory, where local variables are stored, and passed into functions
 			3. Instruction pointer - Address of the next instruction to execute
+		4. Each thread is executing a different instruction in same or different function in any given moment
+			1. Hence separate instruction pointer
+			2. Hence separate call stack (for function local variables and return addresses)
+5. 
 
 ### Operating Systems Fundamentals - Part 2 ###
 ### Quiz 1: Threading and Operating Systems Fundamentals Quiz ###
