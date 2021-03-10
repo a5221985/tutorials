@@ -147,6 +147,28 @@
 	2. `Thread` class capabilities
 	3. Thread Debugging
 2. Simple java project
+	1. All threads related properties and methods are encapsulated in `Thread` class by JDK
+
+			Thread thread = new Thread(); // It is empty by default
+			
+			Thread thread = new Thread (new Runnable () {
+				@Override
+				public void run() {
+					// Code that we will run in a new thread - it is scheduled by OS
+					
+				}
+			}); // lambda can be used
+			
+			System.out.println("We are in thread: " + Thread.currentThread().getName() + " before starting a new thread");
+			thread.start(); // instructs JVM to construct a new thread and pass it to the OS
+			System.out.println("We are in thread: " + Thread.currentThread().getName() + " after starting a new thread");
+			
+			Thread.sleep(10000); // it does not spin in a loop. It only instructs OS to not schedule the thread until that time passes (doesn't consume any CPU)
+			
+		1. Main thread is `main`
+		2. New thread takes time (for scheduling by OS)
+3. `Thread` class capabilities
+	1. 
 
 ### Threads Creation - Part 2, Thread Inheritance ###
 ### Quiz 2: Thread Creation ###
