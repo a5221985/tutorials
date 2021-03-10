@@ -110,8 +110,33 @@
 						1. Problem - Long thread can cause starvation (if long thread arrived first, it will cause starvation to other threads)
 							1. May cause User Interface threads being unresponsive - Bad User experience (if the UI thread is starving)
 				2. Observation - UI threads are typically shorter (they just respond to a user input and update screen)
-					1. 
+					1. Shortest Job First
+						1. Problem - If many user related tasks coming all the time, we will keep scheduling only them and longer tasks may not get executed
+				3. OS looks for a tradeoff
+					1. OS divides time into moderately sized pieces called epocs
+						1. In each epoc - OS allocates different time-slice for each thread
+							1. Not all threads complete in a given epoc
+					2. How to allocate time slice?
+						1. Dynamic priority is calculated
+						
+								Dynamic Priority = Static Priority + Bonus (bonus can be negative) # for each thread
+								
+							1. Static Priority is set by the developer programmatically
+							2. **Bonus** is adjusted by the Operating System in every epoch, for each thread
+								1. If certain threads need more immediate attension, they get higher **Bonus** value
+								2. Or OS will give preference to threads that did not complete in the last epochs, or did not get enough time to run - preventing starvation
 	3. Threads vs Processes
+		1. Multiple threads
+			1. Prefer if the tasks share a lot of data
+			2. Threads are much faster to instantiate and destroy
+			3. Switching between threads of the same process is faster (shorter context switches)
+		2. Multi-Process Architecture
+			1. Security and stability (?) are of higher importance
+				1. They are completely isolated from each other
+				2. Unlike multiple threads where a single faulty thread can bring down the entire application (a faulty process does not bring down the entire application with multiple processes)
+			2. Tasks are unrelated to each other
+2. Summary
+	1. Context Switches, and their impact on performance (thrashing)
 
 ### Quiz 1: Threading and Operating Systems Fundamentals Quiz ###
 
