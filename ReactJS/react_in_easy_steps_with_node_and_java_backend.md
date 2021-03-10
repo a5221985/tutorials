@@ -8,6 +8,18 @@
 	1. Install Node
 	2. VS Code
 	3. MySQL and Workbench
+5. React Script
+	1. Include libaries
+	2. ReactDOM - to render JSX or HTML onto web browser
+	2. Apply Styles
+6. React Components - heart of React Apps - reusable UI widgets
+	1. How to construct components
+	2. How to add attributes to the components
+	3. Complex components - they can render different types of HTML onto the browser using JS ES6 for of loops, map methods, ...
+	4. Event Handling (user events)
+		1. Form submissions
+		2. Click of buttons
+		3. ...
 
 ### How to Make the Best of This Course ###
 ### Download the Completed Projects ###
