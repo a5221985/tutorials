@@ -1,6 +1,14 @@
 # React in Easy Steps With Node and Java Backend #
 ## Introduction ##
 ### Course and Instructor Introduction ###
+1. What is SPA?
+2. What is React?
+3. Why is React popular for SPA?
+4. Software Setup
+	1. Install Node
+	2. VS Code
+	3. MySQL and Workbench
+
 ### How to Make the Best of This Course ###
 ### Download the Completed Projects ###
 ### Notes from Theory Lectures ###
@@ -187,8 +195,56 @@
 ### Select Flights ###
 ### Implement Passenger Details Component ###
 ### Capture Passenger Details ###
+### Handle Reservation Save ###
+### Show Reservation Confirmation ###
+### Flight CheckIn Assignment ###
 
 ## Project 2 Usecase ##
+### Patient Clinical Project UseCase and Requirements ###
+
 ## Construct the REST Backend ##
+### Download the Completed Projects ###
+### Setup the Database ###
+### Executable Java Project ###
+### Construct the Project ###
+### Construct the Model Classes ###
+### Define Entity Relationships ###
+### Construct the Patient REST Controller ###
+### Implement the GET and Save Patient Methods ###
+### Test GET Methods ###
+### Test Save Method ###
+### Implement Save Clinical Data API ###
+### Test Save Clinical Data ###
+### Implement Analyze Method ###
+### Calculate BMI ###
+### Filter the Results ###
+### Test Analyze Method ###
+### Implement GET Clinical Data Method ###
+### Reuse BMI Logic ###
+### Test GET Clinical Data ###
+### Add Cross Site Origin Support ###
+
 ## Frontend Development Using REACT ##
+### Instantiate the Project ###
+### Instantiate Components ###
+### Configure Routing ###
+### Start Implementing the Home Page ###
+### Implement RowCreator ###
+### Test Home Page ###
+### Implement Add Patient ###
+### Add Patient - Handle Submit ###
+### Add Patient - Toastify ###
+### Test Add Patient ###
+### Implement the Add Clinical Data Component ###
+### Construct the HTML Form ###
+### Handle Submit ###
+### Implement Analyze Component ###
+### Construct the TableCreator Component ###
+### Steps to Generate Graph ###
+### Add Link ###
+### Initialize Graph ###
+### Generate Graph ###
+
 ## Wrap Up ##
+### Final Quiz ###
+### Bonus Lecture ###
