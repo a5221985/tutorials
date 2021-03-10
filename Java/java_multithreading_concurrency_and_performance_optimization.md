@@ -184,6 +184,10 @@
 	2. **When we hit a breakpoint, all threads freeze** (to check each thread individually)
 	3. Catching unchecked exception
 
+				...
+				throw new RuntimeException("Intentional Exception");
+				...
+
 			thread.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
 				@Override
 				public void uncaughtException(Thread t, Throwable b) {
@@ -192,8 +196,11 @@
 			});
 			
 		1. If an uncaught exception gets thrown in any of the threads spawned from main thread will be caught by the handler
-		2. Purpose: To clean up some of the resources or log additional data to enable us troubleshoot any issues after the fac
+		2. Purpose: To clean up some of the resources or log additional data to enable us troubleshoot any issues after the fact
+	 
 ### Threads Creation - Part 2, Thread Inheritance ###
+1. 
+
 ### Quiz 2: Thread Creation ###
 ### Coding Exercise 1: Thread Creation - MultExecutor ###
 ### Thread Creation - MultiExecutor Solution ###
