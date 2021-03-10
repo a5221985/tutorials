@@ -20,6 +20,18 @@
 		1. Form submissions
 		2. Click of buttons
 		3. ...
+		4. How to access HTML dom from event handler functions
+	5. State management
+		1. Initialize state
+		2. Update state
+		3. How react automatically renders the state when it is updated (onto UI)
+	6. Styling
+		1. CSS
+		2. Object oriented styling
+	7. JSX
+		1. Syntax
+7. `create-react-app` - from scratch
+	1. No boierplate coding required
 
 ### How to Make the Best of This Course ###
 ### Download the Completed Projects ###
