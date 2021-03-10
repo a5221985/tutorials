@@ -137,11 +137,15 @@
 			2. Tasks are unrelated to each other
 2. Summary
 	1. Context Switches, and their impact on performance (thrashing)
+	2. How thread scheduling works in the Operating System
+	3. When to prefer Multithreaded over Multi-Processes architecture
 
 ### Quiz 1: Threading and Operating Systems Fundamentals Quiz ###
 
 ## Threading Fundamentals - Thread Creation ##
 ### Tips About Coding Lectures and Debugging Instructions ###
+1. 
+
 ### Threads Creation - Part 1, Thread Capabilities & Debugging ###
 ### Threads Creation - Part 2, Thread Inheritance ###
 ### Quiz 2: Thread Creation ###
