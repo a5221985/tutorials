@@ -199,7 +199,9 @@
 		2. Purpose: To clean up some of the resources or log additional data to enable us troubleshoot any issues after the fact
 	 
 ### Threads Creation - Part 2, Thread Inheritance ###
-1. 
+1. What we learn in this lecture:
+	1. Thread creation with java.lang.Thread
+	2. Case study - interactive mutithreaded application
 
 ### Quiz 2: Thread Creation ###
 ### Coding Exercise 1: Thread Creation - MultExecutor ###
