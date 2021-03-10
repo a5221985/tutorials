@@ -123,9 +123,34 @@
 ### Quiz 7: ExpressJS ###
 
 ## React CRUD Client ##
+### Construct the Project ###
+### Get All Products ###
+### Test Get All Products ###
+### Get Single Product Part 1 ###
+### Get Single Product Part 2 ###
+### Test Get Single Product ###
+### Create ###
+### Test Create ###
+### Update ###
+### Delete Assignment ###
+
 ## Routing ##
+### Introduction ###
+### Routing in React ###
+### Step 1 - Install Router ###
+### Step 2 - Configure Routes ###
+### Step 3 - Add and Use Links ###
+
 ## CRUD Client - Using Functional Components and React Hooks ##
+### Get All ###
+### GET Single Product ###
+### Create ###
+
 ## Project Usecase ##
+### Introduction ###
+### Flight Reservation Usecase ###
+### Flight CheckIn Usecase ###
+
 ## Construct the Java Backend ##
 ## Construct a Flight Reservation App ##
 ## Project 2 Usecase ##
