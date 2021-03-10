@@ -175,6 +175,24 @@
 	2. We can set static priority for a thread programmatically
 
 			thread.setPriority(Thread.MAX_PRIORITY); 
+			
+		1. For large programs that need better response time, this will play a major role
+4. Debugging
+	1. Put breakpoints
+		1. Threads tab
+			1. stack traces
+	2. **When we hit a breakpoint, all threads freeze** (to check each thread individually)
+	3. Catching unchecked exception
+
+			thread.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+				@Override
+				public void uncaughtException(Thread t, Throwable b) {
+					System.out.println("A critical error happened in thread " + t.getName() + " the error is " + e.getMessage());
+				}
+			});
+			
+		1. If an uncaught exception gets thrown in any of the threads spawned from main thread will be caught by the handler
+		2. Purpose: To clean
 
 ### Threads Creation - Part 2, Thread Inheritance ###
 ### Quiz 2: Thread Creation ###
