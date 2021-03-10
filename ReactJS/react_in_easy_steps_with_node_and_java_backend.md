@@ -32,8 +32,43 @@
 		1. Syntax
 7. `create-react-app` - from scratch
 	1. No boierplate coding required
+8. Project Structure
+	1. Config
+	2. Source code
+	3. ...
+9. Axios
+	1. Ajax calls using this library
+10. ExpressJS
+	1. REST API
+		1. CRUD against MySQL
+11. React Client - to consume REST API
+12. React Routing
+	1. Navigation through app by configuring REACT routing
+13. Flight Reservation and Checkin
+	1. Java Backend REST API (Reservation & Checkin services)
+	2. Flight Reservation App (customers can book a flight)
+	3. Flight CheckIn App (Passenger can checkin to flight once he has reservation)
 
 ### How to Make the Best of This Course ###
+1. How to use the course
+	1. Lectures - sections
+		1. Quiz at the end (evaluate knowledge)
+	2. Assignments
+		1. We must work on them (brush up of concepts)
+	3. Easy setup
+		1. Node
+		2. VS Code
+		3. MySQL and Work Bench
+	4. Tiny little libraries will need to be installed as required
+2. Personal Message
+3. Questions (they might already be answered)
+	1. Answer other student's questions if possible
+4. To become an expert in React
+	1. Work on
+		1. Hands On + Assignments = EXPERT
+			1. Can be submitted
+5. Updates and Upgrades
+
 ### Download the Completed Projects ###
 ### Notes from Theory Lectures ###
 ### What are Single Page Applications ###
