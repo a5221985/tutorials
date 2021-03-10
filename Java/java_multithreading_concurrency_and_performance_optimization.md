@@ -58,9 +58,50 @@
 		4. Each thread is executing a different instruction in same or different function in any given moment
 			1. Hence separate instruction pointer
 			2. Hence separate call stack (for function local variables and return addresses)
-5. 
+5. Summary
+	1. Motivation for multithreading
+		1. Responsiveness achieved by concurrency
+		2. Performnance achieved by parallelism
+	2. Threads are and what they contain
+		1. Stack
+		2. Instruction pointer
+	3. What threads share
+		1. Files
+		2. Heap
+		3. Code
 
 ### Operating Systems Fundamentals - Part 2 ###
+1. What we learn in this lecture
+	1. Context switch
+		1. Each process may have one or more threads
+			1. The threads are competing to get executed on the CPU (there are way more threads than the cores)
+				1. OS needs to run a thread, stop it, run another thread, stop it, ...
+		2. Context switch: The process of
+			1. Stop thread 1
+			2. Schedule thread 1 out
+			3. Scheudle thread 2 in
+			4. Start thread 2
+			5. ...
+		3. Context switch cost
+			1. Context switch is not cheap, and is the price of multitasking (concurrency)
+			2. Same as we humans when we multitask - takes time to focus
+				1. We are not productive during the time we are interrupted and we need to switch to another task
+					1. Each thread consumes resources in the CPU and memory (kernel resources)
+						1. Tasks to perform during context switch
+							1. Store data for one thread
+							2. Restore data for another thread
+		4. Key takeaways
+			1. Too many threads - Thrashing, spending more time in management than real productive work (running our tasks)
+			2. Threads consume less resources than processes
+				1. They share a lot of resources among themselves
+					1. Context switches between threads from the same process is cheaper than context switches between different processes
+	2. Thread scheduling
+		1. Example: Doing homework in text editor, listening to music
+			1. Music player - has two threads
+				1. Music - loading and playing through speakers
+				2. User Interface - 
+	3. Threads vs Processes
+
 ### Quiz 1: Threading and Operating Systems Fundamentals Quiz ###
 
 ## Threading Fundamentals - Thread Creation ##
