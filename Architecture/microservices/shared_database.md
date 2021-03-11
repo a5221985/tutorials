@@ -55,4 +55,8 @@
 	1. DB will ensure that credit limit will not be exceeded even when simultaneous transactions attempt create orders for same customer
 
 ## Resulting Context ##
+1. Advantages
+	1. Familiar and straightforward ACID transactions can be used to enforce data consistency
+	2. Single db is simpler to operate
+
 ## Related Patterns ##
