@@ -62,5 +62,23 @@
 				1. `ClassNotFoundException` - When class loader fails to find the bytecode corresponding to class we mention
 				2. `ClassDefNotFoundException` - During resolve phase - X refering to Y but Y cannot be found					
 	2. Runtime data areas
-		1. 
+		1. Memory of JVM
+			1. 5 different areas
+				1. 2 areas
+					1. Method area - metadata corresponding to class are stored (Reflection API inquires data in the method area)
+						1. static variables
+						2. bytecode
+						3. class level constant pool
+						4. It is called PermGen space
+							1. By default 64 MB is allocated (this can be tuned)
+							
+									-XX:MaxPermSize
+									
+								1. If PermGen is very low
+									1. `java.lang.OutOfMemoryError: PermGen space`
+						5. In Java 8, it is called Metaspace
+							1. Moved PermGen to a separate memory in the native OS
+								1. There is no limit to Metaspace (can use the whole memory or even use virtual memory)
+							2. It can be tuned (limited to max size)
+							3. 
 	3. Execution Engine
