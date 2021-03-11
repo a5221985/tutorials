@@ -80,5 +80,34 @@
 							1. Moved PermGen to a separate memory in the native OS
 								1. There is no limit to Metaspace (can use the whole memory or even use virtual memory)
 							2. It can be tuned (limited to max size)
-							3. 
+					2. Heap
+						1. Object data is stored here
+							1. If an object is instantiated, the object is usually created in heap
+								1. Even arrays
+						2. Tuned
+						
+								-Xms, -Xms
+							
+							1. Xms - Default is 1/4 th of physical memory
+					3. 3 more
+						1. PC registers
+							1. Program counter registers
+								1. Pointer to the next instruction to be executed per thread
+									1. Suppose T1, T2, and T3 are threads then P1, P2, and P3 will exist
+						2. Java Stacks
+							1. Stack frames of current methods per thread
+
+									stack frame1 stack frame4
+									stack frame2 stack frame5
+									stack frame3
+							
+							2. Stack frame
+								1. Contains data related to currently executing method
+									1. Mem area for parameters (array)
+									2. Return values
+									3. Local variables
+									4. Operand stack
+										1. Scratch area for doing operations specified in the methods **(?)**
+						3. Native method stacks
+							1. If a java method calls a native method, this stack is created (dll say)
 	3. Execution Engine
