@@ -158,5 +158,18 @@
 				1. Bootstrap class loader
 				2. Extension class loader
 				3. Application class loader
-			2. Linker
-			3. Initializer
+			2. Link
+			3. Initialize
+		2. Runtime data areas
+			1. Method area
+			2. Heap
+			3. Java stacks
+			4. PC Registers
+			5. Native Method Stacks
+		3. Execution Engine
+			1. Interpreter
+			2. JIT Compiler
+			3. Hotspot Profiler
+			4. GC
+		4. Native Method Interface (JNI)
+		5. Native Method Libraries (.dll, .so, etc...)
