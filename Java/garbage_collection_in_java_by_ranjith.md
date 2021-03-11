@@ -71,7 +71,11 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 		1. Max tenuring threshold can be set using:
 
 				-XX:MaxTenuringThreshold
-		
+				
+	12. If old generation is full (or near full),
+		1. This kicks in major gc
+			1. It goes over all the generations and performs mark, sweep and compacting
+				1. Causes app to halt
 6. Why two survovor spaces?
 	1. Avoids the need to run a compacting step (which could be expensive)
 		1. Moving to another survivor space automatically compacts them
