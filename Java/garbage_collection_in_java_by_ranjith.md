@@ -79,3 +79,21 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 6. Why two survovor spaces?
 	1. Avoids the need to run a compacting step (which could be expensive)
 		1. Moving to another survivor space automatically compacts them
+7. Performance
+	1. Responsiveness/ latency
+		1. How quickly an application responds with the requested piece of data
+			1. Examples:
+				1. How quickly a desktop UI responds to an event
+				2. How fast a website returns a page
+				3. How fast a database query is returned
+		2. Applcations that focus on responsiveness, large pause times are not acceptable. Focus is on responding in short periods of time
+	2. Throughput
+		1. Focuses on maximizing amount of work by an application in a specific period of time
+			1. Examples of how throughput might be measured include
+				1. number of transactions completed in a given time
+				2. number of jobs that a batch program can complete in an hour
+				3. number of database queries that can be completed in an hour
+		2. High pause times are acceptable for apps that focus on throughput.
+			1. High throughput apps focus on benchmarks over longer periods of time
+			2. Quick response time is not a consideration
+8. 
