@@ -127,4 +127,18 @@
 												2. Thread stack is memory area allocated for a Java thread
 					5. Each thread cannot (directly) see what is in the stack of other threads
 						1. Whatever is in thread stack is generally thread safe (unless they have references to objects in heap)
+					6. Method area & Heap - They are created per JVM
 	3. Execution Engine
+		1. Once current instruction to be executed is ready:
+			1. Interpreter
+				1. Interprets the current instruction (which is in bytecode) and executes it
+					1. Takes bytecode instruction
+					2. Finds out what native operation needs to be done
+					3. Executes the native operation
+						1. This is done using JNI & Native method libraries
+							1. JNI - Java Native Method Interface
+							2. Native Method Libraries (.dll, .so, ... - they are present in JVM)
+								1. Available in: `jre/bin`
+			2. JIT Compiler
+			3. Hotspot profiler
+			4. GC
