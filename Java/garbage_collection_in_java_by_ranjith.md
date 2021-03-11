@@ -41,8 +41,24 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 			1. Eden Space
 				1. New objects are created here (`new HashMap<>()`)
 			2. Survivor Space from
-				1. If eden space becomes full, then small gc cleans up eden and moves surviving objects to survivor space (it survived a garbage collection)
-			3. Survivro Space to
+				1. If eden space becomes full, then **small gc** (minor gc - runs in young generation) cleans up eden and moves surviving objects to survivor space (it survived a garbage collection)
+			3. Survivor Space to
 		2. Old (Tenured) Generation
-			1. Holds objects surviving for a long time (after few generations of gc)
+			1. Holds objects surviving for a long time (after few survivals of gc)
 				1. Example: Cache
+			2. Major GC: Run throughout the heap (young and old)
+				1. This might clean up the old generation objects if they become unreachable
+	3. Both minor and major gcs are stop the world (minor - shorter because it is running on a small piece of memory)
+		1. Major gc - entire heap is handled (can pause the application)
+5. Working principle:
+	1. As app runs, new objects get allocated in eden space
+	2. As app runs, certain objects in eden space become unreachable
+	3. When the eden space is full, allocation fails
+	4. Minor gc gets run
+		1. It marks all live objects as reachable
+		2. The live objects are then moved to survivor space
+		3. The un-reachable objects are cleaned up
+	5. As app runs again, new objects get allocated in eden space
+	6. Then certain objects again become unreachable
+	7. When the eden space is full, allocation fails again
+	8. 
