@@ -40,10 +40,27 @@
 			2. Link pase
 				1. 3 different sub-phases
 					1. Verify
-						1. 
+						1. Looks at bytecode and checks if it is compatible with JVM class specifications etc... (if it is valid Java bytecode - magic number checks, ...)
 					2. Prepare
+						1. Memory is allocated for static variables in class files and assigned to default value
+						
+								private static int x = 10; // x = 0 in this phase
+								
+							1. This is the only mem allocation happening (only for class variables and not instance variables)
 					3. Resolve
-			3. Initialize
+						1. All symbolic references inside current class are resolved (from symbolic to actual references)
+							1. If we have references to other classes
+							2. If we have references to constant pool
+				2. The phases might get executed in parallel or might overlap
+			3. Initialize phase
+				1. Static initializers of class are run
+					1. static block
+					2. set actual values to static variables
+
+							private static int x = 10; // x = 10 in this phase
+			4. Problems
+				1. `ClassNotFoundException` - When class loader fails to find the bytecode corresponding to class we mention
+				2. `ClassDefNotFoundException` - During resolve phase - X refering to Y but Y cannot be found					
 	2. Runtime data areas
 		1. 
 	3. Execution Engine
