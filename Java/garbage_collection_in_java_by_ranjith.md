@@ -114,6 +114,20 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 			1. Does not run concurrently with the application
 		4. Stops-the-world when it runs
 9. Concurrent collector (CMS) when
-	1. There is more memory
-	2. There is high number of CPUs
-	3. Application demands short pauses
+	1. There is more memory (?)
+	2. There is high number of CPUs (concurrency should be supported)
+	3. **Application demands short pauses**
+		1. Responsiveness
+			1. Low latency collector (for most of web apps, financial apps)
+10. Parallel collector when
+	1. Less memory (?)
+	2. Lesser number of CPUs (?)
+	3. **Application demands high throughput and can withstand pauses**
+11. G1 garbage collector (Garbage - first)
+	1. Latest entry in to GC scene (officially available in 1.7 u4)
+	2. It straddles young-tenured generation boundary as it divides heap into different regions and during a GC it can collect a sub-set of regions. It dynamically selects a set of regions to act as young generation in next gc cycle. Regions with most garbage (unreachable) will be collected first
+	3. Features
+		1. More predictable (tunable) GC pauses
+		2. Low pauses with fragmentation
+		3. Parallelism and concurrency together
+		4. Better heap utilization
