@@ -123,7 +123,7 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 	1. Less memory (?)
 	2. Lesser number of CPUs (?)
 	3. **Application demands high throughput and can withstand pauses**
-11. G1 garbage collector (Garbage - first)
+11. **G1 garbage collector (Garbage - first)** - [Oracle Docs](https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html)
 	1. Latest entry in to GC scene (officially available in 1.7 u4)
 	2. It straddles young-tenured generation boundary as it divides heap into different regions and during a GC it can collect a sub-set of regions. It dynamically selects a set of regions to act as young generation in next gc cycle. Regions with most garbage (unreachable) will be collected first
 	3. Features
