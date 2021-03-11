@@ -58,5 +58,15 @@
 1. Advantages
 	1. Familiar and straightforward ACID transactions can be used to enforce data consistency
 	2. Single db is simpler to operate
+2. Disadvantages
+	1. Coupling of development time
+		1. Developer working on **OrderService** will need to coordinate schema changes with developers of other services that access same tables
+			1. Slows down development
+	2. Runtime coupling
+		1. Services accessing same database can interfere with one another
+			1. Suppose long running **CustomerService** transaction holds a lock on **ORDER**  table
+				1. **OrderService** will be blocked
+	3. Single db might not satisfy data storage and access requirements of all services
 
 ## Related Patterns ##
+1. [Database per Service](https://microservices.io/patterns/data/database-per-service.html) - alternative approach
