@@ -139,6 +139,24 @@
 							1. JNI - Java Native Method Interface
 							2. Native Method Libraries (.dll, .so, ... - they are present in JVM)
 								1. Available in: `jre/bin`
+									1. windows - .dll
+									2. unix/linux - .so or .a
 			2. JIT Compiler
+				1. If certain instructions are getting executed repeatedly (hotspots), those will not be interpreted again and again
+					1. JIT compiler them compiles the set of instructions and keeps the target machine code ready for execution
+						1. No interpretation is required
 			3. Hotspot profiler
+				1. It watches bytecode running and grabs different statistics - used by JIT compiler
+				2. It helps JIT compiler compile frequently used instructions
 			4. GC
+				1. Scavanger
+				2. Removes unused objects from heap
+6. Summary
+	1. Components
+		1. Class loader subsystem
+			1. Load
+				1. Bootstrap class loader
+				2. Extension class loader
+				3. Application class loader
+			2. Linker
+			3. Initializer
