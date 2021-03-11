@@ -110,4 +110,21 @@
 										1. Scratch area for doing operations specified in the methods **(?)**
 						3. Native method stacks
 							1. If a java method calls a native method, this stack is created (dll say)
+					4. Exceptions
+						1. Recursive algorithms
+							1. Suppose we miss exit criterion for recursion
+								1. stack frames will continue to get pushed indefinitely
+									1. Java stacks memory area will run out of memory
+
+											java.lang.StackOverflowError
+											
+										1. Suppose we want to tune java stacks
+
+												-Xss
+												
+											1. Size of stacks
+												1. Sets thread stack size
+												2. Thread stack is memory area allocated for a Java thread
+					5. Each thread cannot (directly) see what is in the stack of other threads
+						1. Whatever is in thread stack is generally thread safe (unless they have references to objects in heap)
 	3. Execution Engine
