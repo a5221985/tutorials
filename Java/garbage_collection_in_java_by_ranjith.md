@@ -96,4 +96,8 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 		2. High pause times are acceptable for apps that focus on throughput.
 			1. High throughput apps focus on benchmarks over longer periods of time
 			2. Quick response time is not a consideration
-8. 
+8. Garbage Collectors
+	1. Serial collector
+		1. Usually used for small heap
+		2. It is a basic gc that runs in single thread
+		3. It can be used for basic application
