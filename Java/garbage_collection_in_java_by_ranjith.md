@@ -97,7 +97,23 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 			1. High throughput apps focus on benchmarks over longer periods of time
 			2. Quick response time is not a consideration
 8. Garbage Collectors
-	1. Serial collector
+	1. **Serial collector**
 		1. Usually used for small heap
-		2. It is a basic gc that runs in single thread
+		2. It is a basic gc that runs in single thread (mark, sweep and compacting is done at once)
 		3. It can be used for basic application
+	2. **Concurrent collector**
+		1. Has thread that performs GC along with app execution
+			1. Thread runs along with application
+		2. It does not wait for old generation to be full (no stop the world during this phase)
+		3. Stops the world only during mark/ re-mark
+			1. Sweeping and compacting happens in parallel to the application execution
+	3. **Parallel collector**
+		1. Uses multiple CPUs to perform GC
+		2. Multiple threads doing mark/ sweep etc
+		3. Does not kick in until heap is full/ near-full
+			1. Does not run concurrently with the application
+		4. Stops-the-world when it runs
+9. Concurrent collector (CMS) when
+	1. There is more memory
+	2. There is high number of CPUs
+	3. Application demands short pauses
