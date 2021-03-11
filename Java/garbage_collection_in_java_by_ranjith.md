@@ -61,4 +61,17 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 	5. As app runs again, new objects get allocated in eden space
 	6. Then certain objects again become unreachable
 	7. When the eden space is full, allocation fails again
-	8. 
+	8. When the eden is full, allocation fails
+	9. Minor gc gets run
+		1. It marks all live objects (both in eden space and survivor space) as reachable
+		2. The live objects (from eden and survivor1) are moved to second survivor space
+		3. Certain objects survived 2 cycles of gc but certain others survived one cycle of gc
+	10. The cycle repeats (with surviving objects moving between survivor1 and survivor2 alternatively) 
+	11. When a threshold (say 16) number of cycles is reached and if there are objects that survived all 16 cycles, then they are promoted to old generation space
+		1. Max tenuring threshold can be set using:
+
+				-XX:MaxTenuringThreshold
+		
+6. Why two survovor spaces?
+	1. Avoids the need to run a compacting step (which could be expensive)
+		1. Moving to another survivor space automatically compacts them
