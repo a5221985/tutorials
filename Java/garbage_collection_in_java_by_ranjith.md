@@ -33,3 +33,16 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 	1. Mark: Starts from root node of your application (main), walks the object graph, marks objects that are reachable as live
 	2. Delete/ Sweep: Delete unreachable object
 	3. Compacting: Compact the memory by moving around the objects and making the allocation contiguous than fragmented
+4. Generations:
+	1. Java collectors are called generational collectors
+		1. The collection logic depends on whether the objects are young, old, number of survivals of gc etc...
+	2. Heap space:
+		1. Young Generation (objects are created)
+			1. Eden Space
+				1. New objects are created here (`new HashMap<>()`)
+			2. Survivor Space from
+				1. If eden space becomes full, then small gc cleans up eden and moves surviving objects to survivor space (it survived a garbage collection)
+			3. Survivro Space to
+		2. Old (Tenured) Generation
+			1. Holds objects surviving for a long time (after few generations of gc)
+				1. Example: Cache
