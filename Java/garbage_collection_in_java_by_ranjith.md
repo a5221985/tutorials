@@ -138,4 +138,35 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 		4. It works on small regions
 			1. Minimal amount of pauses OR
 			2. Sticks to what we want the pause to be
-12. 
+12. Types
+	
+		-->|   |-->|   |-->
+		-->|-->|-->|-->|-->
+		-->|   |-->|   |-->
+		    gc      gc
+		    
+		Serial GC
+		
+		-->|-->|-->|-->|-->
+		-->|-->|-->|-->|-->
+		-->|-->|-->|-->|-->
+		    gc      gc
+		    
+		Parallel gc
+		
+		-->|  |-->|->|-->
+		-->|->|-->|->|-->
+		-->|  |-->|->|--> concurrent sweep
+		      |-->|  |-->
+		      |-->|  |-->
+		   mark   remark
+		   
+		[e][ ][ ][o][e]
+		[o][e][s][ ][ ]
+		[ ][s][ ][e][ ]
+		[e][ ][e][ ][ ]
+		[ ][e][ ][e][ ]
+		
+		     G1
+		         
+		
