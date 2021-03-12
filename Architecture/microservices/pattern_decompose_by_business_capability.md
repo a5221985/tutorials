@@ -20,9 +20,32 @@
 			2. Easily tested
 	2. A guideline
 		1. Single Responsibility Principle ([SRP](http://www.objectmentor.com/resources/articles/srp.pdf))
+			1. If class is the component under consideration
+				1. There should be only one reason for the class to change
+			2. The princple can be used for service as well
+				1. Design service to be cohesive and implement small set of strongly related functions
+		2. Decompose in such a way that most new and changed requirements only affect single service
+			1. Reason: Changes that affect multiple services requires coordination across multiple teams
+				1. This slows down development
+		3. Common Closure Principle (CCP)
+			1. OOD - classes that change for the same reason should be in the same package
+				1. Two classes might be implementing different aspects of same business rule
+					1. Reason: If a business rule changes, developers need to change only in small number of packages (ideally only one)
+			2. The princple can be extended to services
+				1. Each change should impact only one service
 
 ## Problem ##
+1. How to decompose an application into services?
+
 ## Forces ##
+1. Architecture must be stable
+2. Services must be cohesive
+	1. Service should implement small set of strongly related functions
+3. Services must confirm to Common Closure Principle (CCP)
+	1. Things that change together should be packaged together
+		1. This ensures that each change affects only one service
+4. 
+
 ## Solution ##
 ## Examples ##
 ## Resulting Context ##
