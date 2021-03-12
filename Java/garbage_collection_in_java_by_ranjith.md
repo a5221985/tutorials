@@ -219,3 +219,12 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 			1. Objects are managed outside the realm of heap
 				1. Objects are moved outside the heap (gc does not take much time)
 			2. Other tools that manage heap from outside
+
+## Q & A ##
+1. What if **to** survivor space becomes full?
+
+	1. [https://stackoverflow.com/questions/14436183/ps-survivor-space-almost-full](https://stackoverflow.com/questions/14436183/ps-survivor-space-almost-full)
+			
+			Note: If the To space becomes full, the live objects from Eden or From that have not been copied to it are tenured, regardless of how many young generation collections they have survived. Any objects remaining in Eden or the From space after live objects have been copied are, by definition, not live, and they do not need to be examined.
+			
+		1. [Hotspot Memory Management Whitepaper](https://www.oracle.com/technetwork/java/javase/tech/memorymanagement-whitepaper-1-150020.pdf)
