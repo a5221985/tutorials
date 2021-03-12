@@ -131,3 +131,11 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 		2. Low pauses with fragmentation
 		3. Parallelism and concurrency together
 		4. Better heap utilization
+	4. GC divides heap into small regions
+		1. Each region can be eden space, survivor space or tenured space
+		2. Which ever region has more garbage, that region gets collected first (that is why G1)
+		3. It is concurrent and parallel
+		4. It works on small regions
+			1. Minimal amount of pauses OR
+			2. Sticks to what we want the pause to be
+12. 
