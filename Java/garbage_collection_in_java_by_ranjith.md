@@ -205,4 +205,17 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 			-Xloggc:gc.log
 			
 		1. Very useful if gc is the suspect. Use graphical tool to analyze the logs
-		2. 
+		2. **Garbage collection log analyzer from IBM** - eclipse plugin
+			1. Warnings
+			2. Graphs
+			3. ...
+		3. `jvisualvm` with visual gc plugin - free tool that comes with
+			1. **VisualGC** - plugin
+		4. Not a good idea to click buttons and cause gc
+			1. Better approach
+				1. JHAT - Java Heap Analyzer Tool
+					1. View of heap - can be used to decide what to do
+		5. **Terracotta Big Memory** ([https://www.terracotta.org/](https://www.terracotta.org/)) - Ehcache
+			1. Objects are managed outside the realm of heap
+				1. Objects are moved outside the heap (gc does not take much time)
+			2. Other tools that manage heap from outside
