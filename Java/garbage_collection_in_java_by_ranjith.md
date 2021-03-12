@@ -168,5 +168,27 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 		[ ][e][ ][e][ ]
 		
 		     G1
-		         
+		     
+13. Selecting GC
+	1. Options
+		1. `-XX:+UseSerialGC` - Single threaded gc on young and old generation. To be used only on small heaps
+		2. `-XX:+UseParallelGC` - Young generation uses parallel GC, Old generation uses single-threaded GC (?)
+		3. `-XX:+UseParallelOldGC` - Both young and old generations have multi-threaded GC
+		4. `-XX:+UseParNewGC` - Multi-threaded young generation garbage collector (only young)
+		5. `-XX:+UseConcMarkSweepGC` - Enables concurrent collector. Autoenables ParNewGC by default (old generation but ParNewGC is enabled)
+		6. `-XX:+UseG1GC` - Use G1
+	2. Defaults: 1.6 - Parallel, 1.7 G1
+14. **finalizer** - protected void finalize() throws Throwable
+	1. The method gets called while an object is garbage collected
+		1. Don't use it for DB connections etc...
+		2. There is no guarantee on when gc happens
+			1. When resources will be freed is not predictable (it could be required by something else and it might be held unnecessarily)
+	2. If an object is resurrected during garbage collection
+	
+			this = new Instance();
+			
+		1. Object is re-created - not gcd
+		2. finalize() method is called only once
+15. Tune the Heap
+	1. `-Xmsvalue` - min
 		
