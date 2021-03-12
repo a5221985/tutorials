@@ -44,7 +44,8 @@
 3. Services must confirm to Common Closure Principle (CCP)
 	1. Things that change together should be packaged together
 		1. This ensures that each change affects only one service
-4. 
+4. Services must be loosely coupled
+	1. Each service API encapsulates its implementation
 
 ## Solution ##
 ## Examples ##
