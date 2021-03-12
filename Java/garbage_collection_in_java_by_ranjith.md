@@ -190,5 +190,19 @@ https://www.youtube.com/watch?v=UnaNQgzw4zY
 		1. Object is re-created - not gcd
 		2. finalize() method is called only once
 15. Tune the Heap
-	1. `-Xmsvalue` - min
-		
+	1. `-Xmsvalue` - min amount of heap allocated to program
+	2. `-Xmxvalue` - max amount of heap allocated to program (def: 256m)
+	3. `-XX:NewRatio=ratio` (2 means 1/3 Y + 2/3 T)
+	4. `-XX:NewSize=size` (size for eden space)
+	5. `-XX:MaxNewSize=size` (max size for eden space)
+	6. `-XX:PermSize` (permgen size - metadata, static objects)
+	7. `-XX:MaxPermSize` (permgen max size)
+16. GC Logging
+	1. Switches
+	
+			-verbose:gc
+			-XX:+PrintGCDetails
+			-Xloggc:gc.log
+			
+		1. Very useful if gc is the suspect. Use graphical tool to analyze the logs
+		2. 
