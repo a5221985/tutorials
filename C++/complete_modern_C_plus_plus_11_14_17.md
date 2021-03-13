@@ -56,11 +56,32 @@
 1. New C++ Project
 2. Project explorer
 	1. Font - Preferences > Fonts & Colors
+3. New File
+	1. C++ File
+	2. Name: Product
+		1. Check box - if header file is needed
 
 ### Course Slides ###
+1. [https://www.udemy.com/course/beg-modern-cpp/learn/lecture/8484196#content](https://www.udemy.com/course/beg-modern-cpp/learn/lecture/8484196#content)
 
 ## Basic Language Facilities ##
 ### What is C++? ###
+1. It is a general purpose programming language
+2. Object-oriented, imperative, generic
+	1. Class & object
+	2. imperative - c like
+	3. generic - high performance code that operates on different kinds of data
+3. Invented by Bjarne Stroustrup
+4. Emphasis on system programming
+	1. It is low level like C
+5. Low-level like C, but feature-rich
+	1. Features
+		1. References
+		2. Exception handling
+		3. Function overloading
+		4. Operator overloading
+		5. ...
+
 ### First C++ Program ###
 ### The C++ Compilation Process ###
 ### Primitive Types & Variables ###
