@@ -127,9 +127,13 @@
 1. Used for performance, stability & portability
 2. Available on almost all operating systems
 3. No dependency on separate runtime
+	1. Unlike Java, C# or Python
 4. Small memory footprint
+	1. Example: Good for systems with limited hardware capability
 5. Can run in constrained environment (e.g. limited memory, slow CPU)
 6. Standard C++ code can be easily ported to multiple platforms
+	1. Code can be used in another platform with minimal changes
+		1. Mobile - core parts can be written and ported (most of the code) to different devices
 
 ### First C++ Program ###
 ### The C++ Compilation Process ###
