@@ -82,6 +82,16 @@
 		4. Operator overloading
 		5. ...
 
+#### What is Modern C++ ####
+1. Encompasses features of C++11
+2. Move semantics
+3. Smart pointers
+	1. Pointer like objects
+		1. They automatically free memory (no need to use raw pointers)
+4. Automatic type inference
+5. Threading
+6. Lambda functions
+
 ### First C++ Program ###
 ### The C++ Compilation Process ###
 ### Primitive Types & Variables ###
