@@ -134,6 +134,10 @@
 6. Standard C++ code can be easily ported to multiple platforms
 	1. Code can be used in another platform with minimal changes
 		1. Mobile - core parts can be written and ported (most of the code) to different devices
+			1. Android
+			2. Windows phone
+			3. iOS
+		2. Microsoft used the strategy to build office for different mobile platforms
 
 ### First C++ Program ###
 ### The C++ Compilation Process ###
