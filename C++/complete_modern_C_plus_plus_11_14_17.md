@@ -140,6 +140,15 @@
 		2. Microsoft used the strategy to build office for different mobile platforms
 
 ### First C++ Program ###
+1. Visual Studio Project Structure
+	1. C++ Source files
+		1. Header files
+		2. Cpp files
+	2. C++ source files are organized in a project
+	3. Project is stored in a solution
+		1. In large C++ apps, solution can have multiple projects
+2. Open VS
+
 ### The C++ Compilation Process ###
 ### Primitive Types & Variables ###
 ### Basic Input/ Output ###
