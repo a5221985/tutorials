@@ -92,6 +92,45 @@
 5. Threading
 6. Lambda functions
 
+#### ISO Standard Committee ####
+1. Responsible for adding new features to C++
+2. Has members from all over the world
+3. Some are representativesof their companies (Microsoft, Google, IBM, etc)
+	1. They propose new changes to C++ and it goes through a vote
+	2. If vote gets accepted, then it becomes part of a new standard
+4. Published first standard in 1998, followed by a minor revision in 2003
+5. Major change in 2011, with lots of new features
+	1. Made it modern and [seemed to be] well suited for large scale applications
+6. 2014 added a minor change, mostly enhancements
+
+#### Where is C++ used ####
+1. All major software companies, in different domains
+	1. Aerospace
+	2. Finance
+	3. 3D graphics
+	4. ...
+2. Majorly chosen for constructing high performance software (Facebook, Google, Microsoft, CERN, etc)
+	1. Facebook
+		1. Ads
+		2. Feeds
+		3. Search
+		4. Open C++ libraries
+	2. CERN
+		1. Physics software - large hadron collider experiments
+3. Operating systems, popular software, games
+	1. Gaming engines - C++
+		1. Unreal
+		2. Cry Engine
+		3. Unity
+
+#### Why is C++ used ####
+1. Used for performance, stability & portability
+2. Available on almost all operating systems
+3. No dependency on separate runtime
+4. Small memory footprint
+5. Can run in constrained environment (e.g. limited memory, slow CPU)
+6. Standard C++ code can be easily ported to multiple platforms
+
 ### First C++ Program ###
 ### The C++ Compilation Process ###
 ### Primitive Types & Variables ###
