@@ -53,6 +53,10 @@
 ### Code::Blocks Installation ###
 ### Cevelop Installation ###
 ### XCode Installation on MacOS ###
+1. New C++ Project
+2. Project explorer
+	1. Font - Preferences > Fonts & Colors
+
 ### Course Slides ###
 
 ## Basic Language Facilities ##
