@@ -322,7 +322,9 @@
 				}
 			}
 			
+		1. Diagram
 
+			![multithreading_example.png](multithreading_example.png)		
 ### Quiz 2: Thread Creation ###
 ### Coding Exercise 1: Thread Creation - MultiExecutor ###
 ### Thread Creation - MultiExecutor Solution ###
