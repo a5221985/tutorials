@@ -724,7 +724,25 @@
 		1. 1 TB/s outgoing bandwidth
 
 #### System APIs ####
-1. 
+1. SOAP or REST APIs can be used to expose functionality of the service
+2. Possible definitions of APIs
+
+		uploadVideo(api_dev_key, video_title, video_description, tags[], category_id, default_language, recording_details, video_contents)
+		
+	1. Parameters
+		1. api_dev_key (string): API developer key of a registered account
+			1. Used to (among other things) throttle users based on their allocated quota
+		2. video_title (string): Title of the video
+		3. video_description (string): Optional description of the video
+		4. tags (string[]): Optional tags for the video
+		5. category_id (string): Category of the video, e.g. Film, Song, People, etc...
+		6. default_language (string): English, Mandarin, Hindi, etc...
+		7. recording_details (string): Location where the video was recorded
+		8. video_contents (stream): Video to be uploaded
+	2. Returns: (string)
+		1. HTTP 202: for successful upload
+		2. Email notification: Email with link sent when video encoding completes
+		3. Queryable API: To let users know current status of uploaded video
 
 #### High Level Design ####
 #### Database Schema ####
