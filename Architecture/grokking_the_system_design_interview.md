@@ -627,7 +627,22 @@
 ### Designing Dropbox ###
 ### Designing Facebook Messenger ###
 ### Designing Twitter ###
+
 ### Designing Youtube or Netflix ###
+#### Why Youtube? ####
+#### Requirements and Goals of the System ####
+#### Capacity Estimation and Constraints ####
+#### System APIs ####
+#### High Level Design ####
+#### Database Schema ####
+#### Detailed Component Design ####
+#### Metadata Sharding ####
+#### Video Deduplication ####
+#### Load Balancing ####
+#### Cache ####
+#### Content Delivery Network (CDN) ####
+#### Fault Tolerance ####
+
 ### Designing Typeahead Suggestion ###
 ### Designing an API Rate Limiter ###
 ### Designing Twitter Search ###
