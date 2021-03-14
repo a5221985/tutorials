@@ -629,8 +629,67 @@
 ### Designing Twitter ###
 
 ### Designing Youtube or Netflix ###
+1. Video sharing service like Youtube
+	1. Users will be able to
+		1. Upload videos
+		2. View videos
+		3. Search videos
+2. Similar services:
+	1. netflix.com
+	2. vimeo.com
+	3. dailymotion.com
+	4. veoh.com
+3. Difficulty level: Medium
+4. Topics
+	1. Why Youtube?
+	2. Requirements and Goals of the System
+	3. Capacity Estimation and Constraints
+	4. System APIs
+	5. High Level Design
+	6. Database Schema
+	7. Detailed Component Design
+	8. Metadata Sharding
+	9. Video Deduplication
+	10. Load Balancing
+	11. Cache
+	12. Content Delivery Network (CDN)
+	13. Fault Tolerance
+
 #### Why Youtube? ####
+1. One of the most popular
+2. Features
+	1. Upload
+	2. View
+	3. Share
+	4. Rate
+	5. Report
+	6. Add comments on videos
+
 #### Requirements and Goals of the System ####
+1. Scope: Simpler version of Youtube with following requirements
+
+##### Functional Requirements: #####
+1. Users should be able to upload videos
+2. Users should be able to share and view videos
+3. Users should be able to perform searches based on video titles
+4. Our services should be able to record stats of videos, e.g., likes/dislikes, total number of views, etc
+5. Users should be able to add and view comments on videos
+
+##### Non-Functional Requirements #####
+1. System should be highly reliable, any video uploaded should not be lost
+2. System should be highly available.
+	1. Consistency can take a hit (in the interest of availability)
+		1. If a user doesn't see a video for a while it should be fine
+3. Users should have real-time experience while watching vidoes and should not feel any lag
+4. Not in scope:
+	1. Video recommendations
+	2. Most popular videos
+	3. Channels
+	4. Subscriptions
+	5. Watch later
+	6. Favorites
+	7. ...
+
 #### Capacity Estimation and Constraints ####
 #### System APIs ####
 #### High Level Design ####
