@@ -341,14 +341,58 @@
 1. Summary:
 	1. `Thread` class - Encapsulates all thread related functionality
 	2. Two ways to run code on a new thread
-		1. Implement `Runnable` interface, 
-		
-### Quiz 2: Thread Creation ###
+		1. Implement `Runnable` interface, and pass to a new `Thread` object
+		2. Extend `Thread` class, and construct an object of that class
+	3. Both ways are equally correct (our preference)
+
 ### Coding Exercise 1: Thread Creation - MultiExecutor ###
+
+		public MultiExecutor(List<Runnable> tasks) {
+        	// Complete your code here
+        	for (Runnable task : tasks)
+          	new Thread(task).start();
+    	}
+
 ### Thread Creation - MultiExecutor Solution ###
+
+		import java.util.ArrayList;
+		import java.util.List;
+		 
+		public class MultiExecutor {
+		    
+		    private final List<Runnable> tasks;
+		 
+		    /*
+		     * @param tasks to executed concurrently
+		     */
+		    public MultiExecutor(List<Runnable> tasks) {
+		        this.tasks = tasks;
+		    }
+		 
+		    /**
+		     * Executes all the tasks concurrently
+		     */
+		    public void executeAll() {
+		        List<Thread> threads = new ArrayList<>(tasks.size());
+		        
+		        for (Runnable task : tasks) {
+		            Thread thread = new Thread(task);
+		            threads.add(thread);
+		        }
+		        
+		        for(Thread thread : threads) {
+		            thread.start();
+		        }
+		    }
+		}
 
 ## Threading Fundamentals - Thread Coordination ##
 ### Thread Termination & Daeomon Threads ###
+1. What we learn in this lecture
+	1. Thread termination
+	2. Thread.interrupt()
+	3. Daemon threads
+
 ### Quiz 3: Thread Termination & Daemon Threads ###
 ### Joining Threads ###
 ### Coding Exercise 2: Multithreaded Calculation ###
