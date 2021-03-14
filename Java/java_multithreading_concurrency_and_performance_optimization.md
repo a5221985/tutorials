@@ -202,6 +202,34 @@
 1. What we learn in this lecture:
 	1. Thread creation with java.lang.Thread
 	2. Case study - interactive mutithreaded application
+2. Using `Runnable` is easier and faster to code
+3. Extending `Thread` class (it implements `Runnable` interface)
+
+		public static void main(String[] args) {
+			Thread thread = new NewThread();
+			thread.start();
+		}
+
+		private static class NewThread extends Thread {
+		
+			@Override
+			public void run() {
+				System.out.println("Hello from " + Thread.currentThread().getName());
+			}
+			
+		}	
+		
+	1. We get access to methods that are directly related to the thread
+
+			System.out.println("Hello from " + this.getName());
+			
+4. Case study
+	1. Example: Consider a vault where money is stored and it is locked
+		1. We want to know how long it might take to guess the code and take the money (for hackers)
+			1. Hackers - Brute force (threads)
+			2. Police (thread) - counts upto 10 seconds and if hackers were not able to break the vault, the police will arrest them
+				1. Police shows us progress of it's arrival on screen
+	2. Implementation: 
 
 ### Quiz 2: Thread Creation ###
 ### Coding Exercise 1: Thread Creation - MultExecutor ###
