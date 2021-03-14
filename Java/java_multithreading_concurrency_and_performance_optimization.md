@@ -233,7 +233,19 @@
 
 			public class Main {
 				public static void main(String[] args) {
-				
+					Random random = new Random();
+					
+					Vault vault = new Vault(random.nextInt(MAX_PASSWORD));
+					
+					List<Thread> threads = new ArrayList<>();
+					
+					threads.add(new AscendingHackerThread(vault));
+					threads.add(new DescendingHackerThread(vault));
+					threads.add(new PoliceThread());
+					
+					for (Thread thread : threads) {
+						thread.start();
+					}
 				}
 				
 				private static class Vault {
@@ -324,7 +336,13 @@
 			
 		1. Diagram
 
-			![multithreading_example.png](multithreading_example.png)		
+			![multithreading_example.png](multithreading_example.png)
+			
+1. Summary:
+	1. `Thread` class - Encapsulates all thread related functionality
+	2. Two ways to run code on a new thread
+		1. Implement `Runnable` interface, 
+		
 ### Quiz 2: Thread Creation ###
 ### Coding Exercise 1: Thread Creation - MultiExecutor ###
 ### Thread Creation - MultiExecutor Solution ###
