@@ -691,7 +691,41 @@
 	7. ...
 
 #### Capacity Estimation and Constraints ####
+1. Assume we have 1.5 billion total users
+2. 800 million are daily active users
+3. If on average, user views five videos per day, then total video-views per second is
+
+		800M * 5 / 86400 sec => 46K videos / sec
+		
+4. Assume upload:view ratio: 1:200
+	1. For every video upload, we have 200 vidoes viewed
+		1. 230 vidoes uploaded per second
+
+				46K / 200 => 230 videos / sec
+				
+5. **Storage Estimates**
+	1. Every minute, 500 hours worth videos uploaded to Youtube
+		1. If one minute of video needs 50MB of storage (videos need to be stored in multiple formats)
+			1. Total storage needed for videos uploaded in a minute
+
+					500 hours * 60 min * 50 MB => 1500 GB/min (25 GB/sec)
+					
+	2. Estimation ignores
+		1. Video compression
+		2. Replication
+6. **Bandwidth Estimates**
+	1. 500 hours of video uploads per minute => 30000 mins of video uploads per minute
+		1. Assume each minute of video takes 10MB of bandwidth
+			1. => 300 GB of uploads per minute
+
+					500 hours * 60 mins * 10 MB => 300 GB/min (5GB/sec)
+					
+	2. Assume upload:view ratio of 1:200
+		1. 1 TB/s outgoing bandwidth
+
 #### System APIs ####
+1. 
+
 #### High Level Design ####
 #### Database Schema ####
 #### Detailed Component Design ####
