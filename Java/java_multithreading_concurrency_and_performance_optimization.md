@@ -231,6 +231,37 @@
 				1. Police shows us progress of it's arrival on screen
 	2. Implementation: 
 
+			public class Main {
+				public static void main(String[] args) {
+				
+				}
+				
+				private static class Vault {
+					private int password;
+					public Vault(int password) {
+						this.password = password;
+					}
+					
+					public boolean isCorrectPassword(int guess) {
+						try {
+							Thread.sleep(5);
+						} catch (InterruptedException e) {
+						
+						}
+						return this.password == guess;
+					}
+				}
+				
+				private static abstract class HackerThread extends Thread {
+					protected Vault vault;
+					
+					public HackerThread(Vault vault) {
+						this.vault = vault;
+						this.setName(this.getClass().getSimpleName());
+					}
+				}
+			}
+
 ### Quiz 2: Thread Creation ###
 ### Coding Exercise 1: Thread Creation - MultExecutor ###
 ### Thread Creation - MultiExecutor Solution ###
