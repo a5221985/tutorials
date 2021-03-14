@@ -269,12 +269,26 @@
 				}
 				
 				private static class AscendingHackerThread extends HackerThread {
+					public AsendingHackerThread(Vault vault) {
+						super(vault);
+					}
+					
+					@Override
+					public void run() {
+						for (int guess = 0; guess < MAX_PASSWORD; guess++) {
+							System.out.println(this.getName() + " guessed the password " + guess);
+							System.exit(0);
+						}
+					}	
+				}
+				
+				private static class DescendingHanderThread extends HackerThread {
 					
 				}
 			}
 
 ### Quiz 2: Thread Creation ###
-### Coding Exercise 1: Thread Creation - MultExecutor ###
+### Coding Exercise 1: Thread Creation - MultiExecutor ###
 ### Thread Creation - MultiExecutor Solution ###
 
 ## Threading Fundamentals - Thread Coordination ##
