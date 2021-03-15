@@ -176,12 +176,50 @@
 				int main() {
 					using namespace std;
 					
-					cout << "Hello C++";
+					cout << "Hello C++"; // represents computer screen
+					return 0; // goes to OS
 				}
 				
 			1. Automatically invoked by runtime
+			2. `<<` - insertion operator
+				1. Multiple operators are allowed in one statement (cascading of operators)
+				2. Newline: `endl` - manipulator
+					1. Inserts new line
+					2. Flushes output buffer (ensuring that string is immediately printed on screen)
+		2. Build Solution
+			1. Builds all the projects in the solution
+		3. Start without debugging
+6. Syntax error:
+	1. Red underline
+	2. Build errors are shown in Error List
+		1. Double click on the message - it takes us to the line which has error
+7. Fully qualified name:
+
+		std::cout
+		
+	1. `::` - scope resolution operator
 
 ### The C++ Compilation Process ###
+1. C++ Build Steps
+	1. Steps
+		1. Preprocessing - performed by preprocessor
+			1. Statements beginning with # are processed
+			2. Include statements get replaced with file content
+				1. If headers are included
+			3. Macros are expanded
+		2. Compilation
+			1. Code is checked for correct syntax
+				1. If there are syntax errors, compiler stops and reports
+					1. VS shows the errors in error window
+				2. If there are no errors, the code is converted to object code
+					1. Also generates .obj extension (extension is omitted on some platforms)
+		3. Linking
+			1. Object code is linked with standard libraries
+				1. If there are no errors during linking, executable is generated
+					1. It can be executed from commandline or explorer
+2. Syntax error:
+	1. Error list window
+
 ### Primitive Types & Variables ###
 ### Basic Input/ Output ###
 ### Functions Basics - Part I ###
