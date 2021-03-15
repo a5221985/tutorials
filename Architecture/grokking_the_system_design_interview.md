@@ -802,8 +802,43 @@
 			5. Likes
 			6. Dislikes
 			7. ...
+2. High level design of Youtube
+
+		client -upload-> web server <-> App server -process q-> encode
+		app server <-> user database
+		app server <-> metadata database
+		app server <- video & thumbnail storage
+		encode -> metadata database
+		encode -> video & thumbnail storage
 
 #### Database Schema ####
+1. **Video metadata storage - MySQL**
+	1. Metadata can be stored in SQL db
+	2. Following info can be stored with each video
+		1. VideoID
+		2. Title
+		3. Description
+		4. Size
+		5. Thumbnail
+		6. Uploader/ User
+		7. Total number of likes
+		8. Total number of dislikes
+		9. Total number of views
+	3. Following info can be stored for each video comment
+		1. CommentID
+		2. VideoID
+		3. UserID
+		4. Comment
+		5. TimeOfCreation
+2. **User data storage - MySQL**
+	1. UserID
+	2. Name
+	3. Email
+	4. Address
+	5. Age
+	6. Registration details
+	7. ...
+
 #### Detailed Component Design ####
 #### Metadata Sharding ####
 #### Video Deduplication ####
