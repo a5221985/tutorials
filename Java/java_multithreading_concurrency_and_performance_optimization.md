@@ -409,6 +409,7 @@
 4. When can we interrupt a thread?
 	1. If thread is executing a method that throws an `InterruptedException`
 	2. If thread's code is handling the interrupt signal explicitly
+5. 
 
 ### Quiz 3: Thread Termination & Daemon Threads ###
 ### Joining Threads ###
