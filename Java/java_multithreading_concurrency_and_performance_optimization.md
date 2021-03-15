@@ -401,6 +401,14 @@
 	3. If a thread is misbehaving, we want to stop it
 		1. It might be sending requests to servers (which is not responding)
 	4. By default, application will not stop as long as at least one thread is still running
+		1. Even if main thread stopped running
+			1. We want the ability to stop all threads gracefully before closing the application
+3. `Thread.interrupt()` - Each thread object has a method called interrupt
+	1. Thread A - `threadB.interrupt()` -> Thread B
+		1. Sending interrupt signal to Thread B in an attempt to interrupt thread B
+4. When can we interrupt a thread?
+	1. If thread is executing a method that throws an `InterruptedException`
+	2. If thread's code is handling the interrupt signal explicitly
 
 ### Quiz 3: Thread Termination & Daemon Threads ###
 ### Joining Threads ###
