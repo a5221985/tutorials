@@ -883,6 +883,14 @@
 				1. It is a sparse, distributed multi-dimensional sorted map
 				2. Scales to petabyte range (across 100s or 1000s of machines)
 					1. No re-configuration is required to add more machines
+6. **Video Uploads**
+	1. Videos could be huge
+		1. If connection drops while uploading, we must support resuming from same point
+7. **Video Encoding**
+	1. Newly uploaded videos are stored on the server
+	2. New task is added to processing queue to encode video into multiple formats
+		1. Once all encoding is completed
+			1. Uploader will be notified and video is made available for viewing or sharing
 
 #### Metadata Sharding ####
 #### Video Deduplication ####
