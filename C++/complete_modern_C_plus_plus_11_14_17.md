@@ -148,6 +148,38 @@
 	3. Project is stored in a solution
 		1. In large C++ apps, solution can have multiple projects
 2. Open VS
+	1. C/C++ > Line Numbers
+3. New project
+	1. Visual C++ > Win32 > Win32 Console application
+4. Application Settings
+	1. Console application
+	2. Empty project
+		1. Right click > New Item
+			1. C++ File (.cpp)
+				1. main (.cpp will be added automatically)
+5. Comments
+	1. Single line or multiline
+
+			// Single line
+			/*
+				multiline comment
+			*/
+			
+	2. Header file
+
+			#include <iostream> // contains classes and header files for io
+			
+		1. Standard header files in cpp do not end with `.h`
+
+				using namespace std; // namespace is a way to wrap types so that they are not accessible directly from outside and also not conflict with other names
+
+				int main() {
+					using namespace std;
+					
+					cout << "Hello C++";
+				}
+				
+			1. Automatically invoked by runtime
 
 ### The C++ Compilation Process ###
 ### Primitive Types & Variables ###
