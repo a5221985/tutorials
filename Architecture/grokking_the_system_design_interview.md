@@ -764,7 +764,28 @@
 					3. Creation date
 					4. View count
 
+	3. Stream
+
+			streamVideo(api_dev_key, video_id, offset, codec, resolution)
+			
+		1. Parameters:
+			1. api_dev_key (string): API developer key of a registered account of service
+			2. video_id (string): string to identify video
+			3. offest (number): One should be able to stream video from any offset
+				1. Unit: time in seconds from beginning of video
+					1. If one is playing/ pausing a video from multiple devices, we can store the offset on server
+						1. Enables users to start watching video on any device from same point where they left off
+			4. codec (string) & resolution (string):
+				1. Different codecs and resolutions are passed to support multiple devices
+					1. If we switch from TV to mobile to watch netflix:
+						1. Different codec and resolution might be required
+		2. Returns: (Stream)
+			1. Media stream (a video chunk) from given offset
+
 #### High Level Design ####
+1. Components needed
+	1. **Processing Queue**: Each uploaded video will be pushed to a processing queue to be de-queued later for encoding, thumbnail generation, and storage
+
 #### Database Schema ####
 #### Detailed Component Design ####
 #### Metadata Sharding ####
