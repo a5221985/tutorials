@@ -891,8 +891,25 @@
 	2. New task is added to processing queue to encode video into multiple formats
 		1. Once all encoding is completed
 			1. Uploader will be notified and video is made available for viewing or sharing
+8. Detailed component design of Youtube
+
+		client <-upload-> web-server <-> app-server -proc q-> encode
+		web-server <-> view and image cache -> client
+		user management <-> app-server <-> video-storage
+		app-server <-> metadata database <-> encode
+		encode -> video-storage
+		BitTable Thumbnails Storage -> app-server
 
 #### Metadata Sharding ####
+1. Since read load is extremely high, we need to distribute data onto multiple machines
+	1. This enables performing read/write operations efficiently
+2. We have many options to shard data
+
+##### Sharding based on UserID #####
+1. 
+
+##### Sharding based on VideoID #####
+
 #### Video Deduplication ####
 #### Load Balancing ####
 #### Cache ####
