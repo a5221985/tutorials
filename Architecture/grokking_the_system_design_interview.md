@@ -785,6 +785,23 @@
 #### High Level Design ####
 1. Components needed
 	1. **Processing Queue**: Each uploaded video will be pushed to a processing queue to be de-queued later for encoding, thumbnail generation, and storage
+	2. **Encoder**: To encode each uploaded video into multiple formats
+	3. **Thumbnails generator**: To generate few thumbnails for each video
+	4. **Video and Thumbnail storage**: To store video and thumbnail files in some distributed file storage
+	5. **User Database**: To store user's information
+		1. name
+		2. email
+		3. address
+		4. ...
+	6. **Video metadata storage**: Metadata database
+		1. Stores all info about videos like
+			1. Title
+			2. File path in system
+			3. Uploading user
+			4. Total views
+			5. Likes
+			6. Dislikes
+			7. ...
 
 #### Database Schema ####
 #### Detailed Component Design ####
