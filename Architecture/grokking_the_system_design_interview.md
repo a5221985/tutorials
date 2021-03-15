@@ -941,6 +941,9 @@
 1. 
 
 #### Load Balancing ####
+1. Consistent hashing can be used among cache servers
+	1. Helps balance load between cache servers
+
 #### Cache ####
 #### Content Delivery Network (CDN) ####
 #### Fault Tolerance ####
