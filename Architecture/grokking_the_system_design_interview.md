@@ -840,6 +840,18 @@
 	7. ...
 
 #### Detailed Component Design ####
+1. Since service is potentially read-heavy, one can focus on building a system that can retrieve videos quickly
+	1. Read write ratio is expected to be 200:1
+		1. 200 views for every video upload
+2. **Where would videos be stored?**
+	1. Distributed file storage system
+		1. [HDFS](https://en.wikipedia.org/wiki/Apache_Hadoop#HDFS)
+		2. [GlusterFS](https://en.wikipedia.org/wiki/GlusterFS)
+3. **How to efficiently manage read traffic?**
+	1. Segregate read traffic from write traffic
+		1. We can have multiple copies of each video
+			1. Read traffic can be distributed on different servers
+
 #### Metadata Sharding ####
 #### Video Deduplication ####
 #### Load Balancing ####
