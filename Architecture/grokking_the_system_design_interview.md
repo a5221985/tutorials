@@ -878,8 +878,11 @@
 		1. If thumbnails are stored on disk
 			1. Many seeks need to be performed to read the files
 				1. Inefficient and will result in higher latencies
-		2. [Bigtable](https://en.wikipedia.org/wiki/Bigtable)
-			1. 
+		2. [Bigtable](https://en.wikipedia.org/wiki/Bigtable) - It is a wide column store
+			1. Uses row key and column key and timestamp (3D mapping) into associated arbitrary byte array
+				1. It is a sparse, distributed multi-dimensional sorted map
+				2. Scales to petabyte range (across 100s or 1000s of machines)
+					1. No re-configuration is required to add more machines
 
 #### Metadata Sharding ####
 #### Video Deduplication ####
