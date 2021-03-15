@@ -914,8 +914,24 @@
 			1. We will have to query all servers
 			2. Each server will return a set of videos
 			3. Centralised server will aggregate and rank the results before returning them to user
+	2. Issues with the approach
+		1. What if user becomes popular?
+			1. A lot of queries can hit the server holding that user
+				1. Performance bottleneck
+				2. It also affects overall performance of our service
+		2. Over time some users can end up storing a lot of videos compared to others
+			1. Maintaining uniform distribution of growing user data is tricky
+2. Solutions:
+	1. Re-partition/ redistribute data
+	2. Use consistent hashing (to balance load between servers)
 
 ##### Sharding based on VideoID #####
+1. Hash function will map each VideoID to a random server
+	1. The server will be used to store Video's metadata
+	2. To find vidoes of user
+		1. We query all servers
+		2. Each server will return a set of videos
+		3. Centralized server will aggregate and rank the results before returning them to user
 
 #### Video Deduplication ####
 #### Load Balancing ####
