@@ -851,6 +851,17 @@
 	1. Segregate read traffic from write traffic
 		1. We can have multiple copies of each video
 			1. Read traffic can be distributed on different servers
+4. **How to efficiently manage read traffic?**
+	1. Segregate read traffic from write traffic
+		1. Possible because we have multiple copies of video
+		2. Read traffic can be distributed on different servers
+	2. Metadata:
+		1. Primary-secondary configurations
+			1. Writes go to primary
+			2. They eventually get applied to secondaries
+				1. Can cause staleness in data
+					1. If new video is added, its metadata is inserted into primary first
+						1. Secondaries would not be able to see it immediately
 
 #### Metadata Sharding ####
 #### Video Deduplication ####
