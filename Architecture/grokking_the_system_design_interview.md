@@ -906,7 +906,14 @@
 2. We have many options to shard data
 
 ##### Sharding based on UserID #####
-1. 
+1. We can store all data for a user on one server
+	1. We can pass UserID to hash function
+		1. The hash function will map user to database server where we will store all metadata for user's videos
+		2. While querying, we can ask hash function to find server holding user's data and then read it from there
+		3. To search videos by titles:
+			1. We will have to query all servers
+			2. Each server will return a set of videos
+			3. Centralised server will aggregate and rank the results before returning them to user
 
 ##### Sharding based on VideoID #####
 
