@@ -932,12 +932,21 @@
 		1. We query all servers
 		2. Each server will return a set of videos
 		3. Centralized server will aggregate and rank the results before returning them to user
+	3. Problem: Popular videos
+		1. Solution: Re-partition or redistribution, consistent hashing
+2. Cache can be used to further improve performance
+	1. It can be used to store hot videos in front of db servers
 
 #### Video Deduplication ####
+1. 
+
 #### Load Balancing ####
 #### Cache ####
 #### Content Delivery Network (CDN) ####
 #### Fault Tolerance ####
+1. We can use [Consistent Hashing](https://www.educative.io/collection/page/5668639101419520/5649050225344512/5709068098338816/)
+	1. To distribute among database servers
+	2. It helps in replacing dead servers and also help in distributing load among servers
 
 ### Designing Typeahead Suggestion ###
 ### Designing an API Rate Limiter ###
