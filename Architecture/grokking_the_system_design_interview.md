@@ -727,22 +727,42 @@
 1. SOAP or REST APIs can be used to expose functionality of the service
 2. Possible definitions of APIs
 
-		uploadVideo(api_dev_key, video_title, video_description, tags[], category_id, default_language, recording_details, video_contents)
+	1. Upload
+
+			uploadVideo(api_dev_key, video_title, video_description, tags[], category_id, default_language, recording_details, video_contents)
 		
-	1. Parameters
-		1. api_dev_key (string): API developer key of a registered account
-			1. Used to (among other things) throttle users based on their allocated quota
-		2. video_title (string): Title of the video
-		3. video_description (string): Optional description of the video
-		4. tags (string[]): Optional tags for the video
-		5. category_id (string): Category of the video, e.g. Film, Song, People, etc...
-		6. default_language (string): English, Mandarin, Hindi, etc...
-		7. recording_details (string): Location where the video was recorded
-		8. video_contents (stream): Video to be uploaded
-	2. Returns: (string)
-		1. HTTP 202: for successful upload
-		2. Email notification: Email with link sent when video encoding completes
-		3. Queryable API: To let users know current status of uploaded video
+		1. Parameters
+			1. api_dev_key (string): API developer key of a registered account
+				1. Used to (among other things) throttle users based on their allocated quota
+			2. video_title (string): Title of the video
+			3. video_description (string): Optional description of the video
+			4. tags (string[]): Optional tags for the video
+			5. category_id (string): Category of the video, e.g. Film, Song, People, etc...
+			6. default_language (string): English, Mandarin, Hindi, etc...
+			7. recording_details (string): Location where the video was recorded
+			8. video_contents (stream): Video to be uploaded
+		2. Returns: (string)
+			1. HTTP 202: for successful upload
+			2. Email notification: Email with link sent when video encoding completes
+			3. Queryable API: To let users know current status of uploaded video
+
+	2. Search
+
+			searchVideo(api_dev_key, search_query, user_location, maximum_videos_to_return, page_token)
+			
+		1. Parameters
+			1. api_dev_key (string): API developer key of a registered account of our service
+			2. search_query (string): string containing search terms
+			3. user_location (string): optional location of user performing search (?)
+			4. maximum_videos_to_return (number): maximum number of results returned in one request
+			5. page_token (string): token will specify page in result set that should be returned (?)
+		2. Returns: (JSON)
+			1. JSON containing information about list of video resources matching search query
+				1. Video resource: Has following
+					1. Title
+					2. Thumbnail
+					3. Creation date
+					4. View count
 
 #### High Level Design ####
 #### Database Schema ####
