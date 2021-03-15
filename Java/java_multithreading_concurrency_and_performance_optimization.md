@@ -389,9 +389,18 @@
 ## Threading Fundamentals - Thread Coordination ##
 ### Thread Termination & Daeomon Threads ###
 1. What we learn in this lecture
-	1. Thread termination
+	1. Thread termination (from one thread to another thread)
 	2. Thread.interrupt()
 	3. Daemon threads
+2. Why and When we want to terminate a thread?
+	1. Threads consume resources (even when thread is not doing anything)
+		1. Memory and kernel resources
+		2. CPU cycles and cache memory
+	2. If thread finished its work, but application is still running
+		1. We want to clean up thread's resources (which are being consumed by finished thread)
+	3. If a thread is misbehaving, we want to stop it
+		1. It might be sending requests to servers (which is not responding)
+	4. By default, application will not stop as long as at least one thread is still running
 
 ### Quiz 3: Thread Termination & Daemon Threads ###
 ### Joining Threads ###
