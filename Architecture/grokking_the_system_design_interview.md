@@ -861,7 +861,25 @@
 			2. They eventually get applied to secondaries
 				1. Can cause staleness in data
 					1. If new video is added, its metadata is inserted into primary first
-						1. Secondaries would not be able to see it immediately
+						1. Secondaries would not be able to see it before it is applied to them
+							1. They will return stale results to users
+								1. Acceptable:
+									1. It is short lived staleness
+									2. User would be able to see new videos after few milliseconds
+5. **Where do thumbnails get stored?**
+	1. More thumbnails might be required than videos
+		1. Assuming 5 thumbnails per video:
+			1. Efficient storage is required to serve huge read traffic
+				1. Two considerations before deciding which storage to be used for thumbnails
+					1. Thumbnails: small files (5KB each say)
+					2. Read traffic will be huge as compared to videos
+						1. User might watch one video but the page might have 20 thumbnails of other videos as well
+	2. Options:
+		1. If thumbnails are stored on disk
+			1. Many seeks need to be performed to read the files
+				1. Inefficient and will result in higher latencies
+		2. [Bigtable](https://en.wikipedia.org/wiki/Bigtable)
+			1. 
 
 #### Metadata Sharding ####
 #### Video Deduplication ####
