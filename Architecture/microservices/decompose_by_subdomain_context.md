@@ -32,7 +32,24 @@
 				1. Ideally only one of the packages
 
 ## Problem ##
+1. How to decompose application into services?
+
 ## Forces ##
+1. Architecture must be stable
+2. Services must be cohesive
+	1. Service should implement small set of strongly related functions
+3. Services must confirm to Ccmmon Closure Principle
+	1. Things that change together must be packaged together
+		1. To ensure that each change affects only one service
+4. Services must be loosely coupled
+	1. Each service (as an API) encapsulates its implementation
+		1. Implementation can be changed without affecting clients
+5. Service should be testable
+6. Each services should be small enough to be developed by a "two pizza" team
+	1. 6 - 10 people
+7. Each team that owns one or more services must be autonomous
+	1. Team must be able to develop and deploy services with minimal collaboration with other teams
+
 ## Solution ##
 ## Examples ##
 ## Resulting Context ##
