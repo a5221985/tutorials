@@ -94,3 +94,4 @@
 			2. High-level domain model - subdomains mostly have a key domain object
 
 ## Related Patterns ##
+1. [Decompose by business capability](https://microservices.io/patterns/decomposition/decompose-by-business-capability.html) - alternative
