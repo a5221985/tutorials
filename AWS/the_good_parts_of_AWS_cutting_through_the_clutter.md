@@ -142,8 +142,19 @@
 				1. Example: Serving web page will require 4 DynamoDB read requests
 					1. If serving million pages per day, requests might cost
 						1. $1 / day
+	3. Example: \$0.25 per million reads, \$1.25 per million writes
 
 ##### Provisioned Capacity #####
+1. Consider switching to provisioned capacity if:
+	1. Performance characteristics of DynamoDB are compatible with application
+	2. On-demand request pricing is in ballpark of acceptability
+2. Workload that costs \$1/ day to serve 1 million pages would only cost \$0.14/ day with provisioned capacity
+	1. Cost reduction (seemingly)
+		1. Calculation assumes
+			1. Requests are evently distributed over course of day
+			2. There is zero capacity headroom (would get throttled if there were million + 1 rquests in a day)
+		2. The assumptions could be impractical
+			1. We may have to provide abundant headroom to deal with peak request rate & general uncertainty in demand
 
 #### DynamoDB Indexes ####
 ##### Local Indexes #####
