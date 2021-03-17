@@ -51,7 +51,46 @@
 	1. Team must be able to develop and deploy services with minimal collaboration with other teams
 
 ## Solution ##
+1. Define services corresponding to Domain-Driven Design (DDD) subdomains
+	1. DDD - refers to application problem space
+		1. Business as the domain
+		2. Sub-domains - domain consists of sub-domains
+			1. Each sub-domain corresponds to a different part of business
+2. Sub-domains can be classified as
+	1. Core - key differentiator for business and most valuable part of application
+	2. Supporting - related to what business does
+		1. It is not a differentiator
+			1. It can be developed in-house or outsourced
+	3. Generic - not specific to business
+		1. Ideally implemented using off the shelf software
+
 ## Examples ##
+1. Subdomains of online store
+	1. Product catalog
+	2. Inventory management
+	3. Order management
+	4. Delivery management
+2. Architecture
+
+	![decompose_by_subdomain](decompose_by_subdomain.png)
+
 ## Resulting Context ##
+1. Pattern has following benefits
+	1. Stable architecture since subdomains are relatively stable
+	2. Dev teams are cross-functional, autonomous, organized around delivering business value rather than technical features
+	3. Services are cohesive and loosely coupled
+
 ## Issues ##
+1. Following issues to address
+	1. **How to identify subdomains?**
+		1. This requires an understanding of the business
+			1. Business capabilities
+			2. Analyzing business and organizational structure
+			3. Identifying different areas of expertise
+		2. Process of identification:
+			1. Iterative process
+		3. Good starting points
+			1. Organization structure - different groups within organization might correspond to subdomains
+			2. High-level domain model - subdomains mostly have a key domain object
+
 ## Related Patterns ##
