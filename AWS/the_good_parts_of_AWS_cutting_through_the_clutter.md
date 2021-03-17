@@ -90,7 +90,9 @@
 		2. It is schemaless
 			1. It can manage structured or semistructured data
 				1. Including JSON docs
-		3. 
+		3. Wants us to do most of data **querying ourself within application**
+			1. Either read single value or get contiguous range of data
+		4. Filter or sort has to be aggregated ourselves (after receiving requested data range)
 	2. Relational DB
 		1. Good for
 			1. Ad-hoc queries
@@ -101,9 +103,15 @@
 				1. Tables
 				2. Rows
 				3. Columns
-		4. 
+		3. Most of data querying and processing is done close to data side
+		4. Data aggregation and sorting is done on data side & final summary sent to application
 
 #### Query Processing ####
+1. Query processing on application side is inconvenient
+	1. Also has performance implications
+2. RDBMS run queries close to data
+	1. If you want to calculate sum total value of orders per customer
+
 #### Storage Cost ####
 #### Request Pricing ####
 ##### On-Demand #####
