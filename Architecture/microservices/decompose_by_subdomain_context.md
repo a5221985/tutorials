@@ -13,6 +13,20 @@
 	3. Structures engineering organization as a collection of small (6 - 10 members)
 		1. Autonomous teams
 			1. Each of the teams is responsible for one or more services
+4. Note: Benefits are not automatically guaranteed
+	1. Benefits can be achieved by careful functioanl decomposition of application into services
+		1. Service must be small enough to be developed by small team
+		2. Service must be easily testable
+	2. How to achieve that?
+		1. Single Responsibility Principle (SRP)
+			1. There must be only one reason for a class to change
+			2. SRP can be applied to service design
+				1. A service can be cohesive and can implement small set of strongly related functions
+5. Application can be decomposed in a way that most new and changed requirements only affect single service
+	1. Changes that affect multiple services requires coordination across multiple teams
+		1. This slows down development
+6. Common Closure Principle (CCP)
+	1.  
 
 ## Problem ##
 ## Forces ##
