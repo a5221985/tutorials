@@ -87,7 +87,21 @@
 			2. Gaming
 			3. Media sharing
 			4. Internet of Things (IoT)
+		2. It is schemaless
+			1. It can manage structured or semistructured data
+				1. Including JSON docs
+		3. 
 	2. Relational DB
+		1. Good for
+			1. Ad-hoc queries
+			2. Data warehousing
+			3. OLAP (on-line analytical processing)
+		2. Requires well defined schema (structure is based on relational model)
+			1. Data is normalized into
+				1. Tables
+				2. Rows
+				3. Columns
+		4. 
 
 #### Query Processing ####
 #### Storage Cost ####
