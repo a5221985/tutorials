@@ -155,6 +155,10 @@
 			2. There is zero capacity headroom (would get throttled if there were million + 1 rquests in a day)
 		2. The assumptions could be impractical
 			1. We may have to provide abundant headroom to deal with peak request rate & general uncertainty in demand
+				1. We might end up with a burden to monitor utilization and proactively provision necessary capacity
+	2. Example: $0.00012 cost per read capacity unit (RCU) per hour
+		1. Number of read requests per hour (for serving a web page)
+			1. 50000 -> 50000 * 0.00013 ~ $ 6.49999....
 
 #### DynamoDB Indexes ####
 ##### Local Indexes #####
