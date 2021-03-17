@@ -46,6 +46,7 @@
 		1. This ensures that each change affects only one service
 4. Services must be loosely coupled
 	1. Each service API encapsulates its implementation
+		1. Implementation can be changed without affecting clients
 
 ## Solution ##
 ## Examples ##
