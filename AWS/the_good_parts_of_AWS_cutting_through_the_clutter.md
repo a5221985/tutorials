@@ -110,11 +110,39 @@
 1. Query processing on application side is inconvenient
 	1. Also has performance implications
 2. RDBMS run queries close to data
-	1. If you want to calculate sum total value of orders per customer
+	1. To calculate sum total value of orders per customer
+		1. Rollup gets done while reading data
+		2. Final summary (one row per customer) gets sent over network
+3. To do this with DynamoDB
+	1. Get all customer orders (one row per order)
+		1. It involves more data over network
+		2. Rollup is done in application
+			1. This is far from data
+4. **This aspect can be considered to determine if DynamoDB is a viable choice for our needs**
 
 #### Storage Cost ####
+1. Storage in DynamoDB costs more as compared to S3
+	1. 1 TB in DynamoDB - $256/ month
+	2. 1 TB in S3 - $23.55 / month
+2. Data can be compressed more efficiently in S3
+	1. Can make the cost difference even bigger
+		1. However, to decide whether DynamoDB is a viable option,
+			1. request pricing matters most (rather than storage cost - as per author)
+
 #### Request Pricing ####
 ##### On-Demand #####
+1. Start with DynamoDB's on-demand pricing
+	1. Consider provisioned capacity as cost opitmization
+		1. On-demand cost: 
+			1. $1.25 per million writes
+			2. $0.25 per million reads
+	2. DynamoDB is a simple data structure
+		1. It is not hard to estimate how many requests are needed
+			1. We can inspect application and map every logical operation to a number of DynamoDB requests
+				1. Example: Serving web page will require 4 DynamoDB read requests
+					1. If serving million pages per day, requests might cost
+						1. $1 / day
+
 ##### Provisioned Capacity #####
 
 #### DynamoDB Indexes ####
