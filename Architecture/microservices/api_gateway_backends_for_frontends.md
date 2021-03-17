@@ -20,3 +20,6 @@ Masters Thesis:​ Research and Development of a Genetic Design Tool
 MOST: a software environment for constraint - based
 metabolic modelling and strain design: Published in ​Oxford
 Bioinformatics Journal - https://academic.oup.com/bioinformatics/article/31/4/610/2748222
+
+Bachelors Final Year Project at Indian Space Research Organization (ISRO): A Simulation Software for Spacecraft Orbital
+Error Correction System
