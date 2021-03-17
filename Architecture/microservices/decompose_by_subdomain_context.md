@@ -26,7 +26,10 @@
 	1. Changes that affect multiple services requires coordination across multiple teams
 		1. This slows down development
 6. Common Closure Principle (CCP)
-	1.  
+	1. Classes that change for the same reason should be in the same package
+		1. Two classes might implement different aspects of the same business rule
+			1. If business rule changes, developers need to change code in small numbers
+				1. Ideally only one of the packages
 
 ## Problem ##
 ## Forces ##
