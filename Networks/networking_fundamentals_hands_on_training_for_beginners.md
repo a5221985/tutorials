@@ -712,8 +712,23 @@
 						2. It depends on the routing protocols used
 							1. Different protocols use different parameters and different factors
 		5. Each router maintains a forwarding table also known as the **routing table**
+	5. Example:
+
+			172.10.10.0/24 <-> router <-> 199.100.50.0/24
+							Gi0/1			Gi0/2
+							
+		1. Gi0/x - interface
+		2. If router knows the destination (subnet mask)
+			1. It simply forwards the packet to the destination
 
 ### Routing ###
+1. Different types of routing
+	1. Static
+		1. It is based on static table route entries (manually updated)
+		2. Manually constructed and updated
+		3. Suitable for small networks
+		4. Can be used generally when no alternate path available towards destination
+	2. Dynamic
 
 ## Key Concepts ##
 ### Key Networking Concepts Part-1 ###
