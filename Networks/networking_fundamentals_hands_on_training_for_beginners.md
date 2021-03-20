@@ -355,7 +355,34 @@
 		1. It adds additional iformation
 			1. Source IP
 			2. Destination IP
-3. 
+4. Data Link - Responsible for reliable transfer of data across media
+	1. Access to media
+		1. Provides reliable transfer of data across media (not like Transport layer which provides reliability between two hosts)
+		2. Physical addressing, network topology, error notification, flow control
+	2. Sub-layers
+		1. MAC - Media Access Control
+			1. Provides access to physical media
+		2. LLC - Logical Link Control
+			1. It is an interface between the upper layers and data link layer
+	3. It also encapsulates packets into frames
+		1. Adds layer 2 info
+			1. Data link header
+			2. Data link tail
+	4. It also handles physical addressing (MAC accress)
+5. Physical layer
+	1. Layer 1
+	2. It is responsible to transmit raw data as signals on media
+		1. The following specs are defined for this layer
+			1. Mechanical specs
+			2. Electrical specs
+			3. Network interface specs
+6. OSI Model Architecture
+	1. End host - could have all 7 OSI layers
+	2. Intermediate switches and routers - could have layers 1-3
+
+			Network
+			Data Link
+			Physical
 
 ## Layer 2 Networks ##
 ### Switching Fundamentals ###
