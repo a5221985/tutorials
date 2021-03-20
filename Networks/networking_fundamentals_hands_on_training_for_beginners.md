@@ -561,8 +561,11 @@
 		3. Switch will update it's mac table
 			1. To the port
 3. Case - 1
-	1. Source MAC address - 1.2.3.4, Destination MAC Address - FFFF:FFFF:FFFF
+	1. Source MAC address - 1.2.3.4, Destination MAC Address - FFFF:FFFF:FFFF (all Fs is broadcast address)
 	2. Frame will be forwarded to all ports except the port on which it was received
+4. Case - 2
+	1. If destination is unicast and the address is in MAC address table and the associated ports is not the port on which frame was received, it will be forwarded to destination port
+	2. Source MAC address - 1.2.3.4, Destination MAC address - 5.6.7.8
 
 ## Layer 3 Networks ##
 ### IP Address ###
