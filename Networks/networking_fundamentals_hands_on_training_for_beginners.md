@@ -476,8 +476,25 @@
 	3. Suppose MAC is not assigned
 		1. How to identify the systems in the network?
 			1. They don't have any identity or name
+	4. MAC is a hard-coded unique ID on the NIC
+	5. Layer-2 identifies any computer system available in the network
+7. What is the need for IP addresses?
+	1. MAC address is like a name
+		1. Many people might have the same name
+	2. IP address is like house number
+8. Next
+	1. Collision domain
+	2. Segmentation of network into vlans
+	3. How switch works (at layer 2)
 
 ### Unicast, Broadcast and Multicast ###
+1. Terminology
+	1. Unicast - communication where a frame is sent from one host addressed to a specific destination.
+		1. There is one sender and one receiver
+	2. Broadcast - when a frame is sent from one address to all other devices
+		1. There is one sender and multiple receivers
+			1. Receivers are connected clients or devices
+
 ### How Switch Works ###
 
 ## Layer 3 Networks ##
