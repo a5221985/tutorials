@@ -729,6 +729,18 @@
 		3. Suitable for small networks
 		4. Can be used generally when no alternate path available towards destination
 	2. Dynamic
+		1. Also called adaptive routing
+			1. Adapts to changes in network
+		2. Routing tables entries gets populated automatically
+		3. Routing entries get updated automatically in case there is
+			1. Any link failure
+			2. Network topology changes
+			3. Traffic load and congestion
+2. Aotonomous system
+	1. An autonomous system is a network or group of networks managed and owned by a single administrative body or organization
+	2. It is a nimeric number assigned to IANA
+	3. Key concept for internet
+	4. AS can have its own routing mechanism to allow internal communication
 
 ## Key Concepts ##
 ### Key Networking Concepts Part-1 ###
