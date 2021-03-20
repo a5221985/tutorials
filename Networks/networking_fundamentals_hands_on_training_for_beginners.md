@@ -166,8 +166,37 @@
 	2. Logical Topology
 		1. How data flows in the network (travel network)
 	3. Network may have different physical and logical topology
-2. Physical
-
+2. Physical Topologies
+	1. Bus topology
+		1. What is this? Simplest
+			1. All Nodes are connected to single main backbone cable
+				1. Advantages:
+					1. Low cost
+					2. Easy to understand
+					3. Suitable for small networks
+					4. Easy to expand
+						1. Single cable
+							1. Just add a device to the end of the cable
+				2. Disadvantages:
+					1. Only one node can transmit at the same time (what about multiplexing?)
+						1. If two more ore devices try to transmit data at the same time, collisions may occur
+							1. Collision: Signals colliding
+								1. More devices can increase the chances of collision
+									1. It can bring down the network
+									2. Network storm - high collisions that can bring down the network
+	2. Ring topology
+		1. Better than Bus topology
+			1. Backbone connects to itself
+			2. How does it work?
+				1. Token goes around in the ring (reduces traffic)
+				2. Token checks at each node, if it has anything to transmit
+		2. Low collisions
+		3. May slow down the network
+			1. If many nodes want to transmit
+				1. Token gives access to only one node at a time (all the other nodes have to wait until the tramission is completed)
+					1. One node at a time
+						1. Might not be possible to use the network due to slowness
+									
 ## Network Reference Models ##
 ### OSI Model Part-1 ###
 ### OSI Model Part-2 ###
