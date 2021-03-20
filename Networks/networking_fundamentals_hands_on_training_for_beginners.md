@@ -438,6 +438,27 @@
 
 ## Layer 2 Networks ##
 ### Switching Fundamentals ###
+1. Topics:
+	1. Concepts of switching
+	2. Collision domains
+	3. Broadcast domains
+	4. Segregation of network into vlans
+2. Switching is part of Data Link layer (L2)
+3. Data link layer functions
+	1. Reliable delivery and flow control
+	2. Framing
+		1. Encapsulation and decapsulation of network packets
+			1. Source and destination MAC addresses
+			2. Decapsulation - MAC addresses will be stripped off and the packet is handed over to the Network layer (for further routing and forwarding)
+			3. Happens at each device on the path
+	3. Error detection and correction
+	4. Medium access
+	5. Physical addressing or MAC addressing
+4. Sub-layers
+	1. LLL
+		1. 
+	2. MAC
+
 ### Unicast, Broadcast and Multicast ###
 ### How Switch Works ###
 
