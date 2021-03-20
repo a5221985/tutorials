@@ -268,6 +268,31 @@
 		3. Standard designs
 	4. Models
 		1. They define how the end systems can communicate across network
+		2. Reference model
+			1. Defines how data communication can be established
+3. Reference Models:
+	1. A reference model defines:
+		1. How information from a software application in one system moves through a network medium to a software application in another system
+		2. Defines the functions of communication software in a generalized and structured manner
+			1. Which helps to carry out the network product development activities.
+	2. A network model must consider:
+		1. Underlying communication hardware
+		2. Network medium and/or type of channel
+		3. Application programs
+	3. Two popular reference models
+		1. OSI reference model (by ISO - International Standard organization)
+		2. TCP/IP (by DoD - Department of Defence)
+	4. OSI Model
+		1. In 1984
+		2. It provides vendors with standards
+			1. It ensures greater compatibility and interoperability between network technologies (produced by different vendors globally)
+		3. Benefits - with layered approach
+			1. Manageable
+			2. Standardizes interfaces
+			3. Ensures interoperability
+			4. Promotes modular engineering
+			5. Reduces devlopment cycle
+			6. Reduces complexity
 
 ### OSI Model Part-2 ###
 
