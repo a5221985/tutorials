@@ -536,10 +536,33 @@
 		1. It can span multiple switches
 			1. Suppose systems attached to switch are in different VLANs
 				1. Hence the systems are part of 
-					1. Multiple collision domains
-					2. Multiple broadcast domains
+					1. Multiple collision domains (part of separate port)
+					2. Multiple broadcast domains (part of separate VLAN)
+5. Next: How switch works and how is it useful
 
 ### How Switch Works ###
+1. If switch receives a frame on any port, it checks what to do with the frame
+2. How does switch work?
+	1. mac address table
+
+			show mac address-table
+			
+			Vlan	Mac Address	Type		Ports
+			1		1.2.3.4		Dynamic	Gi0/1
+			1		5.6.7.8		Dynamic	Gi0/3
+			
+			Total Mac addresses for this criterion: 2
+			
+		1. Switch has 4 ports: Gi0/1, Gi0/2, Gi0/3, Gi0/4
+	2. Working principle
+		1. If switch receives a frame with unknown destination address,
+			1. Switch will forward the frame to all ports except the port on which it received
+		2. The which ever system knows the mac address will respond back to switch
+		3. Switch will update it's mac table
+			1. To the port
+3. Case - 1
+	1. Source MAC address - 1.2.3.4, Destination MAC Address - FFFF:FFFF:FFFF
+	2. Frame will be forwarded to all ports except the port on which it was received
 
 ## Layer 3 Networks ##
 ### IP Address ###
