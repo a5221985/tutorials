@@ -609,7 +609,22 @@
 	1. MAC address is hard code but IP address is dynamically generated
 	2. It is 32 (4 bytes) in length
 		1. Street, house analogy
-	3. Dcimal format: example - 203.104.76.5
+	3. Decimal format: example - 203.104.76.5
+4. Classes:
+	1. Class A: Byte1 (network), Byte2 (Host), Byte3 (Host), Byte4 (Host)
+		1. Range: 1.0.0.0 - 127.255.255.255.255 (01.00.00.00 - 7F.FF.FF.FF)
+	2. Class B: Byte1 (network), Byte2 (Network), Byte3 (Host), Byte4 (Host)
+		1. Range: 128.0.0 - 191.255.255.255 (80.00.00.00 - BF.FF.FF.FF)
+	3. Class C: Byte1 (network), Byte2 (Network), Byte3 (Network), Byte4 (Host)
+		1. Range: 192.0.0.0 - 223.255.255.255 (C0.00.00.00 - DF.FF.FF.FF)
+	4. Class D: MULTICAST Range 224.0.0.0 (E0.00.00.00) to 239.255.255.255 (EF.00.00.00)
+	5. Class E: Reserved range
+		1. For research and development
+5. Network part - identifies the network it is part of
+6. Host part - identifies the end host in the network
+	1. Range tells how many hosts can be acommodated in the network
+7. Analogy
+	1. Network - 
 
 ### Subnet ###
 ### Routing ###
