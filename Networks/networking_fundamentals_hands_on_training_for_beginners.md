@@ -494,6 +494,15 @@
 	2. Broadcast - when a frame is sent from one address to all other devices
 		1. There is one sender and multiple receivers
 			1. Receivers are connected clients or devices
+	3. Multicast - Where a destination address is a specific group of devices or clients
+		1. One to many
+	4. Collision - it is a situation that occurs when 2 or more systems propagate data at the same time in the same network
+	5. Collision domains - are connected physical network segments where collision can occur
+	6. Broadcast domain - is a group of collision domains that are connected by Layer-2 devices
+	7. Broadcasts
+		1. Are forwarded by layer-2 devices and if excessive, can reduce efficiency of entire LAN
+		2. Controlled by layer-3 devices
+			1. layer-1 & layer-2 devices cannot control broadcasts
 
 ### How Switch Works ###
 
