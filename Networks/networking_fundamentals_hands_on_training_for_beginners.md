@@ -604,6 +604,9 @@
 	1. Responsible for navigating the data through the network
 	2. Provide the best path through the network
 	3. Layer-3 uses network layer addressing (IP addresses)
+	4. Router's operate at layer-3
+3. IP addressing - logical addressing
+	1. MAC address is hard code but IP address is dynmic
 
 ### Subnet ###
 ### Routing ###
