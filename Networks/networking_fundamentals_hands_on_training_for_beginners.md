@@ -226,9 +226,26 @@
 			1. Central box can provide the function of bus topology
 				1. Data flows like a bus topology
 			2. Central bos can provide the function of ring topology
+4. Other topologies:
+	1. Point-to-point
+		1. No intermediate nodes
+			1. One device is connected to another device directly
+	2. Point-to-multipoint - generally used in WAN networks
+		1. Central node (hub node say)
+			1. It is connected to other nodes (branch nodes)
+				1. No interconnection between branch nodes directly
+				2. If branch node wants to communicate with another branch node, it has to go through the hub node
+			
+						node1 -> node2
+							^
+							|
+							v
+						node2
 									
 ## Network Reference Models ##
 ### OSI Model Part-1 ###
+1. 
+
 ### OSI Model Part-2 ###
 
 ## Layer 2 Networks ##
