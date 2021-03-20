@@ -328,7 +328,24 @@
 				2. It also handles synchronization of communication between two systems
 
 ### OSI Model Part-2 ###
-1. 
+1. Transport - it ensures that data is delivered reliably and in order between two systems
+	1. End-to-end connections
+		1. Concerned with transportation issues between hosts
+		2. Data transport reliability
+		3. Establish, maintain, terminate virtual circuits
+		4. Fault detection and recovery
+		5. Information flow control
+			1. **Uses windowing method**
+	2. It also receives data from upper layers and converts them into smaller units called **segments** (chunks)
+	3. It is a host to host layer
+		1. Provides point to point connection between two end-systems
+3. Network - It handles routing and forwarding (?)
+	1. Address and Best Path
+		1. Provides connectivity and path selection between two end systems
+		2. Domain of routing
+	2. It handles logical addressing
+		1. IP addressing
+	3. 
 
 ## Layer 2 Networks ##
 ### Switching Fundamentals ###
