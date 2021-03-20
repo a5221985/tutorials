@@ -566,6 +566,15 @@
 4. Case - 2
 	1. If destination is unicast and the address is in MAC address table and the associated ports is not the port on which frame was received, it will be forwarded to destination port
 	2. Source MAC address - 1.2.3.4, Destination MAC address - 5.6.7.8
+5. Case - 3
+	1. If destination is unicast and the address is in the address table
+		1. It will be forwarded to all ports except the port on which it was received
+	2. Source MAC address - 1.2.3.4, Destination MAC Address - 10.11.12.13
+6. Case - 4
+	1. Otherwise, frame will be dropped
+		1. Example
+			1. Source and destination are same and MAC address table is showing the frame received on port which is the destination port as well
+	2. Source MAC address - 1.2.3.4, Destination MAC address - 1.2.3.4
 
 ## Layer 3 Networks ##
 ### IP Address ###
