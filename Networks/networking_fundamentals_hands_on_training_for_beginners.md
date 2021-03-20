@@ -661,7 +661,7 @@
 	1. Segmentation
 	2. Subneting
 2. CIDR/VLSM
-	1. CIDR - Classless interdomain routing
+	1. CIDR - Classless InterDomain Routing
 	2. VLSM - Variable Length Subnet Masking
 
 ### Routing ###
