@@ -533,6 +533,8 @@
 			4. Payrol (VLAN4)
 		3. Each VLAN does not reach out to other VLANs unless we configure them to do so
 	2. VLANs are logically separated segments
+		1. It can span multiple switches
+			1. Suppose systems attached to switch are in different VLANs
 
 ### How Switch Works ###
 
