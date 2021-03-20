@@ -345,7 +345,13 @@
 		2. Domain of routing
 	2. It handles logical addressing
 		1. IP addressing
-	3. 
+	3. It tracks devices in the network and provides best path to move from any source to any destination
+		1. Based on
+			1. Bandwidth
+			2. Network condition
+			3. Latency
+			4. ...
+	4. It also encapsulates segments received from transport layer into data units called packets
 
 ## Layer 2 Networks ##
 ### Switching Fundamentals ###
