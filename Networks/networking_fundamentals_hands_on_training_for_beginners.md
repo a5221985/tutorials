@@ -68,7 +68,50 @@
 		5. Solution
 			1. LAN
 				1. Local Area Network
-					1. 
+					1. Interconnection of multiple computer systems which are in close proximity
+						1. To share data sources and data
+			2. LANs were not sufficient for geographically distributed computers (need of interconnecting beyond boundaries)
+				1. Solutions
+					1. MAN - Metropolitan Area Network
+					2. WAN - Wide Area Network
+					3. Internetwork (internet)
+			3. The solutions could be used to connect computer systems across the globe
+				1. This caused revolution in the business world
+4. Types of Networks
+	1. PAN - Personal Area Network
+		1. Limited in terms of coverage area (Private network)
+			1. Accessibility is limited to one or few users
+		2. Exmples:
+			1. Bluetooth (between cell and other bluetooth enabled device, mouse, keyboard, ...)
+	2. LAN - Local Area Network
+		1. It is usually owned and administratively controlled by a single body
+			1. Spread across
+				1. Campus area
+				2. Building
+				3. Office
+		2. For close proximity
+			1. All end users in an office can be interconnected (cells, ...)
+			2. Examples:
+				1. Printers
+				2. IP Phones
+				3. Fax machines
+				4. Scanners
+				5. PCs
+				6. Servers
+		3. Networking devices used for LAN
+			1. Routers
+			2. Switches
+			3. Hubs
+			4. Firewalls
+		4. Media
+			1. Copper
+			2. UTP
+			3. Wifi
+			4. Hybrid
+				1. Combination of two or more types of media
+					1. Wifi + Wired (for printers)
+			5. Cables
+	3. MAN - 
 
 ### Network Topologies ###
 
