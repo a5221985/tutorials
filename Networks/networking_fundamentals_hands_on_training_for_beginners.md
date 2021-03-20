@@ -456,8 +456,26 @@
 	5. Physical addressing or MAC addressing
 4. Sub-layers
 	1. LLL
-		1. 
+		1. Communicate and interface with upper layers of OSI model
 	2. MAC
+		1. Controls media access for the network (controlled and governed)
+		2. **How and who is going to access the media and at what time**
+		3. CSMA/CD - Sub-protocol - Used for collision detection and prevention
+			1. CSMA - Carier Sense Multiple Access
+			2. CD - Collision Detection
+5. MAC Address Format - called physical addressing
+	1. It is 48 bits in length
+		1. Organizational Unique Identifier (OUI) - 24 bits
+			1. Cisco (say) - manufacturer of NICs
+		2. Vendor Assigned (NIC cards, Interfaces) - 24 bits
+			1. particular device
+	2. The address is assigned to the NIC (We connect a cable)
+6. What is the need for MAC address?
+	1. Suppose there is a LAN
+	2. Suppose there are 10 systems in the LAN
+	3. Suppose MAC is not assigned
+		1. How to identify the systems in the network?
+			1. They don't have any identity or name
 
 ### Unicast, Broadcast and Multicast ###
 ### How Switch Works ###
