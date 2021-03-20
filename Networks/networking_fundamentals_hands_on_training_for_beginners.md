@@ -535,6 +535,9 @@
 	2. VLANs are logically separated segments
 		1. It can span multiple switches
 			1. Suppose systems attached to switch are in different VLANs
+				1. Hence the systems are part of 
+					1. Multiple collision domains
+					2. Multiple broadcast domains
 
 ### How Switch Works ###
 
