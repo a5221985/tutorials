@@ -663,6 +663,19 @@
 2. CIDR/VLSM
 	1. CIDR - Classless InterDomain Routing
 	2. VLSM - Variable Length Subnet Masking
+3. Example - Public block - 203.140.11.0/24
+	1. 2 x Subnets (2 blocks of equal length here)
+		1. 203.140.11.0/25
+		2. 203.140.11.128/25
+	2. Single block might be difficult to manage
+		1. If bigger block, it might be more difficult to manage
+7. Subnetting - used to move away from classful boundaries
+	1. classes - not very efficient
+		1. Solution - CIDR/VLSM
+			1. We can use subnetting (range of any class)
+	2. Subnetting might break down the broadcast domain (for efficiency)
+	3. If there are different teams with different functions
+		1. Each team needs certain routing policies to be applied (which might be different)
 
 ### Routing ###
 
