@@ -325,8 +325,10 @@
 		7. Session
 			1. Interhost communication
 				1. It establishes, manages and terminates sessions between applications
+				2. It also handles synchronization of communication between two systems
 
 ### OSI Model Part-2 ###
+1. 
 
 ## Layer 2 Networks ##
 ### Switching Fundamentals ###
