@@ -244,7 +244,30 @@
 									
 ## Network Reference Models ##
 ### OSI Model Part-1 ###
-1. 
+1. Network reference models
+	1. What are those?
+	2. Why were they needed?
+2. Evolution of technologies
+	1. 1970 - increase of demand (to connect offices)
+		1. No standard in place
+	2. Challenges: (not standardised)
+		1. Connecting multivendor, different networks
+			1. Difficult to work together
+			2. Difficult to connect together
+		2. Different network protocols
+		3. Reliability
+			1. Because of incompatibility
+		4. Decentralized network management
+			1. Each vendor had a way to manage their networks
+			2. Topologies were not consistent
+		5. Inconsistent security policies
+		6. Flexibility
+	3. Solution: Standardization (OSI, TCP/IP models)
+		1. Consistencies
+		2. Standard protocols
+		3. Standard designs
+	4. Models
+		1. They define how the end systems can communicate across network
 
 ### OSI Model Part-2 ###
 
