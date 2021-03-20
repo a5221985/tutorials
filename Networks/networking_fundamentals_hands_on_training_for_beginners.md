@@ -497,12 +497,26 @@
 	3. Multicast - Where a destination address is a specific group of devices or clients
 		1. One to many
 	4. Collision - it is a situation that occurs when 2 or more systems propagate data at the same time in the same network
+		1. Signals will interfere (collision)
 	5. Collision domains - are connected physical network segments where collision can occur
-	6. Broadcast domain - is a group of collision domains that are connected by Layer-2 devices
+		1. Each switch port is separate collision domain (multiple devices can be connected to a switch port)
+			1. Whatever device is connected to the switch port is part of the same collision domain
+	6. Broadcast domain - is a group of collision domains that are connected by Layer-2 devices (which does not have a vlan)
 	7. Broadcasts
 		1. Are forwarded by layer-2 devices and if excessive, can reduce efficiency of entire LAN
 		2. Controlled by layer-3 devices
-			1. layer-1 & layer-2 devices cannot control broadcasts
+			1. layer-1 & layer-2 devices cannot control broadcasts (directly)
+				1. We need to configure vlan for layer-2 device to control broadcast
+2. Single collision domain with single broadcast domain
+	1. Layer-1 device - hub
+		1. It just forwards data (doesn't look at data) - on all ports
+			1. It forms a single collision domain
+		2. Single broadcast domain
+			1. If data is received, it is broadcast to all other systems connected to hub
+3. Multiple collision domain with single broadcast domain
+	1. Layer-2 device - switch
+		1. Each port is a separate collision domain
+	2. Broadcast domain is still single (?)
 
 ### How Switch Works ###
 
