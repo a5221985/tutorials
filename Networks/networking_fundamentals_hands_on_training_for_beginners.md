@@ -142,10 +142,31 @@
 							|
 							v
 						Intranet (internal network)
-				
+						
+					1. External access to intranet but
+						1. Limited access and control
+							1. Vendors might need access
 			3. Internet
+				1. It is a public network (network of networks)
+
+						Internet (Public network)
+							^
+							|
+							v
+						Extranet (vendors, partners, business associates)
+							^
+							|
+							v
+						Intranet (internal network)
 
 ### Network Topologies ###
+1. Types of network topologies
+	1. Physical Topology
+		1. Physical layout: How devices are connected physically (wifi, cables, ...)
+	2. Logical Topology
+		1. How data flows in the network (travel network)
+	3. Network may have different physical and logical topology
+2. Physical
 
 ## Network Reference Models ##
 ### OSI Model Part-1 ###
