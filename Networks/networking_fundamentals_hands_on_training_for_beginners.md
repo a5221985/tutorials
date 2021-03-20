@@ -111,7 +111,39 @@
 				1. Combination of two or more types of media
 					1. Wifi + Wired (for printers)
 			5. Cables
-	3. MAN - 
+	3. MAN - Metropolitan Area Network
+		1. Expands across a city
+			1. Cable TV network
+		2. Use-case
+			1. Organization looking to connect it's offices across the city
+	4. Internetwork
+		1. Network of networks
+			1. Example: Internet
+				1. It is the largest network on the plannet
+		2. It is a larger network of smaller networks interconnected using some communication channels and protocols
+			1. Protocol: It is a set of rules and policies defined to control and govern the data communication over a network
+		3. Types of Internetworks
+			1. Intranet
+				1. Internal network (of an organization)
+					1. private (to an organization)
+				2. For it's own employees say
+					1. To connect to
+						1. HR System
+						2. Payroll system
+						3. Accounts
+						4. Leave management system
+					2. Services are provided by organisations through their private network
+						1. No external users can access their services
+			2. Extranet
+				1. It is an extension of the intranet
+
+						Extranet (vendors, partners, business associates)
+							^
+							|
+							v
+						Intranet (internal network)
+				
+			3. Internet
 
 ### Network Topologies ###
 
