@@ -606,7 +606,10 @@
 	3. Layer-3 uses network layer addressing (IP addresses)
 	4. Router's operate at layer-3
 3. IP addressing - logical addressing
-	1. MAC address is hard code but IP address is dynmic
+	1. MAC address is hard code but IP address is dynamically generated
+	2. It is 32 (4 bytes) in length
+		1. Street, house analogy
+	3. Dcimal format: example - 203.104.76.5
 
 ### Subnet ###
 ### Routing ###
