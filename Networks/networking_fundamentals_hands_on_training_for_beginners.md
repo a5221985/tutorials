@@ -519,6 +519,20 @@
 	2. Broadcast domain is still single (?)
 4. VLAN
 	1. It is used to segregate broadcast domains
+		1. Example:
+
+				Cisco router -fast ethernet-> switch -> server (floor 1)
+								-fast ethernet-> switch -> server (floor 2)
+								-fast ethernet-> switch -> server (floor 3)
+								
+			1. All servers belong to Engineering VLAN (Virtual LAN)
+		2. Segregation might be based on teams or departments in an organisation (data can be kept separate)
+			1. Engineering department (VLAN1)
+			2. Marketing department (VLAN2)
+			3. HR (VLAN3)
+			4. Payrol (VLAN4)
+		3. Each VLAN does not reach out to other VLANs unless we configure them to do so
+	2. VLANs are logically separated segments
 
 ### How Switch Works ###
 
