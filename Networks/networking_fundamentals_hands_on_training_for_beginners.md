@@ -383,6 +383,58 @@
 			Network
 			Data Link
 			Physical
+			
+	3. Data flow:
+	
+			Host1
+				Application					Application
+					|							^
+					v							|
+				Presentation					Presentation
+					|							^
+					v							|
+				Session						Session
+					|							^
+					v							|
+				Transport						Transport
+					|							^
+					v							|
+				Network		Network		Network
+					|				^	|		^
+					v				|	v		|
+				Data Link		Data Link		Data Link
+					|				^	|		^
+					v				|	v		|
+				Physical	->	Physical	-> Physical
+				
+		1. The source and destination might be very far from each other
+			1. There could be many devices in between
+				1. Cloud of devices - Switches or Routers
+7. Different data units exchanged
+
+		Application		<->			Application
+		Presentation		<->			Presentation
+		Session			<->			Session
+		Transport		<-Segment->	Transport
+		Network		<-Packets->	Network
+		Data Link		<-Frames ->	Data Link
+		Physical		<-Bits   ->	Physical
+		
+8. DoD's TCP/IP Model
+
+		Process/ Application (Application + Presentation + Session)
+		Transport
+		Internet
+		Network Access (Data Link + Physical)
+		
+	1. TCP/IP stack vs. the DoD Model
+		1. TCP/IP operation is defined in its own model:
+			1. The DoD model
+			2. DoD designed TCP/IP is designed for APRAnet
+		2. It is similar to OSI Model but
+			1. DoD model has only 4 layers
+			2. Each DoD layer and its functions corresponds to 1 or more OSI layers and their functions
+		3. It is a condensed version of OSI model
 
 ## Layer 2 Networks ##
 ### Switching Fundamentals ###
