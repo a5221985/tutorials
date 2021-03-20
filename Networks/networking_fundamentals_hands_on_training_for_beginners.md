@@ -517,6 +517,8 @@
 	1. Layer-2 device - switch
 		1. Each port is a separate collision domain
 	2. Broadcast domain is still single (?)
+4. VLAN
+	1. It is used to segregate broadcast domains
 
 ### How Switch Works ###
 
