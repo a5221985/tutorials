@@ -637,9 +637,33 @@
 			1. Class A: 1.0.0.0 - 9.255.255.255, 11.0.0.0 - 126.255.255.255 (10 is missing)
 			2. Class B: 128.0.0.0 - 172.15.255.255, 172.32.0.0 - 191.255.255.255 (partial 172 range is missing)
 			3. Class C: 192.0.0.0 - 192.167.255.255, 192.169.0.0 - 223.255.255.255 (partial 192 range is missing)
+			4. Missing address range is covered in private ip address range
 	2. Private IP address range - non-routable to internet
+		1. Class A: 10.0.0.0 - 10.255.255.255 (missing range)
+		2. Class B: 172.16.0.0 - 172.31.255.255
+		3. Class C: 192.168.0.0 - 192.168.255.255
+		4. The range can be used by onyone inside a network
+			1. It cannot be used for routing
+				1. If we try to use this range for public IP, ISPs will have policies to drop this IP
+9. Example:
+
+		IPv4 address....: 192.168.29.158 (Preferred) (private range)
+		...
+		Default Gateway...: 192.168.29.1 (broadband router at the place)
+			(it acts as DHCP server)
+			
+	1. Open whatismyipaddress.com
+
+			122.171.68.7
 
 ### Subnet ###
+1. Topics
+	1. Segmentation
+	2. Subneting
+2. CIDR/VLSM
+	1. CIDR - Classless interdomain routing
+	2. VLSM - Variable Length Subnet Masking
+
 ### Routing ###
 
 ## Key Concepts ##
