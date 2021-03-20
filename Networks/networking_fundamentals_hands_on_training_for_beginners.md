@@ -352,6 +352,10 @@
 			3. Latency
 			4. ...
 	4. It also encapsulates segments received from transport layer into data units called packets
+		1. It adds additional iformation
+			1. Source IP
+			2. Destination IP
+3. 
 
 ## Layer 2 Networks ##
 ### Switching Fundamentals ###
