@@ -308,6 +308,23 @@
 				Physical
 				
 			1. All people seems to need donut pepsi
+		5. Application
+			1. Network processes to applications
+				1. Provides network services to application processes (such as electronic mail, file transfer, and terminal emulation (telnet))
+					1. Handles
+						1. Network transparency
+						2. Resource allocation
+			2. This is not an application but performs functions required for applications to work with each other (to the end users)
+		6. Presentation
+			1. Data representation (syntax and semantics of data exchanged between two systems)
+				1. Ensure data is readable by receiving system
+				2. Format of data
+				3. Data structures
+				4. Negotiates data transfer syntax for application layer
+			2. It is like a data translator
+		7. Session
+			1. Interhost communication
+				1. It establishes, manages and terminates sessions between applications
 
 ### OSI Model Part-2 ###
 
