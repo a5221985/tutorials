@@ -287,12 +287,27 @@
 		2. It provides vendors with standards
 			1. It ensures greater compatibility and interoperability between network technologies (produced by different vendors globally)
 		3. Benefits - with layered approach
-			1. Manageable
+			1. Manageable (easier)
 			2. Standardizes interfaces
 			3. Ensures interoperability
+				1. Different vendors can co-exist in the same network
+					1. The vendors could use the same standard
 			4. Promotes modular engineering
 			5. Reduces devlopment cycle
+				1. Each layer can be developed independently (and in parallel)
 			6. Reduces complexity
+				1. Responsibilities were divided between layers and communication between layers were standardized
+		4. Layers:
+
+				Application
+				Presentation
+				Session
+				Transport
+				Network
+				Data Link
+				Physical
+				
+			1. All people seems to need donut pepsi
 
 ### OSI Model Part-2 ###
 
