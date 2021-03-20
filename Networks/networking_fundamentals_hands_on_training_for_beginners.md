@@ -673,9 +673,45 @@
 	1. classes - not very efficient
 		1. Solution - CIDR/VLSM
 			1. We can use subnetting (range of any class)
-	2. Subnetting might break down the broadcast domain (for efficiency)
-	3. If there are different teams with different functions
-		1. Each team needs certain routing policies to be applied (which might be different)
+	2. Advantages:
+		1. Subnetting might break down the broadcast domain (for efficiency)
+		2. If there are different teams with different functions
+			1. Each team needs certain routing policies to be applied (which might be different)
+				1. Flat network might impact all users because same policies might need to be applied to the entire block
+	3. Example:
+		1. Highway system
+			1. As population grows, number of vehicles might increase
+		2. Similarly, if network devices grow, the amount of traffic might also grow
+			1. A solution: increase bandwidth
+			2. A solution: Break the large network into small subnets
+				1. We can control the flow of traffic
+					1. Eases burden
+8. Router - Cisco
+	1. Ethernet ports
+	2. Power supply
+	3. Function
+		1. It's main job are routing and forwarding
+			1. If the router recieves a packet, it should be able to route it to the appropriate output link (outgoing interface)
+			2. Forwarding
+				1. To appropriate output link
+	4. Information
+		1. It is a layer-3 device
+		2. Router is a network layer device
+		3. It forwards data packet from one logical network segment to another using layer-3 address (IP address)
+		4. Two important tasks of a router
+			1. Forwarding
+				1. An arriving packet must be forwarded to the appropriate output link
+			2. Routing
+				1. Must determine the appropriate path that must be taken by the packet from source to destination
+					1. Finds optimal path
+						1. Many factors are considered to make a decision
+							1. Bandwidth
+							2. Latency
+							3. Network condition
+							4. Stability
+						2. It depends on the routing protocols used
+							1. Different protocols use different parameters and different factors
+		5. Each router maintains a forwarding table also known as the **routing table**
 
 ### Routing ###
 
