@@ -575,9 +575,36 @@
 		1. Example
 			1. Source and destination are same and MAC address table is showing the frame received on port which is the destination port as well
 	2. Source MAC address - 1.2.3.4, Destination MAC address - 1.2.3.4
+7. How switch works
+	1. A frame is received
+	2. If destination is a broadcast, forward it on all ports except the port on which it was received
+	3. If destination is a unicast and the address is in MAC address table and the associated port is not the port on which frame was received, it will be forwarded to destination port
+	4. If destination is a unicast and the address is not in address table, ti will be forwarded to all ports except the port on which it was received
+	5. Otherwise, frame will be dropped
+8. Benefits of Layer-2 networks
+	1. Number of collisions is reduced
+		1. Each switch port is part of a separate collision domain
+	2. Simultaneous multiple communications
+		1. Collision domains are separate (parallel communications are possible)
+	3. High-speed uplinks
+		1. Multiple collision domains increased parallelism
+	4. Improved network response
+		1. Performance improvement
+	5. Increased User productivity
+		1. Due to higher performance
 
 ## Layer 3 Networks ##
 ### IP Address ###
+1. Topics
+	1. Routing
+	2. IP addressing
+	3. Classes of IP addresses
+	4. Functions of Layer-3 device (router)
+2. Layer-3 Networks
+	1. Responsible for navigating the data through the network
+	2. Provide the best path through the network
+	3. Layer-3 uses network layer addressing (IP addresses)
+
 ### Subnet ###
 ### Routing ###
 
