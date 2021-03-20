@@ -738,9 +738,27 @@
 			3. Traffic load and congestion
 2. Aotonomous system
 	1. An autonomous system is a network or group of networks managed and owned by a single administrative body or organization
-	2. It is a nimeric number assigned to IANA
+	2. It is a numeric number assigned by IANA (globally unique)
+		1. IANA - manages public IP addresses and ASN as well
+			1. ASN can be public or private
+				1. It was 16 bit
+				2. New ASNs are 32 bit (backward compatible with 16 bit)
 	3. Key concept for internet
 	4. AS can have its own routing mechanism to allow internal communication
+		
+			ASN						Bits	Purpose
+			23457 - 64534			16		Public ASN's
+			64512 - 65534			16		Reserved for Private Use
+			131072 - 4199999999	32		Public 32-bit ASN's
+			4200000000 -
+				4294967294		32		Reserved for Private Use
+	
+	5. Small organizations may not require ASN
+		1. ISPs ASN is sufficient
+	6. If two ISPs want to pair with each other, they might possibly have own public ASN
+		1. BGP routing protocol uses this
+			1. Type of EGP - Exterior Gateway Protocol
+	7. Each AS can have it's own routing machanism
 
 ## Key Concepts ##
 ### Key Networking Concepts Part-1 ###
