@@ -196,6 +196,36 @@
 				1. Token gives access to only one node at a time (all the other nodes have to wait until the tramission is completed)
 					1. One node at a time
 						1. Might not be possible to use the network due to slowness
+		4. Difficult to troubleshoot (?)
+		5. If one node fails
+				1. The whole network might see the impact
+	3. Star toplogy
+		1. All devices are connected to a central device (switch - in most cases)
+		2. Widely used in LAN networks
+			1. switch is central device
+			2. All devices are connected to the switch
+		3. Easy to troubleshoot
+			1. Different link is used (independent of other links)
+		4. Single point of failure
+			1. If switch fails, it brings down the whole network
+	4. Mesh topology
+		1. Two types
+			1. Full mesh
+				1. High redundancy
+					1. If a node goes down, there are other links to communicate (another path can exist)
+				2. High cost
+					1. Every node is connected to every other node
+				3. Mostly used in WAN networks
+			2. Partial mesh
+				1. Low cost than full mesh
+				2. Not fully redundant
+					1. A few extra links
+3. Logical Topology
+	1. How data flows in the network
+		1. Consider star network
+			1. Central box can provide the function of bus topology
+				1. Data flows like a bus topology
+			2. Central bos can provide the function of ring topology
 									
 ## Network Reference Models ##
 ### OSI Model Part-1 ###
