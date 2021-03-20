@@ -624,7 +624,20 @@
 6. Host part - identifies the end host in the network
 	1. Range tells how many hosts can be acommodated in the network
 7. Analogy
-	1. Network - 
+	1. Network address - street address (identifies the area)
+		1. Tells which network in network of networks is the host in 
+	2. Host address - house address (required after reaching area)
+8. Two categories (Due to limit on number of ip addresses)
+	1. Public IP address range - routable to internet
+		1. Public IP addresses are reachable from anywhere on the internet
+			1. Managed by ICANN (INA (Internet Numbers Authority) is part of ICAN - allocates and manages public IP addresses)
+				1. ICANN - Internet Corporation of Assigned Names and Numbers
+					1. Manages autonomous system numbers and DNS domains
+		2. Address range:
+			1. Class A: 1.0.0.0 - 9.255.255.255, 11.0.0.0 - 126.255.255.255 (10 is missing)
+			2. Class B: 128.0.0.0 - 172.15.255.255, 172.32.0.0 - 191.255.255.255 (partial 172 range is missing)
+			3. Class C: 192.0.0.0 - 192.167.255.255, 192.169.0.0 - 223.255.255.255 (partial 192 range is missing)
+	2. Private IP address range - non-routable to internet
 
 ### Subnet ###
 ### Routing ###
