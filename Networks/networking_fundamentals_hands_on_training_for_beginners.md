@@ -906,11 +906,30 @@
 3. **MX Records**
 	1. Point to mail exchange servers for the domain
 		1. Used to deliver and receive emails for the domain
-4. PTR Records
+4. **PTR Records**
+	1. They are reverse of **A Records**
+		1. Maps IP address to domain names
+5. There are other records
+	1. **TXT Records** - various features and security purposes
 5. Exercise
 	1. Use NSLOOKUP to check what are you getting when trying to resolve microsoft.com or google.com
 
-			nslookup microsoft.com
+			> nslookup microsoft.com
+			
+			Server:		192.168.1.1
+			Address:	192.168.1.1#53
+			
+			Non-authoritative answer:
+			Name:	microsoft.com
+			Address: 104.215.148.63
+			Name:	microsoft.com
+			Address: 40.76.4.15
+			Name:	microsoft.com
+			Address: 40.112.72.205
+			Name:	microsoft.com
+			Address: 40.113.200.201
+			Name:	microsoft.com
+			Address: 13.77.161.179
 
 ### Key Networking Concepts Part-2 ###
 
