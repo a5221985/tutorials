@@ -981,10 +981,65 @@
 		Headquarters (datacentre) ----> Internet ---> Remote Branch
 		
 	1. A vpn tunnel can be built using VPN technology between headquarters and remote branch
-		1. It is called Site to Site VPN (Intranet)
+		1. It is called Site to Site VPN (**Intranet VPN**)
 4. Example:
 
 		Headquarters (datacentre) --> Internet --> Remote User
+		
+	1. Remote user can use VPN client software and dial into VPN server (at data centre)
+		1. It is called **Remote Access Services (RAS)**
+5. Example:
+
+		Headquarters (datacentre) --> Internet --> Business Partner
+		
+	1. To provide limited access to external uses
+		1. VPN tunnel can be built between data centre and business partner
+			1. This is called **Extranet VPN**
+6. Protocols:
+
+		Application layer (protocols and services offered to users)
+			Telnet, rlogin
+			TFTP, FTP
+			SMTP
+			HTTP, HTTPS
+			SNMP
+			DNS
+			
+		Presentation Layer (formats, syntax, semantics are defined here)
+			RTF
+			MIDI
+			Quick Time Movies (format)
+			MPEG
+			JPEG
+			
+		Session Layer (establish session between end hosts)
+			Xwindow
+			NTFS
+			SQL
+			RPC
+			
+		Transport Layer (transmission protocols)
+			TCP e.g. FTP, SSH
+			UDP e.g. TFTP, DNS
+			
+		Network Layer
+			IP - backbone of internet
+			ICMP
+			ARP
+			RARP
+			
+		Data Link Layer (technology and protocols)
+			Ethernet - widely used
+			HDLC
+			PPP
+			Frame Relay
+			
+		Physical Layer (standards)
+			EIA/TIA-449
+			EIA-530
+			V35
+			HSSI
 
 ## Career Options ##
 ### Career Options in Networking ###
+1. 
