@@ -758,7 +758,25 @@
 	6. If two ISPs want to pair with each other, they might possibly have own public ASN
 		1. BGP routing protocol uses this
 			1. Type of EGP - Exterior Gateway Protocol
-	7. Each AS can have it's own routing machanism
+	7. Each AS can have it's own routing machanism for internal communication
+		1. For routing between two ASs, we need EGP
+			1. Example: BGP - Border Gateway Protocol
+		2. Internal routing - IGP - Interior Gateway Protocol (Also called Intra Gateway Protocol)
+			1. Example: REP, REPv2, EIGRP (Cisco), IGRP (Cisco), OSPF
+	8. Static routing can also be used for intra-domain routing
+	9. ASN Table
+		1. 16 bit - old range
+			1. public & private
+		2. 32 bit - new range (backwards compatible)
+			1. public & private
+3. IGP - Interior Gateway Protocol
+	1. Intra domain routing protocol
+	2. Used within an AS
+	3. Examples: RIP, RIPv2, IGRP, EIGRP and OSPF
+4. EGP - Exterior Gateway Protocol
+	1. Inter domain routing protocol
+	2. Used to route traffic among different ASs
+	3. Example - BGP (Border Gateway Protocol)
 
 ## Key Concepts ##
 ### Key Networking Concepts Part-1 ###
