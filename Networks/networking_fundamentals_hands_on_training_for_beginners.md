@@ -940,8 +940,25 @@
 	1. Network device receives a packet (it has IP address)
 	2. It looks at the ARP table
 		1. If table does not have the mapping between IP and MAC
+			1. It will send special broadcast request to all routes (it might include destination)
+	3. When destination receives the broadcast request, it knows that it belongs to it
+		1. It returns MAC address
+	4. Source will update ARP table
+	5. Source will send it to the destination
+9. Working principle - RARP
+	1. Resolves MAC addresses to IP addresses
+10. Next:
+	1. NAT
+	2. VPN
 
 ### Key Networking Concepts Part-2 ###
+1. NAT - Network Address Translation
+	1. NAT translates one or many IP addresses to another IP address (private to public, public to public, public to private, private to private)
+		1. It can be 
+			1. one to one
+			2. many to one
+			3. many to many
+	2. Most widely used use case - private internal IP range gets translated to public ip address
 
 ## Career Options ##
 ### Career Options in Networking ###
