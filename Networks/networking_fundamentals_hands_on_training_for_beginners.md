@@ -804,9 +804,54 @@
 		1. Classes
 			1. Private and public ranges
 	6. Layer 3 security
+		1. ACS - Access Control Lists - to limit or restric access
+
+#### Summary ####
+1. Function of Layer-3
+2. IP Addressing
+3. Different classes of IP addressing
+4. Public and Private IP addresses
+5. Subnetting
+6. Router and how router works
+7. Autonomous Systems
+8. Static Routing
+9. Dynamic Routing
 
 ## Key Concepts ##
 ### Key Networking Concepts Part-1 ###
+1. Topics
+	1. DHCP
+	2. TCP
+	3. UDP
+	4. DNS
+	5. R
+	6. Network Address Translation (NAT)
+	7. VPN
+
+#### DHCP ####
+1. DHCP - Dynamic Host Configuration Protocol (commonly and widely used in lan and wireless networks)
+	1. It dynamically assigns IP address to client and provides required details
+		1. If we visit a cafe or launge, we have free wifi access there
+			1. We provide SSID and password and it connects (no config)
+				1. DHCP is the protocol that assigns IP and provides required details to the client to communicate and connect to the network
+					1. Required details?
+						1. IP address
+						2. Subnet mask
+						3. Gateway
+						4. DNS server details
+	2. How does DHCP work?
+		1. When new client comes online, it sends a broadcast message
+			1. To check if there is any DHCP server around to assign new IP address
+		2. When DHCP server (if any) receives the message, it responds with an acknowledgement
+		3. Then DHCP provides details to the client
+		4. The client uses the details to connect to the network
+
+#### TCP ####
+1. TCP - Transmission Control Protocol
+
+#### UDP ####
+1. UDP - User Datagram Protocol
+
 ### Key Networking Concepts Part-2 ###
 
 ## Career Options ##
