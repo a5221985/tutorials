@@ -846,11 +846,28 @@
 		3. Then DHCP provides details to the client
 		4. The client uses the details to connect to the network
 
-#### TCP ####
-1. TCP - Transmission Control Protocol
+#### TCP & UDP ####
+1. TCP - Transmission Control Protocol (Transport Layer)
+	1. It is a connected oriented protocol
+	2. It is reliable
+	3. It is a bit slow
+		1. It has to first establish connection with the other end
+	4. Error detection and correction
+	5. Flow control
+		1. Windowing feature
+	6. Example: FTP, SSH
+2. UDP - User Datagram Protocol (Transport Layer)
+	1. It is a connection less protocol
+	2. It is un-reliable
+		1. Best effort delivery, no guarantee
+	3. It is fast
+	4. Error detection only (no correction)
+	5. No flow control
+	6. Example: TFTP, DNS
+3. Purpose - Transfer data across a network
+4. Depending on type of application, TCP or UDP is used
 
-#### UDP ####
-1. UDP - User Datagram Protocol
+#### DNS ####
 
 ### Key Networking Concepts Part-2 ###
 
