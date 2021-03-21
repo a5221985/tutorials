@@ -1042,4 +1042,11 @@
 
 ## Career Options ##
 ### Career Options in Networking ###
-1. 
+1. Technical paths and certification paths
+	1. Technical areas
+		1. Networks is the base
+			1. System administration needs it
+				1. Also needs
+					1. Cloud technologies
+					2. Network security
+					3. Cyber security
