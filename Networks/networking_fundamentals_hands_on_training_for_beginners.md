@@ -930,6 +930,16 @@
 			Address: 40.113.200.201
 			Name:	microsoft.com
 			Address: 13.77.161.179
+			
+6. ARP - Address Resolution Protocol
+	1. Communication between two end-points happens using Layer-2 MAC addresses
+	2. ARP resolves Layer-3 IP address to its corresponding MAC address
+	3. Devices maintain ARP table that contains IP address to MAC address mapping for known IP addresses
+7. **RARP - Reverse ARP to resolve MAC address to corresponding IP address**
+8. Working principle - ARP
+	1. Network device receives a packet (it has IP address)
+	2. It looks at the ARP table
+		1. If table does not have the mapping between IP and MAC
 
 ### Key Networking Concepts Part-2 ###
 
