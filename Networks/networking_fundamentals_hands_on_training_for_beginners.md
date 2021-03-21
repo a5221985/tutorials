@@ -959,6 +959,32 @@
 			2. many to one
 			3. many to many
 	2. Most widely used use case - private internal IP range gets translated to public ip address
+	3. Example:
+
+			192.168.1.10 -> Firewall (NAT) -> 203.106.150.2 (public IP)
+			(private IP)
+			
+		1. Other functions: Port address translation
+2. VPN - Virtual Private Network
+	1. It is a private network connection over public network (internet)
+		1. Many VPN technologies are used
+	2. Protocols used:
+		1. IPsec widely uses VPN protocol
+			1. It is a secure protocol
+				1. Used to build a VPN tunnel between between two locations over public network
+	3. Types of VPN networks
+		1. Intranet
+		2. Extranet
+		3. Remote Access
+3. Example:
+
+		Headquarters (datacentre) ----> Internet ---> Remote Branch
+		
+	1. A vpn tunnel can be built using VPN technology between headquarters and remote branch
+		1. It is called Site to Site VPN (Intranet)
+4. Example:
+
+		Headquarters (datacentre) --> Internet --> Remote User
 
 ## Career Options ##
 ### Career Options in Networking ###
