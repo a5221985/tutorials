@@ -1050,3 +1050,47 @@
 					1. Cloud technologies
 					2. Network security
 					3. Cyber security
+		2. Certifications
+			1. Top paying certifications - 2019
+				1. Google Certified Professional Cloud Architect - network
+				2. PMP - Project Management Professional
+				3. Certified Scrum Master
+				4. AWS Certified Solutions Architect - Associate - network
+				5. **AWS Certified Developer - Associate** - network
+				6. Microsoft Certified Solutions Expert (MCSE): Server Infrastructure - network
+				7. ITIL Foundation
+				8. CISM - Certified Information Security Manager
+				9. CRISC - Certified in Risk and Information Systems Control
+				10. CISSP - Certified Information Systems Security Professional - network
+				11. CEH - Certified Ethical Hacker - network
+				12. Citrix Certified Associate - Virtualization (CCA-V) - network
+				13. CompTIA Security+ - network
+					1. Basic level
+				14. CompTIA Network+ - network
+					1. Basic level
+				15. Cisco Certified Networking Professional (CCNP) Routing and Switching - network
+2. Levels
+	1. Foundation Level Certifications
+		1. CompTia Network+
+		2. CompTia Security+
+	2. Entry Level Certifications
+		1. CEH - Certified Ethical Hacker (cyber security)
+		2. Cisco
+			1. CCENT (Cisco)
+			2. CCNA (Cisco)
+		3. Sys admin
+			1. MCSA (Sys admin)
+			2. RHCSA (Sys admin)
+			3. Citrix Certified Associate
+			4. VMWare VCA
+		4. Cloud
+			1. AWS Certified Associate
+			2. Microsoft Azure Administrator
+			3. Google Cloud Certified Associate
+	3. Professional Level & Higher Certifications
+		1. Offensive Security Certified Professional (OSCP)
+			1. Penetration testing
+		2. CISSP
+		3. CCNP, CCIE (Cisco)
+		4. MCSE
+		5. VCP, VCAP
