@@ -777,6 +777,33 @@
 	1. Inter domain routing protocol
 	2. Used to route traffic among different ASs
 	3. Example - BGP (Border Gateway Protocol)
+5. Sample Routing Table
+	1. First column: single char
+		1. type of route
+			1. S - Static route
+				1. 10.1.1.0/27 [1/1] via 100.11.11.9
+					1. It is reachable via 100.11.11.9
+						1. **If traffic comes to router with destination 10.1.1.0/27 then it is known destination and next hop 100.11.11.9 is used to forward**
+			2. C - Connected route - if subnet is configured on the router itself
+				1. 10.1.1.32/27 is directly connected, Ethernet0/2
+					1. IP address is configured on the interface Ethernet0/2
+			3. L - Loopback
+			4. O - OSPF
+				1. O E1 - a type of route
+				2. O E2 - a type of route
+6. Benefits of Routing
+	1. Broadcast control
+		1. L3 device does this
+	2. Multicast control
+		1. L3 device does this
+	3. Optimal path determination
+		1. Main function - best path for any destination is provided
+	4. Traffic management
+		1. QoS policies can be implemented and we can prioritise or de-prioritise the data depending upon type of data and criticality
+	5. Logical addressing
+		1. Classes
+			1. Private and public ranges
+	6. Layer 3 security
 
 ## Key Concepts ##
 ### Key Networking Concepts Part-1 ###
