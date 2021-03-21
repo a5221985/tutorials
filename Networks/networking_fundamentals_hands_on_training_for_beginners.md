@@ -868,6 +868,49 @@
 4. Depending on type of application, TCP or UDP is used
 
 #### DNS ####
+1. DNS - Domain Name System
+	1. It translates domain name to it's IP address
+		1. Network understands IP address and MAC address
+	2. DNS is always active
+		1. Without DNS it is difficult to remember IP addresses
+	3. DNS domains are managed by ICANN
+	4. It is a hierarchical system
+
+			Root DNS Server (.com, .org, .net, ...) # Top level domains are managed by this (TLD)
+	
+2. TLD Server (Top Level Domain)
+3. Name Server
+	1. Manages domain names - translates domain name to IP
+
+4. FQDN - Fully Qualified Domain Name
+
+		support.microsoft.com
+		
+	1. TLD - com
+	2. Second level domain - microsoft
+	3. Sub-domain - support
+
+5. Top Level Domain - com
+6. Second Level Domain - microsoft
+7. Sub-domain - support
+8. Example - support.microsoft.com
+
+##### DNS Records #####
+1. **A Record**
+	1. DNS has database of domain name ip address mappings
+	2. It maps domain names to IP address
+2. **CNAME Records** (Canonical Name - it is an alias for any domain)
+	1. Example: yahoo.com (www.yahoo.com)
+		1. yahoo.com points to www.yahoo.com
+			1. If user opens yahoo.com, it gets converted to www.yahoo.com
+3. **MX Records**
+	1. Point to mail exchange servers for the domain
+		1. Used to deliver and receive emails for the domain
+4. PTR Records
+5. Exercise
+	1. Use NSLOOKUP to check what are you getting when trying to resolve microsoft.com or google.com
+
+			nslookup microsoft.com
 
 ### Key Networking Concepts Part-2 ###
 
