@@ -359,8 +359,19 @@
 			cout << "What is your name? ";
 			cin >> buff;
 			cout << "Your name is " << buff << endl;
+			
+		1. Stops reading when whitespace character is encountered
+			1. To read entire line:
+
+					cin.getline(buff, 64, '\n'); // **(M)**
+					
+				1. first param: buffer
+				2. second param: number of characters
+				3. third param: delimiter (cin stops reading when it encounters this character)
 
 ### Functions Basics - Part I ###
+1. 
+
 ### Functions Basics - Part II ###
 ### Overview of Debugging in Visual Studio ###
 ### Uniform Initialization (C++11) ###
