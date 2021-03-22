@@ -289,6 +289,21 @@
 		FLT_MIN_EXP
 		FLT_NORMALIZE
 		FLT_RADIX
+		
+6. Variable declaration
+	1. Declared by specifying type followed by variable name
+
+			int i
+			float x
+			
+	2. Variables are also called identifiers
+	3. Multiple variables can be declared with same type
+
+			int a, b, c
+			
+	4. May or may not be initialized with initializer
+		1. Better to initialize variables during declaration to avoid bugs
+	5. Some compilers don't allow read operation from uninitialized variable
 
 ### Basic Input/ Output ###
 ### Functions Basics - Part I ###
