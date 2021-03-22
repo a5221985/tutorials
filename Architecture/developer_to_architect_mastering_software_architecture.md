@@ -36,3 +36,22 @@
 ### HTTP Caching of Static Data ###
 ### Caching of Dynamic Data ###
 ### Caching Related Challenges ###
+
+## Scalability ##
+### Module Contents Overview ###
+### Performance vs Scalability ###
+### Vertical & Horizontal Scalability ###
+### Reverse Proxy ###
+### A Reference Software System for Discussing Scalability ###
+### Scalability Principles ###
+### Modularity for Scalability ###
+### Replication ###
+### Stateful Replication in Web Applications ###
+### Stateless Replication in Web Applications ###
+### Stateless Replication in Services ###
+### Database Replication ###
+### Database Replication Types ###
+### Need for Specialized Services ###
+### Specialized Services - SOAP/REST ###
+### Asynchronous Services ###
+### Asynchronous Processing & Scalability ###
