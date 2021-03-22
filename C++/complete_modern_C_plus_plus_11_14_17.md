@@ -340,6 +340,25 @@
 		1. `std::ostream`
 		2. `std::istream`
 	3. `std::cout` & `std::cin` are objects of `std::ostream` and `std::istream` respectively
+		1. `std::cout` is for console output
+			1. `<<` operator can be used for that
+		3. `std::cin` is for keyboard input
+			1. `>>` operator can be used for extraction of characters
+	4. `iostream` - header that defines `std::cout` and `std::cin` 
+	5. Multiple insertion operators can be used to insert
+		1. `\n` can also be inserted
+	6. Extraction operator
+
+			int age;
+			cin >> age;
+			cout << "age is = " << age << endl;
+			
+	7. Reading a string:
+
+			char buff[512];
+			cout << "What is your name? ";
+			cin >> buff;
+			cout << "Your name is " << buff << endl;
 
 ### Functions Basics - Part I ###
 ### Functions Basics - Part II ###
