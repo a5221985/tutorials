@@ -412,8 +412,13 @@
 ### Copy Constructor - Part II ###
 ### Delegating Constructors (C++11) ###
 ### Default & Deleted Functions (C++11) ###
+
+## Move Semantics ##
 ### L-values, R-values & R-value References (C++11) ###
 ### Move Semantics - Basics (C++11) ###
 ### Move Semantics - Implementation (C++11) ###
+### Rule of 5 & 0 ###
 ### Copy Elision ###
-### Move Semantics - std::move Function (C++11) ###
+### std::move Function (C++11) ###
+
+##
