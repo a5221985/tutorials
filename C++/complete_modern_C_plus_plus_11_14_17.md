@@ -304,6 +304,8 @@
 	4. May or may not be initialized with initializer
 		1. Better to initialize variables during declaration to avoid bugs
 	5. Some compilers don't allow read operation from uninitialized variable
+		1. An un-initialized variable will have a junk value
+7. Examples:
 
 ### Basic Input/ Output ###
 ### Functions Basics - Part I ###
