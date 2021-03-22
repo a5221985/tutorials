@@ -370,7 +370,15 @@
 				3. third param: delimiter (cin stops reading when it encounters this character)
 
 ### Functions Basics - Part I ###
-1. 
+1. Functions:
+	1. A function is a set of statments enclosed within a pair of {}
+	2. Called as body of the function
+	3. These statements define what the function does
+	4. Every function has a unique name
+	5. This name is used to invoke or call the function
+	6. Functions are basic building blocks of C/C++ programs
+2. Why Functions?
+	1. 
 
 ### Functions Basics - Part II ###
 ### Overview of Debugging in Visual Studio ###
@@ -555,3 +563,57 @@
 ### Concurrency Basics ###
 ### Thread Creation (std::thread) ###
 ### Passing Arguments to Threads ###
+### Thread Synchronization (std::mutex) ###
+### std::lock_guard ###
+### std::thread Functions & std::this thread Namespace ###
+### Task Based Concurrency - Part I ###
+### Task Based Concurrency - Part II ###
+### Launch Policies ###
+### std::future Wait Functions ###
+### Using std::promise ###
+### Propagating Exceptions Across Threads ###
+
+## C++17 Core Language Features ##
+### Source Code Information ###
+### Deprecated & Removed Features ###
+### Changes ###
+### Attributes ###
+### Feature Test Macros ###
+### if & switch With Initialization ###
+### inline Variables ###
+### Nested Namespaces ###
+### noexcept ###
+### constexpr Lambda ###
+### Structured Bindings ###
+### Expression Evaluation Order ###
+### Mandatory Copy Elision - I ###
+### Mandatory Copy Elision - II ###
+
+## C++17 Template Features ##
+### Class Template Argument Deduction (CTAD) ###
+### Folding Basics ###
+### Fold Expressions - Unary Folds ###
+### Fold Expressions - Binary Folds ###
+### Fold Expressions - Recap ###
+### Type Traits Suffixes ###
+### if constexpr - I ###
+### if constexpr - II ###
+
+## C++17 Standard Library Components ##
+### std::optional - I ###
+### std::optional - II ###
+### std::optional - III ###
+### std::variant - I ###
+### std::variant - II ###
+### std::variant - III ###
+### std::any ###
+### std::string_view - I ###
+### std::string_view - II ###
+### Filesystem - path ###
+### Filesystem - directory_entry ###
+### Filesystem - Directory Functions ###
+### Filesystem - Permissions ###
+### Parallel Algorithms - I ###
+### Parallel Algorithms - II ###
+### Parallel Algorithms - III ###
+### BONUS LECTURE ###
