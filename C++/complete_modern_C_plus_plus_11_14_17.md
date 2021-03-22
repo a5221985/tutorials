@@ -307,6 +307,11 @@
 		1. An un-initialized variable will have a junk value
 7. Examples:
 
+		int i;
+		std::cout << i << std::endl;
+		
+	1. Compilation error
+
 ### Basic Input/ Output ###
 ### Functions Basics - Part I ###
 ### Functions Basics - Part II ###
