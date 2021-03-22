@@ -221,6 +221,58 @@
 	1. Error list window
 
 ### Primitive Types & Variables ###
+1. Primitive Types
+	1. Arithmetic & void
+		1. Arithmetic -> Integral & floating point
+			1. Integral -> bool, char, wchar_t, char16_t, char32_t, short, int, long
+			2. Floating point -> float, double
+		2. void -> special type used with
+			1. pointers
+			2. functions
+2. Modifiers
+	1. Some of them can be modified using modifiers
+		1. signed
+		2. unsigned
+		3. short
+		4. long
+	2. Example: signed & unsigned can only be used with integrals
+	3. All types can be qualified with qualifiers
+		1. const
+		2. volatile
+		3. static
+	4. All types can occupy memory and can hold a range of values
+		1. Memory requirements may change with platform
+			1. 16 bit platform - int might require 16 bits of mem
+			2. 32 bit platform - int might require 32 bits of mem
+3. Datatype Size
+	1. bool - requires only one byte
+	2. char - requires only one byte
+	3. wchar_t - 2 bytes
+	4. short - 2 bytes
+	5. int - 4 bytes
+	6. long - 4 bytes
+	7. float - 4 bytes
+	8. long long - 8 bytes
+	9. double - 8 bytes
+	10. long double - 8 bytes
+4. Values that a type can hold is called range
+5. Range can be found using C++ - using macros
+
+		#include <climits>
+		
+		SHRT_MIN
+		SHRT_MAX
+		USHRT_MAX
+		INT_MIN
+		INT_MAX
+		UINT_MAX
+		LONG_MIN
+		LONG_MAX
+		ULONG_MAX
+		LLONG_MAX
+		LLONG_MIN
+		ULLONG_MAX
+
 ### Basic Input/ Output ###
 ### Functions Basics - Part I ###
 ### Functions Basics - Part II ###
