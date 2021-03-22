@@ -272,6 +272,23 @@
 		LLONG_MAX
 		LLONG_MIN
 		ULLONG_MAX
+		
+		#include <cfloat>
+		
+		FLT_DECIMAL_DIG
+		FLT_DIG
+		FLT_EPSILON
+		FLT_HAS_SUBNORM
+		FLT_GUARD
+		FLT_MANT_DIG
+		FLT_MAX
+		FLT_MAX_10_EXP
+		FLT_MAX_EXP
+		FLT_MIN
+		FLT_MIN_10_EXP
+		FLT_MIN_EXP
+		FLT_NORMALIZE
+		FLT_RADIX
 
 ### Basic Input/ Output ###
 ### Functions Basics - Part I ###
