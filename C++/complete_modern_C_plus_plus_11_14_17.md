@@ -311,8 +311,35 @@
 		std::cout << i << std::endl;
 		
 	1. Compilation error
+8. Character:
+
+		char ch = 'a';
+		bool flag = true; // keywords
+		float f = 1.283f;
+		double d = 534.232;
+		
+		int a[5];
+		
+		int arr1[5] = {1, 2, 3, 4, 5};
+		
+	1. bool can be 0 (false) or non-zero (true)
+		1. It is better to use true or false
+	2. Arrays are vector type
+9. Initialization of scalar and vector types requires different syntax
+	1. C++11 - uniform initialization - use curly braces everywhere
+
+			int i {1};
+			int a[5] {1, 2, 3, 4, 5}; 
 
 ### Basic Input/ Output ###
+1. Console I/O
+	1. Two classes
+		1. `std::basic_ostream` - for output
+		2. `std::basic_istream` - for input
+	2. Type references are provided by C++ for convenience
+		1. `std::ostream`
+		2. `std::istream`
+
 ### Functions Basics - Part I ###
 ### Functions Basics - Part II ###
 ### Overview of Debugging in Visual Studio ###
