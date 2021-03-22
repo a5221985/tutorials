@@ -339,6 +339,7 @@
 	2. Type references are provided by C++ for convenience
 		1. `std::ostream`
 		2. `std::istream`
+	3. `std::cout` & `std::cin` are objects of `std::ostream` and `std::istream` respectively
 
 ### Functions Basics - Part I ###
 ### Functions Basics - Part II ###
