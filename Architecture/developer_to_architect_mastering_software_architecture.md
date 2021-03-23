@@ -82,9 +82,31 @@
 			2. Dynamic Data - how to cache, challenges, how it helps us
 
 ### A Reference Software System for Discussing Performance ###
-1. 
+1. Sample System - we want to improve the performance of this system
+
+		Web browser -SSL/TLS-> Web Application -objects-> Business App
+				Pages/JSON/XML/Images
+				
+		Business App -Txn Data-> Database <-Report Data- Bach Processing
+		
+	1. Web application - accessible from web browser
+	2. Web application - fetches data from a service (business application)
+		1. It can be SOA
+		2. It can be microservices
+	3. Business application - fetches data from database
+		1. Assuming database is RDBMS
+	4. Back Processing - fetches data from database, processes it and puts the data back into database
 
 ### What is Performance ###
+1. Performance - of software system
+	1. Measure of how fast or responsive a system is under
+		1. A given workload (this has to be fixed)
+			1. Backend data
+			2. Request volume
+		2. A given hardware (this has to be fixed)
+			1. Kind
+			2. Capacity
+
 ### How do Performance Problems Look Like ###
 ### Performance Principles ###
 ### System Performance Objectives ###
