@@ -422,7 +422,7 @@
 				1. The args are not optional
 	8. Example:
 
-			
+			int add(int, int); // required for compiler to know the name
 
 			int main() { // it is a function and an entry point
 				int x, y;
@@ -443,6 +443,30 @@
 		2. main can have two params for commandline arguments
 
 ### Functions Basics - Part II ###
+1. Compiler compiles from top to bottom
+	1. functions have to be declared before they are used
+
+			int add(int x, int y); // declaration or prototype
+			
+		1. Compiler needs the prototype in C++
+			1. C compiler can compile successfully if not declared (it may not be true for all functions)
+2. We don't want to write all functions in one file
+	1. We can put functions in different files
+		1. If we need to use the function in multiple files, we may need to put it's declaration in all the files
+			1. Inconvenient
+	2. Solution:
+		1. Copy the definition of function into it's own file
+		2. Construct a header file (which contains declaration)
+
+				int Add(int x, int y);
+				
+		3. Include the header file
+
+				#include "math.h"
+				
+			1. If math.cpp is included, the program might have multiple definitions of the functions
+				1. Only include header files
+
 ### Overview of Debugging in Visual Studio ###
 ### Uniform Initialization (C++11) ###
 ### Pointers ###
