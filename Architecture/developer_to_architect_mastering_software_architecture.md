@@ -359,9 +359,19 @@
 							1. Client initiates TCP connection (TPC SYN)
 							2. Server sends acknowledgement (TCP SYN ACK)
 							3. Client also sends TCP acknowledgement (TCP ACK)
-							4. 
+							4. Client initiates SSL connection (SSL Client Hello)
+							5. Server sends acknowledgement (SSL Server Hello)
+							6. Client sends key (SSL Key Exchange)
+							7. Server sends encyption parameters (SSL Change Cipher)
+						4. Time taken for SSL connection: 300 ms
+						5. Actual request/response roundtrip time
+							1. 100 ms
+						6. Total time: 300 ms + 100 ms = 400 ms
+							1. Overhead: 300%
 
 ### Minimizing Network Transfer Latency ###
+1. Approaches to address latencies
+
 ### Memory Access Latency ###
 ### Disk Access Latency ###
 ### Minimizing Disk Access Latency ###
