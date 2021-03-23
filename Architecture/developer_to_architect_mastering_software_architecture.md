@@ -340,7 +340,26 @@
 			1. UDP - much faster but unreliable - it is not discussed here
 				1. Reliability has to be built into application
 			2. Client has to first initiate a connection
-				1. 
+				1. For that, if HTTP protocol is used - it is on top of TCP
+					1. Overhead with TCP connection:
+						1. Client initiates TCP connection
+							1. Sends a TCP packet to server
+								1. 50 ms say
+						2. Server establishes connection
+						3. Server sends acknowledgement to client
+							1. 50 ms say
+						4. Client also establishes connection, sends acknowledgement + data to server
+						5. Total roundtrip time: 50 ms + 50 ms = 100 ms per connection
+						6. Each subsequent request and response (if connection is already established) will take 100 ms
+						7. Total communication time: 200 ms (100% overhead for connection creation)
+					2. Overhead with SSL/TLS Connection
+						1. Client communication will be over SSL usually
+						2. Even intranet communication will be over SSL (if banking application)
+						3. Steps
+							1. Client initiates TCP connection (TPC SYN)
+							2. Server sends acknowledgement (TCP SYN ACK)
+							3. Client also sends TCP acknowledgement (TCP ACK)
+							4. 
 
 ### Minimizing Network Transfer Latency ###
 ### Memory Access Latency ###
