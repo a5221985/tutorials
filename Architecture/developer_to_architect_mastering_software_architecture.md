@@ -514,7 +514,11 @@
 		1. many flavors are available
 			1. Constantly researched and improved
 		2. Broadly two kinds exist
-			1. 
+			1. For batch processing - long pauses in-between (GC is done)
+			2. For server processing - GC is run along with main process
+				1. Pauses are small
+		3. There is no GC available where there is no pause at all
+			1. Process is stopped from doing work
 
 ### Disk Access Latency ###
 ### Minimizing Disk Access Latency ###
