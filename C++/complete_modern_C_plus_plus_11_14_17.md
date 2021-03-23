@@ -509,15 +509,34 @@
 				std::cout << "Factorial of " << i << " is " << std::endl;
 				return 0;
 			}
+			
+		1. Start without debugging: ctrl + F5
 
 ### Uniform Initialization (C++11) ###
+1. C++98 provided different ways to initialize types
+2. Scalar types can be initialized with = or ()
+3. Array types have to be initialized with {}
+4. C++11 introduced uniform initialization (single syntax)
+	1. Use {} to initialize all types
+5. Advantages:
+	1. Uniform syntax to initialize all types
+	2. Forces initialization of both scalar and array types
+	3. Prevents bugs when initializing incompatible types through compiler warnings/ errors
+6. Example:
+
+		int a1; // uninitialized - no default constructor to initialize
+		int a2 = 0;
+		std::string s1; // default constructor is invoked - automatically initializes the object
+		std::string s2("C++");
+		int a3(5); // this style is consistent with object initialization
+
 ### Pointers ###
 ### Assignment ###
 ### Reference ###
 ### Assignment ###
 ### Reference Vs Pointer ###
-### The const Qualifier ###
-### const Qualifier & Compound Types ###
+### The `const` Qualifier ###
+### `const` Qualifier & Compound Types ###
 ### Assignment ###
 ### Automatic Type Inference (C++11) ###
 ### Range-Based For Loop - I (C++11) ###
