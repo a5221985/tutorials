@@ -292,6 +292,26 @@
 			3. Unless we saturate the hardware we will not come to know if the hardware is overutilized or underutilized
 				1. Based on this analysis, we can decide to whether augment the capacity or take away the capacity
 		2. Desired - Efficient utilization of all system resources
+		3. Tail latency - it is an indication of queuing of requests
+			1. Gets worse with higher workloads
+				1. Latency is key to performance exercise
+				2. We need to pay attention to tail latency
+					1. Y - axis - number of requests
+					2. X - axis - latency
+					3. Tail latency - small percentage of requests with high latency (tail through)
+						1. 12000 milliseconds
+						2. from 99 percentile - 1 % of requests have more than 4000 ms
+							1. Every 100th request can experience a latency of more than 4000 ms (upto 12000 ms)
+								1. Every 100th user might face this latency
+									1. If this kind of latency for users is not acceptable, we need to pay attention to tail latency
+										1. Say: 99% should be below 3000 ms
+								2. Last percentile can be important to business
+						3. If we increase the workload, then tail latency might become worse - more requests might shift to the right side
+							1. It is worsening of performance problem
+								1. Because of queuing of requests (because of other requests, they did not get queued)
+						4. This measure can be a good indication of what does increase in workload do to our system
+		4. Average latency hides the effects of tail latency
+			1. Also measure 99 (or 99.9 - if required by business) percentile latency
 
 ### Serial Request Latency ###
 ### Network Transfer Latency ###
