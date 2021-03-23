@@ -53,12 +53,37 @@
 							2. Caches
 							3. Queues
 							4. Servers
-					5. 
+					2. The options are chosen based on requirements of a system
+						1. Performance, scalability, reliability, security, deployment requirements
+					3. Products or technologies or platforms that satisfy those requirements are chosen
 		2. The course is about non-functional and system requirements
 
 ## Performance ##
 ### Module Contents Overview ###
+1. High level topics
+	1. Understanding Performance
+		1. Performance problems
+		2. Measurement
+		3. Principles
+			1. The performance of a system depends on
+	2. How to improve the performance of a system?
+		1. Latency (How to minimize it) - Following are categories
+			1. CPU - maximization
+			2. Memory - minimize mem related latency
+			3. Network - minimize network related latency
+			4. Disk - improve utilization and minimize latency
+		2. Concurrency (How to improve throughput)
+			1. Locking - role played in terms of improving or degrading performance
+				1. Pessimistic - where to use
+				2. Optimistic - where to use
+			2. Coherence - role played in terms of improving or degrading performance
+		3. Caching
+			1. Static Data - how to cache, challenges, how it helps us
+			2. Dynamic Data - how to cache, challenges, how it helps us
+
 ### A Reference Software System for Discussing Performance ###
+1. 
+
 ### What is Performance ###
 ### How do Performance Problems Look Like ###
 ### Performance Principles ###
