@@ -95,3 +95,19 @@
 ### Redundancy ###
 ### Types of Redundancy ###
 ### Single Point of Failure ###
+### Stateless Component Redundancy ###
+### Stateful Component Redundancy ###
+### Load Balancer Redundancy ###
+### Datacentre Infrastructure as SPOF ###
+### Fault Detection ###
+### Fault Models ###
+### Health Checks ###
+### External Monitoring Service ###
+### Internal Cluster Monitoring ###
+### Fault Detection in a System ###
+### Recovering from Failures ###
+### Stateless Component Recovery ###
+### Load Balancer high Availability ###
+### Database Recovery with Hot Standby ###
+### Database Recovery with Warm Standby ###
+### Database Recovery with Cold Backups ###
