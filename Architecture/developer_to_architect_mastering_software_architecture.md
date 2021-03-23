@@ -25,7 +25,36 @@
 				6. Spring
 				7. SQL
 	2. We have not done any architect's job here
-		1. 
+		1. We have never dealt with system requirements
+			1. We must not just satisfy functional requirements but non-functional and system requirements (most importantly)
+				1. Performance
+					1. 90% of requests should be satisfied within a second
+						1. To minimise latency
+						2. Increase throughput
+				2. Scalability
+					1. System should be able to handle 1M simultaneous users
+				3. Reliability
+					1. How to make system resilient to failures
+						1. If component has failed
+						2. If data centre has failed
+				4. Security
+					1. How to securely transfer data
+					2. How to securely store data
+					3. How to authenticate and authorize
+					4. What steps to take to secure our system against external and internal threats
+				5. Deployment
+					1. These systems are not easy to deploy (might require a lot of automation and coordination with operations team) - Due to high scalability and reliability
+						1. There could be many components
+						2. There could be many instances of the components
+				6. Technology Stack
+					1. For each layer and component
+						1. Which platform or product to choose
+							1. DBs
+							2. Caches
+							3. Queues
+							4. Servers
+					5. 
+		2. The course is about non-functional and system requirements
 
 ## Performance ##
 ### Module Contents Overview ###
