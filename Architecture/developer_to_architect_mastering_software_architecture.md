@@ -218,10 +218,42 @@
 				1. Here we don't have to be concerned about intrinsic inefficiencies within a single request (it has already been taken care of previously)
 				2. Factors purely related to concurrency:
 					1. **Queuing**
-						1. 
+						1. It results from multiple requests being simultaneously present on a machine
+							1. Not due to external call
+						2. Blocking is because of other requests
+							1. They are occupying resources (that are required by other requests and are not available)
 					2. **Coherence**
+	3. Capacity
+		1. If we bring in better kind of hardware or increase the hardware - it can help with performance
+			1. Capacity augmentation
+				1. CPU
+				2. Memory
+				3. Disk
+				4. Network
+		2. Not the focus of this course
+			1. Mention would be made if it can solve certain problems
+				1. Identifying when this is relevant and not the other concepts (efficiency, concurrency)
 
 ### System Performance Objectives ###
+1. Objectives
+	1. Minimize Request-Response Latency
+		1. Latency is Measured in Time Units
+			1. How much time a request/ response spends within a system
+				1. When it goes through, it spends time at different points in a system for processing
+				2. When it goes through, it spends time waiting to be processed
+			2. Total latency = wait time + processing time
+				1. We are trying to minimize
+					1. Wait time
+					2. Processing time
+		2. Depends on
+			1. Wait/Idle Time
+			2. Processing Time
+	2. Maximize Throughput
+		1. Throughput is measured as Rate of Request procesing
+		2. Depends on
+			1. Latency
+			2. Capacity
+
 ### Performance Measurement Metrics ###
 ### Serial Request Latency ###
 ### Network Transfer Latency ###
