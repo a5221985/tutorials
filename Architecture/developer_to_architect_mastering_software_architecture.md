@@ -371,6 +371,8 @@
 
 ### Minimizing Network Transfer Latency ###
 1. Approaches to address latencies
+	1. Client -> Server: SSL/TLS connection over HTTP
+	2. Web application -> REST API: 
 
 ### Memory Access Latency ###
 ### Disk Access Latency ###
