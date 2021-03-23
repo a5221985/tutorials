@@ -281,8 +281,14 @@
 		2. Desired - None
 			1. Errors should only be related to performance - usually only timeouts
 				1. Usually happens if we subject our system to very heavy workload
+			2. It is not okay to have functional errors
+				1. The solution cannot be used in production
 	4. Resource Saturation
 		1. Affects - Hardware capacity required
+			1. Tells us how much capacity is completely utilized
+				1. 100% CPU utilization
+				2. Network is completely choked
+			2. These are indications of capacity saturation
 		2. Desired - Efficient utilization of all system resources
 
 ### Serial Request Latency ###
