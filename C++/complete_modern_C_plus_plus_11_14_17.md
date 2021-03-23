@@ -528,7 +528,23 @@
 		int a2 = 0;
 		std::string s1; // default constructor is invoked - automatically initializes the object
 		std::string s2("C++");
-		int a3(5); // this style is consistent with object initialization
+		int a3(5); // this style is consistent with object initialization - direct initialization
+		char d1[8]; // uninitialized
+		char d2[8] = {'\0'};
+		char d3[8] = {'a', 'b', 'c', 'd'}; // aggregate initialization
+		char d4[8] = {"abcd"};
+		
+	1. Assignment is called a copy initilalization
+		1. Sometimes copies of LHS are created and then copied to the LHS variables
+7. Uniform initialization gives single syntax
+
+		int b1{}; // empty braces initilizes it to default value - 0 - value initialization
+		int b2(); // function declaration - most vexing parse - uniform initialization eliminates this
+		int b3{5}; // Direct initialization
+		char e1[8]{}; // automatically initialized to default values
+		char e2[8]{"Hello"};
+		
+	1. Heap based objects
 
 ### Pointers ###
 ### Assignment ###
