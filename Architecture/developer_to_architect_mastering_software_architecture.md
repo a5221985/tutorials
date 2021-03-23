@@ -483,7 +483,14 @@
 			1. Code base
 				1. If number of instructions are fewer
 					1. The back and forth between ram and processor will be lesser
-			2. 
+			2. Heap space
+				1. As small as possible
+					1. Lesser job for GC
+					2. Chances of process going out of memory is lesser
+			3. We can control the two as much as possible
+				1. Unnecessary allocation
+	2. Weak/ Soft References
+		1. Useful where we are allocating large objects
 
 ### Disk Access Latency ###
 ### Minimizing Disk Access Latency ###
@@ -577,7 +584,7 @@
 ### Fault Detection in a System ###
 ### Recovering from Failures ###
 ### Stateless Component Recovery ###
-### Load Balancer high Availability ###
+### Load Balancer High Availability ###
 ### Database Recovery with Hot Standby ###
 ### Database Recovery with Warm Standby ###
 ### Database Recovery with Cold Backups ###
