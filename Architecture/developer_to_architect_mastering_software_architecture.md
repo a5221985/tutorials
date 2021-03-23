@@ -288,7 +288,7 @@
 			1. Tells us how much capacity is completely utilized
 				1. 100% CPU utilization
 				2. Network is completely choked
-			2. These are indications of capacity saturation
+			2. These are indications of resource saturation
 		2. Desired - Efficient utilization of all system resources
 
 ### Serial Request Latency ###
