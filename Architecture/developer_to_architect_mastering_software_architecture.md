@@ -289,6 +289,8 @@
 				1. 100% CPU utilization
 				2. Network is completely choked
 			2. These are indications of resource saturation
+			3. Unless we saturate the hardware we will not come to know if the hardware is overutilized or underutilized
+				1. Based on this analysis, we can decide to whether augment the capacity or take away the capacity
 		2. Desired - Efficient utilization of all system resources
 
 ### Serial Request Latency ###
