@@ -106,8 +106,39 @@
 		2. A given hardware (this has to be fixed)
 			1. Kind
 			2. Capacity
+	2. If we have system with huge data, that system is likely to face more performance problems compared to when we reduce the data that is there on the backend
+	3. If request volume is high, the system is likely to face more performance problems
+	4. This constraint is application only when we measure performance
+	5. If we use superiod hardware or increase capacity of hardware
+		1. Performance problems generally go away and system responds better
+			1. If hardware was the reason behind any performance problems
+2. Goals:
+	1. Web requests
+		1. How fast are we getting response
+	2. Batch processing
+		1. How fast the batch processes are finishing
+3. Goal
+	1. As we increase the workload, our performance should remain stable
+		1. It should not severely degrade
+			1. A little is okay (depends)
+4. Hardware
+	1. If we increase capacity or bring superior one
+		1. System performance should improve (if it was lagging behind because of inadequate capacity or kind)
 
 ### How do Performance Problems Look Like ###
+1. Performance Problems
+	1. How to spot a performance problem?
+	2. How does performance problem look like?
+2. Every performance problem is the result of some queue building somewhere.
+	1. Network socket queue
+	2. DB IO queue
+	3. OS run queue
+	4. ...
+3. Reasons for queue build-up
+	1. Inefficient slow processing
+	2. Serial resource access
+	3. Limited resource capacity
+
 ### Performance Principles ###
 ### System Performance Objectives ###
 ### Performance Measurement Metrics ###
