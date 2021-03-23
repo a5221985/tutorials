@@ -427,12 +427,34 @@
 				1. Kinds of encryptions client supports
 				2. Kinds of encryptions server supports
 				3. Paremeters related to encryption (exchanged)
-			2. Server can cache the parameters that client transfers to server (for S
+			2. Server can cache the parameters that client transfers to server (for server to identify the client)
+				1. Server can take a shortcut to connect to client
+					1. It reduces roundtrip for SSL connections
 	6. If we use binary protocol for RESTful application, it will not remain a RESTful application
 		1. Architecturally (technically it might be)
 			1. Certain cases might not require strict RESTful applications
 
 ### Memory Access Latency ###
+1. Memory Latency
+	1. Finite Heap Memory
+		1. Whether process is using heap or not
+			1. A process can use only finite amount of heap memory
+				1. Any process that tries to exceed the limit is bound to crash (problem to deal with)
+		2. GC processes
+			1. Java or .Net
+				1. When process is about to go out of memory
+					1. GC will run (aggressively)
+						1. Performance will go down (may be drastically)
+							1. Users might experience bad performance
+	2. Large Heap Memory
+		1. If a process occupies large heap memory
+			1. It might be ocupying more than what is physically on the machine
+		2. It might be bigger than physical memory
+			1. OS might have to use hard disk to accomodate that much of extra heap memory
+				1. Swapping (between physical memory and hard disk)
+					1. Severely brings down the performance
+		
+
 ### Disk Access Latency ###
 ### Minimizing Disk Access Latency ###
 ### CPU Processing Latency ###
