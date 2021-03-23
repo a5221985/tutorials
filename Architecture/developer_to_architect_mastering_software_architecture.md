@@ -193,11 +193,28 @@
 		2. Second request goes after first response
 		3. ...
 		4. **Efficiency is considered (single request processing)**
-			1. How fast a single 
+			1. How fast a single request gets processed in a system largely depends on the code that is executing the request
+				1. Capacity: Kind of hardware
+					1. We can keep this constant
+			2. How efficient the code that is executing the request is governs the performance
+				1. **Efficient Resource Utilization**
+					1. IO, CPU
+				2. **Efficient Logic** - it must use minimal amount of CPU and memory and IO (minimal work) - architect is not concerned about here
+					1. Algorithms
+					2. DB Queries
+				3. **Efficient Data Storage**
+					1. Data Structures - maps for search (instead of lists)
+					2. DB Schema - indexing for search and it must be used by query
+				4. **Caching** (architectural concern)
+					1. It needs minimal code changes and it leads to phenomenal amount of performance improvement
+			3. The above areas ensure that the response time of requests being processed serially will come down drastically (depends on efficiency)
 	2. Concurrent requests - at any given time there can be multiple requests present in our system
 		1. They are either processed simultaneously or serially
 			1. Serial processing: Locking enforces it
 		2. **We consider only concurrency and not efficiency**
+		3. Concurrency is about executing multiple requests simultaneously in a system
+			1. **Hardware** - It should allow our requests to be processed simultaneously
+			2. ****
 
 ### System Performance Objectives ###
 ### Performance Measurement Metrics ###
