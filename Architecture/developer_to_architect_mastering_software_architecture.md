@@ -491,6 +491,30 @@
 				1. Unnecessary allocation
 	2. Weak/ Soft References
 		1. Useful where we are allocating large objects
+			1. There is a chance of process going out of memory
+				1. Solution: Weak or Soft References
+					1. Java - this exists
+						1. We can declare a reference as weak reference
+							1. If runtime notices that process is running short of memory, it lets GC destroy the objects (weak references)
+						2. Changes to program:
+							1. It should check if the object still exists before referencing
+	3. Multiple Smaller Processes
+		1. This is better than one single process
+			1. If a JVM process occupies huge memory (40 GB RAM say)
+				1. RAM - 50 GB
+			2. It is still not desirable
+				1. It might be too much for GC algorithm to run efficiently
+					1. GC can run really badly
+		2. If we break the application into multiple processes, the work can be divided between processes
+		3. Use cases:
+			1. Batch process (for large amount of data)
+				1. Multiple JVMs
+				2. Multiple nodes
+	4. Garbage Collection Algorithm
+		1. many flavors are available
+			1. Constantly researched and improved
+		2. Broadly two kinds exist
+			1. 
 
 ### Disk Access Latency ###
 ### Minimizing Disk Access Latency ###
