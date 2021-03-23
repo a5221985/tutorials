@@ -392,9 +392,28 @@
 					1. We need to ensure that client is making persistent connection
 					2. example: microservices
 						1. client libraries should use consistent connections
-	3. Data transfer overhead
+	3. **Caching**: Data transfer overhead
 		1. Reduce size of data
 		2. No transfer at all (avoid transfer that is not required) - cache the data
+		3. Example: If HTTP service is querying DB (if data doesn't change frequently)
+			1. **Data Caching**: Cache the data
+		4. Example: Web app
+			1. If user data needs to be stored in a session
+				1. **Session Cache**: We can use session cache
+		5. Browser side
+			1. **Static Data Caching** - JS, images, CSS files
+		6. Wherever there is an opportunity to cache data, we would cache (to avoid data transfer)
+	4. **Data Format & Compression**: Efficient data formats can be used
+		1. Intranet: Binary protocols can be used
+			1. Instead of using HTTP - uses ASCII characters
+				1. We can use RPC based protocol
+					1. Examples: **gRPC**, Thrift, IIOP (old days - EJB)
+				2. To make data transfer overhead minimal
+				3. Cons:
+					1. Reduces interoperability between applications
+						1. RESTful - needs HTTP to promote inter-operability
+				4. If inter-operability is not required, we can use other protocols instead of HTTP based
+					1. RPC based (to overcome network data transfer related overheads) 
 
 ### Memory Access Latency ###
 ### Disk Access Latency ###
