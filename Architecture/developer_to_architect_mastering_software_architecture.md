@@ -2,6 +2,30 @@
 
 ## Introduction ##
 ### Introduction to Developer to Architect ###
+1. How do you architect a new system?
+	1. Starting with:
+
+			Use cases
+			DB Schema
+			Code flow (sequence diagram)
+			Class diagram
+			
+		1. Next step:
+
+				user interface <-> web application <-> business service <-> database
+				
+			1. 3-tier or n-tier architecture
+		2. Next step:
+			1. Technologies and languages for implementation
+				1. HTML/CSS/JS
+				2. PHP
+				3. Python
+				4. C#
+				5. Java
+				6. Spring
+				7. SQL
+	2. We have not done any architect's job here
+		1. 
 
 ## Performance ##
 ### Module Contents Overview ###
@@ -133,3 +157,116 @@
 ### Chain of Trust ###
 ### TLS/SSL Handshake ###
 ### Secure Network Channel ###
+### Firewalls ###
+### Network Security ###
+### Identity Management ###
+### Authentication and Authorization ###
+### Authentication ###
+### Credentials Transfer ###
+### Stateful Authentication ###
+### Stateless Authentication ###
+### Single Sign-On Within a Network Domain ###
+### Token Storage ###
+### Authentication ###
+### Access Management ###
+### Role Based Access ###
+### Role Based Access Example ###
+### Authorization ###
+### OAuth2 Token Grant ###
+### OAuth2 Token Grant - Code Flow ###
+### OAuth2 Token Grant - Password Flow ###
+### JSON Web Tokens ###
+### Common Vulnerabilities ###
+### SQL Injection ###
+### Cross Site Scripting ###
+### Cross Site Resource Forgery ###
+
+## Deployment ##
+### Module Contents Overview ###
+### Large Scale Deployments ###
+### Application Deployment ###
+### Infrastructure Deployment ###
+### System Operations ###
+### Modern Deployment Solutions ###
+### Application Deployment ###
+### Component Deployment ###
+### Component Deployment Parts ###
+### Provisioning and Configuration ###
+### Virtual Machine Deployment ###
+### Isolation Through Virtual Machines ###
+### Docker Containers ###
+### Infrastructure Deployment ###
+### Deployment with Docker Containers ###
+### Deployment with Containers on Cloud ###
+### Deployment with Kubernetes ###
+### Kubernetes Lifecycle Management ###
+### Kubernetes Naming and Addressing ###
+### Kubernetes Scaling with Multiple Instances ###
+### Kubernetes Load Balancing ###
+### Kubernetes High Availability ###
+### Kubernetes Rolling Upgrades ###
+### Kubernetes Capabilities ###
+### Kubernetes Deployment ###
+### Kubernetes Services and Workloads ###
+### Kubernetes Architecture ###
+### System Upgrades ###
+### Rolling Updates ###
+### Canary Deployment ###
+### Recreate Deployment ###
+### Blue Green Deployment ###
+### A/B Testing ###
+
+## Technology Stack ##
+### Module Contents Overview ###
+### Reference System for Using Tech Platforms ###
+### Web Applications ###
+### Solutions for Web Applications ###
+### Apache Web Server ###
+### Apache WebServer Architecture ###
+### Apache WebServer Scalability ###
+### Nginx WebServer ###
+### Nginx Architecture ###
+### Nginx as Reverse Proxy and Cache ###
+### Web Containers & Spring Framework ###
+### Jetty & Spring ###
+### Node.JS ###
+### Node.JS Event Loop ###
+### Cloud Solutions for Web ###
+### Cloud Storage ###
+### Cloud CDN ###
+### Services ###
+### Services Solutions ###
+### Memcached ###
+### Memcached Architecture ###
+### Redis Cache & Its Architecture ###
+### Cloud Caching Solutions ###
+### RabbitMQ ###
+### RabbitMQ Architecture ###
+### Kafka Architecture ###
+### Redis Pub/Sub ###
+### Cloud MQ Solutions ###
+### Datastores ###
+### Datastore Solutions ###
+### RDBMS ###
+### RDBMS Scalability Architecture ###
+### NoSQL Objectives & Trade-Offs ###
+### Amazon DynamoDB ###
+### DynamoDB Architecture ###
+### Google BigTable ###
+### BigTable Architecture ###
+### HBase ###
+### Cassandra ###
+### Cassandra Features ###
+### MongoDB ###
+### MongoDB Architecture ###
+### Analytics ###
+### Analytics Solutions ###
+### Logstash Architecture ###
+### Logstash Data Streaming Architecture ###
+### Fluentd ###
+### Elasticsearch ###
+### Elasticsearch Architecture ###
+### Hadoop HDFS ###
+### Map-Reduce ###
+### Apache Spark ###
+### Stream Processing ###
