@@ -111,3 +111,25 @@
 ### Database Recovery with Hot Standby ###
 ### Database Recovery with Warm Standby ###
 ### Database Recovery with Cold Backups ###
+### High Availability in Large Scale Systems ###
+### Failover Best Practices ###
+### System Stability ###
+### Timeouts ###
+### Retries ###
+### Circuit Breaker ###
+### Fail Fast and Shed Load ###
+
+## Security ##
+### Module Contents Overview ###
+### Security Objectives ###
+### Network Security ###
+### Symmetric Key Encryption ###
+### Public Key Encryption ###
+### Secure Network Protocol ###
+### SSL and TLS ###
+### Hashing ###
+### Digital Signatures ###
+### Digital Certificates ###
+### Chain of Trust ###
+### TLS/SSL Handshake ###
+### Secure Network Channel ###
