@@ -269,13 +269,18 @@
 1. Metrics to measure to know the performance of a system (4 most important metrics)
 	1. Latency
 		1. Affects - User Experience
+			1. Important
 		2. Desired - As low as possible
 	2. Throughput
 		1. Affects - Number of users that can be supported
+			1. Higher the throughput, higher the number of requests that can be supported
 		2. Desired - Greater than the request rate
-	3. Errors
+			1. It should be at-least higher than the peak number of users to be supported
+	3. Errors (% of errors)
 		1. Affects - Functional Correctness
 		2. Desired - None
+			1. Errors should only be related to performance - usually only timeouts
+				1. Usually happens if we subject our system to very heavy workload
 	4. Resource Saturation
 		1. Affects - Hardware capacity required
 		2. Desired - Efficient utilization of all system resources
