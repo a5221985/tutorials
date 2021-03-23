@@ -55,3 +55,43 @@
 ### Specialized Services - SOAP/REST ###
 ### Asynchronous Services ###
 ### Asynchronous Processing & Scalability ###
+### Caching for Scalability ###
+### Vertical Partitioning with Micro-Services ###
+### Database Partitioning ###
+### Database Partitioning Selection ###
+### Routing with Database Partitioning ###
+### Methods for Horizontal Scalability ###
+### Dealing with Large Scale Systems ###
+### Load Balancing Multiple Instances ###
+### Discovery Service and Load Balancing ###
+### Load Balancer Discovery ###
+### HLB vs SLB ###
+### Layer-7 Load Balancer ###
+### DNS as Load Balancer ###
+### Global Server Load Balancer ###
+### Global Data Replication ###
+### Auto Scaling Instances ###
+### Micro-Services Architecture ###
+### Micro-Services Motivation ###
+### Service Oriented Architecture ###
+### Micro-Services Architecture Style ###
+### Transactions in Micro-Services ###
+### Compensating Tansactions - SAGA Pattern ###
+### Micro-Services Communication Model ###
+### Event Driven Transactions ###
+### Extreme Scalability with NoSQL and Kafka ###
+
+## Reliability ##
+### Module Contents Overview ###
+### Distributed Systems and System Failures ###
+### Partial System Failures ###
+### Reliability Engineering Topics ###
+### Reliability ###
+### Availability ###
+### High Availability ###
+### Fault Tolerance ###
+### Designing Fault Tolerance ###
+### Fault Tolerant Design ###
+### Redundancy ###
+### Types of Redundancy ###
+### Single Point of Failure ###
