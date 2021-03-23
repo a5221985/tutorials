@@ -336,7 +336,11 @@
 			1. It is called as data transfer latency
 				1. Different for internet as compared to intranet (global, regional, local network)
 	2. Creation of connections
-		1. 
+		1. TCP Connections
+			1. UDP - much faster but unreliable - it is not discussed here
+				1. Reliability has to be built into application
+			2. Client has to first initiate a connection
+				1. 
 
 ### Minimizing Network Transfer Latency ###
 ### Memory Access Latency ###
