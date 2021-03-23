@@ -405,6 +405,42 @@
 			
 		1. `void` - function does not return anything
 		2. Signature - name with parameter types
+	6. To use a function: we need to call or invoke it
+	7. If function has parameters, we need to supply corresponding arguments (not optional)
+	
+			int Add(int x, int y) {
+				return x + y;
+			}
+			
+		1. Funtion definition: It is name of function along with it's body
+			1. In the body, certain operation is performed using the parameters
+		2. Function call
+
+				Add(3, 5);
+				
+			1. Arguments correspond to params of function
+				1. The args are not optional
+	8. Example:
+
+			
+
+			int main() { // it is a function and an entry point
+				int x, y;
+				std::cin >> x >> y;
+				int result = add(x, y); // assignment is not required
+				std::cout << "Result is: " << result << std::endl;
+				// use result
+			}
+			
+			add(int x, int y) { // x and y here only have the scope of the function
+				int sum = x + y;
+				std::cout << "Sum is: " << sum << std::endl;
+				return sum;
+			}
+			
+		1. In C++ main should return int (returning void is non-standard)
+			1. In C - it can return void
+		2. main can have two params for commandline arguments
 
 ### Functions Basics - Part II ###
 ### Overview of Debugging in Visual Studio ###
