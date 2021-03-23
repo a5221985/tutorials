@@ -413,7 +413,24 @@
 					1. Reduces interoperability between applications
 						1. RESTful - needs HTTP to promote inter-operability
 				4. If inter-operability is not required, we can use other protocols instead of HTTP based
-					1. RPC based (to overcome network data transfer related overheads) 
+					1. RPC based (to overcome network data transfer related overheads)
+		2. **Compression**: We should always do
+			1. Server should compress the data using Zip format say
+				1. It reduces size of data (reduces data transfer overhead)
+				2. Cons: overhead of compression and uncompression (on client side)
+			2. Client can also compress and server can uncompress
+				1. Needs some CPU cycles
+					1. Pros: This overhead is not that significant as compared to data transfer overhead
+	5. **SSL Session Caching**
+		1. If repeated SSL connection are created between client and server
+			1. Data is exchanged between client and server
+				1. Kinds of encryptions client supports
+				2. Kinds of encryptions server supports
+				3. Paremeters related to encryption (exchanged)
+			2. Server can cache the parameters that client transfers to server (for S
+	6. If we use binary protocol for RESTful application, it will not remain a RESTful application
+		1. Architecturally (technically it might be)
+			1. Certain cases might not require strict RESTful applications
 
 ### Memory Access Latency ###
 ### Disk Access Latency ###
