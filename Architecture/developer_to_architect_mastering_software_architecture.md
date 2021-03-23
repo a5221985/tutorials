@@ -129,6 +129,8 @@
 1. Performance Problems
 	1. How to spot a performance problem?
 	2. How does performance problem look like?
+	3. How to get rid of all performance problems?
+		1. We don't want them
 2. Every performance problem is the result of some queue building somewhere.
 	1. Network socket queue
 	2. DB IO queue
