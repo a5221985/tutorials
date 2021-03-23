@@ -161,6 +161,12 @@
 		1. There is a bottlenect somewhere - reason can be anything
 5. Why is there a queue build up?
 	1. Classification
+6. Goal:
+	1. To identify where the queue build up is happening
+		1. If we can do that, we can fix the performance problem
+	2. If we are architecting or building a new system
+		1. We should focus on identifying the areas where this queue building can happend and try to avoid that
+			1. Ensures that we have architected a system which is less likely to face any performance problems
 
 ### Performance Principles ###
 ### System Performance Objectives ###
