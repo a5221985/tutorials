@@ -492,6 +492,23 @@
 6. Viewing different types of windows
 	1. Debug > Windows > Watch (only while debugging) - 4 windows
 		1. We can drag the variable to the window
+	2. Factorial function
+
+			#include <iostream>
+			int factorial(int x) {
+				int result = 1;
+				for (int i = 1; i < x; i++) {
+					result *= i;
+				}
+				return result;
+			}
+			
+			int main() {
+				int i = 5;
+				int result = factorial(5);
+				std::cout << "Factorial of " << i << " is " << std::endl;
+				return 0;
+			}
 
 ### Uniform Initialization (C++11) ###
 ### Pointers ###
