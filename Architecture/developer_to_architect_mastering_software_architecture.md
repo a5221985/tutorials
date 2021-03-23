@@ -314,7 +314,30 @@
 			1. Also measure 99 (or 99.9 - if required by business) percentile latency
 
 ### Serial Request Latency ###
+1. Efficiency - related to serial request latency
+
 ### Network Transfer Latency ###
+1. Two kinds of networks
+	1. Browser and Web app
+		1. Internet can be involved
+			1. There could be multiple hops
+			2. There could be multiple networks
+			3. Some of the networks might not be:
+				1. Fast
+				2. Reliable
+			4. They could be long distance in general and many networks might be involved
+		2. Intranet
+			1. Pretty reliable - may not be 100% reliable (better than internet)
+			2. Fast (as compared to internet)
+			3. Communication can be different as compared to browser to web-application
+2. Sources of latency
+	1. Any network is connected by wires and data phyisically travels by wires
+		1. Data to reach from point A to point B - latency is involved 
+			1. It is called as data transfer latency
+				1. Different for internet as compared to intranet (global, regional, local network)
+	2. Creation of connections
+		1. 
+
 ### Minimizing Network Transfer Latency ###
 ### Memory Access Latency ###
 ### Disk Access Latency ###
