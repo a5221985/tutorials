@@ -214,7 +214,12 @@
 		2. **We consider only concurrency and not efficiency**
 		3. Concurrency is about executing multiple requests simultaneously in a system
 			1. **Hardware** - It should allow our requests to be processed simultaneously
-			2. ****
+			2. **Software** - We need to code for the hardware that allows simultaneous request processing
+				1. Here we don't have to be concerned about intrinsic inefficiencies within a single request (it has already been taken care of previously)
+				2. Factors purely related to concurrency:
+					1. **Queuing**
+						1. 
+					2. **Coherence**
 
 ### System Performance Objectives ###
 ### Performance Measurement Metrics ###
