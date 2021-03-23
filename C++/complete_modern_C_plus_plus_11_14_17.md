@@ -378,7 +378,33 @@
 	5. This name is used to invoke or call the function
 	6. Functions are basic building blocks of C/C++ programs
 2. Why Functions?
-	1. 
+	1. If processing needs multiple lines of code and we need to repeat this processing in multiple parts of code
+		1. If there is no function, the code needs to be duplicated in multiple places
+	2. The functions can be re-used from other parts of code
+	3. Helps avoid writing repetitive logic/ code in a program
+	4. Same code can be re-used in different parts of the program through a function
+	5. There's no limit to the number of times a function can be called
+		1. We can call a function as many times as we want and from any part of the application
+	6. Makes the code modular as the program can be divided into cohesive modules
+		1. Parts are called as modules
+			1. Modules work together to provide the functionality of the application
+	7. Reduces the complexity of the code
+3. Structure
+	1. A function can accept values through parameters
+	2. These can be used as input for some processing inside the function
+	3. Afterwards, a function can return the result of processing as the return value
+	4. Only one value can be returned
+	5. Parameters and return value are optional
+
+			<return type> <name> (<parameters>) {<body>}
+			
+			int Add(int, int) {}
+			void Print(char ch) {}
+			void Clear() {}
+				void Clear(void) {} // acceptable as well
+			
+		1. `void` - function does not return anything
+		2. Signature - name with parameter types
 
 ### Functions Basics - Part II ###
 ### Overview of Debugging in Visual Studio ###
