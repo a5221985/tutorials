@@ -372,7 +372,29 @@
 ### Minimizing Network Transfer Latency ###
 1. Approaches to address latencies
 	1. Client -> Server: SSL/TLS connection over HTTP
-	2. Web application -> REST API: 
+	2. Web application -> REST API: HTTP
+	3. REST API -> DB: DB specific protocol or HTTP - it is also over TCP
+2. Stategy to reduce connection overhead
+	1. Connection pool: Connection is created and pooled
+		1. Re-using connections already created
+			1. To avoid connection creation latency
+				1. We cannot do anything about the latency
+		2. Examples:
+			1. Business application will have a connection pool for DB
+			2. Web application will have a connection pool of HTTP connections to business applications
+	2. Persistent Connections: External client (browser) to web application
+		1. We don't have to do anything
+			1. HTTP 1.1 protocol will make persistent connections
+				1. The connection is not destroyed just after one call
+				2. It keeps the connection for a while
+					1. 5 - 6 consecutive calls - can be done over same connection (if not doing them in parallel)
+				3. If client library is used for HTTP
+					1. We need to ensure that client is making persistent connection
+					2. example: microservices
+						1. client libraries should use consistent connections
+	3. Data transfer overhead
+		1. Reduce size of data
+		2. No transfer at all (avoid transfer that is not required) - cache the data
 
 ### Memory Access Latency ###
 ### Disk Access Latency ###
