@@ -169,6 +169,36 @@
 			1. Ensures that we have architected a system which is less likely to face any performance problems
 
 ### Performance Principles ###
+1. Focus:
+	1. Efficiency (improve it)
+		1. Efficient Resource Utilization
+			1. IO - Memory, Network, Disk
+			2. CPU
+		2. Efficient Logic
+			1. Algorithms
+			2. DB Queries
+		3. Efficient Data Storage
+			1. Data Structures
+			2. DB Schema
+		4. Caching
+	2. Concurrency (increase it)
+		1. Hardware
+		2. Software
+			1. Queueing
+			2. Coherence
+	3. Capacity (increase it)
+2. Request types
+	1. Serial requests - are processed one after another (only one request exists in the system)
+		1. request goes in and response comes out
+		2. Second request goes after first response
+		3. ...
+		4. **Efficiency is considered (single request processing)**
+			1. How fast a single 
+	2. Concurrent requests - at any given time there can be multiple requests present in our system
+		1. They are either processed simultaneously or serially
+			1. Serial processing: Locking enforces it
+		2. **We consider only concurrency and not efficiency**
+
 ### System Performance Objectives ###
 ### Performance Measurement Metrics ###
 ### Serial Request Latency ###
