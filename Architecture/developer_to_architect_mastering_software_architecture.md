@@ -248,13 +248,38 @@
 		2. Depends on
 			1. Wait/Idle Time
 			2. Processing Time
-	2. Maximize Throughput
+	2. Maximize Throughput (this is our goal)
 		1. Throughput is measured as Rate of Request procesing
 		2. Depends on
-			1. Latency
-			2. Capacity
+			1. Latency - (minimizing this can increase throughput)
+			2. Capacity - (increasing this can also increase throughput)
+				1. This is important
+2. Example: 
+	1. Web-application - needs low latency
+		1. Takes a request and gives response
+		2. This also need throughput
+	2. Batch processing - report generation say (read and write to db or file)
+		1. We don't worry about request-response latency
+		2. Throughput is important
+3. Architect needs to learn
+	1. How to bring down latency of a system - more important to focus on
+		1. Capacity is next
 
 ### Performance Measurement Metrics ###
+1. Metrics to measure to know the performance of a system (4 most important metrics)
+	1. Latency
+		1. Affects - User Experience
+		2. Desired - As low as possible
+	2. Throughput
+		1. Affects - Number of users that can be supported
+		2. Desired - Greater than the request rate
+	3. Errors
+		1. Affects - Functional Correctness
+		2. Desired - None
+	4. Resource Saturation
+		1. Affects - Hardware capacity required
+		2. Desired - Efficient utilization of all system resources
+
 ### Serial Request Latency ###
 ### Network Transfer Latency ###
 ### Minimizing Network Transfer Latency ###
