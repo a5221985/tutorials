@@ -453,7 +453,37 @@
 			1. OS might have to use hard disk to accomodate that much of extra heap memory
 				1. Swapping (between physical memory and hard disk)
 					1. Severely brings down the performance
-		
+		3. Even if physical memory is huge (to accomodate large heap size)
+			1. Problem: Especially with those systems using GC
+				1. GC has to do more work
+					1. It has to sweep through large areas to clear objects no longer utilised
+						1. It slows down GC algorithm
+							1. Impacts performance of a system
+		4. Large heap size need to be watched out for
+	3. GC Algorithm
+		1. Different flavors are used
+			1. Each algorithms specializes for a given situation
+				1. We need to identify the situation and apply appropriate GC algorithm
+					1. Or else it might impact performance if dealing with large data
+	4. Finite Buffer Memory - On DB side
+		1. Any read/ write ops happening on DB, it happens in memory
+			1. DB reads record from HDD to memory
+			2. The record will be changed in memory
+			3. The record is then written back to HDD
+		2. Space utilization of buffer memory is critical
+			1. It governs how many ops per second we can do
+				1. Impacts throughput of DB
+		3. If we are in shortage of buffer memory (may be due to poor memory allocation or inefficient schema)
+			1. It will severly affect performance of entire system
+
+### Minimizing Memory Access Latency ###
+1. Approaches
+	1. Avoid Memory Bloat
+		1. Process should occupy as little memory as possible
+			1. Code base
+				1. If number of instructions are fewer
+					1. The back and forth between ram and processor will be lesser
+			2. 
 
 ### Disk Access Latency ###
 ### Minimizing Disk Access Latency ###
