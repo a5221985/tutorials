@@ -131,15 +131,36 @@
 	2. How does performance problem look like?
 	3. How to get rid of all performance problems?
 		1. We don't want them
-2. Every performance problem is the result of some queue building somewhere.
+2. Every performance problem is the result of some queue building up somewhere. (requests get queued up somewhere)
 	1. Network socket queue
+		1. Congestion
 	2. DB IO queue
+		1. Congestion
+			1. A lot of requests are going to DB but it cannot respond immediately
 	3. OS run queue
+		1. How much CPU is available
+		2. How many threads the system is able to run on the CPU(s)
+		3. Congestion
+			1. Too many threads
 	4. ...
 3. Reasons for queue build-up
 	1. Inefficient slow processing
+		1. Slow algorithm - inefficient code
 	2. Serial resource access
+		1. If only one thread needs to be executed at a time
+			1. Deposit or withdraw of money
+				1. All other threads should wait for the thread to finish
+					1. Queue builds up
 	3. Limited resource capacity
+		1. Suppose we are able to execute requests in parallel
+			1. We have limited number of CPUs
+				1. Analogy: Traffic
+					1. If we have 6 lanes instead of 2 lanes (more vehicles can pass at any given time)
+4. Analogy
+	1. Traffic jam
+		1. There is a bottlenect somewhere - reason can be anything
+5. Why is there a queue build up?
+	1. Classification
 
 ### Performance Principles ###
 ### System Performance Objectives ###
