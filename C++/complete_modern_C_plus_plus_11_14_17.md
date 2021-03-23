@@ -466,8 +466,23 @@
 				
 			1. If math.cpp is included, the program might have multiple definitions of the functions
 				1. Only include header files
+		4. Functions that belong together and that work towards one concept will be in one cpp file
+			1. Declarations will be put in one header file
+				1. all io functionality in iostream
+				2. all threading related functions in another .h and .cpp files
+3. Example: Printing a character
+
+		void print(char c) {
+			// ...
+		}
+		
+	1. We can put definition before it is invoked
+		1. This is usually done for inline functions and function templates
+4. The functions defined inside a file directly are global functions
 
 ### Overview of Debugging in Visual Studio ###
+1. 
+
 ### Uniform Initialization (C++11) ###
 ### Pointers ###
 ### Assignment ###
