@@ -481,7 +481,17 @@
 4. The functions defined inside a file directly are global functions
 
 ### Overview of Debugging in Visual Studio ###
-1. 
+1. Debugging: F5
+2. To stop the program at a location: add a breakpoint
+3. Stop debugging: Shift + F5
+	1. Continue: F5
+4. Step into: F10
+	1. Goes into the function if it encounters the function
+		1. It can jump into C++ library function
+5. Step over: F11
+6. Viewing different types of windows
+	1. Debug > Windows > Watch (only while debugging) - 4 windows
+		1. We can drag the variable to the window
 
 ### Uniform Initialization (C++11) ###
 ### Pointers ###
