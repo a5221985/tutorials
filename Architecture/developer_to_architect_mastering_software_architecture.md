@@ -637,7 +637,15 @@
 						1. These are much faster than regular disks
 						2. Cons: A little more expensive
 					2. Higher IOPS - Input/ Output Per Second
-						1. 
+						1. If we are doing a lot of random IO (random seeks)
+							1. Prefer HDDs that offer high IOPS
+					3. RAID - Redundant Array of Integrated Disks
+						1. Same data is replicated over multiple disks
+						2. It can be partitioned
+						3. Striping & Mirroring
+						4. Advantages:
+							1. We can read in parallel (does not reduce latency)
+								1. IO will be faster
 
 ### CPU Processing Latency ###
 ### Minimizing CPU Processing Latency ###
