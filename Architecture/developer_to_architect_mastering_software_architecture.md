@@ -581,7 +581,24 @@
 		3. Asynchronous Logging: Do asynchronous logging as much as possible
 			1. Main thread can be involved in computation
 				1. It can provide data to secondary thread and continue
+					1. Main thread doesn't have to leave CPU (it can continue to occupy CPU for as much time as possible)
+						1. It can make processing efficient
 			2. Secondary thread can do logging
+			3. Wherever possible prefer asynchronous IO over synchronous IO
+				1. Cons: If application crashes somewhere, there is no guarantee that last few statements might not have been logged by async loggers
+					1. Unless there is extremely critical that needs to be logged, we can prefer asynchronous logging
+		4. Web Content Files:
+			1. Web app can have static data stored as files (js, css, html, ...)
+				1. They are stored on disk
+					1. Fetching can involve IO
+					2. They could be fetched frequently
+					3. One way to avoid the cost
+						1. We can keep the file in memory (caching)
+							1. How to do this?
+								1. Special components
+									1. Reverse Proxy
+										1. To separate the responsibility of serving static data and dynamic data
+										2. Static requests are served by reverse proxy (does not hit web server)
 
 ### CPU Processing Latency ###
 ### Minimizing CPU Processing Latency ###
