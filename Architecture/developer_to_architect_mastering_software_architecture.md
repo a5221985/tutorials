@@ -813,7 +813,7 @@
 			3. Synchronize threads
 		2. There will usually be serial parts
 			1. Depending on the amount of serial parts, the graph is in-between
-		3. Amdhal's law - tells how serial portion affects the graph
+		3. Amdhal's law - tells how much the serial portion affects the graph
 			
 				C(N) = N / [1 + alpha(N - 1)]
 				
@@ -822,9 +822,32 @@
 				1. like CPU or load
 			3. Alpha is resource contention
 				1. Alpha = 0, for linear performance
-		4. 
+		4. Effect of locking or serialization
+			1. If 95% of the process is parallel
+				1. If we increase no of processors: Throughput will rise  and flatten (S curve)
+					1. Amdhal's law can be used to calculate when it flattens
+			2. If 90% of the process is parallel
+				1. Flattens quicker
+					1. Throughput - almost half of previous one
+			3. If 75% of the process is serial
+				1. Flattens even sooner
+			4. If 50% it is almost as a serial process
+			5. If 0% it will be flat
+	5. If we want to make a system highly performant:
+		1. We have to make it concurrent
+		2. We have to make it perfectly concurrent as well
+			1. Limitation: Shared resources (by taking locks)
+				1. Files
+				2. Shared memory
+				3. Record in database
+			2. Locks will introduce serial portions in the application
+				1. Goal: Keep the serial portions as low as possible (< 5% is good enough)
+					1. If only 50% - it could be as good as serial
 
 ### Gunther's Universal Scalability Law ###
+1. 
+2. Universal Scalability Law
+
 ### Shared Resource Contention ###
 ### Minimizing Shared Resource Contention ###
 ### Minimizing Locking Related Contention ###
