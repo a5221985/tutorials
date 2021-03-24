@@ -767,6 +767,7 @@
 6. Sequential IO
 	1. Mem vs SSD vs Disk
 		1. 250,000 ns vs 1,000,000 ns vs 20,000,000 (1:4:80)
+	2. 
 
 ### Concurrency Related Latency ###
 ### Amdahl's Law for Concurrent Tasks ###
