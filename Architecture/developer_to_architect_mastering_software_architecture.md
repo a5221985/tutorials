@@ -745,6 +745,20 @@
 	7. Send 1K bytes over 1 Gbps network	- 10,000 ns
 	8. Read 4K randomly from SSD*			- 150,000 ns (~1GB/sec SSD)
 	9. Read 1 MB sequentially from mem	- 250,000 ns
+	10. Round trip within same datacenter - 500,000 ns (500 us)
+	11. Read 1 MB sequentially from SSD* - 1,000,000 ns (~1GB/s SSD)
+	12. Disk seek								- 10,000,000 ns
+	13. Read 1 MB sequentially from disk - 20,000,000 ns
+	14. Send packet CS->Netherlands->CS	- 150,000,000 ns
+2. Disk seek - 10^5 mem reference
+	1. We want to avoid disk (as much as possible)
+3. Compressing and sending data
+	1. 1 K - 3,000 ns + 10,000 ns (13,000 ns)
+		1. Compression cost is much lesser as compared to sending data over network (3 times or so more)
+	2. Significant amount of data can be compressed
+4. Roundtrip within data center vs roundtrip between two continents (approximately)
+	1. 500,000 ns vs 150,000,000 - 1:300 (300x)
+	2. Fetching data within data center is much faster than fetching data from the internet (if it is far off)
 
 ### Concurrency Related Latency ###
 ### Amdahl's Law for Concurrent Tasks ###
