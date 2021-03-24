@@ -774,7 +774,25 @@
 		1. Mem vs Disk (1 MB): 250,000 ns 20,000,000 ns (80 times more)
 
 ### Concurrency Related Latency ###
+1. Parallel request concurrency
+	1. If there are multiple requests in the system
+		1. How do we minimize latency?
+		2. How do we increase concurrency?
+
 ### Amdahl's Law for Concurrent Tasks ###
+1. Assumption: We have already taken care of serial request or single request latency (minimized to whatever extant possible)
+2. Concurrency here:
+	1. Concurrent processing:
+		1. If we have 3 requests and if we are processing one after the other (serial processing)
+		2. If we have 3 requests and if we are processing all at once at the same time (parallel processing)
+		3. In many systems it is neither truly serial nor parallel
+
+			->	         ->
+			-> -> -> -> -> -> -> ->
+			->          ->
+			
+		1. 
+
 ### Gunther's Universal Scalability Law ###
 ### Shared Resource Contention ###
 ### Minimizing Shared Resource Contention ###
