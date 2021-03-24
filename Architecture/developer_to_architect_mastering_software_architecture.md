@@ -673,9 +673,26 @@
 
 			1. If a process (P1 say) may try to do IO (access disk or network call)
 				1. OS will evict the process
-				2. OS will give opportunity to the other process to occupy CPU and start it's execution 
+				2. OS will give opportunity to the other process to occupy CPU and start it's execution
+					1. There is a delay between end of P1 and beginning of P2
+						1. OS will save the state of P1 (PCB1) in memory
+						2. OS will restore the state of P2 (PCB2) in memory
+						3. OS will start P2
+			2. How can we avoid incurring cost of context switch?
+				1. If we can avoid IO
+					1. Even after finishing IO, the process needs to wait for it's turn to execute (context switch)
+						1. Overhead can be 100% (100 ms + 100 ms = 200 ms) 
 
 ### Minimizing CPU Processing Latency ###
+1. Efficient Algorithms - development concern
+2. Efficient Queries - development concern
+	1. It gets translated to algorithms that fetch data or write data from or to database respectively
+3. Context Switching
+	1. Batch / Async IO - wherever possible
+	2. Single Threaded Model
+	3. Thread Pool Size
+	4. Multi-Process in Virtual Environment
+
 ### Some Common Latency Figures ###
 ### Concurrency Related Latency ###
 ### Amdahl's Law for Concurrent Tasks ###
