@@ -767,7 +767,11 @@
 6. Sequential IO
 	1. Mem vs SSD vs Disk
 		1. 250,000 ns vs 1,000,000 ns vs 20,000,000 (1:4:80)
-	2. 
+7. Sequential vs Random access
+	1. Random access
+		1. Mem vs Disk: 100 ns vs 10,000,000 ns (100,000 times more)
+	2. Sequential access
+		1. Mem vs Disk (1 MB): 250,000 ns 20,000,000 ns (80 times more)
 
 ### Concurrency Related Latency ###
 ### Amdahl's Law for Concurrent Tasks ###
