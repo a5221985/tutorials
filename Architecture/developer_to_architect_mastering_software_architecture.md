@@ -610,6 +610,24 @@
 					1. Varnish
 					2. Nginx
 			4. **Any static content should be delivered by specialized component such as a reverse proxy**
+		5. DB Disk Access
+			1. If read only requests wants to be sent to database:
+				1. We can cache the data somewhere outside the database
+					1. Cache of the server say - we can avoid disk access
+			2. Schema Optimization
+				1. Denormalization Vs. Normalization
+					1. If we find from load test, the problem is with disk IO
+						1. Solution: Denormalization
+							1. One can store that data in one table (instead of multiple tables)
+								1. Going to multiple tables will require disk rotation and can be separate IOs - takes more time than single IO
+					2. Use this if disk access is causing problem
+				2. Indexes
+					1. They avoid lot of data we need go through while we fetch some data
+						1. If for instance we need to fetch some data from a table and a row:
+							1. If not indexed, we may have to do a full scan to find the row
+							2. If we can have an index (filter criteria) on that row, the db can use the index and through the index, it will know the exact disk location where it can find the record
+								1. It will directly go to the record in the disk
+									1. It will drastically reduce the IO
 
 ### CPU Processing Latency ###
 ### Minimizing CPU Processing Latency ###
