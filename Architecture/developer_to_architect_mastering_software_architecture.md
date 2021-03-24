@@ -646,8 +646,35 @@
 						4. Advantages:
 							1. We can read in parallel (does not reduce latency)
 								1. IO will be faster
+								2. Overall time will be reduced
 
 ### CPU Processing Latency ###
+1. CPU Latency
+	1. Inefficient Algorithms
+		1. Many times quite obvious
+		2. It can be handled by developers
+	2. Context Switching
+		1. It is not very obvious
+		2. It affects entire system
+		3. Issue with context switching
+			1. Affects environments where (pretty much all components)
+				1. Multiple processes are running
+				2. Multiple threads are running
+		4. Example: We are running two processes on a single CPU machine
+
+				P1/T1 --->|    |     |    |---->|    |
+				          |    |     |    |     |    |
+				P2/T2     |    |---->|    |     |    |---->
+							  ^
+							  |
+							wasted time:
+				          1. save state of PCB1
+				          2. restore state of PCB2
+
+			1. If a process (P1 say) may try to do IO (access disk or network call)
+				1. OS will evict the process
+				2. OS will give opportunity to the other process to occupy CPU and start it's execution 
+
 ### Minimizing CPU Processing Latency ###
 ### Some Common Latency Figures ###
 ### Concurrency Related Latency ###
