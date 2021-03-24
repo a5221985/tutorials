@@ -799,7 +799,12 @@
 		2. If we increase the number of processors to 2
 			1. 1 request / second only (serial)
 	3. Suppose we process in parallel
-		1. 
+		1. If we have one processor, one thread, one user
+			1. 1 request / second
+		2. If we have two processors
+			1. 2 requests / second
+		3. If we have three processors, three threads, three users
+			1. 3 requests / second
 
 ### Gunther's Universal Scalability Law ###
 ### Shared Resource Contention ###
