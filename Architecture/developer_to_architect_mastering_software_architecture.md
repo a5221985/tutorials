@@ -811,6 +811,18 @@
 			1. Taking locks
 			2. Coordinate between threads
 			3. Synchronize threads
+		2. There will usually be serial parts
+			1. Depending on the amount of serial parts, the graph is in-between
+		3. Amdhal's law - tells how serial portion affects the graph
+			
+				C(N) = N / [1 + alpha(N - 1)]
+				
+			1. C - capacity
+			2. N - scaling dimention
+				1. like CPU or load
+			3. Alpha is resource contention
+				1. Alpha = 0, for linear performance
+		4. 
 
 ### Gunther's Universal Scalability Law ###
 ### Shared Resource Contention ###
