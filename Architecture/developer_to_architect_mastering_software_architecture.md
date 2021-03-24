@@ -600,6 +600,16 @@
 										1. To separate the responsibility of serving static data and dynamic data
 										2. Static requests are served by reverse proxy (does not hit web server)
 										3. It specializes in storing the data
+			2. Static is read from memory (once it is fetched into memory)
+			3. Other free things we get with Reverse Proxy
+				1. Page Cache - files already fetched remain in physical memory of the system
+					1. Reverse proxy uses page cache efficiently
+				2. Zero Copy - when copy is performed from disk over network, we can use **kernel mode** instead of user mode
+				3. ...
+				4. Examples: 
+					1. Varnish
+					2. Nginx
+			4. **Any static content should be delivered by specialized component such as a reverse proxy**
 
 ### CPU Processing Latency ###
 ### Minimizing CPU Processing Latency ###
