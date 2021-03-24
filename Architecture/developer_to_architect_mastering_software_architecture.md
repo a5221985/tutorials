@@ -628,6 +628,12 @@
 							2. If we can have an index (filter criteria) on that row, the db can use the index and through the index, it will know the exact disk location where it can find the record
 								1. It will directly go to the record in the disk
 									1. It will drastically reduce the IO
+					2. There could be inefficiencies concerned with incorrect indexing
+				3. Query optimization
+					1. They should be optimized to fetch minimum possible amount of data
+					2. Schema optimization is related to this
+				4. Higher IOPS, RAID, SSD Disk
+					1. 
 
 ### CPU Processing Latency ###
 ### Minimizing CPU Processing Latency ###
