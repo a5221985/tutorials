@@ -715,8 +715,22 @@
 			1. We can use single threaded model
 				1. Appropriate if high load and high number of IOs
 	3. Thread Pool Size
-		1. 
+		1. We should not have a very large thread pool
+			1. If too many thread, they may not get time to execute on CPU (thrashing)
+				1. A lot of context switching can happen
+		2. Have just the right number of threads for the machine
+			1. Example: 2 CPUs - 10 threads (no guideline - it depends on - kind of process, how much IO it does, how CPU intensive it is)
+			2. We need to find the optimal size
 	4. Multi-Process in Virtual Environment
+		1. If we run mutliple processes in a single machine
+			1. We should run them in their own virtual environments
+				1. Why?
+					1. If we are running 4 processes, the processes will contend for the CPU on the machine
+						1. If one of the processes continues to hog CPU (written efficiently)
+						2. **Virtual environment gives dedicated quota of CPU to each process**
+							1. Avoids interference between processes
+		2. If it is a performance sensitive system:
+			1. 
 
 ### Some Common Latency Figures ###
 ### Concurrency Related Latency ###
