@@ -536,8 +536,20 @@
 			1. Normalization
 				1. Leads to good utilization of buffer memory
 				2. Used to avoid duplicate data
+					1. Amount of storage for the data becomes lesser (optimal)
+					2. Leads to more DB performance
+				3. Denormalization:
+					1. Done if there are complex joins (to speed up reads)
+						1. Where there is no need to de-normalize data, it is better to keep the data normalized
+							1. It saves disk space
+							2. It saves memory (when loaded)
 			2. Compute Over Storage
 				1. A way of ensuring good utilization of buffer memory
+					1. If certain data can be computed (by business logic say)
+						1. We should not store it
+							1. Trade-off - computation cost
+								1. But might relieve database (if it is under pressure)
+									1. Storage on hard disk is fine but when it is brought into memory it is unnecessary
 
 ### Disk Access Latency ###
 ### Minimizing Disk Access Latency ###
