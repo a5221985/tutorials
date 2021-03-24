@@ -791,6 +791,14 @@
 			-> -> -> -> -> -> -> ->
 			->          ->
 			
+		1. If we have a synchronized block (java) or if we have taken a lock - the three processes execute serially
+	2. Suppose we process serially only
+		1. If we have one processor, one thread, one user
+			1. 1 request / second say (rate)
+				1. 3 requests in 3 seconds (serially)
+		2. If we increase the number of processors to 2
+			1. 1 request / second only (serial)
+	3. Suppose we process in parallel
 		1. 
 
 ### Gunther's Universal Scalability Law ###
