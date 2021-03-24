@@ -633,7 +633,11 @@
 					1. They should be optimized to fetch minimum possible amount of data
 					2. Schema optimization is related to this
 				4. Higher IOPS, RAID, SSD Disk
-					1. 
+					1. SSD - Can be used if disk access is extremely critical
+						1. These are much faster than regular disks
+						2. Cons: A little more expensive
+					2. Higher IOPS - Input/ Output Per Second
+						1. 
 
 ### CPU Processing Latency ###
 ### Minimizing CPU Processing Latency ###
