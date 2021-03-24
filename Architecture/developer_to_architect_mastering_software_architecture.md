@@ -579,7 +579,9 @@
 				1. CPU needs to switch between logging and computation
 					1. Efficient way: We can combile 4 logging statements into one
 		3. Asynchronous Logging: Do asynchronous logging as much as possible
-			1. 
+			1. Main thread can be involved in computation
+				1. It can provide data to secondary thread and continue
+			2. Secondary thread can do logging
 
 ### CPU Processing Latency ###
 ### Minimizing CPU Processing Latency ###
