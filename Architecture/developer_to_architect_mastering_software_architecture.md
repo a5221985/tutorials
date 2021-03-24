@@ -759,6 +759,14 @@
 4. Roundtrip within data center vs roundtrip between two continents (approximately)
 	1. 500,000 ns vs 150,000,000 - 1:300 (300x)
 	2. Fetching data within data center is much faster than fetching data from the internet (if it is far off)
+		1. Solution: We can do caching
+5. Disk access
+	1. SSD vs Disk
+		1. 150,000 vs 10,000,000 (might be worse for 4K for Disk)
+			1. ~50x
+6. Sequential IO
+	1. Mem vs SSD vs Disk
+		1. 250,000 ns vs 1,000,000 ns vs 20,000,000 (1:4:80)
 
 ### Concurrency Related Latency ###
 ### Amdahl's Law for Concurrent Tasks ###
