@@ -515,13 +515,29 @@
 			1. Constantly researched and improved
 		2. Broadly two kinds of GCs exist
 			1. For batch processing - long pauses in-between (GC is done)
+				1. GC should be efficient (good throughput)
+					1. Overall time taken for GC should be as small as possible
+						1. How fast the data will be processed and how soon the batch processing finishes is important (not pause times)
 			2. For server processing - GC is run along with main process
 				1. Pauses are small
 					1. Most of the work is accomplished along with the main process
 				2. Example: Server takes request and gives response
 					1. If JVM pauses couple of seconds - bit performance blow
+						1. Solution: GCs that run along with the application and has very low pause time
+							1. Suitable
 		3. There is no GC available where there is no pause at all
 			1. Process is stopped from doing work
+		4. There are many GCs to choose from
+			1. We must choose the one appropriate for live process vs batch process
+	5. Finite Buffer Memory (DB)
+		1. The amount of memory allocated to buffer memory should be adequate (as large as possible)
+			1. When DB is considered, it should have adequate amount of buffer memory
+		2. **How the buffer memory is utilized is important**
+			1. Normalization
+				1. Leads to good utilization of buffer memory
+				2. Used to avoid duplicate data
+			2. Compute Over Storage
+				1. A way of ensuring good utilization of buffer memory
 
 ### Disk Access Latency ###
 ### Minimizing Disk Access Latency ###
