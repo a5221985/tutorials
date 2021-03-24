@@ -805,6 +805,12 @@
 			1. 2 requests / second
 		3. If we have three processors, three threads, three users
 			1. 3 requests / second
+		4. If processes are perfectly parallel, the graph will be linear
+	4. In general
+		1. Overheads
+			1. Taking locks
+			2. Coordinate between threads
+			3. Synchronize threads
 
 ### Gunther's Universal Scalability Law ###
 ### Shared Resource Contention ###
