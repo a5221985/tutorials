@@ -689,6 +689,7 @@
 	1. It gets translated to algorithms that fetch data or write data from or to database respectively
 3. Context Switching
 	1. Batch / Async IO - wherever possible
+		1. If we are making multiple calls
 	2. Single Threaded Model
 	3. Thread Pool Size
 	4. Multi-Process in Virtual Environment
