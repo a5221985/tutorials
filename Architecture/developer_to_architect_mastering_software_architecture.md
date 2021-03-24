@@ -730,9 +730,22 @@
 						2. **Virtual environment gives dedicated quota of CPU to each process**
 							1. Avoids interference between processes
 		2. If it is a performance sensitive system:
-			1. 
+			1. If machine is large size,
+				1. We tend to run multiple processes on the machine
+					1. Certain processes can make other processes starve for CPU (this can be avoided using virtual environments)
 
 ### Some Common Latency Figures ###
+1. Latency comparison numbers (~2012)
+	1. L1 cache reference	- 0.5	ns
+	2. Branch mispredict	- 5		ns
+	3. L2 cache reference	- 7		ns	(14x L1 cache) - proc mem - worst case
+	4. Mutex lock/unlock	- 25	ns
+	5. Main memory ref		- 100	ns (20x L2 cache, 200x L1 cache) - for context switch, PCBs are stored in main memory
+	6. Compress 1K bytes with zippy	- 3,000 ns
+	7. Send 1K bytes over 1 Gbps network	- 10,000 ns
+	8. Read 4K randomly from SSD*			- 150,000 ns (~1GB/sec SSD)
+	9. Read 1 MB sequentially from mem	- 250,000 ns
+
 ### Concurrency Related Latency ###
 ### Amdahl's Law for Concurrent Tasks ###
 ### Gunther's Universal Scalability Law ###
