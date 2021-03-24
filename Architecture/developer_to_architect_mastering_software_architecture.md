@@ -599,6 +599,7 @@
 									1. Reverse Proxy
 										1. To separate the responsibility of serving static data and dynamic data
 										2. Static requests are served by reverse proxy (does not hit web server)
+										3. It specializes in storing the data
 
 ### CPU Processing Latency ###
 ### Minimizing CPU Processing Latency ###
