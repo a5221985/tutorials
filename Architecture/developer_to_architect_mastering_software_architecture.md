@@ -552,7 +552,35 @@
 									1. Storage on hard disk is fine but when it is brought into memory it is unnecessary
 
 ### Disk Access Latency ###
+1. Disk Latency - One of the slowest IOs (this is important to consider)
+	1. Almost every component in system needs to do disk IO
+		1. Example: Logging
+			1. Disk penalty is not that high (?)
+	2. Disk penalties are high in
+		1. Web applications
+			1. It needs to access web content like JS file, CSS files, image files from HDD
+				1. It causes huge latency
+		2. DB Disk Access
+			1. Disk latency can be a challenge
+				1. Data write or read is usually to and from HDD respectively
+
 ### Minimizing Disk Access Latency ###
+1. Approaches
+	1. Logging:
+		1. Sequential IO: We write on a file
+			1. It uses sequential access (not random access)
+				1. Data is written one line after another sequentially
+				2. Sequential IO is much faster than random IO
+					1. Accessing record from DB is a random IO
+						1. DB tables and records could be scattered across HDD
+			2. Sequential IO is not as slow as random IO
+		2. Batch IO:
+			1. If we can log as much data as possible in one go, that can help in reducing context switching cost
+				1. CPU needs to switch between logging and computation
+					1. Efficient way: We can combile 4 logging statements into one
+		3. Asynchronous Logging: Do asynchronous logging as much as possible
+			1. 
+
 ### CPU Processing Latency ###
 ### Minimizing CPU Processing Latency ###
 ### Some Common Latency Figures ###
