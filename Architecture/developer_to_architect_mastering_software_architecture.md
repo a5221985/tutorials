@@ -689,9 +689,33 @@
 	1. It gets translated to algorithms that fetch data or write data from or to database respectively
 3. Context Switching
 	1. Batch / Async IO - wherever possible
-		1. If we are making multiple calls
+		1. If we are making multiple calls to DB to fetch data
+			1. It is a network overhead + cpu overhead
+				1. process or thread is evicted multiple times (due to IO)
+					1. It incurs context switching cost
+			2. If we can batch multiple calls to one call
+				1. It will save network latency
+				2. It will save on CPU latency
+			3. Writes & reads can be combined to save context switch
+		2. Async IO
+			1. We write log statements (to find out what has gone wrong with the system)
+				1. Separate thread can be used to do logging
+					1. Even if logging thread gets evicted (since it is doing IO), the main thread is still continue to execute efficiently
 	2. Single Threaded Model
+		1. Example: JS Engine (Chrome browser), Node.JS, VolDB, Reverse Proxy like Nginx
+		2. Efficient way to run processes is to do all processing work in CPU only through a single thread
+			1. Example: All requests go to main thread
+				1. If main thread wants to do IO, it delegates it to async thread
+				2. Once IO completes, the result is communicated back to the main thread
+				3. main thread gets the data and continues processing with the returned data
+				4. Process will switch between threads (main, IO threads)
+				5. Main thread will almost never leave the CPU
+					1. It always has something to process
+		3. If we have a large flow of requests, and if we have to do a lot of IO
+			1. We can use single threaded model
+				1. Appropriate if high load and high number of IOs
 	3. Thread Pool Size
+		1. 
 	4. Multi-Process in Virtual Environment
 
 ### Some Common Latency Figures ###
