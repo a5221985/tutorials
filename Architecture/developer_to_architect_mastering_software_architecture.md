@@ -869,8 +869,28 @@
 				2. If we want variable to have same value across all processors, it can be declared as volatile
 					1. If we change the variable in one processor, it will force a refresh (of value) of the variable in other processors (caches will be refreshed)
 						1. It has a performance cost
+		2. If we have a lot of shared variables and we modify them a lot:
+			1. The coherence cost will be high
+				1. If we increase the number of threads/processors/users
+					1. The throughput goes down (reverse U curve)
+						1. It will bring down the throughput graph
+							1. (graph flattens because of queuing, graph goes down because of coherence)
 
 ### Shared Resource Contention ###
+1. Causes of Contention
+	1. Listen/ Accept Queue
+		1. Listen Queue: If a new request received by server (assuming other requests exist in the server)
+			1. If server is overloaded (slowness may be):
+				1. The request will get queued at listen queue itself
+					1. Usually if enough processors are not available
+		2. Accept Queue
+			1. Request crosses listen queue but it will not be processed yet
+		3. These can be thought of as network queues
+		4. If queue size grows beyond certain size, the requests are rejected
+			1. Client will see errors
+		5. If requests are accepted
+			1. If listen queue and/or accept queue are long
+
 ### Minimizing Shared Resource Contention ###
 ### Minimizing Locking Related Contention ###
 ### Pessimistic Locking vs Optimistic Locking ###
