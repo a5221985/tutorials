@@ -878,7 +878,7 @@
 
 ### Shared Resource Contention ###
 1. Causes of Contention
-	1. Listen/ Accept Queue
+	1. **Listen/ Accept Queue**
 		1. Listen Queue: If a new request received by server (assuming other requests exist in the server)
 			1. If server is overloaded (slowness may be):
 				1. The request will get queued at listen queue itself
@@ -893,8 +893,15 @@
 				1. The requests will face much more latency than of those that do not have to wait in the queue (queue time gets added)
 					1. Queue is killer of concurrency (queue build up takes place)
 		6. Queue is at network gate
-	2. CPU/Disk/Network
-		1. 
+	2. **Thread Pool**
+		1. CPU - A thread has to allocated for request
+			1. It processes thread
+		2. There are limited threads (depending on number of processors)
+		3. If system is overloaded
+			1. There will be contention for thread from fixed size thread pool
+		4. There could be increased context switching if we keep increasing thread pool
+			1. If we keep limit on thread pool, there will not be too many requests running
+		5. Context switching happens if there is any IO or locks the process is waiting for
 
 ### Minimizing Shared Resource Contention ###
 ### Minimizing Locking Related Contention ###
