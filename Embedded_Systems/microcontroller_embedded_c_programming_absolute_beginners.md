@@ -1,7 +1,13 @@
 # Microcontroller Embedded C Programming: Absolute Beginners #
 ## Introduction ##
 ### About the Instructor ###
+1. Kiran Nayak
+	1. BE in Electronics and Communication Engineering
+	2. Bharati Software, India
+
 ### Programming Languages for Embedded Systems ###
+1. 
+
 ### History of 'C' and Standardization ###
 ### Important Note ###
 
@@ -189,4 +195,65 @@
 ### Analyzing Pin Read Exercise Disassembly with O0 and O2 ###
 
 ## 'volatile' Type Qualifer ##
-### 
+### volatile and Effect of Optimization ###
+### When to Use volatile Qualifier? ###
+### Using Volatile to Fix Issues with the Pin-Read Exercise ###
+### Using 'volatile' with ISR Part-1 ###
+### Using 'volatile' with ISR Part-2 ###
+### Usage of const and volatile Together ###
+
+## Structures and Bit Fields ##
+### Introduction to Structures ###
+### Accessing Structure Member Elements ###
+### Sizeof of a Structure ###
+### Aligned and Un-Aligned Data Storage ###
+### Structure Padding ###
+### Calculating Structure Size Manually With and Without Padding ###
+### Assembly Code Analysis of Packed and Non-Packed Structure ###
+### Typedef and Structure ###
+### Structurs and Pointers ###
+### Structure Exercise ###
+### Structure Exercise Implementation ###
+### Structure and Bit Fields ###
+### Structure and Bit Fields Contd. ###
+
+## Unions ##
+### Unions ###
+### Applicability of Unions ###
+
+## Usage of Bit-Fields in Embedded Code ##
+### Bit-Fields Exercise: Constructing Bit-Field Structure for Peripheral Registers ###
+### Bit-Field Structure for RCC_AHB1ENR ###
+### Bit-Field Structure for GPIOx_ODR ###
+### Modifying LED Toggle Exercise with Structures and Bit Fields ###
+### Testing ###
+
+## Keypad Interfacing ##
+### Keypad Interfacing ###
+### Why Pull-Up Resistors? ###
+### Detecting Key Press Event ###
+### Flow Chart for Implementation ###
+### Keypad Key Read Code Implementation ###
+### Delay Analysis ###
+
+## Arrays ##
+### Arrays in 'C' ###
+### Read-Write Operation on an Array ###
+### Passing Array to a Function ###
+### Swapping of Arrays ###
+### Swapping of Arrays Contd. ###
+
+## Strings ##
+### Strings in 'C' ###
+### String literal ###
+### String Variable vs String Literal ###
+### Inputting a String ###
+### scanf and scanset ###
+### Exercise ###
+
+## Pre-Processor Directives in 'C' ##
+### Pre-Processor Directives in 'C' ###
+### Conditional Compilation Directives ###
+### 'defined' Operator ###
+### Modifying LED Toggle Exercise with Macros ###
+### BONUS LECTURE ###
