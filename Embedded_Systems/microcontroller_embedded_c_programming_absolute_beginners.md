@@ -31,11 +31,22 @@
 	4. K&R C was the first non-official 'C' standard
 	5. In 1989 ANSI designed and approved first official C stnadard called X3.159-1989
 	6. In 1990 it was approved by ISO as international standard for C programming language: ISO/IEC 9899:1990 (Called ANSI C or C89 or C90 standard in short)
+	7. Language underwent few more changes (addition of new features, syntaxes, data types, etc.) and newly updated standard released in 1999 under the ISO tag ISO/IEC 9899:1999 which is also called C99 standard in short
+	8. C11 is an informal name for ISO/IEC 9899:2011, which is a new standard approved in December 2011. C11 supersedes the C99 standard.
+	9. In this course, we will use C11 standard with some compiler (GCC) extensions (gnu11).
+		1. It is compiler default
+	10. Campatibility
+		1. If we have written code using C90 standard, then it will compiler without issues in -std=C99 compilation (backward compatibility)
+		2. If you have written code using C99 standard specific features, then it may not compile successfully in C90 compilation
+2. First 'C' Program 'Hello World'
+	1. Let's write a 'C' code which simply displays the text Hello world on the "console" and exits.
 
 ### Important Note ###
 
 ## IDE Installation ##
 ### Downloading IDE ###
+1. 
+
 ### Key Features of the STM32CubeIDE ###
 ### Installing STM32CubeIDE ###
 ### Installing STM32CubeIDE on Linux ###
