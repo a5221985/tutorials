@@ -6,7 +6,21 @@
 	2. Bharati Software, India
 
 ### Programming Languages for Embedded Systems ###
-1. 
+1. What is a program?
+	1. A program is a series of instructions that cause a computer or a microcontroller to perform a particular task
+	2. A computer program includes more than just instructions. It also contains data and various memory addresses on which the instructions work to perform a specific task
+2. Programming languages in Embedded Systems
+	1. C and C++ (most widely used) - we must be good at them
+	2. Rust - recently gaining popularity
+	3. Assembly
+		1. Very powerful
+			1. Still being used (a few parts are coded with this language)
+	4. Java
+	5. Python
+		1. Micropython
+3. Watch the following video: Survey by Embedded.com
+	1. Dan Saks
+		1. Writing better embedded software
 
 ### History of 'C' and Standardization ###
 ### Important Note ###
