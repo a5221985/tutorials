@@ -21,8 +21,17 @@
 3. Watch the following video: Survey by Embedded.com
 	1. Dan Saks
 		1. Writing better embedded software
+4. C - a leading programming language for embedded systems
 
 ### History of 'C' and Standardization ###
+1. C programming standardization
+	1. The C programming language was initially developed in AT&T labs by Professor Brian W. Kernighan and Dennis Ritchie, known as K&R C.
+	2. During 1970, 'C' programming became very popular but without any serious standardization to the language
+	3. The non-official standard was called K&R C, which led to many ambiguities among different compiler programmers, and that led to non-portable codes.
+	4. K&R C was the first non-official 'C' standard
+	5. In 1989 ANSI designed and approved first official C stnadard called X3.159-1989
+	6. In 1990 it was approved by ISO as international standard for C programming language: ISO/IEC 9899:1990 (Called ANSI C or C89 or C90 standard in short)
+
 ### Important Note ###
 
 ## IDE Installation ##
