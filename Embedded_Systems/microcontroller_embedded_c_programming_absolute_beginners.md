@@ -93,11 +93,32 @@
 	4. So now we need to install the compiler for HOST machine, which doesn't come with the STM32CubeIDE installation
 	5. Windows: Install MinGW (Minimalist GNU for Windows)
 	6. MinGW: minimalist development environment for native Microsoft Windows applications
+		1. Windows flavour of GNU Tools
+	7. Linux/MAC: install GCC
 
 ### Installing Compiler (GCC) for Host (Windows) ###
+1. Search for MinGW
+	1. Download installer
+
 ### Installing Compiler (GCC) for Host (Linux) ###
 ### Installing Compiler (GCC) for Host (Mac) ###
+1. Install Homebrew
+	1. Copy and paste the command
+2. `brew install gcc`
+
 ### Importing Course Projects in to Workspace ###
+1. Download all source codes and import to STM
+2. New folder: `embedded_c`
+	1. `downloads` - downloaded files, softwares
+	2. `instructor` - save source code of instructor
+	3. `my_workspace` - own apps
+3. Go to: [https://github.com/niekiran/Embedded-C](https://github.com/niekiran/Embedded-C)
+	1. Click on Clone > Download Zip
+		1. Download into `downloads`
+4. Open `instructor`
+	1. `host` - host machine projects
+	2. `target` - embedded target machine projects
+
 ### Constructing a Project for the Host ###
 ### Constructing a Project for the Target ###
 ### FPU Warning Fix ###
