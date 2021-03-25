@@ -45,11 +45,45 @@
 
 ## IDE Installation ##
 ### Downloading IDE ###
-1. 
+1. Installing an Integrated Development Environment (IDE)
+	1. IDE is software that contains all the essential tools to develop, compile, link, and debug your code
+	2. In some cases, you may have to integrate compiler and debugger tools to the IDE manually
+	3. Throughout this course we will be using Eclipse-based STM32CubeIDE which is developed by ST Microelectronics to write, compile, debug applications on STM32 ARM-based microcontrollers
+	4. STM32CubeIDE is an eclipse IDE with STM32 related customization
+2. Go to link: https://www.st.com/en/development-tools/stm32cubeide.html
+	1. You may have to login
+		1. Or just provide name and email id
+	2. We can select latest version
 
 ### Key Features of the STM32CubeIDE ###
+1. Key features
+	1. It supports all OS platforms - it is based on eclipse
+	2. It comes with in-built cross compilers and debuggers
+		1. We don't have to download any external compilers or debuggers to integrate with the IDE
+	3. Uses GNU C/C++ for Arm toolchain and GDB debugger
+	4. Imports project from Atolic TrueSTUDIO and AC6 System Workbench for STM32
+	5. Advanced Debug Features
+		1. SWV - System analysis and real-time tracing
+		2. View: CPU core registers, IP registers, memory (locations)
+	6. In-built support for STM32CubeMx (We are not going to use STM32CubeMX in the course)
+		1. For peripheral configuration
+		2. For code generation
+
 ### Installing STM32CubeIDE ###
+1. Windows:
+	1. Do not uncheck drivers
+
 ### Installing STM32CubeIDE on Linux ###
+1. Command-prompt
+	1. Go to directory
+	2. `sudo chmod +x <file>.sh`
+	3. `sudo ./<file>.sh`
+	4. Accept license: press space
+		1. Type y
+	5. Go to search box
+		1. Search for ST
+		2. Click to launch
+
 ### Installing Compiler (GCC) for Host ###
 ### Installing Compiler (GCC) for Host (Windows) ###
 ### Installing Compiler (GCC) for Host (Linux) ###
