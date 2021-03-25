@@ -845,7 +845,30 @@
 					1. If only 50% - it could be as good as serial
 
 ### Gunther's Universal Scalability Law ###
-1. Universal Scalability Law
+1. Amdhal's law (deals only with queuing)
+	1. When processes get serialized, it results in queuing (synchronized portion)
+		1. A thread has to take a lock to enter the serialized portion
+			1. Other threads which do not have the lock have to wait
+		2. **Queuing limits throughput or performance of a system**
+1. Universal Scalability Law (combines queuing with coherence)
+	1. Queuing + Coherence - limits concurrency of the system
+
+			C(N) = N / [1 + alpha(N - 1) + beta N (N - 1)]
+			
+		1. C is capacity
+		2. N is scaling dimension like CPU or load
+		3. alpha - represents resource contention
+		4. beta - represents coherence delay
+	2. Linear performance when alpha and beta are zero
+	3. Coherence:
+		1. Example: suppose there are 3 threads executing on 3 processors
+			1. L1 & L2 are unique to the processors
+			2. Suppose we use volatile variable
+				1. It will be consistent across processors
+					1. Other variables have copies in each processor (caches)
+				2. If we want variable to have same value across all processors, it can be declared as volatile
+					1. If we change the variable in one processor, it will force a refresh (of value) of the variable in other processors (caches will be refreshed)
+						1. It has a performance cost
 
 ### Shared Resource Contention ###
 ### Minimizing Shared Resource Contention ###
