@@ -118,6 +118,24 @@
 4. Open `instructor`
 	1. `host` - host machine projects
 	2. `target` - embedded target machine projects
+5. Open `my_workspace`
+	1. `host`
+	2. `target`
+6. Open STM32CubeIDE
+	1. Select `instructor/host` and paste
+7. File > Import
+	1. General
+		1. Existing Projects into Workspace
+			1. `embedded_c/Downloads/Embedded-C-master/All_source_codes/host`
+				1. Paste: Click Browse
+				2. Select Copy projects into workspace
+				3. Finish
+	2. Restore
+		1. All instructor projects are imported
+8. Right click on a project: ASCII > Build Project
+	1. Clean Project
+9. Import embedded target projects written by instructor
+	1. File > Switch
 
 ### Constructing a Project for the Host ###
 ### Constructing a Project for the Target ###
