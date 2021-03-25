@@ -890,6 +890,10 @@
 			1. Client will see errors
 		5. If requests are accepted
 			1. If listen queue and/or accept queue are long
+				1. The requests will face much more latency than of those that do not have to wait in the queue (queue time gets added)
+					1. Queue is killer of concurrency (queue build up takes place)
+		6. Queue is at network gate
+	2. CPU/Disk/Network
 
 ### Minimizing Shared Resource Contention ###
 ### Minimizing Locking Related Contention ###
