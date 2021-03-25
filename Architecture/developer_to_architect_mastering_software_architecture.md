@@ -894,6 +894,7 @@
 					1. Queue is killer of concurrency (queue build up takes place)
 		6. Queue is at network gate
 	2. CPU/Disk/Network
+		1. 
 
 ### Minimizing Shared Resource Contention ###
 ### Minimizing Locking Related Contention ###
