@@ -85,6 +85,15 @@
 		2. Click to launch
 
 ### Installing Compiler (GCC) for Host ###
+1. Installation of GNU Compiler Collections (GCC) for Host
+	1. STM32CubeIDE is an integrated development environment software to develop, compile, debug embedded applications for STM32 microcontrollers
+	2. STM32CubeIDE installation procedure also installs the GCC cross compiler for ARM Cortex Mx processors
+		1. We don't have to donwload any cross compilers
+	3. Using same IDE, we also write and compile 'C' programs for our HOST machine (Windows/Linux/Mac)
+	4. So now we need to install the compiler for HOST machine, which doesn't come with the STM32CubeIDE installation
+	5. Windows: Install MinGW (Minimalist GNU for Windows)
+	6. MinGW: minimalist development environment for native Microsoft Windows applications
+
 ### Installing Compiler (GCC) for Host (Windows) ###
 ### Installing Compiler (GCC) for Host (Linux) ###
 ### Installing Compiler (GCC) for Host (Mac) ###
