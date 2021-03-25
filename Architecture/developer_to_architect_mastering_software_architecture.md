@@ -845,8 +845,7 @@
 					1. If only 50% - it could be as good as serial
 
 ### Gunther's Universal Scalability Law ###
-1. 
-2. Universal Scalability Law
+1. Universal Scalability Law
 
 ### Shared Resource Contention ###
 ### Minimizing Shared Resource Contention ###
