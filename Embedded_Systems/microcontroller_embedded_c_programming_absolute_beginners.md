@@ -325,7 +325,19 @@
 	3. It can be used anywhere we want
 
 ### Escape Sequences in 'C' ###
-1. 
+1. Escape sequences:
+	1. `\'` - single quote
+	2. `\"` - double quote
+	3. `\\` - backslash
+	4. `\0` - Null
+		1. Used in strings
+	5. `\a` - Bell
+	6. `\b` - Backspace
+	7. `\f` - Form feed
+	8. `\n` - Newline
+	9. `\r` - Carriable return
+	10. `\t` - Horizontal tab
+	11. `\v` - Vertical tab
 
 ### Printf Exercise Solution ###
 ### Printf Exercise Solution ###
