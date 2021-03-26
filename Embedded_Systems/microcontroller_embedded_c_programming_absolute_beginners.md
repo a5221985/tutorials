@@ -349,9 +349,53 @@
 
 ### Printf Exercise Solution ###
 ### Commenting in 'C' ###
+1. Comments:
+	1. Generally comments are used to provide description or documentation about the code you have written
+	2. Through commenting you can mention:
+		1. Important note
+		2. Briefly explain behaviour of code
+		3. Other useful details
+	3. Comments help the developer understand the logic/algorithm of the code if he/she revisits it after a long time
+	4. You can mention comments anywhere you want in the program and your comments will be ignored by compiler
+	5. Comments do not affect program or they do not consume any program memory space.
+	6. They are not part of final executable generated.
+		1. It is just for documentation purposes
+	7. Two types
+		1. Single line comments
+			1. `//...`
+		2. Multi-line comments
+			1. `/* ... */`
+			2. Example:
+
+					/* C standard library header file inclusion
+						This is comment line 1
+						... */
+					#include <stdio.h>
+			
+			3. Example: Multiline comments
+
+					/* This is my program 
+					   this is comment line 1 */
+					#include <stdio.h>
+					
+					// This is my program 
+					// this is comment line 1
+					#include <stdio.h>
 
 ## Data Types and Variables ##
 ### Data Types in 'C' ###
+1. 'C' data types and variables
+2. Data types:
+	1. Data type is used for declaring the type of a variable
+	2. In C programming, data type determines type and size of data associated with variables
+	3. Before storing any value in variable
+		1. First programmer should decide its type
+3. Representing real world data
+	1. Data as numbers (integer or real numbers)
+	2. Data as characters
+	3. Data as strings (collection of characters)
+		1. Example: name
+
 ### 'C' Integer Data Types and Value Ranges ###
 ### Char Data Type and Variable Definition ###
 ### Variable Definition Exercise ###
