@@ -193,6 +193,16 @@
 			3. Double click to launch
 
 ### Constructing a Project for the Target ###
+1. Launch target workspace
+2. File > New > STM32 Project
+	1. Does some network activity
+	2. Target selector:
+		1. MCU/MPU Selector (used for custom board)
+		2. Board Selector (used for standard board)
+			1. 32F4Nucleo
+				1. Deatils
+				
+
 ### FPU Warning Fix ###
 ### Hardware/ Software Requirements ###
 ### Meet the Embedded Target of This Course ###
