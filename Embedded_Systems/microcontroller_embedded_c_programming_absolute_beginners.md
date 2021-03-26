@@ -395,6 +395,18 @@
 	2. Data as characters
 	3. Data as strings (collection of characters)
 		1. Example: name
+	4. Examples:
+		1. Roy's age is 44 years, 6 months and 20 days
+			1. They are numbers
+		2. The temperature of the city X is +27.2 degrees celcius
+			1. Real number
+			2. Character
+		3. Today's date is 21st June
+		4. I got an 'A' grade in school assignment
+			1. Character
+4. Data types:
+	1. Integer data types
+	2. Float data types
 
 ### 'C' Integer Data Types and Value Ranges ###
 ### Char Data Type and Variable Definition ###
