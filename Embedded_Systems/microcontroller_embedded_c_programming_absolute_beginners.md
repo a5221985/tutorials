@@ -173,6 +173,25 @@
 4. Right click on project
 	1. New > Source File > main.c
 
+			#include <stdio.h>
+			
+			int main(void) {
+				printf("Hello world\n");
+				
+				printf("Press 'Enter' to exit this application\n");
+				
+				getchar();
+				
+				return 0;
+			}
+			
+		1. Right click on project and Build Project
+			1. Exe is created
+		2. Execution:
+			1. Right click on EXE > Properties 
+			2. Click on Show in System Explorer
+			3. Double click to launch
+
 ### Constructing a Project for the Target ###
 ### FPU Warning Fix ###
 ### Hardware/ Software Requirements ###
