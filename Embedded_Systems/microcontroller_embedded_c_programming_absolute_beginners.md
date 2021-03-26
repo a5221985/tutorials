@@ -235,9 +235,15 @@
 	1. In the course, STM32F408VGT6 MCU based DISCOVERY Board is used as target
 2. Important features
 	1. IO pins for interfacing external components
-	2. STM32F407VGT6 32 bit Microcontroller Processor: ARM Cortex-M4 FPU
+	2. STM32F407VGT6 32 bit Microcontroller Processor: ARM Cortex-M4 + FPU
 	3. IO pins for interfacing external components
+		1. LEDs
+		2. Keypads
+		3. Buttons
+		4. LCDs
+		5. They are called **external interfacing IO headers**
 	4. 8 MHz crystal oscillator
+	5. On board programmer and debugger - ST-LINK/V2-A
 
 ## Your First 'C' Program ##
 ### OnlineGDB Web Tool ###
