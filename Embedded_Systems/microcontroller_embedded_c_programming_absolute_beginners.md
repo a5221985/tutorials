@@ -227,9 +227,12 @@
 	3. Build again
 
 ### Hardware/ Software Requirements ###
-1. [Download PDF]()
+1. [Download PDF](https://www.udemy.com/course/microcontroller-embedded-c-programming/learn/lecture/24707434#overview)
+	1. Hardware and software requirements to test source code developed in the course
 
 ### Meet the Embedded Target of This Course ###
+1. Embedded Target
+	1. In the course, STM32F408VGT6 MCU based DISCOVERY Board is used as target
 
 ## Your First 'C' Program ##
 ### OnlineGDB Web Tool ###
