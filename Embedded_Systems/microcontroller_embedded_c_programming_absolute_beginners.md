@@ -200,8 +200,7 @@
 		1. MCU/MPU Selector (used for custom board)
 		2. Board Selector (used for standard board)
 			1. 32F4Nucleo
-				1. Deatils
-				
+				1. Details
 
 ### FPU Warning Fix ###
 ### Hardware/ Software Requirements ###
