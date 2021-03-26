@@ -305,10 +305,28 @@
 							assembler stage
 				
 				1. Assembly level mnemonics are converted into opcodes (machine codes for instructions)
-		9. 
+5. Print the following:
+
+		Hello World!
+		Today is a great day
 
 ### Printf Exercise Solution ###
+1. Solution:
+
+		int main() {
+			printf("Hello World!\n");
+			printf("Today is a great day");
+		}
+		
+	1. `printf` never causes cursor to move to the next line
+	2. `\n` - new line or line feed code
+		1. `\` - escape character - gives special meaning to the character
+		2. `\n` - escape sequence
+	3. It can be used anywhere we want
+
 ### Escape Sequences in 'C' ###
+1. 
+
 ### Printf Exercise Solution ###
 ### Printf Exercise Solution ###
 ### Commenting in 'C' ###
