@@ -342,6 +342,11 @@
 	11. `\v` - Vertical tab
 
 ### Printf Exercise Solution ###
+1. Solution:
+
+		printf("David says, \"programming is fun!\"\n");
+		printf("Good Day!\n");
+
 ### Printf Exercise Solution ###
 ### Commenting in 'C' ###
 
