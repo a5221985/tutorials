@@ -201,9 +201,34 @@
 		2. Board Selector (used for standard board)
 			1. 32F4Nucleo
 				1. Details
+					1. Click Datasheet - downloads datasheet
+					2. Docs & Resources
+						1. User Manual
+		3. ProjectName: 000TestProject
+		4. Targeted Language: C
+		5. Targeted Project Type: Emtpy
+	3. Src/main.c
+3. Right Click > Build Project (cross compiler is invoked)
+	1. `*.elf` is generated
+		1. Next: 
+			1. How to install on target hardware
+			2. How to debug code on target hardware
+			3. How to generate dis-assembly
 
 ### FPU Warning Fix ###
+1. If "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+	1. We have enabled using hardware floating point unit of the processor in build settings but it has not been initialized in the code
+		1. Warning is about asking us to initialize it before using any floating point related code or else it may result in processor fault exception
+2. Fix:
+	1. Right click on project > properties > expand C/C++ build > Settings > Tool settings > MCU settings > 
+		1. Floating-point unit: None
+		2. Floating-point ABI: Software implementation (-mfloat-abi=soft)
+	2. Clean the project
+	3. Build again
+
 ### Hardware/ Software Requirements ###
+1. [Download PDF]()
+
 ### Meet the Embedded Target of This Course ###
 
 ## Your First 'C' Program ##
