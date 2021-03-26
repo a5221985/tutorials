@@ -135,7 +135,15 @@
 8. Right click on a project: ASCII > Build Project
 	1. Clean Project
 9. Import embedded target projects written by instructor
-	1. File > Switch
+	1. File > Switch Workspace
+	2. Other
+	3. Change `host` to `target`
+	4. Launch
+	5. FIle > Import > General > Existing Project
+	6. Downloads/Embedded-C-master/All_source_codes/target/stm32f407_disc
+	7. Browse > Paste
+	8. Copy projects into workspace
+	9. Finish
 
 ### Constructing a Project for the Host ###
 ### Constructing a Project for the Target ###
