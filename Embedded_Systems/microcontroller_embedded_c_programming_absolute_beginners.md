@@ -244,10 +244,27 @@
 		5. They are called **external interfacing IO headers**
 	4. 8 MHz crystal oscillator
 	5. On board programmer and debugger - ST-LINK/V2-A
+		1. Used to program or debug (we don't have to buy any programmer or debugger)
+		2. When we install STM32CubeIDE, the driver and programmer will be installed automatically on the host machine
+			1. STM32 also gives separate device drivers for STLink hardware - they can be downloaded and installed
+	6. User manual of board:
+		1. [https://www.st.com/en/evaluation-tools/stm32f4discovery.html](https://www.st.com/en/evaluation-tools/stm32f4discovery.html)
+			1. Resources: user manuals, schematics
+3. How to connect board to PC
+	1. USB cable - type A plug to Mini Type B Plug
+	2. There is another micro-usb connector - not used in the course
 
 ## Your First 'C' Program ##
 ### OnlineGDB Web Tool ###
+1. Online Compiler - OnlineGDB - easy to use (cannot use to program target board) - for C program (other languages also)
+
 ### Printf and Hello World ###
+1. Let's write a 'C' code which simply displays text Hello world on the 'Console' and exits
+2. New project > HelloWorld (select C language)
+	1. main.c
+	2. We can change theme
+	3. We can add compiler flags
+
 ### Printf Exercise Solution ###
 ### Escape Sequences in 'C' ###
 ### Printf Exercise Solution ###
