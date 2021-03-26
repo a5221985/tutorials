@@ -279,6 +279,33 @@
 		2. `;` - end of a statement
 		3. C compiler needs to know the prototype of `printf` to compile
 		4. `<...>` - for standard libraries
+		5. We can include files written by us
+		6. Click on **Run** button
+		7. Settings:
+			1. Compiler flags: `-save-temps`
+		8. Output files produced:
+			1. First file: Preprocessed file: **main.i**
+				1. Collection of our code and contents of stdio.h
+					1. 849 lines
+				2. Pre-processing stage
+
+						main.c -> compiler -> main.i
+								
+					1. All pre-processing directives will be resolved
+					2. Copy and paste the content:
+						1. Search for `printf`
+
+								extern int printf (const char *__restrict __format, ...);
+			2. Second file: Assembly instructions: **main.s**
+				1. Collection of assembly instructions
+				2. Higher level language code statements will be converted into processor architectural level mnemonics
+			3. Third file: Machine code: **main.o**
+			
+					main.s -> compiler -> main.o
+							assembler stage
+				
+				1. Assembly level mnemonics are converted into opcodes (machine codes for instructions)
+		9. 
 
 ### Printf Exercise Solution ###
 ### Escape Sequences in 'C' ###
