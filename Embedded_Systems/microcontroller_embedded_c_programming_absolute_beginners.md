@@ -158,6 +158,21 @@
 			1. Switch workspace: Select `my_workspace` for `host` and `target`
 
 ### Constructing a Project for the Host ###
+1. Host machine project - x86-x64 bit machine
+2. Target machine project - STM32 Discovery board
+3. Open STM32CubeIDE
+	1. Open `my_workspace/host`
+	2. File > New > C/C++ Project
+	3. C Managed Build
+	4. Next
+	5. Project name: 000TestProject
+	6. Executable > Empty Project
+	7. MinGW GCC (windows)
+	8. Linux GCC (Linux or Mac)
+	9. Don't select Cross GCC or other (this is for host)
+4. Right click on project
+	1. New > Source File > main.c
+
 ### Constructing a Project for the Target ###
 ### FPU Warning Fix ###
 ### Hardware/ Software Requirements ###
