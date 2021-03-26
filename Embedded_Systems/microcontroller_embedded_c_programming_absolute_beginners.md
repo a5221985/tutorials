@@ -144,6 +144,14 @@
 	7. Browse > Paste
 	8. Copy projects into workspace
 	9. Finish
+	10. Restore
+	11. Compilation
+		1. Select a project
+		2. Right click
+		3. Build
+			1. Project is cross compiled (`arm-none-eabi-gcc` is invoked - cross compiler) - code is built for the target
+		4. Clean
+	12. Do not change any code in `instructor` folder - for reference if anything goes wrong in our project
 
 ### Constructing a Project for the Host ###
 ### Constructing a Project for the Target ###
