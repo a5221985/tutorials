@@ -278,6 +278,7 @@
 		1. Function definition
 		2. `;` - end of a statement
 		3. C compiler needs to know the prototype of `printf` to compile
+		4. `<...>` - for standard libraries
 
 ### Printf Exercise Solution ###
 ### Escape Sequences in 'C' ###
