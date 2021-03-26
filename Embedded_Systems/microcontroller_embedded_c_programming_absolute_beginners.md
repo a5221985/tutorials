@@ -233,6 +233,11 @@
 ### Meet the Embedded Target of This Course ###
 1. Embedded Target
 	1. In the course, STM32F408VGT6 MCU based DISCOVERY Board is used as target
+2. Important features
+	1. IO pins for interfacing external components
+	2. STM32F407VGT6 32 bit Microcontroller Processor: ARM Cortex-M4 FPU
+	3. IO pins for interfacing external components
+	4. 8 MHz crystal oscillator
 
 ## Your First 'C' Program ##
 ### OnlineGDB Web Tool ###
