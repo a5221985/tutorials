@@ -264,6 +264,20 @@
 	1. main.c
 	2. We can change theme
 	3. We can add compiler flags
+3. Delete the code
+4. Program: `main` is starting point of program execution
+	1. C program is a collection of functions and it should have at-least one function called `main` function
+	2. `main` function
+
+			#include <stdio.h> // preprocessor directive that instructs preprocessor of compiler to include a file into source file.
+
+			int main() { // C90 and C99 standard prototype
+				printf("Hello World!"); // to print text here
+			}
+			
+		1. Function definition
+		2. `;` - end of a statement
+		3. C compiler needs to know the prototype of `printf` to compile
 
 ### Printf Exercise Solution ###
 ### Escape Sequences in 'C' ###
