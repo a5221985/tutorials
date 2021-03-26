@@ -335,7 +335,9 @@
 	6. `\b` - Backspace
 	7. `\f` - Form feed
 	8. `\n` - Newline
+		1. Moves the cursor to beginning of new line vertically
 	9. `\r` - Carriable return
+		1. Moves the cursor to beginning of current line horizontally
 	10. `\t` - Horizontal tab
 	11. `\v` - Vertical tab
 
