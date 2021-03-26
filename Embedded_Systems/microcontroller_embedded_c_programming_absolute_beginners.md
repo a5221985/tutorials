@@ -152,6 +152,10 @@
 			1. Project is cross compiled (`arm-none-eabi-gcc` is invoked - cross compiler) - code is built for the target
 		4. Clean
 	12. Do not change any code in `instructor` folder - for reference if anything goes wrong in our project
+10. Own project:
+	1. `my_workspace`
+		1. Two more workspaces:
+			1. Switch workspace: Select `my_workspace` for `host` and `target`
 
 ### Constructing a Project for the Host ###
 ### Constructing a Project for the Target ###
