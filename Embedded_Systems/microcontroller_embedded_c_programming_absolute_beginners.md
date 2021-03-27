@@ -1244,6 +1244,13 @@
 				2. If there is not information loss, there is no warning
 
 						unsigned char data = 0x01 + 0x0089;
+						
+		2. Explicit casting:
+
+				unsigned char data = (unsigned char) (0x87 + 0xFF00);
+			
+			1. Explicit casting does not prevent any data loss
+				1. Compiler comes to know that you just want 1 byte out of final result and it doesn't fire any warning
 
 ### Typecasting in 'C' Contd ###
 
