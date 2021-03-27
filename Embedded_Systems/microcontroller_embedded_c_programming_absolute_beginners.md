@@ -537,6 +537,21 @@
 				unsigned char distanceAToC = distanceAToB + distanceBToC; // in kms
 				printf("Total distance from A to C = %u\n", distanceAToC);
 			}
+			
+		1. How to print contents?
+			1. Integer
+			2. Hex number
+			3. Octal number
+			4. Character
+		2. Format specifiers
+			1. `%d` - integer format (signed data)
+			2. `%f` - float format
+			3. `%c` - character
+			4. `%s` - string
+			5. `%ld` - long int
+			6. `%x` - hex **(M)**
+			7. `%o` - octal
+			8. `%u` - unsigned integer
 
 ### Range Calculation for 'char' Data Type ###
 ### Integer Data Type 'short int' and Value Range ###
