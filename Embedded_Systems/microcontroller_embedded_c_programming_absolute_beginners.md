@@ -1009,11 +1009,27 @@
 ### Use Cases of 'static' with Functions ###
 1. main.c
 
-		void chainge_system_clock(int system_clock) { // suppose we don't want any other file to call this function
+		// ...
+
+		static void chainge_system_clock(int system_clock) { // suppose we don't want any other file to call this function - private function of main.c
 			print("System clock changed to = %d\n", system_clock);
+		}
+		
+2. file1.c
+		
+		extern void change_system_clock(int system_clock); // extern is optional // doesn't compile - undefined reference made to ...
+		
+		void file1_myFun1(void) {
+			change_system_clock(0);
 		}
 
 ### 'extern' Storage Class Specifier ###
+1. Extern
+	1. 'extern' storage class specifier is used to access
+		1. global variable defined outside the scope of file
+	2. 'extern' storage class specifier can also be used during function call
+		1. When function is defined outside scope of file
+
 ### ASCII Codes ###
 
 ## Functions ##
