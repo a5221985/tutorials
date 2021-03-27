@@ -1207,11 +1207,19 @@
 			
 	3. math.h
 
-			#pragma once
+			#ifndef MATH_H_
+			#define MATH_H_
+			
 			extern int add(int a, int b);
 			extern int sub(int a, int b);
 			extern int mul(int a, int b);
 			extern int div(int a, int b);
+			
+			#endif /* MATH_H_ */
+			
+		1. Include guards:
+			1. The prevent inclusion of header files multiple times in source file
+			2. Written using pre-processor directives
 
 ### Typecasting in 'C' ###
 ### Typecasting in 'C' Contd ###
