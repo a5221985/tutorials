@@ -554,6 +554,19 @@
 			8. `%u` - unsigned integer
 
 ### Range Calculation for 'char' Data Type ###
+1. Range Calculation:
+	1. Range of `char` data type
+		1. Variable of `char` type consumes 1 byte of memory
+		2. `char` will be used to stored 1 byte of signed data
+2. How is it stored?
+	1. Most significant bit is used to represent sign of data
+		1. 0 - +ve
+		2. 1 - -ve
+	2. Magnitude is stored in 2's complement format (if data is negative)
+		1. Signed data - dedicated 1 bit is used to encode sign of data
+			1. 7 bits - used to store magnitude
+			2. MSB - used to represent sign of data
+
 ### Integer Data Type 'short int' and Value Range ###
 ### Integer Data Type 'int' and 'long' ###
 ### Sizeof ###
