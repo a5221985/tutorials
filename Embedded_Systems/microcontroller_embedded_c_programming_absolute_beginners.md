@@ -442,7 +442,8 @@
 	10. `unsigned long long int` - 8 bytes - 0 to 18446744073709551615
 2. Meaning of memory size:
 	1. Compiler (e.g. GCC) will generate code to allocate 64 bits (8 bytes of memory) for each long long variable
-3. The sizes are 
+3. The sizes are fixed by the compiler designer
+	1. int may be 2 bytes or 4 bytes or 8 bytes
 
 ### Char Data Type and Variable Definition ###
 ### Variable Definition Exercise ###
