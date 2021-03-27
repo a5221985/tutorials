@@ -666,7 +666,18 @@
 	3. Variable acts as a label to memory location (where data is stored)
 	4. Variable names are not stored in computer memory (they are there for programming convenience)
 		1. Compiler replaces them with memory location addresses during data manipulation
-2. 
+2. Memory location addresses (pointers in C)
+	
+		0x0807		0 1 1 0 0 1 1 1
+		0x0806		1 1 0 0 0 1 0 0 
+		0x0805		0 1 1 0 0 1 1 1
+		0x0804		1 1 1 1 0 1 1 1
+		0x0803		1 1 1 0 0 1 1 0
+		0x0802		0 1 1 0 0 1 1 0
+		0x0801		0 1 1 1 0 1 1 1
+		0x0800		0 1 1 1 0 1 1 1
+		
+	1. 
 
 ### Declaration vs Definition: An Illustration ###
 ### Variables Scope and Illustration ###
