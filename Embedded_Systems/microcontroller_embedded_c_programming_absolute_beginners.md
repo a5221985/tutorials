@@ -1251,8 +1251,33 @@
 			
 			1. Explicit casting does not prevent any data loss
 				1. Compiler comes to know that you just want 1 byte out of final result and it doesn't fire any warning
+		3. Real number:
+
+				float result = 80 / 3;
+				
+			1. fraction part is lost:
+				1. `int` / `int` -> `int`
+				2. Result is stored in `float`
+			2. Solution: 		
+
+					float result = ((float) 80) / 3;
+					
+				1. Numerator explicitly promoted to `float`
+				2. Denominator is promoted to `float` (implicitly)
+					1. `float` / `float` -> `float`
+				3. Explicit casting of denominator
+
+						float result = 80 / (float) 3;
+						
+					1. Warnings are dangerous and they must be resolved
 
 ### Typecasting in 'C' Contd ###
+1. Different data:
+
+		unsigned char data = 0x1FFFFFFFA0B0 + 0x1245;
+		
+	1. First number is considered as `long long int` and implicit casting is done on second number from `int` to `long long int`
+	2. warning: `long long int` to `unsigned char`
 
 ## Microcontroller and Hello World ##
 ### Embedded - 'Hello World' ###
