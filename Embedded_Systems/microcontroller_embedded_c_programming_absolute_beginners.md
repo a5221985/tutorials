@@ -828,6 +828,32 @@
 		int main() {
 			int myScore; // it exists (memory claimed) for the time the function is executed
 		}
+		
+	1. Once function exits:
+		1. Local variables die (memory re-claimed)
+	2. Local variables come and go during the run time of the function execution of a program
+		1. They don't sit permanently on data memory
+3. Example:
+
+		void myFunc1(void); // prototype or signature
+
+		int main() {
+			int myScore;
+			
+			myScore = 900;
+			
+			printf("Value of the variable myScore = %d\n", myScore);
+		
+			/* this is a function call */
+			myFunc1();
+			
+			return 0;
+		}
+
+		void myFunc1(void) {
+			myScore = 800; // undeclared
+			printf("002Value of the variable myScore = %d\n", myScore);
+		}
 
 ### Variables Scope and Illustration Contd ###
 ### Summary of Local and Global Variables ###
