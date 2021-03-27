@@ -1007,6 +1007,12 @@
 			1. `static` global variables are accessible only in the file
 
 ### Use Cases of 'static' with Functions ###
+1. main.c
+
+		void chainge_system_clock(int system_clock) { // suppose we don't want any other file to call this function
+			print("System clock changed to = %d\n", system_clock);
+		}
+
 ### 'extern' Storage Class Specifier ###
 ### ASCII Codes ###
 
