@@ -1197,7 +1197,7 @@
 				return a - b;
 			}
 			
-			int mul(int a, int b) {
+			long long int mul(int a, int b) {
 				return a * b;
 			}
 			
