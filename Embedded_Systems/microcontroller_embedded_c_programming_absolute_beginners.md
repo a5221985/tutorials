@@ -418,9 +418,15 @@
 			1. `short` in short
 		3. `int`
 		4. `long int`
+			1. `long` in short
 		5. `long long int`
 			1. `long long` in short
 	2. Signed data
+		1. `unsigned char`
+		2. `unsigned short int`
+		3. `unsigned int`
+		4. `unsigned long int`
+		5. `unsigned long long int`
 
 ### 'C' Integer Data Types and Value Ranges ###
 ### Char Data Type and Variable Definition ###
