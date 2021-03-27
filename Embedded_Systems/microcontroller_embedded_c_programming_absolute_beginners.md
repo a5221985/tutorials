@@ -656,8 +656,18 @@
 	1. Operand can be:
 		1. Variable name
 		2. Data type
+3. `sizeof` - tells how many bytes are consumed (from memory) by the variable or the type
+4. It can be used instead of reading manual
 
 ### Variables Naming Rules and Definition vs Declaration ###
+1. What are variables?
+	1. Variables are identifiers for data
+	2. Data are usually stored in memory
+	3. Variable acts as a label to memory location (where data is stored)
+	4. Variable names are not stored in computer memory (they are there for programming convenience)
+		1. Compiler replaces them with memory location addresses during data manipulation
+2. 
+
 ### Declaration vs Definition: An Illustration ###
 ### Variables Scope and Illustration ###
 ### Variables Scope and Illustration Contd ###
