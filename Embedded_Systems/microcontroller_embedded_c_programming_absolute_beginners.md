@@ -406,7 +406,21 @@
 			1. Character
 4. Data types:
 	1. Integer data types
+		1. Used to represent whole numbers
+			1. Example: 10, 20, 30, ...
 	2. Float data types
+		1. Used to represent real numbers (temperature say)
+			1. Example; 10, 24.5, 60.000001, ...
+5. Integer data:
+	1. Signed data (temperatur say)
+		1. `char`
+		2. `short int`
+			1. `short` in short
+		3. `int`
+		4. `long int`
+		5. `long long int`
+			1. `long long` in short
+	2. Signed data
 
 ### 'C' Integer Data Types and Value Ranges ###
 ### Char Data Type and Variable Definition ###
