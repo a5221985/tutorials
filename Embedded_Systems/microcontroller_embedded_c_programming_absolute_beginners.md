@@ -1161,7 +1161,57 @@
 		}
 
 ### Function Exercise ###
-1. 
+1. Write a program to do mathematical operations such as addition, subtraction, multiplication, and division of integers
+	1. Do all math operations in separate functions in a file called math.c
+	2. Call functions from main.c to test them.
+2. Solution:
+	1. main.c
+
+			#include <stdio.h>
+			#include <math.h>
+
+			int main() {
+				int a = 13;
+				int b = 19;
+				
+				int sum = add(a, b);
+				int diff = sub(a, b);
+				int product = mul(a, b);
+				int quotient = div(b, a);
+				
+				printf("%d + %d = %d\n", a, b, sum);
+				printf("%d - %d = %d\n", a, b, diff);
+				printf("%d x %d = %d\n", a, b, product);
+				printf("%d / %d = %d\n", b, a, quotient);
+				
+				return 0;
+			}
+			
+	2. math.c
+
+			int add(int a, int b) {
+				return a + b;
+			}
+			
+			int sub(int a, int b) {
+				return a - b;
+			}
+			
+			int mul(int a, int b) {
+				return a * b;
+			}
+			
+			int div(int a, int b) {
+				return a / b;
+			}
+			
+	3. math.h
+
+			#pragma once
+			extern int add(int a, int b);
+			extern int sub(int a, int b);
+			extern int mul(int a, int b);
+			extern int div(int a, int b);
 
 ### Typecasting in 'C' ###
 ### Typecasting in 'C' Contd ###
