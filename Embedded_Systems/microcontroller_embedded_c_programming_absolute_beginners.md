@@ -613,7 +613,10 @@
 			
 3. Range:
 	1. `short` range: -32,768 to 32,767
-	2. `unsigned short` range: 0 to 65,535
+	2. `unsigned short` range: 0 to 65,535 (0xFFFF)
+4. Integer data type: `int` and `unsigned int`
+	1. `int` is integer data type to store signed integer data
+	2. `int` type consumes 2 bytes of mem or 4 bytes of mem
 
 ### Integer Data Type 'int' and 'long' ###
 ### Sizeof ###
