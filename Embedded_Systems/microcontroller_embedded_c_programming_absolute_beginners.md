@@ -469,10 +469,31 @@
 			10. `unsigned long long` - 8 (doubleword-aligned) - 0 to 18,446,744,073,709,551,615
 	2. We need to refer to the reference manual of the compiler to know the sizes
 4. 'C' integer data types, their storage sizes and value ranges
-	1. The C standard does not fix the storage sizes of different data types. It only talks about minimum and maximum values
-	2. For example C standard says, the minimum storage size of a long type variable is 32 bits, and max is 64 bits. So exact size of long type variable depends on compiler design
+	1. C standard does not fix storage sizes of different data types. 		1. Only talks about minimum and maximum values
+	2. For example C standard says:
+		1. Minimum storage size of a long type variable: 32 bits
+		2. Maximum: 64 bits. 
+			1. Exact size of long type variable depends on compiler design
+	3. Some compilers fix 32 bits as storage size for long & some fix 64 bits
+		1. Same is true for `int`
+			1. Some compilers fix 16 bits
+			2. Some compilers fix 32 bits
+5. The following data types are of fixed size irrespective of compilers
+	1. `short` (`signed` or `unsigned`) - 2 bytes
+	2. `char` (`signed` or `unsigned`) - 1 byte
+	3. `long long` (`signed` or `unsigned`) - 8 bytes
 
 ### Char Data Type and Variable Definition ###
+1. Integer data types: `char`
+	1. It is integer data type to store single character (ASCII code)
+		1. 1 byte of signed integer value
+	2. `char` consumes 1 byte of memory
+	3. `char` - smallest integer data type
+	4. No special meaning of `char` data type
+		1. It is just another integer data type
+	5. `char` range: -128 to 127
+		1. 
+
 ### Variable Definition Exercise ###
 ### Range Calculation for 'char' Data Type ###
 ### Integer Data Type 'short int' and Value Range ###
