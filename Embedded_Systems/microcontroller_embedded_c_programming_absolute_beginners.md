@@ -1140,9 +1140,29 @@
 
 ### Function Prototypes ###
 1. In C functions first have to be declared before they are used
+	1. Warning: Compiler assumed the prototype
+
+			#include <stdio.h>
+			
+			void function_add_numbers(int a, int b, int c); // protoype
 
 ### Returning Data from a Function ###
+1. Compute sum and return the sum back to caller
+
+		int retValue;
+		retValue = function_add_numbers(23, 45, 67);
+		printf("Sum = %d\n", retValue);
+		//...
+
+		int function_add_numbers(int a, int b, int c) {
+			int sum;
+			sum = a + b + c;
+			return sum;
+		}
+
 ### Function Exercise ###
+1. 
+
 ### Typecasting in 'C' ###
 ### Typecasting in 'C' Contd ###
 
