@@ -1139,7 +1139,7 @@
 			1. To avoid it, mention function prototype before calling function for very first time
 
 ### Function Prototypes ###
-1. 
+1. In C functions first have to be declared before they are used
 
 ### Returning Data from a Function ###
 ### Function Exercise ###
