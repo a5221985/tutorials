@@ -429,6 +429,17 @@
 		5. `unsigned long long int`
 
 ### 'C' Integer Data Types and Value Ranges ###
+1. 'C' integer data types, their storage sizes and value ranges:
+	1. `signed char` - 1 byte - -128 to +127
+	2. `unsigned char` - 1 byte - 0 to 255
+	3. `short int` - 2 bytes - -32,768 to 32,767
+	4. `unsigned short int` - 2 bytes - 0 to 65,535
+	5. `int` - 4 bytes - -2,147,483,648 to 2,147,483,647
+	6. `unsigned int` - 4 bytes - 0 to 4,294,967,295
+	7. `long` - 8 bytes - -9223372036854775808 to 9223372036854775807
+	8. `unsigned long` - 8 bytes - 0 to 18446744073709551615
+	9. `long long int` - 8 bytes - -9223372036854775808 to 9223372036854775807
+
 ### Char Data Type and Variable Definition ###
 ### Variable Definition Exercise ###
 ### Range Calculation for 'char' Data Type ###
