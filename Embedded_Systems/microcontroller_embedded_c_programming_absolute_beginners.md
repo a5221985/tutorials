@@ -629,8 +629,29 @@
 	3. Size of `int` - decided by compiler used to generate code for target hardware
 		1. Consult user manual to understand size of `int` (2 or 4 bytes)
 	4. `unsigned int` - integer data type to store unsigned integer
+2. Integer data type: `long` and `unsigned long`
+	1. `long` is integer data type to store signed integer data
+	2. `long` type consumes 4 bytes or 8 bytes
+	3. Size of `long` type is decided by compiler used to generate code for target hardware
+		1. Consult compiler manual to understand size of `long` (typically 4 or 8 bytes)
+	4. `unsigned long` - integer data type to store unsigned integer data
 
 ### Sizeof ###
+1. `sizeof` - operator of C programming language
+	1. Used to find size of variable
+	2. Output may be different on different machines
+		1. It is compiler dependent
+2. Example:
+
+		int main() {
+			printf("Size of char data type = %d\n", sizeof(char)); 
+			return 0;
+		}
+		
+	1. Operand can be:
+		1. Variable name
+		2. Data type
+
 ### Variables Naming Rules and Definition vs Declaration ###
 ### Declaration vs Definition: An Illustration ###
 ### Variables Scope and Illustration ###
