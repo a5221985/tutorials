@@ -444,6 +444,33 @@
 	1. Compiler (e.g. GCC) will generate code to allocate 64 bits (8 bytes of memory) for each long long variable
 3. The sizes are fixed by the compiler designer
 	1. int may be 2 bytes or 4 bytes or 8 bytes
+		1. Example: XC8 - cross compiler for PIC 8 bit microcontrollers
+			1. `unsigned char` - 8-bit - 0 to 255
+			2. `char` - 8-bit - -128 to +127
+			3. `unsigned int` - 16-bit - 0 to 65,535
+			4. `int` - 16-bit - -32,768 to +32,767
+			5. `unsigned short` - 16-bit - 0 to 65,535
+			6. `short` - 16-bit - -32,768 to +32,767
+			7. `unsigned short long` - 24-bit - 0 to 16,777,215
+				1. Not from C standard
+			8. `short long` - 24-bit - -8,388,608 to +8,388,607
+			9. `unsigned long` - 32-bit - 0 to 4,294,967,295
+			10. `long` - 32-bit - -2,147,483,648 to +2,147,483,648
+		2. armcc cross compiler for 32-bit ARM based microcontrollers (not open-source)
+			1. `char` - 8-bits - (1 byte-aligned) - 0 to 255 (unsigned) by default, -128 to 127 (signed) when compiled with `--signed_chars`
+			2. `signed char` - 8-bits - (1 byte-aligned) - -128 to +127
+			3. `unsigned char` - 8-bits - (1 byte-algined) - 0 to 255
+			4. `(signed) short` - 2 (halfword-aligned) - -32,768 to 32,767
+			5. `unsigned short` - 2 (halfword-aligned) - 0 to 65,535
+			6. `(signed) int` - 4 (word-aligned) - -2,147,483,348 to 2,147,483,647
+			7. `(signed) long` - 4 (word-aligned) - -2,147,483,648 to 2,147,483,647
+			8. `unsigned long` - 4 (word-aligned) - 0 to 4,294,967,295
+			9. `(signed) long long` - 8 (doubleword-aligned) - -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+			10. `unsigned long long` - 8 (doubleword-aligned) - 0 to 18,446,744,073,709,551,615
+	2. We need to refer to the reference manual of the compiler to know the sizes
+4. 'C' integer data types, their storage sizes and value ranges
+	1. The C standard does not fix the storage sizes of different data types. It only talks about minimum and maximum values
+	2. For example C standard says, the minimum storage size of a long type variable is 32 bits, and max is 64 bits. So exact size of long type variable depends on compiler design
 
 ### Char Data Type and Variable Definition ###
 ### Variable Definition Exercise ###
