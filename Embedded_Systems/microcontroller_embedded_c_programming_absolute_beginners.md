@@ -777,10 +777,58 @@
 		1. The above tokens (case sensitive) are reserved (translation phases 7 and 8)
 			1. For use as keywords
 		2. `_Imaginary` is reserved for specifying imaginary types
-		3. 
+8. Example:
+
+		#include <stdio.h>
+		
+		int main() {
+			char _1111111; // legal
+			char 89_; // illegal
+			long long mySalary123_0; // legal
+			int _____myAge; // legal
+			char MYNAME; // legal
+			int %_temperatureValue; // illegal
+			int my car number; // illegal
+			int 1234; // illegal
+		}
+		
+1. Variable definition vs. declaration
+	1. A variable is **defined** when compiler generates instructions to allocate storage for variable
+	2. A variable is **declared** when compiler is informed that variable exists along with its type.
+		1. Compiler does not generate instructions to allocate storage for variable at that point
+	3. Variable defintion is also a declaration
+		1. Not all variable declarations are definitions
 
 ### Declaration vs Definition: An Illustration ###
+1. Example:
+
+		int myExamScore; // local space (scope)
+		myExamScore = 540;
+		
+		
+		
+		extern int myExamScore; // error - undefined reference made - when compiler sees this, it will not allocate any storage
+		
+		...
+		myExamScore = 540; // this is not defined - compiler cannot find it
+		
+	1. `extern` - tells compiler that this variable is defined outside the scope of this file.
+
 ### Variables Scope and Illustration ###
+1. Variables Scopes
+	1. Variables have scopes
+	2. Variable scope refers to accessibility of a variable in a given program or function
+		1. Example:
+			1. A variable may be available only in a specific function
+			2. A variable may be available in the entire C program
+	3. Local scope variables (local variables)
+	4. Gobal scope variables (global variables)
+2. Local scope variables
+
+		int main() {
+			int myScore; // it exists (memory claimed) for the time the function is executed
+		}
+
 ### Variables Scope and Illustration Contd ###
 ### Summary of Local and Global Variables ###
 
