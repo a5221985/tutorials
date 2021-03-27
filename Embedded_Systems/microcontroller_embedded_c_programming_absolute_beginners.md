@@ -492,7 +492,14 @@
 	4. No special meaning of `char` data type
 		1. It is just another integer data type
 	5. `char` range: -128 to 127
-		1. 
+		1. It will be used to store 1 byte of `signed` data
+	6. Unsigned `char` range: 0 to 255
+		1. It will be used to store 1 byte of `unsigned` data
+	7. Example:
+		1. I want to store current temperature data of city `X` in program
+			1. City `X`'s temperature is `25` degrees celcius
+			2. Suppose we are sure that `X`'s temperature never goes below 0 degrees and never goes above `40` degrees celcius
+				1. `X`'s temperature will always be positive value and max value is less than 255
 
 ### Variable Definition Exercise ###
 ### Range Calculation for 'char' Data Type ###
