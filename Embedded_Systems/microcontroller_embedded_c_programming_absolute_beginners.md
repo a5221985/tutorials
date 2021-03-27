@@ -535,7 +535,7 @@
 				unsigned char distanceAToB = 160; // in kms
 				unsigned char distanceBToC = 40;  // in kms
 				unsigned char distanceAToC = distanceAToB + distanceBToC; // in kms
-				printf("Total distance from A to C = %u");
+				printf("Total distance from A to C = %u\n", distanceAToC);
 			}
 
 ### Range Calculation for 'char' Data Type ###
