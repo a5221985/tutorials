@@ -1223,7 +1223,16 @@
 		2. User defined header files should be in `""`
 
 ### Typecasting in 'C' ###
-1. 
+1. Typecasting is a way to convert variable or data from one data type to another data type
+2. Data is truncated if higher data type is converted to lower data type
+3. 2 Types of casting
+	1. Implicit casting (compiler does this)
+		1. automatic convertion as per default rules
+	2. Explicit casting (programmer does this)
+		1. Used to override what compiler does
+4. Example:
+
+		unsigned char data = 0x87 + 0xFF00; // 4 byte + 4 byte - compiler implicitly considers data size of the constants as 4 bytes (of integer data type). Also called integer promotion
 
 ### Typecasting in 'C' Contd ###
 
