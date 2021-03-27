@@ -1233,6 +1233,17 @@
 4. Example:
 
 		unsigned char data = 0x87 + 0xFF00; // 4 byte + 4 byte - compiler implicitly considers data size of the constants as 4 bytes (of integer data type). Also called integer promotion
+		
+	1. If we don't mention any data type for integer constants, it is considered as `int` data
+	2. warning: unsigned conversion from `int` to `unsigned char`
+		1. Compiler did implicit casting twice here
+			1. Promoted data sizes of RHS constants to `int`
+			2. While storing RHS into LHS, it again did casting from `int` to `unsigned char`
+				1. This fired a warning "data loss during the convertion"
+					1. Truncates `int` to `unsigned char`
+				2. If there is not information loss, there is no warning
+
+						unsigned char data = 0x01 + 0x0089;
 
 ### Typecasting in 'C' Contd ###
 
