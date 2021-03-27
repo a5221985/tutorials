@@ -1087,6 +1087,35 @@
 		1. We define a function to do the task
 		2. We call it every time we need to perform the task
 	8. It reduces code redundancy and brings modularity to program and also decreases final executable size of the program
+	9. General definition:
+
+			return_data_type function_name(parameter_list) {
+				// body of function
+			}
+			
+		1. Example:
+			1. no input arguments
+
+					int main() {
+						/* ... */
+					}
+					
+			2. 2 input arguments
+
+					int main(int argc, char* argv[]) {
+						/*...*/
+					}
+					
+				1. We don't use this definition of main for embedded systems because most of the time, there are no commandline arguments in embedded systems
+		2. `main` function should return `int` data as per 'C' standard C89 and above
+			1. Returning `void` triggers warnings
+		3. `main` takes only zero or two arguments
+		4. `main()` is special function in C from where execution of program starts and ends
+		5. `main()` returns status of program to parent process
+			1. It shows success or failure of program
+				1. 0 - success
+				2. non-0 - failure
+		6. `main()` should return `int` value as per standard (C89 and above)
 
 ### Function Prototypes ###
 ### Returning Data from a Function ###
