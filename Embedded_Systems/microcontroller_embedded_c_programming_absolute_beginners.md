@@ -837,6 +837,8 @@
 
 		void myFunc1(void); // prototype or signature
 
+		// int myScore; // it will occupy data memory permanently throughout life span of a program
+
 		int main() {
 			int myScore;
 			
@@ -854,6 +856,18 @@
 			myScore = 800; // undeclared
 			printf("002Value of the variable myScore = %d\n", myScore);
 		}
+		
+	1. Example:
+
+			int valueA = 4;
+			
+			int main() {
+				int valueA = 67;
+				
+				printf("value A = %d\n", valueA);
+				
+				return 0;
+			}
 
 ### Variables Scope and Illustration Contd ###
 ### Summary of Local and Global Variables ###
