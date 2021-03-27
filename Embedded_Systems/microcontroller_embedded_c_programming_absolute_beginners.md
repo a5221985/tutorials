@@ -714,8 +714,26 @@
 				
 	2. Initialization
 
-			char myExamScore;
+			char myExamScore; // variable declaration
 			myExamScore = 25; // This is called variable initialization
+			
+		1. Initialization should follow declaration
+		2. Compiler generates instructions to put value into memory location referred to by the variable name
+	3. Variable declaration and initialization can be done in a single statement
+		1. Example:
+
+				char myExamScore = 25;
+				
+6. Rules for Naming a Variable
+	1. Make sure that variable name is not more than 30 characters
+		1. Some compilers may issue error (if longer)
+	2. Variable names can only contain
+		1. Alphabet (uppercase and lowercase)
+		2. Digits
+		3. Underscore
+	3. First letter of a variable cannot be a digit
+		1. It should be alphabet or underscore
+	4. You cannot use 'C' standard reserved keywords as variable names
 
 ### Declaration vs Definition: An Illustration ###
 ### Variables Scope and Illustration ###
