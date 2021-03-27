@@ -566,6 +566,30 @@
 		1. Signed data - dedicated 1 bit is used to encode sign of data
 			1. 7 bits - used to store magnitude
 			2. MSB - used to represent sign of data
+		2. Example: -25 in 1 byte signed data representation
+
+				1 1 1 0 0 1 1 1
+				
+				25 = 0 0 0 1 1 0 0 1
+				~25 = 1 1 1 0 0 1 1 0
+				~~25 = 1 1 1 0 0 1 1 1
+				
+			1. 2's compliment automatically puts 1 at MSB
+			2. Hex: 0xE7 (-25)
+		3. Example: 25 in 1 byte signed data representation
+
+				0 0 0 1 1 0 0 1
+				
+			1. Hex: 0x19 (25)
+	3. `char` data type range (when +ve)
+		1. least value = 0 0 0 0 0 0 0 0 (0)
+		2. highest value = 0 1 1 1 1 1 1 1 (+127)
+	4. `char` data type range (when -ve)
+		1. least value = 1 0 0 0 0 0 0 0 (-128 - 2s compliment)
+		2. highest value = 1 1 1 1 1 1 1 1 (-1)
+3. Unsigned char range
+	1. `unsigned char` - used to store 1 byte of unsigned data
+	2. No particular bit is dedicated to encode sign
 
 ### Integer Data Type 'short int' and Value Range ###
 ### Integer Data Type 'int' and 'long' ###
