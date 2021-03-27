@@ -974,7 +974,37 @@
 	2. `extern`
 
 ### Use Cases of 'static' with Variables ###
-1. 
+1. A 'C' project
+	1. file1.c
+	2. file2.c
+	3. file3.c
+2. A 'C' project can be a collection of multiple source files
+	1. `static` storage class specifier can be used to manage visibility of variables across various files effectively
+		1. main.c
+
+				void file1_myFun1(void);
+
+				static int mainPrivateData; // global is visibility will make it accessible somewhere else
+				
+				int main() {
+					mainPrivateData = 100;
+					printf("mainPrivateData = %d\n", mainPrivateData);
+					
+					file1_myFun1();
+					
+					printf("mainPrivateData = %d\n", mainPrivateData);
+					return 0;
+				}
+			
+		1. New file: file1.c
+
+				extern int mainPrivateData; // declaration only, static variables cannot be externed
+
+				void file1_myFun1(void) {
+					mainPrivateData = 900; // cannot be modified
+				}
+				
+			1. `static` global variables are accessible only in the file
 
 ### Use Cases of 'static' with Functions ###
 ### 'extern' Storage Class Specifier ###
