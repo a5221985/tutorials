@@ -734,6 +734,49 @@
 	3. First letter of a variable cannot be a digit
 		1. It should be alphabet or underscore
 	4. You cannot use 'C' standard reserved keywords as variable names
+7. C99 Reserved Keywords
+	1. Syntax:
+		1. `auto`
+		2. `break`
+		3. `case`
+		4. `char`
+		5. `const`
+		6. `continue`
+		7. `default`
+		8. `do`
+		9. `double`
+		10. `else`
+		11. `enum`
+		12. `extern`
+		13. `float`
+		14. `for`
+		15. `goto`
+		16. `if`
+		17. `inline`
+		18. `int`
+		19. `long`
+		20. `register`
+		21. `restrict`
+		22. `return`
+		23. `short`
+		24. `signed`
+		25. `sizeof`
+		26. `static`
+		27. `struct`
+		28. `switch`
+		29. `typedef`
+		30. `union`
+		31. `unsigned`
+		32. `void`
+		33. `volatile`
+		34. `while`
+		35. `_Bool`
+		36. `_Complex`
+		37. `_Imaginary`
+	2. Semantics
+		1. The above tokens (case sensitive) are reserved (translation phases 7 and 8)
+			1. For use as keywords
+		2. `_Imaginary` is reserved for specifying imaginary types
 
 ### Declaration vs Definition: An Illustration ###
 ### Variables Scope and Illustration ###
