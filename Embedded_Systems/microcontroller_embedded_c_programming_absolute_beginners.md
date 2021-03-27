@@ -590,8 +590,31 @@
 3. Unsigned char range
 	1. `unsigned char` - used to store 1 byte of unsigned data
 	2. No particular bit is dedicated to encode sign
+		1. Leas value: 0
+		2. Highest value: 255 (1 1 1 1 1 1 1 1)
 
 ### Integer Data Type 'short int' and Value Range ###
+1. `short int` and `unsigned short int`
+	1. `short int` - used to store 2 bytes of signed data
+	2. `unsigned short int` - used to store 2 bytes of unsigned data
+	3. `short` (for signed) or `unsigned short` - `int` is assumed
+	4. `short` - always consumes 2 bytes of memory irrespective of compilers
+2. Range calculation:
+	1. -25
+
+			0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1
+			1 1 1 1 1 1 1 1 1 1 1 0 0 1 1 0
+			1 1 1 1 1 1 1 1 1 1 1 0 0 1 1 1 (2s compliment)
+			
+		1. `0xFFE7`
+	2. 25
+
+			0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1
+			
+3. Range:
+	1. `short` range: -32,768 to 32,767
+	2. `unsigned short` range: 0 to 65,535
+
 ### Integer Data Type 'int' and 'long' ###
 ### Sizeof ###
 ### Variables Naming Rules and Definition vs Declaration ###
