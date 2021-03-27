@@ -931,8 +931,22 @@
 		1. `char*`
 			1. It is not just a number but a pointer
 
+					unsigned long int addressOfA1 = (unsigned long int) &a1;
+					
+				1. After typecasting it is just a number (not a pointer)
+				2. `long` should be 8 bytes or else size will mismatch if pointer is of 8 bytes
+
+						unsigned long long int addressOfA1 = (unsigned log long int) &a1;
+						
+					1. Format specifier:
+
+							%I64d or %I64u or %I64x (MINGW compiler specific)
+							%lld or %llu or %llx (gcc)
+
 ## Storage Classes ##
 ### Storage Class Specifiers in 'C' ###
+1. 
+
 ### Use Cases of 'static' with Variables ###
 ### Use Cases of 'static' with Functions ###
 ### 'extern' Storage Class Specifier ###
