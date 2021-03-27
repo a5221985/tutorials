@@ -1073,6 +1073,20 @@
 		1. putting function calls say in global scope is illegal
 			1. Variable definition and declaration are allowed
 	2. A 'C', function is nothing but collection of statements to perform a specific task
+	3. Every C program, at least, has one function called 'main'
+	4. Using functions bring modularity to code
+		1. Easy to debug
+		2. Easy to modify
+		3. Increases maintainability of code
+	5. C function minimizes code size and reduces code redundancy
+	6. Functions provide abstraction
+		1. printf - function given by standard library
+			1. We need not worry about how it is implemented
+				1. It just serves our purpose
+	7. If program, if we want to perform same set of tasks again and again
+		1. We define a function to do the task
+		2. We call it every time we need to perform the task
+	8. It reduces code redundancy and brings modularity to program and also decreases final executable size of the program
 
 ### Function Prototypes ###
 ### Returning Data from a Function ###
