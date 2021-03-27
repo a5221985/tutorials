@@ -922,6 +922,14 @@
 1. Storing address into variable
 
 		unsigned long int addressOfA1 = &a1;
+		
+	1. We are trying to assign a pointer type data into a variable
+		1. Data type mismatch warning
+			1. Solution: Convert pointer data type into variable data type using typecasting
+	2. Variables are represented by variable data type
+	3. Pointers are represented by pointer data type
+		1. `char*`
+			1. It is not just a number but a pointer
 
 ## Storage Classes ##
 ### Storage Class Specifiers in 'C' ###
