@@ -439,6 +439,9 @@
 	7. `long` - 8 bytes - -9223372036854775808 to 9223372036854775807
 	8. `unsigned long` - 8 bytes - 0 to 18446744073709551615
 	9. `long long int` - 8 bytes - -9223372036854775808 to 9223372036854775807
+	10. `unsigned long long int` - 8 bytes - 0 to 18446744073709551615
+2. Meaning of memory size:
+	1. Compiler (e.g. GCC) will generate code to allocate 64 bits (8 bytes of memory) for each long long variable
 
 ### Char Data Type and Variable Definition ###
 ### Variable Definition Exercise ###
