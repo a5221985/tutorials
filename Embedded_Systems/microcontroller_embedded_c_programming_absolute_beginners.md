@@ -1040,9 +1040,40 @@
 	1. We can encode 128 different characters
 3. We just need 7 bits
 	1. `char` data type can be used
+4. Example: Apple:) - ASCII code representation
+
+		char a1 = 65;
+		char a2 = 112;
+		char a3 = 112;
+		char a4 = 108;
+		char a5 = 101;
+		char a6 = 58;
+		char a7 = 41;
+		
+	1. Short cut
+
+			char a1 = 'A'; // instead of 65 - compiler changes it to 65
+			char a2 = 'p';
+			char a3 = 'p';
+			char a4 = 'l';
+			char a5 = 'e';
+			char a6 = ':';
+			char a7 = ')';
+			
+			printf("The string is: %c %c %c %c %c %c %c\n", a1, a2, a3, a4, a5, a6, a7); // %d prints 65
+			
+		1. Arrays:
+			
+				char a[] = "Apple:)";
 
 ## Functions ##
 ### Introduction to Functions in 'C' ###
+1. Functions:
+	1. In 'C', you write executable statements inside a function
+		1. putting function calls say in global scope is illegal
+			1. Variable definition and declaration are allowed
+	2. A 'C', function is nothing but collection of statements to perform a specific task
+
 ### Function Prototypes ###
 ### Returning Data from a Function ###
 ### Function Exercise ###
