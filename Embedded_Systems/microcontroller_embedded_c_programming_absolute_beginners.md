@@ -1198,11 +1198,11 @@
 			}
 			
 			long long int mul(int a, int b) {
-				return a * b;
+				return ((long long int) a) * b;
 			}
 			
-			int div(int a, int b) {
-				return a / b;
+			long double div(int a, int b) {
+				return ((long double) a) / b;
 			}
 			
 	3. math.h
@@ -1212,8 +1212,8 @@
 			
 			extern int add(int a, int b);
 			extern int sub(int a, int b);
-			extern int mul(int a, int b);
-			extern int div(int a, int b);
+			extern long long int mul(int a, int b);
+			extern long double div(int a, int b);
 			
 			#endif /* MATH_H_ */
 			
@@ -1223,6 +1223,8 @@
 		2. User defined header files should be in `""`
 
 ### Typecasting in 'C' ###
+1. 
+
 ### Typecasting in 'C' Contd ###
 
 ## Microcontroller and Hello World ##
