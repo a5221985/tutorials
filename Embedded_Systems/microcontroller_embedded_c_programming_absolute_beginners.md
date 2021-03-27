@@ -677,7 +677,45 @@
 		0x0801		0 1 1 1 0 1 1 1
 		0x0800		0 1 1 1 0 1 1 1
 		
-	1. 
+	1. To store or read to or from memory location respectively, we must use it's address
+		1. Address can be (depending on computer architecture)
+			1. 32 bits (Arm Cortex Mx - 32 bit)
+			2. 16 bits
+			3. 8 bits
+	2. Example:
+
+			0x0800		0 0 0 1 0 1 0 0
+			valueA
+			
+		1. `valueA` - Name assigned to memory location address to retrieve the data stored
+		2. Variable name exists for programming convenience and doesn't exist post-compilation
+			1. Only associated memory address exists
+3. Programmer referes to variable name associated to the memory location (for read or write)
+4. Defining Variables
+	1. Before you use a variable, you have to define it
+	2. Variable definition
+		1. Sometimes called variable declaration
+		2. It is letting the compiler know we will need some memory space for program data
+			1. For reserving some memory
+	3. To declare a variable, we only need to state it's type
+		1. Followed by variable name
+	4. Example: If data type of variable is `char`
+		1. Compiler reserves 1 byte
+	5. Example: If data type of variable is `int`
+		1. Compiler reserves 4 bytes
+5. Syntax: Defining variables
+	1. 'C' syntax of variable declaration:
+
+			<data type> <variable name>;
+			
+		1. Example:
+
+				char myExamScore; // This is called variable declaration
+				
+	2. Initialization
+
+			char myExamScore;
+			myExamScore = 25; // This is called variable initialization
 
 ### Declaration vs Definition: An Illustration ###
 ### Variables Scope and Illustration ###
