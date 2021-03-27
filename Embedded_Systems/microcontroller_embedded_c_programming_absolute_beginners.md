@@ -1168,7 +1168,7 @@
 	1. main.c
 
 			#include <stdio.h>
-			#include <math.h>
+			#include "math.h"
 
 			int main() {
 				int a = 13;
@@ -1220,6 +1220,7 @@
 		1. Include guards:
 			1. The prevent inclusion of header files multiple times in source file
 			2. Written using pre-processor directives
+		2. User defined header files should be in `""`
 
 ### Typecasting in 'C' ###
 ### Typecasting in 'C' Contd ###
