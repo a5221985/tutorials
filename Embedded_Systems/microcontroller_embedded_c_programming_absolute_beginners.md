@@ -1028,9 +1028,18 @@
 	1. 'extern' storage class specifier is used to access
 		1. global variable defined outside the scope of file
 	2. 'extern' storage class specifier can also be used during function call
-		1. When function is defined outside scope of file
+		1. When function is defined outside scope of file (it is optional - it is assumed)
+	3. 'extern' is relevant only when project consists of multiple files
+		1. We need to access variable defined in one file from another file
+	4. 'extern' is used to extend visibility of function or variable
 
 ### ASCII Codes ###
+1. The American National Standards Institute (ANSI) developed ANSI C & ASCII code
+	1. American Standard Code for Information Interchange
+2. Using ASCII standard
+	1. We can encode 128 different characters
+3. We just need 7 bits
+	1. `char` data type can be used
 
 ## Functions ##
 ### Introduction to Functions in 'C' ###
