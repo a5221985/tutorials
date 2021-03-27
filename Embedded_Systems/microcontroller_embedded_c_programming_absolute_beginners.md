@@ -508,14 +508,36 @@
 				1. It holds only integers (not floats)
 2. Variable definition
 
-		unsigned char cityXTemperature; /* This is a variable definition */
+		unsigned char cityXTemperature; /* This is a variable declaration */
 		cityXTemperature = 25; /* This is variable initialization */
 		
 	1. Variable declaration: includes **data type** and **variable name**
 		1. Data type is mandatory in C
-		2. 
+		2. **Data type can be selected according to the program logic and need**
+3. Example - 2
+	1. Storing sun's temperature value in program
+		1. surface temperature - 5,505 degrees celcius
+			1. It will never be negative anytime soon as per our knowledge (even if it goes, no life or this program would exist as of now)
+			2. We can consider it as unsigned data (+ve data)
+		2. 5505 > 255 - it cannot be `unsigned char`
+			1. `unsigned short` can be used
+
+					unsigned short sunTemperature = 5505;
 
 ### Variable Definition Exercise ###
+1. Write a C program to calculate and print distance from A to C
+	1. Construct variables to hold these data
+	2. Compute the sum of data
+	3. Store the result
+	4. Print the result as shown in the format
+
+			int main() {
+				unsigned char distanceAToB = 160; // in kms
+				unsigned char distanceBToC = 40;  // in kms
+				unsigned char distanceAToC = distanceAToB + distanceBToC; // in kms
+				printf("Total distance from A to C = %u");
+			}
+
 ### Range Calculation for 'char' Data Type ###
 ### Integer Data Type 'short int' and Value Range ###
 ### Integer Data Type 'int' and 'long' ###
