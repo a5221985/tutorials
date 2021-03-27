@@ -908,8 +908,20 @@
 			1. Pointer size is compiler and hardware-specific
 			2. ARM Cortex Mx STM32 - 4 bytes (32 bit machine)
 		2. `01000001` - ASCII code of 'A' - 0x41
+		3. Example:
+
+				printf("Address of variable a1 = %p\n", &a1);
+				printf("Address of variable a1 = %p\n", &a2);
+				printf("Address of variable a1 = %p\n", &a3);
+				printf("Address of variable a1 = %p\n", &a4);
+				printf("Address of variable a1 = %p\n", &a5);
+				
+			1. Consecutive addresses
 
 ### Address of Variables Contd ###
+1. Storing address into variable
+
+		unsigned long int addressOfA1 = &a1;
 
 ## Storage Classes ##
 ### Storage Class Specifiers in 'C' ###
