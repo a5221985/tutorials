@@ -1111,13 +1111,36 @@
 			1. Returning `void` triggers warnings
 		3. `main` takes only zero or two arguments
 		4. `main()` is special function in C from where execution of program starts and ends
-		5. `main()` returns status of program to parent process
+		5. `main()` returns status of program to parent process (OS here)
 			1. It shows success or failure of program
 				1. 0 - success
 				2. non-0 - failure
 		6. `main()` should return `int` value as per standard (C89 and above)
+2. Function to add numbers
+
+		int main() {
+			function_add_numbers(12, 13, 14);
+			function_add_numbers(-20, 20, 14);
+			
+			int valueA = 90;
+			int valueB = 70;
+			function_add_numbers(valueA, valueB, 90);
+		}
+		
+		void function_add_numbers(int a, int b, int c) {
+			int sum;
+			sum = a + b + c;
+			printf("Sum = %d\n", sum);
+		}
+		
+	1. 'formal' parameters: Local scope variables of function `function_add_numbers` that are used to receive data from other parts of program
+	2. Function prototype helps compiler to understand function return data type and data types of 'formal' parameters
+		1. Or else, compiler will make unwanted assumptions which conflicts with function definition
+			1. To avoid it, mention function prototype before calling function for very first time
 
 ### Function Prototypes ###
+1. 
+
 ### Returning Data from a Function ###
 ### Function Exercise ###
 ### Typecasting in 'C' ###
