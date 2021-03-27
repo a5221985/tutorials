@@ -1314,6 +1314,22 @@
 			2. If usign a board based on Cortex M0 or M0+ processor
 				1. Watch the next video to use openOCD based semi hosting technique to use printf
 					1. Trace functionality cannot be used
+			3. Board:
+
+					ARM Cortex M4 Proc --SWO-> ST Link V2 DEBUG Circuit
+					
+					ST Link V2 DEBUG Circuit -USB-> PC
+					
+				1. On board ST Link V2 DEBUG circuit - Used by PC to communicate with the board
+					1. To write program to internal flash of microcontroller
+					2. To read various register locations of microcontroller
+					3. To run or stop processor
+					4. USB goes to PC
+				2. ARM Cortex M4 Processor
+
+						ITM unit (Instrumentation Trace Macrocell Unit)
+						
+					1. This is inside the ARM Cortex M4 Processor
 
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
