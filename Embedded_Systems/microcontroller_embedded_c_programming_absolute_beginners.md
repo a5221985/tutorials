@@ -868,9 +868,22 @@
 				
 				return 0;
 			}
+			
+		1. If variable names are same, first preference is given to local space
+
+				{
+					int valueA = 67; // restricted to this scope only
+				}
+				
+			1. When execution control goeas out of scope of a local variable, local variable dies
+				1. Variable loses its existence
 
 ### Variables Scope and Illustration Contd ###
 ### Summary of Local and Global Variables ###
+1. Summary of Global Variables
+	1. **Scope**: Global variables are visible to all functions of a program
+		1. They are everywhere
+		2. One can access global variables from another file of project
 
 ## Address of Variable ##
 ### Address of Variables ###
