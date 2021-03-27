@@ -884,9 +884,31 @@
 	1. **Scope**: Global variables are visible to all functions of a program
 		1. They are everywhere
 		2. One can access global variables from another file of project
+	2. **Default value**: All uninitialized global variables will have 0 as default value
+	3. **Lifetime**: Till the end of execution of program
+2. Summary of Local Variables
+	1. **Scope**: Within body of function. Local variables lose existence once execution control comes out of function body
+	2. **Default value**: unpredictable (garbage value)
+	3. **Lifetime**: Till the end of execution of function in which a variable is defined
 
 ## Address of Variable ##
 ### Address of Variables ###
+1. Write a program to print address of variables
+
+		int myData;
+		
+		&myData; // gives memory location address of myData variable
+		
+	1. `%p` - format specifier to print memory address (pointer)
+	2. Print address:
+
+			printf("Address of variable a1 = %p\n", &a1);
+			
+		1. `0x00007FFF8E3C3821` - address (8 bytes - 64 bit machine)
+			1. Pointer size is compiler and hardware-specific
+			2. ARM Cortex Mx STM32 - 4 bytes (32 bit machine)
+		2. `01000001` - ASCII code of 'A' - 0x41
+
 ### Address of Variables Contd ###
 
 ## Storage Classes ##
