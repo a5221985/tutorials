@@ -945,9 +945,37 @@
 
 ## Storage Classes ##
 ### Storage Class Specifiers in 'C' ###
-1. 
+1. Storage classes in 'C' decide
+	1. Scope of variable
+	2. Visibility of variable or function
+	3. Life time of variable
+2. Scope, visibility, and lifetime
+	1. Features of variable
+		1. The features can be modified using storage class specifiers
+3. Two widely used storage class specifiers in 'C'
+	1. `static`
+
+			int main() {
+				myFun1();
+				myFun1();
+				myFun1();
+				myFun1();
+			}
+
+			void myFun1(void) {
+				static int count = 0; // if we make it global, it becomes public (even to other files)
+				count = count + 1;
+				printf("This function executed %d times\n", count);
+			}
+			
+		1. Requirement: We want global variable that is private to a fucntion
+			1. We want a private variable that does not lose its existence even if execution control goes out of scope of that variable
+				1. `static` - accessible only from within the scope (function in this case) but it is global in lifetime
+	2. `extern`
 
 ### Use Cases of 'static' with Variables ###
+1. 
+
 ### Use Cases of 'static' with Functions ###
 ### 'extern' Storage Class Specifier ###
 ### ASCII Codes ###
