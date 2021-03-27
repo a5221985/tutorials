@@ -617,8 +617,19 @@
 4. Integer data type: `int` and `unsigned int`
 	1. `int` is integer data type to store signed integer data
 	2. `int` type consumes 2 bytes of mem or 4 bytes of mem
+	3. Size of `int` decided by compiler used to generate code for target hw
+		1. Consult compiler user manual to understand size of int (typically 2 or 4 bytes)
+	4. `unsigned int` - used to store unsigned integer value
 
 ### Integer Data Type 'int' and 'long' ###
+1. Integer data type: type to store signed integer data
+	1. `int` is integer data type
+		1. To store signed integer data
+	2. `int` type variable consumes 2 bytes or 4 bytes of mem
+	3. Size of `int` - decided by compiler used to generate code for target hardware
+		1. Consult user manual to understand size of `int` (2 or 4 bytes)
+	4. `unsigned int` - integer data type to store unsigned integer
+
 ### Sizeof ###
 ### Variables Naming Rules and Definition vs Declaration ###
 ### Declaration vs Definition: An Illustration ###
