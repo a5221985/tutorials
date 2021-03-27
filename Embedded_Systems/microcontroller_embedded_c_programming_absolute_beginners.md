@@ -1281,6 +1281,40 @@
 
 ## Microcontroller and Hello World ##
 ### Embedded - 'Hello World' ###
+1. New STM32 Project:
+	1. File > New > STM32 Project
+	2. Board Select
+	3. Name: 001HelloWorld
+	4. Language: C
+	5. Targeted Project Type: Empty
+2. Folder:
+	1. `Inc` - include folder - header files for project
+	2. `Src` - source code (.c files)
+		1. `main.c`
+		2. `syscalls.c`
+		3. `sysmem.c`
+	3. Startup (startup code is required for every microcontroller)
+		1. startup_stm32f407vgtx.s (later)
+			1. Writing startup file from scratch - later
+3. main.c
+
+		#include <stdio.h>
+		
+		int main() {
+			printf("Hello World\n");
+			for(;;);
+		}
+		
+	1. How are we going to see the message output without a display device connected to our board?
+		1. Solution:
+			1. ARM Cortex Processor
+				1. Using printf outputs on ARM COrtex M3/M4/M7 based MCUs
+					1. This discussion is only applicable to MCUs based on ARM Cortex M3/M4/M7 or higher processors
+					2. printf works over **SWO pin** (**Serial Wire Output**) of SWD interface
+			2. If usign a board based on Cortex M0 or M0+ processor
+				1. Watch the next video to use openOCD based semi hosting technique to use printf
+					1. Trace functionality cannot be used
+
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
 ### Testing printf Over OpenOCD Semihosting ###
