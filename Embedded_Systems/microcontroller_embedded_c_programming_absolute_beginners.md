@@ -1791,9 +1791,18 @@
 		9. Analog peripherals
 		10. Timers
 		11. PWM
-	3. 
+	3. TIWA Development Board (Texas Instruments)
+		1. CPU - Arm Cortex M4 (80 Mhz)
+		2. Embedded memories
+			1. 2 KB EEPROM
+		2. Analog peripherals
+		3. Connectivity related peripherals
+	4. Peripherals to include and exclude rely on marketing
+		1. Depends on application area the microcontroller targets
 
 ### Code Memory of the Microcontroller ###
+1. 
+
 ### Code and Data of the Program Using Memory Browser ###
 ### Analyzing ELF File Using GNU Tools ###
 ### Disassembly ###
