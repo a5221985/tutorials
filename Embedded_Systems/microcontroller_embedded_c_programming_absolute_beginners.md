@@ -1522,7 +1522,48 @@
 			5. Close
 	8. main.c
 
+			extern void initialise_monitor_handles(void);
+			
+			int main(void) {
+				initialise_monitor_handler();
+
+				printf("Hello World\n");
+				
+				for(;;);
+			}
+			
+	9. Exclude `syscalls.c` from build
+		1. Right click on `syscalls.c`
+		2. Properties
+		3. C/C++ Build
+			1. Check: Exclude Resource from Build
+	10. Build the project
+	11. Connect the hardware
+		1. Debug As > STM32 C Application
+		2. Step over twice
+4. `\n` is important in `printf` under openOCD debugger
+
 ### Run sizeof on Embedded Target ###
+1. `sizeof`
+	1. Find out storage sizes of below data types for cross compiler
+		1. `char`
+		2. `int`
+		3. `long`
+		4. `long long`
+		5. `double`
+	2. Example:
+
+			printf("Size of char data type = %d\n", sizeof(char));
+			printf("Size of short data type = %d\n", sizeof(short));
+			printf("Size of int data type = %d\n", sizeof(int));
+			printf("Size of long data type = %d\n", sizeof(long));
+			printf("Size of long long data type = %d\n", sizeof(long long));
+			
+2. `for` loop is automatically added
+	1. An embedded application never ends.
+	2. If application has nothing to do, it puts processor to sleep or executes infinite loop
+		1. This is implementation of infinite loop that does nothing but keeps the processor busy
+
 ### Sizeof Testing ###
 ### Compiler Settings on STM32CubeIDE ###
 
