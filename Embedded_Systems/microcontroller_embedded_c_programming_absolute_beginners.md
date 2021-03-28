@@ -2012,10 +2012,41 @@
 			2. Check memory browser
 
 ### IDE Option for Instruction Level Debugging ###
-1. 
+1. Update
+	1. Instead of keeping breakpoint at every line of disassembly code
+		1. Enable **Instruction Stepping Mode** (top left)
+		2. Use step-over or step-into (executes one instruction at a time)
+		3. Disable if debugging C program
 
 ## Data Types to Manipulate Floating Point Data ##
 ### Manipulating Decimal Numbers in 'C' ###
+1. Representation of decimal numbers in 'C'
+	1. Decimal number contains a decimal point
+		1. 125.55 - decimal number (real number)
+	2. In computer memory, real numbers are stored according to representation standardized by IEEE standard 754
+	3. IEEE754 floating-point representation is approximate representation of real numbers
+	4. All computer systems and microcontrollers nowadays use this standard to store real numbers in memory
+	5. If we are working with numbers that have a fractional part, or in case we are using integers that don't fit into long data type, then we can use floating-point representation
+2. Real numbers
+	1. Too small real numbers
+		1. Charge of an electron
+			1. -1.60217662 x 10^9 coulombs
+	2. Too big real number
+		1. distance between earth and andromeda galaxy
+			1. 2.3651826 x 10^19 kms
+3. In 'C' too small or too big numbers or numbers having fractional part are represented using floating point representation data types
+	1. float
+	2. double
+4. Why floating point representation?
+	1. To store, too-small number in memory
+	2. To store, too-big number in memory
+	3. To store, decimal number
+5. Think of the following situations
+	1. Storing charge of an electron (too small)
+	2. Storing light years to kilometers conversion
+	3. Which data type do you use to store 1.767 x 10^100 (too big)?
+6. 
+
 ### Single vs Double Precision ###
 ### Working with Float and Double Variables ###
 
