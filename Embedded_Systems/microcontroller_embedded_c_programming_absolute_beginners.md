@@ -1447,9 +1447,11 @@
 			2. Switches to Debug perspective
 8. IDE stops at first instruction of main function (halted at first instruction)
 	1. Window > Show View > SWV > SWV ITM Data Console
-	2. Click on Configure Trace
+	2. Click on **Configure Trace** (bottom right)
 	3. Select Port 0
 9. Click Resume button
+	1. Click on **Start trace** (bottom right)
+	2. Click on **Reset the chip and restart debug session** (top left)
 
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
