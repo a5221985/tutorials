@@ -1484,7 +1484,7 @@
 	1. Set linker arguments
 		1. `-specs=rdimon.specs -lc -lrdimon`
 	2. Add semi-hosting run command
-		1. monitor arm semihosting enable
+		1. `monitor arm semihosting enable`
 	3. Add below function call to main.c
 	
 			extern void initilise_monitor_handles(void);
@@ -1500,6 +1500,27 @@
 		1. New Lauch Configuration
 			2. Debugger
 				1. Debug probe: ST-LINK (OpenOCD)
+			3. Startup
+				1. Run Commands
+
+						monitor arm semihosting enable
+						
+			4. Apply
+			5. Close
+	5. Right click on project
+	6. Properties
+	7. C/C++ Build
+		1. Settings
+			1. Tool Settings
+			2. Linker
+			3. Miscellaneous (set linker arguments)
+				1. Click on +
+
+						-specs=rdimon.specs -lc -lrdimon
+
+			4. Apply
+			5. Close
+	8. main.c
 
 ### Run sizeof on Embedded Target ###
 ### Sizeof Testing ###
