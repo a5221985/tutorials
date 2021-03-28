@@ -1979,9 +1979,9 @@
 				1. Window > Show View > Disassembly
 2. Processor architecture and instruction set
 	1. Processor: ARM Cortex M4
-	2. Processor architecture: ARMv7E-M
-	3. Instruction set architecture (ISA): Thumb-2
-		1. Instruction set (16/32-bits instruction encoding)
+	2. Processor architecture: ARMv7E-M (architecture name)
+	3. Instruction set architecture (ISA): Thumb-2 (ISA name)
+		1. Instruction set (16/32-bit instruction encodings)
 
 ### IDE Option for Instruction Level Debugging ###
 
