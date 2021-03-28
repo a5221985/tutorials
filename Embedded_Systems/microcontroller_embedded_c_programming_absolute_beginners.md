@@ -1425,7 +1425,31 @@
 	2. It produces executable which also runs on same machine
 		1. .exe (say)
 7. Loading to target:
-	1. Connect STM32
+	1. Connect STM32 target board to PC
+	2. Right click on project
+		1. Debug As > Debug Configurations
+		2. Double click STM32 MCU Debugging
+			1. New config is created
+				1. Debug/001HelloWorld.elf (default)
+			2. Debugger
+				1. Debug probe: ST-LINK (ST-LINK GDB server)
+				2. Interface: SWD
+				3. Serial Wire Viewer (SWV)
+					1. Enable
+				4. Clock Settings:
+					1. Core Clock: 16.0 MHz
+					2. SWO Clock: 2000 kHz
+			3. Apply
+			4. Close
+	3. Right click on project
+		1. Debug As > STM32 MCU C/C++ Application
+			1. Loaded into target
+			2. Switches to Debug perspective
+8. IDE stops at first instruction of main function (halted at first instruction)
+	1. Window > Show View > SWV > SWV ITM Data Console
+	2. Click on Configure Trace
+	3. Select Port 0
+9. Click Resume button
 
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
