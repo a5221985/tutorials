@@ -1327,9 +1327,19 @@
 					4. USB goes to PC
 				2. ARM Cortex M4 Processor
 
-						ITM unit (Instrumentation Trace Macrocell Unit)
+						__________
+						|ITM unit| (Instrumentation Trace Macrocell Unit)
+						----------
+						_________________________
+						| Debug Connector (SWD) |
+						-------------------------
+						2 pin (debug) + 1 pin (trace)
 						
 					1. This is inside the ARM Cortex M4 Processor
+					2. ITM - optional application-driver trace source that supports `printf` style debugging to trace operating system and application events, and generates diagnostic system info
+						1. Available in M3 and above (Not in M0)
+					3. Serial Wire Debug (SWD) - two-wire protocol for accessing ARM debug interface
+						1. 
 
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
