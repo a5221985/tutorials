@@ -1625,9 +1625,33 @@
 	4. Linking object file(s)
 		1. Multiple re-locatable object files (.o and .a files) will be combined into one executable (.elf)
 			1. .a files - libraries (std and/or third party (libc))
-		2. 
+		2. .elf - executable and link format (debug file)
 	5. Producing final executable
+		1. .elf is produced
 	6. Post processing of final executable
+		1. objcopy tool can be used to produce .bin (pure binary executable file) or .hex files
+2. Right click
+	1. Clean Project
+	2. Build Project
+		1. Compiles files in following order:
+			1. startup file
+			2. main.c
+			3. syscalls.c
+			4. ...
+		2. .elf is generated
+	3. Post processing tools can be invoked
+		1. Object dump
+		2. Size
+			1. Code section size
+			2. Data section size
+			3. BSS section size
+3. The intermediate files are stored in project
+	1. Right click on project
+		1. Properties
+		2. Resource
+			1. Click on icon against Location
+				1. Go to Debug (no .i and .s)
+	2. 
 
 ## Analyzing Embedded C Code ##
 ### What is a Microcontroller? ###
@@ -1741,7 +1765,7 @@
 ### Different Compiler Optimization Levels ###
 ### Analyzing Pin Read Exercise Disassembly with O0 and O2 ###
 
-## 'volatile' Type Qualifer ##
+## 'volatile' Type Qualifier ##
 ### volatile and Effect of Optimization ###
 ### When to Use volatile Qualifier? ###
 ### Using Volatile to Fix Issues with the Pin-Read Exercise ###
