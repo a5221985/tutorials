@@ -1593,10 +1593,41 @@
 						2. Convert to Intel Hex file (-O ihex)
 						3. ...
 					4. MCU GCC Compiler
-						1. 
+						1. Default compiler flags
+						2. General
+							1. Language standard: C standard
+								1. Do not change 'C' standard
+									1. IDE uses 'gnu11' which 'ISO-C11 + GNU related extensions'
+										1. ISO standard + new extensions = gnu11
+						3. Optimization
+							1. Do not change 'IDE' default optimization. In the 'volatile' section, we can experiement with optimization options
+					5. MCU GCC Linker (Linker flags)
+						1. Scripts (advanced concepts)
+						2. Default options
+					6. Apply
 
 ## Build Process ##
 ### Embedded Project Build Process ###
+1. Build Process
+	1. Preprocessing (compilation)
+		1. Produces .i file
+		2. `#include`, ... will be resolved
+	2. Parsing (compilation)
+		1. Parser engine will parse .i files to check syntax against standard selected
+			1. Any error will be reported
+		2. **Code generator**:
+			1. Generates .s file
+				1. C is converted to assembly language (mnemonics)
+	3. Producing object file(s)
+		1. **Assembler**
+			1. Converts to machine code (.o file)
+				1. .o files are relocated object files
+	4. Linking object file(s)
+		1. Multiple re-locatable object files (.o and .a files) will be combined into one executable (.elf)
+			1. .a files - libraries (std and/or third party (libc))
+		2. 
+	5. Producing final executable
+	6. Post processing of final executable
 
 ## Analyzing Embedded C Code ##
 ### What is a Microcontroller? ###
