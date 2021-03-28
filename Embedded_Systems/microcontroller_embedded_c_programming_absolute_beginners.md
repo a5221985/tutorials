@@ -1424,7 +1424,9 @@
 	1. Host native compiler (mingw_64 or gcc) - compiler runs on host machine
 	2. It produces executable which also runs on same machine
 		1. .exe (say)
-7. Loading to target:
+
+### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
+1. Loading to target:
 	1. Connect STM32 target board to PC
 	2. Right click on project
 		1. Debug As > Debug Configurations
@@ -1445,16 +1447,29 @@
 		1. Debug As > STM32 MCU C/C++ Application
 			1. Loaded into target
 			2. Switches to Debug perspective
-8. IDE stops at first instruction of main function (halted at first instruction)
+2. IDE stops at first instruction of main function (halted at first instruction)
 	1. Window > Show View > SWV > SWV ITM Data Console
 	2. Click on **Configure Trace** (bottom right)
 	3. Select Port 0
-9. Click Resume button
+3. Click Resume button
 	1. Click on **Start trace** (bottom right)
 	2. Click on **Reset the chip and restart debug session** (top left)
 
-### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
+1. It is related to debugging session of IDE (if we encounter)
+2. Right click > Debug As > STM32 application
+	1. Switch
+	2. Enable tracing
+	3. If unknown characters appear
+		1. Click on **Remove all collected SWV data** (bottom right)
+		2. Click on **Reset the chip and restart debug session**
+3. Going back to C/C++ perspective (edit)
+	1. Two options to terminate
+		1. Terminate - click this - IDE goes back to C/C++ perspective
+		2. Terminate and relaunch
+4. Try to debug again
+	1. It goes back to debug perspective
+
 ### Testing printf Over OpenOCD Semihosting ###
 ### Run sizeof on Embedded Target ###
 ### Sizeof Testing ###
