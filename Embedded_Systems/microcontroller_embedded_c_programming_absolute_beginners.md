@@ -1651,7 +1651,25 @@
 		2. Resource
 			1. Click on icon against Location
 				1. Go to Debug (no .i and .s)
-	2. 
+	2. Instruct the compiler
+		1. Right click
+		2. Properties
+		3. C/C++ Build
+		4. Settings
+		5. Compiler Settings
+		6. Miscellaneous
+			1. Click on +
+			
+					-save-temps
+					
+		7. Apply
+	3. Re-build the project
+		1. .i, .s files get generated
+			1. Mnemonics for ARM Cortex Mx processor
+4. Summary of Build:
+	1. Preprocesing
+	2. Compilation
+	3. Linking
 
 ## Analyzing Embedded C Code ##
 ### What is a Microcontroller? ###
