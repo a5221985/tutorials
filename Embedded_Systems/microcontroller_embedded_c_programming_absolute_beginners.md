@@ -1364,6 +1364,45 @@
 							1. SWD:
 								1. Designed to reduce pin count required for debug from 4 used by JTAG (excluding GND) down to 2
 								2. Additionally, SWD interface provides another pin called SWO (Serial Wire Output) - used for Single Wire Viewing (SWV) (low cost tracing technology)
+			3. ITM Unit:
+
+					ITM UNIT
+
+						FIFO
+						[||||] -> Debug Connector (SWD) -> SWO Pin (comes out of debug circuit)
+						
+				1. SWO pin is connected to ST link circuitry of board (FIFO is connected to SWO pin)
+				2. The output can be captured using debug software (IDE)
+					1. Not all IDEs supports this (STM32Cube, TrueIDE support)
+4. Code snippet: Go to Git repo and copy itm_send_data.c code
+	1. syscalls.c
+		1. paste the code just below include statements
+			1. It is an implementation of printf like feature using ARM Cortex M3/M4/M7 ITM functionality (does not work for M0/M0+ - use semihosting feature of openOCD)
+		2. The code writes into FIFO
+	2. Go to `_write(...)`
+	3. Call the new function
+
+			for (DataIdx ...)
+			{
+				// __io_putchar(*ptr++);
+				ITM_SendChar(*ptr++);
+			}
+			
+	4. What is happening?
+		1. `printf` implementation is std library
+
+				printf()
+				{
+					__write(...);
+				}
+				
+					__write(...)
+					{
+						ITM_sendChar(...);
+						LCD_sendChar(...);
+					}
+					
+			1. `printf` is diverted to ITM Trace Unit
 
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
