@@ -1715,6 +1715,32 @@
 		I/O <-> Serial I/O
 		
 	1. CPU - executes program instructions
+		1. Reads instructions from program memory and executes
+		2. CPU communicates with Program memory using Bus
+			1. CPU produces address of next instruction and communicates with Program memory using Address Bus
+		3. CPU decodes instruction and action will be taken accordingly
+		4. How fast CPU executes instructions depends on CLOCK
+	2. Program memory - non volatile
+		1. Once we store program, it is permanent (erasable)
+			1. Even if we remove power, it will not get corrupted
+		2. Sends instruction to CPU using Data Bus
+	3. CLOCK - controls speed of code execution
+	4. Data memory - volatile
+		1. Used to store data of program
+		2. Used as scratchpad
+			1. Temporarily
+			2. It is not permanent data
+		3. Usually data memory of MCU is consumed during run-time of program
+		4. When power is taken off, content of the memory is lost
+	5. Serial I/O
+		1. Consider a mobile phone sending data (or instructions) to microcontroller via bluetooth
+		2. Microcontroller can communicate with bluetooth module using serial I/O or parallel I/O
+		3. Microcontroller receives data from Bluetooth and stores in data memory
+4. Almost all microcontrollers have this feature
+	1. Example: STM32 Cortex
+		1. Internal details of an STM32F407xx MCU
+			1. ARM Cortex M4 CPU (180 Mhz)
+				1. Developed by ARM
 
 ### Code Memory of the Microcontroller ###
 ### Code and Data of the Program Using Memory Browser ###
