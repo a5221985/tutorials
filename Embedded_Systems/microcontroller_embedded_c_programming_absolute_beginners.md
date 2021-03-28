@@ -1353,6 +1353,7 @@
 								1. We can access memory regions
 								2. We can add breakpoints
 								3. We can stop/run CPU
+							5. Other good thing: We can use serial wire viewer for printf statements for debugging
 
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
