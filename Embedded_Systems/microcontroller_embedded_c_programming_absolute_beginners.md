@@ -1982,6 +1982,18 @@
 	2. Processor architecture: ARMv7E-M (architecture name)
 	3. Instruction set architecture (ISA): Thumb-2 (ISA name)
 		1. Instruction set (16/32-bit instruction encodings)
+3. Click on Go to Current Program Counter (top right in Disassembly)
+	1. `result = g_data1 + g_data2;`
+
+			08000294	ldr		r3, [pc, #24]	; data is read into register
+			...
+						add		r3, r2			; modify
+						...
+						str		r3, [r2, #0]	; content written back to mem
+						
+		1. If we don't see opcodes:
+			1. Right click > Show opcodes
+		2. `printf` - code from standard library is also placed
 
 ### IDE Option for Instruction Level Debugging ###
 
