@@ -2080,6 +2080,14 @@
 	4. All constants with decimal point are considered double by default
 
 ### Working with Float and Double Variables ###
+1. Range of Float:
+	1. Storage size: 4 bytes
+	2. Precision: up to 6 decimal places
+	3. Value range: 1.2x10^-38 to 3.4x10^38
+2. Range of Double:
+	1. Storage size: 8 bytes
+	2. Precision: up to 15 decimal places
+	3. Value range: 2.3x10^-308 to 1.7x10^308
 
 ## Taking Input From the User Using scanf() ##
 ### Scanf Introduction ###
