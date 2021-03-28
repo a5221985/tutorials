@@ -2003,8 +2003,16 @@
 	2. Most of the instructions are 16 bit
 		1. Some of the instructions are 32 bit
 5. Go to ARM website and explore Thumb 2 ISA	1. [https://developer.arm.com/documentation/ddi0553/latest](https://developer.arm.com/documentation/ddi0553/latest)
+6. Instruction level debugging:
+	1. Put breakpoints in main code
+		1. We can see breakpoints in Disassembly window
+	2. Put breakpoints in Disassembly window
+		1. Instruction level debugging
+			1. Check registers
+			2. Check memory browser
 
 ### IDE Option for Instruction Level Debugging ###
+1. 
 
 ## Data Types to Manipulate Floating Point Data ##
 ### Manipulating Decimal Numbers in 'C' ###
