@@ -1407,7 +1407,25 @@
 				1. If we want to uprade to newer version - we need to change settings
 5. Cross compilation
 	1. x86/x86_64 architecture (Host machine)
-		1. cross compiler: `arm-none-eabi-gcc`
+		1. cross compiler: `arm-none-eabi-gcc` - the compiler runs on host machine
+			1. It produces executable for different architecture(s)
+				1. .elf (executable - executable and linkable format)
+					1. Used for debugging
+						1. Debug analyzers can be used to read contents (unless it is 
+				2. .bin
+					1. Pure binary (for production)
+					2. Debugging is not possible with this format
+				3. .hex
+					1. Pure binary (for production)
+					2. Debugging is not possible with this format
+	2. Cross compiler runs on one architecture but produces code for a different architecture
+		1. It is cross compilation
+6. Native compilation
+	1. Host native compiler (mingw_64 or gcc) - compiler runs on host machine
+	2. It produces executable which also runs on same machine
+		1. .exe (say)
+7. Loading to target:
+	1. Connect STM32
 
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
