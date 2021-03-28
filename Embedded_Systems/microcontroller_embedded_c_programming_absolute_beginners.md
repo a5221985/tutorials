@@ -1588,6 +1588,12 @@
 					2. Other options
 						1. Runtime library - REduced C (--specs=nano-specs) (very small memory footprint as compared to standard C)
 							1. Standard C - can also be used
+					3. MCU Post build outputs
+						1. Convert to binary file (-O binary)
+						2. Convert to Intel Hex file (-O ihex)
+						3. ...
+					4. MCU GCC Compiler
+						1. 
 
 ## Build Process ##
 ### Embedded Project Build Process ###
