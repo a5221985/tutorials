@@ -1812,8 +1812,12 @@
 				2. It can be programmed after that (almost obsolete)
 			3. EEPROM (Electrically Erasable Programmable ROM)
 				1. Used in modern microcontrollers
+					1. TIs uc (2KB)
+				2. Erased using electric voltage
 		2. OTP (On Time Programmable)
+			1. One Time Programmable
 		3. Flash
+			1. Electrically
 
 ### Code and Data of the Program Using Memory Browser ###
 ### Analyzing ELF File Using GNU Tools ###
