@@ -1912,13 +1912,49 @@
 						1. The code to copy the data from flash memory to SRAM is in startup file: startup_stm32f407vgtx.s
 
 								Reset_Handler: # assembly
-									...
+									... /* set stack */
 									
-							1. 
-						
+							1. If ARM processor undergoes reset, the first function that gets executed is Rest_Handler (automatically by hw)
+							2. Here is where data is copied from flash to SRAM
+								1. First initialization of source and destination addresses
+								2. Actual copy
+								3. Zeroing of bss section
+								4. Calls standard library initialization function (libc)
+									1. If we are not using and standard library functions, this can be skipped
+								4. Calls main
 			3. Copy flash memory address and check - data exists
 	4. LMA: Load Memory Address (Source in FLASH)
 	5. VMA: Virtual Memory Address (Destination in SRAM)
+4. Startup Code:
+
+		Reset of processor
+				|
+				v
+		Processor jumps to reset handler
+				|
+				v
+		Copy .data from Flash to SRAM
+				|
+				v
+		Zero out SRAM locations corresponding to .bss section size
+				|
+				v
+		Call std. library init function __libc_init()
+				|
+				v
+		Call main() of the user program
+				|
+				v
+		Never return from main() back to reset handler
+		
+	1. Reset of processor - when power on reset or system reset
+	2. The following are taken care by start-up code of project:
+		1. Copy .data from Flash to SRAM
+		2. Zero out SRAM locations corresponds to .bss section size
+		3. Call std. library init function __libc_init()
+	3. User code
+		1. Call main() of the user program
+		2. Never return from main() back to reset handler
 
 ### Disassembly ###
 ### IDE Option for Instruction Level Debugging ###
