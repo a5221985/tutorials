@@ -1894,6 +1894,31 @@
 		2. Open *.list (gives same output)
 		3. What is `-h`?
 			1. Display the contents of section headers
+				1. elf format has section headers
+3. ELF file has many sections
+	1. .text - section of elf file contains 'codes' or all the 'instructions' of program
+		1. Executable codes (machine codes)
+	2. .rodata - section contains all 'read-only data' of program
+		1. Constant data
+	3. .data - section contains all 'data' of program
+		1. Address: LMA (data is loaded into this address) (falls into flash memory area - data is loaded into flash memory)
+		2. Virtual Memory Address: For this microcontroller there is nothing virtual (everything is physical) - it is Linux terminology
+		3. LMA says: Where section is currently loaded
+		4. VMA says: Where section should finally be copied to
+			1. Destination address
+			2. Who moved this?
+				1. It is done by the software (we have not written any code)
+					1. It is present in the final elf
+						1. The code to copy the data from flash memory to SRAM is in startup file: startup_stm32f407vgtx.s
+
+								Reset_Handler: # assembly
+									...
+									
+							1. 
+						
+			3. Copy flash memory address and check - data exists
+	4. LMA: Load Memory Address (Source in FLASH)
+	5. VMA: Virtual Memory Address (Destination in SRAM)
 
 ### Disassembly ###
 ### IDE Option for Instruction Level Debugging ###
