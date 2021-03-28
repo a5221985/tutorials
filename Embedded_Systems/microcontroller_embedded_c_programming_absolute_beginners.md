@@ -1955,8 +1955,34 @@
 	3. User code
 		1. Call main() of the user program
 		2. Never return from main() back to reset handler
+5. We can go to breakpoint and keep a breakpoint in `CopyDataInit` section
+	1. Debug
+		1. Code execution halts at the place
+	2. Reset the chip
+		1. Execution halts
+			1. Check r4 and r2
+				1. Window > Show View > Registers
+					1. General Registers
+						1. r2 (flash address)
+						2. r4 (-4000) - source address
+						3. r0 (SRAM address)
 
 ### Disassembly ###
+1. Disassembly feature of the IDE
+	1. translate (a program) from machine code into a higher-level programming language
+		1. We use objdump tool on executable file (.elf)
+			1. We can get back assembly instructions for program
+				1. Good for instruction level debugging
+					1. To check how controller is passing (we can come to know if there is any room for optimisation)
+		2. IDE also gives the feature (runs objdump internally)
+			1. Open Debug Mode
+				1. Window > Show View > Disassembly
+2. Processor architecture and instruction set
+	1. Processor: ARM Cortex M4
+	2. Processor architecture: ARMv7E-M
+	3. Instruction set architecture (ISA): Thumb-2
+		1. Instruction set (16/32-bits instruction encoding)
+
 ### IDE Option for Instruction Level Debugging ###
 
 ## Data Types to Manipulate Floating Point Data ##
