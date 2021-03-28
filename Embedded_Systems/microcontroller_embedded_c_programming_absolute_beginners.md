@@ -1801,7 +1801,18 @@
 		1. Depends on application area the microcontroller targets
 
 ### Code Memory of the Microcontroller ###
-1. 
+1. Code memory
+	1. Purpose of code (program) memory is to store instructions and constant data of program
+	2. There are different types of code memory
+		1. ROM (Read Only Memory) - simplest and cost efficient
+			1. MPROM (Mask Programmable Read only Memory)
+				1. Truly read only memory (we cannot erase it)
+			2. EPROM (Ultraviolet Erasable Programmable ROM)
+				1. We need to take the memory out of the chip and mount it into ultraviolet machine to erase
+				2. It can be programmed after that (almost obsolete)
+			3. EEPROM (Electrically Erasable Programmable ROM)
+		2. OTP (On Time Programmable)
+		3. Flash
 
 ### Code and Data of the Program Using Memory Browser ###
 ### Analyzing ELF File Using GNU Tools ###
