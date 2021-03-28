@@ -1563,9 +1563,31 @@
 	1. An embedded application never ends.
 	2. If application has nothing to do, it puts processor to sleep or executes infinite loop
 		1. This is implementation of infinite loop that does nothing but keeps the processor busy
+3. ITM Data Console
+	1. Channel 0 of ITM (default)
+		1. ITM has 32 channels but `printf` works over channel 0
+	2. Channel 1-31 - Diagnostic info of some other events (can be configured)
+		1. RTOS say
 
 ### Sizeof Testing ###
 ### Compiler Settings on STM32CubeIDE ###
+1. Go to IDE
+	1. If we want to check compiler settings
+	2. Right click on project
+		1. Properties
+		2. C/C++ Build
+			1. Settings
+				1. Toolchain Version: Default
+					1. GNU Arm Embedded Toolchain (cross compiler)
+						1. We can download new toolchain from ARM website
+							1. developer.arm.com
+								1. GNU-R.M
+									1. Downloads
+				2. Tool Settings
+					1. Board
+					2. Other options
+						1. Runtime library - REduced C (--specs=nano-specs) (very small memory footprint as compared to standard C)
+							1. Standard C - can also be used
 
 ## Build Process ##
 ### Embedded Project Build Process ###
