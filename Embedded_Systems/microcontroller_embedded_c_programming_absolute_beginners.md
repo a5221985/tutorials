@@ -1469,8 +1469,19 @@
 		2. Terminate and relaunch
 4. Try to debug again
 	1. It goes back to debug perspective
+	2. Problem: If we use Terminate at the bottom right
+		1. Perspective changes back to C/C++ perspective
+		2. If we try to debug again - Error in final launch sequence (newer versions)
+			1. Click Okay
+			2. Go to Debug perspective manually
+			3. Right click on the option
+			4. Terminate and Remove
+			5. Go back to C/C++ perspective (top right)
+			6. Try to Debug again
 
 ### Testing printf Over OpenOCD Semihosting ###
+1. 
+
 ### Run sizeof on Embedded Target ###
 ### Sizeof Testing ###
 ### Compiler Settings on STM32CubeIDE ###
