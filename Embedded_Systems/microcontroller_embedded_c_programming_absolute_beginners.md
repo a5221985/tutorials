@@ -1339,7 +1339,20 @@
 					2. ITM - optional application-driver trace source that supports `printf` style debugging to trace operating system and application events, and generates diagnostic system info
 						1. Available in M3 and above (Not in M0)
 					3. Serial Wire Debug (SWD) - two-wire protocol for accessing ARM debug interface
-						1. 
+						1. Works over SWD connector
+							1. It has 3 pins
+								1. 2 pins are used for debug
+								2. 1 pin is used for trace
+						2. SWD
+							1. Serial Wire Debug (SWD) is a two-wire protocol for accessing ARM debug interface
+							2. It is part of ARM debug Interface Specification v5 (an alternative to JTAG)
+							3. Physical layer of SWD consists of two lines
+								1. SWDIO: a bidirectional data line
+								2. SWCLK: a clock driven by the host
+							4. Using SWD interface, we should be able to program MCUs internal flash
+								1. We can access memory regions
+								2. We can add breakpoints
+								3. We can stop/run CPU
 
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
