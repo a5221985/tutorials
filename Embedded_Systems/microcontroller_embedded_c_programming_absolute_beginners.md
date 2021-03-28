@@ -2076,6 +2076,8 @@
 4. Format specifier for float and double data types
 	1. Use `%lf` format specifier to read or write double type variable
 	2. Use `%f` format specifier to read or write float type variable
+	3. Use `%e` (float) or `%le` (double) format specifier to read or write real numbers in scientific notation
+	4. All constants with decimal point are considered double by default
 
 ### Working with Float and Double Variables ###
 
