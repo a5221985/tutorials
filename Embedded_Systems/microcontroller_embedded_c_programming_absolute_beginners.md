@@ -2045,9 +2045,38 @@
 	1. Storing charge of an electron (too small)
 	2. Storing light years to kilometers conversion
 	3. Which data type do you use to store 1.767 x 10^100 (too big)?
-6. 
+6. The IEEE-754 floating-point standard
+	1. The IEEE-754 is a standard for representing and manipulating floating-point quantities that are followed by all modern computer systems and microcontrollers
+		1. +7.432 x 10^48
 
 ### Single vs Double Precision ###
+1. Approximate the number and store only required information
+	1. sign (+)
+	2. mantissa (significand) (7.432)
+	3. exponent (48)
+2. How many bits are required to store it?
+	1. Two formats
+		1. IEEE-754 floating-point standard (single precision - 32 bits representation)
+
+				| sign | exponent | significand |
+				31     30         22            0
+				   1        8            23
+				   
+		2. IEEE-754 floating-point standard (double precision - 64 bits representation)
+
+				| sign | exponent | significand |
+				63     62         51            0
+				   1        11           52
+				   
+			1. Higher level of approximation (more acurate compared to single precision implementation)
+3. Example:
+	1. 125.55
+		1. Float (32-bit floating-point representation, single precision)
+		2. Double (64-bit floating-point representation, double precision)
+4. Format specifier for float and double data types
+	1. Use `%lf` format specifier to read or write double type variable
+	2. Use `%f` format specifier to read or write float type variable
+
 ### Working with Float and Double Variables ###
 
 ## Taking Input From the User Using scanf() ##
