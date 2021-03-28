@@ -1480,7 +1480,26 @@
 			6. Try to Debug again
 
 ### Testing printf Over OpenOCD Semihosting ###
-1. 
+1. OpenOCD Debugger and Semi-Hosting
+	1. Set linker arguments
+		1. `-specs=rdimon.specs -lc -lrdimon`
+	2. Add semi-hosting run command
+		1. monitor arm semihosting enable
+	3. Add below function call to main.c
+	
+			extern void initilise_monitor_handles(void);
+			initialise_monitor_handles(void);
+			
+2. OpenOCD - debugger that helps program and debug code on the board
+	1. Open On Chip Debugger
+3. New Project: 001Helloworld_semihosting
+	1. Build the project
+	2. Right click on the project
+	3. Debug Configurations
+	4. Expand STM32 MCU Debugging
+		1. New Lauch Configuration
+			2. Debugger
+				1. Debug probe: ST-LINK (OpenOCD)
 
 ### Run sizeof on Embedded Target ###
 ### Sizeof Testing ###
