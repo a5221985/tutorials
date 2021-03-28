@@ -1994,6 +1994,15 @@
 		1. If we don't see opcodes:
 			1. Right click > Show opcodes
 		2. `printf` - code from standard library is also placed
+4. `arm-none-eabi-objdump -d 003Add.elf`
+	1. Disassembles
+		1. Add following to `~/.bash_profile`
+
+				export PATH=/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.macos64_1.5.0.202011040924/tools/bin:$PATH
+				
+	2. Most of the instructions are 16 bit
+		1. Some of the instructions are 32 bit
+5. Go to ARM website and explore Thumb2 ISA
 
 ### IDE Option for Instruction Level Debugging ###
 
