@@ -1741,6 +1741,57 @@
 		1. Internal details of an STM32F407xx MCU
 			1. ARM Cortex M4 CPU (180 Mhz)
 				1. Developed by ARM
+					1. STM Takes software implementation of the unit and customize it as per their needs and then it is implemented on the chip
+			2. Implementations of ST
+				1. System
+					1. RTC (real time clocking)
+					2. PLL Engine (used to boost the clock)
+					3. Internal RC Oscillators
+						1. Can be used if microcontroller is not connected to a crystal (for clocking)
+						2. Produce clock to CPU, Bus interfaces, peripherals
+					4. Low power control circuitry
+					5. Internal power regulator
+						1. For producing regulated power supply to the microcontroller
+					6. Watchdog timers
+				2. Connectivity (Peripherals - for external connectivity)
+					1. SPI
+					2. Camera
+					3. CAN
+					4. I2C
+					5. USB
+					6. ...
+				3. Control (don't connect to external devices but help us perform control related activities)
+					1. PWM
+					2. Wave generation
+					3. Timers
+					4. ...
+				4. Analog
+					1. ADC
+					2. DAC
+					3. Temperature sensor
+					4. ...
+				5. Embedded memory
+					1. Flash memory (for code memory)
+					2. SRAM (Static RAM - for data memory)
+					3. External memory interfaces
+						1. Flash
+						2. SDRAM
+					4. OTP
+						1. One Time Programmable memory
+	2. PIC16F887 microcontroller
+		1. Peripheral Interface Controller - made by Microchip Technology (8-bit application domain)
+		2. CPU (It is not ARM - it is proprietary by Microchip - PIC architecture) - it has it's own instruction set
+			1. C code needs to be cross compiled for PIC
+		3. Internal oscillators (default clock to CPU and peripherals)
+		4. Peripherals
+		5. Program memory
+		6. Data memroy
+		7. On-chip EEPROM
+		8. I/O Ports
+		9. Analog peripherals
+		10. Timers
+		11. PWM
+	3. 
 
 ### Code Memory of the Microcontroller ###
 ### Code and Data of the Program Using Memory Browser ###
