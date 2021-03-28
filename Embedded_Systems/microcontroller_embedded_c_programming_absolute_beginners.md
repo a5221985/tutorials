@@ -2002,7 +2002,7 @@
 				
 	2. Most of the instructions are 16 bit
 		1. Some of the instructions are 32 bit
-5. Go to ARM website and explore Thumb2 ISA
+5. Go to ARM website and explore Thumb 2 ISA	1. [https://developer.arm.com/documentation/ddi0553/latest](https://developer.arm.com/documentation/ddi0553/latest)
 
 ### IDE Option for Instruction Level Debugging ###
 
