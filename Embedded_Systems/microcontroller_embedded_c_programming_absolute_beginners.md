@@ -1817,9 +1817,50 @@
 		2. OTP (On Time Programmable)
 			1. One Time Programmable
 		3. Flash
-			1. Electrically
+			1. It is EEPROM
+				1. Fabrication technology used is different as compared to EEPROM
+				2. Cost and speed is different
+				3. It has dominated as code memory in modern microcontrollers
+		4. FRAM (Ferroelectric Random Access Memory)
+			1. Most STM32 microcontrollers do not have this as code memory
+				1. Cost will shoot up
+				2. It is very high as compared to Flash
+			2. Use cases: MSP430FR2422
+				1. FRAM - 7.25KB + 256B (just 8 KB)
+					1. Ultra low power apps may be
 
 ### Code and Data of the Program Using Memory Browser ###
+1. New project: 003Add
+
+		int g_data1 = -4000;
+		int g_data2 = 200;
+		int result = 0;
+
+		int main(void) {
+			result = g_data1 + g_data2;
+			
+			printf("Result = %d\n", result);
+			
+			for(;;);
+		}
+		
+	1. Build Project
+	2. Load into target
+		1. Debug As > STM32 Application
+			1. ST-LINK GDB communicating with ST-LINK Circuit
+		2. Download and verified successfully (into flash)
+2. Examining Code memory
+	1. Window > Show View > Memory Browser
+		1. Type based address of program memory of microcontroller (base address of the FLASH)
+			1. Get from reference manual
+				1. Embedded Flash memory interface
+					1. Flash module organization table
+						1. 512 KB of flash memory is divided into many sectors
+							1. This is where we store program instructions
+						2. There is ROM
+							1. ST factory-built bootloader is stored
+								1. Never executes unless we invoke it by some settings
+
 ### Analyzing ELF File Using GNU Tools ###
 ### Disassembly ###
 ### IDE Option for Instruction Level Debugging ###
