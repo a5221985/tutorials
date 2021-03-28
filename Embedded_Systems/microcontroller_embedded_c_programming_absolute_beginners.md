@@ -1348,12 +1348,22 @@
 							2. It is part of ARM debug Interface Specification v5 (an alternative to JTAG)
 							3. Physical layer of SWD consists of two lines
 								1. SWDIO: a bidirectional data line
-								2. SWCLK: a clock driven by the host
+									1. Carries debug related commands
+										1. When we setup a break-point in IDE, the info is sent over SWDIO data line to the processor
+										2. To stop processor, the info is carried over SWDIO line using SWCLK to the processor
+								2. SWCLK: a clock driven by the host (host: SWLINK Circuit)
 							4. Using SWD interface, we should be able to program MCUs internal flash
 								1. We can access memory regions
 								2. We can add breakpoints
 								3. We can stop/run CPU
 							5. Other good thing: We can use serial wire viewer for printf statements for debugging
+							6. Both SWDIO and SWCLK are managed by ST-Link circuitry
+				3. SWD and JTAG
+					1. JTAG - traditional mechanism for debug connections for ARM7/9 family
+						1. Cortex-M family: SWD interface was introduced
+							1. SWD:
+								1. Designed to reduce pin count required for debug from 4 used by JTAG (excluding GND) down to 2
+								2. Additionally, SWD interface provides another pin called SWO (Serial Wire Output) - used for Single Wire Viewing (SWV) (low cost tracing technology)
 
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
