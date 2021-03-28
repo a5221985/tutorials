@@ -2088,6 +2088,31 @@
 	1. Storage size: 8 bytes
 	2. Precision: up to 15 decimal places
 	3. Value range: 2.3x10^-308 to 1.7x10^308
+3. Example:
+
+		int main(void) {
+			float number = 45.78976834578;
+			printf("Number = %f\n", number);
+			printf("Number = %0.9f\n", number);
+			double number1 = 45.78976834578;
+			printf("Number1 = %0.14f\n", number1);
+			printf("Number1 = %e\n", number1);
+			printf("Number1 = %0.2e\n", number1);
+			
+			float chargeE = -1.60217662e-19; // float only has 6 digits precision
+			printf("chargeE = %f\n", chargeE);
+			printf("chargeE = %e\n", chargeE);
+			printf("chargeE = %e\n", number1);
+			return 0;
+		}
+		
+		Number = 45.789768
+		Number = 45.789768219
+		Number1 = 45.78976834578000
+		
+	1. `%f` prints 6 decimal places
+	2. `%0.9f` print upto 9 decimal places after decimal point
+		1. Upto 6 it is correct but after that it is wrong
 
 ## Taking Input From the User Using scanf() ##
 ### Scanf Introduction ###
