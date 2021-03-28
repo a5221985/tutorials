@@ -1376,7 +1376,7 @@
 					1. Not all IDEs supports this (STM32Cube, TrueIDE support)
 4. Code snippet: Go to Git repo and copy itm_send_data.c code
 	1. syscalls.c
-		1. paste the code just below include statements
+		1. paste the code just below include statements (from [https://github.com/niekiran/Embedded-C/blob/master/All_source_codes/target/itm_send_data.c](https://github.com/niekiran/Embedded-C/blob/master/All_source_codes/target/itm_send_data.c))
 			1. It is an implementation of printf like feature using ARM Cortex M3/M4/M7 ITM functionality (does not work for M0/M0+ - use semihosting feature of openOCD)
 		2. The code writes into FIFO
 	2. Go to `_write(...)`
@@ -1403,6 +1403,11 @@
 					}
 					
 			1. `printf` is diverted to ITM Trace Unit
+			2. Cross compiler is already installed by IDE (which is used for STM32)
+				1. If we want to uprade to newer version - we need to change settings
+5. Cross compilation
+	1. x86/x86_64 architecture (Host machine)
+		1. cross compiler: `arm-none-eabi-gcc`
 
 ### Testing printf Over ARM Cortex M4 ITM+SWO Line ###
 ### Issues with IDE ###
