@@ -1673,6 +1673,49 @@
 
 ## Analyzing Embedded C Code ##
 ### What is a Microcontroller? ###
+1. Analyzing Embedded C Program
+	1. Anatomy of the microcontroller
+	2. Identifying code and data parts of the program
+	3. Code memory and data memory of the MCU
+	4. Disassembly feature of the IDE (of final executable)
+	5. Analyzing the executable (.elf) using GNU tools (like objdump and size)
+2. What is microcontroller?
+	1. Microcontroller (MCU, uC) is a small computer system on a single chip.
+		1. But it's resources and capabilities such as memory, speed, external interfaces are very much limited (as compared to desktop computer)
+			1. Since MCU targets embedded applications
+	2. Typical microcontroller includes the following on a single chip (called System on Chip (SOC)):
+		1. Processor
+		2. Volatile memory
+			1. SRAM
+		3. Non-volatile memory
+			1. FLASH
+			2. ROM
+			3. EEPROM
+		4. input/output (I/O) pins
+		5. Peripherals
+			1. ADC
+			2. DAC
+			3. TIMERS
+			4. UART (connectivity)
+			5. USB (connectivity)
+		6. Clock
+		7. Bus interfaces
+3. Anatomy of a typical small microcontroller
+
+		CPU =Address Bus=> Program memory (non-volatile)
+		CPU =Address Bus=> Data memory (volatile)
+		CPU =Data Bus=> Program memory
+		CPU =Data Bus=> Data memory
+		CPU =Control Bus=> Program memory
+		CPU =Control Bus=> Data memory
+		CPU =Address Bus=> I/O <=Parallel I/O=>
+		CPU =Data Bus=> I/O
+		CPU =Control Bus=> I/O
+		Clock -> CPU
+		I/O <-> Serial I/O
+		
+	1. CPU - executes program instructions
+
 ### Code Memory of the Microcontroller ###
 ### Code and Data of the Program Using Memory Browser ###
 ### Analyzing ELF File Using GNU Tools ###
