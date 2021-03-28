@@ -1811,6 +1811,7 @@
 				1. We need to take the memory out of the chip and mount it into ultraviolet machine to erase
 				2. It can be programmed after that (almost obsolete)
 			3. EEPROM (Electrically Erasable Programmable ROM)
+				1. Used in modern microcontrollers
 		2. OTP (On Time Programmable)
 		3. Flash
 
