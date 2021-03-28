@@ -1857,11 +1857,44 @@
 					1. Flash module organization table
 						1. 512 KB of flash memory is divided into many sectors
 							1. This is where we store program instructions
-						2. There is ROM
+								1. Sector 0 - Sector 11
+									1. Copy the base address
+									2. Paste in memory browser (hit enter)
+										1. Machine code appears
+								2. Word by word is shown by default
+									1. Word by Word:
+										1. Right click > Columns > 1
+										2. Right click > Cell Size > 1 Byte
+						2. There is ROM (System memory)
 							1. ST factory-built bootloader is stored
-								1. Never executes unless we invoke it by some settings
+								1. Never executes unless we invoke it by some settings (doesn't run by default)
+3. Examing data memory
+	1. Open Reference Manual
+		1. Memory and bus architecture
+			1. Search by SRAM
+				1. SRAM1 - main data memory (112KB)
+				2. Section 2.3.1: Embedded SRAM
+					1. SRAM1: 0x2000 0000 (base address)
+						1. Other SRAMs are for other purposes
+	2. Paste the address in Memory Browser
+		1. Right Click > Radix > Decimal Signed
 
 ### Analyzing ELF File Using GNU Tools ###
+1. We downloaded executable in to program memory (Flash) of microcontroller
+	1. So data of program must be in flash memory
+		1. How did data arrive in data memory (SRAM)?
+2. Where is data stored in flash memory
+	1. Analyzing .elf using objdump gnu tool
+		1. Run the following command on PC command prompt
+
+				arm-none-eabi-objdump.exe -h 003Add.elf
+				
+			1. cd Debug
+				1. run the command
+		2. Open *.list (gives same output)
+		3. What is `-h`?
+			1. Display the contents of section headers
+
 ### Disassembly ###
 ### IDE Option for Instruction Level Debugging ###
 
