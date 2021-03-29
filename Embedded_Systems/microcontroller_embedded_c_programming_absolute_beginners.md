@@ -2525,7 +2525,29 @@ Exercise:
 ### Importance of <stdint.h> ###
 1. Each architecture (x86, 8051, PIC, ARM, etc) has a natural, most-efficient size
 	1. Designers (specifically compiler implementers) use natural native data size data for speed and code size efficiency
-2. 
+2. `stdint.h` - standard library header file
+	1. Data type size and compiler
+		1. Data types may cause portability issues of code when compiler changes.
+			1. One compiler may consider `int` of size 2 bytes and another 4 bytes and some other 8 bytes
+				1. Suppose we have written a program assuming a particular size for each data type => portability issues (buggy and problems)
+					1. We have to take care of portability issues in C
+3. Portability issues in 'C' programming code due to "size of data types"
+	1. In 'C' programming language most commonly used data types `int` and `long` cause portability issues
+		1. storage size of `int` and `long` are not defined within C standard (C90, C99)
+		2. Compiler vendors have the choice to define storage size for variable depending solely on hardware capabilities of target platform wrt min (and max) widths defined by standard
+			1. Example: XC8 compiler
+				1. signed int - 2 bytes
+					1. According to compiler designer, keeping the size of `int` type variable as 2 bytes will be most efficient for data manipulation considering underlying architecture of PIC 8-bit microcontroller (for ARM it may not be true - it is 4 bytes)
+				2. Example:
+
+						unsigned int count = 0;
+						count++;
+						if (count > 65,636) { // not portable
+							// Do this task
+						}
+						
+					1. The max value of count may be 65,535 or 4,294,967,295
+						1. Both answers could be correct depending on the compiler
 
 ## Operators ##
 ### Operators in 'C' ###
