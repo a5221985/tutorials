@@ -2463,9 +2463,24 @@ Exercise:
 	1. 1 byte from memory location: use `char*`
 	2. 4 bytes from memory location: use `int*`
 	3. 8 bytes from memory location: use `long long int*`
+3. Warning: assignment to `char*` from incompatible pointer type `long long int *`
+
+		long long int g_data = 0xFFFEABCD11112345;
+		...
+		char* pAddress1;
+		pAddres1 = &g_data; // explicit typecasting is important
 
 ## Importance of <stdint.h> ##
 ### Importance of <stdint.h> ###
+1. Effect of using different pointer data types on pointer operations
+
+		long long int g_data = 0xFFFEABCD11112345;
+
+		int main(void) {
+			char* pAddress = (char*) &g_data;
+			printf("value of pAddress %p\n", pAddress);
+			printf("value at address %p is %d\n", pAddress, *pAddress);
+		}
 
 ## Operators ##
 ### Operators in 'C' ###
