@@ -2212,7 +2212,34 @@
 
 ### Scanf Exercise Implementation ###
 
+		void waitForKeyPress();
+
+		int main(void) {
+			printf("Enter any 6 characters of your choice: ");
+			scanf("%c %c %c %c %c %c %c", &a, &b, &c, &d, &e, &f);
+			printf("ASCII codes: %u %u %u %u %u %u", a, b, c, d, e, f);
+			
+			waitForKeyPress();
+			
+			return 0;
+		}
+		
+		void waitForKeyPress() {
+			while(getchar() != '\n');
+			getchar();
+		}
+
 ### Scanf and Float with Scientific Notation ###
+Exercise:
+	1. Find out the number of electrons responsible for producing given charge.
+		1. Use scientific notation for input and output
+		2. Number of electrons = given charge / charge of Electron
+	2. Solution:
+
+			int main(void) {
+				double requiredCharge, chargeOfElectron;
+				chargeOfElectron = 
+			}
 
 ## Pointers ##
 ### Pointers in 'C' ###
