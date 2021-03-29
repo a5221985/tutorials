@@ -2479,7 +2479,35 @@ Exercise:
 		int main(void) {
 			char* pAddress = (char*) &g_data;
 			printf("value of pAddress %p\n", pAddress);
-			printf("value at address %p is %d\n", pAddress, *pAddress);
+			printf("value at address %p is %d\n", pAddress, *pAddress); // prints 0x45
+			
+			pAddress = pAddress + 1;
+			
+			printf("value of pAddress %p\n", pAddress);
+			printf("value at address %p is %d\n", pAddress, *pAddress); // prints 0x23
+			
+			pAddress = pAddress + 4;
+			
+			printf("value of pAddress %p\n", pAddress);
+			printf("value at address %p is %d\n", pAddress, *pAddress); // prints 0xAB
+			
+			short* pAddress1 = (short*) &g_data;
+			printf("value of pAddress %p\n", pAddress1);
+			printf("value at address %p is %d\n", pAddress1, *pAddress1); // prints 0x2345
+			
+			pAddress1 = pAddress1 + 1; // incremented by 2
+			
+			printf("value of pAddress %p\n", pAddress1);
+			printf("value at address %p is %d\n", pAddress1, *pAddress1); // prints 0x1111
+			
+			short* pAddress2 = (short*) &g_data;
+			printf("value of pAddress %p\n", pAddress2);
+			printf("value at address %p is %d\n", pAddress2, *pAddress2); // prints 0x11112345
+			
+			pAddress2 = pAddress2 + 1; // incremented by 4
+			
+			printf("value of pAddress %p\n", pAddress2);
+			printf("value at address %p is %d\n", pAddress2, *pAddress2); // prints 0xfffeabcd
 		}
 
 ## Operators ##
