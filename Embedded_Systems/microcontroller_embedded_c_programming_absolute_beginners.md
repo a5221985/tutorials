@@ -2146,17 +2146,33 @@
 			    int b;
 			    int c;
 			    printf("Enter first number: ");
+			    fflush(stdout);
 			    scanf("%d", &a);
 			    printf("Enter second number: ");
+			    fflush(stdout);
 			    scanf("%d", &b);
 			    printf("Enter third number: ");
+			    fflush(stdout);
 			    scanf("%d", &c);
 			    double average = (a + b + c) / 3.0;
 			    printf("Average of %d, %d and %d is: %0.14lf\n", a, b, c, average);
+			    getchar(); // makes application wait until user presses any key from keyboard
 			    return 0;
 			}	
 
 ### Scanf Exercise Implementation ###
+1. When we execute `printf`
+	1. Content is buffered into output buffer
+	2. When application returns (`\n`), output is pushed to display (flushing)
+		1. Solution: Explicitly flush
+
+				fflush(); // used to clear output buffers of output stream (to display)
+2. Usage of `fflush` - to flush contents of output buffer to stdout
+	1. usage depends on console
+		1. **eclipse** console might need it
+		2. **.exe** on **Windows** may not need it
+3. Instead we can directly execute the application
+
 ### Scanf Exercise Implementation Contd ###
 ### Scanf Exercise ###
 ### Scanf and Float with Scientific Notation ###
