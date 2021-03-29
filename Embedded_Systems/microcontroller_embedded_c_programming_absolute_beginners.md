@@ -2115,7 +2115,9 @@
 
 ## Taking Input From the User Using scanf() ##
 ### Scanf Introduction ###
-1. 
+1. `scanf`
+	1. `scanf` is a standard library function that allows you to read input data from standard in
+		1. Generally keyboard
 
 ### Scanf Exercise Implementation ###
 ### Scanf Exercise Implementation Contd ###
