@@ -2172,6 +2172,11 @@
 		1. **eclipse** console might need it
 		2. **.exe** on **Windows** may not need it
 3. Instead we can directly execute the application
+4. Whatever we enter from keyboard, it doesn't go to program directly
+	1. It goes to input buffer
+		1. When we type `10\n`
+		2. It get inserted into input buffer
+		3. `scanf` reads `10`
 
 ### Scanf Exercise Implementation Contd ###
 ### Scanf Exercise ###
