@@ -2167,6 +2167,7 @@
 		1. Solution: Explicitly flush
 
 				fflush(); // used to clear output buffers of output stream (to display)
+				
 2. Usage of `fflush` - to flush contents of output buffer to stdout
 	1. usage depends on console
 		1. **eclipse** console might need it
