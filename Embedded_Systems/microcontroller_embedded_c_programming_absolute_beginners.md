@@ -2277,7 +2277,23 @@ Exercise:
 		4. ARM Cortex M: 4 bytes
 
 ### Pointer Variables and Pointer Data Types ###
-1. 
+1. How to store a pointer inside a program
+2. Operations on the pointer
+3. How to define a pointer variable
+
+		<pointer-data-type> <variable-name>;
+		
+	1. Pointer data types:
+		1. `char*`
+		2. `int*`
+		3. `long long int*`
+		4. `float*`
+		5. `double*`
+		6. `unsigned char*`
+		7. `unsigned int*`
+		8. `unsigned long long int*`
+		9. `unsigned float*`
+		10. `unsigned double*`
 
 ### Pointer Variables and Initialization ###
 ### Read and Write Operation on Pointers ###
