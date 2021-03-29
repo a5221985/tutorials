@@ -2360,6 +2360,40 @@ Exercise:
 					1. `address1` - it is pointer variable to char type data
 
 ### Read and Write Operation on Pointers ###
+1. How to read data from pointer
+
+		char data = *address1; // dereferencing a pointer to read data
+		
+	1. 1 byte of data is read from pointer and stored in `data` variable
+	2. `*` - It is called as "value at addresss" operator
+		1. Compiler generates instructions to feetch 1 byte of data from pointer
+	3. `&` - "address of" operator
+2. Write operation on pointer:
+
+		char* address1 = (char*) 0x00007FFF8E3C3824;
+		
+		*address1 = 0x89; // dereferencing a pointer to write data
+		
+		0x00007FFF8E3C3824	0x1F007FFF8E3C4821
+		...
+		0x1F007FFF8E3C4821	0x85
+								0x89	
+								
+3. Exercise:
+	1. Construct a char type variable and initialize it to 100
+
+			char a = 100;
+	
+	2. Print address of above variable
+
+			printf("Address of a = %p\n", &a);
+	
+	3. Construct a pointer variable and store address of above variable
+	4. Perform read operation on pointer variable to fetch 1 byte of data from pointer
+	5. Print data obtained from read operation on pointer
+	6. Perform write operation on pointer to store value 65
+	7. Print value of variable defined in step 1
+
 ### Pointer Exercise Implementation ###
 ### Significance of Pointer Data Types ###
 ### Significance of Pointer Data Types ###
