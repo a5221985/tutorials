@@ -2117,7 +2117,27 @@
 ### Scanf Introduction ###
 1. `scanf`
 	1. `scanf` is a standard library function that allows you to read input data from standard in
-		1. Generally keyboard
+		1. Generally keyboard (desktop)
+		2. Touchscreen or keypad (embedded system)
+	2. `scanf` can be used to read
+		1. characters
+		2. numbers
+2. Example:
+
+		int age;
+		printf("Enter your age: ");
+		scanf("%d", &age);
+		
+	1. `scanf` - reads integer (number) which user enters
+		1. `%c` - ASCII value gets stored
+	2. `scanf` - puts read value "at the address of" `age` variable
+3. `getchar()`
+	1. If we want to read a single character from keyboard in ASCII format
+	2. `getchar()` - takes no arguments and returns int value which is ASCII value of key pressed
+
+			int a = getchar(); // program hangs until we press a key followed by enter
+4. Exercise:
+	1. 	
 
 ### Scanf Exercise Implementation ###
 ### Scanf Exercise Implementation Contd ###
