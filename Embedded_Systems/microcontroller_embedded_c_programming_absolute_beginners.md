@@ -2178,8 +2178,34 @@
 		1. When we type `10\n`
 		2. It get inserted into input buffer
 		3. `scanf` reads `10`
+		4. `\n` still remains in input buffer
+		5. If we make call to second scanf
+			1. `\n` is read and discarded by `scanf` so it waits
+		6. If user enters new number `45\n`
+		7. Scanf will read `45`
+		8. Final state of input buffer `\n`
+		9. At the end `getchar()` reads `\n` and immediately returns
+			1. Solution:
+
+					while (getchar() != \n);
+					getchar();
 
 ### Scanf Exercise Implementation Contd ###
+1. `main_new.c` (exclude `main.c` from the build)
+
+		printf("Enter 3 numbers: ");
+		scandf("%f %f %f", &a, &b, &c);
+		
+	1. We can give any whitespece between the numbers
+
+			123 -90 90.0000
+			
+			OR
+			
+			123
+			-90
+			90.000
+
 ### Scanf Exercise ###
 ### Scanf and Float with Scientific Notation ###
 
