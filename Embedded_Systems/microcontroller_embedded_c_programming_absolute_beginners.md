@@ -2389,12 +2389,42 @@ Exercise:
 			printf("Address of a = %p\n", &a);
 	
 	3. Construct a pointer variable and store address of above variable
+
+			char* pointer_a = &a;
+	
 	4. Perform read operation on pointer variable to fetch 1 byte of data from pointer
+
+			char b = *pointer_a;
+	
 	5. Print data obtained from read operation on pointer
+
+			char b = *pointer_a;
+			printf("value at b = %c\n", b);
+	
 	6. Perform write operation on pointer to store value 65
+
+			*pointer_a = 65;
+	
 	7. Print value of variable defined in step 1
 
+			printf("value at a = %c\n", a);
+
 ### Pointer Exercise Implementation ###
+1. Implementation
+
+		#include <stdio.h>
+
+		int main() {
+		    char a = 100;
+		    printf("Address of a = %p\n", &a);
+		    char* pointer_a = &a;
+		    char b = *pointer_a;
+		    printf("Value at b = %c\n", b);
+		    *pointer_a = 65;
+		    printf("Value at a = %c\n", a);
+		    return 0;
+		}
+
 ### Significance of Pointer Data Types ###
 ### Significance of Pointer Data Types ###
 
