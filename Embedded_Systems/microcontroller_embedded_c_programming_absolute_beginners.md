@@ -2435,7 +2435,30 @@ Exercise:
 2. If `data` is of type `char`, `&data` will be of type `char*`
 
 ### Significance of Pointer Data Types ###
-1. 
+1. Example:
+
+		long long int g_data = 0xFFFEABCD11112345;
+		
+		int main(void) {
+			char* pAddress1;
+			// char *pAddress1; // is also correct
+			// pAddress1 = &g_data; // type mismatch
+			pAddress1 = (char*) &g_data;
+			printf("Value at address %p is %d\n", pAddress1, *pAddress1);
+			
+			int* pAddress2;
+			pAddress2 = (int*) &g_data;
+			
+			printf("Value at address %p is %x\n", pAddress1, *pAddress1); 
+		}
+		
+	1. Only 1 byte of data (45)
+	2. 2 bytes are returned to second `printf`
+		1. We can use this technique to read 4 bytes
+2. If we want to read
+	1. 1 byte from memory location: use `char*`
+	2. 4 bytes from memory location: use `int*`
+	3. 8 bytes from memory location: use `long long int*`
 
 ## Importance of <stdint.h> ##
 ### Importance of <stdint.h> ###
