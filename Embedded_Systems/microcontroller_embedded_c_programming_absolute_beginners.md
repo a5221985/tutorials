@@ -2508,16 +2508,24 @@ Exercise:
 		}
 		
 	1. `long long int*` - incremented by 8 (bytes)
-	2. Pointer arithmetic is used in embedded systems programming
+	2. Pointer arithmetic is used in embedded systems programming (very important)
 		1. To store data into required SRAM locations
+			1. If we want to put data into peripheral - we need it's address
+			2. If we want to configure peripheral - we need it's address
 		2. For copying data from peripheral register to SRAM memory and vice versa
 		3. To configure peripheral registers
 			1. Peripheral registers are memory-mapped
-				1. Each register will be given a unique address in MCU memory map
-		4. 
+				1. Each register will be given a unique address in MCU memory map (later)
+			2. Peripheral registers are part of memory map of the MCU
+				1. A unique memory address will be given by the vendor to configure the peripherals
+		4. Pointers to ISRs are stored in vector table to handle interrupts
+		5. Pointers are also used to configure memory-mapped processor specific registers like interrupt configuration registers
 
 ## Importance of <stdint.h> ##
 ### Importance of <stdint.h> ###
+1. Each architecture (x86, 8051, PIC, ARM, etc) has a natural, most-efficient size
+	1. Designers (specifically compiler implementers) use natural native data size data for speed and code size efficiency
+2. 
 
 ## Operators ##
 ### Operators in 'C' ###
