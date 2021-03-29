@@ -2320,6 +2320,44 @@ Exercise:
 				0x1F007FFF8E3C4823	0x3C
 				0x1F007FFF8E3C4822	0x88
 				0x1F007FFF8E3C4821	0x24
+										|
+						+------------	+
+						|
+						v
+				0x1F007FFF8E3C4828	0x41
+				
+			1. 8 bytes in 64 bit machine
+		2. Briefly
+
+				0x1F007FFF8E3C4821		0x1F007FFF8E3C4828
+												|
+						+-------------------+
+						|
+						v
+				0x1F007FFF8E3C4828		0x41
+				
+2. The compiler will always reserve 8 bytes for the pointer variable irrespective of pointer data type
+	1. Pointer data type does not control memory size of pointer variable
+
+			char* address1; // 8 bytes
+			int* address1; // 8 bytes
+			
+		1. What is the purpose of mentioning "Pointer data type"?
+			1. Pointer data type decides behaviour of **operations** carried out on pointer variable
+				1. Operations: read, write, increment, decrement
+			2. Example:
+
+					/* Read operation on address1 variable yields 1 byte of data */
+					char* address1 = (char*) 0x00007FFF8E3C3824;
+					
+					/* Read operation on address1 variable yields 4 bytes of data */
+					int* address1 = (int*) 0x00007FFF8E3C3824;
+					
+					/* Read operation on address1 variable yields 8 bytes of data */
+					long long int* address1 = (long long int*) 0x00007FFF8E3C3824;
+					
+				1. `char*` - decides how many bytes are read or written or by how much to increment or decrement the pointer
+					1. `address1` - it is pointer variable to char type data
 
 ### Read and Write Operation on Pointers ###
 ### Pointer Exercise Implementation ###
