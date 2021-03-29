@@ -2239,10 +2239,29 @@ Exercise:
 			int main(void) {
 				double requiredCharge, chargeOfElectron;
 				chargeOfElectron = 
+				printf("Enter the required charge: ");
+				scanf("%lf", &requiredCharge);
+				printf("Enter the charge of electron (in scientific notation): ");
+				scanf("%le", &chargeOfElectron);
+				double electrons = -(requiredCharge / chargeOfElectron);
+				printf("Total number of electrons = %le\n", electrons);
+				printf("Total nubmer of electrons = %ld\n", electrons);
+				waitForKeyPress();
+				return 0;
 			}
 
 ## Pointers ##
 ### Pointers in 'C' ###
+1. Pointers are one of the most essential programming features which are available in 'C'
+2. Pointers make 'C' programming more powerful
+3. Pointers are heavily used in embedded 'C' programming to
+	1. Configure peripheral register addresses
+	2. Read/write into peripheral data registers
+	3. Read/write into SRAM/Flash locations
+	4. Many other things
+4. What is a pointer?
+	1. 
+
 ### Pointer Variables and Pointer Data Types ###
 ### Pointer Variables and Initialization ###
 ### Read and Write Operation on Pointers ###
