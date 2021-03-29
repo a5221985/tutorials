@@ -2450,6 +2450,10 @@ Exercise:
 			pAddress2 = (int*) &g_data;
 			
 			printf("Value at address %p is %x\n", pAddress1, *pAddress1); 
+			
+			long long int* pAddress4;
+			pAddress4 = (long long int*) &g_data;
+			printf("Value at address %p is %I64x\n", pAddress4, *pAddress4));
 		}
 		
 	1. Only 1 byte of data (45)
