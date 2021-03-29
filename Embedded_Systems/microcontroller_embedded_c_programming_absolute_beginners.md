@@ -2099,10 +2099,9 @@
 			printf("Number1 = %e\n", number1);
 			printf("Number1 = %0.2e\n", number1);
 			
-			float chargeE = -1.60217662e-19; // float only has 6 digits precision
-			printf("chargeE = %f\n", chargeE);
-			printf("chargeE = %e\n", chargeE);
-			printf("chargeE = %e\n", number1);
+			double chargeE = -1.60217662e-19; // float only has 6 digits precision
+			printf("chargeE = %0.28lf\n", chargeE); // prints 28 decimal places after decimal point
+			printf("chargeE = %le\n", chargeE);
 			return 0;
 		}
 		
@@ -2116,6 +2115,8 @@
 
 ## Taking Input From the User Using scanf() ##
 ### Scanf Introduction ###
+1. 
+
 ### Scanf Exercise Implementation ###
 ### Scanf Exercise Implementation Contd ###
 ### Scanf Exercise ###
