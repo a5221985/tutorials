@@ -2207,6 +2207,11 @@
 			90.000
 
 ### Scanf Exercise ###
+1. Exercise
+	1. Write a program which takes 6 characters (alphabets, numbers, special characters) from the user and prints the ASCII codes of the entered characters
+
+### Scanf Exercise Implementation ###
+
 ### Scanf and Float with Scientific Notation ###
 
 ## Pointers ##
