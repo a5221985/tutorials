@@ -2273,9 +2273,12 @@ Exercise:
 			2. Read from a pointer
 			3. Increment pointer and go to next memory location
 			4. Decrement pointer and go to previous memory location
-		5. 
+		3. Pic: 2 bytes
+		4. ARM Cortex M: 4 bytes
 
 ### Pointer Variables and Pointer Data Types ###
+1. 
+
 ### Pointer Variables and Initialization ###
 ### Read and Write Operation on Pointers ###
 ### Pointer Exercise Implementation ###
