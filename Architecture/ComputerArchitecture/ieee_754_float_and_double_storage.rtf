@@ -29,7 +29,14 @@ double precision: Biased exponent: (1023 + exponent)\
 \cf0 \
 \'97\'97\'97\'97\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0 0.15625 = 1/8 + \
+\cf0 0.15625 = 0.125 + 0.03125 = 1/4 + 1/32 = .001001 = 1.001 x 10^-3\
+\
+single precision: Biased exponent: (127 + exponent)\
+127 - 3 = 124 = 01111100 = 0x7C\
+0.15625 = 0 | 01111100 | 00100000000000000000000\
+\
+double precision: Biased exponent: (1023 + exponent)\
+1023 - 3 = 1020 = 1111111\
 \pard\pardeftab720\sl360\partightenfactor0
 
 \f1\fs32 \cf2 \expnd0\expndtw0\kerning0
