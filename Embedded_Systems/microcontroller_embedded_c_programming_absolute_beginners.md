@@ -2294,8 +2294,33 @@ Exercise:
 		8. `unsigned long long int*`
 		9. `unsigned float*`
 		10. `unsigned double*`
+4. `*` - used to differentiate between pointer and non-pointer variable declaration
+5. To store a pointer inside a program:
+
+		#include <stdio.h>
+		int main(void) {
+			long long int someAddress = 0x00007FFF8E3C8824; // not a pointer for compiler - we cannot do pointer operations
+			char* address1 = 0x00007FFF8E3C8824; // for compiler it is still just a number of type long long int
+			char* address1 = (char*) 0x00007FFF8E3C8824; // compiler now treats it as a pointer - explicit cast
+		}
 
 ### Pointer Variables and Initialization ###
+1. Example:
+
+		char* address1 = (char*) 0x00007FFF8E3C8824;
+		
+	1. `address` - pointer variable
+		1. 8 bytes of memory will be reserved for the variable
+
+				0x1F007FFF8E3C4828	0x00
+				0x1F007FFF8E3C4827	0x00
+				0x1F007FFF8E3C4826	0x7F
+				0x1F007FFF8E3C4825	0xFF
+				0x1F007FFF8E3C4824	0x8E
+				0x1F007FFF8E3C4823	0x3C
+				0x1F007FFF8E3C4822	0x88
+				0x1F007FFF8E3C4821	0x24
+
 ### Read and Write Operation on Pointers ###
 ### Pointer Exercise Implementation ###
 ### Significance of Pointer Data Types ###
