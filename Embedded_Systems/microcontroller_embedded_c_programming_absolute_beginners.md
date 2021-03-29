@@ -2260,7 +2260,20 @@ Exercise:
 	3. Read/write into SRAM/Flash locations
 	4. Many other things
 4. What is a pointer?
-	1. 
+	1. Memory map
+
+			0x00007FFF8E3C3828	0 1 1 0 0 1 1 1
+			...
+			0x00007FFF8E3C3821	0 1 1 1 0 1 1 1
+			mem location address (pointer)
+			
+		1. On 64 bit machine, pointer size (mem location address size) is 8 bytes (64 bits)
+		2. Operations that can be performed
+			1. Write to a pointer
+			2. Read from a pointer
+			3. Increment pointer and go to next memory location
+			4. Decrement pointer and go to previous memory location
+		5. 
 
 ### Pointer Variables and Pointer Data Types ###
 ### Pointer Variables and Initialization ###
