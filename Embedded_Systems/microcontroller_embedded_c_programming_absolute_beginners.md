@@ -2416,6 +2416,7 @@ Exercise:
 
 		int main() {
 		    char a = 100;
+		    printf("Value of a = %c\n", a);
 		    printf("Address of a = %p\n", &a);
 		    char* pointer_a = &a;
 		    char b = *pointer_a;
@@ -2426,7 +2427,15 @@ Exercise:
 		}
 
 ### Significance of Pointer Data Types ###
+1. Recommendation: start pointer with `p`
+
+		char data = 100;
+		char* pData = &data;
+		
+2. If `data` is of type `char`, `&data` will be of type `char*`
+
 ### Significance of Pointer Data Types ###
+1. 
 
 ## Importance of <stdint.h> ##
 ### Importance of <stdint.h> ###
