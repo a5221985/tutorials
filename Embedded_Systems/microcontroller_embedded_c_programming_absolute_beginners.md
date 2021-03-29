@@ -2469,10 +2469,7 @@ Exercise:
 		...
 		char* pAddress1;
 		pAddres1 = &g_data; // explicit typecasting is important
-
-## Importance of <stdint.h> ##
-### Importance of <stdint.h> ###
-1. Effect of using different pointer data types on pointer operations
+4. Effect of using different pointer data types on pointer operations
 
 		long long int g_data = 0xFFFEABCD11112345;
 
@@ -2509,6 +2506,18 @@ Exercise:
 			printf("value of pAddress %p\n", pAddress2);
 			printf("value at address %p is %d\n", pAddress2, *pAddress2); // prints 0xfffeabcd
 		}
+		
+	1. `long long int*` - incremented by 8 (bytes)
+	2. Pointer arithmetic is used in embedded systems programming
+		1. To store data into required SRAM locations
+		2. For copying data from peripheral register to SRAM memory and vice versa
+		3. To configure peripheral registers
+			1. Peripheral registers are memory-mapped
+				1. Each register will be given a unique address in MCU memory map
+		4. 
+
+## Importance of <stdint.h> ##
+### Importance of <stdint.h> ###
 
 ## Operators ##
 ### Operators in 'C' ###
