@@ -2548,6 +2548,10 @@ Exercise:
 						
 					1. The max value of count may be 65,535 or 4,294,967,295
 						1. Both answers could be correct depending on the compiler
+					2. Solution: Use data type alias names given by `stdint.h`
+4. `stdint.h`
+	1. Standard library header file `stdint.h` defines fixed-width integers using alias data types for standard data types available in 'C'
+	2. A fixed-width integer data type is an aliased data type that is based on exact number of bits required to store the data
 
 ## Operators ##
 ### Operators in 'C' ###
