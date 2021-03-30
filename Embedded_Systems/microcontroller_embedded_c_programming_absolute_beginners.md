@@ -2897,6 +2897,8 @@ Exercise:
 				}
 
 ### 'if' Statement Exercise ###
+### 'if' Statement Exercise Solution ###
+### 'if' and 'else' ###
 1. Syntax: if...else... statement
 2. Single statement execution:
 
@@ -2926,10 +2928,56 @@ Exercise:
 				|
 				v
 			rest of the code
+			
+1. Decision taking statements in 'C'
+	1. In 'C' there are 5 different ways to take decisions by making use of below decision taking statements
+		1. `if` statement
+		2. `if`-`else` statement
+		3. `if`-`else`-`if` ladder
+		4. Conditional operators
+		5. `switch`/`case` statement
+2. The above implementation of the exercise
+3. Exercise: 
+	1. Write a program which receives 2 numbers (integers) from user and prints biggest of two
+	2. If n1 == n2, then print "both numbers are equal"
 
-### 'if' Statement Exercise Solution ###
-### 'if' and 'else' ###
+			#include <stdio.h>
+			#include <stdint.h>
+			
+			static void waitForKeyPress();
+
+			int main() {
+				printf("Enter first number: ");
+				fflush();
+				int32_t n1 = 0;
+				scanf("%d", &n1);
+				
+				printf("Enter second number: ");
+				fflush();
+				int32_t n2 = 0;
+				scanf("%d", &n2);
+				
+				if (n1 > n2)
+					printf("%d is greater than %d\n", n1, n2);
+				else if (n1 < n2)
+					printf("%d is lesser than %d\n", n1, n2);
+				else
+					printf("both %d and %d are equal\n", n1, n2);
+					
+				waitForKeyPress();
+				
+				return 0;
+			}
+
+			static void waitForKeyPress() {
+				printf("Press any key to exit");
+				while (getchar() != '\n');
+					getchar();
+			}
+
 ### 'if' and 'else' Exercise Implementation Part-1 ###
+1. 
+
 ### 'if' and 'else' Exercise Implementation Part-2 ###
 ### 'if' and 'else' Exercise Implementation Part-3 ###
 ### 'if-else-if' Ladder Statements ###
