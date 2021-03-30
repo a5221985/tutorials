@@ -2592,6 +2592,34 @@ Exercise:
 
 ## Operators ##
 ### Operators in 'C' ###
+1. What is an operator?
+	1. An operator is a symbol that tells compiler to perform certain mathematical or logical manipulations on operands
+	2. Operator: Type
+		1. ++, --: increment and decrement (unary - only one operand)
+		2. +, -, *, /, %: arithmetic operators (binary - two operands)
+		3. <, <=, >, >=, ==, !=: relational operators (binary)
+		4. &&, ||, !: logical operators (binary)
+		5. &, |, <<, >>, ~, ^: bitwise operators (binary)
+		6. =, +=, -=, *=, /=, %=: assignment operators (binary)
+		7. ?: : Conditional operators (ternary - three operands)
+2. Arithmetic (mathematical) operators:
+	1. + - addition
+	2. - - subtraction
+	3. * - multiplication
+	4. / - division
+	5. % - modulus
+		1. Produces remainder from division
+			
+				14 % 4 = 2
+
+	6. Expression
+
+			uint32_t value;
+			value = 2 + 3 * 4; // 14
+			
+		1. Operator precedence - defined by standard
+			1. Operator precedence rules determine which mathematical operation takes place first, i.e. takes precedence over others. Parantheses, (), may be used to force an expression to a higher precedence
+
 ### Unary Operator in 'C' ###
 ### Unary Operators with Pointers ###
 ### Relational Operators in 'C' ###
