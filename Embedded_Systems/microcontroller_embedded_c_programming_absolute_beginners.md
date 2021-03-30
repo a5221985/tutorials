@@ -2863,13 +2863,16 @@ Exercise:
 
 				#include <stdio.h>
 				#include <stdint.h>
+				#include <stdbool.h>
+
+				static bool isAgeEnoughToVote(uint8_t age);
 
 				int main(void) {
 					printf("Enter your age: ");
 					fflush(stdout);
 					
 					uint8_t age = 0;
-					scanf("%u", &age);
+					scanf("%hhu", &age);
 					
 					if (isAgeEnoughToVote(age))
 						printf("You can cast your vote!\n");
