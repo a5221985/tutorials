@@ -2576,6 +2576,19 @@ Exercise:
 		}
 		
 	1. Here, it doesn't matter under which compiler this code compiles, the compiler will always reserve 32 bits for the variable by using suitable standard data type
+		1. No portability issues
+5. MinGW > indluce > stdint.h
+	1. How it is aliased depends on the compiler (it is not the same for all compilers)
+6. Pic Microcontroller
+	1. xc8 (PIC8) > pic > include < c99 > stdint.h
+	2. xc32 (PIC32)
+7. STM32
+	1. ST > STM32CubeIDE_<version> > plugins > com.... > tools > arm-none-eabi > include > stdint.h
+8. Some useful `stdint.h` aliases
+	1. `uintmax_t` - defines largest fixed-width unsigned integer possible on the system
+	2. `intmax_t` - defines largest fixed-width signed integer possible on the system
+	3. `uintptr_t` - defines unsigned integer type that is wide enough to store the value of a pointer
+		1. 64 - bit machine - 64 bits is size of pointer
 
 ## Operators ##
 ### Operators in 'C' ###
