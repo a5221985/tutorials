@@ -2766,6 +2766,16 @@ Exercise:
 
 ## Decision Making ##
 ### 'if' Statement ###
+1. Decision Making in 'C'
+	1. When you are going to write some program, it will always be necessary that you will have to put some code which ahs to be executed only when a specific condition is satisfied
+	2. Program has to take decision based on internal/ external events or conditions
+	3. Example:
+		1. If user presses key, then execute 'this' set of statements or if user doesn't press a key, then execute 'that' set of statements
+	4. In embedded programming
+		1. Example: Water level indication and control program
+			1. If sensor detects water level rising above threshold, then  program executes code to turn off motor, otherwise program doesn't turn off the motor
+2. 
+
 ### 'if' Statement Exercise ###
 ### 'if' Statement Exercise Solution ###
 ### 'if' and 'else' ###
