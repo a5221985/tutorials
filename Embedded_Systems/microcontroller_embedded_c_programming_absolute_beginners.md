@@ -2976,7 +2976,21 @@ Exercise:
 			}
 
 ### 'if' and 'else' Exercise Implementation Part-1 ###
-1. 
+1. Invalid inputs: floating point inputs
+
+		float num1, num2;
+		...
+		int32_t n1, n2;
+		
+		n1 = num1;
+		n2 = num2;
+		
+		if (n1 != num1 || n2 != num2) {
+			print("Warning: Comparing only integer parts");
+		}
+		...
+		
+2. Handling character inputs
 
 ### 'if' and 'else' Exercise Implementation Part-2 ###
 ### 'if' and 'else' Exercise Implementation Part-3 ###
