@@ -2619,6 +2619,27 @@ Exercise:
 			
 		1. Operator precedence - defined by standard
 			1. Operator precedence rules determine which mathematical operation takes place first, i.e. takes precedence over others. Parantheses, (), may be used to force an expression to a higher precedence
+3. cppreference.com
+	1. Don't try to memorize table
+		1. Use () if you want to promote precedence of an operator of choice in an expression
+	2. Lower the precedence value, higher the precedence
+	3. Assiciativity - if two operators of same precedence
+4. Example:
+
+		2 + 3 * 4 // * has higher precedence as compared to +
+		2 + 12
+		14
+		
+		(2 + 3) * 4
+		5 * 4
+		20
+		
+		4 * 5 / 2 * 5
+		20 / 2 * 5
+		10 * 5
+		50
+		
+	1. If two operators have same precedence, we have to resolve the conflict using associativity
 
 ### Unary Operator in 'C' ###
 ### Unary Operators with Pointers ###
