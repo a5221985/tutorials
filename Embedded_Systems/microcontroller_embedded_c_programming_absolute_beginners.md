@@ -2696,9 +2696,16 @@ Exercise:
 		pAddress++; // this is unary increment operation, result: pAddress = 0x0xFFFF0004
 
 ### Unary Operators with Pointers ###
-1. 
+1. We can use pointer variable with unary increment or decrement operator
 
 ### Relational Operators in 'C' ###
+1. Relational operators in 'C'
+	1. Relational operators do some kind of evaluation on the operands and then return value 1 (for true) or 0 (for false)
+	2. Relational operators are binary operators because they require two operands to operate
+	3. Relational operators are evaluated left to right
+2. `==` - equal to (`a == b` returns 1 iff a and b are same)
+3. `>` - 
+
 ### Logical Operators in 'C' ###
 
 ## Decision Making ##
