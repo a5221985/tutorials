@@ -2639,9 +2639,44 @@ Exercise:
 		10 * 5
 		50
 		
+		12 + 3 - 4 / 2 < 3 + 1
+		12 + 3 - 2 < 3 + 1
+		15 - 2 < 3 + 1
+		13 < 3 + 1
+		13 < 4
+		0
+		
 	1. If two operators have same precedence, we have to resolve the conflict using associativity
+5. All arithmetic operators are binary operators
+	1. They need atleast two operands to operate
 
 ### Unary Operator in 'C' ###
+1. Unary increment operator: x++
+	1. Increments value of x by 1
+	
+			x = x + 1
+	
+2. Unary decrement operator: x--
+	1. Decrements value of x by 1
+3. They need only one operand
+4. ++ is a unary operator and it can appear on either side of an expression
+
+		uint32_t x;
+		x++; // x is incremented by 1
+		++x; // x is incremented by 1
+		
+	1. The `++` (increment) operator adds 1 to value of operand and updates operand
+		1. Note: if operand is pointer, the behaviour is different
+5. Examples:
+
+		uint32_t x, y;
+		x = 5;
+		y = ++x; // y = 6, x = 6
+		
+		uint32_t n, m;
+		n = 5;
+		m = n++; // m = 5, n = 6
+
 ### Unary Operators with Pointers ###
 ### Relational Operators in 'C' ###
 ### Logical Operators in 'C' ###
