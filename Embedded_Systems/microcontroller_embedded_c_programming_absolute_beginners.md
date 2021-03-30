@@ -2729,6 +2729,28 @@ Exercise:
 		1. `&&` - And - `a && b` - returns 1 if a is nonzero and b is nonzero
 		2. `||` - Or - `a || b` - returns 1 if a is nonzero or b is nonzero
 		3. `!` - Not - `!a` - returns 1 if a is zero, returns 0 if a is non-zero
+2. Logical AND Operator: `&&`
+	1. Logical-AND operator produces value 1 if both operands have nonzero values
+	2. If either operand is equal to 0, result is 0.
+		1. If first operand is 0, second operand is not evaluated
+	3. Example:
+
+			A = -10, B = 20;
+			C = (A && B); // true && true
+			C = 1; // true
+			
+		1. The real values are not considered but only their truth or falsity is considered
+3. Logical OR Operator: ||
+	1. Logical-OR operator performs inclusive-OR operation on its operands
+	2. Result is 0 if both operands have 0 values
+	3. If either operand has nonzero value, result is 1
+	4. If first operand of logical-OR operation has nonzero value
+		1. Second operand is not evaluated
+4. Logical NOT Operator: !
+	1. It reverses the state of operand
+	2. If condition of expression is true, then logical NOT operator will make it false
+
+			c = !(A == B)
 
 ## Decision Making ##
 ### 'if' Statement ###
