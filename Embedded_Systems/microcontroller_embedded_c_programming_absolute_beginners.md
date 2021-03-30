@@ -2865,6 +2865,8 @@ Exercise:
 				#include <stdint.h>
 				#include <stdbool.h>
 
+				uint8_t MIN_AGE_TO_VOTE = 18;
+				
 				static bool isAgeEnoughToVote(uint8_t age);
 
 				int main(void) {
@@ -2880,6 +2882,10 @@ Exercise:
 						printf("You cannot vote!\n");
 					return 0;
 				}	
+				
+				static bool isAgeEnoughToVote(uint8_t age) {
+					return age >= MIN_AGE_TO_VOTE;
+				}
 
 ### 'if' Statement Exercise ###
 ### 'if' Statement Exercise Solution ###
