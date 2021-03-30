@@ -2676,6 +2676,24 @@ Exercise:
 		uint32_t n, m;
 		n = 5;
 		m = n++; // m = 5, n = 6 - post-incrementing (evaluated second)
+		
+6. -- is unary operator and it can appear on either side of expression
+
+		uint32_t x, y;
+		x = 5;
+		y = --x; // y = 4, x = 4
+		
+		uint32_t n, m;
+		n = 5;
+		m = n--; // m = 5, n = 4
+		
+7. Unary operators with pointer variables
+
+		uint32_t *pAddress = (uint32_t*) 0xFFFF0000;
+		
+		pAddress = pAddress + 1; // this is arithmetic add operation, result: pAddress = 0xFFFF0004;
+		
+		pAddress++; // this is unary increment operation, result: pAddress = 0x0xFFFF0004
 
 ### Unary Operators with Pointers ###
 ### Relational Operators in 'C' ###
