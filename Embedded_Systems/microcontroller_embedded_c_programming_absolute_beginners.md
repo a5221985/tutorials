@@ -2671,11 +2671,11 @@ Exercise:
 
 		uint32_t x, y;
 		x = 5;
-		y = ++x; // y = 6, x = 6
+		y = ++x; // y = 6, x = 6 - pre-incrementing (evaluated first)
 		
 		uint32_t n, m;
 		n = 5;
-		m = n++; // m = 5, n = 6
+		m = n++; // m = 5, n = 6 - post-incrementing (evaluated second)
 
 ### Unary Operators with Pointers ###
 ### Relational Operators in 'C' ###
