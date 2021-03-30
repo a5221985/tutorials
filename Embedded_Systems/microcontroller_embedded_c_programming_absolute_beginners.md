@@ -2838,6 +2838,45 @@ Exercise:
 					
 				1. The body of `if` statement is set of conditional statements
 				2. In 'C', a semicolon (`;`) by itself or an empty block `{}` is a NOP
+			2. Example:
+
+					uint8_t isButtonPressed = 0;
+					
+					int main(void) {
+						if (isButtonPressed) {
+							printf("Turn on the LED\n");
+							isButtonPressed = 0;
+						}
+						
+						return 0;
+					}
+					
+					/* Interrupt handler for button press */
+					void ISR_button(void) {
+						isButtonPressed = 1;
+					}
+					
+4. Exercise:
+	1. Write a program that takes user's age and decides whether a user can cast a vote or not
+		1. The minimum age for casting a vote is 18 years
+		2. Print appropriate message
+
+				#include <stdio.h>
+				#include <stdint.h>
+
+				int main(void) {
+					printf("Enter your age: ");
+					fflush(stdout);
+					
+					uint8_t age = 0;
+					scanf("%u", &age);
+					
+					if (isAgeEnoughToVote(age))
+						printf("You can cast your vote!\n");
+					else
+						printf("You cannot vote!\n");
+					return 0;
+				}	
 
 ### 'if' Statement Exercise ###
 ### 'if' Statement Exercise Solution ###
