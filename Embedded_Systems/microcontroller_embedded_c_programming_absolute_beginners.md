@@ -2880,14 +2880,53 @@ Exercise:
 						printf("You can cast your vote!\n");
 					else
 						printf("You cannot vote!\n");
+						
+					waitForKeyPress();
+					
 					return 0;
 				}	
 				
 				static bool isAgeEnoughToVote(uint8_t age) {
 					return age >= MIN_AGE_TO_VOTE;
 				}
+				
+				static void waitForKeyPress() {
+					printf("Press any key to exit");
+					while (getchar() != '\n');
+						getchar();
+				}
 
 ### 'if' Statement Exercise ###
+1. Syntax: if...else... statement
+2. Single statement execution:
+
+		if (expression)
+			statement_1;
+		else
+			statement_2;
+			
+3. Multiple statement execution
+
+		if (expression) {
+			statement_1;
+			statement_2;
+		} else {
+			statement_3;
+			statement_4;
+		}
+		
+4. Flowchart:
+
+		if (expression) -true-> statement(s) (if block statements)
+				|								
+				false
+				|
+				v
+			statement(s) (else block statements)
+				|
+				v
+			rest of the code
+
 ### 'if' Statement Exercise Solution ###
 ### 'if' and 'else' ###
 ### 'if' and 'else' Exercise Implementation Part-1 ###
