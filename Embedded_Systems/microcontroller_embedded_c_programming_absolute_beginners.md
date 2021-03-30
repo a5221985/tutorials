@@ -2552,6 +2552,30 @@ Exercise:
 4. `stdint.h`
 	1. Standard library header file `stdint.h` defines fixed-width integers using alias data types for standard data types available in 'C'
 	2. A fixed-width integer data type is an aliased data type that is based on exact number of bits required to store the data
+		1. `stdint.h` helps to choose an exact size for variable and makes code portable no matter which compiler code may be compiled on
+			1. They are not new data types but aliased names to standard data types in 'C'
+				1. Each compiler carries its own stdint.h which needs to be included in project to use
+		2. Exast alias
+			1. `int8_t` - exactly 8 bits signed - -128 to 127
+				1. `char` say
+			2. `uint8_t` - exactly 8 bits unsigned - 0 to 255
+				1. `unsigned char` say
+			3. `int16_t` - exactly 16 bits signed - -32,768 to 32,767
+			4. `uint16_t` - exactly 16 bits unsigned - 0 to 65,535
+			5. `int32_t` - exactly 32 bits signed - -2,147,483,648 to 2,147,483,647
+			6. `uint32_t` - exactly 32 bits unsigned - 0 to 4,294,967,295
+			6. `int64_t` - exactly 64 bits signed - -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+			7. `uint64_t` - exactly 64 bits unsigned - 0 to 18,446,744,073,709,551,615
+	3. How the types are resolved, it is not our concern, the compiler resolves it internally
+5. Resolution example:
+
+		uint32_t count = 0;
+		count++;
+		if (count > 65535) {
+			// Do this task
+		}
+		
+	1. Here, it doesn't matter under which compiler this code compiles, the compiler will always reserve 32 bits for the variable by using suitable standard data type
 
 ## Operators ##
 ### Operators in 'C' ###
