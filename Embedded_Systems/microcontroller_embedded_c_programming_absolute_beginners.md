@@ -2751,6 +2751,18 @@ Exercise:
 	2. If condition of expression is true, then logical NOT operator will make it false
 
 			c = !(A == B)
+			
+			x = 10; // state of x is true
+			x = !x; // NOT of x (NOT of true = false)
+			Result: x = 0;
+
+5. Example:
+	1. What is the value of A in the below expression?
+		
+			x = 7;
+			y = 9;
+			A = !((x > 5) && (y < 5));
+			Result: A = non-zero (1 may be)
 
 ## Decision Making ##
 ### 'if' Statement ###
