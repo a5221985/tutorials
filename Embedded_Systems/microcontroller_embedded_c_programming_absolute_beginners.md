@@ -2807,6 +2807,37 @@ Exercise:
 						|
 						v
 						rest of the code
+						
+			1. Example:
+
+					int main(void) {
+						uint8_t myData = 20;
+						
+						if (myData > 40)
+							printf("Value = %d\n", myData);
+							
+						/* this statement is outside if block, so always executed */
+						return 0;
+					}
+					
+					
+					
+					int main(void) {
+						uint8_t myData = 60;
+						
+						if (myData > 40) {
+							printf("Value = %d\n", myData);
+							myData = 0;
+						}
+						
+						/* this statement is outside if block, so always executed */
+						myData++;
+						
+						return 0;
+					}
+					
+				1. The body of `if` statement is set of conditional statements
+				2. In 'C', a semicolon (`;`) by itself or an empty block `{}` is a NOP
 
 ### 'if' Statement Exercise ###
 ### 'if' Statement Exercise Solution ###
