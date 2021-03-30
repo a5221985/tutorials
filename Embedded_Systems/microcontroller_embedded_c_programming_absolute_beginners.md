@@ -2703,10 +2703,32 @@ Exercise:
 	1. Relational operators do some kind of evaluation on the operands and then return value 1 (for true) or 0 (for false)
 	2. Relational operators are binary operators because they require two operands to operate
 	3. Relational operators are evaluated left to right
-2. `==` - equal to (`a == b` returns 1 iff a and b are same)
-3. `>` - 
+2. `==` - equal to (`a == b` returns 1 if a and b are same)
+3. `>` - greater than (`a > b` returns 1 if a is larger than b)
+4. `<` - less than (`a < b` returns 1 if a is less than b)
+5. `<=` - less than or equal to (`a <= b` returns 1 if a is less than or equal to b)
+6. `>=` - greater than or equal to (`a >= b` returns 1 if a is greater than or equal to b)
+7. `!=` - not equal to (`a != b` returns 1 if a is not equal to b)
+8. True or false in 'C'
+	1. In 'C' - zero is interpreted as false and anything other than zero is interpreted as true
+	2. Expressions using relational operators evaluate to a value of either TRUE (1) or FALSE (0)
+	3. Relational expressions are often used within if and while statements
+9. Examples:
+	1. A = 10, B = 20
+		1. `C = (A == B)` - If A and B are same value, then this expression evaluates to be TRUE (1) otherwise FALSE (0).
+		2. `C = (A <= B)` - If A is smaller than or equal to B, then this expression evaluates to be TRUE (1) otherwise FALSE (0). (1 is stored)
 
 ### Logical Operators in 'C' ###
+1. Logical operators in 'C'
+	1. Logical operators perform
+		1. Logical-AND (&&)
+		2. Logical-OR (||)
+		3. Logical-NOT (!)
+	2. These are binary operators except NOT
+	3. Description:
+		1. `&&` - And - `a && b` - returns 1 if a is nonzero and b is nonzero
+		2. `||` - Or - `a || b` - returns 1 if a is nonzero or b is nonzero
+		3. `!` - Not - `!a` - returns 1 if a is zero, returns 0 if a is non-zero
 
 ## Decision Making ##
 ### 'if' Statement ###
