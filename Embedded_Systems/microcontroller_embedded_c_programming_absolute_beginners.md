@@ -2696,6 +2696,8 @@ Exercise:
 		pAddress++; // this is unary increment operation, result: pAddress = 0x0xFFFF0004
 
 ### Unary Operators with Pointers ###
+1. 
+
 ### Relational Operators in 'C' ###
 ### Logical Operators in 'C' ###
 
