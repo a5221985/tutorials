@@ -2774,7 +2774,39 @@ Exercise:
 	4. In embedded programming
 		1. Example: Water level indication and control program
 			1. If sensor detects water level rising above threshold, then  program executes code to turn off motor, otherwise program doesn't turn off the motor
-2. 
+2. Decision taking statements in 'C'
+	1. 5 different ways to take decisions by making use of below decision taking statements
+		1. `if` statement
+		2. `if`-`else` statement
+		3. `if`-`else`-`if` statement
+		4. Conditional Operators
+		5. `switch`/`case` statements
+3. Syntax: if statement
+	1. Single statement execution
+
+			if (expression)
+				statement;
+				
+	2. Multiple statement execution
+
+			if (expression) {
+				statement_1;
+				statement_2;
+				statement_3;
+				...
+				statement_n;
+			}
+			
+		1. if expression evaluation is true (nonzero), only then statement(s) will be executed
+		2. expression: made up of relational operators, arithmetic operators, bitwise operators, ... that evaluates to true or false
+		3. Flow chart:
+
+				if (expression) -true-> statement(s) -> rest of the code
+						|
+						false
+						|
+						v
+						rest of the code
 
 ### 'if' Statement Exercise ###
 ### 'if' Statement Exercise Solution ###
