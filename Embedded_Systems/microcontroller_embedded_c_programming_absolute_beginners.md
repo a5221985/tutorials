@@ -3214,8 +3214,41 @@ Exercise:
 			
 		1. `case` must be followed by integer value
 		2. `break` - control comes out of `switch` body
+2. Example:
+
+		int main(void) {
+			uint8_t key_read = read_keypad();
+			
+			switch (key_read) {
+			case 1:
+				all_leds_race();
+				break;
+			case 2:
+				all_leds_on();
+				break;
+			case 3:
+				all_leds_toggle();
+				break;
+			case 4:
+				all_leds_blink();
+				break;
+			default:
+				all_leds_off();
+				printf("Invalid key ! Please enter number between (1 to 4) only\n");
+			}
+		}
+		
+	1. If `break` is not present, it continues with next `case` statement
 
 ### Switch Case Exercise ###
+1. Exercise:
+	1. Write a program to calculate the area of different geometric figures
+		1. Circle, triangle, trapezoid, square, and rectangle
+		2. The program should ask user to enter code for which user wants to find out area
+			1. `t` for triangle
+			2. `z` for trapezoid
+			3. `c` for circle
+
 ### Switch Case Exercise Solution ###
 ### Switch Case Exercise Solution Contd ###
 
