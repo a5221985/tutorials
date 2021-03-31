@@ -3081,19 +3081,51 @@ Exercise:
 			printf("Please enter your income: ");
 			fflush();
 			income = readInputIfValid();
-			double tax = 
+			double tax = computeTax(income);
+			printf("Tax to be paid: %lf\n", tax);
 			return 0;
 		}
 		
-		void readInputIfValid() {
+		static uint64_t readInputIfValid() {
 			uint64_t input = 0;
-			if (scanf("%llu", income) == 0) {
+			if (scanf("%llu", &income) == 0) {
 				printf("Invalid income! Exiting\n");
 				waitForKeyPress();
 				exit(-1);
 			}
 			return input;
 		}
+		
+		static double computeTax(uint64_t income) {
+			if (income <= 9525)
+				return 0.0;
+			else if (income <= 38700)
+				return (double) income * 0.12;
+			else if (income <= 82500)
+				return (double) income * 0.22;
+			else
+				return (double) income * 0.32 + 1000.0;
+		}
+
+2. Instructor's solution
+
+		uint64_t income;
+		uint64_t tax;
+		
+		double temp_income;
+		
+		printf("Enter your total income:");
+		scanf("%lf", &temp_income);
+		
+		income = (uint64_t) temp_income;
+		
+		if (income <= 9525) {
+			tax = 0;
+		} else if {
+			
+		}
+		
+		wait_for_user_input();
 
 ### Conditional Operator ###
 ### Switch Case Statement in 'C' ###
