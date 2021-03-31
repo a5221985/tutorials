@@ -3523,6 +3523,26 @@ Exercise:
 ### Applicability of Bitwise Operators: XOR ###
 1. Exercise: Clearing of bits
 	1. Write a program to clear (make bit state to 0) 4th, 5th, 6th, bit position of a given number and print the result.
+		1. Which bit wise operation do you use to clear the given bit position of the data?
+			1. Solution:
+
+					10111110
+					10001111
+					--------
+					10001110
+					
+				1. `&` is used to test and clear but not set
+				2. Un-interested areas should have all 1s
+				3. interested areas should have all 0s
+			2. Solution 2:
+
+					  10111110
+					~(01110000) (7 << 4)
+					  --------
+					  10001110
+					  
+				1. Negate (Bitwise NOT) the mask value first and then perform bitwise AND (&)
+2. Toggling of bits
 
 ## Embedded C Coding Exercise for LED ##
 ### Coding to Turn on an LED ###
