@@ -3068,7 +3068,31 @@ Exercise:
 	3. Get total income and calculate and print the tax
 
 ### 'if-else-if' Ladder Exercise Solution ###
-1. 
+1. Solution:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+		#include <stdint.h>
+
+		void readInputIfValid();
+
+		int main(void) {
+			uint64_t income = 0;
+			printf("Please enter your income: ");
+			fflush();
+			income = readInputIfValid();
+			return 0;
+		}
+		
+		void readInputIfValid() {
+			uint64_t income = 0;
+			if (scanf("%llu", income) == 0) {
+				printf("Invalid income! Exiting\n");
+				waitForKeyPress();
+				exit(-1);
+			}
+			return income;
+		}
 
 ### Conditional Operator ###
 ### Switch Case Statement in 'C' ###
