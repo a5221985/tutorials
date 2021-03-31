@@ -3248,6 +3248,8 @@ Exercise:
 			1. `t` for triangle
 			2. `z` for trapezoid
 			3. `c` for circle
+			4. `s` for square
+			5. `r` for rectangle
 
 ### Switch Case Exercise Solution ###
 ### Switch Case Exercise Solution Contd ###
