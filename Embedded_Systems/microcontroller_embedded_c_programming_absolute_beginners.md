@@ -3371,6 +3371,8 @@ Exercise:
 		1. If we want to turn on the LED, we can set some bit(s)
 		2. If we want to turn off the LED, we can clear some bit(s)
 		3. If we want to analyze status register of a peripheral, we will be testing some bits
+	3. Exercise:
+		1. Write a program which takes 2 integers from the user, computes bitwise &, |, ^ and ~ and prints the result
 
 ### Bitwise AND and Bitwise OR ###
 ### Applicability of Bitwise Operators: Testing of Bits ###
