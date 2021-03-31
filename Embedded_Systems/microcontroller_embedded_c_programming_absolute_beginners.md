@@ -3471,9 +3471,48 @@ Exercise:
 ### Applicability of Bitwise Operators: Setting of Bits ###
 1. Write a program to set (make bit state to 1) 4th and 7th-bit positions of a given number and print the result.
 
-		int32_t mask = 0x
+		#include <stdio.h>
+		#include <stdint.h>
+		#include <stdlib.h>
+		
+		int main() {
+			int32_t mask = 0x90;
+			
+			printf("Enter a number: ");
+			fflush(stdout);
+			int32_t num = readInputIfValid();
+			
+			printf("%d | %d = %d\n", num, mask, (num | mask));
+			
+			waitForKeyPress();
+			
+			return 0;
+		}
+		
+		static uint32_t readInputIfValid() {
+			float num = 0.0f;
+			if (scanf("%f", &num) == 0) {
+				printf("Invalid input! Exiting");
+				waitForKeyPress();
+				exit(-1);
+			}
+			return (uint32_t) num;
+		}
+		
+		static void waitForKeyPress() {
+			printf("Press any key to exit ");
+			while (getchar() != '\n')
+				;
+			getchar();
+		}
 
 ### Applicability of Bitwise Operators: Clearing of Bits ###
+1. Instructor's solution:
+
+		int main(void) {
+			int32_t num1
+		}
+
 ### Applicability of Bitwise Operators: XOR ###
 
 ## Embedded C Coding Exercise for LED ##
