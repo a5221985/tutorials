@@ -3381,13 +3381,16 @@ Exercise:
 		#include <stdint.h>
 		#include <stdlib.h>
 
+		static uint32_t readInputIfValid();
+		static void waitForKeyPress();
+
 		int main() {
 			printf("Enter first number: ");
-			fflush();	
+			fflush(stdout);	
 			uint32_t num1 = readInputIfValid();
 			
-			printf("Enter first number: ");
-			fflush();
+			printf("Enter second number: ");
+			fflush(stdout);
 			uint32_t num2 = readInputIfValid();
 			
 			printf("%u & %u = %u\n", num1, num2, (num1 & num2));
@@ -3411,13 +3414,21 @@ Exercise:
 		}
 		
 		static void waitForKeyPress() {
+			printf("Press any key to exit ");
 			while (getchar() != '\n')
 				;
 			getchar();
 		}
 
 ### Applicability of Bitwise Operators: Testing of Bits ###
-1. 
+1. Testing of bits (&)
+	1. Write a program to find out whether a user entered integer is even or odd
+	2. Print an appropriate message on the console
+	3. Use testing of bits logic
+2. Solution:
+	1. Test least significant bit of number using bitwise operation
+		1. if lsb is zero, then number is EVEN
+		2. if lsb is one, then number is ODD
 
 ### Finding a Number Even or odd Using Testing of Bits ###
 ### Applicability of Bitwise Operators: Setting of Bits ###
