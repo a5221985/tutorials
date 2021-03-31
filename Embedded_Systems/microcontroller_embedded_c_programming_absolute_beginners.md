@@ -3573,6 +3573,11 @@ Exercise:
 		1. Refer to schematic of the board you are using
 			1. ST Documentation - Resource Section
 				1. CAD Resrouces > Schematics
+				2. Search for LEDs
+					1. Part Number: LD2, LD3
+			2. LD2 is connected to 
+		2. Open user manual
+			1. Board layout
 
 ### Controlling IO Pin Using Software ###
 ### Processor Addressable Memory Regions ###
