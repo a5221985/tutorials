@@ -3637,6 +3637,20 @@ Exercise:
 	1. Since address bus width is 32 bits
 	2. Processor puts address ranging from 0x0000_0000 to 0xFFFF_FFFF on address bus
 	3. So 4G (4,29,49,67,296) different addresses can be put on address bus
+5. Memory map of ARM Cortex Mx processor
+
+		System - 0xE01000000 to 0xFFFFFFFF
+		Private peripheral bus - External - 0xE00400000 to 0xE01000000
+		Private peripheral bus - Internal - 0xE00000000 to 0xE00400000
+		External device - 1.0 GB - 0xA0000000 to 0xE0000000
+		External RAM - 1.0 GB - 0x60000000 to 0xA0000000
+		Peripheral - 0.5 GB - 0x40000000 to 0x60000000
+		SRAM - 0.5 GB - 0x20000000 to 0x40000000
+		Code - 0.5 GB - 0x00000000 to 0x20000000
+		
+	1. Program memroy, data memory, registers of various peripherals are organized withing same linear 4 GB of address space
+	2. The above is generic memory map which must be followed by all MCUs which use ARM cortex Mx processor
+	3. If processor puts any address from 0x00000000 to 0x20000000 (exclusive) on address bus, the code memory is targeted
 
 ### STM32 Memory Map ###
 ### Memory Mapped Peripheral Registers and IO Access ###
