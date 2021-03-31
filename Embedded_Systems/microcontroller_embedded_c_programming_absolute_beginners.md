@@ -3377,28 +3377,48 @@ Exercise:
 ### Bitwise AND and Bitwise OR ###
 1. Solution:
 
+		#include <stdio.h>
+		#include <stdint.h>
+		#include <stdlib.h>
+
 		int main() {
 			printf("Enter first number: ");
-			fflush();
-			int32_t num1 = readInputIfValid();
-			int32_t num2 = readInputIfValid();
+			fflush();	
+			uint32_t num1 = readInputIfValid();
 			
-			printf();
+			printf("Enter first number: ");
+			fflush();
+			uint32_t num2 = readInputIfValid();
+			
+			printf("%u & %u = %u\n", num1, num2, (num1 & num2));
+			printf("%u | %u = %u\n", num1, num2, (num1 | num2));
+			printf("%u ^ %u = %u\n", num1, num2, (num1 ^ num2));
+			printf("~%u = %u\n", num1, (~num1));
+			
+			waitForKeyPress();
 			
 			return 0;
 		}
 		
-		static int32_t readInputIfValid() {
+		static uint32_t readInputIfValid() {
 			float num = 0.0f;
 			if (scanf("%f", &num) == 0) {
 				printf("Invalid input! Exiting");
 				waitForKeyPress();
 				exit(-1);
 			}
-			return (int32_t) num;
+			return (uint32_t) num;
+		}
+		
+		static void waitForKeyPress() {
+			while (getchar() != '\n')
+				;
+			getchar();
 		}
 
 ### Applicability of Bitwise Operators: Testing of Bits ###
+1. 
+
 ### Finding a Number Even or odd Using Testing of Bits ###
 ### Applicability of Bitwise Operators: Setting of Bits ###
 ### Applicability of Bitwise Operators: Clearing of Bits ###
