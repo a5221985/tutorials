@@ -3279,7 +3279,37 @@ Exercise:
 				area = 3.1415 * r * r;
 				break;
 			case 't':
-				
+				float base = 0.0;
+				float height = 0.0;
+				float area = 0.0;
+				printf("Triangle Area Calculation:\n");
+				printf("Enter base value: ");
+				scanf("%f", &base);
+				printf("Enter height value: ");
+				scanf("%f", &height);
+				area = 0.5 * base * height;
+				break;
+			case 's':
+				float side = 0.0;
+				float area = 0.0;
+				printf("Square Area Calculation:\n");
+				printf("Enter side value: ");
+				scanf("%f", &side);
+				area = side * side;
+				break;
+			case 'r':
+				float base = 0.0;
+				float height = 0.0;
+				float area = 0.0;
+				printf("Rectangle Area Calculation:\n");
+				printf("Enter base value: ");
+				scanf("%f", &base);
+				printf("Enter height value: ");
+				scanf("%f", &height);
+				area = base * height;
+				break;
+			default:
+				printf("Invalid input\n");
 			}
 			
 			return 0;
