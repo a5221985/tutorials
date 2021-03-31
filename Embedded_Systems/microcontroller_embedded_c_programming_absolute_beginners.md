@@ -3658,8 +3658,13 @@ Exercise:
 	1. The microcontroller designers who use ARM Cortex Mx processor in the design should follow the memory map
 		1. **The diagram exists in ARM Cortex technical manual**
 7. GPIOD register address falls in the range 0x40000000 to 0x60000000
+	1. The addresses can be treated as pointers and we can write and read data to and from the pointers
+8. Memory map of STM32 MCU
+	1. Memory map of the microcontroller you can refer from the datasheet of reference manual of the microcontroller
 
 ### STM32 Memory Map ###
+1. Open Datasheet or Reference manual
+
 ### Memory Mapped Peripheral Registers and IO Access ###
 ### Procedure to Turn ON the LED ###
 ### Enabling Peripheral Clock ###
