@@ -3081,7 +3081,7 @@ Exercise:
 			printf("Please enter your income: ");
 			fflush();
 			income = readInputIfValid();
-			
+			double tax = 
 			return 0;
 		}
 		
