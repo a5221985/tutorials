@@ -3029,6 +3029,10 @@ Exercise:
 		} else { // execute this if all the above expressions are false
 			// statement(s)
 		}
+		
+2. Flow chart:
+
+
 
 ### 'if-else-if' Ladder Exercise ###
 ### 'if-else-if' Ladder Exercise Solution ###
