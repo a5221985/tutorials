@@ -3269,10 +3269,10 @@ Exercise:
 			printf("Rectangle\t--> r\n");
 			scanf("%c", &code);
 			
+			float area = 0.0;
 			switch (code) {
 			case 'c':
 				float radius = 0.0;
-				float area = 0.0;
 				printf("Circle Area Calculatin:\n");
 				printf("Enter radius(r) value: ");
 				scanf("%f", &radius);
@@ -3281,7 +3281,6 @@ Exercise:
 			case 't':
 				float base = 0.0;
 				float height = 0.0;
-				float area = 0.0;
 				printf("Triangle Area Calculation:\n");
 				printf("Enter base value: ");
 				scanf("%f", &base);
@@ -3291,7 +3290,6 @@ Exercise:
 				break;
 			case 's':
 				float side = 0.0;
-				float area = 0.0;
 				printf("Square Area Calculation:\n");
 				printf("Enter side value: ");
 				scanf("%f", &side);
@@ -3300,7 +3298,6 @@ Exercise:
 			case 'r':
 				float base = 0.0;
 				float height = 0.0;
-				float area = 0.0;
 				printf("Rectangle Area Calculation:\n");
 				printf("Enter base value: ");
 				scanf("%f", &base);
@@ -3310,12 +3307,25 @@ Exercise:
 				break;
 			default:
 				printf("Invalid input\n");
+				area = -1;
+			}
+			
+			if (area >= 0) {
+				printf("Area = %f\n", area);
 			}
 			
 			return 0;
 		}
 
 ### Switch Case Exercise Solution Contd ###
+1. Negative numbers:
+
+		if (r < 0) {
+			printf("radius cannot be -ve\n");
+			area = -1;
+		} else {
+			// ...
+		}
 
 ## Bitwise Operators ##
 ### Bitwise Operators in 'C' ###
