@@ -3352,6 +3352,25 @@ Exercise:
 			
 			C = A && B;	// C != 0 (true)
 			C = A & B;	// C = 00101000 & 00011110 = 00001000 = 8
+			
+			C = A || B;	// C != 0 (true)
+			C = A | B;	// C = 00101000 & 00011110 = 00111110 = 32 + 16 + 8 + 4 + 2 = 62
+			
+			C = !A;		// C = 0
+			C = ~A;		// C = !00101000 = 11010111 = -41
+			
+			C = A ^ B;	// C = 00101000 ^ 00011110 = 00110110 = 32 + 16 + 4 + 2 = 54
+			
+4. Applicability of bitwise operations
+	1. In embedded C program most of the time you will be doing
+		1. Testing of bits (&)
+		2. Setting of bits (|)
+		3. Clearing of bits (~ and &)
+		4. Toggling of bits (^)
+	2. Example: If an LED is connected to one of the pins of a microcontroller port
+		1. If we want to turn on the LED, we can set some bit(s)
+		2. If we want to turn off the LED, we can clear some bit(s)
+		3. If we want to analyze status register of a peripheral, we will be testing some bits
 
 ### Bitwise AND and Bitwise OR ###
 ### Applicability of Bitwise Operators: Testing of Bits ###
