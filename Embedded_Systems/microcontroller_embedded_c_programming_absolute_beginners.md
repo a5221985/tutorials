@@ -3651,6 +3651,13 @@ Exercise:
 	1. Program memroy, data memory, registers of various peripherals are organized withing same linear 4 GB of address space
 	2. The above is generic memory map which must be followed by all MCUs which use ARM cortex Mx processor
 	3. If processor puts any address from 0x00000000 to 0x20000000 (exclusive) on address bus, the code memory is targeted
+		1. Address generation unit puts the address
+	4. If processor puts any address from 0x20000000 to 0x40000000 (exclusive) on address bus, the SRAM is targeted (data memory)
+	5. If processor puts any address from 0x40000000 to 0x60000000 (exclusive) on address bus, the Peripherals are targeted
+6. This map is fixed for ARM Cortex Mx microcontroller architecture
+	1. The microcontroller designers who use ARM Cortex Mx processor in the design should follow the memory map
+		1. **The diagram exists in ARM Cortex technical manual**
+7. GPIOD register address falls in the range 0x40000000 to 0x60000000
 
 ### STM32 Memory Map ###
 ### Memory Mapped Peripheral Registers and IO Access ###
