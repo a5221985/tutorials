@@ -3575,7 +3575,8 @@ Exercise:
 				1. CAD Resrouces > Schematics
 				2. Search for LEDs
 					1. Part Number: LD2, LD3
-			2. LD2 is connected to 
+			2. LD2 is connected to PB13 (D13), PA5
+				1. PB13 - Port B Pin No 13
 		2. Open user manual
 			1. Board layout
 
