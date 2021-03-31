@@ -3429,9 +3429,50 @@ Exercise:
 	1. Test least significant bit of number using bitwise operation
 		1. if lsb is zero, then number is EVEN
 		2. if lsb is one, then number is ODD
+	2. Bit-Masking
+		1. Bit masking is a technique in programming used to test or modify the states of the bits of a given data
+			1. Modify: if state of bit is zero, make it one or if the state of bit is one then make it zero
+			2. Test: check whether the required bit position of a data is 0 or 1
+
+						00101110
+					&	00000001 (mask)
+						--------
+						00000000
+						
+				1. Data is masked with zeros to make all bits of data in this area zero at output
+					1. Area of no interest: put zeros in the mask
+					2. Area of interest: put one(s) in the mask
+	3. Solution:
+
+			if (number & 1) {
+				printf("Number is odd\n");
+			} else {
+				printf("Number is even\n");
+			}
 
 ### Finding a Number Even or odd Using Testing of Bits ###
+1. Solution:
+
+		#include <stdio.h>
+		#include <stdint.h>
+
+		int main(void) {
+			int32_t num1;
+			printf("Enter a number: ");
+			scanf("%d", &num1);
+			
+			if (num1 & 1) {
+				printf("Number is odd\n");
+			} else {
+				printf("Number is even\n");
+			}
+		}
+
 ### Applicability of Bitwise Operators: Setting of Bits ###
+1. Write a program to set (make bit state to 1) 4th and 7th-bit positions of a given number and print the result.
+
+		int32_t mask = 0x
+
 ### Applicability of Bitwise Operators: Clearing of Bits ###
 ### Applicability of Bitwise Operators: XOR ###
 
