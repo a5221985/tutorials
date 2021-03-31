@@ -3246,10 +3246,15 @@ Exercise:
 		1. Circle, triangle, trapezoid, square, and rectangle
 		2. The program should ask user to enter code for which user wants to find out area
 			1. `t` for triangle
+				1. `1/2 h b`
 			2. `z` for trapezoid
+				1. `1/2 (a + b) h`
 			3. `c` for circle
+				1. `PI r^2`
 			4. `s` for square
+				1. `a^2`
 			5. `r` for rectangle
+				1. `a b`
 
 ### Switch Case Exercise Solution ###
 ### Switch Case Exercise Solution Contd ###
