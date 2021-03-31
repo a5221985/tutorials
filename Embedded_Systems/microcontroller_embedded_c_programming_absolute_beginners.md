@@ -3579,6 +3579,17 @@ Exercise:
 				1. PB13 - Port B Pin No 13
 		2. Open user manual
 			1. Board layout
+	2. In STM32Fx based MCUs, each port has 16 pins where you can connect external peripherals (0-15)
+		1. (LED, Display, button, bluetooth transceiver, external memory (e.g. EEPROM), Joy stick, Keypad, etc...)
+		2. U5A - part number of the microcontroller 
+		3. The pins on ports are exposed to external world
+			1. Ports
+				1. Each port is a collection of 16 pins
+					1. PA0 to PA15
+						1. 23 pin of microcontroller corresponds to PA0
+				2. Port F, Port G, Port H, ... are not exposed
+		4. LD2 - connected to PA5 (GPIO - external peripheral, protocol communication (Ethernet, UART, I2C, ...)
+			1. How to access it?
 
 ### Controlling IO Pin Using Software ###
 ### Processor Addressable Memory Regions ###
