@@ -2991,10 +2991,45 @@ Exercise:
 		...
 		
 2. Handling character inputs
+	1. Return value of scanf
+		1. `scanf` returns total number of inputs scanned successfully
+
+				scanf("%f", &num1);
+				
+			1. `scanf` returns 1 - if scan was successful
+			2. `scanf` returns 0 - otherwise
+		2. If we enter character, the `scanf` fails and returns 0 (EOF)
+			1. If we enter a character when we were suppsed to enter a floating point number, the `scanf` fails
+
+					if (scanf("%f", &num1)  == 0) {
+						printf("Invalid input! Exiting ...\n");
+						waitForKeyPress();
+						return -1;
+					}
+					
+					...
+					if (scanf("%f", &num1)  == 0) {
+						printf("Invalid input! Exiting ...\n");
+						waitForKeyPress();
+						return -1;
+					}
 
 ### 'if' and 'else' Exercise Implementation Part-2 ###
 ### 'if' and 'else' Exercise Implementation Part-3 ###
 ### 'if-else-if' Ladder Statements ###
+1. Syntax: if ... else ... ladder statement
+
+		if (expression1) { // first check this
+			// statement(s) 
+		} else if (expression2) { // check this if expression1 is false
+			// statement(s)
+		} else if (expression3) { // check this if expression1 and expression2 are false
+			// statement(s)
+			...
+		} else { // execute this if all the above expressions are false
+			// statement(s)
+		}
+
 ### 'if-else-if' Ladder Exercise ###
 ### 'if-else-if' Ladder Exercise Solution ###
 ### Conditional Operator ###
