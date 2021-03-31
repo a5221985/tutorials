@@ -3590,9 +3590,40 @@ Exercise:
 				2. Port F, Port G, Port H, ... are not exposed
 		4. LD2 - connected to PA5 (GPIO - external peripheral, protocol communication (Ethernet, UART, I2C, ...)
 			1. How to access it?
+2. Now our goal is to control the I/O pin PD12's state either HIGH or LOW through software to make LED turn ON or OFF
+	1. PD12: 12th pin of the GPIO Port D peripheral
+3. It also has a set of registers which are used to control pin's mode, state and other functionality
 
 ### Controlling IO Pin Using Software ###
+1. GPIO D peripheral - used to control pins of port D
+	1. It has set of registers which are used to control pin's mode, state and other functionality
+		1. Software needs to write to the register (to control mode, state, data to transfer, write data, read data, ...)
+	2. How to addess the registers?
+		1. We can access registers of the peripheral using memory addresses
+			1. The peripheral registers are memory mapped
+				1. **Each register has it's own memory address**
+2. Memory mapped I/O
+	1. IO pins are controlled using peripheral registers which are mapped on to processor addressable memory locations
+	2. What are processor addressable memory locations?
+
 ### Processor Addressable Memory Regions ###
+1. Figure:
+
+		ARM Cortex M4 CPU	Data memory	Code memory
+				^					^			^
+				|					|			|
+				v					v			v
+			<-------System bus (AHB)-------------->
+				^			^			^		^
+				|			|			|		|
+				v			v			v		v
+			  GPIO		TIMERS			ADC		I2C
+			  
+	1. System bus (AHB) - central bus which connects processor with memory and peripherals
+		1. 32 bit address channel
+		2. 32 bit data channel
+			
+
 ### STM32 Memory Map ###
 ### Memory Mapped Peripheral Registers and IO Access ###
 ### Procedure to Turn ON the LED ###
