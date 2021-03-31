@@ -3081,17 +3081,18 @@ Exercise:
 			printf("Please enter your income: ");
 			fflush();
 			income = readInputIfValid();
+			
 			return 0;
 		}
 		
 		void readInputIfValid() {
-			uint64_t income = 0;
+			uint64_t input = 0;
 			if (scanf("%llu", income) == 0) {
 				printf("Invalid income! Exiting\n");
 				waitForKeyPress();
 				exit(-1);
 			}
-			return income;
+			return input;
 		}
 
 ### Conditional Operator ###
