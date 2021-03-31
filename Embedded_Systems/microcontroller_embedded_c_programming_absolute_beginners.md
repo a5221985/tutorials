@@ -3257,6 +3257,34 @@ Exercise:
 				1. `a b`
 
 ### Switch Case Exercise Solution ###
+1. Solution:
+
+		int main(void) {
+			int8_t code = 0;
+			printf("Area calculation program\n");
+			printf("Circle\t--> c\n");
+			printf("Triangle\t--> t\n");
+			printf("Trapezoid\t--> z\n");
+			printf("Square\t--> s\n");
+			printf("Rectangle\t--> r\n");
+			scanf("%c", &code);
+			
+			switch (code) {
+			case 'c':
+				float radius = 0.0;
+				float area = 0.0;
+				printf("Circle Area Calculatin:\n");
+				printf("Enter radius(r) value: ");
+				scanf("%f", &radius);
+				area = 3.1415 * r * r;
+				break;
+			case 't':
+				
+			}
+			
+			return 0;
+		}
+
 ### Switch Case Exercise Solution Contd ###
 
 ## Bitwise Operators ##
