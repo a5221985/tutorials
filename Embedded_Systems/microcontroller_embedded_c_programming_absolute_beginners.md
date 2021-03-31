@@ -3082,7 +3082,7 @@ Exercise:
 			fflush();
 			income = readInputIfValid();
 			double tax = computeTax(income);
-			printf("Tax to be paid: %lf\n", tax);
+			printf("Tax to be paid: $%lf\n", tax);
 			return 0;
 		}
 		
@@ -3117,18 +3117,104 @@ Exercise:
 		printf("Enter your total income:");
 		scanf("%lf", &temp_income);
 		
+		if (temp_income < 0) {
+			printf("Income cannot be negative\n");
+			return -1;
+		}
+		
 		income = (uint64_t) temp_income;
 		
 		if (income <= 9525) {
 			tax = 0;
-		} else if {
-			
+		} else if ((income > 9525) && (income <= 38700)) {
+			tax = income * 0.12; // only integer part will be saved
+		} else if ((income > 38700) && (income <= 82500)) {
+			tax = income * 0.22;
+		} else if (income > 82500) {
+			tax = income * 0.32 + 1000;
 		}
+		
+		printf("Tax payable: $%I64u");
 		
 		wait_for_user_input();
 
 ### Conditional Operator ###
+1. Decision taking statements in 'C'
+	1. Conditional Operators
+		1. Conditional operator is a temporary operator in C used for conditional evaluation
+		2. Operator symbol ?:
+		3. It's a ternary operator because it operates on three operands
+	2. Syntax of conditional operator
+	
+			expression1 ? expression2 : expression3
+			(operand1)	(operand2)		(operand3)
+			
+			uint32_t a = (5 + 4) ? (9 - 4) : 99; // a = 5
+			
+			if (expression1 != 0) // is true
+				expression2
+			else
+				expression3
+				
+	3. Use case
+		1. Sometimes you can use conditional operator to replace `if`...`else` statements
+		2. Example:
+
+				int main(void) {
+					uint8_t age = get_voter_age();
+					
+					if (age < 18) {
+						printf("you are not eligible to vote\n");
+					} else {
+						printf("contrats!!! you can vote\n");
+					}
+					
+					return 0;
+				}
+				
+				int main(void) {
+					uint8_t age = get_voter_age();
+					(age < 18) ? printf("you are not eligible to vote\n") : printf("contrats!!! you can vote\n");
+					return 0;
+				}
+				
+2. Evaluate these expressions
+
+		int32_t a = 5;
+		a = 0 ? (a < 9) : a++;
+		a = ? // 5
+		
+		int32_t a = 5, b = 10;
+		a = !(a + b) ? !(a < 9) : a;
+		a = ? // 5
+
 ### Switch Case Statement in 'C' ###
+1. Syntax of `switch`/`case` statement
+	1. `switch`/`case` statement is one of decision making statements available in 'C'
+	2. It may be used instead of several `if`...`else` statements
+	3. Syntax:
+
+			switch (expression) {
+			case value1:
+				statement-1;
+				statement-2;
+				break;
+			case value2:
+				statement-3;
+				statement-4;
+				break;
+			case value3:
+				statement-5;
+				statement-6;
+				break;
+			default: // if none of the `case`s match
+				statement-7;
+				statement-8;
+			}
+			
+		1. `case` must be followed by integer value
+		2. `break` - control comes out of `switch` body
+
 ### Switch Case Exercise ###
 ### Switch Case Exercise Solution ###
 ### Switch Case Exercise Solution Contd ###
