@@ -3686,7 +3686,24 @@ Exercise:
 		1. Refer to device reference manual
 
 ### Memory Mapped Peripheral Registers and IO Access ###
-1. 
+1. GPIO - may have 10, ADC - 15 say, ...
+	1. Depends on complexity of the peripheral
+		1. More complex peripheral may have more registers
+			1. Ethernet MAC
+			2. CAN
+			3. TIMER
+			4. ...
+2. GPIOD Peripheral Registers (GPIOA, GPIOB, ... have same set of registers)
+	1. GPIOD port mode register
+	2. GPIOD port output type register
+	3. GPIOD port output speed register
+	4. GPIOD port pull-up/pull-down register
+	5. GPIOD port input data register
+	6. GPIOD port ouptut data register
+	7. GPIOD port bit set/ reset register
+	8. GPIOD port configuration lock register
+	9. GPIOD alternate function low register
+	10. GPIOD alternate function high register
 
 ### Procedure to Turn ON the LED ###
 ### Enabling Peripheral Clock ###
