@@ -3664,8 +3664,30 @@ Exercise:
 
 ### STM32 Memory Map ###
 1. Open Datasheet or Reference manual
+	1. Bus Architecture
+		1. Memory Map
+			1. GPIOD - peripheral register
+				1. First register is at the address: 0x40020C00 (base address of GPIOD)
+			2. ADC1,2,3 - 0x40012000 (base address)
+			3. CAN - 0x40006800
+				1. If processor puts the address on address bus, it would be talking to the CAN peripheral registers
+			4. I2C
+			5. UART
+			6. Ethernet MAC:
+				1. Registers used to **control and configure** Ethernet MAC peripherals and registers used to **read data from and write data** into Ethernet MAC peripheral are mapped in address range 0x4002_8000 to 0x4002_93FF
+
+						0x4002 0000 - 0x4002 03FF: GPIOA
+						0x4002 0C00 - 0x4002 0FFF: GPIOD
+						
+2. About peripheral registers
+	1. All peripheral registers in STM32 microcontroller are of 32 bits wide
+	2. Different peripherals have different number of peripheral registers
+	3. Never assume about the address of peripheral registers
+		1. Refer to device reference manual
 
 ### Memory Mapped Peripheral Registers and IO Access ###
+1. 
+
 ### Procedure to Turn ON the LED ###
 ### Enabling Peripheral Clock ###
 ### Calculating Peripheral Register Addresses ###
