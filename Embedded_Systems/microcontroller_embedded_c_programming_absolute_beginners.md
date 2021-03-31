@@ -3510,10 +3510,19 @@ Exercise:
 1. Instructor's solution:
 
 		int main(void) {
-			int32_t num1
+			int32_t num1, output;
+			printf("Enter a number: ");
+			scanf("%d", &num1);
+			
+			output = num1 | 0x90;
+			printf("[intput][output] :0x%x 0x%x\n", num1, output);
+			
+			wait_for_user_input();
 		}
 
 ### Applicability of Bitwise Operators: XOR ###
+1. Exercise: Clearing of bits
+	1. Write a program to clear (make bit state to 0) 4th, 5th, 6th, bit position of a given number and print the result.
 
 ## Embedded C Coding Exercise for LED ##
 ### Coding to Turn on an LED ###
