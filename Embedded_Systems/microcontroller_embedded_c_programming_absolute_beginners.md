@@ -3619,10 +3619,24 @@ Exercise:
 				v			v			v		v
 			  GPIO		TIMERS			ADC		I2C
 			  
-	1. System bus (AHB) - central bus which connects processor with memory and peripherals
-		1. 32 bit address channel
+	1. System bus (AHB) - central bus which connects processor with memory and peripherals - it has 2 channels
+		1. 32 bit address channel - 2^32 addresses to target memory and peripherals
 		2. 32 bit data channel
-			
+	2. AHB - specification
+		1. Designed by ARM
+		2. Advanced High Performance Bus
+2. Suppose we want to send data to external world over GPIO pins
+	1. Peripherals are controlled by their own set of registers, and a register is addressed by its unique address
+		1. CPU has to send the data to one of the registers of the GPIO peripheral over system bus
+		2. Data from register is transmitted to the external world
+	2. **We can get the address by going through the memory map of the processor**
+	3. Example: If we want to read data from ADC peripheral
+		1. We want to place appropriate addess on address bus
+3. 2^32 = 4 G memory addresses
+4. Processor addressable memory locations?
+	1. Since address bus width is 32 bits
+	2. Processor puts address ranging from 0x0000_0000 to 0xFFFF_FFFF on address bus
+	3. So 4G (4,29,49,67,296) different addresses can be put on address bus
 
 ### STM32 Memory Map ###
 ### Memory Mapped Peripheral Registers and IO Access ###
