@@ -3568,6 +3568,12 @@ Exercise:
 
 ## Embedded C Coding Exercise for LED ##
 ### Coding to Turn on an LED ###
+1. Hardware connections
+	1. Let us understand how external hardware (LED) is connected to MCU
+		1. Refer to schematic of the board you are using
+			1. ST Documentation - Resource Section
+				1. CAD Resrouces > Schematics
+
 ### Controlling IO Pin Using Software ###
 ### Processor Addressable Memory Regions ###
 ### STM32 Memory Map ###
