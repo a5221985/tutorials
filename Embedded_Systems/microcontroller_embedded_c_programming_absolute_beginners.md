@@ -3032,9 +3032,29 @@ Exercise:
 		
 2. Flow chart:
 
-
+		if (expression1) -true-> statement(s)1
+				|
+				false
+				|
+				v
+		else if (expression2) -true-> statement(s)2
+				|
+				false
+				|
+				v
+		else if (expression3) -true-> statement(s)3
+				|
+				false
+				|
+				v
+		else -> statement(s)
+				|
+				v
+			rest of the code
 
 ### 'if-else-if' Ladder Exercise ###
+1. 
+
 ### 'if-else-if' Ladder Exercise Solution ###
 ### Conditional Operator ###
 ### Switch Case Statement in 'C' ###
