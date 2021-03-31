@@ -3542,7 +3542,29 @@ Exercise:
 					  10001110
 					  
 				1. Negate (Bitwise NOT) the mask value first and then perform bitwise AND (&)
-2. Toggling of bits
+2. Toggling of bits:
+	1. Led_state = Led_state ^ 0x01
+
+			00000001
+			00000001
+			--------
+			00000000
+			00000001
+			--------
+			00000001
+			
+		1. Code:
+
+				while (true) {
+					LED_state ^= 0x01;
+				}
+				
+3. Exercise:
+	1. Write a program to turn on the LED of your target board
+	2. For this exercise we need the knowledge of
+		1. Pointers
+		2. Bitwise operations
+		3. Hardware connections
 
 ## Embedded C Coding Exercise for LED ##
 ### Coding to Turn on an LED ###
