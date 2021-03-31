@@ -3329,6 +3329,30 @@ Exercise:
 
 ## Bitwise Operators ##
 ### Bitwise Operators in 'C' ###
+1. Heavily used in embedded C programming
+	1. We end up manipulating
+		1. Memory addresses
+		2. Content of peripheral registers
+		3. Content of status registers
+		4. ...
+2. Bitwise Operators in 'C'
+	1. Bitwise AND: `&`
+	2. Bitwise OR: `|`
+	3. Bitwise left shift: `<<`
+	4. Bitwise right shift: `>>`
+	5. Bitwise NOT: `~` (negation)
+	6. Bitwise XOR: `^`
+3. Difference between logical operator and bitwise operator
+	1. `&&` is logical AND operator
+	2. `&` is bitwise AND operator
+	3. Example:
+
+			char A = 40;
+			char B = 30;
+			
+			C = A && B;	// C != 0 (true)
+			C = A & B;	// C = 00101000 & 00011110 = 00001000 = 8
+
 ### Bitwise AND and Bitwise OR ###
 ### Applicability of Bitwise Operators: Testing of Bits ###
 ### Finding a Number Even or odd Using Testing of Bits ###
