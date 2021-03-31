@@ -3053,9 +3053,23 @@ Exercise:
 			rest of the code
 
 ### 'if-else-if' Ladder Exercise ###
-1. 
+1. Exercise
+	1. Write a program to calculate income tax payable by the user.
+	2. Tax is calculated as per below table
+
+			total income 			| % of tax
+			--------------------|------------
+			Up to $9,525 			| 0
+			$9,526 to $38,700	| 12%
+			$38,701 to $82,500	| 22%
+			> $82,500				| 32% + $1000
+			
+		1. Tax payable = Income * (tax rate / 100);
+	3. Get total income and calculate and print the tax
 
 ### 'if-else-if' Ladder Exercise Solution ###
+1. 
+
 ### Conditional Operator ###
 ### Switch Case Statement in 'C' ###
 ### Switch Case Exercise ###
