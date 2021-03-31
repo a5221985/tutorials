@@ -3375,6 +3375,29 @@ Exercise:
 		1. Write a program which takes 2 integers from the user, computes bitwise &, |, ^ and ~ and prints the result
 
 ### Bitwise AND and Bitwise OR ###
+1. Solution:
+
+		int main() {
+			printf("Enter first number: ");
+			fflush();
+			int32_t num1 = readInputIfValid();
+			int32_t num2 = readInputIfValid();
+			
+			printf();
+			
+			return 0;
+		}
+		
+		static int32_t readInputIfValid() {
+			float num = 0.0f;
+			if (scanf("%f", &num) == 0) {
+				printf("Invalid input! Exiting");
+				waitForKeyPress();
+				exit(-1);
+			}
+			return (int32_t) num;
+		}
+
 ### Applicability of Bitwise Operators: Testing of Bits ###
 ### Finding a Number Even or odd Using Testing of Bits ###
 ### Applicability of Bitwise Operators: Setting of Bits ###
