@@ -3792,7 +3792,15 @@ Exercise:
 			2. Enable the clock
 				1. **Go to Reset and Clock Control section of reference manual**
 					1. RCC Registers
-						1. RCC AHB1 peripheral clock enable register (used to enable clocks for peripherals hanging on AHB1 bus)
+						1. RCC AHB1 peripheral clock enable register (used to enable clocks for peripherals hanging on AHB1 bus - we can get this info from datasheet)
+							1. Internal archicture (GPIOD is connected to AHB1 bus which is connected to AHB bus-matrix)
+								1. ADC is connected to APB2 bus (slower bus) which is connected to AHB bus through a bridge (AHB/APB2)
+						2. The data exchange between memory and peripherals happens over the AHB bus
+5. RCC AHB1 peripheral clock register (RCC_AHB1ENR) - for all peripherals hanging on AHB1 bus
+
+		Address offset: 0x30 (add this offset to the base address of RCC peripheral registers - 0x4002 3800 (mem map))
+		
+		GPIOD EN - bit 3
 
 ### Enabling Peripheral Clock ###
 ### Calculating Peripheral Register Addresses ###
