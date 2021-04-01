@@ -3944,9 +3944,24 @@ Exercise:
 			/* Loop forever */
 			for(;;);
 		}
+		
+	1. Show View > SFR
+		1. Peripheral registers (GPIOD)
+			1. Step Over
+				1. AHB1ENR
+				2. GPIODEN (enable clock)
+				3. GPIOD > MODER ([24:2])
+		2. Shows register views
+		3. ODR > ODR12
 
 ## Bitwise Shift Operators ##
 ### Bitwise Right Shift Operator ###
+1. Right shift
+	1. This operator takes 2 operands
+	2. Bits of 1st operand will be right shifted by the amount decided by 2nd operand
+	3. Syntax: operand1 >> operand2
+	4. Example:
+
 ### Bitwise Left Shift Operator ###
 ### Applicability of Bitwise Shift Operators ###
 ### Modifying LED on Exercise Using Bitwise Shift Operators ###
