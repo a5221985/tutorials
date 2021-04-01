@@ -3875,7 +3875,7 @@ Exercise:
 				uint32_t *pPortDOutReg = (uint32_t*) 0x40020C14;
 				
 				//1. Enable peripheral clock
-				
+				*pClkctrlreg |= 0x08; // read and write back
 				
 				for(;;);
 			}
@@ -3883,6 +3883,10 @@ Exercise:
 		1. In embedded programming:
 			1. While we configure hardware register bit fields
 				1. We must respect the other bits (never change the state of unknown bit positions)
+					1. If our code is part of another project, the peripheral might be used for other purposes (we must not disturb those)
+						1. DMA
+						2. GPIOA,GPIOB, ...
+				2. Solution: Use bitwise operation
 
 ## Bitwise Shift Operators ##
 ### Bitwise Right Shift Operator ###
