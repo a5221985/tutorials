@@ -3796,7 +3796,9 @@ Exercise:
 							1. Internal archicture (GPIOD is connected to AHB1 bus which is connected to AHB bus-matrix)
 								1. ADC is connected to APB2 bus (slower bus) which is connected to AHB bus through a bridge (AHB/APB2)
 						2. The data exchange between memory and peripherals happens over the AHB bus
-5. RCC AHB1 peripheral clock register (RCC_AHB1ENR) - for all peripherals hanging on AHB1 bus
+
+### Enabling Peripheral Clock ###
+1. RCC AHB1 peripheral clock register (RCC_AHB1ENR) - for all peripherals hanging on AHB1 bus
 
 		Address offset: 0x30 (add this offset to the base address of RCC peripheral registers - 0x4002 3800 (mem map))
 		Reset value: 0x0010 0000 (to reset RCC)
@@ -3810,15 +3812,14 @@ Exercise:
 			GPIODEN: IO port D clock enable
 			0: IO port D clock disabled
 			1: IO port D clock enabled
-
-### Enabling Peripheral Clock ###
 1. Address of clock control register (AHB1ENR)
 	1. Calculate address of AHB1ENR
 	
 			base address + offset
 			0x40023800 + 0x30 = 0x40023830
-			
-2. Address of GPIOD mode register (used to control mode)
+
+### Calculating Peripheral Register Addresses ###
+1. Address of GPIOD mode register (used to control mode)
 	1. Calculate address of GPIOD mode register (**Go to GPIO section > Registers > GPIO port mode register**)
 
 			base address + offset
@@ -3854,9 +3855,34 @@ Exercise:
 						ODR1 - controls pin 1
 						...
 						ODR15 - controls pin 15
+						
+		2. Address
 
-### Calculating Peripheral Register Addresses ###
+				base address + offset
+				0x40020C00 + 0x14 = 0x40020C14
+
 ### LED ON Exercise Coding ###
+1. Solution:
+	1. New STM32 project
+	2. Select board
+	3. Name: led_on
+
+			#include <stdint.h>
+
+			int main(void) {
+				uint32_t *pClkctrlreg = (uint32_t*) 0x40023830;
+				uint32_t *pPortDModeReg = (uint32_t*) 0x40020C00;
+				uint32_t *pPortDOutReg = (uint32_t*) 0x40020C14;
+				
+				//1. Enable peripheral clock
+				
+				
+				for(;;);
+			}
+			
+		1. In embedded programming:
+			1. While we configure hardware register bit fields
+				1. We must respect the other bits (never change the state of unknown bit positions)
 
 ## Bitwise Shift Operators ##
 ### Bitwise Right Shift Operator ###
