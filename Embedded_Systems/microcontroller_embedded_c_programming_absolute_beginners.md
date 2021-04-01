@@ -3812,14 +3812,15 @@ Exercise:
 			GPIODEN: IO port D clock enable
 			0: IO port D clock disabled
 			1: IO port D clock enabled
-1. Address of clock control register (AHB1ENR)
+
+### Calculating Peripheral Register Addresses ###
+1. Address of clock control register (**AHB1ENR** - **RCC AHB1 peripheral clock enable register**)
 	1. Calculate address of AHB1ENR
 	
 			base address + offset
 			0x40023800 + 0x30 = 0x40023830
-
-### Calculating Peripheral Register Addresses ###
-1. Address of GPIOD mode register (used to control mode)
+			
+2. Address of GPIOD mode register (used to control mode)
 	1. Calculate address of GPIOD mode register (**Go to GPIO section > Registers > GPIO port mode register**)
 
 			base address + offset
