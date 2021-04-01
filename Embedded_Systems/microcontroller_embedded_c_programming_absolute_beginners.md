@@ -3962,6 +3962,9 @@ Exercise:
 	3. Syntax: operand1 >> operand2
 	4. Example:
 
+			char a = 111; // 01101111
+			char b = a >> 4;
+
 ### Bitwise Left Shift Operator ###
 ### Applicability of Bitwise Shift Operators ###
 ### Modifying LED on Exercise Using Bitwise Shift Operators ###
