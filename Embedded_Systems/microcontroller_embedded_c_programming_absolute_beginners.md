@@ -3741,7 +3741,29 @@ Exercise:
 			GPIOD bit 15 controls PD15
 
 ### Procedure to Turn ON the LED ###
-1. 
+1. Procedure to turn on the LED
+	1. To write a code to turn on the LED is not easy.
+		1. This makes embedded system programming unique
+			1. We must know memory map
+			2. We must know peripheral registers
+			3. We must know peripheral register addresses
+			4. We must know hardware connections,
+			5. ...
+2. Procedure to turn on the LED
+	1. Identify the GPIO port (a peripheral) used to connect the LED
+		1. GPIOD
+	2. Identify the GPIO pin where the LED is connected
+		1. 12 (PD12)
+	3. Activate the GPIOD peripheral (Enable the clock) (most of the peripherals are dead by default in certain microcontrollers)
+		1. Until we enable clock for a peripheral, peripheral is dead
+			1. It doesn't function
+			2. It doesn't take any configuration values set by us
+		2. If we activate the clock:
+			1. Peripheral is ready to take **configuration** and **control**-related commands or arguments (config values)
+		3. Note: For certain microcontrollers,
+			1. peripheral may be ON by default
+				1. No need to activate
+					1. Explore the device **datasheet** or **reference manual**
 
 ### Enabling Peripheral Clock ###
 ### Calculating Peripheral Register Addresses ###
