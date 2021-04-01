@@ -3892,7 +3892,7 @@ Exercise:
 				1. We must respect the other bits (never change the state of unknown bit positions)
 					1. If our code is part of another project, the peripheral might be used for other purposes (we must not disturb those)
 						1. DMA
-						2. GPIOA,GPIOB, ...
+						2. GPIOA, GPIOB, ...
 				2. Solution: Use bitwise operation
 		2. GPIO port output data register
 			1. Reserved must be kept at reset value
