@@ -3877,6 +3877,13 @@ Exercise:
 				//1. Enable peripheral clock
 				*pClkctrlreg |= 0x08; // read and write back
 				
+				//2. Configure the mode of the IO pin as output
+				*pPortDModeReg &= 0xFCFFFFFF; // clearing bits 24 and 25
+				*pPortDModeReg |= 0x01000000; // setting bit 24
+				
+				//3. SET 12th bit of the output data register to make I/O pin-12 as HIGH
+				*pPortDOutReg |= 0x1000;
+				
 				for(;;);
 			}
 			
@@ -3887,6 +3894,8 @@ Exercise:
 						1. DMA
 						2. GPIOA,GPIOB, ...
 				2. Solution: Use bitwise operation
+		2. GPIO port output data register
+			1. Reserved must be kept at reset value
 
 ## Bitwise Shift Operators ##
 ### Bitwise Right Shift Operator ###
