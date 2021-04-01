@@ -3799,10 +3799,36 @@ Exercise:
 5. RCC AHB1 peripheral clock register (RCC_AHB1ENR) - for all peripherals hanging on AHB1 bus
 
 		Address offset: 0x30 (add this offset to the base address of RCC peripheral registers - 0x4002 3800 (mem map))
+		Reset value: 0x0010 0000 (to reset RCC)
+		Access: no wait state (?)
+			1. word access
+			2. half-word access
+			3. byte access
 		
-		GPIOD EN - bit 3
+		GPIODEN - bit 3 (set to 1 to enable the clock)
+		
+			GPIODEN: IO port D clock enable
+			0: IO port D clock disabled
+			1: IO port D clock enabled
 
 ### Enabling Peripheral Clock ###
+1. Address of clock control register (AHB1ENR)
+	1. Calculate address of AHB1ENR
+	
+			base address + offset
+			0x40023800 + 0x30 = 0x40023830
+			
+2. Address of GPIOD mode register (used to control mode)
+	1. Calculate address of GPIOD mode register (**Go to GPIO section > Registers > GPIO port mode register**)
+
+			base address + offset
+			0x40020C00 + 0x00
+			
+		1. Reset value: 0x00000000 for other ports (Port D say)
+		2. Reset value: 0xA8000000 for port A
+		3. Reset value: 0x00000280 for port B
+	2. 32 bits are divided into 16 sections
+
 ### Calculating Peripheral Register Addresses ###
 ### LED ON Exercise Coding ###
 
