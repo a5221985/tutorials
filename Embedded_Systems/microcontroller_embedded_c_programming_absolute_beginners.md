@@ -3720,11 +3720,29 @@ Exercise:
 		0x4002_0C03	Most significant byte
 		0x4002_0C02	3rd byte
 		0x4002_0C01	2nd byte
-		0x4002_0C00	Least significant byte
+		0x4002_0C00	Least significant byte (address of register)
 		
-	1. 
+4. GPIOD OUTPUT TYPE register
+
+		0x4002_0C07	Most significant byte
+		0x4002_0C06	3rd byte
+		0x4002_0C05	2nd byte
+		0x4002_0C04	Least significant byte (address of register)
+		
+	1. GPIOD prot output type register = GPIOD port mode register address + 4
+	2. GPIOD port output speed register =  GPIOD prot output type register + 4
+	3. ...
+5. How to control output state of GPIO Pins?
+	1. GPIOD output data register can be used
+
+			GPIOD bit 0 controls PD0 (if we write 1, PD0 will become +VCC (3.3V, if we write 0, PD0 will become 0V)
+			GPIOD bit 1 controls PD1
+			...
+			GPIOD bit 15 controls PD15
 
 ### Procedure to Turn ON the LED ###
+1. 
+
 ### Enabling Peripheral Clock ###
 ### Calculating Peripheral Register Addresses ###
 ### LED ON Exercise Coding ###
