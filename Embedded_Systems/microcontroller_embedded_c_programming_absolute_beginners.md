@@ -3822,12 +3822,38 @@ Exercise:
 	1. Calculate address of GPIOD mode register (**Go to GPIO section > Registers > GPIO port mode register**)
 
 			base address + offset
-			0x40020C00 + 0x00
+			0x40020C00 + 0x00 = 0x40020C00
 			
 		1. Reset value: 0x00000000 for other ports (Port D say)
 		2. Reset value: 0xA8000000 for port A
 		3. Reset value: 0x00000280 for port B
-	2. 32 bits are divided into 16 sections
+	2. 32 bits are divided into 16 sections (for 16 pins)
+		1. Each section has 2 bits
+
+				MODER0[1:0]
+				rw	rw
+				
+			1. Why 2 bits?
+				1. Each pin can be in 4 modes
+
+						00: Input (reset state)
+						01: General purpose output mode
+						10: Alternate function mode
+						11: Analog mode
+						
+			2. For PD12 - MODER12[1-0] - bits 24 & 25
+				1. value: `01`
+3. Address of the GPIOD output data register (used to write to IO pin)
+	1. Calculate address of GPIOD output data register
+		1. In Datasheet, go to GPIO port output data register (GPIOx_ODR)
+			1. bits 16-31 are not used
+			2. bits 0-15 are used
+				1. These bits can be read and written by software
+
+						ODR0 - controls pin 0
+						ODR1 - controls pin 1
+						...
+						ODR15 - controls pin 15
 
 ### Calculating Peripheral Register Addresses ###
 ### LED ON Exercise Coding ###
