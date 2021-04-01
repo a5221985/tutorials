@@ -3754,7 +3754,7 @@ Exercise:
 		1. GPIOD
 	2. Identify the GPIO pin where the LED is connected
 		1. 12 (PD12)
-	3. Activate the GPIOD peripheral (Enable the clock) (most of the peripherals are dead by default in certain microcontrollers)
+	3. Activate the GPIOD peripheral (Enable the clock) (most of the peripherals are dead by default in certain microcontrollers - STM say)
 		1. Until we enable clock for a peripheral, peripheral is dead
 			1. It doesn't function
 			2. It doesn't take any configuration values set by us
@@ -3764,6 +3764,12 @@ Exercise:
 			1. peripheral may be ON by default
 				1. No need to activate
 					1. Explore the device **datasheet** or **reference manual**
+	4. Configure the GPIO pin mode as output
+		1. To drive LED (to ON or OFF), operation mode of GPIO pin has to be configured as OUTPUT
+	5. Write to the GPIO pin
+		1. 1 (HIGH) to make GPIO pin state HIGH (3.3V)
+		2. 0 (LOW) to make GPIO pin state LOW (0V)
+3. 
 
 ### Enabling Peripheral Clock ###
 ### Calculating Peripheral Register Addresses ###
