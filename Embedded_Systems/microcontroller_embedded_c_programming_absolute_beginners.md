@@ -3769,7 +3769,30 @@ Exercise:
 	5. Write to the GPIO pin
 		1. 1 (HIGH) to make GPIO pin state HIGH (3.3V)
 		2. 0 (LOW) to make GPIO pin state LOW (0V)
-3. 
+3. Procedure to turn on the LED: Summary
+	1. Identify the GPIO port (a peripheral) used to connect the LED
+	2. Identify the GPIO pin where the LED is connected
+	3. Activate the GPIOD peripheral (Enable the clock)
+	4. Configure the GPIO pin mode as output
+	5. Write to the GPIO pin
+4. How to enable the peripheral clock?
+	1. Through peripheral clock control registers of microcontroller
+	2. In STM32 MCU, clock control registers are mapped at following address range in mem map of MCU
+		1. 0x4002 3800 - 0x4002 3BFF - RCC
+			1. RCC - an engine (Reset and Clock Control)
+				1. The RCC engine takes care of controlling clocks for various parts of the microcontroller:
+					1. Processor 
+					2. Buses
+					3. Memory
+					4. Peripherals
+					5. ...
+				2. RCC has it's own addresses to control the clock
+		2. To do:
+			1. Select appropriate register in the RCC block
+			2. Enable the clock
+				1. **Go to Reset and Clock Control section of reference manual**
+					1. RCC Registers
+						1. RCC AHB1 peripheral clock enable register (used to enable clocks for peripherals hanging on AHB1 bus)
 
 ### Enabling Peripheral Clock ###
 ### Calculating Peripheral Register Addresses ###
