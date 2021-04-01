@@ -3846,8 +3846,8 @@ Exercise:
 			2. For PD12 - MODER12[1-0] - bits 24 & 25
 				1. value: `01`
 3. Address of the GPIOD output data register (used to write to IO pin)
-	1. Calculate address of GPIOD output data register
-		1. In Datasheet, go to GPIO port output data register (GPIOx_ODR)
+	1. Calculate address of **GPIOD output data register**
+		1. In Datasheet, go to **GPIO port output data register** (GPIOx_ODR)
 			1. bits 16-31 are not used
 			2. bits 0-15 are used
 				1. These bits can be read and written by software
