@@ -3693,17 +3693,36 @@ Exercise:
 			2. CAN
 			3. TIMER
 			4. ...
-2. GPIOD Peripheral Registers (GPIOA, GPIOB, ... have same set of registers)
-	1. GPIOD port mode register
+2. GPIOD Peripheral Registers (GPIOA, GPIOB, ... have same set of registers) - the registers are implemented inside the microcontroller
+	1. GPIOD port mode register (each 32 bit)
+		1. Used to control mode of an I/O pin
+			1. Input - for button say
+			2. Output - for LED say
 	2. GPIOD port output type register
+		1. What should the output type of I/O pin be?
+			1. If it is in output mode
 	3. GPIOD port output speed register
-	4. GPIOD port pull-up/pull-down register
+	4. GPIOD port pull-up/pull-down register (important)
+		1. To activate or deactivate pull-up resistors
 	5. GPIOD port input data register
+		1. Used to read data from I/O pin
 	6. GPIOD port ouptut data register
+		1. Used to write data into I/O pin
+			1. Used to turn on or off LED (say)
+				1. Write 1 to turn ON
+				2. Write 0 to turn OFF
 	7. GPIOD port bit set/ reset register
 	8. GPIOD port configuration lock register
 	9. GPIOD alternate function low register
 	10. GPIOD alternate function high register
+3. GPIOD port MODE register
+
+		0x4002_0C03	Most significant byte
+		0x4002_0C02	3rd byte
+		0x4002_0C01	2nd byte
+		0x4002_0C00	Least significant byte
+		
+	1. 
 
 ### Procedure to Turn ON the LED ###
 ### Enabling Peripheral Clock ###
