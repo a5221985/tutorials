@@ -3963,9 +3963,11 @@ Exercise:
 	4. Example:
 
 			char a = 111; // 01101111
-			char b = a >> 4;
+			char b = a >> 4; // empty bit position will be filled with 0s - 00000110
 
 ### Bitwise Left Shift Operator ###
+1. 
+
 ### Applicability of Bitwise Shift Operators ###
 ### Modifying LED on Exercise Using Bitwise Shift Operators ###
 ### Bit Extraction ###
