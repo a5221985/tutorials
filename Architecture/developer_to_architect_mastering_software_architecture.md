@@ -1144,8 +1144,9 @@
 			AtomicInteger ai = new AtomicInteger(10);
 			ai.compareAndSwap(10, 20); 
 			
-			// returns true if value was 10 and sets 20 as the new value
+			// returns true if value was 10 and sets 20 as the new value (at hardware level)
 			// returns false if the value was not 10 as a result of a race condition with some other thread
+			// Good for counters
 			
 			select * from inventory where productId = 'Test-Product-7';
 			
