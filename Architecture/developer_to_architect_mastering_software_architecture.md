@@ -1355,9 +1355,11 @@
 	2. Headers
 		1. Cache-control: If a resource can be cached
 			1. `no-cache`: Do not use cache without validating with origin server
+				1. Browser or intermediate server can cache but it cannot use it without validating with origin server
 			2. `must-revalidate`: Like no-cache but need to validate only after its max-age (even if client is ready to accept stale data)
 			3. `no-store`: Do not cache at all
 			4. `public`: Any shared cache can cache
+				1. 
 			5. `private`: Only a client cache can cache
 			6. `max-age`: Maximum age of a resource in cache, relative to resource request time
 		2. ETAG: A hash code for indicating version of a resource
@@ -1382,6 +1384,11 @@
 			1. If it is serving the data that changes very frequently say
 			2. If it is serving data that doesn't change frequently
 				1. Good candidate to cache
+4. Cache control header
+	1. When a web app sends response, it can put a `cache-control` header in the response
+		1. Indicates two things (for intermediate caches):
+			1. Indicates if the request should be cached
+			2. If cached, for how much duration
 
 ### Caching of Dynamic Data ###
 ### Caching Related Challenges ###
