@@ -1057,9 +1057,18 @@
 				1. Divide buckets into partitions (16 partitions)
 				2. If we want to modify a bucket entry, the lock object responsible for that partition is identified
 				3. Only that lock will be used to lock the partition, rest of the partitions will be left
+				4. Advantages:
+					1. Performance can go up 16 times (expectation)
+						1. If operations are fairly divided among the 16 partitions
 	2. Replace exclusive locks with coordination mechanisms
 		1. Use **ReadWriteLock**/ **Stamped** locks
+			1. **ReadWriteLock**
+				1. When dealing with two kinds of threads (against a data structure)
+					1. One thread - reading
+					2. Other thread - writing
 		2. Use **Atomic Variables** (protected by CAS)
+			1. CAS - Compare and Swap (doesn't take exclusive lock)
+				1. Works based on optimistic lock
 
 ### Pessimistic Locking vs Optimistic Locking ###
 ### Compare and Swap Mechanism ###
