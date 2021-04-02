@@ -1289,9 +1289,28 @@
 		2. We can try to reduce the frequency of modifying or accessing the variables
 
 ### Caching ###
-1. 
+1. How to make requests more efficient by caching some data
 
 ### System Architecture for Performance ###
+1. Architecture so far
+
+		UI Client ---> Web Application ---> Services ---> Database
+					Persistent Connections      ^      Denormalization
+					Response Compression        |      Normalization
+					Efficient Encoding          |      Indexing
+					Web Content Caching         |      Buffer/ Page Cache
+					SSL Session Caching         |
+					Session Caching             | 
+									^              |
+									|			     |
+									Thread Pool & Size
+									DB Connection Pool
+									Efficient Locking
+									Query Optimization
+									Asynchronous Logging
+									Sequential & Batch I/O
+									Data Caching
+
 ### Caching for Performance ###
 ### HTTP Caching of Static Data ###
 ### Caching of Dynamic Data ###
