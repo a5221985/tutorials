@@ -1408,11 +1408,16 @@
 
 ### Caching of Dynamic Data ###
 1. Dynamic data caching - Two approaches
-	1. Exclusive Cache
+	1. Exclusive Cache (cache per node)
 		1. Has low latency
 		2. Without routing can lead to duplication
+			1. It is okay one is fetching data from any instance
+				1. User request can go to any instance
+					1. If the data is filled in most of the nodes, it becomes effective - request can go to any of the nodes
 		3. With routing can lead to uneven load balancing
 			1. Session cache
+				1. Suppose user request has come to node 1 and it is cached
+				2. Next time user request comes, 
 		4. Illustration
 
 									Node 1 [Cache Data]
@@ -1421,6 +1426,9 @@
 								\
 									Node 3 [Cache Data]
 		
+		5. Example: Web-application
+			1. Each web-app node can cache data in it's own memory
+				1. It resides within the instance (service data say)
 	2. Shared Cache
 		1. Higher latency due to an extra hop
 		2. Can scale out ot a distributed cache
@@ -1442,6 +1450,9 @@
 			2. If it is accessed more frequently
 	2. Web Application
 		1. User profile info (say it is from database)
+			1. If user asks for user profile again
+				1. Cached data can be returned
+3. Dynamic data that doesn't change frequently can be cached
 
 ### Caching Related Challenges ###
 
