@@ -1440,6 +1440,8 @@
 		1. If they fetch data from database
 			1. If it is not changing very frequently
 			2. If it is accessed more frequently
+	2. Web Application
+		1. User profile info (say it is from database)
 
 ### Caching Related Challenges ###
 
