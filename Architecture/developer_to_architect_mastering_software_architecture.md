@@ -974,6 +974,24 @@
 		1. Threads will be idle waiting for CPU (2000 threads vs 10 CPUs)
 	5. Solution: **Optimal size has to be found**
 		1. Using load tests
+		2. Factors affecting thread pool size
+			1. Wait time
+				1. Processing time (web app makes call to services which takes time => threads wait for services to finish)
+					1. Solution: Larger thread pool size
+			2. CPU time
+				1. If threads occupy CPU and not make many calls to backend (CPU intensive)
+					1. CPU time will be very high
+					2. We don't want to go for high thread pool size (?)
+						1. More or less equal to number of CPUs
+							1. If CPU utilization is 100% and wait time is 0, then number of threads = No of CPUs (ideal case)
+								1. Non-ideal cases (waiting exists)
+									1. Disk I/O wait
+									2. Locking
+									3. External calls 
+						2. Thread pool size increases is proportional to the wait time
+			3. Number of CPUs
+4. **Connection Pool Size**
+	1. Suppose thread pool size is 100, connection pool size should also be at-least 100
 
 ### Minimizing Locking Related Contention ###
 ### Pessimistic Locking vs Optimistic Locking ###
