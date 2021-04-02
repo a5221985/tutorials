@@ -1245,7 +1245,7 @@
 4. **We must guard the system from deadlocks**
 
 ### Coherence Related Delays ###
-1. Coherence Delays
+1. Coherence Delays (related to shared data)
 	1. **Visibility (Volatile)**
 		1. Java garantees that a volatile object is always read from main memory and written back to main memory when updated in a processor
 	2. **Locking (Synchronized)**
@@ -1266,6 +1266,25 @@
 		
 		L1 Cache - faster
 		L2 Cache - slower, bigger, cheaper
+		
+	1. Suppose T1 is running on CPU1
+		1. T1 will load shared data into L1 and L2 caches
+		2. T1 modifies shared data, it will be modified in L1
+			1. This change will not be visible to T2
+				1. If T1 is running a loop and it can be stopped by T2 by setting a value
+					1. If code is not guarded by `synchronized` or `volatile` - the change happens only in L1 of CPU2 and L1 of CPU1 cannot see this
+	2. Suppose T2 is running on CPU2
+	3. Solution: `synchronized`
+		1. Suppose T1 modifies variable
+			1. It will be propagated to main memory
+		2. Suppose T2 wants to read the variable, the variable becomes dirty and it will be read from memory
+		3. Drawbacks
+			1. High latency (access to RAM - 100ns) - 15 times slower as compared to cache
+	4. Solution: `volatile`
+		1. Locking related penalty is avoided
+		2. Reading is still from main memory
+3. We cannot do much regarding these kind of delays
+	1. If variable is frequently accessed among threads - coherence related delays can occur
 
 ### Caching ###
 ### System Architecture for Performance ###
