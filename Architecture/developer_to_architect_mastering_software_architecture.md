@@ -1211,10 +1211,36 @@
 	2. Can bring down to a standstill
 	3. Illustration:
 
+					| (1)
+					v
 				gateway --+
-				|			|
-				v			v
+			(2)	|	^		| (4)
+				v	| (3)	v
 			service 1	service 2
+			
+		1. Request reaches Gateway
+		2. Suppose service 1 wants to call service 2 (db say) and it is routed through gateway (3) and (4)
+		3. Response goes in reverse order
+		4. When load goes up - there can be deadlocks (?)
+			1. Suppose gateway service has got thread pool of size 10
+			2. Suppose 10 users send requests to gateway
+				1. 10 threads get allocated
+			3. 10 threads make call to service 1
+				1. Suppose 10 threads are allocated to service 1
+			4. 10 threads make call to gateway service
+				1. But the threads are occupied
+					1. The threads will be blocked
+		5. If there are only 2 requests,
+			1. 2 threads for user and 2 threads for service 1 => 4 threads
+				1. There is no blocking
+		6. Suppose we are making connection to databases (we ran out of connection pool)
+			1. If there is high load
+				1. Few threads make connection to certain databases but not others
+				2. Few other threads make connection to other databases but not to those already made by first set of threads
+4. Solution:
+	1. A solution: 
+		1. Make service call directly (without going through gateway)
+		2. 
 
 4. **We must guard the system from deadlocks**
 
