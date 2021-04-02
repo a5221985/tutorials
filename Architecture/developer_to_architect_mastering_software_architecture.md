@@ -1359,11 +1359,22 @@
 			2. `must-revalidate`: Like no-cache but need to validate only after its max-age (even if client is ready to accept stale data)
 			3. `no-store`: Do not cache at all
 			4. `public`: Any shared cache can cache
-				1. 
+				1. Any intermediate public cache can cache the object
+					1. Useful for multiple users
 			5. `private`: Only a client cache can cache
+				1. User specific data (profile image say)
+				2. private cache can cache this data
 			6. `max-age`: Maximum age of a resource in cache, relative to resource request time
+				1. How long the client or intermediate servers can cache it
 		2. ETAG: A hash code for indicating version of a resource
 			1. Invalidates previous version cache
+			2. Example: If we have an image on web application and it is labeled as version 1 using ETAG
+				1. Any cache can cache or `no-cache` (to enforce e-tags)
+					1. Each time browser tries to use the cached image, it validates it against the web-application (can it use or not)
+						1. Steps:
+							1. Browser provides ETAG value to Web app
+							2. Web app looks at ETAG and if it is latest version, it responds that browser can use it
+							3. Web app can label ETAG to version 2 and send the response
 2. Caching architecture between web browser and web application
 
 		browser cache -proxy server cache -> reverse proxy cache -> web app
@@ -1389,6 +1400,9 @@
 		1. Indicates two things (for intermediate caches):
 			1. Indicates if the request should be cached
 			2. If cached, for how much duration
+5. Reverse proxy:
+	1. It can exclusively host static content (no static content on web application)
+		1. It is responsible for setting cache headers
 
 ### Caching of Dynamic Data ###
 ### Caching Related Challenges ###
