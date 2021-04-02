@@ -1310,8 +1310,30 @@
 									Asynchronous Logging
 									Sequential & Batch I/O
 									Data Caching
+									
+	1. Buffer/ Page Cache
+		1. Caching done by database
+	2. Data Caching - in services
+	3. Web Content Caching - static data
+	4. SSL Session Caching (SSL connection parameters)
+	5. Session Caching
 
 ### Caching for Performance ###
+1. Caching architecture
+
+		UI Client -||--> Web App --> Services --> Database
+			||		static		||				||
+		HTTP		data		session		object
+		cache		cache		cache			cache
+		
+	1. Object cache
+		1. data fetched from database
+			1. For any user (not user specific)
+		2. Service doesn't have to make repeated calls to db for the same data
+	2. Web app
+		1. Session cache (user level)
+			1. User related data can be stored here
+
 ### HTTP Caching of Static Data ###
 ### Caching of Dynamic Data ###
 ### Caching Related Challenges ###
