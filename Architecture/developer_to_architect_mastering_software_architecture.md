@@ -1093,21 +1093,47 @@
 		1. One of the participating thread is backed up by receiving an exception
 	4. Procedure
 
-			Lock & Fetch Data (simultaneous)
+			Lock & Fetch Data (Simultaneous)
 					| 
-				process
+				Process
 					|
 					v
 				Update
 					|
 					v
-				Commit (unlock)
+				Commit (Unlock)
 	
 2. Optimistic Locking
 	1. Threads do not wait for a lock, but backup when they discover contention
 	2. Use when contention is between low to moderate
 	3. May result in starvation
 		1. Switch to pessimistic locking
+	4. Procedure
+
+			Fetch Data <--
+					|		|
+				Process	| On error
+					|		|
+					v		|
+				Lock, Fetch,
+				Verify & Update
+					|
+					v
+				Commit (Unlock)
+				
+		1. Lock is for shorter duration as compared to optimistic locking
+			1. Shorter serial portion
+				1. Better concurrency
+				2. Better performance
+		2. Fetch (DB or Memory)
+		3. Process - if it takes long time, we can run it outside lock scope
+		4. Verify - check if initially fetched data is same as the one fetched again
+			1. If so, there was no contention during the last fetch and this fetch
+			2. If it is not the same, then the processing was done on stale data
+				1. An error is thrown, process is re-run
+	5. Dis-advantage:
+		1. If there is lot of contention, we may have to back off many times => lot of CPU cycles get wasted
+			1. The approach is good if there is no or moderate level of contention
 
 ### Compare and Swap Mechanism ###
 ### Deadlocks ###
