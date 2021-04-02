@@ -1407,8 +1407,39 @@
 		1. It is responsible for setting cache headers
 
 ### Caching of Dynamic Data ###
-1. Dynamic data caching
-2. 
+1. Dynamic data caching - Two approaches
+	1. Exclusive Cache
+		1. Has low latency
+		2. Without routing can lead to duplication
+		3. With routing can lead to uneven load balancing
+			1. Session cache
+		4. Illustration
+
+									Node 1 [Cache Data]
+								/
+				Browser - LB -	Node 2 [Cache Data]
+								\
+									Node 3 [Cache Data]
+		
+	2. Shared Cache
+		1. Higher latency due to an extra hop
+		2. Can scale out ot a distributed cache
+			1. Memcache
+			2. Redis
+		3. For large datasets
+		4. Illustration
+
+									Node 1
+								/ 			\
+				Browser - LB -	Node 2 - [Cache Data]
+								\			/
+									Node 3
+
+2. Where do we need this dynamic data caching?
+	1. Services
+		1. If they fetch data from database
+			1. If it is not changing very frequently
+			2. If it is accessed more frequently
 
 ### Caching Related Challenges ###
 
