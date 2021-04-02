@@ -1375,6 +1375,8 @@
 							1. Browser provides ETAG value to Web app
 							2. Web app looks at ETAG and if it is latest version, it responds that browser can use it
 							3. Web app can label ETAG to version 2 and send the response
+							4. Browser checks if ETAG sent by web app matches with the one it has
+								1. If it does not match, it reloads the image from the web-application and updates ETAG to version 2
 2. Caching architecture between web browser and web application
 
 		browser cache -proxy server cache -> reverse proxy cache -> web app
@@ -1405,6 +1407,9 @@
 		1. It is responsible for setting cache headers
 
 ### Caching of Dynamic Data ###
+1. Dynamic data caching
+2. 
+
 ### Caching Related Challenges ###
 
 ## Scalability ##
