@@ -1067,10 +1067,23 @@
 					1. One thread - reading
 					2. Other thread - writing
 				2. Consider a data structure shared across threads
-					1. 
+					1. Two types of locks
+						1. Readers can take read lock
+							1. While reading, it should not be modified
+								1. Other readers can also take the lock (not mutually exclusive) - multiple readers can read
+							2. Writer needs to wait for readers to finish
+						2. Writers can take write lock
+							1. If no readers are reading, writer takes the lock
+				3. Advantages:
+					1. Readers will not block other readers
+						1. If we have a lot of reader threads but small number of writer threads, it reduces contention
 		2. Use **Atomic Variables** (protected by CAS)
 			1. CAS - Compare and Swap (doesn't take exclusive lock)
 				1. Works based on optimistic lock
+2. Take away:
+	1. Reduce granularity of the lock
+	2. Code protected should be as small as possible
+	3. Look for non-exclusie locks
 
 ### Pessimistic Locking vs Optimistic Locking ###
 ### Compare and Swap Mechanism ###
