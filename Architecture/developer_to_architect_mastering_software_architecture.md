@@ -1240,11 +1240,33 @@
 4. Solution:
 	1. A solution: 
 		1. Make service call directly (without going through gateway)
-		2. 
+		2. Anticipate load from internal services and increase the size of the thread pool in gateway
 
 4. **We must guard the system from deadlocks**
 
 ### Coherence Related Delays ###
+1. Coherence Delays
+	1. **Visibility (Volatile)**
+		1. Java garantees that a volatile object is always read from main memory and written back to main memory when updated in a processor
+	2. **Locking (Synchronized)**
+		1. All variables accessed in a sync block are read from main memory at the start of sync block
+		2. All variables modified in a sync block are flushed to the main memory when the associated thread exits the sync block
+			1. **Synchronized ensures locking & visibility**
+			2. **Volatile only ensures visibility**
+	3. These guarantees are provided using memory barriers which may result in invalidating or flushing of caches
+2. Processor architecture
+
+			CPU				CPU
+		L1 Cache		L1 Cache (5ns)
+		L2 Cache		L2 Cache (7ns)
+				L3 Cache
+			RAM - Main Memory  (100ms)
+		Hard Disk/	Network Card - NIC
+		SSD
+		
+		L1 Cache - faster
+		L2 Cache - slower, bigger, cheaper
+
 ### Caching ###
 ### System Architecture for Performance ###
 ### Caching for Performance ###
