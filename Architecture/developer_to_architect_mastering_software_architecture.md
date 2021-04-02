@@ -993,6 +993,8 @@
 4. **Connection Pool Size**
 	1. Thumb rule: 1:1
 		1. Suppose thread pool size is 100, connection pool size should also be at-least 100
+			1. If a request comes to web app and web app wants to make a request to services
+				1. 1 HTTP connection will be made to make 1 call to services (at-least)
 
 ### Minimizing Locking Related Contention ###
 ### Pessimistic Locking vs Optimistic Locking ###
