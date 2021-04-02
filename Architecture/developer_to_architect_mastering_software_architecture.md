@@ -936,7 +936,7 @@
 	2. Steps:
 		1. Serial request latency should be optimized (making use of resources efficiently)
 		2. Vertical scaling (for better bandwidth)
-			1. Memory - increase memory
+			1. Memory - increase memory (and bus speed to access)
 			2. Disk
 				1. Better disk
 					1. RAID - Redundant Array of Independent Disks
@@ -949,6 +949,18 @@
 				1. More bandwidth
 			4. CPU
 				1. Better CPU
+2. **Listen Queue**
+	1. Depends upon thread pool
+		1. If lot of requests are coming (web app > services > db)
+		2. There could be build of of the queue if web app is not able to serve the requests
+			1. Listen Queue grows
+	2. Don't have to do much
+		1. Only causes problem if we go to extreme scales
+	3. Steps:
+		1. Ensure that the system is processing requests efficiently
+		2. Take care of other contention issues within the system
+			1. Internal optimization could minimize the size of listen queue
+		3. **Tune OS to increase listen queue size**
 
 ### Minimizing Locking Related Contention ###
 ### Pessimistic Locking vs Optimistic Locking ###
