@@ -960,7 +960,20 @@
 		1. Ensure that the system is processing requests efficiently
 		2. Take care of other contention issues within the system
 			1. Internal optimization could minimize the size of listen queue
+				1. Thread pool size
+				2. Connection pool size
 		3. **Tune OS to increase listen queue size**
+3. **Thread Pool Size**
+	1. It is a collection of threads dedicated for a single purpose
+		1. Thread pool provided by container (tomcat, jetty, weblogic say - for web apps, services, (batch request thread pool is not considered here)
+			1. Server thread pool for worker threads
+	2. If we have smaller thread pool size, the contention will increase
+		1. **Listen Queue** can grow (waiting)
+	3. We can increase the thread pool size
+	4. Other problem: If we increase thread pool size to too high
+		1. Threads will be idle waiting for CPU (2000 threads vs 10 CPUs)
+	5. Solution: **Optimal size has to be found**
+		1. Using load tests
 
 ### Minimizing Locking Related Contention ###
 ### Pessimistic Locking vs Optimistic Locking ###
