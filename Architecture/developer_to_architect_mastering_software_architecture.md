@@ -1066,6 +1066,8 @@
 				1. When dealing with two kinds of threads (against a data structure)
 					1. One thread - reading
 					2. Other thread - writing
+				2. Consider a data structure shared across threads
+					1. 
 		2. Use **Atomic Variables** (protected by CAS)
 			1. CAS - Compare and Swap (doesn't take exclusive lock)
 				1. Works based on optimistic lock
