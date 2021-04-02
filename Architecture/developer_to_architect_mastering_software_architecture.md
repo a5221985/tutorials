@@ -991,7 +991,8 @@
 						2. Thread pool size increases is proportional to the wait time
 			3. Number of CPUs
 4. **Connection Pool Size**
-	1. Suppose thread pool size is 100, connection pool size should also be at-least 100
+	1. Thumb rule: 1:1
+		1. Suppose thread pool size is 100, connection pool size should also be at-least 100
 
 ### Minimizing Locking Related Contention ###
 ### Pessimistic Locking vs Optimistic Locking ###
