@@ -1148,6 +1148,7 @@
 			// returns false if the value was not 10 as a result of a race condition with some other thread
 			// Good for counters
 			
+			// Cassandra, HBase has similar feature
 			select * from inventory where productId = 'Test-Product-7';
 			
 			productid			| quantity
@@ -1166,9 +1167,14 @@
 			----------
 				True
 				
-	3. 	
+	3. 	NoSQL - Doesn't allow transactions
+		1. The only way to ensure atomicity is through optimistic locking
+2. Advantage(s):
+	1. Since this feature is provided at the hardware level, the performance is good
 
 ### Deadlocks ###
+1. 
+
 ### Coherence Related Delays ###
 ### Caching ###
 ### System Architecture for Performance ###
