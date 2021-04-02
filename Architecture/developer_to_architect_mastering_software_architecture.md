@@ -1285,8 +1285,12 @@
 		2. Reading is still from main memory
 3. We cannot do much regarding these kind of delays
 	1. If variable is frequently accessed among threads - coherence related delays can occur
+		1. We can try to minimize sharing of data
+		2. We can try to reduce the frequency of modifying or accessing the variables
 
 ### Caching ###
+1. 
+
 ### System Architecture for Performance ###
 ### Caching for Performance ###
 ### HTTP Caching of Static Data ###
