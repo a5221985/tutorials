@@ -1417,7 +1417,14 @@
 		3. With routing can lead to uneven load balancing
 			1. Session cache
 				1. Suppose user request has come to node 1 and it is cached
-				2. Next time user request comes, 
+				2. Next time user request comes:
+					1. A cookie can be stored in user browser that tells what node the user connected to in the previous request
+					2. The user can be redirected to the same node
+						1. If data is present in the cache, request can be served
+				3. Advantages:
+					1. Duplication of data can be avoided
+				4. Disadvantages:
+					1. 
 		4. Illustration
 
 									Node 1 [Cache Data]
