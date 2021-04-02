@@ -1087,7 +1087,10 @@
 
 ### Pessimistic Locking vs Optimistic Locking ###
 1. Pessimistic Locking
-	1. 
+	1. Threads must wait to acquire a lock
+	2. Use when contention is high
+	3. May result in deadlocks
+		1. One of the participating thread is backed up by receiving an exception
 2. Optimistic Locking
 
 ### Compare and Swap Mechanism ###
