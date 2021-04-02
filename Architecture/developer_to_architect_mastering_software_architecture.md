@@ -1021,7 +1021,14 @@
 			2. Increasing the capacity of the hardware
 
 ### Minimizing Locking Related Contention ###
-1. 
+1. Minimizing lock contention
+	1. Reduce duration for which a lock is held
+		1. Move code out of synchronization block that doesn't required lock (especially I/O)
+		2. **Lock Splitting** - Split locks into lower granularity locks (that are exepriencing moderate contention)
+		3. **Lock Striping** - Split locks for each partition of data like in concurrent HashMap
+	2. Replace exclusive locks with coordination mechanisms
+		1. Use **ReadWriteLock**/ **Stamped** locks
+		2. Use **Atomic Variables** (protected by CAS)
 
 ### Pessimistic Locking vs Optimistic Locking ###
 ### Compare and Swap Mechanism ###
