@@ -1136,6 +1136,37 @@
 			1. The approach is good if there is no or moderate level of contention
 
 ### Compare and Swap Mechanism ###
+1. Compare & Swap
+	1. CAS is an optimistic locking mechanism
+		1. All modern hardware (CPU) support it (OS as well if so)
+	2. Java implements support for CAS through Atomic (`java.util.concurrent.atomic.*`) classes
+
+			AtomicInteger ai = new AtomicInteger(10);
+			ai.compareAndSwap(10, 20); 
+			
+			// returns true if value was 10 and sets 20 as the new value
+			// returns false if the value was not 10 as a result of a race condition with some other thread
+			
+			select * from inventory where productId = 'Test-Product-7';
+			
+			productid			| quantity
+			---------------------------
+			Test-Product-7	| 		100
+			
+			update inventory set quantity = 200 where productId = 'Test-Product-7' if quantity = 0;
+			
+			[applied]		| quantity
+			------------------------
+				False		|		100
+				
+			update inventory set quantity = 200 where productId = 'Test-Product-7' if quantity = 100;
+			
+			[applied]
+			----------
+				True
+				
+	3. 	
+
 ### Deadlocks ###
 ### Coherence Related Delays ###
 ### Caching ###
