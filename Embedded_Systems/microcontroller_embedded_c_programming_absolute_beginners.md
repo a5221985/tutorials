@@ -3966,9 +3966,19 @@ Exercise:
 			char b = a >> 4; // empty bit position will be filled with 0s - 00000110
 
 ### Bitwise Left Shift Operator ###
-1. 
+1. This operator takes 2 operands
+2. Bits of 1st operand will be left shifted by the amount decided by 2nd operand
+3. Syntax: operand1 << operand2
+4. Example:
+5. A value will be multiplied by 2 for each left shift
+6. A value will be divided by 2 for each right shift
 
 ### Applicability of Bitwise Shift Operators ###
+1. Applicability
+	1. Bitwise shift operators are very much helpful in bit masking of data along with other bitwise operators
+	2. Predominantly used while setting or clearing of bits
+	3. Lets consider this problem statement: Set 4th bit of given data
+
 ### Modifying LED on Exercise Using Bitwise Shift Operators ###
 ### Bit Extraction ###
 
