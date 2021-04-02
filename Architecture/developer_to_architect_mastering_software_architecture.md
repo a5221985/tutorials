@@ -1086,12 +1086,28 @@
 	3. Look for non-exclusie locks
 
 ### Pessimistic Locking vs Optimistic Locking ###
-1. Pessimistic Locking
+1. Pessimistic Locking (regular kind)
 	1. Threads must wait to acquire a lock
 	2. Use when contention is high
 	3. May result in deadlocks
 		1. One of the participating thread is backed up by receiving an exception
+	4. Procedure
+
+			Lock & Fetch Data (simultaneous)
+					| 
+				process
+					|
+					v
+				Update
+					|
+					v
+				Commit (unlock)
+	
 2. Optimistic Locking
+	1. Threads do not wait for a lock, but backup when they discover contention
+	2. Use when contention is between low to moderate
+	3. May result in starvation
+		1. Switch to pessimistic locking
 
 ### Compare and Swap Mechanism ###
 ### Deadlocks ###
