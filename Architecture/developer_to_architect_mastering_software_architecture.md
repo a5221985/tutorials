@@ -917,8 +917,39 @@
 					1. Can be assumed for design of system
 			2. It can be a source of contention if we do a lot of I/O
 				1. Use case: DB access
+					1. If too much data is fetched
+		3. Network - If network is choked
+			1. Sometimes happens in microservices architecture
+				1. Internal network
+			2. There can be contention for network availability
+	5. **Locks**
+		1. Biggest source of contention (acquiring locks)
+			1. This is required for serial part of the code
+				1. Locks are gatekeepers for serial portions of code
+		2. If multiple threads are contending for same lock, then it becomes a source of contention
+	6. **DB**
+		1. Similar contention as disk but CPU, Disk and Network is heavier (?)
 
 ### Minimizing Shared Resource Contention ###
+1. **CPU/Disk/Network**
+	1. As we increase number of requests, the utilization goes up (including **memory**)
+	2. Steps:
+		1. Serial request latency should be optimized (making use of resources efficiently)
+		2. Vertical scaling (for better bandwidth)
+			1. Memory - increase memory
+			2. Disk
+				1. Better disk
+					1. RAID - Redundant Array of Independent Disks
+						1. **Allows parallel access to disk**
+							1. Data is copied to multiple disks
+								1. If there are multiple threads looking for same data
+									1. Data can be accessed by multiple threads at the same time
+						2. DB performance can also be enhanced
+			3. Network
+				1. More bandwidth
+			4. CPU
+				1. Better CPU
+
 ### Minimizing Locking Related Contention ###
 ### Pessimistic Locking vs Optimistic Locking ###
 ### Compare and Swap Mechanism ###
