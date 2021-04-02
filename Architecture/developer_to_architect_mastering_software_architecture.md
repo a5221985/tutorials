@@ -1350,12 +1350,26 @@
 		1. Or if many requests can be served before the data changes
 
 ### HTTP Caching of Static Data ###
-1. HTTP Caching for Static Data
+1. HTTP Caching for Static Data (between browser and web-application)
 	1. GET method responses are idempotent and hence good candidates for caching
 	2. Headers
 		1. Cache-control: If a resource can be cached
-			1. No-cache: Do not use cache without validating with origin server
-			2. Must-revalidate: Like no-cache
+			1. `no-cache`: Do not use cache without validating with origin server
+			2. `must-revalidate`: Like no-cache but need to validate only after its max-age (even if client is ready to accept stale data)
+			3. `no-store`: Do not cache at all
+			4. `public`: Any shared cache can cache
+			5. `private`: Only a client cache can cache
+			6. `max-age`: Maximum age of a resource in cache, relative to resource request time
+		2. ETAG: A hash code for indicating version of a resource
+			1. Invalidates previous version cache
+2. Caching architecture between web browser and web application
+
+		browser cache -proxy server cache -> reverse proxy cache -> web app
+		
+	1. Ignoring router servers in between
+	2. Reverse Proxy Cache (close to server)
+	3. Proxy Server Cache (close to client)
+		1. 
 
 ### Caching of Dynamic Data ###
 ### Caching Related Challenges ###
