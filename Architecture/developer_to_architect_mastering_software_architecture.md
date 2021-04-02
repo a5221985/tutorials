@@ -1173,14 +1173,25 @@
 	1. Since this feature is provided at the hardware level, the performance is good
 
 ### Deadlocks ###
-1. Lock Ordering Related
+1. **Lock Ordering Related** - Reason 1
 	1. Result of threads trying to acquire multiple locks
 		1. Simultanous money transfer from X and Y accounts by thread T1 and T2
 		2. T1: from X to Y
 		3. T2: from Y to X
 	2. Acquire locks in a fixed global order
 		1. Acquire locks only in the sort order of account numbers: X and then Y
-2. Request Load Related
+	3. Illustration
+
+			+-----------+
+			|			  |
+			|			  v
+			X			  Y
+			^			  |
+			|			  |
+			+-----------+
+			
+	
+2. **Request Load Related** - Reason 2
 	1. Threads waiting for connections to multiple databases
 		1. May run out of enough connections resulting in deadlocks
 	2. Threads waiting for other threads to be spawned and perform some work
