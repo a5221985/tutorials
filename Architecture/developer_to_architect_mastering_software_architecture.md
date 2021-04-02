@@ -1326,15 +1326,37 @@
 		HTTP		data		session		object
 		cache		cache		cache			cache
 		
-	1. Object cache
+	1. Object cache (dynamic data)
 		1. data fetched from database
 			1. For any user (not user specific)
 		2. Service doesn't have to make repeated calls to db for the same data
 	2. Web app
-		1. Session cache (user level)
+		1. Session cache (user level) (dynamic data)
 			1. User related data can be stored here
+	3. Static Data Cache
+		1. CSS, JS, Images, HTML, ...
+			1. These files cannot change very frequently
+		2. Caching can be at reverse proxy or load balancer
+			1. It can have a large file system (HDD space)
+				1. All static content can be put here
+		3. Caching can be at CDN
+		4. Caching can be at public cache
+	4. HTTP Cache
+		1. Browser cache
+			1. Images
+			2. ...
+2. If something changes too frequently, caching doesn't make sense
+	1. If it does not change frequently, it makes sense to cache
+		1. Or if many requests can be served before the data changes
 
 ### HTTP Caching of Static Data ###
+1. HTTP Caching for Static Data
+	1. GET method responses are idempotent and hence good candidates for caching
+	2. Headers
+		1. Cache-control: If a resource can be cached
+			1. No-cache: Do not use cache without validating with origin server
+			2. Must-revalidate: Like no-cache
+
 ### Caching of Dynamic Data ###
 ### Caching Related Challenges ###
 
