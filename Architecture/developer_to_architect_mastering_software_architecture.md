@@ -1367,9 +1367,21 @@
 		browser cache -proxy server cache -> reverse proxy cache -> web app
 		
 	1. Ignoring router servers in between
-	2. Reverse Proxy Cache (close to server)
-	3. Proxy Server Cache (close to client)
-		1. 
+	2. Reverse Proxy Cache (close to server) - **private cache**
+		1. There could be multiple web applications behind the reverse proxy (all requests come to reverse proxy)
+		2. This can cache static data
+	3. Proxy Server Cache (close to client) - **public cache**
+		1. Multiple browser trying to access the same application will converge to this (office say)
+		2. It can cache all responses coming from web application
+		3. Data of any user can be cached and accessible to public (in the office)
+			1. An admin can see this data
+	4. Browser cache - **private cache**
+3. How do public and private caches know what data to cache?
+	1. GET - good candidate for caching (read only)
+		1. Every get request cannot be good candidate for caching
+			1. If it is serving the data that changes very frequently say
+			2. If it is serving data that doesn't change frequently
+				1. Good candidate to cache
 
 ### Caching of Dynamic Data ###
 ### Caching Related Challenges ###
