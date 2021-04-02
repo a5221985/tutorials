@@ -995,6 +995,9 @@
 		1. Suppose thread pool size is 100, connection pool size should also be at-least 100
 			1. If a request comes to web app and web app wants to make a request to services
 				1. 1 HTTP connection will be made to make 1 call to services (at-least)
+					1. If single HTTP connection results in multiple services connections, then connection pool size will be > thread pool size
+					2. If gateway is used, only one connection will be created with the gateway
+	2. Services: Database connections are considered
 
 ### Minimizing Locking Related Contention ###
 ### Pessimistic Locking vs Optimistic Locking ###
