@@ -1180,8 +1180,13 @@
 		3. T2: from Y to X
 	2. Acquire locks in a fixed global order
 		1. Acquire locks only in the sort order of account numbers: X and then Y
+			1. Defined: Accounts are pre-sorted
+				1. T1 should take lock on X and then on Y
+				2. T2 should take lock on X and then on Y
+					1. If T1 has taken lock on X, then T2 will not be able to proceed and T1 will be able to take lock Y
 	3. Illustration
-
+					
+				  T1
 			+-----------+
 			|			  |
 			|			  v
@@ -1189,9 +1194,14 @@
 			^			  |
 			|			  |
 			+-----------+
+				  T2
 			
+		1. T1 has acquired lock for account X and is waiting for lock for account Y
+		2. T2 has acquired lock for account Y and is waiting for lock for account X
+		3. Example: If we have 20 threads and two have got deadlocked, we will be left with 18 threads, and if more and more pairs get deadlocked, we will lose most of the threads
+			1. Brings down the performance of the application
 	
-2. **Request Load Related** - Reason 2
+2. **Request Load Related** - Reason 2 (Load induced deadlocks)
 	1. Threads waiting for connections to multiple databases
 		1. May run out of enough connections resulting in deadlocks
 	2. Threads waiting for other threads to be spawned and perform some work
@@ -1199,6 +1209,13 @@
 3. Deadlocks
 	1. Can throttle performance of the system
 	2. Can bring down to a standstill
+	3. Illustration:
+
+				gateway --+
+				|			|
+				v			v
+			service 1	service 2
+
 4. **We must guard the system from deadlocks**
 
 ### Coherence Related Delays ###
