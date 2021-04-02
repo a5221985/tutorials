@@ -998,8 +998,31 @@
 					1. If single HTTP connection results in multiple services connections, then connection pool size will be > thread pool size
 					2. If gateway is used, only one connection will be created with the gateway
 	2. Services: Database connections are considered
+		1. One thread will make one db connection at a time (multiple simultaneous DB calls is rare)
+			1. 1:1 (thread pool size: connection pool size)
+				1. Threads usually do transactions (single connection)
+					1. It is different for distributed transactions (multiple connections)
+5. **Vertical scaling**
+		1. Increasing performance of a single machine is considered here
+			1. If we are done with handling contentions in a single machine, we can think about multiple machines
+		2. Increasing number of threads requires increasing number of CPUs
+			1. This needs vertical scaling of the system
+		3. Increasing number of db load requires
+			1. Increasing number of CPUs
+			2. Better disks (RAID may be)
+			3. More DB memory
+		4. Services
+			1. Increase CPUs
+			2. Better disks (RAID may be)
+			3. More memory
+			4. Better network
+		5. Vertical scaling is
+			1. Making hardware more powerful
+			2. Increasing the capacity of the hardware
 
 ### Minimizing Locking Related Contention ###
+1. 
+
 ### Pessimistic Locking vs Optimistic Locking ###
 ### Compare and Swap Mechanism ###
 ### Deadlocks ###
