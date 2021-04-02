@@ -902,6 +902,21 @@
 		4. There could be increased context switching if we keep increasing thread pool
 			1. If we keep limit on thread pool, there will not be too many requests running
 		5. Context switching happens if there is any IO or locks the process is waiting for
+			1. If there is contention, processes will generally be waiting for many locks (increase of context switching cost as well)
+		6. There is contention for thread pool
+	3. **Connection Pool**
+		1. Suppose process has to make a call to the backend
+			1. There is a limit on the number of connections that we can have based on the size of connetion pool
+				1. The threads have to contend for connection from connection pool
+		2. Backend is running slower than the rate at which threads are processing requests (contention at connection pool)
+	4. **CPU/ Disk/ Network**
+		1. CPU - contention in the form of contention for threads
+		2. Disk - Depends on the disk controller
+			1. Only a limited number of threads can be allowed to access a disk at the same time
+				1. Practically - **we can assume that we have a serial access to the disk**
+					1. Can be assumed for design of system
+			2. It can be a source of contention if we do a lot of I/O
+				1. Use case: DB access
 
 ### Minimizing Shared Resource Contention ###
 ### Minimizing Locking Related Contention ###
