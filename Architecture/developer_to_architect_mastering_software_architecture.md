@@ -1086,6 +1086,10 @@
 	3. Look for non-exclusie locks
 
 ### Pessimistic Locking vs Optimistic Locking ###
+1. Pessimistic Locking
+	1. 
+2. Optimistic Locking
+
 ### Compare and Swap Mechanism ###
 ### Deadlocks ###
 ### Coherence Related Delays ###
