@@ -3978,6 +3978,7 @@ Exercise:
 	1. Bitwise shift operators are very much helpful in bit masking of data along with other bitwise operators
 	2. Predominantly used while setting or clearing of bits
 	3. Lets consider this problem statement: Set 4th bit of given data
+2. 
 
 ### Modifying LED on Exercise Using Bitwise Shift Operators ###
 ### Bit Extraction ###
