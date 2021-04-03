@@ -4182,6 +4182,31 @@ Exercise:
 	2. Writing 2 semicolons are mandatory
 	3. You can leave any block empty
 		1. You can leave all blocks empty -> results in infinite loop
+	4. `;`s are compulsory
+	5. `block-1` - executed only once
+	6. `block-2` - evaluated as true or false (decides whether to break the loop or continue the loop)
+	7. `block-3` - we can put any expression
+	8. Order of execution:
+		1. `block-1` is executed
+		2. `block-2` is evaluated
+			1. If evaluation is true, body is executed
+				1. `block-3` is executed
+				2. Go back to step 2
+			2. If evaluation is false, loop is exited
+2. Flow chart:
+
+		execute block-1
+			|
+			v
+		check result of block-2? -false-> done
+			|			^
+			true		|
+			|			|
+			v			|
+		execute body	|
+			|			|
+			v			|
+		execute block-3
 
 ### 'for' Loop Exercise ###
 ### 'for' Loop Number Pyramid Exercise ###
