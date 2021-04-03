@@ -4256,6 +4256,47 @@ Exercise:
 1. Exercise:
 	1. Modify the LED on program in to LED toggle program by introducing a software delay between LED on and LED off
 	2. LED should continously toggle with certain time delay forever.
+2. Program:
+		
+		#include <stdint.h>
+		
+		#if !defined(__SOFT_FP__) && defined(__ARM_FP)
+		  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+		#endif
+		
+		int main(void) {
+			uint32_t *pClkCtrlReg = (uint32_t*) 0x40023830;
+			uint32_t *pPortAModeReg = (uint32_t*) 0x40020000;
+			uint32_t *pPortAOutReg = (uint32_t*) 0x40020014;
+		
+			// 1. Enable peripheral clock
+			*pClkCtrlReg |= 0x01;
+		
+			// 2. Configure the mode of the I/O pin as output
+			*pPortAModeReg &= 0xFFFFF3FF; // clearing bits 10 and 11
+			*pPortAModeReg |= 0x00000400; // setting bit 10
+		
+			while (1) {
+				// 3. Set 5th bit of the output data register to make I/O pin-5 as HIGH
+				*pPortAOutReg |= 0x0020;
+		
+				//introduce small human observable delay
+				for (uint32_t i = 0; i < 1000000; i++)
+					;
+		
+				// Turn OFF the LED
+				// 4. Clear 5th bit of the output data register to make I/O pin-5 as HIGH
+				*pPortAOutReg &= ~(0x0020);
+		
+				//introduce small human observable delay
+				for (uint32_t i = 0; i < 1000000; i++)
+					;
+			}
+	
+		}
+	
+
+### LED Toggle Using Software Delay ###
 2. Delay
 	1. Software delay (loop statements)
 		1. Make processor busy in a software loop doing nothing
@@ -4263,11 +4304,15 @@ Exercise:
 			2. Processor will also waste execution cycles until certain delay is met
 				1. Precision is not required here
 	2. Hardware delay (hardware peripherals such as TIMERS)
-
-### LED Toggle Using Software Delay ###
+3. Knowing the number of cycles for software delay
 
 ## Type Qualifier 'const' ##
 ### 'const' Type Qualifier ###
+1. Type qualifiers in 'C'
+	1. `const`
+	2. `volatile`
+2. Applying the qualifiers to variable declaration is called qualifying declaration
+
 ### Placements of 'const' Variables in Memory ###
 ### 'const' Usage and Different Case Studies ###
 ### 'const' Usage and Different Case Studies Contd ###
