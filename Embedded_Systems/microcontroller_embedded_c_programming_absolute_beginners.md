@@ -4177,6 +4177,11 @@ Exercise:
 		for (block-1; block-2; block-3) {
 			// Body of for loop
 		}
+		
+	1. A `for` statement has three blocks separated by 2 semicolons
+	2. Writing 2 semicolons are mandatory
+	3. You can leave any block empty
+		1. You can leave all blocks empty -> results in infinite loop
 
 ### 'for' Loop Exercise ###
 ### 'for' Loop Number Pyramid Exercise ###
