@@ -4225,9 +4225,20 @@ Exercise:
 ### 'for' Loop Number Pyramid Exercise ###
 1. Exercise: Number pyramid
 
-		for (uint8_t i = 0; i < 10; i++) {
-			for (uint8_t j = (i + 1); j > 0; j--) {
-				printf("%hhu\t", j);
+		printf("Enter height of the pyramid: ");
+		fflush(stdout);
+		float input = 0.0;
+		scanf("%f", &input);
+		
+		uint32_t height = (uint32_t) input;
+		if (input < 0 || ((float) height != input)) {
+			printf("Input is invalid! positive integer expected. Exiting...\n");
+			exit(-1);
+		}
+
+		for (uint32_t i = 0; i < height; i++) {
+			for (uint32_t j = (i + 1); j > 0; j--) {
+				printf("%u\t", j);
 			}
 			printf("\n");
 		}
