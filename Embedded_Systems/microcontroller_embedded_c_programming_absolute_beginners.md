@@ -4334,12 +4334,29 @@ Exercise:
 	2. If you try to modify variable by its name, the compiler stops you by throwing an error (compile-time error)
 		1. You can still modify the content of the variable by using its address	
 
-				uint8_t const data = 10;
+				const uint8_t data = 10;
 				data = 50 // error
 				printf("Value = %u\n", data);
+				
+				uint8_t* ptr = (uint8_t*) &data;
+				*ptr = 50; // no error
+				printf("Value = %u\n", data);
 				getchar();
+				
+			1. `const` doesn't mean that value never changes
+				1. It is only programming safety feature to ensure that programmer shouldn't try to modify the value
 
 ### Placements of 'const' Variables in Memory ###
+1. `const` placement in memory
+	1. All local const variables are just like non-const variables as far as memory placement is concerned. They are placed in RAM. 
+		1. The only specialty of a const variable is, it is read-only
+	2. All global const variables are stored in ROM or FLASH.
+		1. Depends on linker script rules and hardware on which code runs
+	3. In STM32 target hardware
+		1. All global const variabls live in FLASH memory
+			1. If we try to modify const variable using it's address, operation has no effect
+				1. Because flash memory of microcontroller is write-protected
+
 ### 'const' Usage and Different Case Studies ###
 ### 'const' Usage and Different Case Studies Contd ###
 
