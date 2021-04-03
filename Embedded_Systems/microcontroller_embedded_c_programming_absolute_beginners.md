@@ -4168,8 +4168,16 @@ Exercise:
 	5. Statements are executed at least once
 4. In embedded programming, we use `do`...`while` loop to write multiline 'C' macros in a header file.
 	1. 'C' pre-processor directives
+		1. Function like macros
+		2. Multi-line macros
 
 ### 'for' Loop ###
+1. for loop syntax:
+
+		for (block-1; block-2; block-3) {
+			// Body of for loop
+		}
+
 ### 'for' Loop Exercise ###
 ### 'for' Loop Number Pyramid Exercise ###
 ### 'for' Loop Exercise Solution ###
