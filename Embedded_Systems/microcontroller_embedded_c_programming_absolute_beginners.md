@@ -4076,9 +4076,31 @@ Exercise:
 		+--[execute		|
 			statement(s)]	|program continues with code outside loop
 							v
+							
+	1. expression is evaluated first (always done first)
+	2. if expression evaluation is TRUE, then
+		1. statements inside the body of the loop will be executed and execution loops back to check the expression again
+	3. If expression evaluation is FALSE, then
+		1. Loop body breaks and the program continues with code outside the loop body
+3. Example: Write a program which prints from 1 to 10 using 'while' loop
+
+		uint8_t i = 1;
+		while (i < 11) {
+			printf("%d\n", i++);
+		}
 
 ### While Loop Exercise ###
 ### While Loop and Semicolon ###
+
+		while (num <= 10); /* infinite loop */ {
+			// ...
+		}
+		
+1. forever loop
+	1. A special form of while loop is forever loop
+		1. Loop that never ends (common in embedded apps in main program)
+			1. An embedded program may run forever (unlike a PC program) (or as long as it is powered up)
+
 ### While Loop Exercise ###
 ### 'do while' Loop ###
 ### 'for' Loop ###
