@@ -4256,6 +4256,13 @@ Exercise:
 1. Exercise:
 	1. Modify the LED on program in to LED toggle program by introducing a software delay between LED on and LED off
 	2. LED should continously toggle with certain time delay forever.
+2. Delay
+	1. Software delay (loop statements)
+		1. Make processor busy in a software loop doing nothing
+			1. Not accurate to obtain desired time delay
+			2. Processor will also waste execution cycles until certain delay is met
+				1. Precision is not required here
+	2. Hardware delay (hardware peripherals such as TIMERS)
 
 ### LED Toggle Using Software Delay ###
 
