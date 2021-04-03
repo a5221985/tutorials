@@ -4312,6 +4312,32 @@ Exercise:
 	1. `const`
 	2. `volatile`
 2. Applying the qualifiers to variable declaration is called qualifying declaration
+	1. Used to write bug free code
+		1. qualifier: A word or phrase, especially an adjective, used to attribute a quality to another word, especially a noun
+			1. In programming, a qualifier is used to attribute a feature to a variable
+3. `const` type qualifier
+	1. It is used to enforce read-only feature on variables
+
+			uint8_t data1 = 10; // here data1 is called a variable
+			data1 = 50;			// OK. 'data1' value can be modified through out the program
+			
+			const uint8_t data2 = 10; // here data2 is called constant variable
+			data2 = 50;					// compile-time error! 'data2' value cannot be modified because it is read-only
+			
+4. Example:
+
+		const uint8_t data1 = 10; // value cannot be modified
+		
+		uint8_t const data1 = 10; // same as above - instructor prefers this
+5. About 'const'ness of a variable
+	1. By using `const` keyword, you are making a promise to compiler that you (programmer) won't try to modify the content of the variable using its name
+	2. If you try to modify variable by its name, the compiler stops you by throwing an error (compile-time error)
+		1. You can still modify the content of the variable by using its address	
+
+				uint8_t const data = 10;
+				data = 50 // error
+				printf("Value = %u\n", data);
+				getchar();
 
 ### Placements of 'const' Variables in Memory ###
 ### 'const' Usage and Different Case Studies ###
