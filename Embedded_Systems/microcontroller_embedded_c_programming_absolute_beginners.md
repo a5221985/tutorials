@@ -4120,13 +4120,15 @@ Exercise:
 ### While Loop Exercise ###
 1. Solution:
 
-		printf("Enter start and end numbers (give space between the two numbers): 
-		scanf("%d %d", &a, &b);
+		int32_t start_num = 0;
+		int32_t end_num = 0;
+		printf("Enter start and end numbers (give space between the two numbers): ");
+		scanf("%d %d", &start_num, &end_num);
 		
-		int32_t i = a;
+		int32_t i = (start_num % 2 == 0) ? start_num : start_num + 1;
 		uint32_t count = 0;
-		while (i <= b) {
-			pritnf("%d\n", i);
+		while (i <= end_num) {
+			printf("%d\n", i);
 			i += 2;
 			count++;
 		}
@@ -4134,6 +4136,8 @@ Exercise:
 		printf("No of even numbers = %u\n", count);
 
 ### 'do while' Loop ###
+1. Instructor's implementation
+
 ### 'for' Loop ###
 ### 'for' Loop Exercise ###
 ### 'for' Loop Number Pyramid Exercise ###
