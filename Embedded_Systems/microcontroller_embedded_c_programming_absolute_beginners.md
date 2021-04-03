@@ -4118,7 +4118,20 @@ Exercise:
 	4. Later change the program to accept boundary numbers from user
 
 ### While Loop Exercise ###
-1. 
+1. Solution:
+
+		printf("Enter start and end numbers (give space between the two numbers): 
+		scanf("%d %d", &a, &b);
+		
+		int32_t i = a;
+		uint32_t count = 0;
+		while (i <= b) {
+			pritnf("%d\n", i);
+			i += 2;
+			count++;
+		}
+		
+		printf("No of even numbers = %u\n", count);
 
 ### 'do while' Loop ###
 ### 'for' Loop ###
