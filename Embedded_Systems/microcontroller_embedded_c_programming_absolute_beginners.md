@@ -4207,8 +4207,16 @@ Exercise:
 			|			|
 			v			|
 		execute block-3
+		
+3. It can be used for iteration
+
+		for (int i = 0; i < 10; i++) {
+			//...
+		}
 
 ### 'for' Loop Exercise ###
+1. 
+
 ### 'for' Loop Number Pyramid Exercise ###
 ### 'for' Loop Exercise Solution ###
 ### Modifying LED on With Software Delay ###
