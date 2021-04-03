@@ -4356,8 +4356,30 @@ Exercise:
 		1. All global const variabls live in FLASH memory
 			1. If we try to modify const variable using it's address, operation has no effect
 				1. **Because flash memory of microcontroller is write-protected**
+					1. FLASH is code space - write protected
+2. Global scope:
+
+		const uint8_t data = 10;
+		
+		int main() {
+			//...
+			*p = 20; // OS crashes the application (on host), on target (STM32) the op has no effect - undefined behaviour
+			//...
+		}
+		
+	1. Protects variable value
+3. Use `const` to guard data from modifications in project
+	1. If we unknowingly change read-only variable, compiler will alert
 
 ### 'const' Usage and Different Case Studies ###
+1. Use case: To define mathematical constants in the program
+
+		float const pi = 3.1415;
+		float const radius = 4;
+		int const number_of_months = 12;
+		
+2. Use case: Modifiable pointer and constant data
+
 ### 'const' Usage and Different Case Studies Contd ###
 
 ## Pin-Read ##
