@@ -4430,6 +4430,37 @@ Exercise:
 	1. `buf` - should not be modified
 
 ### 'const' Usage and Different Case Studies Contd ###
+1. Use Case 3: Modifiable data and constant pointer
+
+		uint8_t *const pData = (uint8_t*) 0x40000000;
+		
+	1. Here pointer `pData` is read-only but data pointed by `pData` can be modifiable
+		1. pData is read only pointer pointing to modifiable data
+	2. `pData` is a constant pointer (*) pointing to data of type unsigned inteter_8
+2. What is allowed?
+
+		uint8_t *const pData = (uint8_t*) 0x40000000;
+		pData = (unit8_t*) 0x50000000; // not allowed
+		
+		*pData = 50; // allowed
+		
+3. Use case:
+
+		/*
+		* Update the details of age and salary in to the pointer provided
+		* by the caller
+		*/
+		void update_user_data(uint8_t *const pUserAge, uint32_t *const pUserSalary) {
+			if (pUserAge != NULL) {
+				*pUserAge = getUserAge();
+			}
+			
+			if (pUserSalary != NULL) {
+				*pUserSalary = getUserSalary();
+			}
+		}
+		
+	1. Improves readability and guards pointer variables
 
 ## Pin-Read ##
 ### IO Pin Read Exercise ###
