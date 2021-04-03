@@ -4046,9 +4046,37 @@ Exercise:
 	1. `while` loop
 	2. `for` loop
 	3. `do`...`while` loop
-3. 
+3. `while`, `for` and `do` are reserved words in 'C' standard
 
 ### While Loop ###
+1. Syntax: `while` loop
+
+		while (expression) {
+			/* multi statement while loop */
+			statement1;
+			statement2;
+			statement3;
+			...
+			statementN;
+		}
+		
+		/* Single statement while loop */
+		while (expression)
+			statement1;
+			
+	1. Repeat execution of code inside loop body until expression evaluates to false (0)
+		1. If expression evaluates to false, the loop breaks
+2. Flow chart:
+
+		+->	[Expression evaluation result?]
+		|		|			|
+		|		true		false
+		|		|			|
+		|		v			|
+		+--[execute		|
+			statement(s)]	|program continues with code outside loop
+							v
+
 ### While Loop Exercise ###
 ### While Loop and Semicolon ###
 ### While Loop Exercise ###
