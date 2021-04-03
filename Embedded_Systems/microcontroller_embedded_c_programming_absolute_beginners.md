@@ -4002,9 +4002,52 @@ Exercise:
 ### Bit Extraction ###
 1. Lets consider the problem statement
 	1. Extrat bit positions from 9th to 14th [14:9] in a given data and save it in to another variable
+2. Example: 0xB410
+
+		1|011010|000010000
+		
+	1. Shift the identified portion to right hand side until it touches the least significant bit (0th bit)
+
+			Data >> 9
+			
+			1|011010|000010000
+			000000000001|011010
+	
+	2. Mask the value to extract only 6 bits [5:0] and then save it in to another variable
+
+			000000000001|011010
+			000000000000|111111
+			-------------------
+			000000000000|011010
+			
+3. Code:
+
+		uint16_t data = 0xB410;
+		uint8_t output;
+		output = (uint8_t) ((Data >> 9) & 0x003F);
 
 ## Looping ##
 ### Looping in 'C' ###
+1. Why looping?
+
+		#include <stdio.h>
+		#include <stdint.h>
+		
+		int main(void) {
+			uint8_t i = 1;
+			
+			while (i < 10) {
+				printf("%d\n", i++);
+			}
+		}
+		
+	1. Certain statements are executed until a condition is met
+2. There are three types of loop statements in 'C'
+	1. `while` loop
+	2. `for` loop
+	3. `do`...`while` loop
+3. 
+
 ### While Loop ###
 ### While Loop Exercise ###
 ### While Loop and Semicolon ###
