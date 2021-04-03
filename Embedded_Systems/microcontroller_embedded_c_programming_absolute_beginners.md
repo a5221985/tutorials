@@ -4215,9 +4215,23 @@ Exercise:
 		}
 
 ### 'for' Loop Exercise ###
-1. 
+1. Print even numbers using for loop
+
+		int first_even = (start_num % 2 == 0) ? start_num : start_num + 1;
+		for (int i = first_even; i <= end_num; i += 2) {
+			printf("%d\n", i);
+		}
 
 ### 'for' Loop Number Pyramid Exercise ###
+1. Exercise: Number pyramid
+
+		for (uint8_t i = 0; i < 10; i++) {
+			for (uint8_t j = (i + 1); j > 0; j--) {
+				printf("%hhu\t", j);
+			}
+			printf("\n");
+		}
+
 ### 'for' Loop Exercise Solution ###
 ### Modifying LED on With Software Delay ###
 ### LED Toggle Using Software Delay ###
