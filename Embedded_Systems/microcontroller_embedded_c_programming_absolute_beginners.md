@@ -4152,10 +4152,22 @@ Exercise:
 					v
 			+-> execute statement(s)
 			|		|
-			|		v
+			true	v
 			+-- expression evaluation result?
 					|
+					false
+					|
 					v
+					
+		1. Repeat execution of code inside `do` body until expression evaluates to false (0)
+3. Points to remember:
+	1. Statements are executed first
+	2. Expression is evaluated
+	3. If expression evaluation result is true, execution loops back and the statements inside the `do` body executes again
+	4. If expression evaluation result is false, while statement is terminated and program continues with the statement next to while statement
+	5. Statements are executed at least once
+4. In embedded programming, we use `do`...`while` loop to write multiline 'C' macros in a header file.
+	1. 'C' pre-processor directives
 
 ### 'for' Loop ###
 ### 'for' Loop Exercise ###
