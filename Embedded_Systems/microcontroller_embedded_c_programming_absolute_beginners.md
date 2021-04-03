@@ -4137,6 +4137,25 @@ Exercise:
 
 ### 'do while' Loop ###
 1. Instructor's implementation
+2. Syntax: do...while loop
+
+		do {
+			statement1;
+			statement2;
+			...
+			statementN;
+		} while (expression);
+		
+	1. Flow chart
+
+					|
+					v
+			+-> execute statement(s)
+			|		|
+			|		v
+			+-- expression evaluation result?
+					|
+					v
 
 ### 'for' Loop ###
 ### 'for' Loop Exercise ###
