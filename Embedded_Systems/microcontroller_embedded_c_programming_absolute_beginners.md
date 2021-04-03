@@ -4395,6 +4395,40 @@ Exercise:
 			
 	4. Where is it used?
 
+			//This function copies data from src pointer to dst pointer
+			void copy_src_to_dst(uint8_t *src, uint8 *dst, uint32_t len) {
+				for (uint32_t i = 0; i < len; i++) {
+					*dst = *src; //*dst++ = *src++
+					dst++;
+					src++; // increased to point to next location
+					// *src = 10; // compiler will not alert
+				}
+			}
+			
+		1. `src` is not guarded (prone to mistake)
+			1. Data pointed to by `src` must not be modified
+		2. Solution:
+
+				//This function copies data from src pointer to dst pointer
+				void copy_src_to_dst(uint8_t const *src, uint8 *dst, uint32_t len) {
+					for (uint32_t i = 0; i < len; i++) {
+						*dst = *src; //*dst++ = *src++
+						dst++;
+						src++; // increased to point to next location
+						// *src = 10; // compiler will alert
+					}
+				}
+				
+			1. `src` is guarded (compiler alerts if programmer tries to change the data pointed by src pointer)
+				1. Programmer will know that `src` must not be changed
+3. Example: `open` & `write` - Linux man page
+
+		int open(const char *path, int oflag, ...);
+		
+		ssize_t write(int fd, const void *buf, size_t count);
+		
+	1. `buf` - should not be modified
+
 ### 'const' Usage and Different Case Studies Contd ###
 
 ## Pin-Read ##
