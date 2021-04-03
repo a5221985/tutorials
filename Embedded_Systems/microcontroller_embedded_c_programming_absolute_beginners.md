@@ -4380,6 +4380,21 @@ Exercise:
 		
 2. Use case: Modifiable pointer and constant data
 
+		uint8_t const *pData = (uint8_t*) 0x40000000;
+		
+	1. Here pointer `pData` is modifiable but data pointer by `pData` cannot be modifiable (read-only)
+		1. It is a pointer pointing to read-only data
+	2. `pData` is a pointer (*) pointing to constant data of type unsigned integer_8
+	3. Examples:
+
+			pData = (uint8_t*) 0x50000000;
+			pData = (uint8_t*) 0x60000000;
+			pData = (uint8_t*) 0x70000000;
+			
+			*pData = 50; // not allowed
+			
+	4. Where is it used?
+
 ### 'const' Usage and Different Case Studies Contd ###
 
 ## Pin-Read ##
