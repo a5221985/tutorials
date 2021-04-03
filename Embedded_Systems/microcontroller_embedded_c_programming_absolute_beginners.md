@@ -3978,10 +3978,30 @@ Exercise:
 	1. Bitwise shift operators are very much helpful in bit masking of data along with other bitwise operators
 	2. Predominantly used while setting or clearing of bits
 	3. Lets consider this problem statement: Set 4th bit of given data
-2. 
+2. Example:
+
+		Data = 0x08
+		Data = Data | (1 << 4) = 0x18
+		
+	1. Shift by the bit position number that needs to be set
+2. Example:
+
+		Data = 0x18
+		Data = Data & (~(1 << 4)) = 0x08
 
 ### Modifying LED on Exercise Using Bitwise Shift Operators ###
+1. Program
+
+		*pClkCtrlReg |= (1 << 3);
+		
+		*pPortDModeReg &= ~(3 << 24);
+		*pPortDModeReg |= (1 << 24);
+		
+		*pPortDOutReg |= (1 << 12);
+
 ### Bit Extraction ###
+1. Lets consider the problem statement
+	1. Extrat bit positions from 9th to 14th [14:9] in a given data and save it in to another variable
 
 ## Looping ##
 ### Looping in 'C' ###
