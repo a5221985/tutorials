@@ -4100,8 +4100,26 @@ Exercise:
 	1. A special form of while loop is forever loop
 		1. Loop that never ends (common in embedded apps in main program)
 			1. An embedded program may run forever (unlike a PC program) (or as long as it is powered up)
+	2. Example:
+
+			int main(void) {
+				/* super loop */
+				while (1) {
+					readDataSensor();
+					processData();
+					displaySensorData();
+				}
+			}
+			
+2. Exercise:
+	1. Write a program to print all the even numbers between 0 and 100 (including boundaries)
+	2. Also count and print how many even numbers you find
+	3. Use `while` loop or `for` loop or `do` `while` loop
+	4. Later change the program to accept boundary numbers from user
 
 ### While Loop Exercise ###
+1. 
+
 ### 'do while' Loop ###
 ### 'for' Loop ###
 ### 'for' Loop Exercise ###
