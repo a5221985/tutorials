@@ -4253,6 +4253,9 @@ Exercise:
 
 ### 'for' Loop Exercise Solution ###
 ### Modifying LED on With Software Delay ###
+1. Exercise:
+	1. Modify the LED on program in to LED toggle program by introducing a software delay between LED on and LED off
+
 ### LED Toggle Using Software Delay ###
 
 ## Type Qualifier 'const' ##
