@@ -4355,7 +4355,7 @@ Exercise:
 	3. In STM32 target hardware
 		1. All global const variabls live in FLASH memory
 			1. If we try to modify const variable using it's address, operation has no effect
-				1. Because flash memory of microcontroller is write-protected
+				1. **Because flash memory of microcontroller is write-protected**
 
 ### 'const' Usage and Different Case Studies ###
 ### 'const' Usage and Different Case Studies Contd ###
