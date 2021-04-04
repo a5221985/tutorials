@@ -1534,7 +1534,38 @@
 
 ## Scalability ##
 ### Module Contents Overview ###
+1. System Scalability
+	1. Scalability
+		1. Vertical & Horizontal Scaling
+	2. Horizontal Scalability (ways to achieve it)
+		1. Replication
+		2. Services
+		3. Caching
+		4. Asynchronous Process
+		5. Partitioning
+	3. Load Balancing (How to load balance)
+		1. Load Balancers
+		2. Service Discovery
+		3. DNS & Geo Load Balancing (for global solutions)
+	4. Micro-Services (helps in highest degree of scalability)
+		1. Architecture
+		2. Transactions
+		3. SAGA Pattern (compensating transactions)
+		4. NoSQL (for scalability)
+
 ### Performance vs Scalability ###
+1. Performance - meausured for **fixed load**
+	1. Low latency (request-response time is low)
+	2. High throughput (rate at which system is processing requests)
+		1. Concurrency (increase)
+			1. Single machine - multi-threading
+			2. Multi machine - multi-threading + multi-processing = distributed processing (this was not considered before)
+		2. Capacity (augment)
+2. Scalability - measured for **for variable load**
+	1. High throughput
+		1. Ability of a system to increase its throughput by adding more hardware capacity
+	2. Both ways - UP and DOWN
+
 ### Vertical & Horizontal Scalability ###
 ### Reverse Proxy ###
 ### A Reference Software System for Discussing Scalability ###
