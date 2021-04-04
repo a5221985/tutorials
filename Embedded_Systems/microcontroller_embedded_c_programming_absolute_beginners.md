@@ -4468,6 +4468,8 @@ Exercise:
 	1. `pData` pointer is read only
 	2. Data pointed by `pData` is also read only
 		1. `pData` is read only pointer pointing to read-only data
+	3. **pData is a constant pointer (\*) pointing to constant data of type unsigned integer_8**
+3. 
 
 ## Pin-Read ##
 ### IO Pin Read Exercise ###
