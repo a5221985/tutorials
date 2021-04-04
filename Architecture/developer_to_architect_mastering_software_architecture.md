@@ -1594,6 +1594,9 @@
 					1. Not practical if we scale (dynamic property - can increase or decrease)
 		2. Can be used for internal clients as well (IP address can be remembered)
 		3. External client - only remebers DNS name which will be resolved to IP address by DNS server(s)
+			1. DNS can map one DNS name to multiple IP addresses
+				1. It is not going to be used as reverse proxy
+					1. It can have stale data for quite some time (instances can be dynamically changing)
 	2. Reverse proxy can also act as a load balancer
 		1. Reverse proxy - sits near server side
 			1. Every request intended to server goes through reverse proxy
@@ -1601,7 +1604,23 @@
 				1. Can be configured to act as a load balancer
 
 ### A Reference Software System for Discussing Scalability ###
+1. System for Scalability Discussion
+
+		Web Browser -> Web application -> Business Application -> Database
+		
+	1. How to scale the application? - to handle millions of users
+
 ### Scalability Principles ###
+1. Decentralization - Monolith is an anti-pattern for scalability
+	1. More workers - Instances, Threads
+	2. Specialized workers - Services
+2. Independence
+	1. Multiple workers are as good as a single worker if they can't work independently
+		1. They must work concurrently to maximum extent
+	2. Independence is impeded by
+		1. Shared resources
+		2. Shared mutable data
+
 ### Modularity for Scalability ###
 ### Replication ###
 ### Stateful Replication in Web Applications ###
