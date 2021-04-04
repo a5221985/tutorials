@@ -1579,10 +1579,27 @@
 		2. It may be infeasible (such hardware may not exist)
 2. Horizontal (we add more hardware - more such machines are brought up of the same power - 3 machines of 4 CPU & 16 GB RAM - cost goes up linearly (not exponentially))
 	1. Hard to achieve
-		1. Software should be designed to support this
+		1. Software should be designed to support this (coordination is required)
 	2. Unlimited scalability
+		1. Practically it is high
+		2. Unlike vertical scalability, we can scale down and re-purpose the machines for other uses
+			1. Cloud env - we can rent out and return to scale up and down respectively
 
 ### Reverse Proxy ###
+1. Reverse Proxy
+	1. Client needs to know only about the address of reverse proxy
+		1. If load balancer does not exist
+			1. Client needs to know about all the machines to distribute requests
+				1. Clients need to remember IP addresses
+					1. Not practical if we scale (dynamic property - can increase or decrease)
+		2. Can be used for internal clients as well (IP address can be remembered)
+		3. External client - only remebers DNS name which will be resolved to IP address by DNS server(s)
+	2. Reverse proxy can also act as a load balancer
+		1. Reverse proxy - sits near server side
+			1. Every request intended to server goes through reverse proxy
+			2. It can also decide which server can serve the request
+				1. Can be configured to act as a load balancer
+
 ### A Reference Software System for Discussing Scalability ###
 ### Scalability Principles ###
 ### Modularity for Scalability ###
