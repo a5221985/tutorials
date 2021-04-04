@@ -4461,6 +4461,13 @@ Exercise:
 		}
 		
 	1. Improves readability and guards pointer variables
+2. Use Case 4: `const` data and const pointer
+
+		uint8_t const *const pData = (uint8_t*) 0x40000000;
+		
+	1. `pData` pointer is read only
+	2. Data pointed by `pData` is also read only
+		1. `pData` is read only pointer pointing to read-only data
 
 ## Pin-Read ##
 ### IO Pin Read Exercise ###
