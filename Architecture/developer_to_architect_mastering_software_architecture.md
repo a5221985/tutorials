@@ -1420,7 +1420,7 @@
 				2. Example: User profile data
 					1. Duplication is expensive
 						1. We need intelligent routing
-							1. Session cache
+							1. Session cache can be used
 		3. With routing can lead to uneven load balancing
 			1. Session cache
 				1. Suppose user request has come to node 1 and it is cached
@@ -1448,8 +1448,9 @@
 		5. Example: Web-application
 			1. Each web-app node can cache data in it's own memory
 				1. It resides within the instance (service data say)
-	2. Shared Cache
-		1. Higher latency due to an extra hop
+	2. Shared Cache (caching is deligated to an external component)
+		1. Higher latency due to an extra hop (in network)
+			1. Adds some cost (ms)
 		2. Can scale out ot a distributed cache
 			1. Memcache
 			2. Redis
@@ -1461,7 +1462,11 @@
 				Browser - LB -	Node 2 - [Cache Data]
 								\			/
 									Node 3
-
+									
+		5. Advantages
+			1. Intelligent routing is not required
+				1. Only one cache
+			2. Easy to scale out this cache
 2. Where do we need this dynamic data caching?
 	1. Services
 		1. If they fetch data from database
