@@ -1611,15 +1611,17 @@
 	1. How to scale the application? - to handle millions of users
 
 ### Scalability Principles ###
-1. Decentralization - Monolith is an anti-pattern for scalability
-	1. More workers - Instances, Threads
-	2. Specialized workers - Services
-2. Independence
-	1. Multiple workers are as good as a single worker if they can't work independently
-		1. They must work concurrently to maximum extent
-	2. Independence is impeded by
-		1. Shared resources
-		2. Shared mutable data
+1. Principles to make a system horizontally scalable: (scalability depends on the following principles)
+	1. **Decentralization** (one component is not responsible all the different kind of work) - Monolith is an anti-pattern for scalability (if there is only one component for the entire load the system is facing - the only way to scale is vertically) - there are multiple components of different kind for the work
+		1. More workers - Instances, Threads
+		2. Specialized workers - Services
+			1. Different kind of workers for different kind of work
+	2. **Independence**
+		1. Multiple workers are as good as a single worker if they can't work independently
+			1. They must work concurrently to maximum extent
+		2. Independence is impeded by
+			1. Shared resources
+			2. Shared mutable data
 
 ### Modularity for Scalability ###
 ### Replication ###
