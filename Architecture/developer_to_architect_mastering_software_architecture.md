@@ -1487,11 +1487,17 @@
 ### Caching Related Challenges ###
 1. Any caching strategy has the following two limitations:
 	1. **Limited cache space results in early evictions**
-		1. Prefer caching for frequently accessed objects
-			1. Cache fast-moving consumer goods vs slow moving goods
-		2. Average size of cached objects should be as small as possible
+		1. Data is read only
+		2. Prefer caching for frequently accessed objects
+			1. **Cache fast-moving consumer goods** vs slow moving goods
+				1. e-commerce store
+					1. Not many people will be accessing slow moving goods
+					2. Many people will be accessing fast moving goods and the goods will likely be unchanged for long periods of time
+		3. Average size of cached objects should be as small as possible
 			1. Large sized objects results in cache getting full too soon causing evictions
-	2. **Cache invalidation & cache inconsistency** (
+				1. Small objects occupy lesser space so more number of objects can be cached
+					1. Optimizes cache size as well
+	2. **Cache invalidation & cache inconsistency** (if data becomes stale it becomes in-consistent with main source)
 		1. Requires update/ delection of cached value upon update
 			1. Not an option when a cache is outside of a system
 			2. No cache inconsistency
@@ -1500,9 +1506,20 @@
 				1. Inconsistency interval increases
 			2. Low TTL decreases inconsistency interval
 				1. Cache hits go down
-3. Cache Hit Ratio:
+3. Cache Hit Ratio: (used to measure effectiveness of cache)
 
 		cache hit ratio = # of cache hits / (# of cache hits + # of cache misses)
+		
+	1. \# of cache hits - if data is served by cache
+	2. \# of cache misses - if data was not served by cache
+	3. \# of requests - \# of cache hits + \# of cache misses
+	4. If cache hit ratio is high - more effective
+4. Caching is based on memory
+	1. It is not a cheap resource
+		1. Database stores data on disk - cheaper
+			1. Memory cannot store this amount of data (very expensive)
+				1. TB of cache (memory) is prohibitively expensive
+		2. We need to decide what to cache and what need not be cached
 
 ## Scalability ##
 ### Module Contents Overview ###
