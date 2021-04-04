@@ -1414,6 +1414,13 @@
 			1. It is okay one is fetching data from any instance
 				1. User request can go to any instance
 					1. If the data is filled in most of the nodes, it becomes effective - request can go to any of the nodes
+			2. Useful for smaller datasets
+				1. Example: Currency conversion table
+					1. Duplication is okay (small data)
+				2. Example: User profile data
+					1. Duplication is expensive
+						1. We need intelligent routing
+							1. Session cache
 		3. With routing can lead to uneven load balancing
 			1. Session cache
 				1. Suppose user request has come to node 1 and it is cached
@@ -1423,8 +1430,13 @@
 						1. If data is present in the cache, request can be served
 				3. Advantages:
 					1. Duplication of data can be avoided
+					2. Very fast as compared to shared cache
+						1. Cache is internal
+							1. It is stored at the node and fetched quickly if request comes to the node
 				4. Disadvantages:
-					1. 
+					1. Requires routing of data to specific node
+					2. Scalability issues
+					3. Requires additional mechanism for this to work
 		4. Illustration
 
 									Node 1 [Cache Data]
