@@ -1498,14 +1498,24 @@
 				1. Small objects occupy lesser space so more number of objects can be cached
 					1. Optimizes cache size as well
 	2. **Cache invalidation & cache inconsistency** (if data becomes stale it becomes in-consistent with main source)
-		1. Requires update/ delection of cached value upon update
-			1. Not an option when a cache is outside of a system
+		1. Requires update/ delection of cached value upon update (of source)
+			1. Not an option when a cache is outside of a system (public cache say - HTTP cache - not in our control)
+				1. We cannot update or delete contents of the cache
 			2. No cache inconsistency
-		2. TTL value can be used to remove aged data
+				1. Cache is immediately updated with source data if it changed - brings down inconsistency duration to bare minimum (cache is part of the system)
+		2. TTL value can be used to remove aged data (results in cache miss - HTTP caching say) - TTL is Time To Live (object based caching)
 			1. High TTL results in more cache hits
 				1. Inconsistency interval increases
 			2. Low TTL decreases inconsistency interval
 				1. Cache hits go down
+			3. Cache receives TTL along with object and it cannot be changed
+				1. Disadvantage:
+					1. May need trial and error to figure out a good TTL value or could be based on other statistics (which needs time and data)
+					2. Suppose TTL is still valid and data has changed at source
+						1. Client will be receiving stale data
+							1. TTL is 1 hour and data changes every 5 minutes
+					3. TTL is 5 minutes and data is updated every hour
+						1. We will be hitting source every 5 minutes unnecessarily
 3. Cache Hit Ratio: (used to measure effectiveness of cache)
 
 		cache hit ratio = # of cache hits / (# of cache hits + # of cache misses)
@@ -1520,6 +1530,7 @@
 			1. Memory cannot store this amount of data (very expensive)
 				1. TB of cache (memory) is prohibitively expensive
 		2. We need to decide what to cache and what need not be cached
+5. We need to look at trade-off while designing caching strategy
 
 ## Scalability ##
 ### Module Contents Overview ###
