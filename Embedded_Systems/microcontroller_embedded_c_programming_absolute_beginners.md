@@ -4469,7 +4469,27 @@ Exercise:
 	2. Data pointed by `pData` is also read only
 		1. `pData` is read only pointer pointing to read-only data
 	3. **pData is a constant pointer (\*) pointing to constant data of type unsigned integer_8**
-3. 
+3. Use case:
+
+		/*
+		 * read and return the content of status register pointed by
+		 * pStatusReg
+		 * accidental write to SR may cause unpredictable consequences
+		 */
+		uint32_t read_status_register(uint32_t const *const pStatusReg) {
+			return (*pStatusReg);
+		}
+		
+	1. The status register should not be modified
+		1. otherwise, it will cause system to fail
+4. Use of `const`
+	1. It adds some safety while you write code.
+		1. Compiler warns you when trying to change the value of const variable
+		2. Since a constant variable doesn't change
+			1. It has only one state throughout the problem
+				1. We need not track it's various states
+		3. Improves readability of program
+		4. It must be used generously to enforce pointer access restrictions while writing functions and function prototypes
 
 ## Pin-Read ##
 ### IO Pin Read Exercise ###
