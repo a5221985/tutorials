@@ -1485,7 +1485,24 @@
 3. Dynamic data that doesn't change frequently can be cached
 
 ### Caching Related Challenges ###
+1. Any caching strategy has the following two limitations:
+	1. **Limited cache space results in early evictions**
+		1. Prefer caching for frequently accessed objects
+			1. Cache fast-moving consumer goods vs slow moving goods
+		2. Average size of cached objects should be as small as possible
+			1. Large sized objects results in cache getting full too soon causing evictions
+	2. **Cache invalidation & cache inconsistency** (
+		1. Requires update/ delection of cached value upon update
+			1. Not an option when a cache is outside of a system
+			2. No cache inconsistency
+		2. TTL value can be used to remove aged data
+			1. High TTL results in more cache hits
+				1. Inconsistency interval increases
+			2. Low TTL decreases inconsistency interval
+				1. Cache hits go down
+3. Cache Hit Ratio:
 
+		cache hit ratio = # of cache hits / (# of cache hits + # of cache misses)
 
 ## Scalability ##
 ### Module Contents Overview ###
