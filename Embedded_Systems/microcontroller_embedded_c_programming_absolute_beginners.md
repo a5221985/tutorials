@@ -4495,7 +4495,13 @@ Exercise:
 ### IO Pin Read Exercise ###
 1. Exercise:
 	1. Write a program which reads the sttus of the pin PA0. If the status of PA0 is LOW then turn off the on board LED (PD12) and if the status of PA0 is HIGH then turn on the LED.
-	2. Change the status of PA0 pin manually by connecting between GND and VDD ponts of the board
+	2. Change the status of PA0 pin manually by connecting between GND (0V) and VDD (3.3V) ponts of the board
+2. Connect Jumper wire to PA0
+	1. Connect the other end to GND - LED should turn off
+	2. Connect the other end to VDD - LED should turn on
+3. Points to consider:
+	1. Check if PA0 is free I/O or not (Discovery - it is free)
+		1. Check User Manual (free or it is used by other functionality)
 
 ### IO Pin Read Exercise Implementation ###
 
