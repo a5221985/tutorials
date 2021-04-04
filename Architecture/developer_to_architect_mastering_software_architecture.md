@@ -1616,14 +1616,29 @@
 		1. More workers - Instances, Threads
 		2. Specialized workers - Services
 			1. Different kind of workers for different kind of work
-	2. **Independence**
+	2. **Independence** (benefit of lots of workers is when they can work independently) - coordination may be required if there is shared data (db access say)
 		1. Multiple workers are as good as a single worker if they can't work independently
 			1. They must work concurrently to maximum extent
-		2. Independence is impeded by
+		2. Independence is impeded by (coordinator may be required)
 			1. Shared resources
 			2. Shared mutable data
+				1. DB
+				2. File
+				3. ...
+		3. Coordinator becomes bottleneck
+			1. If we increase number of workers, the load on coordinator also increases
+				1. 100 workers to 1000 workers
+					1. Load on coordinator will be up by 10 times
+						1. System will fail at some point
+		4. Solution:
+			1. If workers can be made to work independently
+			2. If requirement for coordination can be minimized
 
 ### Modularity for Scalability ###
+1. Modularity
+	1. Scalable architecture starts with modularity
+		1. Provides the foundation for breaking an application into more specialized functions / services
+
 ### Replication ###
 ### Stateful Replication in Web Applications ###
 ### Stateless Replication in Web Applications ###
