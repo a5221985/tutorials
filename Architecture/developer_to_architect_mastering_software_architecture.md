@@ -1563,10 +1563,25 @@
 		2. Capacity (augment)
 2. Scalability - measured for **for variable load**
 	1. High throughput
-		1. Ability of a system to increase its throughput by adding more hardware capacity
+		1. Definition: **Ability of a system to increase its throughput by adding more hardware capacity**
+			1. 1 million users or 10 million users
+				1. We want to see how the system will perform if we increase and/or decrease the load
 	2. Both ways - UP and DOWN
+		1. We should be able to scale up or down (to save cost)
+	3. Scalability is performance under variable load
 
 ### Vertical & Horizontal Scalability ###
+1. Vertical (we replace smaller hardware with a more powerful hardware (4 CPU to 32 CPU, 16 GB RAM to 256 GB RAM)
+	1. Easier to achieve
+		1. Very costly
+	2. Limited scalability
+		1. Expensive to get high end machines (may be exponential)
+		2. It may be infeasible (such hardware may not exist)
+2. Horizontal (we add more hardware - more such machines are brought up of the same power - 3 machines of 4 CPU & 16 GB RAM - cost goes up linearly (not exponentially))
+	1. Hard to achieve
+		1. Software should be designed to support this
+	2. Unlimited scalability
+
 ### Reverse Proxy ###
 ### A Reference Software System for Discussing Scalability ###
 ### Scalability Principles ###
