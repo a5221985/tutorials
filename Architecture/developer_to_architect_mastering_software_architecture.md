@@ -1451,7 +1451,7 @@
 	2. Shared Cache (caching is deligated to an external component)
 		1. Higher latency due to an extra hop (in network)
 			1. Adds some cost (ms)
-		2. Can scale out ot a distributed cache
+		2. Can scale out to a distributed cache
 			1. Memcache
 			2. Redis
 		3. For large datasets
@@ -1467,6 +1467,12 @@
 			1. Intelligent routing is not required
 				1. Only one cache
 			2. Easy to scale out this cache
+				1. Scaling responsibility can be decoupled to caching mechanism
+				2. They can be clustered easily
+					1. Can cache huge data
+			3. Good for large data sets
+			4. No intelligent routing
+			5. No duplication of data
 2. Where do we need this dynamic data caching?
 	1. Services
 		1. If they fetch data from database
@@ -1479,6 +1485,7 @@
 3. Dynamic data that doesn't change frequently can be cached
 
 ### Caching Related Challenges ###
+
 
 ## Scalability ##
 ### Module Contents Overview ###
