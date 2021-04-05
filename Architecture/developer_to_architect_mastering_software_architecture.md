@@ -1749,8 +1749,14 @@
 							1. Optionas:
 								1. Memcached
 								2. Redis
-							2. First time, request goes to DB
-							3. 
+							2. First time, request goes to DB and stored in cache
+							3. Second time, request goes to Cache
+								1. Latency is saved
+									1. Not as fast as web-app memory
+						3. Overhead
+							1. Additional component - shared cache
+					2. Storing session data on user side (in cookies)
+						1. The request will come along with session data to the web app
 
 ### Stateless Replication in Services ###
 ### Database Replication ###
