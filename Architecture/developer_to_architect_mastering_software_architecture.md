@@ -1698,6 +1698,10 @@
 3. The number of hops can be reduced by storing profile in Web-app
 	1. First time, the user profile data is obtained from DB
 	2. Web-app stores user profile - in the instance hit
+4. Limitations related to:
+	1. Scalability
+		1. Each session data occupies memory
+	2. Reliability
 
 ### Stateless Replication in Web Applications ###
 ### Stateless Replication in Services ###
