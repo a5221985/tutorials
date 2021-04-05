@@ -1839,6 +1839,23 @@
 			1. High read scalability (many read replicas can be made availability)
 			2. High read availability (if one of the instances goes down, other replicas can serve the requests, if master goes down, read replicas can serve the requests)
 			3. No write conflicts
+	3. Differences between asynchronous and synchronous replications
+		1. Asynchronous
+			1. Changes are propagated after transaction completes (involving only master)
+				1. Faster because only master is involved
+			2. Consistency - there is lag
+				1. Secondary may not have the most latest data
+					1. If client reads data from secondary when master is different, client gets stale data
+						1. It is eventially consistent
+							1. After a delay, they become consistent
+			3. If master db goes down and secondary is promoted
+				1. Certain changes not promoted to slave are lost
+		2. Synchronous
+			1. Slower because all master and slaves have to be synchronized before comitting the transaction
+				1. Slower write latency as compared to asynchronous
+			2. Consistency
+				1. Data is always consistent (transaction takes care of that)
+			3. 
 2. Master-Master (No-Master/ Peer-To-Peer)
 	1. Asynchronous (multi-geography)
 		1. Write conflicts
