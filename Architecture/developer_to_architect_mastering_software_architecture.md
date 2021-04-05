@@ -1710,6 +1710,13 @@
 						1. Operation cost will go up
 	2. Reliability
 		1. Suppose a node goes down (Node 1)
+		2. If load balancer receives a request and it has to route it to node 1, node 1 is no longer alive
+			1. Load balancer route to any of the other nodes
+				1. The session data needs to be fetched again (full latency is the cost)
+				2. All the users whose session data was stored on node 1 will get affected
+					1. All of them will experience high latency (until caches are refreshed)
+		3. If user has made changes to session data (user profile data) and it has not been propagated to the database yet and node goes down
+			1. The changes will be lost
 
 ### Stateless Replication in Web Applications ###
 ### Stateless Replication in Services ###
