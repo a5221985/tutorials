@@ -1804,27 +1804,59 @@
 					-R/W->	Master DB -> Backup DB
 								|
 								v
-					-R-> Read Replica DB
-					
-			
-4. Master-Slave (Primary-Secondary)
-	1. Asynchronous
+					-R-> Read Replica DB (Slave/ Secondary)
+
+### Database Replication Types ###
+1. Master-Slave (Primary-Secondary)
+	1. Asynchronous (read replica)
 		1. Low latency writes
 		2. Eventually consistent
 		3. data loss
-	2. Synchronous
-		1. Consistent
+	2. Synchronous (backup)
+		1. Consistent (both dbs are in sync)
 		2. High latency writes
 		3. Low write availability
-5. Master-Master (No-Master/ Peer-To-Peer)
-	1. Asynchronous
+
+				Service -R+W-> Master/Primary
+					|				|
+					|				Uni-directional
+					|				replication
+					R				|
+					|				v
+					+---------> Slave/ Secondary
+					
+			1. Any changes that go to master are replicated to slave in due course of time
+				1. Two ways to do this
+					1. Asynchronous
+						1. If client writes to database, once transaction is successful, it is acknowledged immediately (by the master)
+						2. Whatever changes done are propagated to slave(s)
+							1. Time delay can exist
+					2. Synchronous
+						1. If client writes to master db
+							1. The changes are immediately propagated to secondary db
+							2. When secondaries acknowledge that the changes are applied, the primary acknowledges to the client that the transaction is committed
+		3. Properties - reasons we do this are
+			1. High read scalability
+			2. High read availability
+			3. No write conflicts
+2. Master-Master (No-Master/ Peer-To-Peer)
+	1. Asynchronous (multi-geography)
 		1. Write conflicts
 		2. High availability
+	2. Properties
 		3. High read scalability
 		4. High read write availability
 		5. Transaction ordering issues
 
-### Database Replication Types ###
+				Service -R+W-> DB1
+									^
+									|
+								Bi-directional
+								replication
+									|
+									v
+				Service -R+W-> DB2
+
 ### Need for Specialized Services ###
 ### Specialized Services - SOAP/REST ###
 ### Asynchronous Services ###
