@@ -1836,8 +1836,8 @@
 							1. The changes are immediately propagated to secondary db
 							2. When secondaries acknowledge that the changes are applied, the primary acknowledges to the client that the transaction is committed
 		3. Properties - reasons we do this are
-			1. High read scalability
-			2. High read availability
+			1. High read scalability (many read replicas can be made availability)
+			2. High read availability (if one of the instances goes down, other replicas can serve the requests, if master goes down, read replicas can serve the requests)
 			3. No write conflicts
 2. Master-Master (No-Master/ Peer-To-Peer)
 	1. Asynchronous (multi-geography)
