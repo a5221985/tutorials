@@ -1655,10 +1655,32 @@
 					3. Later can be made completely decoupled (if possible)
 	2. First make business logic modular
 	3. Make API Protocol layer decoupled from business logic
+		1. This can change independently from buisness logic
 	4. Make Data Access Layer decoupled from business logic
+		1. This can change independently from business logic
 
 ### Replication ###
+1. Replication
+	1. For handling increasing workloads
+		1. Stateless (no data involved)
+			1. Code Replication
+				1. Web application - has 3 instances (running same code) - statelss/ stateful
+				2. Service application - has 3 instances (running same code) - stateless
+				3. Stateful:
+					1. It is used in some circumstances
+		2. Stateful
+			1. Code & Data Replication
+				1. Database (stateful) - has 2 instances
+					1. Data synchronization
+						1. Data written on one instance should get propagated to other instances
+	2. Why?
+		1. When load on system increases and if one machine cannot handle the load, we can scale horizontally
+			1. User load can be shared among multiple instances
+			2. DB - depends on the kind of replication used
+
 ### Stateful Replication in Web Applications ###
+1. 
+
 ### Stateless Replication in Web Applications ###
 ### Stateless Replication in Services ###
 ### Database Replication ###
