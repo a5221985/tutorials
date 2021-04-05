@@ -1701,7 +1701,15 @@
 4. Limitations related to:
 	1. Scalability
 		1. Each session data occupies memory
+			1. Suppose it occupies 1 MB per user
+			2. 500 MB of total memory
+			3. => 500 connections is the limitation
+			4. CPUs and threads limit actual connections to 2000 connections simultaneously
+				1. But due to session limitations, it can serve only 500
+					1. More machines are required to serve remaining requests (due to session memory limitation)
+						1. Operation cost will go up
 	2. Reliability
+		1. Suppose a node goes down (Node 1)
 
 ### Stateless Replication in Web Applications ###
 ### Stateless Replication in Services ###
