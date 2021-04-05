@@ -1790,6 +1790,39 @@
 	2. For high availability
 2. A solution: Vertical scaling
 	1. There is point where it doesn't work
+3. How to scale?
+	1. Read replica is created (another db instance)
+		1. Any change happening to master db gets replicated to read replica
+			1. Some of the read load can be diverted
+		2. Master can take both read and write loads
+	2. Advantages:
+		1. If there are large number of read requests (as compared to write requests), this approach scales
+	3. Backup replica
+		1. Used for high availability
+			1. if master goes down, the backup can be promoted as master
+
+					-R/W->	Master DB -> Backup DB
+								|
+								v
+					-R-> Read Replica DB
+					
+			
+4. Master-Slave (Primary-Secondary)
+	1. Asynchronous
+		1. Low latency writes
+		2. Eventually consistent
+		3. data loss
+	2. Synchronous
+		1. Consistent
+		2. High latency writes
+		3. Low write availability
+5. Master-Master (No-Master/ Peer-To-Peer)
+	1. Asynchronous
+		1. Write conflicts
+		2. High availability
+		3. High read scalability
+		4. High read write availability
+		5. Transaction ordering issues
 
 ### Database Replication Types ###
 ### Need for Specialized Services ###
