@@ -1717,8 +1717,41 @@
 					1. All of them will experience high latency (until caches are refreshed)
 		3. If user has made changes to session data (user profile data) and it has not been propagated to the database yet and node goes down
 			1. The changes will be lost
+			2. User will see old data
+				1. Solution: Web-Logic, Web-Sphere provide clustering session feature
+					1. Session data gets clustered on other machines
+
+							node 1 -- session 101 data
+							...
+							node i -- session 101 data
+							...
+							
+						1. If a machine goes down, users can be diverted to node i
+						2. When user makes changes to session data, clustering logic will ensure that the changes are propagated to replica
+		4. Drawback
+			1. Complicated
+			2. Messy to handle
+	3. Not preferred approach
+		1. Stateless replication is the preferred approach
+	4. Where is it used?
+		1. If the above are not serious limitations and do not outweigh limitation on latency side
 
 ### Stateless Replication in Web Applications ###
+1. Web Stateless Replication
+	1. For higher scalability at the expense of higher latency
+		1. No longer store data in web-layer
+		2. Each time we go to the database and fetch data
+			1. Issue: Added latency
+				1. Solutions:
+					1. Session data can be stored on:
+						1. Client side in Cookies
+						2. Server side in Shared Cache
+							1. Optionas:
+								1. Memcached
+								2. Redis
+							2. First time, request goes to DB
+							3. 
+
 ### Stateless Replication in Services ###
 ### Database Replication ###
 ### Database Replication Types ###
