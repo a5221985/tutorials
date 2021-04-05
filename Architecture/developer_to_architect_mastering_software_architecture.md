@@ -1746,7 +1746,7 @@
 					1. Session data can be stored on:
 						1. Client side in Cookies
 						2. Server side in Shared Cache
-							1. Optionas:
+							1. Options:
 								1. Memcached
 								2. Redis
 							2. First time, request goes to DB and stored in cache
@@ -1755,11 +1755,38 @@
 									1. Not as fast as web-app memory
 						3. Overhead
 							1. Additional component - shared cache
+						4. Advantages:
+							1. Good for large amounts of data
+							2. If there is non client specific data
+							3. If any instance goes down
+								1. Data is not lost - it is there is cache
+								2. If cache goes down
+									1. Application nodes can fetch data from database and fill the cache again
 					2. Storing session data on user side (in cookies)
 						1. The request will come along with session data to the web app
+							1. Limitation: Cookies cannot carry a lot of data
+								1. Network cost (if multiple hops are required)
+						2. Good for small amount of data
+2. Go for stateful if requirements for latency is extremely critical
 
 ### Stateless Replication in Services ###
+1. Stateless replication - same as web stateless
+	1. Similar to web app
+		1. One can go for stateless replication
+			1. Data that is more frequently read than modifed can be stored in a cache (shared cache)
+	2. Challenges
+		1. Introduction of additional complexity with shared resources
+			1. If all instances are using shared resource (file say) and writing to it in a transaction mode
+				1. We cannot synchronize using locks because the instances are separate (not managed by same OS)
+					1. Solution:
+						1. Lock table in database
+							1. Take a lock on a row
+							2. Modify the file
+							3. Commit the row
+
 ### Database Replication ###
+1. 
+
 ### Database Replication Types ###
 ### Need for Specialized Services ###
 ### Specialized Services - SOAP/REST ###
