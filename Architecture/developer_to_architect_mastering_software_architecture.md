@@ -1635,9 +1635,27 @@
 			2. If requirement for coordination can be minimized
 
 ### Modularity for Scalability ###
-1. Modularity
+1. Modularity (scalability can be started from here)
 	1. Scalable architecture starts with modularity
 		1. Provides the foundation for breaking an application into more specialized functions / services
+	
+				Web Browser -> Web App -> Business App -> DBMS
+												- API Protocol Layer
+												- Service Modules:
+												  User (module)
+												  Catalog (module)
+												  Order
+												  Inventory
+												- Data Access Layer
+
+			1. Modularity applies to Business Logic (Business App mostly, and a little with Web App)
+				1. It can be dividied such that
+					1. It is not coupled
+					2. It must be loosely coupled
+					3. Later can be made completely decoupled (if possible)
+	2. First make business logic modular
+	3. Make API Protocol layer decoupled from business logic
+	4. Make Data Access Layer decoupled from business logic
 
 ### Replication ###
 ### Stateful Replication in Web Applications ###
