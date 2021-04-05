@@ -1681,9 +1681,23 @@
 ### Stateful Replication in Web Applications ###
 1. Stateful replication is done: When low latency is required (web app)
 	1. Sticky sessions/ session affinity
+		1. Session data is stored in an instance identified using id
+		2. Client is returned a cookie with the following info:
+			1. Session id
+			2. Node id
+		3. Client sends request to load balancer
+		4. Load balancer checks the node id sent and redirects request to the node
+			1. Latency is reduced (by reducing hops)
 	2. Sessions occupy memory
 	3. Session clustering for reliability
 2. Example: Suppose user wants to fetch user profile
+	1. User sends request to web app
+	2. Web app forwards request to services app
+	3. Services app sends request to DB
+	4. The profile goes back using the same route
+3. The number of hops can be reduced by storing profile in Web-app
+	1. First time, the user profile data is obtained from DB
+	2. Web-app stores user profile - in the instance hit
 
 ### Stateless Replication in Web Applications ###
 ### Stateless Replication in Services ###
