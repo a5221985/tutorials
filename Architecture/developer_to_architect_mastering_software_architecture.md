@@ -1785,7 +1785,11 @@
 							3. Commit the row
 
 ### Database Replication ###
-1. 
+1. Database Replication (considering RDBMS systems - general use cases, NoSQL - specific use cases)
+	1. For higher read scalability
+	2. For high availability
+2. A solution: Vertical scaling
+	1. There is point where it doesn't work
 
 ### Database Replication Types ###
 ### Need for Specialized Services ###
