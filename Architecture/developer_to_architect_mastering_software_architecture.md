@@ -1679,7 +1679,11 @@
 			2. DB - depends on the kind of replication used
 
 ### Stateful Replication in Web Applications ###
-1. 
+1. Stateful replication is done: When low latency is required (web app)
+	1. Sticky sessions/ session affinity
+	2. Sessions occupy memory
+	3. Session clustering for reliability
+2. Example: Suppose user wants to fetch user profile
 
 ### Stateless Replication in Web Applications ###
 ### Stateless Replication in Services ###
