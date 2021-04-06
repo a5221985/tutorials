@@ -4852,9 +4852,18 @@ Exercise:
 			1. Load and store are executed in every loop
 	2. Next analyze for `-O2`
 		1. in `-O2`, compiler generated the code in such a way that fresh value form peripheral register (input data register of GPIOA) is NOT read anymore for every iteration of the loop (optimization in time by doing less memory hits). But this breaks application
+			1. Solution: We need to tell the compiler to not do any optimization on the statement (reading from register)
 
 ## 'volatile' Type Qualifier ##
 ### volatile and Effect of Optimization ###
+1. Volatile
+	1. Volatile is a type qualifier in 'C' used with variables
+		1. It instructs compiler not to invoke any optimization on variable operation (read or write)
+			1. It tells compiler that value of variable may change at any time with or without programmer's consent.
+				1. Compiler turns off optimizing read-write operations on variables which are declared using `volatile` keyword
+	2. It is very useful in embedded systems code
+2. Example:
+
 ### When to Use volatile Qualifier? ###
 ### Using Volatile to Fix Issues with the Pin-Read Exercise ###
 ### Using 'volatile' with ISR Part-1 ###
