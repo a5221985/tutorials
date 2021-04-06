@@ -5009,6 +5009,7 @@ Exercise:
 		};
 		
 	1. Syntax
+	2. It is a record to club data of different data types
 
 ### Accessing Structure Member Elements ###
 ### Sizeof of a Structure ###
