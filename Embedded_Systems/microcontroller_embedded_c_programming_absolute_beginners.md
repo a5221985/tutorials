@@ -4841,6 +4841,14 @@ Exercise:
 2. Whenever you change the optimization level, please do `clean` followed by `build`
 
 ### Analyzing Pin Read Exercise Disassembly with O0 and O2 ###
+1. Code does not work with `-O2`
+	1. Investigating this helps us understand about `volatile`
+2. Open dis-assembly code
+	1. First analyze for `-O0`
+		1. For every loop the processor has to read the input register and update the variable
+			1. Put a breakpoint and run
+				1. Instruction stepping mode
+		2. For each iteration of the loop, current value will be read from the peripheral register address (Input data register of GPIOA), and variable `pinStatus` will be updated
 
 ## 'volatile' Type Qualifier ##
 ### volatile and Effect of Optimization ###
