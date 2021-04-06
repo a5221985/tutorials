@@ -5010,6 +5010,29 @@ Exercise:
 		
 	1. Syntax
 	2. It is a record to club data of different data types
+	3. `tag_name` - name of structure or record
+	4. Body contains member elements
+	5. Structure definition doesn't consume any memory. It just describes a record
+3. Example:
+
+		struct CarModel {
+			unsigned int carNumber;
+			uint32_t carPrice;
+			uint16_t carMaxSpeed;
+			float carWeight;
+		};
+		
+	1. Data of different data types can be combined in a structure
+4. Variables of a structure
+
+		struct CarModel CarBMW, CarFord, CarHonda; // memory will be consumed when we construct structure variables
+		
+	1. `struct CarModel` - user define data type
+	2. `CarBMW` - structure variable (14 bytes)
+		1. Data type of `CarBMW` is `struct CarModel`
+5. Initialization
+
+
 
 ### Accessing Structure Member Elements ###
 ### Sizeof of a Structure ###
