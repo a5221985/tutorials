@@ -4765,6 +4765,10 @@ Exercise:
 				else
 					turnLEDOff(pin, pointer_portAOutputRegister);
 		}
+		
+1. Instructor's solution:
+
+		
 
 ## Optimization ##
 ### Compiler Optimization and Flags ###
