@@ -4931,6 +4931,36 @@ Exercise:
 ### Using 'volatile' with ISR Part-1 ###
 1. When to use `volatile` qualifier?
 	1. When a global variable is used to share data between main code and an ISR code
+2. Example:
+
+		uint8_t g_button_pressed = 0;
+		...
+
+		while (1) {
+			// Disable interrupt
+			*pEXTIMaskReg &= ~(1 << 0);
+			
+			if (g_button_pressed) {
+				// Some delay until button debouncing gets over
+				for (uint32_t i = 0; i < 500000/2; i++);
+				g_button_press_count++;
+				printf("Button is pressed %lu\n", g_button_press_count);
+				g_button_pressed = 0;
+			}
+			
+			// Enable interrupt
+			*pEXTIMaskReg |= (1 << 0);
+		}
+
+		...
+		/* This is button interrupt handler */
+		void EXIT0_IRQHandler(void) {
+			// Make this flag SET. if button pressed
+			g_button_pressed = 1; // global flag
+			*pEXITIPendReg |= (1 << 0);
+		}
+		
+	1. Works only with `-O0`
 
 ### Using 'volatile' with ISR Part-2 ###
 ### Usage of const and volatile Together ###
