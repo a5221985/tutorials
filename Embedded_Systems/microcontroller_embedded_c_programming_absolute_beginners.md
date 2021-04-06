@@ -4887,6 +4887,25 @@ Exercise:
 1. When to use volatile qualifer?
 	1. A variable must be declared using a volatile qualifier when there is a possibility of unexpected changes in the variable value
 		1. Unexpected changes in the variable value may happen from within code or from outside code (from hardware)
+			1. Unexpected changes may come from user
+	2. Use volatile when code is dealing with below scenarios
+		1. Memory-mapped peripheral registers of microcontrollers
+		2. Multiple tasks accessing global variables (read/write) in an RTOS multithreaded application
+		3. When a global variable is used to share data between main code and an ISR code
+2. Case 1: volatile data
+
+		uint8_t volatile my_data;
+		volatile uint8_t my_data; // same as above
+		
+	1. `my_data` is a `volatile` variable of type `uint8_t`
+3. Case 2: non-volatile pointer to volatile data
+
+		uint8_t volatile *pStatusReg;
+		
+	1. `pStatusReg` is a non-volatile pointer, pointing to `volatile` data of type `uint8_t`
+	2. Use case:
+		1. Perfect case of accessing memory-mapped registers (used most frequently in embedded systems programming)
+			1. Use it generously whenever you are accessing memory mapped registers in microcontroller code
 
 ### Using Volatile to Fix Issues with the Pin-Read Exercise ###
 ### Using 'volatile' with ISR Part-1 ###
