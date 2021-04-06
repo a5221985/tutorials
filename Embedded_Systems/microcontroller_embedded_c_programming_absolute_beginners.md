@@ -4768,9 +4768,24 @@ Exercise:
 		
 1. Instructor's solution:
 
+		uint32_t *pPortAModeReg = (uint32_t *) 0x40020000 //see memory map
+		uint32_t *pPortAInReg = (uint32_t *) 0x40020010 //see memory map
+
 		// enable clock for GPIO D an GPIO A peripheral AHB1ENR (same for both)
 		*pClkCtrlReg |= (1 << 3); // GPIO A
 		*pClkCtrlReg |= (1 << 0); // GPIO D
+		
+		//configure PA0 as input mode (GPIOA MODE REGISTER)
+		*pPortAModeReg &= ~(3 << 0);
+		
+		//read the pin status of the pin PA0 (GPIOA INPUT DATA REGISTER)
+		uint8_t pinStatus = (uint8_t) (*pPortAInReg & 0x01);
+		
+		if (pinStatus) {
+		
+		} else {
+		
+		}
 
 ## Optimization ##
 ### Compiler Optimization and Flags ###
