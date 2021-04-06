@@ -5032,7 +5032,26 @@ Exercise:
 		1. Data type of `CarBMW` is `struct CarModel`
 5. Initialization
 
+		struct CarModel CarBMW = {2021, 15000, 220, 1330}; // C89 method. Order is important
+		struct CarModel CarBMW = {.carNumber = 2021, .carWeight = 1330, .carMaxSpeed = 220, .carPrice = 15000}; // C99 method using designated initilizers
+		
+	1. Write a program to construct CarModel structure and instantiate 2 variables of type CarModel. Initilize the variables with below data and print them
+		1. 2021, 15000, 220, 1330
+		2. 4031, 35000, 160, 1900.96
+	2. Solution:
 
+			struct CarModel {
+				uint32_t carNumber;
+				uint32_t carWeight;
+				uint8_t carMaxSpeed;
+				float carPrice;
+			};
+			
+			struct CarModel carBMW = {2021, 15000, 220, 1330};
+			struct CarModel carHonda = {4031, 35000, 160, 1900.96};
+			
+			printf("%u, %u, %u, %f\n", carBMW.carNumber, carBMW.carWeight, carBMW.carMaxSpeed, carBMW.carPrice);
+			printf("%u, %u, %u, %f\n", carHonda.carNumber, carHonda.carWeight, carHonda.carMaxSpeed, carHonda.carPrice);
 
 ### Accessing Structure Member Elements ###
 ### Sizeof of a Structure ###
