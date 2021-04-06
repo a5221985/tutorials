@@ -4906,8 +4906,28 @@ Exercise:
 	2. Use case:
 		1. Perfect case of accessing memory-mapped registers (used most frequently in embedded systems programming)
 			1. Use it generously whenever you are accessing memory mapped registers in microcontroller code
+		2. Data might change un-expectedly (no optimization for read/write operations done using the pointer)
+4. Case 3: volatile pointer to non-volatile data (rarely used)
+
+		uint8_t *volatile pStatusReg;
+		
+	1. `pStatusReg` is a `volatile` pointer, pointing to non-volatile data of type unsigned integer_8
+5. Case 4: volatile pointer to volatile data (rarely used)
+
+		uint8_t volatile *volatile pStatusReg;
+		
+	1. `pStatusReg` is a `volatile` pointer to `volatile` data of type unsigned integer_8
+6. `const` and `volatile` can be applied to any declaration, including the ones of structures, unions, enumerated types or typedef names
 
 ### Using Volatile to Fix Issues with the Pin-Read Exercise ###
+1. Fix:
+
+		uint8_t pinStatus = (uint8_t)(*pPortAInReg & 0x1);
+		
+	1. We now have to tell copiler that DATA pointed to by the pointer may change at any time - not do any optimizations on DATA READ and DATA WRITE operations using the pointer
+
+			uint32_t volatile *pPortAInReg = (uint32_t*) 0x40020010;
+
 ### Using 'volatile' with ISR Part-1 ###
 ### Using 'volatile' with ISR Part-2 ###
 ### Usage of const and volatile Together ###
