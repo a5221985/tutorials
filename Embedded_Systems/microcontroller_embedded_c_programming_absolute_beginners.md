@@ -4961,9 +4961,29 @@ Exercise:
 		}
 		
 	1. Works only with `-O0`
+	2. With `-O3` - it misbehaves
 
 ### Using 'volatile' with ISR Part-2 ###
+1. Fix
+	1. Use `volatile` for mem-mapped registers
+	2. Make global flag `g_button_pressed` as `volatile`
+	3. Compiler may remove the delay loop (because it is useless for speed)
+
+			for (unit32_t volatile i = 0; i < 5000000/2; i++);
+
 ### Usage of const and volatile Together ###
+1. `const` and `volatile` can be used together in variable declaration
+	1. Example:
+
+			uint8_t volatile *const pReg = (uint8_t*) 0x40000000; // pointer is guarded from unexpected changes, data may undergo un-expected changes
+			uint8_t const volatile *const pReg = (uint8_t*) 0x40000000; // data can change un-expectadly but program must not change the data value
+			
+		1. `const` and `volatile` do not oppose each other
+2. Case: Reading from read only buffer or address which is prone to unexpected change
+
+		uint8_t const volatile *const pReg = (uint8_t*) 0x40000000;
+		
+	1. 
 
 ## Structures and Bit Fields ##
 ### Introduction to Structures ###
