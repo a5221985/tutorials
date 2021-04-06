@@ -4929,6 +4929,9 @@ Exercise:
 			uint32_t volatile *pPortAInReg = (uint32_t*) 0x40020010;
 
 ### Using 'volatile' with ISR Part-1 ###
+1. When to use `volatile` qualifier?
+	1. When a global variable is used to share data between main code and an ISR code
+
 ### Using 'volatile' with ISR Part-2 ###
 ### Usage of const and volatile Together ###
 
