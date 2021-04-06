@@ -4849,6 +4849,9 @@ Exercise:
 			1. Put a breakpoint and run
 				1. Instruction stepping mode
 		2. For each iteration of the loop, current value will be read from the peripheral register address (Input data register of GPIOA), and variable `pinStatus` will be updated
+			1. Load and store are executed in every loop
+	2. Next analyze for `-O2`
+		1. in `-O2`, compiler generated the code in such a way that fresh value form peripheral register (input data register of GPIOA) is NOT read anymore for every iteration of the loop (optimization in time by doing less memory hits). But this breaks application
 
 ## 'volatile' Type Qualifier ##
 ### volatile and Effect of Optimization ###
