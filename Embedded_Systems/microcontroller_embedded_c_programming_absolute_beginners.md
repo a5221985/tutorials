@@ -4794,7 +4794,36 @@ Exercise:
 
 ## Optimization ##
 ### Compiler Optimization and Flags ###
-
+1. Program optimization
+	1. Optimization is a series of actions taken by compiler on program's code generation process to reduce
+		1. Number of instructions (code space optimization)
+		2. Memory access time (time-space optimization)
+		3. Power consumption
+			1. The above two might help here
+	2. By default, compiler doesn't invoke any optimization on program
+	3. Optimization can be enabled using compiler flags
+2. GCC compiler flags to enable optimization
+	1. `-O0`
+		1. No optimization
+		2. Not recommended for production if you have limited code and ram space
+		3. Has fast compilation time (no optimization algorithms invoked)
+		4. Debugging friendly
+			1. Used during development
+		5. Code that works with -O0 optimization may not work with -O0+ optimization levels (-O1, -O2, ...)
+			1. Needs to be verified again
+	2. `-O1`
+		1. Moderate optimization to decrease memory access time
+	3. `-O2`
+		1. Full optimization
+		2. Slow compilation time
+		3. Not debugging friendly
+	4. `-O3`
+		1. Full optimization of `-O2` + some more aggressive optimization steps will be taken by compiler
+		2. Slowest compilation time
+		3. May cause bugs in the program
+		4. Not debugging friendly
+3. We need to work with different optimization levels to find out what works for us
+	1. Code exercises in the course cosider only `-O0` optimization level
 
 ### Different Compiler Optimization Levels ###
 ### Analyzing Pin Read Exercise Disassembly with O0 and O2 ###
