@@ -4983,10 +4983,33 @@ Exercise:
 
 		uint8_t const volatile *const pReg = (uint8_t*) 0x40000000;
 		
-	1. 
+	1. Data coming from external world
+		1. Protocols
+		2. Networks
+		3. User pressing button
+		4. ...
+	2. Program should not modify it
+3. Modify program accordingly
+
+		uint32_t const volatile *const pPortAInReg = (uint32_t*) 0x40020010;
 
 ## Structures and Bit Fields ##
 ### Introduction to Structures ###
+1. Structures in 'C'
+	1. Structure is a data structure used to construct a user-defined data type in 'C'
+	2. Structures allow us to combine data of different types
+2. Creation of Structure
+
+		struct tag_name {
+			member_element-1;
+			member_element-2;
+			member_element-3;
+			...
+			member_element-n;
+		};
+		
+	1. Syntax
+
 ### Accessing Structure Member Elements ###
 ### Sizeof of a Structure ###
 ### Aligned and Un-Aligned Data Storage ###
