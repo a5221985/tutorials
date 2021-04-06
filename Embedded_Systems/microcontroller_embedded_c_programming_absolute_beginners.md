@@ -4809,23 +4809,37 @@ Exercise:
 		3. Has fast compilation time (no optimization algorithms invoked)
 		4. Debugging friendly
 			1. Used during development
-		5. Code that works with -O0 optimization may not work with -O0+ optimization levels (-O1, -O2, ...)
+				1. Since there is almost one to one map between source code and generated assembly instructions
+		5. Code that works with `-O0` optimization may not work with `-O0`+ optimization levels (`-O1`, `-O2`, ...)
 			1. Needs to be verified again
 	2. `-O1`
-		1. Moderate optimization to decrease memory access time
+		1. Moderate optimization to decrease memory access time and code space
 	3. `-O2`
 		1. Full optimization
-		2. Slow compilation time
-		3. Not debugging friendly
+		2. Slow compilation time (optimization algorithms are invoked)
+		3. Not debugging friendly (there is no one to one mapping between source code and assembly instructions)
 	4. `-O3`
 		1. Full optimization of `-O2` + some more aggressive optimization steps will be taken by compiler
 		2. Slowest compilation time
 		3. May cause bugs in the program
+			1. We may have to revisit the program and re-write the buggy portions
 		4. Not debugging friendly
 3. We need to work with different optimization levels to find out what works for us
 	1. Code exercises in the course cosider only `-O0` optimization level
 
 ### Different Compiler Optimization Levels ###
+1. PinRead program
+	1. Right click > properties > C/C++ Build > Settings
+	2. MCU GCC Compiler
+		1. Optimization
+			1. `-O1`
+	3. Compile with `-O0` and check the code size
+	4. Compile with `-O1` and check the code size (text section is smaller)
+	5. Compile with `-O3` and check the code size
+		1. Application should work
+			1. Re-check if it still works with `-O3` optimization level
+2. Whenever you change the optimization level, please do `clean` followed by `build`
+
 ### Analyzing Pin Read Exercise Disassembly with O0 and O2 ###
 
 ## 'volatile' Type Qualifier ##
