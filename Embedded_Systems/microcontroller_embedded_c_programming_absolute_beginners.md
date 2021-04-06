@@ -4778,17 +4778,24 @@ Exercise:
 		//configure PA0 as input mode (GPIOA MODE REGISTER)
 		*pPortAModeReg &= ~(3 << 0);
 		
-		//read the pin status of the pin PA0 (GPIOA INPUT DATA REGISTER)
-		uint8_t pinStatus = (uint8_t) (*pPortAInReg & 0x01);
-		
-		if (pinStatus) {
-		
-		} else {
-		
+		while (1) {
+			//read the pin status of the pin PA0 (GPIOA INPUT DATA REGISTER)
+			uint8_t pinStatus = (uint8_t) (*pPortAInReg & 0x01);
+			
+			
+			if (pinStatus) {
+				*pPortDOutReg |= (1 << 12);
+			} else {
+				*pPortDOutReg &= ~(1 << 12);
+			}
 		}
+		
+	1. Window > Show View > Variables
 
 ## Optimization ##
 ### Compiler Optimization and Flags ###
+
+
 ### Different Compiler Optimization Levels ###
 ### Analyzing Pin Read Exercise Disassembly with O0 and O2 ###
 
