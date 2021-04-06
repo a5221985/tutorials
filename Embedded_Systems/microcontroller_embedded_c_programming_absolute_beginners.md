@@ -4503,6 +4503,11 @@ Exercise:
 	1. Check if PA0 is free I/O or not (Discovery - it is free)
 		1. Check User Manual (free or it is used by other functionality)
 			1. Table 6: STM32 pin description versus board functions
+				1. Section **Extension Connectors**
+					1. Free I/O - can be used for GPIO functionality
+4. Hints:
+	1. PA0 should be in input mode
+	2. To read from pin PA0, code has to read PORT-A input data register
 
 ### IO Pin Read Exercise Implementation ###
 
