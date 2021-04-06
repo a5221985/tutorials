@@ -4510,6 +4510,261 @@ Exercise:
 	2. To read from pin PA0, code has to read PORT-A input data register
 
 ### IO Pin Read Exercise Implementation ###
+1. My Solution:
+
+		#include <stdint.h>
+		#include <stdbool.h>
+		
+		#if !defined(__SOFT_FP__) && defined(__ARM_FP)
+		  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+		#endif
+		static const int PORT_A_INPUT_REGISTER = 0x40020010;
+		static const int PORT_A_OUTPUT_REGISTER = 0x40020014;
+		static const int PORT_A_MODE_REGISTER = 0x40020000;
+		static const int CLOCK_CONTROL_REGISTER = 0x40023830;
+		
+		typedef enum port {
+			PORT_A = 0x01, PORT_B, PORT_C, PORT_D
+		} port;
+		
+		typedef enum port_pin {
+			PORT_PIN_ZERO,
+			PORT_PIN_ONE,
+			PORT_PIN_TWO,
+			PORT_PIN_THREE,
+			PORT_PIN_FOUR,
+			PORT_PIN_FIVE,
+			PORT_PIN_SIX,
+			PORT_PIN_SEVEN,
+			PORT_PIN_EIGHT,
+			PORT_PIN_NINE,
+			PORT_PIN_TEN,
+			PORT_PIN_ELEVEN,
+			PORT_PIN_TWELVE,
+			PORT_PIN_THIRTEEN,
+			PORT_PIN_FOURTEEN,
+			PORT_PIN_FIFTEEN
+		} port_pin;
+		
+		typedef enum bit_num_32 {
+			BIT_ZERO,
+			BIT_ONE,
+			BIT_TWO,
+			BIT_THREE,
+			BIT_FOUR,
+			BIT_FIVE,
+			BIT_SIX,
+			BIT_SEVEN,
+			BIT_EIGHT,
+			BIT_NINE,
+			BIT_TEN,
+			BIT_ELEVEN,
+			BIT_TWELVE,
+			BIT_THIRTEEN,
+			BIT_FOURTEEN,
+			BIT_FIFTEEN,
+			BIT_SIXTEEN,
+			BIT_SEVENTEEN,
+			BIT_EIGHTEEN,
+			BIT_NINETEEN,
+			BIT_TWENTY,
+			BIT_TWENTY_ONE,
+			BIT_TWENTY_TWO,
+			BIT_TWENTY_THREE,
+			BIT_TWENTY_FOUR,
+			BIT_TWENTY_FIVE,
+			BIT_TWENTY_SIX,
+			BIT_TWENTY_SEVEN,
+			BIT_TWENTY_EIGHT,
+			BIT_TWENTY_NINE,
+			BIT_THIRTY,
+			BIT_THIRTY_ONE
+		} bit_num_32;
+		
+		typedef enum port_mode {
+			INPUT_MODE = 0x00, OUTPUT_MODE
+		} port_mode;
+		
+		typedef enum bit_state {
+			ZERO, ONE
+		} bit_state;
+		
+		typedef struct pin_value_pair {
+			port_pin pin;
+			bit_state state;
+		} pin_value_pair;
+		
+		typedef struct pin_mode_pair {
+			port_pin pin;
+			port_mode mode;
+		} pin_mode_pair;
+		
+		int isActive(bit_state state);
+		int getBitState(uint32_t registerValue, bit_num_32 bit);
+		void setBit(uint32_t *const pointer_register, bit_num_32 bit);
+		void clearBit(uint32_t *const pointer_register, bit_num_32 bit);
+		void assignBits(uint8_t lowBitNum, uint32_t *const pointer_portModeRegister,
+				pin_value_pair pairs[], uint8_t pairsSize);
+		void setOrClearBitState(pin_value_pair pair,
+				uint32_t *const pointer_portModeRegister);
+		void softwareDelay(uint32_t value);
+		void configurePortMode(uint32_t *const pointer_portModeRegister, port_pin pin,
+				port_mode mode);
+		void enablePeripheralClock(uint32_t *const pointer_clockControlRegister,
+				port portNum);
+		void configurePeripheral(uint32_t *const pointer_clockControlRegister,
+				uint32_t *const pointer_portAModeRegister, port portNum,
+				pin_mode_pair pairs[], uint8_t pairsSize);
+		void turnLEDOn(port_pin pinNum, uint32_t *const pointer_portOutputRegister);
+		void turnLEDOff(port_pin pinNum, uint32_t *const pointer_portOutputRegister);
+		void turnLEDOnThenOffWithEqualDelay(port_pin pinNum, uint32_t delayValue,
+				uint32_t *const pointer_portOutputRegister);
+		void blinkLED(uint32_t *const pointer_portOutputRegister, port_pin pinNum,
+				uint32_t shortDelay, uint32_t longDelay);
+		void strobeCycle(port_pin pinNum, uint32_t shortDelay, uint32_t longDelay,
+				uint32_t *const pointer_portOutputRegister);
+		uint32_t* const getAddress(const int location);
+		bit_state readInputState(uint32_t *const pointer_InputRegister, port_pin pin);
+		void turnLEDOnOrOff(uint32_t *const pointer_portAInputRegister,
+				uint32_t *const pointer_portAOutputRegister);
+		
+		int main(void) {
+			uint32_t *const pointer_clockControlRegister = getAddress(
+					CLOCK_CONTROL_REGISTER);
+			uint32_t *const pointer_portAModeRegister = getAddress(
+					PORT_A_MODE_REGISTER);
+			uint32_t *const pointer_portAInputRegister = getAddress(
+					PORT_A_INPUT_REGISTER);
+			uint32_t *const pointer_portAOutputRegister = getAddress(
+					PORT_A_OUTPUT_REGISTER);
+		
+			pin_mode_pair portAPinZeroInputPair = { PORT_PIN_ZERO, INPUT_MODE };
+			pin_mode_pair portAPinFiveOutputPair = { PORT_PIN_FIVE, OUTPUT_MODE };
+			pin_mode_pair portAPinModePairs[] = { portAPinZeroInputPair,
+					portAPinFiveOutputPair };
+			uint8_t pairsSize = sizeof(portAPinModePairs)
+					/ sizeof(portAPinModePairs[0]);
+			configurePeripheral(pointer_clockControlRegister, pointer_portAModeRegister,
+					PORT_A, portAPinModePairs, pairsSize);
+		
+			turnLEDOnOrOff(pointer_portAInputRegister, pointer_portAOutputRegister);
+		}
+		
+		inline int getBitState(uint32_t registerValue, bit_num_32 bit) {
+			return ((registerValue & (0x01 << bit)) >> bit);
+		}
+		
+		inline uint32_t* const getAddress(const int location) {
+			return (uint32_t* const ) location;
+		}
+		
+		inline void blinkLED(uint32_t *pointer_portOutputRegister, port_pin pinNum,
+				uint32_t shortDelay, uint32_t longDelay) {
+			while (true)
+				strobeCycle(pinNum, shortDelay, longDelay, pointer_portOutputRegister);
+		}
+		
+		inline void softwareDelay(uint32_t value) {
+			for (uint32_t i = 0; i < value; i++)
+				;
+		}
+		
+		inline void setBit(uint32_t *const pointer_register, bit_num_32 bit) {
+			*pointer_register |= (1 << bit);
+		}
+		
+		inline void clearBit(uint32_t *const pointer_register, bit_num_32 bit) {
+			*pointer_register &= ~(1 << bit);
+		}
+		
+		inline void configurePortMode(uint32_t *const pointer_portModeRegister,
+				port_pin pin, port_mode mode) {
+			port_pin lowPin = (port_pin) (pin << 1);
+			port_pin highPin = lowPin + 1;
+			bit_state lowBitState = getBitState(mode, BIT_ZERO);
+			bit_state highBitState = getBitState(mode, BIT_ONE);
+			pin_value_pair lowPair = { lowPin, lowBitState };
+			pin_value_pair highPair = { highPin, highBitState };
+			pin_value_pair pairs[] = { lowPair, highPair };
+			uint8_t pairsSize = sizeof(pairs) / sizeof(pairs[0]);
+			assignBits(lowPin, pointer_portModeRegister, pairs, pairsSize);
+		}
+		
+		inline void enablePeripheralClock(uint32_t *const pointer_clockControlRegister,
+				port portNum) {
+			*pointer_clockControlRegister |= portNum;
+		}
+		
+		inline void assignBits(uint8_t lowBitNum,
+				uint32_t *const pointer_portModeRegister, pin_value_pair pairs[],
+				uint8_t pairsSize) {
+			for (uint8_t i = 0; i < pairsSize; i++)
+				setOrClearBitState(pairs[i], pointer_portModeRegister);
+		}
+		
+		inline void setOrClearBitState(pin_value_pair pair,
+				uint32_t *const pointer_portModeRegister) {
+			if (pair.state == ONE)
+				setBit(pointer_portModeRegister, pair.pin);
+			else
+				clearBit(pointer_portModeRegister, pair.pin);
+		}
+		
+		inline void configurePeripheral(uint32_t *const pointer_clockControlRegister,
+				uint32_t *const pointer_portModeRegister, port portNum,
+				pin_mode_pair pairs[], uint8_t pairsSize) {
+			enablePeripheralClock(pointer_clockControlRegister, portNum);
+			for (int i = 0; i < pairsSize; i++)
+				configurePortMode(pointer_portModeRegister, pairs[i].pin,
+						pairs[i].mode);
+		}
+		
+		inline void strobeCycle(port_pin pinNum, uint32_t shortDelay,
+				uint32_t longDelay, uint32_t *const pointer_portOutputRegister) {
+			turnLEDOnThenOffWithEqualDelay(pinNum, shortDelay,
+					pointer_portOutputRegister);
+			turnLEDOnThenOffWithEqualDelay(pinNum, shortDelay,
+					pointer_portOutputRegister);
+			softwareDelay(longDelay);
+		}
+		
+		inline void turnLEDOnThenOffWithEqualDelay(port_pin pinNum, uint32_t delayValue,
+				uint32_t *const pointer_portOutputRegister) {
+			turnLEDOn(pinNum, pointer_portOutputRegister);
+			softwareDelay(delayValue);
+			turnLEDOff(pinNum, pointer_portOutputRegister);
+			softwareDelay(delayValue);
+		}
+		
+		inline void turnLEDOn(port_pin pinNum,
+				uint32_t *const pointer_portOutputRegister) {
+			setBit(pointer_portOutputRegister, pinNum);
+		}
+		
+		inline void turnLEDOff(port_pin pinNum,
+				uint32_t *const pointer_portOutputRegister) {
+			clearBit(pointer_portOutputRegister, pinNum);
+		}
+		
+		inline int isActive(bit_state state) {
+			return state == ONE;
+		}
+		
+		inline bit_state readInputState(uint32_t *const pointer_InputRegister,
+				port_pin pin) {
+			uint16_t word = (uint16_t) (*pointer_InputRegister);
+			return getBitState(word, pin);
+		}
+		
+		inline void turnLEDOnOrOff(uint32_t *const pointer_portAInputRegister,
+				uint32_t *const pointer_portAOutputRegister) {
+			while (true) {
+				if (isActive(readInputState(pointer_portAInputRegister, PORT_PIN_ZERO)))
+					turnLEDOn(PORT_PIN_FIVE, pointer_portAOutputRegister);
+				else
+					turnLEDOff(PORT_PIN_FIVE, pointer_portAOutputRegister);
+			}
+		}
 
 ## Optimization ##
 ### Compiler Optimization and Flags ###
