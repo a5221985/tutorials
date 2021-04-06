@@ -4863,6 +4863,16 @@ Exercise:
 				1. Compiler turns off optimizing read-write operations on variables which are declared using `volatile` keyword
 	2. It is very useful in embedded systems code
 2. Example:
+	1. New STM32 Project
+
+			uint8_t data1;
+			uint8_t data2;
+			
+			data1 = 50;
+			data2 = data1;
+			data2 = data1; // this can get removed by optimization algorithm
+	
+			for (;;);
 
 ### When to Use volatile Qualifier? ###
 ### Using Volatile to Fix Issues with the Pin-Read Exercise ###
