@@ -4873,8 +4873,21 @@ Exercise:
 			data2 = data1; // this can get removed by optimization algorithm
 	
 			for (;;);
+			
+		1. How to tell compiler not to optimize operations on certain variables?
+			1. Use `volatile`
+
+					uint8_t volatile data1;
+					uint8_t volatile data2;
+					// ...
+					
+				1. Compiler will not optimize operations on the variables
 
 ### When to Use volatile Qualifier? ###
+1. When to use volatile qualifer?
+	1. A variable must be declared using a volatile qualifier when there is a possibility of unexpected changes in the variable value
+		1. Unexpected changes in the variable value may happen from within code or from outside code (from hardware)
+
 ### Using Volatile to Fix Issues with the Pin-Read Exercise ###
 ### Using 'volatile' with ISR Part-1 ###
 ### Using 'volatile' with ISR Part-2 ###
