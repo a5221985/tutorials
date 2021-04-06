@@ -4768,7 +4768,9 @@ Exercise:
 		
 1. Instructor's solution:
 
-		
+		// enable clock for GPIO D an GPIO A peripheral AHB1ENR (same for both)
+		*pClkCtrlReg |= (1 << 3); // GPIO A
+		*pClkCtrlReg |= (1 << 0); // GPIO D
 
 ## Optimization ##
 ### Compiler Optimization and Flags ###
