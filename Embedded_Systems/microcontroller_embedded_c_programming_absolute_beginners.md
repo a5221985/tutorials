@@ -5154,7 +5154,11 @@ Exercise:
 					1. `gcc` attribute called `packed` structure can be used for un-aligning
 
 ### Calculating Structure Size Manually With and Without Padding ###
-1. Structure pading
+1. Structure padding
+
+		struct data {
+		
+		};
 
 ### Assembly Code Analysis of Packed and Non-Packed Structure ###
 ### Typedef and Structure ###
