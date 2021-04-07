@@ -5274,6 +5274,34 @@ Exercise:
 				
 	3. Nested structure (structure inside a structure)
 
+			struct Data {
+				char data1;
+				int data2;
+				char data3;
+				short data4;
+				struct {
+					char data5;
+					int data6;
+				} modeData; // member element is of type struct
+			};
+			
+			struct CarModel {
+				unsigned int carNumber;
+				uint32_t carPrice;
+				uint16_t carMaxSpeed;
+				float carWeight;
+				struct {
+					float temperature;
+					float airPressure;
+					int fuel;
+				} carParameters;
+			};
+			
+		1. The member elements are not tag names
+		2. The member elements are not typedefs
+			1. One does not have to give tagname but only variable name
+				1. Syntax generally used for nested structures
+
 ### Structure and Pointers ###
 ### Structure Exercise ###
 ### Structure Exercise Implementation ###
