@@ -5357,9 +5357,44 @@ Exercise:
 		}
 		
 	1. Why use pointer?
-		1. For passing structures around
+		1. For passing structures around to other functions
+		2. Exmple:
+
+				displayMemberElements(&data); // pass by reference
+				//...
+				void displayMemberElements(struct DataSet* pData) {
+					printf("data1 = %X\n", pData->data1);
+				}
+				
+			1. Pass by reference - only address is passed
+			2. Pass by value - the entire structure is copied to new function parameter
+
+					displayMemberElements(data);
+					//...
+					void displayMemberElements(struct DataSet data) {
+						printf("data1 = %X\n", data.data1);
+					}
 
 ### Structure Exercise ###
+1. Write a program to decode a given 32 bit packet information and print the values of different fields. Construct a structure with member elements as packet fields as shown below
+
+		ADDR_MODE SHORT_ADDR				             STATUS
+			[][		][	LONG_ADDR	][ SENSOR ][BAT][PAYLOAD][][ CRC ]
+			1 bit 2 bits  8 bits   3 bits   3 bits 12 bits 1 bit 2 bits
+			
+	1. Structure
+
+			struct Packet {
+				crc;
+				status;
+				payload;
+				bat;
+				sensor;
+				longAddr;
+				shortAddr;
+				addrMode;
+			};
+
 ### Structure Exercise Implementation ###
 ### Structure and Bit Fields ###
 ### Structure and Bit Fields Contd. ###
