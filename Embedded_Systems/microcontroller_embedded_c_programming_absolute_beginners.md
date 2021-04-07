@@ -5157,8 +5157,22 @@ Exercise:
 1. Structure padding
 
 		struct data {
-		
+			char data1;
+			int data2;
+			char data3;
+			short data4;
 		};
+		
+		data-3|		|data-4|data-4|
+		data-2|data-2|data-2|data-2|
+		data-1|		|		|		|
+		0		1		2		3		4
+		
+2. No padding:
+
+		struct data {
+		
+		}__attribute__((packed));
 
 ### Assembly Code Analysis of Packed and Non-Packed Structure ###
 ### Typedef and Structure ###
