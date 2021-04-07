@@ -5055,6 +5055,8 @@ Exercise:
 			
 		1. Struct definition is usually given outside a function
 		2. Struct is better defined in a header file
+
+### Accessing Structure Member Elements ###
 3. Accessing structure members
 	1. When a structure variable is created, use a `.` (dot) operator to access the member elements
 
@@ -5063,8 +5065,12 @@ Exercise:
 			printf("carWeight = %u\n", carBMW.carWeight);
 			printf("carMaxSpeed = %u\n", carBMW.carMaxSpeed);
 			printf("carPrice = %u\n", carBMW.carPrice);
+			
+		1. Keeping it outside is traditional - since it is a record
 
-### Accessing Structure Member Elements ###
+				struct carModel const carFord = {4031, 35000, 160, 1900.96}; // each member will become const
+
+
 ### Sizeof of a Structure ###
 ### Aligned and Un-Aligned Data Storage ###
 ### Structure Padding ###
