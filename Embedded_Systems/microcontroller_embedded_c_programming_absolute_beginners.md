@@ -5124,7 +5124,23 @@ Exercise:
 			ptr++;
 		}
 		
-		printf("Sizeof of struct data is %I64u\n", sizeof(struct DataSet)); // 12 bytes
+		printf("Sizeof of struct data is %I64u\n", sizeof(struct DataSet)); // 12 bytes - 4 bytes are for padding
+		
+	1. Output:
+
+				0x7ffee6fd35d0: 11 // data1
+				0x7ffee6fd35d1: 35
+				0x7ffee6fd35d2: FD
+				0x7ffee6fd35d3: E6
+				0x7ffee6fd35d4: EE // data2
+				0x7ffee6fd35d5: EE // data2
+				0x7ffee6fd35d6: FF // data2
+				0x7ffee6fd35d7: FF // data2
+				0x7ffee6fd35d8: 22 // data3
+				0x7ffee6fd35d9: E1
+				0x7ffee6fd35da: CD // data4
+				0x7ffee6fd35db: AB // data4
+				Sizeof of struct data is 12
 
 ### Calculating Structure Size Manually With and Without Padding ###
 ### Assembly Code Analysis of Packed and Non-Packed Structure ###
