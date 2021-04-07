@@ -5055,6 +5055,14 @@ Exercise:
 			
 		1. Struct definition is usually given outside a function
 		2. Struct is better defined in a header file
+3. Accessing structure members
+	1. When a structure variable is created, use a `.` (dot) operator to access the member elements
+
+			pritnf("Details of car BMW is as follows\n");
+			printf("carNumber = %u\n", carBMW.carNumber);
+			printf("carWeight = %u\n", carBMW.carWeight);
+			printf("carMaxSpeed = %u\n", carBMW.carMaxSpeed);
+			printf("carPrice = %u\n", carBMW.carPrice);
 
 ### Accessing Structure Member Elements ###
 ### Sizeof of a Structure ###
