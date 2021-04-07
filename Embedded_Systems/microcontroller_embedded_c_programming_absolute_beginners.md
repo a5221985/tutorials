@@ -5123,6 +5123,8 @@ Exercise:
 			printf("%p: %X\n", ptr, *ptr);
 			ptr++;
 		}
+		
+		printf("Sizeof of struct data is %I64u\n", sizeof(struct DataSet)); // 12 bytes
 
 ### Calculating Structure Size Manually With and Without Padding ###
 ### Assembly Code Analysis of Packed and Non-Packed Structure ###
