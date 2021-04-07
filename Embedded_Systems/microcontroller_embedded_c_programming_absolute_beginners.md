@@ -5474,9 +5474,32 @@ Exercise:
 			uint32_t price_l		: 5; // lower 5 bits of the price - 32 bit boundary
 			uint32_t price_h		: 23: // higher 23 bits of hte price
 		};
-
+		
+		struct CarDetails {
+			uint32_t speed		: 7;
+			uint32_t weight		: 13;
+			uint32_t color		: 7;
+			uint32_t price;
+		}; // same mem consumption as above
+		
 ## Unions ##
 ### Unions ###
+1. A union in 'C' is similar to structure except that all of it's members start at the same location in memory
+2. A union variable can represent the value of only one of its members at a time
+3. Example:
+
+		union address {
+			uint16_t shortAddr;
+			uint32_t longAddr;
+		};
+		
+		// size is size of biggest member element
+		
+		0xE00	0xE01	0xE02	0xE03
+		
+	1. Use cases:
+		1. u
+
 ### Applicability of Unions ###
 
 ## Usage of Bit-Fields in Embedded Code ##
