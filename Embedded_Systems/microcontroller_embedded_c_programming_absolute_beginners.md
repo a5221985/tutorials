@@ -5171,8 +5171,17 @@ Exercise:
 2. No padding:
 
 		struct data {
-		
+			char data1;
+			int data2;
+			char data3;
+			short data4;
 		}__attribute__((packed));
+		
+		sizeof(struct data) = 8 bytes
+		
+		data-2|data-3|data-4|data-4| // data2 is split (not good for performance)
+		data-1|data-2	|data-2|data-2|
+		0		1		2		3		4
 
 ### Assembly Code Analysis of Packed and Non-Packed Structure ###
 ### Typedef and Structure ###
