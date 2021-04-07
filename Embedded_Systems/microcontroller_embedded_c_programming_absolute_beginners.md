@@ -5070,8 +5070,29 @@ Exercise:
 
 				struct carModel const carFord = {4031, 35000, 160, 1900.96}; // each member will become const
 
-
 ### Sizeof of a Structure ###
+1. `sizeof` - to check total memory consumed by struct
+
+		struct carModel carBMW = {...};
+		printf("Sizeof of struct carModel is %I64u\n", sizeof(struct carModel)); // not 14 bytes but 16 bytes - due to structure padding
+		
+	1. Suppose we have only one element - 1 byte
+	2. Suppose we have two elements - 8 bytes
+
+			uint8_t carSpeed; // 1 byte
+			uint32_t carWeight; // 4 bytes
+			// + padding = 3 bytes
+	
+2. Aligned/ un-aligned data access
+	1. For efficiency, compiler generates instructions to store variables on their natural size boundary addresses in memory
+	2. This is also true for structures
+		1. Fields in structure are located on natural size boundary
+			1. What is natural size bounary?
+			
+					char  0403010 0403011 0403012 0403013 0403014 0403015
+					// can be placed in any addresses
+					short 0403010 0403012 0403014 0403018 0403010
+
 ### Aligned and Un-Aligned Data Storage ###
 ### Structure Padding ###
 ### Calculating Structure Size Manually With and Without Padding ###
