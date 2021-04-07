@@ -5244,7 +5244,11 @@ Exercise:
 			float carWeight;
 		} CarModel_t; // alias name
 		
-		CarModel_t carBMW, carFord;
+		CarModel_t carBMW, carFord; // struct is not required
+		
+2. `stdint.h` has many `typedef`s for primitive data types
+3. `_t` - used for struct or primitive `typedef`
+4. `_e` - used for enum `typedef`
 
 ### Structure and Pointers ###
 ### Structure Exercise ###
