@@ -5249,6 +5249,30 @@ Exercise:
 2. `stdint.h` has many `typedef`s for primitive data types
 3. `_t` - used for struct or primitive `typedef`
 4. `_e` - used for enum `typedef`
+5. Pascal case can be used as a convention (capital letter followed by other letters followed by `_t`)
+6. Points:
+	1. A structure type cannot contain itself as a member
+
+			struct CarModel {
+				unsigned int carNumber;
+				uint32_t carPrice;
+				uint16_t carMaxSpeed;
+				float carWeight;
+				struct CarModel carBMW; // Not allowed
+			};
+			
+	2. Structure types can contain pointers to their own type
+		1. Self-referential structures are used to implement linked lists and binary trees
+
+				struct CarModel {
+					unsigned int carNumber;
+					uint32_t carPrice;
+					uint16_t carMaxSpeed;
+					float carWeight;
+					struct CarModel *pCarBMW; // allowed
+				};
+				
+	3. Nested structure (structure inside a structure)
 
 ### Structure and Pointers ###
 ### Structure Exercise ###
