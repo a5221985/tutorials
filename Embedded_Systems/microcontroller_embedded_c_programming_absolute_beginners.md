@@ -5195,8 +5195,44 @@ Exercise:
 		
 		int main(void) {
 			struct DataSet data;
-			 
+			data.data1 = 0xAA;
+			data.data2 = 0xFFFFEEEE;
+			data.data3 = 0x55;
+			data.data4 = 0xA5A5;
 		}
+
+	1. STRB - insruction to 'store a byte' into memory
+		1. Used for byte
+	2. STR - instruction to 'store a word' into memory (for instruction to work)
+		1. Used for word
+		2. The address must be word aligned
+	3. STRH - instruction to 'store a half word' into memory
+		1. The address must be half word aligned (for instruction to work)
+2. Unaligned
+
+		struct DataSet {
+			char data1;
+			int data2;
+			char data3;
+			short data4;
+		}__attribute__((packed));
+		
+		int main(void) {
+			struct DataSet data;
+			data.data1 = 0xAA;
+			data.data2 = 0xFFFFEEEE;
+			data.data3 = 0x55;
+			data.data4 = 0xA5A5;
+		}
+		
+	1. Only `STRB` instructions are used (4 `STRB`s even for int)
+		1. Multiple instructions are generated
+			1. `STR` cannot be used because it can only be used with word aligned addresses
+3. Using packed structure, we might save some memory
+	1. Code size increases
+	2. Processor needs to talk to memory multiple times
+		1. Decreases performance
+			1. Processor accessed memory only one time to store a word data but 4 times for packed data
 
 ### Typedef and Structure ###
 ### Structurs and Pointers ###
