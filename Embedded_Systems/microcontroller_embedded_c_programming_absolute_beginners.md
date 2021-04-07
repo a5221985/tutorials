@@ -5132,17 +5132,30 @@ Exercise:
 				0x7ffee6fd35d1: 35
 				0x7ffee6fd35d2: FD
 				0x7ffee6fd35d3: E6
-				0x7ffee6fd35d4: EE // data2
+				0x7ffee6fd35d4: EE // data2 - natural size boundary starts here for int
 				0x7ffee6fd35d5: EE // data2
 				0x7ffee6fd35d6: FF // data2
 				0x7ffee6fd35d7: FF // data2
 				0x7ffee6fd35d8: 22 // data3
 				0x7ffee6fd35d9: E1
-				0x7ffee6fd35da: CD // data4
+				0x7ffee6fd35da: CD // data4 - natural size boundary starts here for short
 				0x7ffee6fd35db: AB // data4
 				Sizeof of struct data is 12
+				
+		1. This is aligned data storage
+		2. Why?
+			1. It becomes easier for processor to do read and write transactions with memory
+				1. Less instructions dealing with memory
+				2. Less bus transactions with memory
+					1. Executaion perfiromance is improved with aligned memory
+			2. Unaligned data access increases size of code
+			3. Drawback: loss of memory due to padding
+				1. If memory is precious, we can go with un-aligned data storage
+					1. `gcc` attribute called `packed` structure can be used for un-aligning
 
 ### Calculating Structure Size Manually With and Without Padding ###
+1. Structure pading
+
 ### Assembly Code Analysis of Packed and Non-Packed Structure ###
 ### Typedef and Structure ###
 ### Structurs and Pointers ###
