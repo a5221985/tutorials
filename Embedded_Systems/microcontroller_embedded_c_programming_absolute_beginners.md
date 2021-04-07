@@ -5418,16 +5418,18 @@ Exercise:
 				packet.shortAddr = (uint8_t) ((input & (0x03 << 29)) >> 29);
 				packet.addrMode = (uint8_t) ((input & (0x01 << 31)) >> 31);
 				
-				printf("crc\t: %hhu\n", packet.crc);
-				printf("status\t: %hhX\n", packet.status);
-				printf("payload\t: %hX\n", packet.payload);
-				printf("bat\t: %hhX\n", packet.bat);
-				printf("sensor\t: %hhX\n", packet.sensor);
-				printf("longAddr\t: %hhX\n", packet.longAddr);
-				printf("shortAddr\t: %hhX\n", packet.shortAddr);
-				printf("addrMode\t: %hhX\n", packet.addrMode);
+				printf("crc\t\t: 0x%hhX\n", packet.crc);
+				printf("status\t\t: 0x%hhX\n", packet.status);
+				printf("payload\t\t: 0x%hX\n", packet.payload);
+				printf("bat\t\t: 0x%hhX\n", packet.bat);
+				printf("sensor\t\t: 0x%hhX\n", packet.sensor);
+				printf("longAddr\t: 0x%hhX\n", packet.longAddr);
+				printf("shortAddr\t: 0x%hhX\n", packet.shortAddr);
+				printf("addrMode\t: 0x%hhX\n", packet.addrMode);
 
 ### Structure Exercise Implementation ###
+1. 
+
 ### Structure and Bit Fields ###
 ### Structure and Bit Fields Contd. ###
 
