@@ -5184,6 +5184,20 @@ Exercise:
 		0		1		2		3		4
 
 ### Assembly Code Analysis of Packed and Non-Packed Structure ###
+1. New project
+
+		struct DataSet {
+			char data1;
+			int data2;
+			char data3;
+			short data4;
+		};
+		
+		int main(void) {
+			struct DataSet data;
+			 
+		}
+
 ### Typedef and Structure ###
 ### Structurs and Pointers ###
 ### Structure Exercise ###
