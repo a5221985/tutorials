@@ -5303,6 +5303,28 @@ Exercise:
 				1. Syntax generally used for nested structures
 
 ### Structure and Pointers ###
+1. Structures and pointers
+	1. Constructing pointer variables of a structure
+	2. Reading and writing data with member elements uisng structure pointers
+2. Storage of a structure in memory
+	1. Base address of structure in memory is also the address of the first member element
+	2. Suppose we have to change the member element values using the base address of the structure variable
+
+			uint8_t* ptr = (uint8_t*) &data;
+			*ptr = 0x55;
+			// modifying second element - how to increment? due to padding, we may add to wrong locations
+			
+		1. Solution:
+
+				// pData is a pointer variable of type struct DataSet*
+				struct DataSet *pData;
+				
+				// pData now holds the address of structure variable data
+				pData = &data;
+				
+				// changing the value of data1 member element
+				pData->data1 = 0x55; // *(address_of_first_member_element_data1) = 0x55;
+
 ### Structure Exercise ###
 ### Structure Exercise Implementation ###
 ### Structure and Bit Fields ###
