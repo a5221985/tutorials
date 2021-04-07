@@ -5394,6 +5394,38 @@ Exercise:
 				shortAddr;
 				addrMode;
 			};
+			
+		1. Solution:
+
+				struct Packet {
+					uint8_t crc;
+					uint8_t status;
+					uint16_t payload;
+					uint8_t bat;
+					uint8_t sensor;
+					uint8_t longAddr;
+					uint8_t shortAddr;
+					uint8_t addrMode;
+				};
+				// ...
+				struct Packet packet;
+				packet.crc = (uint8_t) (input & 0x03);
+				packet.status = (uint8_t) ((input & (0x01 << 2)) >> 2);
+				packet.payload = (uint16_t) ((input & (0x0FFF << 3)) >> 3);
+				packet.bat = (uint8_t) ((input & (0x07 << 15)) >> 15);
+				packet.sensor = (uint8_t) ((input & (0x07 << 18)) >> 18);
+				packet.longAddr = (uint8_t) ((input & (0x0FF << 21)) >> 21);
+				packet.shortAddr = (uint8_t) ((input & (0x03 << 29)) >> 29);
+				packet.addrMode = (uint8_t) ((input & (0x01 << 31)) >> 31);
+				
+				printf("crc\t: %hhu\n", packet.crc);
+				printf("status\t: %hhX\n", packet.status);
+				printf("payload\t: %hX\n", packet.payload);
+				printf("bat\t: %hhX\n", packet.bat);
+				printf("sensor\t: %hhX\n", packet.sensor);
+				printf("longAddr\t: %hhX\n", packet.longAddr);
+				printf("shortAddr\t: %hhX\n", packet.shortAddr);
+				printf("addrMode\t: %hhX\n", packet.addrMode);
 
 ### Structure Exercise Implementation ###
 ### Structure and Bit Fields ###
