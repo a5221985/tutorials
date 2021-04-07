@@ -5324,6 +5324,40 @@ Exercise:
 				
 				// changing the value of data1 member element
 				pData->data1 = 0x55; // *(address_of_first_member_element_data1) = 0x55;
+				
+			1. `->` - dereferencing operator when you use structure variable of pointer type
+			2. `.` - for non-pointer type structure variable
+3. Example:
+
+		struct DataSet {
+			char data1;
+			int data2;
+			char data3;
+			short data4;
+		};
+		
+		int main(void) {
+			struct DataSet data;
+			
+			data.data1 = 0x11;
+			data.data2 = 0xFFFFEEEE;
+			data.data3 = 0x22;
+			data.data4 = 0xABCD;
+			
+			printf("data.data1 = %d\n", data.data1);
+			
+			struct DataSet *pData;
+			pData = &data;
+			
+			pData->data1 = 0x55;
+			
+			printf("data.data1 = %d\n", data.data1);
+			
+			return 0;
+		}
+		
+	1. Why use pointer?
+		1. For passing structures around
 
 ### Structure Exercise ###
 ### Structure Exercise Implementation ###
