@@ -5498,7 +5498,8 @@ Exercise:
 		0xE00	0xE01	0xE02	0xE03
 		
 	1. Use cases:
-		1. u
+		1. use unions instead of strucutre to save memory when access to its member elements is mutually exclusive
+			1. Example: sending packets using either long address or short address (both are not used at the same time)
 
 ### Applicability of Unions ###
 
