@@ -5440,11 +5440,40 @@ Exercise:
 		uint32_t bat: 3;
 		...
 		
+	1. The fields will be refering to bits of same memory location
+		
 2. New project
 
-
+		struct Packet {
+			uint32_t crc			:2;
+			uint32_t status		:1;
+			uint32_t payload		:12;
+			uint32_t bat			:3;
+			uint32_t sensor		:3;
+			uint32_t longAddr	:8;
+			uint32_t shortAddr	:2;
+			uint32_t addrMode	:1;
+		};
+		
+	1. Rest of the code is same
+	2. Heavily used in networking activities
+	3. Order doesn't not matter (order in memory gets changed)
 
 ### Structure and Bit Fields Contd. ###
+1. Example: Structure named "CarDetails" which comprises below info
+	1. Car max speed (Max 400 Km/h) (7 bits)
+	2. Car weight in Kgs (Max 5000 Kg) (13 bits)
+	3. Car color (an ASCII code of color) (7 bits)
+	4. Car price in USD (Max 100,000,000) (28 bits)
+2. Solution:
+
+		struct CarDetails {
+			uint32_t speed		: 7;
+			uint32_t weight		: 13;
+			uint32_t color		: 7;
+			uint32_t price_l		: 5; // lower 5 bits of the price - 32 bit boundary
+			uint32_t price_h		: 23: // higher 23 bits of hte price
+		};
 
 ## Unions ##
 ### Unions ###
