@@ -5083,7 +5083,8 @@ Exercise:
 			uint32_t carWeight; // 4 bytes
 			// + padding = 3 bytes
 	
-2. Aligned/ un-aligned data access
+### Aligned and Un-Aligned Data Storage ###
+1. Aligned/ un-aligned data access
 	1. For efficiency, compiler generates instructions to store variables on their natural size boundary addresses in memory
 	2. This is also true for structures
 		1. Fields in structure are located on natural size boundary
@@ -5091,10 +5092,38 @@ Exercise:
 			
 					char  0403010 0403011 0403012 0403013 0403014 0403015
 					// can be placed in any addresses
-					short 0403010 0403012 0403014 0403018 0403010
+					short 0403010 0403012 0403014 0403016 0403018 040301A
+					// stored only at addreses ending with 0, 2, 4, 8, ...
+					int   0403010 0403014 0403018 040301C 0403020 0403024
+					// stored only at addreses ending with 0, 4, 8, 1C, ...
+					
+				1. Compiler generates code that automatically aligns the data to the natural size boundaries
+					1. Aligned data storage
 
-### Aligned and Un-Aligned Data Storage ###
 ### Structure Padding ###
+1. Program
+
+		struct DataSet
+			char data1;
+			int data2;
+			char data3;
+			short data4;
+		};
+		...
+		struct DataSet data;
+		data.data1 = 0x11;
+		data.data2 = 0xFFFFEEEE;
+		data.data3 = 0x22;
+		data.data4 = 0xABCD;
+		int8_t *ptr;
+		ptr = (uint8_t*) &data; // struct DataSet *
+		uint32_t totalSize = sizeof(struct DataSet);
+		
+		for (uint32_t i = 0; i < totalSize; i++) { // printing byte by byte
+			printf("%p: %X\n", ptr, *ptr);
+			ptr++;
+		}
+
 ### Calculating Structure Size Manually With and Without Padding ###
 ### Assembly Code Analysis of Packed and Non-Packed Structure ###
 ### Typedef and Structure ###
