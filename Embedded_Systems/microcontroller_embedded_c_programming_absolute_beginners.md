@@ -5235,7 +5235,18 @@ Exercise:
 			1. Processor accessed memory only one time to store a word data but 4 times for packed data
 
 ### Typedef and Structure ###
-### Structurs and Pointers ###
+1. `typedef` is used to give alias name to primitive and user defined data types
+
+		typedef struct {
+			unsigned int carNumber;
+			uint32_t carPrice;
+			uint16_t carMaxSpeed;
+			float carWeight;
+		} CarModel_t; // alias name
+		
+		CarModel_t carBMW, carFord;
+
+### Structure and Pointers ###
 ### Structure Exercise ###
 ### Structure Exercise Implementation ###
 ### Structure and Bit Fields ###
