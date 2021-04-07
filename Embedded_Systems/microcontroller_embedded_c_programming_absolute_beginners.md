@@ -5052,6 +5052,9 @@ Exercise:
 			
 			printf("%u, %u, %u, %f\n", carBMW.carNumber, carBMW.carWeight, carBMW.carMaxSpeed, carBMW.carPrice);
 			printf("%u, %u, %u, %f\n", carHonda.carNumber, carHonda.carWeight, carHonda.carMaxSpeed, carHonda.carPrice);
+			
+		1. Struct definition is usually given outside a function
+		2. Struct is better defined in a header file
 
 ### Accessing Structure Member Elements ###
 ### Sizeof of a Structure ###
