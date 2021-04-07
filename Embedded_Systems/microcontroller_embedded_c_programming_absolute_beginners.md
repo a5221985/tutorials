@@ -5428,9 +5428,22 @@ Exercise:
 				printf("addrMode\t: 0x%hhX\n", packet.addrMode);
 
 ### Structure Exercise Implementation ###
-1. 
+1. 4 bytes need 10 bytes to store with this approach
+2. Bit fields can minimize structure memory consumption
 
 ### Structure and Bit Fields ###
+1. Bit fields can be extracted and stored in a variable
+
+		uint32_t crc: 2; // full length has to be considered
+		uint32_t status: 1;
+		uint32_t payload: 12;
+		uint32_t bat: 3;
+		...
+		
+2. New project
+
+
+
 ### Structure and Bit Fields Contd. ###
 
 ## Unions ##
