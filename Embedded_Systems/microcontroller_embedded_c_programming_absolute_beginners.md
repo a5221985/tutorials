@@ -5612,6 +5612,8 @@ Exercise:
 			GPIOG GPIOF GPIOE GPIOD GPIOC GPIOB GPIOA
 			EN    EN    EN    EN    EN    EN    EN
 			rw    rw    rw    rw    rw    rw    rw
+			
+		1. Convention: `PERIPHERALNAME_REGISTERNAME_t`
  
 ### Bit-Field Structure for RCC_AHB1ENR ###
 ### Bit-Field Structure for GPIOx_ODR ###
