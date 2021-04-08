@@ -5614,6 +5614,11 @@ Exercise:
 			rw    rw    rw    rw    rw    rw    rw
 			
 		1. Convention: `PERIPHERALNAME_REGISTERNAME_t`
+	3. Different bit field structures for different peripheral registers
+
+			typedef struct {
+			
+			} GPIOx_MODE_t;
  
 ### Bit-Field Structure for RCC_AHB1ENR ###
 ### Bit-Field Structure for GPIOx_ODR ###
