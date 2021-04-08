@@ -5765,15 +5765,40 @@ Exercise:
 		
 		int main(void) {
 			RCC_AHB1ENR_t volatile *const pClkCtrlReg = (RCC_AHB1ENR_t*) 0x40023830;
+			GPIOx_MODER_t volatile *const pPortDModeReg = (GPIOx_MODER_t*) 0x4002;
+			GPIOx_ODR_t volatile *const pPortDOutReg = (GPIOx_ODR_t*) 0x4002
+			
+			// 1. enable clock for GPIOD peripheral in the AHB1ENR register
 			pClkCtrlReg->gpiod_en = 1; // even this can be bastracted - using enum say
 			
+			// 2. configure the mode of the IO pin as output
+			pPortDModeReg->pin_12 = 1;
 			
+			while (1) {
+				// Set 12th bit of output data register to make I/O pin-12 as HIGH
+				pPortDOutReg->pin_12 = 1;
+				
+				// introduce small human observable delay
+				// This loop executes for 300k times
+				for (uint32_t i = 0; i < 300000; i++);
+				
+				// Set 12th bit of output data register to make I/O pin-12 as LOW
+				pPortDOutReg->pin_12 = 0;
+				
+				// introduce small human observable delay
+				// This loop executes for 300k times
+				for (uint32_t i = 0; i < 300000; i++);
+			}
 		}
 
 ### Testing ###
+1. Debug and check in SFRs window that the bit is set
 
 ## Keypad Interfacing ##
 ### Keypad Interfacing ###
+1. 4x4 keypad interfacing
+	1. 
+
 ### Why Pull-Up Resistors? ###
 ### Detecting Key Press Event ###
 ### Flow Chart for Implementation ###
