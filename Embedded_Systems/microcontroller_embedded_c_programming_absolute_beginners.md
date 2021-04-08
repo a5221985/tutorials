@@ -5847,9 +5847,11 @@ Exercise:
 		 |      __ | C1
 		 *    +-  -+ ---> floating (open)
 		 |    |    |
-		 +----*--- | -- 
-		     R1    |
-		     
+		 +----*--- | --+ 
+		     R1    |   |
+		              _|_
+		               -
+		          
 	1. If pin is floating, it pick pick up random noice of circuit and can fluctuate between high and low
 		1. If we read a floating pin
 			1. It sometime shows high and sometime shows low
@@ -5860,8 +5862,14 @@ Exercise:
 					1. Resistor value shold be very high (22K or more)
 				2. Pull down
 	3. If key is pressed
+		1. We need to make R1 grounded
+			1. C1 will get grounded
 
 ### Detecting Key Press Event ###
+1. When no key is pressed C1, C2, C3, C4 read high
+2. Logic
+	1. Scan for keys row by row one at a time
+
 ### Flow Chart for Implementation ###
 ### Keypad Key Read Code Implementation ###
 ### Delay Analysis ###
