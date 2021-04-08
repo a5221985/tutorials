@@ -5590,7 +5590,17 @@ Exercise:
 				uint32_t bkp_sramen_en		:1; // 18
 				uint32_t const reserved_9	:1; // 19
 				uint32_t const reserved_10	:1; // 20
-				
+				uint32_t dma_1_en			:1; // 21
+				uint32_t dma_2_en			:1; // 22
+				uint32_t const reserved_11	:1; // 23
+				uint32_t const reserved_12	:1; // 24
+				uint32_t const reserved_13	:1; // 25
+				uint32_t const reserved_14	:1; // 26
+				uint32_t const reserved_15	:1; // 27
+				uint32_t const reserved_16	:1; // 28
+				uint32_t otghs_en			:1; // 29
+				uint32_t otghs_ulpen		:1; // 30
+				uint32_t const reserved_17	:1; // 31
 			} RCC_AHB1ENR_t;
 			
 			31 30		29    ... 22   21  ... 18 ... 12 ... 7 
