@@ -5944,17 +5944,84 @@ Exercise:
 				pointer_outputDataRegister->odr_2 = HIGH;
 				pointer_outputDataRegister->odr_3 = HIGH;
 				state = pointer_inputDataRegister->odr_4;
+				softwareDelay(DEBOUNCE_DELAY);
 				if (state == LOW)
 					printf("%u\n", 0);
 				state = pointer_inputDataRegister->odr_5;
+				softwareDelay(DEBOUNCE_DELAY);
 				if (state == LOW)
 					printf("%u\n", 1);
 				state = pointer_inputDataRegister->odr_6;
+				softwareDelay(DEBOUNCE_DELAY);
 				if (state == LOW)
 					printf("%u\n", 2);
 				state = pointer_inputDataRegister->odr_7;
+				softwareDelay(DEBOUNCE_DELAY);
 				if (state == LOW)
 					printf("%u\n", 3);
+					
+				pointer_outputDataRegister->odr_0 = HIGH;
+				pointer_outputDataRegister->odr_1 = LOW;
+				pointer_outputDataRegister->odr_2 = HIGH;
+				pointer_outputDataRegister->odr_3 = HIGH;
+				state = pointer_inputDataRegister->odr_4;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 4);
+				state = pointer_inputDataRegister->odr_5;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 5);
+				state = pointer_inputDataRegister->odr_6;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 6);
+				state = pointer_inputDataRegister->odr_7;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 7);
+					
+				pointer_outputDataRegister->odr_0 = HIGH;
+				pointer_outputDataRegister->odr_1 = HIGH;
+				pointer_outputDataRegister->odr_2 = LOW;
+				pointer_outputDataRegister->odr_3 = HIGH;
+				state = pointer_inputDataRegister->odr_4;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 8);
+				state = pointer_inputDataRegister->odr_5;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 9);
+				state = pointer_inputDataRegister->odr_6;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 10);
+				state = pointer_inputDataRegister->odr_7;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 11);
+					
+				pointer_outputDataRegister->odr_0 = HIGH;
+				pointer_outputDataRegister->odr_1 = HIGH;
+				pointer_outputDataRegister->odr_2 = HIGH;
+				pointer_outputDataRegister->odr_3 = LOW;
+				state = pointer_inputDataRegister->odr_4;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 12);
+				state = pointer_inputDataRegister->odr_5;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 13);
+				state = pointer_inputDataRegister->odr_6;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 14);
+				state = pointer_inputDataRegister->odr_7;
+				softwareDelay(DEBOUNCE_DELAY);
+				if (state == LOW)
+					printf("%u\n", 15);
 			}
 		}
 
