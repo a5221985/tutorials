@@ -5891,7 +5891,29 @@ Exercise:
 			1. Give 200 ms delay  between detecting and printing (for debouncing - to avoid continuous detection of the key)
 				1. What is button debouncing?
 					1. When we press a key, there will be a metal contact
-						1. 
+						1. Assuming user takes ~ 100 to 200ms to press and release the button
+							1. There will be a bouncing pattern between high and low
+								1. When user has pressed and released, the time is spent by software in busy loop (after detection) (approximate delay is enough)
+	3. Read C2 and repeat the above steps
+3. Make R2 low
+	1. R1 = 1, R2 = 0, R3 = 1, R4 = 1
+	2. Repeat the above steps for C1, C2, C3 and C4
+4. Repeat the steps for R3 and R4
+5. Repeat from R1 again
+6. Implementation:
+	1. Step 1
+		1. Find out free IOs available on target board pin headers
+		2. Decide which are IO pins you are going to use to handle rows and columns of keypad
+	2. Step 2
+		1. Define required pointer variables to handle memory-mapped registers
+		2. Initialize pointer variables with appropriate memory-mapped register addresses
+		3. Make use of type qualifiers such as `volatile` if memory-mapped register access is involved
+	3. Step 3
+		1. Initialization
+			1. Make all row IOs mode as OUTPUT
+			2. Make all column IOs mode as INPUT
+			3. Activate internal pull-up resistors for all column IOs (refer to the pull-up/pull-down enable register)
+				1. GPIO port pull-up/pull-down register (01 - pull-up)
 
 ### Keypad Key Read Code Implementation ###
 ### Delay Analysis ###
