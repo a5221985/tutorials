@@ -5652,22 +5652,14 @@ Exercise:
 			rw rw        rw rw        rw rw       rw rw
 			
 			typedef struct {
-				uint32_t odr_0				:1 // 0
-				uint32_t odr_1				:1 // 1
-				uint32_t odr_2				:1 // 2
-				uint32_t odr_3				:1 // 3
-				uint32_t odr_4				:1 // 4
-				uint32_t odr_5				:1 // 5
-				uint32_t odr_6				:1 // 6
-				uint32_t odr_7				:1 // 7
-				uint32_t const reserved_0	:1 // 8
-				uint32_t const reserved_1	:1 // 9
-				uint32_t const reserved_2	:1 // 10
-				uint32_t const reserved_3	:1 // 11
-				uint32_t const reserved_4	:1 // 12
-				uint32_t const reserved_5	:1 // 13
-				uint32_t const reserved_6	:1 // 14
-				uint32_t const reserved_7	:1 // 15
+				uint16_t odr_0				:1 // 0
+				uint16_t odr_1				:1 // 1
+				uint16_t odr_2				:1 // 2
+				uint16_t odr_3				:1 // 3
+				uint16_t odr_4				:1 // 4
+				uint16_t odr_5				:1 // 5
+				uint16_t odr_6				:1 // 6
+				uint16_t odr_7				:1 // 7
 			} GPIOx_ODR_t
 			
 			31  30  29  28  27  26  25  24  23  22  21  20  19  18  17
@@ -5678,6 +5670,78 @@ Exercise:
 			
 			5    4    3    2    1    0
 			ODR5 ODR4 ODR3 ODR2 ODR1 ODR0
+			
+3. Keep the structures in header file: `main.h`
+
+		#ifndef MAIN_H_
+		#define MAIN_H_
+		
+		typedef struct {
+			uint32_t gpio_a_en			:1; // 0
+			uint32_t gpio_b_en			:1; // 1
+			uint32_t gpio_c_en			:1; // 2
+			uint32_t gpio_d_en			:1; // 3
+			uint32_t gpio_e_en			:1; // 4
+			uint32_t gpio_f_en			:1; // 5
+			uint32_t gpio_g_en			:1; // 6
+			uint32_t gpio_h_en			:1; // 7
+			uint32_t const reserved_0	:1; // 8
+			uint32_t const reserved_1	:1; // 9
+			uint32_t const reserved_2	:1; // 10
+			uint32_t const reserved_3	:1; // 11
+			uint32_t crc_en				:1; // 12
+			uint32_t const reserved_4	:1; // 13
+			uint32_t const reserved_5	:1; // 14
+			uint32_t const reserved_6	:1; // 15
+			uint32_t const reserved_7	:1; // 16
+			uint32_t const reserved_8	:1; // 17
+			uint32_t bkp_sramen_en		:1; // 18
+			uint32_t const reserved_9	:1; // 19
+			uint32_t const reserved_10	:1; // 20
+			uint32_t dma_1_en			:1; // 21
+			uint32_t dma_2_en			:1; // 22
+			uint32_t const reserved_11	:1; // 23
+			uint32_t const reserved_12	:1; // 24
+			uint32_t const reserved_13	:1; // 25
+			uint32_t const reserved_14	:1; // 26
+			uint32_t const reserved_15	:1; // 27
+			uint32_t const reserved_16	:1; // 28
+			uint32_t otghs_en			:1; // 29
+			uint32_t otghs_ulpen		:1; // 30
+			uint32_t const reserved_17	:1; // 31
+		} RCC_AHB1ENR_t;
+		
+		typedef struct {
+			uint32_t moder_0		:2; // [0, 1]
+			uint32_t moder_1		:2; // [2, 3]
+			uint32_t moder_2		:2; // [4, 5]
+			uint32_t moder_3		:2; // [6, 7]
+			uint32_t moder_4		:2; // [8, 9]
+			uint32_t moder_5		:2; // [10, 11]
+			uint32_t moder_6		:2; // [12, 13]
+			uint32_t moder_7		:2; // [14, 15]
+			uint32_t moder_8		:2; // [16, 17]
+			uint32_t moder_9		:2; // [18, 19]
+			uint32_t moder_10	:2; // [20, 21]
+			uint32_t moder_11	:2; // [22, 23]
+			uint32_t moder_12	:2; // [24, 25]
+			uint32_t moder_13	:2; // [26, 27]
+			uint32_t moder_14	:2; // [28, 29]
+			uint32_t moder_15	:2; // [30, 31]
+		} GPIOx_MODER_t;
+		
+		typedef struct {
+			uint16_t odr_0				:1 // 0
+			uint16_t odr_1				:1 // 1
+			uint16_t odr_2				:1 // 2
+			uint16_t odr_3				:1 // 3
+			uint16_t odr_4				:1 // 4
+			uint16_t odr_5				:1 // 5
+			uint16_t odr_6				:1 // 6
+			uint16_t odr_7				:1 // 7
+		} GPIOx_ODR_t
+		
+		#endif MAIN_H_
  
 ### Bit-Field Structure for RCC_AHB1ENR ###
 ### Bit-Field Structure for GPIOx_ODR ###
