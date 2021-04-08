@@ -5881,7 +5881,17 @@ Exercise:
 	1. Download flowchart
 
 ### Flow Chart for Implementation ###
-1. 
+1. Keep all row GPIOs in OUTPUT mode & all column GPIOs in INPUT mode
+	1. PA0 - PA3 - Output
+	2. PA4 - PA7 - Input
+2. Make R1 LOW state
+	1. R1 = 0, R2 = 1, R3 = 1, R4 = 1
+	2. Read C1
+		1. If LOW - print '1'
+			1. Give 200 ms delay  between detecting and printing (for debouncing - to avoid continuous detection of the key)
+				1. What is button debouncing?
+					1. When we press a key, there will be a metal contact
+						1. 
 
 ### Keypad Key Read Code Implementation ###
 ### Delay Analysis ###
