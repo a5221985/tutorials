@@ -5652,8 +5652,32 @@ Exercise:
 			rw rw        rw rw        rw rw       rw rw
 			
 			typedef struct {
-				
+				uint32_t odr_0				:1 // 0
+				uint32_t odr_1				:1 // 1
+				uint32_t odr_2				:1 // 2
+				uint32_t odr_3				:1 // 3
+				uint32_t odr_4				:1 // 4
+				uint32_t odr_5				:1 // 5
+				uint32_t odr_6				:1 // 6
+				uint32_t odr_7				:1 // 7
+				uint32_t const reserved_0	:1 // 8
+				uint32_t const reserved_1	:1 // 9
+				uint32_t const reserved_2	:1 // 10
+				uint32_t const reserved_3	:1 // 11
+				uint32_t const reserved_4	:1 // 12
+				uint32_t const reserved_5	:1 // 13
+				uint32_t const reserved_6	:1 // 14
+				uint32_t const reserved_7	:1 // 15
 			} GPIOx_ODR_t
+			
+			31  30  29  28  27  26  25  24  23  22  21  20  19  18  17
+			res res res res res res res res res res res res res res res
+			
+			16  15    14    13    12    11    10    9    8    7    6   
+			res ODR15 ODR14 ODR13 ODR12 ODR11 ODR10 ODR9 ODR8 ODR7 ODR6 
+			
+			5    4    3    2    1    0
+			ODR5 ODR4 ODR3 ODR2 ODR1 ODR0
  
 ### Bit-Field Structure for RCC_AHB1ENR ###
 ### Bit-Field Structure for GPIOx_ODR ###
