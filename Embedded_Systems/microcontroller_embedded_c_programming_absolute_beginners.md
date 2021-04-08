@@ -5731,15 +5731,15 @@ Exercise:
 		} GPIOx_MODER_t; // can be used with any mode register
 		
 		typedef struct {
-			uint16_t odr_0				:1 // 0
-			uint16_t odr_1				:1 // 1
-			uint16_t odr_2				:1 // 2
-			uint16_t odr_3				:1 // 3
-			uint16_t odr_4				:1 // 4
-			uint16_t odr_5				:1 // 5
-			uint16_t odr_6				:1 // 6
-			uint16_t odr_7				:1 // 7
-		} GPIOx_ODR_t
+			uint16_t odr_0				:1; // 0
+			uint16_t odr_1				:1; // 1
+			uint16_t odr_2				:1; // 2
+			uint16_t odr_3				:1; // 3
+			uint16_t odr_4				:1; // 4
+			uint16_t odr_5				:1; // 5
+			uint16_t odr_6				:1; // 6
+			uint16_t odr_7				:1; // 7
+		} GPIOx_ODR_t;
 		
 		#endif MAIN_H_
  
