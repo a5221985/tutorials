@@ -6024,6 +6024,34 @@ Exercise:
 					printf("%u\n", 15);
 			}
 		}
+		
+1. Instructor's solution:
+
+		uint32_t volatile *const pGPIODModeReg = (uint32_t*) 0x40020C00;
+		uint32_t volatile *const pInputDataReg = (uint32_t*) (0x40020C00 + 0x10);
+		uint32_t volatile *const pOutputDataReg = (uint32_t*) (0x40020C00 + 0x14);
+		uint32_t volatile *const pClocktrlReg = (uint32_t*) (0x40020C00 + 0x30);
+		uint32_t volatile *const pPullUpDownReg = (uint32_t*) (0x40020C00 + 0x0C);
+		
+		// Enable peripheral clock of GPIOD peripheral
+		*pClockCtrlReg |= (1 << 3);
+		
+		// Configure PD0, PD1, PD2, PD3 as output (rows)
+		*pGPIODModeReg &= ~(0xFF); // clear
+		*pGPIODModeReg |= 0x55; // set
+		
+		// Configure PD8, PD9, PD10, PD11 as input (columns)
+		*pGPIODModeReg &= ~(0xFF << 16);
+		
+		// Enable internal pull-up resistors for PD8, PD9, PD10, PD11
+		*pPullUpDownReg &= ~(0xFF << 16);
+		*pPullUpDownReg |= 0x55;
+		
+		// make all rows HIGH
+		*pOutputDataReg |= 0x0f;
+		
+		// make R1 LOW (PD0)
+		*pOutputDataReg &= ~(1 << 0);
 
 ### Delay Analysis ###
 
