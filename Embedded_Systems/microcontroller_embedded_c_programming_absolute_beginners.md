@@ -6051,6 +6051,40 @@ Exercise:
 		*pOutputDataReg |= 0x0f;
 		
 		// make R1 LOW (PD0)
+		*pOutputDataReg |= (1 << 0);
+		// make R1 LOW (PD0)
+		*pOutputDataReg &= ~(1 << 0);
+		
+		// scan the columns
+		// check C1 (PD8) low or high
+		if (!(*pInputDataReg & (1 << 8))) {
+			// key is pressed
+			delay();
+			printf("1\n");
+		}
+		
+		// check C2 (PD9) low or high
+		if (!(*pInputDataReg & (1 << 9))) {
+			// key is pressed
+			delay();
+			printf("2\n");
+		}
+		
+		// check C3 (PD10) low or high
+		if (!(*pInputDataReg & (1 << 10))) {
+			// key is pressed
+			delay();
+			printf("3\n");
+		}
+		
+		// check C4 (PD11) low or high
+		if (!(*pInputDataReg & (1 << 11))) {
+			// key is pressed
+			delay();
+			printf("4\n");
+		}
+		
+		// make R1 LOW (PD0)
 		*pOutputDataReg &= ~(1 << 0);
 		
 		// scan the columns
