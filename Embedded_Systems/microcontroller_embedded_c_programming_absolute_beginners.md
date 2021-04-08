@@ -5535,14 +5535,32 @@ Exercise:
 	2. Storing mutually exclusive data thus saving memory
 2. Open Packet code
 
-		union Packet {
+		union Packet { // size is 4 bytes
+			uint32_t packetValue;
+			
 			struct {
-				
+				uint32_t crc			:2;
+				uint32_t status		:1;
+				uint32_t payload		:12;
+				uint32_t bat			:3;
+				uint32_t sensor		:3;
+				uint32_t longAddr	:8;
+				uint32_t shortAddr	:2;
+				uint32_t addrMode	:1;
 			} packetFields;
 		}
+		//...
+		union Packet packet;
+		//...
+		scanf("%X", &packet.packetValue);
+		//...
+		printf("crc		:%#x\n", packet.packetFields.crc);
+		//...
 
 ## Usage of Bit-Fields in Embedded Code ##
 ### Bit-Fields Exercise: Constructing Bit-Field Structure for Peripheral Registers ###
+1. 
+
 ### Bit-Field Structure for RCC_AHB1ENR ###
 ### Bit-Field Structure for GPIOx_ODR ###
 ### Modifying LED Toggle Exercise with Structures and Bit Fields ###
