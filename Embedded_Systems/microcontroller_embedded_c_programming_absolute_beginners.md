@@ -5559,8 +5559,50 @@ Exercise:
 
 ## Usage of Bit-Fields in Embedded Code ##
 ### Bit-Fields Exercise: Constructing Bit-Field Structure for Peripheral Registers ###
-1. 
+1. LED Toggle
+	1. Why?
+		1. For abstraction
+			1. Suppose we are writing middleware stack - we cannot tell user to use user manual (we need abstraction - simple interface)
+2. Similar structure needs to be created for bitfields
+	1. RCC AHB1 (RCC_AHB1ENR)
+		1. We can convert this register info into structure with bit fields
+	2. Constructing bit-field strcuture for peripheral registers
 
+			typedef struct {
+				uint32_t gpio_a_en			:1; // 0
+				uint32_t gpio_b_en			:1; // 1
+				uint32_t gpio_c_en			:1; // 2
+				uint32_t gpio_d_en			:1; // 3
+				uint32_t gpio_e_en			:1; // 4
+				uint32_t gpio_f_en			:1; // 5
+				uint32_t gpio_g_en			:1; // 6
+				uint32_t gpio_h_en			:1; // 7
+				uint32_t const reserved_0	:1; // 8
+				uint32_t const reserved_1	:1; // 9
+				uint32_t const reserved_2	:1; // 10
+				uint32_t const reserved_3	:1; // 11
+				uint32_t crc_en				:1; // 12
+				uint32_t const reserved_4	:1; // 13
+				uint32_t const reserved_5	:1; // 14
+				uint32_t const reserved_6	:1; // 15
+				uint32_t const reserved_7	:1; // 16
+				uint32_t const reserved_8	:1; // 17
+				uint32_t bkp_sramen_en		:1; // 18
+				uint32_t const reserved_9	:1; // 19
+				uint32_t const reserved_10	:1; // 20
+				
+			} RCC_AHB1ENR_t;
+			
+			31 30		29    ... 22   21  ... 18 ... 12 ... 7 
+			   OTGHS  OTGHS     DMA2 DMA1    BKP    CRC    GPIOH
+			   ULPIEN EN        EN   EN      SRAMEN EN     EN
+			   rw     rw        rw   rw      rw     rw     rw
+			   
+			6     5     4     3     2     1     0
+			GPIOG GPIOF GPIOE GPIOD GPIOC GPIOB GPIOA
+			EN    EN    EN    EN    EN    EN    EN
+			rw    rw    rw    rw    rw    rw    rw
+ 
 ### Bit-Field Structure for RCC_AHB1ENR ###
 ### Bit-Field Structure for GPIOx_ODR ###
 ### Modifying LED Toggle Exercise with Structures and Bit Fields ###
