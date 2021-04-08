@@ -5617,8 +5617,43 @@ Exercise:
 	3. Different bit field structures for different peripheral registers
 
 			typedef struct {
+				uint32_t moder_0		:2; // [0, 1]
+				uint32_t moder_1		:2; // [2, 3]
+				uint32_t moder_2		:2; // [4, 5]
+				uint32_t moder_3		:2; // [6, 7]
+				uint32_t moder_4		:2; // [8, 9]
+				uint32_t moder_5		:2; // [10, 11]
+				uint32_t moder_6		:2; // [12, 13]
+				uint32_t moder_7		:2; // [14, 15]
+				uint32_t moder_8		:2; // [16, 17]
+				uint32_t moder_9		:2; // [18, 19]
+				uint32_t moder_10	:2; // [20, 21]
+				uint32_t moder_11	:2; // [22, 23]
+				uint32_t moder_12	:2; // [24, 25]
+				uint32_t moder_13	:2; // [26, 27]
+				uint32_t moder_14	:2; // [28, 29]
+				uint32_t moder_15	:2; // [30, 31]
+			} GPIOx_MODER_t;
 			
-			} GPIOx_MODE_t;
+			MODER15[1:0] MODER14[1:0] MODER13[1:0] MODER12[1:0]
+			31 30        29 28        27 26        25 24
+			rw rw        rw rw        rw rw        rw rw
+			
+			MODER11[1:0] MODER10[1:0] MODER9[1:0] MODER8[1:0]
+			23 22        21 20        19 18       17 16        
+			rw rw        rw rw        rw rw       rw rw
+			
+			MODER7[1:0] MODER6[1:0] MODER5[1:0] MODER4[1:0]
+			15 14        13 12        11 10        9  8
+			rw rw        rw rw        rw rw        rw rw
+			
+			MODER3[1:0] MODER2[1:0] MODER1[1:0] MODER0[1:0]
+			7  6         5  4         3  2        1  0        
+			rw rw        rw rw        rw rw       rw rw
+			
+			typedef struct {
+				
+			} GPIOx_ODR_t
  
 ### Bit-Field Structure for RCC_AHB1ENR ###
 ### Bit-Field Structure for GPIOx_ODR ###
