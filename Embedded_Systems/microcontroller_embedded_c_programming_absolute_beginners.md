@@ -5840,7 +5840,16 @@ Exercise:
 			1. Modern microcontrollers come with pull up and pull down functionality
 
 ### Why Pull-Up Resistors? ###
-1. 
+1. Description:
+
+		MCU -*-----+
+		 |      __ | C1
+		 *    +-  -+ ---> floating (open)
+		 |    |    |
+		 +----*--- | -- 
+		     R1    |
+		     
+	1. 
 
 ### Detecting Key Press Event ###
 ### Flow Chart for Implementation ###
