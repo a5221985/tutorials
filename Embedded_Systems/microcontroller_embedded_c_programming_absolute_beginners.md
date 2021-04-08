@@ -5818,8 +5818,30 @@ Exercise:
 			R4     |      |
 			
 		1. When no key is pressed, coluns and rows are completely isolated
+		2. When key is pressed
+			1. Column and row come into contact
+				1. This must be detected in the program
+			2. Use logic to decide which key was pressed
+		3. Columns are inputs (input mode)
+			1. Microcontroller reads C1, C2, C3 and C4 to detect key press
+		4. Rows are outputs (output mode)
+4. How to connect to microcontroller
+	1. Check 8 free IOs
+		1. C1 - PD8 (input mode)
+		2. C2 - PD9 (input mode)
+		3. C3 - PD10 (input mode)
+		4. C4 - PD11 (input mode)
+		5. R1 - PD0 (output mode)
+		6. R2 - PD1 (output mode)
+		7. R3 - PD2 (output mode)
+		8. R4 - PD3 (output mode)
+	2. Pull up resistors are required for columns
+		1. 22K resistors are used internally
+			1. Modern microcontrollers come with pull up and pull down functionality
 
 ### Why Pull-Up Resistors? ###
+1. 
+
 ### Detecting Key Press Event ###
 ### Flow Chart for Implementation ###
 ### Keypad Key Read Code Implementation ###
