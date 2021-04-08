@@ -5728,7 +5728,7 @@ Exercise:
 			uint32_t moder_13	:2; // [26, 27]
 			uint32_t moder_14	:2; // [28, 29]
 			uint32_t moder_15	:2; // [30, 31]
-		} GPIOx_MODER_t;
+		} GPIOx_MODER_t; // can be used with any mode register
 		
 		typedef struct {
 			uint16_t odr_0				:1 // 0
@@ -5746,6 +5746,30 @@ Exercise:
 ### Bit-Field Structure for RCC_AHB1ENR ###
 ### Bit-Field Structure for GPIOx_ODR ###
 ### Modifying LED Toggle Exercise with Structures and Bit Fields ###
+1. Configuration
+
+		GPIOx_MODE_t *pGpiodMode; // ponter to struct
+		pGpiodMode = (GPIOx_MODE_t*) 0x40020C00; // address of mem-mapped register
+		
+		pGpiodMode->pin_0 = 1; // member elements can be accessed directly
+		pGpiodMode->pin_1 = 1;
+		pGpiodMode->pin_15 = 1;
+		
+	1. Internally compiler converts the above statement to the following statement
+
+			*(0x40020C00) |= (3 << 30); // compiler will take care of bit manipulation
+			
+2. Program:
+
+		#include "math.h"
+		
+		int main(void) {
+			RCC_AHB1ENR_t volatile *const pClkCtrlReg = (RCC_AHB1ENR_t*) 0x40023830;
+			pClkCtrlReg->gpiod_en = 1; // even this can be bastracted - using enum say
+			
+			
+		}
+
 ### Testing ###
 
 ## Keypad Interfacing ##
