@@ -5866,9 +5866,15 @@ Exercise:
 			1. C1 will get grounded
 
 ### Detecting Key Press Event ###
-1. When no key is pressed C1, C2, C3, C4 read high
+1. When no key is pressed C1, C2, C3, C4 read HIGH
 2. Logic
 	1. Scan for keys row by row one at a time
+	2. Steps:
+		1. R1 is make LOW (R2, R3 and R4 are made HIGH)
+		2. If key '2' is pressed
+			1. C2 will be pulled down to low
+		3. C2 will be read as LOW (C2, C3, and C4 will be HIGH)
+	3. So, when R1 is LOW, if C2 reads LOW, then conclude that key '2' is pressed
 
 ### Flow Chart for Implementation ###
 ### Keypad Key Read Code Implementation ###
