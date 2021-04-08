@@ -5500,6 +5500,18 @@ Exercise:
 	1. Use cases:
 		1. use unions instead of strucutre to save memory when access to its member elements is mutually exclusive
 			1. Example: sending packets using either long address or short address (both are not used at the same time)
+4. Example:
+
+		#include <stdio.h>
+		#include <stdint.h>
+		
+		union Address {
+		
+		}
+		
+		int main() {
+			return 0;
+		}
 
 ### Applicability of Unions ###
 
