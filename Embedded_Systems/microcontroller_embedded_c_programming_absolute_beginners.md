@@ -5506,14 +5506,40 @@ Exercise:
 		#include <stdint.h>
 		
 		union Address {
-		
-		}
+			uint16_t shortAddr;
+			uint32_t longAddr;
+		};
 		
 		int main() {
+			union Address addr;
+			addr.shortAddr = 0xABCD;
+			addr.longAddr = 0xEEEECCCC;
+			
+			printf("short addr = %#X\n", addr.shortAddr);
+			printf("long addr = %#X\n", addr.longAddr);
+			
 			return 0;
 		}
+		
+5. Storage
+
+		0xE00 0xE01 0xE02 0xE03 0xE04 0xE05 0xE06 0xE07
+		D     C     B     A
+		C     C     C     C     E     E     E     E
+
+6. Use it when access to variables are mutually exclusive
 
 ### Applicability of Unions ###
+1. Applicability of unions in Embedded System Code
+	1. Bit extraction
+	2. Storing mutually exclusive data thus saving memory
+2. Open Packet code
+
+		union Packet {
+			struct {
+				
+			} packetFields;
+		}
 
 ## Usage of Bit-Fields in Embedded Code ##
 ### Bit-Fields Exercise: Constructing Bit-Field Structure for Peripheral Registers ###
