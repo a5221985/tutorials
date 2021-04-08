@@ -5842,6 +5842,7 @@ Exercise:
 ### Why Pull-Up Resistors? ###
 1. Description:
 
+		       i/o
 		MCU -*-----+
 		 |      __ | C1
 		 *    +-  -+ ---> floating (open)
@@ -5849,7 +5850,16 @@ Exercise:
 		 +----*--- | -- 
 		     R1    |
 		     
-	1. 
+	1. If pin is floating, it pick pick up random noice of circuit and can fluctuate between high and low
+		1. If we read a floating pin
+			1. It sometime shows high and sometime shows low
+	2. If we want to read from a pin, always avoid floating state
+		1. Give proper initial state
+			1. Two options
+				1. Pull up - connected to +VDD (3.3V in this case) and 22 k ohm resistor (HIGH initial state)
+					1. Resistor value shold be very high (22K or more)
+				2. Pull down
+	3. If key is pressed
 
 ### Detecting Key Press Event ###
 ### Flow Chart for Implementation ###
