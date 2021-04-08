@@ -5925,7 +5925,37 @@ Exercise:
 		int main() {
 			RCC_AHB1ENR_t volatile *const pointer_ClockStatusRegister = (RCC_AHB1ENR_t volatile *const) RCC_AHB1ENR_ADDRESS;
 			GPIOx_MODER_t volatile *const pointer_modeRegister = (GPIOx_MODER_t volatile *const) GPIOx_MODER_ADDRESS;
+			GPIOx_IDR_t volatile *const pointer_inputDataRegister = (GPIOx_IDR_t volatile *const) GPIOx_IDR_ADDRESS;
+			GPIOx_ODR_t volatile *const pointer_outputDataRegister = (GPIOx_ODR_t volatile *const) GPIOx_ODR_ADDRESS;
 			
+			pointer_ClockStatusRegister->gpio_a_en = ENABLE;
+			pointer_modeRegister->moder_0 = OUTPUT; // R1
+			pointer_modeRegister->moder_1 = OUTPUT; // R2
+			pointer_modeRegister->moder_2 = OUTPUT; // R3
+			pointer_modeRegister->moder_3 = OUTPUT; // R4
+			pointer_modeRegister->moder_4 = INPUT;  // C1
+			pointer_modeRegister->moder_5 = INPUT;  // C2
+			pointer_modeRegister->moder_6 = INPUT;  // C3
+			pointer_modeRegister->moder_7 = INPUT;  // C4
+			
+			while (true) {
+				pointer_outputDataRegister->odr_0 = LOW;
+				pointer_outputDataRegister->odr_1 = HIGH;
+				pointer_outputDataRegister->odr_2 = HIGH;
+				pointer_outputDataRegister->odr_3 = HIGH;
+				state = pointer_inputDataRegister->odr_4;
+				if (state == LOW)
+					printf("%u\n", 0);
+				state = pointer_inputDataRegister->odr_5;
+				if (state == LOW)
+					printf("%u\n", 1);
+				state = pointer_inputDataRegister->odr_6;
+				if (state == LOW)
+					printf("%u\n", 2);
+				state = pointer_inputDataRegister->odr_7;
+				if (state == LOW)
+					printf("%u\n", 3);
+			}
 		}
 
 ### Delay Analysis ###
