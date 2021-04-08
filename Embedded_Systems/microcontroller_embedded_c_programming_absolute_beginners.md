@@ -6115,8 +6115,20 @@ Exercise:
 			delay();
 			printf("8\n");
 		}
+		...
 
 ### Delay Analysis ###
+1. delay
+
+		void delay(void) {
+			for (uint32_t i = 0; i < 300000; i++);
+		}
+		
+	1. Debug using instruction level debugger - 7 instructions are executed
+		1. 16 Mhz - RC oscillator
+		2. 7 instructions = 7 * 0.0625 = 0.4375 ~ 0.5 micro seconds
+		3. 2000 - 1 ms
+		4. 150 ms - 150 x 300k
 
 ## Arrays ##
 ### Arrays in 'C' ###
