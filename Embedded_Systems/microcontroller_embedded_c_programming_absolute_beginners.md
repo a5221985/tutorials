@@ -5914,8 +5914,20 @@ Exercise:
 			2. Make all column IOs mode as INPUT
 			3. Activate internal pull-up resistors for all column IOs (refer to the pull-up/pull-down enable register)
 				1. GPIO port pull-up/pull-down register (01 - pull-up)
+	4. Step 4
+		1. Implement key detect logic as per flow chart
+7. Bit manipulation is sufficient to code this
+8. Later use bit fields and structure
 
 ### Keypad Key Read Code Implementation ###
+1. My solution:
+
+		int main() {
+			RCC_AHB1ENR_t volatile *const pointer_ClockStatusRegister = (RCC_AHB1ENR_t volatile *const) RCC_AHB1ENR_ADDRESS;
+			GPIOx_MODER_t volatile *const pointer_modeRegister = (GPIOx_MODER_t volatile *const) GPIOx_MODER_ADDRESS;
+			
+		}
+
 ### Delay Analysis ###
 
 ## Arrays ##
