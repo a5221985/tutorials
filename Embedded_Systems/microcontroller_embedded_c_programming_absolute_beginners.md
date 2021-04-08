@@ -5875,8 +5875,14 @@ Exercise:
 			1. C2 will be pulled down to low
 		3. C2 will be read as LOW (C2, C3, and C4 will be HIGH)
 	3. So, when R1 is LOW, if C2 reads LOW, then conclude that key '2' is pressed
+		4. Now R2 is made LOW
+		5. Repeat the steps
+3. Implementation flow chart
+	1. Download flowchart
 
 ### Flow Chart for Implementation ###
+1. 
+
 ### Keypad Key Read Code Implementation ###
 ### Delay Analysis ###
 
