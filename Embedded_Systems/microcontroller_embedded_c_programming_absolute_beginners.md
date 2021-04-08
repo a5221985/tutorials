@@ -5797,7 +5797,27 @@ Exercise:
 ## Keypad Interfacing ##
 ### Keypad Interfacing ###
 1. 4x4 keypad interfacing
-	1. 
+	1. If you want to reproduce the project you would need
+		1. 1 4x4 matrix keypad
+		2. Few jumper wires to do connections
+2. Problem: Write a program which detects and prints key pressed
+3. 8 pins keypad
+	1. Connections
+		1. First four pins are row pins
+		2. Last four pins are column pins
+	2. Internal Connections
+
+					C1		C2		C3		C4
+			    x--|      |
+			R1 -|- | ---- | ---- ...
+			       |      |
+			R2 -|- | ---- | ---- ...
+			       |      |
+			R3 ... |      |
+			       |      |
+			R4     |      |
+			
+		1. When no key is pressed, coluns and rows are completely isolated
 
 ### Why Pull-Up Resistors? ###
 ### Detecting Key Press Event ###
