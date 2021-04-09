@@ -6183,7 +6183,17 @@ Exercise:
 	2. Data will be stored in contiguous memory locations in the memory
 	3. `studentsAge` holds base address of array in memory
 
+			printf("Base address of the array = %p\n", studentsAge);
+			
+		1. Base address is the same as address of first item in the array
+
 ### Read-Write Operation on an Array ###
+1. Write a progam that initializes an array of 10 items to 0xff and then prints the values of each element.
+	1. Array initialization
+	2. Array read and write
+
+			
+
 ### Passing Array to a Function ###
 ### Swapping of Arrays ###
 ### Swapping of Arrays Contd. ###
