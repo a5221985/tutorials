@@ -6206,6 +6206,14 @@ Exercise:
 		2. The following is wrong
 
 				uint8_t someOtherData[]; // compiler does not know the size
+				
+		3. Length can be a variable
+
+				int len = 10;
+				uint8_t someData[len];
+				
+			1. This is a variable length array - C99
+			2. If we use C89, it does not work
 
 ### Passing Array to a Function ###
 ### Swapping of Arrays ###
