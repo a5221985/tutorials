@@ -6195,7 +6195,17 @@ Exercise:
 			uint8_t someData[10] = {0xff, 0xff, 0xff}; // this is fine
 			
 		1. Partial intialization is allowed
-			
+			1. Rest of the items will be initialized to zero
+
+					uint8_t someData[10] = {0xff, 0xff, 0xff, 0, 0, 0, 0, 0, 0, 0};
+					
+			1. The following is also legal
+
+					uint8_t someData[] = {0xff, 0xff, 0xff}; // compiler has enough info to calculate the size
+					
+		2. The following is wrong
+
+				uint8_t someOtherData[]; // compiler does not know the size
 
 ### Passing Array to a Function ###
 ### Swapping of Arrays ###
