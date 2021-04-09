@@ -6192,6 +6192,9 @@ Exercise:
 	1. Array initialization
 	2. Array read and write
 
+			uint8_t someData[10] = {0xff, 0xff, 0xff}; // this is fine
+			
+		1. Partial intialization is allowed
 			
 
 ### Passing Array to a Function ###
