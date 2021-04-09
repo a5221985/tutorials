@@ -6132,6 +6132,15 @@ Exercise:
 
 ## Arrays ##
 ### Arrays in 'C' ###
+1. Problem Statement
+	1. Suppose we want to find average age of a class of 100 students
+
+			avgStudentAge = (ageOfStudent1 + ageOfStudent2 + ... + ageOfStudent100) / 100
+			
+			uint8_t ageOfStudent1 = 45;
+			...
+			uint8_t ageOfStudent100 = 32;
+
 ### Read-Write Operation on an Array ###
 ### Passing Array to a Function ###
 ### Swapping of Arrays ###
