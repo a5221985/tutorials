@@ -6149,6 +6149,40 @@ Exercise:
 3. Understanding Array Syntax:
 	1. Here `studentsAge` is base pointer or reference to 100 data items of type `uint8_t`
 
+			uint8_t studentsAge[100]; // studentsAge - reference or array variable or pointer
+			
+		1. `studentsAge` is `uint8_t*` and not `uint8_t`
+			1. Items are of type `uint8_t`
+	2. Size of an array
+
+			uint8_t studentsAge[100];
+			
+		1. Total memory consumed by array in memroy = number of data items x size of single data item = 100 x 1 = 100 bytes
+		
+				sizeof(studentsAge) = 100
+				
+4. Program
+
+		#include <stdio.h>
+		#include <stdint.h>
+		
+		int main(void) {
+			uint32_t studentsAge[100];
+			printf("Size of an array = %u\n", sizeof(studentsAge));
+			return 0;
+		}
+		
+5. Array storage in memory
+
+		uint8_t studentsAge[100];
+		
+		34     11     99         45         19     56
+		0xE005 0xE006 0xE007 ... 0xE035 ... 0xE067 0xE068 ...
+		
+	1. Try printing `studentsAge` with `%p` format specifier - base address gets printed
+	2. Data will be stored in contiguous memory locations in the memory
+	3. `studentsAge` holds base address of array in memory
+
 ### Read-Write Operation on an Array ###
 ### Passing Array to a Function ###
 ### Swapping of Arrays ###
