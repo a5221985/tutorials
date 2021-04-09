@@ -6140,6 +6140,14 @@ Exercise:
 			uint8_t ageOfStudent1 = 45;
 			...
 			uint8_t ageOfStudent100 = 32;
+			
+2. The definitions can be merged into single statement
+
+		uint8_t studentsAge[100]; // name is a reference
+		
+	1. Array in 'C' is a collection of data of same datatype
+3. Understanding Array Syntax:
+	1. Here `studentsAge` is base pointer or reference to 100 data items of type `uint8_t`
 
 ### Read-Write Operation on an Array ###
 ### Passing Array to a Function ###
