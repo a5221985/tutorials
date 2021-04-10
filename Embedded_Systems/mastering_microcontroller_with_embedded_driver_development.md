@@ -393,3 +393,39 @@
 ### GPIO Input Mode with Pull-Up/Down State ###
 ### GPIO Output Mode with Open Drain State ###
 ### GPIO Output Mode with Push Pull State ###
+### Optimizing I/O Power Consumption ###
+
+## GPIO Programming Structure and Registers ##
+### GPIO Programming Structure ###
+### Exploring GPIO PORT and Pins of STM32F4xx Discovery Board ###
+### GPIO Mode Register (Used to Set Mode for a Pin) ###
+### Input Configuration of a Microcontroller's GPIO Pin ###
+### Output Configuration of a GPIO Pin in Push Pull Mode ###
+### Output Configuration of a GPIO Pin in Open Drain Mode ###
+### Input Stage of a GPIO Pin During Output Configuration ###
+### Alternate Functionality Configuration of a GPIO Pin ###
+### GPIO Output Type Register Explanation ###
+
+## GPIO Registers: SPEED, PULL UP/ DOWN, IDR and ODR ##
+### GPIO Output Speed Register and its applicability ###
+### GPIO Pull Up and Pull Down Register ###
+### GPIO Input Data Register ###
+### GPIO Output Data Register and Summary of Various Modes Discussed ###
+
+## GPIO Alternate Functionality Register and Example of Usage ##
+### Alternate Functionality Settings of a GPIO Pin with Example: Part 1 ###
+### Alternate Functionality Settings of a GPIO Pin with Example: Part 2 ###
+### Request for Review ###
+
+## GPIO Peripheral Clock Control ##
+### Enabling and Disabling GPIO Peripheral Clock ###
+
+## GPIO Driver Development Overview and Project Creation ##
+### GPIO Driver Development Overview ###
+### MCU Specific Header File and Its Contents ###
+### New Project Creation and Constructing MCU Specific Headerfile ###
+### Include Path Settings ###
+### Important Note on IDE Usage ###
+
+## Updating MCU Specific Header File with Bus Domain and Peripheral Details ##
+### 
