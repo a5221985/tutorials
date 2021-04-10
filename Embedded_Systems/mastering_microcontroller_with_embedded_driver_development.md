@@ -598,4 +598,71 @@
 ### I2C Functional Block Diagram ###
 
 ## I2C Driver API Requirements and Config Structures ##
-### 
+### I2C Driver API Requirements ###
+### I2C Handle and Configuration Structure ###
+### I2C User Configurable Macros ###
+### I2C API Prototypes ###
+### Steps for I2C Init Implementation ###
+
+## I2C Serial Clock Discussion (SCLK) ##
+### I2C Serial Clock Settings With Explanation ###
+### Clock Stretching ###
+
+## I2C Driver API: I2C Init ##
+### Implementation of I2C Init API: Part 1 ###
+### Implementation of I2C Init API: Part 2 ###
+### Implementation of I2C Init API: Part 3 ###
+
+## I2C Driver API: I2C Master Send Data ##
+### I2C Transfer Sequence Diagram for Master Sending Data ###
+### Implementation of I2C Master Sending Data API: Part 1 ###
+### Implementation of I2C Master Sending Data API: Part 2 ###
+### Implementation of I2C Master Sending Data API: Part 3 ###
+### Implementation of I2C Master Sending Data API: Part 4 ###
+### Implementation of I2C Master Sending Data API: Part 5 ###
+
+## I2C Pull Up Resistance, Rise Time and Bus Capacitance ##
+### I2C Pull UP Resistance, Rise Time and Bus Capacitance Discussion ###
+### I2C Rise Time Calculation ###
+
+## Exercise ##
+### Exercise: Introduction ###
+### Exercise: Coding Part 1 ###
+### Exercise: Coding Part 2 ###
+### Exercise: Testing ###
+
+## I2C Driver API: I2C Master Receive Data ##
+### I2C Transfer Sequence Diagram for Master Receiving Data ###
+### Assignment: I2C Master Receive Data API Implementation ###
+### Implementation of I2C Master Receive Data API: Part 1 ###
+### Implementation of I2C Master Receive Data API: Part 2 ###
+
+## Exercise ##
+### Exercise: Reading Data from the I2C Slave ###
+### Exercise: Coding Part 1 ###
+### Exercise: Coding Part 2 ###
+### Exercise: Coding Part 3 ###
+### Exercise: Testing Repeated Start ###
+
+## I2C Interrupts and IRQ Numbers ##
+### I2C IRQ and Interrupt Discussion ###
+### I2C Errors and Importance of BUSY Flag ###
+### I2C Handle Structure Modification ###
+### I2C Adding Interrupt Related Macros and Interrupt API ###
+
+## I2C Interrupt Based API ##
+### Assignment: I2C Interrupt APIs Implementation ###
+### Implementation of I2C Interrupt Based APIs ###
+
+## I2C IRQ Handler Implementation ##
+### I2C IRQ Handler Implementation Part 1 ###
+### I2C IRQ Handler Implementation Part 2 ###
+### I2C IRQ Handler Implementation Part 3 ###
+### I2C IRQ Handler Implementation Part 4 ###
+### I2C IRQ Handler Implementation Part 5 ###
+### I2C IRQ Handler Implementation Part 6 ###
+### I2C IRQ Handler Implementation Part 7 ###
+### I2C IRQ Handler Implementation Part 8 ###
+### I2C Error IRQ Handler Implementation ###
+
+## 
