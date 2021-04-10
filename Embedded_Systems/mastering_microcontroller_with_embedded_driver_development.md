@@ -428,4 +428,51 @@
 ### Important Note on IDE Usage ###
 
 ## Updating MCU Specific Header File with Bus Domain and Peripheral Details ##
-### 
+### Writing Base Address C Macros for MCU's Embedded Memories: Part 1 ###
+### Writing Base Address C Macros for MCU's Embedded Memories: Part 2 ###
+### Defining Base Addresses of Different Bus Domains ###
+### Defining Base Addresses of AHB1 Peripherals ###
+### Defining Base Addresses Conclusion ###
+
+## Structuring Peripheral Registers ##
+### Address of Peripheral Registers ###
+### Structuring Peripheral Registers ###
+### Peripheral Definition Macros ###
+
+## Writing Clock Enable and Disable Macros ##
+### Writing Peripheral Clock Enable and Disable C Macros ###
+### Project Include Settings and Build ###
+
+## GPIO Driver API Requirements and Handle Structure ##
+### Constructing GPIO Driver Header and Source File ###
+### Defining GPIO Handle and Configuration Structure ###
+### Driver API Requirements and Adding API Prototypes ###
+### Driver API Input Parameters and Return Types ###
+### Driver Empty API Implementation and Documentation ###
+
+## GPIO Driver API Implementation: Clock Control ##
+### Implementation of GPIO Peripheral Clock Control API ###
+
+## GPIO Driver API Implementation: GPIO Init and De-Init ##
+### Writing User Configurable Macros ###
+### Implementation of GPIO Init API ###
+### Implementation of GPIO Init API Contd. ###
+### Configuring Alternate Function Registers ###
+### GPIO De-Init API Implementation ###
+
+## GPIO Driver API Implementation: GPIO Data Read and Write ##
+### Implementation of GPIO Input Port Read and Input Pin Read APIs ###
+### Implementation of GPIO Output Port Write and Output Pin Write APIs ###
+### Implementation of GPIO Pin Toggle API ###
+
+## Exercise ##
+### Exercise: LED Toggling with PUSH PULL Configuration ###
+### Exercise: LED Toggling with OPEN DRAIN Configuration ###
+### Exercise: Handling on Board LED and Button ###
+### Exercise: Connecting External Button and Circuit Explanation ###
+### Exercise: Testing Button Interface ###
+### Exercise: Button Interrupt Introduction ###
+
+## GPIO Pin Interrupt Configuration ##
+### GPIO Pin Interrupt Configuration Coding: Part 1 ###
+### GPIO Pin Interrupt Configuration Coding: Part 2 ###
