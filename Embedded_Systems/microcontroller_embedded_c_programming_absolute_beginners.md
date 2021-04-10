@@ -6214,8 +6214,172 @@ Exercise:
 				
 			1. This is a variable length array - C99
 			2. If we use C89, it does not work
+1. Write a progam that initializes an array of 10 items to 0xff and then prints the values of each element.
+	1. Array initialization
+	2. Array read and write
+
+			uint8_t someData[10] = {0xff, 0xff, 0xff}; // this is fine
+			
+		1. Partial intialization is allowed
+			1. Rest of the items will be initialized to zero
+
+					uint8_t someData[10] = {0xff, 0xff, 0xff, 0, 0, 0, 0, 0, 0, 0};
+					
+			1. The following is also legal
+
+					uint8_t someData[] = {0xff, 0xff, 0xff}; // compiler has enough info to calculate the size
+					
+		2. The following is wrong
+
+				uint8_t someOtherData[]; // compiler does not know the size
+				
+		3. Length can be a variable
+
+				int len = 10;
+				uint8_t someData[len];
+				
+			1. This is a variable length array - C99
+			2. If we use C89, it does not work
+				1. Right click > Properties > C/C++ Build > Settings > GCC C Compiler > Dialect > Language Standard > C90 (`-std=c90`)
+				2. GCC C Compiler > Warnings > Pedandtic (`-pedantic`)
+			3. Commandline:
+
+					gcc -std=c90 -pedantic -o array array.c
+					gcc -std=c89 -pedantic -o array array.c
+					
+2. Contiguous mem location addresses
+
+		*(someData + 1) = 0xEE;
+		
+3. Shortcut
+
+		someData[1] = 0xEE; // 1 is the offset
+		
+	1. Offset 1 corresponds to 2nd element
+	2. Offset 0 corresponds to 1st element (no offset required)
+		1. Pointer manipulation is the reason for this
+
+				uint8_t someData[] = {0xFF, 0xFF, 0xFF};
+				
+				printf("0th element value = %x\n", someData[0]);
+				printf("0th element value = %x\n", *(someData + 0));
+				
+	3. Printing all elements of the array
+
+			uint8_t someData[] = {0xFF, 0xFF, 0xFF};
+			uint8_t len = sizeof(array) / sizeof(array[0]);
+			for (uint8_t i = 0; i < len; i++)
+				printf("%x\n", array[i]);
+				
+			array[2] = 0xEE;
+			
+			printf("\n");
+			
+			for (uint8_t i = 0; i < len; i++)
+				printf("%x\n", array[i]);
+				
+		1. Summary
+
+				*(someData) = 10; // someData[0]
+				*(someData + 1) = 20; // someData[1]
+				*(someData + 2) = 30; // someData[2]
+				...
+				
+			1. Pointer vs short hand method
 
 ### Passing Array to a Function ###
+1. Sending array into function
+
+		void array_display(uint8_t* pArray);
+		//...
+		array_display(someData);
+		//...
+		void array_display(uint8_t* pArray) {
+			for (uint32_t i = 0; i < 10; i++) // how big is the array?
+				printf("%x\n", pArray[i]);
+		}
+		
+	1. We should also pass the size
+
+			uint32_t size = sizeof(array) / sizeof(uint8_t);
+			array_display(someData, size);
+			//...
+			void array_display(uint8_t const *const pArray, uint32_t const size) {
+				for (uint32_t i = 0; i < size; i++) // how big is the array?
+					printf("%x\n", pArray[i]);
+			}
+			
+		1. Getting address of a specific item
+
+				&someData[2];
+				
+2. Exercise: Write a function that accepts 2 arrays and swaps them out
+	1. Print the updated arrays after swapping
+	2. Program should take inputs from user
+
+			#include <stdio.h>
+			#include <stdint.h>
+			
+			void printString(char const *const string);
+			void printArray(uint32_t const *const array, uint32_t const size);
+			void readArrayElements(uint32_t *const array, uint32_t const size);
+			void swap(uint32_t *const array_1, uint32_t *const array_2, uint32_t const size);
+			
+			int main() {
+				printString("Enter the size of the arrays to swap: ");
+				uint32_t size = 0;
+				scanf("%u", &size);
+				
+				printString("Enter the elements of the first array separated by spaces: ");
+				uint32_t array_1[size];
+				readArrayElements(array_1, size);
+				
+				printString("Enter the elements of the second array separated by spaces: ");
+				uint32_t array_2[size];
+				readArrayElements(array_2, size);
+				
+				printString("contents of first array are: ");
+				printArray(array_1, size);
+				
+				printString("contents of second array are: ");
+				printArray(array_2, size);
+				
+				swap(array_1, array_2, size);
+				
+				printString("contents of first array after swapping are: ");
+				printArray(array_1, size);
+				
+				printString("contents of second array after swapping are: ");
+				printArray(array_2, size);
+				
+				return 0;
+			}
+			
+			void printString(char const *const string) {
+				printf("%s", string);
+				fflush(stdout);
+			}
+			
+			void printArray(uint32_t const *const array, uint32_t const size) {
+				for (int i = 0; i < size; i++)
+					printf("%u ", array[i]);
+				printf("\n");
+			}
+			
+			void readArrayElements(uint32_t *const array, uint32_t const size) {
+				for (int i = 0; i < size; i++)
+					scanf("%u", &array[i]);
+			}
+			
+			void swap(uint32_t *const array_1, uint32_t *const array_2, uint32_t const size) {
+				uint32_t temp = 0;
+				for (int i = 0; i < size; i++) {
+					temp = array_1[i];
+					array_1[i] = array_2[i];
+					array_2[i] = temp;
+				}
+			}
+			
 ### Swapping of Arrays ###
 ### Swapping of Arrays Contd. ###
 
