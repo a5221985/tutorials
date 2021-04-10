@@ -476,3 +476,77 @@
 ## GPIO Pin Interrupt Configuration ##
 ### GPIO Pin Interrupt Configuration Coding: Part 1 ###
 ### GPIO Pin Interrupt Configuration Coding: Part 2 ###
+### GPIO Pin Interrupt Configuration Coding: Part 3 ###
+### GPIO Pin Interrupt Configuration Coding: Part 4 ###
+### GPIO Pin Interrupt Configuration Coding: Part 5 ###
+### GPIO Pin Interrupt Configuration Coding: Part 6 ###
+### GPIO Pin Interrupt Configuration Coding: Part 7 ###
+
+## Exercise: GPIO Interrupts ##
+### Exercise: External Button Interrupt Implementation ###
+### Exercise: Debugging the Application: Part 1 ###
+### Exercise: Debugging the Application: Part 2 ###
+
+## MCU I/O Pin Specifications ##
+### STM32 Pin Specifications ###
+### Pin Current Characteristics ###
+### Logic Levels ###
+
+## SPI Introduction and Bus Details ##
+### Introduction to SPI Bus ###
+### SPI Comparison With Other Protocols ###
+### Importance of SPI Slave Select Pin ###
+### SPI Minimum Bus Configuration ###
+### SPI Behind the Scene Data Communication Principle ###
+
+## SPI Bus Configuration and Functional Block Diagram ##
+### SPI Bus Configuration Discussion: Full Duplex, Half Duplex and Simplex ###
+### SPI Functional Block Diagram Explanation ###
+
+## STM32 NSS Pin Settings and Management ##
+### NSS Settings in STM32 Master and Slave Modes ###
+### STM32 SPI Hardware and Software Slave Managements ###
+
+## SPI CPOL and CPHA Discussion ##
+### SPI CPOL and CPHA Discussion ###
+### SPI CPOL and CPHA Waveform Example ###
+
+## SPI Serial Clock Discussion ##
+### SPI Peripherals of Your Microcontroller ###
+### SPI Serial Clock Frequency ###
+
+## SPI Driver: API Requirements and Configuration Structure ##
+### SPI API Requirements and Configuration Items ###
+### Updating MCU Specific Header File and SPI Related Details ###
+### SPI Adding API Prototypes to Driver Header File ###
+
+## SPI Driver API Implementation: Clock Control ##
+### Implementation of SPI Peripheral Clock Control API ###
+
+## SPI Driver API Implementation: SPI Init ##
+### SPI User Configuration Options Writing and Register Bit Definition Macros ###
+### Implementation of SPI Init API: Part 1 ###
+### Implementation of SPI Init API: Part 2 ###
+
+## SPI Driver API Implementation: Send Data ##
+### Implementation of SPI Send Data API: Part 1 ###
+### Implementation of SPI Send Data API: Part 2 ###
+### Implementation of SPI Send Data API: Part 3 ###
+### Implementation of SPI Send Data API: Part 4 ###
+
+## Exercise: SPI Send Data ##
+### Exercise to Test SPI Send Data API ###
+### Finding Out Microcontroller Pins to Communicate Over SPI2 ###
+### Exercise: Code Implementation: Part 1 ###
+### Exercise: Code Implementation: Part 2 ###
+### Exercise: Code Implementation: Part 3 ###
+### Exercise: Testing ###
+
+## Exercise: STM32 Master and Arduino Slave Communication ##
+### Exercise: Communicating With Arduino Slave ###
+### Exercise: Coding Part 1 ###
+### Exercise: Coding Part 2 ###
+### Exercise: Coding Part 3 ###
+### Exercise: Testing ###
+
+## SPI Driver API: Receive Data ##
