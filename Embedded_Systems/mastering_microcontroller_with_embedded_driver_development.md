@@ -665,4 +665,79 @@
 ### I2C IRQ Handler Implementation Part 8 ###
 ### I2C Error IRQ Handler Implementation ###
 
-## 
+## Exercise ##
+### Exercise: Testing I2C Interrupt APIs Part 1 ###
+### Exercise: Testing I2C Interrupt APIs Part 2 ###
+
+## I2C Slave Programming ##
+### I2C Slave Programming Discussion ###
+### I2C Transfer Sequence Diagram for Slave Transmitter ###
+### I2C Slave Support in Driver ###
+
+## Exercise ##
+### Exercise: I2C Slave Programming ###
+### Exercise: Coding Part 1 ###
+### Exercise: Testing ###
+### Exercise: Modifying I2C Transactions ###
+
+## Common Problems in I2C ##
+### Common Problems in I2C and Debugging Tips ###
+
+## UART Essentials ##
+### Intro UART vs USART ###
+### Understanding UART Pins ###
+### UART Frame Formats ###
+### Baud Rate ###
+### Synchronization Bits ###
+### UART Parity ###
+
+## UART Functional Block and Peripheral Clock ##
+### Exploring UART Functional Block ###
+### UART Peripheral Clock ###
+
+## UART Communication ##
+### UART Transmitter ###
+### UART Receiver ###
+
+## USART Driver Development ##
+### USART Driver Development Configurable Items ###
+### USART Driver APIs Prototypes ###
+### Configuration Options and USART Registers ###
+### USART Driver API: USART Init ###
+### USART Driver API: Tx and Rx Assignment ###
+### USART Driver API: Send Data ###
+
+## USART Oversampling and Baudrate ##
+### USART Oversampling ###
+### USART Baud Rate Calculation Part-2 ###
+### USART Baud Rate Calculation Part-3 ###
+### USART Baudrate Coding ###
+
+## Exercise ##
+### Exercise: USART Send Data to Arduino ###
+### Communicating With PC Over UART ###
+
+## USART Interrupts ##
+### USART Interrupt Discussion ###
+### Exercise ###
+### USART IRQ Handler Implementation: Assignment ###
+
+## Exercise: RTC on LCD ##
+### Real Time Clock on LCD ###
+### DS1307 RTC Registers ###
+### RTC Code Implementation ###
+### RTC Coding for Set Time and Date ###
+### RTC Coding for Get Time and Date ###
+### BCD and Binary Manipulation Functions ###
+### Writing RTC Application ###
+### RTC and Systick ###
+### LCD Connections ###
+### Significance of LCD Pins ###
+### LCD Initialization ###
+### LCD Initialization Flowchart ###
+### Sending Command and Data to LCD ###
+### Construcing LCD Command Code ###
+### Testing ###
+
+## BONUS LECTURE ##
+### BONUS LECTURE ###
