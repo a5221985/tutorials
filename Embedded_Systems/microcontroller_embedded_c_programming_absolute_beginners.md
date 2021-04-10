@@ -6385,14 +6385,349 @@ Exercise:
 
 ## Strings ##
 ### Strings in 'C' ###
+1. A string is a collection of characters terminated by null character
+	1. Null character is used to indicate end of string
+2. Example: Name is a collection of characters and can be represented as string
+3. We can use array to store strings
+4. Unlike in C++, Java, Python, 'C' does not have any dedicated data type to store string data
+	1. In 'C' we take the help of array to store and manipulate string data
+		1. String manipulations are realized through arrays
+5. Example:
+
+		"hello"
+		
+6. Storage:
+
+		char msg[] = "hello"; // msg is called string variable
+		
+	1. Mem storage
+
+			'h'   'e'   'l'   'l'   'o'   '\0'
+			0xE00 0xE01 0xE02 0xE03 0xE04 0xE05
+			msg
+			
+		1. NULL character is `0` (indicated as `\0`)
+		2. Consumes 6 bytes (not 5)
+	2. Another method
+
+			char msg[] = {'h', 'e', 'l', 'l', 'o', '\0'}; // this is a string
+			char msg[] = {'h', 'e', 'l', 'l', 'o'}; // this is not a string
+7. Differences
+
+		char msg1[10] = "hello"; // partial initialization
+		char msg2[] = "hello"; // compiler will reserve only 6 bytes
+		
+		sizeof(msg1); // gives 10 bytes
+		sizeof(msg2); // gives 6 bytes
+		
+		strlen(msg1); // gives 5 bytes - c standard library
+		strlen(msg2); // gives 5 bytes - c standard library
+		
+	1. Counts only the required info (excludes NULL char)
+8. Example:
+
+		char msg1[] = "A"; // string definition
+		char msg2 = 'A'; // this is a character variable
+
 ### String literal ###
+1. Also called string constant
+
+		char *msg1 = "hello"; // valid method
+		
+	1. Compiler allocates some address to the string literal and stores base address in `msg1`
+	2. Differences between the following
+
+			char *msg1 = "hello"; // this string lives in ROM
+			char msg2[] = "hello"; // this string lives in RAM
+			
+		1. The contents of `msg2` can be changed
+		2. The contents of `msg1` cannot be changed
+
+				msg1[0] = 's'; // not allowed
+				
+2. Program
+
+		char msg1[] = "Hello how are you?";
+		printf("Message is: %s\n", msg1);
+		
+	1. Window > Show View > Variables
+		1. `0x200ffdc` - this is in RAM
+	2. Window > Show View > Memory Browser
+		1. Search for `0x200ffdc`
+
 ### String Variable vs String Literal ###
+1. Program
+
+		printf("Address of 'msg1' variable = %p\n", &msg1);
+		printf("Value of 'msg1' variable = %p\n", msg1);
+		
+	1. Click box and arrow (compile and re-launch)
+	2. Both values are same
+
+			&msg = &(msg + 0);
+			
+	3. The string is copied from flash memory to variable during runtime
+		1. Check in memory browser
+		2. The copying is not part of startup code (this is for global data)
+			1. It is part of function execution
+				1. Transient data is handled here
+					1. It is created in stack memory
+2. Memory
+
+		0x20000000					(0x2002FFFC)
+		|	global data	| stack |	heap | (192 KB)
+		
+	1. Stack - SP register is used to track the stack status
+		1. When variables are created, SP decrements
+			1. `msg1` is created in stack
+				1. Data copy takes place during run-time of function
+		2. Global array copying is handled by startup code
+	2. There are two copies of the string
+	
+			msg[0] = '\n'; // changes the new copy (not the flash)
+			
+3. String literal case:
+	1. Example:
+
+			char *pmsg2 = "fastbitlab.com"; // The string is also in flash - but there is no data copy (only pointer assignment)
+			
+			printf("Message is: %s\n", msg2);
+			printf("Address of 'pmsg2' variable is: %p\n", &pmsg2); // This will be in RAM
+			printf("Value of 'pmsg2' variable is: %p\n", pmsg2); // This will be flash address
+			
+		1. Output
+
+				0x2001ffde
+				0x8001300c
+				
+			1. `pmsg2` is created in stack and it will be pointing to string in flash
+				1. Flash control blocks write access to flash by default
+					1. Special instructions to flash control
+						1. Inserting password ...
+		2. If we try this in host computer
+			1. Un-expected behaviour
+				1. Application may crash
+		3. Use const
+
+				char const *pmsg2 = "fastbitlab.com"; // good practice - compiler will throw an error if we try to modify
+
 ### Inputting a String ###
+1. Printing and inputting a string
+	1. Use the format specifier `%s` with printf to print a string and with scanf to input a string
+		1. Be careful with `%s`
+			1. The array must be terminated by NULL character
+				1. Else it may result in **segmentation fault**
+2. Program
+
+		char name[30]; // name must be less than 30 chars
+		printf("Enter your name: ");
+		fflush(stdout);
+		scanf("%s", name);
+		printf("Hi %s\n", name); // works
+		fflush(stdout); // not required because `return 0` automatically flushes
+		
+	1. It cannot read whitespace characters
+	2. Investigation
+
+			for (int i = 0; i < 30; i++) {
+				printf("%x\n", name[i]);
+			}
+			
+		1. `scanf` - automatically adds NULL characters at the end of string read
+		2. `scanf` ignores whitespace characters (even multiple spaces)
+		3. Example:
+
+				char fname[30], lname[30];
+				
+				printf("Enter your full name: ");
+				scanf("%s%s", fname, lname);
+				printf("Your name is : %s %s\n", fname, lname);
+
 ### scanf and scanset ###
+1. Using `scanset` of `scanf` function
+
+				%[A-Z]s
+				%[^r]s
+				%[<any-arg>]s
+				
+3. Example:
+
+		scanf("%s", name);
+		scanf("%[^s]s", name); // read all characters until char 's'
+		printf("Your name is: %s\n", name);
+		
+	1. Input
+
+			hello how are you and my name is X
+			
+			hello how are you and my name i
+			
+	2. Another example:
+
+			scanf("%[^\n]s", name); // read until newline (excluded)
+			
+		1. Input
+
+				hello how are you my name is kiran
+
 ### Exercise ###
+1. Write a program to maintain records of students. The program must maintain records of 10 students and you should give below features to your program
+	1. Display all records
+	2. Add a record
+	3. Delete a record
+2. The program also should avoid alert about the below situations
+	a. Duplication of a record
+	b. No space to add a new record
+	c. Deleting an unknown record
+3. Solution:
+
+		typedef struct {
+			uint32_t rollNumber;
+			uint8_t studentSemester;
+			char studentDOB[10];
+			char studentBranch[50];
+			char studentName[100];
+		} StudentRecord;
+		
+		int main() {
+			StudentRecord records[10];
+			uint8_t size = 0;
+			
+			while (true) {
+				printf("Student record management program\n");
+				printf("Display all records\t--> 1");
+				printf("Add new record\t--> 2");
+				printf("Delete a record\t--> 3");
+				printf("Exit application\t--> 0");
+				printf("Enter your option here: ");
+				scanf("%u", &option);
+				if (option == 0)
+					break;
+				switch (option) {
+				case 1:
+				    if (size == 0) {
+				    	printf("No records found");
+				    	break;
+				    } else {
+				    	printf("Displaying all students records\n");
+				    	printf("**************");
+				    	for (uint8_t i = 0; i < records; i++) {
+				    		printf("rollNumber\t: %u\n", records[i].rollNumber);
+				    		printf("studentSemester\t: %hhu\n", records[i].studentSemester);
+				    		printf("studentDOB\t: %s\n", records[i].studentDOB);
+				    		printf("studentBranch\t: %u\n", records[i].studentBranch);
+				    		printf("studentName\t: %u\n", records[i].studentName);
+				    		printf("***************\n");
+				    		break;
+				    	}
+				    }
+				    break;
+				case 2:
+					if (size >= 10) {
+						printf("It is full! Cannot add more records\n");
+						break;
+					}
+					printf("Add a new record\n");
+					printf("Enter the rollNumber: ");
+					uint32_t rollNumber = 0;
+					scanf("%u", &rollNumber);
+					
+					bool recordAlreadyExists = false;
+					for (int i = 0; i < size; i++) {
+						if (records[i].rollNumber == rollNumber) {
+							recordAlreadyExists = true;
+							break;
+						}
+					}
+					
+					if (recordAlreadyExists) {
+						printf("Record with the rollNumber already exists. Cannot add duplicate records\n");
+						break;
+					}
+					
+					records[size].rollNumber = rollNumber;
+					printf("Enter the studentSemester: ");
+					scanf("%hhu", &records[size].studentSemester);
+					printf("Enter the DOB (mm/dd/yyyy): ");
+					scanf("%s", &records[size].studentDOB);
+					printf("Enter the studentBranch: ");
+					scanf("%[^\n]s", &records[size].studentBranch);
+					printf("Enter the studentName: ");
+					scanf("%[^\n]s", &records[size].studentName);
+					size++;
+					printf("Record added successfully\n");
+					break;
+				case 3:
+					if (size == 0) {
+						printf("No records to delete\n");
+						break;
+					}
+					printf("Delete a record\n");
+					printf("Enter the roll number of the student: ");
+					uint32_t rollNumber = 0;
+					scanf("%u", &rollNumber);
+					bool recordFound = false;
+					for (uint8_t i = 0; i < size; i++) {
+						if (records[i].rollNumber == rollNumber) {
+							for (int j = i; j < size - 1; j++)
+								records[j] = records[j + 1];
+							size--;
+							printf("Record deleted\n");
+							recordFound = true;
+							break;
+						}
+					}
+					if (!recordFound) {
+						printf("Record does not exist\n");
+						break;
+					}
+				}
+			}
+			return 0;
+		}
+		
+4. Hints:
+	1. Use a structure to maintain a student record
+	2. Student record should contain the below info
+
+			// Definition of a student record
+			typedef struct {
+				int rollNumber;
+				char name[100];
+				char branch[50];
+				char dob[15];
+				int semester;
+			} STUDENT_INFO_t;
+			
+	3. Reserve space to hold 10 students records
+	
+			STUDENT_INFO_t students[10]; // a global array to hold record of 10 students
 
 ## Pre-Processor Directives in 'C' ##
 ### Pre-Processor Directives in 'C' ###
+1. In C programming pre-processor directives are used to affect compile-time settings
+2. Pre-processor directives are also used to construct macros used as a textual replacement for numbers and other things.
+3. Pre-processor directives begin with the `#` symbol
+	1. `#include`
+	2. `#if`
+	3. `#ifndef`
+4. Pre-processor directives are resolved or taken care during the pre-processing state of compilation
+5. Pre-processor directives supported in 'C'
+	1. Macros - `#define <identifier> <value>` - used for textual replacement
+	2. File inclusion - 
+		1. `#include <std lib file name>`
+		2. `#include "user defined file name"`
+	3. Conditional compilation - used to direct compiler about code compilation
+		1. `#ifdef` **(M)**
+		2. `#endif`
+		3. `#if`
+		4. `#else`
+		5. `#ifndef`
+		6. `#undef` **(M)**
+	4. Others
+		1. `#error` **(M)**
+		2. `#pragma`
+	
 ### Conditional Compilation Directives ###
 ### 'defined' Operator ###
 ### Modifying LED Toggle Exercise with Macros ###
