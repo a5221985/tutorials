@@ -550,3 +550,52 @@
 ### Exercise: Testing ###
 
 ## SPI Driver API: Receive Data ##
+### Implementation of SPI Data Receive API: Part 1 ###
+### Implementation of SPI Data Receive API: Part 2 ###
+
+## Exercise: SPI Receive Data ##
+### Exercise: SPI Command and Response Based Communication ###
+### Exercise: Coding Part 1 ###
+### Exercise: Coding Part 2 ###
+### Exercise: Coding Part 3 ###
+
+## SPI Interrupts ##
+### SPI Peripheral Interrupting the Processor ###
+
+## SPI Interrupt Mode APIs ##
+### SPI Interrupt Mode API Implementation and Changes to Handle Structure ###
+### SPI Send Data with Interrupt API Implementation ###
+### SPI Receive Data With Interrupt Implementation ###
+
+## SPI Driver API: IRQ Handling ##
+### SPI: Handling of Interrupts ###
+### SPI IRQ Handler Implementation: Part 1 ###
+### SPI IRQ Handler Implementation: Part 2 ###
+### SPI IRQ Handler Implementation: Part 3 ###
+### Exercise ###
+
+## Common Problems in SPI ##
+### Common Problems in SPI and Debugging Tips ###
+
+## I2C Introduction and I2C Signals ##
+### I2C Introduction and Differences with SPI ###
+### I2C SDA and SCL Signals ###
+
+## I2C Modes ##
+### I2C Standard and Fast Mode ###
+
+## Understanding I2C Protocol ##
+### I2C Protocol Explanation ###
+### I2C START and STOP Conditions ###
+### I2C ACK and NACK ###
+### I2C Data Validity ###
+
+## I2C Master and Slave Communication ##
+### Example of Master Writing to Slave ###
+### Understanding Repeating START Condition ###
+
+## STM32 I2C Functional Block Diagram ##
+### I2C Functional Block Diagram ###
+
+## I2C Driver API Requirements and Config Structures ##
+### 
