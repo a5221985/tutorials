@@ -62,7 +62,16 @@
 	7. Instruction set is rich and memory efficient
 		1. Uses Thumb instruction set
 			1. Collection of 16 bit & 32 bit instructions
-			2. 
+			2. Cortex M processor cannot execute ARM instruction set instructions (which are 32 bit)
+				1. It uses thumb instruction set
+					1. Why? Gives same 32 ARM instruction performance but in 16 bit format
+						1. Saves space in core memory
+			3. ARM provides documentations to learn more about the processor
+				1. infocenter.arm.com
+11. Major competitors
+	1. AVR based microcontrollers (8/16/32 bit) by microchip (Atmel - previously)
+		1. Most of arduino boards use microcontrollers which are based on AVR Processor Core of 8 bit/16 bit/32 bit architecture
+			1. Exception: Arduino Due - ARM Cortex M based (I think)
 
 ### Processor Core vs Processor ###
 ### Processor vs Microcontroller ###
