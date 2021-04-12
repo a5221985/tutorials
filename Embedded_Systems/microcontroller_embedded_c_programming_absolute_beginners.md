@@ -6727,8 +6727,277 @@ Exercise:
 	4. Others
 		1. `#error` **(M)**
 		2. `#pragma`
-	
+6. Macros in 'C' (`#define`)
+	1. Macros are written in 'C' using `#define` pre-processor directive
+	2. Macros are used for textual replacement in the code
+		1. Common use is for defining constants
+	3. Syntax:
+
+			#define <identifier> <value>
+			
+		1. Example:
+
+				#define MAX_RECORDS 10
+				
+		2. Example:
+
+				#include <stdio.h>
+				#include <stdint.h>
+				
+				// This is a macro which defines minimum age for evaluation
+				#define MIN_AGE 18
+				
+				int main(void) {
+					uint8_t age = get_voter_age();
+					
+					if (age < MIN_AGE) {
+						printf("You cannot vote!\n");
+					} else {
+						printf("Congratulations! you can vote!\n");
+					}
+				}
+				
+			1. Why this?
+				1. Suppose the value for MIN_AGE is used at many places
+				2. Suppose we want to change the value
+					1. Without macro, we may have to change everywhere
+						1. With macro, the value can be changed only in one place
+	4. During pre-processing stage of the compilation process, macro names (identifiers) are replaced by the associated values inside the program
+		1. macro is just an **identifier** and not a variable (only a textual representation of the value)
+	5. In embedded systems programming, we use lots of 'C' macros to define
+		1. Pin numbers
+		2. Pin values
+		3. Crystal speed
+		4. Peripheral register addresses
+		5. Memory addresses
+		6. Configuration values
+		7. ...
+	6. Examples:
+
+			#define PIN_8					8
+			#define GREEN_LED			PIN_8
+			#define LED_STATE_ON		1
+			#define LED_STATE_OFF		0
+			#define XTAL_SPEED			8000000UL // UL - unsigned long
+			#define FLASH_BASE_ADDR		0x08000000UL
+			#define SRAM_BASE_ADDR		0x20000000ul
+			
+			#define PI					3.1415; // wrong - no semicolon
+			
+		1. Uppercase is a convention
+			1. To distinguish between variable names and macros
+	7. Function like macros
+		1. To define a function-like macro, use the same `#define` directive
+			1. But put parantheses immediately after macro name.
+		2. Examples:
+
+				#define PI_VALUE		3.1415
+				
+				#define AREA_OF_CIRCLE(r)	PI_VALUE * r * r
+				areaCircle  AREA_OF_CIRCLE(radius); // original C statement
+				
+				areaCircle = PI_VALUE * radius * radius; // stage 1
+				areaCircle = 3.1415 * radius * radius; // pre-processed C statement - stage 2
+				
+	8. The following macro is poorly written and dangerous
+
+			#define AREA_OF_CIRCLE(r)		PI_VALUE * r * r
+			
+		1. We have to be careful with macro 'values' when we do some 'operations' using multiple 'operands'
+			1. Why is it bad?
+
+					areaCircle = AREA_OF_CIRCLE(radius + 1);
+					areaCircle = 3.1415 * radius + 1 * radius + 1; // converted to this
+					
+				1. Fix:
+
+						#define AREA_OF_CIRDLE(r) ((PI_VALUE) * (r) * (r))
+						
+					1. Use parantheses for every operand
+	9. Best practices while writing macros in 'C'
+		1. Use meaningful macro names
+		2. It's recommended that you use UPPER case letters for macro names to distinguish them from variables
+		3. Remember, macro's names are not variable
+			1. They are labels or identifiers
+				1. They don't consume any code space or ram space during compile time or run time of program
+		4. Make sure parantheses surround macro value
+		5. While using function-like macros or macros along with operators
+			1. Surround operands with parantheses
+
 ### Conditional Compilation Directives ###
+1. Examples of conditional compilation directives
+	1. `#if`
+	2. `#ifdef`
+	3. `#endif`
+	4. `#else`
+	5. `#undef`
+	6. `#ifndef`
+2. The directives help us to include or exclude individual code blocks based on various conditions set in program
+3. `#if` and `#endif` directives
+	1. Syntax:
+
+			#if <constant expression>
+			
+			#endif
+			
+	2. Example:
+
+			#if 0
+				// code block - is or is not part of final program
+			#endif
+			
+4. This directive checks whether constant expression is zero or non zero value.
+	1. If constant is 0
+		1. Code block will not be included for code compilation
+	2. If constant is non zero
+		1. Code block will be included for code compilation
+	3. `#endif` - marks end of scope of `#if`, `#ifdef`, `#ifndef`, `#else`, `#elif` **(M)**
+	4. `<constant expression>` must be a number or integer
+	5. `#if` - it is conditional compilation directive
+5. Example:
+	
+		#define DEBUG 0
+
+		int main() {
+		#if DEBUG
+			// code block is excluded
+			#if 0 // nested
+				// code block
+			#endif
+		#endif	
+		}
+		
+	1. Example:
+
+			#if 1
+				// Code block-1 // included
+			#else
+				// Code block-2 // excluded
+			#endif
+			
+6. `#ifdef`
+	1. Syntax:
+
+			#ifdef <identifier>
+				// code block
+			#endif
+			
+		1. `#ifdef` directive checks whether identifier is defined in program or not
+			1. If identifier is defined, code block will be included for compilation
+		2. Example:
+
+				#ifdef NEW_FEATURE
+					// Code block
+				#endif
+				
+	2. Depends on definition only
+		1. Identifier is used instead of constant expression
+	3. Problem:
+		1. Execute triangle area calculation code block only if AREA_TRI macro is defined in the program
+		2. Execute circle area calculation code block only if AREA_CIR macro is defined and execute triangle area calculation code block only if AREA_TRI macro is defined in the program
+		3. Make sure that compilation fails if none of the macros is defined
+		4. Make sure that compilation triggers warnings if none of the macros are defined
+		5. Solution:
+
+				#define AREA_TRI // not required, it can be passed as commandline argument
+				#define AREA_CIR // not required, it can be passed as commandline argument
+				
+				#ifdef AREA_TRI
+				// area of triangle logic
+				#endif
+				
+				#ifdef AREA_CIR
+				// area of circle logic
+				#endif
+				
+			1. Passing definition as compiler argument
+				1. Right click on project > Properties > GCC C Compiler > Preprocessor
+					1. Defined symbols (`-D`)
+						1. `AREA_TR`
+
+								gcc -DAREA_TR ...
+								
+			2. Overriding already defined symbols
+
+					#undef AREA_TR
+					
+			3. If not defined then include the code block
+
+					#ifndef AREA_TR
+						// code block
+					#endif
+
 ### 'defined' Operator ###
+1. `#if` and `defined` operator
+	1. The `defined` operator is used when you want to check definitions of multiple macros using single `#if`, `#ifdef` or `#ifndef` directives
+	2. 'C' logical operators can also be used (AND, NOT, OR) with `defined` operator
+2. Example:
+
+		#ifdef AREA_CIR
+			#ifdef AREA_TRI
+		printf("This is the area calculation program for both circle and Triangle"); // We want to include this only if both macros are defined
+			#endif
+		#endif
+		
+	1. Another approach
+
+			#if defined(AREA_CIR) && defined(AREA_TRI)
+				printf("This is the area calculation program for both circle and Triangle");
+			#endif
+			
+	2. User must mention atleast one of the macros
+
+			// can be kept outside or inside a function
+			#if !defined(AREA_CIR) && !defined(AREA_TRI)
+				printf("Please define atleast one macro\n");
+				#error "No macros defined."
+			#endif
+			
+		1. `#error "<error-message>"` **(M)**
+	3. Warning instead of error
+
+			#if !defined(AREA_CIR) && !defined(AREA_TRI)
+				printf("Please define atleast one macro\n");
+				#warning "No macros defined."
+			#endif
+
 ### Modifying LED Toggle Exercise with Macros ###
+1. LED Toggle Project with Macros
+	1. main.h
+
+			// some macros
+			#define ADDRESS_REG_AHB1ENR ( (RCC_AHB1ENR_t*) 0x40023830 )
+			#define ADDRESS_REG_GPIO_X_MODE ( (GPIOx_MODE_t*) 0x40020C00 )
+			#define ADDRESS_REG_GPIO_X_ODR ( (GPIOx_ODR_t*) 0x40020C14 )
+			#define CLOCK_ENABLE ( 1 )
+			#define MODE_CONF_OUTPUT ( 1 )
+			#define PIN_STATE_HIGH ( 1 )
+			#define PIN_STATE_LOW ( 0 )
+			#define DELAY_COUNT ( 300000UL ) // default is int
+			
+	2. main.c
+	
+			// ...
+			RCC_AHB1ENR_t volatile *const pClkCtrlReg = ADDRESS_REG_AHB1ENR;
+			GPIOx_MODE_t volatile *const pPortDModeReg = ADDRESS_REG_GPIO_X_MODE;
+			GPIOx_ODR_t volatile *const pPortDOutReg = ADDRESS_REG_GPIO_X_ODR;
+			
+			pClkCtrlReg->gpiod_en = CLOCK_ENABLE;
+			
+			pPortDModeReg->pin_12 = MODE_CONF_OUTPUT;
+			
+			// ...
+			pPortDOutReg->pin_12 = PIN_STATE_HIGH;
+			for (/*...*/; i < DELAY_COUNT; /*...*/)
+			// ...
+			pPortDOutReg->pin_12 = PIN_STATE_LOW;
+			for (/*...*/; i < DELAY_COUNT; /*...*/)
+			// ...
+
 ### BONUS LECTURE ###
+1. [Mastering Microcontroller DMA programming for Beginners
+(Highest rated course on Embedded Systems)](https://www.udemy.com/course/microcontroller-dma-programming-fundamentals-to-advanced/?couponCode=FASTWEBAPR21)
+2. [STM32Fx ARM Cortex Mx Custom Bootloader Development](https://www.udemy.com/course/stm32f4-arm-cortex-mx-custom-bootloader-development/?couponCode=FASTWEBAPR21)
+3. [Free videos on embedded systems, embedded Linux, RTOS programming on our YouTube channel](https://www.youtube.com/channel/UCa1REBV9hyrzGp2mjJCagBg)
+4. [http://fastbitlab.com/](http://fastbitlab.com/)
+5. [https://www.linkedin.com/in/fastbitlab/](https://www.linkedin.com/in/fastbitlab/)
