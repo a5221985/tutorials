@@ -1954,8 +1954,25 @@
 		2. Mobile client
 			1. Complexity of app
 				1. They are usually external to the system (unlike web application) - difficult to locate where which service is available
+		3. **Solution**:
+			1. RESTful Aggregator/Gateway Service
+				1. Reasons for Gateway Service
+					1. Workflow complexity
+						1. Single point of contact for all clients (web or mobile)
+							1. Aggregation of responses are taken care by aggregator service
+					2. Inter-operable interface on gateway service
+						1. This is essential here but not for internal services
+							1. Inter-service communication can be on gRPC or Thrift (binary protocol)
+								1. Faster (performant)
+						2. Clients can use REST or SOAP
+							1. Thrift or gRPC can also be used by clients
+3. Caveat - Single instance exists for write load
+	1. Problem if load becomes very high
 
 ### Asynchronous Services ###
+1. Async services effectively reduces write load from a database
+	1. Message queues - used to integrate client and server if interfaces are different (not compatible)
+
 ### Asynchronous Processing & Scalability ###
 ### Caching for Scalability ###
 ### Vertical Partitioning with Micro-Services ###
