@@ -1971,7 +1971,25 @@
 
 ### Asynchronous Services ###
 1. Async services effectively reduces write load from a database
-	1. Message queues - used to integrate client and server if interfaces are different (not compatible)
+	1. Message queues - 
+		1. Used to integrate client and server if interfaces are different (not compatible) (?)
+		2. Used to reliably deliver message from client to server
+		3. Scalability - used to offload some write load on databases
+			1. Where to use message queue?
+				1. Suppose order booking request takes time to process
+					1. Order service:
+						1. Accept the order
+						2. Validate the order
+						3. Persist it in messaging queue (processed later)
+							1. Previously this step was done synchronously
+								1. Also talk to inventory
+							2. Message queues are fast at accepting messages (they are designed for that)
+						4. Send response to user (acceptance)
+					2. Order Processing service
+						1. Pulls requests from messaging queue
+							1. Push requests to order processing service can also be implemented as an alternative
+						2. Talks to other servicess (Inventory say)
+						3. 
 
 ### Asynchronous Processing & Scalability ###
 ### Caching for Scalability ###
