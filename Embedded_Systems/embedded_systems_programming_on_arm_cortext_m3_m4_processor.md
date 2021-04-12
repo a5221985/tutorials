@@ -18,7 +18,11 @@
 			6. Toys and consumer products
 			7. PC and mobile accessories
 			8. Test and measurement devices
-	2. 
+	2. Other examples:
+		1. Fitbit flex (for tracking fitness) - water-resistant wristband with 5-day battery life (battery life and charge cycles vary with use, settings and other factors.)
+		2. Wireless syncing - sync stats wirelessly & automatically
+	3. Spec
+		1. Microcontroller: STM32L151C6 by STMicro
 
 ### Processor Core vs Processor ###
 ### Processor vs Microcontroller ###
