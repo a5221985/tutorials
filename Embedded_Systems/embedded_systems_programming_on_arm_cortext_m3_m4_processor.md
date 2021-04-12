@@ -72,8 +72,31 @@
 	1. AVR based microcontrollers (8/16/32 bit) by microchip (Atmel - previously)
 		1. Most of arduino boards use microcontrollers which are based on AVR Processor Core of 8 bit/16 bit/32 bit architecture
 			1. Exception: Arduino Due - ARM Cortex M based (I think)
+	2. MSP430 Microcontrollers (16bit) by TI
+		1. Own architecture
 
 ### Processor Core vs Processor ###
+1. Open ARM Cortex M4 Processor - Technical Reference Manual
+	1. ARM's website
+		1. Functional Description (section)
+			1. Block diagram of Cortex M4
+				1. Processor is
+					1. Processor core
+						1. Consists of ALU (data computation takes place and results will get generated)
+						2. It has logic to decode and execute instruction
+						3. It has many registers to store and manipulate data
+						4. It has barrel shifter
+						5. It has pipeline engine to boost instruction execution
+						6. It has hardware multiplication and division engine
+						7. It has address generation unit
+					2. Peripherals (processor specific)
+						1. NVIC (Nested Vectored Interrupt Controller) engine
+						2. FPB (Flash Patch Breakpoint)
+						3. Bus Matrix
+						4. MPU (Memory Protection Unit)
+						5. DWT (Data Watchpoint and Trace Unit)
+						6. ...
+
 ### Processor vs Microcontroller ###
 ### Download Source Code ###
 
