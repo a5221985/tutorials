@@ -1989,9 +1989,19 @@
 						1. Pulls requests from messaging queue
 							1. Push requests to order processing service can also be implemented as an alternative
 						2. Talks to other servicess (Inventory say)
-						3. 
+						3. Processes requests
+						4. Talks to notification service
+							1. Notification service - notifies user of order creation
+2. Asynchronous processing:
+	1. Where to use it?
+		1. Where write operation is the main operation
+			1. Read operation: request goes through system (db if required) processed and displayed to user
+				1. Here asynchronous processing cannot be used (we need to respond immediately and show information immediately)
+			2. **Predominantly write oriented operations: Write operations where intermediate read operations dont have to be shown to user**
 
 ### Asynchronous Processing & Scalability ###
+1. Async services require infrastructure for average load as opposed to peak load
+
 ### Caching for Scalability ###
 ### Vertical Partitioning with Micro-Services ###
 ### Database Partitioning ###
