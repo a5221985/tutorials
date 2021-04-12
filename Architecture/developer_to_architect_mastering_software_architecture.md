@@ -2032,8 +2032,37 @@
 
 ### Caching for Scalability ###
 1. Caching reduces latency and reduces overall read load
+	1. Recap
+		1. If there is data that is very frequently read and is not modified so frequently - candidate for caching
+		2. Points where we can cache
+			1. Database: Object Cache
+				1. Services can utilize instead of going to database (read)
+			2. Web application: Session cache or regular cache
+				1. Data related to user session
+				2. Global data can also be cached
+			3. Reverse proxy: Can cache static data
+			4. Proxy: Can cache static data
+			5. Browsers: Can cache static data
+	2. Consequences
+		1. If data is available in browser cache, call is not made to the system
+			1. Load on system will reduce
+		2. If static data is available on reverse proxy, call will not be made to web application
+			1. Reduces load from web application and rest of the system behind
+		3. Web can cache data and not make calls to services
+		4. Services can cache data in object cache and avoid making calls to database
+		5. If we can reduce calls using caches, we can reduce load on the system components (especially database - it is hard to scale because it is stateful)
+			1. Read replicas can be created but write load is still a bottleneck
+			2. If read load is offloaded to cache, db gets freed from load
+				1. This gives some breathing space to the database to increase it's write load (capacity gets utilized to serve write loads)
+2. Two ways to reduce load on database
+	1. Asynchronous processing using message queues (reduces write load by distributing in time)
+	2. Caching for read load (reduces read load by offloading it to cache)
+	3. This further scales database and the entire system
 
 ### Vertical Partitioning with Micro-Services ###
+1. Micro-Services completely decouples services and databases for higher scalability
+	1. 
+
 ### Database Partitioning ###
 ### Database Partitioning Selection ###
 ### Routing with Database Partitioning ###
