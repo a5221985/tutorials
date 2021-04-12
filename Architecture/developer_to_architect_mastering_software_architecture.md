@@ -1865,6 +1865,9 @@
 						1. Writes become unavailable if any of the databases goes down
 			4. This can be used for backups
 				1. Not for read replicas
+				2. Master and backup will be in sync with each other
+					1. Brings down latency a bit (as compared to asynchronous)
+					2. But if master goes down, backup will get promoted to become master (without loss of data)
 2. Master-Master (No-Master/ Peer-To-Peer)
 	1. Asynchronous (multi-geography)
 		1. Write conflicts
@@ -1882,6 +1885,20 @@
 									|
 									v
 				Service -R+W-> DB2
+				
+	3. Client can read/write on any of the instances
+		1. Replication is bidirectional
+			1. Change in one is propagated to other database
+		2. Flavours
+			1. Asynchronous
+		3. Challenge:
+			1. Write conflict
+				1. If changes are made in both db instances to the same record at the same time
+					1. In master-slave - there is only one source of truth
+						1. No write conflicts (this is popular and simple)
+				2. Not easily resolved
+		4. Use case:
+			1. 
 
 ### Need for Specialized Services ###
 1. 
