@@ -3,6 +3,23 @@
 ### About the Instructor ###
 ### Important Note ###
 ### Motivation to Learn Cortex Family of Processors ###
+1. Motivation:
+	1. it's an embedded processor used in most of the microcontrollers we see today
+		1. Used in wide range of embedded applications
+			1. Battery powered devices
+				1. Health monitoring
+				2. Fitness tracking apps
+				3. Medical meters
+				4. ...
+			2. Automotive apps
+			3. IOT apps
+			4. Mobile and home appliances
+			5. Home/building automation
+			6. Toys and consumer products
+			7. PC and mobile accessories
+			8. Test and measurement devices
+	2. 
+
 ### Processor Core vs Processor ###
 ### Processor vs Microcontroller ###
 ### Download Source Code ###
