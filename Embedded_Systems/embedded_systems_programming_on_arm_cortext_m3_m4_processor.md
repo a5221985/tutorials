@@ -21,8 +21,25 @@
 	2. Other examples:
 		1. Fitbit flex (for tracking fitness) - water-resistant wristband with 5-day battery life (battery life and charge cycles vary with use, settings and other factors.)
 		2. Wireless syncing - sync stats wirelessly & automatically
-	3. Spec
-		1. Microcontroller: STM32L151C6 by STMicro
+		3. Spec
+			1. Microcontroller: STM32L151C6 by STMicro
+			2. Processor: ARM Cortex M3
+			3. Application type: Ultra Low Power
+		2. TomTom Spark 3 GPS Multisport Fitness Watch
+			1. Microcontroller - SAMSx (Atmel SMART ARM Cortex-M7 Microcontrollers)
+			2. Processor: ARM Cortex M7
+			3. Application Type: Ultra Low Power
+2. Most of famous MCU manufacturers produce microcontrollers based on ARM Cortex M processors
+	1. TI (Low power battery based applications)
+	2. STMicro (High + Medium + Low performance MCUs)
+	3. Toshiba (measuring equipments + metering)
+	4. NXP
+	5. Microchip
+	6. Broadcom (Wireless connectivity, IOT)
+	7. ...
+	8. Freescale
+	9. Fujitsu
+10. 
 
 ### Processor Core vs Processor ###
 ### Processor vs Microcontroller ###
