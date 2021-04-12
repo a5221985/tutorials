@@ -1919,9 +1919,42 @@
 		1. Extra load - updating inventory
 			1. Warehouses review and upload updated inventory
 				1. Load on system goes up
-			2. We want to add 
+			2. We want to add more instances for inventory module only
+				1. But bloated app has all the modules
+					1. All modules need to be scaled (all resources (db connections, ... will be required)
+						1. The operational issues can be fixed if we break our monolith application into smaller services
 
 ### Specialized Services - SOAP/REST ###
+1. Specialized services
+	1. Partially independent development and deployment
+		1. There is still some dependency
+			1. Common database
+			2. If SOAP schema - WSDL dependency
+				1. RESTful - the dependency can be got rid of
+	2. Independent scalability
+		1. Any service can be scaled independently
+			1. Catalog service say
+				1. More instance for Catalog service
+	3. Independent technology
+		1. Technolgy used to develop the services can be independent of each other
+			1. User Service - .Net
+			2. Catalog Service - Java
+			3. Order Service - C++
+			4. ...
+2. Consequences
+	1. We can independently develop the service (partial dependency)
+		1. User service developer does not need to know the inner details of catalog service
+			1. But shared tables of DB (one service cannot modify the schema)
+	2. We can independenty deploy the service (partially)
+		1. Patch on User service can be added independently of other services
+		2. But common libraries and schema cannot be deployed independently
+	3. Increase in complexity of the system
+		1. Web application
+			1. Needs to interact with multiple services say (complex interaction)
+		2. Mobile client
+			1. Complexity of app
+				1. They are usually external to the system (unlike web application) - difficult to locate where which service is available
+
 ### Asynchronous Services ###
 ### Asynchronous Processing & Scalability ###
 ### Caching for Scalability ###
