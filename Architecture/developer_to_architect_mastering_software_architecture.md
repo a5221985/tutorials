@@ -2001,6 +2001,14 @@
 
 ### Asynchronous Processing & Scalability ###
 1. Async services require infrastructure for average load as opposed to peak load
+2. Order requests coming to order service are processed in order processing servie are written to database
+	1. If we are receiving 50000 requests/sec on order service, db is also processing 50000 requests/sec
+		1. DB has to scale at the same rate as order service
+		2. There could be other requests from other services coming (common db for services)
+		3. Load on DB will become very high
+	2. Solution: Asynchronous processing
+		1. Load on system will not be constant throughout and it varies
+			1. Peak periods - request rate will be high
 
 ### Caching for Scalability ###
 ### Vertical Partitioning with Micro-Services ###
