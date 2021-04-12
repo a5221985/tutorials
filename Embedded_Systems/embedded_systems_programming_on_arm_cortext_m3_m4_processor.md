@@ -55,6 +55,14 @@
 		4. ...
 	5. Powerful and easy to use interrupt controller
 		1. Supports 240 external interrupts
+	6. RTOS friendly
+		1. Provides some exceptions
+		2. Provides processor operational modes and access level configuration
+			1. Helps to develop secured RTOS related applications
+	7. Instruction set is rich and memory efficient
+		1. Uses Thumb instruction set
+			1. Collection of 16 bit & 32 bit instructions
+			2. 
 
 ### Processor Core vs Processor ###
 ### Processor vs Microcontroller ###
