@@ -2061,7 +2061,31 @@
 
 ### Vertical Partitioning with Micro-Services ###
 1. Micro-Services completely decouples services and databases for higher scalability
-	1. 
+	1. Suppose we need to handle more load than what has already been done
+		1. Write load (cannot be distributed for RDBMS)
+			1. Solutions:
+				1. Depends on the kind of data we are storing
+					1. Each service represents a domain in the business logic
+						1. Inventory
+						2. Order
+						3. Catalog
+						4. User
+							1. User Authentication (service)
+							2. User Profile (service)
+					2. We can separate data based on domain, we can host the data on different databases
+						1. Inventory -> Inventory DB
+						2. Order -> Order DB
+						3. Catalog -> Catalog DB
+						4. User -> User DB
+					3. Roughly the system is 4 times more scalable (or more)
+					4. Challenge:
+						1. We may have to get rid of common tables
+							1. Each db is responsible for a particular data according to business domain it belongs to
+								1. Order service talks to only Order DB
+								2. If Order service wants Catalog data:
+									1. It should go through Catalog service
+										1. There is separation of responsibility
+							2. 
 
 ### Database Partitioning ###
 ### Database Partitioning Selection ###
