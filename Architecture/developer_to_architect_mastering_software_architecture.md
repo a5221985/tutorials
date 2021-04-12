@@ -1855,7 +1855,9 @@
 				1. Slower write latency as compared to asynchronous
 			2. Consistency
 				1. Data is always consistent (transaction takes care of that)
-			3. 
+			3. Low write availability
+				1. Suppose read replica goes down & synchronous replication is established between master and slave
+					1. Since secondary is not available, 
 2. Master-Master (No-Master/ Peer-To-Peer)
 	1. Asynchronous (multi-geography)
 		1. Write conflicts
