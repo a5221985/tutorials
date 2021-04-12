@@ -1909,12 +1909,17 @@
 
 ### Need for Specialized Services ###
 1. Need for specialized services
-	1. Service modules:
+	1. Service modules: (they live within same application instance)
 		1. User
 		2. Catalog
 		3. Order
 		4. Inventory
 		5. Notification
+	2. Scalability issues
+		1. Extra load - updating inventory
+			1. Warehouses review and upload updated inventory
+				1. Load on system goes up
+			2. We want to add 
 
 ### Specialized Services - SOAP/REST ###
 ### Asynchronous Services ###
