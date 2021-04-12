@@ -1872,6 +1872,7 @@
 	1. Asynchronous (multi-geography)
 		1. Write conflicts
 		2. High availability
+			1. It does not matter which database goes down (we can write to other databases)
 	2. Properties
 		3. High read scalability
 		4. High read write availability
@@ -1898,10 +1899,22 @@
 						1. No write conflicts (this is popular and simple)
 				2. Not easily resolved
 		4. Use case:
-			1. 
+			1. Different data exist in different databases (not same records)
+				1. User writes to the db close to the user
+				2. If user from one location wants to write data of another location, the data is written to the remote location.
+					1. Write latency is higher of remote location
+			2. Business rules need to be written to handle write conflicts
+		5. Clock skew can be present between the instances
+			1. May cause transaction ordering issues
 
 ### Need for Specialized Services ###
-1. 
+1. Need for specialized services
+	1. Service modules:
+		1. User
+		2. Catalog
+		3. Order
+		4. Inventory
+		5. Notification
 
 ### Specialized Services - SOAP/REST ###
 ### Asynchronous Services ###
