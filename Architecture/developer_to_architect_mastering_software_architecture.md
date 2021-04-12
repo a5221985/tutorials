@@ -2009,6 +2009,14 @@
 	2. Solution: Asynchronous processing
 		1. Load on system will not be constant throughout and it varies
 			1. Peak periods - request rate will be high
+				1. The requests coming during peak periods can be stored
+				2. When load on system is lesser, we can process the stored requests
+					1. Requests don't have to be rejected
+				3. A threshold can be used
+					1. Any requests above 10000 requests/ second cannot be handled & lower rate can be hanled by the DB
+						1. The scaling gets stopped dat 10000 requests/ sec
+							1. This can be changed by introducing message queue + order processing service
+								1. Message 
 
 ### Caching for Scalability ###
 ### Vertical Partitioning with Micro-Services ###
