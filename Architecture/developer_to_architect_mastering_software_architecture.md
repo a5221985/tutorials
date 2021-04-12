@@ -2085,9 +2085,29 @@
 								2. If Order service wants Catalog data:
 									1. It should go through Catalog service
 										1. There is separation of responsibility
-							2. 
+					5. Consequences:
+						1. The DBs can be scaled independently
+						2. The DBs can be deployed independently
+						3. The DBs might have different load
+						4. Write load is distributed among different DBs
+					6. Drawback:
+						1. We have sacrificed ACID transactions
+							1. Suppose Order service was previously doing transactions over multiple tables
+								1. The tables are distributed across databases
+									1. This is no longer possible
+2. Vertical Partitioning:
+	1. Services & Data are vertically partitioned
+		1. Inverntory -> Inventory DB
+		2. Order -> Order DB
+		3. ...
+	2. This is microservices architecture
+		1. Used for high levels of scalability
+			1. If we have run out of other ways of scaling the system
+			2. Good to scale for write load
 
 ### Database Partitioning ###
+1. 
+
 ### Database Partitioning Selection ###
 ### Routing with Database Partitioning ###
 ### Methods for Horizontal Scalability ###
