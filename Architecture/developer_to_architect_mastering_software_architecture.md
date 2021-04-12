@@ -2016,9 +2016,23 @@
 					1. Any requests above 10000 requests/ second cannot be handled & lower rate can be hanled by the DB
 						1. The scaling gets stopped dat 10000 requests/ sec
 							1. This can be changed by introducing message queue + order processing service
-								1. Message 
+								1. Message queues can scale much higher than databases (100000 requests/ sec say)
+									1. They are fast because very less processing
+				4. DB will continue to process at it's maximum rate
+					1. 10000 requests/ sec
+			2. When request rate goes down below 10000 requests/ sec
+				1. DB and order processing service will catch up with the backlog accumulated
+				2. Backlog gets reduced during lull periods (when there is no much load)
+			3. Alternative - more database is needed
+				1. Problems: 
+					1. Even if the rate is slightly higher, db will not be able to handle them
+					2. The rate doesn't last very long and could be in multiple short bursts then DB will be underutilized (on an average)
+		2. Consequence: Peak load is distributed over a period of time
+3. Asynchronous processing wherever it is possible to introduce can increase the scalability of the system	
 
 ### Caching for Scalability ###
+1. Caching reduces latency and reduces overall read load
+
 ### Vertical Partitioning with Micro-Services ###
 ### Database Partitioning ###
 ### Database Partitioning Selection ###
