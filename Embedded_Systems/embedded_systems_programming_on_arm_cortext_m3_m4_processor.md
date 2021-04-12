@@ -39,7 +39,22 @@
 	7. ...
 	8. Freescale
 	9. Fujitsu
-10. 
+10. Motivation:
+	1. Most of the manufacturers love to use ARM Cortex M processor in design because of it's 
+		1. Minimal cost
+		2. Minimal power
+		3. Minimal silicon area
+			1. For different power requirements
+	2. Its a 32 bit processor which will suply boost the computational performance of an app and it comes with almost same price of 8 bit or 16 bit traditional processor
+		1. Compared to 8 and 16 bit microcontrollers
+	3. We can use the processor based MCUs in ultra low power to high performance based apps
+	4. Processor is customizable to include (manufacturer can add more features such as below)
+		1. Floating point unit
+		2. DSP unit
+		3. MPU (Memory Protection Unit)
+		4. ...
+	5. Powerful and easy to use interrupt controller
+		1. Supports 240 external interrupts
 
 ### Processor Core vs Processor ###
 ### Processor vs Microcontroller ###
