@@ -1850,6 +1850,10 @@
 							1. After a delay, they become consistent
 			3. If master db goes down and secondary is promoted
 				1. Certain changes not promoted to slave are lost
+			4. Writes become unavailable only if master goes down
+				1. If secondary goes down, write can still continue
+					1. It can pickup when it comes back
+			5. It can be used in cases where we need high read performance, low latency reads and writes
 		2. Synchronous
 			1. Slower because all master and slaves have to be synchronized before comitting the transaction
 				1. Slower write latency as compared to asynchronous
@@ -1857,7 +1861,10 @@
 				1. Data is always consistent (transaction takes care of that)
 			3. Low write availability
 				1. Suppose read replica goes down & synchronous replication is established between master and slave
-					1. Since secondary is not available, 
+					1. Since secondary is not available, transaction cannot be completed (because transaction needs to update secondary as well to complete)
+						1. Writes become unavailable if any of the databases goes down
+			4. This can be used for backups
+				1. Not for read replicas
 2. Master-Master (No-Master/ Peer-To-Peer)
 	1. Asynchronous (multi-geography)
 		1. Write conflicts
