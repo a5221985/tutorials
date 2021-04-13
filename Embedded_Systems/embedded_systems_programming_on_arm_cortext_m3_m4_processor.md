@@ -266,8 +266,18 @@
 	2. main.c
 
 			int main(void) { // first function called (before this - reset handler is executed if reset
+			
+				printf("In thread mode: before internet\n");
+				
 				generate_interrupt();
+				
+				printf("In thread mode: after interrupt\n");
+				
 				for(;;);
+			}
+			
+			void RTC_WKUP_IRQHandler(void) {
+				printf("In handler mode: ISR\n");
 			}
 
 ### Access Level of the Processor ###
