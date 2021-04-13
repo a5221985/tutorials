@@ -351,8 +351,44 @@
 ### Core Registers Part-1 ###
 1. Cortex-M4 Devices - Generic User Guide
 	1. Core register (section)
-		1. Processor core registers (Cortex-M4 core)
+		1. Processor core registers (Cortex-M4 core) - 32 bit all
 			1. Low registers: R0-R12 (general purpose registers)
+				1. Can be used for general purpose (data operations, manipulations, store data, addresses, ...)
+			2. R13 - Stack pointer (SP)
+				1. Used to track stack memory (PSP, MSP - Banked version of SP)
+				2. PSP - Processor Stack Pointer
+				3. MSP - Main Stack Pointer
+					1. Later (depends on mode)
+			3. R14 - Link Register (LR)
+				1. It stores the return information for subroutines, fucntion calls, and exceptions.
+				2. On reset, the processor sets LR value to 0xFFFFFFFF
+				3. Example:
+
+						// Caller
+						void fun1(void) {
+							fun1_ins_1;
+							fun2(); // PC jumps to fun2 address
+							fun1_ins_2; // LR = return address (address of next instruction)
+						}
+						
+						// Callee
+						void fun2(void) {
+							fun2_ins_1;
+							fun2_ins_2;
+						} // PC jumps back to resume fun1 - Function return PC = LR
+						
+					1. Before jumping to fun2, LR is loaded with address of next instruction (fun1_ins_2)
+					2. When fun2 finishes, saved LR is copied into PC
+						1. PC jumps back to fun1
+					3. LR - used to link back to the caller
+					4. Example: program:
+						1. `main(0)` calls `generate_interrupt()`
+
+								bl <address> # branch with link - LR gets updated with next address
+								...
+								bx lr # branch indirect - LR is copied into PC
+								
+							1. Check LR register
 
 ### Core Registers Part-2 ###
 ### Core Registers Part-3 ###
