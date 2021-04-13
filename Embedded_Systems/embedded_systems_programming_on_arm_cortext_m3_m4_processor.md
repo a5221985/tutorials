@@ -406,9 +406,12 @@
 		1. It combines 3 different sub-registers
 			1. Application Program Status Register (APSR)
 				1. 5 bits (27-31)
+				2. Purpose
+					1. 
 			2. Interrupt Program Status Register (IPSR)
-				1. 
+				1. 9 bits (0-8) - ISR_NUMBER
 			3. Execution Program Status Register (EPSR)
+				1. 25-26, 24, 10-15
 	2. PRIMASK -
 
 ### Memory Mapped and Non-Memory Mapped Registers of the MCU ###
