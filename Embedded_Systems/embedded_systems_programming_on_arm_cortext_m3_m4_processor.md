@@ -327,8 +327,24 @@
 							2. Field will reveal which exception has caused the processor to move to the handler mode
 			2. Window > Show View > Registers
 				1. xpsr [8:0]
+				2. IRQ3 is triggered if we run the code (19 is the value)
+2. The only way to push the processor to handler mode is through external interrupt or through software exception
 
 ### Access Level of the Processor ###
+1. Processor offers 2 access levels
+	1. Privileged Access Level (PAL)
+	2. Non-Privileged Access Level (NPAL)
+2. Why the access levels?
+	1. If code is running with PAL, then
+		1. Code has full access to all processor specific resources and restricted registers (privileged level can only access these registers)
+	2. If code is running with NPAL, then
+		1. Code may not have access to some of the restricted registers of the processor
+	3. By default - code will run in PAL
+	4. When processor is in thread mode,
+		1. It is possible to move the thread to NPAL
+		2. Once we move out of PAL to NPAL (in thread mode)
+			1. it is not possible to come back to PAL unless you change processor operational mode to "handler mode"
+
 ### Core Registers Part-1 ###
 ### Core Registers Part-2 ###
 ### Core Registers Part-3 ###
@@ -340,7 +356,7 @@
 ### ARM GCC Inline Assembly Coding Part-3 ###
 ### ARM GCC Inline Assembly Coding Part-4 ###
 
-## Rest Sequence of the Processor ##
+## Reset Sequence of the Processor ##
 ### Reset Sequence of the Processor ###
 ### Reset Sequence of the Processor Contd ###
 
