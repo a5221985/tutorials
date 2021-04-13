@@ -246,7 +246,15 @@
 	12. ...
 
 ### Operational Modes of the Cortex Mx Processor ###
-1. 
+1. M0/M3/M4 (M7...)
+	1. Processor gives 2 operational modes
+		1. Thread mode
+			1. All application code will execute under "thread mode" of the processor - "User Mode"
+		2. Handler mode
+			1. All exeptions handlers or interrupt handlers will run under the "Handler mode" of the processor
+				1. System exceptions
+				2. Interrupts (from peripherals)
+			2. 
 
 ### Operation Modes Code Demonstration ###
 ### Access Level of the Processor ###
