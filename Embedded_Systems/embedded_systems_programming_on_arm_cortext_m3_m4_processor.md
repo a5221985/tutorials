@@ -265,12 +265,15 @@
 		2. Empty
 	2. main.c
 
-			void generate_interrupt() {
+			void generate_interrupt() { // gets executed in thread mode of the processor
 				uint32_t *pSTR = (uint32_t*) 0xE000EF00;
 				uint32_t *pSTR = (uint32_t*) 0xE000EF00;
 				
 				//enable IRQ3 interrupt
-				*pISER0 |=
+				*pISER0 |= (1 << 3);
+				
+				//generate an interrupt from software for IRQ3 (system level registers memory mapped)
+				*pSTIR = (3 & 0x1FF); // interrupt handler will be called
 			}
 
 			int main(void) { // first function called (before this - reset handler is executed if reset) - the instructions will get executed in thread mode of processor
@@ -284,9 +287,16 @@
 				for(;;);
 			}
 			
-			void RTC_WKUP_IRQHandler(void) {
+			void RTC_WKUP_IRQHandler(void) { // executed in handler mode of the processor
 				printf("In handler mode: ISR\n");
 			}
+			
+		1. Handler mode:
+			1. We have full control over processor: We can do anything to the processor
+			2. We can touch any resources we want
+			3. We can access all system level registers
+			4. We can change interrupt configuration
+			5. We can modify some of the control registers
 
 ### Access Level of the Processor ###
 ### Core Registers Part-1 ###
