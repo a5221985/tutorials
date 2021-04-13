@@ -344,8 +344,16 @@
 		1. It is possible to move the thread to NPAL
 		2. Once we move out of PAL to NPAL (in thread mode)
 			1. it is not possible to come back to PAL unless you change processor operational mode to "handler mode"
+	5. "Handler mode" code execution is always with PAL
+	6. Use CONTROL register of the processor if you want ot switch between access levels
+		1. Configured to change access level to non-privileged mode
 
 ### Core Registers Part-1 ###
+1. Cortex-M4 Devices - Generic User Guide
+	1. Core register (section)
+		1. Processor core registers (Cortex-M4 core)
+			1. Low registers: R0-R12 (general purpose registers)
+
 ### Core Registers Part-2 ###
 ### Core Registers Part-3 ###
 ### Memory Mapped and Non-Memory Mapped Registers of the MCU ###
