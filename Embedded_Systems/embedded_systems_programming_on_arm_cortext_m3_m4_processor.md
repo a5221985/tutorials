@@ -181,7 +181,32 @@
 ### Installing IDE on Windows ###
 ### Installing IDE on Ubuntu ###
 ### Embedded Target Used in this Course ###
+1. STM32F407VGT6 - 32 bit microcontroller
+	1. Processor: ARM Cortex-M4 with FPU
+2. IO pins - for connecting external components (External interfacing headers)
+	1. LEDs
+	2. Buttons
+	3. LCDs
+	4. Keypads
+3. 8MHz crystal oscillator - supply clock to the microcontroller
+4. On board programmer and debugger - ST-LIN/V2-A
+	1. To program and debug (no external programmer or debugger required)
+	2. When we install STM32CUBEIDE - driver for the debugger will be installed automatically
+		1. Separate STLink drivers are also provided
+	3. Use mini USB cable to connect to PC
+	4. Mini Type B Plug - USB
+		1. Not used
+
 ### Documents ###
+1. Documents related to microcontroller
+	1. Search microcontroller in google (stm32f407)
+		1. st.com site
+			1. Resources
+				1. Check Datasheet
+				2. Check Reference Manual
+				3. Download
+	2. Search for board (stm32f407 discovery board)
+		1. 
 
 ## Embedded Hello World ##
 ### Note for the Students ###
