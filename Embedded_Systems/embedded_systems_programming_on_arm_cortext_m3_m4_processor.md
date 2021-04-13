@@ -161,10 +161,23 @@
 
 ## Hardware/ Software Requirements ##
 ### Hardware/ Software Requirements ###
+1. [https://www.udemy.com/course/embedded-system-programming-on-arm-cortex-m3m4/learn/lecture/25391790#overview](https://www.udemy.com/course/embedded-system-programming-on-arm-cortex-m3m4/learn/lecture/25391790#overview)
+	1. Hardware: STM32F407 Discovery Board
+	2. Software: STM32CUBEIDE
 
 ## IDE Installation ##
 ### Note for the Students ###
+1. If already installed STM32CUBEIDE, skip this section
+
 ### About IDE ###
+1. Installing an Integrated Development Environment (IDE)
+	1. IDE is a software that contains all essential tools to develop, compile, link and debug code
+		1. We may to integrate compiler and debugger tools into IDE in some cases
+	2. Eclipse-based STM32CubeIDE is used in the course
+		1. Developed by ST Microelectronics
+			1. Used to write, compile, debug apps on STM32 ARM-based microcontrollers
+	3. STM32CubeIDE is eclipse based with STM32 related customization
+
 ### Installing IDE on Windows ###
 ### Installing IDE on Ubuntu ###
 ### Embedded Target Used in this Course ###
