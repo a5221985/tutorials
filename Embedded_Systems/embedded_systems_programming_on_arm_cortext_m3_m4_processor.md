@@ -268,6 +268,9 @@
 			void generate_interrupt() {
 				uint32_t *pSTR = (uint32_t*) 0xE000EF00;
 				uint32_t *pSTR = (uint32_t*) 0xE000EF00;
+				
+				//enable IRQ3 interrupt
+				*pISER0 |=
 			}
 
 			int main(void) { // first function called (before this - reset handler is executed if reset) - the instructions will get executed in thread mode of processor
