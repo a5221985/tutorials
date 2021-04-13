@@ -291,12 +291,20 @@
 				printf("In handler mode: ISR\n");
 			}
 			
-		1. Handler mode:
+		1. Handler mode: (always gets executed in privileged mode)
 			1. We have full control over processor: We can do anything to the processor
 			2. We can touch any resources we want
 			3. We can access all system level registers
 			4. We can change interrupt configuration
 			5. We can modify some of the control registers
+		2. By default thread code also has privileged level access
+			1. We can make thread mode code as unprivileged
+			2. We cannot make handler mode code as unprivileged (always executes in privileged access level)
+	3. Execute the code:
+		1. Enable SWB
+		2. How to know if it is in thread mode or handler mode
+			1. Go to Coretex-M4 Generic user Guide
+				1. Search for **Interrupt Program Status Register**
 
 ### Access Level of the Processor ###
 ### Core Registers Part-1 ###
