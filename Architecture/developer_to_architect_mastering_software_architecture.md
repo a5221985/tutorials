@@ -2106,7 +2106,13 @@
 			2. Good to scale for write load
 
 ### Database Partitioning ###
-1. 
+1. Used for extreme scalability
+	1. Context:
+		1. Vertical partionaing of system
+			1. DB split based on domain (Catalog -> Catalog DB, ...)
+			2. Limitations:
+				1. 10 domains say - 10 times scalability approximately
+			3. 
 
 ### Database Partitioning Selection ###
 ### Routing with Database Partitioning ###
