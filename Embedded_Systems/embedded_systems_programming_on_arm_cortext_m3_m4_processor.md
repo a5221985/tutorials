@@ -103,8 +103,24 @@
 						1. Cortex-M4 - Single Core CPU
 					4. Processor specific peripherals
 						1. Discussed further later
+						2. Bus Matrix
+				2. Bus Interfaces - To talk to external world
+					1. ICode - AHB-Lite Instruction Interface
+					2. DCode - AHB-Lite Data Interface
+					3. System - AHB-Lite System Interface
 
 ### Processor vs Microcontroller ###
+1. Cortex-M4 Processor - designed by ARM
+	1. Processor Core
+	2. Associated peripherals
+2. It is in software IP format - passed to vendors
+	1. Vendors will integrate the engine into their microcontroller
+		1. While integrating, the manufacturers may remove certain components
+			1. MPU
+			2. Data Watchpoint and Trace (DWT)
+			3. ...
+3. 
+
 ### Download Source Code ###
 
 ## Hardware/ Software Requirements ##
