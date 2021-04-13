@@ -2112,7 +2112,19 @@
 			1. DB split based on domain (Catalog -> Catalog DB, ...)
 			2. Limitations:
 				1. 10 domains say - 10 times scalability approximately
-			3. 
+			3. This is not sufficient for higher levels of scalability
+				1. Extreme load say (after vertical partitioning)
+					1. Solution: Horizontal partitioning
+						1. Suppose Order db is heavily loaded
+							1. Range partitioning: (id is pk) - if we increase or decrease the number of nodes, we may have to change the way we partition (complicated)
+								1. ids 1-100 hosted on node 1
+								2. ids 101-200 hosted on node 2
+								3. ...
+									1. Challenges:
+										1. Re-partitioning is required if we increase or decrease the number of nodes
+										2. If nodes go down, re-partitioning may be required
+							2. Hash partitioning:
+								1. 
 
 ### Database Partitioning Selection ###
 ### Routing with Database Partitioning ###
