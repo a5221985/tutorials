@@ -119,9 +119,45 @@
 			1. MPU
 			2. Data Watchpoint and Trace (DWT)
 			3. ...
-3. 
+3. Differences
+	1. STM32F446RE - ST Microelectronics
+		1. ARM Cortex-M4, DSP, FPU
+			1. Cortex-M4 core - design includes FPU - Manufacturer may keep it or remove it
+		2. Datasheet
+			1. Block diagram
+				1. ARM CORTEX M4 (180 MHz)
+					1. Taken from ARM
+					2. Talks to ST's components using 3 bus interfaces
+						1. I-Bus
+						2. D-Bus
+						3. S-Bus
+				2. Rest of it is designed by ST
+	2. STM32F030R8
+		1. Block diagram
+			1. CPU - Cortex-M0 (48 MHz)
+	3. MSP430G2x11
+		1. Block diagram
+			1. CPU
+				1. This is not based on ARM
+					1. It is designed by TI
+	4. Tiva series by TI (TM4C123GH6PGE)
+		1. ARM Cortex-M4F (F - Has floating point unit)
+		2. External peripherals
+			1. GPIO
+			2. TImers
+			3. Serial Communication
+			4. Data acquisition
+				1. ADC
+				2. DAC
+				3. CAN
+			5. Buses
+				1. AHB
+				2. APB
+	5. The Cortex-M4 processor acts like a master and external peripherals act like a slave
+		1. They communicate through bus interfaces
 
 ### Download Source Code ###
+1. [https://github.com/niekiran/CortexMxProgramming](https://github.com/niekiran/CortexMxProgramming)
 
 ## Hardware/ Software Requirements ##
 ### Hardware/ Software Requirements ###
