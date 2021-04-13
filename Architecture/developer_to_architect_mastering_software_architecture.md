@@ -2117,14 +2117,33 @@
 					1. Solution: Horizontal partitioning
 						1. Suppose Order db is heavily loaded
 							1. Range partitioning: (id is pk) - if we increase or decrease the number of nodes, we may have to change the way we partition (complicated)
-								1. ids 1-100 hosted on node 1
-								2. ids 101-200 hosted on node 2
-								3. ...
-									1. Challenges:
-										1. Re-partitioning is required if we increase or decrease the number of nodes
-										2. If nodes go down, re-partitioning may be required
+								1. Logic:
+									1. ids 1-100 hosted on node 1
+									2. ids 101-200 hosted on node 2
+									3. ...
+								2. Challenges:
+									1. Re-partitioning is required if we increase or decrease the number of nodes
+									2. If nodes go down, re-partitioning may be required
+								3. While inserting or fetching data, we need to have the logic to send the request to the right node
+								4. Issues:
+									1. We cannot do ACID transaction on records
+										1. Single record ACID transaction is possible
+										2. If 10 records live on different nodes, we cannot do ACID transactions
+											1. Same problem as with vertical partitioning
+										3. Even within domain we cannot do ACID transactions
+								5. This kind of partitioning is not popular with RDBMS
+									1. The transaction logic needs to be in the application
+									2. We have to deal with eventual consistency
+									3. Recently even RDBMS are providing auto-sharding or auto-partitioning
+										1. Read the docs
+								6. This kind of partitioning is popular with NoSQL databases
+									1. It is taken care of internally
 							2. Hash partitioning:
-								1. 
+								1. Logic:
+									1. Hash(id) % N = 1
+									2. Hash(id) % N = 2
+									3. ...
+								2. 
 
 ### Database Partitioning Selection ###
 ### Routing with Database Partitioning ###
