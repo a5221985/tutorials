@@ -389,9 +389,28 @@
 								bx lr # branch indirect - LR is copied into PC
 								
 							1. Check LR register
+							2. Check PC register
+								1. T bit of XPSR register may be different (?)
 
 ### Core Registers Part-2 ###
+1. R15 - PC (Program Counter)
+	1. It contains current program address (instruction address)
+	2. On reset, processor loads PC with value of reset vector
+		1. Address - 0x00000004 (mem map)
+	3. Bit[0] of value is loaded into EPSR T-bit at reset and must be 1
+		1. Later
+
 ### Core Registers Part-3 ###
+1. Special registers (5 registers)
+	1. PSR - Program Status Register (holds status of execution of current program)
+		1. It combines 3 different sub-registers
+			1. Application Program Status Register (APSR)
+				1. 5 bits (27-31)
+			2. Interrupt Program Status Register (IPSR)
+				1. 
+			3. Execution Program Status Register (EPSR)
+	2. PRIMASK -
+
 ### Memory Mapped and Non-Memory Mapped Registers of the MCU ###
 
 ## ARM GCC Inline Assembly Coding ##
