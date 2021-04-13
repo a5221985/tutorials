@@ -2143,7 +2143,15 @@
 									1. Hash(id) % N = 1
 									2. Hash(id) % N = 2
 									3. ...
-								2. 
+								2. In practice - %N is not applied - consistent hashing technique is used (a variation as well is used)
+									1. Sophistication
+										1. If any node goes down or we add new nodes, to rebalance data, there is minimum amount of disruption in terms of moving data
+										2. Updates and inserts become scalable
+								3. Downside:
+									1. We lose ACID transactions
+									2. Overall complexity increases
+										1. More hardware
+										2. More complexity to architecture (and implementation)
 
 ### Database Partitioning Selection ###
 ### Routing with Database Partitioning ###
