@@ -89,6 +89,7 @@
 						5. It has pipeline engine to boost instruction execution
 						6. It has hardware multiplication and division engine
 						7. It has address generation unit
+						8. 
 					2. Peripherals (processor specific)
 						1. NVIC (Nested Vectored Interrupt Controller) engine
 						2. FPB (Flash Patch Breakpoint)
