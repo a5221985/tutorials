@@ -305,6 +305,28 @@
 		2. How to know if it is in thread mode or handler mode
 			1. Go to Coretex-M4 Generic user Guide
 				1. Search for **Interrupt Program Status Register**
+					1. IPSR Register - ISR_NUMBER (field)
+						1. 0 - thread mode
+						2. Non-zero - handler mode
+							1. Number represents type of interrupt it is handling
+								1. 1 - Reserved
+								2. 2 - NMI
+								3. 3 - HardFault
+								4. 4 - MemManage
+								5. 5 - BusFault
+								6. 6 - UsageFault
+								7. 7-10 - Reserved
+								8. 11 - SVCall
+								9. 12 - Reserved for Debug
+								10. 13 - Reserved
+								11. 14 - PendSV
+								12. 15 - SysTick
+								13. 16 - IRQ0
+								14. ...
+								15. n + 15 - IRQ(n - 1)^a
+							2. Field will reveal which exception has caused the processor to move to the handler mode
+			2. Window > Show View > Registers
+				1. xpsr [8:0]
 
 ### Access Level of the Processor ###
 ### Core Registers Part-1 ###
