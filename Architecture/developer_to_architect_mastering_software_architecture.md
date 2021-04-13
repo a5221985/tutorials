@@ -2152,8 +2152,11 @@
 									2. Overall complexity increases
 										1. More hardware
 										2. More complexity to architecture (and implementation)
+2. Use case: Go for DB partitioning if vertical partitioning is not sufficient for scaling out
 
 ### Database Partitioning Selection ###
+1. 
+
 ### Routing with Database Partitioning ###
 ### Methods for Horizontal Scalability ###
 ### Dealing with Large Scale Systems ###
