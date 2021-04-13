@@ -247,16 +247,29 @@
 
 ### Operational Modes of the Cortex Mx Processor ###
 1. M0/M3/M4 (M7...)
-	1. Processor gives 2 operational modes
+	1. Processor gives 2 operational modes (physically)
 		1. Thread mode
 			1. All application code will execute under "thread mode" of the processor - "User Mode"
 		2. Handler mode
 			1. All exeptions handlers or interrupt handlers will run under the "Handler mode" of the processor
 				1. System exceptions
 				2. Interrupts (from peripherals)
-			2. 
+			2. If exceptions occur, the processor switches to handler mode and invokes interrupt service routine with the exception or interrupt
+	2. Processor always starts with "Thread mode"
+	3. Whenever core meets system exception or any external interrupts, then core will change it's mode to handler mode in order to service the interrupt services routine (ISR) associated with the system exception or the interrupt
 
 ### Operation Modes Code Demonstration ###
+1. Operation modes of Cortex Mx Procesor: Demonstration
+	1. New project
+		1. Board: operation_modes
+		2. Empty
+	2. main.c
+
+			int main(void) { // first function called (before this - reset handler is executed if reset
+				generate_interrupt();
+				for(;;);
+			}
+
 ### Access Level of the Processor ###
 ### Core Registers Part-1 ###
 ### Core Registers Part-2 ###
