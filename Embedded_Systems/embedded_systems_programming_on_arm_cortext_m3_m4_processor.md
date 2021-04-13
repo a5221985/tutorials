@@ -89,7 +89,9 @@
 						5. It has pipeline engine to boost instruction execution
 						6. It has hardware multiplication and division engine
 						7. It has address generation unit
-						8. 
+						8. Registers to hold data
+						9. Special function registers to track the status of core
+						10. Checking validity of instruction
 					2. Peripherals (processor specific)
 						1. NVIC (Nested Vectored Interrupt Controller) engine
 						2. FPB (Flash Patch Breakpoint)
@@ -97,6 +99,10 @@
 						4. MPU (Memory Protection Unit)
 						5. DWT (Data Watchpoint and Trace Unit)
 						6. ...
+					3. Processor core (CPU Core(s)) + processor specific peripherals - This is called as CPU 
+						1. Cortex-M4 - Single Core CPU
+					4. Processor specific peripherals
+						1. Discussed further later
 
 ### Processor vs Microcontroller ###
 ### Download Source Code ###
