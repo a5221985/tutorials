@@ -206,10 +206,17 @@
 				2. Check Reference Manual
 				3. Download
 	2. Search for board (stm32f407 discovery board)
-		1. 
+		1. st.com site
+			1. Resources
+				1. Check Product Specification
+				2. Check User Manual
+				3. Check Schematic
+				4. Download
 
 ## Embedded Hello World ##
 ### Note for the Students ###
+1. If SMV and printf is learnt, skip the section
+
 ### Constructing Helloworld Project ###
 ### Printf Using SMV ###
 ### Testing Helloworld Program on Target ###
@@ -217,7 +224,30 @@
 
 ## Access Level and Operation Modes of the Processor ##
 ### Features of Cortex Mx Processor ###
+1. Features
+	1. Operational mode of the processor
+	2. Different access levels of the processor
+	3. register set of the processor (not very important if using higher level langauges such as C or C++)
+		1. General purpose register
+		2. Special purpose register
+	4. Banked stack design of the processor
+		1. Stack memory handling mechanism of the processor
+	5. Exceptions and exception handling
+	6. Interrupt handling
+		1. Mechanism
+	7. Bus interfaces
+		1. Provided by ARM-Cortex
+		2. Bus matrix of microcontroller
+	8. Memory architecture of the processor, bit banding, memory map, ...
+	9. Endinness
+	10. Aligned and unaligned data transfer
+	11. Bootloader and IAP (In Application Programming)
+		1. We can invoke ST's bootloader and we can invoke our binary with the help of bootloader (IAP)
+	12. ...
+
 ### Operational Modes of the Cortex Mx Processor ###
+1. 
+
 ### Operation Modes Code Demonstration ###
 ### Access Level of the Processor ###
 ### Core Registers Part-1 ###
