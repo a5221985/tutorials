@@ -265,7 +265,7 @@
 		2. Empty
 	2. main.c
 
-			int main(void) { // first function called (before this - reset handler is executed if reset
+			int main(void) { // first function called (before this - reset handler is executed if reset)
 			
 				printf("In thread mode: before internet\n");
 				
