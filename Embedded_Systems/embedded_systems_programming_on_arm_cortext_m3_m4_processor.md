@@ -649,9 +649,18 @@
 		int p1, *p2;
 		p2 = (int*) 0x20000008;
 		__asm volatile ("LDR %0, [%1]": "=r"(p1): "r"(p2)); // p1 = *p2;
+		
+	1. `[%1]` - similar to `[R1]`
+	2. Instructions generated:
+
+			ldr r3, [r7, #4] ; r3 contains address (contents of p2)
+			ldr r3, [r3, #0] ; r3 is dereferenced to value
+			ldr r3, [r7, #0] ; r3 is stored back to p1
 
 ## Reset Sequence of the Processor ##
 ### Reset Sequence of the Processor ###
+1. 
+
 ### Reset Sequence of the Processor Contd ###
 
 ## Access Level and T Bit ##
