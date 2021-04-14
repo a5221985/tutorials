@@ -426,11 +426,13 @@
 				2. T bit - Thumb state bit
 					1. If 'T' bit of the EPSR is set (1), processor thinks that the next instruction which it is about to execute is from Thumb ISA
 						1. ARM Cortex-M processors support only Thumb ISA
-							1. It sou
+							1. It should be 1 always for ARM Cortex Mx
+								1. If it is 0, it results in processor fault
 					2. If 'T' bit of the EPSR is reset (0), processor thinks that the next instruction which it is about to execute is from ARM ISA
 	2. PRIMASK -
 
 ### Memory Mapped and Non-Memory Mapped Registers of the MCU ###
+1. 
 
 ## ARM GCC Inline Assembly Coding ##
 ### ARM GCC Inline Assembly Coding Part-1 ###
