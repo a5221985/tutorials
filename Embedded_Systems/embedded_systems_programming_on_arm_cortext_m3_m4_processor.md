@@ -458,7 +458,48 @@
 
 ## ARM GCC Inline Assembly Coding ##
 ### ARM GCC Inline Assembly Coding Part-1 ###
-1. 
+1. Inline assembly code is used to write pure assembly code inside a 'C' program
+2. GCC inline assembly code syntax as shown below
+	1. Assembly instruction: `MOV R0, R1`
+	2. Inline assembly statement: `__asm volatile("MOV R0, R1");`
+		1. `__asm` - keyword
+			1. `asm` also works
+		2. `volatile` - optional type qualifer
+		3. `("<assembly>")`
+		4. `;` - termination
+3. Used to access processor core registers
+	1. General purpose registers
+	2. Special registers
+	3. SP
+	4. ...
+4. Different compiler has different syntaxes
+5. Example:
+
+		LDR R0, [R1]
+		LDR R1, [R2]
+		ADD R1, R0
+		STR R1, [R3]
+		
+		void fun_add(void) {
+			__asm volatile ("LDR R0, [R1]");
+			__asm volatile ("LDR R1, [R2]");
+			__asm volatile ("ADD R1, R0");
+			__asm volatile ("STR R1, [R3]");
+			
+			__asm volatile (
+				"LDR R0, [R1]\n\t"
+				"LDR R1, [R2]\n\t"
+				"ADD R1, R0\n\t"
+				"STR R1, [R3]\n\t"
+				);
+		}
+		
+	1. Every instruction must be in double quotes (in second case)
+	2. Every instruction must be terminated by `\n\t`
+	3. No comma between intstructions
+6. 'C' variable and inline assembly (inline assembly does it)
+	1. Move the content of 'C' variable 'data' to ARM register R0
+	2. Move the content of CONTROL register to the 'C' variable "control_reg"
 
 ### ARM GCC Inline Assembly Coding Part-2 ###
 ### ARM GCC Inline Assembly Coding Part-3 ###
