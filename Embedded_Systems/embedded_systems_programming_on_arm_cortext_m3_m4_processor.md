@@ -419,8 +419,15 @@
 							1. The flag values are used to take decisions in assembly program	
 			2. Interrupt Program Status Register (IPSR)
 				1. 9 bits (0-8) - ISR_NUMBER
+				2. Not for programmers
+				3. Contains exception type number of current interrupt service routine
 			3. Execution Program Status Register (EPSR)
 				1. 25-26, 24, 10-15
+				2. T bit - Thumb state bit
+					1. If 'T' bit of the EPSR is set (1), processor thinks that the next instruction which it is about to execute is from Thumb ISA
+						1. ARM Cortex-M processors support only Thumb ISA
+							1. It sou
+					2. If 'T' bit of the EPSR is reset (0), processor thinks that the next instruction which it is about to execute is from ARM ISA
 	2. PRIMASK -
 
 ### Memory Mapped and Non-Memory Mapped Registers of the MCU ###
