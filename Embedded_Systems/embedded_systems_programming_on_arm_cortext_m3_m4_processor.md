@@ -500,6 +500,13 @@
 6. 'C' variable and inline assembly (inline assembly does it)
 	1. Move the content of 'C' variable 'data' to ARM register R0
 	2. Move the content of CONTROL register to the 'C' variable "control_reg"
+7. General form of an inline assembly statement
+
+		__asm volatile (<code> : <output operand list> : <input operand list> : <clobber list>);
+		
+	1. `volatile` - Instructs compiler not to optimize the assembler code
+	2. `<code>` - assembly mnemonic defined as a single string
+	3. `<output operand list>`
 
 ### ARM GCC Inline Assembly Coding Part-2 ###
 ### ARM GCC Inline Assembly Coding Part-3 ###
