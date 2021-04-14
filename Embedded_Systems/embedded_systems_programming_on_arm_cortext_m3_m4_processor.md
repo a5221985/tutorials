@@ -407,7 +407,16 @@
 			1. Application Program Status Register (APSR)
 				1. 5 bits (27-31)
 				2. Purpose
-					1. 
+					1. Contains conditional flags
+						1. Used to detect if result is zero or negative or if there was a carry or borrow or overflow, ...
+							
+								[31] 	N 	Negative flag (set if result is negative)
+								[30]	Z	Zero flag (set if result is zero)
+								[29]	C	Carry or borrow flag
+								[28]	V	Overflow flag
+								[27]	Q	DSP overflow and saturation flag
+								
+							1. The flag values are used to take decisions in assembly program	
 			2. Interrupt Program Status Register (IPSR)
 				1. 9 bits (0-8) - ISR_NUMBER
 			3. Execution Program Status Register (EPSR)
