@@ -616,6 +616,25 @@
 
 				uint32_t control_reg;
 				__asm volatile ("MRS %0, CONTROL":"=r"(control_reg)::);
+				
+			1. Instructions of processor - Generic User Guide
+				1. Cortex-M4 Instruction Set section
+					1. `MRS` - Move from special register to register
+					2. `MSR` - Move from register to special register
+			2. spec_reg - CONTROL
+			3. `"=r"`
+				1. `=` - for output operands
+					1. The compiler is forced to choose a register that is write only
+				2. `r` - forces compiler to use register
+2. Code
+
+		int control_reg;
+		__asm volatile ("MRS %0, CONTROL":"=r"(control_reg));
+		
+	1. What is generated
+
+			mrs r3, CONTROL
+			str r3, [r7, #0]
 
 ## Reset Sequence of the Processor ##
 ### Reset Sequence of the Processor ###
