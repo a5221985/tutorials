@@ -830,10 +830,39 @@
 		1. Processor communicates to ADC over 32 bit system bus
 			1. Processor produces address of the peripheral on the address bus
 			2. The matching register of the peripheral will be unlocked
-			3. 
+			3. The data will be released on data bus
+			4. The data reaches one of the internal registers of the processor
+				1. Load from ADC into internal register
+			5. The processor stores the data from internal register to data memory
+				2. Store from internal register into memory
 	4. System bus consists of
 		1. 32-bit address bus
+			1. 4 GB different values
 		2. 32-bit data bus
+3. The regions of the range are fixed by the processor design (we can't change it)
+	1. If processor produces an address of 0, then the processor wants to talk to the code memory
+		1. Code memory could be
+			1. Embedded flash
+			2. EEPROM
+			3. Flash
+			4. OTP
+			5. ...
+	2. SRAM region has to be for RAM
+	3. Peripheral region should be for Peripherals only
+	4. External RAM section is for talking to external RAM
+	5. ...
+4. Code Region
+	1. 512 MB - Max we can connect 512 MB of code memory
+		1. Vendors usually give 1 KB to 1 MB
+		2. If we need more memory, we can add external memory
+	2. This is the region where MCU vendors should connect CODE memory
+	3. Different types of code memories are:
+		1. Flash
+		2. ROM
+		3. OTP
+		4. EEPROM
+		5. ...
+	4. Processor by default fetches vector table info from this region right after reset
 
 ### Bus Protocol and Bus Interfaces ###
 ### Bit Banding ###
