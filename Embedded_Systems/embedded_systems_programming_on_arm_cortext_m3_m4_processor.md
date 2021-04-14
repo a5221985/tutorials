@@ -808,6 +808,33 @@
 
 ## Memory Map and Bus Interfaces of ARM Cortex Mx Processor ##
 ### Memory Map ###
+1. Memory Map of the processor
+	1. Memory map explains mapping of different peripheral registers and memories in the processor-addressable memory location range (2^32 locations)
+	2. Processor-addressable memory location range depends on size of address bus (32 bit in this case)
+	3. Mapping of different regions in addressable memory location range is called "memory map"
+2. Processor has fixed default memory map that provides up to 4 GB of addressable memory
+	
+		ARM Cortex M4 CPU	Data memory	Code memory
+				^					^			    ^
+				|					|			    |
+				v					v			    v
+		<-----32 bit----------System bus (AHB)---------------->
+				^			^		^			    ^
+				|			|		|			    |
+				v			v		v			    v
+			GPIOD		TIMERS		ADC			   I2C
+			
+	1. Code memory - where we keep instructions
+	2. Data memory - where we keep temp data of program
+	3. To fetch data from ADC to data memory
+		1. Processor communicates to ADC over 32 bit system bus
+			1. Processor produces address of the peripheral on the address bus
+			2. The matching register of the peripheral will be unlocked
+			3. 
+	4. System bus consists of
+		1. 32-bit address bus
+		2. 32-bit data bus
+
 ### Bus Protocol and Bus Interfaces ###
 ### Bit Banding ###
 ### Bit Banding Exercise ###
