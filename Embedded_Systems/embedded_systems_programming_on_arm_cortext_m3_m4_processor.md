@@ -451,11 +451,15 @@
 2. Memory mapped registers
 	1. Registers of the processor specific peripherals (NVIC, MPU, SCB, DEBUG, etc...)
 	2. Registers of the microcontroller specific peripherals (RTC, I2C, TIMER, CAN, USB, etc)
+		1. Vendor specific peripherals
 	3. Every register has it's address in the processor memory map
 	4. The registers can be accessed in 'C' program using address dereferencing
+		1. We can read and write data to these registers
 
 ## ARM GCC Inline Assembly Coding ##
 ### ARM GCC Inline Assembly Coding Part-1 ###
+1. 
+
 ### ARM GCC Inline Assembly Coding Part-2 ###
 ### ARM GCC Inline Assembly Coding Part-3 ###
 ### ARM GCC Inline Assembly Coding Part-4 ###
