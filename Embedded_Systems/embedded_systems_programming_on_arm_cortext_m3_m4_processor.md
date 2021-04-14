@@ -804,7 +804,7 @@
 
 		fun_ptr = (void*) 0x080001e8;
 		
-		fun_ptr(); // even address will be placed into PC
+		fun_ptr(); // even address will be placed into PC - Hard Fault
 
 ## Memory Map and Bus Interfaces of ARM Cortex Mx Processor ##
 ### Memory Map ###
