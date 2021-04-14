@@ -781,7 +781,30 @@
 3. The lsb (bit 0) of program counter (PC) is linked to the 'T' bit
 	1. When we load a value or address into PC, Bit[0] of value is loaded into T-bit
 		1. Any address we place in PC must have its 0th bit as 1
-			1. This is taken care of by the compiler
+			1. This is taken care of by the compiler (we usually use C)
+			2. We need to be careful if we are placing raw value or raw address into PC
+				1. Raw value should always be odd
+					1. Suppose we are initializing with function pointer address
+					2. Inline assembly
+4. Reason why we see all vector addresses are incremented by 1 in vector table
+	1. All addresses are odd in vector table
+5. Exercise:
+
+		void (*fun_ptr)(void);
+		
+		fun_ptr = change_access_level_unpriv;
+		
+		fun_ptr(); // address of the function is loaded into PC
+		
+	1. Open *.list
+		1. starting address of the function is even
+		2. It was changed to odd number by the compiler
+		3. The zeroth bit is copied to the T bit
+6. Exercise: Hardcode the address
+
+		fun_ptr = (void*) 0x080001e8;
+		
+		fun_ptr(); // even address will be placed into PC
 
 ## Memory Map and Bus Interfaces of ARM Cortex Mx Processor ##
 ### Memory Map ###
