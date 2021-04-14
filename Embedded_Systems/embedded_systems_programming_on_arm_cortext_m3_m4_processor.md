@@ -675,7 +675,8 @@
 		2. From reset handler we call `main()` function of the application
 
 ### Reset Sequence of the Processor Contd ###
-
+1. Reset sequence
+	1. Vector table directs processor to execute Reset handler after reset
 
 ## Access Level and T Bit ##
 ### Demonstration of Access Level of the Processor ###
