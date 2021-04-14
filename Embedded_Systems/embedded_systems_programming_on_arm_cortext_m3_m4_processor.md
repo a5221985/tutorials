@@ -505,8 +505,18 @@
 		__asm volatile (<code> : <output operand list> : <input operand list> : <clobber list>);
 		
 	1. `volatile` - Instructs compiler not to optimize the assembler code
+		1. `<code>` must not get optimized
 	2. `<code>` - assembly mnemonic defined as a single string
-	3. `<output operand list>`
+	3. `<output operand list>` - list of output operands separated by commas
+	4. `<input operand list>` - list of input operands seperated by commas
+	5. `<clobber list>` - It is used to tell the compiler about modifications done by assember code
+	6. Format may vary with compiler
+		1. ARM CC
+		2. IAR
+8. Example:
+
+		__asm volatile ("MOV R0, R1");
+		__asm volatile ("MOV R0, R1":::);
 
 ### ARM GCC Inline Assembly Coding Part-2 ###
 ### ARM GCC Inline Assembly Coding Part-3 ###
