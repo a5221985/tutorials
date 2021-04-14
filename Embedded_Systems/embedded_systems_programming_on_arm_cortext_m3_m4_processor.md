@@ -678,6 +678,39 @@
 1. Reset sequence
 	1. Vector table directs processor to execute Reset handler after reset
 
+			Reset_handler() { // address is available in vector table
+				// first piece of code which gets executed after reset
+				// initializations
+				main();
+			}
+			
+		1. main.c
+
+				main() {
+					// user code
+				}
+				
+		2. Reset_handler is contained in startup file of the project
+			1. Every project has a startup file
+				1. Startup > startup_stm32f407vgtx.s
+
+						Reset_Handler:
+							ldr r0, =_estack
+							//...
+							
+					1. Job of reset handler
+						1. To do early initialization
+						2. Calls user program
+			2. Responsibility of reset handler
+
+					Processor reset
+							|
+							v
+					Initialize data section
+							|
+							v
+					
+
 ## Access Level and T Bit ##
 ### Demonstration of Access Level of the Processor ###
 ### Importance of T Bit of the EPSR ###
