@@ -560,7 +560,32 @@
 
 			__asm volatile ("MOV R0, %0"::"r"(val)); // SRC, DST
 			
-		1. 
+		1. `%0` - Operand indexing using `%` sign followed by a digit
+			1. `%0` - first operand (output list or input list)
+			2. `%1` - second operand
+			3. ...
+		2. No output operand(s)
+		3. `"r"(val)`
+			1. `r` - constraint character
+3. Constraint characters
+	1. f - floating point registers f0...f7
+	2. G - immediate floating point constant
+	3. H - Same as G, but negated
+	4. I - immediate value
+	5. ...
+	5. r - General register r0 ... r15
+4. Constraint modifier
+	1. `=` - write-only operand (usually used for all output operands)
+	2. `+` - read-write operand (must be listed as an output operand)
+	3. `&` - register that should be used for output only
+5. Code:
+
+		int val = 50;
+		__asm volatile ("MOV R0, %0"::"r"(val));
+		
+	1. `r` - tells compiler to use general register for the operand
+	2. Build the project
+		1. Open `.list` file in the `Debug` directory
 
 ### ARM GCC Inline Assembly Coding Part-4 ###
 
