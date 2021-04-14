@@ -542,6 +542,26 @@
 		2. Refer to instruction set manual to know about instructions
 
 ### ARM GCC Inline Assembly Coding Part-3 ###
+1. Input/ Output Operands and Constraint String
+	1. Each input and output operand is described by constraint string followed by a C expression in parantheses
+		1. Input/Output operand format:
+
+				"<constraint-string>" (<'C' expression>)
+				
+			1. Procedure to mix arm instruction and 'C' variable
+			2. constraint string
+
+					constraint string = constraint character + constraint modifier
+					
+2. Example: Move the content of 'C' variable 'val' to ARM register R0
+	1. Instruction: MOV
+	2. Source: a 'C' variable 'val' (INPUT)
+	3. Destination: R0 (ARM core register)
+
+			__asm volatile ("MOV R0, %0"::"r"(val)); // SRC, DST
+			
+		1. 
+
 ### ARM GCC Inline Assembly Coding Part-4 ###
 
 ## Reset Sequence of the Processor ##
