@@ -676,6 +676,7 @@
 
 ### Reset Sequence of the Processor Contd ###
 
+
 ## Access Level and T Bit ##
 ### Demonstration of Access Level of the Processor ###
 ### Importance of T Bit of the EPSR ###
