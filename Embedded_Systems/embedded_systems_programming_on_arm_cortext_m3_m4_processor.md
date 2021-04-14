@@ -855,6 +855,8 @@
 	1. 512 MB - Max we can connect 512 MB of code memory
 		1. Vendors usually give 1 KB to 1 MB
 		2. If we need more memory, we can add external memory
+			1. NAND Flash
+			2. NOR Flash
 	2. This is the region where MCU vendors should connect CODE memory
 	3. Different types of code memories are:
 		1. Flash
@@ -863,6 +865,16 @@
 		4. EEPROM
 		5. ...
 	4. Processor by default fetches vector table info from this region right after reset
+		1. Default behaviour
+			1. The behaviour can be changed by changing boot pins on the microcontroller
+5. SRAM Region
+	1. The SRAM (Static-RAM) region is the next 512 MB of memory space after CODE region
+	2. Comes right after code region
+	3. It is there for primarily connecting SRAM
+		1. Mostly on-chip SRAM
+		2. It is data memory (for temp data)
+	4. First 1 MB of SRAM is bit addressable
+	5. **Program code can also be exeuted from this region**
 
 ### Bus Protocol and Bus Interfaces ###
 ### Bit Banding ###
