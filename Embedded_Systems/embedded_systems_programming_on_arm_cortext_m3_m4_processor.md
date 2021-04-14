@@ -765,8 +765,19 @@
 							1. Should not affect or modify system level settings of the processor (not trigger interrupts or turn of interrupts)
 								1. The whole system can fail in that case
 							2. Kernel can change the privilege level of user task to un-privileged and then launch the task
+								1. If user task needs services, it can trigger system calls
+									1. System call will be served by kernel code (for secured access)
+				3. How to switch back?
+					1. We cannot directly go back to privileged access level (trap - we cannot modify privileged access level)
+					2. Trigger system exeption - Which moves processor into Handler Mode (which is privileged mode)
+					3. ISR can be run
+						1. This can modify CONTROL register back to 0 and exit
+					4. Now thread mode will be in privileged mode
 
 ### Importance of T Bit of the EPSR ###
+1. Various ARM processors support ARM-Thumb interworking
+	1. Ability to switch between ARM and Thumb state
+2. Processor must be in ARM state to execute
 
 ## Memory Map and Bus Interfaces of ARM Cortex Mx Processor ##
 ### Memory Map ###
