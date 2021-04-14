@@ -587,7 +587,35 @@
 	2. Build the project
 		1. Open `.list` file in the `Debug` directory
 
+				ldr r3, [r7, #4]
+				mov r0, r3
+				
+			1. For inline assembly statment, compiler took the following actions
+				1. First variable (val) value is read from memory into `r3`
+				2. Then `r3` is used as source register in final data copy instruction (`mov`)
+	3. `r` - tells compiler to use registers for data minipulation
+	4. `"i"(0x50)`
+
+			mov.w r0, #80; 0x50
+			
+		1. Constraint character forced compiler to use an immediate value in %0's place of instruction
+	5. `"r"(0x50)`
+
+			movs r3, #80 ; 0x50
+			mov  r0, r3
+			
+		1. Constraint character forced compiler to use "register" in `%0` place of instruction
+
 ### ARM GCC Inline Assembly Coding Part-4 ###
+1. Example 2: Move the content of CONTROL register to 'C' variable "control_reg"
+	1. CONTROL register is a special register of ARM core
+	2. To read CONTROL register you have to use MRS instruction
+		1. Instruction => MRS
+		2. Source => CONTROL register
+		3. Destination => A 'C' variable "control_reg" (OUTPUT operand)
+
+				uint32_t control_reg;
+				__asm volatile ("MRS %0, CONTROL":"=r"(control_reg)::);
 
 ## Reset Sequence of the Processor ##
 ### Reset Sequence of the Processor ###
