@@ -659,7 +659,20 @@
 
 ## Reset Sequence of the Processor ##
 ### Reset Sequence of the Processor ###
-1. 
+1. Reset sequence - events happening when we reset the microcontroller
+	1. When we press reset button on board - processor undergoes reset
+2. Steps:
+	1. PC is loaded with the value 0x0000_0000
+	2. Processor reads value @ mem location 0x0000_0000 in to MSP
+		1. MSP = value@0x0000_0000
+			1. MSP is Main Stack Pointer register (32 bit)
+				1. Processor first initializes the stack pointer
+	3. Processor reads value @mem location 0x0000_0004 into PC
+		1. The value is address of reset handler
+	4. PC jumps to reset handler
+		1. Reset handler
+			1. A C or assembly function written by us to carry out any initializations required
+		2. From reset handler we call `main()` function of the application
 
 ### Reset Sequence of the Processor Contd ###
 
