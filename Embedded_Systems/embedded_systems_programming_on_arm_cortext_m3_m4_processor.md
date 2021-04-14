@@ -635,6 +635,20 @@
 
 			mrs r3, CONTROL
 			str r3, [r7, #0]
+			
+3. Exercise: Copy the content of 'C' variable var1 and var2
+	1. Instruction: MOV
+	2. Source: a 'C' variable 'var1' (INPUT operand)
+	3. Destination: a 'C' variable 'var2' (OUTPUT operand)
+
+			int var1 = 10, var2;
+			__asm volatile ("MOV %0, %1": "=r"(var2): "r"(var1));
+			
+4. Exercise: Copy the contents of a pointer into another variable
+
+		int p1, *p2;
+		p2 = (int*) 0x20000008;
+		__asm volatile ("LDR %0, [%1]": "=r"(p1): "r"(p2)); // p1 = *p2;
 
 ## Reset Sequence of the Processor ##
 ### Reset Sequence of the Processor ###
