@@ -432,7 +432,27 @@
 	2. PRIMASK -
 
 ### Memory Mapped and Non-Memory Mapped Registers of the MCU ###
-1. 
+1. Non-memory mapped registers
+	1. The registers do not have unique addresses to acess them
+		1. They are not part of processor memory map
+		2. They cannot be accessed in 'C' program using address dereferencing
+			1. We have to use assembly instructions to access them
+				1. General purpose registers
+				2. SP
+				3. PC
+				4. LR
+				5. PSR
+				6. Control Reg
+				7. Exception Map Regs
+				8. ...
+			2. They are internal to processor core
+				1. They do not have any address to access from the 'C' program (no address manipulation technique)
+			3. Inline assembly instructions are required
+2. Memory mapped registers
+	1. Registers of the processor specific peripherals (NVIC, MPU, SCB, DEBUG, etc...)
+	2. Registers of the microcontroller specific peripherals (RTC, I2C, TIMER, CAN, USB, etc)
+	3. Every register has it's address in the processor memory map
+	4. The registers can be accessed in 'C' program using address dereferencing
 
 ## ARM GCC Inline Assembly Coding ##
 ### ARM GCC Inline Assembly Coding Part-1 ###
