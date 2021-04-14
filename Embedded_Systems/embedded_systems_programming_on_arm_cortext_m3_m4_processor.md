@@ -722,9 +722,23 @@
 					1. Own Vector table
 					2. Own Reset handler
 					3. Own Initialization
+				3. Reset_Handler:
+					1. Initialization
+					2. Call main
 
 ## Access Level and T Bit ##
 ### Demonstration of Access Level of the Processor ###
+1. Switching between access levels demo
+	1. Copy operations mode code
+		1. Switch of privileged mode
+
+				change_access_level_unpriv();
+				
+				generate_interrupt(); // we cannot execute this
+				
+			1. ARM Cortex M processor's system control register addresses can only be accessed in privileged access level
+				1. An attempt to change contents of the registers from being in unprivileged access level will cause processor fault exception
+
 ### Importance of T Bit of the EPSR ###
 
 ## Memory Map and Bus Interfaces of ARM Cortex Mx Processor ##
