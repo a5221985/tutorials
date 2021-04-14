@@ -718,6 +718,10 @@
 						main();
 						
 				1. The above steps are mandatory before we call main
+				2. Next: Startup file
+					1. Own Vector table
+					2. Own Reset handler
+					3. Own Initialization
 
 ## Access Level and T Bit ##
 ### Demonstration of Access Level of the Processor ###
