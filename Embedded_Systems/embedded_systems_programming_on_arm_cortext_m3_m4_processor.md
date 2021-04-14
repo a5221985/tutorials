@@ -516,9 +516,31 @@
 8. Example:
 
 		__asm volatile ("MOV R0, R1");
-		__asm volatile ("MOV R0, R1":::);
+		__asm volatile ("MOV R0, R1":::); // same as above - no operands or clobber list
 
 ### ARM GCC Inline Assembly Coding Part-2 ###
+1. Exercise
+	1. Load 2 values from memory, add them and store the result back to the memory using inline assembly statements.
+	2. New ST Project
+	3. Empty project
+	4. main.c
+
+			__asm volatile ("LDR R1, =#0x20001000");
+			__asm volatile ("LDR R2, =#0x20001004");
+			__asm volatile ("LDR R0, [R1]");
+			__asm volatile ("LDR R1, [R2]");
+			__asm volatile ("ADD R0, R0, R1");
+			__asm volatile ("STR R0, [R2]");
+			
+		1. Put values into memory locations
+			1. Window > Show View > Memory
+				1. + `>` 0x20001000
+					1. Put 6
+				2. + `>` 0x20001004
+					1. Put 4
+				2. Row Size = 1, Column Size = 1
+		2. Refer to instruction set manual to know about instructions
+
 ### ARM GCC Inline Assembly Coding Part-3 ###
 ### ARM GCC Inline Assembly Coding Part-4 ###
 
