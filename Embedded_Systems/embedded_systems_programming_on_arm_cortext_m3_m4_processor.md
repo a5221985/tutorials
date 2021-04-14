@@ -739,6 +739,33 @@
 			1. ARM Cortex M processor's system control register addresses can only be accessed in privileged access level
 				1. An attempt to change contents of the registers from being in unprivileged access level will cause processor fault exception
 
+						void change_access_level_unpriv() {
+							// read
+							__asm volatile ("MRS R0, CONTROL");
+							// modify
+							__asm volatile ("OR R0, R0, #0x01"); // data processing instructions
+							// write
+							__asm volatile ("MSR CONTROL, R0");
+						} // Generic User Guide CONTROL register
+						
+					1. We cannot use C pointers. We need to use inline assembly code
+					2. After this, code cannot access system registers
+					3. Fault handler
+
+							void HardFault_Handler(void) {
+								printf("Hard fault detected!");
+								while (1);
+							}
+							
+						1. Show View > Fault Analyzer
+				2. Use case: Embedded kernel or RTOS
+					1. Two components
+						1. Kernel
+						2. User tasks
+							1. Should not affect or modify system level settings of the processor (not trigger interrupts or turn of interrupts)
+								1. The whole system can fail in that case
+							2. Kernel can change the privilege level of user task to un-privileged and then launch the task
+
 ### Importance of T Bit of the EPSR ###
 
 ## Memory Map and Bus Interfaces of ARM Cortex Mx Processor ##
