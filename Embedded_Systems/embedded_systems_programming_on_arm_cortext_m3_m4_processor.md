@@ -709,7 +709,15 @@
 					Initialize data section
 							|
 							v
-					
+					Initialize bss section
+							|
+							v
+					Initialize 'C' std library (__lib_init_array();)
+							|
+							v
+						main();
+						
+				1. The above steps are mandatory before we call main
 
 ## Access Level and T Bit ##
 ### Demonstration of Access Level of the Processor ###
