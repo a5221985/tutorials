@@ -777,7 +777,11 @@
 ### Importance of T Bit of the EPSR ###
 1. Various ARM processors support ARM-Thumb interworking
 	1. Ability to switch between ARM and Thumb state
-2. Processor must be in ARM state to execute
+2. Processor must be in ARM state to execute instructions which are from ARM ISA and processor must be in Thumb state to execute instructions of Thumb ISA
+3. The lsb (bit 0) of program counter (PC) is linked to the 'T' bit
+	1. When we load a value or address into PC, Bit[0] of value is loaded into T-bit
+		1. Any address we place in PC must have its 0th bit as 1
+			1. This is taken care of by the compiler
 
 ## Memory Map and Bus Interfaces of ARM Cortex Mx Processor ##
 ### Memory Map ###
