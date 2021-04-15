@@ -1010,6 +1010,47 @@
 						1. 84 Mhz
 
 ### Bit Banding ###
+1. What is bit-banding?
+	1. It is capability to address a single bit of a memory address
+		1. The feature is optional
+			1. MCU manufacturer may or may not support it (refer to reference manual)
+2. Consider memroy of 1024 locations (bytes say)
+	1. If we read from a location, 1 byte is returned (byte addressable memory)
+
+			LDRB R0, [R1]
+			
+	2. To read 2 bytes
+
+			LDRH R0, [R1] ; H - half word
+			
+	3. To read word
+
+			LDR R0, [R1]
+			
+	4. To read 4 bits - not supported in the processor
+
+			LDRB R0, [R1]
+			ANDR R0, #0x0F
+			
+	5. Bit - banding - addressing single bit (using unique address)
+		1. Use case: Changing only one bit
+			1. Traditionally:
+
+					LDRB R0, [R1]
+					ORR R0, #01
+					STRB R0, [R1]
+					
+				1. load a byte, modify and store the byte
+			2. Bit-Banding - each bit has an address called alias address
+
+					LDRB R0, [AD] ; just write
+					
+				1. Feature is available in SRAM and Peripheral (other regions it is not available)
+					1. SRAM - Only initial 1 MB region
+						1. 32 MB Bit band alias - region that stores alias addresses (0x22000000 to 0x23FFFFFF)
+					2. Peripheral - Only initial 1 MB region
+						1. 32 MB Bit band alias - region that stores alias addresses (0x22000000 to 0x23FFFFFF)
+
 ### Bit Banding Exercise ###
 
 ## Stack Memory and Placement ##
