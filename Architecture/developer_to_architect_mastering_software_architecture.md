@@ -2162,13 +2162,28 @@
 		
 	1. Node 2 has data between 101..200 and Node 2 has data between 201..300
 		1. We need to visit both nodes for the range
+	2. Use case: If we are searching data on a range, we can split the data based on range
+	3. Use case: If we are searching data based on single id
 
 2. Hash Partitioning
 
 		SELECT * FROM Order WHERE id = 150
 		
+	1. We cannot do range queries (150 and 250)
+		1. We have to run 100 queries for each id (they can be bached if db supports but they are separate queries)
+		2. The queries may go on different nodes
+			1. There is chance that each query may run on a different node (100 nodes are hit)
+				1. Hash partitioning ensures that the keys are distributed evenly
+		3. Range partitioning is costly with hash paritioning scheme
+		4. **It is good for CRUD on records based on key**
+3. Range partitioning is a superset of Hash partitioning
+4. Advantages of Hash partitoining:
+	1. Performance is higher for id based query as compared to range partitioning
+		1. Indexes are like trees for range based partitioning
+		2. If we want to look for a range, we have to go through the tree structure
+		
 3. NoSQL DBs have their own query language
-	1. RDBMs are simple to understand and universal
+	1. RDBMSs are simple to understand and universal
 
 ### Routing with Database Partitioning ###
 ### Methods for Horizontal Scalability ###
