@@ -2179,9 +2179,12 @@
 3. Range partitioning is a superset of Hash partitioning
 4. Advantages of Hash partitoining:
 	1. Performance is higher for id based query as compared to range partitioning
-		1. Indexes are like trees for range based partitioning
-		2. If we want to look for a range, we have to go through the tree structure
-		
+		1. Indexes are tree based entries	 for range based partitioning
+			1. Index tree may be on multiple nodes (distributed db and indexes may be kept on multiple nodes)
+			2. If we want to look for a range, we have to go through the tree structure (many machines may need to be visited)
+				1. Latency may get increased
+		2. Hash partitioning directly identifies the node
+			1. We don't have to go through any index tree on multiple nodes
 3. NoSQL DBs have their own query language
 	1. RDBMSs are simple to understand and universal
 
