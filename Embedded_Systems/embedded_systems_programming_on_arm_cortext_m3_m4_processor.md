@@ -1240,9 +1240,29 @@
 				
 			1. If Stack tries to cross the boundary, it is stack overflow
 				1. Software routines should check stack overflow
-					1. 
+					1. SP can be compared with higher value constantly
+			2. SP can be initialized to highest memory address of the RAM where stack begins
 
 ### Banked Stack Pointer Registers of ARM Cortex Mx ###
+1. Cortex M Processor physically has 3 stack pointers
+	1. SP (R13): Current Stack Pointer
+	2. MSP: Main Stack Pointer
+	3. PSP: Process Stack Pointer
+2. After processor reset
+	1. By default
+		1. MSP will be selected as current Stack Pointer.
+			1. SP copies contents of MSP (MSP behaves like SP)
+3. Thread mode can change current stack pointer to PSP by configuring CONTROL register's SPSEL bit
+	1. Thread mode
+		1. If SPSEL = 0 (default)
+			1. SP (R13) - copies the value of MSP
+		2. If SPSEL = 1
+			1. PSP is the current Stack Pointer
+				1. SP (R13) copies the value of PSP
+4. Handler mode code execution will always use MSP as current stack pointer
+	1. Changing value of SPSEL bit (0 or 1) in handler mode doesn't make any sense
+		1. Write will be ignored
+
 ### Stack Exercise ###
 ### Stack Exercise Contd. ###
 ### Function Call and AAPCS Standard ###
