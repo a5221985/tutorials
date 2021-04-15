@@ -1065,6 +1065,16 @@
 	1. Modify content of memory location 0x2000_0200 using usual and bit banding method and analyze the difference
 		1. First store the value 0xff into memory location 0x2000_0200
 		2. Make the 7th-bit position of value to 0
+	2. Solutions:
+
+			LDRB R0, #0xff
+			ANDRB R0, #0x7f
+			STRB R0, [0x20000200]
+			
+			LDRB R0, #0xff
+			STRB R0, [0x20000200]
+			LDRB R0, #0x01
+			STRB R0, [0x22000
 
 ### Bit Banding Exercise ###
 
