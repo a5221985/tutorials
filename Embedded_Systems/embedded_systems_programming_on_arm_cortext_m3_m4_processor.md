@@ -1138,8 +1138,78 @@
 				1. Some general purpose registers
 				2. Processor status register
 				3. Return address
+3. SRAM (128 KB) (STM32F407 - has 2 SRAMs (SRAM1 & SRAM2) - combined 128 KB)
+
+		[ Part of RAM reserved for "gobal data" ] RAM_START
+		[ Part of RAM reserved for "Heap" ]
+		[ Part of RAM reserved for "Stack" ] RAM_END
+		
+	1. Part of RAM reserved for "gobal data" - utilized when program contains global data and static local variables.
+		1. Instructions can also be stored here and executed
+	2. Part of RAM reserved for "Heap" - utilized during dynamic memory allocation
+		1. `malloc`, `calloc`
+	3. Part of RAM reserved for "Stack" - utilized during function call to save temp data, temp storage of local variables of function, temp storage of stack frames during interrupts & exceptions
+4. How much memory to allocate has to be defined using
+	1. Toolchain OR
+	2. Linker script
+5. We can also write our own dynamic memory allocation API that allocates memory in "Heap"
+6. The boundaries can be decided by us (it depends on the project)
+	1. The sections can also be at different locations
+7. Stack operation model
+	1. In ARM Cortex Mx processor stack consumption model is **Full Descending (FD)**
+		1. Different Stack operation models
+			1. Full Ascending stack (FA)
+			2. Full Descending stak (ARM Cortex Mx processors use this)
+			3. Empty Ascending stack (EA)
+			4. Empty Descending stack (ED)
 
 ### Different Stack Operation Models ###
+1. Full Ascending Stack
+	1. Increasing mem addresses
+	2. Steps: Push
+		1. SP is incremented
+		2. Data is copied
+	3. This requires decremented SP to lower memory address
+2. Full Descending Stack
+	1. Decreasing mem addresses
+	2. Steps: Push
+		1. SP is decremented
+		2. Data is copied
+	3. This requires initializing SP to higher memory address
+3. Empty Ascending
+	1. Increasing mem addresses
+	2. Steps: Push
+		1. SP will be pointing to next empty location
+		2. Data is copied
+		3. SP is incremented to next empty location
+4. Empty Descending
+	1. Decreasing mem addresses
+	2. Steps: Push
+		1. SP will be pointing to next empty location
+		2. Data is copied
+		3. SP is decremented to next empty location
+5. This behaviour cannot be changed for STM32 microcontroller (Full Descending Stack)
+6. Example:
+
+		PUSH LR
+		PUSH R0
+		PUSH R1
+		POP R2
+		POP R3
+		POP PC
+		
+	1. Core registers of the processor
+		1. R0 - 0xFFBC
+		2. R1 - 0xAB11
+		3. LR - 0x800211CD
+		4. R2 - 0
+		5. R3 - 5
+		6. PC - 0x80010000
+	2. Activity
+
+			SP -> prev data
+			      0x
+
 ### Stack Placement ###
 ### Banked Stack Pointer Registers of ARM Cortex Mx ###
 ### Stack Exercise ###
