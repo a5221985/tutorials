@@ -1222,6 +1222,22 @@
 	2. Type-2 (this is generally used)
 		1. Data and heap sections are same as in Type-1
 		2. Stack is pushed to the end of RAM
+		
+				-------
+				 Stack
+				-------
+					|
+					v
+					
+					
+					^
+					|
+				-------
+				  Heap
+				-------
+			     Data
+				-------
+
 
 ### Banked Stack Pointer Registers of ARM Cortex Mx ###
 ### Stack Exercise ###
