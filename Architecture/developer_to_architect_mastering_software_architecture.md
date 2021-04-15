@@ -2246,6 +2246,7 @@
 2. Outermost load balancer
 	1. It has public IP
 		1. There are software based and hardware based load balancers
+	2. This will probably see the highest amount of load
 
 ### Discovery Service and Load Balancing ###
 ### Load Balancer Discovery ###
