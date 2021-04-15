@@ -2278,9 +2278,34 @@
 	3. Needed if Kubernetes cluster management system is not used
 
 ### Load Balancer Discovery ###
+1. External Clients - Use DNS to discover the external load balancer
+	1. DNS name will be resolved to external IP address
+2. Internal Clients - Use a local registery/ config to discover an internal load balancer
 
+		Client -> External LB		    Services -> Internal LB  
+			|		Name: www.abc.com
+			v		Ext IP: 158.26.78.80
+			DNS		IP: 198.168.1.1
+			
+	1. Internal LB
+		1. IP address is used
+			1. Available to clients through configuration or
+			2. Available in registry (discovery service)
 
 ### HLB vs SLB ###
+1. Two kinds
+	1. Hardware based load balancer
+		1. Load distribution for L4 & L7
+			1. 2x 14-Core Intel Xeon processors
+			2. 1.6 TB of available use storage space
+			3. 512 GB DDR4 RAM
+			4. 4x 100G and 8x 40G fiber ports
+		2. F5 Big IP i5000 series
+			1. Connections: 300 million
+			2. Throughput: 320/160 Gbps
+			3. RPS (L7): 10 million
+	2. Software based load balancer
+
 ### Layer-7 Load Balancer ###
 ### DNS as Load Balancer ###
 ### Global Server Load Balancer ###
