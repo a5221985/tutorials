@@ -1208,9 +1208,21 @@
 	2. Activity
 
 			SP -> prev data
-			      0x
+			      0x800211CD 
+			      0xFFBC
+			      0xAB11     <- SP
+			      
 
 ### Stack Placement ###
+1. How to allocate stack?
+	1. Type-1 (decided by linker script or config file of toolchain)
+		1. Initial portion of RAM is selected as Data section (global)
+		2. End of data section is beginning of heap section (size of heap can also be mentioned in linker script)
+		3. Stack is started immediately after heap
+	2. Type-2 (this is generally used)
+		1. Data and heap sections are same as in Type-1
+		2. Stack is pushed to the end of RAM
+
 ### Banked Stack Pointer Registers of ARM Cortex Mx ###
 ### Stack Exercise ###
 ### Stack Exercise Contd. ###
