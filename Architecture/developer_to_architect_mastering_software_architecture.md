@@ -2208,18 +2208,45 @@
 
 ### Methods for Horizontal Scalability ###
 1. Horizontal Scaling Methods
-	1. Services
-	2. Replication
-		1. Stateful
-		2. Stateless
+	1. Services (breaking monolith into services)
+	2. Replication (more workers)
+		1. Stateful (Db are stateful always)
+		2. Stateless (web apps, services, ... - more scalable)
 	3. Partitioning
-		1. Vertical/ Functionality Partitioning
-		2. Database Partitioning
-	4. Asynchronous Calls
-	5. Caching
+		1. Vertical/ Functionality Partitioning (microservices)
+		2. Database Partitioning (horizontal partitioning)
+	4. Asynchronous Calls (write load - peak loads can be handled better)
+	5. Caching (reduces latency, reduces load and hence increases scalability)
 
 ### Dealing with Large Scale Systems ###
+1. Large Scale Systems
+	1. We need other services
+		1. Load balancing
+		2. DNS
+		3. Auto-scaling
+
 ### Load Balancing Multiple Instances ###
+1. Load Balancing provides
+	1. Single IP address for a component
+		1. Any component can have multiple instances
+			1. Web app
+			2. Gateway
+			3. Catalog service
+		2. Suppose gateway wants to call catalog service
+			1. Which instance to call?
+			2. How many instances exist?
+			3. The number of instances can change
+			4. IP addresses can change
+			5. Load on the instances can change
+			6. Hence, it is even hard to maintain a list of IP addresses
+				1. Solution: Load balancer
+					1. It takes the responsibility of routing the request to the right instance (based on load, or whatever strategy)
+					2. It takes the job of distribution of requests
+					3. Client can use only one IP address (of the load balancer)
+2. Outermost load balancer
+	1. It has public IP
+		1. There are software based and hardware based load balancers
+
 ### Discovery Service and Load Balancing ###
 ### Load Balancer Discovery ###
 ### HLB vs SLB ###
