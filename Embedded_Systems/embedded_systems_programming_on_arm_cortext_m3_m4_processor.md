@@ -1068,15 +1068,25 @@
 	2. Solutions:
 
 			LDRB R0, #0xff
+			STRB R0, [0x20000200]
+			LDRB R0, [0x20000200]
 			ANDRB R0, #0x7f
 			STRB R0, [0x20000200]
 			
 			LDRB R0, #0xff
 			STRB R0, [0x20000200]
 			LDRB R0, #0x01
-			STRB R0, [0x22100000]
+			STRB R0, [0x2210001C]
 
 ### Bit Banding Exercise ###
+1. Calculation of bit band alias address
+	1. 7th bit position of memory location 0x2000_02000 using alias address
+		1. Formula:
+
+				Alias address = alias_base + (32 * (bit_band_memory_addr - bit_band_base)) + bit * 4
+				
+				= 0x22000000 + (32 * (0x20000200 - 0x20000000)) + 7 * 4
+				= 0x22000000 +  
 
 ## Stack Memory and Placement ##
 ### Introduction to Stack Memory ###
