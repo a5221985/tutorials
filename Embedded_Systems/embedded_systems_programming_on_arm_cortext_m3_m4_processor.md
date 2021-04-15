@@ -1297,7 +1297,12 @@
 						1. The boundaries are defined by linker script symbols
 							1. start and end of stack or heap or data sections
 							2. size of stack or heap or data sections
-						3. 
+					2. linker script: STM32F407GTX_FLASH.ld (interpreted by the linker)
+						1. Linker will assemble various sections of the project based on the definition of linker script (for creation of final executable)
+
+								_estack = ORIGIN(RAM) + LENGTH(RAM);
+								
+							1. stack initial address = 0x20000000 + (128 * 1024) = 0x20020000
 
 ### Stack Exercise Contd. ###
 ### Function Call and AAPCS Standard ###
@@ -1329,7 +1334,7 @@
 ### Other Configurable Faults ###
 ### Configurable Fault Exception Exercise-1 ###
 ### Analyzing Stack Frame ###
-### Configurable Fault Excepiton Exercise-2 ###
+### Configurable Fault Exception Exercise-2 ###
 ### Analyzing Stack Frame ###
 
 ## Exception for System Level Services ##
@@ -1349,7 +1354,7 @@
 ### Configure Systick Timer ###
 ### Case Study of Context Switching Contd. ###
 ### Initialization of Stack ###
-### Initialization of Stack Contc. ###
+### Initialization of Stack Contd. ###
 ### Stack Pointer Setup ###
 ### Implementing the Systick Handler ###
 ### Testing ###
