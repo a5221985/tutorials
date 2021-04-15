@@ -1286,6 +1286,18 @@
 		
 	1. Show View > Registers
 		1. SP -> 0x2001fff0 (highest mem address of RAM)
+			1. startup_stm32f407vgtx.s
+
+					g_pfnVectors:
+						.word _estack ; initial stack address
+						
+				1. When processor is reset, it first fetches first entry from the vector table and initialize MSP register with the value
+				2. `_estack` - linker symbol that denotes end of RAM as beginning of stack
+					1. The symbol is defined in the linker script
+						1. The boundaries are defined by linker script symbols
+							1. start and end of stack or heap or data sections
+							2. size of stack or heap or data sections
+						3. 
 
 ### Stack Exercise Contd. ###
 ### Function Call and AAPCS Standard ###
