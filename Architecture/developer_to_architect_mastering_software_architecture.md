@@ -2343,6 +2343,17 @@
 
 ### Layer-7 Load Balancer ###
 1. L7 - app level protocols are used
+	1. SSL Termination
+	2. Reverse proxy
+		1. Breaks TCP connection
+	3. Content based routing
+	4. Load balancing
+		1. Round Robin
+		2. Least Connection
+		3. Weighted RR/Least Conn
+		4. Least Response Time
+2. Dynamic content: http://www.hotel.com
+3. Static content: http://images.hotel.com
 
 ### DNS as Load Balancer ###
 ### Global Server Load Balancer ###
