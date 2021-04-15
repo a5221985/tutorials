@@ -969,6 +969,45 @@
 					3. System control block register
 			3. All control and configuration registers of ARM Cortex Mx processor will be accessed through PPB
 5. Refer to datasheet of STM32F407VG MCU
+	1. Bus Matrix
+		1. Given by microcontroller vendor
+		2. Used to synchronize bus access from different bus masters
+			1. Bus masters:
+				1. Processor
+				2. Ethernet
+				3. USB
+				4. DMA
+			2. Access to bus (due to multiple masters) is taken care by Arbiter (bus arbiter) (an engine)
+			3. AHB1 connects to System Bus of microcontroller
+				1. Most peripherals are hanging on this bus
+					1. GPIO peripherals
+			4. AHB2 connects to camera interaface, USB OTG peripheral
+				1. Peripherals requiring high operational speed
+				2. Also connects to System bus (through bus matrix - it has an arbiter)
+			5. AHB3
+			6. AHB1 connects to bridge (AHB/APB1, AHB/APB2)
+				1. Bridge converts AHB signals into APB signals
+			7. APB
+				1. Peripherals that do not require high operational speed are connected to this bus
+				2. Used to reduce power consumption
+				3. Two APB buses
+					1. APB1
+						1. 42 MHz
+						2. USART
+						3. SPI
+						4. I2C
+							1. Sensor connected here say
+								1. Traffic goes through
+									1. APB1 bus
+									2. AHB/APB1 bridge
+									3. AHB1 bus
+									4. AHB bus matrix
+									5. System bus
+									6. Processor
+						5. TIMers
+						6. CAN
+					2. APB2
+						1. 84 Mhz
 
 ### Bit Banding ###
 ### Bit Banding Exercise ###
