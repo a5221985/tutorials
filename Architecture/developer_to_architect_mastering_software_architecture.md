@@ -2246,9 +2246,25 @@
 2. Outermost load balancer
 	1. It has public IP
 		1. There are software based and hardware based load balancers
-	2. This will probably see the highest amount of load
+	2. This will see the highest amount of load (next one also)
+	3. Rest of the load balancers are there to provide single IP address to the different components
+		1. If microservices has multiple services and each service has a lot of instances
+			1. Each service has load balancer (Kubernetes say)
+				1. There is alternative to load balancer
 
 ### Discovery Service and Load Balancing ###
+1. The load balancers can be removed for each service and put in gateway service
+	1. If there are lots of services, it becomes messy to have load balancer for each of the services (Kubernetes infrastructure makes it easy to maintain)
+2. Alternative
+	1. Discovery Service
+		1. Use case: If there are lots of services, it becomes hard to track what services are available and what instances of the services are running and what of them are healthy
+			1. Solution: Discovery service
+				1. Order service instances (say) registers with discovery service (when they come up)
+				2. Discovery service will know what services and what instances are still serving
+				3. Each service frequently updates its existance to discovery service using a heartbeat (health)
+	2. Load balancer that is embedded into gateway service code
+		1. If gateway service wants to make a call to backend service, it makes a call to embedded load balancer (library)
+
 ### Load Balancer Discovery ###
 ### HLB vs SLB ###
 ### Layer-7 Load Balancer ###
