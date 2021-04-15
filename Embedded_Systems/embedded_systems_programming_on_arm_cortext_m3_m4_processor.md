@@ -921,6 +921,27 @@
 	2. APB bus is used for PPB (Private Peripheral) access and some on-chip peripheral access using an AHB-APB bridge (A bridge)
 	3. AHB Lite bus majorly used for high-speed communication with peripherals that demand high operation speed
 	4. APB bus is used for low-speed communication compared to AHB. Most of the peripherals which don't require high operation speed are connected to this bus
+3. Connections:
+
+		    ARM Cortex Mx Processor
+		  PPB   System      D-CODE I-CODE
+			^     ^             ^   ^
+			|     |             |   | (32 bit)
+		  AHB   AHB           AHB  AHB (instruction fetch,
+			|     |				|   |    vector table read)
+			v     v             v   v
+	     PPB   SRAM,        CODE region
+	          Peripheral,   (Program Image)
+	           Ext Ram, 
+	         Device regions 
+	         
+	         MCU Vendor 
+	       specific region
+	       
+	  1. PPB <-> PPB - Data access
+	  2. System <-> SRAM, Peripheral, Ext RAM, Device regions - any access (read/write)
+	  3. D-CODE <-> CODE region - Data access
+	  4. I-CODE <-> CODE region - Instruction feth, vector table read)
 
 ### Bit Banding ###
 ### Bit Banding Exercise ###
