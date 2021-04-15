@@ -904,8 +904,24 @@
 8. External Device Region
 	1. The region is intended for external devices and/or shared memory
 	2. This is eXecute Never (XN) region
+9. Private Peripheral Bus Region
+	1. The region includes NVIC, system timer, system control block
+	2. This is eXecute Never (XN) region
 
-### Bus Protocol and Bus Interfaces ###
+### Bus Protocols and Bus Interfaces ###
+1. Bus protocols and bus interfaces
+	1. In Cortex Mx processors bus interfaces are based on Advanced Microcontroller Bus Architecture (AMBA) specification
+	2. AMBA is specification designed by ARM which governs standard for on-chip communication inside system on chip
+		1. Vendor who designs microcontroller that is based on ARM Cortex M microprocessor, on-chip communication (between processor, memory and peripherals) will be governed by bus interface that is based on AMBA spec
+	3. AMBA specification supports several bus protocols (the protocols are derived from AMBA spec)
+		1. AHB Lite (AMBA High-performance Bus)
+		2. APB (AMBA Peripheral Bus)
+2. AHB and APB
+	1. AHB Lite bus is mainly used for main bus interfaces
+	2. APB bus is used for PPB (Private Peripheral) access and some on-chip peripheral access using an AHB-APB bridge (A bridge)
+	3. AHB Lite bus majorly used for high-speed communication with peripherals that demand high operation speed
+	4. APB bus is used for low-speed communication compared to AHB. Most of the peripherals which don't require high operation speed are connected to this bus
+
 ### Bit Banding ###
 ### Bit Banding Exercise ###
 
