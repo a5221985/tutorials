@@ -1263,6 +1263,12 @@
 	1. Changing value of SPSEL bit (0 or 1) in handler mode doesn't make any sense
 		1. Write will be ignored
 		2. PSP is inactive in Handler mode
+5. MSP will be initialized automatically by the processor after reset by reading the contentof the address 0x0000_0000
+	1. It is our responsibility to keep a valid value in this address
+6. If you want to use PSP, then make sure that you initialize PSP to valid stack address in your code
+	1. First initialize PSP with valid stack address
+	2. Change CONTROL register to use PSP
+	3. Perform push and pop operations
 
 ### Stack Exercise ###
 ### Stack Exercise Contd. ###
