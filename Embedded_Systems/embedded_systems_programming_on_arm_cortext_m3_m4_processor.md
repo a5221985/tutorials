@@ -1271,6 +1271,22 @@
 	3. Perform push and pop operations
 
 ### Stack Exercise ###
+1. Program:
+
+		int fun_add(int a, int b, int c, int d) {
+			return a + b + c + d;
+		}
+
+		int main(void) {
+			int ret;
+			ret = fun_add(1, 4, 5, 6);
+			printf("result = %d\n", ret);
+			for(;;);
+		}
+		
+	1. Show View > Registers
+		1. SP -> 0x2001fff0 (highest mem address of RAM)
+
 ### Stack Exercise Contd. ###
 ### Function Call and AAPCS Standard ###
 ### Stack Activities During Interrupt and Exception ###
