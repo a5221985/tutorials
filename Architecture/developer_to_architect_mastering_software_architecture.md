@@ -2303,7 +2303,7 @@
 		2. F5 Big IP i5000 series
 			1. Connections: 300 million
 			2. Throughput: 320/160 Gbps
-			3. RPS (L7): 10 million
+			3. RPS (L7): 10 million (requests per second - only at L7)
 	2. Software based load balancer
 		1. Load distribution L7 (only) - application layer
 		2. Features
@@ -2311,7 +2311,7 @@
 			2. Supports SSL termination
 			3. Supports sticky sessions
 		3. NGINX
-			1. Connections: 225 K
+			1. Connections: 225 K (sufficient for many use cases)
 			2. Throughput: 70 Gbps
 			3. RPS: 3 million
 2. TCP/IP Model
@@ -2330,8 +2330,20 @@
 4. HW LBs
 	1. Can take immense amount of load
 	2. Can do load balancing for L4 (Transport) and L7
+	3. They are better than software based
+5. Why use software based load balancers?
+	1. HW based load balancers are extremely expensive
+	2. SW based load balancers are free
+		1. There is some cost for maintenance which is less
+		2. Options
+			1. Apache
+			2. NGINX
+			3. HAPROXY
+	3. One can upgrade to HW based LB if needed
 
 ### Layer-7 Load Balancer ###
+1. L7 - app level protocols are used
+
 ### DNS as Load Balancer ###
 ### Global Server Load Balancer ###
 ### Global Data Replication ###
