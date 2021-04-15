@@ -1225,10 +1225,10 @@
 		
 				-------
 				 Stack
-				-------
+				------- Stack boundary
 					|
 					v
-					
+				Unused RAM space	
 					
 					^
 					|
@@ -1237,7 +1237,10 @@
 				-------
 			     Data
 				-------
-
+				
+			1. If Stack tries to cross the boundary, it is stack overflow
+				1. Software routines should check stack overflow
+					1. 
 
 ### Banked Stack Pointer Registers of ARM Cortex Mx ###
 ### Stack Exercise ###
