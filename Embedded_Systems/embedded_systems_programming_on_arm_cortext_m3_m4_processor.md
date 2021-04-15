@@ -1110,9 +1110,35 @@
 		*alias_addr = 0; // clearing 7th bit of address 0x20000200
 		
 	1. Open memory browser
+		1. Fewer instructions are generated for bit-banding
 
 ## Stack Memory and Placement ##
 ### Introduction to Stack Memory ###
+1. Stack memory
+	1. Stack memory is part of main memory
+		1. Internal RAM or external RAM
+	2. It is reserved for temporary storage of data (transient data)
+	3. It is mainly used during
+		1. Function
+		2. Interrupt/ exception handling
+	4. Stack memory is accessed in last in first out (LIFO)
+	5. Stack can be accessed using PUSH and POP instructions
+		1. Most processor architectures support the instructions
+	6. Or using any memory manipulation instructions (LD, STR)
+	7. Stack is traced using stack pointer (SP) register
+	8. PUSH and POP instructions affect (decrement or increment) stack pointer register (SP, R13)
+2. Stack memory uses
+	1. Temporary storage of processor register values
+	2. Temporary storage of local variables of function
+		1. When function exits, the memory occupied by local variables will be reclaimed
+			1. Stack dynamically expands and shrinks during runtime of a program
+	3. During system exception or interrupt
+		1. Used to save context of currently executing code
+			1. Context:
+				1. Some general purpose registers
+				2. Processor status register
+				3. Return address
+
 ### Different Stack Operation Models ###
 ### Stack Placement ###
 ### Banked Stack Pointer Registers of ARM Cortex Mx ###
