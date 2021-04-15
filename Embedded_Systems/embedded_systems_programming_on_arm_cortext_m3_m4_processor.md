@@ -1048,8 +1048,23 @@
 				1. Feature is available in SRAM and Peripheral (other regions it is not available)
 					1. SRAM - Only initial 1 MB region
 						1. 32 MB Bit band alias - region that stores alias addresses (0x22000000 to 0x23FFFFFF)
+
+								0x20000000 bit[0] <- 0x22000000
+								0x20000000 bit[1] <- 0x22000004
+								0x20000000 bit[2] <- 0x22000008
+								...
+								0x20000000 bit[31] <- 0x2200007C
+						
 					2. Peripheral - Only initial 1 MB region
-						1. 32 MB Bit band alias - region that stores alias addresses (0x22000000 to 0x23FFFFFF)
+						1. 32 MB Bit band alias - region that stores alias addresses (0x42000000 to 0x43FFFFFF)
+3. Bit band and bit band alias addresses
+	1. The regions of SRAM and peripherals include optional bit-band regions
+	2. Bit-banding provides atomic operations to bit data
+		1. Read or modify are all atomic (will not be interupted by exceptions or interrupts)
+4. Exercise:
+	1. Modify content of memory location 0x2000_0200 using usual and bit banding method and analyze the difference
+		1. First store the value 0xff into memory location 0x2000_0200
+		2. Make the 7th-bit position of value to 0
 
 ### Bit Banding Exercise ###
 
