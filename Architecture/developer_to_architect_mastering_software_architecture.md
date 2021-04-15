@@ -2185,11 +2185,39 @@
 				1. Latency may get increased
 		2. Hash partitioning directly identifies the node
 			1. We don't have to go through any index tree on multiple nodes
+			2. Client can calculate the node and server is not required
 3. NoSQL DBs have their own query language
 	1. RDBMSs are simple to understand and universal
 
 ### Routing with Database Partitioning ###
+1. CRUD requests
+	1. Considered horizontally partitioned Order table
+		1. How to get data? (of id = 256)
+			1. Three ways:
+				1. Client library - (CouchDB, Memcache)
+					1. They are cluster aware (they know how many nodes are in the cluster)
+						1. When we run query
+							1. The library applied hashing algorithm to determine the node and fetch the data
+				2. Router Component - (MongoDB)
+					1. Hosted as a server application
+					2. Any client can send the request to the router
+					3. The router determines node where the request can get served (hash partitioning or range partitioning)
+					4. The router is cluster aware + aware of the partitioning scheme
+				3. Contact any node - (DynamoDB, CassandraDB)
+					1. The contacted node takes the responsibility of forwarding the request to the right node
+
 ### Methods for Horizontal Scalability ###
+1. Horizontal Scaling Methods
+	1. Services
+	2. Replication
+		1. Stateful
+		2. Stateless
+	3. Partitioning
+		1. Vertical/ Functionality Partitioning
+		2. Database Partitioning
+	4. Asynchronous Calls
+	5. Caching
+
 ### Dealing with Large Scale Systems ###
 ### Load Balancing Multiple Instances ###
 ### Discovery Service and Load Balancing ###
