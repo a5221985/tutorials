@@ -1074,7 +1074,7 @@
 			LDRB R0, #0xff
 			STRB R0, [0x20000200]
 			LDRB R0, #0x01
-			STRB R0, [0x22000
+			STRB R0, [0x22100000]
 
 ### Bit Banding Exercise ###
 
