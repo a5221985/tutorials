@@ -2262,10 +2262,24 @@
 				1. Order service instances (say) registers with discovery service (when they come up)
 				2. Discovery service will know what services and what instances are still serving
 				3. Each service frequently updates its existance to discovery service using a heartbeat (health)
+				4. Steps:
+					1. Gateway service queries the discovery service for instances of Order service (say)
+					2. Discovery service will provide list of healthy instances of Order service
+					3. Gateway service load balancer uses a strategy to choose the instance it wants to call
+					4. Gateway makes a call to the order service  
 	2. Load balancer that is embedded into gateway service code
 		1. If gateway service wants to make a call to backend service, it makes a call to embedded load balancer (library)
+3. Suppose Order service wants to call Catelog service
+	1. It can embed load balancer along with discovery service
+4. Discovery Service can also be used by traditional load balancers
+	1. The latest status of the services can be obtained
+	2. Large scale systems typically have discovery service
+		1. Otherwise it becomes difficult to manage each service through configure 
+	3. Needed if Kubernetes cluster management system is not used
 
 ### Load Balancer Discovery ###
+
+
 ### HLB vs SLB ###
 ### Layer-7 Load Balancer ###
 ### DNS as Load Balancer ###
