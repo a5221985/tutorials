@@ -2354,6 +2354,22 @@
 		4. Least Response Time
 2. Dynamic content: http://www.hotel.com
 3. Static content: http://images.hotel.com
+4. SRAM (128 KB) (STM32F407 - has 2 SRAMs (SRAM1 & SRAM2) - combined 128 KB)
+
+		[ Part of RAM reserved for "gobal data" ] RAM_START
+		[ Part of RAM reserved for "Heap" ]
+		[ Part of RAM reserved for "Stack" ] RAM_END
+		
+	1. Part of RAM reserved for "gobal data" - utilized when program contains global data and static local variables.
+		1. Instructions can also be stored here and executed
+	2. Part of RAM reserved for "Heap" - utilized during dynamic memory allocation
+		1. `malloc`, `calloc`
+	3. Part of RAM reserved for "Stack" - utilized during function call to save temp data, temp storage of local variables of function, temp storage of stack frames during interrupts & exceptions
+5. How much memory to allocate has to be defined using
+	1. Toolchain OR
+	2. Linker script
+6. We can also write our own dynamic memory allocation API that allocates memory in "Heap"
+7. The boundaries can be decided by us
 
 ### DNS as Load Balancer ###
 ### Global Server Load Balancer ###
