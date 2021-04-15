@@ -2369,7 +2369,35 @@
 	1. Toolchain OR
 	2. Linker script
 6. We can also write our own dynamic memory allocation API that allocates memory in "Heap"
-7. The boundaries can be decided by us
+7. The boundaries can be decided by us (it depends on the project)
+	1. The sections can also be at different locations
+8. Stack operation model
+	1. In ARM Cortex Mx processor stack consumption model is **Full Descending (FD)**
+		1. Different Stack operation models
+			1. Full Ascending stack (FA)
+			2. Full Descending stak (ARM Cortex Mx processors use this)
+			3. Empty Ascending stack (EA)
+			4. Empty Descending stack (ED)
+
+### Different Stack Operation Models ###
+1. Full Ascending Stack
+	1. Increasing mem addresses
+	2. Steps: Push
+		1. SP is incremented
+		2. Data is copied
+	3. This requires decremented SP to lower memory address
+2. Full Descending Stack
+	1. Decreasing mem addresses
+	2. Steps: Push
+		1. SP is decremented
+		2. Data is copied
+	3. This requires initializing SP to higher memory address
+3. Empty Ascending
+	1. Increasing mem addresses
+	2. Steps: Push
+		1. SP will be pointing to next empty location
+		2. Data is copied
+		3. SP is incremented to next empty location
 
 ### DNS as Load Balancer ###
 ### Global Server Load Balancer ###
