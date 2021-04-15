@@ -2155,7 +2155,20 @@
 2. Use case: Go for DB partitioning if vertical partitioning is not sufficient for scaling out
 
 ### Database Partitioning Selection ###
-1. 
+1. Range Partitioning
+
+		SELECT * FROM Order WHERE id = 150
+		SELECT * FROM Order WHERE id > 150 AND id < 250
+		
+	1. Node 2 has data between 101..200 and Node 2 has data between 201..300
+		1. We need to visit both nodes for the range
+
+2. Hash Partitioning
+
+		SELECT * FROM Order WHERE id = 150
+		
+3. NoSQL DBs have their own query language
+	1. RDBMs are simple to understand and universal
 
 ### Routing with Database Partitioning ###
 ### Methods for Horizontal Scalability ###
