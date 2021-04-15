@@ -942,6 +942,33 @@
 	  2. System <-> SRAM, Peripheral, Ext RAM, Device regions - any access (read/write)
 	  3. D-CODE <-> CODE region - Data access
 	  4. I-CODE <-> CODE region - Instruction feth, vector table read)
+4. Processor gives 4 bus interfaces (all AHB)
+	1. The interfaces can be used to connect memories (of different kinds) and peripherals
+		1. I-CODE
+			1. Used to fetch instructions and vector table
+		2. D-CODE
+			1. Used to fetch data from code region (from flash say)
+				1. constants
+				2. tables
+				3. ...
+			2. The code and data are fetched in parallel
+		3. System
+			1. To connect on-chip peripherals and memory (SRAM)
+				1. Any data mem access
+			2. Access to peripherals
+				1. ADC
+				2. DAC
+				3. TIMERs
+				4. ...
+		4. PPB
+			1. Private Peripheral Bus
+			2. Used to communicate with PPB region
+				1. Includes most of the peripheral registers of ARM Cortex Mx
+					1. NVIC register
+					2. Systick timer register
+					3. System control block register
+			3. All control and configuration registers of ARM Cortex Mx processor will be accessed through PPB
+5. Refer to datasheet of STM32F407VG MCU
 
 ### Bit Banding ###
 ### Bit Banding Exercise ###
