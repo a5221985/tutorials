@@ -1262,6 +1262,7 @@
 4. Handler mode code execution will always use MSP as current stack pointer
 	1. Changing value of SPSEL bit (0 or 1) in handler mode doesn't make any sense
 		1. Write will be ignored
+		2. PSP is inactive in Handler mode
 
 ### Stack Exercise ###
 ### Stack Exercise Contd. ###
