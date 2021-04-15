@@ -2305,6 +2305,31 @@
 			2. Throughput: 320/160 Gbps
 			3. RPS (L7): 10 million
 	2. Software based load balancer
+		1. Load distribution L7 (only) - application layer
+		2. Features
+			1. Content based routing
+			2. Supports SSL termination
+			3. Supports sticky sessions
+		3. NGINX
+			1. Connections: 225 K
+			2. Throughput: 70 Gbps
+			3. RPS: 3 million
+2. TCP/IP Model
+	1. Application layer (HTTP, HTTPS, SMTP, IMAP, FTP, DNS, NNTP...)
+	2. Transport (UDP, TCP, SCTP)
+	3. Internet
+	4. Network Access (Link)
+3. OSI Model
+	1. Application (Layer 7 load balancing upto session layer)
+	2. Presentation
+	3. Session
+	4. Transport (Layer 4 Load balancing)
+	5. Network
+	6. Data Link
+	7. Physical
+4. HW LBs
+	1. Can take immense amount of load
+	2. Can do load balancing for L4 (Transport) and L7
 
 ### Layer-7 Load Balancer ###
 ### DNS as Load Balancer ###
