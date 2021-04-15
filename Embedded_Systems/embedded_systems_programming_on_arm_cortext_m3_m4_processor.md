@@ -1086,7 +1086,30 @@
 				Alias address = alias_base + (32 * (bit_band_memory_addr - bit_band_base)) + bit * 4
 				
 				= 0x22000000 + (32 * (0x20000200 - 0x20000000)) + 7 * 4
-				= 0x22000000 +  
+				= 0x22000000 + (32 x 512) + 28
+				= 0x22000000 + 0x0000401C
+				= 0x2200401C
+				
+2. Program:
+
+		uint8_t *ptr = (uint8_t*) 0x20000200;
+		
+		*ptr = 0xff;
+		
+		*ptr &= ~(1 << 7);
+		
+3. Program: bit-band method
+
+		#define ALIAS_BASE 0x22000000U
+		#define BIT_BAND_BASE 0x20000000U
+		
+		// ...
+		
+		*ptr = 0xff;
+		uint8_t* alias_addr = (uint8_t*) (ALIAS_BASE + (32 * (0x20000200 - BIT_BAND_BASE)) + 7 * 4);
+		*alias_addr = 0; // clearing 7th bit of address 0x20000200
+		
+	1. Open memory browser
 
 ## Stack Memory and Placement ##
 ### Introduction to Stack Memory ###
