@@ -873,8 +873,37 @@
 	3. It is there for primarily connecting SRAM
 		1. Mostly on-chip SRAM
 		2. It is data memory (for temp data)
-	4. First 1 MB of SRAM is bit addressable
+	4. First 1 MB of SRAM is bit addressable (bit-banding)
 	5. **Program code can also be exeuted from this region**
+6. Peripheral Region
+	1. Peripheral memory region also has size of 512 MB
+	2. Used mostly for on-chip peripherals (of microcontroller)
+		1. Processor peripheral registers will not fall under this category
+			1. NVIC
+			2. ...
+		2. This is only for vendor specific peripheral registers
+			1. RTC
+			2. ADC
+			3. TIMERs
+	3. Like SRAM region, first 1 MB of peripheral region is bit addressable if optional bit-band feture is included
+		1. Bit-Band Region
+		2. Bit-Band Alias
+	4. This is an eXecute Never (XN) region
+		1. If we try to execute code in this region will trigger fault exception
+			1. To prevent code injection attacks
+				1. One can transmit code through peripheral and make processor execute the code
+7. External RAM Region
+	1. The region is intended for either on-chip or off-chip memory
+		1. Graphics related say
+		2. Frame buffers say
+		3. Audio info say
+	2. External RAM must be connected in this region
+		1. Registers will fall under this region
+	3. We can execute code in the region
+		1. E.g. connecting external SDRAM
+8. External Device Region
+	1. The region is intended for external devices and/or shared memory
+	2. This is eXecute Never (XN) region
 
 ### Bus Protocol and Bus Interfaces ###
 ### Bit Banding ###
