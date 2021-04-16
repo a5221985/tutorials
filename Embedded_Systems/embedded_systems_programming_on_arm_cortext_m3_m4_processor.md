@@ -1344,6 +1344,7 @@
 			__asm volatile ("MSR PSP, R0");
 			__asm volatile ("MOV R0,#0x02"); // 1st bit (16 bit)
 			__asm volatile ("MSR CONTROL, R0");
+			__asm volatile ("BX LR"); // return - Branch Indirect (LR captures the return address so we must branch to that address)
 		}
 		
 		void generate_exception() {
@@ -1367,6 +1368,16 @@
 3. `equ` assembler directive (assembler way of defining macros)
 
 		.equ label, <value>
+		
+4. Step through the code to see that SP switches between MSP and PSP
+5. MSP, PSP Summary
+	1. Physically there are 2 stack pointer registers in Cortex-M processors
+	2. Main Stack Pointer (MSP): This is default stack pointer used after reset
+		1. It is used for all exception/ interrupt handlers & for thread mode code
+	3. Process Stack Pointer (PSP): Alternate stack pointer that can only be used in thread mode
+		1. It is used for application task in embedded systems and embedded OS (usually)
+	4. After power-up
+		1. Processor automatically initializes MSP by reading first location of vector table
 
 ### Function Call and AAPCS Standard ###
 ### Stack Activities During Interrupt and Exception ###
