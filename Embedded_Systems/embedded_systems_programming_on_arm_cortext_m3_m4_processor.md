@@ -1378,8 +1378,29 @@
 		1. It is used for application task in embedded systems and embedded OS (usually)
 	4. After power-up
 		1. Processor automatically initializes MSP by reading first location of vector table
+6. Changing SP
+	1. To access MSP and PSP in assembly code
+		1. Use MSR and MRS instructions
+	2. In 'C' program, we can write naked function ('C' like assembly function which doesn't have epilogue and prologue sequences) to change the currently selected stack pointer
+		1. We must never write a pure 'C' function to do this switch (prologue and epilogue will involve push and pop operations)
 
 ### Function Call and AAPCS Standard ###
+1. AAPCS - ARM Architecture Procedure Call Standard
+
+		/* this is "caller" */
+		void fun_x(void) {
+			int ret;
+			ret = fun_y(1, 2, 3, 4);
+		}
+		
+		/* this is "callee" */
+		int fun_y(int a, int b, int c, int d) {
+			return (a + b + c + d);
+		}
+		
+	1. "callee" receives 4 input args
+	2. "callee" returns a value to "caller"
+
 ### Stack Activities During Interrupt and Exception ###
 
 ## Exception Model of ARM Cortex Mx Processor ##
