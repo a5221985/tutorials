@@ -1324,6 +1324,49 @@
 
 ### Stack Exercise Contd. ###
 1. Instructions: MRS, MSR
+2. Program:
+
+		#define SRAM_START 0x20000000U
+		#define SRAM_SIZE (128 * 1024)
+		#define SRAM_END ((SRAM_START) + (SRAM_SIZE))
+		#define STACK_START SRAM_END
+		
+		#define STACK_MSP_START STACK_START
+		#define STACK_MSP_END (STACK_MSP_START + 512)
+		#define STACK_PSP_START START_MSP_END
+		
+		//...
+		
+		__attribute__((naked)) void change_sp_to_psp(void) {
+			__asm volatile (".equ SRAM_END, (0x20000000 + (128 * 1024))");
+			__asm volatile (".equ PSP_START, (SRAM_END - 512)");
+			__asm volatile ("LDR R0, =PSP_START");
+			__asm volatile ("MSR PSP, R0");
+			__asm volatile ("MOV R0,#0x02"); // 1st bit (16 bit)
+			__asm volatile ("MSR CONTROL, R0");
+		}
+		
+		void generate_exception() {
+			__asm volatile ("SVC #0x2"); // exception type
+		}
+		
+		int main(void) {
+			change_sp_to_psp();
+			generate_exception();
+		}
+		
+	1. `SVC` - can be executed by thread mode code to get some services from the kernel code
+		1. Usually used in OS environment
+		2. It is an instruction used to implement the system call layer
+	2. The name of handler can be obtained from **startup_stm32f407vgtx.s**
+
+			void SVC_Handler(void) {
+				printf("In SVC Handler\n");
+			}
+			
+3. `equ` assembler directive (assembler way of defining macros)
+
+		.equ label, <value>
 
 ### Function Call and AAPCS Standard ###
 ### Stack Activities During Interrupt and Exception ###
