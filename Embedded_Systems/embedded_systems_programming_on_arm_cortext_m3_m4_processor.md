@@ -1303,8 +1303,28 @@
 								_estack = ORIGIN(RAM) + LENGTH(RAM);
 								
 							1. stack initial address = 0x20000000 + (128 * 1024) = 0x20020000
+2. Change SP to PSP for Thread Mode Code
+	1. Thread Mode: SP -> PSP
+	2. Handler Mode: SP is always MSP (this cannot be changed)
+3. To access PSP, we need to use inline assembly code
+
+		1KB |				| STACK_MST_START
+		    |				|
+		    -------------- STACK_MSP_END = STACK_PSP_START
+		    |				|
+		    |				| STACK_PSP_END
+
+	1. Top is 512 bytes
+		1. Handler mode will use this stack space
+	2. Botton is 512 bytes
+		1. Thread mode will use this stack space
+	3. OS usually runs in this fasion
+		1. Kernel mode code will run using it's own stack (RTOS or Embedded OS)
+		2. User stack will use separate stack space
 
 ### Stack Exercise Contd. ###
+1. Instructions: MRS, MSR
+
 ### Function Call and AAPCS Standard ###
 ### Stack Activities During Interrupt and Exception ###
 
