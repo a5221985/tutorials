@@ -1424,6 +1424,29 @@
 	1. Caller function uses R0, R1, R2, R3 registers to send input arguments to callee function
 10. The callee function uses registers R0 and R1 to send result back to caller function
 
+		// this is "caller"
+		void fun_x(void) {
+			int ret;
+			ret = fun_y(1, 2, 3, 4); // 1 -> R0, 2 -> R1, 3 -> R2, 4 -> R3
+		}
+		
+		// this is "callee"
+		int fun_y(int a, int b, int c, int d) {
+			int result = a + b + c + d;
+			return result; // result -> R0 (10)
+		}
+		
+	1. Parameter and result passing during function call as per AAPCS standard
+		1. `fun_x` (caller) copies the arguments into R0, R1, R2 and R3
+		2. `fun_y` (callee) copies register contents back to local variables
+		3. `fun_y` (callee) will always use R0 to return the result
+			1. If result is 64 bits, two registers are used (R0, R1)
+				1. Higher 32 bits will go into R1
+				2. Lower 32 bits will go into R0
+		4. Suppose there are more than 4 arguments (6 say)
+			1. Rest of the arguments, stack will be used
+				1. [Procedure Call Standard for the Arm Architecture](https://developer.arm.com/documentation/ihi0042/latest/)
+
 ### Stack Activities During Interrupt and Exception ###
 
 ## Exception Model of ARM Cortex Mx Processor ##
