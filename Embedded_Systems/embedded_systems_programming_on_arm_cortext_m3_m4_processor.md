@@ -1400,6 +1400,29 @@
 		
 	1. "callee" receives 4 input args
 	2. "callee" returns a value to "caller"
+2. Procedure Call Standard for the Arm Architecture (AAPCS)
+	1. The AAPCS standard describes procedure call standard used by the application binary interface (ABI) for ARM architecture
+	2. SCOPE
+		1. The AAPCS defines how subroutines can be separately written, separately compiled, and separately assembled to work together
+		2. It describes a contract between a calling routine and called routine that defines:
+			1. Obligations on caller to define a program state in which the called routine may start to execute
+			2. Obligations on called routine to preserve the program state of caller across the call
+			3. The rights of called routine to alter program state of its caller
+3. Standard is useful if multiple developers are developing routines and they go into the same project
+	1. All subroutines must adhere to the specification
+4. When a 'C' compiler compiles code for ARM architecture, it should follow AAPCS specification to generate code
+	1. Compiler will take care of following this standard
+5. According to this standard, a 'C' function can modify registers R0, R1, R2, R3, R14 (LR) and PSR and it's not the responsibility of the function to save these registers before any modification
+	1. "Caller" must save the contents of R0, R1, R2, R3, R14 (LR) and PSR (by pushing onto the stack)
+6. If a function wants to make use of R4 to R11 registers, then it is responsibility of the function to save it's previous contents before modifying those registers and retrieve it back before exiting the function
+	1. "Callee" must save the contents of R4 to R11 by pushing onto stack and then pop before exiting (R4 to R11 must be intact when returned)
+7. R0, R1, R2, R3, R12, R14 (LR) registers are called "caller saved registers"
+	1. It is the responsibility of caller to save the registers on stack before calling function if those values will still be needed after function call and retrieve it back once the called function returns
+		1. Register values that are not required after function call don't have to be saved
+8. R4 to R11 are called "calle saved registers". The function or subroutine being called needs to make sure that, contents of registers will be unaltered before existing function
+9. According to the standard
+	1. Caller function uses R0, R1, R2, R3 registers to send input arguments to callee function
+10. The callee function uses registers R0 and R1 to send result back to caller function
 
 ### Stack Activities During Interrupt and Exception ###
 
