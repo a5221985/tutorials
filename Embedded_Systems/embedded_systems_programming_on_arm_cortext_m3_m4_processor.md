@@ -1828,6 +1828,7 @@
 	4. We can configure priority and priority grouping of various interrupts (later)
 	5. It is called "Nested" because
 		1. It supports pre-empting (temporarily stopping) lower priority interrupt handler when higher priority interrupt arrives
+		2. 
 
 ### NVIC Registers ###
 ### Peripheral Interrupt Exercise ###
