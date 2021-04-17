@@ -1792,6 +1792,12 @@
 	1. It is one of the peripherals of Cortex M processor core
 		1. Processor core is connected to NVIC peripheral (To control interrupt traffic that comes to the processor)
 	2. It is used to configure 240 interrupts (external to processor - not inside processor or core)
+	3. Using NVIC registers, we can 
+		1. Enable/ disable/ pend various interrupts
+		2. Read status of active and pending interrupts
+	4. We can configure priority and priority grouping of various interrupts (later)
+	5. It is called "Nested" because
+		1. It supports pre-empting (temporarily stopping) lower priority interrupt handler when higher priority interrupt arrives
 
 ### NVIC Registers ###
 ### Peripheral Interrupt Exercise ###
