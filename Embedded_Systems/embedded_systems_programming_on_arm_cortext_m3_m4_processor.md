@@ -1859,6 +1859,22 @@
 				1. They force interrupts into pending state (?)
 					1. It enabled processor to check the priority of the pended interrupts (sys exceptions) and will call respective interrupt handler based on priority level of the pended interrupts (system exceptions)
 				2. They also show which interrupts are pending
+				3. Write:
+					1. 0 - no effect
+					2. 1 - changes interrupt state to pending
+				4. Read:
+					1. 0 - interrupt is not pending
+					2. 1 - interrupt is pending
+		4. Interrupt Clear-pending Registers
+			1. NVIC_ICPR0 - NVIC_ICPR7
+				1. To remove pending state from interrupts
+				2. To show which interrupts are pending
+				3. Write:
+					1. 0 - no effect
+					2. 1 - removes pending state of an interrupt
+				4. Read:
+					1. 0 - interrupt is not pending
+					2. 1 - interrupt is pending
 
 ### Peripheral Interrupt Exercise ###
 ### Peripheral Interrupt Exercise Contd. ###
