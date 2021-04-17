@@ -2023,6 +2023,11 @@
 	4. Explore priority registers for interrupts (IRQs)
 	5. Explore priority registers for system exceptions
 	6. Pre-empt priority and sub priority
+2. What is priority?
+	1. Priority means urgency
+3. What is priority value?
+	1. Priority value is a measure of urgency (decides how urgent from others)
+4. Example:
 
 ### Pre-Empt and Sub Priority ###
 ### Interrupt Priority Configuration Exercise ###
