@@ -1507,6 +1507,15 @@
 ### Stack Activities During Interrupt and Exception ###
 1. To allow 'C' function to be used as exception/ interrupt handler
 	1. Exception mechanism needs to save R0 to R3, R12, LR, and XPSR at exception entrance automatically and restore them at exception exit under control of processor hardware
+	2. This way, when returned to the interrupted program, all registers would have same value as when interrupt entry sequence started
+2. Processor saves the following since there is no caller for interrupt or exception handler
+	1. An interrupt or exception handler can be written as normal 'C' function without worrying about AAPCS rules
+		1. R0, R1, R2, R3, R12, LR, PC, XPSR
+3. In normal function calls: Some registers have to be saved by caller, some registers have to be saved by the callee (AAPCS rules)
+4. Interrupt/ exception handler
+	1. They are asynchronous in nature
+	2. They can occur at any time
+	3. Processor hardware calls them
 
 ## Exception Model of ARM Cortex Mx Processor ##
 ### Exception Model ###
