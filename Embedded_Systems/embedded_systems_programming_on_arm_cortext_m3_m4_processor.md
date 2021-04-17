@@ -1691,7 +1691,33 @@
 	11. 0x0000 003C - SysTick Handler address is stored here
 
 ### System Exception Control Registers ###
-1. 
+1. Control registers of the processor to control system exceptions of the processor
+	1. Peripherals
+		1. NVIC
+		2. FPU
+		3. MPU
+		4. SCB (System Control Block)
+		5. SYSTICK TIMER
+		6. DEBUG (unit)
+		7. ...
+	2. The peripherals come with their own register set to control them
+		1. The register sets (both processor and peripheral) are part of PPB (Private Peripheral Bus) region
+			1. PPB Region:
+				1. Address Map exists for Private Peripheral Bus (PPB)
+					1. 0xE000E008-0xE000E00F - SyStem Control Block
+					2. 0xE000E010-0xE000E01F - System timer
+					3. 0xE000E100-0xE000E4EF - Nested Vectored Interrupt Controller
+					4. 0xE000ED00-0xE000ED3F - System Control Block
+					5. 0xE000ED90-0xE000ED93 - MPU Type Register
+					6. 0xE000ED90-0xE000ED88 - Memory Protection Unit
+					7. 0xE000EF00-0xE000EF03 - Nested Vectored Interrupt Controller
+					8. 0xE000EF30-0xE000EF44 - Floating Point Unit
+2. System Control Block (SCB)
+	1. SCB provides system implementation information and system control
+		1. Includes
+			1. Configuration of system exceptions
+			2. Control of system exceptions
+			3. Reporting of system exceptions
 
 ### NVIC ###
 ### NVIC Registers ###
