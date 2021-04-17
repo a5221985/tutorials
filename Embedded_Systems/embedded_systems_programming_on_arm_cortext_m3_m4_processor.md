@@ -2124,7 +2124,36 @@
 		2. I2C1 - IRQ31
 
 ### Interrupt Priority Configuration Exercise ###
-1. 
+1. Generate below peripheral interrupts using NVIC interrupt pending register and observe the execution of ISRs when priorities are same and different
+	1. TIM2 global interrupt
+	2. I2C1 global interrupt
+2. Program
+
+		#define IRQNO_TIMER2 28
+		#define IRQNO_I2C1 31
+		
+		void TIM2_IRQHandler(void);
+		void I2C1_EV_IRQHandler(void);
+		
+		//...
+		int main(void) {
+			// 1. Lets configure priority for the peripherals
+			
+			// 2. Set the interrupt pending bit in the NVIC PR
+			
+			// 3. Enable IRQs in NVIC ISER
+		}
+		
+		// ISRs
+		void TIM2_IRQHandler(void) {
+			printf("[TIM2_IRQHandler]\n");
+		}
+		
+		void I2C1_EV_IRQHandler(void) {
+			printf("[I2C1_EV_IRQHandler]\n");
+		}
+		
+	1. Priority configuration should be done before enabling the interrupt (good practice)
 
 ### Pending Interrupt Behavior ###
 
