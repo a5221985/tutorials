@@ -1515,10 +1515,34 @@
 4. Interrupt/ exception handler
 	1. They are asynchronous in nature
 	2. They can occur at any time
-	3. Processor hardware calls them
+	3. Processor hardware calls them (when interrupt or exception occurs)
+		1. Processor will take the responsibility of saving the registers and restoring
+			1. This is called **Stack Frame**
 
 ## Exception Model of ARM Cortex Mx Processor ##
 ### Exception Model ###
+1. Suppose a task is running (it is using MSP)
+2. An interrupt arrives
+3. Stacking is done by processor automatically
+
+		xPSR (higher address)
+		return address (PC)
+		LR
+		R12
+		R3
+		R2
+		R1
+		R0 <- MSP (lower address)
+		
+	1. Stack frame
+		1. xPSR - status register
+
+4. Processor then calls exception handler
+5. Processor moves to Handler Mode
+6. When processor finishes executing handler code, it un-stacks
+	1. Restores stack frame to registers
+7. Processor then returns to the interrupted task
+
 ### Different System Exceptions ###
 ### System Exception Vector Address ###
 ### System Exception Control Registers ###
