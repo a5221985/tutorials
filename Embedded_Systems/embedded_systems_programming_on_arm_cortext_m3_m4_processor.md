@@ -1589,6 +1589,27 @@
 7. Total: 255 exceptions
 
 ### Different System Exceptions ###
+1. System exceptions:
+	1. There is room for 15 system exceptions
+	2. Exception 1 - reset exception (or reset system exception)
+	3. Only 9 implemented system exceptions (in hardware)
+		1. 6 are reserved for future implementations
+	4. Exception 16 - interrupt 1 (IRQ 1)
+2. Go to Generic User Guide
+	1. Exception Model
+		1. Exception types
+			1. Reset
+			2. NMI
+			3. HardFault
+			4. MemManage
+			5. BusFault
+			6. UsageFault
+			7. Reserved (7-10)
+			8. SVCall
+			9. Reserved (12-13)
+			10. PendSV
+			11. SysTick
+
 ### System Exception Vector Address ###
 ### System Exception Control Registers ###
 ### NVIC ###
