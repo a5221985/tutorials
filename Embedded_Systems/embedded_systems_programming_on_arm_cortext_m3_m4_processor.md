@@ -2271,7 +2271,21 @@
 	4. All other values - reserved	
 
 ### Analyzing Stack Contents During Exception Entry and Exit ###
-
+1. New Project > Exception_entry_exit
+	1. Copy the code which generates interrupt
+		1. When interrupt is triggered, stack frame will be pushed to the stack (by hardware)
+			1. xPSR
+			2. Return address (PC)
+			3. LR
+			4. R12
+			5. R3
+			6. R2
+			7. R1
+			8. R0
+		2. Go to memory browser
+		3. It is state of thread mode code
+		4. In interrupt handler
+			1. LR is loaded with EXC_RETURN
 
 ## Fault Handling and Analysis ##
 ### Introduction to Processor Faults ###
