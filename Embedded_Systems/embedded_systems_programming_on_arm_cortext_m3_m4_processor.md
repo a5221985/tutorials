@@ -2081,6 +2081,30 @@
 1. What if two interrupts of the same priority hit the processor at the same time?
 	1. The sub-priority value of the interrupts will be checked to resolve the conflict.
 		1. Interrupt with lower sub-priority will be allowed first
+2. Priority Grouping
+	1. Pre-Empt Priority:
+		1. When processor is running interrupt handler, another interrupt appears, then
+			1. pre-empt priority values will be compared
+			2. Interrupt with higher pre-empt priority (less value) will be allowed to run
+	2. Sub Priority:
+		1. Values is used when two interrupts with same pre-empt priority values occur at same time
+			1. Exception with higher sub priority (less in value) will be handled first
+	3. Priority Group, Pre-empt priority field, sub-priority field
+		1. 0 (default), Bit[7:1], Bit[0]
+		2. 1, Bit[7:2], Bit[1:0]
+		3. 2, Bit[7:3], Bit[2:0]
+		4. 3, Bit[7:4], Bit[3:0]
+		5. 4, Bit[7:5], Bit[4:0]
+		6. 5, Bit[7:6], Bit[5:0]
+		7. 6, Bit[7:7], Bit[6:0]
+		8. 7, None, Bit[7:0]
+3. Interrupt priority register
+	1. 0: 
+		1. bit 7 to bit 1 - pre-empt priority
+		2. bit 0 - sub priority
+4. Application Interrupt and Reset Control Register
+	1. Used to control Priority Group
+		1. 10-8: PRIGROUP (default is 0)
 
 ### Interrupt Priority Configuration Exercise ###
 ### Pending Interrupt Behavior ###
