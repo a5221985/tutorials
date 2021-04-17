@@ -1854,10 +1854,11 @@
 				2. Read:
 					1. 0 - interrupt disabled
 					2. 1 - interrupt enabled
-		3. Interrupt Set-prending Registers
+		3. Interrupt Set-pending Registers
 			1. NVIC_ISPR0-NVIC_ISPR7
 				1. They force interrupts into pending state (?)
 					1. It enabled processor to check the priority of the pended interrupts (sys exceptions) and will call respective interrupt handler based on priority level of the pended interrupts (system exceptions)
+				2. They also show which interrupts are pending
 
 ### Peripheral Interrupt Exercise ###
 ### Peripheral Interrupt Exercise Contd. ###
