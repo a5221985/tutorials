@@ -1544,8 +1544,27 @@
 7. Processor then returns to the interrupted task
 8. Stack Initialization
 	1. Before reaching main
+		1. `main` is the point where user application starts
+		2. Stack must be initialized
+			1. Done by processor by reading the first location of the vector table
+				1. Ensure that first location of the vector table holds valid value for the stack pointer register (taken care by startup code)
 	2. After reaching main function
-		1. Re-initialize stack pointer
+		1. Re-initialize stack pointer (optional) - this can be done only after reaching main
+			1. We may want to shift to another memory
+				1. SRAM3
+				2. External RAM (connected to microcontroller)
+	2. Stack initialization tips
+		1. Evaluate target application
+			1. Decide the amount of stack that would be needed for worst-case scenario of application run time
+			2. Know processor's stack consumption model (FD, FA, ED, EA)
+			3. Decide stack placement in RAM (middle, end, external memory)
+			4. In many applications
+				1. Second stage stack init may be required
+					1. Example: We want to allocate stack in external SDRAM
+						1. Start with internal RAM
+						2. Initialize SDRAM in main or startup code
+						3. Change stack pointer to point to SDRAM
+			5. 
 
 ### Different System Exceptions ###
 ### System Exception Vector Address ###
