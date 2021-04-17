@@ -2193,21 +2193,36 @@
 
 								 _____________________
 								 |				        |
-		Interrupt Request  --                     ------------
-		                       
-		Interrupt Pending  -----
+		Interrupt Request  --                     ----------------
+		                        _______
+		                        |     |
+		Interrupt Pending  -----       ---------------------------
 		Status
+		                               __________________
+		                           .                        .
+		Processor Mode     -----                               ---
 		
-		Processor Mode
-		
-		Interrupt Active
+		                               __________________
+		                              |                  |
+		Interrupt Active   -----------                    --------
 		Status Bit
 		
-		Processor
-		Operation
+		Processor           th  |     |        ISR       |     | th
+		Operation                  ^                        ^
+		                           |                        |
+		                        stacking               unstacking
+		                        
+2. Case 2: Double Pended Interrupt
+	1. Suppose second IRQ request is pended when processor is executing ISR
+	2. When processor returnes from ISR
+		1. The processor immediately enters ISR (since another interrupt is pending)
+		2. Pending bit is cleared for the new interrupt
+		3. Interrupt Active Status goes high again
 
 ## Exception Entry and Exit Sequences ##
 ### Exception Entry and Exit Sequences ###
+1. 
+
 ### Analyzing Stack Contents During Exception Entry and Exit ###
 
 ## Fault Handling and Analysis ##
