@@ -1734,24 +1734,24 @@
 							1. SCB is for system exceptions and other control related settings
 						2. This register can be used to enable system exceptions
 
-								MEMFAULTACT
-								BUSFAULTACT
-								Reserved
-								USBFAULTACT
-								Reserved [4-6]
-								SVCALLACT
-								MONITORACT
-								Reserved
-								PENDSVACT
-								SYSTICKACT
-								USGFAULTPENDED
-								MEMFAULTPENDED
-								BUSFAULTPENDED
-								SVCALLPENDED
-								MEMFAULTENA
-								BUSFAULTENA
-								USGFAULTENA
-								Reserved [19-31]
+								MEMFAULTACT	[0]
+								BUSFAULTACT	[1]
+								Reserved		[2]
+								USBFAULTACT	[3]
+								Reserved 		[4-6]
+								SVCALLACT		[7]
+								MONITORACT	[8]
+								Reserved		[9]
+								PENDSVACT		[10]
+								SYSTICKACT	[11]
+								USGFAULTPENDED [12]
+								MEMFAULTPENDED [13]
+								BUSFAULTPENDED [14]
+								SVCALLPENDED   [15]
+								MEMFAULTENA    [16]
+								BUSFAULTENA    [17]
+								USGFAULTENA    [18]
+								Reserved 		[19-31]
 						
 					5. BFSR - BusFault Status Register
 					6. UFSR - UsageFault Status Register
@@ -1763,6 +1763,11 @@
 							1. At what address the fault happened
 							2. What was the cause of the fault
 							3. ...
+3. SCB Usage
+	1. System exception configuration
+	2. Vector table offset configuration
+	3. Set priority of system exceptions
+	4. System specific settings
 
 ### NVIC ###
 ### NVIC Registers ###
