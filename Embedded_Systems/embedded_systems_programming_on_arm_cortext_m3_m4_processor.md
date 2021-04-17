@@ -2255,8 +2255,23 @@
 		1. 2, 3 - updated during entry
 			1. Captures operation mode and stack that was in use before start of handler execution
 			2. Processor decodes and understand mode and stack
+		2. Flow chart
+
+				Exception return trigger
+					|						
+					EXC_RETURN[2] = 0 - Un-stacking using MSP (CONTROL[1] = 0)
+					|
+					EXC_RETURN[2] = 1 - Un-stacking using PSP (CONTROL[1] = 1)				|
+					Resume program execution
+
+4. Possible values
+	1. 0xFFFFFFF1 - Return to Handler Mode, Exception return gets state from main stack, execution uses MSP after return
+	2. 0xFFFFFFF9 - Return to Thread Mode, Exception return gets state from main stack, execution uses MSP after return
+	3. 0xFFFFFFFD - Return to Thread Mode, Exception return gets state from process stack, execution uses PSP after return
+	4. All other values - reserved	
 
 ### Analyzing Stack Contents During Exception Entry and Exit ###
+
 
 ## Fault Handling and Analysis ##
 ### Introduction to Processor Faults ###
