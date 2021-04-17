@@ -1956,8 +1956,54 @@
 	1. Peripheral programming such as UART, SPI, TIMER - out of scope of the course
 	2. Covered in MCU1 and MCU2 courses
 		1. Masterning Microcontroller courses (driver development, TIMERS, PWM, CAN, RTC, LOW POWER)
+5. USART 3 interrupting the processor in STM32F4x MCU
+	1. USART interrupt mapping diagram
+
+			TC
+			TCIE
+			TXE
+			TXEIE
+			CTSIF         OR ----------------+
+			CTSIE                            |
+			IDLE                             |
+			IDLEIE     -----------------+    |
+			RXNEIE                      |     OR -> USART interrupt
+			ORE                         |    |
+			RXNEIE                      |    |
+			RXNE                        |    |
+			PE                          |    |
+			PEIE                        |    |
+			LBD ---|                    |    |
+			LBDIE--|AND ----------------|    |
+			FE  ---|                         |
+			NE  ---|AND ----------------| OR-+
+			ORE ---------| 
+					EIE --| AND ---------|
+					DMAR--|
+					
+	1. LHS - various events that can occur in USART
+	2. All the events are mapped to one output line to deliver interrupt
+	3. The line is connected to NVIC
 	
 ### Peripheral Interrupt Exercise Contd. ###
+1. New project > USART3_int_pend
+
+		#define USART3_IRQNO 39
+
+		int main(void) {
+			//1. Manually pend the pending bit for the USART3 IRQ number in NVIC
+			uint32_t *const pISPR1 = (uint32_t *const) 0xE000E204;
+			
+			*pISPR1 |= (1 << (USART3_IRQNO % 32));
+			
+			//2. Enable the USART3 IRQ number in NVIC
+			
+		}
+		
+		// Implement ISR
+		
+	1. Calculation: Do mod
+		1. 39 % 32 = 7
 
 ## Interrupt Priority and Configuration ##
 ### Interrupt Priority Explanation ###
