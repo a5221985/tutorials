@@ -1831,6 +1831,32 @@
 2. ADC(1, 2, 3 - global interrupts) - IRQ18
 
 ### NVIC Registers ###
+1. Enabling/ Disabling/ Pending of Interrupts
+	1. Nested Vectored Interrupt Controller
+		1. Interrupt Set-Enable register
+			1. 8 such registers (to cover 240 interrupts)
+				1. NVIC_ISER0 - NVIC_ISER7 (32 bits each)
+			2. NVIC_ISER0 - first 32 interrupts can be enabled
+			3. NVIC_ISER1 - 32 - 63 interrupts can be enabled
+			4. ...
+			5. Values:
+				1. Write:
+					1. 0 - no effect (cannot be used to disable 
+					2. 1 - enable interrupt
+				2. Read
+					1. 0 - interrupt disabled
+					2. 1 - interrupt enabled
+		2. Interrupt Clear-enable Register
+			1. NVIC_ICER0-NVIC_ICER7
+				1. Write:
+					1. 0 - no effect
+					2. 1 - disable interrupt
+				2. Read:
+					1. 0 - interrupt disabled
+					2. 1 - interrupt enabled
+		3. Interrupt Set-prending Registers
+			1. 
+
 ### Peripheral Interrupt Exercise ###
 ### Peripheral Interrupt Exercise Contd. ###
 
