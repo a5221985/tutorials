@@ -1586,6 +1586,7 @@
 	1. Whenever processor core meets with an exception it changes the operational mode to "Hanlder Mode" (this is the only whay to change the mode during execution)
 5. System exceptions: 15 system exceptions are supported by Cortex M processors
 6. Interrupts: 240 interrupts are supported
+7. Total: 255 exceptions
 
 ### Different System Exceptions ###
 ### System Exception Vector Address ###
