@@ -1542,6 +1542,10 @@
 6. When processor finishes executing handler code, it un-stacks
 	1. Restores stack frame to registers
 7. Processor then returns to the interrupted task
+8. Stack Initialization
+	1. Before reaching main
+	2. After reaching main function
+		1. Re-initialize stack pointer
 
 ### Different System Exceptions ###
 ### System Exception Vector Address ###
