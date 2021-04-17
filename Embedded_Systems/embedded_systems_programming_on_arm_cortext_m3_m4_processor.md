@@ -1916,8 +1916,28 @@
 	6. If peripheral issues an interrupt when IRQ number is disabled (not activated from processor side)
 		1. Interrupt will still get pended in pending register of NVIC
 			1. The execution is triggered as soon as IRQ is enabled if priority is higher than currently active ISR
-3. 
+3. Flow:
 
+		NVIC
+			IRQ enable = 1
+					|		 (4)		CPU
+					+- AND ----> 1) Fetch the ISR
+					|				   address from
+			||||||||| PR			   vector table
+				^					2) PC jumps to ISR -(5)-> ISR
+		(3) Interrupt pends in pending reg of NVIC      {
+				|								               Copy data from
+			USART Rx buffer					               rx buffer to
+				^	USARR peripheral issues	interrupt (2)  SRAM
+				|								               }
+		_______________________________________________________________
+				^
+				|
+			Data packet arrives
+			from external world in
+			to USART peripheral
+			buffer (1)
+	
 ### Peripheral Interrupt Exercise Contd. ###
 
 ## Interrupt Priority and Configuration ##
