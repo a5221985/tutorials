@@ -2105,8 +2105,27 @@
 4. Application Interrupt and Reset Control Register
 	1. Used to control Priority Group
 		1. 10-8: PRIGROUP (default is 0)
+5. Case 1:
+	1. When priority group = 0
+		1. As per table we have
+			1. pre-empt priority width = 7 bits (128 programmable priority levels)
+				1. But only 3 bits are implemented (remaining 4 bits are not implemented)
+					1. 8 programmable priority levels
+			2. Sub-priority width = 1 (2 programmable sub priority levels)
+				1. Bit 0 is not implemented so no sub priority levels
+6. Case 2:
+	1. When priority group = 5
+		1. Pre-empt priority width = 2 bits (4 programmable priority levels)
+		2. Sub-priority width = 6 (64 programmable sub priority levels)
+			1. Since only 1 bit is implemented, only 2 programmable sub priority levels
+7. What if two interrupts of same pre-empt priority and sub priority hit the processor at the same time?
+	1. Interrupt with the lowest IRQ number will be allowed first
+		1. TIMER2 - IRQ28 - allowed before I2C1 (if both pre-empt priority and sub-priority are the same)
+		2. I2C1 - IRQ31
 
 ### Interrupt Priority Configuration Exercise ###
+1. 
+
 ### Pending Interrupt Behavior ###
 
 ## Exception Entry and Exit Sequences ##
