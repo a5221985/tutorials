@@ -1989,21 +1989,30 @@
 1. New project > USART3_int_pend
 
 		#define USART3_IRQNO 39
+		
+		void USART3_IRQHandler(void);
 
 		int main(void) {
 			//1. Manually pend the pending bit for the USART3 IRQ number in NVIC
-			uint32_t *const pISPR1 = (uint32_t *const) 0xE000E204;
+			uint32_t *const pISPR1 = (uint32_t *const) 0xE000E204; // Show View > SFR > NVIC
 			
 			*pISPR1 |= (1 << (USART3_IRQNO % 32));
 			
 			//2. Enable the USART3 IRQ number in NVIC
+			uint32_t *const pISER1 = (uint32_t *const) 0xE000E104;
+			*pISER1 |= (1 << (USART3_IRQNO % 32)); // interrupt gets triggered
 			
+			for(;;);
 		}
 		
 		// Implement ISR
+		void USART3_IRQHandler(void) {
+			printf("in USART3 ISR\n");
+		}
 		
 	1. Calculation: Do mod
 		1. 39 % 32 = 7
+	2. Once processor accepts interrupt, the pending state will be cleared automatically
 
 ## Interrupt Priority and Configuration ##
 ### Interrupt Priority Explanation ###
