@@ -1810,6 +1810,20 @@
 						2. TIs microcontroller
 							1. 154 interrupts are defined
 				2. This is highly vendor specific and it is triggered by various on chip peripherals of MCU like SPI, GPIOs, CAN, TIMERs, DMAs, ...
+					1. STM32 - 83 different interrupts
+				3. Interrupts
+
+						STM
+							WD	<-  0  -> NVIC <-> Core
+								<-  1  ->
+						   			...
+						   I2C <-	54	->
+								<- 239 ->
+								
+					1. IRQ0 - WatchDog
+					2. IRQ54 - I2C
+					3. 240 lines are connected to NVIC engine
+				
 		2. Read status of active and pending interrupts
 	4. We can configure priority and priority grouping of various interrupts (later)
 	5. It is called "Nested" because
