@@ -1718,6 +1718,7 @@
 			1. Configuration of system exceptions
 			2. Control of system exceptions
 			3. Reporting of system exceptions
+	2. ARM Cortex M4 Generic User Guide - reference
 
 ### NVIC ###
 ### NVIC Registers ###
