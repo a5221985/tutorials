@@ -1639,18 +1639,30 @@
 			6. UsageFault
 				1. Due to fault related to instruction execution
 					1. Undefined instruction
-						1. T-bit = 0
+						1. T-bit = 0 (Processor thinks it is ARM instruction but it is not - undefined instruction)
 					2. Illegal unaligned access
 					3. Invalid state on instruction execution
 					4. Error on exception return
-				2. Cause (when core is configured to report them)
+				2. Cause (when core is configured to report them - we can configure core to report the following activities - reporting: Triggering UsageFault exception)
 					1. Unaligned address on word and halfword memory access
 					2. Division by zero
 			7. Reserved (7-10)
-			8. SVCall
+			8. SVCall (to help RTOS - for efficient design)
+				1. Supervisor Call (SVC)
+					1. Triggered by `SVC` instruction
+				2. In OS environment, apps can use `SVC` instruction to access **OS Kernel functions** and **device drivers**
+					1. Privileged Kernel code
+					2. Unprivileged tasks
+						1. 
 			9. Reserved (12-13)
-			10. PendSV
-			11. SysTick
+			10. PendSV (to help RTOS - for efficient design)
+			11. SysTick (to help RTOS)
+				1. System exception triggered by system timer (peripheral - inside the processor) when it reaches zero
+					1. Software can also trigger SysTick exception
+						1. In OS environment, processor can use the exception as system tick
+							1. In RTOS or Embedded OS - Can be used to implemented Kernel ticking (context switching, blocking call, ...)
+				2. SysTick timer - can be used to generate interrupts at fixed time interval
+					1. Can be used like any other TIMER peripheral
 			12. IRQ-1
 			13. ...
 
