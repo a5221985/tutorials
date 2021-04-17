@@ -1448,7 +1448,8 @@
 				1. [Procedure Call Standard for the Arm Architecture](https://developer.arm.com/documentation/ihi0042/latest/)
 					1. Local variables are reserved in stack memory
 						1. R4-R8, R9, R10, R11 (6 registers) are used to access these variable values
-		5. 
+		5. Open the project and check the assembly instructions generated
+			1. Open **.list** file
 
 ### Stack Activities During Interrupt and Exception ###
 
