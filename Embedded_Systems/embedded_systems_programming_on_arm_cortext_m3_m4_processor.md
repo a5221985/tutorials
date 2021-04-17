@@ -1768,8 +1768,31 @@
 	2. Vector table offset configuration
 	3. Set priority of system exceptions
 	4. System specific settings
+4. SCB Registers
+	1. We can enable fault handlers
+	2. Get pending status of fault exceptions
+	3. Trap processor for divide by zero and unaligned data access attempts
+	4. Control sleep and sleep wakeup settings
+	5. Configure priority of system exceptions
+	6. Systick timer control and status
+4. Default System Exception Status
+	1. Hard Fault - Always enabled by default - can be masked (disabled)
+	2. NMI - Always enabled, cannot be masked
+	3. Usage fault - Disabled by default
+	4. Mem manage fault - Disabled by default
+	5. Bus fault - Disabled by default
+	6. Systick exception - Disabled by default and triggers whenever systick timer is enabled and expires
+		1. Systick Timer triggers this exception
+	7. SVC exception - Triggers only when `svc` instruction is executed
+	8. PendSV exception - Disabled by default
+	9. Debug monitor exception - Disabled by default
 
 ### NVIC ###
+1. NVIC - Nested Vectored Interrupt Controller
+	1. It is one of the peripherals of Cortex M processor core
+		1. Processor core is connected to NVIC peripheral (To control interrupt traffic that comes to the processor)
+	2. It is used to configure 240 interrupts (external to processor - not inside processor or core)
+
 ### NVIC Registers ###
 ### Peripheral Interrupt Exercise ###
 ### Peripheral Interrupt Exercise Contd. ###
