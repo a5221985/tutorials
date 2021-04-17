@@ -1794,6 +1794,22 @@
 	2. It is used to configure 240 interrupts (external to processor - not inside processor or core)
 	3. Using NVIC registers, we can 
 		1. Enable/ disable/ pend various interrupts
+			1. Cortex M processor supports 240 interrupts
+			2. The interrupts are managed and configured using NVIC
+			3. What are the 240 interrupts?
+				1. Can be anything external to processor core (reference manual of microcontroller - STM32)
+					1. Vector Table section
+						1. Defines the interrupts (on-chip but external)
+							1. TIMERs
+							2. CAN
+							3. DMA
+							4. UART
+							5. SPI
+							6. ...
+							7. FPU (82)
+						2. TIs microcontroller
+							1. 154 interrupts are defined
+				2. This is highly vendor specific and it is triggered by various on chip peripherals of MCU like SPI, GPIOs, CAN, TIMERs, DMAs, ...
 		2. Read status of active and pending interrupts
 	4. We can configure priority and priority grouping of various interrupts (later)
 	5. It is called "Nested" because
