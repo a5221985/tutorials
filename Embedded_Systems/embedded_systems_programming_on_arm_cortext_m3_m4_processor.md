@@ -1883,7 +1883,28 @@
 				1. Indicates which interrupt handler is currently executed by the processor
 
 ### Peripheral Interrupt Exercise ###
-1. 
+1. Exercise-Enabling and Pending of USART3 Interrupt
+
+		USART3 --39-> NVIC <-> CPU
+		
+	1. IRQ39
+	2. USART3 - vendor specific
+		1. Check Vector Table info
+2. Steps to program an MCU peripheral interrupt
+	1. Identify IRQ number of the peripheral by referring to MCU vector table
+		1. IRQ numbers are vendor-specific
+	2. Program the Processor register to enable that IRQ
+		1. Only when the IRQ is enabled, the processor will accept the interrupt over that line
+		2. Set the priority (optional)
+	3. Configure peripheral (USART3) using its peripheral configuration register
+		1. Example: For USART3, whenever a packet is received, it will issue an interrupt on IRQ line 39
+	4. When interrupt is issued on IRQ line
+		1. It will first get pended in pending register of processor
+	5. NVIC will allow the IRQ handler associated with IRQ number to run only if priority of new interrupt is higher than currently executing interrupt handler.
+		1. Or else, newly arrived interrupt will stay in pending state
+	6. If peripheral issues an interrupt when IRQ number is disabled (not activated from processor side)
+		1. Interrupt will still get pended in pending register of NVIC
+			1. The execution is triggered as soon as IRQ is enabled if priority is higher than currently active ISR
 
 ### Peripheral Interrupt Exercise Contd. ###
 
