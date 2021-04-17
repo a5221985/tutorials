@@ -1599,8 +1599,26 @@
 	1. Exception Model
 		1. Exception types
 			1. Reset
+				1. Invoked on power up reset (reset circuitry will trigger reset when powered on - causing exception)
+				2. Warm reset - pressing reset button
+				3. Reset handler will get triggered (reaches main function)
+				4. When reset asserted: Operation stop at any instruction
+				5. When reset de-asserted: Execution restarts from address provided by reset entry in vector table
+					1. Starts at privileged execution in Thread mode (Reset handler is always in thread mode but privileged)
 			2. NMI
+				1. Non Maskable Interrupt
+					1. Can be signalled by a peripheral or triggerd by software (any exception can be triggered by a software)
+					2. Highest priority exception (next to reset)
+					3. It is enabled permanently
+					4. Fixed priority: -2
+					5. Properties
+						1. Cannot be disabled or masked
+						2. Cannot be prevented from activation by any other exception
+						3. Cannot be pre-empted by any exception (except Reset)
 			3. HardFault
+				1. Occurs 
+					1. Because of an error during exception processing OR
+					2. Because exception cannot be managed by any other exception mechanism
 			4. MemManage
 			5. BusFault
 			6. UsageFault
@@ -1609,6 +1627,8 @@
 			9. Reserved (12-13)
 			10. PendSV
 			11. SysTick
+			12. IRQ-1
+			13. ...
 
 ### System Exception Vector Address ###
 ### System Exception Control Registers ###
