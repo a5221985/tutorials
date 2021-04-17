@@ -1451,7 +1451,62 @@
 		5. Open the project and check the assembly instructions generated
 			1. Open **.list** file
 
+					int fun_add(int a, int b, int c, int d) {
+					80002b0:	b480      	push	{r7}
+					80002b2:	b087      	sub	sp, #28
+					80002b4:	af00      	add	r7, sp, #0
+					80002b6:	60f8      	str	r0, [r7, #12]
+					80002b8:	60b9      	str	r1, [r7, #8]
+					80002ba:	607a      	str	r2, [r7, #4]
+					80002bc:	603b      	str	r3, [r7, #0]
+						int result = a + b + c + d;
+					80002be:	68fa      	ldr	r2, [r7, #12]
+					80002c0:	68bb      	ldr	r3, [r7, #8]
+					80002c2:	441a      	add	r2, r3
+					80002c4:	687b      	ldr	r3, [r7, #4]
+					80002c6:	4413      	add	r3, r2
+					80002c8:	683a      	ldr	r2, [r7, #0]
+					80002ca:	4413      	add	r3, r2
+					80002cc:	617b      	str	r3, [r7, #20]
+						return result;
+					80002ce:	697b      	ldr	r3, [r7, #20]
+					}
+					80002d0:	4618      	mov	r0, r3
+					80002d2:	371c      	adds	r7, #28
+					80002d4:	46bd      	mov	sp, r7
+					80002d6:	bc80      	pop	{r7}
+					80002d8:	4770      	bx	lr
+						...
+					
+					080002dc <main>:
+					
+					int main(void)
+					{
+					80002dc:	b580      	push	{r7, lr}
+					80002de:	b082      	sub	sp, #8
+					80002e0:	af00      	add	r7, sp, #0
+						int ret;
+						ret = fun_add(1, 2, 3, 4);
+					80002e2:	2304      	movs	r3, #4
+					80002e4:	2203      	movs	r2, #3
+					80002e6:	2102      	movs	r1, #2
+					80002e8:	2001      	movs	r0, #1
+					80002ea:	f7ff ffe1 	bl	80002b0 <fun_add>
+					80002ee:	6078      	str	r0, [r7, #4]
+						printf("%d\n", ret);
+					80002f0:	6879      	ldr	r1, [r7, #4]
+					80002f2:	4802      	ldr	r0, [pc, #8]	; (80002fc <main+0x20>)
+					80002f4:	f000 f900 	bl	80004f8 <iprintf>
+					    /* Loop forever */
+						for(;;);
+					80002f8:	e7fe      	b.n	80002f8 <main+0x1c>
+					80002fa:	bf00      	nop
+					80002fc:	080013b4 	.word	0x080013b4
+			
+
 ### Stack Activities During Interrupt and Exception ###
+1. To allow 'C' function to be used as exception/ interrupt handler
+	1. Exception mechanism needs to save R0 to R3, R12, LR, and XPSR at exception entrance automatically and restore them at exception exit under control of processor hardware
 
 ## Exception Model of ARM Cortex Mx Processor ##
 ### Exception Model ###
