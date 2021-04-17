@@ -1893,18 +1893,30 @@
 2. Steps to program an MCU peripheral interrupt
 	1. Identify IRQ number of the peripheral by referring to MCU vector table
 		1. IRQ numbers are vendor-specific
-	2. Program the Processor register to enable that IRQ
+	2. Program the Processor register to enable that IRQ (Configuring NVIC interrupt register)
 		1. Only when the IRQ is enabled, the processor will accept the interrupt over that line
 		2. Set the priority (optional)
+			1. If using priority, first set priority and then enable the IRQ (by default all interrupts have priority 0)
 	3. Configure peripheral (USART3) using its peripheral configuration register
 		1. Example: For USART3, whenever a packet is received, it will issue an interrupt on IRQ line 39
+			1. This has nothing to do with processor
+				1. How and when a peripheral should trigger an interrupt depends on the peripheral
+					1. USART3 - triggers when packet is received
+					2. TIMER - triggers when timer count is expired
+					3. ADC - triggers when conversion is over
+				2. The trigger should be configured on the peripheral side register (when and how)
+					1. By default, peripherals do not trigger an interrupt
+						1. Configure ADC to trigger after conversion
+						2. Configure USART to trigger when RX buffer is filled (RX Buffer Full Interrupt)
 	4. When interrupt is issued on IRQ line
 		1. It will first get pended in pending register of processor
+			1. Pending register of NVIC
 	5. NVIC will allow the IRQ handler associated with IRQ number to run only if priority of new interrupt is higher than currently executing interrupt handler.
 		1. Or else, newly arrived interrupt will stay in pending state
 	6. If peripheral issues an interrupt when IRQ number is disabled (not activated from processor side)
 		1. Interrupt will still get pended in pending register of NVIC
 			1. The execution is triggered as soon as IRQ is enabled if priority is higher than currently active ISR
+3. 
 
 ### Peripheral Interrupt Exercise Contd. ###
 
