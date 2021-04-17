@@ -1879,8 +1879,12 @@
 			1. NVIC_IABR0 - NVIC_IABR7 - indicates which interrupts are active
 				1. 0 - interrupt is not active
 				2. 1 - interrupt is active
+			2. When processor is servicing an interrupt (running interrupt handler), it makes the active bit corresponding to the interrupt as 1 which signals that the interrupt is currently serviced by the processor
+				1. Indicates which interrupt handler is currently executed by the processor
 
 ### Peripheral Interrupt Exercise ###
+1. 
+
 ### Peripheral Interrupt Exercise Contd. ###
 
 ## Interrupt Priority and Configuration ##
