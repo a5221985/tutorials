@@ -2221,7 +2221,17 @@
 
 ## Exception Entry and Exit Sequences ##
 ### Exception Entry and Exit Sequences ###
-1. 
+1. Sequence:
+	1. Pending bit set (in Pending Register of NVIC)
+	2. Stacking and Vector Fetch (simultaneously)
+		1. Stacking: Pushing registers onto stack
+		2. Vector fetch: Fetching address of exception handler from vector table
+	3. Entry into the handler and active bit set (NVIC reg)
+	4. Clears pending status (processor does it automatically)
+	5. Now processor mode changed to handler mode
+	6. Now handler code is executing
+	7. The MSP will be used for any stack operations inside the handler
+8. 
 
 ### Analyzing Stack Contents During Exception Entry and Exit ###
 
