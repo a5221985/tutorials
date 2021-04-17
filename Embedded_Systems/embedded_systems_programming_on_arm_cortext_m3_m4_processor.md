@@ -2169,7 +2169,7 @@
 		// ISRs
 		void TIM2_IRQHandler(void) {
 			printf("[TIM2_IRQHandler]\n");
-			*pNVIC_ISPRBase |= (1 << IRQNO_I2C1);
+			*pNVIC_ISPRBase |= (1 << IRQNO_I2C1); // Priority is not higher - ISR will not get executed
 			while (1);
 		}
 		
@@ -2184,8 +2184,27 @@
 		2. (IRQ % 4) x 8
 			1. (5 % 4) x 8 = 8 (left shift by 8)
 3. Debug the code
+	1. Increase the priority of I2C1
+		1. 0x70
+			1. Goes to I2C handler (lower priority interrupt handler got pre-empted)
 
 ### Pending Interrupt Behavior ###
+1. Case 1: Single Pending Interrupt
+
+								 _____________________
+								 |				        |
+		Interrupt Request  --                     ------------
+		                       
+		Interrupt Pending  -----
+		Status
+		
+		Processor Mode
+		
+		Interrupt Active
+		Status Bit
+		
+		Processor
+		Operation
 
 ## Exception Entry and Exit Sequences ##
 ### Exception Entry and Exit Sequences ###
