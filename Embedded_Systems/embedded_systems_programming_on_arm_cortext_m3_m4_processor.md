@@ -2136,17 +2136,41 @@
 		void I2C1_EV_IRQHandler(void);
 		
 		//...
+		uint32_t *pNVIC_IPRBase = (uint32_t*) 0xE000E400;
+		uint32_t *pNVIC_ISERBase = (uint32_t*) 0xE000E100;
+		uint32_t *pNVIC_ISPRBase = (uint32_t*) 0xE000E200;
+		
+		configure_priority_for_irqs(uint8_t irq_no, uint8_t priority_value) {
+			// 1. find out iprx
+			uint8_t iprx = irq_no / 4;
+			uint32_t* ipr = pNVIC_IPBase + iprx;
+			
+			// 2. position in iprx
+			uint8_t pos = ((irq_no % 4) * 8);
+			
+			// 3. configure the priority
+			*ipr &= ~(0xFF << pos); // clear
+			*ipr |= (priority_value << pos); // set priority
+		}
+		
 		int main(void) {
 			// 1. Lets configure priority for the peripherals
+			configure_priority_for_irqs(IRQNO_TIMER2, 0x80);
+			configure_priority_for_irqs(IRQNO_I2C1, 0x80);
 			
 			// 2. Set the interrupt pending bit in the NVIC PR
+			*pNVIC_ISPRBase |= (1 << IRQNO_TIMER2);
 			
 			// 3. Enable IRQs in NVIC ISER
+			*pNVIC_ISERBase |= (1 << IRQNO_I2C1);
+			*pNVIC_ISERBase |= (1 << IRQNO_TIMER2);
 		}
 		
 		// ISRs
 		void TIM2_IRQHandler(void) {
 			printf("[TIM2_IRQHandler]\n");
+			*pNVIC_ISPRBase |= (1 << IRQNO_I2C1);
+			while (1);
 		}
 		
 		void I2C1_EV_IRQHandler(void) {
@@ -2154,6 +2178,12 @@
 		}
 		
 	1. Priority configuration should be done before enabling the interrupt (good practice)
+	2. Calculation: IPRx
+		1. IRQ / 4
+			1. 5 / 4 = 1 - IPR1
+		2. (IRQ % 4) x 8
+			1. (5 % 4) x 8 = 8 (left shift by 8)
+3. Debug the code
 
 ### Pending Interrupt Behavior ###
 
