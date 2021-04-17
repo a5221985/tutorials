@@ -1618,10 +1618,34 @@
 			3. HardFault
 				1. Occurs 
 					1. Because of an error during exception processing OR
+						1. Already in exception handler & execute illegal instruction (code access or execution)
 					2. Because exception cannot be managed by any other exception mechanism
+						1. If T-bit is 0, and we try to execute an instruction
+							1. UsageFault Exception should be triggered
+								1. If this is not configured, the exception will be escalated and HardFault will be triggered
+					3. Default exception handler
+				2. Fixed priority: -1
+					1. Higher priority than any exception with configurable priority
 			4. MemManage
+				1. Exception that occurs due to memory protection fault
+					1. If code tries to access protected memory (if we enable memory protection unit to guard memories)
+						1. RTOS: Kernel code can restrict user applications or tasks from touching certain memories
+							1. If user program tries to read or write to the memory, MemManage exception will be triggered
+								1. RTOS can end the task or take any other action
 			5. BusFault
+				1. Rare
+				2. Occurs because of Bus errors (memory related fault for instruction or data memory transaction)
+					1. Might be from error detected on a bus in memory system
 			6. UsageFault
+				1. Due to fault related to instruction execution
+					1. Undefined instruction
+						1. T-bit = 0
+					2. Illegal unaligned access
+					3. Invalid state on instruction execution
+					4. Error on exception return
+				2. Cause (when core is configured to report them)
+					1. Unaligned address on word and halfword memory access
+					2. Division by zero
 			7. Reserved (7-10)
 			8. SVCall
 			9. Reserved (12-13)
