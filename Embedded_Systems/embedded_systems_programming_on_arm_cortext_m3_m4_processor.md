@@ -2027,7 +2027,35 @@
 	1. Priority means urgency
 3. What is priority value?
 	1. Priority value is a measure of urgency (decides how urgent from others)
-4. Example:
+4. Relation between priority value & priority
+
+		Priority value = 5
+		ADC ------->|      |
+		            | NVIC |<--->| CPU |
+		TIMER ----->|      |
+		Priority value = 4
+		
+	1. In this case, TIMER peripheral priority value is lesser than priority value of ADC
+		1. TIMER interrupt is more URGENT than ADC interrupt
+			1. TIMER priority is HIGHER than ADC priority
+	2. If both interrupt hits NVIC at the same time, NVIC allows TIMER interrupt first
+		1. TIMER ISR will be executed first by processor
+	3. Priority is synonymous with "priority value"
+		1. Priority of IRQ0 is 4
+5. In ARM Cortex Mx
+	1. Lesser the priority value, higher the priority (urgency)
+6. Different priority levels
+	1. Priority values are also called as priority levels
+	2. How many different priority levels are there in ARM Cortex Mx processor?
+		1. Depends on interrupt priority register implemented by MCU vendors
+		2. STM32F4x MCU has 16 different priority levels
+		3. TI TM4C123Gx has 8 different priority levels
+7. Interrupt Priority Register of ARM Cortex Mx processor
+	1. It is part of NVIC register set
+		1. Using these registers, we can configure priority levels of interrupts (IRQs) only
+			1. There are 60 interrupt priority registers (240 IRQs)
+		2. Generic User Guide
+			1. 
 
 ### Pre-Empt and Sub Priority ###
 ### Interrupt Priority Configuration Exercise ###
