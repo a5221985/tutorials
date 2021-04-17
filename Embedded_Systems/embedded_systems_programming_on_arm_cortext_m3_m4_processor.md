@@ -2221,7 +2221,7 @@
 
 ## Exception Entry and Exit Sequences ##
 ### Exception Entry and Exit Sequences ###
-1. Sequence:
+1. Entry Sequence:
 	1. Pending bit set (in Pending Register of NVIC)
 	2. Stacking and Vector Fetch (simultaneously)
 		1. Stacking: Pushing registers onto stack
@@ -2231,7 +2231,30 @@
 	5. Now processor mode changed to handler mode
 	6. Now handler code is executing
 	7. The MSP will be used for any stack operations inside the handler
-8. 
+2. Exit Sequence:
+	1. In Cortex-M3/M4 processors, exception return mechanism is triggered using special return address called EXC_RETURN
+		1. EXC_RETURN - it is value generated during exception entry and is stored in LR
+	2. When EXC_RETURN is written to PC, it triggers the exception return
+3. EXC_RETURN
+	1. When is it generated?
+		1. During exception handler entry, value of return address (PC) is not stored in LR as it is done during calling of a normal C function
+			1. Exception mechanism stores the special value called EXC_RETURN in LR (at entry of exception)
+	2. Decoding EXC_RETURN value
+	
+			Bits	Description				Values
+			31:28	EXC_RETURN indicator	0xF
+			27:5	Reserved (all 1)			0xEFFFFF
+			4		Stack frame type			always 1 when floating point unit is available
+			3		Return mode				1 = return to thread mode
+												0 = return to handler mode
+			2		Return stack				1 = return with PSP
+												0 = return with MSP
+			1		Reserved					0
+			0		Reserved					1
+			
+		1. 2, 3 - updated during entry
+			1. Captures operation mode and stack that was in use before start of handler execution
+			2. Processor decodes and understand mode and stack
 
 ### Analyzing Stack Contents During Exception Entry and Exit ###
 
