@@ -1653,9 +1653,19 @@
 				2. In OS environment, apps can use `SVC` instruction to access **OS Kernel functions** and **device drivers**
 					1. Privileged Kernel code
 					2. Unprivileged tasks
-						1. 
+						1. Since peripherals will be considered as restricted resourced (only accessible by kernel - memory say)
+						2. The tasks can request service from kernel
+							1. `SVC` instruction is executed along with service number
+								1. `SVC` exception is caused and processor will move to handler mode and `SVC` handler will run in kernel mode
+									1. `SVC` number will be decoded and approprate service will be provided
+					3. This is used to implement System Call interface layer (API)
 			9. Reserved (12-13)
 			10. PendSV (to help RTOS - for efficient design)
+				1. It is OS friendly exception given in ARM Cortex Mx processor
+				2. Used for context switching in OS (FreeRTOS, OpenRTOS)
+					1. Check source code
+				3. Interrupt driven request for system-level service
+					1. Use for context switching when no other exception is active
 			11. SysTick (to help RTOS)
 				1. System exception triggered by system timer (peripheral - inside the processor) when it reaches zero
 					1. Software can also trigger SysTick exception
@@ -1663,10 +1673,12 @@
 							1. In RTOS or Embedded OS - Can be used to implemented Kernel ticking (context switching, blocking call, ...)
 				2. SysTick timer - can be used to generate interrupts at fixed time interval
 					1. Can be used like any other TIMER peripheral
-			12. IRQ-1
+			12. IRQ-1 (exception 16)
 			13. ...
 
 ### System Exception Vector Address ###
+1. 
+
 ### System Exception Control Registers ###
 ### NVIC ###
 ### NVIC Registers ###
