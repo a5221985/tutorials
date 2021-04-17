@@ -2016,6 +2016,14 @@
 
 ## Interrupt Priority and Configuration ##
 ### Interrupt Priority Explanation ###
+1. Interrupt priority and config
+	1. What is priority?
+	2. What is priority value?
+	3. Different programmable priority levels
+	4. Explore priority registers for interrupts (IRQs)
+	5. Explore priority registers for system exceptions
+	6. Pre-empt priority and sub priority
+
 ### Pre-Empt and Sub Priority ###
 ### Interrupt Priority Configuration Exercise ###
 ### Pending Interrupt Behavior ###
