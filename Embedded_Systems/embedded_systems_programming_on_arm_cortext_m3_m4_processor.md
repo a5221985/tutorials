@@ -1828,7 +1828,7 @@
 	4. We can configure priority and priority grouping of various interrupts (later)
 	5. It is called "Nested" because
 		1. It supports pre-empting (temporarily stopping) lower priority interrupt handler when higher priority interrupt arrives
-		2. 
+2. ADC(1, 2, 3 - global interrupts) - IRQ18
 
 ### NVIC Registers ###
 ### Peripheral Interrupt Exercise ###
