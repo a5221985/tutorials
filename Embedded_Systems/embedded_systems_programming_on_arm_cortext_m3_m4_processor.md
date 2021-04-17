@@ -1446,6 +1446,9 @@
 		4. Suppose there are more than 4 arguments (6 say)
 			1. Rest of the arguments, stack will be used
 				1. [Procedure Call Standard for the Arm Architecture](https://developer.arm.com/documentation/ihi0042/latest/)
+					1. Local variables are reserved in stack memory
+						1. R4-R8, R9, R10, R11 (6 registers) are used to access these variable values
+		5. 
 
 ### Stack Activities During Interrupt and Exception ###
 
