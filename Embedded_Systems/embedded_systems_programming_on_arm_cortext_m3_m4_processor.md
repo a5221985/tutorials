@@ -1928,7 +1928,7 @@
 		(3) Interrupt pends in pending reg of NVIC      {
 				|								               Copy data from
 			USART Rx buffer					               rx buffer to
-				^	USARR peripheral issues	interrupt (2)  SRAM
+				^	USART peripheral issues	interrupt (2)  SRAM
 				|								               }
 		_______________________________________________________________
 				^
@@ -1937,6 +1937,25 @@
 			from external world in
 			to USART peripheral
 			buffer (1)
+			
+	1. An event triggers the flow
+	2. Flow:
+		1. When data packet arrives from external world in to USART peripheral buffer
+		2. When RX buffer is full, it triggers an interrupt
+			1. It makes IRQ line high or low
+		3. Interrupt sets pending state in pending state register of NVIC
+		4. If IRQ is enabled (for the IRQ number)
+			1. Output = 1
+				1. It will interrupt the processor
+		5. When interrupt is accepted by CPU
+			1. Fetches ISR address from the vector table
+			2. PC jumps to ISR
+		6. ISR
+			1. Copy data from rx buffer to SRAM
+4. Peripheral programming
+	1. Peripheral programming such as UART, SPI, TIMER - out of scope of the course
+	2. Covered in MCU1 and MCU2 courses
+		1. Masterning Microcontroller courses (driver development, TIMERS, PWM, CAN, RTC, LOW POWER)
 	
 ### Peripheral Interrupt Exercise Contd. ###
 
