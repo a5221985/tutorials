@@ -2055,9 +2055,33 @@
 		1. Using these registers, we can configure priority levels of interrupts (IRQs) only
 			1. There are 60 interrupt priority registers (240 IRQs)
 		2. Generic User Guide
-			1. 
+			1. IPR0 - IPR59
+				1. IPR0 - for 4 IRQs (60 x 4 = 240)
+					1. IRQ0 - 8 bits
+
+							bit 7 bit 6 bit 5 | bit 4-0
+								implemented     not implemented
+					
+					2. IRQ1 - 8 bits
+					3. IRQ2 - 8 bits
+					4. IRQ3 - 8 bits
+
+			2. How many bits are implemented depends on microcontroller vendor
+
+					Bit 7 - 5: 8 priority levels
+					Bit 7 - 4: 16 priority levels
+					
+						0x00, 0x10, 0x20, ... 0xf0
+						
+				1. For system exceptions, look into System Control Block (SCB)
+					1. Not NVIC
+					2. System Handler Priority Registers (1, 2, 3)
 
 ### Pre-Empt and Sub Priority ###
+1. What if two interrupts of the same priority hit the processor at the same time?
+	1. The sub-priority value of the interrupts will be checked to resolve the conflict.
+		1. Interrupt with lower sub-priority will be allowed first
+
 ### Interrupt Priority Configuration Exercise ###
 ### Pending Interrupt Behavior ###
 
