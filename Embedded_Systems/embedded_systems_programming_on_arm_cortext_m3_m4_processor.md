@@ -1718,7 +1718,51 @@
 			1. Configuration of system exceptions
 			2. Control of system exceptions
 			3. Reporting of system exceptions
-	2. ARM Cortex M4 Generic User Guide - reference
+	2. It contains registers to configure and control some of system specific functionality of ARM Cortex Mx processor
+		1. Configure system exceptions
+		2. Enable or disable system exceptions
+		3. Configure priority for system exceptions
+	3. ARM Cortex M4 Generic User Guide - reference
+		1. Address map of private peripheral bus
+			1. System Control Block
+				1. Registers
+					1. SHPR1 - System Handler Priority Register 1
+					2. SHPR2 - System Handler Priority Register 2
+					3. SHPR3 - System Handler Priority Register 3
+					4. SHCRS - System Handler Control and State Register
+						1. The above are used to configure priority of system exceptions (not interrupts - NVIC will handle that)
+							1. SCB is for system exceptions and other control related settings
+						2. This register can be used to enable system exceptions
+
+								MEMFAULTACT
+								BUSFAULTACT
+								Reserved
+								USBFAULTACT
+								Reserved [4-6]
+								SVCALLACT
+								MONITORACT
+								Reserved
+								PENDSVACT
+								SYSTICKACT
+								USGFAULTPENDED
+								MEMFAULTPENDED
+								BUSFAULTPENDED
+								SVCALLPENDED
+								MEMFAULTENA
+								BUSFAULTENA
+								USGFAULTENA
+								Reserved [19-31]
+						
+					5. BFSR - BusFault Status Register
+					6. UFSR - UsageFault Status Register
+					7. HFSR - HardFault Status Register
+					8. MMAR - MemManage Fault Address Register
+					9. BFAR - BusFault Address Register
+					10. AFSR - Auxiliary Fault Status Register
+						1. The above are used to capture status of the faults
+							1. At what address the fault happened
+							2. What was the cause of the fault
+							3. ...
 
 ### NVIC ###
 ### NVIC Registers ###
