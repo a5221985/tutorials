@@ -1875,6 +1875,10 @@
 				4. Read:
 					1. 0 - interrupt is not pending
 					2. 1 - interrupt is pending
+		5. Interrupt Active Bit Registers
+			1. NVIC_IABR0 - NVIC_IABR7 - indicates which interrupts are active
+				1. 0 - interrupt is not active
+				2. 1 - interrupt is active
 
 ### Peripheral Interrupt Exercise ###
 ### Peripheral Interrupt Exercise Contd. ###
