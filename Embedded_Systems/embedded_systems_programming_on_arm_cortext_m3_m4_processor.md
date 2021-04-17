@@ -1677,9 +1677,22 @@
 			13. ...
 
 ### System Exception Vector Address ###
-1. 
+1. Where to store vector addresses of exceptions in vector table
+	1. 0x0000 0000 - MSP value
+	2. 0x0000 0004 - Reset Handler address is stored here
+	3. 0x0000 0008 - NMI Handler address is stored here
+	4. 0x0000 000C - Hard Fault Handler address is stored here
+	5. 0x0000 0010 - MemManage Handler address is stored here
+	6. 0x0000 0014 - BusFault Handler address is stored here
+	7. 0x0000 0018 - UsageFault Handler address is stored here
+	8. 0x0000 002C - SVCall Handler address is stored here
+	9. 0x0000 0030 - Debug Monitor Handler address is stored here
+	10. 0x0000 0038 - PendSV Handler address is stored here
+	11. 0x0000 003C - SysTick Handler address is stored here
 
 ### System Exception Control Registers ###
+1. 
+
 ### NVIC ###
 ### NVIC Registers ###
 ### Peripheral Interrupt Exercise ###
