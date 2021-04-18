@@ -2576,8 +2576,38 @@
 			
 4. If LSB of instruction is 0
 	1. INVSTATE - 1 (processor has attempted to execute an instrution that makes illegal use of EPSR
+	
+			uint32_t *pSRAM = (uint32_t*) 0x20010000; // bit[0] cannot be 0
+			
+		1. UFSR - 2 (INVSTATE = 1)
 
 ### Analyzing Stack Frame ###
+1. What happens if exception triggers?
+
+							   Hander mode
+							 _____________________
+							/  Usage fault handler
+			____________/ <- stacking of thread mode context
+			thread mode |
+						  |
+						  Exception triggers
+						  (thread mode instruction
+						   caused exception)
+						   
+	1. Stacking
+
+			SP:      Previous stack content
+			SP - 4:  XPSR
+			SP - 8:  PC
+			SP - 12: LR
+			SP - 16: R12
+			SP - 20: R3
+			SP - 24: R2
+			SP - 28: R1
+			SP - 31: R0 <- SP[MSP] (top of stack after triggers)
+			
+		1. No FPU stack frame
+		2. Useful to debug where fault got triggered
 
 ### Configurable Fault Exception Exercise-2 ###
 ### Analyzing Stack Frame ###
