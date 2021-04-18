@@ -2492,7 +2492,11 @@
 1. Exercise
 	1. Write a program to enable all configurable fault exceptions
 	2. Implement fault exception handlers and cause the fault by following method
-		1. Execute 
+		1. Execute an undefined instruction
+		2. Divide by zero
+		3. Try executing instruction from peripheral region
+		4. Executing SVC inside the SVC handler
+		5. Executing SVC instruction inside interrupt handler whose priority is same or lesser than SVC handler
 
 ### Analyzing Stack Frame ###
 ### Configurable Fault Exception Exercise-2 ###
