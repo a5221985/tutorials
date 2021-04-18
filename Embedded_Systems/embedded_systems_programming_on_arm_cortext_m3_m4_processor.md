@@ -2499,14 +2499,51 @@
 		5. Executing SVC instruction inside interrupt handler whose priority is same or lesser than SVC handler
 2. Program: (Refer to Cortex-M4 Devices Generic User Guide - System Control Block - System Handler Control and State Register)
 
-		// 1. enable all configurable exceptions like usage fault, mem manage fault and bus fault
-		uint32_t *pSHCSR = (uint32_t*) 0xE000ED24;
+		#include <stdint.h>
+		#include <stdio.h>
+
+		void main(void) {
+			// 1. enable all configurable exceptions like usage fault, mem manage fault and bus fault
+			uint32_t *pSHCSR = (uint32_t*) 0xE000ED24;
+			*pSHCSR |= (1 << 16); // mem manage
+			*pSHCSR |= (1 << 17); // bus fault
+			*pSHCSR |= (1 << 18); // usage fault
+			
+			// 3. lets force processor to execute some undefined instructions
+			uint32_t *pSRAM = (uint32_t*) 0x20010000;
+			*pSRAM = 0xFFFFFFFF; // invalid opcode
+			void (*some_address)(void);
+			some_address = (void*)((uint32_t)pSRAM + 1); // Thumb ISA
+			some_address();
+			
+			// 4. Analyze the fault
+		}
 		
 		// 2. implement the fault handlers
+		void HardFault_Handler(void) {
+			printf("Exception: HardFault\n");
+			while(1);
+		}
 		
-		// 3. lets force processor to execute some undefined instructions
+		void MemManage_Handler(void) {
+			printf("Exception: MemManage\n");
+			while(1);
+		}
 		
-		// 4. Analyze the fault
+		void BusFault_Handler(void) {
+			printf("Exception: BusFault\n");
+			while(1);
+		}
+		
+		void UsageFault_Handler(void) {
+			printf("Exception: UsageFault\n");
+			while(1);
+		}
+		
+	1. Open disassembly
+		1. Contents of address `0x20011001` - `0xFFFFFFFF`
+			1. `0x20011001` is copied into **PC**
+		2. Open Show View > Fault Analyzer
 
 ### Analyzing Stack Frame ###
 
