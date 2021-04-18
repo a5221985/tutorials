@@ -2354,6 +2354,14 @@
 	1. A hard fault is an exception that occurs because of
 		1. An error during exception processing
 		2. An exception cannot be managed by any other exception mechanism
+		3. It has 3rd highest fixed priority (-1)
+			1. After Rest and NMI
+			2. Higher priority than any other configurable priority
+	2. Causes
+		1. Escalation of configurable fault exceptions
+		2. Bus error returned during vector fetch
+		3. Execution of break point instruction when both halt mode and debug monitor is disabled
+		4. Executing SVC instruction inside SVC handler
 
 ### Other Configurable Faults ###
 ### Configurable Fault Exception Exercise-1 ###
