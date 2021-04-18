@@ -2608,8 +2608,22 @@
 			
 		1. "No FPU" stack frame
 		2. Useful to debug where fault got triggered
+		3. We can print contents of Registers of the stack frame to understand the behaviour
+			1. To get address of SP
+				1. We have to use inline assembly
+
+						__asm volatile ("mrs r0, MSP");
+						register uint32_t msp_value __asm("r0"); // not be created on stack, any register will be used to hold the value
+						uint32_t* pMSP = (uint32_t*) msp_value;
+						printf("MSP = %p\n", pMSP);
+						
+					1. When code is at beginning of fault handler, the stack frame is where SP points to (no additional data is pushed)
+					2. In disassembly
+						1. There is prologe - compiler pushes contents and manipulates SP
 
 ### Configurable Fault Exception Exercise-2 ###
+1. 
+
 ### Analyzing Stack Frame ###
 
 ## Exception for System Level Services ##
