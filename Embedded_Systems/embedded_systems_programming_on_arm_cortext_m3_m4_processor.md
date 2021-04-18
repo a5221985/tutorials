@@ -2315,8 +2315,26 @@
 							1. This will invoke usage fault exception handler (if enabled)
 							2. In exception handler, we may make certain decisions to get rid of the problem (closing task etc...)
 		2. Most times, fault occurs due to programmer's code not adhering to processor programming guidelines
+			1. If we don't, then exception will be triggered
 3. Summary of ARM Cortex Mx System Exceptions
-	1. 15 System exceptions
+	1. 15 System exceptions (No 1 to 15)
+		1. 9 implemented (rest reserved)
+			1. Reset - -3 (fixed)
+			2. NMI - -2 (fixed)
+			3. HardFault -1 (fixed) - fault exception (raised whenever there is a fault in the processor)
+			4. MemManage - fault exception
+			5. BusFault - fault exception
+			6. UsageFault - fault exception
+4. Different types of fault exceptions in Cortex Mx processor
+	1. Hard fault exception (enabled by default, non-configurable priority)
+		1. Can be disabled by code using FAULTMASK register
+	2. Usage fault exception (disabled by default, configurable priority - default priority 0)
+	3. Mem manage fault exception (disabled by default, configurable priority - default priority 0)
+	4. Bus fault exception (disabled by default, configurable priority - default priority 0)
+5. Causes of fault
+	1. Divide by zero (if enabled)
+	2. Undefined instruction
+	3. 
 
 ### Hardfault Exception ###
 ### Other Configurable Faults ###
