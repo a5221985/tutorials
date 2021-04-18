@@ -2350,7 +2350,10 @@
 	9. Certain debug monitor settings and related exceptions
 
 ### Hardfault Exception ###
-1. 
+1. Hard-fault exception
+	1. A hard fault is an exception that occurs because of
+		1. An error during exception processing
+		2. An exception cannot be managed by any other exception mechanism
 
 ### Other Configurable Faults ###
 ### Configurable Fault Exception Exercise-1 ###
