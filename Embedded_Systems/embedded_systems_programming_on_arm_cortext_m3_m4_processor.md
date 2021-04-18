@@ -2497,8 +2497,19 @@
 		3. Try executing instruction from peripheral region
 		4. Executing SVC inside the SVC handler
 		5. Executing SVC instruction inside interrupt handler whose priority is same or lesser than SVC handler
+2. Program: (Refer to Cortex-M4 Devices Generic User Guide - System Control Block - System Handler Control and State Register)
+
+		// 1. enable all configurable exceptions like usage fault, mem manage fault and bus fault
+		uint32_t *pSHCSR = (uint32_t*) 0xE000ED24;
+		
+		// 2. implement the fault handlers
+		
+		// 3. lets force processor to execute some undefined instructions
+		
+		// 4. Analyze the fault
 
 ### Analyzing Stack Frame ###
+
 ### Configurable Fault Exception Exercise-2 ###
 ### Analyzing Stack Frame ###
 
