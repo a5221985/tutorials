@@ -2387,6 +2387,20 @@
 	1. Example: If divide by zero exception occurs, it is usage fault exception
 		1. If it is enabled, usage fault handler will be executed
 		2. If it is disabled, then fault will be escalated to HardFault exception (HardFault exception handler is executed)
+3. Scenario 2:
+
+		(Thread mode)
+		Execution of SVC
+		instruction
+			|
+			v
+		(Handler mode)
+		Execute SVC instruction
+		(SVC handler)
+			|
+			v
+		(Handler mode)
+		Hard-fault handler
 
 ### Other Configurable Faults ###
 ### Configurable Fault Exception Exercise-1 ###
