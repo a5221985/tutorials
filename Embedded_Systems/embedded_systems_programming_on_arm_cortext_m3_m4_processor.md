@@ -2450,7 +2450,14 @@
 		1. Processor executes bus fault exception handler
 	5. Priority of the fault exception is configurable
 	6. Causes:
-
+		1. Due to error response returned by processor bus interface during access to memory devices
+			1. During instruction fetch
+			2. During data read/ write to memory devices
+		2. If bus error occurs during vector fetch
+			1. It will be escalated to hard fault even if bus fault exception is enabled
+		3. Mem device sends error response when processor bus interface tries to access invalid or restricted mem locations which could generate a bus fault
+		4. When device is not ready to accept mem transfer
+		5. We may encounter such issues if we play with external memories such as SDRAM connected via DRAM controllers
 
 ### Configurable Fault Exception Exercise-1 ###
 ### Analyzing Stack Frame ###
