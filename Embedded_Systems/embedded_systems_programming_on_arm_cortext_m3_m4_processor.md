@@ -2286,6 +2286,17 @@
 		3. It is state of thread mode code
 		4. In interrupt handler
 			1. LR is loaded with EXC_RETURN
+			2. EXC_RETURN is written to PC while exiting
+				1. This triggers retrieval of state from MSP (or PSP)
+	2. Changing Thread Mode SP to PSP
+
+			int control_reg = 0x2;
+			uint32_t psp_value = 0x20008000;
+
+			__asm volatile ("msr PSP, %0"::"r"(psp_value));
+			__asm volatile ("msr CONTROL, %0"::"r"(control_reg));
+			
+		1. EXC_RETURN - 0xFFFFFFFD (PSP)
 
 ## Fault Handling and Analysis ##
 ### Introduction to Processor Faults ###
