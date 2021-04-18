@@ -2636,6 +2636,7 @@
 2. Program:
 
 		__attribute__((naked)) void UsageFault_Handler(void) {
+			// extracting value of MSP (based of stack frame) which got saved due to exception
 			__asm volatile ("MRS r0, MSP");
 			__asm volatile ("B UsageFault_Handler_c"); // callee gets r0 as first argement
 		}
@@ -2643,9 +2644,22 @@
 		void UsageFault_Handler_c(uint32_t *pBaseStackFrame) {
 			//...
 			printf("MSP = %p\n", pBaseStackFrame);
+			printf("Value of R0 = %x\n", pBaseStackFrame[0]);
+			printf("Value of R1 = %x\n", pBaseStackFrame[1]);
+			printf("Value of R2 = %x\n", pBaseStackFrame[2]);
+			printf("Value of R3 = %x\n", pBaseStackFrame[3]);
+			printf("Value of R12 = %x\n", pBaseStackFrame[4]);
+			printf("Value of LR = %x\n", pBaseStackFrame[5]);
+			printf("Value of PC = %x\n", pBaseStackFrame[6]);
+			printf("Value of XPSR = %x\n", pBaseStackFrame[7]);
+			while (1);
 		}
+		
+	1. LR - stores the instruction next to the instruction that triggered exception
+		1. We can check **.list** file for the address
 
 ### Analyzing Stack Frame ###
+
 
 ## Exception for System Level Services ##
 ### SVC Exception ###
