@@ -2622,7 +2622,28 @@
 						1. There is prologe - compiler pushes contents and manipulates SP
 
 ### Configurable Fault Exception Exercise-2 ###
-1. 
+1. We need to write pure assembly function to fetch the value of SP (prologue is added when C function is called)
+	1. Solution: Naked functions
+
+			__attribute__((naked))
+			
+		1. The attribute tells the compiler that function is an embedded assembly function.
+		2. We can write the body of the function entirely in assembly code using `__asm` statements
+		3. Compiler does not generate prologue and epilogue sequences for functions with `__attribute__((naked))`
+		4. Use naked functions only to write assembly instructions (`__asm` statements).
+			1. Mixing 'C' code might not work properly (c variable initialization etc...)
+		5. Reference: http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0774g/jhg1476893564298.html
+2. Program:
+
+		__attribute__((naked)) void UsageFault_Handler(void) {
+			__asm volatile ("MRS r0, MSP");
+			__asm volatile ("B UsageFault_Handler_c"); // callee gets r0 as first argement
+		}
+		
+		void UsageFault_Handler_c(uint32_t *pBaseStackFrame) {
+			//...
+			printf("MSP = %p\n", pBaseStackFrame);
+		}
 
 ### Analyzing Stack Frame ###
 
