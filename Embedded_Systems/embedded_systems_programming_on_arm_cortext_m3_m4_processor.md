@@ -2427,6 +2427,10 @@
 			1. Bit[16] - MEMFAULTENA (make it 1)
 	3. When mem manage fault occurs, mem manage fault exception handler will be executed by processor
 	4. Priority of the fault exception is configurable
+2. Causes
+	1. Mem manage fault exception triggers when memory access violation is detected (access permission by the processor or MPU)
+	2. Unprivileged thread mode code (such as user application or RTOS task) tries to access a memory region which is marked as "privileged access only" by the MPU
+	3. Writing to memory region which are marked as read-only by the MPU4
 
 ### Configurable Fault Exception Exercise-1 ###
 ### Analyzing Stack Frame ###
