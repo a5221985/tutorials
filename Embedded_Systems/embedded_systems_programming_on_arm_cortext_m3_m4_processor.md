@@ -2429,8 +2429,28 @@
 	4. Priority of the fault exception is configurable
 2. Causes
 	1. Mem manage fault exception triggers when memory access violation is detected (access permission by the processor or MPU)
+		1. During read and/or write
 	2. Unprivileged thread mode code (such as user application or RTOS task) tries to access a memory region which is marked as "privileged access only" by the MPU
-	3. Writing to memory region which are marked as read-only by the MPU4
+		1. MPU can be used to mark certain regions of memory as privileged access only
+	3. Writing to memory regions which are marked as read-only by the MPU4
+	4. Can also be triggered when trying to execute program code from "peripheral" memory regions
+		1. Peripheral memory regions are marked as XN (eXecute Never) regions by processor design
+			1. To avoid code injection attacks through peripherals
+				1. Behavior of memory accesses (Manual) (cannot be changed)
+					1. Peripheral - XN
+					2. External device - XN
+					3. Private Peripheral Bus - XN
+					4. Device - XN
+3. Bus Fault Exception
+	1. Configurable fault exception
+	2. Disabled by default
+	3. This can be enabled by configuring processor register "System Handler Control and State Register (SHCSR)"
+		1. Bit[17] - BUSFAULTENA
+	4. When Bus-fault occurs
+		1. Processor executes bus fault exception handler
+	5. Priority of the fault exception is configurable
+	6. Causes:
+
 
 ### Configurable Fault Exception Exercise-1 ###
 ### Analyzing Stack Frame ###
