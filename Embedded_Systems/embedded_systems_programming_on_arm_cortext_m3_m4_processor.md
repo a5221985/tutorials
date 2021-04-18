@@ -2464,8 +2464,36 @@
 			3. Debug registers
 			4. Example: thread mode code which is in un-privileged access level and tries to configure NVIC register
 				1. It causes Bus Fault
+4. Usage Fault Exception
+	1. Configurable fault exception
+	2. Disabled by default
+	3. We can enable this exception by configuring processor register "System Handler Control and State Register (SHCSR)"
+		1. Bit[18]: USGFAULTENA
+	4. When usage fault occurs
+		1. Processor executes usage fault exception handler
+	5. Priority of the fault exception is configurable
+	6. Causes:
+		1. Execution of undefined instruction (Cortex M4 supports only thumb ISA, executing instruction outside this ISA (like ARM ISA) would result in fault)
+		2. Executing floating point instruction keeping floating point unit disabled
+			1. If HW floating point unit doesn't exist
+			2. If HW floating point unit exists but it is not enabled
+		3. Trying to switch to ARM state execute ARM ISA instructions
+			1. T bit of processor decides ARM state or THUMB state.
+				1. For Cortex M, it should be maintained at 1.
+			2. Making T bit 0 (may happend during function call using function pointers whose 0th bit is not maintained as 1)
+				1. Resutls in a fault
+		4. Trying to return to thread mode when exception/ interrupt is still active
+		5. Unaligned memory access with multiple load or multiple store instructions
+		6. Attempt to divide by zero (if enabled, by default divide by zero results in zero)
+		7. For all unaligned data access from memory (only if enabled, otherwise Cortex M supports unaligned data access)
+			1. Only if we enable un-aligned data access trap and unaligned data access occurs
 
 ### Configurable Fault Exception Exercise-1 ###
+1. Exercise
+	1. Write a program to enable all configurable fault exceptions
+	2. Implement fault exception handlers and cause the fault by following method
+		1. Execute 
+
 ### Analyzing Stack Frame ###
 ### Configurable Fault Exception Exercise-2 ###
 ### Analyzing Stack Frame ###
