@@ -2458,6 +2458,12 @@
 		3. Mem device sends error response when processor bus interface tries to access invalid or restricted mem locations which could generate a bus fault
 		4. When device is not ready to accept mem transfer
 		5. We may encounter such issues if we play with external memories such as SDRAM connected via DRAM controllers
+		6. Unprivileged access to private peripheral bus
+			1. SCB registers
+			2. NVIC registers
+			3. Debug registers
+			4. Example: thread mode code which is in un-privileged access level and tries to configure NVIC register
+				1. It causes Bus Fault
 
 ### Configurable Fault Exception Exercise-1 ###
 ### Analyzing Stack Frame ###
