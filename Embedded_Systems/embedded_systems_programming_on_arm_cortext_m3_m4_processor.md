@@ -2314,6 +2314,9 @@
 						1. Example: If code tries to divide a number by zero, then divide by 0 fault will be raised from hardware
 							1. This will invoke usage fault exception handler (if enabled)
 							2. In exception handler, we may make certain decisions to get rid of the problem (closing task etc...)
+		2. Most times, fault occurs due to programmer's code not adhering to processor programming guidelines
+3. Summary of ARM Cortex Mx System Exceptions
+	1. 15 System exceptions
 
 ### Hardfault Exception ###
 ### Other Configurable Faults ###
