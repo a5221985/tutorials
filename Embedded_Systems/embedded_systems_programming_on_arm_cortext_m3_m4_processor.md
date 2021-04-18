@@ -2565,10 +2565,17 @@
 		4. UsageFault
 			1. Status Register: UFSR
 3. Print UFSR (SCB) (indicates cause of usage fault)
+	1. Bit[0]: `UNDEFINSRT` - 1 (processor has attempted to execute an undefined instruction)
 
-		void UsageFault_Handler(void) {
-			uint32_t* pUFSR = (uint32_t*) 0x
-		} 
+			void UsageFault_Handler(void) {
+				uint32_t* pUFSR = (uint32_t*) 0xE000ED2A;
+				printf("Exception: UsageFault\n");
+				printf("UFSR = 0x%hx\n", (*pUFSR) & 0xFFFF);
+				while(1);
+			}
+			
+4. If LSB of instruction is 0
+	1. INVSTATE - 1 (processor has attempted to execute an instrution that makes illegal use of EPSR
 
 ### Analyzing Stack Frame ###
 
