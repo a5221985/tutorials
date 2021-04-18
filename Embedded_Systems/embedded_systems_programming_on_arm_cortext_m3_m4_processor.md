@@ -2606,7 +2606,7 @@
 			SP - 28: R1
 			SP - 31: R0 <- SP[MSP] (top of stack after triggers)
 			
-		1. No FPU stack frame
+		1. "No FPU" stack frame
 		2. Useful to debug where fault got triggered
 
 ### Configurable Fault Exception Exercise-2 ###
