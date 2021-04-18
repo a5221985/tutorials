@@ -2659,7 +2659,10 @@
 		1. We can check **.list** file for the address
 
 ### Analyzing Stack Frame ###
+1. Divide by zero
+	1. New project:
 
+			
 
 ## Exception for System Level Services ##
 ### SVC Exception ###
