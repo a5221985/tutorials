@@ -2544,6 +2544,31 @@
 		1. Contents of address `0x20011001` - `0xFFFFFFFF`
 			1. `0x20011001` is copied into **PC**
 		2. Open Show View > Fault Analyzer
+			1. Attempt to execute an undefined instruction (UNDEFINSTR)
+				1. Fetches certain status registers to understand the current status
+		3. Exception Status Register - can be obtained for actual fault
+2. Fault status and address information
+	1. When a fault occurs, inside the fault handler, we can check a few of fault status and address info registers to get more details about 
+		1. Fault
+		2. Instruction address 
+	2. At which fault occurred. 
+	3. Helpful during debugging
+	4. Registers:
+		1. HardFault
+			1. Status Register: HFSR
+		2. MemManage
+			1. Status Register: MMFSR
+			2. Address Register: MMFAR (Instruction address)
+		3. BusFault
+			1. Status Register: BFSR
+			2. Address Register: BFAR (Instruction address)
+		4. UsageFault
+			1. Status Register: UFSR
+3. Print UFSR (SCB) (indicates cause of usage fault)
+
+		void UsageFault_Handler(void) {
+			uint32_t* pUFSR = (uint32_t*) 0x
+		} 
 
 ### Analyzing Stack Frame ###
 
