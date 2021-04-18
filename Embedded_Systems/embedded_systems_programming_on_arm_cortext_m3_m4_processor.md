@@ -2359,9 +2359,34 @@
 			2. Higher priority than any other configurable priority
 	2. Causes
 		1. Escalation of configurable fault exceptions
-		2. Bus error returned during vector fetch
+		2. Bus error returned during vector fetch (from vector table)
 		3. Execution of break point instruction when both halt mode and debug monitor is disabled
 		4. Executing SVC instruction inside SVC handler
+2. Flow chart:
+
+			| Configurable exceptions
+			| (usage, mem manage, bus fault)
+			v
+		Is configurable
+		exception enabled? - No -> Hardfault handler
+			|				(Escalated to hardfault {FORCED})
+			Yes
+			|
+			v
+		Handled by configurble
+		exception handlers
+		
+		Bus fault during vector fetch
+		from vector table
+			|
+			Always escalated to hardfault
+			|
+			v
+		Hardfault handler
+		
+	1. Example: If divide by zero exception occurs, it is usage fault exception
+		1. If it is enabled, usage fault handler will be executed
+		2. If it is disabled, then fault will be escalated to HardFault exception (HardFault exception handler is executed)
 
 ### Other Configurable Faults ###
 ### Configurable Fault Exception Exercise-1 ###
