@@ -2332,11 +2332,26 @@
 	3. Mem manage fault exception (disabled by default, configurable priority - default priority 0)
 	4. Bus fault exception (disabled by default, configurable priority - default priority 0)
 5. Causes of fault
-	1. Divide by zero (if enabled)
-	2. Undefined instruction
-	3. 
+	1. Divide by zero (if enabled - divide by zero trap)
+	2. Undefined instruction (if processor doesn't understand how to decode the instruction)
+	3. Attempt to execute code from memory region which is marked as execute never (XN) to prevent code injection
+		1. Example: Peripheral region (XN)
+			1. Attribute of mem region is XN
+				1. If PC tries to load instruction from the region
+	4. MPU guarded memory region access violation by the code
+		1. We can impose access rules using the unit
+	5. Unaligned data access (if enabled)
+	6. Returning to thread mode keeping active interrupt alive
+		1. If interrupt is in active state, it must be finished
+			1. We cannot keep it active and return to thread mode code
+	7. Bus error (example no response from memory device (e.g. SDRAM)
+		1. External mem interface
+	8. Executing SVC instruction inside SVC handler or calling a function in SVC handler which eventually executes hidden SVC instruction (no nested SVC)
+	9. Certain debug monitor settings and related exceptions
 
 ### Hardfault Exception ###
+1. 
+
 ### Other Configurable Faults ###
 ### Configurable Fault Exception Exercise-1 ###
 ### Analyzing Stack Frame ###
