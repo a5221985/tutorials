@@ -2664,7 +2664,13 @@
 		1. Copy the above code (with stack frame analysis code)
 		2. Enable divide by zero trap
 
-				// 2. Enable divi
+				// 2. Enable divide by zero trap
+				// SCB - Configuration and Control Register - copy address
+				uint32_t *pCCR = (uint32_t*)
+				
+			1. Bit[4]: DIV_0_TRAP
+				1. 0 - do not trap divide by 0
+				2. 1 - trap divide by 0
 
 ## Exception for System Level Services ##
 ### SVC Exception ###
