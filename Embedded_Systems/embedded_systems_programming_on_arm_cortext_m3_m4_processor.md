@@ -2713,11 +2713,19 @@
 		1. `SVC` (SuperVisor Call)
 		2. `PendSV` (Pendable SerVice)
 	2. Supervisory calls are typically used to request privileged operations or access to system resources from OS
-	3. SVC exception is mainly used in an OS environment
+	3. SVC exception is mainly used in an OS environment (Embedded OS, RTOS, Simple Scheduler)
 		1. Example: A less privileged user task can trigger SVC exception
-			1. To get system-level services (like accessing device drivers, peripherals) from kernel of OS
+			1. To get system-level services (like accessing device drivers, peripherals, restricted memory location, ...) from kernel of OS
 	4. PendSV - mainly used in OS environment
 		1. To carry out context switching between 2 or more tasks when no other exceptions are active in system
+			1. Used in Multi-task system (multiple tasks and a scheduler)
+				1. Scheduler uses PendSV system exception to perform context switching
+4. `SVCall` - 11th exception in exception model
+5. `PendSV` - 14th exception
+6. `SVC` (Supervisor Call) instruction
+	1. `SVC` is a thumb ISA instruction which causes SVC exception
+	2. In RTOS scenario
+		1. User tasks can execute `SVC` instruction with associated argument to make supervisory calls to seek privileged resources from kernel code
 
 ### Extracting SVC Number ###
 ### SVC Number Exercise Part-1 ###
