@@ -2689,9 +2689,32 @@
 			5. If usage fault is not enabled, it gets escalated to hard fault
 2. Fault address info registers
 	1. The registers contain address of location that generated the fault
+		1. HardFault - HFSR (HardFault Status Register)
+		2. MemManage - MMFSR (MemManage Fault Status Register)
+			1. MMFAR (MemManage Fault Address Register)
+				1. Contains address of the location that generated the fault
+		3. BusFault - BFSR (BusFault Status Register)
+			1. BFAR (BusFault Address Register)
+				1. Contains address of the location that generated the fault
+		4. UsageFault - UFSR (UsageFault Status Register)
+3. Error reporting when fault occurs
+	1. Implement handler which takes some remedial actions
+	2. Implement user call back to report errors
+	3. Reset microcontroller/Processor
+	4. For an OS environment,
+		1. Task that triggered the fault can be terminated and restarted
+	5. Report fault status register and fault address register values
+	6. Report additional information of stack frame through debug interface such as printf
 
 ## Exception for System Level Services ##
 ### SVC Exception ###
+1. Exceptions for system-level services
+	1. ARM Cortex Mx processor supports 2 important system-level service exceptions.
+		1. `SVC` (SuperVisor Call)
+		2. `PendSV` (Pendable SerVice)
+	2. Supervisory calls are typically used to request privileged operations or access to system resources from OS
+	3. 
+
 ### Extracting SVC Number ###
 ### SVC Number Exercise Part-1 ###
 ### SVC Number Exercise Part-2 ###
