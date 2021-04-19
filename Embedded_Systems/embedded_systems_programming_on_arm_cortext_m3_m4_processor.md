@@ -2661,8 +2661,10 @@
 ### Analyzing Stack Frame ###
 1. Divide by zero
 	1. New project:
+		1. Copy the above code (with stack frame analysis code)
+		2. Enable divide by zero trap
 
-			
+				// 2. Enable divi
 
 ## Exception for System Level Services ##
 ### SVC Exception ###
