@@ -2666,11 +2666,29 @@
 
 				// 2. Enable divide by zero trap
 				// SCB - Configuration and Control Register - copy address
-				uint32_t *pCCR = (uint32_t*)
+				uint32_t *pCCR = (uint32_t*) 0xE000ED14;
+				*pCCR |= (1 << 4);
+				
+				// 3. attempt to divide by zero
+				
+				fun_div(10, 0); // Goes to UsageFault_Handler - UFSR - 200 (DIVBYZERO)
+				
+				// ...
+				
+				void fun_divide(int x, int y) {
+					return x / y;
+				}
 				
 			1. Bit[4]: DIV_0_TRAP
 				1. 0 - do not trap divide by 0
 				2. 1 - trap divide by 0
+			2. Enables faulting or halting when ever processor executes SDIV or UDIV instruction with a divisor of 0
+			3. Copy and paste `sdiv` in ARM Developer website
+				1. [https://developer.arm.com/documentation/101273/r0p2/The-Cortex-M55-Instruction-Set--Reference-Material/Multiply-and-divide-instructions/SDIV-and-UDIV?lang=en](https://developer.arm.com/documentation/101273/r0p2/The-Cortex-M55-Instruction-Set--Reference-Material/Multiply-and-divide-instructions/SDIV-and-UDIV?lang=en)
+			4. Fault analyzer captures the stack frame
+			5. If usage fault is not enabled, it gets escalated to hard fault
+2. Fault address info registers
+	1. The registers contain address of location that generated the fault
 
 ## Exception for System Level Services ##
 ### SVC Exception ###
