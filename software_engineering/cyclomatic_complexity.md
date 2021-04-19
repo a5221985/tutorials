@@ -33,4 +33,25 @@
 	3. Connected components (C): 1
 	4. Cyclomatic Complexity = E - N + 2 x C
 		1. = 9 - 8 + 2 * 1 = 3
-		
+6. Example:
+
+		if (c1())
+			f1();
+		else
+			f2();
+		if (c2())
+			f3();
+		else
+			f4();
+			
+			o
+		  /  \
+		 o    o
+		  \  /
+		   o
+		  /  \
+		 o    o
+		  \  /
+		   o
+		   
+	1. Cyclomatic complexity = 8 - 7 + 2 * 1 = 3
