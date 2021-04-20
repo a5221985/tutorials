@@ -2726,13 +2726,30 @@
 	1. `SVC` is a thumb ISA instruction which causes SVC exception
 	2. In RTOS scenario
 		1. User tasks can execute `SVC` instruction with associated argument to make supervisory calls to seek privileged resources from kernel code
-			1. `SVC` is used by user task (or less privileged task)
+			1. `SVC` is used by user task (or less privileged task) to ask Kernel to get certain services
+				1. System call layer can be implemented using `SVC` call (API)
 	3. Unprivileged user tasks use `SVC` instruction to change processor mode to privileged mode 
 		1. To access privileged resources like peripherals
-	4. `SVC` instruction is always used along with a number
+	4. `SVC` instruction is always used along with a number (`SVC` number or `SVC` argument)
 		1. Number can be used to identify the request type by kernel code
 	5. `SVC` handler executes right after `SVC` instruction (no delay. Unless a higher priority exception arrives at the same time)
+7. Scenario:
 
+		User level code -(1)--> Kernel level code (2)
+			User task            __SVC_request_handler(int svc_number) {
+			SVC #1                   case 1:
+			                             __write(); -(3)--> Privileged
+			                         case 2:                resource
+			                             __read();          (display)
+			                         case 3:                  Peripheral
+			                             __timer_start();     registers
+			                         ...                      access is
+			                         }                        protected
+			                                                  by MPU
+		(Access level: un-privileged                         (privileged
+		Process mode: Thread)                                 access
+		                                                      only)
+    
 ### Extracting SVC Number ###
 ### SVC Number Exercise Part-1 ###
 ### SVC Number Exercise Part-2 ###
