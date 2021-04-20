@@ -2469,6 +2469,29 @@
 	1. Mostly asynchronous
 3. Failover is quick
 4. Some data loss is a possibility
+5. Illustration:
+
+		  Client ---------------- DNS ------------------- Client
+		     |                     |                       |
+		     +---------------------+-----------------------+
+		     |									                  |
+		     v									                  v
+		     LB								                  LB
+		     |									                  |
+		     v									                  v
+		  Web App								               Web App
+		     |									                  |
+		     v									                  v
+		  Service								               Service
+		     |									                  |
+		     v									                  v
+		  Master -> Replica <---------------> Replica <- Master
+		     ^                                             ^
+		     |                                             |
+		     +---------------------------------------------+
+		     
+	1. Goal: Data between the two regions is in sync
+		1. User will be able to access data from any data center
 
 ### Auto Scaling Instances ###
 ### Micro-Services Architecture ###
