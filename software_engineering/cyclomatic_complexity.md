@@ -48,10 +48,10 @@
 		  /  \
 		 o    o
 		  \  /
-		   o
+			o
 		  /  \
 		 o    o
 		  \  /
-		   o
+			o
 		   
 	1. Cyclomatic complexity = 8 - 7 + 2 * 1 = 3
