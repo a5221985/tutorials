@@ -2344,6 +2344,7 @@
 ### Layer-7 Load Balancer ###
 1. L7 - app level protocols are used
 	1. SSL Termination
+		1. HTTPS is used upto Load balancer but LB to Internal servers can be HTTP
 	2. Reverse proxy (They act as reverse proxy)
 		1. Breaks TCP connection
 			1. Client instantiates a TCP connection to load balancer
@@ -2363,10 +2364,19 @@
 				1. Considering geographic locations say
 2. Dynamic content: http://www.hotel.com
 3. Static content: http://images.hotel.com
-4. L7 vs L4
-	1. L4 can do direct router
+4. L7 vs L4 LB
+	1. L4 LB can do direct routing of requests (acts as router in between)
+	2. L7 acts as proxy
 
 ### DNS as Load Balancer ###
+1. Configure DNS records with multiple A records
+	1. Return single IP in a round-robin fashion
+	2. Return a list of IPs
+2. Cloud based DNS can be configured along with health checks
+3. Drawbacks
+	1. Indefinite caching and not respecting TTLs
+	2. Low or zero TTLs can result in very high load on DNS
+
 ### Global Server Load Balancer ###
 ### Global Data Replication ###
 ### Auto Scaling Instances ###
