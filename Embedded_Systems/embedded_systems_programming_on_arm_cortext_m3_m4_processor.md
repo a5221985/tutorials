@@ -2749,8 +2749,24 @@
 		(Access level: un-privileged                         (privileged
 		Process mode: Thread)                                 access
 		                                                      only)
+		                                                      
+	1. If un-privileged access is not given, user code may be able to do anything on the system and can jeoardise it's security
+	2. Kernel can run in privileged mode (can change any config and access any privileged resource)
+		1. Display say
+			1. Config register
+			2. Data register
+	3. Mem-Protection Unit (MPU) (address range is protected) guards the peripheral from user task directly accessing it (changing it say)
+		1. If user task tries to access it, there will be a fault (MemManage fault exception)
+8. How to trigger SVC exception
+	1. There are two ways
+		1. Direct execution of `SVC` instruction with immediate value (inline assembly needs to be used) 
+			1. Example: `SVC #0x04` in assembly
+				1. Using `SVC` instruction is very efficient in terms of latency
+		2. Setting the exception pending bit in `System Handler Control and State Register` (uncommon method)
     
 ### Extracting SVC Number ###
+1. 
+
 ### SVC Number Exercise Part-1 ###
 ### SVC Number Exercise Part-2 ###
 ### SVC Math Operation Exercise ###
