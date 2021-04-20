@@ -2395,7 +2395,16 @@
 	2. Low or zero TTLs can result in very high load on DNS
 
 ### Global Server Load Balancer ###
-1. 
+1. Scalability
+	1. Routing for multi-geographic systems
+2. Performance
+	1. Locality for multi-geographic users
+		1. Client to Datacenter Latency
+		2. Client to Datacenter Proximity
+		3. Datacenter Geography
+3. High Availability
+	1. Multi region availability
+4. Disaster Recovery
 
 ### Global Data Replication ###
 ### Auto Scaling Instances ###
