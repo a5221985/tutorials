@@ -2886,8 +2886,8 @@
 		int32_t div(int32_t a, int32_t b);
 
 		int main(void) {
-			register int32_t a __asm ("R0");
-			register int32_t b __asm ("R1");
+			register int32_t a __asm ("r0");
+			register int32_t b __asm ("r1");
 			a = 25;
 			b = 8;
 			int32_t sum = add(a, b);
