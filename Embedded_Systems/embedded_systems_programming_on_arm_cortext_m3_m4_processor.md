@@ -2882,8 +2882,36 @@
 			register int32_t b __asm ("R1");
 			a = 25;
 			b = 8;
-			__asm volatile ("SVC #36");
 			
+			__asm volatile ("SVC #36");
+			__asm volatile ("MOV %0, R0":"=r"(result)::);
+		}
+		
+		__attribute__((naked)) void SVC_Handler() {
+			__asm ("MRS R0, MSP");
+			__asm ("B SVC_Handler_c");
+		}
+		
+		void SVC_Handler_c(uint32_t *const pBaseOfStackFrame) {
+			uint32_t a = pBaseOfStackFrame[0];
+			uint32_t b = pBaseOfStackFrame[1];
+			uint8_t svc_num = (uint8_t) *(pBaseOfStackFrame[6] - 2);
+			uint32_t result = 0;
+			switch (svc_num) {
+			case 36:
+				result = a + b;
+				break;
+			case 37:
+				result = a - b;
+				break;
+			case 38:
+				result = a * b;
+				break;
+			case 39:
+				result = a / b;
+				break;
+			}
+			pBaseOfStackFrame[0] = result;
 		}
 
 ### PendSV Exception ###
