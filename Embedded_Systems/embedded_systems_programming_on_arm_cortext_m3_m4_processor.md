@@ -3024,6 +3024,32 @@
 	9. PendSV handler will be invoked
 		1. Context switch did not delay the ISR
 	10. Thread mode task continues
+9. Attempt to transition to thread mode when ISR is pending (Context switching in Scheduler (without PendSV)
+	1. Unfinished ISR:
+		1. Returning to thread mode keeping unfinished handler code (ISR) will cause usage fault
+10. PendSV other use cases
+	1. Offloading Interrupt processing
+	2. If a higher priority handler is doing time-consuming work, then
+		1. Other lower priority interrupts will suffer
+			1. System responsiveness may reduce
+				1. Solution: Combination of ISR and pendSV handler
+	3. Offloading interrupt processing using PendSV
+		1. Interrupts may be serviced in 2 halves
+			1. First half is time critical part that needs to be executed as a part of ISR
+			2. Second half is called **bottom half**
+				1. It is delayed execution where rest of the time-consuming work will be done
+		2. PendSV can be used in these cases
+			1. Second half execution is triggered in the first half
+	4. Illustration:
+		1. Task A is running
+		2. IRQ #0 is triggered
+		3. ISR #0 runs (very short)
+			1. It does first half processing (time critical)
+			2. It then pends PendSV
+			3. It exits
+		4. When there are no active ISRs executing
+			1. PendSV handler will run
+				1. It will carry out the non-time critical task (time consuming)
 
 ## Implementation of Task Scheduler ##
 ### Introduction ###
