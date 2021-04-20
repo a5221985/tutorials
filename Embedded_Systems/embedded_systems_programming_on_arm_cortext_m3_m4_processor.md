@@ -2803,10 +2803,11 @@
 ### SVC Number Exercise Part-1 ###
 
 		int main(void) {
-			__asm volatile ("svc #0x05");
+			__asm volatile ("MVC #0x05");
 		}
 		
-		void SVC_Handler() {
+		__attribute__ ((naked)) void SVC_Handler() {
+			__asm volatile ("MRS R0, MSP");
 			
 		}
 
