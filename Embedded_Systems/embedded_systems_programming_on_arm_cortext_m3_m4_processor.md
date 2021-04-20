@@ -2803,7 +2803,7 @@
 ### SVC Number Exercise Part-1 ###
 
 		int main(void) {
-			__asm volatile ("MVC #0x05");
+			__asm volatile ("SVC #0x05");
 		}
 		
 		__attribute__ ((naked)) void SVC_Handler() {
@@ -2811,6 +2811,25 @@
 			register uint32_t msp_addr __asm("R0");
 			uint32_t *const msp = (uint32_t *const) msp_addr;
 			uint32_t *const svc_addr = (uint32_t *const) (msp[6] - 2);
+			__asm volatile ("LDR R0, %0"::"r"(*svc_addr));
+			__asm volatile ("B SVC_Handler_c");
+		}
+		
+		void SVC_Handler_c(uint32_t const svc) {
+			uint8_t svc_num = (uint8_t) svc;
+			printf("%u\n", svc_num);
+		}
+		
+1. Instructor's solution:
+
+		int main(void) {
+			__asm ("SVC #0x05"); // integer in the range 0-255 (8-bit value);
+			for(;;);
+		}
+		
+		void SVC_Handler(void) {
+			printf("In SVC handler\n");
+			// 1. get the value of MSP
 		}
 
 ### SVC Number Exercise Part-2 ###
