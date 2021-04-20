@@ -2981,6 +2981,21 @@
 	1. Typically the exception is triggered inside higher priority exception handler
 		1. It gets executed when higher piority handler finishes
 	2. Using this characteristic, we can schedule PendSV exception handler to be executed after all the other interrupt processing tasks are done
+		1. Priority of PendSV is kept the lowest possible
+	3. Useful for context switching operation
+		1. Crucial operation in various OS designs
+	4. Using PendSV in context switching will be more efficient in an interrupt noisy environment
+		1. In interrupt noisy environment, we need to delay context switching until all IRQ are executed
+6. Context Switch
+	1. Illustration
+
+			(Context		 (Context		  (Context
+			Switching)	 Switching)	  Switching)
+			Scheduler		 Scheduler	  Scheduler <- SysTick Timer
+					  |		 ^		   |	  ^	            Exception
+					  |		 |		   |	  |
+					  v		 |		   v	  |
+					  Task A 		   Task B	         <- Task
 
 ## Implementation of Task Scheduler ##
 ### Introduction ###
