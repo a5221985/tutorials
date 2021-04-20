@@ -2877,14 +2877,60 @@
 		4. 39 - Division
 2. Solution:
 
+		#include <stdio.h>
+		#include <stdint.h>
+		
+		int32_t add(int32_t a, int32_t b);
+		int32_t sub(int32_t a, int32_t b);
+		int32_t mul(int32_t a, int32_t b);
+		int32_t div(int32_t a, int32_t b);
+
 		int main(void) {
 			register int32_t a __asm ("R0");
 			register int32_t b __asm ("R1");
 			a = 25;
 			b = 8;
+			int32_t sum = add(a, b);
+			printf("%d + %d = %d\n", a, b, sum);
 			
+			int32_t diff = sub(a, b);
+			printf("%d - %d = %d\n", a, b, diff);
+			
+			int32_t prod = mul(a, b);
+			printf("%d + %d = %d\n", a, b, prod);
+			
+			int32_t quot = div(a, b);
+			printf("%d + %d = %d\n", a, b, quot);
+			
+			for(;;);
+		}
+		
+		int32_t add(int32_t a, int32_t b) {
+			int32_t result = 0;
 			__asm volatile ("SVC #36");
 			__asm volatile ("MOV %0, R0":"=r"(result)::);
+			return result;
+		}
+		
+		int32_t sub(int32_t a, int32_t b) {
+			int32_t result = 0;
+			__asm volatile ("SVC #37");
+			__asm volatile ("MOV %0, R0":"=r"(result)::);
+			return result;
+		}
+		
+		int32_t mul(int32_t a, int32_t b) {
+			int32_t result = 0;
+			__asm volatile ("SVC #38");
+			__asm volatile ("MOV %0, R0":"=r"(result)::);
+			return result;
+		}
+		
+		int32_t div(int32_t a, int32_t b) {
+			int32_t result = 0;
+			__asm volatile ("SVC #39");
+			__asm volatile ("MOV %0, R0":"=r"(result)::);
+			return result;
 		}
 		
 		__attribute__((naked)) void SVC_Handler() {
