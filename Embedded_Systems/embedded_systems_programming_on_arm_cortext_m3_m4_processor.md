@@ -2726,6 +2726,7 @@
 	1. `SVC` is a thumb ISA instruction which causes SVC exception
 	2. In RTOS scenario
 		1. User tasks can execute `SVC` instruction with associated argument to make supervisory calls to seek privileged resources from kernel code
+			1. `SVC` is used by user task (or less privileged task)
 	3. Unprivileged user tasks use `SVC` instruction to change processor mode to privileged mode 
 		1. To access privileged resources like peripherals
 	4. `SVC` instruction is always used along with a number
