@@ -2868,7 +2868,23 @@
 			__asm volatile ("MOV %0, R0":"=r"(data)::);
 
 ### SVC Math Operation Exercise ###
-1. 
+1. Exercise:
+	1. Write a program to add, subtract, multiply, and divide 2 operands using SVC handler and return the result to the thread mode code and print the result. Thread mode code should pass 2 operands via the stack frame.
+	2. Use SVC number to decide the operation
+		1. 36 - Addition
+		2. 37 - Subtraction
+		3. 38 - Multiplication
+		4. 39 - Division
+2. Solution:
+
+		int main(void) {
+			register int32_t a __asm ("R0");
+			register int32_t b __asm ("R1");
+			a = 25;
+			b = 8;
+			__asm volatile ("SVC #36");
+			
+		}
 
 ### PendSV Exception ###
 
