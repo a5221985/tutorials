@@ -2765,7 +2765,40 @@
 		2. Setting the exception pending bit in `System Handler Control and State Register` (uncommon method)
     
 ### Extracting SVC Number ###
-1. 
+1. How to extract SVC number
+	1. SVC instruction has a number mebedded within it
+		1. Referred to as SVC number
+	2. In SVC handler
+		1. Fetch the opcode of SVC instruction
+		2. Extract SVC number
+	3. To fetch opcode of SVC from program memory
+		1. Have PC (return address) where user code had interrupted while triggering SVC exception (past PC value will give the address of SVC instruction)
+			1. Value of PC (return address) where user code interrupted is stored in stack as a part of exception entry sequence by processor
+2. Illustration
+
+		TASK-A
+			SVC #<num>
+				|
+				stacking -> xPSR
+				|           Return address (PC)
+				v           LR
+			SVC Handler	  R12
+				Get MSP	  R3
+				MSP + 6	  R2
+				(return	  R1
+				address)	  R0 <- MSP
+				
+	1. `Next_ins_addr_after_SVC = MSP[6]; // points to instruction right after SVC instruction in thread mode`
+	2. `SVC_number = *((Next_ins_addr_after_SVC) - 2); // address of SVC instruction`
+3. Exercise:
+	1. Write a program to execute an SVC instruction from thread mode
+	2. Implement SVC handler to print SVC number used
+	3. Increment SVC number by 4 and return it to thread mode code and print it
+	4. Hints:
+		1. Write a `main()` function where you should execute SVC instruction with an argument. `SVC #0x5` say
+		2. Implement the SVC handler
+		3. In SVC handler extract SVC number and print it using printf
+		4. Increment the SVC number by 4 and return it to thread mode
 
 ### SVC Number Exercise Part-1 ###
 ### SVC Number Exercise Part-2 ###
