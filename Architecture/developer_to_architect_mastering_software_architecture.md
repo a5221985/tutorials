@@ -2405,6 +2405,24 @@
 3. High Availability
 	1. Multi region availability
 4. Disaster Recovery
+5. Illustration:
+
+					DNS            DNS
+		Client --------> DNS <--------- Client
+          |     Query    |     Query     |
+          |              |               |
+          |            Health            |
+          +------------------------------+        
+          |            Checks            |
+          v		NA  	  |   APAC        v
+          LB				  |               LB
+          |				  |					 |
+          v				  |					 v
+		Servers			  |            Servers
+		   |				  |					 |
+		   v				  |					 v
+
+
 
 ### Global Data Replication ###
 ### Auto Scaling Instances ###
