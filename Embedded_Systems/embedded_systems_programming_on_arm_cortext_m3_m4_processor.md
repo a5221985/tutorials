@@ -3003,6 +3003,27 @@
 			1. Code that is part of the kernel
 			2. It saves the context of currently running task on the stack memory
 			3. It retrieves the context of the next task (from ready list)
+7. OS code runs on each systick timer exception & decides to schedule different task
+8. Scenario:
+	1. User task (task A) is running
+	2. SysTick timeout occurred
+	3. Scheduler runs (it is SysTick handler)
+		1. It pends the PendSV (doesn't actually do the context switching)
+	4. When SysTick handler exits & if there are no interrupts in the system, then PendSV handler runs (It is configured for the lowest possible priority)
+		1. PendSV runs only if there are no active interrupts
+	5. In PendSV, Context switch will be done in PendSV handler
+		1. Context of previous task is saved and context of next task is retrieved from stack
+		2. PendSV handler makes next task execute
+	6. During the execution of the current task, suppose an interrupt occurs
+		1. ISR is executed (handler code)
+			1. Suppose SysTick timeout occurs
+				1. SystTick will pre-empt the ISR only if it's priority is higher than currently active ISR. (Assume SysTick interrupt is highest)
+		2. Scheduler pends the PendSV and exits
+	7. ISR resumes
+	8. When ISR finishes, it exits
+	9. PendSV handler will be invoked
+		1. Context switch did not delay the ISR
+	10. Thread mode task continues
 
 ## Implementation of Task Scheduler ##
 ### Introduction ###
