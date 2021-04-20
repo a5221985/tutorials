@@ -28,6 +28,9 @@
 1. An operation that does not conceptually belong to an object (outside functions) can be implemented in services
 
 ### Repository ###
-1. 
+1. Methods retrieving domain objects deligate the task to specialized repository object
+	1. Alternative storage implementations can be easily interchanged with repository objects
 
 ### Factory ###
+1. Methods for constructing domain objects delegate the task to specialized factory object
+	1. Alternative implementations of the factory can be easily interchanged
