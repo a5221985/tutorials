@@ -2422,7 +2422,26 @@
 		   |				  |					 |
 		   v				  |					 v
 
-
+	1. LB has IP addresses of the server instances
+		1. Certain instances can go down (everyday say)
+		2. The list of IP addresses have to be updated in the LB at a very high rate
+			1. Or else
+				1. Requests may get served to dead instances (high failure rate)
+		3. Switch to new data is quick (it is local list)
+		4. Since each LB serves only one region, and since redundancy in built into each region, it is not easy for entire region to go down
+		5. Number of regions is also not that high
+	2. DNS
+		1. At this level, situation of something (regions say) going down is not that dynamic (fairly static)
+		2. It can be used as a load balancer (globally)
+			1. Data is not stale frequently
+		3. If a region goes down
+			1. DNS can detect that (though not frequent)
+				1. LB takes time
+				2. This is a very rare event
+6. Suppose a user is in NA region
+	1. To resolve DNS
+		1. Browser will query DNS
+		2. DNS can look at geographic region of the user and returns IP address accordingly
 
 ### Global Data Replication ###
 ### Auto Scaling Instances ###
