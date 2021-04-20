@@ -2801,6 +2801,15 @@
 		4. Increment the SVC number by 4 and return it to thread mode
 
 ### SVC Number Exercise Part-1 ###
+
+		int main(void) {
+			__asm volatile ("svc #0x05");
+		}
+		
+		void SVC_Handler() {
+			
+		}
+
 ### SVC Number Exercise Part-2 ###
 ### SVC Math Operation Exercise ###
 ### PendSV Exception ###
