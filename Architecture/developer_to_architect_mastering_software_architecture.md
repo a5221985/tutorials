@@ -2414,6 +2414,11 @@
 						1. It might corrupt data (if syncing is enabled between regions (?))
 4. Disaster Recovery
 	1. If region goes down, the users will be diverted to different region
+		1. It is not quick
+			1. It may take time to prepare system in different region
+				1. The following activities may have to be performed
+					1. Start applications
+					2. Refresh data
 5. Illustration:
 
 					DNS            DNS
@@ -2454,8 +2459,17 @@
 	2. DNS is not a typical load balancer in this case
 		1. NA user is not directed to different regions unles NA region is overloaded (and DNS knows that) or it has gone down completely
 	3. DNS as a load balancer is providing routing in this case
+7. Challenge:
+	1. How to keep two regions in sync? (fall-back region)
 
 ### Global Data Replication ###
+1. Active-Active Setup
+	1. All sites active
+2. Master-Master or Peer-to-Peer replication
+	1. Mostly asynchronous
+3. Failover is quick
+4. Some data loss is a possibility
+
 ### Auto Scaling Instances ###
 ### Micro-Services Architecture ###
 ### Micro-Services Motivation ###
