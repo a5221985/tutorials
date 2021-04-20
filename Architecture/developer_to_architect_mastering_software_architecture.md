@@ -2344,16 +2344,27 @@
 ### Layer-7 Load Balancer ###
 1. L7 - app level protocols are used
 	1. SSL Termination
-	2. Reverse proxy
+	2. Reverse proxy (They act as reverse proxy)
 		1. Breaks TCP connection
+			1. Client instantiates a TCP connection to load balancer
+			2. Load balancer instantiates another TCP connection to the Web-server
 	3. Content based routing
-	4. Load balancing
+		1. It can look into HTTP request (URL, Cookies, Headers, Body, ... - since it is L7)
+			1. Example: https://images.hotel.com/room/standard (static content)
+				1. Routed to static content servers
+			2. Example: https://www.hotel.com/reserve (dynamic content)
+				1. Routed to dynamic content servers
+	4. Load balancing (strategies that can be used)
 		1. Round Robin
 		2. Least Connection
 		3. Weighted RR/Least Conn
 		4. Least Response Time
+			1. Least Latency
+				1. Considering geographic locations say
 2. Dynamic content: http://www.hotel.com
 3. Static content: http://images.hotel.com
+4. L7 vs L4
+	1. L4 can do direct router
 
 ### DNS as Load Balancer ###
 ### Global Server Load Balancer ###
