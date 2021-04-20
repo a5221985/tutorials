@@ -2996,6 +2996,13 @@
 					  |		 |		   |	  |
 					  v		 |		   v	  |
 					  Task A 		   Task B	         <- Task
+					(Time slot)   (Time slot)
+					  
+		1. It is saving saving the context of old task and retrieving the context of the next task (to be scheduled)
+		2. A scheduler can run at fixed intervals (1 ms say)
+			1. Code that is part of the kernel
+			2. It saves the context of currently running task on the stack memory
+			3. It retrieves the context of the next task (from ready list)
 
 ## Implementation of Task Scheduler ##
 ### Introduction ###
