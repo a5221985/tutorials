@@ -2397,11 +2397,14 @@
 ### Global Server Load Balancer ###
 1. Scalability
 	1. Routing for multi-geographic systems
+		1. All users do not have to connect to a single region
+			1. System can be hosted in multiple regions
+				1. Scaled up
 2. Performance
-	1. Locality for multi-geographic users
-		1. Client to Datacenter Latency
-		2. Client to Datacenter Proximity
-		3. Datacenter Geography
+	1. Locality for multi-geographic users (users in NA can connect to data center in NA if available - improves performance)
+		1. Client to Datacenter Latency (DNS can consider this for LB)
+		2. Client to Datacenter Proximity (DNS can do LB based on this)
+		3. Datacenter Geography (DNS can do LB based on this)
 3. High Availability
 	1. Multi region availability
 4. Disaster Recovery
@@ -2442,6 +2445,9 @@
 	1. To resolve DNS
 		1. Browser will query DNS
 		2. DNS can look at geographic region of the user and returns IP address accordingly
+	2. DNS is not a typical load balancer in this case
+		1. NA user is not directed to different regions unles NA region is overloaded (and DNS knows that) or it has gone down completely
+	3. DNS as a load balancer is providing routing in this case
 
 ### Global Data Replication ###
 ### Auto Scaling Instances ###
