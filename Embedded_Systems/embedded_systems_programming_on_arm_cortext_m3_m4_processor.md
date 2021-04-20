@@ -2839,12 +2839,37 @@
 			
 			// 2. Decrement the return address by 2 to point to opcode of SVC instruction in the program memory
 			pReturnAddr -= 2;
+			
+			// 3. Extract SVC number (LSB of opcode)
 			uint8_t svc_number = *pReturnAddr;
 			printf("SVC number is: %d\n", svc_number);
 		}
 
 ### SVC Number Exercise Part-2 ###
+1. How to send back data to thread mode from handler?
+	1. Store the value in R0 (store it in stack frame R0 value)
+
+			int main(void) {
+				//...
+				register uint32_t data __asm("R0");
+				printf("%u\n", data);
+			}
+
+			void SVC_Handler() {
+				svc_number += 4;
+				pBaseOfStackFrame[0] = svc_number; // stack frame entry is modified
+			}
+			
+2. This approach is not recommended if R0 is not free
+	1. Solution: We can use GCC inline assembly syntax of mixing processor regiser and C variable using input/output arguments as discussed
+
+			__asm ("SVC #25");
+			uint32_t data;
+			__asm volatile ("MOV %0, R0":"=r"(data)::);
+
 ### SVC Math Operation Exercise ###
+1. 
+
 ### PendSV Exception ###
 
 ## Implementation of Task Scheduler ##
