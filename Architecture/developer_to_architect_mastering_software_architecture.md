@@ -2369,15 +2369,34 @@
 	2. L7 acts as proxy
 
 ### DNS as Load Balancer ###
-1. Configure DNS records with multiple A records
+1. Configure DNS records with multiple A records (Address records - they specify what IP addresses are serving the domain name, multiple A records (multiple IP addresses)) - the following strategies give some kind of load balancing
 	1. Return single IP in a round-robin fashion
+		1. Load is distributed across instances (good for browser)
 	2. Return a list of IPs
+		1. Load balancing can be done on client side (not for browser)
+			1. Thick client can do load balancing using IPs
 2. Cloud based DNS can be configured along with health checks
+	1. DNS can ping a backend instance and know it's health
+		1. If it is not responding, then it's IP will not be returned
+			1. Client is saved from sending request to a non-live server
+		2. Cloud DNSs provide this feature (Amazon, Google, ...)
+3. DNS can still not be used as LB
+	1. LB actively tracks instances which are down and stops traffic to those instances
+		1. DNS needs lead time to make the switch
+			1. DNS due to scalability reasons relies on caching
+				1. In intermediate DNSs (may be stale for load balancing)
+					1. Workaround: Setting TTL values
+						1. Time To Live
+							1. The response is valid for 1 hour/1 minute, ...
+							2. We want low TTL values (0 => not caching => overloading of DNSs)
+								1. DNS may need high TTL and may not be practical for LB
 3. Drawbacks
 	1. Indefinite caching and not respecting TTLs
 	2. Low or zero TTLs can result in very high load on DNS
 
 ### Global Server Load Balancer ###
+1. 
+
 ### Global Data Replication ###
 ### Auto Scaling Instances ###
 ### Micro-Services Architecture ###
