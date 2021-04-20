@@ -2808,7 +2808,9 @@
 		
 		__attribute__ ((naked)) void SVC_Handler() {
 			__asm volatile ("MRS R0, MSP");
-			
+			register uint32_t msp_addr __asm("R0");
+			uint32_t *const msp = (uint32_t *const) msp_addr;
+			uint32_t *const svc_addr = (uint32_t *const) (msp[6] - 2);
 		}
 
 ### SVC Number Exercise Part-2 ###
