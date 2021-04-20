@@ -2886,27 +2886,28 @@
 		int32_t div(int32_t a, int32_t b);
 
 		int main(void) {
-			register int32_t a __asm ("r0");
-			register int32_t b __asm ("r1");
-			a = 25;
-			b = 8;
+			int32_t a = 25;
+			int32_t b = 8;
 			int32_t sum = add(a, b);
-			printf("%d + %d = %d\n", a, b, sum);
-			
+			printf("%ld + %ld = %ld\n", a, b, sum);
+		
 			int32_t diff = sub(a, b);
-			printf("%d - %d = %d\n", a, b, diff);
-			
+			printf("%ld - %ld = %ld\n", a, b, diff);
+		
 			int32_t prod = mul(a, b);
-			printf("%d + %d = %d\n", a, b, prod);
-			
+			printf("%ld + %ld = %ld\n", a, b, prod);
+		
 			int32_t quot = div(a, b);
-			printf("%d + %d = %d\n", a, b, quot);
-			
-			for(;;);
+			printf("%ld + %ld = %ld\n", a, b, quot);
+			/* Loop forever */
+			for (;;)
+				;
 		}
 		
 		int32_t add(int32_t a, int32_t b) {
 			int32_t result = 0;
+			__asm volatile ("MOV R0, %0"::"r"(a));
+			__asm volatile ("MOV R1, %0"::"r"(b));
 			__asm volatile ("SVC #36");
 			__asm volatile ("MOV %0, R0":"=r"(result)::);
 			return result;
@@ -2914,6 +2915,8 @@
 		
 		int32_t sub(int32_t a, int32_t b) {
 			int32_t result = 0;
+			__asm volatile ("MOV R0, %0"::"r"(a));
+			__asm volatile ("MOV R1, %0"::"r"(b));
 			__asm volatile ("SVC #37");
 			__asm volatile ("MOV %0, R0":"=r"(result)::);
 			return result;
@@ -2921,6 +2924,8 @@
 		
 		int32_t mul(int32_t a, int32_t b) {
 			int32_t result = 0;
+			__asm volatile ("MOV R0, %0"::"r"(a));
+			__asm volatile ("MOV R1, %0"::"r"(b));
 			__asm volatile ("SVC #38");
 			__asm volatile ("MOV %0, R0":"=r"(result)::);
 			return result;
@@ -2928,6 +2933,8 @@
 		
 		int32_t div(int32_t a, int32_t b) {
 			int32_t result = 0;
+			__asm volatile ("MOV R0, %0"::"r"(a));
+			__asm volatile ("MOV R1, %0"::"r"(b));
 			__asm volatile ("SVC #39");
 			__asm volatile ("MOV %0, R0":"=r"(result)::);
 			return result;
@@ -2941,7 +2948,7 @@
 		void SVC_Handler_c(uint32_t *const pBaseOfStackFrame) {
 			uint32_t a = pBaseOfStackFrame[0];
 			uint32_t b = pBaseOfStackFrame[1];
-			uint8_t svc_num = (uint8_t) *(pBaseOfStackFrame[6] - 2);
+			uint8_t svc_num = (uint8_t) *((uint32_t* const ) (pBaseOfStackFrame[6] - 2));
 			uint32_t result = 0;
 			switch (svc_num) {
 			case 36:
