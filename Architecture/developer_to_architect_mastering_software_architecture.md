@@ -2492,6 +2492,20 @@
 		     
 	1. Goal: Data between the two regions is in sync
 		1. User will be able to access data from any data center
+			1. Both data centres need to be active all the time (active-active setup) - all sites are active all the time
+				1. master-master or peer-to-peer replication (to keep data in sync between data centres)
+					1. Replicas
+						1. Read replicas (asynchronous replication) OR
+						2. Backups (synchronous replication)
+					2. Used for global data replication (different geographies)
+						1. To independently read and write between two geographies
+							1. Can result in write conflicts
+								1. Resolution:
+									1. Automatic or manual
+										1. Use cases:
+											1. Same user will not write data to two locations at the same time (Taxi booking say)
+												1. No conflict in this case
+		2. 
 
 ### Auto Scaling Instances ###
 ### Micro-Services Architecture ###
