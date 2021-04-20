@@ -2404,10 +2404,16 @@
 	1. Locality for multi-geographic users (users in NA can connect to data center in NA if available - improves performance)
 		1. Client to Datacenter Latency (DNS can consider this for LB)
 		2. Client to Datacenter Proximity (DNS can do LB based on this)
-		3. Datacenter Geography (DNS can do LB based on this)
+		3. Datacenter Geography (DNS can do LB based on this - different country or state say)
 3. High Availability
 	1. Multi region availability
+		1. Suppose NA is down or overloaded (unavailable)
+			1. DNS can detect it (in some time) and divert traffic to APAC region
+				1. This is not too quick
+					1. If this is done too quickly, **data will be messed up**
+						1. It might corrupt data (if syncing is enabled between regions (?))
 4. Disaster Recovery
+	1. If region goes down, the users will be diverted to different region
 5. Illustration:
 
 					DNS            DNS
