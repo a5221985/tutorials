@@ -2968,6 +2968,19 @@
 		}
 
 ### PendSV Exception ###
+1. It is an exception type 14 and has a programmable priority level
+2. This exception is triggered by setting its pending status by writing to the "Interrupt Control and State Register" of processor
+	1. There is no instruction to trigger the exception
+3. Triggering a pendSV system exception is a way of invoking the pre-emptive kernel to carry out context switch in an OS environment
+4. In an OS environment
+	1. PendSV handler is set to lowest priority level
+	2. PendSV handler carries out context switch operation
+		1. Key concept in OS design
+		2. Scheduler does context switching
+5. Typical use of PendSV
+	1. Typically the exception is triggered inside higher priority exception handler
+		1. It gets executed when higher piority handler finishes
+	2. Using this characteristic, we can schedule PendSV exception handler to be executed after all the other interrupt processing tasks are done
 
 ## Implementation of Task Scheduler ##
 ### Introduction ###
