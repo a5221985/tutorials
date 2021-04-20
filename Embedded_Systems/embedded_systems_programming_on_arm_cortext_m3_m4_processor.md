@@ -2827,9 +2827,20 @@
 			for(;;);
 		}
 		
-		void SVC_Handler(void) {
+		__attribute((naked)) void SVC_Handler(void) {
+			__asm ("MRS R0, MSP");
+			__asm ("B SVC_Handler_c");
+		}
+		
+		void SVC_Handler_c(uint32_t *pBaseOfStackFrame) {
 			printf("In SVC handler\n");
 			// 1. get the value of MSP
+			uint8_t *pReturnAddr = (uint8_t*) pBaseOfStackFrame[6];
+			
+			// 2. Decrement the return address by 2 to point to opcode of SVC instruction in the program memory
+			pReturnAddr -= 2;
+			uint8_t svc_number = *pReturnAddr;
+			printf("SVC number is: %d\n", svc_number);
 		}
 
 ### SVC Number Exercise Part-2 ###
