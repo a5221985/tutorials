@@ -3050,9 +3050,16 @@
 		4. When there are no active ISRs executing
 			1. PendSV handler will run
 				1. It will carry out the non-time critical task (time consuming)
+		5. When it is doing bottom half processing, if any interrupt (IRQ #1 say) is triggered
+			1. It pre-empts PendSV
+			2. ISR can run
+			3. When ISR finishes, PendSV resumes
 
 ## Implementation of Task Scheduler ##
 ### Introduction ###
+1. Implementing a Scheduler
+	1. Let's implement a scheduler
+
 ### Constructing User Tasks ###
 ### Stack Pointer Selection ###
 ### Tasks and Scheduling ###
