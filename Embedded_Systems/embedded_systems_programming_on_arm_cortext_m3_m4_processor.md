@@ -3204,6 +3204,50 @@
 			1. PC
 			2. SP
 			3. ...
+	2. Processor specific peripherals
+		1. NVIC
+			1. Controls interrupts and exceptions
+				1. Microcontroller peripherals (I2C, UART, SPI, ...)
+		2. Memory Protection Unit (MPU)
+			1. To guard memory location
+		3. SCB
+			1. System Control Block
+		4. Floating Point Unit (FPU)
+		5. Debug Unit
+		6. ...
+5. When task is running on a processor, it could be using GPRs, SRs, SpRs, ...
+	1. State of a task:
+		1. General Purpose Registers + Some Special Registers + Status Register
+			1. When scheduler wants to switch out a task, it must save it's intermediate results of operations already stored in general purpose registers and status register and some special register values
+				1. Core Registers:
+				
+						R0 <- low registers
+						R1         |
+						R2         v
+						R3
+						R4
+						R5
+						R6
+						R7
+						R8 <- higher register
+						R9         |
+						R10        |
+						R11        v
+						R12       <-
+						SP (R13) PSP, MSP (Stack pointer)
+						LR (R14)          (Link register)
+						PC (R15)          (Program counter)
+						
+						PSR (Program Status Register)
+						PRIMASK (Exception mask registers)
+						FAULTMASK (Exception mask registers)
+						BASEPRI (Exception mask registers)
+						CONTROl 
+				
+					1. What are important to state?
+						1. GPRs
+						2. PC (holds next instruction)
+							1. If scheduler wants to switch in again, it should continue from the PC held instruction
 
 ### Case Study of Context Switching ###
 ### Configure Systick Timer ###
