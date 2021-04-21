@@ -3258,10 +3258,73 @@
 								2. These registers are not used by low priority user tasks which are scheduled
 									1. Scheduler handles these registers
 		2. When scheduler decides to switch out a task, it should preserve the registers in Task's private stack
-			1. The registers collect
+			1. The registers collectively represent current execution state of the task
+				1. The state must be retrieved back again when scheduler decides to run the task again at a later time
+			2. State to save:
+				1. R0-R12
+				2. PSP
+				3. LR (R14)
+				4. PC (R15)
+				5. PSR
 
 ### Case Study of Context Switching ###
+1. Case of T1 switching out, T2 switching in
+
+		Running T1
+			|
+			v
+		Save the context of T1 to <- context saving
+		T1's private stack (PUSH)
+			|
+			v
+		Save the PSP value of T1 <- context saving
+			|
+			v
+		Get current PSP value of T2 <- context retrieving
+			|
+			v
+		Retrieve the context of T2 <- context retrieving
+		from T2's private stack (POP)
+			|
+			v
+		Run T2
+		
+2. Stacking and Un-stacking during Exception
+	1. Suppose task 1 is running
+		1. If a systick exception occurs,
+			1. task 1 is pre-empted
+			2. Handler code run (SysTick exception handler)
+			3. Processor saved context (state) of task 1
+				1. Done automatically
+		2. When exception handler exits, the task 1 is resumed by un-stacking
+	2. Use-case - we don't want to resume task 1 but we want to switch to task 2
+		1. Just change the PSP value
+			1. To task 2's private stack
+3. Stack frame saved automatically (partially):
+
+		xPSR
+		Return address (PC)
+		LR
+		R12
+		R3
+		R2
+		R1
+		R0
+		
+	1. We want to save the remaining registers (R4 - R11)
+		1. Push them manually
+
 ### Configure Systick Timer ###
+1. Configure systick timer to produce exception for every 1 ms (background timer)
+	1. Task: We need to program timer count
+		1. Processor Clock = 16 MHz
+		2. SysTick timer count = 16 MHz
+			1. How fast it runs (16 million cycles per second)
+				1. High speed internal oscillator - doesn't need configuration - 16 MHz
+		3. 1 ms is 1 KHz in frequency domain
+		4. So, to bring down SysTick timer count of clock from 16 MHz to 1 KHz use a divisor (reload value)
+			1. Reload value = **16000**
+
 ### Case Study of Context Switching Contd. ###
 ### Initialization of Stack ###
 ### Initialization of Stack Contd. ###
