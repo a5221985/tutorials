@@ -3361,6 +3361,45 @@
 					Reserved RELOAD
 					
 				1. RELOAD - Value to load into SYST_CVR reg when counter is enabled and when it reaches 0
+			2. SYST_CVR - contains current value of SysTick counter
+			
+					31 - 24  23 - 0
+					Reserved CURRENT
+					
+				1. CURRENT - Reads return current value of SysTick counter
+					1. Write of any value clears the field to 0, clears SYST_CSR, COUNTFLAG bit to 0
+						1. This should not be modified
+						2. Each decrement needs 1 clock cycle
+						3. When CVR becomes 0, the value from RVR is reloaded
+							1. This SysTick exception gets triggered here
+								1. Hence store (N - 1) count
+									1. If exception is required every 100 clock cycles, RELOAD must be 99
+5. Code:
+
+		void init_systick_timer(uint32_t tick_hz) {
+			uint32_t *pSRVR = (uint32_t*) 0xE000E014;
+			uint32_t count_value = (SYSTICK_TIM_CLK / tick_hz) - 1;
+			
+			// Clear the value of SVR
+			*pSRVR &= ~(0x00FFFFFFFF);
+			
+			// load te value in to SVR
+			*pSRVR |= count_value;
+			
+			// do some settings
+			
+			// enable the systick
+		}
+		
+	1. SysTick Control and Status Register
+		1. Bit[16]: COUNTFLAG
+		2. Bit[2]: CLKSOURCE
+		3. Bit[1]: TICKINT
+			1. 0 - counting down to zero does not assert SysTick exception request
+			2. 1 - counting down to zero asserts SysTick exception request
+		4. BIT[0]: ENABLE
+			1. 0 - counter disabled
+			2. 1 - counter enabled
 
 ### Case Study of Context Switching Contd. ###
 ### Initialization of Stack ###
