@@ -3322,9 +3322,39 @@
 			1. How fast it runs (16 million cycles per second)
 				1. High speed internal oscillator - doesn't need configuration - 16 MHz
 		3. 1 ms is 1 KHz in frequency domain
+			1. TICK_HZ = 1000 Hz (desired exception frequency)
 		4. So, to bring down SysTick timer count of clock from 16 MHz to 1 KHz use a divisor (reload value)
 			1. Reload value = **16000**
-	2. HSR value needs to be considered
+	2. HSI value needs to be considered
+2. Clock distribution
+
+						 -16MHz-> Processor
+			16MHz		|
+		System clock -
+			HSI			|
+						 -16MHz-> SysTick timer
+						 
+	1. HSI is given directly to Processor and SysTick timer
+3. SysTick timer count clock = 16 MHz
+	1. 1 count takes 0.0625 micro seconds
+	2. 1 micro second delay -> 16 count
+	3. 1 ms -> 16000 count
+4. Code
+
+		#define TICK_HZ 1000U
+		#define SYSTICK_TIM_CLK 16000000U
+
+		int main(void) {
+			init_systick_timer(TICK_HZ);
+		}
+		
+		void init_systick_timer(uint32_t tick_hz) {
+			uint32_t *pSRVR = (uint32_t*) ;
+			uint32_t count_value = SYSTICK_TIM_CLK / tick_hz;
+		}
+		
+	1. Go to General User Guide - Systick Timer
+		1. SysTick Reload Value Register (copy the address)
 
 ### Case Study of Context Switching Contd. ###
 ### Initialization of Stack ###
