@@ -3159,7 +3159,29 @@
 		3. ...
 4. Reserve stack areas for all the tasks and scheduler
 
+		/* some stack memory calculations */
+		#define SIZE_TASK_STACK 1024U
+		#define SIZE_SCHED_STACK 1024U
+		
+		#define SRAM_START 0x20000000U
+		#define SIZE_SRAM ((128) * (1024))
+		#define SRAM_END ((SRAM_START) + (SIZE_SRAM))
+		
+		#define T1_STACK_START SRAM_END
+		#define T2_STACK_START ((SRAM_END) - (1 * (SIZE_TASK_STACK)))
+		#define T3_STACK_START ((SRAM_END) - (2 * (SIZE_TASK_STACK)))
+		#define T4_STACK_START ((SRAM_END) - (3 * (SIZE_TASK_STACK)))
+		#define SCHED_STACK_START ((SRAM_END) - (4 * (SIZE_TASK_STACK)))
+
 ### Tasks and Scheduling ###
+1. Scheduling policy selection
+	1. Using round robin pre-emptive scheduling (switching out one task and switching in another task)
+	2. No task priority
+	3. SysTick timer is used to generate exception for every 1 ms to run scheduler code
+		1. Configuration is required
+2. What is scheduling?
+	1. It is an algorithm which takes decision of pre-empting a running task from CPU and takes decision about which task should run on CPU next
+
 ### Case Study of Context Switching ###
 ### Configure Systick Timer ###
 ### Case Study of Context Switching Contd. ###
