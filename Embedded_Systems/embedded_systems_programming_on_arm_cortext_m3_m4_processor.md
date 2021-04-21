@@ -3355,6 +3355,12 @@
 		
 	1. Go to General User Guide - Systick Timer
 		1. SysTick Reload Value Register (copy the address)
+			1. SYST_RVR - specifies start value to load into SYST_CVR reg
+
+					31 - 24  23 - 0
+					Reserved RELOAD
+					
+				1. RELOAD - Value to load into SYST_CVR reg when counter is enabled and when it reaches 0
 
 ### Case Study of Context Switching Contd. ###
 ### Initialization of Stack ###
