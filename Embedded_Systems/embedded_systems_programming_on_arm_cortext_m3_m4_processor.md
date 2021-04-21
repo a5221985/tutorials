@@ -3129,6 +3129,36 @@
 3. Stack assessment: defining boundaries for each task
 	1. STM32F4 - SRAM1 + SRAM2 (128 KB)
 
+			RAM_START							RAM_END
+			|									|
+			v									v
+							|	|	|	|	|	|
+							  ^	  ^  ^  ^   ^  
+							  |	  |  |  |   |
+							  |	  |  |  |   Private stack
+							  |	  |  |  |   of T1 (1Kb)
+							  |	  |  |  |
+							  |	  |  |  Private stack
+							  |	  |  |  of T2 (1Kb)
+							  |	  |  |
+							  |	  |  Private stack
+							  |	  |  of T3 (1Kb)
+							  |	  |
+							  |	  private stack
+							  |	  of T4 (1Kb)
+							  |
+							  Private stack
+							  of scheduler (1Kb)
+							  
+		1. Size of stack depends on application design
+			1. Number of APIs called
+				1. This has to be evaluated
+	2. To define (Full descending):
+		1. T1_STACK_START, T1_STACK_END
+		2. T2_STACK_START, T2_STACK_END
+		3. ...
+4. Reserve stack areas for all the tasks and scheduler
+
 ### Tasks and Scheduling ###
 ### Case Study of Context Switching ###
 ### Configure Systick Timer ###
