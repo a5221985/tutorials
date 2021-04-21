@@ -3248,6 +3248,17 @@
 						1. GPRs
 						2. PC (holds next instruction)
 							1. If scheduler wants to switch in again, it should continue from the PC held instruction
+						3. LR - important info about task handler, stack pointer selection (PSP, MSP)
+						4. PSP (current value is copied into SP)
+						5. PSR (Snapshot of current state)
+						6. Other registers are not important
+							1. They are privileged registers
+								1. Used for some special purpose
+									1. Turn off interrupts (globally) etc...
+								2. These registers are not used by low priority user tasks which are scheduled
+									1. Scheduler handles these registers
+		2. When scheduler decides to switch out a task, it should preserve the registers in Task's private stack
+			1. The registers collect
 
 ### Case Study of Context Switching ###
 ### Configure Systick Timer ###
