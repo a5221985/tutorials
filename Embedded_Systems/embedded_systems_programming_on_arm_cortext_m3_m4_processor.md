@@ -3324,6 +3324,7 @@
 		3. 1 ms is 1 KHz in frequency domain
 		4. So, to bring down SysTick timer count of clock from 16 MHz to 1 KHz use a divisor (reload value)
 			1. Reload value = **16000**
+	2. HSR value needs to be considered
 
 ### Case Study of Context Switching Contd. ###
 ### Initialization of Stack ###
