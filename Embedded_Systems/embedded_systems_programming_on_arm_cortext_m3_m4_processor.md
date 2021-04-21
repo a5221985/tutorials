@@ -3394,12 +3394,31 @@
 	1. SysTick Control and Status Register
 		1. Bit[16]: COUNTFLAG
 		2. Bit[2]: CLKSOURCE
+			1. 0 - external clock
+			2. 1 - processor clock
+				1. We are using processor clock here
 		3. Bit[1]: TICKINT
 			1. 0 - counting down to zero does not assert SysTick exception request
 			2. 1 - counting down to zero asserts SysTick exception request
+				1. Software can use COUNTFLAG to determine if SysTick has ever counted to zero
 		4. BIT[0]: ENABLE
 			1. 0 - counter disabled
 			2. 1 - counter enabled
+6. Code
+
+		uint32_t *pSCSR = (uint32_t*) 0xE000E010;
+		// ...
+		// do some settings
+		*pSCSR |= (1 << 1); // Enable SysTick exception request
+		*pSCSR |= (1 << 2); // Indicates the clock source - processor clock source
+		
+		// enable the systick
+		*pSCSR |= (1 << 0); // enables the counter
+		
+		// ...
+		void SysTick_Handler(void) { // Does context switching
+		
+		}
 
 ### Case Study of Context Switching Contd. ###
 ### Initialization of Stack ###
