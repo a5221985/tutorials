@@ -3058,7 +3058,23 @@
 ## Implementation of Task Scheduler ##
 ### Introduction ###
 1. Implementing a Scheduler
-	1. Let's implement a scheduler
+	1. Let's implement a scheduler which schedules multiple user tasks in round-robin fashion by carrying out context switch operation
+	2. Round robin scheduling method is
+		1. Time slices are assigned to each task in equal portions and in circular order
+	3. First we will use systick handler to carry out the context switch operations between multiple tasks
+	4. Later we will change the code using pendSV handler
+2. User tasks
+	1. 4 user tasks in the application
+		1. T1 - Stack-T1
+		2. T2 - Stack-T2
+		3. T3 - Stack-T3
+		4. T4 - Stack-T4
+	2. What is a task?
+		1. A task is a piece of code, or 'C' function which does a specific job when it is allowed to run on the CPU
+		2. A task has it's own stack to define it's local variables when it runs on the CPU
+		3. When scheduler decides to remove task from CPU
+			1. Scheduler first saves context (state) of task in task's private stack
+		4. A piece of code or function is called a task when it is schedulable and never loses it's 'state' unless it is deleted permanently
 
 ### Constructing User Tasks ###
 ### Stack Pointer Selection ###
