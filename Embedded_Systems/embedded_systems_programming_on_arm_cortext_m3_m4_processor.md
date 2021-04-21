@@ -3074,10 +3074,61 @@
 		2. A task has it's own stack to define it's local variables when it runs on the CPU
 		3. When scheduler decides to remove task from CPU
 			1. Scheduler first saves context (state) of task in task's private stack
+				1. Used for local variables when executing
+				2. Used store the state (context) of the task when it is switched out
 		4. A piece of code or function is called a task when it is schedulable and never loses it's 'state' unless it is deleted permanently
+3. Code:
+	1. 4 user tasks (never returning C functions)
+	2. New project > task_scheduler
 
 ### Constructing User Tasks ###
+1. main
+
+		#include <stdio.h>
+
+		void task1_handler(void); // task 1
+		void task2_handler(void); // task 2
+		void task3_handler(void); // task 3
+		void task4_handler(void); // task 4
+		
+		int main(void) {
+			for (;;);
+		}
+		
+		void task1_handler(void) {
+			while (1) {
+				printf("This is task 1\n");
+			}
+		}
+		
+		void task2_handler(void) {
+			while (1) {
+				printf("This is task 2\n");
+			}
+		}
+		
+		void task3_handler(void) {
+			while (1) {
+				printf("This is task 3\n");
+			}
+		}
+		
+		void task4_handler(void) {
+			while (1) {
+				printf("This is task 4\n");
+			}
+		}
+		
+2. Stack pointer selection
+	1. PSP - thread mode - for 4 tasks
+	2. MSP - handler mode - for scheduler (systick handler/ PendSV handler)
+
 ### Stack Pointer Selection ###
+1. PSP - used to trace stack utilization of the tasks
+2. MSP - used by scheduler for it's own use
+3. Stack assessment: defining boundaries for each task
+	1. STM32F4 - SRAM1 + SRAM2 (128 KB)
+
 ### Tasks and Scheduling ###
 ### Case Study of Context Switching ###
 ### Configure Systick Timer ###
