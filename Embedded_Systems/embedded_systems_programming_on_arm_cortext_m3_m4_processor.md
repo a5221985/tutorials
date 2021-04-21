@@ -3181,6 +3181,29 @@
 		1. Configuration is required
 2. What is scheduling?
 	1. It is an algorithm which takes decision of pre-empting a running task from CPU and takes decision about which task should run on CPU next
+	2. Decision could be based on many factors such as
+		1. System load
+		2. Priority of tasks
+		3. Shared resource access
+			1. If a task that is holding a key to a shared resource is getting switched out, the scheduler can take a dynamic decision on the task
+		4. Round-robin
+3. What is context switching?
+	1. Context switching is the procedure of switching out currently running task from processor after saving task's execution context or state and switching in next task to run on CPU by retrieving the past execution context or state of the task
+4. What is execution context or state of a task?
+	1. Processor core
+		1. ALU
+		2. General purpose registers (stores instruction operands, intermediate results)
+			1. fetches inputs from memory and stores them in general purpose registers and then writes result back to memory
+		3. Status registers
+			1. Gives snapshot of instruction execution (last instruction)
+				1. Zero flag
+				2. Carry flag
+				3. Negative flag
+				4. ...
+		4. Special registers
+			1. PC
+			2. SP
+			3. ...
 
 ### Case Study of Context Switching ###
 ### Configure Systick Timer ###
