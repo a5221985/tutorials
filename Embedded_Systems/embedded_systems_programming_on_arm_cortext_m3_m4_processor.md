@@ -3538,6 +3538,9 @@
 			__asm volatile ("POP {LR}");
 			
 			// 2. change SP to PSP using CONTROL register
+			__asm volatile ("MOV RO, #0x02");
+			__asm volatile ("MSR CONTROL, R0");
+			__asm volatile ("BX LR"); // Return to main
 		}
 
 ### Implementing the Systick Handler ###
