@@ -3596,6 +3596,28 @@
 
 ### Toggling of LEDs Using Multiple Tasks ###
 1. LED toggling using multiple tasks
+	1. Discovery board has 4 LEDs
+		1. LED4 - PD12 - Task1 (1s) (toggle)
+		2. LED3 - PD13 - Task2 (500ms)
+		3. LED4 - PD14 - Task3 (250ms)
+		4. LED5 - PD15 - Task4 (125ms)
+	2. Nucleo board has only 1 LED
+		1. External LEDs are required
+2. Implementation
+	1. Add the given led.c and led.h files to project
+		1. `inc/led.h`
+		2. `src/led.c`
+	2. Use software delay (for loop) to toggle the LEDs
+		1. We can change to timer based delay
+3. Code
+
+		int main(void) {
+			// ...
+			led_init_all();
+			
+			init_systick_timer(...);
+			// ...
+		}
 
 ### Blocking States of Tasks ###
 ### Blocking a Task for Given Number of Ticks ###
