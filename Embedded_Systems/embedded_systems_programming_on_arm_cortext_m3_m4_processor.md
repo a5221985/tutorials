@@ -3509,13 +3509,19 @@
 1. Task pointer needs to be changed:
 
 		int main(void) {
-			enable_processor_faults(); // we may be doing illegal activities related to memory or inline assembly, changing handler to thread mode, ...
+			enable_processor_faults(); // we may be doing illegal activities related to memory or inline assembly, changing handler to thread mode, ... - we need to enable all important faults
 			//...
 			switch_sp_to_psp();
 			task1_handler();
 		}
 		
-		
+		void enable_processor_faults(void) {
+			uint32_t *pSHCSR = (uint32_t*) 0xE000ED24;
+			
+			*pSHCSR |= (1 << 16); // mem manage fault
+			*pSHCSR |= (1 << 17); // bus fault
+			*pSHCSR |= (1 << 10); // usage fault
+		}
 
 ### Implementing the Systick Handler ###
 ### Testing ###
