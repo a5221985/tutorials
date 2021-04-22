@@ -3546,25 +3546,57 @@
 ### Implementing the Systick Handler ###
 1. SysTick Handler
 
-		void SysTick_Handler(void) {
+		void save_psp_value(uint32_t current_psp_value) {
+			psp_of_tasks[current_task] = current_psp_value;
+		}
+		
+		void update_next_task(void) {
+			current_task++;
+			current_task %= MAX_TASKS;
+		}
+
+		__attribute__((naked)) void SysTick_Handler(void) {
 			/* Save the context of current task */
 			// 1. Get current running task's PSP value
 			__asm volatile ("MRS R0, PSP");
 			// 2. Using that PSP value store SF2 (R4 to R11)
-			__asm volatile ("STMDB R0!"); // we cannot use push (MSP will get affected) - STMDB - Store Multiple registers, decrement before (decrement address and then store)
+			__asm volatile ("STMDB R0!, {R4-R11}"); // we cannot use push (MSP will get affected) - STMDB - Store Multiple registers, decrement before (decrement address and then store)
+			
+			__asm volatile ("PUSH {LR}");
+			
 			// 3. Save the current value of PSP
+			__asm volatile ("BL save_psp_value");
 			
 			/* Retrieve the context of next task */
 			// 1. Decide next task to run
+			__asm volatile("BL update_next_task");
+			
 			// 2. Get it's past PSP value
+			__asm volatile ("BL get_psp_value");
+			
 			// 3. Using that PSP value retrieve SF2 (R4 to R11)
+			__asm volatile ("LDMIA R0!, {R4-R11}"); // Load multiple registers, increment after (IA is default)
+			
 			// 4. Update PSP and exit
+			__asm volatile ("MSR PSP, R0");
+			
+			__asm volailte ("POP {LR"});
+			__asm volatile ("BX LR");
 		}
 	
 	1. `!` - the final address is stored back to R0
+	2. Task handler address must be odd
+
+			*pPSP = task_handlers[i];
+			
+	3. ITM resource is not guarded (for debugging)
 
 ### Testing ###
+1. Keep break points in task2, task2 and task3
+
 ### Toggling of LEDs Using Multiple Tasks ###
+1. LED toggling using multiple tasks
+
 ### Blocking States of Tasks ###
 ### Blocking a Task for Given Number of Ticks ###
 ### Global Tick Count ###
