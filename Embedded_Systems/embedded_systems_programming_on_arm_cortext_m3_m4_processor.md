@@ -3549,7 +3549,9 @@
 		void SysTick_Handler(void) {
 			/* Save the context of current task */
 			// 1. Get current running task's PSP value
+			__asm volatile ("MRS R0, PSP");
 			// 2. Using that PSP value store SF2 (R4 to R11)
+			__asm volatile ("STMDB R0!"); // we cannot use push (MSP will get affected) - STMDB - Store Multiple registers, decrement before (decrement address and then store)
 			// 3. Save the current value of PSP
 			
 			/* Retrieve the context of next task */
@@ -3558,6 +3560,8 @@
 			// 3. Using that PSP value retrieve SF2 (R4 to R11)
 			// 4. Update PSP and exit
 		}
+	
+	1. `!` - the final address is stored back to R0
 
 ### Testing ###
 ### Toggling of LEDs Using Multiple Tasks ###
