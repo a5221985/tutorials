@@ -3456,8 +3456,40 @@
 
 ### Initialization of Stack ###
 1. Initialize scheduler stack pointer (MSP)
+	1. Stack start address needs to be stored in MSP
+
+			int main(void) {
+				init_scheduler_stack(SCHED_STACK_START);
+			}
+			
+			__attribute__((naked)) void init_scheduler_stack(uint32_t sched_top_of_stack) {
+				__asm volatile("MSR MSP, %0"::"r"(sched_top_of_stack):);
+				__asm volatile("BX LR"); // copies value of LR into PC
+			}
 
 ### Initialization of Stack Contd. ###
+1. Init tasks stack memory
+	1. Store dummy SF1 and SF2 in stack memory of each task
+
+			#define MAX_TASKS 4
+			// ...
+			uint32_t psp_of_tasks[MAX_TASKS] = {T1_STACK_START, T2_STACK_START, T3_STACK_START, T4_STACK_START};
+
+			int main(void) {
+				// ...
+				init_task_stack(void);
+				// ...
+			}
+			
+			void init_task_stack(void) {
+				uint32_t *pPSP;
+				for (int i = 0; i < MAX_TASKS; i++) {
+					pPSP = (uint32_t*) psp_of_tasks[i];
+				}
+			}
+			
+		1. Shift macros to main.h
+
 ### Stack Pointer Setup ###
 ### Implementing the Systick Handler ###
 ### Testing ###
