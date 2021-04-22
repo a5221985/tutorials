@@ -3383,12 +3383,12 @@
 			// Clear the value of SVR
 			*pSRVR &= ~(0x00FFFFFFFF);
 			
-			// load te value in to SVR
+			// Load te value into SVR
 			*pSRVR |= count_value;
 			
-			// do some settings
+			// Do some settings
 			
-			// enable the systick
+			// Enable the systick
 		}
 		
 	1. SysTick Control and Status Register
