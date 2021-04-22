@@ -3508,6 +3508,8 @@
 ### Stack Pointer Setup ###
 1. Task pointer needs to be changed:
 
+		uint8_t current_task = 0; // task1 is running
+		//...
 		int main(void) {
 			enable_processor_faults(); // we may be doing illegal activities related to memory or inline assembly, changing handler to thread mode, ... - we need to enable all important faults
 			//...
@@ -3521,6 +3523,21 @@
 			*pSHCSR |= (1 << 16); // mem manage fault
 			*pSHCSR |= (1 << 17); // bus fault
 			*pSHCSR |= (1 << 10); // usage fault
+		}
+		
+		uint32_t get_psp_value(void) {
+			return psp_of_tasks[current_task];
+		}
+		
+		__attribute((naked)) void switch_sp_to_psp(void) {
+			// 1. initialize the PSP with TASK1 stack start
+			// get the value of psp of current task
+			__asm volatile ("PUSH {LR}"); // Because LR will be corrupted after next instruction - we need to preserve LR of main
+			__asm volatile ("BL get_psp_value"); // Branch with link - LR will store return address
+			__asm volatile ("MSR PSP, R0");
+			__asm volatile ("POP {LR}");
+			
+			// 2. change SP to PSP using CONTROL register
 		}
 
 ### Implementing the Systick Handler ###
