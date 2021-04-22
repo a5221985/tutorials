@@ -3421,7 +3421,20 @@
 		}
 
 ### Case Study of Context Switching Contd. ###
-1. 
+1. Context switch
+	1. Assume T1 is running
+		1. When SysTick timer runs, a stack frame gets stored in private stack of T1
+			1. Processor does this automatically (SF1)
+		2. In SysTick handler
+			1. Push remaining registers (R4 - R11) (SF2)
+			2. Save the value of PSP. Because it is required later when processor needs to resume the execution of T1 by retrieving its saved state
+				1. Stored in a global variable
+			3. Restore PSP of Task 2
+			4. Pop status of SF2 of Task 2
+				1. Done by programmer
+			5. Exit the exception handler
+				1. Return address of Task 2 will get retrieved automatically
+		3. Task 2 resumes
 
 ### Initialization of Stack ###
 ### Initialization of Stack Contd. ###
