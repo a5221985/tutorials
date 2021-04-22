@@ -3555,7 +3555,8 @@
 			/* Retrieve the context of next task */
 			// 1. Decide next task to run
 			// 2. Get it's past PSP value
-			// 
+			// 3. Using that PSP value retrieve SF2 (R4 to R11)
+			// 4. Update PSP and exit
 		}
 
 ### Testing ###
