@@ -3435,8 +3435,28 @@
 			5. Exit the exception handler
 				1. Return address of Task 2 will get retrieved automatically
 		3. Task 2 resumes
+2. If Task 2 gets executed first
+	1. Task's stack area init and storing of dummy SF
+		1. Each task can consume a maximum of 1KB of memory as a private stack
+		2. This stack is used to hold tasks local variables and context (SF1 + SF2)
+		3. When a task is getting scheduled for the very first time
+			1. It doesn't have any context
+				1. The programmer should store dummy SF1 & SF2 in Task's stack area as part of "task initialization" sequence before launching scheduler
+					1. Store 0s in all register values in stack frames
+					2. xPSR
+						1. T - bit: should be 1 (0x01000000)
+					3. PC
+						1. Address of task handler
+							1. Make sure that lsb of the address is 1 (copied to T-bit)
+					4. LR
+						1. A special value (EXC_RETURN)
+							1. Controls the exception exit
+						2. Value to considered
+							1. 0xFFFFFFFD - Thread mode, exception return, non-floating-point, PSP
 
 ### Initialization of Stack ###
+1. Initialize scheduler stack pointer (MSP)
+
 ### Initialization of Stack Contd. ###
 ### Stack Pointer Setup ###
 ### Implementing the Systick Handler ###
