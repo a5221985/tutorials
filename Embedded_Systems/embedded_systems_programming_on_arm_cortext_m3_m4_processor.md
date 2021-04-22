@@ -3472,11 +3472,17 @@
 	1. Store dummy SF1 and SF2 in stack memory of each task
 
 			#define MAX_TASKS 4
+			#define DUMMY_XPSR 0x010000000U
 			// ...
 			uint32_t psp_of_tasks[MAX_TASKS] = {T1_STACK_START, T2_STACK_START, T3_STACK_START, T4_STACK_START};
+			uint32_t task_handlers[MAX_TASKS];
 
 			int main(void) {
 				// ...
+				task_handlers[0] = (uint32_t) task1_handler;
+				task_handlers[1] = (uint32_t) task2_handler;
+				task_handlers[2] = (uint32_t) task3_handler;
+				task_handlers[3] = (uint32_t) task4_handler;
 				init_task_stack(void);
 				// ...
 			}
@@ -3485,12 +3491,32 @@
 				uint32_t *pPSP;
 				for (int i = 0; i < MAX_TASKS; i++) {
 					pPSP = (uint32_t*) psp_of_tasks[i];
+					pPSP--;
+					*pPSP = DUMMY_XPSR; // 0x01000000
+					pPSP--;
+					*pPSP = task_handlers[i];
+					for (int j = 0; j < 13; j++) {
+						pPSP--;
+						*pPSP = 0x0;
+					}
 				}
+				psp_of_tasks[i] = (uint32_t) pPSP;
 			}
 			
 		1. Shift macros to main.h
 
 ### Stack Pointer Setup ###
+1. Task pointer needs to be changed:
+
+		int main(void) {
+			enable_processor_faults(); // we may be doing illegal activities related to memory or inline assembly, changing handler to thread mode, ...
+			//...
+			switch_sp_to_psp();
+			task1_handler();
+		}
+		
+		
+
 ### Implementing the Systick Handler ###
 ### Testing ###
 ### Toggling of LEDs Using Multiple Tasks ###
