@@ -3544,6 +3544,20 @@
 		}
 
 ### Implementing the Systick Handler ###
+1. SysTick Handler
+
+		void SysTick_Handler(void) {
+			/* Save the context of current task */
+			// 1. Get current running task's PSP value
+			// 2. Using that PSP value store SF2 (R4 to R11)
+			// 3. Save the current value of PSP
+			
+			/* Retrieve the context of next task */
+			// 1. Decide next task to run
+			// 2. Get it's past PSP value
+			// 
+		}
+
 ### Testing ###
 ### Toggling of LEDs Using Multiple Tasks ###
 ### Blocking States of Tasks ###
