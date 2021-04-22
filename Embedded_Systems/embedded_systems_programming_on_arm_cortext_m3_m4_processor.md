@@ -3618,6 +3618,44 @@
 			init_systick_timer(...);
 			// ...
 		}
+		
+		void task1_handler(void) {
+			while (1) {
+				led_on(LED_GREEN);
+				delay(DELAY_COUNT_1S);
+				led_off(LED_GREEN);
+				delay(DELAY_COUNT_1S);
+			}
+		}
+		
+		void task2_handler(void) {
+			while (1) {
+				led_on(LED_ORANGE);
+				delay(DELAY_COUNT_500MS);
+				led_off(LED_ORANGE);
+				delay(DELAY_COUNT_500MS);
+			}
+		}
+		
+		void task3_handler(void) {
+			while (1) {
+				led_on(LED_BLUE);
+				delay(DELAY_COUNT_250MS);
+				led_off(LED_BLUE);
+				delay(DELAY_COUNT_250MS);
+			}
+		}
+		
+		void task4_handler(void) {
+			while (1) {
+				led_on(LED_RED);
+				delay(DELAY_COUNT_125MS);
+				led_off(LED_RED);
+				delay(DELAY_COUNT_125MS);
+			}
+		}
+		
+	1. Delay extends by 4 times for LED1
 
 ### Blocking States of Tasks ###
 ### Blocking a Task for Given Number of Ticks ###
