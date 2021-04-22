@@ -3656,6 +3656,9 @@
 		}
 		
 	1. Delay extends by 4 times for LED1
+		1. Wasting 4 MS between scheduling
+			1. Wastes CPU cycles due to looping
+2. Introducing blocking state for tasks
 
 ### Blocking States of Tasks ###
 ### Blocking a Task for Given Number of Ticks ###
