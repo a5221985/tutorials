@@ -37,4 +37,17 @@
 			2. Performance degrades gracefully
 				1. During transient overloads
 					1. Lowest priority task will yield the CPU, if not enough, next lowest priority task will yield the CPU
-		4. 
+		4. Example:
+			1. Task1 period = 50 ms
+				1. Deadline = 50 ms
+			2. Task2 period = 100 ms
+				1. Deadline = 100 ms
+			3. Each task consumes CPU cycles when it runs
+				1. Number of CPU cycles might change each run (because the task might take a different path of execution)
+					1. Best case CPU cycles
+					2. Worst case CPU cycles
+						1. If this is longer than period, it may miss deadlines sometimes (no algorithm can avoid deadline misses for this task)
+					3. Average case CPU cycles
+			4. Each task has computable worst case cost
+				1. Task 1 cost = 25 ms
+				2. Task 2 cost = 40 ms
