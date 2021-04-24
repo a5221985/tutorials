@@ -3680,7 +3680,7 @@
 ### Different Data and Sections of a Program ###
 ### BSS vs Data ###
 ### Startup File of Microcontroller ###
-### Writing Startup File of Microcontroller From Scratch Prat-1 ###
+### Writing Startup File of Microcontroller From Scratch Part-1 ###
 ### Writing Startup File of Microcontroller From Scratch Part-2 ###
 ### Writing Startup File of Microcontroller From Scratch Part-3 ###
 ### Writing Linker Script From Scratch Part-1 ###
