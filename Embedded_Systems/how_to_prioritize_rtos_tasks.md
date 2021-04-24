@@ -54,3 +54,20 @@
 				2. Task 2 cost = 40 ms
 					1. Period = 100 ms
 			5. How to select relative priority?
+				1. Option A: Task 1 > Task 2
+					1. Task 1 runs first
+						1. Runs for 25 ms and meets the deadline
+					2. Task 2 runs next
+						1. Runs for 25 ms
+					3. Task 1 runs next
+						1. Runs for 25 ms
+					4. Task 2 runs next
+						1. Runs for 15 ms (meets the deadline of 100 ms)
+					5. 10 ms of idle time
+					6. Sequence repeats
+						1. Both meet their deadlines everytime
+				2. Option B: Task 2 > Task 1
+					1. Task 2 runs first
+						1. Runs for 40 ms and meets the deadline of 100 ms
+					2. Task 1 runs next
+						1. Runs for 25 ms (misses the deadline of 50 ms)
