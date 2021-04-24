@@ -50,4 +50,7 @@
 					3. Average case CPU cycles
 			4. Each task has computable worst case cost
 				1. Task 1 cost = 25 ms
+					1. Period = 50 ms
 				2. Task 2 cost = 40 ms
+					1. Period = 100 ms
+			5. How to select relative priority?
