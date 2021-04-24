@@ -71,3 +71,20 @@
 						1. Runs for 40 ms and meets the deadline of 100 ms
 					2. Task 1 runs next
 						1. Runs for 25 ms (misses the deadline of 50 ms)
+					3. Task 2 runs next (at 100 ms)
+						1. The cycle repeats
+9. Rate Monotonic Algorithm
+	1. A priority assignment algorithm for use with a real-time operating system that uses fixed-priority pre-emptive scheduling.
+	2. The optimal fixed-priority scheduling algorithm
+		1. Liu & Layland Journal of the ACM 1973
+	3. How does it work?
+		1. Assign task priorities according to relative period
+			1. Highest frequency task (with shortest period) is highest priority
+			2. ...
+			3. Lowest frequency task (with longest period) is lowest priority
+		2. Rationale?
+			1. Less frequent tasks may span high frequency deadlines
+				1. Task 2 (with period 100 ms) consumed 40 of 50 ms!
+	4. Example:
+		1. Task, Period, Priority
+			1. R, 10 ms, 
