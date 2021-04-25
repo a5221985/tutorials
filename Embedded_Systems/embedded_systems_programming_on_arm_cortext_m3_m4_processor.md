@@ -3735,8 +3735,23 @@
 	2. E.g. task_delay(1000); if a task calls this function then task_delay function puts the task into blocked state and allows the next task to run on the CPU
 	3. Here, the number 1000 denotes a block period in terms of ticks, the task who calls this function is going to block for 1000 ticks (systick exceptions), i.e., for 1000ms since each tick happens for every 1 ms
 	4. The scheduler should check elapsed block period of each blocked task and put them back to running state if the block period is over
+2. Idle task
+	1. What if all tasks are blocked? Who is going to run on the CPU?
+		1. We will use idle task to run on the CPU if all tasks are blocked.
+			1. Idle task is like user tasks but only runs when all user tasks are blocked
+				1. We can put CPU to sleep
 
 ### Global Tick Count ###
+1. Global tick count
+	1. How does the scheduler decide when to put the blocked state tasks (blocked using task_delay function) back to the running state?
+		1. In RTOS, task can block for
+			1. Event
+			2. Delay function
+			3. Semaphore
+			4. ...
+	2. It has to compare task's delay tick count with global tick count
+	3. Scheduler should maintain a global tick count and update it for every systick exception
+
 ### Deciding Next Task to Run ###
 ### Implementing PendSV Handler for Context Switch ###
 ### Update Next Task and Testing ###
