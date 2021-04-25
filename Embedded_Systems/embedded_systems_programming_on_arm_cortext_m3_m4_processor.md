@@ -3681,8 +3681,9 @@
 	1. Structure contains all the information required for the task
 3. Code
 
-		#define TASK_RUNNING_STATE
-		#define TASK_BLOCKED_STATE
+		// following can be in main.h
+		#define TASK_RUNNING_STATE 0x00
+		#define TASK_BLOCKED_STATE 0xFF
 
 		TCB_t user_tasks[MAX_TASKS]; // remove global variables
 		// ...
@@ -3702,9 +3703,39 @@
 			user_tasks[1].task_handler = task2_handler;
 			user_tasks[2].task_handler = task3_handler;
 			user_tasks[3].task_handler = task4_handler;
+			
+			uint32_t *pPSP;
+			
+			for (int i = 0; i < MAX_TASKS; i++) {
+				pPSP = (uint32_t*) user_tasks[i].psp_value;
+				
+				pPSP--;
+				*pPSP = DUMMY_XPSR;
+				
+				pPSP--;
+				*pPSP = (uint32_t) user_tasks[i].task_handler;
+				// ...
+				user_tasks[i].psp_value = (uint32_t) pPSP;
+			}
+		}
+		
+		// ...
+		
+		uint32_t get_psp_value(void) {
+			return user_tasks[current_task].psp_value;
+		}
+		
+		void save_psp_value(uint32_t current_psp_value) {
+			user_tasks[current_task].psp_value = current_psp_value;
 		}
 
 ### Blocking a Task for Given Number of Ticks ###
+1. Block a task for a given number of ticks
+	1. Let's introduce a function called "task_delay" which puts the calling task to the blocked state for a given number of ticks
+	2. E.g. task_delay(1000); if a task calls this function then task_delay function puts the task into blocked state and allows the next task to run on the CPU
+	3. Here, the number 1000 denotes a block period in terms of ticks, the task who calls this function is going to block for 1000 ticks (systick exceptions), i.e., for 1000ms since each tick happens for every 1 ms
+	4. The scheduler should check elapsed block period of each blocked task and put them back to running state if the block period is over
+
 ### Global Tick Count ###
 ### Deciding Next Task to Run ###
 ### Implementing PendSV Handler for Context Switch ###
