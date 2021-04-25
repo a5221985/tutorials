@@ -110,4 +110,19 @@
 					1. We do perform RMA as if they were periodic
 						1. Assuming aperiodics are periodic with minimum interval time
 				4. Example: 3 tasks and 1 interrupt (highest priority task regardless of frequency or RMA priority)
-					1. 
+					1. ISR may not be the most frequent task (even under worst case)
+						1. ISR effectively adds a "blocking time" (to worst case execution times of all tasks)
+							1. It should be below in RMA priority
+				5. Example: ISR priority vs task priority
+					1. Entity, RMA priority, Cost, Period, Ui
+						1. ISR, 2, .500, 10, 5% (but CPU treats it as priority 1)
+						2. A, 1, .750, 3, 25%
+						3. T, 3, .300, 30, 1%
+						4. L, 4, 8.00, 40, 20%
+					2. If we make ISR period as 2.9, then RMA priority becomes 1 (which matches reality - CPU priority)
+10. Take away
+	1. Don't use "most important" to assign priority
+		1. Unless there is only one task with a deadline
+		2. Failure to adhere to RMA fully limits predictability
+	2. Both tasks & ISRs must be assigned priorities using RMA
+	3. Remember that even lowest priority interrupt is treated by CPU as higher priority than highest priority task
