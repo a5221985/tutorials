@@ -3756,6 +3756,8 @@
 		#define MAX_TAKS 5
 		#define IDLE_STACK_START ((SRAM_END) - (4 * SIZE_TASK_STACK))
 		#define SCHED_STACK_START ((SRAM_END) - (5 * SIZE_TASK_STACK))
+		
+		uint8_t current_task = 1;
 		uint32_t g_tick_count = 0;
 		
 		//...
@@ -3791,6 +3793,29 @@
 		}
 
 ### Deciding Next Task to Run ###
+1. It depends on the state of next task
+	1. IDLE task - always in RUN state
+	2. We have to check state of next task
+		1. If blocked, move forward
+		2. If idle task, move forward
+		3. If run state, schedule it
+	3. If all tasks are blocked
+		1. Run idle task
+2. PendSV Handler
+	1. Using pendSV handler to carry out context switch operation instead of systick handler
+
+			Systick handler
+				Update globak tick count
+				Unblock task
+				Pend PendSV
+				exit --------------------> PendSV handler
+												    Carry out context switch
+												    exit
+												    
+		1. Systick handler - normal C function
+			1. Unblock task - if tick countdown is over, changes blocking state to running state
+		2. PendSV handler - naked function
+
 ### Implementing PendSV Handler for Context Switch ###
 ### Update Next Task and Testing ###
 
