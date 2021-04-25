@@ -98,3 +98,16 @@
 		1. Aperiodic tasks: Recur (or don't) at random times (like some interrupts)
 		2. Sporadic tasks: Recur at random intervals, but with a minimum inter-arrival
 			1. Like sequence of human key presses (chars cannot come faster than baud rate)
+		3. Two options:
+			1. Poll hardware rather than using interrupts
+				1. Works even for true periodics
+					1. Guaranteed worst-case response time equal to polling period (polling time can be changed to get faster response time)
+			2. Worst-Case period
+				1. Assign a period equal to its worst-case inter-arrival time
+					1. Assuming UART character arrivals at baud rate 24/7 (fastest possible - worst case)
+				2. Assign a priority based on that period
+				3. We don't waste CPU cycles polling for true aperiodics
+					1. We do perform RMA as if they were periodic
+						1. Assuming aperiodics are periodic with minimum interval time
+				4. Example: 3 tasks and 1 interrupt (highest priority task regardless of frequency or RMA priority)
+					1. 
