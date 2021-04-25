@@ -3756,6 +3756,7 @@
 		#define MAX_TAKS 5
 		#define IDLE_STACK_START ((SRAM_END) - (4 * SIZE_TASK_STACK))
 		#define SCHED_STACK_START ((SRAM_END) - (5 * SIZE_TASK_STACK))
+		uint32_t g_tick_count = 0;
 		
 		//...
 		void init_tasks_stack(void) {
@@ -3783,6 +3784,10 @@
 		void task_delay(uint32_t tick_count) {
 			user_tasks[current_task].block_count = g_tick_count + tick_count;
 			user_tasks[current_task].current_state = TASK_BLOCKED_STATE;
+		}
+		
+		__attribute__((naked)) void SysTick_Handler(void) {
+			// update global tick count
 		}
 
 ### Deciding Next Task to Run ###
