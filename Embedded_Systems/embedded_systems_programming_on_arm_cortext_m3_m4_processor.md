@@ -3751,6 +3751,39 @@
 			4. ...
 	2. It has to compare task's delay tick count with global tick count
 	3. Scheduler should maintain a global tick count and update it for every systick exception
+2. Code
+
+		#define MAX_TAKS 5
+		#define IDLE_STACK_START ((SRAM_END) - (4 * SIZE_TASK_STACK))
+		#define SCHED_STACK_START ((SRAM_END) - (5 * SIZE_TASK_STACK))
+		
+		//...
+		void init_tasks_stack(void) {
+			// ...
+			user_tasks[4].current_state = TASK_RUNNING_STATE;
+			
+			// ...
+			user_tasks[0].psp_value = IDLE_STACK_START;
+			user_tasks[1].psp_value = T1_STACK_START;
+			// ...
+			user_tasks[4].psp_value = T4_STACK_START;
+			
+			// ...
+			user_tasks[0].task_handler = idle_task;
+			user_tasks[1].task_handler = task1_handler;
+			// ...
+			user_tasks[4].task_handler = task4_handler;
+			// ...
+		}
+
+		void idle_task(void) {
+			while(1);
+		}
+
+		void task_delay(uint32_t tick_count) {
+			user_tasks[current_task].block_count = g_tick_count + tick_count;
+			user_tasks[current_task].current_state = TASK_BLOCKED_STATE;
+		}
 
 ### Deciding Next Task to Run ###
 ### Implementing PendSV Handler for Context Switch ###
