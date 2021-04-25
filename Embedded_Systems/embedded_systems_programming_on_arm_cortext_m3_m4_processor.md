@@ -3668,6 +3668,42 @@
 	4. Scheduler should also unblock blocked tasks if their blocking period is over and put them back to running state
 
 ### Blocking States of Tasks ###
+1. Introducing blocking state for tasks
+2. TCB (Task Control Block) (instead of global variables)
+
+		typedef struct {
+			uint32_t psp_value;
+			uint32_t block_count; // wait count (block period)
+			uint8_t run_state;
+			void (*task_handler)(void);
+		} TCB_t;
+		
+	1. Structure contains all the information required for the task
+3. Code
+
+		#define TASK_RUNNING_STATE
+		#define TASK_BLOCKED_STATE
+
+		TCB_t user_tasks[MAX_TASKS]; // remove global variables
+		// ...
+		init_task_stack();
+		// ...
+		
+		void init_tasks_stack(void) {
+			for (int i = 0; i < MAX_TASKS; i++)
+				user_tasks[0].current_state = TASK_RUNNING_STATE;
+			
+			user_tasks[0].psp_value = T1_STACK_START;
+			user_tasks[1].psp_value = T2_STACK_START;
+			user_tasks[2].psp_value = T3_STACK_START;
+			user_tasks[3].psp_value = T4_STACK_START;
+			
+			user_tasks[0].task_handler = task1_handler;
+			user_tasks[1].task_handler = task2_handler;
+			user_tasks[2].task_handler = task3_handler;
+			user_tasks[3].task_handler = task4_handler;
+		}
+
 ### Blocking a Task for Given Number of Ticks ###
 ### Global Tick Count ###
 ### Deciding Next Task to Run ###
