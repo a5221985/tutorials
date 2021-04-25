@@ -3659,6 +3659,13 @@
 		1. Wasting 4 MS between scheduling
 			1. Wastes CPU cycles due to looping
 2. Introducing blocking state for tasks
+	1. When a task has nothing to do, it should call delay function which should put task into blocked state from running state until specified delay is elapsed
+		1. We don't want to waste CPU cycles
+	2. We should maintain 2 states for a task
+		1. Running
+		2. Blocked
+	3. Scheduler should schedule only those tasks which are in Running state
+	4. Scheduler should also unblock blocked tasks if their blocking period is over and put them back to running state
 
 ### Blocking States of Tasks ###
 ### Blocking a Task for Given Number of Ticks ###
