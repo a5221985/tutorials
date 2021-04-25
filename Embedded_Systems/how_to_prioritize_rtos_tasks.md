@@ -87,4 +87,14 @@
 				1. Task 2 (with period 100 ms) consumed 40 of 50 ms!
 	4. Example:
 		1. Task, Period, Priority
-			1. R, 10 ms, 
+			1. R, 10 ms, 3
+			2. T, 30 ms, 4
+			3. G, 1 ms, 1
+			4. A, 3 ms, 2
+			5. C, 1 ms, 1
+			6. L, 40 ms, 5
+		2. Lower the number, higher the priority
+	5. Aperiodics
+		1. Aperiodic tasks: Recur (or don't) at random times (like some interrupts)
+		2. Sporadic tasks: Recur at random intervals, but with a minimum inter-arrival
+			1. Like sequence of human key presses (chars cannot come faster than baud rate)
