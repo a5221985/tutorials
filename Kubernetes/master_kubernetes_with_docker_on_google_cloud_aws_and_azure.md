@@ -1,7 +1,13 @@
 # Master Kubernetes with Docker on Google Cloud, AWS & Azure #
 ## Kubernetes on AWS with EKS ##
 ### Step 01 - Kubernetes on AWS with EKS - Section Introduction ###
-1. 
+1. [https://github.com/in28minutes/kubernetes-crash-course](https://github.com/in28minutes/kubernetes-crash-course)
+	1. `instructions-aws-and-azure.md`
+2. Managed service for Kubernetes - EKS
+3. Approach:
+	1. Learn Kubernetes Basics on GCP (Google Cloud) - Google Kubernetes Engine (GKE)
+		1. It is not free tier on AWS
+4. Download Github repo again
 
 ### Step 02 - Constructing an AWS Root Account ###
 ### Step 03 - Constructing an IAM User for your AWS Account ###
