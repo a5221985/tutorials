@@ -4117,7 +4117,7 @@
 			CFLAGS= -c -mcpu=$(MACH) -mthumb -std=gnu11 -O0
 			
 			main.o: main.c
-				$(CC) $(CFLAGS) $^ -o $@
+				$(CC) $(CFLAGS) -o $@ $^
 			
 		1. Syntax:
 
@@ -4126,6 +4126,9 @@
 					
 		2. `$^` - dependency
 		3. `$@` - target
+3. Install `make` for windows (Mac and Linux usually have it)
+	1. GnuWin
+	2. Set PATH variable to directory of `make`
 
 ### Analyzing Relocatable Obj Files ###
 ### Code and Data of a Program ###
