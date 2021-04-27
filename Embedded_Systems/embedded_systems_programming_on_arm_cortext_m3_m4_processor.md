@@ -3995,6 +3995,8 @@
 	3. We can refer to README
 2. Open terminal
 	1. `arm-none-eabi-gcc` - should detect the command
+	2. Open GNU Tools Arm Embedded > <version> > bin (`/Applications/ARM/bin/arm-none-eabi-gcc` on Mac)
+		1. Binaries
 
 ### Build Process ###
 ### Compilation and Compiler Flags ###
