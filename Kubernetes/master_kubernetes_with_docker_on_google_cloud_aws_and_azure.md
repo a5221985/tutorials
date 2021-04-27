@@ -35,8 +35,31 @@
 								1. Group Name: Developers
 								2. Attack Policy: (Pre-defined policies called **Managed Policies**)
 									1. AdministratorAccess (for now)
+							2. Create New User
+								1. User name: in28minutes_dev
+								2. Select AWS access type: (there are two types of users - human users, programs)
+									1. Programmatic access (select this)
+										1. Enables an access key ID and secret access key for AWS API, CLI, SDK, and other development tools
+									2. AWS Management Console access (select this - to login using user id and password to console and perform access)
+								3. Select Custom password
+								4. Uncheck **Require password reset**
+								5. Group: Developers
+								6. Click **Create user**
+									1. Copy the link provided and use it to login (it is specific to the account)
+										1. Sign in
 
 ### Step 04 - Its Your Responsibility to Monitor Billing in Cloud - 5 Recommendations ###
+1. Reducing billing recommendations:
+	1. Set billing alerts (next)
+	2. Monitor billing dashboard every day (first thing in the morning)
+		1. Login as root: Click in28minutes > MyAccount
+			1. Search for IAM
+				1. Edit
+					1. Activate IAM Access
+					2. Update
+		2. Login as IAM user
+			1. Billing
+
 ### Step 05 - Monitor AWS Billing - Setting Billing Alerts ###
 ### Step 06 - Installing AWS CLI ###
 ### Step 07 - Install EKS CTL and Configure AWS CLI with IAM User ###
