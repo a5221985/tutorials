@@ -3808,7 +3808,7 @@
 				Update globak tick count
 				Unblock task
 				Pend PendSV
-				exit --------------------> PendSV handler
+				exit -------triggers--------> PendSV handler
 												    Carry out context switch
 												    exit
 												    
@@ -3817,6 +3817,8 @@
 		2. PendSV handler - naked function
 
 ### Implementing PendSV Handler for Context Switch ###
+1. 
+
 ### Update Next Task and Testing ###
 
 ## Bare Metal Embedded and Linker Scripts ##
