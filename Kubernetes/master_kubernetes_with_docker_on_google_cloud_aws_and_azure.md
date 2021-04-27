@@ -179,7 +179,21 @@
 	6. [Installing Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
 
 ### Step 09 - Quick Review of AWS Basics - Region, AZ, VPC and Subnet ###
-
+1. AWS has different regions
+	1. Each region has availability zones
+		1. For 
+			1. High availability 
+			2. Low latency
+	2. Regions:
+		1. US East (Ohio) - us-east-2
+		2. US East (N. Virginia) - us-east-1
+		3. ...
+2. VPC & Subnect
+	1. VPC
+		1. It is used to controll access to resources (Virtual Private Cloud)
+		2. We can have different resources inside
+			1. We don't want to allow access to all of those resources
+			2. We want to allow access only to the web-server
 
 ### Step 10 - Quick Review of the AWS EKS Kubernetes Cluster ###
 ### Step 11 - Review Hello World and Web Apps from GKE Section ###
