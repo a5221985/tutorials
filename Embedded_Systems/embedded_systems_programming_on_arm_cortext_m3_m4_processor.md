@@ -4205,9 +4205,35 @@
 			7. Base address of bss section is also 00000000
 
 ### Code and Data of a Program ###
-1. 
+1. Program:
+	1. Code + Data
+		1. Code operates on data
+		2. Code (Instructions): stored in FLASH memory of microcontroller
+		3. Data (Variables): stored in main memory (RAM)
+			1. Data may change at any time during execution (cannot be stored on FLASH)
+			2. Read only data can be stored on FLASH
+				1. Doesn't have to be stored in RAM
+			3. Text is not stored in Read/Write memory
+			4. `.rodata` is stored in read-only memory
+2. Sections:
+
+		.data - contains initalized data
+		.text - contains code (instructions)
+		.rodata - contains read-only data
+		user defined sections - contains data or code which programmer demands to put in user defined sections
+		.bss - contains un-initialized data
+		some special sections - added by compiler. contains special data
+		
+	1. When we load the elf file, we must ensure the sections go to proper memory destinations
+		1. ROM - FLASH (special sections also go here)
 
 ### Linker and Locator ###
+1. Linker and locator
+	1. Use linker to merge similar sections of different object files and resolve all undefined symbols of different object files (?)
+	2. Locator (part of linker) takes the help of linker script to
+		1. Understand how you wish to merge different sections
+		2. Assigns mentioned addresses to different sections
+
 ### Different Data and Sections of a Program ###
 ### BSS vs Data ###
 ### Startup File of Microcontroller ###
