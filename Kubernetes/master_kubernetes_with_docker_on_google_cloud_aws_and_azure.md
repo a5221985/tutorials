@@ -59,8 +59,27 @@
 					2. Update
 		2. Login as IAM user
 			1. Billing
+				1. Shows:
+					1. Free Tier usage limit
+					2. How much have we used
+	3. Stop resources
+		1. When we are not using them
+			1. EC2
+			2. RDBMs
+			3. Load Balancers
+		2. Terminate them if using only for training
+	4. Understand Billing: Hard to do
+		1. Understand free tier and 12 month limit
+			1. Open free tier info and read about it
+				1. Google for aws pricing
+					1. Storage
+						1. Transactions
+						2. Storage used
+		2. Understand how pricing works for different resources
 
 ### Step 05 - Monitor AWS Billing - Setting Billing Alerts ###
+1. 
+
 ### Step 06 - Installing AWS CLI ###
 ### Step 07 - Install EKS CTL and Configure AWS CLI with IAM User ###
 ### Step 08 - Construct a Kubernetes Cluster on AWS with EKS ###
