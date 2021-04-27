@@ -116,9 +116,16 @@
 						2. Budget amount: Fixed
 						3. Budgeted amount: $1
 						4. Configure alerts
-							1. 
+							1. Actual Costs
+							2. 10 % budgeted amount
+							3. Email: <id>
+								1. Check email box and validate email id to receive alerts
+							4. Confirm Budget
+							5. Click Create
 
 ### Step 06 - Installing AWS CLI ###
+1. 
+
 ### Step 07 - Install EKS CTL and Configure AWS CLI with IAM User ###
 ### Step 08 - Construct a Kubernetes Cluster on AWS with EKS ###
 ### Step 09 - Quick Review of AWS Basics - Region, AZ, VPC and Subnet ###
