@@ -175,6 +175,8 @@
 	5. Deleting cluster:
 
 			eksctl delete cluster --region=us-east-1 --name=in28minutes-cluster --profile default
+			
+	6. [Installing Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
 
 ### Step 09 - Quick Review of AWS Basics - Region, AZ, VPC and Subnet ###
 
