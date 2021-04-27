@@ -109,7 +109,14 @@
 				12. Next
 				13. Click Create Alarm
 		3. Another option:
-			1. Search for Budget
+			1. Search for Budget (recent addition)
+				1. Create a budget
+					1. Cost budget
+						1. Name: Monthly Cost Budget
+						2. Budget amount: Fixed
+						3. Budgeted amount: $1
+						4. Configure alerts
+							1. 
 
 ### Step 06 - Installing AWS CLI ###
 ### Step 07 - Install EKS CTL and Configure AWS CLI with IAM User ###
