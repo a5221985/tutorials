@@ -131,7 +131,9 @@
 		2. Using pip (if the above doesn't work)
 
 ### Step 07 - Install EKS CTL and Configure AWS CLI with IAM User ###
-1. 
+1. eksctl - similar to kubectl
+	1. It is a simple CLI tool for instantiating clusters on EKS
+	2. Install from [https://eksctl.io](https://eksctl.io)
 
 ### Step 08 - Construct a Kubernetes Cluster on AWS with EKS ###
 ### Step 09 - Quick Review of AWS Basics - Region, AZ, VPC and Subnet ###
