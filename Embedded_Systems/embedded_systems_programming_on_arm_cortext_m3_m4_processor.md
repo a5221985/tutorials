@@ -4269,6 +4269,7 @@
 4. Startup code:
 	1. Relocation
 
+							-----------
 							stack
 							-----------
 							Unused SRAM
@@ -4279,8 +4280,40 @@
 							.bss (un-initialized global and static variables)
 							-----------
 			.data -----> .data (initialized global and static variables) 0x2000_0000
+			
+		1. Transfer of .data section to RAM (from FLASH)
+			1. It is called as 'C' start-up
+		2. .bss - reserved memory
+		3. stack - startup code can initialize stack pointer
+		4. 'C' startup code calls main function
+		5. Boundaries: (initial address and size)
+			1. `_edata`
+			2. `_sdata`
+			3. `_etext`
+				1. Symbols should be defined to hold boundary addresses
+					1. Startup code should have the initial addresses
+						1. How to obtain boundary values (later)
+5. Different data of a program and related sections
+	1. `local_un_data`
+	2. `local_i_data`
+	3. `local_un_s_data`
+	4. `local_i_s_data`
+	5. `global_un_data`
+	6. `global_i_data`
+	7. `global_un_s_data`
+	8. `global_i_s_data`
 
 ### Different Data and Sections of a Program ###
+5. Different data of a program and related sections
+	1. `local_un_data`
+	2. `local_i_data`
+	3. `local_un_s_data` 
+	4. `local_i_s_data`
+	5. `global_un_data`
+	6. `global_i_data`
+	7. `global_un_s_data`
+	8. `global_i_s_data`
+
 ### BSS vs Data ###
 ### Startup File of Microcontroller ###
 ### Writing Startup File of Microcontroller From Scratch Part-1 ###
