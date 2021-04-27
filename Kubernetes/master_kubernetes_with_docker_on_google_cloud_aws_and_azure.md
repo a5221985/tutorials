@@ -134,8 +134,39 @@
 1. eksctl - similar to kubectl
 	1. It is a simple CLI tool for instantiating clusters on EKS
 	2. Install from [https://eksctl.io](https://eksctl.io)
+		1. `eksctl version`
+2. Configure AWS CLI
+	1. `aws configure`
+		1. Access Key: <paste-key-id>
+		2. Secret: <paste-secret-key>
+		3. Use default region
+		4. Output format (default)
+	2. We need IAM user to access AWS from commandline
+		1. Add user
+			1. user name: aws-kubernetes-user
+			2. Acces type: Programmatic access
+			3. Next: Permissions
+				1. Developers
+			4. Next: Tags
+			5. Review
+			6. Create user
+		2. Copy access key id
+		3. Copy secret access key
 
 ### Step 08 - Construct a Kubernetes Cluster on AWS with EKS ###
+1. Visit Gihub: Copy command for creation of cluster
+
+		eksctl create cluster --name in28minutes-cluster \
+		--nodegroup-name in28minutes-cluster-node-group \
+		--node-type t2.medium --nodes 3 --nodes-min 3 \
+		--nodes-max 7 --managed --asg-access
+		
+	1. t2 - 4 GB Mem
+	2. nodes-max - if there is more demand it can go upto 7
+	3. asg-access - auto scaling (cluster autoscaling)
+		1. Adding nodes based on load
+	4. managed - entire cluster is managed automatically
+
 ### Step 09 - Quick Review of AWS Basics - Region, AZ, VPC and Subnet ###
 ### Step 10 - Quick Review of the AWS EKS Kubernetes Cluster ###
 ### Step 11 - Review Hello World and Web Apps from GKE Section ###
