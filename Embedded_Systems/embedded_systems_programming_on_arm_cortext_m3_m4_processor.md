@@ -4144,6 +4144,42 @@
 	1. The Common Object File Format (COFF): Introduced by Unix System V
 	2. Arm Image Format (AIF): Introduced by ARM
 	3. SRECORD: Introduced by Motorola
+3. Relocatable object files
+
+		(source file)					(relocatable object file)
+		main.c ----Compilation---> main.o
+										machine code file.
+										it doesn't contain
+										any absolute addresses
+										for data and code
+										
+	1. Object file analyzer tool:
+
+			arm-none-eabi-objdump -h main.o
+			
+		1. `-h` - displays contents of section headers (different sections)
+			1. `.text` - holds code or instructions
+			2. `.data` - holds data
+			3. `.bss` - holds un-initialized data
+			4. `.rodata` - holds read only data
+			5. `.comment` - added by compiler
+			6. `.ARM.attributes` - added by compiler
+		2. We can add our own user defined sections
+		3. Disassemble:
+
+				arm-none-eabi-objdump -d main.o > main_log
+				
+			1. All are from `.text` section
+			2. Sizes are displayed by `-h` of different sections
+		4. Full content: of all sections
+
+				arm-none-eabi-objdump -s main.o
+				
+			1. `.rodata` - constant data
+			2. `.comment` - metadata
+		5. Dis-assembly of all the sections:
+
+				arm-none-eabi-objdump -D main.o > main_log
 
 ### Code and Data of a Program ###
 ### Linker and Locator ###
