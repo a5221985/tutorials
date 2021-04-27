@@ -134,7 +134,11 @@
 1. eksctl - similar to kubectl
 	1. It is a simple CLI tool for instantiating clusters on EKS
 	2. Install from [https://eksctl.io](https://eksctl.io)
-		1. `eksctl version`
+
+			curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+			sudo mv /tmp/eksctl /usr/local/bin
+			eksctl version
+			
 2. Configure AWS CLI
 	1. `aws configure`
 		1. Access Key: <paste-key-id>
@@ -166,6 +170,8 @@
 	3. asg-access - auto scaling (cluster autoscaling)
 		1. Adding nodes based on load
 	4. managed - entire cluster is managed automatically
+		1. AWS manages it
+			1. If there is any patch, AWS applies the patch without any downtime
 
 ### Step 09 - Quick Review of AWS Basics - Region, AZ, VPC and Subnet ###
 ### Step 10 - Quick Review of the AWS EKS Kubernetes Cluster ###
