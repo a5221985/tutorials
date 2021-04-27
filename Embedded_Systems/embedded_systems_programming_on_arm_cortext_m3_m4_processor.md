@@ -3980,9 +3980,22 @@
 		1. GNU Tools (GCC) for ARM Embedded Processors (free and open-source)
 			1. Using GNU's Compiler Collection (GCC) toolchain
 		2. armcc from ARM Ltd. (ships with Keil, code restriction version (free), requires licensing (if we remove restriction))
-3. 
+3. Downloading GCC Toolchain for ARM embedded processors
+	1. If we have installed STM32CubeIDE, the toolchain would have already been installed as part of the installation
+	2. Official website to download GCC toolchain for ARM
+		1. [https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm)
+			1. Download the toolchain (search for gcc for arm)
+			2. GNU-RM > Downloads
+				1. `gcc-arm-nonde-eabi-...`
 
 ### Installing GCC ARM Cross Toolchain ###
+1. Double click to install
+	1. Default location
+	2. Check **Add path to environment variable**
+	3. We can refer to README
+2. Open terminal
+	1. `arm-none-eabi-gcc` - should detect the command
+
 ### Build Process ###
 ### Compilation and Compiler Flags ###
 ### Makefile ###
