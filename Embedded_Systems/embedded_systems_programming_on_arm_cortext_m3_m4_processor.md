@@ -4232,7 +4232,53 @@
 	1. Use linker to merge similar sections of different object files and resolve all undefined symbols of different object files (?)
 	2. Locator (part of linker) takes the help of linker script to
 		1. Understand how you wish to merge different sections
-		2. Assigns mentioned addresses to different sections
+		2. Assigns mentioned addresses to different sections (absolute addresses to merged sections)
+2. The following is done by linker and locator with the help of linker script provided by you
+
+		final.elf
+			.text -> .text(main.o), .text(led.o)
+			.data -> .data(main.o), .data(led.o)
+			.bss -> .bss(main.o), .bss(led.o)
+			.rodata -> .rodata(main.o), .rodata(led.o)
+			
+	1. Linked + Locator -> merging and relocation
+3. Storage of final executable in code memory
+
+
+						------------
+						
+							unused code memory
+						------------
+							.data (initialized global and static variables)
+						------------
+							.rodata
+						------------
+						
+							.text
+						------------
+						Vector Table
+		0x0800_0000	------------
+		
+	1. Program must be permanent after writing and hence in FLASH
+	2. Vector Table (required by firmware)
+		1. Included in startup file
+	3. .rodata - typically placed after `.text`
+	4. unused code memory - can be used for a different purpose
+	5. The `.data` section is relocated to RAM
+		1. Done by startup code
+4. Startup code:
+	1. Relocation
+
+							stack
+							-----------
+							Unused SRAM
+							
+							-----------
+							heap
+							-----------
+							.bss (un-initialized global and static variables)
+							-----------
+			.data -----> .data (initialized global and static variables) 0x2000_0000
 
 ### Different Data and Sections of a Program ###
 ### BSS vs Data ###
