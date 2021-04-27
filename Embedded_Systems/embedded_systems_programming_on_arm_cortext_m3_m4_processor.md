@@ -3902,8 +3902,26 @@
 		
 		// Repeat for task2, task3 and task4
 
+2. Since exception handlers and interrupt handlers are asynchronous in nature, we must avoid race conditions with global variables
+	1. `task_delay`
+		1. `user_tasks` - shared memory area
+			1. Solution: Disable interrupt before accessing global variable
+				1. Enable interrupt after finishing the access
+				2. Pri-Mask register can be used (globally disable)
+
+						// put the following in main.h
+						#define INTERRUPT_DISABLE() do{__asm volatile("MOV RO, #0x1"); __asm volatile("MSR PRIMASK, R0"); } while (0) // multiple lines
+						#define INTERRUPT_ENABLE() do{__asm volatile("MOV RO, #0x0"); __asm volatile("MSR PRIMASK, R0"); } while (0)
+						//...
+						
+						INTERRUPT_DISABLE(); // All interrupts are disabled, Hard RTOS may not accept this
+						// ...
+						INTERRUPT_ENABLE();
+
 ## Bare Metal Embedded and Linker Scripts ##
 ### Bare Metal Embedded ###
+1. Buiding and running bare metal executables for ARM target using GNU tools
+
 ### Cross Compilation and Toolchains ###
 ### Installing GCC ARM Cross Toolchain ###
 ### Build Process ###
