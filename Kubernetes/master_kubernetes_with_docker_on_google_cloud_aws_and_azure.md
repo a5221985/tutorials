@@ -124,9 +124,15 @@
 							5. Click Create
 
 ### Step 06 - Installing AWS CLI ###
-1. 
+1. Install aws cli (to use commandline to interact with AWS account)
+	1. Version V1
+		1. Using bundled installer
+			1. Follow the instructions
+		2. Using pip (if the above doesn't work)
 
 ### Step 07 - Install EKS CTL and Configure AWS CLI with IAM User ###
+1. 
+
 ### Step 08 - Construct a Kubernetes Cluster on AWS with EKS ###
 ### Step 09 - Quick Review of AWS Basics - Region, AZ, VPC and Subnet ###
 ### Step 10 - Quick Review of the AWS EKS Kubernetes Cluster ###
