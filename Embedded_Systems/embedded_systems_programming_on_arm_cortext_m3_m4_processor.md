@@ -3921,6 +3921,32 @@
 ## Bare Metal Embedded and Linker Scripts ##
 ### Bare Metal Embedded ###
 1. Buiding and running bare metal executables for ARM target using GNU tools
+	1. Section deliverables
+		1. Toolchain installation
+		2. Understand compiling a 'C' program for an embedded target without using an IDE
+		3. Writing microcontroller startup file for STM32F4 MCU
+		4. Writing your own 'C' startup code (code which runs before main())
+		5. Understanding different sections of the relocatable object file (.o files)
+		6. Writing linker script file from scratch and understanding section placements
+		7. Linking multiple .o files using linker script and generating application executable (.elf, bin, hex)
+		8. Loading the final executable on the target using OpenOCD and GDB client
+2. Steps:
+
+		User application (.c, .s files)
+			|
+			v
+		compiler (building)
+			|
+			v
+		linker (building)
+			|
+			v
+		programmer and debugger (downloading)
+			|
+			v
+		FLASH (running)
+		
+	1. Using command line tools only to do all the steps
 
 ### Cross Compilation and Toolchains ###
 ### Installing GCC ARM Cross Toolchain ###
