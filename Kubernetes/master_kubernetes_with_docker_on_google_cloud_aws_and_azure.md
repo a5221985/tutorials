@@ -10,9 +10,32 @@
 4. Download Github repo again
 
 ### Step 02 - Constructing an AWS Root Account ###
-1. 
+1. aws.amazon.com
+	1. Account creation
+2. Free Tier - Read about it
+3. Sign in to the Console
 
 ### Step 03 - Constructing an IAM User for your AWS Account ###
+1. Making AWS account more secure
+	1. IAM (Identity and Access Management) - IAM User
+		1. Email id and password used for registration - Root user
+			1. Can access console
+			2. Has programmatic access
+			3. Complete access (Can even close the account)
+			4. This account must only be used for creation of IAM users
+		2. IAM User
+			1. Sign into console
+				1. IAM
+					1. Users can be created
+					2. Users can be assigned to groups
+					3. Give permissions
+						1. Directly assign policies to User
+						2. Assign policies to group and add user to the group
+							1. Create New Group
+								1. Group Name: Developers
+								2. Attack Policy: (Pre-defined policies called **Managed Policies**)
+									1. AdministratorAccess (for now)
+
 ### Step 04 - Its Your Responsibility to Monitor Billing in Cloud - 5 Recommendations ###
 ### Step 05 - Monitor AWS Billing - Setting Billing Alerts ###
 ### Step 06 - Installing AWS CLI ###
