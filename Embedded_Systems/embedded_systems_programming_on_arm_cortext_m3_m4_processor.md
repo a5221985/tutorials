@@ -4180,6 +4180,27 @@
 		5. Dis-assembly of all the sections:
 
 				arm-none-eabi-objdump -D main.o > main_log
+				
+			1. Shows variables
+				1. Instructions in data section are not real commands
+					1. Disassembly tries to map to valid instructions
+		6. Why is it relocatable?
+			1. First instruction of `<main>` is placed at address 00000000
+			2. Rest of the instructions are at offset from the instruction 00000000
+			3. Linker script relocates to the right address
+			4. Makefile
+
+					# ...
+					all: main.o led.o
+					# ...
+					led.o: led.c
+						$(CC) $(CFLAGS) -o $@ $^
+						
+				1. `make all` - tries to resolve dependencies for `all`
+					1. It is done transitively
+				2. `led.o` - base address is 00000000 in `.o` file
+			5. Linker assigns relocatable addresses to each of the files
+				1. Decided based on microcontroller memory map
 
 ### Code and Data of a Program ###
 ### Linker and Locator ###
