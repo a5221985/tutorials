@@ -4045,8 +4045,37 @@
 		1. Relocatable object files:
 			1. Processor architecture specific machine codes with no absolute address (relocatable)
 				1. They carry relocatable addresses
+	4. Linking
+	
+			Re-locatable object files
+				|
+				v
+			Linker <- .a (other libraries (std and/or third party .ex. libc)
+				|
+				v
+			.elf (executable and debug file)
+				|
+				v
+			objcopy tool
+				|	|
+				v	v
+			.ihex	.bin (bin format)
+			(Intel hex format)
+			
+		1. All required relocatable object `.o` files will be taken by linker
+		2. It will resolve symbols and other info
+		3. It will merge different sections of `.o` files into one executable (final executable) (`.elf`)
+			1. `elf` - Executable and Linkable Format
 
 ### Compilation and Compiler Flags ###
+1. Open workspace `my_workspace`
+	1. Compilation
+
+			arm-none-eabi-gcc -c main.c -o main.o
+			
+		1. We don't want to link (just compile and generate `.o` file)
+		2. `-c` - just compile and assemble (don't link)
+
 ### Makefile ###
 ### Analyzing Relocatable Obj Files ###
 ### Code and Data of a Program ###
