@@ -3956,6 +3956,32 @@
 			4. main.h
 
 ### Cross Compilation and Toolchains ###
+1. Flow:
+
+		User application (.c, .s files) (high level language)
+			|
+			v
+		Executable (Embedded target specific machine code)
+		
+	1. Executable is copied to target board
+2. Cross compilation and toolchains
+	1. What is cross compilation?
+		1. It is a process in which cross-toolchain runs on host machine (PC) and generates executables that run on different machine (ARM)
+	2. What are the?
+		1. It is a collection of binaries which allows you to compile, assemble, link your applications
+		2. It also contains binaries to debug the application on target
+		3. It also comes with other binaries which help you analyze executables
+			1. Dissect different sections of executable
+			2. Disassemble
+			3. Extract symbol and size information
+			4. Convert executable to other formats such as bin, ihex
+			5. Provides 'C' standard libraries
+	3. Popular tool-chains
+		1. GNU Tools (GCC) for ARM Embedded Processors (free and open-source)
+			1. Using GNU's Compiler Collection (GCC) toolchain
+		2. armcc from ARM Ltd. (ships with Keil, code restriction version (free), requires licensing (if we remove restriction))
+3. 
+
 ### Installing GCC ARM Cross Toolchain ###
 ### Build Process ###
 ### Compilation and Compiler Flags ###
