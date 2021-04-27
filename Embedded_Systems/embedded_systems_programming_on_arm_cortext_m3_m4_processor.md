@@ -3997,6 +3997,11 @@
 	1. `arm-none-eabi-gcc` - should detect the command
 	2. Open GNU Tools Arm Embedded > <version> > bin (`/Applications/ARM/bin/arm-none-eabi-gcc` on Mac)
 		1. Binaries
+			1. Assembler
+			2. Compiler
+			3. Linker
+			4. elf analysers
+			5. ...
 
 ### Build Process ###
 ### Compilation and Compiler Flags ###
