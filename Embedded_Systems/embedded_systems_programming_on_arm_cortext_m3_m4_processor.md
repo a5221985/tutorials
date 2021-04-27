@@ -4100,8 +4100,33 @@
 							2. Instruction:
 
 									arm-none-eabi-gcc -c -mcpu=cortex-m4 -mthumb main.c -o main.o
+									
+								1. To generate Assembler code (and not object file)
+
+										arm-none-eabi-gcc -S -mcpu=cortex-m4 -mthumb main.c -o main.s
 
 ### Makefile ###
+1. Build automation:
+2. Makefile
+	1. Used to write steps
+	2. `make` command executes instructions in `Makefile`
+	3. Code
+
+			CC=arm-none-eabi-gcc # variable
+			MACH=cortext-m4
+			CFLAGS= -c -mcpu=$(MACH) -mthumb -std=gnu11 -O0
+			
+			main.o: main.c
+				$(CC) $(CFLAGS) $^ -o $@
+			
+		1. Syntax:
+
+				target: dependency
+					recipe
+					
+		2. `$^` - dependency
+		3. `$@` - target
+
 ### Analyzing Relocatable Obj Files ###
 ### Code and Data of a Program ###
 ### Linker and Locator ###
