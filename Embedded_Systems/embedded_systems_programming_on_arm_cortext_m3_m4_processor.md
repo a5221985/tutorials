@@ -3817,7 +3817,46 @@
 		2. PendSV handler - naked function
 
 ### Implementing PendSV Handler for Context Switch ###
-1. 
+1. Code
+
+
+		void task_delay(uint32_t tick_count) {
+			
+		}
+
+		__attribute__((naked)) void PendSV_Handler(void) {
+			// cut and paste all code from SysTick_Handler
+		}
+		
+		void unblock_tasks(void) {
+			for (int i = 1; i < MAX_TASKS; i++) {
+				if (user_tasks[i].current_state != TASK_RUNNING_STATE) {
+					if (user_tasks[i].block_count == g_tick_count) {
+						user_tasks[i].current_state = TASK_RUNNING_STATE; // Change it to TASK_READY_STATE
+					}
+				}
+			}
+		}
+		
+		void update_global_tick_count(void) {
+			g_tick_count++;
+		}
+		
+		void SysTick_Handler() { // doesn't have to be naked function
+			uint32_t *pICSR = (uint32_t*) 0xE000ED04;
+			update_global_tick_count();
+			unblock_tasks();
+			// pend pendsv exception
+			*pICSR |= (1 << 28);
+		} // When this exits, PendSV_Handler runs
+		
+	1. Generic User Guide
+		1. Interrupt Control and State Register
+			1. Set PENDSVSET bit
+				1. 0 - no effect
+				2. 1 - changes PendSV exception state to pending
+			2. Address:
+				1. 0xE000ED04
 
 ### Update Next Task and Testing ###
 
