@@ -78,7 +78,38 @@
 		2. Understand how pricing works for different resources
 
 ### Step 05 - Monitor AWS Billing - Setting Billing Alerts ###
-1. 
+1. Setting billing alerts
+	1. Login using IAM account (recommended)
+	2. My Billing Dashboard
+		1. Billing Preferences
+			1. Receive PDV invoice by Email
+			2. Receive Free Tier Usage Alerts
+			3. Receive Billing Alerts
+		2. Save preferences
+	3. Click Manage Billing Alerts (Using cloud watch)
+		1. Cloud watch: Used for monitoring service and trigger alarms if something un-expected happens
+			1. Usage of CPU is beyond certain limit
+		2. Select Billing
+			1. Ensure US East (N. Virginia) is selected
+			2. Click Billing
+				1. 10 free alarms and 1000 free e-mail notifications each month as part of AWS Free Tier
+			3. Click Create Alarm:
+				1. Estimated Charges
+				2. Period: 6 hours
+				3. Greater
+				4. 0 USD
+				5. Next
+				6. An Alarm
+				7. Create new topic (SNS - Simple Notification Service)
+					1. Sends email
+				8. Email id: <id>
+				9. Validate email address
+				10. Next
+				11. Name: Billing Alert
+				12. Next
+				13. Click Create Alarm
+		3. Another option:
+			1. Search for Budget
 
 ### Step 06 - Installing AWS CLI ###
 ### Step 07 - Install EKS CTL and Configure AWS CLI with IAM User ###
