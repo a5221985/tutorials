@@ -10,6 +10,8 @@
 4. Download Github repo again
 
 ### Step 02 - Constructing an AWS Root Account ###
+1. 
+
 ### Step 03 - Constructing an IAM User for your AWS Account ###
 ### Step 04 - Its Your Responsibility to Monitor Billing in Cloud - 5 Recommendations ###
 ### Step 05 - Monitor AWS Billing - Setting Billing Alerts ###
