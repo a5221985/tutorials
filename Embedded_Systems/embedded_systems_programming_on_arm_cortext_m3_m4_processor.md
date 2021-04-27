@@ -3819,9 +3819,23 @@
 ### Implementing PendSV Handler for Context Switch ###
 1. Code
 
+		void update_next_task(void) {
+			// ...
+		}
+		
+		// ...
+
+		void schedule(void) {
+			*pICSR |= (1 << 28); // pend the PendSV
+		}
 
 		void task_delay(uint32_t tick_count) {
-			
+			if (current_task) // 0 - Idle Task
+			{
+				// ...
+			}
+			// allow other tasks to run
+			schedule(); // trigger PendSV
 		}
 
 		__attribute__((naked)) void PendSV_Handler(void) {
@@ -3859,6 +3873,34 @@
 				1. 0xE000ED04
 
 ### Update Next Task and Testing ###
+1. Logic:
+
+		void update_next_task(void) {
+			int state = TASK_BLOCKED_STATE;
+			
+			for (int i = 0; i < MAX_TASKS; i++) {
+				current_task++;
+				current_task %= MAX_TASKS;
+				state = user_tasks[current_task].current_state;
+				if ((state == TASK_READY_STATE) && (current_task != 0))
+					break;
+			}
+			
+			if (state != TASK_READY_STATE)
+				current_task = 0;
+		}
+
+		// ...
+		void task1_handler(void) {
+			while (1) {
+				// ...
+				task_delay(1000); // 1000 ticks = 1000 ms
+				// ...
+				task_delay(1000);
+			}
+		}
+		
+		// Repeat for task2, task3 and task4
 
 ## Bare Metal Embedded and Linker Scripts ##
 ### Bare Metal Embedded ###
