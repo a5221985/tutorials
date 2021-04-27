@@ -163,7 +163,7 @@
 		eksctl create cluster --name in28minutes-cluster \
 		--nodegroup-name in28minutes-cluster-node-group \
 		--node-type t2.medium --nodes 3 --nodes-min 3 \
-		--nodes-max 7 --managed --asg-access
+		--nodes-max 7 --managed --asg-access --profile default
 		
 	1. t2 - 4 GB Mem
 	2. nodes-max - if there is more demand it can go upto 7
@@ -174,6 +174,8 @@
 			1. If there is any patch, AWS applies the patch without any downtime
 
 ### Step 09 - Quick Review of AWS Basics - Region, AZ, VPC and Subnet ###
+
+
 ### Step 10 - Quick Review of the AWS EKS Kubernetes Cluster ###
 ### Step 11 - Review Hello World and Web Apps from GKE Section ###
 ### Step 12 - Deploy Hello World Rest API to AWS EKS Kubernetes Cluster ###
