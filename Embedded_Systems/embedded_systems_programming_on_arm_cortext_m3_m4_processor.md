@@ -4042,7 +4042,9 @@
 				are converted into opcodes
 				(machine codes for instructions)
 				
-		1. 
+		1. Relocatable object files:
+			1. Processor architecture specific machine codes with no absolute address (relocatable)
+				1. They carry relocatable addresses
 
 ### Compilation and Compiler Flags ###
 ### Makefile ###
