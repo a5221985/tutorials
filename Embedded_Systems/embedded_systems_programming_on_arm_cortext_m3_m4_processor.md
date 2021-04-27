@@ -4002,8 +4002,48 @@
 			3. Linker
 			4. elf analysers
 			5. ...
+		2. The tools will run on host machine but constructs executables for ARM architecture
+3. Important binaries
+	1. Compiler, linker, assembler
+		1. Compiler: `arm-none-eabi-gcc` (compiles, assembles, links to construct executables)
+		2. Assembler: `arm-none-eabi-as` (assembly to machine code)
+		3. Analyzers:
+			1. `arm-none-eabi-objdump`
+			2. `arm-none-eabi-readelf`
+			3. `arm-none-eabi-nm`
+		4. Linker: `arm-none-eabi-ld`
+		5. Format converter: `arm-none-eabi-objcopy`
+			1. One exe format to another exe format
 
 ### Build Process ###
+1. Process:
+	1. Pre-processing:
+		
+			main.c -> compiler -> main.i
+				(pre-processing stage)
+				all pre-processing directives
+				will be resolved
+				
+		1. `#include`, macros, conditional compilation macros, ...
+	2. Translating a source file into assembly language
+		
+			main.i -> compiler -> main.s
+				(code generation stage)
+				Higher level language code
+				statements will be converted
+				into processor architectural
+				level mnemonics
+				
+	3. Assembly
+
+			main.s -> compiler -> main.o (relocatable object file)
+				(Assembler stage)
+				Assembly level mnemonics
+				are converted into opcodes
+				(machine codes for instructions)
+				
+		1. 
+
 ### Compilation and Compiler Flags ###
 ### Makefile ###
 ### Analyzing Relocatable Obj Files ###
