@@ -4075,7 +4075,7 @@
 			
 		1. We don't want to link (just compile and generate `.o` file)
 		2. `-c` - just compile and assemble (don't link)
-			1. GNU Compiler Collection (GCC) documentation:
+			1. GNU Compiler Collection (GCC) documentation: [https://gcc.gnu.org/onlinedocs/gcc-11.1.0/gcc/](https://gcc.gnu.org/onlinedocs/gcc-11.1.0/gcc/)
 				1. Options containing the kind of output
 		3. Problem: Assembler didn't work
 			1. We did not mention the processor architecture
@@ -4201,8 +4201,12 @@
 				2. `led.o` - base address is 00000000 in `.o` file
 			5. Linker assigns relocatable addresses to each of the files
 				1. Decided based on microcontroller memory map
+			6. Base address of data section is also 00000000
+			7. Base address of bss section is also 00000000
 
 ### Code and Data of a Program ###
+1. 
+
 ### Linker and Locator ###
 ### Different Data and Sections of a Program ###
 ### BSS vs Data ###
