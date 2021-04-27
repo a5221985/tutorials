@@ -4075,6 +4075,31 @@
 			
 		1. We don't want to link (just compile and generate `.o` file)
 		2. `-c` - just compile and assemble (don't link)
+			1. GNU Compiler Collection (GCC) documentation:
+				1. Options containing the kind of output
+		3. Problem: Assembler didn't work
+			1. We did not mention the processor architecture
+				1. The toolset can generate instructions for different architectures (M0, Arm 7, M3, M7, ...)
+					1. Fix: Give processor name or architecture
+						1. Machine dependent options: ARM Options
+
+								-march=armv7ve (M4)
+								
+						2. OR another option:
+
+								-mcpu=cortex-m4
+								
+							1. GCC uses this name to derive target ARM architecture (as if specified by `-march`)
+						3. Instruction:
+
+								arm-none-eabi-gcc -c -mcpu=cortex-m4 main.c -o main.o
+								
+						3. Another option: `-mthumb` (or else `-marm` will be considered by default)
+							1. Generates Thumb ISA instructions
+								1. There are other processors which support both
+							2. Instruction:
+
+									arm-none-eabi-gcc -c -mcpu=cortex-m4 -mthumb main.c -o main.o
 
 ### Makefile ###
 ### Analyzing Relocatable Obj Files ###
