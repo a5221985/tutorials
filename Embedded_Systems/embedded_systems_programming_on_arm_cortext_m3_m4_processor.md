@@ -3947,6 +3947,13 @@
 		FLASH (running)
 		
 	1. Using command line tools only to do all the steps
+3. Sample 'C' program:
+	1. Take files for task_scheduler
+		1. my_workspace/
+			1. led.c
+			2. led.h
+			3. main.c
+			4. main.h
 
 ### Cross Compilation and Toolchains ###
 ### Installing GCC ARM Cross Toolchain ###
