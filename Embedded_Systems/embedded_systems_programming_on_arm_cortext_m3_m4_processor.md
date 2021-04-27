@@ -4131,6 +4131,20 @@
 	2. Set PATH variable to directory of `make`
 
 ### Analyzing Relocatable Obj Files ###
+1. Analyzing .o files (Relocatable object files)
+	1. `main.o` is in `elf` format (Executable and Linkable Format)
+	2. ELF is standard file format for object files and executable files when you use GCC
+		1. Format standard: describes the way of organizing various elements of program into different sections
+			1. data
+			2. read-only data (constants)
+			3. code
+			4. uninitialized data
+			5. ...
+2. Other file formats
+	1. The Common Object File Format (COFF): Introduced by Unix System V
+	2. Arm Image Format (AIF): Introduced by ARM
+	3. SRECORD: Introduced by Motorola
+
 ### Code and Data of a Program ###
 ### Linker and Locator ###
 ### Different Data and Sections of a Program ###
