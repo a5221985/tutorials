@@ -194,6 +194,7 @@
 		2. We can have different resources inside
 			1. We don't want to allow access to all of those resources
 			2. We want to allow access only to the web-server
+		3. Solution: Private sub-nets, public sub-nets
 
 ### Step 10 - Quick Review of the AWS EKS Kubernetes Cluster ###
 ### Step 11 - Review Hello World and Web Apps from GKE Section ###
