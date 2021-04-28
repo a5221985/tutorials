@@ -205,7 +205,22 @@
 					3. ...
 
 ### Step 10 - Quick Review of the AWS EKS Kubernetes Cluster ###
-1. 
+1. Availability zones: us-east-1f, us-east-1d (6 azs)
+2. eksctl - uses cloud formation (Infrastructure as Code - YAML definition can be used to bring up the resources)
+3. Node-group - group of EC2 instances (nodes inside the cluster)
+
+		saved kubeconfig as "/Users/am/.kube/config" 
+		
+	1. Local kubectl is connected to the cluster
+		1. If we run kubectl commands, they will be executed against the cluster created
+	2. `kubectl get nodes` **(M)**
+	3. `kubectl version` **(M)**
+		1. Shows client version and server version
+4. Go to AWS console: Search for EKS
+	1. Open cluster
+		1. Node groups
+		2. Networks
+		3. ...
 
 ### Step 11 - Review Hello World and Web Apps from GKE Section ###
 ### Step 12 - Deploy Hello World Rest API to AWS EKS Kubernetes Cluster ###
