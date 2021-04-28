@@ -4350,6 +4350,13 @@
 3. .bss - initialized to zero
 
 ### BSS vs Data ###
+1. .bss (block started by symbol) and .data section
+	1. All uninitialized global variables and uninitialized static variables are stored in **.bss** section
+		1. The variables do not have initial values and hence don't have to be stored in **.data** section (**.data** consumes FLASH space)
+			1. If there is a large global uninitialized array in program and it is kept in **.data** section
+				1. It would occupy FLASH (waste of space without any info)
+	2. **.bss** doesn't consume any FLASH (unlike **.data** section)
+
 ### Startup File of Microcontroller ###
 ### Writing Startup File of Microcontroller From Scratch Part-1 ###
 ### Writing Startup File of Microcontroller From Scratch Part-2 ###
