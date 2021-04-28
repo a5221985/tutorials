@@ -195,8 +195,18 @@
 			1. We don't want to allow access to all of those resources
 			2. We want to allow access only to the web-server
 		3. Solution: Private sub-nets, public sub-nets
+			1. Public sub-nets: we can access from outside
+				1. We can put HTTP servers
+			2. Private sub-nets: Not allowed access outside virtual network
+				1. Only resources inside VPC can access
+				2. Examples:
+					1. DBs
+					2. App servers
+					3. ...
 
 ### Step 10 - Quick Review of the AWS EKS Kubernetes Cluster ###
+1. 
+
 ### Step 11 - Review Hello World and Web Apps from GKE Section ###
 ### Step 12 - Deploy Hello World Rest API to AWS EKS Kubernetes Cluster ###
 ### Step 13 - Deploy Web App H2 to AWS EKS Kubernetes Cluster ###
