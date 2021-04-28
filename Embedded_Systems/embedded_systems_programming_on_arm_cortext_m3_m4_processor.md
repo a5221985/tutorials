@@ -4304,7 +4304,7 @@
 	8. `global_i_s_data`
 
 ### Different Data and Sections of a Program ###
-5. Different data of a program and related sections
+1. Different data of a program and related sections
 	1. `local_un_data`
 		1. local data of function
 			1. Goes into stack (constructed and destroyed)
@@ -4331,6 +4331,23 @@
 	8. `global_i_s_data`
 		1. initialized static data (private)
 			1. Stored in data section
+2. LMA - Load Memory Address (in FLASH)
+3. VMA - Virtual Memory Address (Not virtual for microcontrollers)
+	1. Startup code relocates to this
+4. Table:
+	1. Variable (data) | LOAD time | RUN time | Section | Note
+	2. Global initializ| FLASH     | RAM      | .data   | copied to RAM
+	3. Global un-init  | ---       | RAM      | .bss    | space reserve
+	4. Global static in| FLASH     | RAM      | .data   | copied to RAM
+	5. Global static un| ---       | RAM      | .bss    | space reserve
+	6. Local init      | ---       | STACK    | ---     | consumed dyna
+	7. Local un-initial| ---       | STACK    | ---     | consumed dyna
+	8. Local static ini| FLASH     | RAM      | .data   | copied to RAM
+	9. Local static un-| ---       | RAM      | .bss    | space reserve
+	10. All global cons| FLASH     | ---      | .rodata |
+	11. All local cons | ---       | STACK    | ---     | Like locals
+
+3. .bss - initialized to zero
 
 ### BSS vs Data ###
 ### Startup File of Microcontroller ###
