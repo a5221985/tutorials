@@ -223,7 +223,13 @@
 		3. ...
 
 ### Step 11 - Review Hello World and Web Apps from GKE Section ###
-1. 
+1. Solution to changing `aws sts get-caller-identity --profile default` to `aws sts get-caller-identity` is:
+	
+		unset AWS_ACCESS_KEY_ID
+		unset AWS_SECRET_ACCESS_KEY
+		export AWS_PROFILE=default
+		
+	1. Because `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` take precedence of `AWS_PROFILE` [https://stackoverflow.com/questions/49987458/aws-profile-not-working-with-aws-cli#:~:text=You%20have%20to%20unset%20both,then%20it%20should%20work%20correctly.&text=You%20can%20see%20that%20when,time%20you%20make%20this%20post.](https://stackoverflow.com/questions/49987458/aws-profile-not-working-with-aws-cli#:~:text=You%20have%20to%20unset%20both,then%20it%20should%20work%20correctly.&text=You%20can%20see%20that%20when,time%20you%20make%20this%20post.)
 
 ### Step 12 - Deploy Hello World Rest API to AWS EKS Kubernetes Cluster ###
 ### Step 13 - Deploy Web App H2 to AWS EKS Kubernetes Cluster ###
