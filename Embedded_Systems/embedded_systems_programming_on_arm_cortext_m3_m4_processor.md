@@ -4306,13 +4306,31 @@
 ### Different Data and Sections of a Program ###
 5. Different data of a program and related sections
 	1. `local_un_data`
+		1. local data of function
+			1. Goes into stack (constructed and destroyed)
 	2. `local_i_data`
+		1. Stored in stack
 	3. `local_un_s_data` 
+		1. It is like global data but private to function
+			1. Goes into BSS
 	4. `local_i_s_data`
-	5. `global_un_data`
+		1. It is like global data but private to function
+			1. Goes into Data section
+	5. `global_un_data` - global variables
+		1. un-initialized
+			1. It is not carrying any information
+				1. Since these variables don't carry any useful data to "remember", why would you store in FLASH and waste memory?
+					1. Compiler doesn't include the variables as part of .data section
+						1. It belongs to BSS
 	6. `global_i_data`
+		1. initialized
+			1. It should be stored in data section
 	7. `global_un_s_data`
+		1. un-initialized, static data (private)
+			1. Not stored in data section (moved to bss)
 	8. `global_i_s_data`
+		1. initialized static data (private)
+			1. Stored in data section
 
 ### BSS vs Data ###
 ### Startup File of Microcontroller ###
