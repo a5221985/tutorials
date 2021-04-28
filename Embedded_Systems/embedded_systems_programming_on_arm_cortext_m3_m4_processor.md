@@ -4356,6 +4356,10 @@
 			1. If there is a large global uninitialized array in program and it is kept in **.data** section
 				1. It would occupy FLASH (waste of space without any info)
 	2. **.bss** doesn't consume any FLASH (unlike **.data** section)
+		1. Just reserve RAM space for **.bss** section just using size & initialize the space to zero
+			1. Typically done in startup code
+	3. Linker helps us determine the final size of **.bss** section
+		1. Obtain size info from linker script symbols
 
 ### Startup File of Microcontroller ###
 ### Writing Startup File of Microcontroller From Scratch Part-1 ###
