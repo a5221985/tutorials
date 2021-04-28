@@ -223,6 +223,8 @@
 		3. ...
 
 ### Step 11 - Review Hello World and Web Apps from GKE Section ###
+1. 
+
 ### Step 12 - Deploy Hello World Rest API to AWS EKS Kubernetes Cluster ###
 ### Step 13 - Deploy Web App H2 to AWS EKS Kubernetes Cluster ###
 ### Step 14 - Deploy Web App with MySQL to AWS EKS Kubernetes Cluster ###
