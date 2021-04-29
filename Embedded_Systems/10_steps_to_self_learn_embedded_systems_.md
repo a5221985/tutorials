@@ -90,4 +90,26 @@
 	1. Started by Alan Turing & Kurt Godel
 
 ## Networking and Communication ##
+1. Protocols
+	1. IP (Internet Protocol)
+	2. ICMP (Internet Control Message Protocol) - network maintenance and debugging
+	3. IGMP (Internet Group Managemnt Protocol) - multicast traffic management
+		1. Streaming TV info over internet (for multiple subscribers)
+	4. UDP (User Datagram Protocol) (games - online)
+	5. TCP (Transmission Control Protocol)
+	6. DNS (Domain Name Server)
+	7. SNMP (Simple Network Management Protocol)
+	8. DHCP (Dynamic Host Configuration Protocol)
+	9. AUTOIP (for IPv4, confirm with RFC 3927)
+	10. PPP (Point-to-Point Protocol) (model lines)
+	11. ARP (Address Resolution Protocol) for Ethernet (IP to MAC)
+2. What do the protocols mean and how to use them
+
 ## DSP, Control, Filtering and Mathematics ##
+1. Spate-space models
+	1. For arranging multiple dynamic equations into a formal system
+	2. Apply generic rules
+2. Linear algebra (to understand state space models)
+3. Transfer functions (can be converted to state space models)
+	1. s-domain (analog - continuous time domain)
+	2. z-domain (digital - discrete time domain)
