@@ -25,14 +25,60 @@
 
 ## How Computers Work ##
 1. Flash
+	1. Has limited cycles
+		1. We don't want to write to file system much (logging say)
+			1. System might break
 2. SRAM
 3. DRAM
 4. EEPROM
+5. Emulators
+	1. We can write emulator to learn about hardware
+6. General purpose computer hardware
+	1. Simulation
+		1. Good for FPGAs
+		2. Verilog can be used on simulation
+7. QEmu - Emulator
+	1. Try to understand how it works
 
 ## Linux, Build Tools, Emacs, Vim ##
+1. Good to know to write build scripts
+	1. Makefile
+	2. CMake
+	3. Automake
+	4. Automate system
+		1. Command-line tools
+
 ## Electronic Circuits - Analog + Digital ##
+1. Simulation tools:
+	1. Qucs
+	2. LTSpice
+	3. ngspice
+	4. xspice
+		1. Digital circuits
+		2. Can be extended with C
+			1. C programs to simulate digital circuits can be plugged in
+
 ## Schematic Design & PCB Layout ##
+1. How to design power supplies
+	1. Buck regulator (high to low)
+	2. Boost regulator (low to high)
+2. Lay out RF circuits
+	1. High frequency signals
+		1. Arranging tracks
+			1. Can get filtering working
+3. Routing high speed designs (DRAM say)
+	1. All tracks are of same length say
+		1. High frequency and high speed signals need to arrive at the same time say
+4. [https://hforsten.com](https://hforsten.com) - continuous frequency radar
+
 ## Datasheet to PCB and Firmware ##
+1. Manufacturer application notes
+	1. Valuable info related to components
+	2. General understanding of circuit
+		1. Basics as well
+2. Examples:
+	1. Reference design
+
 ## FPGA, VHDL, Verilog and Logic ##
 ## Networking and Communication ##
 ## DSP, Control, Filtering and Mathematics ##
