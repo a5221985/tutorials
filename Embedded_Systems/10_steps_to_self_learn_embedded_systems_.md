@@ -78,7 +78,16 @@
 		1. Basics as well
 2. Examples:
 	1. Reference design
+		1. We can customise and integrate into our own circuit
 
 ## FPGA, VHDL, Verilog and Logic ##
+1. Gates: AND, OR, NAND, NOR, XOR
+2. Boolean algebra - it enables simplification of logical circuits
+3. DeMorgan's theorem
+	1. Logical expression to convert to sum of products (for simplification)
+		1. Convert into NAND gates only (say - for FPGA)
+4. Computer logic
+	1. Started by Alan Turing & Kurt Godel
+
 ## Networking and Communication ##
 ## DSP, Control, Filtering and Mathematics ##
