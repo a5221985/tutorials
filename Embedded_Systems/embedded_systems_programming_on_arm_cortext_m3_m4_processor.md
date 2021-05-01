@@ -4460,7 +4460,31 @@
 					rm -rf *.o *.elf
 
 ### Writing Startup File of Microcontroller From Scratch Part-2 ###
+1. Instructing compiler to put vector into a user defined section
+	1. Solution: Using compiler attribute
+		1. GCC document: Common Variable Attribute > section Attribute
+			1. Special section (instead of `.data` and `.bss`)
 
+					struct duart a __attribute__((section ("DUART_A"))) = { 0 };
+					
+				1. Compiler generates a section by the name `DUART_A` and stores the variable in that section
+			2. Changes:
+
+					uint32_t vectors[] __attribute__((section (".isr_vector"))) = {
+						STACK_START,
+						(uint32_t) &Reset_Handler,
+						(uint32_t) &NMI_Handler
+					};
+					
+					void Default_Handler(void) {
+					
+					}
+					
+				1. Now run: `arm-none-eabi-objdump.exe -h stm32_startup.o`
+				2. It can be used with function prototype has well
+				3. We need creation of 15 system exception handlers and 82 interrupt handlers
+					1. we can have a single default handler for all exceptions and allow programmer to implement required handlers per application requirements
+						1. Programmer may not be using all of them
 
 ### Writing Startup File of Microcontroller From Scratch Part-3 ###
 ### Writing Linker Script From Scratch Part-1 ###
