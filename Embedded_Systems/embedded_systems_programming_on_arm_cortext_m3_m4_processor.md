@@ -4501,7 +4501,22 @@
 				5. In place of reserved, we have to put 0s
 
 ### Writing Startup File of Microcontroller From Scratch Part-3 ###
-1. 
+1. Populate rest of the vector table
+2. Write start-up code which initializes .data and .bss
+	1. Can be done in Reset_Handler (first function to get executed when processor undergoes reset)
+
+			void Reset_Handler(void) {
+				// copy data section to SRAM
+				
+				//init, the .bss section to 0 in SRAM
+				
+				// call init function of standard library (printf, scanf, ...)
+				
+				// call main()
+			}
+			
+		1. Boundary info and size info
+			1. Must be exported from linker script to startup file
 
 ### Writing Linker Script From Scratch Part-1 ###
 ### Writing Linker Script From Scratch Part-2 ###
