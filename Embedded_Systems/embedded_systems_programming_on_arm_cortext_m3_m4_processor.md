@@ -4530,14 +4530,29 @@
 	6. We must supply linker script at linking phase to linker using `-T` option
 2. Linker script commands
 	1. `ENTRY`
-		1. The command is used to set `entry point address` info in header of final elf file generated
+		1. The command is used to set `entry point address` info in header of final elf file generated (populates entry point info in elf header)
 			1. `Reset_Handler` in our case is entry point into application
 				1. The first piece of code that executes right after processor reset
 		2. Debugger uses the info to locate first function to execute
 		3. Not a mandatory command to use
 			1. Required when we debug elf file using debugger (GDB)
-		4. Syntax: `Entry(_symbol_name_)`
+		4. Syntax: `ENTRY(_symbol_name_)` (function name aka symbol)
+
+				ENTRY(Reset_Handler)
+				
+		5. Code: `vi stm32_ls.ld`
+
+				ENTRY(Reset_Handler)
+		
 	2. `MEMORY`
+		1. The command allows us to describe different memories present in target and their start address and size info
+		2. The linker uses info mentioned in the command to assign addresses to merged sections
+		3. The info is given under the command
+			1. Helps linker to calculate total code and data memories consumed so far
+			2. Throw error message if data, code, heap or stack areas cannot fit into available size
+		4. Using memory command, we can fine-tune various memories available in target and allow different sections to occupy different memory areas
+		5. Typically, one linker script has one memory command
+	
 	3. `SECTIONS`
 	4. `KEEP`
 	5. `ALIGN`
