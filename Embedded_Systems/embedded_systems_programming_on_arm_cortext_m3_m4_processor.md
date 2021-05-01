@@ -4361,8 +4361,42 @@
 		2. It does not have a load address
 	3. Linker helps us determine the final size of **.bss** section
 		1. Obtain size info from linker script symbols
+2. Example:
+
+		#include <stdint.h>
+		
+		uint32_t d_count = 300000; // into .data section
+		
+		int g_un_data1; // into .bss
+		int g_un_data2 = 0; // into .bss (since it is 0)
+		int g_i_data = 0x55; // .data
+		static int g_un_s_data; // .bss
+		static int g_i_s_data = 0x44; // .data
+		
+		int main(void) {
+			// ...
+			int l_un_data; // stack
+			int l_i_data = 0x98; // stack but const is stored in flash
+			static int l_un_s_data; // .bss
+			static int l_i_s_data = 0x24; // .data
+			// ...
+		}
 
 ### Startup File of Microcontroller ###
+1. Importance of start-up file
+	1. Startup file is responsible for setting up right environment for main user code to run
+	2. Code written in startup file runs before main().
+		1. You can say startup file calls `main()`
+	3. Some part of startup code file is target (Processor) dependent
+	4. Startup code takes care of vector table placement (processor dependent) in code memory as required by ARM Cortex Mx processor
+		1. Stack pointer initialization - the way we access stack pointer can be processor specific
+		2. It may need to turn on co-processor (FPU say)
+			1. If main code wants to do floating point operations
+	5. Startup code may also take care of stack re-initialization
+		1. It can alter stack placement
+	6. Startup code is responsible of `.data`, `.bss` section initialization in main memory
+		1. 
+
 ### Writing Startup File of Microcontroller From Scratch Part-1 ###
 ### Writing Startup File of Microcontroller From Scratch Part-2 ###
 ### Writing Startup File of Microcontroller From Scratch Part-3 ###
