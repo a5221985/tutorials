@@ -4470,14 +4470,18 @@
 				1. Compiler generates a section by the name `DUART_A` and stores the variable in that section
 			2. Changes:
 
+					void NMI_Handler(void) __attribute__((weak, alias("Default_Handler")));
+					void Hard_Handler(void) __attribute__((weak, alias("Default_Handler")));
+
 					uint32_t vectors[] __attribute__((section (".isr_vector"))) = {
 						STACK_START,
 						(uint32_t) &Reset_Handler,
-						(uint32_t) &NMI_Handler
+						(uint32_t) &NMI_Handler,
+						(uint32_t) &Hard_Fault,
 					};
 					
 					void Default_Handler(void) {
-					
+						while(1);
 					}
 					
 				1. Now run: `arm-none-eabi-objdump.exe -h stm32_startup.o`
@@ -4485,8 +4489,20 @@
 				3. We need creation of 15 system exception handlers and 82 interrupt handlers
 					1. we can have a single default handler for all exceptions and allow programmer to implement required handlers per application requirements
 						1. Programmer may not be using all of them
+				4. Function attribute: `weak` and `alias`
+					1. `weak`: Lets programmer to override already defined weak function (dummy) with same function name
+					2. `alias`: Lets programmer to give alias name for a function
+						1. `Default_Handler` is an alias function name for `NMI_Handler`
+							1. In vector table array, address of `Default_Handler` will be stored
+								1. When NMI exception triggers, `Default_Handler` will be executed
+					3. For programmer to override the functions, we have to make the symbols as `weak`
+						1. Programmer can override the function with same function name in main application
+							1. Programmer can implement real implementation of handling the exception
+				5. In place of reserved, we have to put 0s
 
 ### Writing Startup File of Microcontroller From Scratch Part-3 ###
+1. 
+
 ### Writing Linker Script From Scratch Part-1 ###
 ### Writing Linker Script From Scratch Part-2 ###
 ### Location Counter ###
