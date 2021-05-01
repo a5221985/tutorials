@@ -4519,6 +4519,14 @@
 			1. Must be exported from linker script to startup file
 
 ### Writing Linker Script From Scratch Part-1 ###
+1. Linker scripts
+	1. Linker script is text file which explains how different sections of the object files should be merged to construct an output file
+	2. Linker and locator combination assigns unique absolute addresses to different sections of the output file by referring to address info mentioned in linker script
+	3. Linker script also includes code and data memory address and size information
+	4. Linker scripts are written using GNU linker command language
+	5. GNU linker script has file extension of .ld
+	6. We must supply linker script at linking phase to linker using -T option
+
 ### Writing Linker Script From Scratch Part-2 ###
 ### Location Counter ###
 ### Linker Script Symbols ###
