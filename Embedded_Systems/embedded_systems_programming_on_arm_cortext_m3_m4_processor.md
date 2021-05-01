@@ -4395,9 +4395,45 @@
 	5. Startup code may also take care of stack re-initialization
 		1. It can alter stack placement
 	6. Startup code is responsible of `.data`, `.bss` section initialization in main memory
-		1. 
+		1. Copying data to `.data` and initialize `.bss` and then call `main()`
 
 ### Writing Startup File of Microcontroller From Scratch Part-1 ###
+1. Start-up file
+	1. Construct a vector table for microcontroller. 
+		1. Vector tables are MCU specific
+	2. Write a start-up code which initializes `.data` and `.bss` section in SRAM
+	3. Call `main()`
+2. Workspace
+	1. `touch stm32_startup.c` - (or `.s` - assembly)
+		1. Vector table placement:
+		
+				Addr of IRQ81 handler - 0x0800_0184
+				Addr of IRQ80 handler - 0x0800_0180
+				Addr of IRQ79 handler - 0x0800_017C
+				...
+				Addr of hardfault handler - 0x0800_000C
+				Addr of NMI handler   - 0x0800_0008
+				Addr of reset handler - 0x0800_0004
+				Initial MSP value     - 0x0800_0000
+				
+			1. MSP
+			2. 15 system exceptions
+			3. 82 IRQs (IRQ0 - IRQ81)
+		2. Total mem consumed: 82 + 15 + 1 = 98 word addressable memory locations = 98 * 4 = 392 bytes
+	2. Construction of Vector Table:
+		1. Construct an array to hold MSP and handlers addresses.
+
+				uint32_t vectors[] = {store MSP and address of various handlers here};
+				
+		2. Instruct compiler not to include above array in `.data` section but in different user defined section
+	3. Code:
+
+			#include <stdint.h>
+			
+			uint32_t vectors[] = {
+				
+			};
+
 ### Writing Startup File of Microcontroller From Scratch Part-2 ###
 ### Writing Startup File of Microcontroller From Scratch Part-3 ###
 ### Writing Linker Script From Scratch Part-1 ###
