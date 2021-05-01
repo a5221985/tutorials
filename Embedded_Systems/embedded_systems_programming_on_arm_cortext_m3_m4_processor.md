@@ -4430,11 +4430,38 @@
 
 			#include <stdint.h>
 			
+			#define SRAM_START 0x20000000U
+			#define SRAM_SIZE (128 * 1024) // 128 KB
+			#define SRAM_END ((SRAM_START) + (SRAM_SIZE))
+			
+			#define STACK_START SRAM_END
+			
+			void Reset_Handler(void);
+			
 			uint32_t vectors[] = {
-				
+				STACK_START,
+				(uint32_t) &Reset_Handler,
 			};
+			
+			void Reset_Handler(void) {
+				
+			}
+			
+		1. `vi Makefile`
+
+				CFLAGS=... -Wall -O0
+
+				all: main.o led.o stm32_startup.o
+				# ...
+				stm32_startup.o: stm32_startup.c
+					$(CC) $(CFLAGS) -o $@ $^
+					
+				clean: # deletes object files and elf files
+					rm -rf *.o *.elf
 
 ### Writing Startup File of Microcontroller From Scratch Part-2 ###
+
+
 ### Writing Startup File of Microcontroller From Scratch Part-3 ###
 ### Writing Linker Script From Scratch Part-1 ###
 ### Writing Linker Script From Scratch Part-2 ###
