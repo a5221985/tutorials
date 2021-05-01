@@ -4358,6 +4358,7 @@
 	2. **.bss** doesn't consume any FLASH (unlike **.data** section)
 		1. Just reserve RAM space for **.bss** section just using size & initialize the space to zero
 			1. Typically done in startup code
+		2. It does not have a load address
 	3. Linker helps us determine the final size of **.bss** section
 		1. Obtain size info from linker script symbols
 
