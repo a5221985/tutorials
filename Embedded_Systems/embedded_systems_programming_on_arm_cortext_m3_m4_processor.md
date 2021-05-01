@@ -4523,9 +4523,25 @@
 	1. Linker script is text file which explains how different sections of the object files should be merged to construct an output file
 	2. Linker and locator combination assigns unique absolute addresses to different sections of the output file by referring to address info mentioned in linker script
 	3. Linker script also includes code and data memory address and size information
+		1. We have to mention various memories present on target board
+		2. We have to mention size and address information
 	4. Linker scripts are written using GNU linker command language
 	5. GNU linker script has file extension of .ld
-	6. We must supply linker script at linking phase to linker using -T option
+	6. We must supply linker script at linking phase to linker using `-T` option
+2. Linker script commands
+	1. `ENTRY`
+		1. The command is used to set `entry point address` info in header of final elf file generated
+			1. `Reset_Handler` in our case is entry point into application
+				1. The first piece of code that executes right after processor reset
+		2. Debugger uses the info to locate first function to execute
+		3. Not a mandatory command to use
+			1. Required when we debug elf file using debugger (GDB)
+		4. Syntax: `Entry(_symbol_name_)`
+	2. `MEMORY`
+	3. `SECTIONS`
+	4. `KEEP`
+	5. `ALIGN`
+	6. `AT>`
 
 ### Writing Linker Script From Scratch Part-2 ###
 ### Location Counter ###
