@@ -4974,6 +4974,26 @@
 	3. Debug adapter helps us download and debug the code
 	4. Some advanced debuggers help us capture trace events such as 
 		1. On the fly instruction trace and profiling info
+5. Popular debug adapters
+	1. SEGGER J-Link EDU - JTAG/SWD Debugger
+		1. Multiple CPUs supported - 8051, PIC32, RX, ARM7/9/11
+		2. Cortex M/R/A, RISC-V
+		3. Download speed up to 1 MByte/s
+		4. Debug Protocol: JTAG/SWD
+		5. Target Interface: 20-pin
+			1. Debug interface
+			2. Trace interface
+			3. ...
+	2. Keil ULink/Pro
+		1. Target Connectors 10-pin (0.05") - Cortex Debug Connector
+		2. 20-pin (0.10") - ARM Standard JTAG Connector
+		3. 20-pin (0.05") - Cortex Debug + ETM Connector
+		4. SWO (100 Mbps)
+		4. Provides extended on-the-fly debug capabilities for Cortex-M devices (while processor is running at full speed). 
+			1. We can control the processor
+			2. We can set breakpoints
+			3. We can read/write memory contents
+		5. High-Speed data and instruction trace are streamed directly to the PC enabling us to analyze detailed program behaviour
 
 ### Steps to Download Code Using OpenOCD ###
 ### Using GDB Client ###
