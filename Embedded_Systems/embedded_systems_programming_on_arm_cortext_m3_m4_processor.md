@@ -4711,6 +4711,11 @@
 				1. How is this done?
 					1. Done using symbol table
 						1. Compiler maintains a table called symbol table in main.o
+							1. Variable name or function name is called symbol name
+							2. The address is resolved using symbol table
+						2. Every object file maintains a symbol table
+2. Inside linker script we want to catch boundary information
+	1. We cannot use variables but we need to define symbols
 
 ### Writing Linker Script From Scratch Part-3 ###
 ### Linking and Linker Flags ###
