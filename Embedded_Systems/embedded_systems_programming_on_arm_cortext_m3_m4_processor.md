@@ -4970,7 +4970,10 @@
 			2. JTAG
 		2. Since HOST doesn't support such interfaces
 	2. It does protocol conversion
-		1. Example: Commands and messages coming from host application in the form of USB packets will be converted to equiv
+		1. Example: Commands and messages coming from host application in the form of USB packets will be converted to equivalent debug interface signaling (SWD or JTAG) and vice versa
+	3. Debug adapter helps us download and debug the code
+	4. Some advanced debuggers help us capture trace events such as 
+		1. On the fly instruction trace and profiling info
 
 ### Steps to Download Code Using OpenOCD ###
 ### Using GDB Client ###
