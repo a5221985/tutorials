@@ -4595,6 +4595,15 @@
 	6. `AT>`
 
 ### Writing Linker Script From Scratch Part-2 ###
+1. Sections command:
+	1. SECTIONS command
+		1. used to construct different output sections in final elf executable generated
+	2. Important command
+		1. We can instruct linker how to merge input sections to yield output section
+	3. Command also controls order in which different output sections appear in elf file generated
+	4. Using the command, you also mention placement of section in memory region
+		1. 
+
 ### Location Counter ###
 ### Linker Script Symbols ###
 ### Writing Linker Script From Scratch Part-3 ###
