@@ -4994,6 +4994,37 @@
 			2. We can set breakpoints
 			3. We can read/write memory contents
 		5. High-Speed data and instruction trace are streamed directly to the PC enabling us to analyze detailed program behaviour
+	3. ST-LINK/V2
+		1. In-circuit debugger and programmer for STM8 and STM32 microcontroller families
+		2. Single Wire Interface Module (SWIM) and JTAG/Serial Wire Debugging (SWD) interfaces
+			1. Used to communicate with any STM8 and STM32 microcontroller located on application board (only STM)
+				1. Hacks:
+					1. We can flash JLink firmware and convert it to JLink hardware (from Segger)
+	4. STM32F4-DISC1 board
+		1. It has embedded ST-LINK-V2A in-circuit programmer and debugger
+		2. Supports only SWD debug protocol (No JTAG)
+		3. This debugger can be used to program the microcontroller
+6. Downloading process:
+
+		HOST PC		
+		Telnet Client		GDB Client
+		(Port 4444)		(Port 3333)
+				^           ^
+				|           |
+				+-----+-----+
+				      |
+				      v
+				   OpenOCD           <---- Telnet Client (remote)
+				(GDB, Telnet server, <---- GDB Client (remote)
+				Flash programming driver)
+				      ^
+				      |
+				      v
+				  ST-LINK driver <-----SWD or JTAG
+				                       Debug adapter
+				                           |
+				                           v
+				                       
 
 ### Steps to Download Code Using OpenOCD ###
 ### Using GDB Client ###
