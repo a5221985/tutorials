@@ -4633,6 +4633,27 @@
 		1. `lma` - load memory address
 		2. `vma` - virtual memory address
 	5. `.data` - used to merge all data sections
+	6. Code:
+
+			SECTIONS
+			{
+				.text:
+				{
+					*(.isr_vector)
+					*(.text)
+					*(.rodata)
+				}> FLASH AT> FLASH
+			}
+			
+		1. `*` - wildcard character
+			1. Says merge `.text` section of all input files
+		2. Storage of final executable:
+			1. Initial storage must contain vector table
+			2. Then text section
+		3. We have to mention two memory regions for .text (vma, lma)
+			1. But this is not relocatable address
+				1. vma and lma are same for this section (it is in FLASH)
+					1. Linker generates absolute addresses for the section
 
 ### Location Counter ###
 ### Linker Script Symbols ###
