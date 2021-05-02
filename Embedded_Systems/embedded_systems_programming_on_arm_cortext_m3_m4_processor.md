@@ -4546,12 +4546,23 @@
 		
 	2. `MEMORY`
 		1. The command allows us to describe different memories present in target and their start address and size info
-		2. The linker uses info mentioned in the command to assign addresses to merged sections
+		2. The linker uses info mentioned in the command to assign addresses to merged sections (relocation to different addresses)
 		3. The info is given under the command
 			1. Helps linker to calculate total code and data memories consumed so far
 			2. Throw error message if data, code, heap or stack areas cannot fit into available size
 		4. Using memory command, we can fine-tune various memories available in target and allow different sections to occupy different memory areas
 		5. Typically, one linker script has one memory command
+		6. Syntax:
+
+				MEMORY
+				{
+					name(attr): ORIGIN = origin, LENGTH = len
+				}
+				
+			1. ORIGIN - defines origin address of memory region
+			2. name - defines name of memory region
+				1. This will later be referenced by other parts of linker script
+			3. LENGTH - defines length info
 	
 	3. `SECTIONS`
 	4. `KEEP`
