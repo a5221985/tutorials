@@ -4562,6 +4562,8 @@
 			1. ORIGIN - defines origin address of memory region
 			2. name - defines name of memory region
 				1. This will later be referenced by other parts of linker script
+				2. It is label
+				3. It has attribute list
 			3. LENGTH - defines length info
 	
 	3. `SECTIONS`
