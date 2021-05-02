@@ -4606,7 +4606,23 @@
 			1. You instruct linker to place `.text` section in FLASH memory region (described by MEMORY command)
 2. Example:
 
-		
+		/* Sections */
+		SECTIONS
+		{
+			/* This section should include .text section of all input files */
+			.text:
+			{
+				// merge all .isr_vector section of all input files
+				// merge all .text section of all input files
+				// merge all .rodata section of all input files
+			} >(vma) AT>(lma)
+			
+			/* This section should include .data section of all input files */
+			.data:
+			{
+				// here merge all .data section of all input files
+			}>(vma) AT>(lma)
+		}
 
 ### Location Counter ###
 ### Linker Script Symbols ###
