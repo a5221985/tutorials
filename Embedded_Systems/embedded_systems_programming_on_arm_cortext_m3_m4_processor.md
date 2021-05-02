@@ -4675,8 +4675,43 @@
 1. We need to know the boundary
 	1. Where .rodata ends
 2. We need to know the size (or ending address of .rodata and .data)
+	1. We can use this info to in 'C' start-up code
+3. Boundary info:
+4. Location counter (.)
+	1. This is special linker symbol denoted by a dot '.'
+	2. Symbol is called **location counter** since linker automatically updates the symbol with location (address) info
+	3. We can use this symbol inside linker script to track and define boundaries of various sections
+	4. We can also set location counter to any specific value while writing linker script
+	5. Location counter should appear only inside `SECTIONS` command
+	6. Location counter is incremented by size of output section
+5. We use location counter symbols with other linker script symbols
 
 ### Linker Script Symbols ###
+1. Linker script symbol
+	1. A symbol is name of an address (or memory location)
+		1. Symbol declaration is not equivalent to variable declaration (as in 'C' application)
+
+				main.c
+				
+				int my_value = 100;
+				// (global variable)
+				
+				my_value = $0; // we don't know the location here
+				
+				void fun1(void)
+				{ ... }
+				
+				main.o
+				Symbol table
+				(address)		(symbol)
+				0x2000_0000	my_value
+				0x0800_0000	fun1
+				
+			1. The variable names must be converted to addresses
+				1. How is this done?
+					1. Done using symbol table
+						1. Compiler maintains a table called symbol table in main.o
+
 ### Writing Linker Script From Scratch Part-3 ###
 ### Linking and Linker Flags ###
 ### Analyzing ELF File ###
