@@ -4716,8 +4716,49 @@
 						2. Every object file maintains a symbol table
 2. Inside linker script we want to catch boundary information
 	1. We cannot use variables but we need to define symbols
+		1. Linker script symbols
+
+				MEMORY
+				{
+					//...
+				}
+				
+				__max_heap_size = 0x400; /* A symbol declaration. Not a variable!!! */
+				__max_stack_size = 0x200; /* A symbol declaration. Not a variable!!! */
+				
+				SECTION
+				{
+					.text:
+					{ // . = VMA = 0x08000000
+						// ...
+						end_of_text = .; /* Store the updated location counter value in to a symbol 'end_of_text' - size of text section */
+					}> FLASH
+					
+					.data
+					{
+						start_of_data = 0x20000000; /* Asign a value to a symbol 'start_of_data' */
+						// ...
+					}> SRAM AT> FLASH
+				}
+				
+			1. Compiler cannot see these symbols
+			2. Symbol table:
+
+					Final elf generated
+					
+					Symbol Table
+					Symbol Value		Symbol Name
+					0x20000000		My_Value
+					0x08000000		fun1
+					0x400				__max_heap_size
+					0x200				__max_stack_size
+					
+				1. Symbol values are addresses added by linker for variables and functions
+				2. Custom symbol values added by us by constructing linker symbols in linker script: `__max_heap_size`, `__max_stack_size`
 
 ### Writing Linker Script From Scratch Part-3 ###
+1. 
+
 ### Linking and Linker Flags ###
 ### Analyzing ELF File ###
 ### Implementing Reset Handler ###
