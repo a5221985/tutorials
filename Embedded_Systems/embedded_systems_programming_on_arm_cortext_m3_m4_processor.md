@@ -4818,7 +4818,31 @@
 
 			LDFLAGS = ... -Map=final.map # used by ld command
 			
-		1. 
+		1. GCC - also contains linker driver
+			1. But certain linker specific arguments are not recognized by it
+				1. Solution: `-Wl,-Map=final.map` (tells this is linker argument)
+		2. `make clean`
+		3. `make`
+			1. final.map
+				1. Open
+					1. Shows memory map
+						1. .text - 0x08000000
+							1. `.isr_vector` starts from the beginning
+							2. Third column: size of the section
+							3. Different functions are placed and addresses assigned
+			2. Add const variables in main.c
+
+					const uint32_t const_v_1 = 100;
+					const uint32_t const_v_2 = 200;
+					
+				1. `make clean`
+				2. `make`
+					1. `.rodata` section has const symbols (consumes 8 bytes)
+				3. Padding is added between `.text` and `.rodata` (for word alignment)
+					1. `*fill*` - 0x2
+				4. `_etext = .` - holds location
+					1. It is aligned address
+						1. If it is not aligned
 
 ### Implementing Reset Handler ###
 ### OpenOCD and Debug Adapters ###
