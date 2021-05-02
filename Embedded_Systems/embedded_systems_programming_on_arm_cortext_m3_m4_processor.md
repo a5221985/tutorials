@@ -4642,7 +4642,18 @@
 					*(.isr_vector)
 					*(.text)
 					*(.rodata)
-				}> FLASH AT> FLASH
+				#}> FLASH AT> FLASH
+				}> FLASH
+				
+				.data
+				{
+					*(.data)
+				}> SRAM AT> FLASH
+				
+				.bss
+				{
+					*(.bss)
+				}> SRAM
 			}
 			
 		1. `*` - wildcard character
@@ -4654,8 +4665,17 @@
 			1. But this is not relocatable address
 				1. vma and lma are same for this section (it is in FLASH)
 					1. Linker generates absolute addresses for the section
+		4. Linker also generates load addresses
+			1. The addresses fall in LMA memory region
+		5. `.data`
+			1. Load address is in FLASH
+			2. Absolute address is in SRAM (falls in 0x20000000)
 
 ### Location Counter ###
+1. We need to know the boundary
+	1. Where .rodata ends
+2. We need to know the size (or ending address of .rodata and .data)
+
 ### Linker Script Symbols ###
 ### Writing Linker Script From Scratch Part-3 ###
 ### Linking and Linker Flags ###
