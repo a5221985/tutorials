@@ -4845,10 +4845,55 @@
 						1. If it is not aligned
 							1. We have to do it manually
 
-									.=ALIGN(4);
+									. = ALIGN(4); /* prev value will be taken and aligned to next word boundary and stored in location counter */
 									_etext = .;
+									
+							2. map
+								1. `*fill*` gets added
+				5. `.data` section consumes only one byte
+					1. It is initialized with only one variable
+					2. File and variable name are also mentioned
+				6. Making section aligned:
+
+						. = ALIGN(4)
+						_edata = .;
+						
+				7. `.bss`
+					1. Un-initialized array went into COMMON section (not `.bss` section)
+						1. This is defined by compiler
+						2. But it has to be in `.bss`
+						3. script:
+
+								.bss :
+								{
+									// ...
+									*(COMMON)
+									. = ALIGN(4);
+									_ebss = .;
+								}
+								
+							1. `make clean`
+							2. `make`
+3. startup.c
+	1. We can now initialize the sections
 
 ### Implementing Reset Handler ###
+1. Code:
+
+		extern uint32_t _etext;
+		extern uint32_t _sdata;
+		extern uint32_t _edata;
+
+		void Reset_Handler(void) {
+		
+		}
+		
+	1. Run the following command to see all symbols
+
+			arm-none-eabi-nm final.elf
+			
+		1. Prints symbol table
+
 ### OpenOCD and Debug Adapters ###
 ### Steps to Download Code Using OpenOCD ###
 ### Using GDB Client ###
