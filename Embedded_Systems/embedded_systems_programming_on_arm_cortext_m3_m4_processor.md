@@ -4637,7 +4637,7 @@
 
 			SECTIONS
 			{
-				.text:
+				.text :
 				{
 					*(.isr_vector)
 					*(.text)
@@ -4645,12 +4645,12 @@
 				#}> FLASH AT> FLASH
 				}> FLASH
 				
-				.data
+				.data :
 				{
 					*(.data)
 				}> SRAM AT> FLASH
 				
-				.bss
+				.bss :
 				{
 					*(.bss)
 				}> SRAM
@@ -4790,8 +4790,36 @@
 ### Linking and Linker Flags ###
 1. `make clean`
 2. `make`
+3. `arm-none-eabi-gcc -nostdlib -T stm32_ls.ld *.o -o final.elf`
+	1. Remove `printf` statements from `main.c` and then compile
+4. `arm-none-eabi-objdump -h final.elf`
+5. Makefile
+
+		# ...
+		LDFLAGS= -nostdlib -T stm32_ls.ld
+		
+		all: main.o led.o stm32_startup.o final.elf
+		# ...
+		final.elf: main.o led.o startup.o
+			$(CC) $(LDFLAGS) -o $@ $^
+		
+		clean:
+			# ...
+			
+	1. `make clean`
+	2. `make`
 
 ### Analyzing ELF File ###
+1. Executable file is collection of different sections
+	1. Ensure that all those sections are placed at appropriate absolute addresses
+2. Map file: Linker can generate
+	1. Used to analyze various resource allocation and placement in memory
+	2. Makefile
+
+			LDFLAGS = ... -Map=final.map # used by ld command
+			
+		1. 
+
 ### Implementing Reset Handler ###
 ### OpenOCD and Debug Adapters ###
 ### Steps to Download Code Using OpenOCD ###
