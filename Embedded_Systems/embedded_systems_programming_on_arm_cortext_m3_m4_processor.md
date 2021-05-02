@@ -4757,9 +4757,40 @@
 				2. Custom symbol values added by us by constructing linker symbols in linker script: `__max_heap_size`, `__max_stack_size`
 
 ### Writing Linker Script From Scratch Part-3 ###
-1. 
+1. If we know the end of text section, we can know the address of `.data` section in the flash (this enables us to copy data to SRAM)
+2. We should know destination address (of SRAM)
+3. We should know the size
+4. Script:
+
+		SECTIONS
+		{
+			.text:
+			{
+				// ...
+				_etext = .; /* end of text */
+			}
+			
+			.data:
+			{
+				_sdata = .; /* start of data - SRAM address (not FLASH) */
+				// ...
+				_edata = .; /* end of data */
+			}
+			
+			.bss:
+			{
+				_sbss = .; /* start of bss */
+				// ...
+				_ebss = .; /* end of bss */
+			}
+		}
+		
+	1. Location counter always tracks VMA or section in which is is being used (not LMA)
 
 ### Linking and Linker Flags ###
+1. `make clean`
+2. `make`
+
 ### Analyzing ELF File ###
 ### Implementing Reset Handler ###
 ### OpenOCD and Debug Adapters ###
