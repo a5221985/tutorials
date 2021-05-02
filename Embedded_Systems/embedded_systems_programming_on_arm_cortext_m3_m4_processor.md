@@ -4559,12 +4559,35 @@
 					name(attr): ORIGIN = origin, LENGTH = len
 				}
 				
-			1. ORIGIN - defines origin address of memory region
-			2. name - defines name of memory region
+			1. ORIGIN - defines origin address of memory region (start address)
+			2. name - defines name of memory region (user-defined name)
 				1. This will later be referenced by other parts of linker script
 				2. It is label
-				3. It has attribute list
+				3. It has attribute list (optional)
 			3. LENGTH - defines length info
+			4. attr: defines attribute list of memory region
+				1. Valid attribute lists must be make up of characters "ALIRWX" that match section attributes (case insensitive)
+					1. R - read-only sections
+					2. W - read-write sections
+					3. X - Contains executable code
+					4. A - allocated sections
+					5. I - initialized sections
+					6. L - same as 'I'
+					7. ! - invert the sense of any of the following attributes
+			5. Example:
+				1. Microcontroller: STM32F4VGT6
+				2. Flash size (in KB): 1024
+				3. SRAM1 size (in KB): 112
+				4. SRAM3 size (in KB): 16
+				5. script:
+
+						MEMORY
+						{
+							FLASH(RX): ORIGIN = 0x08000000, LENGTH = 1024K
+							# SRAM1(RWX): ORIGIN = 0x20000000, LENGTH = 116K
+							# SRAM2(RWX): ORIGIN = 0x20000000 + 116K - 4, LENGTH = 16K
+							SRAM(RWX): ORIGIN = 0x20000000, LENGTH = 128K
+						}
 	
 	3. `SECTIONS`
 	4. `KEEP`
