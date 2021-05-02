@@ -4623,6 +4623,16 @@
 				// here merge all .data section of all input files
 			}>(vma) AT>(lma)
 		}
+		
+	1. The above file generates two sections in the output file generated
+	2. The sections will appear in the given order
+	3. `.text` - label (we can give any name)
+		1. This is used to merge all individual sections of input files
+			1. main.o, led.o. st32_startup.o
+	4. `>(vma) AT>(lma)` - gives address info to linker and locator (where to place this section in memory)
+		1. `lma` - load memory address
+		2. `vma` - virtual memory address
+	5. `.data` - used to merge all data sections
 
 ### Location Counter ###
 ### Linker Script Symbols ###
