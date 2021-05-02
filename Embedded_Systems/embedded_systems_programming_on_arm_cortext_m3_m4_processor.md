@@ -4883,9 +4883,30 @@
 		extern uint32_t _etext;
 		extern uint32_t _sdata;
 		extern uint32_t _edata;
-
-		void Reset_Handler(void) {
+		extern uint32_t _sbss;
+		extern uint32_t _ebss;
+		// ...
+		int main(void);
 		
+		void Reset_Handler(void) {
+			// copy .data section to SRAM
+			uint32_t size = &_edata - &_sdata;
+			uint8_t *pSrc = (uint8_t*) &_etext;
+			uint8_t *pDst = (uint8_t*) &_sdata;
+			for (uint32_t i = 0; i < size; i++) {
+				*pDst++ = *pSrc++;
+			}
+			
+			// Init the .bss section to zero in SRAM
+			size = &_ebss - &_sbss;
+			uint8_t *pSrc = (uint8_t*) &_sbss;
+			uint8_t *pDst = (uint8_t*) &_ebss;
+			for (uint32_t i = 0; i < size; i++) {
+				*pDst++ = 0;
+			}
+			
+			// call main()
+			main();
 		}
 		
 	1. Run the following command to see all symbols
@@ -4893,6 +4914,14 @@
 			arm-none-eabi-nm final.elf
 			
 		1. Prints symbol table
+	2. In 'C' program, we cannot just write `_edata`
+		1. It means that we want to access value from memory location `0x20000004`
+			1. Associated with the variable
+			2. But there is no value stored in any memory location for the symbol `_edata`
+				1. Solution: use `&_edata`
+				2. This will give corresponding symbol value (an address in the case) from symbol table (value 0x20000004)
+	3. `make clean`
+	4. `make`
 
 ### OpenOCD and Debug Adapters ###
 ### Steps to Download Code Using OpenOCD ###
