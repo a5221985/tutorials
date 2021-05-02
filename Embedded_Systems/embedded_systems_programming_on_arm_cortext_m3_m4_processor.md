@@ -4843,6 +4843,10 @@
 				4. `_etext = .` - holds location
 					1. It is aligned address
 						1. If it is not aligned
+							1. We have to do it manually
+
+									.=ALIGN(4);
+									_etext = .;
 
 ### Implementing Reset Handler ###
 ### OpenOCD and Debug Adapters ###
