@@ -4957,9 +4957,9 @@
 			1. USB-based
 			2. Parallel port-based
 			3. Standalone boxes (that run OpenOCD internally)
-	5. GDB Debug:
+	5. GDB Debug: (various architectures - refer documentation)
 		1. Allows ARM7 (ARM7TDMI and ARM20t), ARM9 (ARM920T, ARM922T, ARM926EJ-5, ARM966E-S), XScale (PXA25x, IXP42x), Cortex-M3 (Stellaris LM3, ST STM32, and Energy Micro EFM32) and Intel Quart (x10xx) based cores to be debugged via the GDB protocol.
-	6. Flash programming
+	6. Flash programming (we want to program internal flash using OpenOCD - it supports flash writing)
 		1. Flash writing is supported for external CFI-compatible NOR flashes (Intel and AMD/Spansion command set) and several internal flashes (LPC1700, LPC1800, LPC2000, LPC4300, AT91SAM7, AT91SAM3U, STR7x, STR9x, LM3, STM32x, and EFM32).
 		2. Preliminary support for various NAND flash controllers
 			1. (LPC3180, Orion, S3C24xx, more) is included
