@@ -4963,6 +4963,14 @@
 		1. Flash writing is supported for external CFI-compatible NOR flashes (Intel and AMD/Spansion command set) and several internal flashes (LPC1700, LPC1800, LPC2000, LPC4300, AT91SAM7, AT91SAM3U, STR7x, STR9x, LM3, STM32x, and EFM32).
 		2. Preliminary support for various NAND flash controllers
 			1. (LPC3180, Orion, S3C24xx, more) is included
+4. Programming adapters
+	1. These are used to get access to debug interface of target with native protocol signaling
+		1. Such as
+			1. SWD
+			2. JTAG
+		2. Since HOST doesn't support such interfaces
+	2. It does protocol conversion
+		1. Example: Commands and messages coming from host application in the form of USB packets will be converted to equiv
 
 ### Steps to Download Code Using OpenOCD ###
 ### Using GDB Client ###
