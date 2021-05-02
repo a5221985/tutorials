@@ -4924,6 +4924,20 @@
 	4. `make`
 
 ### OpenOCD and Debug Adapters ###
+1. Downloading and debugging executable
+
+		Host               Dev Board/Microcontroller
+		.elf --download--> Flash
+		
+	1. After this we can run the program
+2. Methods:
+	1. Host Interface: USB
+	2. In-Circuit Programmer/ Debugger (Debug adapter)
+		1. It is a hardware
+		2. It does protocol convertion
+			1. Host protocol to native target protocol
+	3. Target Interface: SWD or JTAG (Target)
+
 ### Steps to Download Code Using OpenOCD ###
 ### Using GDB Client ###
 ### C Standard Library Integration ###
