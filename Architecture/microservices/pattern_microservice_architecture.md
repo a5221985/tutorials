@@ -57,8 +57,17 @@
 	1. It takes orders from customers
 	2. It verifies inventory and available credit
 	3. It ships them
+2. Components
+	1. StoreFrontUI - implements user interface
+	2. Account Service - Checking credit
+	3. Inventory Service - Maintaining inventory
+	4. Shipping Service - Shipping orders
+
+		![microservice_architecture](microservice_architecture.png)
 
 ### Show me the code ###
+1. [example applications developed by Chris Richardson]()
+
 ## Resulting Context ##
 ### Benefits ###
 ### Drawbacks ###
