@@ -5389,12 +5389,33 @@
 			
 		1. We are linking with standard C library
 		2. `-mfloat-abi=name` - specifies which floating point ABI to use
-			1. `soft` - generate output containing library calls for floating-point operations
+			1. `soft` - generate output containing **library calls** for floating-point operations
 			2. `softfp` - generate code using hardware floating-point instructions (but uses soft-float calling conventions)
 			3. `hard` - allows generation of floating-point instructions and uses FPU-specific calling conventions (if supported by processor)
 				1. ARM-Cortex-M4F - supports
+					1. We must enable it before using it
+	3. Makefile
+
+			CFLAGS= ... -mfloat-abi=soft ...
+			LDFLAGS= ... -mfloat-abi=soft ...
+			
+		1. `make clean`
+		2. `make`
+		3. Connect the board and test
+			1. PuTTY
+				1. `reset init`
+				2. `flash write_image final.elf`
+				3. `reset halt`
+					1. There are two more sections between .text and .data (so end of .text is not equal to start of .data)
 
 ### Fixing Linker Script to Resolve hardfault ###
+1. Linker script
+
+		_la_data = LOADADDR(.data); # returns 
+		.data :
+		{
+			# ...
+
 ### Semi-Hosting ###
 
 ## Thank You ##
