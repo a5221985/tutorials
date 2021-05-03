@@ -9,9 +9,20 @@
 	3. Might integrate with other apps via
 		1. Web services
 		2. Message broker
+	4. Handles requests
+		1. HTTP requests and messages
+			1. By executing business logic
+			2. By accessing a database
+			3. By exchanging messages with other systems
+			4. Returning HTML/JSON/XML response
+2. There are logical components corresponding to different functional areas of application
 
 ## Problem ##
+1. What is the application's deployment architecture
+
 ## Forces ##
+1. 
+
 ## Solution ##
 ## Examples ##
 ### Fictitious e-commerce application ###
