@@ -5225,10 +5225,37 @@
 	2. libc_nano.a - newlib-nano library
 	3. librdimon.a - semi-hosting library (used for console IO operations like printf)
 	4. librdimon_nano.a
-	5. nano.specs - spec files
+	5. nano.specs - spec files (used during linking stage - to make application link to the libraries)
 	6. nosys.specs - spec files
 	7. pid.specs - spec files
 	8. rdimon.specs - spec files
+5. Low level system calls
+	1. The idea of Newlib is 
+		1. To implement hardware-independent parts of standard C library and 
+		2. Rely on a few low-level system calls (that must be implemented with target hardware in mind)
+			1. Newlib doesn't provide low level system calls to operate on hardware (we have to provide the low level system calls)
+	2. When we are using newlib, 
+		1. We must implement system calls appropriately to support devices, filesystems, memory management
+	3. Design
+
+			printf() - embedded application ('C' std lib function)
+				|
+				v
+			Newlib-Nano - 'C' standard library (provides printf and calls _write())
+				|
+				_write();
+				|
+				v
+			_write() {...} - (the function implementation here will received all strings pre-formatted by printf())
+				|	|	|
+				v	v	v
+			UART  ITM	LCD
+			
+		1. `_write` - stubs (low level target specific system call implementation)
+			1. The iplementation provided by us can write into
+				1. UART
+				2. ITM FIFO
+				3. LCD
 
 ### Integrating System Calls ###
 ### Section Merging of Standard Library ###
