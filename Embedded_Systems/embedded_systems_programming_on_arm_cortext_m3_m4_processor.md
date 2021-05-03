@@ -5312,6 +5312,60 @@
 				1. All the sections must be resolved to a single text section
 						 
 ### Section Merging of Standard Library ###
+1. C library introduces every function as a separate text section
+	1. We can merge all of them into a common .text section
+	2. We can merge all of .rodata sections into common .rodata section
+2. Linker script
+
+		SECTIONS
+		{
+			.text :
+			{
+				*(.isr_vector)
+				*(.text)
+				*(.text.*) # this one
+				*(.init)
+				*(.fini)
+				*(.rodata)
+				*(.rodata.*) # this one
+				# ...
+			} ...
+			.data :
+			{
+				# ...
+				*(.data)
+				*(.data.*)
+				# ...
+			} ...
+			
+			.bss :
+			{
+				# ...
+				*(.bss)
+				*(.bss.*)
+				# ...
+			}
+			
+	1. `make clean`
+	2. `make`
+	3. If there are any unmerged sections, the linker will include the sections as they are in the output file
+4. Testing:
+	1. Flow:
+
+			Reset_Handler()
+				|
+				v
+			Initialize data section
+				|
+				v
+			Initialize bss section
+				|
+				v
+			Initialize 'C' std library (__libc_init_array();)
+				|
+				v
+				main();
+
 ### Fixing Linker Script to Resolve hardfault ###
 ### Semi-Hosting ###
 
