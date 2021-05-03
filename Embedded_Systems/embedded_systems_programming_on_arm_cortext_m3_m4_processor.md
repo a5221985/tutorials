@@ -5365,6 +5365,34 @@
 				|
 				v
 				main();
+				
+		1. `__libc_init_array();` - function that initializes C standard library
+			1. `stm32_startup.c`
+
+					void __libc_init_array();
+					// ...
+					void Reset_Handler(void) {
+						// ...
+						__libc_init_array();
+						main();
+					}
+					
+		2. Add printf in main.c
+
+				printf("Implementation of simple task scheduler\n");
+				
+			1. `_write` - we will not be able to write because we have not implemented for the hardware
+				1. But we can test std lib integration
+	2. Makefile
+
+			LDFLAGS= -mcpu=$(MACH) -mthumb ...
+			
+		1. We are linking with standard C library
+		2. `-mfloat-abi=name` - specifies which floating point ABI to use
+			1. `soft` - generate output containing library calls for floating-point operations
+			2. `softfp` - generate code using hardware floating-point instructions (but uses soft-float calling conventions)
+			3. `hard` - allows generation of floating-point instructions and uses FPU-specific calling conventions (if supported by processor)
+				1. ARM-Cortex-M4F - supports
 
 ### Fixing Linker Script to Resolve hardfault ###
 ### Semi-Hosting ###
