@@ -48,9 +48,16 @@
 3. Services can be developed and deployed independently of one another
 4. Each service has it's own database
 	1. To be decoupled from other services
+		1. Data consistency between services is maintained using Saga pattern
+5. [Nature of a service](http://chrisrichardson.net/post/microservices/general/2019/02/16/whats-a-service-part-1.html)
 
 ## Examples ##
 ### Fictitious e-commerce application ###
+1. Consider e-commerce application
+	1. It takes orders from customers
+	2. It verifies inventory and available credit
+	3. It ships them
+
 ### Show me the code ###
 ## Resulting Context ##
 ### Benefits ###
