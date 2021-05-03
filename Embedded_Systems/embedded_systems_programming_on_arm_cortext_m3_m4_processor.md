@@ -5020,8 +5020,8 @@
 				      ^
 				      |
 				      v
-				  ST-LINK driver <-----SWD or JTAG
-				                       Debug adapter
+				  ST-LINK driver <--USB--> SWD or JTAG
+				                          Debug adapter
 				                           |      ^
 				                           |      |
 				                         SWDCLK  SWDIO
@@ -5030,7 +5030,34 @@
 				                              DP
 				                           SWJ-DP/
 				                           SW-DP
-				                       
+				                              |
+				                              |
+				                     ARM Cortex Mx Processor
+				                     AHB-AP ---- AHB ---- Core
+				                                inter
+				                               connect
+				                                  ^
+				                                  |
+				                               AHB Bus
+				                                  |
+				                           +------+------+
+				                           |      |      |
+				                           v      v      v
+				                         SRAM  FLASH    Other Peripherals
+				                               Controller
+				                               ----------
+				                               Flash Memory
+	
+	1. STLINK driver must be installed on Host
+	2. OpenOCD sends USB packets to SWD or JTAG debug adapter
+	3. SWD
+		1. Two pins
+			1. SWDCLK
+				1. Controlled by debug adapter
+					1. Debug adapter is SWD master here
+			2. SWDIO
+				1. Bi-directional data line
+				2. Commands and responses will travel
 
 ### Steps to Download Code Using OpenOCD ###
 ### Using GDB Client ###
