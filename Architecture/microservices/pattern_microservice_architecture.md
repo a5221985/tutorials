@@ -1,5 +1,15 @@
 # Pattern: Microservice Architecture #
 ## Context ##
+1. Server-side enterprise application development
+	1. Must support different clients
+		1. Desktop browsers
+		2. Mobile browsers
+		3. Native mobile apps
+	2. Might expose API (for 3rd parties to consume)
+	3. Might integrate with other apps via
+		1. Web services
+		2. Message broker
+
 ## Problem ##
 ## Forces ##
 ## Solution ##
