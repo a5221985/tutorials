@@ -5256,8 +5256,31 @@
 				1. UART
 				2. ITM FIFO
 				3. LCD
+				4. ...
+		2. Other system calls to be provided
+			1. `scanf` -> `_read() {...}`
+			2. `malloc` -> `_sbrk() {...}` - dynamic memory management API
+	4. System Calls
+		1. Download system calls implementation file `syscalls.c` attached with the lecture and place it in workspace - [https://www.udemy.com/course/embedded-system-programming-on-arm-cortex-m3m4/learn/lecture/19409108#overview](https://www.udemy.com/course/embedded-system-programming-on-arm-cortex-m3m4/learn/lecture/19409108#overview)
+			1. It doesn't contain complete implementation (used to just compile without errors)
 
 ### Integrating System Calls ###
+1. `vi Makefile`
+
+		LDFLAGS= --spec=nano.specs -T ... 
+		# ...
+		all: main.o led.o stm32_startup.o syscalls.o final.elf
+		# ...
+		syscalls.o: syscalls.c
+			$(CC) $(CFLAGS) -o $@ $^
+		final.elf: main.o led.o stm32_startup.o syscalls.o
+			# ...
+			
+	1. `nosys.specs` - no system calls
+	2. `nano.specs` - newlib-nano
+	3. `rdimon.specs` - semi hosting
+	4. `--spec=nano.specs` - links the application with newlib-nano C standard library
+
 ### Section Merging of Standard Library ###
 ### Fixing Linker Script to Resolve hardfault ###
 ### Semi-Hosting ###
