@@ -5213,6 +5213,9 @@
 		2. POSIX
 		3. System V
 	6. Newlib provides only ISO C
+		1. Less feature set
+3. Newlib-nano
+	1. Due to increased feature set in newlib, it has become too bloated to use on systems where amount of memory is very much limited
 
 ### Integrating System Calls ###
 ### Section Merging of Standard Library ###
