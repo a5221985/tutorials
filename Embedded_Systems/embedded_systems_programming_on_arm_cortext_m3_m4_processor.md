@@ -5279,8 +5279,38 @@
 	1. `nosys.specs` - no system calls
 	2. `nano.specs` - newlib-nano
 	3. `rdimon.specs` - semi hosting
-	4. `--spec=nano.specs` - links the application with newlib-nano C standard library
+	4. `--specs=nano.specs` - links the application with newlib-nano C standard library
+		1. `nostdlib` must not be present in the flags
+2. `main.c`
+	1. Enable all printfs
+	2. `make clean`
+	3. `make`
+		1. Errors: certain library files need some symbols (`__bss_start__`, `__bss_end__`, `end`)
+			1. Fix: Linker script
 
+					.bss :
+					{
+						_sbss = .;
+						__bss_start__ = _sbss;
+						# ...
+						_ebss = .;
+						__bss_end__ = _ebss;
+						. = ALIGN(4);
+						end = .;
+					}
+					
+				1. `end` - helps memory management function to locate the end of heap
+					1. Must be initialized to start of heap
+						1. Later on, memory management unit can update the symbol to understand whether more mem can be allocated or not
+							1. `_sbrk` function uses it
+								1. the end of heap is compared with stack pointer to check if no more memory can be allocated or not (it must be start of heap to begin with)
+									1. Heap starts after .bss section
+3. Run object dump:
+	1. `arm-none-eabi-objdump final.elf`
+		1. Standard library has introduced a lot of sections
+			1. Every function is considered as a sub-text section
+				1. All the sections must be resolved to a single text section
+						 
 ### Section Merging of Standard Library ###
 ### Fixing Linker Script to Resolve hardfault ###
 ### Semi-Hosting ###
