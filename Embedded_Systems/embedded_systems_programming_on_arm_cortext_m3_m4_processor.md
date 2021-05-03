@@ -5022,8 +5022,14 @@
 				      v
 				  ST-LINK driver <-----SWD or JTAG
 				                       Debug adapter
-				                           |
-				                           v
+				                           |      ^
+				                           |      |
+				                         SWDCLK  SWDIO
+				                           |      |
+				                           v      v
+				                              DP
+				                           SWJ-DP/
+				                           SW-DP
 				                       
 
 ### Steps to Download Code Using OpenOCD ###
