@@ -5086,11 +5086,50 @@
 	2. Unofficial binary packages
 	3. GNU MCU Eclipse OpenOCD
 	4. Assets
-3. Board File	
+3. Board File	 (We have to execute OpenOCD with board file) 
 	1. Scripts > Board
 		1. stm32f4disovery.cfg
+4. Mac - GDB Client
+5. Windows - PuTTY
+6. Ubuntu - Telnet
+7. Set path for OpenOCD (`bin` folder)
+	1. `PATH`
+8. Makefile
+
+		load:
+			openocd -f board/stm32f4discovery.cfg
+			
+	1. `make clean`
+	2. `make`
+	3. Connect target board before running the command
+		1. (STM32F4 DISCOVERY) to PC
 
 ### Using GDB Client ###
+1. OpenOCD server is running
+	1. We can connect to the server over various client programs (telnet client, GDB client, ...)
+2. Open another terminal
+	1. GDB (Run GDB client and then connect to OpenOCD server via the port 3333)
+
+			arm-none-eabi-gdb
+			
+		1. Command to connect to OpenOCD server via port 3333
+
+				target remote localhost:3333
+				
+			1. Connects to OpenOCD Server
+		2. Scripts
+
+				monitor reset init
+				
+			1. `monitor` - differentiates between GDB command and OpenOCD command
+				1. This is not required for telnet
+			2. `reset init` - OpenOCD command
+		3. Downloading executable
+
+				flash write_image erase final.elf
+				
+			1. 
+
 ### C Standard Library Integration ###
 ### Integrating System Calls ###
 ### Section Merging of Standard Library ###
