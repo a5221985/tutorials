@@ -5058,8 +5058,38 @@
 			2. SWDIO
 				1. Bi-directional data line
 				2. Commands and responses will travel
+	4. Microcontroller
+		1. Two pins are used (for SWDCLK and SWDIO)
+		2. DP - Debug Port (Debug Access Port)
+			1. The block knows how to talk to the processor (through the bus)
+			2. It can access bus interfaces
+				1. AHB
+				2. APB
+			3. The bus interfaces are accessed through bus access points
+				1. AHB-AP
+					1. Can access FLASH, SRAM, Other peripherals (AHB), Core (reset, break-points, watch-points, ...)
+				2. APB-AP
+		3. The packets carry address info and data (such as code)
+	5. Discovery board has on-board debug adapter
+		1. ST-LINK driver sends and/or receives USB packets to and from on board ST LINK adapter
 
 ### Steps to Download Code Using OpenOCD ###
+1. Steps to download:
+	1. Download and install OpenOCD
+	2. Install Telnet client (for windows we can use PuTTY software)
+		1. If we cannot use Telnet application, we can use "GDB Client"
+	3. Run OpenOCD with board configuration file
+	4. Connect to OpenOCD via Telnet Client or GDB client
+	5. Issue commands over Telnet Client or GDB Client to OpenOCD to download and debug code
+2. Search for OpenOCD
+	1. Getting OpenOCD
+	2. Unofficial binary packages
+	3. GNU MCU Eclipse OpenOCD
+	4. Assets
+3. Board File	
+	1. Scripts > Board
+		1. stm32f4disovery.cfg
+
 ### Using GDB Client ###
 ### C Standard Library Integration ###
 ### Integrating System Calls ###
