@@ -66,10 +66,26 @@
 		![microservice_architecture](microservice_architecture.png)
 
 ### Show me the code ###
-1. [example applications developed by Chris Richardson]()
+1. [example applications developed by Chris Richardson](http://eventuate.io/exampleapps.html)
 
 ## Resulting Context ##
 ### Benefits ###
+1. Solutions has following benefits
+	1. Enables continous delivery and deployment of large, complex applications
+		1. Improved maintainability
+			1. Each service is relatively small
+				1. Easier to understand and change
+		2. Better testability
+			1. Services are smaller and faster to test
+		3. Better deployability
+			1. Services can be deployed independently
+		4. Enables us to organize development effort around multiple, autonomous teams
+			1. Each (two pizza) team owns and is responsible for one or more services
+			2. Each team can develop, test, deploy and scale their services independently of all other teams
+	2. Each microservice is relatively small
+		1. Easier for developer to understand
+		2. IDE is faster making developers more productive
+
 ### Drawbacks ###
 ### Issues ###
 #### When to use the microservice architecture? ####
