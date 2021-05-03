@@ -5169,8 +5169,51 @@
 	2. Breakpoint (at address - get the address from map file)
 
 			monitor bp 0x080001c6 2 hw
+			
+		1. `2` - length in bytes
+		2. `hw` - hardware breakpoint (another option - software breakpoint)
+		3. `monitor reset`
+		4. `monitor mdw 0x20000000 4` - task 1 handler
+	3. Removing breakpoint
+
+			rbp 0x0800001c6
+			bp
+			monitor bp # no breakpoints set
+			monitor bp 0x080000228 2 hw
+			monitor reset # halts at location
+			monitor mdw 0x20000000 4 # current task is 4
+			
+4. Telnet:
+	1. Open PuTTY
+		1. localhost:4444
+		2. Telnet
+		3. OpenOCD - session
+		4. Save
+		5. Open
+	2. Commands: (they are same but we must not use `monitor`)
+
+			reset init
+			flash write_image erase final.elf
 
 ### C Standard Library Integration ###
+1. 'C' standard library - `newlib` & `newlib-nano`
+2. Newlib
+	1. It is a 'C' standard library implementation intended for use on embedded systems
+		1. Introduced by Cygnus solutions (now Red Hat)
+	2. It is written as a Glibc (GNU libc) replacement for embedded systems
+		1. Can be used with no OS ("bare-metal") or with lightweight RTOS
+	3. It ships with gnu ARM toolchain installation as the default C standard library
+	4. GNU libc (glibc) includes following interfaces
+		1. ISO C
+		2. POSIX
+		3. System V
+		4. XPG
+	5. uClibc provides
+		1. ISO C
+		2. POSIX
+		3. System V
+	6. Newlib provides only ISO C
+
 ### Integrating System Calls ###
 ### Section Merging of Standard Library ###
 ### Fixing Linker Script to Resolve hardfault ###
