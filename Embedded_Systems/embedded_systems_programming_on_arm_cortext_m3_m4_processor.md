@@ -5126,9 +5126,49 @@
 			2. `reset init` - OpenOCD command
 		3. Downloading executable
 
-				flash write_image erase final.elf
+				monitor flash write_image erase final.elf
 				
-			1. 
+			1. Search for openocd general commands in Google
+		4. Reset microcontroller and halt
+
+				monitor reset halt
+				
+		5. Run the program:
+
+				monitor resume
+				
+		6. Halt execution
+
+				monitor halt
+				
+		7. Reset the board
+
+				monitor reset
+				
+3. Validate memory location values
+	1. Open map file
+		1. `.data` - 0x20000000 (current_task)
+			1. Read location using OpenOCD
+				1. `mdd` (double word) or `mdw` (word) or `mdh` (half word), `mdb` (byte)
+
+						monitor mdw 0x20000000 4
+						
+					1. Data copy from flash to SRAM was wrong!!!
+
+							uint32_t size = (uint32_t)&_edata - (uint32_t)&_sdata;
+							
+		2. `make clean`
+		3. `make all`
+		4. `arm-none-eabi-gdb`
+		5. `target remote localhost:3333`
+		6. `monitor reset init`
+		7. `monitor flash write_image erase final.elf`
+		8. `monitor reset`
+		9. `monitor halt`
+		10. `monitor mdw 0x20000000`
+	2. Breakpoint (at address - get the address from map file)
+
+			monitor bp 0x080001c6 2 hw
 
 ### C Standard Library Integration ###
 ### Integrating System Calls ###
