@@ -5216,6 +5216,19 @@
 		1. Less feature set
 3. Newlib-nano
 	1. Due to increased feature set in newlib, it has become too bloated to use on systems where amount of memory is very much limited
+		1. Especially for low memory embedded systems
+	2. To provide C library with minimal memory footprint, suited for use with micro-controllers, ARM introduced newlib-nano based on newlib
+		1. Doesn't support float data type by default
+			1. Needs extra compiler argument
+4. Go to toolchain installation path:
+	1. libc.a - newlib library
+	2. libc_nano.a - newlib-nano library
+	3. librdimon.a - semi-hosting library (used for console IO operations like printf)
+	4. librdimon_nano.a
+	5. nano.specs - spec files
+	6. nosys.specs - spec files
+	7. pid.specs - spec files
+	8. rdimon.specs - spec files
 
 ### Integrating System Calls ###
 ### Section Merging of Standard Library ###
