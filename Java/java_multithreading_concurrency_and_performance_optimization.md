@@ -656,6 +656,24 @@
 			1. Performance measured in latency
 				1. The faster the transaction is, the performant the application is considered to be
 				2. Latency measured in units of time
+		2. Video Player
+		
+				App - Frames -> TV
+				      [][][]
+				      
+			1. Delivering all frames as fast as possible would be terrible (1000 frames per second is too fast if the movie is 120 frames per second)
+				1. Solution: We want to show movie at the correct frame rate (with minimum jitter)
+					1. Performance metric: precision and accuracy of frame rate
+		3. Machine Learning
+		
+				Large Data -Data-> Machine Learning -Prediction->
+				
+			1. Every 24 hours, prediction must be done
+				1. The more data that the system can inject into the system, the better for us
+					1. Performance metric: throughput (latency or lack or jitter is not important)
+3. Performance in Multithreading (General case)
+	1. Latency
+	2. Throughput
 
 ### Optimizing for Latency Part 2 - Image Processing ###
 ### Optimizing for Throughput Part 1 ###
