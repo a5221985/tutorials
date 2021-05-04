@@ -713,7 +713,8 @@
 						1. Thread N + 1 can push any of the Thread [1..N] out and cause context switch
 						2. This can get repeated for any of the threads
 		2. N = ? - Notes
-			1. 
+			1. No of threads = No of cores
+				1. It is optimal only if all threads are runnable and can run without interruption
 
 ### Optimizing for Latency Part 2 - Image Processing ###
 ### Optimizing for Throughput Part 1 ###
