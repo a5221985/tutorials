@@ -761,8 +761,31 @@
 					2. Tasks that cannot be parallelizable
 						1. We are forced to run as single thread
 					3. Tasks that can be partially broken into subtasks and partially needed to be run sequentially
+7. Summary:
+	1. Performance can be defined in many ways depending on the use case
+	2. Multithreaded applications performance criteria
+		1. Latency
+		2. Throughput
+	3. Latency reduction by breaking the task into multiple, and running in parallel
+		1. Setting expectations as to what can and cannot be achieved by this approach
 
 ### Optimizing for Latency Part 2 - Image Processing ###
+1. What we learn in the lecture
+	1. Image processing - sequential
+	2. Image processing - multi-threaded
+	3. Performance/ latency measurement
+2. Digital pictures:
+	1. Pixels - single color points
+		1. Each pixel is represented by 4 bytes
+			1. ARGB
+				1. A - Alpha (transparency)
+				2. R - Red
+				3. G - Green
+				4. B - Blue
+			2. We can combine RGB to get pretty much any color
+				1. If all colors are the same, we get gray (from white to black)
+3. Recoloring algorithm
+
 ### Optimizing for Throughput Part 1 ###
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
 ### Quiz 4: Performance Optimization ###
