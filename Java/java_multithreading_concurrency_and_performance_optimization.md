@@ -792,7 +792,11 @@
 		
 			public static void main(String[] args) {
 				BufferedImage originalImage = ImageIO.read(new File(SOURCE_FILE)); // BufferedImage - specifies pixels, color space, dimentions, convenient methods to manipulate pixels of image
-				BufferedImage resultImage = 
+				BufferedImage resultImage = new BufferedImage(originaImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+			}
+			
+			public static void recolorPixel(BufferedImage originalImage, BufferedImage resultImage, int x, int y) {
+				
 			}
 			
 			public static boolean isShadeOfGray(int red, int green, int blue) {
