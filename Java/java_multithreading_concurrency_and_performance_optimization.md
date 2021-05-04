@@ -625,8 +625,17 @@
 	1. More control over independent threads
 	2. Safely collect and aggregate results
 	3. Gracefully handle runaway threads using `Thread.join(timeout)`
+9. Summary
+	1. Do not rely on the order of execution (of other threads)
+	2. Always used thread coordination (to get reliable results)
+	3. Design code for worst case scenario (defensive programming)
+		1. Assume that: Threads may take unreasonably long time to finish
+	4. Always use `Thread.join(...)` with time limit
+		1. Stop the thread if it's not done in time
 
 ### Coding Exercise 2: Multithreaded Calculation ###
+1. 
+
 ### Multithreaded Calculation - Solution ###
 
 ## Performance Optimization ##
