@@ -716,6 +716,41 @@
 			1. No of threads = No of cores
 				1. It is optimal only if all threads are runnable and can run without interruption
 					1. No IO/blocking calls/sleep
+				2. In reality, the result will be rarely optimal but we can be close to that
+			2. The assumption is that nothing else is running that consumes a lot of CPU
+				1. Never the case
+					1. Unless we have a dedicated server
+						1. OS and other processes would have a negligible impact on application threads
+			3. Hyperthreading - Virtual Cores vs Physical Cores
+			
+										|
+								Physical Core
+								[HW Unit 2]
+										|
+					[HW Unit 1]		|	[HW Unit 2]
+										|
+					Virutal Core 1	|	Virtual Core 2
+					
+				1. A physical core can run two threads at a time (we cannot get 100% parallelism)
+					1. Certain HW units are duplicated (to run the threads in parallel)
+					2. Certain HW units are shared
+	3. Inherent Cost of Parallelization and Aggregation
+		1. Cost of breaking tasks into many & aggregating the results
+			
+				Breaking task into multiple tasks (calculation cost) 
+				+
+				Thread creation, passing tasks to threads (cost)
+				+
+				Time between thread.start() to thread getting scheduled (by OS and run)
+				+
+				Time until last thread finishes and signals (aggregation - not all tasks take the same time)
+				+
+				Time until the aggregating thread runs (gets signal and runs again)
+				+
+				Aggregation of subresults into a single artifact
+				
+		2. Latency vs Original Task Latency
+			1. Initial cost for multithreading is high as compared to 
 
 ### Optimizing for Latency Part 2 - Image Processing ###
 ### Optimizing for Throughput Part 1 ###
