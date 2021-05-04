@@ -689,6 +689,31 @@
 				Latency = T/N
 				
 			1. N - number of sub-tasks
+	2. Theoretical reduction of latency by N = Performance improvement by a factor of N
+		1. N = ?
+			1. How many subtasks/ Threads to break the original task?
+		2. Does breaking original task and aggregating results coming for free?
+		3. Can we break any task into subtasks?
+6. N = ?
+	1. On a general purpose computer: N = number of cores (as close as possible)
+		1. Reduction of latency can be achieved by running the sub-tasks fully in parallel
+			1. This is possible only if we run them in multiple cores
+	2. OS tries it's best to schedule the tasks on available cores
+		1. If no other tasks are running (utilizing hardware as best as it can to give the optimal performance)
+			1. If we add a single additional thread (counter productive)
+				1. Reduces performance and increases the latency
+					1. The additional thread pushes the other thread back and forth resulting in context switches, bad cache performance, extra memory consumption:
+
+							core 1 <- Thread 1
+							core 2 <- Thread 2
+							...
+							core N <- Thread N
+							Idle   <- Thread N + 1
+							
+						1. Thread N + 1 can push any of the Thread [1..N] out and cause context switch
+						2. This can get repeated for any of the threads
+		2. N = ? - Notes
+			1. 
 
 ### Optimizing for Latency Part 2 - Image Processing ###
 ### Optimizing for Throughput Part 1 ###
