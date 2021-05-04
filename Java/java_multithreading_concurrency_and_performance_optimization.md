@@ -715,6 +715,7 @@
 		2. N = ? - Notes
 			1. No of threads = No of cores
 				1. It is optimal only if all threads are runnable and can run without interruption
+					1. No IO/blocking calls/sleep
 
 ### Optimizing for Latency Part 2 - Image Processing ###
 ### Optimizing for Throughput Part 1 ###
