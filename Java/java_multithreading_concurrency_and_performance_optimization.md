@@ -594,17 +594,21 @@
 				}
 				
 				for (Thread thread : threads) {
-					thread.start();
+					thread.start(); // this and checking result have a race condition
 				}
 				
 				for (int i = 0; i < inputNumbers.size(); i++) {
 					FactorialThread factorialThread = threads.get(i);
 					if (factorialThread.isFinished()) {
-						System.out.println("Factorial 
+						System.out.println("Factorial of " + inputNumbers.get(i) + " is " + factorialThread.getResult());
+					} else {
+						System.out.println("The calculation for " + inputNumbers.get(i) + " is still in progress");
 					}
 				}
 			}
 		}
+		
+	1. Race condition: Two threads race towards their goals independently (no coordination)
 
 ### Coding Exercise 2: Multithreaded Calculation ###
 ### Multithreaded Calculation - Solution ###
