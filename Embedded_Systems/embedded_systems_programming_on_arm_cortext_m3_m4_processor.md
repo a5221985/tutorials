@@ -5443,12 +5443,60 @@
 
 		LDFLAGS_SH= ... --specs=rdimon.specs ...
 		# ...
-		semi: main.o led.o stm32_startup.o syscalls.o final_sh.elf
+		semi: main.o led.o stm32_startup.o final_sh.elf
 		# ...
-		final_sh.elf: main.o led.o stm32_startup.o syscalls.o
+		final_sh.elf: main.o led.o stm32_startup.o
 			$(CC) $(LDFLAGS_SH) -o $@ $^
 		
 	1. Copy from `LDFLAGS`
+3. main.c
+
+		// semi hosting init function
+		extern void initialize_monitor_handles(void);
+
+		int main(void) {
+			initialize_monitor_handles();
+			// ...
+		}
+		
+	1. `make clean`
+	2. `make semi`
+4. linker script
+
+		.bss :
+		{
+			# ...
+			end = .;
+			__end__ = .;
+		}> SRAM
+		
+5. main.c
+
+		void task1_handler(void)
+		{
+			while(1)
+			{
+				// ...
+				print("Task1 is executing\n");
+			}
+		}
+		// ...
+		
+	1. `\n` is important for semihosting (taken as marker to mark end of the message)
+	2. `make clean`
+	3. `make semi`
+	4. `reset init`
+	5. `flash write_image erase final_sh.elf`
+	6. `arm semihosting enable`
+	7. `reset`
+	8. `halt`
+	9. `shutdown` - terminates OpenOCD (disconnected)
 
 ## Thank You ##
 ### Bonus Lecture ###
+1. [https://www.facebook.com/groups/fastbiteba/](https://www.facebook.com/groups/fastbiteba/)
+2. [www.fastbitlab.com](www.fastbitlab.com)
+3. [https://www.youtube.com/channel/UCa1REBV9hyrzGp2mjJCagBg](https://www.youtube.com/channel/UCa1REBV9hyrzGp2mjJCagBg)
+4. [https://www.facebook.com/fastbiteba](https://www.facebook.com/fastbiteba)
+5. [https://www.linkedin.com/in/fastbitlab](https://www.linkedin.com/in/fastbitlab)
+6. [https://twitter.com/fastbiteba](https://twitter.com/fastbiteba)
