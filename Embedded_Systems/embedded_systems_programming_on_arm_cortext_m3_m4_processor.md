@@ -5415,8 +5415,40 @@
 		.data :
 		{
 			# ...
+			
+	1. `LOADADDR` - returns load address of `.data` section
+2. Reset Handler (startup.c)
+
+		extern uint32_t _la_data;
+		// ...
+		void Reset_Handler(void) {
+			// ...
+			uint8_t *pSrc = (uint8_t*) &_la_data; //flash instead of _etext
+			// ...
+		}
+		
+	1. `make clean`
+	2. `make`
+	3. `reset init`
+	4. `flash write_image erase final.elf`
+	5. `reset`
+	6. `halt`
+	7. `resume`
 
 ### Semi-Hosting ###
+1. It is a technique by which we can see the printf messages on OpenOCD console
+	1. OpenOCD should be in connection with hardware (it should be running)
+		1. Printf messages are pulled by OpenOCD and displayed on console
+2. Makefile
+
+		LDFLAGS_SH= ... --specs=rdimon.specs ...
+		# ...
+		semi: main.o led.o stm32_startup.o syscalls.o final_sh.elf
+		# ...
+		final_sh.elf: main.o led.o stm32_startup.o syscalls.o
+			$(CC) $(LDFLAGS_SH) -o $@ $^
+		
+	1. Copy from `LDFLAGS`
 
 ## Thank You ##
 ### Bonus Lecture ###
