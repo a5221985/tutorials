@@ -439,9 +439,9 @@
 		public class Main {
 			public static void main(String[] args) {
 				Thread thread = new Thread(new LongComputationTask(new BigInteger("200000"), new BigInteger("10000000000"));
-				
+
 				thread.start(); // calculation will take a very long time
-				
+
 				thread.interrupt(); // The thread does not have any logic to handle this interrupt
 			}
 			
@@ -487,6 +487,20 @@
 	3. Scenario 2:
 		1. Code in a worker thread is not under our control, and we do not want it to block our application from terminating
 		2. Example: Worker thread that uses an external library (that might not handle interrupt signal)
+
+				
+				thread.setDaemon(true);
+				// ...
+
+				for (BigInteger i = BitInteger.ZERO; i.compareTo(power) != 0; i = i.add(BigInteger.ONE)) {
+					result = result.multiply(base);
+				}
+				
+			1. Even if main thread ends, the entire app is allowed to terminate
+8. Summary:
+	1. Learned how to stop threads by calling `thread.interrupt()`
+	2. If method does not respond to interrupt signal by throwing `InterruptedException`, we need to check for that signal and handle it ourselves
+	3. 
 
 ### Quiz 3: Thread Termination & Daemon Threads ###
 ### Joining Threads ###
