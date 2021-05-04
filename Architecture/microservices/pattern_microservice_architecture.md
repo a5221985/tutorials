@@ -119,9 +119,17 @@
 1. Many issues to address
 
 #### When to use the microservice architecture? ####
-1. Challenge is deciding when does it make 
+1. Challenge is deciding when to use it
+	1. First version of app usually does not have the problems that this approach solves
+	2. Distributed architecture slows down development
+		1. A major problem for startups (because the challenge is how to rapidly evolve business model and accompanying application)
+			1. Y-axis splits can make it much more difficult to iterate rapidly
+				1. However, if challenge is how to scale and we want to use functional decomposition
+					1. The tangled dependencies might make it difficult to decompose monolithic app into set of microservices
 
 #### How to decompose the application into services? ####
+1. 
+
 #### How to maintain data consistency? ####
 #### How to implement queries? ####
 
