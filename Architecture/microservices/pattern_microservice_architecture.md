@@ -85,6 +85,16 @@
 	2. Each microservice is relatively small
 		1. Easier for developer to understand
 		2. IDE is faster making developers more productive
+		3. App starts faster
+			1. Makes developers more productive
+			2. Speeds up development
+	3. Improved fault isolation
+		1. If there is memory leak in one service, then only that service will be affected
+			1. Other services will continue to handle requests
+				1. One misbehaving component of a monolithic architecture can bring down entire system
+	4. Eliminates long-term commitment to technology stack
+		1. To develop a new service, we can pick up a new technology stack
+		2. If we want to make major changes to existing service, we can re-write it using new technology stack
 
 ### Drawbacks ###
 ### Issues ###
