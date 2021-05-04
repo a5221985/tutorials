@@ -97,6 +97,18 @@
 		2. If we want to make major changes to existing service, we can re-write it using new technology stack
 
 ### Drawbacks ###
+1. Solution has drawbacks
+	1. Developers must deal with additional complexity of constructed distributed system:
+		1. Developers must implement inter-service communication mechanism and deal with partial failure
+		2. Implementing requests that span multiple services is more difficult
+		3. Testing interactions between services is more difficult
+		4. Implementing requests that span multiple services requires careful coordination between teams
+		5. Developer tools/IDEs are oriented on building monolithic application
+			1. They don't provide explicit support for developing distributed applications
+	2. Deployment complexity
+		1. There is operational complexity of deploying and managing many different services (in production)
+	3. 
+
 ### Issues ###
 #### When to use the microservice architecture? ####
 #### How to decompose the application into services? ####
