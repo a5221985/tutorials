@@ -634,12 +634,29 @@
 		1. Stop the thread if it's not done in time
 
 ### Coding Exercise 2: Multithreaded Calculation ###
-1. 
-
 ### Multithreaded Calculation - Solution ###
 
 ## Performance Optimization ##
 ### Introduction to Performance & Optimizing for Latency - Part 1 ###
+1. What we learn in this lecture
+	1. Performance criteria/ definition
+	2. Performance in Multithreaded applications
+	3. Latency
+2. Performance (This can be measured differently for different use cases and different scenarios)
+	1. Use cases:
+		1. High Speed Trading System
+		
+				Buy Request	->	|     | -> Purchase
+									| App |
+				Sell Request	->	|     | -> Sale
+										^
+										|
+									Latency
+									
+			1. Performance measured in latency
+				1. The faster the transaction is, the performant the application is considered to be
+				2. Latency measured in units of time
+
 ### Optimizing for Latency Part 2 - Image Processing ###
 ### Optimizing for Throughput Part 1 ###
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
