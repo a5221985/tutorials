@@ -415,13 +415,58 @@
 		
 		public class Main {
 			public static void main(String[] args) {
-			
+				Thread thread = new Thread(new BlockingTask());
+				
+				thread.start();
+				
+				thread.interrupt(); // interrupted exception gets thrown
 			}
 			
 			private static class Blocking implements Runnable {
 				@Override
 				public void run() {
-					Thread.sleep(500000);
+					try {
+						Thread.sleep(500000);
+					} catch (InterruptedException e) {
+						System.out.println("Exiting blocking thread");
+					}
+				}
+			}
+		}
+		
+6. Example:
+
+		public class Main {
+			public static void main(String[] args) {
+				Thread thread = new Thread(new LongComputationTask(new BigInteger("200000"), new BigInteger("10000000000"));
+				
+				thread.start(); // calculation will take a very long time
+				
+				thread.interrupt(); // The thread does not have 
+			}
+			
+			private static class LongComputationTask implements Runnable {
+				private BigInteger base;
+				private BigInteger power;
+				
+				public LongComputationTask(BigInteger base, BigInteger power) {
+					this.base = base;
+					this.power = power;
+				}
+				
+				@Override
+				public void run() {
+					System.out.println(base + "^" + power + " = " + pow(base, power));
+				}
+				
+				private BigInteger pow(BigInteger base, BigInteger power) {
+					BigInteger result = BigInteger.ONE;
+					
+					for (BigInteger i = BitInteger.ZERO; i.compareTo(power) != 0; i = i.add(BigInteger.ONE)) {
+						result = result.multiply(base);
+					}
+					
+					return result;
 				}
 			}
 		}
