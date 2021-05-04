@@ -116,7 +116,11 @@
 			1. The overhead is even higher
 
 ### Issues ###
+1. Many issues to address
+
 #### When to use the microservice architecture? ####
+1. Challenge is deciding when does it make 
+
 #### How to decompose the application into services? ####
 #### How to maintain data consistency? ####
 #### How to implement queries? ####
