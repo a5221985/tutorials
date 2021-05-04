@@ -784,7 +784,42 @@
 				4. B - Blue
 			2. We can combine RGB to get pretty much any color
 				1. If all colors are the same, we get gray (from white to black)
-3. Recoloring algorithm
+3. Recoloring algorithm (modular):
+
+		public class Main {
+			public static final String SOURCE_FILE = "./resources/many-flowers.jpg";
+			public static final String DESTINATION_FILE = "./out/main-flowers.jpg";
+		
+			public static void main(String[] args) {
+				BufferedImage originalImage = ImageIO.read(new File(SOURCE_FILE)); // BufferedImage - specifies pixels, color space, dimentions, convenient methods to manipulate pixels of image
+				BufferedImage resultImage = 
+			}
+			
+			public static boolean isShadeOfGray(int red, int green, int blue) {
+				return Math.abs(red - green) < 30 && Math.abs(red - blue) < 30 && Math.abs(green - blue) < 30; // found empirically
+			}
+			
+			public static int constructRGBFromColors(int red, int green, int blue) {
+				int rgb = 0;
+				rgb |= (red << 16);
+				rgb |= (green << 8);
+				rgb |= blue;
+				rgb |= 0xFF000000; // opaque
+				return rgb;
+			}
+			
+			public static int getRed(int rgb) {
+				return ((rgb & 0x00FF0000) >> 16);
+			}
+			
+			public static int getRed(int rgb) {
+				return ((rgb & 0x0000FF00) >> 8);
+			}
+			
+			public static int getBlue(int rgb) {
+				return (rgb & 0x000000FF);
+			}
+		}
 
 ### Optimizing for Throughput Part 1 ###
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
