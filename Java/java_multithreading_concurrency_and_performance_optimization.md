@@ -505,6 +505,44 @@
 
 ### Quiz 3: Thread Termination & Daemon Threads ###
 ### Joining Threads ###
+1. What we learn in the lecture
+	1. Threads coordination with `Thread.join()`
+	2. Case study
+2. How to guarantee that the thread upon which we depend completes its work by the time we expected
+	1. For full control over tasks (to run in parallel)
+		1. We also want to safely and correctly aggregate results
+3. Different threads run independently (of each other by default)
+4. Order of execution is out of our control
+	1. Example: ThreadA finishes before Thread B or other way, they might run concurrently or in parallel
+5. Thread coordination - Dependency
+	1. What if one thread depends on another thread?
+	
+			Thread A
+				| Output
+				|
+				| Input
+				v
+			Thread B
+			
+		1. How will Thread B know that Thread A has finished computing the output (and is not accessing an intermediate or partial result)?
+			1. Naive solution:
+				1. Thread B runs in a loop and keeps checking if Thread A' result is ready
+
+						void waitForThreadA() {
+							while (!threadA.isFinished()) {
+								// burn CPU cycles
+							}
+						}
+						
+					1. Busy wait
+						1. Inefficient and wasteful
+
+								Thread B | Thread A  | Thread B | Thread A
+								Check      doing work  Check      doing work
+								  ^
+								  |
+								  waste
+
 ### Coding Exercise 2: Multithreaded Calculation ###
 ### Multithreaded Calculation - Solution ###
 
