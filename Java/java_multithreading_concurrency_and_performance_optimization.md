@@ -751,6 +751,16 @@
 				
 		2. Latency vs Original Task Latency
 			1. Multithreaded solution has a constant penalty we have to pay for any size of tasks
+				1. The longer the heavier the task is, it is worthwhile to run in parallel
+					1. Point where we need to decide is at the intersection between multithreaded solution and single threaded solution
+						1. Small and trivial tasks don't do well with parallel execution
+		3. Can we break any task into subtasks?
+			1. No
+				1. Three types of tasks
+					1. Tasks that are inherently parallelizable and can be broken into sub-tasks
+					2. Tasks that cannot be parallelizable
+						1. We are forced to run as single thread
+					3. Tasks that can be partially broken into subtasks and partially needed to be run sequentially
 
 ### Optimizing for Latency Part 2 - Image Processing ###
 ### Optimizing for Throughput Part 1 ###
