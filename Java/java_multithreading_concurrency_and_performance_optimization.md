@@ -500,7 +500,8 @@
 8. Summary:
 	1. Learned how to stop threads by calling `thread.interrupt()`
 	2. If method does not respond to interrupt signal by throwing `InterruptedException`, we need to check for that signal and handle it ourselves
-	3. 
+	3. To prevent thread from blocking our app from exiting
+		1. We set thread to be a daemon thread
 
 ### Quiz 3: Thread Termination & Daemon Threads ###
 ### Joining Threads ###
