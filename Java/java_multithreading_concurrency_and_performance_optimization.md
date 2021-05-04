@@ -750,7 +750,7 @@
 				Aggregation of subresults into a single artifact
 				
 		2. Latency vs Original Task Latency
-			1. Initial cost for multithreading is high as compared to 
+			1. Multithreaded solution has a constant penalty we have to pay for any size of tasks
 
 ### Optimizing for Latency Part 2 - Image Processing ###
 ### Optimizing for Throughput Part 1 ###
