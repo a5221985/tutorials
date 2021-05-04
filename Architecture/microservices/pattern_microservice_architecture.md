@@ -107,7 +107,13 @@
 			1. They don't provide explicit support for developing distributed applications
 	2. Deployment complexity
 		1. There is operational complexity of deploying and managing many different services (in production)
-	3. 
+	3. Increased memory consumption
+		1. The architecture replaces N monolithic app instances with NxM service instances
+		2. If each service runs in it's own JVM (or equivalent)
+			1. Usually necessary to isolate the instances
+				1. There is overhead of M times as many JVM runtimes
+		3. If each service runs on its own VM (e.g. EC2 instance) (Netflix)
+			1. The overhead is even higher
 
 ### Issues ###
 #### When to use the microservice architecture? ####
