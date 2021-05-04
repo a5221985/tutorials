@@ -609,6 +609,22 @@
 		}
 		
 	1. Race condition: Two threads race towards their goals independently (no coordination)
+		1. Solution: Forcing main to wait until all factorials are finished
+
+				for (Thread thread : threads) {
+					thread.join(); // returns only when the thread has terminated
+				} // all factorial calculations are guaranteed to be finished
+7. What if one of the numbers is large (from a file or user input) - edge case
+	1. Other calculations are ready but cannot complete
+		1. Solution: How long we are willing to wait for each of the worker threads
+
+				thread.join(2000); // 2 seconds only
+				
+			1. Other thread is still running (can be solved to terminate elegantly) - convert it to daemon thread
+8. Thread coordination: `Thread.join()`
+	1. More control over independent threads
+	2. Safely collect and aggregate results
+	3. Gracefully handle runaway threads using `Thread.join(timeout)`
 
 ### Coding Exercise 2: Multithreaded Calculation ###
 ### Multithreaded Calculation - Solution ###
