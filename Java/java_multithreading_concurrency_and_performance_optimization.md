@@ -442,7 +442,7 @@
 				
 				thread.start(); // calculation will take a very long time
 				
-				thread.interrupt(); // The thread does not have 
+				thread.interrupt(); // The thread does not have any logic to handle this interrupt
 			}
 			
 			private static class LongComputationTask implements Runnable {
@@ -463,6 +463,10 @@
 					BigInteger result = BigInteger.ONE;
 					
 					for (BigInteger i = BitInteger.ZERO; i.compareTo(power) != 0; i = i.add(BigInteger.ONE)) {
+						if (Thread.currentThread().isInterrupted()) {
+							System.out.println("Prematurely interrupted computation");
+							return BitInteger.ZERO;
+						}
 						result = result.multiply(base);
 					}
 					
@@ -470,6 +474,19 @@
 				}
 			}
 		}
+		
+	1. Find hotspot
+		1. In each iteration, check if current thread has got interrupted from the outside world
+7. Daemon Threads
+	1. Background threads that do not prevent the application from existing if the main thread terminates
+	2. Scenario 1:
+		1. Background tasks (not the main focus of the application)
+			1. That should not block our application from terminating
+		2. Example: File saving thread in a Text Editor (every few minutes)
+			1. We don't want to wait for this thread to finish
+	3. Scenario 2:
+		1. Code in a worker thread is not under our control, and we do not want it to block our application from terminating
+		2. Example: Worker thread that uses an external library (that might not handle interrupt signal)
 
 ### Quiz 3: Thread Termination & Daemon Threads ###
 ### Joining Threads ###
