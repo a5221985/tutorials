@@ -542,6 +542,69 @@
 								  ^
 								  |
 								  waste
+								  
+						2. Better solution: Thread B checks and goes to sleep (get out of the way completely), Thread A finishes work, then Thread B will wake up using the results computed by Thread A
+							1. Implementation: `Thread.join()`
+								1. `public final void join()`
+								2. `public final void join(long millis, int nanos)`
+								3. `public final void join(long millis)`
+6. Example: Factorial calculation (CPU intensive task)
+
+		public static class FactorialThread extends Thread {
+			private long inputNumber;
+			private BigInteger result = BigInteger.ZERO;
+			private boolean isFinished = false;
+			
+			public FactorialThread(long inputNumber) {
+				this.inputNumber = inputNumber;
+			}
+			
+			@Override
+			public void run() {
+				this.result = factorial(inputNumber);
+				this.isFinished = true;
+			}
+			
+			public BigInteger factorial(long n) {
+				BigInteger tempResult = BigInteger.ONE;
+				
+				for (long i = n; i > 0; i--) {
+					tempResult = tempResult.multiply(new BigInteger(Long.toString(i)));
+				}
+				return tempResult;
+			}
+			
+			public boolean isFinished() {
+				return isFinished;
+			}
+			
+			public BigInteger getResult() {
+				return result;
+			}
+		}
+		
+		public class Main {
+			public static void main(String[] args) {
+				List<Long> inputNumbers = Arrays.asList(0L, 3435L, 35435L, 2324L, 4656L, 23L, 5556L);
+				
+				List<FactorialThread> threads = new ArrayList<>();
+				
+				for (long inputNumber : inputNumbers) {
+					threads.add(new FactorialThread(inputNumber));
+				}
+				
+				for (Thread thread : threads) {
+					thread.start();
+				}
+				
+				for (int i = 0; i < inputNumbers.size(); i++) {
+					FactorialThread factorialThread = threads.get(i);
+					if (factorialThread.isFinished()) {
+						System.out.println("Factorial 
+					}
+				}
+			}
+		}
 
 ### Coding Exercise 2: Multithreaded Calculation ###
 ### Multithreaded Calculation - Solution ###
