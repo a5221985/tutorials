@@ -672,8 +672,23 @@
 				1. The more data that the system can inject into the system, the better for us
 					1. Performance metric: throughput (latency or lack or jitter is not important)
 3. Performance in Multithreading (General case)
-	1. Latency
-	2. Throughput
+	1. Latency - The time to completion of a task. Measured in time units
+	2. Throughput - The amount of tasks completed in a given period. Measured in tasks/time unit
+4. Improving one may not have impact on the other or may even have adverse effect on the other
+5. Latency:
+
+		<----- Task ----->
+				Latency = T
+				
+	1. We can break the task into multiple independent tasks
+
+			Task1|task2| | | || | TaskN
+			
+		1. Schedule the sub-tasks to run in parallel to each other
+
+				Latency = T/N
+				
+			1. N - number of sub-tasks
 
 ### Optimizing for Latency Part 2 - Image Processing ###
 ### Optimizing for Throughput Part 1 ###
