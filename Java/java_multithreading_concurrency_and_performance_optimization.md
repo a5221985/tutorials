@@ -1639,6 +1639,11 @@
 5. Summary:
 	1. Formal definition of concurrency problem
 	2. We now can identify the code that we need to execute atomically, by declaring that code as a critical section
+	3. Use of synchronized keyword to protect the critical section in two ways
+		1. Simple way (in front of a method)
+		2. On an explicit object
+			1. More flexible and granular
+				1. But more verbose
 
 ### Quiz 6: Critical Section & Synchronization ###
 ### Atomic Operations, Volatile & Metrics Practical Example ###
