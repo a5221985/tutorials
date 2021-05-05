@@ -1512,6 +1512,82 @@
 							1. It is called a monitor
 						2. Every `synchronized` method is a door to a room
 							1. If we lock one door, every other door gets locked immediately
+	3. Critical sections:
+
+			void increment() {
+				items++;
+			}
+			
+			void decrement() {
+				items--;
+			}
+			
+	4. Solution:
+
+			public synchronized void increment() {
+				items++;
+			}
+			
+			public synchronized void decrement() {
+				items--;
+			}
+			
+			public synchronized int getItems() {
+				return items;
+			}
+			
+		1. The operations are executed safely (one thread at a time)
+2. Method 2: `synchronized` - lock
+
+		public class ClassWithCriticalSections {
+			Object lockingObject = new Object();
+		
+			public void method1() {
+				synchronized(lockingObject) {
+					// ...
+					critical section ...
+					// ...
+				}
+			}
+		}
+		
+	1. `lockingObject` serves as a lock (can be any object)
+	2. Only one thread is allowed to execute that block
+	3. Monitor method is equivalent to:
+
+			public void method1() {
+				synchronized(this) {
+					...
+				}
+			}
+			
+			public void method2() {
+				synchronized(this) {
+					...
+				}
+			}
+			
+		1. This method provides a lot of flexibility:
+
+				public class ClassWithCriticalSections {
+					Object lock1 = new Object();
+					Object lock2 = new Object();
+					
+					public void method1() {
+						synchronized(lock1) {
+							...
+						}
+					}
+					
+					public void method2() {
+						synchronized(lock2) {
+							...
+						}
+					}
+				}
+				
+			1. Thread A can access first critical section while Thread B is executing the second critical section
+			2. But both threads cannot execute the same critical section
 
 ### Quiz 6: Critical Section & Synchronization ###
 ### Atomic Operations, Volatile & Metrics Practical Example ###
