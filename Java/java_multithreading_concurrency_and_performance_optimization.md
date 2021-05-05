@@ -1699,6 +1699,39 @@
 									1. Guaranteed to be performed as single hardware operation
 	4. Classes in `java.util.concurrent.atomic`
 	5. Those are more advanced operations
+		1. Lock free atomic operations
+			1. Multiple techniques are used
+				1. Later
+3. Metrics Use Case
+	1. We want to measure how long the operations take
+		1. They depend on input data, environment, hardware, OS, ...
+		2. We want to capture duration of those operations (to identify performance issues and optimize)
+	2. Code:
+
+			public class Main {
+				public static class BusinessLogic extends Thread {
+					public BusinessLogic(Metrics metrics) {
+					
+					}
+				}
+			
+				public static void main(String[] args) {
+					private long count = 0;
+					private volatile double average = 0.0; // atomic
+					
+					public synchronized void addSample(long sample) {
+						double currentSum = average * count;
+						count++;
+						average = (currentSum + sample) / count;
+					}
+				}
+				
+				public double getAverage() {
+					return average; // safe
+				}
+			}
+			
+		1. `count` and `average` are shared by multiple threads
 
 ### Quiz 7: Atomic Operations, Volatile & Metrics Practical Example ###
 ### Coding Exercise 3: Min - Max Metrics ###
