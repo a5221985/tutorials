@@ -1014,8 +1014,19 @@
 						
 						Runnable task = ...;
 						executor.execute(task);
+						
+6. Summary
+	1. By serving each task on a different thread, in parallel, we can improve throughput by N
+		1. N = number of threads = number of cores
+	2. Using a Fixed thread pool, we can maintain constant number of threads, and eliminate need for recreation of threads
+	3. The above should give a significant performance improvement (xN)
 
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
+1. What we learn in this lecture
+	1. HTTP server
+	2. Measure throughput using Apache Jmeter
+	3. Performance measurement and analysis
+
 ### Quiz 4: Performance Optimization ###
 
 ## Data Sharing Between Threads ##
