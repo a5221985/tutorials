@@ -1281,9 +1281,30 @@
 		2. Local references
 
 ### Quiz 5: Stack & Heap Memory Regions ###
-1. 
-
 ### Resource Sharing & Introduction to Critical Sections ###
+1. What we learn in this lecture
+	1. Resource sharing between threads
+	2. Atomic operations
+2. What is a resource?
+	1. It represents data (or a state)
+		1. Variables (integers, Strings, ...)
+		2. Data Structure (arrays, collections, maps)
+		3. File or connection handles (or Databases)
+		4. Message or work queues
+		5. Any Objects ...
+3. What resources can be shared within a process?
+	1. Everything we store in the heap
+	2. Everything outside the process is also shared (out of scope for this discussion)
+4. Why do we want to share resources?
+	1. Text Editor (example)
+		1. UI thread - responds to keyboard and mouse events, represents doc's view on the screen
+		2. Document saver - saves document to the disk
+	2. Both threads have access to the same data structure (that represents document)
+		1. The data structure is a shared resource
+		2. Benefit:
+			1. Document saver thread can save user from losing work
+				1. If app crashes
+				2. If we lose power
 
 ## The Concurrency Challenges & Solutions ##
 ### Critical Section & Synchronization ###
