@@ -928,9 +928,38 @@
 					1. Some CPU resources consumed by other OS processes and other background applications
 			2. If number of threads is increased steadily, no benefit
 		2. If we keep the number of threads fixed at 6 and compare for different resolutions
-			1. 
+			1. If source resolution gets smaller (upto 759 x 1012 it is beneficial)
+5. Summary
+	1. We can get a speed up if we partition a problem into multiple sub-problems (performed by multiple threads)
+	2. More threads than cores is counterproductive (for threads with only computation and no blocking calls)
+	3. There is inherent cost for running an algorithm by multiple threads
 
 ### Optimizing for Throughput Part 1 ###
+1. What we learn in this lecture
+	1. Throughput definition
+	2. 2 approaches to throughput improvement
+	3. Thread pooling
+2. Throughput - number of tasks completed in a given period
+	1. Measured in tasks/time unit (typically in seconds)
+3. When does it matter?
+
+		- task1 -> |        |
+		- task2 -> | System |
+		- task3 -> |        |
+		- task4 -> |        |
+
+	1. If we have concurrent tasks and we want to perform as many of them as possible as fast as possible
+		1. Increase throughput
+4. 2 approaches to throughput improvement
+	1. Approach 1: Breaking Tasks into Subtasks
+
+			<------- original task ------->
+						Latency = T
+			
+			Throughput = 1/T
+			
+		1. If we break task into sub-tasks
+
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
 ### Quiz 4: Performance Optimization ###
 
