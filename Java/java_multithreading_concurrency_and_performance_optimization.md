@@ -1710,8 +1710,28 @@
 
 			public class Main {
 				public static class BusinessLogic extends Thread {
+					private Metrics metrics;
+					private Random random = new Random();
+				
 					public BusinessLogic(Metrics metrics) {
+						this.metrics = metrics;
+					}
 					
+					@Override
+					public void run() {
+						while (true) {
+							long start = System.currentTimeMillis();
+							
+							try {
+								Thread.sleep(random.nextInt(10));
+							} catch (InterruptedException e) {
+								
+							}
+							
+							long end = System.currentTimeMillis();
+							
+							metrics.addSample(end - start);
+						}
 					}
 				}
 			
@@ -1730,7 +1750,7 @@
 					return average; // safe
 				}
 			}
-			1
+			
 		1. `count` and `average` are shared by multiple threads
 
 ### Quiz 7: Atomic Operations, Volatile & Metrics Practical Example ###
