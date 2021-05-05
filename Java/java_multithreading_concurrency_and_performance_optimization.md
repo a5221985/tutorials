@@ -1647,6 +1647,47 @@
 
 ### Quiz 6: Critical Section & Synchronization ###
 ### Atomic Operations, Volatile & Metrics Practical Example ###
+1. What we learn in this lecture
+	1. Atomic operations
+	2. Volatile
+	3. Metrics Use Case
+2. How do we know what operations are atomic and what are not?
+	1. Excessive synchronization
+		1. Every method is marked as `synchronized`
+			1. Minimizes code that can run in parallel
+				1. Only one thread can run at a time
+					1. Worse: We are paying the cost of context switching and memory overhead of maintaining multiple threads
+	2. Better situation:
+		1. Some contention for data but most of the time, the threads run in parallel (more work than single thread)
+	3. Which operations are atomic?
+		1. Unfortunately, most operations are NOT atomic
+		2. Classification:
+			1. All reference assignments are atomic
+				1. We can get and set references to objects atomically
+
+						Object a = new Object();
+						Object b = new Object();
+						a = b; // atomic
+						
+				2. Hence Getters and Setters (that set references to Strings arrays or objects) are all atomic
+					1. We don't have to synchronize
+			2. All assignments to primitive types are safe (except long and double)
+				1. Reading from and writing to the following types is atomic
+					1. `int`
+					2. `short`
+					3. `byte`
+					4. `float`
+					5. `char`
+					6. `boolean`
+				2. `long` and `double` are exceptions
+					1. 64 bit long
+						1. Java does not guarantee (even with 64 bit computer)
+
+								x = y;
+								
+								x.lower_32_bits <- y.lower_32_bits
+								x.upper_32_bits <- y.upper_32_bits
+
 ### Quiz 7: Atomic Operations, Volatile & Metrics Practical Example ###
 ### Coding Exercise 3: Min - Max Metrics ###
 ### Race Conditions & Data Races ###
