@@ -1485,6 +1485,33 @@
 					2. If another thread comes and tries to enter a critical section while there is a thread in it, it will be denied access and will be suspended until the first thread exits the critical section
 					3. If first thread crosses the exit point of critical section, the second thread can enter the critical section and perform the operations
 				2. Hence we can achieve atomicity for any number of distinct operations without worrying about concurrency issues
+3. JVM with support from OS and hardware provides multiple tools to guard critical section from multiple access from multiple threads
+	1. The concepts are extensible to other languages
+		1. The API might be slightly different
+4. Solutions:
+	1. `synchronized`
+		1. It is a locking mechanism
+		2. Used to restrict access to a critical section or entire method to a single thread at a time
+	2. Two methods
+		1. Synchronized - Monitor
+
+				public class ClassWithCriticalSections {
+					public synchronized method1() {
+						...
+					}
+					
+					public synchronized method2() {
+						...
+					}
+				}
+				
+			1. If multiple threads try to call the methods on the same object of the class, only one thread will be able to access either of the methods
+				1. If Thread A is executing method1
+					1. Thread B is deprived from executing method1 and method2 both (or any other synchronized method of the object)
+						1. `synchronized` is applied per object
+							1. It is called a monitor
+						2. Every `synchronized` method is a door to a room
+							1. If we lock one door, every other door gets locked immediately
 
 ### Quiz 6: Critical Section & Synchronization ###
 ### Atomic Operations, Volatile & Metrics Practical Example ###
