@@ -1687,6 +1687,18 @@
 								
 								x.lower_32_bits <- y.lower_32_bits
 								x.upper_32_bits <- y.upper_32_bits
+								
+							1. Solution:
+								1. Assignments to long and double if declared `volatile`
+
+										volatile double x = 1.0;
+										volatile double y = 9.0;
+										
+										x = y; // atomic
+										
+									1. Guaranteed to be performed as single hardware operation
+	4. Classes in `java.util.concurrent.atomic`
+	5. Those are more advanced operations
 
 ### Quiz 7: Atomic Operations, Volatile & Metrics Practical Example ###
 ### Coding Exercise 3: Min - Max Metrics ###
