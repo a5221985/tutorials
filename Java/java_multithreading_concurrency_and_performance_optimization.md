@@ -1045,6 +1045,7 @@
 
 		public class ThroughputHttpServer {
 			private static final String INPUT_FILE = "resrouces/throughput/war_and_peace.txt";
+			private static final in NUMBER_OF_THREADS = 1;
 			public static void main(String[] args) {
 				String text = new String(Files.readAllBytes(Paths.get(INPUT_FILE)));
 				startServer(text);
@@ -1052,6 +1053,23 @@
 			
 			public static void startServer(String text) {
 				HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0); // backlog size - size of queue for the HTTP requests - 0: Because requests should end in thread pool queue
+				server.createContext("/search", new WordCountHandler(text)); // assigns handler object to HTTP route
+				Executor executor = Executors.newFixedTHreadPool(NUMBER_OF_THREADS);
+				server.setExecutor(executor);
+				server.start(); // app will start listening for requests on port 8000
+			}
+			
+			private static class WordCountHandler implements HttpHandler {
+				private String text;
+				
+				public WordCountHandler(String text) {
+					this.text = text;
+				}
+				
+				@Override
+				public void handle(HttpExchange httpExchange) throws IOException {
+					String query = httpExchange.getRequestURI(
+				}
 			}
 		}
 
