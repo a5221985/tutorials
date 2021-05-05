@@ -1479,6 +1479,12 @@
 						exit critical section
 						...
 					}
+					
+				1. Entry point and exit point
+					1. If no thread currently executing the critical section then a thread can enter the section and execute the operations
+					2. If another thread comes and tries to enter a critical section while there is a thread in it, it will be denied access and will be suspended until the first thread exits the critical section
+					3. If first thread crosses the exit point of critical section, the second thread can enter the critical section and perform the operations
+				2. Hence we can achieve atomicity for any number of distinct operations without worrying about concurrency issues
 
 ### Quiz 6: Critical Section & Synchronization ###
 ### Atomic Operations, Volatile & Metrics Practical Example ###
