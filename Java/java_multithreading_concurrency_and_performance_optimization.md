@@ -1120,8 +1120,40 @@
 					1. requests / test duration (time to get responses)
 	5. Open JMeter
 		1. Name: Word Count
-			1. Add: Thread Group (group of Jmeter threads 
-				1. 
+			1. Add: Thread Group (group of Jmeter threads that are going to send http requests to http server)
+				1. Number of threads (users): 200 (to run concurrently)
+				2. Log Controller > While Controller (to interate over words)
+					1. Add > Config Element > CSV Data Set Config
+						1. Browse > search_words.csv
+							1. Each line contains a unique word
+					2. Variable Names (comma-delimited): WORD
+					3. Delimiter: \n (each word is on new line)
+					4. Recycle on EOF? False (read the file only once)
+					5. Stop thread on EOF? True
+				3. Condition (function or variable):
+
+						${__jexl3("${WORD} != "<EOF>")}
+				4. Right click on While Controller > Add > Sampler > HTTP Request
+					1. Path: /search?word=${WORD}
+					2. Protocol: http
+					3. IP: localhost
+					4. Port Number: 8000
+				5. Right click on While Controller > Add > Listener > Summary Report
+					1. Gives throughput and other metrics
+				6. Right click on While Controller > Add > Listener > View Results Tree
+					1. To inspect each request (for meaningful response)
+		2. Execution of test plan
+			1. Save test plan
+			2. Run (1 thread)
+				1. 304.2 requests/ second
+			3. View Results Tree
+				1. All are green (200)
+				2. Click on request
+					1. Response data
+		3. Increase threadpool size to 2
+			1. Throughput: 505.9 / sec (almost twice)
+		4. threadpool size to 4
+			1. 
 
 ### Quiz 4: Performance Optimization ###
 
