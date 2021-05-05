@@ -987,6 +987,14 @@
 			Throughput = N/T
 			
 		1. In practice, we are much more likely to achieve this throughput than by breaking tasks into smaller sub-tasks (to reduce latency of each individual task)
+			1. The tasks are un-related and independent from each other
+				1. No breaking task into multiple subtasks (no pre-processing)
+				2. No time until the last thread finishes and signals
+				3. No time until the aggregating thread runs (no post-processing)
+				4. No aggregation of subresults into single artifact (no post-processing)
+				5. We can eliminate the following using advanced techniques (thread pooling, cache friendly non-blocking queues)
+					1. Thread creation, passing tasks to threads
+					2. Time between thread.start() to thread getting scheduled
 
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
 ### Quiz 4: Performance Optimization ###
