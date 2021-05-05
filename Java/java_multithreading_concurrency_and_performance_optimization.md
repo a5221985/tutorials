@@ -1068,10 +1068,60 @@
 				
 				@Override
 				public void handle(HttpExchange httpExchange) throws IOException {
-					String query = httpExchange.getRequestURI(
+					String query = httpExchange.getRequestURI().getQuery();
+					String[] keyValue = query.split("=");
+					String action = keyValue[0];
+					String word = keyValue[1];
+					if (!action.equals("word")) {
+						httpExchange.sendResponseHeaders(400, 0);
+						return;
+					}
+					
+					long count = countWord(word);
+					
+					byte[] response = Long.toString(count).getBytes();
+					httpEschange.sendResponseHeaders(200, response.length);
+					OutputStream outputStream = httpExchange.getResponseBody();
+					outputStream.write(response);
+					ouptutStream.close(); // sends response to client
+				}
+				
+				private long countWord(String word) {
+					long count = 0;
+					int index = 0;
+					while (index >= 0) {
+						index = text.indexOf(word, index);
+						
+						if (index >= 0) {
+							count++;
+							index++;
+						}
+					}
+					return count;
 				}
 			}
 		}
+		
+	1. http://localhost:8000/search?word=talk
+4. Apache JMeter
+	1. Java performance automation tool - automated tool that allows us to define an automated performance test plan
+	2. Does not require writing any code
+	3. Jmeter is out of scope for your course
+	4. Test plan:
+
+			Jmeter Performance Test -HTTP Request-> HTTP Server
+				^		http://127.0.0.1:8000/search?word=word1
+				|
+			2600 unique words		
+			
+		1. For each word, we can send HTTP request and wait for response
+			1. Tool will send as many requests as possible and as fast as possible
+				1. It gives throughput
+					1. requests / test duration (time to get responses)
+	5. Open JMeter
+		1. Name: Word Count
+			1. Add: Thread Group (group of Jmeter threads 
+				1. 
 
 ### Quiz 4: Performance Optimization ###
 
