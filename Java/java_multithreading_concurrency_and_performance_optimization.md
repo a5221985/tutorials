@@ -1730,7 +1730,7 @@
 					return average; // safe
 				}
 			}
-			
+			1
 		1. `count` and `average` are shared by multiple threads
 
 ### Quiz 7: Atomic Operations, Volatile & Metrics Practical Example ###
