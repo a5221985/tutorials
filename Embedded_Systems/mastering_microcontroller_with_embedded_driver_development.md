@@ -352,6 +352,10 @@
 
 ## Understanding MCU Memory Map ##
 ### Understanding Memory Map of the MCU: Part 1 ###
+1. Memory map of MCU (STM32F407X)
+	1. ARM Cortex M4
+		1. Width of system bus is 32 bits
+
 ### Understanding Memory Map of the MCU: Part 2 ###
 ### Understanding Memory Map of the MCU: Part 3 ###
 ### Quiz 1: Test your understanding ###
@@ -360,7 +364,7 @@
 ### MCU Bus Interfaces Explanation Part 1: I-Code/D-Code/S-Bus ###
 ### MCU Bus Interfaces Explanation Part 2: AHB/APB1/APB2 ###
 ### MCU Bus Interfaces Explanation Part 3: Q/A Session ###
-### Understanding MCU Bus Matri ###
+### Understanding MCU Bus Matrix ###
 
 ## Understanding MCU Clocks and Details ##
 ### Understanding MCU Clocking System: Part 1 ###
