@@ -1041,7 +1041,19 @@
 			1. App will search for the word in the book and count the number of times the word appears in the book
 	3. HTTP Response:
 		1. status: 200, body: 3443
-3. 
+3. Code:
+
+		public class ThroughputHttpServer {
+			private static final String INPUT_FILE = "resrouces/throughput/war_and_peace.txt";
+			public static void main(String[] args) {
+				String text = new String(Files.readAllBytes(Paths.get(INPUT_FILE)));
+				startServer(text);
+			}
+			
+			public static void startServer(String text) {
+				HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0); // backlog size - size of queue for the HTTP requests - 0: Because requests should end in thread pool queue
+			}
+		}
 
 ### Quiz 4: Performance Optimization ###
 
