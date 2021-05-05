@@ -1026,6 +1026,22 @@
 	1. HTTP server
 	2. Measure throughput using Apache Jmeter
 	3. Performance measurement and analysis
+2. HTTP Server - Search and Count Word
+
+		-HTTP Request-> |             |
+		-HTTP Request-> |             |
+		-HTTP Request-> | HTTP Server |
+		-HTTP Request-> |             |
+		-HTTP Request-> |             |
+		
+	1. HTTP Server will load a very large book from the disk
+		1. War and Peace - Tolstoy (several megabytes)
+	2. HTTP Request:
+		1. http://127.0.0.1:8000/search?word=talk
+			1. App will search for the word in the book and count the number of times the word appears in the book
+	3. HTTP Response:
+		1. status: 200, body: 3443
+3. 
 
 ### Quiz 4: Performance Optimization ###
 
