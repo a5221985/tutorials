@@ -1433,10 +1433,53 @@
 												5. items <- newVal = -1
 			6. items <- newVal = 1
 
-		1. `items = 1` - which is wrong
+	4. `items = 1` - which is wrong (decrementing thread's work is overridden)
+
+			IncrementingThread				DecrementingThread
+			1. currentVal <- items = 0
+			2. newVal <- currentVal + 1
+												3. currentVal <- items = 0
+												4. newVal <- currentVal - 1
+			5. items <- newVal = 1			
+												6. items <- newVal = -1
+
+	5. `items = -1` - which is wrong (incrementing thread's work is overridden)
+7. Summary
+	1. Benefits of sharing resources between threads
+	2. Challenge of multithreaded programming
+	3. Case study about a non atomic operation, performed concurrently by different threads
 
 ## The Concurrency Challenges & Solutions ##
 ### Critical Section & Synchronization ###
+1. What we learn in this lecture
+	1. Critical Sections
+	2. Synchronized - Monitor/ Lock
+2. Critical Sections
+	1. Concurrency problem
+		1. Two threads sharing `items` counter
+		2. Both threads were reading and modifying the counter at the same time
+		3. The operations were not atomic
+	2. Critical Section
+
+			void aggregateFunction() {
+				operation1();
+				operation2();
+				operation3();
+				...
+			}
+			
+		1. The set of operations need to be performed in such a way that they will appear as single atomic operation
+			1. No two threads will be performing the set of operations at the same time
+
+					void aggregateFunction() {
+						enter critical section
+						operation1();
+						operation2();
+						operation3();
+						exit critical section
+						...
+					}
+
 ### Quiz 6: Critical Section & Synchronization ###
 ### Atomic Operations, Volatile & Metrics Practical Example ###
 ### Quiz 7: Atomic Operations, Volatile & Metrics Practical Example ###
