@@ -872,10 +872,13 @@
 		2. 4 threads - 4 pieces
 	2. Solution:
 
-
+			public static void main(String[] args) {
+				// ...
 				long startTime = System.currentTimeMillis();
 			
-				recolorSingleThreaded(originalImage, resultImage);
+				// recolorSingleThreaded(originalImage, resultImage);
+				int numberOfThreads = 1; //2, 3, 4, 5, 6
+				recolorMultiThreaded(originalImage, resultImage, numberOfThreads);
 			
 				long endTime = System.currentTimeMillis();
 			
@@ -917,6 +920,15 @@
 					}
 				}
 			}
+			
+		1. Between 4 (physical cores) - 8 (virtual cores), it is lowest for around 6 threads
+			1. Reasons?
+				1. Pairs of virtual cores share some resources among themselves
+				2. Computer running the benchmark is not fully dedicated to our application
+					1. Some CPU resources consumed by other OS processes and other background applications
+			2. If number of threads is increased steadily, no benefit
+		2. If we keep the number of threads fixed at 6 and compare for different resolutions
+			1. 
 
 ### Optimizing for Throughput Part 1 ###
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
