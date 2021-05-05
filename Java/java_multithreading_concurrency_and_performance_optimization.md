@@ -1006,6 +1006,14 @@
 		1. Implementing a thread pool is not trivial
 			1. Implementing a low overhead and efficient queue may need en entire course
 		2. JDK comes with a few implementations of thread pools
+			1. Fixed thread pool executor (example)
+				1. It constructs a thread pool with fixed number of threads in the pool (comes with built in queue)
+
+						int numberOfThreads = 4;
+						Executor executor = Executors.newFixedThreadPool(numberOfThreads);
+						
+						Runnable task = ...;
+						executor.execute(task);
 
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
 ### Quiz 4: Performance Optimization ###
