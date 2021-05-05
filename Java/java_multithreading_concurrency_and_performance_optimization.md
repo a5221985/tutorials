@@ -1588,6 +1588,57 @@
 				
 			1. Thread A can access first critical section while Thread B is executing the second critical section
 			2. But both threads cannot execute the same critical section
+		2. Another benefit: We don't have to make the entire method synchronized
+
+				Object lockingObject = new Object();
+				public void method1() {
+					... 
+					... // concurrent execution is allowed
+					synchronized(lockingObject) { // non-concurrent
+						critical section
+					}
+					... // concurrent execution is allowed
+					...
+					...
+				}
+				
+			1. Only a small portion of method can be critical
+				1. We want to minimize the code in the critical section to bare minimum (as small as possible)
+					1. This enables more code to be executed concurrently by different threads
+						1. Less code requires synchronization (maximizes performance)
+3. Example:
+
+		private static class InventoryCounter {
+			private int items = 0;
+			
+			Object lock = new Object();
+			
+			public void increment() {
+				synchronized(lock) {
+					items++;
+				}
+			}
+			
+			public void decrement() {
+				synchronized(lock) {
+					items--;
+				}
+			}
+			
+			public int getItems() {
+				synchronized(lock) {
+					return items;
+				}
+			}
+		}
+		
+4. Synchronized block is Reentrant
+	1. A thread cannot prevent itself from entering a critical section
+		1. Thread can call synchronized method multiple times
+		2. Thread can call other synchronized methods in the class
+5. Summary:
+	1. Formal definition of concurrency problem
+	2. We now can identify the code that we need to execute atomically, by declaring that code as a critical section
 
 ### Quiz 6: Critical Section & Synchronization ###
 ### Atomic Operations, Volatile & Metrics Practical Example ###
