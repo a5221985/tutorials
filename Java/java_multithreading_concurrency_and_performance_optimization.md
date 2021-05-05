@@ -1198,8 +1198,45 @@
 			}
 			
 		1. Stack
-
-				
+			1. As soon as a thread jumps into a method, it immediately allocates some space on top of stack (called stack frame)
+			2. args to method are pushed onto the frame
+			3. Each local variable is pushed onto the stack in the order of appearance
+			4. If another method is called from the current method, another stack frame is allocated on the stack
+				1. Args of the new method are also pushed onto the stack
+					1. Each method has access only to variables in it's own frame
+						1. The local variables and arguments are copies of the actual variables
+			5. When a method is finished, the result is stored in a special register in the CPU
+			6. IP then jumps to caller method
+			7. The nested method's stack frame is invalidated
+			8. The result is pushed back to stack
+			9. When main method finishes, the stack frame is invalidated
+			10. Why is it called stack?
+				1. The frames are allocated and invalidated in LIFO order
+4. Run the code in interractive debugger
+	1. Frames window
+		1. main frame
+			1. variables
+				1. x = 1
+				2. y = 2
+		2. sum frame
+			1. variables (only this frame variables are accessible)
+				1. a = 1
+				2. b = 2
+				3. s = 3
+		3. When we return from sum method, it's stack frame disappears
+		4. main frame
+			1. x = 1
+			2. y = 2
+			3. result = 3
+		5. When we return, it's stack frame is also invalidated
+5. Stack's properties
+	1. All variables belong to the thread executing on that stack
+		1. Other threads have no access to them
+	2. Stack is statically allocated when the thread is created
+	3. The stack's size is fixed, and relatively small (platform specific) - cannot change at runtime
+	4. If our calling hierarchy is too deep.
+		1. We may get a StackOverflow Exception
+			1. Risky with recursive calls
 
 ### Quiz 5: Stack & Heap Memory Regions ###
 ### Resource Sharing & Introduction to Critical Sections ###
