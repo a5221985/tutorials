@@ -1305,6 +1305,95 @@
 			1. Document saver thread can save user from losing work
 				1. If app crashes
 				2. If we lose power
+	3. Work Queue
+
+										 	<- Worker Thread 1
+			Work Dispatcher -> Queue	<- Worker Thread 2
+										  	<- Worker Thread 3
+										  	
+		1. Dispatcher thread takes input (through HTTP Request or User) and distributes the work using a shared queue
+		2. Worker threads wait for work to arrive on the queue and grab the task from it as soon as they finish the current task
+		3. The queue is backed by a data structure and is stored on the heap (as shared resource)
+			1. New thread is not required for every single task (high performance)
+		4. Good CPU utilization & low latency
+	4. Database microservice
+
+			HTTP POST                       |
+			----------> Request Thread 1 -> |
+			HTTP PUT                        |
+			----------> Request Thread 2 -> | DB
+			HTTP GET                        |
+			----------> Request Thread 3 -> |
+			HTTP DELETE                     |
+			----------> Request Thread 4 -> |
+			
+		1. Microservice acts as a software abstraction layer on top of a database
+			1. Every request is handled by a different thread
+				1. All requests become reads or writes from/to db
+			2. Connections are represented by object
+				1. The objects are shared by request threads
+					1. We must have shared connections (since there is only one DB)
+5. Problem:
+
+		public static void main(String[] args) {
+			InventoryCounter inventoryCounter = new InventoryCounter();
+			IncrementingThread incrementingThread = new IncrementingThread(inventoryCounter);
+			DecrementingThread decrementingThread = new DecrementingThread(inventoryCounter);
+			
+			incrementingThread.start();
+			incrementingThread.join();
+			
+			decrementingThread.start();
+			decrementingThread.join();
+			
+			System.out.println("We currently have " + inventoryCounter.getItems() + " items");
+		}
+
+		public static class IncrementingThread extends Thread {
+			private InventoryCounter inventoryCounter;
+		
+			public IncrementingThread(InventoryCounter inventoryCounter) {
+				this.inventoryCounter = inventoryCounter;
+			}
+			
+			@Override
+			public void run() {
+				for (int i = 0; i < 10000; i++) {
+					inventoryCounter.increment();
+				}
+			}
+		}
+		
+		public static class DecrementingThread extends Thread {
+			private InventoryCounter inventoryCounter;
+		
+			public IncrementingThread(InventoryCounter inventoryCounter) {
+				this.inventoryCounter = inventoryCounter;
+			}
+			
+			@Override
+			public void run() {
+				for (int i = 0; i < 10000; i++) {
+					inventoryCounter.decrement();
+				}
+			}
+		}
+
+		private static class InventoryCounter {
+			private int items = 0;
+			
+			public void increment() { // when we get new delivery
+				items++;
+			}
+			
+			public void decrement() { // when someone purchased an item
+				items--;
+			}
+			
+			public int getItems() {
+				return items;
+			}
+		}
 
 ## The Concurrency Challenges & Solutions ##
 ### Critical Section & Synchronization ###
