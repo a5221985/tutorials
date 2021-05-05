@@ -960,6 +960,34 @@
 			
 		1. If we break task into sub-tasks
 
+				Thread 1 -> Sub-task 1
+				Thread 2 -> Sub-task 2
+				Thread 3 -> Sub-task 3
+				...
+				Thread N -> Sub-task N
+				            <--------->
+				            Latency = T/N
+				            
+			1. Throughput = N/T (theoretical)
+				1. T - Time to execute original task
+				2. N - Number of subtasks or Number of Threads
+			2. This is N times better than performing tasks sequentially
+				1. Throughput < N/T - in practice
+					1. Breaking and scheduling into multiple tasks and combining results has a cost
+						1. It is unnecessary (for throughput)
+	2. Approach 2: Running Tasks in Parallel
+
+			<------ Task 1 ------>
+			<------ Task 2 ------>
+			<------ Task 3 ------>
+			         ...
+			<------ Task N ------>
+			     Latency = T
+			     
+			Throughput = N/T
+			
+		1. In practice, we are much more likely to achieve this throughput than by breaking tasks into smaller sub-tasks (to reduce latency of each individual task)
+
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
 ### Quiz 4: Performance Optimization ###
 
