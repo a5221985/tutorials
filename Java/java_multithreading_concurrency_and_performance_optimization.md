@@ -1170,6 +1170,37 @@
 
 ## Data Sharing Between Threads ##
 ### Stack & Heap Memory Regions ###
+1. What we learn in this lecture
+	1. Stack memory region
+	2. Heap memory region
+2. The topics are important
+	1. To successfully write multithreaded applications that give consistent and correct results and high performance
+	2. Will also complete picture about process architecture
+3. Stack memory region
+	1. Each stack region belongs to a thread
+		1. What is the stack?
+			1. Memory region where
+				1. Methods are called
+				2. Arguments are passed
+				3. Local variables are stored
+			2. stack + Instruction Pointer = State of each thread's execution
+	2. Example:
+
+			void main(String[] args) {
+				int x = 1;
+				int y = 2;
+				int result = sum(x, y);
+			}
+			
+			int sum(int a, int b) {
+				int s = a + b;
+				return s;
+			}
+			
+		1. Stack
+
+				
+
 ### Quiz 5: Stack & Heap Memory Regions ###
 ### Resource Sharing & Introduction to Critical Sections ###
 
