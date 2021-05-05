@@ -793,12 +793,21 @@
 			public static void main(String[] args) {
 				BufferedImage originalImage = ImageIO.read(new File(SOURCE_FILE)); // BufferedImage - specifies pixels, color space, dimentions, convenient methods to manipulate pixels of image
 				BufferedImage resultImage = new BufferedImage(originaImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+				
+				recolorSingleThreaded(originalImage, resultImage);
+				
+				File.outputFile = new File(DESTINATION_FILE);
+				ImageIO.write(resultImage, "jpg", outputFile);
+			}
+			
+			public static void recolorSingleThreaded(BufferedImage originalImage, BufferedImage resultImage) {
+				recolorImage(originalImage, resultImage, 0, 0, originalImage.getWidth(), originalImage.getHeight());
 			}
 			
 			public static void recolorImage(BufferedImage originalImage, BufferedImage resultImage, int leftCorder, topCorner, int width, int height) {
 				for (int x = leftCorner; x < leftCorder + width && x < originalImage.getWidth(); x++) {
 					for (int y = topCorner; y < topCorner + height && originalImage.getHeight(); y++) {
-						recolorPixel(originalImage, resultImage, 
+						recolorPixel(originalImage, resultImage, x, y);
 					}
 				}
 			}
@@ -856,6 +865,58 @@
 				return (rgb & 0x000000FF);
 			}
 		}
+		
+4. Multithreaded solution:
+	1. Break the image into many pieces
+		1. 2 threads - 2 pieces
+		2. 4 threads - 4 pieces
+	2. Solution:
+
+
+				long startTime = System.currentTimeMillis();
+			
+				recolorSingleThreaded(originalImage, resultImage);
+			
+				long endTime = System.currentTimeMillis();
+			
+				long duration = endTime - startTime;
+			
+				// ...
+			
+				System.out.println(String.valueOf(duration));
+			}
+
+			public static void recolorMultithreaded(BufferedImage originalImage, BufferedImage resultImage, int numberOfThread) {
+				List<Thread> threads = new ArrayList<>();
+				int width = originalImage.getWidth();
+				int height = originalImage.getHeight() / numberOfThreads;
+				
+				for (int i = 0; i < numberOfThreads; i++) {
+					final int threadMultiplier = i;
+					
+					Thread thread = new Thread(() -> {
+						int leftCorner = 0;
+						int topCorner = height * threadMultiplier;
+						
+						recolorImage(originalImage, resultImage, leftCorner, topCorner, width, height);
+					});
+					
+					threads.add(thread);
+				}
+				
+				for (Thread thread : threads) {
+					thread.start();
+				}
+				
+				for (Thread thread : threads) {
+					try {
+						thread.join();
+					} catch (InterruptedException e) {
+						System.out.println("Interrupted!!!");
+						return;
+					}
+				}
+			}
 
 ### Optimizing for Throughput Part 1 ###
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
