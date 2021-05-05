@@ -1256,8 +1256,33 @@
 			1. They are garbage collected sometime after all the references to the objects are lost
 		3. Members or classes
 			1. Exist as long as their parent objects exist
+				1. Same life cycle as their parents
+		4. Static variables - stay forever (for the lifetime of the application)
+7. Objects vs References
+	1. References != Objects
+
+			Object referenceVar1 = new Object();
+			Object referenceVar2 = referenceVar1;
+			
+			// both point to same object
+			
+		1. References
+			1. Can be allocated on the _stack_ (if they are local variables in a method)
+			2. Can be allocated on the _heap_ if they are members of a class
+		2. Objects
+			1. Always allocated on the _heap_
+8. Memory Regions - Summary
+	1. Heap (shared)
+		1. Objects
+		2. Class members
+		3. Static variables
+	2. Stack (exlusive to a thread)
+		1. Local primitive types
+		2. Local references
 
 ### Quiz 5: Stack & Heap Memory Regions ###
+1. 
+
 ### Resource Sharing & Introduction to Critical Sections ###
 
 ## The Concurrency Challenges & Solutions ##
