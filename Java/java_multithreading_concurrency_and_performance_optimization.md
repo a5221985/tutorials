@@ -995,6 +995,17 @@
 				5. We can eliminate the following using advanced techniques (thread pooling, cache friendly non-blocking queues)
 					1. Thread creation, passing tasks to threads
 					2. Time between thread.start() to thread getting scheduled
+5. Thread Pooling
+	1. Threads are instantiated only once and re-used for future tasks (instead of instantating them for each task)
+	2. The tasks are distributed to the threads from a queue
+		1. Thread picks a task from the queue when it is available
+			1. If all threads are busy, the tasks will just wait in the queue until any thread becomes available
+	3. Technique:
+		1. If we keep the threads as busy as possible by keep feeding tasks into the threads, we can get maximum throughput and maximum unitilization of our resources
+	4. Thread pooling - implementation
+		1. Implementing a thread pool is not trivial
+			1. Implementing a low overhead and efficient queue may need en entire course
+		2. JDK comes with a few implementations of thread pools
 
 ### Optimizing for Throughput Part 2 - HTTP Server + JMeter ###
 ### Quiz 4: Performance Optimization ###
