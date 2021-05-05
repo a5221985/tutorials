@@ -1237,6 +1237,25 @@
 	4. If our calling hierarchy is too deep.
 		1. We may get a StackOverflow Exception
 			1. Risky with recursive calls
+6. Heap
+	1. It is a shared memory region that belongs to the process
+		1. All threads share data that is located on the heap
+		2. Any thread can access and allocate objects on a heap at any moment
+	2. What is allocated on the heap?
+		1. Objects (anything created with new operator)
+			1. String
+			2. Object
+			3. Collection
+			4. ...
+		2. Members of classes (primitive or object)
+		3. Static variables
+			1. They are members of Class object associated with that class
+	3. Heap Memory Management
+		1. It is governed and managed by Garbage Collector
+		2. Objects - stay as long as we have a reference to them (at-least one)
+			1. They are garbage collected sometime after all the references to the objects are lost
+		3. Members or classes
+			1. Exist as long as their parent objects exist
 
 ### Quiz 5: Stack & Heap Memory Regions ###
 ### Resource Sharing & Introduction to Critical Sections ###
