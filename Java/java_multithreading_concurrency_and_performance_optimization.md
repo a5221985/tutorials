@@ -795,8 +795,40 @@
 				BufferedImage resultImage = new BufferedImage(originaImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_INT_RGB);
 			}
 			
+			public static void recolorImage(BufferedImage originalImage, BufferedImage resultImage, int leftCorder, topCorner, int width, int height) {
+				for (int x = leftCorner; x < leftCorder + width && x < originalImage.getWidth(); x++) {
+					for (int y = topCorner; y < topCorner + height && originalImage.getHeight(); y++) {
+						recolorPixel(originalImage, resultImage, 
+					}
+				}
+			}
+			
 			public static void recolorPixel(BufferedImage originalImage, BufferedImage resultImage, int x, int y) {
+				int rgb = originalImage.getRGB(x, y);
+				int red = getRed(rgb);
+				int green = getGreen(rgb);
+				int blue = getBlue(rgb);
 				
+				int newRed;
+				int newGreen;
+				int newBlue;
+				
+				if (isShadeOfGray(red, green, blue)) {
+					newRed = Math.min(255, red + 10);
+					newGreen = Math.max(0, green - 80);
+					newBlue = Math.max(0, blue - 20);
+				} else {
+					newRed = red;
+					newGreen = green;
+					newBlue = blue;
+				}
+				
+				int newRGB = constructeRGBFromColors(newRed, newGreen, newBlue);
+				setRGB(resultImage, x, y, newRGB);
+			}
+			
+			public static void setRGB(BufferedImage image, int x, int y, int rgb) {
+				image.getRaster().setDataElements(x, y, image.getColorModel().getDataElements(rgb, null);
 			}
 			
 			public static boolean isShadeOfGray(int red, int green, int blue) {
