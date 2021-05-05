@@ -1153,7 +1153,18 @@
 		3. Increase threadpool size to 2
 			1. Throughput: 505.9 / sec (almost twice)
 		4. threadpool size to 4
-			1. 
+			1. Throughput: 713.5 / sec (higher)
+		5. Graph:
+			1. Steap improvement upto 4 (upto no of physical cores)
+			2. Moderate improvement upto 8 (upto no of virtual cores)
+			3. No improvement after 8
+			4. There is improvement upto 8 (unlike in the case of latency)
+				1. We eliminated cost of breaking and combining
+5. Summary
+	1. Optimized throughput of an HTTP backend server
+	2. Right number of threads (number of threads = number of cores)
+	3. Choose best strategy - handling each request on a different thread
+	4. Eliminated some of the cost of multithreading by using a thread pool
 
 ### Quiz 4: Performance Optimization ###
 
