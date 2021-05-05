@@ -1394,6 +1394,46 @@
 				return items;
 			}
 		}
+		
+	1. Result is 0
+	2. Modification:
+
+			incrementingThread.start();	
+			decrementingThread.start();
+			
+			incrementingThread.join();
+			decrementingThread.join();
+			
+		1. Unexpected result(s)
+			1. We get different results
+6. The core problem:
+	1. `InventoryCounter` is a shared object
+		1. This makes `items` member shared between two threads
+	2. `items++` and `items--`
+		1. Are happening in the same time
+		2. Both are not atomic operations
+			1. Atomic operation
+				1. An operation or a set of operations is considered atomic, if it appears to the rest of the system as if it occured at once
+				2. Single step - "all or nothing"
+				3. No intermediate states (we cannot interrupt and observe intermediate states)
+				4. `item++` - not an atomic operation:
+					1. Get current value of items
+						1. `currentValue <- items` (`= 0`)
+					2. Increment current value by 1
+						1. `newValue <- currentValue + 1` (`= 1`)
+					3. Store the result into items
+						1. `items <- newValue` (`= 1`)
+	3. `items++` and `items--` concurrently (order depends on how they are scheduled)
+
+			IncrementingThread				DecrementingThread
+			1. currentVal <- items = 0
+			2. newVal <- currentVal + 1
+												3. currentVal <- items = 0
+												4. newVal <- currentVal - 1
+												5. items <- newVal = -1
+			6. items <- newVal = 1
+
+		1. `items = 1` - which is wrong
 
 ## The Concurrency Challenges & Solutions ##
 ### Critical Section & Synchronization ###
