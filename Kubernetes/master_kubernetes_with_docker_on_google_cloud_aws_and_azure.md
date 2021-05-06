@@ -295,13 +295,43 @@
 							provisioner: kubernetes.io/aws-ebs
 							parameters:
 								type: gp2
+							reclaimPolicy: Retain
+							allowVolumeExpansion: true
+							mountOptions:
+								- debug
+							volumeBindingMode: Immediate
 							
 						1. StorageClass
 							1. It is mapping to Elastic Block Store
 								1. EBS: Easy to use, high performance block storage service in AWS
-					
+						2. General Purpose SSD (gp2)
+						3. Provisioned IOPS SSD (io1)
+						4. Throughput Optimized HDD (st1)
+						5. Cold HDD (sc1)
 					2. Deployment
 					3. Service
+			2. Application configuration
+
+					kubectl apply -f config-map.yaml,secret.yaml,todo-web-application-deployment.yaml,todo-web-application-service.yaml
+					
+				1. `config-map.yaml` - config needed to talk to database
+
+						apiVersion: v1
+						data:
+							RDS_DB_NAME: todos
+							RDS_HOSTNAME: mysql
+							RDS_PORT: "3306"
+							RDS_USERNAME: todos-user
+						kind: ConfigMap
+						metadata:
+							name: todo-web-application-config
+							namespace: default
+				
+				2. `secret.yaml` - password
+				3. `todo-web-application-deployment.yaml` - deployment
+					1. `configMapKeyRef` - DB Name, Hostname - from todo-web-application-config
+						1. password - todo-web-application-secrets
+				4. `todo-web-application-service.yaml` - service
 
 ### Step 15 - Delete Web App and Hello World Deployments ###
 ### Step 16 - Review of Microservices on GKE ###
