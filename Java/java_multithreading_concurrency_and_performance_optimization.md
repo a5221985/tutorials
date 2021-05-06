@@ -2177,6 +2177,17 @@
 		1. Acquire roadA and roadB in the same global order
 6. Conclusion
 	1. Enforcing a strict order on lock acquisition prevents deadlocks
+	2. Easy to do with a small number of locks (is right approach)
+		1. May be hard to accomplish if there are many locks in different places (maintaining the order can be difficult)
+			1. Solution: Other techniques:
+				1. Deadlock detection - Watchdog
+					1. Microcontrollers - low level routine that checks the status of a register
+						1. The register needs to be updated by every thread, every few instructions
+							1. If watchdog detects that the register is no updated, it knows that threads are not responsive and will restart the threads
+					2. Thread interruption (not possible with synchronized)
+						1. Watchdog implemented as a different thread
+							1. It will detect deadlock threads and try to interrupt them
+					3. `tryLock` **(M)**
 
 ### Quiz 9: Locking Strategies & Deadlocks ###
 
