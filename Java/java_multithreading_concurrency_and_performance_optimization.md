@@ -2045,6 +2045,26 @@
 					1. Hence more parallelism & less contention
 				2. Problems we may run into (with multiple locks)
 					1. Deadlock
+						1. Everyone is trying to make a progress but they cannot because they are waiting for other party to make a move
+							1. Usually un-recoverable
+					2. Scenarios:
+
+							Thread 1			Thread 2
+							lock(A)			lock(B)
+							lock(B)			lock(A)
+							delete(A, item)	delete(B, item)
+							add(B, item)		add(A, item)
+							unlock(B)			unlock(A)
+							unlock(A)			unlock(B)
+							
+							Thread 1			Thread 2
+							1. lock(A)		
+												2. lock(B)
+												3. lock(A) # cannot
+							2. lock(B) # cannot
+
+						1. Deadlock
+3. Code example: Rail roads that cross
 
 ### Quiz 9: Locking Strategies & Deadlocks ###
 
