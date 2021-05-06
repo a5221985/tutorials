@@ -1833,6 +1833,79 @@
 			}
 			
 		1. The methods are called by two different threads repeatedly
+		2. Scenario
+
+				checkForDataRace			increment
+				1. y <- 0
+				2. x <- 0
+											3. x++
+											4. y++
+
+				x == y
+				
+				checkForDataRace			increment
+				1. y <- 0
+											2. x++
+											3. y++
+				4. x <- 1
+
+				x > y
+				
+				checkForDataRace			increment
+				1. y <- 0
+											2. x++
+											3. y++
+											4. x++
+											5. y++
+											...
+											100. x++
+											101. y++
+				102. x <- 50
+
+				x > y
+				
+			1. Invariant: `x >= y` (y > x will never happen)
+6. Example:
+
+		public class Main {
+			public static void main(String[] args) {
+				SharedClass sharedClass = new SharedClass();
+				thread thread1 = new Thread(() -> {
+					for (int i = 0; i < Integer.MAX_VALUE; i++) {
+						sharedClass.increment();
+					}
+				});
+				
+				Thread thread2 = new Thread(() -> {
+					for (int i = 0; i < Integer.MAX_VALUE; i++) {
+						sharedClass.checkForDataRace();
+					}
+				});
+				
+				thread1.start();
+				thread2.start();
+			}
+			
+			public static class SharedClass {
+				private int x = 0;
+				private int y = 0;
+				
+				public void increment() {
+					x++;
+					y++;
+				}
+				
+				public void checkForDataRace() {
+					if (y > x) {
+						System.out.println("y > x - Data Race is detected");
+					}
+				}
+			}
+		}
+		
+	1. The invariant did not hold!!!
+		1. Reason: Data Race
+			1. Compiler and CPU may execute the instructions out of order to optimize performance and hardware utilization
 
 ### Quiz 8: Data Races ###
 ### Locking Strategies & Deadlocks ###
