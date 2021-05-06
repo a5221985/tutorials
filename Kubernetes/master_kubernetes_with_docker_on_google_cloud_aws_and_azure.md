@@ -339,9 +339,17 @@
 				3. `todo-web-application-deployment.yaml` - deployment
 					1. `configMapKeyRef` - DB Name, Hostname - from todo-web-application-config
 						1. password - todo-web-application-secrets
+
+								echo -n dummytools | base64
+						
 				4. `todo-web-application-service.yaml` - service
+5. `kubectl get svc`
+	1. Open app in browser
+		1. Add todo
 
 ### Step 15 - Delete Web App and Hello World Deployments ###
+1. 
+
 ### Step 16 - Review of Microservices on GKE ###
 ### Step 17 - Deploy Microservices to AWS EKS Kubernetes Cluster ###
 ### Step 18 - Setup Ingress Controller and Ingress ###
