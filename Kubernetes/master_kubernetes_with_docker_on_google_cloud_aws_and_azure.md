@@ -266,6 +266,42 @@
 			2. `mysql-database-data-volume-peristentvolumeclaim-aws.yaml`
 			3. `secret.yaml`
 		2. `cd` into the folder `02-final-backup-at-end-of-course`
+			1. Execute the following command:
+
+					kubectl apply -f mysql-database-data-volume-persistentvolumeclaim-aws.yaml,mysql-deployment.yaml,mysql-service.yaml
+					
+				1. Everything required for creation of mysql database
+					1. Persistent volume claim
+
+							apiVersion: v1
+							kind: PersistentVolumeClaim
+							metadata:
+								name: mysql-database-data-volume
+								labels:
+									io.kompose.service: mysql-database-data-volume
+							spec:
+								storageClassName: mysql-database-ssd
+								accessModes:
+								- ReadWriteOnce
+								resources:
+									requests:
+										storage: 100Mi
+							status: {}
+							---
+							apiVersion: storage.k8s.io/vi # required
+							kind: StorageClass
+							metadata:
+								name: mysql-database-ssd
+							provisioner: kubernetes.io/aws-ebs
+							parameters:
+								type: gp2
+							
+						1. StorageClass
+							1. It is mapping to Elastic Block Store
+								1. EBS: Easy to use, high performance block storage service in AWS
+					
+					2. Deployment
+					3. Service
 
 ### Step 15 - Delete Web App and Hello World Deployments ###
 ### Step 16 - Review of Microservices on GKE ###
