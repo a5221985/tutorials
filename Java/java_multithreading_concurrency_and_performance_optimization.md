@@ -1992,6 +1992,8 @@
 
 ### Quiz 8: Data Races ###
 ### Locking Strategies & Deadlocks ###
+1. 
+
 ### Quiz 9: Locking Strategies & Deadlocks ###
 
 ## Advanced Locking ##
