@@ -328,6 +328,14 @@
 							namespace: default
 				
 				2. `secret.yaml` - password
+
+						apiVersion: v1
+						kind: secret
+						data:
+							RDS_PASSWORD: ZHVtbZl0b2Rvcw==
+						metadata:
+							name: todo-web-application
+				
 				3. `todo-web-application-deployment.yaml` - deployment
 					1. `configMapKeyRef` - DB Name, Hostname - from todo-web-application-config
 						1. password - todo-web-application-secrets
