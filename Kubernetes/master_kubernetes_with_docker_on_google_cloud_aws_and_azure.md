@@ -261,6 +261,7 @@
 	2. MySQL
 2. `Kompose` was used to generate the configuration files
 	1. Kubernetes related config
+		1. `02backup` folder at the end of the course
 
 ### Step 15 - Delete Web App and Hello World Deployments ###
 ### Step 16 - Review of Microservices on GKE ###
