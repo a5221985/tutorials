@@ -1807,6 +1807,32 @@
 2. Race Condition
 	1. Condition when multiple threads are accessing a shared resource
 	2. At least one thread is modifying the resource
+	3. The timing of threads' scheduling may cause incorrect results
+	4. The core of the problem is non atomic operations performed on the shared resource
+3. Example: incrementing thread & decrementing thread
+4. Solution:
+	1. Identification of critical section where race condition is happening
+	2. Protecting of critical section by `synchronized` block
+5. **Data Race**:
+	1. Example:
+
+			public class SharedClass {
+				int x = 0;
+				int y = 0;
+				
+				public void increment() {
+					x++;
+					y++;
+				}
+				
+				public void checkForDataRace() {
+					if (y > x) {
+						throw new DataRaceException("This should not be possible");
+					}
+				}
+			}
+			
+		1. The methods are called by two different threads repeatedly
 
 ### Quiz 8: Data Races ###
 ### Locking Strategies & Deadlocks ###
