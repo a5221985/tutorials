@@ -1992,7 +1992,59 @@
 
 ### Quiz 8: Data Races ###
 ### Locking Strategies & Deadlocks ###
-1. 
+1. What we learn in this lecture
+	1. Locking Strategy
+	2. Deadlock
+	3. Deadlock Conditions
+	4. Solutions to Deadlock
+2. Fine-grained locking vs Course-grained locking
+	1. Course-grained locking - single lock on all resources
+		1. Advantage: We have only single lock to worry about
+
+				public class SharedClass {
+					private DatabaseConnection dbConnection;
+					private List<Task> tasksQueue;
+					
+					public synchronized Item getItemFromDB() {
+						...
+					}
+					
+					public synchronized void addTaskToQueue() {
+						...
+					}
+				}
+				
+			1. Effectively, we have only one lock in this case
+				1. If one thread is getting items from database & other thread tries to add task to queue, it will not be able to do so until the first thread gets item from database
+					1. Simple to maintain
+		2. Disadvantage: Overkill
+			1. The operations are not interfering with each other
+				1. We can allow them to execute concurrently
+			2. Worst case scenario:
+				1. Only one thread can make progress
+					1. If the threads are only accessing the resources 100% of the time
+						1. In reality there is some concurrency
+	2. Fine-grained locking - multiple locks on resources (one per resource)
+		1. Example:
+	
+				public class SharedClass {
+					private DatabaseConnection dbConnection;
+					private List<Task> tasksQueue;
+					
+					public Item getItemFromDB() {
+						synchronized(dbConnection) {...}
+					}
+					
+					public void addTaskToQueue() {
+						synchronized(tasksQueue) {...}
+					}
+				}
+				
+			1. Advantages:
+				1. More fine grained locking strategy
+					1. Hence more parallelism & less contention
+				2. Problems we may run into (with multiple locks)
+					1. Deadlock
 
 ### Quiz 9: Locking Strategies & Deadlocks ###
 
