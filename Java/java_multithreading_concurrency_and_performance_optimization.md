@@ -2147,10 +2147,36 @@
 		}
 		
 	1. Deadlock
-4. Conditions for Deadlock
+4. Conditions for Deadlock (if all the below conditions are met, then deadlock is possible)
 	1. Mutual Exclusion - Only one thread can have exclusive access to a resource (at a given moment)
 		1. Only one train could use a road at a time
-	2. Hold and Wait - At least one thread is holding a resource
+	2. Hold and Wait - At least one thread is holding a resource and is waiting for another resource
+		1. Two threads were holding a lock and waiting for another lock
+	3. Non-preemptive allocation - A resource is released only after the thread is done using it
+		1. No thread can take other thread's resource. It has to wait until the thread holding the resource releases it
+	4. Circular wait - A chain of at least two threads each one is holding one resource and waiting for another resource
+5. Solution:
+	1. Ensure that at-least one of the above conditions is not met.
+		1. Easiest solution: Avoid circular wait - Enforce a strict order in lock acquisition (same order everywhere)
+
+				Thread 1			Thread 2
+				1. lock(A)
+				2. lock(B)
+				3. // ...
+				4. unlock(A)
+				5. unlock(B)
+
+									7. lock(A)
+									8. lock(B)
+									9. // ...
+									10. unlock(A)
+									11. unlock(B)
+
+			1. Order of releasing the locks is not important here
+	2. Change train solution:
+		1. Acquire roadA and roadB in the same global order
+6. Conclusion
+	1. Enforcing a strict order on lock acquisition prevents deadlocks
 
 ### Quiz 9: Locking Strategies & Deadlocks ###
 
