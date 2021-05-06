@@ -263,7 +263,8 @@
 	1. Kubernetes related config
 		1. `02-final-backup` folder at the end of the course
 			1. `config-map.yaml`
-			2. `
+			2. `mysql-database-data-volume-peristentvolumeclaim-aws.yaml`
+			3. `secret.yaml`
 
 ### Step 15 - Delete Web App and Hello World Deployments ###
 ### Step 16 - Review of Microservices on GKE ###
