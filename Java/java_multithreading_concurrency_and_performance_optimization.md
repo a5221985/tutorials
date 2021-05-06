@@ -1801,6 +1801,13 @@
 ### Quiz 7: Atomic Operations, Volatile & Metrics Practical Example ###
 ### Coding Exercise 3: Min - Max Metrics ###
 ### Race Conditions & Data Races ###
+1. What we learn in this lecture
+	1. Race condition (formal definition)
+	2. Data race (challenge & how to avoid)
+2. Race Condition
+	1. Condition when multiple threads are accessing a shared resource
+	2. At least one thread is modifying the resource
+
 ### Quiz 8: Data Races ###
 ### Locking Strategies & Deadlocks ###
 ### Quiz 9: Locking Strategies & Deadlocks ###
