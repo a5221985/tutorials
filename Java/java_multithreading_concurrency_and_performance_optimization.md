@@ -2203,10 +2203,41 @@
 		2. Lock resources in the same order everywhere
 
 ### Quiz 9: Locking Strategies & Deadlocks ###
-1. 
 
 ## Advanced Locking ##
 ### ReentrantLock Part 1 - tryLock and interruptible Lock ###
+1. What we learn in this lecture
+	1. `java.util.concurrent.locks.ReentrantLock`
+	2. `ReentrantLock.lockInterruptibly()`
+	3. `ReentrantLock.tryLock()`
+2. ReentrantLock
+	1. Works just like `synchronized` keyword applied on an object
+	2. But requires explicit locking and unlocking
+
+			Lock lockObject = new ReentrantLock(); // implements Lock interface
+			Resource resource = new Resource();
+			
+			public void method() {
+				lockObject.lock(); // explicit
+				...
+				use(resource);
+				...
+				lockObject.unlock(); // explicit
+			}
+			
+		1. Disadvantage:
+			1. We may forget to unlock
+				1. Leaves lock object locked for ever (bugs and deadlocks possible)
+			2. If we remember to unlock, we still have potential issues
+
+					public void use() throws SomeException {
+						lockObject.lock();
+						throwExceptionMethod();
+						lockObject.unlock(); // this is never reached
+					}
+					
+		2. Soluti
+
 ### ReentrantLock Part 2 - User Interface Application Example ###
 ### Quiz 10 - ReentrantLock ###
 ### Reentrant Read Write Lock & Database Implementation ###
