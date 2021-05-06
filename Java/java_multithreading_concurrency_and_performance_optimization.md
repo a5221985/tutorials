@@ -1962,8 +1962,33 @@
 					public void method() {
 						...// all instructions will be executed before
 						read/write(sharedVar);
-						...
+						...// all instructions will be executed after
 					}
+					
+				1. Code that comes before access to volatile variable will get executed before that instruction
+				2. Code that comes after access to volatile variable will get executed after that instruction
+	2. Example:
+
+			private volatile int x = 0;
+			private volatile int y = 0;
+			// ...
+8. Summary:
+	1. Two problems with multithreaded applications
+		1. Race Conditions
+		2. Data Races
+	2. Both involve
+		1. Multiple threads
+		2. At least one is modifying a shared variable
+	3. Both problems may result in unexpected and incorrect results
+	4. Synchronized - Solves both Race Condition and Data Race.
+		1. But has performance penalty
+			2. Solution: Volatile (but different meanings and implications)
+				1. Solves Race Condition for read/write from/to long and double
+				2. Solves all Data Races by guaranteeing order
+	5. **Every shared variable (modified by at least one thread) should either be**
+		1. **Guarded by a synchronized block (or any type of lock)**
+		2. **OR**
+		3. **Declared volatile**
 
 ### Quiz 8: Data Races ###
 ### Locking Strategies & Deadlocks ###
