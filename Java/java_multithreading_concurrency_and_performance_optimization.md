@@ -1709,6 +1709,19 @@
 	2. Code:
 
 			public class Main {
+				public static void main(String[] args) {
+					Metrics metrics = new Metrics();
+					
+					BusinessLogic businessLogicThread1 = new BusinessLogic(metrics);
+					BusinessLogic businessLogicThread2 = new BusinessLogic(metrics);
+					
+					MetricsPrinter metricsPrinter = new MetricsPrinter(metrics);
+					
+					businessLogicThread1.start();
+					businessLogicThread2.start();
+					
+				}
+			
 				public static class MetricsPrinter extends Thread {
 					private Metrics metrics;
 					
@@ -1775,6 +1788,15 @@
 			}
 			
 		1. `count` and `average` are shared by multiple threads
+		2. Expected averge - 5 ms + 1/2 ms (for thread to wakeup, capture timestamp)
+4. Summary
+	1. Atomic operations
+		1. Assignments to primitive types (excluding double and long)
+		2. Assignments to references
+		3. Assignments to `double` and `long` using `volatile` keyword
+	2. Metrics capturing Use Case
+		1. Without interfering with application itself
+	3. Knowledge about atomic operations is key to high performance
 
 ### Quiz 7: Atomic Operations, Volatile & Metrics Practical Example ###
 ### Coding Exercise 3: Min - Max Metrics ###
