@@ -221,9 +221,7 @@
 		1. Node groups
 		2. Networks
 		3. ...
-
-### Step 11 - Review Hello World and Web Apps from GKE Section ###
-1. Solution to changing `aws sts get-caller-identity --profile default` to `aws sts get-caller-identity` is:
+5. Solution to changing `aws sts get-caller-identity --profile default` to `aws sts get-caller-identity` is:
 	
 		unset AWS_ACCESS_KEY_ID
 		unset AWS_SECRET_ACCESS_KEY
@@ -231,11 +229,39 @@
 		
 	1. Because `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` take precedence of `AWS_PROFILE` [https://stackoverflow.com/questions/49987458/aws-profile-not-working-with-aws-cli#:~:text=You%20have%20to%20unset%20both,then%20it%20should%20work%20correctly.&text=You%20can%20see%20that%20when,time%20you%20make%20this%20post.](https://stackoverflow.com/questions/49987458/aws-profile-not-working-with-aws-cli#:~:text=You%20have%20to%20unset%20both,then%20it%20should%20work%20correctly.&text=You%20can%20see%20that%20when,time%20you%20make%20this%20post.)
 
+### Step 11 - Review Hello World and Web Apps from GKE Section ###
+1. Pre-requisites
+	1. 4 applications in GKE
+
 ### Step 12 - Deploy Hello World Rest API to AWS EKS Kubernetes Cluster ###
-1. 
+1. `kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE`
+	1. `kubectl get deployment`
+	2. `kubectl get replicaset`
+		1. 1 replicaset
+		2. 1 desired instance
+	3. `kubectl get pod`
+2. `kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080`
+	1. Defines as service
+	2. `kubectl get svc`
+		1. External IP is available - from outside world
+			1. `https://<domain-name>:8080/hello-world`
 
 ### Step 13 - Deploy Web App H2 to AWS EKS Kubernetes Cluster ###
+1. `kubectl create deployment todowebapp-h2 --image=in28min/todo-web-application-h2:0.0.1-SNAPSHOT` (talks to h2 database)
+2. `kubectl expose deployment todowebapp-h2 --type=LoadBalancer --port=8080`
+	1. `kubectl get svc`
+		1. `http://<ip>:8080` (took about 5 minutes)
+			1. in28minutes
+			2. dummy
+3. We did not have to change anything to deploy to EKS (the same instructions used to deploy to GKE)
+
 ### Step 14 - Deploy Web App with MySQL to AWS EKS Kubernetes Cluster ###
+1. Two containers
+	1. Todo Web app
+	2. MySQL
+2. `Kompose` was used to generate the configuration files
+	1. Kubernetes related config
+
 ### Step 15 - Delete Web App and Hello World Deployments ###
 ### Step 16 - Review of Microservices on GKE ###
 ### Step 17 - Deploy Microservices to AWS EKS Kubernetes Cluster ###
