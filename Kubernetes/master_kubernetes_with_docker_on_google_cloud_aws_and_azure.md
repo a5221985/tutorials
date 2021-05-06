@@ -265,6 +265,7 @@
 			1. `config-map.yaml`
 			2. `mysql-database-data-volume-peristentvolumeclaim-aws.yaml`
 			3. `secret.yaml`
+		2. `cd` into the folder `02-final-backup-at-end-of-course`
 
 ### Step 15 - Delete Web App and Hello World Deployments ###
 ### Step 16 - Review of Microservices on GKE ###
