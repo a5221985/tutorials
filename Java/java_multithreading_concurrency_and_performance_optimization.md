@@ -2187,7 +2187,9 @@
 					2. Thread interruption (not possible with synchronized)
 						1. Watchdog implemented as a different thread
 							1. It will detect deadlock threads and try to interrupt them
-					3. `tryLock` **(M)**
+					3. `tryLock` **(M)** (not possible with synchronized)
+						1. Checks if a lock is acquired by another thread before trying to acquire a lock and getting suspended
+							1. `synchronized` keyword does not allow suspended thread to be interrupted
 
 ### Quiz 9: Locking Strategies & Deadlocks ###
 
