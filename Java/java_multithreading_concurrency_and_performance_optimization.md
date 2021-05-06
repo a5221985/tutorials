@@ -2066,6 +2066,92 @@
 						1. Deadlock
 3. Code example: Rail roads that cross
 
+		public class Main {
+			public static void main(String[] args) {
+				Intersection intersection = new Intersection();
+				Thread trainAThread = new Thread(new TrainA(intersection));
+				Thread trainBThread = new Thread(new TrainB(intersection));
+				
+				trainAThread.start();
+				trainBThread.start();
+			}
+		
+			public static class TrainA implements Runnable {
+				private Intersection intersection;
+				private Random random = new Random();
+				
+				public TrainA(Intersection intersection) {
+					this.intersection = intersection;
+				}	
+				
+				@Override
+				public void run() {
+					while (true) {
+						long sleepingTime = random.nextInt(5);
+						try {
+							Thread.sleep(sleepingTime);
+						} catch (InterruptedException e) {
+							
+						}
+						intersection.takeRoadA();
+					}
+				}
+			}
+			
+			public static class TrainB implements Runnable {
+				private Intersection intersection;
+				private Random random = new Random();
+				
+				public TrainA(Intersection intersection) {
+					this.intersection = intersection;
+				}	
+				
+				@Override
+				public void run() {
+					while (true) {
+						long sleepingTime = random.nextInt(5);
+						try {
+							Thread.sleep(sleepingTime);
+						} catch (InterruptedException e) {
+							
+						}
+						intersection.takeRoadB();
+					}
+				}
+			}
+		
+			public static class Intersection {
+				private Object roadA = new Object();
+				private Object roadB = new Object();
+				
+				public void takeRoadA() {
+					synchronized (roadA) {
+						System.out.println("Road A is locked by thread " + Thread.currentThread().getName());
+						synchronized (roadB) {
+							System.out.println("Train is passing through road A");
+							Thread.sleep(1);
+						}
+					}
+				}
+				
+				public void takeRoadB() {
+					synchronized (roadB) {
+						System.out.println("Road B is locked by thread " + Thread.currentThread().getName());
+						synchronized (roadA) {
+							System.out.println("Train is passing through road B");
+							Thread.sleep(1);
+						}
+					}
+				}
+			}
+		}
+		
+	1. Deadlock
+4. Conditions for Deadlock
+	1. Mutual Exclusion - Only one thread can have exclusive access to a resource (at a given moment)
+		1. Only one train could use a road at a time
+	2. Hold and Wait - At least one thread is holding a resource
+
 ### Quiz 9: Locking Strategies & Deadlocks ###
 
 ## Advanced Locking ##
