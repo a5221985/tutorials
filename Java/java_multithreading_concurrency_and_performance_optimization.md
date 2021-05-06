@@ -2190,8 +2190,20 @@
 					3. `tryLock` **(M)** (not possible with synchronized)
 						1. Checks if a lock is acquired by another thread before trying to acquire a lock and getting suspended
 							1. `synchronized` keyword does not allow suspended thread to be interrupted
+						2. There are other kinds of locks that allow this
+							1. Good if ordering on locking is not possible (to pre-determine)
+7. Summary:
+	1. Locking strategies
+		1. Coarse-grained locking
+			1. simple but not best strategy for performance
+		2. Fine-grained locking
+			1. Improves parallelism but may cause deadlocks
+	2. Deadlock
+		1. Solved by avoiding circular wait and hold
+		2. Lock resources in the same order everywhere
 
 ### Quiz 9: Locking Strategies & Deadlocks ###
+1. 
 
 ## Advanced Locking ##
 ### ReentrantLock Part 1 - tryLock and interruptible Lock ###
