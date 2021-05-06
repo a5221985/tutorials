@@ -2236,7 +2236,33 @@
 						lockObject.unlock(); // this is never reached
 					}
 					
-		2. Soluti
+		2. Solution:
+
+				Lock lockObject = new ReentrantLock();
+				
+				public int use() throws SomeException {
+					lockObject.lock();
+					try { // critical section
+						someOperations();
+						return value;
+					} finally {
+						lockObject.unlock(); // will definitely be called
+					}
+				}
+				
+			1. For this complexity, we are rewarded with more:
+				1. Control over the lock
+				2. More lock operations
+			2. Queue methods - For testing:
+				1. `getQueuedThreads()` - Returns a list of threads waiting to acquire a lock
+				2. `getOwner()` - Returns the thread that currently owns the lock
+				3. `isHeldByCurrentThread()` - Queries if lock is held by current thread
+				4. `isLocked()` - Queries if lock is held by any thread
+3. Every production code needs to be thoroughly tested
+	1. For that methods like `isLocked()`, `getQueuedThreads()` and others can be very handy
+4. Another area where `ReentrantLock` shines is control over lock's fairness
+	1. By default, `ReentrantLock` as well as `synchronized` do not guarantee any fairness
+		1. 
 
 ### ReentrantLock Part 2 - User Interface Application Example ###
 ### Quiz 10 - ReentrantLock ###
