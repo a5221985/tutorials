@@ -1709,6 +1709,29 @@
 	2. Code:
 
 			public class Main {
+				public static class MetricsPrinter extends Thread {
+					private Metrics metrics;
+					
+					public MetricsPrinter(Metrics metrics) {
+						this.metrics = metrics;
+					}
+					
+					@Override
+					public void run() {
+						while (true) {
+							try {
+								Thread.sleep(100);
+							} catch (InterruptedException e) {
+							
+							}
+							
+							double currentAverage = metrics.getAverage();
+							
+							System.out.println("Current Average is: " + currentAverage);
+						}
+					}
+				}
+			
 				public static class BusinessLogic extends Thread {
 					private Metrics metrics;
 					private Random random = new Random();
