@@ -2262,7 +2262,14 @@
 	1. For that methods like `isLocked()`, `getQueuedThreads()` and others can be very handy
 4. Another area where `ReentrantLock` shines is control over lock's fairness
 	1. By default, `ReentrantLock` as well as `synchronized` do not guarantee any fairness
-		1. 
+		1. If we have many threads wanting to acquire a lock
+			1. Only one thread might acquire the lock most of the time while other threads starve
+				1. Solution:
+					1. `ReentrantLock(true)` - fair lock
+						1. May reduce the throughput of the application (?)
+							1. Lock acquisition might take longer
+						2. Must be unsed only when needed
+5. 
 
 ### ReentrantLock Part 2 - User Interface Application Example ###
 ### Quiz 10 - ReentrantLock ###
