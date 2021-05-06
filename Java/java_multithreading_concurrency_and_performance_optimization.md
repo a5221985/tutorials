@@ -1954,7 +1954,16 @@
 	1. Establish a Happens - Before semantics by one of these methods:
 		1. Synchronization of methods which modify shared variables
 			1. Strict order is guaranteed
+				1. Because if code inside the method is re-ordered, it will not matter (only one thread will have access to shared variables at any given moment)
 		2. Declaration of shared variables with the volatile keyword
+			1. Reduces overhead of locking & will guarantee order
+
+					volatile int sharedVar;
+					public void method() {
+						...// all instructions will be executed before
+						read/write(sharedVar);
+						...
+					}
 
 ### Quiz 8: Data Races ###
 ### Locking Strategies & Deadlocks ###
