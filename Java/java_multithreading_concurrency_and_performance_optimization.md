@@ -1906,6 +1906,55 @@
 	1. The invariant did not hold!!!
 		1. Reason: Data Race
 			1. Compiler and CPU may execute the instructions out of order to optimize performance and hardware utilization
+			2. They will do so while maintaining the logical correctness of the code
+			3. Out of order execution by the compiler and CPU are important features to speed up the code
+				1. Or else the program might be much slower
+		2. The compiler re-arranges instructions for better
+			1. Branch prediction (optimized loops, "if" statements etc.)
+			2. Vectorization - parallel instruction execution (SIMD)
+			3. Prefetching instructions - better cache performance
+				1. Cache lines
+			4. ...
+		3. CPU re-arranges instructions for better hardware units utilization
+			1. If certain instructions need hardware unit that is currently unavailable
+				1. But other instructions can be executed in a different hardware unit (instead of wasting CPU cycles)
+					1. Done only if it is logically correct
+
+							x = 1;
+							y = x + 2;
+							z = y + 10;
+							
+						1. These will not be executed out of order
+							1. Each line depends on result of previous line (no data race)
+						
+									public void increment1() {
+										x++;
+										y++;
+									}
+									
+									public void increment2() {
+										y++;
+										x++;
+									}
+									
+								1. The instructions might get re-arranged (both methods are logically correct)
+									1. Compiler and CPU core are unaware that different threads are accessing the variables
+										1. May lead to unexpected, paradoxical and incorrect results!
+				2. Example:
+
+						checkForDataRace		increment
+												1. y++
+						2. y <- 1
+						3. x <- 0
+												4. x++
+		
+						x < y
+						
+7. Solutions:
+	1. Establish a Happens - Before semantics by one of these methods:
+		1. Synchronization of methods which modify shared variables
+			1. Strict order is guaranteed
+		2. Declaration of shared variables with the volatile keyword
 
 ### Quiz 8: Data Races ###
 ### Locking Strategies & Deadlocks ###
