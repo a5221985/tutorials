@@ -366,9 +366,21 @@
 					io.kompose.service: todo-web-application
 
 ### Step 16 - Review of Microservices on GKE ###
-1. 
+1. CCS and CES services
+	1. Ingress
+		1. Can distribute traffic to multiple microservices
+	2. Istio
+	3. Helm
+	4. Google Stackdriver - logs of all microservices
+2. They are similar for EKS or GKE
+3. Minor differences
+	1. Ingress - minor differences between EKS & GKE
+	2. Logging - Alternatives are provided by EKS (Google Stackdriver is not provided by AWS)
+		1. Setion 7 - 11 of GKE
 
 ### Step 17 - Deploy Microservices to AWS EKS Kubernetes Cluster ###
+1. 
+
 ### Step 18 - Setup Ingress Controller and Ingress ###
 ### Step 19 - Quick Review of Ingress ###
 ### Step 20 - Setup Container Insights and AWS Cloud Watch Logs ###
