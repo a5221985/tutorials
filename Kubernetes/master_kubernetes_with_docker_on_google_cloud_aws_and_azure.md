@@ -348,9 +348,26 @@
 		1. Add todo
 
 ### Step 15 - Delete Web App and Hello World Deployments ###
-1. 
+1. `kubectl delete all -l app=hello-world-rest-api`
+2. `kubectl delete all -l app=todowebapp-h2`
+3. `kubectl delete all -l io.kompose.service=todo-web-application`
+4. `kubectl delete all -l io.kompose.service=mysql`
+	1. `-l` - label
+		1. `app=hello-world-rest-api` - label
+	2. Label?
+		1. `mysql-deployment.yaml`
+		
+				labels:
+					io.kompose.service: mysql
+					
+		2. `todo-web-application-service.yaml`
+
+				labels:
+					io.kompose.service: todo-web-application
 
 ### Step 16 - Review of Microservices on GKE ###
+1. 
+
 ### Step 17 - Deploy Microservices to AWS EKS Kubernetes Cluster ###
 ### Step 18 - Setup Ingress Controller and Ingress ###
 ### Step 19 - Quick Review of Ingress ###
