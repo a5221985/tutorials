@@ -42,4 +42,38 @@
 	5. Wider values
 		1. YMM registers are used for passing and returning
 		2. ZMM registers are used for passing and returning
+	6. Saving registers and restoring
+		1. Callee must save and restore following registers if it wishes to use any of them (before returning control to caller)
+			1. RBX
+			2. RSP
+			3. RBP
+			4. R12-R15
+		2. Caller must save all other registers (if it wishes to preserve those values)
+	7. Leaf node functions (functions that do not call any other functions)
+		1. 128-byte space is stored just beneath stack pointer for the function
+			1. It is called red-zone
+				1. The zone will not be clobbered (treat or deal with harshly) by any signal or interrupt handlers
+				2. This zone is used by compiler to **save local variables**
+					1. Compiler may omit some instructions at starting of function (adjustment of RSP, RBP) by utilizing the zone
+				3. Other functions may clobber the zone (hence used only by leaf node functions)
+
+						-mno-red-zone
+						
+					1. Flag to disable red-zone optimization
+	8. Variadic function (function that accepts variable number of arguments)
+		1. Number of floating point arguments passed to function (in vector registers) must be provided by caller in AL register
+	9. No shadow space provided on function entry
+	10. Return address is adjecent to 7th integer argument on stack
+	11. Alignment:
+		1. Stack aligned on 16 bytes boundary
+	12. Kernel Interface
+		1. Uses
+			1. RDI
+			2. RSI
+			3. RDX
+			4. R10
+			5. R8
+			6. R9
+	13. C++
+		1. `this` is first parameter
 		
