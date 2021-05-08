@@ -1,4 +1,9 @@
 # Master Kubernetes with Docker on Google Cloud, AWS & Azure #
+## Section 11: GKE - Using Helm to Automate Microservices Deployment on Kubernetes ##
+### Step 01 - Understanding Helm Basics and Setting up Kubernetes Cluster ###
+### Step 02 - Using Helm Charts to deploy Spring Boot Microservice to Kubernetes ###
+### Step 03 - Usign Helm Charts to manage Releases to Kubernetes Cluster ###
+
 ## Kubernetes on AWS with EKS ##
 ### Step 01 - Kubernetes on AWS with EKS - Section Introduction ###
 1. [https://github.com/in28minutes/kubernetes-crash-course](https://github.com/in28minutes/kubernetes-crash-course)
@@ -633,3 +638,12 @@
 	1. 6 courses
 3. DevOps
 	1. Master DevOps with Docker, Kubernetes and Azure DevOps
+4. Deeper into Docker and Kubernetes
+	1. Master Kubernetes with Docker on Google Cloud, AWS, & Azure
+	2. Master Docker with Java - DevOps for Spring Microservices
+5. Full Stack Development
+6. Architecture and Design
+7. Programming
+8. Unit Testing
+9. Interview Guides
+10. Search for github in28minutes learn

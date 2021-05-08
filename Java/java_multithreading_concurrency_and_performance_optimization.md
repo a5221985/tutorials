@@ -2268,8 +2268,9 @@
 					1. `ReentrantLock(true)` - fair lock
 						1. May reduce the throughput of the application (?)
 							1. Lock acquisition might take longer
-						2. Must be unsed only when needed
-5. 
+						2. Must be used only when needed
+5. `ReentrantLock.lockInterruptibly()`
+	1. 
 
 ### ReentrantLock Part 2 - User Interface Application Example ###
 ### Quiz 10 - ReentrantLock ###
