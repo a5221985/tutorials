@@ -379,7 +379,15 @@
 		1. Setion 7 - 11 of GKE
 
 ### Step 17 - Deploy Microservices to AWS EKS Kubernetes Cluster ###
-1. 
+1. Commands: Run from `kubernetes-crash-course` folder
+
+		kubectl apply -f 04-currency-exchange-microservice-basic/deployment.yaml
+		kubectl apply -f 05-currency-conversion-microservice-basic/deployment.yaml
+		
+	1. Review of services:
+		1. Currency Conversion Service
+		2. Currency Exchange Service (connects to database)
+			1. Converts from one currency to another
 
 ### Step 18 - Setup Ingress Controller and Ingress ###
 ### Step 19 - Quick Review of Ingress ###
