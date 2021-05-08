@@ -567,7 +567,32 @@
 						containers:
 						- command:
 							- ...
+							- --node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/in28minutes-cluster
 							- --balance-similar-node-groups
 							- --skip-nodes-with-system-pods=false
 
-### Step 22 - Delete AWS EKS Kubernetes Cluster ### 
+	8. Open Cluster Autosclaer releases
+		1. Find `kubectl` version
+			1. `kubectl version` (1.14.9)
+				1. Cluster Autoscaler 1.14.7 (matches `kubectl` version <= `kubectl` version)
+		2. Run the following:
+
+				kubectl -n kube-system set image deployment.apps/cluster-autoscaler cluster-autoscaler=k8s.gcr.io/cluster-autoscaler:v1.14.7
+	9. View Cluster Autoscaler logs
+
+			kubectl -n kube-system logs -f deployment.apps/cluster-autoscaler
+			
+2. Testing:
+
+		kubectl create deployment autoscaler-demo --image=nginx
+		kubectl get pods
+		
+		kubectl scale deployment autoscaler-demo --replicas=50
+		kubectl get pods
+		kubectl get nodes (few more nodes might get created)
+		
+		kubectl scale deployment autoscaler-demo --replicas=0
+		kubectl get pods
+
+### Step 22 - Delete AWS EKS Kubernetes Cluster ###
+1. 
