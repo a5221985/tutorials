@@ -383,12 +383,24 @@
 		1. Find base address of AHB1 bus peripherals
 			1. Few peripherals are connected to AHB1
 				1. BUS column (AHB1, AHB2, ...)
+					1. Starts from 0x4002_0000 (base address - AHB1_PERI_START_ADDRESS)
+					2. Ends at 0x4007_FFFF (AHB1_PERI_END_ADDRESS)
 	2. What's the base address of GPIOA registers?
+		1. 0x4002_0000 - GPIOA
 	3. What's the base address of RCC engine registers of the MCU?
+		1. RCC - where is it connected? AHB1
+			1. 0x4002_3800
 	4. What's the base address of APB1 peripherals?
+		1. 0x4000_0000 (TIM2)
 	5. What's the base address of FLASH memory?
+		1. 0x0800_0000
 	6. What's the base address of SRAM2?
-	7. What's the base address of ADC registers?
+		1. 0x2000_0000 - SRAM1
+		2. Size of SRAM1 - X bytes
+		3. Base address of SRAM2 = 0x2000_0000 + X
+	7. What's the base address of ADC1 registers?
+		1. ADC1 is connected to APB2
+			1. 0x4001_2000
 
 ### Quiz 1: Test your understanding ###
 
