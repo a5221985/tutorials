@@ -2270,7 +2270,25 @@
 							1. Lock acquisition might take longer
 						2. Must be used only when needed
 5. `ReentrantLock.lockInterruptibly()`
-	1. 
+	1. In general, if a thread tries to acquire a lock object while another thread is holding the lock, the new thread is suspended and not wake up until lock is released
+		1. `someThread.interrupt();` - does not do anything to a suspended thread (does not wake up)
+	2. `lockInterruptibly()`
+
+			@Override
+			public void run() {
+				while (true) {
+					try {
+						lockObject.lockInterruptibly();
+						...
+					} catch (InterruptedException e) {
+						cleanUpAndExit();
+					}
+				}
+			}
+			
+		1. This forces us to surround with `try` `catch` blocks
+			1. To handle `InterruptedException`
+			2. 
 
 ### ReentrantLock Part 2 - User Interface Application Example ###
 ### Quiz 10 - ReentrantLock ###
