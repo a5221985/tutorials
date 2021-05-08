@@ -386,10 +386,27 @@
 		
 	1. Review of services:
 		1. Currency Conversion Service
+			1. Returns for amount of currency (10 USD to INR)
 		2. Currency Exchange Service (connects to database)
-			1. Converts from one currency to another
+			1. Converts from one currency to another (1 USD = 73.25)
+			2. Name and value
+
+					env:
+						- name: CURRENCY_EXCHANGE_URI
+						- value: http://currency-exchange
+
+				1. Exposed usin the URL given
+2. `kubectl get svc`
+	1. `https://<dns>:8000/currency-exchange/from/USD/to/INR`
+	2. `https://<dns>:8100/currency-conversion/from/USD/to/INR/10`
+3. The deployment is same as in GKE
+4. `kubectl get pods` - 2 instances
+	1. replica-sets - 2
 
 ### Step 18 - Setup Ingress Controller and Ingress ###
+1. `kubectl get svc`
+	1. 2 load-balancers
+
 ### Step 19 - Quick Review of Ingress ###
 ### Step 20 - Setup Container Insights and AWS Cloud Watch Logs ###
 ### Step 21 - Setup Cluster Autoscaling on AWS EKS Kubernetes ###
