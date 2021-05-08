@@ -541,6 +541,33 @@
 	1. [https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html](https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html)
 		1. It configures new nodes automatically
 		2. It can decrease the number of nodes
-	2. 
+	2. The cluster was created at the start using `--managed` and `--asg-access`
+	3. `eksctl` - Takes care of IAM policy
+	4. Tags are automatically configured
+	5. Deploy the cluster:
+
+			kubectl apply -f https://raw.githubusercontent.com/kubernetes/autoscaler/master/cluster-autoscaler/cloudprovider/aws/examples/cluster-autoscaler-autodiscover.yaml
+			
+	6. Add `cluster-autoscaler.kubernetes.io/safe-to-evict` annotation to deployment
+
+			kubectl -n kube-system annotate deployment.apps/cluster-autoscaler cluster-autoscaler.kubernetes.io/safe-to-evict="false"
+			
+	7. Edit cluster autoscaler deployement
+
+			kubectl -n kube-system edit deployment.apps/cluster-autoscaler
+			
+		1. Edit `cluster-autoscaler` container command to replace `<YOUR CLUSTER NAME>` with cluster's name and add following options:
+
+				--balance-similar-node-groups
+				--skip-nodes-with-system-pods=false
+				
+			1. Add as below:
+
+					spec:
+						containers:
+						- command:
+							- ...
+							- --balance-similar-node-groups
+							- --skip-nodes-with-system-pods=false
 
 ### Step 22 - Delete AWS EKS Kubernetes Cluster ### 
