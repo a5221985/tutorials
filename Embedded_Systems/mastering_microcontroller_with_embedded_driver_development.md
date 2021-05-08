@@ -380,6 +380,7 @@
 ### Understanding Memory Map of the MCU: Part 3 ###
 1. Questions:
 	1. What's the base address of AHB1 BUS peripherals?
+		1. 
 	2. What's the base address of GPIOA registers?
 	3. What's the base address of RCC engine registers of the MCU?
 	4. What's the base address of APB1 peripherals?
