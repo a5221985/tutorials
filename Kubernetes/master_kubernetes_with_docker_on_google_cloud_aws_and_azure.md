@@ -518,7 +518,25 @@
 				3. Replaces `{{region_name}}`
 			2. Cloud-watch - used for monitoring and logging
 				1. We can get all logs coming from the service
-		2. Attach `CloudWatchAgentServerPolicy` to the nodes
+		2. Attach `CloudWatchAgentServerPolicy` to the all nodes (to stream logs)
+			1. Services > EC2 > Virtual Servers
+				1. Running Instances
+					1. Select IAM Role
+						1. Permissions
+							1. Attach Policies
+								1. Search for `CloudWatchAgentServerPolicy`
+								2. Check
+								2. Attach policy
+	2. Execute requests
+	3. Services > CloudWatch
+		1. Log groups
+			1. `/aws/containerinsights/*`
+				1. `application`
+		2. Search Log Group
+			1. `<sleuth-id>`
+				1. We can see the flow through multiple services
 
 ### Step 21 - Setup Cluster Autoscaling on AWS EKS Kubernetes ###
+1. 
+
 ### Step 22 - Delete AWS EKS Kubernetes Cluster ### 
