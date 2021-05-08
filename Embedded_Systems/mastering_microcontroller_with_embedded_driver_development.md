@@ -406,7 +406,19 @@
 
 ## MCU Bus Interfaces ##
 ### MCU Bus Interfaces Explanation Part 1: I-Code/D-Code/S-Bus ###
-1. 
+1. STM32F446xC/E
+	1. Processor - ARM Cortex M4 (upto 180 MHz)
+	2. Processor & peripherals talk via Bus interface
+		1. I-BUS - Instruction Bus
+		2. D-BUS - Data Bus
+		3. S-BUS - System Bus
+	3. Example:
+
+			const char *pMessage = "Hi there, Good Morning !"; // stored in ROM (Flash memory)
+			
+			const int value = 200; // Stored in ROM (Flash memory)
+	
+2. TM4C123GH
 
 ### MCU Bus Interfaces Explanation Part 2: AHB/APB1/APB2 ###
 ### MCU Bus Interfaces Explanation Part 3: Q/A Session ###
