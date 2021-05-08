@@ -450,7 +450,11 @@
 			2. BUS: bound to a particular protocol (AHB-Lite protocol)
 			3. I-Code: Instruction fetches from Code memory space (0x00000000 to 0x1FFFFFFF) are performed over 32-bit AHB-Lite bus
 				1. If any instruction is placed outside the range, then I-Code cannot fetch
-			4. D-Code: 
+			4. D-Code: Decode Bus
+				1. Data and debug accesses to Code memory space (0x00000000 to 0x1FFFFFFF) are performed over 32-bit AHB-Lite bus
+					1. Core data acceses have higher priority than debug accesses on the bus (debug accesses are waited until aore accesses have completed)
+			5. System Interface
+				1. 
 	
 2. TM4C123GH
 
