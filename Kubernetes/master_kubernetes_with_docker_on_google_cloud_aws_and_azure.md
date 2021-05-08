@@ -465,9 +465,45 @@
 						  - --aws-vpc-id=vpc-<code> # from EKS open in28minutes-cluster
 						  - --aws-region=us-east-1
 
-			
+		7. Confirm that ALB ingress controller is running
+
+				kubectl get pocs -n kube-system
+				
+			1. `-n` - namespace
+		8. Ingress resource:
+
+				apiVersion: extensions/v1beta1
+				kind: Ingress
+				metadata:
+					name: gateway-ingress
+					annotations: # load balancer related
+						kubernetes.io/ingress.class: alb
+						alb.ingress.kubernetes.io/scheme: internet-facing
+				spec:
+					rules:
+					- http:
+						paths:
+						- path: /currency-exchange/*
+						  backend:
+						  	serviceName: currency-exchange
+						  	servicePort: 8000
+						- path: /currency-conversion/*
+						  backend:
+						  	servcieName: currency-conversion
+						  	servicePort: 8100
+						  	
+			1. redirection from `/currency-exchange/*` to currency-exchange service
+			2. Adding ingress
+
+					kubectl apply -f 05-currency-conversion-microservice-basic/ingress_aws.yaml
+					
+				1. Under `kubernetes-crash-course`
+				2. `kubectl get ingress`
+					1. `https://<dns>`
 
 ### Step 19 - Quick Review of Ingress ###
+1. 
+
 ### Step 20 - Setup Container Insights and AWS Cloud Watch Logs ###
 ### Step 21 - Setup Cluster Autoscaling on AWS EKS Kubernetes ###
 ### Step 22 - Delete AWS EKS Kubernetes Cluster ### 
