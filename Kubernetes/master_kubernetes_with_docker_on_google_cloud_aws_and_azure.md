@@ -447,6 +447,25 @@
 					--approve
 					
 			1. Copy `arn` from a previous command
+		5. Deploy ALB ingress controller
+
+				kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.4/docs/examples/alb-ingress-controller.yaml
+				
+		6. Open ALB ingress controller deployment manifest for editing with following command
+
+				kubectl edit deployment.apps/alb-ingress-controller -n kube-system
+				
+			1. Modifications
+
+					spec:
+						containers:
+						- args:
+						  - --ingress-class=alb
+						  - --cluster-name=in28minutes-cluster
+						  - --aws-vpc-id=vpc-<code> # from EKS open in28minutes-cluster
+						  - --aws-region=us-east-1
+
+			
 
 ### Step 19 - Quick Review of Ingress ###
 ### Step 20 - Setup Container Insights and AWS Cloud Watch Logs ###
