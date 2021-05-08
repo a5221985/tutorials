@@ -448,6 +448,9 @@
 		1. Interfaces > Bus Interfaces
 			1. Cortex-M4 - contains three external Advanced High-performance Bus (AHB)-Lite bus interface (I-BUS, D-BUS, S-BUS) & Advanced Peripheral Bus (APB) interface
 			2. BUS: bound to a particular protocol (AHB-Lite protocol)
+			3. I-Code: Instruction fetches from Code memory space (0x00000000 to 0x1FFFFFFF) are performed over 32-bit AHB-Lite bus
+				1. If any instruction is placed outside the range, then I-Code cannot fetch
+			4. D-Code: 
 	
 2. TM4C123GH
 
