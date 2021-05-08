@@ -537,6 +537,10 @@
 				1. We can see the flow through multiple services
 
 ### Step 21 - Setup Cluster Autoscaling on AWS EKS Kubernetes ###
-1. 
+1. Configuration:
+	1. [https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html](https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html)
+		1. It configures new nodes automatically
+		2. It can decrease the number of nodes
+	2. 
 
 ### Step 22 - Delete AWS EKS Kubernetes Cluster ### 
