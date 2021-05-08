@@ -595,4 +595,20 @@
 		kubectl get pods
 
 ### Step 22 - Delete AWS EKS Kubernetes Cluster ###
-1. 
+1. Istio and Helm are the same
+2. Clean up the cluster
+	1. Delete all LoadBalancer services
+
+			kubectl get svc --all-namespaces
+			kubectl delete svc <service-name>
+			
+			kubctl get ingress
+			kubctl delete ingress gateway-ingress
+			
+	2. Delete the cluster
+
+			eksctl delete cluster --name in28minutes-cluster
+			
+	3. [https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html](https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html)
+	4. CloudFormation
+		1. Delete cluster
