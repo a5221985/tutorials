@@ -432,7 +432,21 @@
 					--policy-name ALBIngressControllerIAMPolicy \
 					--policy-document https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.4/docs/examples/iam-policy.json
 					
-		3. 
+		3. Kubernetes service account named `alb-ingress-controller` in `kube-system` namespace, cluster role, cluster role binding for ALB ingress controller to use
+
+				kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.4/docs/examples/rbac-role.yaml
+		4. IAM role for ALB ingress controller and attach role to service account created in previous step
+
+				eksctl create iamserviceaccount \
+					--region us-east-1 \
+					--name alb-ingress-controller \
+					--namespace kube-system \
+					--cluster in28minutes-cluster \
+					--attach-policy-arn arn:aws:iam:111122223333:policy/ALBIngressControllerIAMPolicy \
+					--override-existing-serviceaccounts \
+					--approve
+					
+			1. Copy `arn` from a previous command
 
 ### Step 19 - Quick Review of Ingress ###
 ### Step 20 - Setup Container Insights and AWS Cloud Watch Logs ###
