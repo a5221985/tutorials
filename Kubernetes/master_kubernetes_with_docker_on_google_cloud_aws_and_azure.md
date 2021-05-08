@@ -612,3 +612,24 @@
 	3. [https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html](https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html)
 	4. CloudFormation
 		1. Delete cluster
+			1. We must not have any EC2 instances running
+			2. We must not have any Elastic Load Balancers
+			3. We must not have any EKS clusters
+
+## Bonus Section ##
+### Bonus Lecture ###
+1. Where is the technology world heading?
+	1. Cloud
+		1. AWS
+		2. Azure
+		3. Google Cloud
+	2. DevOps
+		1. Docker
+		2. Kubernetes
+		3. Azure DevOps
+	3. Microservices/APIs
+	4. Full Stack Development
+2. AWS
+	1. 6 courses
+3. DevOps
+	1. Master DevOps with Docker, Kubernetes and Azure DevOps
