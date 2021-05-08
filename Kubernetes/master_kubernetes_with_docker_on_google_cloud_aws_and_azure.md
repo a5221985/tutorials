@@ -511,5 +511,14 @@
 		1. [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html)
 			1. Start from second command:
 
+					curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-containter-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed"s/{{cluster_name}}/in28minutes-cluster/;s/{{region_name}}/us-east-1/" | kubctl apply -f -
+					
+				1. Downloads a file from github
+				2. Replaces `{{cluster_name}}`
+				3. Replaces `{{region_name}}`
+			2. Cloud-watch - used for monitoring and logging
+				1. We can get all logs coming from the service
+		2. Attach `CloudWatchAgentServerPolicy` to the nodes
+
 ### Step 21 - Setup Cluster Autoscaling on AWS EKS Kubernetes ###
 ### Step 22 - Delete AWS EKS Kubernetes Cluster ### 
