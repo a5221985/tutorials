@@ -502,8 +502,14 @@
 					1. `https://<dns>`
 
 ### Step 19 - Quick Review of Ingress ###
-1. 
+1. `https://<dns>/currency-conversion/from/USD/to/INR/quantity/10`
+2. `https://<dns>/currency-exchange/from/USD/to/INR`
 
 ### Step 20 - Setup Container Insights and AWS Cloud Watch Logs ###
+1. Cloud Watch
+	1. Adding Application insights - behind the scenes view
+		1. [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html)
+			1. Start from second command:
+
 ### Step 21 - Setup Cluster Autoscaling on AWS EKS Kubernetes ###
 ### Step 22 - Delete AWS EKS Kubernetes Cluster ### 
