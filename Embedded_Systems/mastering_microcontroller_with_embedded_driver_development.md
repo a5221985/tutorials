@@ -358,10 +358,28 @@
 			1. Processor can produce 2^32 different addresses (4G)
 				1. 0x0000_0000 to 0xFFFF_FFFF
 	2. Memory map is in the range
-		1. 
+		1. Manufacturer puts peripherals in the memory range
+			1. Open reference manual
+				1. Search for memory map
+					1. Boundary addresses
+						1. 0x4002_0400 - 0x4002_03FF - GPIOA
+							1. All registers of GPIO port A are in this range
+		2. If processor produces 0x4002_0400 on the system bus, it is referring to the GPIOA registers
+			1. ST's implementation
+			2. TI may put them in a different range
+		3. Another example:
+			1. 0x4001_5000 - 0x4001_53FF - SPI5
+	3. The memory map gives the location of peripheral registers
 
 ### Understanding Memory Map of the MCU: Part 2 ###
+1. TI's Tiva microcontroller
+	1. Memory Model - processor memory map
+		1. 0x4000_0000 - peripherals start here
+			1. They have different addresses as compared to ST's microcontroller
+
 ### Understanding Memory Map of the MCU: Part 3 ###
+1. 
+
 ### Quiz 1: Test your understanding ###
 
 ## MCU Bus Interfaces ##
