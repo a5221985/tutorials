@@ -416,7 +416,38 @@
 
 			const char *pMessage = "Hi there, Good Morning !"; // stored in ROM (Flash memory)
 			
-			const int value = 200; // Stored in ROM (Flash memory)
+			const int value = 200; // Stored in ROM (Flash memory) (cannot be changed)
+			
+			char myData[50]; // Stored in SRAM (content can be changed)
+			
+			int main(void) {
+				for (uint32_t i = 0; i < strlen(pMessage); i++) {
+					/* This is data copy from FLASH to SRAM */
+					myData[i] = *(pMessage + i);
+				}
+				for(;;);
+			}
+	
+		1. Instructions of the program will get stored in FLASH memory (along with constant data)
+		2. Data:
+
+				FLASH
+				Instructions
+				Const data (RO data)
+				Vector tables
+				
+			1. Processor:
+
+					ARM <- I-BUS - FLASH
+					CM4 <- D-BUS - Const Data & Data
+					
+				1. Flash is connected to I-BUS
+				2. Flash is connected to D-BUS (for RO data)
+				3. Flash is connected through Flash Controller
+	4. Technical Reference Manual of ARM Cortex M4 (ARM)
+		1. Interfaces > Bus Interfaces
+			1. Cortex-M4 - contains three external Advanced High-performance Bus (AHB)-Lite bus interface (I-BUS, D-BUS, S-BUS) & Advanced Peripheral Bus (APB) interface
+			2. BUS: bound to a particular protocol (AHB-Lite protocol)
 	
 2. TM4C123GH
 
