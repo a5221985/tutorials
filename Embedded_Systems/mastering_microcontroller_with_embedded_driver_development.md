@@ -378,7 +378,14 @@
 			1. They have different addresses as compared to ST's microcontroller
 
 ### Understanding Memory Map of the MCU: Part 3 ###
-1. 
+1. Questions:
+	1. What's the base address of AHB1 BUS peripherals?
+	2. What's the base address of GPIOA registers?
+	3. What's the base address of RCC engine registers of the MCU?
+	4. What's the base address of APB1 peripherals?
+	5. What's the base address of FLASH memory?
+	6. What's the base address of SRAM2?
+	7. What's the base address of ADC registers?
 
 ### Quiz 1: Test your understanding ###
 
