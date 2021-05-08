@@ -405,7 +405,34 @@
 
 ### Step 18 - Setup Ingress Controller and Ingress ###
 1. `kubectl get svc`
-	1. 2 load-balancers
+	1. 2 load-balancers created
+		1. It is expensive
+			1. Solution: Ingress (one load balancer)
+				1. It can distribute traffic to multiple instances
+2. Search for EC2
+	1. LOAD BALANCING
+		1. Load Balancers
+			1. Description - port (8000/ 8100)
+			2. Tags - currency-conversion/currency-exchange
+3. Ingress:
+	1. Requires ingress controller
+		1. Steps:
+			1. [https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html)
+	2. Setup controller
+		1. IAM OIDC provider and associate it with cluster
+
+				eksctl utils associate-iam-oidc-provider \
+					--region us-east-1 \
+					--cluster in28-minutes-cluster \
+					--approve
+					
+		2. IAM policy called `ALBIngressControllerIAMPolicy` for ALB ingress controller pod that allows it to make calls to AWS APIs on our behalf
+
+				aws iam create-policy \
+					--policy-name ALBIngressControllerIAMPolicy \
+					--policy-document https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.4/docs/examples/iam-policy.json
+					
+		3. 
 
 ### Step 19 - Quick Review of Ingress ###
 ### Step 20 - Setup Container Insights and AWS Cloud Watch Logs ###
