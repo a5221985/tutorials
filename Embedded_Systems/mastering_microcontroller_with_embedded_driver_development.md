@@ -450,15 +450,31 @@
 			2. BUS: bound to a particular protocol (AHB-Lite protocol)
 			3. I-Code: Instruction fetches from Code memory space (0x00000000 to 0x1FFFFFFF) are performed over 32-bit AHB-Lite bus
 				1. If any instruction is placed outside the range, then I-Code cannot fetch
-			4. D-Code: Decode Bus
+			4. D-Code:
 				1. Data and debug accesses to Code memory space (0x00000000 to 0x1FFFFFFF) are performed over 32-bit AHB-Lite bus
 					1. Core data acceses have higher priority than debug accesses on the bus (debug accesses are waited until aore accesses have completed)
 			5. System Interface
-				1. 
+				1. Instruction fetches, data, debug accesses to address ranges 0x20000000 to 0xDFFFFFFF & 0xE01000000 to 0xFFFFFFFF performed over 32-bit AHB-Lite bus
 	
 2. TM4C123GH
 
 ### MCU Bus Interfaces Explanation Part 2: AHB/APB1/APB2 ###
+1. Summary:
+	1. If instructions are present in between memory locations 0x00000000 to 0x1FFFFFFC then Cortex processor will fetch instructions using I-Code interface
+		1. 0x08000000 falls in the range
+	2. If instructions are present outside of 0x00000000 to 0x1FFFFFFC then processor fetches instructions over system bus
+	3. If data is present in between memory locations 0x00000000 to ox1FFFFFFF, processor fetches data over D-Code bus interface
+	4. If data is present outside, the data will be fetched over system bus
+2. All peripherals fall outside I-Code & D-Code buses
+	1. System Bus is used for peripherals
+		1. SRAM1 & SRAM2
+		2. Peripherals
+3. System Bus - Extended using AHB BUS Matrix
+	1. AHB1 Runs at 180 MHz (high speed)
+	2. AHB1 is connected to a bridge
+		1. Bridge converts to APB protocol (APB - slower 90 MHz & 45 MHz)
+			1. APB1 (45 MHz) & APB2 (90 MHz)
+
 ### MCU Bus Interfaces Explanation Part 3: Q/A Session ###
 ### Understanding MCU Bus Matrix ###
 
