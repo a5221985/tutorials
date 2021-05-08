@@ -355,6 +355,10 @@
 1. Memory map of MCU (STM32F407X)
 	1. ARM Cortex M4
 		1. Width of system bus is 32 bits
+			1. Processor can produce 2^32 different addresses (4G)
+				1. 0x0000_0000 to 0xFFFF_FFFF
+	2. Memory map is in the range
+		1. 
 
 ### Understanding Memory Map of the MCU: Part 2 ###
 ### Understanding Memory Map of the MCU: Part 3 ###
