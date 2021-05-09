@@ -588,10 +588,21 @@
 			2. Connected to SRAM2
 			3. Connected to FSMC (External memory controller)
 			4. Connected to FLASH
-		2. 4 devices can communicate with Processor over D-Bus (STM32 specific)
+				1. 4 devices can communicate with Processor over D-Bus (STM32 specific)
+		2. I-Bus
+			1. Connected to FSMC
+			2. Connected to FLASH
+				1. Cannot talk to any other device
+		3. S-Bus
+			1. Connected to AHB1
+			2. Connected to AHB2
+			3. Connected to SRAM1
+			4. Connected to SRAM2
+			5. Connected to FSMC
 
 ## Understanding MCU Clocks and Details ##
 ### Understanding MCU Clocking System: Part 1 ###
+1. Clock - very important
 
 ## Understanding MCU Clock Tree ##
 ### Understanding MCU Clock Sources and HSE ###
