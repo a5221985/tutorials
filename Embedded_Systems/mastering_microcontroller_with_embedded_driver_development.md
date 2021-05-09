@@ -474,16 +474,29 @@
 	2. AHB1 is connected to a bridge
 		1. Bridge converts to APB protocol (APB - slower 90 MHz & 45 MHz)
 			1. APB1 (45 MHz) & APB2 (90 MHz)
-		2. APB1 & APB2
+		2. APB1
 			1. TIMERs
 			2. USARTs
 			3. SPI
 			4. ADC
-			5. I2C
+		3. APB2
+			1. TIMERs
+			2. USARTs
+			3. SPI
+			4. I2C
+			5. CAN
 		3. AHB1
 			1. GPIOx
+	3. AHB2
+		1. USB
+		2. Camera (high speed required)
+4. TI - TM4C123GH6PM
+	1. ARM Cortex M4 - 80 MHz
+	2. GPIO - connected to AHB and APB (high speed or low speed)
 
 ### MCU Bus Interfaces Explanation Part 3: Q/A Session ###
+1. Q/A
+
 ### Understanding MCU Bus Matrix ###
 
 ## Understanding MCU Clocks and Details ##
