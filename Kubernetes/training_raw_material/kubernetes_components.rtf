@@ -43,4 +43,29 @@
 \b0 \
 1. Command-line tool that communicates with Kube API-Server\
 2. It sends commands to master node\
-	1. Each command is converted to API call}
+	1. Each command is converted to API call\
+\
+
+\b Kube-apiserver
+\b0 \
+1. It receives REST requests for modifications to\
+	1. pods\
+	2. services\
+	3. replica sets\
+	4. \'85\
+2. It is a front-end to the cluster\
+3. It communicates with etcd cluster\
+	1. Ensures that data is stored in etcd and is in agreement with service details of deployed pods\
+\
+
+\b etcd cluster
+\b0 \
+1. Distributed key-value store\
+2. Used to store \
+	1. Kubernetes cluster data\
+		1. Number of pods and their state\
+		2. Namespace (?)\
+		3. \'85\
+	2. API objects (?)\
+	3. Service discovery details (?)\
+	}
