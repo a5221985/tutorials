@@ -578,7 +578,17 @@
 	4. `-o-` - Connectivity between master and slave
 	5. Processor to Peripheral communication
 		1. Seen as Master to Slave communication
-			1. ARM Cortex - Master
+			1. ARM Cortex - Master (focus is on this)
+			2. Ehtenet 10/100 - Master
+			3. High Speed USB 2.0 - Master
+			4. Dual Port DMA1 & DMA2 - Masters
+	6. Consider Cortex M4
+		1. D-Bus (Master-Slave communication)
+			1. Connected to SRAM1
+			2. Connected to SRAM2
+			3. Connected to FSMC (External memory controller)
+			4. Connected to FLASH
+		2. 4 devices can communicate with Processor over D-Bus (STM32 specific)
 
 ## Understanding MCU Clocks and Details ##
 ### Understanding MCU Clocking System: Part 1 ###
