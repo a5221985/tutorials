@@ -33,7 +33,7 @@
 	6. Micro-service - small, focussed, autonomous, expose API (network calls are used to communicate)
 
 ### Why Microservices ###
-1. Heterenenous
+1. Heterogenous
 	1. Each microservice can be written in a different programming language and can run on a different platform
 		1. Clinical - Java
 		2. Registration - Python
