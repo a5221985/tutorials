@@ -547,8 +547,8 @@
 		data    168MHz       10/100    USB2.0       DMA1      DMA2
 		RAM    w/FPU & MPU  
 		64 KB    Master      Master    Master      Master    Master
-		
-		  |     |  |  |        |         |           |        | |
+		  |     |  |  |
+		  |  D-BUS I  S     FIFO/DMA  FIFO/DMA  FIFO/8 Srms FIFO/8 Srms
 		  +-----|  |  |        |         |           |        | |
 		        |--|--o--------|---------|-----------|--------o-o-AHB1
 		        |  |  |        |         |           |        | |
@@ -560,10 +560,25 @@
 		        |  |  |        |         |           |        | |
 		        o--o--o--------o---------o-----------o--------o-o-FSMC
 		        |  |  |        |         |           |        | | +--+
-		        |--o--|--------|---------|-----------|--------|-|-|  |
-		        |  |  |        |         |           |        | | |  |
-		        o--|--|--------|---------|-----------o--------o-o-|  |
+		        |--o--|--------|---------|-----------|---I----|-|-|A |
+		        |  |  |        |         |           |        | | |R |
+		        o--|--|--------|---------|-----------o---D----o-o-|T |
 		                                                          +--+
+		                                                          ^  ^
+		                                                          |  |
+		                                                          v  v
+		                                                          FLASH
+		                                                          1 MB
+
+				Multi-AHB Bus Matrix
+			
+	1. Top - Masters
+	2. Right - Slaves
+	3. Multi-AHB Bus Matrix - Multiple AHB buses are connected
+	4. `-o-` - Connectivity between master and slave
+	5. Processor to Peripheral communication
+		1. Seen as Master to Slave communication
+			1. ARM Cortex - Master
 
 ## Understanding MCU Clocks and Details ##
 ### Understanding MCU Clocking System: Part 1 ###
