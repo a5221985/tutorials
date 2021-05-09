@@ -601,11 +601,80 @@
 			5. Connected to FSMC
 
 ## Understanding MCU Clocks and Details ##
-### Understanding MCU Clocking System: Part 1 ###
 1. Clock - very important - microcontroller is a digital circuitry that is synchronous with the clock
 	1. The digital components in the microcontroller need to synchronize with each other
 	2. What is clock?
 		1. Square wave signals of certain frequency
+	3. Selecting right frquency is important
+		1. Low power may need low frequency (power is related to frequency)
+			1. [https://physics.stackexchange.com/questions/34766/how-does-power-consumption-vary-with-the-processor-frequency-in-a-typical-comput](https://physics.stackexchange.com/questions/34766/how-does-power-consumption-vary-with-the-processor-frequency-in-a-typical-comput)
+				1. Processor contains FETs (complementary)
+					1. When input goes low, small capacitance gets charged to hold small amount of energy
+						1. The amount lost to capacitor
+					2. When input goes high, the charge will be drained to ground and be lost
+					3. So when level changes, n Joules are lost (at high once, at low once)
+					4. If frequency is 1 MHz, switching occurs at 10^6 times per second => n.10^6 Joules per second is lost
+					5. If frequency is 1 GHz, switching occurs at 10^9 times per second => n.10^9 Joules per second is lost
+					6. Energy in a capacitor is `C.V^2 / 2` (dissipation varies quadratic with voltage)
+
+							P = c.V^2.f + P_S
+							
+						1. c - scaling constant (with dimension of capacitance (F))
+						2. P_S - static power dissipation (power at zero clock frequency)
+					7. Hence P is proportional to f
+2. Clocking system (STMF407)
+	1. Reset and Clock Control Section > Clocks (Reference Manual)
+		1. Three clock sources can be used to drive the system clock (SYSCLK)
+			1. HSI oscillator clock
+			2. HSE oscillator clock
+			3. Main PLL (PLL) clock
+	2. Sources:
+		1. Crystal oscillator
+			1. External component
+			2. Connected to microcontroller
+			3. This can be dropped based on design requirements
+		2. RC oscillator
+			1. Alternative
+				1. Comes built in
+			2. Simply activate and use
+		3. PLL (Phase Locked Loop)
+			1. Alternative
+				1. Bomes built in
+			2. Simply activate and use
+			3. Generates higher frequency
+				1. By taking lower frequency clock as input
+
+## Understanding MCU Clock Tree ##
+### Understanding MCU Clock Sources and HSE ###
+1. RC - Resistive-and-Capacitive
+2. Clocking engine (Reference: STM32F407)
+3. RCC Peripheral (reset and clock control) > Clocks	1. Clock Tree (diagram)
+4. Open STM32CubeIDE
+	1. New project > Board Selector > STM32F407
+		1. Name: Clock
+		2. STM32Code
+		3. Finish
+		4. No
+		5. Do you want ot open STM32CubeMx Perspective: Yes
+		6. Yes
+			1. Downloads HAL Layer > Cancel
+				1. No code generation
+		7. Clock Configuration
+			1. HSI - High Speed Internal (RC Oscillator)
+			2. HSE - High Speed External (Crystal oscillator) - 8MHz (user manual of board)
+				1. Microcontroller spec - 4 - 26 MHz
+				2. It is connected to microcontroller pins (where crystal is connected)
+					1. Go to HSE/LSE clock sources diagram in reference manual
+
+							    | OSC_IN  OSC_OUT|         
+							    +--[ ]------[ ]--+
+							        |        |
+							 +-| |--+--|[]|--+--| |-+
+							 | c_L1             c_L2|
+							---                    ---
+							 -                      -
+							
+						1. c_L1 & c_L2 - load capacitors
 
 ## Understanding MCU Clock Tree ##
 ### Understanding MCU Clock Sources and HSE ###
