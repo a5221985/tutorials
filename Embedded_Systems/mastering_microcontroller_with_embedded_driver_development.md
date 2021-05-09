@@ -602,7 +602,10 @@
 
 ## Understanding MCU Clocks and Details ##
 ### Understanding MCU Clocking System: Part 1 ###
-1. Clock - very important
+1. Clock - very important - microcontroller is a digital circuitry that is synchronous with the clock
+	1. The digital components in the microcontroller need to synchronize with each other
+	2. What is clock?
+		1. Square wave signals of certain frequency
 
 ## Understanding MCU Clock Tree ##
 ### Understanding MCU Clock Sources and HSE ###
