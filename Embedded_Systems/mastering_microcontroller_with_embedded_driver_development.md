@@ -548,7 +548,19 @@
 		RAM    w/FPU & MPU  
 		64 KB    Master      Master    Master      Master    Master
 		
-		
+		  |     |  |  |
+		  +-----|  |  |
+		        |--|--o
+		        |  |  |
+		        |--|--o
+		        |  |  |
+		        o--|--o
+		        |  |  |
+		        o--o--o
+		        |  |  |
+		        |--o--o
+		        |  |  |
+		        o--|--|
 
 ## Understanding MCU Clocks and Details ##
 ### Understanding MCU Clocking System: Part 1 ###
