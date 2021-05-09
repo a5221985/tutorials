@@ -801,7 +801,7 @@
 1. Login to an instance
 	1. `sudo -i`
 	2. `stress --cpu 1` **(M)** - the processor will be stressed out completely and it will go more than 60%
-		1. Alarm should trigger after 5 miutes of stressing
+		1. Alarm should trigger after 5 minutes of stressing
 2. Go to Auto scaling group:
 	1. We can configure Load Balancer: Classical load balancer that was configured before can be used
 3. Note: Don't delete auto scaling group instances directly.
