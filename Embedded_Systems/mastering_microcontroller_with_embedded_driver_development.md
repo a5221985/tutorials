@@ -541,6 +541,14 @@
 1. BUS Matrix:
 	1. Application note (AN4031) - DMA COntroller
 		1. Search for Bus Matrix
+2. Diagram:
+		
+		CCM	   CORTEX M4    Ethernet  High Speed  Dual Port  DMA Port
+		data    168MHz       10/100    USB2.0       DMA1      DMA2
+		RAM    w/FPU & MPU  
+		64 KB    Master      Master    Master      Master    Master
+		
+		
 
 ## Understanding MCU Clocks and Details ##
 ### Understanding MCU Clocking System: Part 1 ###
