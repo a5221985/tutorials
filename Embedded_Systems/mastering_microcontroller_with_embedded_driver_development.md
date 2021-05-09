@@ -523,8 +523,24 @@
 			1. 90 MHz
 	12. GPIOs and processor communicate over AHB1 bus?
 		1. True
+			1. AHB1 <-> AHB BUS Matrix <-> System Bus <-> Processor
+				1. AHB Bus Matrix - it is like traffic controller
+					1. Decides which BUS to connect at given point in time
+						1. Serializes access
+	13. USB OTG and processor communicate over AHB2 bus?
+		1. True
+			1. AHB2 <-> AHB Bus Matrix <-> System Bus <-> Processor
+	14. USB OTG and GPIOs can communicate with processor concurrently or simultaneously?
+		1. False (Serialized by AHB BUS Matrix)
+	15. Processor can talk to FLASH memory and SRAM simultaneously?
+		1. True (There are dedicated buses)
+			1. I-Code & D-Code: FLASH
+			2. S-BUS: SRAM
 
 ### Understanding MCU Bus Matrix ###
+1. BUS Matrix:
+	1. Application note (AN4031) - DMA COntroller
+		1. Search for Bus Matrix
 
 ## Understanding MCU Clocks and Details ##
 ### Understanding MCU Clocking System: Part 1 ###
