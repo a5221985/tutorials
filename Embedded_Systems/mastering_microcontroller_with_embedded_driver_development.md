@@ -496,6 +496,33 @@
 
 ### MCU Bus Interfaces Explanation Part 3: Q/A Session ###
 1. Q/A
+	1. Is it true that, System Bus is not connected to FLASH memory?
+		1. True
+	2. Processor can fetch instructions from SRAM over i-code bus T/F?
+		1. False (but there are advanced techniques to fetch instructions from SRAM)
+	3. System Bus can operate at the speed up to 180 MHz
+		1. True
+	4. SRAMs are connected to System Bus T/F?
+		1. True
+	5. APB1 bus can operate at the speed up to 180MHz?
+		1. False (45 MHz)
+	6. Let's say I have a peripheral whose datasheet says that, it's operating frequency or speed must be above 95MHz, can I connect that peripheral via APB2 bus?
+		1. No (APB2 bus max speed is 90MHz)
+	7. Processor can fetch instructions as well as data simultaneously from SRAM T/F?
+		1. False (only one bus connects to SRAM)
+	8. Processor can fetch instructions as well as data simultaneously from FLASH T/F?
+		1. True (I-Code & D-Code buses exist)
+	9. What is the Max. HCLK value of your MCU?
+		1. HCLK - Clock frequency of AHB Bus (notation)
+			1. 180 MHz (max - it can be lowered)
+	10. What is the Max P1CLK value of your MCU?
+		1. P1CLK - Clock frequency of APB1 Bus
+			1. 45 MHz
+	11. What is the Max P2CLK value of your MCU?
+		1. P2CLK - Clock frequency of APB2 Bus
+			1. 90 MHz
+	12. GPIOs and processor communicate over AHB1 bus?
+		1. True
 
 ### Understanding MCU Bus Matrix ###
 
