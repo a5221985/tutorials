@@ -677,8 +677,147 @@
 						1. c_L1 & c_L2 - load capacitors
 
 ## Understanding MCU Clock Tree ##
-### Understanding MCU Clock Sources and HSE ###
+1. RC - Resistive-and-Capacitive
+2. Clocking engine (Reference: STM32F407)
+3. RCC Peripheral (reset and clock control) > Clocks	1. Clock Tree (diagram)
+4. Open STM32CubeIDE
+	1. New project > Board Selector > STM32F407
+		1. Name: Clock
+		2. STM32Code
+		3. Finish
+		4. No
+		5. Do you want ot open STM32CubeMx Perspective: Yes
+		6. Yes
+			1. Downloads HAL Layer > Cancel
+				1. No code generation
+		7. Clock Configuration
+			1. HSI - High Speed Internal (RC Oscillator)
+			2. HSE - High Speed External (Crystal oscillator) - 8MHz (user manual of board)
+				1. Microcontroller spec - 4 - 26 MHz
+				2. It is connected to microcontroller pins (where crystal is connected)
+					1. Go to HSE/LSE clock sources diagram in reference manual
+
+							    | OSC_IN  OSC_OUT|         
+							    +--[ ]------[ ]--+
+							        |        |
+							 +-| |--+--|[]|--+--| |-+
+							 | c_L1             c_L2|
+							---                    ---
+							 -                      -
+							
+						1. c_L1 & c_L2 - load capacitors
+				3. Another way of providing external clock
+					1. External clock configuration (mode)
+
+							    |         OSC_OUT|         
+							    +--[ ]------[ ]--+
+							        ^      (HI-Z) 
+							        |
+							     External
+							      source
+							      
+						1. External source
+							1. Another microcontroller
+							2. Another circuit
+			3. Discovery boards come with crystal oscillator installed on the board
+			4. Necleo boards don't come with on-board crystal oscillator
+				1. External clock can be used
+					1. On Nucelo board, HSE is supplied to microcontroller from ST-LINK circuitry (it has it's own microcontroller)
+						1. 8 MHz clock source
+				2. Go to user manual of the board:
+					1. OSC Clock
+						1. 3 ways to give external clock
+							1. MCO form ST-LINK
+							2. Oscillator on board - from X2 crystal
+								1. Schematic
+									1. PH0 & PH1 - 8 MHz
+									2. X3 - not available on the board (Real-time clock)
+								2. HSE oscillator (not provided)
+									1. To connect and use this, de-solder MCO connection
+5. Summary:
+	1. HSE can be provided to the MCU via a crystal or external source
+		1. from another circuit or from another MCU
+	2. On STM32-DISCOVERY board, HSE is 8 MHz provided by onboard crystal
+	3. On Nucleo board, HSE is 8 MHz pulled from ST-LINK circuit
+		1. Do not do any soldering or desoldering on board for the course
+			1. No need to make any chnages unless there is special requirements
+
 ### HSI and RCC Registers ###
+1. HSI Clock
+	1. Generated from interal 16 MHz RC oscillator (ST Microcontroller specific)
+		1. Used directly as system clock OR
+		2. Used as PLL input
+	2. After reset, MCU uses HSI as its default clock source
+		1. Power on reset OR
+		2. System reset
+	3. We can change clock to something else through code (HSE or PLL)
+	4. Clock Configuration
+		1. HSI RC
+			1. 16 MHz
+				1. Coming from within microcontroller
+				2. Goes into System clock multiplexer
+					1. Multiplexer can be configured to select one of the clocks
+						1. HSE & PLL have to be enabled through code to use them
+			2. In the diagram, we cannot select HSE (we can switch between HSI and PLL)
+				1. Pinout - System Core
+					1. RCC
+						1. High Speed Clock (HSE)
+							1. Crystal/Ceramic
+					2. We can now select HSE
+			3. The system clock is used to derive clocks for other microcontroller domains (peripherals)
+				1. HCLK (AHB Clock)
+					1. AHB Prescalar
+						1. Used to divide the SYSCLK
+							1. If SYSCLK = 400Mhz, Prescalar should divide it to produce 160 MHz (which is maximum for AHB)
+				2. HCLK is used to derive clocks for other domains
+					1. Ethernet PTP clock (doesn't depend on HCLK - uses SYSCLK)
+					2. HCLK AHB bus core, memory and DMA (HCLK)
+						1. GPIO
+						2. Camera interfacing
+						3. Memories
+						4. ...
+					3. To Cortex system timer (Systick timer)
+						1. Derived from HCLK but through Pre-scalar
+					4. FCLK Cortex clock
+						1. Directly goes to processor
+							1. Processor can run with speed of HCLK
+					5. APB1 peripheral clocks
+						1. PCLK1 - max 42 MHz
+							1. Prescalar is used from HCLK
+					6. APB1 timer clocks
+						1. X1 is used from APB1 Prescalar
+					7. APB2 peripheral clocks
+						1. PCLK2 - max 84 MHz
+							1. Prescalar is used from HCLK
+					8. APB2 timer clocks
+						1. X1 is used from APB2 Prescalar
+2. PLL Engine
+	1. Phased Lock Loop
+		1. Clock multiplier engine
+	2. Used to boost clock higher than HSI or HSE
+	3. This can be used as source for SYSCLK
+	4. It has multipliers and dividers
+		1. These can be configured
+			1. Example: 16 MHz to 100 MHz
+	5. Source can be
+		1. HSI
+		2. HSE
+	6. Useful for boosting clock speed
+3. The configuration can be done in RCC peripheral register
+	1. RCC registers > RCC clock control register
+		1. PLL configuration register
+		2. RCC clock configuration register
+			1. AHB & APB prescalars
+4. Default values
+	1. HSI
+		1. All pre-scalars are /1
+			1. All clocks will be 16 MHz
+5. Clock for I2S
+	1. Derived from PLL engine (needs activating PLL engine)
+6. Certain peripherals like the following will not work fine if we under-clock them (might need activating PLL)
+	1. USB
+	2. Ethernet
+	3. ...
 ### Peripheral Clock Configuration ###
 ### Exercise: HSI Measurements ###
 ### About USB Logic Analyzer ###
