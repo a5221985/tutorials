@@ -208,6 +208,9 @@ master docker0 state UP mode DEFAULT group default\
 9. cgroup hierarchy\
 	1. Constructed by creation, removal and renaming of subdirectories within the cgroup filesystem\
 	2. Attributes (such as limits) can be defined at each level of the hierarchy\
+	3. Constraint:\
+		1. Limits, control, accounting defined by cgroup at higher level in hierarchy cannot be exceeded by descendent cgroups\
+10. More info: https://man7.org/linux/man-pages/man7/cgroups.7.html\
 \
 \pard\pardeftab720\sl384\partightenfactor0
 \cf2 \cb3 [root@homelab ~]# lscgroup | grep docker\
@@ -224,8 +227,60 @@ blkio:/docker\
 pids:/docker\
 \pard\pardeftab720\sl360\partightenfactor0
 \cf2 \cb4 \
+11. When a container is run, container runtime sets up cgroups values for each container\
+12. All info is stored in 
+\f2\b /sys/fs/cgroup/*/docker
+\f1\b0 \
+13. Example: To ensure that container can use 50,000 microseconds of CPU time, soft limit of memory to 500M and hard limit of memory to 1G\
+\
+\pard\pardeftab720\sl384\partightenfactor0
+\cf2 \cb3 [root@homelab ~]# docker container run -d --name test-cgroups --cpus 0.5 --memory 1G --memory-reservation 500M httpd\
+\
+[root@homelab ~]# lscgroup cpu,cpuacct:/docker memory:/docker\
+cpu,cpuacct:/docker/\
+cpu,cpuacct:/docker/c3503ac704dafea3522d3bb82c77faff840018e857a2a7f669065f05c8b2cc84\
+memory:/docker/\
+memory:/docker/c3503ac704dafea3522d3bb82c77faff840018e857a2a7f669065f05c8b2cc84\
 \
 \
+[root@homelab c....c84]# cat cpu.cfs_period_us\'a0\
+100000\
+[root@homelab c....c84]# cat cpu.cfs_quota_us\'a0\
+50000\
+\
+\
+[root@homelab c....c84]# cat memory.soft_limit_in_bytes\'a0\
+524288000\
+[root@homelab c....c84]# cat memory.limit_in_bytes\'a0\
+1073741824\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb4 \
+
+\f2\b SECCOMP
+\f1\b0 \
+1. Secure computing\
+2. It is used to restrict the set of system calls that an application is allowed to make\
+	1. Default seccomp profile disables 44 calls (out of 300+ calls)\
+3. A container is allowed to access only those resources which it might need\
+	1. Examples:\
+		1. If a container must not change clock time on host machine\
+			1. No access to 
+\f2\b clock_adjtime
+\f1\b0  & 
+\f2\b clock_settime
+\f1\b0  system calls\
+		2. If a container must not change kernel modules\
+			1. No access to 
+\f2\b create_module
+\f1\b0  & 
+\f2\b delete_module
+\f1\b0  system calls\
+\
+
+\f2\b SELINUX
+\f1\b0 \
+1. Security-enhanced Linux\
+2. \
 \
  \
 }
