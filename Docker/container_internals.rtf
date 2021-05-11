@@ -136,5 +136,55 @@ key\'a0 \'a0 \'a0 \'a0 semid\'a0 \'a0 \'a0 owner\'a0 \'a0 \'a0 perms\'a0 \'a0 \'
 1. Process ID namespace\
 2. Ensures that processes running inside the container are isolated from external world\
 	1. When we run a ps command inside, we only see processes running inside container\
-		1. Because of the namespace\cf2 \cb4 \strokec2 \
+		1. Because of the namespace\
+\
+
+\f2\b NET
+\f1\b0 \
+1. Network namespace\
+2. Lets container have it\'92s own view of \
+	1. Network interface\
+	2. IP addresses\
+	3. Routing tables\
+	4. Port numbers\
+	5. \'85\
+\cf2 \cb4 \strokec2 3. To communicate to external world\
+	1. A container will get attached to master docker0 interface\
+\
+\pard\pardeftab720\sl384\partightenfactor0
+\cf2 \cb3 [nivedv@homelab ~]$ docker container run --rm -it alpine sh\
+/ # ping 8.8.8.8\
+PING 8.8.8.8 (8.8.8.8): 56 data bytes\
+64 bytes from 8.8.8.8: seq=0 ttl=119 time=21.643 ms\
+64 bytes from 8.8.8.8: seq=1 ttl=119 time=20.940 ms\
+^C\
+\
+[root@homelab ~]# ip link show veth84ea6fc\
+\
+\
+veth84ea6fc@if22: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue \
+\
+master docker0 state UP mode DEFAULT group default\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb4 \
+
+\f2\b \cf6 \cb1 \strokec6 ip
+\f1\b0  - show / manipulate routing, network devices, interfaces and tunnels\
+\cf2 \cb4 \strokec2 	
+\f2\b \cf5 \cb1 \strokec5 link   
+\f1\b0 \cf6 \strokec6 - network device.\
+\cf2 \cb4 \strokec2 	
+\f2\b \cf5 \cb1 \strokec5 show 
+\f1\b0 \cf6 \strokec6 (or 
+\f2\b \cf5 \strokec5 list 
+\f1\b0 \cf6 \strokec6 ) objects\cf2 \cb4 \strokec2 \
+\
+
+\f2\b Control groups (groups):
+\f1\b0 \
+1. Fundamental building blocks for making containers\
+2. It allocates and limits resources used by containers\
+	1. CPU\
+	2. Memory\
+	3. Network I/O\
 }
