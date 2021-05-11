@@ -41,3 +41,15 @@
 			1. One might be CPU intensive
 			2. One might be memory intensive
 		3. Each component cannot be scaled independently
+	6. Obstacle to scaling development
+		1. Once app gets to a certain size, its useful to divide up engineering organization into teams that focus on specific functional areas
+			1. Example: UI team, accounting team, inventory team, ...
+		2. Monolith prevents team from working independently
+			1. Teams must coordinate their development efforts and redeployments
+				1. Difficult for teams to make a change and update production
+	7. Requires long-term commitment to technology stack
+		1. It can be difficult to incrementally adopt newer technology (or newer version)
+		2. Other languages and frameworks cannot be used along with the main stack (Such as C++ with JVM ...)
+		3. If platform framework becomes obsolete, it can be challenging to incrementally migrate to newer better framework
+			1. It may demand re-writing the entire application (at once)
+				1. This can be a risky undertaking
