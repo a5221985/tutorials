@@ -1,0 +1,140 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Bold;
+\f3\fmodern\fcharset0 Courier-Oblique;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red224\green228\blue231;\red255\green255\blue255;
+\red62\green23\blue1;\red19\green19\blue19;\red10\green80\blue1;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0\c85098;\cssrgb\c90196\c91373\c92549;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c31373\c12549\c0;\cssrgb\c9412\c9412\c9412;\cssrgb\c0\c37647\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Following Linux Technologies are foundation for building/running container process in system\
+1. Namespaces\
+2. Control groups (Cgroups)\
+3. Seccomp\
+4. SELinux\
+\
+
+\b Namespaces
+\b0 \
+1. Provides a layer of isolation for containers\
+	1. It gives a view of what appears to be it\'92s own filesystem\
+2. Restricts what the process can see and the resources available to the process\
+3. Docker uses many namespaces while instantiating an container\
+\
+\pard\pardeftab720\sl384\partightenfactor0
+
+\f1\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 [nivedv@homelab ~]$ sudo lsns -p 29413\
+\
+\'a0 \'a0 \'a0 \'a0 NS TYPE\'a0 \'a0NPROCS\'a0 \'a0PID USER COMMAND\
+4026531835 cgroup\'a0 \'a0 299\'a0 \'a0 \'a01 root /usr/lib/systemd/systemd --switched...\
+4026531837 user\'a0 \'a0 \'a0 278\'a0 \'a0 \'a01 root /usr/lib/systemd/systemd --switched...\
+4026533105 mnt\'a0 \'a0 \'a0 \'a0 \'a01 29413 root ping 8.8.8.8\
+4026533106 uts\'a0 \'a0 \'a0 \'a0 \'a01 29413 root ping 8.8.8.8\
+4026533107 ipc\'a0 \'a0 \'a0 \'a0 \'a01 29413 root ping 8.8.8.8\
+4026533108 pid\'a0 \'a0 \'a0 \'a0 \'a01 29413 root ping 8.8.8.8\
+4026533110 net\'a0 \'a0 \'a0 \'a0 \'a01 29413 root ping 8.8.8.8\
+\cb4 \
+
+\f2\b USER
+\f1\b0 \
+1. This namespace is used to isolate users and groups in container\
+	1. Done by allowing containers to have a different view of UID and GID ranges (as compared to host system)\
+2. A software can run inside a container as a root user\
+	1. If a hacker attacks container and escapes to host machine, it will have non-root identity\
+\
+
+\f2\b MNT
+\f1\b0 \
+1. The namespace lets container to have its own view of file system hierarchy on the system\
+2. Mount points for each container can be found at /proc/<PID>/mounts on Linux\
+\
+
+\f2\b UTS (Unix Timesharing System)
+\f1\b0 \
+1. The namespace allows containers to have their own unique hostname and domain name\
+2. A random ID is used as hostname in a container\
+\
+\pard\pardeftab720\sl384\partightenfactor0
+\cf2 \cb3 nivedv@homelab ~]$ docker container run -it --name nived alpine sh\
+\
+/ # hostname\'a0\
+9c9a5edabdd6\
+/ #\'a0\
+\
+nivedv@homelab ~]$ sudo unshare -u sh\
+\
+sh-5.0# hostname isolated.hostname\'a0\
+sh-5.0# hostname\
+isolated.hostname\
+sh-5.0#\'a0\
+sh-5.0# exit\
+exit\
+[nivedv@homelab ~]$ hostname\
+homelab.redhat.com\
+\pard\pardeftab720\sl384\partightenfactor0
+\cf2 \cb4 \
+unshare - run program in new namespace (sh)\
+	1. -u - unshare UTS namespace \
+\
+
+\f2\b IPC
+\f1\b0 \
+1. Inter-Process Communication namespace\
+2. Gives access to \
+	1. a shared range of memory or \
+	2. a shared queue\
+		for container processes to communicate\
+\
+\pard\pardeftab720\sl384\partightenfactor0
+\cf2 \cb3 [root@demo /]# ipcmk -M 10M\
+Shared memory id: 0\
+[root@demo /]# ipcmk -M 20M\
+Shared memory id: 1\
+[root@demo /]#\'a0\
+[root@demo /]# ipcs\
+\
+\
+------ Message Queues --------\
+key\'a0 \'a0 \'a0 \'a0 msqid\'a0 \'a0 \'a0 owner\'a0 \'a0 \'a0 perms\'a0 \'a0 \'a0 used-bytes\'a0 \'a0messages\'a0 \'a0\'a0\
+\
+\
+------ Shared Memory Segments --------\
+key\'a0 \'a0 \'a0 \'a0 shmid\'a0 \'a0 \'a0 owner\'a0 \'a0 \'a0 perms\'a0 \'a0 \'a0 bytes\'a0 \'a0 \'a0 nattch\'a0 \'a0 \'a0status\'a0 \'a0 \'a0\'a0\
+0xd1df416a 0\'a0 \'a0 \'a0 \'a0 \'a0 root\'a0 \'a0 \'a0 \'a0644\'a0 \'a0 \'a0 \'a0 10485760\'a0 \'a00\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0\
+0xbd487a9d 1\'a0 \'a0 \'a0 \'a0 \'a0 root\'a0 \'a0 \'a0 \'a0644\'a0 \'a0 \'a0 \'a0 20971520\'a0 \'a00\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0\
+\
+\
+------ Semaphore Arrays --------\
+key\'a0 \'a0 \'a0 \'a0 semid\'a0 \'a0 \'a0 owner\'a0 \'a0 \'a0 perms\'a0 \'a0 \'a0 nsems\'a0\cb4 \
+\pard\pardeftab720\sl384\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\b \cf5 \cb1 \strokec5 ipcmk 
+\f1\b0 \cf6 \strokec6 allows you to create System V inter-process communication\
+       (IPC) objects: shared memory segments, message queues, and\
+       semaphore arrays.\
+	1. 
+\f2\b \cf5 \strokec5 -M
+\f1\b0 \cf6 \strokec6 , 
+\f2\b \cf5 \strokec5 --shmem 
+\f3\i\b0 \cf7 \strokec7 size\
+		1. shared memory segment of size bytes\
+\
+
+\f2\i0\b \cf5 \strokec5 ipcs 
+\f1\b0 \cf6 \strokec6 shows information on System V inter-process communication\
+       facilities.  By default it shows information about all three\
+       resources: shared memory segments, message queues, and semaphore\
+       arrays.\
+\
+
+\f2\b PID
+\f1\b0 \
+1. Process ID namespace\
+2. Ensures that processes running inside the container are isolated from external world\
+	1. When we run a ps command inside, we only see processes running inside container\
+		1. Because of the namespace\cf2 \cb4 \strokec2 \
+}
