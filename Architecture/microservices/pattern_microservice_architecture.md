@@ -128,7 +128,11 @@
 					1. The tangled dependencies might make it difficult to decompose monolithic app into set of microservices
 
 #### How to decompose the application into services? ####
-1. 
+1. Challenge: How to partition system into microservices (it is like an art)
+2. The following strategies can be used
+	1. [Decompose by business capability](https://microservices.io/patterns/decomposition/decompose-by-business-capability.html)
+		1. Define services corresponding to business capabilities
+	2. [Decompose by domain-driven design subdomain](https://microservices.io/patterns/decomposition/decompose-by-subdomain.html)
 
 #### How to maintain data consistency? ####
 #### How to implement queries? ####
