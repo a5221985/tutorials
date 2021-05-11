@@ -204,7 +204,33 @@
 		2. Client-side UI composition: [Client-side UI composition](https://microservices.io/patterns/ui/client-side-ui-composition.html)
 
 ## Known Uses ##
-1. 
+1. Large scale websites evolved from monolithic architecture to microservices architecture (Netflix, Amazon, eBay)
+2. Netflix
+	1. Has upto 30% internet traffic
+	2. It has large scale service oriented architecture
+	3. Handles over 1 billion calls per day to video streaming API over 800 kinds of devices
+		1. Each call fans out to six calls to backend services
+3. Amazon.com
+	1. First had 2-tier architecture
+	2. It was then migrated to service oriented architecture (with 100s of backend services)
+	3. Apps calling the services
+		1. Website
+			1. Calls 100-150 services to get data used to build the web-page
+		2. Apps that call service API
+4. eBay.com
+	1. Auction site
+	2. Evolved from monolithic architecture to service-oriented architecture
+	3. Application tier has multiple independent applications
+		1. Each application implements business logic for specific function area
+			1. Buying
+			2. Selling
+	4. Each application uses X-axis splits
+		1. Some applications (search say) uses Z-axis splits
+			1. A combination of X-, Y-, and Z- style scaling is used for database
+5. Other examples: [Other examples](https://microservices.io/articles/whoisusingmicroservices.html)
 
 ## Examples ##
+1. [Examples](http://eventuate.io/exampleapps.html)
+
 ## See Also ##
+1. [Good introduction to microservice architecture](https://microservices.io/microservices/news/2018/02/20/no-such-thing-as-a-microservice.html)
