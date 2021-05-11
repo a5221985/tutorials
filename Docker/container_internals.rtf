@@ -280,7 +280,22 @@ memory:/docker/c3503ac704dafea3522d3bb82c77faff840018e857a2a7f669065f05c8b2cc84\
 \f2\b SELINUX
 \f1\b0 \
 1. Security-enhanced Linux\
-2. \
-\
+2. Limits application to\
+	1. have access to its own files\
+	2. Prevents other processes from accessing its files\
+3. It limits the files it can affect and control\
+4. How?\
+	1. By setting contexts for files & processes\
+	2. By defining policies (to enforce what a process can see and make changes to)\
+		1. 
+\f2\b container-selinux
+\f1\b0  package is used to define policies for containers\
+		2. Default:\
+			1. Containers can read & execute under 
+\f2\b /usr
+\f1\b0 \
+			2. Containers can read most content from 
+\f2\b /etc
+\f1\b0 \
  \
 }
