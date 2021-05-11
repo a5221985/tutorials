@@ -20,4 +20,16 @@
 			1. This can impact developer productivity (time wasted for application to start)
 			2. Also impacts deployment
 	4. Continuous deployment is difficult
-		1. 
+		1. Large monolithic app can be an obstacle to frequent deployemnts
+			1. To update one component, we have to re-deploy the entire app
+			2. Interrupts background tasks
+				1. Quartz jobs in Java app (say)
+				2. Even though the change has no relationship with the background tasks
+			3. There is a possibility that components not related to change may fail to start correctly
+				1. Risk with re-deployment increases
+					1. Hence frequent updates get discouraged
+						1. Very impactful for UI developers
+							1. They usually need to iterate rapidly and redeploy frequently
+	5. Scaling application can be difficult
+		1. Monolith can scale only in one dimension
+			1. 
