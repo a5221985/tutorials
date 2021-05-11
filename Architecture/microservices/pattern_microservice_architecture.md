@@ -156,11 +156,18 @@
 			2. Other services consume the event and update their data
 			3. Ways to reliably update data and publish events
 				1. [Event Sourcing](https://microservices.io/patterns/data/event-sourcing.html)
-				2. [Transaction Log Tailing]()
+				2. [Transaction Log Tailing](https://microservices.io/patterns/data/transaction-log-tailing.html)
 
 #### How to implement queries? ####
+1. Challenge: Retrieving data owned by multiple services
+	1. Patterns:
+		1. [API Composition](https://microservices.io/patterns/data/api-composition.html)
+		2. [Command Query Responsibility Segregation](https://microservices.io/patterns/data/cqrs.html)
 
 ## Related Patterns ##
+1. [Monolithic architecture](https://microservices.io/patterns/monolithic.html) - alternative
+2. 
+
 ## Known Uses ##
 ## Examples ##
 ## See Also ##
