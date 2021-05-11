@@ -180,7 +180,7 @@ master docker0 state UP mode DEFAULT group default\
 \f1\b0 \cf6 \strokec6 ) objects\cf2 \cb4 \strokec2 \
 \
 
-\f2\b Control groups (groups):
+\f2\b Control groups (cgroups):
 \f1\b0 \
 1. Fundamental building blocks for making containers\
 2. It allocates and limits resources used by containers\
@@ -188,6 +188,26 @@ master docker0 state UP mode DEFAULT group default\
 	2. Memory\
 	3. Network I/O\
 3. Container engineer automatically defines cgroup filesystem of each type\
+4. It is a linux kernel feature\
+5. Allows processes to be organised into hierarchical groups\
+	1. Used to limit and monitor usage of different types of resources\
+6. grouping is implemented in kernel code\
+7. cgroup:\
+	1. Collection of processes bound to a set of limits  or parameters defined (via cgroup filesystem - an interface which is a pseudo-filesystem)\
+8. subsystems: \
+	1. Do resource tracking and implementation of limits\
+		1. For\
+			1. CPU\
+			2. Memory\
+			3. \'85\
+	2. They are kernel components\
+	3. They modify behaviour of processes in a cgroup\
+		1. limiting amount of CPU time of a cgroup\
+		2. limiting amount of memory of a cgroup\
+		3. freezing and resuming execution of processes in a cgroup\
+9. cgroup hierarchy\
+	1. Constructed by creation, removal and renaming of subdirectories within the cgroup filesystem\
+	2. Attributes (such as limits) can be defined at each level of the hierarchy\
 \
 \pard\pardeftab720\sl384\partightenfactor0
 \cf2 \cb3 [root@homelab ~]# lscgroup | grep docker\
