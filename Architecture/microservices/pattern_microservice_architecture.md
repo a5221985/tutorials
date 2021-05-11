@@ -166,7 +166,18 @@
 
 ## Related Patterns ##
 1. [Monolithic architecture](https://microservices.io/patterns/monolithic.html) - alternative
-2. 
+2. Other patterns that address issues that we would encounter when applying microservices architecture
+	
+	![patterns_related_to_microservices.jpeg](patterns_related_to_microservices.jpeg)
+	
+	1. Decomposition patterns
+		1. [Decompose by business capability](https://microservices.io/patterns/decomposition/decompose-by-business-capability.html)
+		2. [Decompose by subdomain](https://microservices.io/patterns/decomposition/decompose-by-subdomain.html)
+	2. [Database per Service pattern](https://microservices.io/patterns/data/database-per-service.html)
+		1. Each service has its own database to ensure loose coupling
+	3. [API Gateway pattern](https://microservices.io/patterns/apigateway.html)
+		1. Defines how clients access services in microservices architecture
+	4. [Client-side Discovery](https://microservices.io/patterns/client-side-discovery.html) & []()
 
 ## Known Uses ##
 ## Examples ##
