@@ -133,8 +133,31 @@
 	1. [Decompose by business capability](https://microservices.io/patterns/decomposition/decompose-by-business-capability.html)
 		1. Define services corresponding to business capabilities
 	2. [Decompose by domain-driven design subdomain](https://microservices.io/patterns/decomposition/decompose-by-subdomain.html)
+	3. Decompose by verb or use case and define services that are responsible for particular actions
+		1. Example: **Shipping Service**
+			1. Responsible for shipping complete orders
+	4. Decompose by nouns or resources (by defining service responsible for all operations on entities/resources of given type)
+		1. Example: **Account Service**
+			1. Responsible for managing user accounts
+3. Each service should have small set of responsibilities
+	1. [Single Responsibility Principle](http://www.objectmentor.com/resources/articles/srp.pdf) - Class should only have one reason to change
+		1. SRP can be used to design a service as well
+4. Unix utilities
+	1. Utilities provided: grep, cat, find, ...
+	2. Each utility does exactly one thing and does it exceptional well (usually)
+	3. The utilities are combined using shell script to perform complex tasks
 
 #### How to maintain data consistency? ####
+1. To ensure loose coupling, each service has it's own database
+	1. Challenge: Maintaining data consistency between services
+		1. 2 phase-commit or distributed transactions is not an option for many apps
+		2. Solution: [Saga pattern](https://microservices.io/patterns/data/saga.html)
+			1. Service publishes an event when its data changes
+			2. Other services consume the event and update their data
+			3. Ways to reliably update data and publish events
+				1. [Event Sourcing](https://microservices.io/patterns/data/event-sourcing.html)
+				2. [Transaction Log Tailing]()
+
 #### How to implement queries? ####
 
 ## Related Patterns ##
