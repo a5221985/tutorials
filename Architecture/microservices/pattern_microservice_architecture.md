@@ -171,14 +171,40 @@
 	![patterns_related_to_microservices.jpeg](patterns_related_to_microservices.jpeg)
 	
 	1. Decomposition patterns
-		1. [Decompose by business capability](https://microservices.io/patterns/decomposition/decompose-by-business-capability.html)
-		2. [Decompose by subdomain](https://microservices.io/patterns/decomposition/decompose-by-subdomain.html)
-	2. [Database per Service pattern](https://microservices.io/patterns/data/database-per-service.html)
+		1. Decompose by business capability: [Decompose by business capability](https://microservices.io/patterns/decomposition/decompose-by-business-capability.html)
+		2. Decompose by subdomain: [Decompose by subdomain](https://microservices.io/patterns/decomposition/decompose-by-subdomain.html)
+	2. Database per Service pattern: [Database per Service pattern](https://microservices.io/patterns/data/database-per-service.html)
 		1. Each service has its own database to ensure loose coupling
-	3. [API Gateway pattern](https://microservices.io/patterns/apigateway.html)
+	3. API Gateway pattern: [API Gateway pattern](https://microservices.io/patterns/apigateway.html)
 		1. Defines how clients access services in microservices architecture
-	4. [Client-side Discovery](https://microservices.io/patterns/client-side-discovery.html) & []()
+	4. Client-side Discovery: [Client-side Discovery](https://microservices.io/patterns/client-side-discovery.html) & [Server-side Discovery](https://microservices.io/patterns/server-side-discovery.html)
+		1. Patterns used to route requests for a client to available service instance in microservice architecture
+	5. Messaging and Remote Procedure Invocation pattern
+		1. Two ways that services can communicate
+	6. Single Service per Host: [Single Service per Host](https://microservices.io/patterns/deployment/single-service-per-host.html) & [Multiple Services per Host](https://microservices.io/patterns/deployment/multiple-services-per-host.html) patterns
+		1. Two different deployment strategies
+	7. Cross-cutting concerns patterns:
+		1. Microservices chassis pattern: [Microservice chassis pattern](https://microservices.io/patterns/microservice-chassis.html)
+		2. Externalized configuration: [Externalized configuration](https://microservices.io/patterns/externalized-configuration.html)
+	8. Testing patterns:
+		1. Service Component Test: [Service Component Test](https://microservices.io/patterns/testing/service-component-test.html)
+		2. Service Integration Contract Test: [Service Integration Contract Test](https://microservices.io/patterns/testing/service-integration-contract-test.html)
+	9. Circuit Breaker: [Circuit Breaker](https://microservices.io/patterns/reliability/circuit-breaker.html)
+	10. Access Token: [Access Token](https://microservices.io/patterns/security/access-token.html)
+	11. Observability patterns:
+		1. Log aggregation: [Log aggregation](https://microservices.io/patterns/observability/application-logging.html)
+		2. Application metrics: [Application metrics](https://microservices.io/patterns/observability/application-metrics.html)
+		3. Audit logging: [Audit logging](https://microservices.io/patterns/observability/audit-logging.html)
+		4. Distributed tracing: [Distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html)
+		5. Exception tracking: [Exception tracking](https://microservices.io/patterns/observability/exception-tracking.html)
+		6. Health check API: [Health check API](https://microservices.io/patterns/observability/health-check-api.html)
+		7. Log deployments and changes: [Log deployments and changes](https://microservices.io/patterns/observability/log-deployments-and-changes.html)
+	12. UI patterns:
+		1. Server-side page fragment composition: [Server-side page fragment composition](https://microservices.io/patterns/ui/server-side-page-fragment-composition.html)
+		2. Client-side UI composition: [Client-side UI composition](https://microservices.io/patterns/ui/client-side-ui-composition.html)
 
 ## Known Uses ##
+1. 
+
 ## Examples ##
 ## See Also ##
