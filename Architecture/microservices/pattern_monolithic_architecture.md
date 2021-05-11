@@ -32,4 +32,12 @@
 							1. They usually need to iterate rapidly and redeploy frequently
 	5. Scaling application can be difficult
 		1. Monolith can scale only in one dimension
-			1. 
+			1. It can scale with increasing transaction volume by running more copies
+			2. It cannot scale with an increase in data volume
+				1. Each copy will access all of the data
+					1. Makes caching ineffective
+					2. Increases memory consumption and I/O traffic
+		2. Different components have different resource requirements
+			1. One might be CPU intensive
+			2. One might be memory intensive
+		3. Each component cannot be scaled independently
