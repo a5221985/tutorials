@@ -1269,7 +1269,6 @@
 2. Where are images stored on machine? `docker info`
 	1. Docker Root Dir: /var/lib/docker
 		1. `overlay2` - storage driver of docker - takes care of layering and how they are stored
-			1. 
 		2. `swarm` - clustering
 		3. `trust` - security
 		4. `volumes`
