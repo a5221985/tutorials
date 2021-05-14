@@ -822,6 +822,28 @@
 ### Peripheral Clock Configuration ###
 ### Exercise: HSI Measurements ###
 ### About USB Logic Analyzer ###
+1. Debugging hardware
+	1. To trace signals of microcontroller peripherals
+		1. I2C
+		2. SPI
+		3. UART
+		4. ...
+	2. USB Logic Analyser
+		1. Can be connected to PC
+			1. To trace signals of microcontroller
+	3. Low cost solutions to digital oscilloscope
+		1. Digital oscilloscope
+			1. Variable key
+			2. High price
+			3. Many features
+			4. High frequency range
+		2. Those features are unavailable in logic analyser
+	4. Saleae logic analyser
+		1. www.saleae.com
+			1. SPI, I2C and more
+				1. To decode different prodotocols
+				2. Software to capture and decode signals 
+
 ### Code Implementation ###
 ### Exercise: HSE Measurements ###
 
