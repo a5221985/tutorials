@@ -842,7 +842,8 @@
 		1. www.saleae.com
 			1. SPI, I2C and more
 				1. To decode different prodotocols
-				2. Software to capture and decode signals 
+				2. Software to capture and decode signals
+	5. Logic 8 - for this course
 
 ### Code Implementation ###
 ### Exercise: HSE Measurements ###
