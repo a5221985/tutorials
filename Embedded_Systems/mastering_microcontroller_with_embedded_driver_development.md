@@ -844,8 +844,18 @@
 				1. To decode different prodotocols
 				2. Software to capture and decode signals
 	5. Logic 8 - for this course
+		1. Must have
+			1. Customer care can give discount
+	6. Alternative
+		1. USB Logic Analyzer with sigrok PulseView - Sparkfun
+			1. PulseView - software
+			2. 24 MHz - limitation (sufficient for the course)
+		2. PicoScope 3000 Series (16 channel)
+2. Download software
 
 ### Code Implementation ###
+1. 
+
 ### Exercise: HSE Measurements ###
 
 ## Understanding MCU Vector Table ##
