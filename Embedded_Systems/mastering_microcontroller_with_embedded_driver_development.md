@@ -818,6 +818,7 @@
 	1. USB
 	2. Ethernet
 	3. ...
+
 ### Peripheral Clock Configuration ###
 ### Exercise: HSI Measurements ###
 ### About USB Logic Analyzer ###
