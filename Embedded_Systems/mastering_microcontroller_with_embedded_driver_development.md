@@ -854,7 +854,25 @@
 2. Download software
 
 ### Code Implementation ###
-1. 
+1. New Project:
+	1. Code
+
+			#include <stdint.h>
+			
+			#define RCC_BASE_ADDR 0x40023800UL
+			#define RCC_CFGR_REG_OFFSET 0x08UL
+			#define RCC_CFGR_REG_ADDR (RCC_BASE_ADDR + RCC_CFGR_REG_OFFSET)
+
+			int main(void) {
+				uint32_t *pRccCfgrReg = (uint32_t*) RCC_CFGR_REG_ADDR;
+				
+				// 1. Configure the RCC_CFGR MCO1 bit fields to select HSI as clock source
+				*pRccCfgrReg &= ~(0x3 << 21); // clear 21 and 22 bit positions
+			
+				// 2. Configure PA8 to AF0 mode to behave as MCO1 signal
+			
+				for (;;);
+			}
 
 ### Exercise: HSE Measurements ###
 
@@ -866,9 +884,9 @@
 ### Understanding MCU Interrupt Design, NVIC, Interrupt Handling: Part 2 ###
 ### Understanding MCU Interrupt Design, NVIC, Interrupt Handling: Part 3 ###
 
-## Importance of "Volatile" Keyword ##
-### Importance of "Volatile" Keyword: Part-1 ###
-### Importance of "Volatile" Keyword: Part-2 ###
+## Importance of "volatile" Keyword ##
+### Importance of "volatile" Keyword: Part-1 ###
+### Importance of "volatile" Keyword: Part-2 ###
 
 ## GPIO Must Know Concepts ##
 ### GPIO Pin and GPIO Port ###
