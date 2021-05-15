@@ -28,4 +28,6 @@
 	1. Use widely used standard in the industry (which has industry consensus)
 4. Innovation for an engineer vs. innovation for a programmer
 	1. Engineer - innovation to generate business value
-	2. Programmer - 
+	2. Programmer - cool library that can be used in few cases (short sited)
+5. Service Level Objectives (SLOs)
+	1. 
