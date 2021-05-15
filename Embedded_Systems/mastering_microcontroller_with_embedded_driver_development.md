@@ -820,7 +820,95 @@
 	3. ...
 
 ### Peripheral Clock Configuration ###
+1. Configuration
+	1. In modern MCUs, before using any peripheral, we must enable its peripheral clock using peripheral clock registers
+	2. By default
+		1. Peripheral clocks of almost all peripherals will be disabled to save power
+	3. A peripheral won't take or respond to configuration values until we enable it's peripheral clock
+	4. In STM32, peripheral clocks are managed through RCC registers
+		1. RCC peripheral (System Peripheral)
+			1. It is used to manage clocks of various domains
+2. Using RCC we can control clocks of various domains (APB, AHB, Memory, ...)
+	1. RCC Registers (used to configure peripheral clocks)
+3. ADC Peripheral
+	1. ADC Registers
+		1. ADC Control Register CR1
+			1. Assume we set bit 8
+				1. Add offset to ADC register's base address
+	2. New project: 004PeriClockEnable
+
+			#include<stdint.h>
+			#define ADC_BASE_ADDR 0x4001200UL
+			#define ADC_CR1_REG_OFFSET 0x04UL
+			#define ADC_CR1_REG_ADDR ((ADC_BASE_ADDR) + (ADC_CR1_REG_OFFSET))
+			
+			int main(void) {
+				uint32_t* pAdcCrlReg = (uint32_t*) ADC_CR1_REG_ADDR;
+				*pAdcCrlReg |= (1 << 8);
+				for(;;);
+			}
+			
+		1. Single step
+		2. Window > Show View > SFR
+			1. SCAN bit is not set (no effect)
+				1. Clock is not enabled
+4. Before configuring any peripheral, we must enable it's peripheral clock
+5. How to enable?
+	1. Know to which bus it is connected (Look at the memory map)
+		1. ADC1 - connected to APB2 bus
+	2. Goto RCC register
+		1. RCC APB2 peripheral clock enable register (RCC_APB2ENR)
+			1. Offset: 0x44 (from base address of RCC registers)
+		2. Set 8th bit (1 - enabled)
+	3. Code
+
+			#define RCC_BASE_ADDR 0x40023800UL
+			#define RCC_APB2_ENR_OFFSET 0x44UL
+			#define RCC_APB2_ENR_ADDR ((RCC_BASE_ADDR) + (RCC_APB2_ENR_OFFSET))
+			
+			int main(void) {
+				uint32_t *pRccApb2Enr = (uint32_tI) RCC_APB2_ENR_ADDR;
+				
+				// 1. Enable the peripheral clock for ADC1
+				*pRccApb2Enr |= (1 << 8);
+				
+				// ...
+			}
+
 ### Exercise: HSI Measurements ###
+1. Write a program to output HSI clock on microcontroller pin and measure it using oscilloscope or logic analyser
+2. Steps to output a clock on MCU pin
+	1. Select the desired clock for the MOCx signal (Microcontroller Clock Output)
+		1. Microcontroller Clock Output Signal
+	2. Output the MCOx signal on MCU pin
+3. MCO1 & MOC2 - signals that can be output
+	1. Enable: RCC > Master Clock Output 1 & Master Clock Output 2
+	2. The signal has to be routed to output pin
+		1. We can divide using divisor
+		2. The signal can be connected to another microcontroller
+4. Reference Manual > RCC Clock Configuration Register (RCC_CFGR)
+	1. Bits[21:22]
+		1. 00: HSI clock selected
+		2. 01: LSE oscillator selected (Low Speed External Oscillator)
+		3. 10: HSE oscillator selected
+		4. 11: PLL clock selected
+	2. Explore Pin details
+		1. Use Datasheet of Microcontroller
+			1. Datasheet - pin details, electrical characteristics, ...
+			2. Reference manual - peripherals, peripheral implementation, register sets, register config
+5. Go to Pinouts and pin description
+	1. Alternate function mapping (later) (16 modes possible - multiplexing (AF0 ... AF15))
+		1. MCO1
+			1. PA8 (Can be mapped to this pin if we select AF0 mode)
+				1. I2C3_SCL - if we select AF4
+				2. Pin 8 of Port A
+	2. Pin and ball definitions
+		1. PA8 - pin 41
+			1. Depends on package
+				1. LQFP64
+				2. WLCSP90
+				3. LQFP100 (100 is number of pins)
+
 ### About USB Logic Analyzer ###
 1. Debugging hardware
 	1. To trace signals of microcontroller peripherals
