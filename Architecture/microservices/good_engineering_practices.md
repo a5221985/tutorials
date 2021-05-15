@@ -70,3 +70,5 @@
 11. Software Fitness Theory
 	1. Software is a means to an end (goal)
 	2. Fitness is observed by measured proximity to the end (goal)
+12. Feedback
+	1. Code review - simulation of what happens if someone has to revisit the code three months or three years down the line
