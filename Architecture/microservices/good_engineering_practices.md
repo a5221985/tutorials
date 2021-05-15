@@ -47,4 +47,19 @@
 		1. Run on critical places
 		2. Gradually apply it everywhere else
 	2. Spreads cost over time
-8. 
+8. Periodic maintenance
+	1. Re-visit code base periodically (as part of periodic maintenance)
+		1. Do another code review regularly (of critical pieces first)
+		2. Question how something works
+9. Renovations
+	1. Spread risk over time
+		1. Continuous deployment
+			1. Each software change must be deployed
+				1. Release
+		2. Incremental changes
+			1. Improvement in pieces
+10. Migration failures (can happen by one of the below)
+	1. The "2.0" migration
+	2. Opt-in migration
+	3. One migration tied to another migration
+	4. Deploy all at once
