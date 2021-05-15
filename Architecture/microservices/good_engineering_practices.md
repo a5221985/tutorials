@@ -60,6 +60,8 @@
 			1. Improvement in pieces
 10. Migration failures (can happen by one of the below)
 	1. The "2.0" migration
+		1. Re-write the entire system (not practical)
 	2. Opt-in migration
+		1. We come up with new version and tell people to please migrate to the new version, if you have time
 	3. One migration tied to another migration
 	4. Deploy all at once
