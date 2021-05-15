@@ -31,3 +31,20 @@
 	2. Programmer - cool library that can be used in few cases (short sited)
 5. Service Level Objectives (SLOs)
 	1. We can have sporadic test failures
+		1. When we run builds at regular intervals, we can check sporadic failures and report
+			1. SLO - 90%
+		2. Job that builds and checks different statistics about the code and environment
+			1. We can check trend
+6. A scheduled risk to prevent unscheduled risks
+	1. Have overspeed tests
+		1. Performance tests
+		2. Test points of failures
+		3. Planned outage tests
+			1. In cloud say
+				1. See how the system behaves
+7. Incremental deployment
+	1. Static analyzer say
+		1. Run on critical places
+		2. Gradually apply it everywhere else
+	2. Spreads cost over time
+8. 
