@@ -30,4 +30,4 @@
 	1. Engineer - innovation to generate business value
 	2. Programmer - cool library that can be used in few cases (short sited)
 5. Service Level Objectives (SLOs)
-	1. 
+	1. We can have sporadic test failures
