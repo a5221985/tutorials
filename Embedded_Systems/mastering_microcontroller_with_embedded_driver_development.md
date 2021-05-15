@@ -958,6 +958,10 @@
 				*pRccCfgrReg &= ~(0x3 << 21); // clear 21 and 22 bit positions
 			
 				// 2. Configure PA8 to AF0 mode to behave as MCO1 signal
+				// a. Enable the peripheral clock for GPIOA peripheral
+				uint32_t *pR
+			
+				uint32_t *p
 			
 				for (;;);
 			}
