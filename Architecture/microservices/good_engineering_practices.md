@@ -66,3 +66,7 @@
 	3. One migration tied to another migration
 		1. Two or more migrations are tied together which will increase the likelyhood of failure
 	4. Deploy all at once
+		1. Incremental deployment is better
+11. Software Fitness Theory
+	1. Software is a means to an end (goal)
+	2. Fitness is observed by measured proximity to the end (goal)
