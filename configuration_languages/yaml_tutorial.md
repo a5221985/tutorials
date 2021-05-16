@@ -174,5 +174,65 @@
 				1. We can have mixed types
 
 						  versions: ["1.9", 2.0, 2.1]
+						  
+	2. Kubernetes example:
 
+			apiVersion: v1
+			kind: Pod
+			metadata: # object
+				name: nginx
+				labels: # object
+					app: nginx
+			spec:
+				containers:
+					- name: nginx-container
+					  image: nginx
+					  ports:
+					  	- containerPort: 80
+					  volumeMounts:
+					  	- name: nginx-vol
+					  	  mountPath: /usr/nginx/html
+					- name: sidecar-container
+					  image: curlimages/curl
+					  args: ["-c", "echo Hello from the sidecar container; sleep 300"]
+					  
+	3. Multi-line strings
+
+			multilineString: |
+				this is a multiline string
+				and this is the next line
+				next line
+
+			multilineString: > # interpret as single line
+				this is a single line string, 
+				that should be all on one line.
+				some other stuff
+				
+		1. Kubernetes config:
+
+				apiVersion: v1
+				kind: ConfigMap
+				metadata:
+					name: mosquitto-config-file
+				data:
+					mosquitto.conf: |
+						log_dest stdout
+						log_type all
+						log_timestamp true
+						listener 9001
+						
+		2. Kubernetes config:
+
+				command:
+					- sh
+					- -c
+					- |
+					  #!/usr/bin/env bash -e
+					  http() {
+					  	local path="${1}"
+					  	set -- -XGET -s --fall
+					  	# some more stuff here
+					  	curl -k "$@" "http://localhost:5601${path}"
+					  }
+					  http "/app/kibana"
 					
