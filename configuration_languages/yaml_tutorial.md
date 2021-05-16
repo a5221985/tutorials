@@ -52,4 +52,4 @@
 				}
 			}
 			
-		1. YAML - doesn't have special characters like `<>` or `{}` but formatting is done using line separation and 
+		1. YAML - doesn't have special characters like `<>` or `{}` but data structures are defined using line separations and indentations and 
