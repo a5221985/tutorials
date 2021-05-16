@@ -248,4 +248,19 @@
 					  
 		1. `$MYSQL_ROOT_PASSWORD`
 	5. Placeholders
+		1. Example: Helm
+
+				apiVersion: v1
+				kind: Service
+				metadata:
+					name: {{ .Values.service.name }}
+				spec:
+					selector:
+						app: {{ .Values.service.app }}
+					ports:
+						- protocol: TCP
+						  port: {{ .Values.service.port }}
+						  targetPort: {{ .Values.service.targetPort }}
+						  
+			1. The value gets replaced using template generator
 		
