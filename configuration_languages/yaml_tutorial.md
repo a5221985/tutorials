@@ -145,10 +145,34 @@
 
 		7. Nested lists
 
-				microservices
+				microservices:
 					- app: shopping-cart
 					  port: 9002
 					  versions:
 					  	- 1.9
 					  	- 2.0
 					  	- 2.1
+
+			1. List items can be indented to align with the parent
+
+					microservices:
+					- app: user-authentication
+					  port: 9000
+					  version: 1.7
+					- app: shopping-cart
+					  port: 9002
+					  version: 1.9
+					  
+				1. But we need to align list items among themselves
+			2. List of primitive items different syntax
+
+					microservices:
+						- app: shopping-cart
+						  port: 9002
+						  versions: [1.9, 2.0, 2.1]
+						  
+				1. We can have mixed types
+
+						  versions: ["1.9", 2.0, 2.1]
+
+					
