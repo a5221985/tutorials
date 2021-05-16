@@ -263,4 +263,28 @@
 						  targetPort: {{ .Values.service.targetPort }}
 						  
 			1. The value gets replaced using template generator
-		
+			2. It is Jinja2 syntax to reference variables
+				1. Example:
+					1. Define simple variable using standard YAML syntax
+
+							remote_install_path: /opt/my_app_config
+							
+					2. Reference simple variable (Jinja2 syntax - `{{...}}`)
+
+							ansible.builtin.template:
+								src: foo.cfg.j2
+								dest: '{{ remote_install_path }}/foo.cfg'
+			
+			3. Multiple YAML documents (separated by `---`)
+
+					apiVersion: v1
+						...
+						
+					---
+					apiVersion: v1
+						...
+						
+				1. Kubernetes: Multiple components can be grouped into single yaml file
+	6. Kubernetes - YAML or JSON can be used
+7. Yaml Official Documentation:
+	1. [https://yaml.org/spec/1.2/spec.html](https://yaml.org/spec/1.2/spec.html)
