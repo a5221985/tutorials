@@ -53,3 +53,17 @@
 			}
 			
 		1. YAML - doesn't have special characters like `<>` or `{}` but data structures are defined using line separations and indentations and 
+4. YAML Use Cases
+	1. Ansible
+	2. Prometheus
+	3. Kubernetes
+	4. ...
+5. Syntax
+	1. key-value pairs
+
+			app: user-authentication
+			port: 9000
+			version: 1.7
+			
+		1. Data-types
+			1. string - no quotes or quotes (double or single)
