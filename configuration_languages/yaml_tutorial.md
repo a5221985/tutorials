@@ -67,3 +67,23 @@
 			
 		1. Data-types
 			1. string - no quotes or quotes (double or single)
+				1. If special characters are used: enclose the string in quotes
+
+						app: "user-authentication \n"
+						
+	2. Comments:
+
+			# comment here
+			
+	3. Objects:
+
+			microservice:
+				app: user-authentication
+				port: 9000
+				version: 1.7
+				
+		1. Use YAML validator to validate the file before use
+			1. [onlineyamltools.com/edit-yaml](onlineyamltools.com/edit-yaml)
+			2. Install YAML plugin/extension on IDE
+
+						
