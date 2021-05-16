@@ -621,6 +621,27 @@
 			2. We must not have any Elastic Load Balancers
 			3. We must not have any EKS clusters
 
+## Kubernetes on Azure with AKS ##
+### Step 01 - Kubernetes on Azure with AKS - Section Introduction ###
+1. Deploying Kubernetes to Azure
+	1. AKS - Azure Kubernetes Service
+2. Assumption: GKE is completed (Section 2 to Section 11)
+3. Kubernetes is cloud neutral (nearly 99% remain the same)
+4. ISTIO and HELM are same (GKE part)
+5. Download again: [https://github.com/in28minutes/kubernetes-crash-course](https://github.com/in28minutes/kubernetes-crash-course)
+
+### Step 02 - Creation of an Azure Account ###
+### Step 03 - Creation of a Resource Group, Service Principal and AKS Kubernetes Cluster ###
+### Step 04 - Deploy Hello World Rest API to Azure AKS Kubernetes ###
+### Step 05 - Deploy Web App H2 to Azure AKS Kubernetes Cluster ###
+### Step 06 - Deploy Web App with MySQL to Azure AKS Kubernetes ###
+### Step 07 - Delete Deployments and Review of Microservices on GKE ###
+### Step 08 - Deploy Microservices to Azure AKS Kubernetes Cluster ###
+### Step 09 - Review Dev Spaces, Insights and Logs in Azure AKS Kubernetes Cluster ###
+### Step 10 - Setup Ingress Controller and Ingress ###
+### Step 11 - Review Cluster Autoscaling on Azure AKS Kubernetes Cluster ###
+### Step 12 - Delete Azure AKS Kubernetes Cluster ###
+
 ## Bonus Section ##
 ### Bonus Lecture ###
 1. Where is the technology world heading?
