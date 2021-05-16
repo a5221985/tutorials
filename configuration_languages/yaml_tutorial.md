@@ -235,4 +235,17 @@
 					  	curl -k "$@" "http://localhost:5601${path}"
 					  }
 					  http "/app/kibana"
-					
+					  
+			1. Shell script as multiline text
+	4. Environment variables
+
+			# readiness probe
+			command:
+				- /bin/sh
+				- -ec
+				- >-
+				  mysql -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD -e 'SELECT 1'
+					  
+		1. `$MYSQL_ROOT_PASSWORD`
+	5. Placeholders
+		
