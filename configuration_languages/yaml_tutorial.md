@@ -85,5 +85,70 @@
 		1. Use YAML validator to validate the file before use
 			1. [onlineyamltools.com/edit-yaml](onlineyamltools.com/edit-yaml)
 			2. Install YAML plugin/extension on IDE
+		2. [https://support.asg.com/mob/mvw/10_0/mv_ag/using_quotes_with_yaml_special_characters.htm](https://support.asg.com/mob/mvw/10_0/mv_ag/using_quotes_with_yaml_special_characters.htm)
+			1. Use quotes if value includes special characters
+				1. Example: {, }, [, ], ,, &, :, *, #, ?, |, -, <, >, =, !, %, @, \
+			2. No quotes required for single special characters
+				1. Example: *
 
+						Hello * Bla
+					
+			3. Use quotes if special character is part of longer string
+				1. Example: 
+
+						*/5 * * * * 
+						must be written as
+						"*/5 * * * *"
 						
+			4. Single quotes allow almost any character in string
+				1. Escape quotes will not be parsed
+
+						'\n' is returned as \n
+						
+			5. Double quotes allow parsing of escape codes
+
+						"\n" is returned as line feed character
+						
+			6. "Yes" and "No" - must be enclosed in single or double quotes
+				1. Else they will be interpreted as `TrueClass` and `FalseClass` values
+		3. Lists
+
+				microservices:
+					- app: user-authentication
+					  port: 9000
+					  version: 1.7
+					  
+			1. List of objects
+		4. Boolean values:
+
+				microservices:
+					- app: user-authentication
+					  port: 9000
+					  version: 1.7
+					  deployed: yes # or `no` or `true` or `false` or `on` or `off`
+					  
+		5. More items in the list (list of objects)
+
+				microservices:
+					- app: user-authentication
+					  port: 9000
+					  version: 1.7
+					- app: shopping-cart
+					  port: 9002
+					  version: 1.9 
+					  
+		6. List of simple values
+
+				microservices:
+					- user-authentication
+					- shopping-cart
+
+		7. Nested lists
+
+				microservices
+					- app: shopping-cart
+					  port: 9002
+					  versions:
+					  	- 1.9
+					  	- 2.0
+					  	- 2.1
