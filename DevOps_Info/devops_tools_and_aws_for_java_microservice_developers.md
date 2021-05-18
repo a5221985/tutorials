@@ -2055,7 +2055,8 @@
 	2. Custom config is required for cloud based cluster
 3. `kubectl cluster-info` **(M)**
 	1. Kubernetes
-	2. KubeDNS000000000000000000000000000000000000000000000
+	2. KubeDNS
+
 ### Windows Only - Install Minikube ###
 ### Windows Only - Install Kubectl ###
 ### Troubleshooting ###
