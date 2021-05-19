@@ -630,9 +630,25 @@
 4. ISTIO and HELM are same (GKE part)
 5. Download again: [https://github.com/in28minutes/kubernetes-crash-course](https://github.com/in28minutes/kubernetes-crash-course)
 6. Import all the projects into STS
-	1. instructions
+	1. instructions-aws-and-azure.md
+		1. Contains instructions to do things with Azure
 
 ### Step 02 - Creation of an Azure Account ###
+1. Azure Account
+	1. Two things
+		1. Personal details
+		2. Valid credit or debit card (even for free trial account)
+	2. Google for azure free trial
+		1. Open first link
+		2. azure.microsoft.com
+			1. Start free
+			2. Sign in
+				1. Click: Create one!
+				2. Enter email address: valid email address only (verified)
+				3. Password
+				4. Enter verification code from email
+				5. 
+
 ### Step 03 - Creation of a Resource Group, Service Principal and AKS Kubernetes Cluster ###
 ### Step 04 - Deploy Hello World Rest API to Azure AKS Kubernetes ###
 ### Step 05 - Deploy Web App H2 to Azure AKS Kubernetes Cluster ###
