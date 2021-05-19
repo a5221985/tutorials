@@ -702,11 +702,17 @@
 			3. Enabled monitoring
 			4. Resource group - cluster is attached to this
 			5. Enabled auto-scaling
+				1. VM Set type - VirtualMachineScaleSets
+				2. Load balancer - standard
+				3. Min count - 1 node
+				4. Max count - 7 nodes
+			6. Credentials are used
 	
 2. Open portal.azure.com
-3. 
 
 ### Step 04 - Deploy Hello World Rest API to Azure AKS Kubernetes ###
+1. 
+
 ### Step 05 - Deploy Web App H2 to Azure AKS Kubernetes Cluster ###
 ### Step 06 - Deploy Web App with MySQL to Azure AKS Kubernetes ###
 ### Step 07 - Delete Deployments and Review of Microservices on GKE ###
