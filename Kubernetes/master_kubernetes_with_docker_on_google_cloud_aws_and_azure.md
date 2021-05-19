@@ -659,7 +659,20 @@
 		3. https://portal.azure.com
 
 ### Step 03 - Creation of a Resource Group, Service Principal and AKS Kubernetes Cluster ###
-1. 
+1. Open Azure
+	1. Open Kubernetes Services
+	2. Click on Azure Cloud Shell (top right corner)
+	3. Bash
+	4. Maximize
+	5. Settings:
+		1. Text-size - Large
+	4. Commands:
+		
+			az version
+			
+	
+2. Open portal.azure.com
+3. 
 
 ### Step 04 - Deploy Hello World Rest API to Azure AKS Kubernetes ###
 ### Step 05 - Deploy Web App H2 to Azure AKS Kubernetes Cluster ###
