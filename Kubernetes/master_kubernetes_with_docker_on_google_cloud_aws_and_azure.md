@@ -647,9 +647,20 @@
 				2. Enter email address: valid email address only (verified)
 				3. Password
 				4. Enter verification code from email
-				5. 
+				5. Go through captchas
+			2. Subscription creation
+				1. Enter personal details
+				2. Organization details
+			3. Enter phone number
+				1. Enter verification code
+			4. Enter credit or debit card details
+			5. Get verified
+			6. Sign Up
+		3. https://portal.azure.com
 
 ### Step 03 - Creation of a Resource Group, Service Principal and AKS Kubernetes Cluster ###
+1. 
+
 ### Step 04 - Deploy Hello World Rest API to Azure AKS Kubernetes ###
 ### Step 05 - Deploy Web App H2 to Azure AKS Kubernetes Cluster ###
 ### Step 06 - Deploy Web App with MySQL to Azure AKS Kubernetes ###
