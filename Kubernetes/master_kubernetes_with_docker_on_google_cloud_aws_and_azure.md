@@ -711,7 +711,15 @@
 2. Open portal.azure.com
 
 ### Step 04 - Deploy Hello World Rest API to Azure AKS Kubernetes ###
-1. 
+1. State - succeeded
+2. portal.azure.com
+	1. Search: Kubernetes
+	2. Kubernetes Services
+		1. Cluster: in28minutes-cluster
+			1. Resource group: kubernetes-resource-group
+			2. Location: West Europe
+			3. Click
+				1. Details about Kubernetes cluster
 
 ### Step 05 - Deploy Web App H2 to Azure AKS Kubernetes Cluster ###
 ### Step 06 - Deploy Web App with MySQL to Azure AKS Kubernetes ###
