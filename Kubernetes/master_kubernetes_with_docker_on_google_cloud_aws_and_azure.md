@@ -670,6 +670,38 @@
 		
 			az version
 			
+		1. `az` - Azure cli
+		2. `kubectl` is also installed
+
+				kubectl version
+				
+		3. Cluster creation
+			1. Resource - Must be part of a resource group
+				1. Resource group: westeurope (recommended)
+			2. Comand:
+
+					az group create --name kubernetes-resource-group --location westeurope
+					
+		4. We are already logged in in Azure shell
+			1. Else we need to login
+
+					az login
+					
+		5. Azure service principal - identity created for use with automated tools to access Azure resources
+			1. Needed for Kubernetes cluster (service principal credentials are required)
+
+					az ad sp create-for-rbac --skip-assignment --name kubernetes-cluster-service-principal
+					
+				1. Copy the App id and password
+		6. Command for creation of cluster
+
+				az aks create --name in28minutes-cluster --node-count 4 --enable-addons monitoring --resource-group kubernetes-resource-group --vm-set-type VirtualMachineScaleSets --load-balancer-sku standard --enable-cluster-autoscaler --min-count 1 --max-count 7 --service-principal <<appId>> --client-secret <<password>>
+				
+			1. Replace `<<appId>>` and `<<password>>` generated above
+			2. Cluster with 4 nodes
+			3. Enabled monitoring
+			4. Resource group - cluster is attached to this
+			5. Enabled auto-scaling
 	
 2. Open portal.azure.com
 3. 
