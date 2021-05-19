@@ -629,6 +629,8 @@
 3. Kubernetes is cloud neutral (nearly 99% remain the same)
 4. ISTIO and HELM are same (GKE part)
 5. Download again: [https://github.com/in28minutes/kubernetes-crash-course](https://github.com/in28minutes/kubernetes-crash-course)
+6. Import all the projects into STS
+	1. instructions
 
 ### Step 02 - Creation of an Azure Account ###
 ### Step 03 - Creation of a Resource Group, Service Principal and AKS Kubernetes Cluster ###
