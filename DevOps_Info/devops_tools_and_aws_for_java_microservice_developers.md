@@ -2453,7 +2453,7 @@
 					- port: 80 # on which port the service can access the deployment - matches containerPort (80)
 					# target: port
 					  protocol: TCP
-				selectors:
+				selector:
 					app: httpd # matches label in deployment metadata
 
 ### Construct Deployment YAML ###
