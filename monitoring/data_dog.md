@@ -95,9 +95,13 @@
 	12. Help
 		1. Docs and resources
 	13. Team page
-		1. Who is on our team
+		1. Who is on our team and add other members to the team
+	14. Settings page
+		1. We can switch to multiple organizations if we are part of
 
 ## Collection ##
+1. 
+
 ## Dashboards ##
 ## Functions ##
 ## Aggregation ##
