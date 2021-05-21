@@ -58,6 +58,44 @@
 		1. Alerts & notifications (and more)
 	7. Metrics
 		1. Allows viewing metrics at a glance without constructing a full dashboard
+		2. We can see which metrics are available in the environment
+			1. Listed alphabetically
+		3. If we click on the metric, we get summary of the metric
+			1. Includes: Which hosts are reporting the metric
+		4. Tags
+		5. General info about the metric
+		6. Metadata
+			1. Description
+			2. Unit
+			3. Metric Type
+			4. Ingegration
+			5. Interval
+		7. The info is viewable by anyone in the organization
+	8. Integrations
+		1. We can turn on and configure any of the integrations
+		2. We can filter or scroll to find
+			1. Ones currently used appear first
+			2. Click
+				1. Three tabs
+					1. Overview - of integration
+					2. Configuration - instructions to install the integration
+					3. Metrics
+						1. Lists all metrics avaialable for the integration
+	9. API Keys
+		1. APIs tab
+			1. List of API keys and App keys used in the organization
+		2. Event emails
+			1. Email addresses used to submit events to datadog
+			2. Refer to following: http://dtdg.co/ddeventsemail
+	10. Agent Installation
+		1. Instructions to install agents of different types in the environment
+	11. Embeds
+		1. We can embed dashboard graph in any webpage using iframes
+		2. Any embed defined is listed here
+	12. Help
+		1. Docs and resources
+	13. Team page
+		1. Who is on our team
 
 ## Collection ##
 ## Dashboards ##
