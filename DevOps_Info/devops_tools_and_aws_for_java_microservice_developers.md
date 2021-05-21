@@ -2727,7 +2727,7 @@
 							name: demo-configmap
 						data:
 							initdb.sql:
-								select * from produt;
+								select * from product;
 								create table coupon();
 							keys:
 								123j324jk3jkl32j5343lj
