@@ -3082,7 +3082,7 @@
 		template:
 			...
 			spec:
-				voluems:
+				volumes:
 					- name: mysql-initdb-vol
 					  configMap: 
 					  	- name: mysql-initdb-config
