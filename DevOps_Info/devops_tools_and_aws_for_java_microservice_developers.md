@@ -3422,6 +3422,7 @@
 						export MAVEN_HOME=/home/ec2-user/apache-maven-3.6.3
 						export M2_HOME=$MAVEN_HOME
 						export PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
+						
 				4. `source ~/.bashrc`
 				5. `mvn -v`
 			3. `mvn archetype:generate -DgroupId=com.bharath -DartifactId=java-project -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
