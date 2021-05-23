@@ -2906,7 +2906,7 @@
 				3. `ReadWriteMany` - any number of nodes can read and write to the allocated space at cluster level
 	
 	2. Creation of persistent volume claim - request for whatever space is required through this (a resource)
-		1. Example: demo-persistent-volume.claim.yml
+		1. Example: demo-persistent-volume-claim.yml
 
 				apiVersion: v1
 				kind: PersistentVolumeClaim
@@ -2934,7 +2934,7 @@
 					...
 					- name: demo-pvc
 					  persistentVolumeClaim:
-					  	claimName: demo-pvc # should match the one in demo-persistent-volume.claim.yml 
+					  	claimName: demo-pvc # should match the one in demo-persistent-volume-claim.yml 
 
 ### Construct PV ###
 1. demo-persistent-volume.yml
@@ -2969,7 +2969,7 @@
 				- ReadWriteOnce # This is the only one supported by PV in this case
 
 	1. `kubectl get pvc` **(M)** - no resources
-	2. `kubectl create -f demo-persistent-volume-claims.yml`
+	2. `kubectl create -f demo-persistent-volume-claim.yml`
 	3. `kubectl get pvc`
 		1. Standard storage class (admins can use different kinds of storage classes)
 
