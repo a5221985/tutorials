@@ -3088,9 +3088,9 @@
 					  	- name: mysql-initdb-config
 				containers:
 					...
-					volumeMounts:
-						- name: mysql-initdb-vol
-						  mountPath: /docker-entrypoint-initdb.d
+						volumeMounts:
+							- name: mysql-initdb-vol
+						 	  mountPath: /docker-entrypoint-initdb.d
 						  
 2. docker-mysql-service.yml
 
