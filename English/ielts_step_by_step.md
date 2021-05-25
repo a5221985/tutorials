@@ -22,6 +22,17 @@
 14. Writing is the weakest skill
 
 ### The IELTS Exam: What it is? ###
+1. Designed to test English language level before:
+	1. Place in English-speaking university (Academic)
+	2. To emigrate to English-speaking countries (Canada, ...) (General Training)
+2. 4 sections with equal weightage
+	1. Listening, Reading, Writing & Speaking
+3. Usually done in one day (on Saturday)
+	1. Listening - 30 minutes (plus 10 minutes to transfer ansers onto answer sheet on paper version of the test)
+	2. Reading - 1 hour
+	3. Writing - 1 hour
+	4. Speaking - 14 minutes
+
 ### The IELTS Exam: FAQs ###
 
 ## Getting ready! ##
