@@ -11,7 +11,15 @@
 	3. Star + back circle + circle (7 weeks)
 	4. All symbols (much time)
 6. 1 hour each day is fine
-7. 
+7. Easier to difficult
+8. General training exam:
+	1. Don't do this if academic
+9. IELTS community - Facebook
+10. Speaking practice - put name in excel sheat
+11. Feedback videos - must do
+12. Reading & First section of Writing (Letter for general) - different for Academic and General
+13. Facebook page - can get answers from other students as well
+14. Writing is the weakest skill
 
 ### The IELTS Exam: What it is? ###
 ### The IELTS Exam: FAQs ###
