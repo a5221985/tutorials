@@ -32,8 +32,34 @@
 	2. Reading - 1 hour
 	3. Writing - 1 hour
 	4. Speaking - 14 minutes
+4. It is not enough to speak good English to get good grade in IELTS exam
+	1. We need to know certain features of the exam
+	2. We need to practice
+	3. We need to get used to it
+5. Facebook group: https://www.facebook.com/groups/IELTSStepbystepCommunity
 
 ### The IELTS Exam: FAQs ###
+1. General
+2. Exam center
+	1. British Council
+	2. IDP
+	3. Go to closest one (IDP or British Council)
+3. UKVI
+	1. UK Visas & Immigration
+	2. It has higher security - recorded
+	3. Usually for General Training (GT) IELTS
+4. American or British English
+	1. Both are fine but don't mix them
+5. There are no breaks between the exams
+	1. Break before speaking (same day or another day)
+	2. Eat and drink well beforehand
+	3. Bottle of water is allowed
+	4. Don't lose time by using the restroom
+6. What can I bring to the exam
+	1. Water bottle
+	2. Eraser
+	3. Pen
+	4. Others are kept in locker facilities (food, watch, phone, ...)
 
 ## Getting ready! ##
 ### READING Test: General Info ###
