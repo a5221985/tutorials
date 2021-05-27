@@ -472,7 +472,7 @@
 
 		7. Confirm that ALB ingress controller is running
 
-				kubectl get pocs -n kube-system
+				kubectl get pods -n kube-system
 				
 			1. `-n` - namespace
 		8. Ingress resource:
