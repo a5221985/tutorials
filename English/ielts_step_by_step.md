@@ -60,6 +60,11 @@
 	2. Eraser
 	3. Pen
 	4. Others are kept in locker facilities (food, watch, phone, ...)
+7. We can take any number of times (230 pounds) - first attempt is cheaper
+8. If there is problem with sight, color blindness, hearing problems, reading problems
+	1. Inform about 3 months beforehand
+9. Band score
+	1. 
 
 ## Getting ready! ##
 ### READING Test: General Info ###
