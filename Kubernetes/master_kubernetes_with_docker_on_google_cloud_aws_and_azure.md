@@ -12,6 +12,30 @@
 			2. If scripts get complex
 		2. We can use one package to deploy the application (we don't need multiple files)
 			1. Helm makes us easy to define application package
+			2. One way to kickstart the execution
+				1. We give one name
+				2. If we ask helm to execute using the name, all the scripts will be executed
+		3. Helm has more functionality
+			1. Takes care of releases
+			2. We can upgrade package
+			3. We can roll back to a specific version of a package
+			4. We can manage releases
+			5. ...
+		4. Helps (charts) us define, install, and upgrade even most complex Kubernetes application
+			1. Chart - It is a package
+				1. Package of scripts used to deploy the application
+				2. We can version the charts
+				3. We can publish the charts out to a repository (Helm repository)
+					1. It is like Maven repository
+			2. Release
+				1. It is installation of a specific version of a chart on a Kubernetes cluster
+		5. Helm has both client and server side components
+			1. Both can be installed
+			2. Client - called Helm client
+				1. Installed on local machine (or where cluster is accessed)
+			3. Server - called Helm tiller
+				1. Installed on Kubernetes cluster
+4. Open cloud shell
 
 ### Step 02 - Using Helm Charts to deploy Spring Boot Microservice to Kubernetes ###
 ### Step 03 - Usign Helm Charts to manage Releases to Kubernetes Cluster ###
