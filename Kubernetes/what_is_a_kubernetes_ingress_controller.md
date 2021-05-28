@@ -37,3 +37,4 @@
 	4. 24/7 support to help quickly move production workloads to Kubernetes
 2. NGINX Ingress Controller
 	1. Production grade ingress controller (daemon) that runs along NGINX Open Source or NGINX Plus instances in Kubernetes environment
+		1. The daemon monitors NGINX Ingress resources and Kubernetes Ingress resources to discover requests for services that require ingress load balancing
