@@ -36,6 +36,10 @@
 			3. Server - called Helm tiller
 				1. Installed on Kubernetes cluster
 4. Open cloud shell
+	1. It provides a version of helm client
+	2. We can install helm client
+		1. Search for helm client
+2. 
 
 ### Step 02 - Using Helm Charts to deploy Spring Boot Microservice to Kubernetes ###
 ### Step 03 - Usign Helm Charts to manage Releases to Kubernetes Cluster ###
