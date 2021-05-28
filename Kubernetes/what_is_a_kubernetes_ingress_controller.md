@@ -30,4 +30,9 @@
 	4. Monitor pods in kubernetes and automatically update load-balancing rules when pods are added or removed from a service
 
 ## How Can NGINX Help? ##
-1. 
+1. Dynamic re-configuration: 
+	1. We can
+		1. Scale out
+		2. Provide redundancy
+		3. Provide global server load balancing (GSLB)
+		4. 
