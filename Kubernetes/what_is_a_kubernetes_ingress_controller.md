@@ -31,8 +31,9 @@
 
 ## How Can NGINX Help? ##
 1. Dynamic re-configuration: 
-	1. We can
-		1. Scale out
-		2. Provide redundancy
-		3. Provide global server load balancing (GSLB)
-		4. 
+	1. We can change configuration and changes get applied without restart
+	2. Lightweight and modern web application firewall
+	3. Authorization and authentication with standard battle-tested signe sign-on (SSO) solutions like OpenID Connect (OIDC)
+	4. 24/7 support to help quickly move production workloads to Kubernetes
+2. NGINX Ingress Controller
+	1. Production grade ingress controller (daemon) that runs along NGINX Open Source or NGINX Plus instances in Kubernetes environment
