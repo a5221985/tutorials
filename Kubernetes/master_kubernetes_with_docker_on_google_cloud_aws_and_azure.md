@@ -1,6 +1,18 @@
 # Master Kubernetes with Docker on Google Cloud, AWS & Azure #
 ## Section 11: GKE - Using Helm to Automate Microservices Deployment on Kubernetes ##
 ### Step 01 - Understanding Helm Basics and Setting up Kubernetes Cluster ###
+1. Register in GCP
+2. Click on CREATE CLUSTER
+	1. Name: helm-cluster
+	2. Create
+3. Helm:
+	1. It is package manager for Kubernetes
+		1. Why?
+			1. If many scripts exist
+			2. If scripts get complex
+		2. We can use one package to deploy the application (we don't need multiple files)
+			1. Helm makes us easy to define application package
+
 ### Step 02 - Using Helm Charts to deploy Spring Boot Microservice to Kubernetes ###
 ### Step 03 - Usign Helm Charts to manage Releases to Kubernetes Cluster ###
 
