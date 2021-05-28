@@ -40,9 +40,20 @@
 	2. We can install helm client
 		1. Search for helm client
 5. Helm tiller installation:
-	1. Connect 
+	1. Connect to the cluster: (configure kubectl)
+	
+			gcloud container clusters get-credentials helm-cluster --zone us-central1-c --project oauth2-poc-project
+			
+	2. Script to install helm tiller
+		1. `/in28minutes/git/kubernetes-crash-course/12-helm`
+			1. `helm-tiller.sh` (we can drag and drop it into cloud shell)
+			2. Run the following to check status:
+
+					kubectl get deploy,svc tiller-deploy -n kube-systemrangaraokaranam
 
 ### Step 02 - Using Helm Charts to deploy Spring Boot Microservice to Kubernetes ###
+1. 
+
 ### Step 03 - Usign Helm Charts to manage Releases to Kubernetes Cluster ###
 
 ## Kubernetes on AWS with EKS ##
