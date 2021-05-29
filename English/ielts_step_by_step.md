@@ -94,7 +94,30 @@
 		2. General training
 			1. 4 mistakes
 	6. Writing
-		1. 
+		1. Task 1 - Letter (for gt), Report based on graph map or diagram (for ac)
+		2. Task 2 - Essay (about some point)
+10. Vocabulary
+	1. Lexical resource
+		1. Using words and vocab correctly?
+			1. Don't use just the basic words
+	2. IELTS vocab cource
+		1. Collocations (IELTS looks for these)
+		2. Correct spelling
+		3. Avoiding errors (incorrect words in blanks)
+11. Speaking
+	1. Criteria
+		1. Fluency - speaking without hesitation (2 minutes)
+12. Valid for
+	1. 2 years (re-take if not used)
+13. Remarking?
+	1. 120 pounds (refunded if scores changes)
+		1. Sent to more senior examiner
+		2. If lower? First score will be retained (highest score will remain)
+14. Results?
+	1. 13 days (after speaking test)
+	2. CBT - listening
+		1. Discouraged
+15. Longer if irregularities
 
 ## Getting ready! ##
 ### READING Test: General Info ###
