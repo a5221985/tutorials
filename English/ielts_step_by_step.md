@@ -64,7 +64,37 @@
 8. If there is problem with sight, color blindness, hearing problems, reading problems
 	1. Inform about 3 months beforehand
 9. Band score
-	1. 
+	1. There are 4 sections
+		1. General
+		2. Listening - 25%
+		3. Reading - 25%
+		4. Writing - 25%
+		5. Speaking - 25%
+	2. Example:
+		1. 8.0 | 7.5 | 7.0 | 7.5 = 7.5 overall (add all / 4)
+	3. IELTS General
+		1. 9 - Expert user
+			1. Complete command of English
+			2. Key points are very accurate
+			3. Fully understand everything
+		2. 5 - Modest user
+			1. Okay
+			2. Partial command of English
+			3. Have general idea
+			4. Not accurate about small details
+			5. Make frequent errors
+			6. Difficulty undertanding complex language
+		3. 7 - 8: Target here
+	4. Listening
+		1. Receptive
+			1. Just scores (32-34 correct answers - 6-8 incorrect)
+	5. Reading
+		1. Academic
+			1. 6-7 mistakes
+		2. General training
+			1. 4 mistakes
+	6. Writing
+		1. 
 
 ## Getting ready! ##
 ### READING Test: General Info ###
