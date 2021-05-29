@@ -118,9 +118,17 @@
 	2. CBT - listening
 		1. Discouraged
 15. Longer if irregularities
+	1. Phone the center if > 13 days
 
 ## Getting ready! ##
 ### READING Test: General Info ###
+1. Main points
+	1. Who is it for?
+		1. Academic - TO go to university (can be for job reasons)
+		2. General Training - Job or Immigration
+	2. What do we take to take?
+	3. Reading exam - 
+
 ### READING Test: FAQs ###
 ### READING Academic Test #1 (for Academic IELTS students ONLY) ###
 ### READING Academic Test #1 - Feedback ###
