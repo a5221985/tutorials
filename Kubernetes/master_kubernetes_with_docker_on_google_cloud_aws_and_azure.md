@@ -124,8 +124,25 @@
 				kubectl get service --watch
 				
 				http://<external-ip>:8000/currency-exchange/from/USD/to/INR
+	2. Copy and paste the files for currency-conversion
+		1. values.yaml (only contains resource specific values)
+
+				image: in28min/currency-conversion:0.0.1-RELEASE
+				port: 8200
+				serviceType: LoadBalancer
+				replicas: 1
+				name: currency-conversion
+				
+		2. Install
+
+				helm install ./currency-conversion/ --name=currency-service-1
+				
+				http://<external-ip>/currency-conversion/from/USD/to/INR/quantity/10
+				
+		3. Exercise: `helm create microservice` - generates a template folder
 
 ### Step 03 - Using Helm Charts to manage Releases to Kubernetes Cluster ###
+1. 
 
 ## Kubernetes on AWS with EKS ##
 ### Step 01 - Kubernetes on AWS with EKS - Section Introduction ###
