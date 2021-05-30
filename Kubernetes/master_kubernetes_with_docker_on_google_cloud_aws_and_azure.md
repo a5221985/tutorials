@@ -52,7 +52,17 @@
 					kubectl get deploy,svc tiller-deploy -n kube-systemrangaraokaranam
 
 ### Step 02 - Using Helm Charts to deploy Spring Boot Microservice to Kubernetes ###
-1. 
+1. Example: Currency Exchange Microservice
+	1. helm
+		1. char.yml
+		
+				apiVersion: v1
+				appVersion: "1.0"
+				description: A Helm chart for Kubernetes
+				name: currency-exchange-alone
+				version: 0.1.0
+				
+		2. 
 
 ### Step 03 - Usign Helm Charts to manage Releases to Kubernetes Cluster ###
 
