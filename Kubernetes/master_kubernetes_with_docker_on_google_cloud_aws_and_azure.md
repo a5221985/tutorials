@@ -142,7 +142,10 @@
 		3. Exercise: `helm create microservice` - generates a template folder
 
 ### Step 03 - Using Helm Charts to manage Releases to Kubernetes Cluster ###
-1. 
+1. Tips:
+	1. `helm install ./currency-conversion/ --name=currency-service-1 --debug --dry-run` - dry run
+		1. Shows all templates that would get created
+	2. `helm history currency-service-1`
 
 ## Kubernetes on AWS with EKS ##
 ### Step 01 - Kubernetes on AWS with EKS - Section Introduction ###
