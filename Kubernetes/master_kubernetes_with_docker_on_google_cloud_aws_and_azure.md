@@ -122,6 +122,8 @@
 		
 				kubectl get all
 				kubectl get service --watch
+				
+				http://<external-ip>:8000/currency-exchange/from/USD/to/INR
 
 ### Step 03 - Usign Helm Charts to manage Releases to Kubernetes Cluster ###
 
