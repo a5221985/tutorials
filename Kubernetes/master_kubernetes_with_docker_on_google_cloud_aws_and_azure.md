@@ -53,16 +53,75 @@
 
 ### Step 02 - Using Helm Charts to deploy Spring Boot Microservice to Kubernetes ###
 1. Example: Currency Exchange Microservice
-	1. helm
-		1. char.yml
+	1. `/helm`
+		1. `Chart.yaml` - meta-information
 		
 				apiVersion: v1
 				appVersion: "1.0"
-				description: A Helm chart for Kubernetes
+				description: A Helm chart for Any Microservice
 				name: currency-exchange-alone
 				version: 0.1.0
 				
-		2. 
+		2. `templates`
+			1. All yaml files are here
+				1. microservice-deployment.yaml (It is a template that can be used for any microservice)
+
+						apiVersion: apps/v1
+						kind: Deployment
+						metadata:
+							name: {{ .Values.name }} # Go template syntax
+							labels:
+								app: {{ .Values.name }}
+						spec:
+							replicas: {{ .Values.replicas }}
+							selector:
+								matchLabels:
+									app: {{ .Values.name }}
+							template:
+								metadata:
+									labels:
+										app: {{ .Values.name }}
+								spec:
+									containers:
+									- name: {{ .Values.name }}
+									  image: {{ .Values.image }}
+									  env:
+									  - name: CURRENCY_EXCHANGE_URI
+									    value: http://currency-exchange:8000
+									  ports:
+									  - containerPort: {{ .Values.port }}
+						---
+						apiVersion: v1
+						kind: Service
+						metadata:
+							name: {{ .Values.name }}
+							labels:
+								app: {{ .Values.name }}
+						spec:
+							type: {{ .Values.servicetype }}
+							ports:
+							- port: {{ .Values.port }}
+							  protocol: TCP
+							selector:
+								app: {{ .Values.name }}
+			
+		3. `values.yaml`
+
+				image: in28min/currency-exchange:0.0.1-RELEASE
+				port: 8000
+				servicetype: LoadBalancer
+				replicas: 1
+				name: currency-exchange
+				
+			1. We can have a hierarchical structure as well
+		4. Deployement:
+
+				helm install ./currency-exchange/ --name=currency-services
+				
+		5. Check
+		
+				kubectl get all
+				kubectl get service --watch
 
 ### Step 03 - Usign Helm Charts to manage Releases to Kubernetes Cluster ###
 
