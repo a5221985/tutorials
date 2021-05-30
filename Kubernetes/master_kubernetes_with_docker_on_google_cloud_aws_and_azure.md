@@ -125,7 +125,7 @@
 				
 				http://<external-ip>:8000/currency-exchange/from/USD/to/INR
 
-### Step 03 - Usign Helm Charts to manage Releases to Kubernetes Cluster ###
+### Step 03 - Using Helm Charts to manage Releases to Kubernetes Cluster ###
 
 ## Kubernetes on AWS with EKS ##
 ### Step 01 - Kubernetes on AWS with EKS - Section Introduction ###
