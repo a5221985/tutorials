@@ -146,6 +146,11 @@
 	1. `helm install ./currency-conversion/ --name=currency-service-1 --debug --dry-run` - dry run
 		1. Shows all templates that would get created
 	2. `helm history currency-service-1`
+	3. Increasing replicas: `replicas: 2`
+		1. `helm upgrade currency-service-1 ./currency-conversion/`
+	4. Rollback: `helm history currency-services-1`
+		1. `helm rollback currency-services-1 1` - rolls back to earlier version
+	5. Multiple yaml files
 
 ## Kubernetes on AWS with EKS ##
 ### Step 01 - Kubernetes on AWS with EKS - Section Introduction ###
