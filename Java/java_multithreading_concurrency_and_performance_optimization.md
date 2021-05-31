@@ -2287,8 +2287,22 @@
 			}
 			
 		1. This forces us to surround with `try` `catch` blocks
-			1. To handle `InterruptedException`
-			2. 
+			1. To handle `InterruptedException` gracefully
+	3. Use cases:
+		1. Watchdog for deadlock detection and recovery (interrupt threads and recover from the deadlock)
+		2. Waking up threads (suspended waiting for a lock) to do clean and close the application
+6. What we learnt
+	1. `java.util.concurrent.locks.ReentrantLock`
+		1. Why?
+	
+				boolean tryLock()
+				boolean tryLock(long timeout, TimeUnit unit);
+				
+			1. Returns true and acquires a lock if available
+			2. Returns false and does not get suspended, if the lock is unavailable
+	
+	2. `ReentrantLock.tryLock()`
+	3. `ReentrantLock.lockInterruptibly()`
 
 ### ReentrantLock Part 2 - User Interface Application Example ###
 ### Quiz 10 - ReentrantLock ###
