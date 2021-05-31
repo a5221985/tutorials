@@ -151,6 +151,8 @@
 	4. Rollback: `helm history currency-services-1`
 		1. `helm rollback currency-services-1 1` - rolls back to earlier version
 	5. Multiple yaml files
+		1. `helm upgrade currency-service-1 ./currency-conversion/ --debug --dry-run`
+			1. New yaml will also be evaluated
 
 ## Kubernetes on AWS with EKS ##
 ### Step 01 - Kubernetes on AWS with EKS - Section Introduction ###
