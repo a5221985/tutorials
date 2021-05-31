@@ -153,6 +153,9 @@
 	5. Multiple yaml files
 		1. `helm upgrade currency-service-1 ./currency-conversion/ --debug --dry-run`
 			1. New yaml will also be evaluated
+		2. `helm history currency-service-1`
+		3. `helm rollback currency-service-1 1`
+		4. `kubectl get cm` - automatically deleted
 
 ## Kubernetes on AWS with EKS ##
 ### Step 01 - Kubernetes on AWS with EKS - Section Introduction ###
