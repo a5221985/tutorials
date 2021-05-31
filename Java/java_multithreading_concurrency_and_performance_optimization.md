@@ -2303,6 +2303,26 @@
 	
 	2. `ReentrantLock.tryLock()`
 	3. `ReentrantLock.lockInterruptibly()`
+7. `lock()` vs `tryLock()`
+
+		lockObject.lock();
+		try {
+			useResource();
+		} finally {
+			lockObject.unlock();
+		}
+		// ...
+		if (lockObject.tryLock()) {
+			try {
+				useResource();
+			} finally {
+				lockObject.unlock();
+			}
+		}
+		
+	1. If lock is available, it gets acquired and enters critical section (no other thread is allowed)
+	2. If another thread reaches the lock() method, it would wait until lock is released
+	3. 
 
 ### ReentrantLock Part 2 - User Interface Application Example ###
 ### Quiz 10 - ReentrantLock ###
