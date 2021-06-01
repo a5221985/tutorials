@@ -93,6 +93,28 @@
 	1. Check for nesting issues in the sections
 	2. Check for key names (key might have been ignored)
 		1. `command` if misspelled as `commnd` - pod gets created but will not use the commandline we intended to be used
+2. Possible solution:
+	1. Delete the pod and try creation again with `--validate` option
+
+			kubectl apply --validate -f mypod.yaml
+			
+		1. It gives an error if `command` is misspelled as `commnd`
+
+				I0805 10:43:25.129850   46757 schema.go:126] unknown field: commnd
+				
+	2. Check if the pod is on the apiserver machine that we meant it to be on
+
+			kubectl get pods/mypod -o yaml > mypod-on-apiserver.yaml
+			
+		1. Compare the description with local pod description (`mypod.yaml` say)
+
+				# The following must not show lines that are not in the original file mypod.yaml
+				diff mypod.yaml mypod-on-apiserver.yaml
+				
+			1. There will be some lines on "apiserver" version that are not on original version (expected)
+			2. If we don't have lines in apiserver that are in the original version, then it might indicate a problem with pod spec
  
 ### Debugging Replication Controllers ###
+1. 
+
 ### Debugging Services ###
