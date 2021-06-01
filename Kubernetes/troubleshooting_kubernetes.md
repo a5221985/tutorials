@@ -67,7 +67,32 @@
 				1. **No enough resources** - exhausted CPU or Memory in cluster
 					1. Solution: 
 						1. Delete pods
-						2. Adjust resource requests OR add new nodes to cluster
+						2. Adjust resource requests OR add new nodes to cluster [Compute resources documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
+				2. **Using hostPort** - Binding Pod to **hostPort** can result in there being limited number of places that pod can be scheduled
+					1. It is unnecessary in most cases
+					2. Solution: Use Service object to expose the pod instead
+					3. Solution: If **hostPort** must be used, the number of pods must match the number of nodes in the cluster
+
+#### My pod stays waiting ####
+1. If a Pod is stuck in **Waiting** state
+	1. It has been scheduled to a worker node
+	2. But it cannot run on that machine
+	3. Diagnosis: `kubectl describe ...`
+	4. Common cause(s):
+		1. Failure to pull the image
+		2. Diagnosis:
+			1. Ensure that the name of the image is correct
+			2. We have the image pushed to the repository
+			3. Run `docker pull <image>` to see if the image can be pulled
+
+#### My pod is crashing or otherwise unhealthy ####
+1. [Debug Running Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/) - once pods is scheduled
+
+#### My pod is running but not doing what I told it to do ####
+1. There could be an error in pod description (`mypod.yaml` in local machine) & error was ignored silently when pod was created
+	1. Check for nesting issues in the sections
+	2. Check for key names (key might have been ignored)
+		1. `command` if misspelled as `commnd` - pod gets created but will not use the commandline we intended to be used
  
 ### Debugging Replication Controllers ###
 ### Debugging Services ###
