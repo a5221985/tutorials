@@ -134,4 +134,30 @@
 				1. Example: If Service has 3 replicas, we must see 3 IP addresses in Service's endpoints
 
 #### My service is missing endpoints ####
-1. 
+1. If missing endpoints, we an try listing pods using labels that Services uses
+	1. Consider the following service
+
+			...
+			spec:
+				- selector:
+					name: nginx
+					type: frontend
+					
+	2. Run the following command:
+
+			kubectl get pods --selector=name=nginx,type=frontend
+			
+		1. Lists pods that match the selector
+		2. Check if list matches Pods that we expect to provide our Service
+		3. Verify that pod's **containerPort** matches up with Service's **targetPort**
+
+#### Network traffic is not forwarded ####
+1. [debugging services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/)
+
+## What's next ##
+1. If none of the above solves the problem
+	1. [Debugging Service document](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/) - To ensure that 
+		1. **Service** is running
+		2. has **Endpoints**
+		3. **Pods** are actually serving
+		4. has DNS working
