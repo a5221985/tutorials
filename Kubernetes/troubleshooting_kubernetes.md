@@ -161,3 +161,9 @@
 		2. has **Endpoints**
 		3. **Pods** are actually serving
 		4. has DNS working
+		5. iptables rules installed
+		6. kube-proxy is behaving as expected
+2. [troubleshooting document](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) - more info
+
+## Debugging Running Pods ##
+1. [Debugging Running Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/)
