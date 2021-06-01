@@ -1,12 +1,14 @@
 # Kubernetes Toy Setup to Reproduce Issues #
 
-	![aks_cluster](aks_cluster.png)
+![aks_cluster](aks_cluster.png)
 
 ## Creation of Resource Group ##
-az group create --name myResourceGroup --location eastus
+
+		az group create --name myResourceGroup --location eastus
 
 ## Creation of AKS Cluster and Enabling Cluster Autoscaler ##
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-vm-size Standard_DS1_v2 --node-count 1 --vm-set-type VirtualMachineScaleSets --load-balancer-sku standard --enable-cluster-autoscaler --min-count 1 --max-count 3
+
+		az aks create --resource-group myResourceGroup --name myAKSCluster --node-vm-size Standard_DS1_v2 --node-count 1 --vm-set-type VirtualMachineScaleSets --load-balancer-sku standard --enable-cluster-autoscaler --min-count 1 --max-count 3
 
 ### More Information ###
 1. [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler)
@@ -77,22 +79,34 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-vm-siz
 		selector:
 		    run: php-apache
         
+### Deploy and Test the Setup ###
 
-kubectl apply -f php-apache.yaml
-kubectl get all
-kubectl get nodes
+		kubectl apply -f php-apache.yaml
+		kubectl get all
+		kubectl get nodes
 
-kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+## Enable Autoscaling the Pods ##
 
-kubectl get hpa
+		kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
 
-kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
+### Test Autoscaling Setup ###
 
-kubectl get hpa
+		kubectl get hpa
 
-kubectl get deployment php-apache
+## Increase Load ##
+
+		kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
+
+### Test Autoscaling ###
+
+		kubectl get hpa
+		kubectl get deployment php-apache
 
 ## Stop Load ##
 1. Hit `Ctrl` + `C`
 
 		kubectl get deployment php-apache
+		
+## Delete the Entire Setup ##
+
+		az group delete --name myResourceGroup --yes --no-wait
