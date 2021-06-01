@@ -18,9 +18,22 @@
 ## Help! My question isn't covered! I need help now! ##
 ### Stack Overflow ###
 1. Kubernetes team also monitors [posts tagged Kubernetes](https://stackoverflow.com/questions/tagged/kubernetes)
-2. We can [ask a new one!]()
+2. We can [ask a new one!](https://stackoverflow.com/questions/ask?tags=kubernetes)
 
 ### Slack ###
+1. `#kubernetes-users` channel
+	1. We can [request and invitation](https://slack.kubernetes.io/)
+	2. Registration is open for everyone
+	3. We can ask any questions
+	4. We can access [Kubernetes organisation in Slack](https://kubernetes.slack.com/) via web browser or Slack app
+	5. We can browse channels for various subjects of interest
+		1. `#kubernetes-novice` - for people new to Kubernetes [#kubernetes-novice](https://kubernetes.slack.com/messages/kubernetes-novice)
+		2. `#kubernetes-dev` - for developers [#kubernetes-dev](https://kubernetes.slack.com/messages/kubernetes-dev)
+		3. Country specific or local language specific channels
+			1. `#cn-users`, `#cn-events`
+			2. ...
+			3. `#in-users`, `#in-events`
+
 ### Forum ###
 ### Bugs and feature requests ###
 ## Feedback ##
