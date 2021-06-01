@@ -50,7 +50,24 @@
 
 ## Diagnosing the Problem ##
 ### Debugging Pods ###
-1. 
+1. Check current state of the Pod and recent events:
 
+		kubectl describe pods ${POD_NAME}
+		
+	1. Check the status of containers in the pod
+		1. Are all of them **Running**?
+		2. Have there been any recent restarts
+		3. Debug based on the state of the pods
+
+#### My pod stays pending ####
+1. If Pod is stuck in **Pending** - it cannot be scheduled onto a node
+	1. Usually because there are insufficient resources of one type or another that prevents scheduling
+		1. `kubectl describe ...` has messages from scheduler about why it can not schedule a pod
+			1. Reasons can be:
+				1. **No enough resources** - exhausted CPU or Memory in cluster
+					1. Solution: 
+						1. Delete pods
+						2. Adjust resource requests OR add new nodes to cluster
+ 
 ### Debugging Replication Controllers ###
 ### Debugging Services ###
