@@ -35,5 +35,22 @@
 			3. `#in-users`, `#in-events`
 
 ### Forum ###
+1. [discuss.kubernetes.io](https://discuss.kubernetes.io/) - Official Kubernetes forum
+
 ### Bugs and feature requests ###
-## Feedback ##
+1. [Github issue tracking system](https://github.com/kubernetes/kubernetes/issues) - If we possibly discover a bug, we can make a feature request
+	1. See existing issues to see if issue is already covered
+	2. We can include detailed information about how to reproduce the problem
+		1. Kubernetes version: `kubectl version`
+		2. Cloud provider, OS distro, network configuration, and Docker version
+		3. Steps to reproduce the problem
+
+# Troubleshoot Applications #
+1. To help users debug applications deployed into Kubernetes and not behaving correctly
+
+## Diagnosing the Problem ##
+### Debugging Pods ###
+1. 
+
+### Debugging Replication Controllers ###
+### Debugging Services ###
