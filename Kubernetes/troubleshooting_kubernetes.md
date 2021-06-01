@@ -115,6 +115,13 @@
 			2. If we don't have lines in apiserver that are in the original version, then it might indicate a problem with pod spec
  
 ### Debugging Replication Controllers ###
-1. 
+1. Replication controllers are straight forward
+	1. They can either instantiate Pods or not
+		1. If they can't then debug using instruction previously discussed
+	2. The following command can be used to instrospect events related to replication controller
+
+			kubectl describe rc ${CONTROLLER_NAME}
 
 ### Debugging Services ###
+1. Services provide load balancing across a set of pods
+2. There could be several problems that can make Services not work properly
