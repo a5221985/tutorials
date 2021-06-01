@@ -125,3 +125,13 @@
 ### Debugging Services ###
 1. Services provide load balancing across a set of pods
 2. There could be several problems that can make Services not work properly
+	1. Debugging Service problems
+		1. Verify that there are endpoints for service (For every service object, apiserver makes an **endpoints** resource available)
+
+				kubectl get endpoints ${SERVICE_NAME}
+			
+			1. Ensure that endpoints match with the number of pods that we expect to be members of the service
+				1. Example: If Service has 3 replicas, we must see 3 IP addresses in Service's endpoints
+
+#### My service is missing endpoints ####
+1. 
