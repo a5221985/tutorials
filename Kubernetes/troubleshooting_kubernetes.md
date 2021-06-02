@@ -168,4 +168,33 @@
 ## Debugging Running Pods ##
 1. [Debugging Running Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/)
 
-#  #
+# Troubleshoot Clusters #
+## Introduction ##
+1. Consider this after ruling out that the application is the root cause of the problem
+
+## Listing your cluster ##
+1. Check if nodes are all registered correctly
+
+		kubectl get nodes
+		
+	1. Verify that all the nodes we expect to see are present and are all in `Ready` state
+2. Get info about the overall health of the cluster
+
+		kubectl cluster-info dump
+
+## Looking at logs ##
+1. Log into relevant machines to dig deeper
+	1. Following give locations of relevant logs (`journalctl` on systemd based systems)
+
+### Master ###
+1. `/var/log/kube-apiserver.log` - API Server log
+2. `/var/log/kube-scheduler.log` - Scheduler log
+3. `/var/log/kube-controller-manager.log` - Controler (manages replication controllers) log
+
+### Worker Nodes ###
+1. `/var/log/kubelet.log` - Kubelet log
+
+## A general overview of cluster failure modes ##
+### Root causes ###
+### Specific scenarios ###
+### Mitigations ###
