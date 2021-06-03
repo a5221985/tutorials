@@ -240,4 +240,24 @@
 		4. ...
 
 ### Mitigations ###
-1. 
+1. Action: Use IaaS provider's automatic VM restarting feature
+	1. Advantages:
+		1. Mitigates Apiserver VM shutdown or apiserver crashing
+		2. Mitigates supporting services VM shutdown or crashes
+2. Action: Use IaaS provider's reliable storage (e.g. GCE PD or AWS EBS volume)
+	1. Advantages:
+		1. Mitigates Apiserver backing storage loss
+3. Action: Use [high-availability](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/) configuration
+	1. Advantages:
+		1. Mitigates control plan node shutdown or control plane components (scheduler, API server, controller-manager) crashing
+			1. The setup can tolerate one or more simultaneous node or component failures
+		2. Mitigates API server backing storage (i.e. etcd's data directory) loss
+			1. Enable HA (highly-available) etcd configuration
+4. Action: Prepare snapshots of apiserver PDs/EBS-volumes periodically
+	1. Advantages:
+		1. Mitigates Apiserver backing storage loss
+		2. Mitigates some cases of operator error
+		3. Mitigates some cases of Kubernetes software fault
+5. Action: Use replication controller and services in front of pods
+	1. Advantages:
+		1. 
