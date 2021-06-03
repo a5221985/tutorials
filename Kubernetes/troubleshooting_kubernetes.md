@@ -189,12 +189,31 @@
 ### Master ###
 1. `/var/log/kube-apiserver.log` - API Server log
 2. `/var/log/kube-scheduler.log` - Scheduler log
-3. `/var/log/kube-controller-manager.log` - Controler (manages replication controllers) log
+3. `/var/log/kube-controller-manager.log` - Controler log (controller - manages replication controllers)
 
 ### Worker Nodes ###
-1. `/var/log/kubelet.log` - Kubelet log
+1. `/var/log/kubelet.log` - Kubelet log (kubelet - runs containers on node)
+2. `/var/log/kube-proxy.log` - Kube proxy log (Kube proxy - responsible for service load balancing)
 
 ## A general overview of cluster failure modes ##
+1. Possible list of things that could go wrong & how to adjust cluster setup to mitigate them
+
 ### Root causes ###
+1. VM(s) shutdown
+2. Network partition within cluster or between cluster and users
+3. Crashes in Kubernetes software
+4. Data loss or unavailability of persistent storage (e.g. GCE PD or AWS EBS volume)
+5. Operator error
+	1. Example: Misconfigured Kubernetes software or application software
+
 ### Specific scenarios ###
+1. Apiserver VM shutdown or apiserver crash
+	1. Results in
+		1. Unable to stop, update, or start new pods, services, replication controller
+		2. Existing pods and services should be working normally, unless they depend on Kubernetes API
+2. Apiserver backing storage lost
+	1. Results in
+		1. Apiserver failing to come up
+		2. Kubelets not being able to reach it but will continue to run same pods and provide same service proxying
+
 ### Mitigations ###
