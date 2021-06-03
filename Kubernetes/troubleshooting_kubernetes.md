@@ -218,5 +218,26 @@
 		3. Manual recovery or recreation of apiserver state being necessary before restarting apiserver
 3. Supporting services (node controllers, replication controller manager, scheduler etc) VM shutdown or crashes
 	1. Since the services are colocated with apiserver, their unavailability has similar consequences as apiserver
+		1. They may be replicated an no co-located in the future
+	2. They do not have their own persistent state
+4. Individual node (VM or physical machine) shuts down
+	1. Results in
+		1. Pods on the node stop running
+5. Network partition
+	1. Results in
+		1. Partition A thinks that nodes in partition B are down and partition B thinks that the apiserver is down (assuming master VM is in partition A)
+6. Kubelet software fault
+	1. Results in
+		1. Crashing of kubelet and new pods not starting on the node
+		2. Pods may or may not get deleted
+		3. Node being marked unhealthy
+		4. Replication controllers starting new pods elsewhere
+7. Cluster operator error
+	1. Results in
+		1. Loss of pods, service, etc ...
+		2. Loss of apiserver backing store
+		3. Users being unable to read API
+		4. ...
 
 ### Mitigations ###
+1. 
