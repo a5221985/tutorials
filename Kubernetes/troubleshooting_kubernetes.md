@@ -215,5 +215,8 @@
 	1. Results in
 		1. Apiserver failing to come up
 		2. Kubelets not being able to reach it but will continue to run same pods and provide same service proxying
+		3. Manual recovery or recreation of apiserver state being necessary before restarting apiserver
+3. Supporting services (node controllers, replication controller manager, scheduler etc) VM shutdown or crashes
+	1. Since the services are colocated with apiserver, their unavailability has similar consequences as apiserver
 
 ### Mitigations ###
