@@ -260,4 +260,9 @@
 		3. Mitigates some cases of Kubernetes software fault
 5. Action: Use replication controller and services in front of pods
 	1. Advantages:
-		1. 
+		1. Mitigates node shutdown
+		2. Mitigates kubelet software fault
+6. Action: Applications (containers) designed to tolerate unexpected restarts
+	1. Advantages:
+		1. Mitigates node shutdown
+		2. Migitages Kubelet software fault
