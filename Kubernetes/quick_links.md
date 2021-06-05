@@ -11,3 +11,7 @@
 9. [Microservices Architecture](https://microservices.io/)
 10. [Maven Documentation](https://maven.apache.org/guides/index.html)
 11. [PostMan Documentation](https://learning.postman.com/docs/getting-started/introduction/)
+
+## Playgrouds ##
+1. [Kutacoda (A Kubernetes Playground)](https://www.katacoda.com/courses/kubernetes/playground)
+2. [Play with Kubernetes](http://labs.play-with-k8s.com/)
