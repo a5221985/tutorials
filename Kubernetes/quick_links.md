@@ -15,3 +15,11 @@
 ## Playgrouds ##
 1. [Kutacoda (A Kubernetes Playground)](https://www.katacoda.com/courses/kubernetes/playground)
 2. [Play with Kubernetes](http://labs.play-with-k8s.com/)
+
+## Security ##
+1. [Encrypting Secret Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/)
+	1. Secrets are encrypted when written to etcd (during storage) - It protects against etcd compromise
+2. [Using KMS (Key Management Service) Provider for Additional Security](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/)
+	1. KMS uses data encryption key (DEK) to encrypt data in etcd
+	2. A new DEK is generated for each encryption
+	3. DEKs are encrypted with key encryption key (KEK) which are stored and managed in remote KMS
