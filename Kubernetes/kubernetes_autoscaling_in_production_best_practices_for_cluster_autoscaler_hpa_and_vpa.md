@@ -21,12 +21,21 @@
 2. The article outlines best practices for all three auto scaling tools
 
 ## What is the Cluster Autoscaler? ##
-1. [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) - Kubernetes tools that increases or decreases size of a Kubernetes cluster (by adding or removing nodes)
+1. [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) - Kubernetes tools that increases or decreases size of a Kubernetes cluster (by adding or removing nodes) based on the presence of pending pods and node utilization metrics
 
 ### The Cluster Autoscaler ###
+	1. Adds nodes to cluster whenever it detects pending pods (could not be scheduled due to resource shortages)
+	2. Removes nodes from cluster, whenever utilization of node falls below certain threshold defined by cluster administrator
+3. It ensures that underlying cluster infrastructure is elastic and scalable and can meet changing demands of workloads on top of it
+
 ## Cluster Autoscaler Best Practices ##
 ### Use the Correct Version of Cluster Autoscaler ###
+1. Cluster autoscaler can be used with recommended Kubernetes version (because new features are being released periodically)
+	1. [List of compatibility of different cluster autoscaler versions with Kubernetes versions](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler#releases)
+
 ### Ensure Cluster Nodes have the Same Capacity ###
+1. Cluster autoscaler works correctly only with Kubernetes node groups/instance groups that have nodes with same capacity
+
 ### Ensure Every Pod has Resource Requests Defined ###
 ### Specify PodDisruptionBudget for kube-system Pods ###
 ### Specify PodDisruptionBudget for Application Pods ###
