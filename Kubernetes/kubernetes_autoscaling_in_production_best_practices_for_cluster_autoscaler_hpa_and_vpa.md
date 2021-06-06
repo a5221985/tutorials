@@ -48,9 +48,14 @@
 	1. Since scaling decisions are based on
 		1. Scheduling status of pods
 		2. Utilization of individual nodes
-	3. 
+	3. Scale down - cluster autoscaler will scale down nodes that have a utilization less than specified threshold
+		1. [Utilization](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca) - calculated as sum of requested resources divided by capacity
+			1. They might be off if any pods or containers without resource requests are present (it leads to suboptimal functioning)
+	4. Best practice: Ensure that all pods, scheduled to run in autoscaled node group/ instance group have resource requests specified
 
 ### Specify PodDisruptionBudget for kube-system Pods ###
+1. 
+
 ### Specify PodDisruptionBudget for Application Pods ###
 ### Avoid using the Cluster Autoscaler with more than 1000 Node Clusters ###
 ### Ensure Resource Availability for the Cluster Autoscaler Pod ###
