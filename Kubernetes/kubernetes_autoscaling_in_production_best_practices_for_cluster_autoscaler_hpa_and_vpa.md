@@ -35,8 +35,21 @@
 
 ### Ensure Cluster Nodes have the Same Capacity ###
 1. Cluster autoscaler works correctly only with Kubernetes node groups/instance groups that have nodes with same capacity
+	1. Works under the assumption that each individual node in the node group has same CPU and memory capacity ([Assumption](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-up-work))
+	2. Template nodes are created for each node group and autoscaling decisions are made based on the template node
+	3. Best practice: Ensure that instance group that is being autoscaled via cluster autoscaler has instances/nodes of same type
+		1. For Public cloud providers (AWS say) - not optimal
+			1. Diversification and availability considerations dictate use of multiple instance types
+			2. Cluster autoscaler supports node groups with mixed instance types but we must ensure that the instance types have same resource footprint
+				1. They have same amount of CPU and memory resources
 
 ### Ensure Every Pod has Resource Requests Defined ###
+1. Specifying resource requests is essential for it to function correctly
+	1. Since scaling decisions are based on
+		1. Scheduling status of pods
+		2. Utilization of individual nodes
+	3. 
+
 ### Specify PodDisruptionBudget for kube-system Pods ###
 ### Specify PodDisruptionBudget for Application Pods ###
 ### Avoid using the Cluster Autoscaler with more than 1000 Node Clusters ###
