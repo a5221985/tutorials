@@ -56,7 +56,9 @@
 ### Specify PodDisruptionBudget for kube-system Pods ###
 1. Kube-system pods - by default prevent cluster autoscaler from [scaling down](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-to-set-pdbs-to-enable-ca-to-move-kube-system-pods) the node the pods are running on
 	1. If the pods end up on different nodes, they prevent cluster from scaling down
-2. 
+2. To avoid situations where nodes cannot be scaled down due to system pods
+	1. Best practice - specify pod disruption budget for the pods
+		1. [Pod disruption budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) - Avoids kubernetes administrators to avoid disriptions to critical pods and ensure desired number of the pods is always running
 
 ### Specify PodDisruptionBudget for Application Pods ###
 ### Avoid using the Cluster Autoscaler with more than 1000 Node Clusters ###
