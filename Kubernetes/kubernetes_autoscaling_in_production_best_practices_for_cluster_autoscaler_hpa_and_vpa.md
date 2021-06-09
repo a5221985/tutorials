@@ -54,7 +54,9 @@
 	4. Best practice: Ensure that all pods, scheduled to run in autoscaled node group/ instance group have resource requests specified
 
 ### Specify PodDisruptionBudget for kube-system Pods ###
-1. 
+1. Kube-system pods - by default prevent cluster autoscaler from [scaling down](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-to-set-pdbs-to-enable-ca-to-move-kube-system-pods) the node the pods are running on
+	1. If the pods end up on different nodes, they prevent cluster from scaling down
+2. 
 
 ### Specify PodDisruptionBudget for Application Pods ###
 ### Avoid using the Cluster Autoscaler with more than 1000 Node Clusters ###
