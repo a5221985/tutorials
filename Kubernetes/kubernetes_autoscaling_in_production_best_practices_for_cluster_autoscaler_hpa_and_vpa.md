@@ -92,8 +92,14 @@
 	1. Node utilization - sum of requested resources of all pods divided by the capacity
 2. If we over provision requests, it can cause pods not utilizing requested resources efficiently
 	1. Leads to lower overall node utilization
+	2. If resource requests are high, cluster autoscaler calculates higher utilization level for node and may not scale it down
+3. Best practice: Ensure pod's requested resources are comparable to actual resource usage/consumption
+	1. Use virtual pod autoscaler (VPA) - good starting point
+	2. Decision can be based on historical resource usage and consumption of pods
 
 ### Over-Provision Cluster to Ensure head room for Critical pods ###
+1. 
+
 #### To recap here are the recommended best practices for the cluster autoscaler on Kubernetes: ####
 
 ## HorizontalPodAutoscaler (HPA) Best Practices ##
