@@ -57,10 +57,18 @@
 1. Kube-system pods - by default prevent cluster autoscaler from [scaling down](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-to-set-pdbs-to-enable-ca-to-move-kube-system-pods) the node the pods are running on
 	1. If the pods end up on different nodes, they prevent cluster from scaling down
 2. To avoid situations where nodes cannot be scaled down due to system pods
-	1. Best practice - specify pod disruption budget for the pods
+	2. Best practice - specify pod disruption budget for the pods
 		1. [Pod disruption budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) - Avoids kubernetes administrators to avoid disriptions to critical pods and ensure desired number of the pods is always running
+	3. Consider number of replicas of pods provisioned by default
+		1. Kube-dns is only system pod that has multiple running replcas by default
+			1. Most others run as single instance pods and restarting them could result in disruptions to cluster
+		2. Best practice - Avoid building disruption budget for single instance pods (like metrics-server)
 
 ### Specify PodDisruptionBudget for Application Pods ###
+1. Another best practice - specify pod disruption budget for [application pods](https://kubernetes.io/docs/tasks/run-application/configure-pdb/#protecting-an-application-with-a-poddisruptionbudget)
+	1. Ensures that pod autoscaler does not scale down pod replicas below certain minimum number
+		1. Protects critical applications from disruptions and ensures high availability
+
 ### Avoid using the Cluster Autoscaler with more than 1000 Node Clusters ###
 ### Ensure Resource Availability for the Cluster Autoscaler Pod ###
 ### Ensure Resource Requests are Close to Actual Usage ###
