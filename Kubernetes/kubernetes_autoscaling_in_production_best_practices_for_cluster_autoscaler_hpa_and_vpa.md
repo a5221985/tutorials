@@ -77,9 +77,14 @@
 ### Avoid using the Cluster Autoscaler with more than 1000 Node Clusters ###
 1. For cluster autoscaler to remain responsive
 	1. Ensure cluster does not exceed certain size
-2. [Offical]()
+2. [Offical](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/proposals/scalability_tests.md#ca-scales-to-1000-nodes) - scalability and responsiveness service level (for cluster autoscaler) is 1000 nodes with each node running 30 pods.
+3. Best practice - Ensure cluster footprint does not exceed specified scalability limit
 
 ### Ensure Resource Availability for the Cluster Autoscaler Pod ###
+1. Ensure resource availability for autoscaler to work for larger clusters
+	1. Best practice - set resource requests of cluster autoscaler pod to minimum of 1 CPU
+2. Ensure that the node the cluster autoscaler is running on has enough resources available to support it
+
 ### Ensure Resource Requests are Close to Actual Usage ###
 ### Over-Provision Cluster to Ensure head room for Critical pods ###
 #### To recap here are the recommended best practices for the cluster autoscaler on Kubernetes: ####
