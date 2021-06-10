@@ -189,9 +189,12 @@
 		3. Automatically set resource limit values based on limit to request ratios specified as part of container template
 
 ### Use the Correct Kubernetes Version ###
-
+1. Version 0.4 and later of `VerticalPodAutoscaler` requires custom resource definition capabilities (min Kubernetes version 1.11)
+	1. Version 0.3 is recommended for earlier Kubernetes versions
 
 ### Install metrics-server and Prometheus ###
+1. VPA makes scaling decisions based on usage and utilization metrics from Prometheus and metrics-server
+
 ### Avoid using HPA and VPA in tandem ###
 ### Use VPA together with Cluster Autoscaler ###
 ### To recap here are the recommended best practices for VPA: ###
