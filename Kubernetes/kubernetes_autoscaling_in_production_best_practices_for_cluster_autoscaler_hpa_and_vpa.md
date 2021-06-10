@@ -98,7 +98,10 @@
 	2. Decision can be based on historical resource usage and consumption of pods
 
 ### Over-Provision Cluster to Ensure head room for Critical pods ###
-1. 
+1. [Service Level Objective](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-service-level-objectives-for-cluster-autoscaler) - Cluster autoscaler has SLO of 30 seconds latency between time a pod is marked as unschedulable to time that it requests scale-up to cloud provider
+	1. The latency benchmark is for smaller clusters (< 100 nodes)
+		1. ~ 60 seconds for clusters up to 1000 nodes
+2. 
 
 #### To recap here are the recommended best practices for the cluster autoscaler on Kubernetes: ####
 
