@@ -84,8 +84,15 @@
 1. Ensure resource availability for autoscaler to work for larger clusters
 	1. Best practice - set resource requests of cluster autoscaler pod to minimum of 1 CPU
 2. Ensure that the node the cluster autoscaler is running on has enough resources available to support it
+	1. Running cluster autoscaler pod on a node with resource pressure can lead to degraded performance
+		1. Cluster autoscaler might even become non-responsive
 
 ### Ensure Resource Requests are Close to Actual Usage ###
+1. Cluster autoscaler makes scaling decisions based on the pressure of pending pods and utilization of individual nodes
+	1. Node utilization - sum of requested resources of all pods divided by the capacity
+2. If we over provision requests, it can cause pods not utilizing requested resources efficiently
+	1. Leads to lower overall node utilization
+
 ### Over-Provision Cluster to Ensure head room for Critical pods ###
 #### To recap here are the recommended best practices for the cluster autoscaler on Kubernetes: ####
 
