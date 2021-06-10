@@ -114,10 +114,23 @@
 						1. The head room for over provisioned Cluster can be controller by specifying size of pause pods
 
 #### To recap here are the recommended best practices for the cluster autoscaler on Kubernetes: ####
+1. Use correct version of Cluster autoscaler
+2. Ensure cluster nodes have same capacity
+3. Ensure every pod has resource requests defined
+4. Specify PodDisruptionBudget for kube-system pods
+5. Specify PodDisruptionBudget for application pods
+6. Avoid using Cluster autoscaler with more than 1000 node clusters
+7. Ensure resource availability for cluster autoscaler pod
+8. Ensure resource requests are close to actual usage
+9. Over-provision cluster to ensure head room for critical pods
 
 ## HorizontalPodAutoscaler (HPA) Best Practices ##
+1. It scales number of pods in a replication controller, deployment, replica set or stateful set based on CPU utilization
+2. It can also be configured to make scaling decisions based on [custom](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-custom-metrics) or [external](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#autoscaling-on-metrics-not-related-to-kubernetes-objects) metrics
+
 ### Ensure all Pods have Resource Requests Configured ###
 ### Install metrics-server ###
+
 #### Configure Custom or External Metrics ####
 ### Prefer Custom Metrics over External Metrics whenever Possible ###
 ### Configure Cooldown Period ###
