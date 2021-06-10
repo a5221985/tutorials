@@ -101,7 +101,17 @@
 1. [Service Level Objective](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-service-level-objectives-for-cluster-autoscaler) - Cluster autoscaler has SLO of 30 seconds latency between time a pod is marked as unschedulable to time that it requests scale-up to cloud provider
 	1. The latency benchmark is for smaller clusters (< 100 nodes)
 		1. ~ 60 seconds for clusters up to 1000 nodes
-2. 
+2. Time taken for pod to be scheduled (for scale up) and new node getting provisioned (as a result) depends on cloud provider
+	1. It can be several minutes
+	2. Solution: To avoid delay and ensure pods spend as little time as possible in unschedulable state
+		1. Over provision the cluster
+			1. Accomplished by using a deployment with pause pods
+			2. **Pause pods: Dummy pods spun up exclusively to reserve space for other higher priority pods**
+				1. Pause pods are assigned very low priority & Kubernetes scheudler will remove then to make space for unscheduled pods with higher priority
+					1. This ensures that critical pods do not have to wait for new node to be provisioned by cloud provider
+						1. The critical pods can be quickly scheduled on already existing nodes (replacing pause pods)
+					2. When pause pods re-spawn, they become unschedulable resulting in cluster scaling up
+						1. The head room for over provisioned Cluster can be controller by specifying size of pause pods
 
 #### To recap here are the recommended best practices for the cluster autoscaler on Kubernetes: ####
 
