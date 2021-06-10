@@ -139,10 +139,27 @@
 1. HPA makes scaling decisions based on per-pod resource metrics retrieved from resource metrics API (metrics.k8s.io)
 	1. metrics.k8s.io API - provided by metrics-server
 	2. **Best practice** - [launch](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server) metrics-server in Kubernetes cluster as cluster add-on
+	3. **Best practice** - set `--horizontal-pod-autoscaler-use-rest-clients` to `true` or unset
+		1. Important - If set to `false`, gets reverted to Heapster (depreacted as of Kubernetes 1.11)
 
 #### Configure Custom or External Metrics ####
+1. Two types of cusotm metrics supported
+	1. pod and object metrics
+		1. [Pod metrics](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#autoscaling-on-multiple-metrics-and-custom-metricshttps://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#autoscaling-on-multiple-metrics-and-custom-metrics) - Averaged across all pods and only support `target` type of `AverageValue`
+			1. Object metrics can describe any other object in same namespace and support `target` types of `Value` and `AverageValue`
+2. **Best practice** - Ensure correct `target` type is used for pod and object metrics
+3. External metrics
+	1. Allows HPA to autoscale applications based on metrics provided by third party monitoring sytems
+		1. External metrics support `target` types of `Value` and `AverageValue`
+
 ### Prefer Custom Metrics over External Metrics whenever Possible ###
+1. Prefer custom metrics over external metrics
+	1. External metrics API takes more effort to secure than custom metrics API
+	2. It could potentially allow access to all metrics
+
 ### Configure Cooldown Period ###
+1. 
+
 ### To recap here are the Horizontal Pod Autoscaler (HPA) best practices ###
 
 ## Vertical Pod Autoscaler (VPA) Best Practices ##
