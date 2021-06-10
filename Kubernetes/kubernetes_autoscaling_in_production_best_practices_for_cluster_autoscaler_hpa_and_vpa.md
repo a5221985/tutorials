@@ -127,9 +127,18 @@
 ## HorizontalPodAutoscaler (HPA) Best Practices ##
 1. It scales number of pods in a replication controller, deployment, replica set or stateful set based on CPU utilization
 2. It can also be configured to make scaling decisions based on [custom](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-custom-metrics) or [external](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#autoscaling-on-metrics-not-related-to-kubernetes-objects) metrics
+3. It can be used to ensure that critical applications are elastic and can scale out to meet increasing demand and scale down to ensure optimal [resource usage](https://www.replex.io/blog/7-things-you-can-do-today-to-reduce-aws-kubernetes-costs)
 
 ### Ensure all Pods have Resource Requests Configured ###
+1. HPA makes scaling decisions based on observed CPU utilisation values of pods that are part of Kubernetes controller
+	1. [Utilisation](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/autoscaling/horizontal-pod-autoscaler.md#horizontalpodautoscaler-object) - values calculated as percentage of resource requests of individual pods
+		1. Missing request values for some containers might throw off utilisation calculations of HPA controller leading to suboptimal operation and scaling decisions
+2. Best practice - Ensure that resource request values are configured for all containers for each individual pod (it is part of Kubernetes controller being scaled using HPA)
+
 ### Install metrics-server ###
+1. HPA makes scaling decisions based on per-pod resource metrics retrieved from resource metrics API (metrics.k8s.io)
+	1. metrics.k8s.io API - provided by metrics-server
+	2. **Best practice** - [launch](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server) metrics-server in Kubernetes cluster as cluster add-on
 
 #### Configure Custom or External Metrics ####
 ### Prefer Custom Metrics over External Metrics whenever Possible ###
