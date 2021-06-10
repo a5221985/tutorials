@@ -68,8 +68,17 @@
 1. Another best practice - specify pod disruption budget for [application pods](https://kubernetes.io/docs/tasks/run-application/configure-pdb/#protecting-an-application-with-a-poddisruptionbudget)
 	1. Ensures that pod autoscaler does not scale down pod replicas below certain minimum number
 		1. Protects critical applications from disruptions and ensures high availability
+		2. Can be specified using `.spec.minAvailable` and `.spec.maxUnavailable` fields
+			1. `.spec.minAvailable` - Specifies number of pods that must be available after eviction
+				1. Absolute number or percentage
+			2. `.spec.maxUnavailable` - Specifies maximum number of pods that can be unavailable after eviction
+				1. Absolute number or percentage
 
 ### Avoid using the Cluster Autoscaler with more than 1000 Node Clusters ###
+1. For cluster autoscaler to remain responsive
+	1. Ensure cluster does not exceed certain size
+2. [Offical]()
+
 ### Ensure Resource Availability for the Cluster Autoscaler Pod ###
 ### Ensure Resource Requests are Close to Actual Usage ###
 ### Over-Provision Cluster to Ensure head room for Critical pods ###
