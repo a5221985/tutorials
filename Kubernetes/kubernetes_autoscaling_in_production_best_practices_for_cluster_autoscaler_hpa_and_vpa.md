@@ -165,12 +165,32 @@
 		1. This is passed to kube-controller manager
 		2. The default value is 5 minuts
 			1. Duration HPA waits after downscale event before initiating another downscale operation
-3. 
+3. HPA tolerates 10% change in desired to actual metrics ratio before scaling
+	1. The value can be changed by configuring `horizontal-pod-autoscaler-tolerance` flag
+		1. [configurable flags](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details)
+			1. `--horizontal-pod-autoscaler-cpu-initialization-period`
+			2. `--horizontal-pod-autoscaler-initial-readiness-delay`
+			3. `--horizontal-pod-autoscaler-sync-period`
+		2. The values depend on cluster and application requirements
 
 ### To recap here are the Horizontal Pod Autoscaler (HPA) best practices ###
+1. Ensure all pods have resource requests specified
+2. Install metrics-server
+3. Configure custom or external metrics
+4. Prefer custom metrics over external metrics
+5. Configure cool-down period
 
 ## Vertical Pod Autoscaler (VPA) Best Practices ##
+1. [VPA](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) - automatically sets resource request and limit values of containers based on usage
+	1. Aims to reduce maintenance overhead of configuring resource requests and limits for containers and improve utilization of cluster resources
+	2. VerticalPodAutoscaler can
+		1. Reduce request value for containers whose resource usage is consistently lower than requested amount
+		2. Increase request values for containers that consistently use high percentage of resources requested
+		3. Automatically set resource limit values based on limit to request ratios specified as part of container template
+
 ### Use the Correct Kubernetes Version ###
+
+
 ### Install metrics-server and Prometheus ###
 ### Avoid using HPA and VPA in tandem ###
 ### Use VPA together with Cluster Autoscaler ###
