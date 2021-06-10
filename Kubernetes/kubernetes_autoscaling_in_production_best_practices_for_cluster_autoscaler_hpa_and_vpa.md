@@ -158,7 +158,14 @@
 	2. It could potentially allow access to all metrics
 
 ### Configure Cooldown Period ###
-1. 
+1. Scaling events might be received in quick succession without a period between the scaling events
+	1. Leads to [thrashing](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay) - where number of replicas fluctuates frequently (not desirable)
+2. To get around this and specify cooling period:
+	1. Configure `--horizontal-pod-autoscaler-downscale-stabilization`
+		1. This is passed to kube-controller manager
+		2. The default value is 5 minuts
+			1. Duration HPA waits after downscale event before initiating another downscale operation
+3. 
 
 ### To recap here are the Horizontal Pod Autoscaler (HPA) best practices ###
 
