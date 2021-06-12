@@ -239,7 +239,30 @@
 	1. Shows **Connected**
 
 ### Destroy the Demo ###
-1. 
+1. Go to `terraform/azure/01-create-aks-cluster`
+
+		cd terraform/azure/01-create-aks-cluster
+	
+2. Run the following:
+
+		terraform destroy
+		
+	1. The operation can take upto 10 minutes
 
 ### Explanation ###
+1. Additional steps:
+	1. Creation of Golang web application
+	2. Building Docker containers for each part of the application
+	3. Configuring Consul and Kubernetes from init containers
+	4. Writing YAML to deploy containers and associated environment variables
+2. The code can be reviewed for the additional steps
+	1. [Entire application and all configuration](https://github.com/hashicorp/demo-consul-101/tree/master/k8s) in `k8s`
+	2. [YAML for Kubernetes](https://github.com/hashicorp/demo-consul-101/tree/master/k8s/04-yaml-connect-envoy) - in `04-yaml-connect-envoy`
+		1. Includes configuration for `counting` and `dashboard` services
+			1. Including annotations to enable Consul Connect service mesh sidecar proxies and send environment variables to relevant Docker containers
+	3. [Application containers](https://github.com/hashicorp/demo-consul-101/tree/master/k8s/counting-service)
+		1. In `counting-service` and `dashboard-service`
+		2. They run several microservices and accept configuration via environment variables
+
 ### Next Steps ###
+1. 
