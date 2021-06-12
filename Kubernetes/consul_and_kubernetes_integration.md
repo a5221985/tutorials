@@ -21,6 +21,7 @@
 
 #### Consul Connect Service Mesh ####
 1. Consul can inject Consul connect sidecar into pods
-	1. To accept and establish encrypted and authorized network connections via mutual TLS
+	1. To accept and establish encrypted and authorized network connections via mutual TLS.
+2. Allows pods to communicate with external services (and vice versa) over fully encrypted connection
 
 ### Getting Started with Consul and Kubernetes ###
