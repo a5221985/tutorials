@@ -164,9 +164,13 @@
 	1. Dashboard should open in web browser
 
 ### Consul Configuration ###
-
+1. We can now install Consul to cluster
+2. Consul can run inside or outside of Kubernetes cluster
+	1. In this demo, we use containers to run Consul inside Kubernetes pods
 
 #### Install Consul with Helm ####
+1. 
+
 ### Deploy Microservices ###
 ### Configure Intentions ###
 ### Destroy the Demo ###
