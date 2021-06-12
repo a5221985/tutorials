@@ -24,4 +24,8 @@
 	1. To accept and establish encrypted and authorized network connections via mutual TLS.
 2. Allows pods to communicate with external services (and vice versa) over fully encrypted connection
 
+#### Service Sync to Enable Kubernetes and non-Kubernetes Services to Communicate ####
+1. Consul can sync Kubernetes services with its own service registry
+	1. Allows Kubernetes services to use native Kubernetes service discovery to discover and connect to external services registered in Consul & for external services to use Consul service discovery to discover and connect to Kubernetes services
+
 ### Getting Started with Consul and Kubernetes ###
