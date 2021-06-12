@@ -169,7 +169,26 @@
 	1. In this demo, we use containers to run Consul inside Kubernetes pods
 
 #### Install Consul with Helm ####
-1. 
+1. Move out to `k8s` directory in project
+
+		cd ~/demo-consul-101/k8s
+		
+2. Add Helm Chart repository
+
+		helm repo add hashicorp https://helm.releases.hashicorp.com
+		
+	1. Optionally open `helm-consul-values.yaml` (`code config.yaml`) file with `code` to review config that Helm chart will use
+		1. Datacenter name is specified
+		2. Load balancer is configured
+		3. Consul UI will be exposed through load balancer
+	
+				# code helm-consul-values.yaml
+				code config.yaml
+				
+3. Use `helm` to install Consul using `hashicorp/consul` chart
+
+		# helm install azure hashicorp/consul -f helm-consul-values.yaml
+		helm install azure hashicorp/consul -f config.yaml
 
 ### Deploy Microservices ###
 ### Configure Intentions ###
