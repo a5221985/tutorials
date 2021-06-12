@@ -265,4 +265,12 @@
 		2. They run several microservices and accept configuration via environment variables
 
 ### Next Steps ###
-1. 
+1. Terraform config for AKS and Helm can make the process more consistent and automated
+2. Helm charts and Docker containers run microservices and connect to each other securely with Consul Connect service mesh
+3. Further steps can be taken to
+	1. Secure the entire datacenter
+	2. Connect to other Consul datacenters
+	3. To deploy additional microservices that can find each other with Consul service discovery
+	4. Connect securely with Consul Connect service mesh
+4. Additional reference documentation on Azure Kubernetes Services or HashiCorp Consul
+	1. [Azure Kubernetes Workshop]()
