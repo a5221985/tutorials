@@ -189,8 +189,19 @@
 
 		# helm install azure hashicorp/consul -f helm-consul-values.yaml
 		helm install azure hashicorp/consul -f config.yaml
+		
+	1. Wait for few minutes for pods to spin up
+4. View Consul UI in browser
+
+		kubectl get service azure-consul-ui --watch
+		
+	1. Open the `EXTERNAL-IP` in browser
+	2. Core DNS lookups might fail for few minutes (which may prevent Consul from starting properly)
+	3. Nodes screen shows Consul servers and agents running
 
 ### Deploy Microservices ###
+1. 
+
 ### Configure Intentions ###
 ### Destroy the Demo ###
 ### Explanation ###
