@@ -208,7 +208,14 @@
 
 		kubectl apply -f 04-yaml-connect-envoy
 		
-	1. A `counting` pod and `dashboard` pods should get created
+	1. A `counting` pod and `dashboard` pod should get created
+	2. A load balancer for `dashboard` should get created
+6. Run the following command to get IP address of dashboard
+
+		kubectl get service dashboard-load-balancer --watch
+		
+	1. Open `EXTERNAL-IP`
+	2. 
 
 ### Configure Intentions ###
 ### Destroy the Demo ###
