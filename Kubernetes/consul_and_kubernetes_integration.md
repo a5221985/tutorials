@@ -108,7 +108,25 @@
 	
 			cd demo-consul-101/k8s/terraform/azure/01-create-aks-cluster
 			
-2. Run `az` command	
+2. Run `az` command with arguments to instantiate an Active Directory service principal account for the demo
+	1. We get JSON snippet that includes `appId`, `password`, ...
+
+			az ad sp create-for-rbac --skip-assignment
+			
+			{
+				"appId": "aaaa-aaaa-aaaa",
+				"displayName": "azure-cli-2019-04-11-00-46-05",
+				"name": "http://azure-cli-2019-04-11-00-46-05",
+				"password": "aaaa-aaaa-aaaa",
+				"tenant": "aaaa-aaaa-aaaa"
+			}
+			
+	2. Use the values to configure Terraform
+		1. Open new `terraform.tfvars` file in in-browser text editor (`code`)
+
+				code terraform.tfvars
+		
+		
 
 ### Enable the Kubernetes Dashboard ###
 ### Consul Configuration ###
