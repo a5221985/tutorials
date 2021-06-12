@@ -28,4 +28,22 @@
 1. Consul can sync Kubernetes services with its own service registry
 	1. Allows Kubernetes services to use native Kubernetes service discovery to discover and connect to external services registered in Consul & for external services to use Consul service discovery to discover and connect to Kubernetes services
 
+#### And more! ####
+1. Consul can run on Kubernetes
+2. Any other tool built for Kubernetes can choose to leverage Consul
+
 ### Getting Started with Consul and Kubernetes ###
+1. Ways to try Consul with Kubernetes
+
+#### Tutorials ####
+1. [Getting Started with Consul Service Mesh](https://learn.hashicorp.com/tutorials/consul/service-mesh?utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS)
+	1. For installing Consul as service mesh for Kubernetes using Helm chart
+	2. Deploying services in service mesh
+	3. Using intensions to secure service communications
+2. [Migrate to Microservices with Consul Service Mesh on Kubernetes](https://learn.hashicorp.com/collections/consul/microservices?utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS)
+	1. Uses example application to illustrate why and how organizations can migrate from monolith to microservices using Consul service mesh on Kubernetes
+		1. Info for understanding how to develop services that leverage Consul during any stage of microservices journey
+3. [Consul and Minikube guide](https://learn.hashicorp.com/tutorials/consul/kubernetes-minikube?utm_source=consul.io&utm_medium=docs)
+	1. Quick step-by-step guide for deploying Consul with official Helm chart on local instance of Minikube
+
+#### Documentation ####
