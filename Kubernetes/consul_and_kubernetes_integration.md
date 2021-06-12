@@ -273,4 +273,5 @@
 	3. To deploy additional microservices that can find each other with Consul service discovery
 	4. Connect securely with Consul Connect service mesh
 4. Additional reference documentation on Azure Kubernetes Services or HashiCorp Consul
-	1. [Azure Kubernetes Workshop]()
+	1. [Azure Kubernetes Workshop](https://aksworkshop.io/)
+	2. [Consul API Docs](https://www.consul.io/api/index.html)
