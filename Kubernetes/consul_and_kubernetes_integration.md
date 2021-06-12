@@ -153,7 +153,13 @@
 				}
 
 ### Enable the Kubernetes Dashboard ###
-1. 
+1. To use Kubernetes dashboard, we have to instantiate `ClusterRoleBinding`
+
+		kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+		
+2. Run the following command to open a new web browser tab with Kubernetes dashboard
+
+		az aks browse --resource-group demo-rg --name demo-aks
 
 ### Consul Configuration ###
 #### Install Consul with Helm ####
