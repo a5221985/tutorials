@@ -69,3 +69,29 @@
 	1. How to install Consul using Helm chart
 2. [Helm Chart Reference](https://www.consul.io/docs/k8s/helm)
 	1. Different options for configuring Helm chart
+
+## Deploy Consul on Azure Kubernetes Service (AKS) ##
+### Introduction ###
+1. Task: Deploy Consul Datacenter on Azure Kubernetes Service (AKS) with official Helm Chart
+	1. No need to update any values in Helm chart for basic installation
+		1. But we can define values file with parameters to allow access to Consul UI
+			1. Azure Friday Demo
+2. Security
+	1. The demo will install insecure configuration of Consul
+		1. Refer to [Kubernetes Documentation](https://www.consul.io/docs/platform/k8s/index.html) to determine how can we secure Consul on Kubernetes in production
+	2. It is recommended to use secured Kubernetes cluster or make sure we understand and enable recommended security features
+
+### Prerequisites ###
+1. 
+
+### Watch the Azure Friday Demo - Optional ###
+### AKS Configuration ###
+### Construct an AKS Cluster with Terraform ###
+### Enable the Kubernetes Dashboard ###
+### Consul Configuration ###
+#### Install Consul with Helm ####
+### Deploy Microservices ###
+### Configure Intentions ###
+### Destroy the Demo ###
+### Explanation ###
+### Next Steps ###
