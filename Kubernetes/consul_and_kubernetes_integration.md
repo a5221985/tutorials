@@ -82,11 +82,34 @@
 	2. It is recommended to use secured Kubernetes cluster or make sure we understand and enable recommended security features
 
 ### Prerequisites ###
-1. 
+1. An Azure account
+2. [Azure Cloud Shell](https://shell.azure.com/)
+	1. All tools needed are installed
+		1. [Cloud Shell](https://shell.azure.com/)
+			1. To run the examples (Linux bash shell is used)
+3. Code:
+
+		git clone https://github.com/hashicorp/demo-consul-101.git
+		
+	1. Clone the repo in cloud shell first
+	2. The example uses Terraform 0.12 and Helm 3 wich are installed on Azure Cloud Shell
 
 ### Watch the Azure Friday Demo - Optional ###
+1. [Video](https://youtu.be/Y6mXqn1faFo)
+
 ### AKS Configuration ###
-### Construct an AKS Cluster with Terraform ###
+1. We will instantiate a Kubernetes Cluster on Azure Kubernetes Service
+2. Run Consul on it (with few microservices) which use Consul to discover each other and communicate securely with Consul Connect (Consul's service mesh feature)
+
+#### Construct an AKS Cluster with Terraform ####
+1. Generate AKS cluster
+	1. Terraform is used with the features needed for the demo
+	2. Change to `k8s/terraform/azure/01-create-aks-cluster` directory
+	
+			cd demo-consul-101/k8s/terraform/azure/01-create-aks-cluster
+			
+2. Run `az` command	
+
 ### Enable the Kubernetes Dashboard ###
 ### Consul Configuration ###
 #### Install Consul with Helm ####
