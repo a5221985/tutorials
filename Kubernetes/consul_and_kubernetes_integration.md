@@ -160,8 +160,12 @@
 2. Run the following command to open a new web browser tab with Kubernetes dashboard
 
 		az aks browse --resource-group demo-rg --name demo-aks
+		
+	1. Dashboard should open in web browser
 
 ### Consul Configuration ###
+
+
 #### Install Consul with Helm ####
 ### Deploy Microservices ###
 ### Configure Intentions ###
