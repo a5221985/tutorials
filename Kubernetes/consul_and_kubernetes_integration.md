@@ -45,5 +45,27 @@
 		1. Info for understanding how to develop services that leverage Consul during any stage of microservices journey
 3. [Consul and Minikube guide](https://learn.hashicorp.com/tutorials/consul/kubernetes-minikube?utm_source=consul.io&utm_medium=docs)
 	1. Quick step-by-step guide for deploying Consul with official Helm chart on local instance of Minikube
+4. Production best practices and cloud-specific configurations for deploying Consul on managed Kubernetes runtimes
+	1. [Consul on Azure Kubernetes Service (AKS)](https://learn.hashicorp.com/tutorials/consul/kubernetes-aks-azure?utm_source=consul.io&utm_medium=docs)
+		1. Complete step by step guide on how to deploy Consul on AKS
+		2. Practice deploying two microservices
+	2. [Consul on Amazon Elastic Kubernetes Service (EKS)](https://learn.hashicorp.com/tutorials/consul/kubernetes-eks-aws?utm_source=consul.io&utm_medium=docs)
+		1. Step by step guide on how to deploy Consul on EKS
+		2. Provides guidance on interacting with datacenter with Consul UI, CLI, and API
+	3. [Consul on Google Kubernetes Engine (GKE) Tutorial](https://learn.hashicorp.com/tutorials/consul/kubernetes-gke-google?utm_source=consul.io&utm_medium=docs)
+		1. Step by step guide on how to deploy Consul on GKE
+		2. Provides guidance on interacting with datacenter with Consul UI, CLI, and API
+5. [Consul and Kubernetes Reference Architecture](https://learn.hashicorp.com/tutorials/consul/kubernetes-reference-architecture?utm_source=consul.io&utm_medium=docs)
+	1. Provides recommended practices for production
+6. [Consul and Kubernetes Deployment](https://learn.hashicorp.com/tutorials/consul/kubernetes-deployment-guide?utm_source=consul.io&utm_medium=docs)
+	1. Necessary steps to install and configure new Consul cluster on Kubernetes in production
+7. [Secure Consul and Registered Services on Kubernetes](https://learn.hashicorp.com/tutorials/consul/kubernetes-secure-agents?in=consul/kubernetes)
+	1. Necessary steps to secure a Consul cluster running on Kubernetes in production
+8. [Layer 7 Observability with Consul Service Mesh](https://learn.hashicorp.com/tutorials/consul/kubernetes-layer7-observability)
+	1. Covers monitoring Consul service mesh running on Kubernetes with Prometheus and Grafana
 
 #### Documentation ####
+1. [Installing Consul](https://www.consul.io/docs/k8s/installation/install)
+	1. How to install Consul using Helm chart
+2. [Helm Chart Reference](https://www.consul.io/docs/k8s/helm)
+	1. Different options for configuring Helm chart
