@@ -200,7 +200,15 @@
 	3. Nodes screen shows Consul servers and agents running
 
 ### Deploy Microservices ###
-1. 
+1. Deploying few containers that container microservices
+2. `counting` service returns JSON (backend) snippet with an incrementing number
+3. `dashboard` service displays the numberthat it finds from `counting` service + displays debugging info when backend service can be found or is unreachable
+4. `04-yaml-connect-envoy` contain yaml files for the microservices
+5. Use `kubectl` to apply
+
+		kubectl apply -f 04-yaml-connect-envoy
+		
+	1. A `counting` pod and `dashboard` pods should get created
 
 ### Configure Intentions ###
 ### Destroy the Demo ###
