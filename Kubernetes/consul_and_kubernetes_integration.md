@@ -219,8 +219,27 @@
 		1. Increments count every few seconds
 
 ### Configure Intentions ###
-1. 
+1. Consul can be configured to allow access between services or block access
+	1. Go to Consul UI IP
+	2. Find **Intentions** tab
+	3. Click **Create**
+		1. Source Service: * (All Services)
+		2. Destination Service: * (All Services)
+		3. Deny
+		4. Save
+2. Refresh browser 
+	1. (Counting Service is Unreachable)
+3. Go to Consul UI IP
+	1. Add another Intention
+		1. Click **Create**
+		2. Select **Source Service** of **dashboard** and a **Destination Service** of **counting**
+		3. Select **Allow**
+		4. Click **Save**
+4. Refresh Browser
+	1. Shows **Connected**
 
 ### Destroy the Demo ###
+1. 
+
 ### Explanation ###
 ### Next Steps ###
