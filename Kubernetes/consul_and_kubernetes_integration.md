@@ -126,9 +126,35 @@
 
 				code terraform.tfvars
 		
+			1. Edit contents
+
+					# terraform.tfvars
+					appId="<paste-addId>"
+					password="<paste-password>"
+					
+3. Initialize Terraform project
+
+		terraform init
 		
+4. Run `terraform apply` to instantiate cluster
+	1. Respond with `yes` when prompted
+	2. It may take upto 10 minutes to providion the AKS cluster
+	3. Review Terraform files to check config code needed for AKS
+		1. `role_based_access_control` must be used
+
+				resource "azurerm_kubernetes_cluster" "default" {
+					# ...
+					
+					role_based_access_control {
+					enabled = true
+					}
+					
+					# ...
+				}
 
 ### Enable the Kubernetes Dashboard ###
+1. 
+
 ### Consul Configuration ###
 #### Install Consul with Helm ####
 ### Deploy Microservices ###
