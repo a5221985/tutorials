@@ -215,9 +215,12 @@
 		kubectl get service dashboard-load-balancer --watch
 		
 	1. Open `EXTERNAL-IP`
-	2. 
+	2. The page shows number that was fetched from backend `counting` API.
+		1. Increments count every few seconds
 
 ### Configure Intentions ###
+1. 
+
 ### Destroy the Demo ###
 ### Explanation ###
 ### Next Steps ###
