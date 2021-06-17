@@ -1,7 +1,10 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 SFMono-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0\c87059;\cssrgb\c100000\c100000\c100000;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
 \paperw11900\paperh16840\margl1440\margr1440\vieww12620\viewh13660\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -60,4 +63,65 @@
 \b0 \
 https://devcentral.f5.com/s/articles/Using-NGINX-Controller-API-Management-Module-and-NGINX-App-Protect-to-secure-Open-Banking-transactions\
 \
-}
+Rate Limiting with Nginx Ingress Controller:\
+https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#rate-limiting\
+\
+\pard\pardeftab720\sl440\sa240\partightenfactor0
+
+\f1\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Rate Limiting{\field{\*\fldinst{HYPERLINK "https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#rate-limiting"}}{\fldrslt \'b6}}\
+\pard\pardeftab720\sl360\sa320\partightenfactor0
+
+\fs32 \cf2 These annotations define limits on connections and transmission rates. These can be used to mitigate\'a0{\field{\*\fldinst{HYPERLINK "https://www.nginx.com/blog/mitigating-ddos-attacks-with-nginx-and-nginx-plus"}}{\fldrslt DDoS Attacks}}.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl320\sa160\partightenfactor0
+\ls1\ilvl0
+\f2\fs27\fsmilli13600 \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 nginx.ingress.kubernetes.io/limit-connections
+\f1\fs32 : number of concurrent connections allowed from a single IP address. A 503 error is returned when exceeding this limit.\cb1 \
+\ls1\ilvl0
+\f2\fs27\fsmilli13600 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 nginx.ingress.kubernetes.io/limit-rps
+\f1\fs32 : number of requests accepted from a given IP each second. The burst limit is set to this limit multiplied by the burst multiplier, the default multiplier is 5. When clients exceed this limit,\'a0{\field{\*\fldinst{HYPERLINK "https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#limit-req-status-code"}}{\fldrslt limit-req-status-code}}\'a0
+\i\b default:
+\i0\b0 \'a0503 is returned.\cb1 \
+\ls1\ilvl0
+\f2\fs27\fsmilli13600 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 nginx.ingress.kubernetes.io/limit-rpm
+\f1\fs32 : number of requests accepted from a given IP each minute. The burst limit is set to this limit multiplied by the burst multiplier, the default multiplier is 5. When clients exceed this limit,\'a0{\field{\*\fldinst{HYPERLINK "https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#limit-req-status-code"}}{\fldrslt limit-req-status-code}}\'a0
+\i\b default:
+\i0\b0 \'a0503 is returned.\cb1 \
+\ls1\ilvl0
+\f2\fs27\fsmilli13600 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 nginx.ingress.kubernetes.io/limit-burst-multiplier
+\f1\fs32 : multiplier of the limit rate for burst size. The default burst multiplier is 5, this annotation override the default multiplier. When clients exceed this limit,\'a0{\field{\*\fldinst{HYPERLINK "https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#limit-req-status-code"}}{\fldrslt limit-req-status-code}}\'a0
+\i\b default:
+\i0\b0 \'a0503 is returned.\cb1 \
+\ls1\ilvl0
+\f2\fs27\fsmilli13600 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 nginx.ingress.kubernetes.io/limit-rate-after
+\f1\fs32 : initial number of kilobytes after which the further transmission of a response to a given connection will be rate limited. This feature must be used with\'a0{\field{\*\fldinst{HYPERLINK "https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#proxy-buffering"}}{\fldrslt proxy-buffering}}\'a0enabled.\cb1 \
+\ls1\ilvl0
+\f2\fs27\fsmilli13600 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 nginx.ingress.kubernetes.io/limit-rate
+\f1\fs32 : number of kilobytes per second allowed to send to a given connection. The zero value disables rate limiting. This feature must be used with\'a0{\field{\*\fldinst{HYPERLINK "https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#proxy-buffering"}}{\fldrslt proxy-buffering}}\'a0enabled.\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl320\partightenfactor0
+\ls1\ilvl0
+\f2\fs27\fsmilli13600 \cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 nginx.ingress.kubernetes.io/limit-whitelist
+\f1\fs32 : client IP source ranges to be excluded from rate-limiting. The value is a comma separated list of CIDRs.\cb1 \
+\pard\pardeftab720\sl360\sa320\partightenfactor0
+\cf2 \cb3 If you specify multiple annotations in a single Ingress rule, limits are applied in the order\'a0
+\f2\fs27\fsmilli13600 limit-connections
+\f1\fs32 ,\'a0
+\f2\fs27\fsmilli13600 limit-rpm
+\f1\fs32 ,\'a0
+\f2\fs27\fsmilli13600 limit-rps
+\f1\fs32 .\
+To configure settings globally for all Ingress rules, the\'a0
+\f2\fs27\fsmilli13600 limit-rate-after
+\f1\fs32 \'a0and\'a0
+\f2\fs27\fsmilli13600 limit-rate
+\f1\fs32 \'a0values may be set in the\'a0{\field{\*\fldinst{HYPERLINK "https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#limit-rate"}}{\fldrslt NGINX ConfigMap}}. The value set in an Ingress annotation will override the global setting.\
+The client IP address will be set based on the use of\'a0{\field{\*\fldinst{HYPERLINK "https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#use-proxy-protocol"}}{\fldrslt PROXY protocol}}\'a0or from the\'a0
+\f2\fs27\fsmilli13600 X-Forwarded-For
+\f1\fs32 \'a0header value when\'a0{\field{\*\fldinst{HYPERLINK "https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#use-forwarded-headers"}}{\fldrslt use-forwarded-headers}}\'a0is enabled.}
