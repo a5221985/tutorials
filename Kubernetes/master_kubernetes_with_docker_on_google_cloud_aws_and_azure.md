@@ -912,7 +912,9 @@
 
 ## GKE - Integrating Java Spring Boot Microservices on Kubernetes with Istio ##
 ### Step 01 - Constructing new Kubernetes Cluster for Playing with Istio ###
-
+1. Istio - Service mesh
+	1. Another container exists along with ours in the same pod
+		1. More powerful cluster is required
 
 ### Step 02 - Understanding Service Mesh, Istio and Sidecar Pattern ###
 ### Step 03 - Installing Istio on Kubernetes Cluster - CRD and Istio Components ###
