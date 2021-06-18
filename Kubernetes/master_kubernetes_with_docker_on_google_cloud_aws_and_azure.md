@@ -909,3 +909,22 @@
 8. Unit Testing
 9. Interview Guides
 10. Search for github in28minutes learn
+
+## GKE - Integrating Java Spring Boot Microservices on Kubernetes with Istio ##
+### Step 01 - Constructing new Kubernetes Cluster for Playing with Istio ###
+
+
+### Step 02 - Understanding Service Mesh, Istio and Sidecar Pattern ###
+### Step 03 - Installing Istio on Kubernetes Cluster - CRD and Istio Components ###
+### Step 04 - Review Istio Installation and Deploy Spring Boot App with Side Cars ###
+### Step 05 - Increasing Kubernetes Cluster Size to 3 Nodes ###
+### Step 06 - Understanding Gateways and Virtual Services for Istio ###
+### Step 07 - Basic Deployment Strategies - Rolling Updates and Recreate ###
+### Step 08 - Setting up Multiple Versions of Spring Boot Applications ###
+### Step 09 - Configure Destination Rules and Subsets to Implement Mirroring ###
+### Step 10 - Executing Blue Green and Canary Deployments with Kubernetes ###
+### Step 11 - Review Spring Boot Microservices Integration with Istio ###
+### Step 12 - Observing Istio Service Mesh with Kiali ###
+### Step 13 - Monitoring Istio Service Mesh with Graphana and Prometheus ###
+### Step 14 - Distribute Tracing for Spring Boot Microservices with Istio and Jaegar ###
+### Step 15 - Delete Kubernetes Cluster for Playing with Istio ###
