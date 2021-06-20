@@ -945,13 +945,25 @@
 		2. `curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.2.2 sh -`
 			1. `istio-1.2.2` directory
 			2. `ls istio-1.2.2/install/kubernetes/helm/istio-init/files/crd*yaml`
-				1. Used to initialize istio
-		3. `cd 
+				1. Used to initialize istio (Custom Resource Definitions (CRD))
+		3. `cd istio-1.2.2`
+		4. `for i in install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl apply -f $i; done`
 		3. `helm template install/kubernetes/helm/istio --name istio --set global.mtls.enabled=false --set tracing.enabled=true --set kiali.enabled=true --set grafana.enabled=true --namespace istio-system > istio.yaml`
+			1. Enable Kiali
+			2. Enable Grafana
+			3. ...
 		4. `kubectl apply -f istio.yaml`
 		5. `kubectl label namespace default istio-injection=enabled`
 
 ### Step 04 - Review Istio Installation and Deploy Spring Boot App with Side Cars ###
+1. `kubectl get pods --namespace istio-system`
+2. `kubectl get services --namespace istio-system`
+	1. Kiali
+	2. Prometheus
+	3. Grafana
+	4. Jaeger
+3. `gcloud container clusters get-credentials in28minutes-cluster-istio --zone us-central1-a --project solid-course-258105`
+
 ### Step 05 - Increasing Kubernetes Cluster Size to 3 Nodes ###
 ### Step 06 - Understanding Gateways and Virtual Services for Istio ###
 ### Step 07 - Basic Deployment Strategies - Rolling Updates and Recreate ###
