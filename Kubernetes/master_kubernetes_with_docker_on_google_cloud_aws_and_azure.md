@@ -963,6 +963,16 @@
 	3. Grafana
 	4. Jaeger
 3. `gcloud container clusters get-credentials in28minutes-cluster-istio --zone us-central1-a --project solid-course-258105`
+4. `pwd`
+	1. `in28minutes/git/kubernetes-crash-course/11-istio-scripts-and-configuration`
+	2. `ls`
+	3. We can expose only Cluster IP of a service (Istio can be used to expose the endpoints)
+	4. `kubectl apply -f 01-helloworld-deployment.yaml`
+	5. `kubectl get pods`
+	6. `kubectl get all -o wide`
+	7. `kubectl describe pod <pod-id>`
+		1. Enable adding Istio Side Cars in each pod
+			1. `kubectl label namespace default isito-injection=enabled`
 
 ### Step 05 - Increasing Kubernetes Cluster Size to 3 Nodes ###
 ### Step 06 - Understanding Gateways and Virtual Services for Istio ###
