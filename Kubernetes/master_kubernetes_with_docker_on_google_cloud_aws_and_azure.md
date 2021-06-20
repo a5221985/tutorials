@@ -972,7 +972,7 @@
 	6. `kubectl get all -o wide`
 	7. `kubectl describe pod <pod-id>`
 		1. Enable adding Istio Side Cars in each pod
-			1. `kubectl label namespace default isito-injection=enabled`
+			1. `kubectl label namespace default isito-injection=enabled` - injects into each pod
 
 ### Step 05 - Increasing Kubernetes Cluster Size to 3 Nodes ###
 ### Step 06 - Understanding Gateways and Virtual Services for Istio ###
