@@ -922,7 +922,18 @@
 				4. Click **Create**
 
 ### Step 02 - Understanding Service Mesh, Istio and Sidecar Pattern ###
-1. 
+1. Import > 09-currency-exchange-istio
+2. Import > 10-currency-conversion-istio
+3. Kubernetes Architecture
+	1. If microservices are in the same pod, they are scaled together
+	2. The microservices have common functionality
+		1. Service discovery
+		2. Logging
+		3. Distributed tracing
+		4. Release Automation (Release Strategy)
+	3. A container can be deployed along side the microservice to take care of common functionality
+		1. The requests get routed through second container (Itio)
+			1. 
 
 ### Step 03 - Installing Istio on Kubernetes Cluster - CRD and Istio Components ###
 ### Step 04 - Review Istio Installation and Deploy Spring Boot App with Side Cars ###
