@@ -938,7 +938,18 @@
 
 ### Step 03 - Installing Istio on Kubernetes Cluster - CRD and Istio Components ###
 1. Launch Cloud Shell
-	1. 
+	1. `gcloud container clusters get-credentials in28minutes-cluster-istio --zone us-central1-a --project solid-course-258105`
+		1. Careful with the cluster
+	2. Install Istio related stuff
+		1. `kubectl create namespace istio-system`
+		2. `curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.2.2 sh -`
+			1. `istio-1.2.2` directory
+			2. `ls istio-1.2.2/install/kubernetes/helm/istio-init/files/crd*yaml`
+				1. Used to initialize istio
+		3. `cd 
+		3. `helm template install/kubernetes/helm/istio --name istio --set global.mtls.enabled=false --set tracing.enabled=true --set kiali.enabled=true --set grafana.enabled=true --namespace istio-system > istio.yaml`
+		4. `kubectl apply -f istio.yaml`
+		5. `kubectl label namespace default istio-injection=enabled`
 
 ### Step 04 - Review Istio Installation and Deploy Spring Boot App with Side Cars ###
 ### Step 05 - Increasing Kubernetes Cluster Size to 3 Nodes ###
