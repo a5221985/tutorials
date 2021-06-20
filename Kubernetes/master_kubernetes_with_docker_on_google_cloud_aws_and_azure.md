@@ -933,9 +933,13 @@
 		4. Release Automation (Release Strategy)
 	3. A container can be deployed along side the microservice to take care of common functionality
 		1. The requests get routed through second container (Itio)
-			1. 
+			1. Can be used to implement logging, distributed tracing, ...
+		2. This is known as side-car
 
 ### Step 03 - Installing Istio on Kubernetes Cluster - CRD and Istio Components ###
+1. Launch Cloud Shell
+	1. 
+
 ### Step 04 - Review Istio Installation and Deploy Spring Boot App with Side Cars ###
 ### Step 05 - Increasing Kubernetes Cluster Size to 3 Nodes ###
 ### Step 06 - Understanding Gateways and Virtual Services for Istio ###
