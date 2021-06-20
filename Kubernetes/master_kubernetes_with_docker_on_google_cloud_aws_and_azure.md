@@ -915,8 +915,15 @@
 1. Istio - Service mesh
 	1. Another container exists along with ours in the same pod
 		1. More powerful cluster is required
+			1. GKE - Kubernetes Engine
+				1. Create Cluster (Only 8 vCPUs allowed with free trial, another project? upto 12 vCPUs in total)
+				2. Series: N2
+				3. Do not enable Enable Istio (beta)
+				4. Click **Create**
 
 ### Step 02 - Understanding Service Mesh, Istio and Sidecar Pattern ###
+1. 
+
 ### Step 03 - Installing Istio on Kubernetes Cluster - CRD and Istio Components ###
 ### Step 04 - Review Istio Installation and Deploy Spring Boot App with Side Cars ###
 ### Step 05 - Increasing Kubernetes Cluster Size to 3 Nodes ###
