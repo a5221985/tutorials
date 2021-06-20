@@ -975,8 +975,15 @@
 			1. `kubectl label namespace default isito-injection=enabled` - injects into each pod
 	8. `/in28minutes/git/kubernetes-crash-course/11-istio-scripts-and-configuration`
 	9. `kubectl apply -f 01-helloworld-deployment.yaml`
+	10. `kubectl logs hello-world-rest-api-<num> hello-world-rest-api -f`
+		1. `pod` name and `container` name
+			1. No sufficient ports
+			2. `kubectl get pods`
+				1. `kubectl delete pods <pod-name>`
 
 ### Step 05 - Increasing Kubernetes Cluster Size to 3 Nodes ###
+1. 
+
 ### Step 06 - Understanding Gateways and Virtual Services for Istio ###
 ### Step 07 - Basic Deployment Strategies - Rolling Updates and Recreate ###
 ### Step 08 - Setting up Multiple Versions of Spring Boot Applications ###
