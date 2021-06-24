@@ -2505,7 +2505,9 @@
 										1. Use cases:
 											1. Same user will not write data to two locations at the same time (Taxi booking say)
 												1. No conflict in this case
-		2. 
+												2. If I go to the other data center, I will be writing to the other data center
+													1. It will get propagated to the other data center
+																	3. In cases there are write conflicts, we need a system to resolve it
 
 ### Auto Scaling Instances ###
 ### Micro-Services Architecture ###
