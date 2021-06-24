@@ -2572,7 +2572,27 @@
 1. Why we need to do or should not use microservices for large scale system
 
 ### Micro-Services Motivation ###
-1. 
+1. Micro-services architecture
+	1. Sometimes, we take a middle path between SOA and microservices architecture
+		1. We must be clear what microservices architecture is & what SOA is
+2. Architecture
+	1. How it impacts end users
+		1. Performance
+		2. Scalability
+		3. Cost
+		4. ...
+	2. Benefits
+		1. For team
+			1. These are secondary
+3. Primary impacts
+	1. Motivations
+		1. High scalability (decentralization and independenc)
+			1. How microservices provides this?
+		2. Frequent Deployment
+			1. Incremental features can be delivered to customer at a higher frequency
+				1. Positive impact on the business
+		3. Internal benefits
+			1. 
 
 ### Service Oriented Architecture ###
 ### Micro-Services Architecture Style ###
