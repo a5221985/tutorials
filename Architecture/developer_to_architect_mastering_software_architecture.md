@@ -2507,7 +2507,24 @@
 												1. No conflict in this case
 												2. If I go to the other data center, I will be writing to the other data center
 													1. It will get propagated to the other data center
-																	3. In cases there are write conflicts, we need a system to resolve it
+				3. In cases there are write conflicts, we need a system to resolve it
+				4. If a region goes down, we must not switch quickly to the other region
+					1. We need to absolutely ensure that it is down
+						1. If we switch in quick succession, we might get write conflicts
+			2. Failover is quick
+				1. DNS routing works well in this case
+				2. DNS if updated, it takes a few minutes to switch over
+			3. Some data loss is a possibility
+				1. Asynchronous replication
+					1. Between two master servers
+						1. There can be a data loss
+					2. Synchronous replication?
+						1. Not practically feasible between two geographies
+							1. Latency is high (takes long time to sync up)
+								1. Write performance of database will go down
+							2. Connectivity might get broken
+								1. We cannot complete our transaction (we need both masters for synchronization)
+					3. Master-master replication is generally asynchronous
 
 ### Auto Scaling Instances ###
 ### Micro-Services Architecture ###
