@@ -2554,7 +2554,16 @@
 	2. Components:
 		1. Monitoring & Health Check
 			1. Requests coming to instances through load balancer
-			2. The monitoring & health check system 
+			2. The monitoring & health check system monitors CPU load, network load, disk usage, ...
+			3. Health check system determines how much load the system is subjected to
+				1. This information is constantly related to autoscaler
+		2. AutoScaler if informed that system is under load, it launches new instances
+			1. Pulls out VM/Container image
+			2. Registers the new instance with LB
+				1. The traffic coming to LB will now get distributed to the new instance as well
+			3. If load goes down and if Monitoring & Health Check system detects it, the AutoScaler deregisters one or more instances and then brings down one or more instances
+		3. If as system admin, we configure that we do not want more than 70% to 80% load on an instance, we need to start new instances if that happens
+		4. We don't want delay so we don't want creation of new instances but we want images loaded with requisite software and pull it
 
 ### Micro-Services Architecture ###
 ### Micro-Services Motivation ###
