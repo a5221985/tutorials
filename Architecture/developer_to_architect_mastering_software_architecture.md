@@ -2525,8 +2525,37 @@
 							2. Connectivity might get broken
 								1. We cannot complete our transaction (we need both masters for synchronization)
 					3. Master-master replication is generally asynchronous
+					4. Suppose a data center goes down, apac region may not get the data written in north america region
+						1. User should be communicated appropriately
+						2. There should be processes to handle this data loss
+6. Master-master replication can be used to write data to two geographies simultaneously
 
 ### Auto Scaling Instances ###
+1. Monitoring Service
+	1. Monitor Load
+		1. CPU
+		2. Network
+		3. Disk
+	2. Monitor Health
+		1. Ping
+		2. Http
+2. Auto-Saling Service
+	1. Configure load threasholds
+	2. Monitor load
+	3. Launch New Instance
+	4. Shutdown Instance
+3. Description:
+	1. Autoscaling application when application is under load
+		1. Homegrown system
+		2. Cloud
+			1. Autoscaling frameworks
+		3. If load is increasing, then manual process is not practically feasible (say within 5 minutes)
+			1. Human error factors go away
+	2. Components:
+		1. Monitoring & Health Check
+			1. Requests coming to instances through load balancer
+			2. The monitoring & health check system 
+
 ### Micro-Services Architecture ###
 ### Micro-Services Motivation ###
 ### Service Oriented Architecture ###
