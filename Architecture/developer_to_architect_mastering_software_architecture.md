@@ -2563,10 +2563,17 @@
 				1. The traffic coming to LB will now get distributed to the new instance as well
 			3. If load goes down and if Monitoring & Health Check system detects it, the AutoScaler deregisters one or more instances and then brings down one or more instances
 		3. If as system admin, we configure that we do not want more than 70% to 80% load on an instance, we need to start new instances if that happens
-		4. We don't want delay so we don't want creation of new instances but we want images loaded with requisite software and pull it
+		4. We don't want delay so we don't want creation of new instances but we want images loaded with requisite software and pull it (very min configuration)
+			1. The only runtime configuration
+				1. New IP address
+					1. AutoScaler will register the new instance using the IP address (say)
 
 ### Micro-Services Architecture ###
+1. Why we need to do or should not use microservices for large scale system
+
 ### Micro-Services Motivation ###
+1. 
+
 ### Service Oriented Architecture ###
 ### Micro-Services Architecture Style ###
 ### Transactions in Micro-Services ###
