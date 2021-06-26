@@ -127,7 +127,22 @@
 		1. Academic - TO go to university (can be for job reasons)
 		2. General Training - Job or Immigration
 	2. What do we take to take?
-	3. Reading exam - 
+	3. Reading exam - Takes 1 hour
+		1. Not given any extra time to transfer answers to answer sheet
+			1. Move answers per section to the answer sheet
+	4. The details
+		1. Exam paper
+			1. Can write all over it
+		2. Answer sheet
+			1. Practice transferring answers wthin the hour
+		3. Writing answers down
+			1. Can use an (erasable) pen or pencil (so bring an eraser)
+		4. Word count
+			1. Academic: 750-900 words per text
+			2. General Training: fewer words in the first section
+				1. Text 3 is similar to the one in academic
+		5. IELTS Answer sheet
+			1. 
 
 ### READING Test: FAQs ###
 ### READING Academic Test #1 (for Academic IELTS students ONLY) ###
