@@ -271,6 +271,26 @@
 		3. can increase font size
 		4. copy/paste possible for gap-fill questions (to avoid spelling mistakes)
 		5. navigating forward and backwards can be confusing
+6. Can I get extra paper to write on?
+	1. No
+		1. You'll simply have to use the question paper conservatively
+			1. Keep it small and don't write too much
+		2. You can't bring in your own paper
+7. Will 'standard' English be used?
+	1. Yes
+		1. Only standard English will be used, but spelling might be American (Standard - American, Australian, English, South African, New Zealand...)
+			1. If we choose American spelling, we need to use American in Writing
+				1. Reading and Listening - it does not matter
+		2. A note on jargon
+			1. **Jargon** - words and expressions used in a particular profession or by a particular group of people, which are difficult for other people to understand - often used to show disapproval
+				1. You're likely to encounter it in Section 3. Jargon that needs defining* will be asterisked.
+					1. *i.e. not deducable from context, and necessary to understand in order to answer a question
+8. How many questions are there?
+	1. Academic
+		1. Section 1: +-13 questions
+		2. Section 2: +-13 questions
+		3. Section 3: +-14 questions
+	2. General Training
 
 ### READING Academic Test #1 (for Academic IELTS students ONLY) ###
 ### READING Academic Test #1 - Feedback ###
