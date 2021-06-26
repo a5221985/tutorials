@@ -246,6 +246,31 @@
 				2. 39 - 8.5
 				3. 37-38 - 8.0
 				4. ...
+	2. Do I lose points for incorrect answers?
+		1. No
+			1. You get points for correct answers
+				1. Points will never be removed once you've got them
+					1. Never leave an answer blank - guess the answer
+2. What order to the questions and answers come it?
+	1. It depends on the task type
+		1. Most of the exam is in order (answers are in the order of questions)
+		2. Sometimes in order
+			1. Usually in order (tables say)
+		3. Fill in multiple answers
+		4. Never in order
+			1. Matching
+			2. Diagram
+3. Can I write on the question paper?
+	1. Yes, of course (use pencil - circling, highlighting)
+		1. We should actually
+			1. Recommend against doing computer-based-test - making notes is more difficult
+	2. CBT (own headphones)
+		1. text on the left, questions on the right
+		2. right-click to highlight, but limited note taking (on paper only)
+			1. Note taking is very important
+		3. can increase font size
+		4. copy/paste possible for gap-fill questions (to avoid spelling mistakes)
+		5. navigating forward and backwards can be confusing
 
 ### READING Academic Test #1 (for Academic IELTS students ONLY) ###
 ### READING Academic Test #1 - Feedback ###
