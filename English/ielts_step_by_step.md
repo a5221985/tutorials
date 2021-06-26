@@ -142,7 +142,28 @@
 			2. General Training: fewer words in the first section
 				1. Text 3 is similar to the one in academic
 		5. IELTS Answer sheet
-			1. 
+			1. Select either academic or general training
+			2. Can be marked by computer (computer should be able to undertand)
+				1. If computer cannot recognize, it might take time to get the results
+		6. Three sections. The number of tests depends on the exam (Ac or GT)
+			1. Academic - 3 always
+			2. General - upto 6
+			3. Sections
+				1. Section 1 - Easier text(s)
+				2. Section 2 - More difficult text(s)
+				3. Section 3 - Academic text (both formats)
+		7. Differences
+			1. Academic
+				1. One text. General interst at undergraduate level
+					1. Examples: sociology, biology, history from, e.g. academic journals, textbooks, relevant magazines
+						1. Example: Newscientist.com
+				2. One academic or general interest text at undergraduate or early postgraduate level
+					1. Examples: same as section 1
+			2. General Training
+				1. Two or three texts. Relatively short and easy. Everyday life.
+					1. Examples: e.g. job adverts, travel information notices, safety information
+					2. Strong student can go over them a little quicker
+						1. Double check the answers even if it is an easier section
 
 ### READING Test: FAQs ###
 ### READING Academic Test #1 (for Academic IELTS students ONLY) ###
