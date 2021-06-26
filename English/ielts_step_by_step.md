@@ -210,9 +210,43 @@
 				1. No vocabulary or grammar exam in IELTS
 					1. Everything is tested within the sections
 						1. Writing - marks reduced
-						2. Reading, Listening - 0 marks if even single error mistake 
+						2. Reading, Listening - 0 marks if even single error mistake
+			2. Hiphen - important
+				1. sugar-free alternatives
+	5. Words or just letters?
+		1. You have to put letters (and not actual answers) in certain cases
+3. What are the question types?
+	1. Matching headings (most common)
+	2. True, False, Not given - Yes, No, Not given
+	3. Matching paragraph information
+	4. Summary completion
+	5. Sentence completion
+	6. Short answer questions
+	7. Table or flow chart completion
+	8. Diagram labeling
+	9. Multiple choice - List selection
+	10. Choosing a title
+	11. Categorisation
+	12. Matching sentence endings
+4. Reading needs enough practice
+	1. Practice
+		1. Read academic style texts
+		2. Advertising, company policy, safety notices (boring stuff)
+			1. We need to get used to this type of texts
 
 ### READING Test: FAQs ###
+1. Scoring
+	1. How do I work out my IELTS Reading score?
+		1. ieltstutorials.online/score-calculator
+			1. Academic
+				1. 19-22 - 5.5
+				2. 27-29 - 6.5
+			2. General
+				1. 40 - 9.0
+				2. 39 - 8.5
+				3. 37-38 - 8.0
+				4. ...
+
 ### READING Academic Test #1 (for Academic IELTS students ONLY) ###
 ### READING Academic Test #1 - Feedback ###
 ### READING General Training Test #1 (for General Training students ONLY ###
