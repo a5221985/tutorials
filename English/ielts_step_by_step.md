@@ -157,13 +157,45 @@
 				1. One text. General interst at undergraduate level
 					1. Examples: sociology, biology, history from, e.g. academic journals, textbooks, relevant magazines
 						1. Example: Newscientist.com
-				2. One academic or general interest text at undergraduate or early postgraduate level
+				2. One academic or general interest text at undergraduate or early postgraduate level (masters)
 					1. Examples: same as section 1
+				3. One academic text at late undergraduate or postgraduate level (masters)
+					1. Examples: same as section 1
+						1. Example: Development of museums, Birdmen
 			2. General Training
 				1. Two or three texts. Relatively short and easy. Everyday life.
 					1. Examples: e.g. job adverts, travel information notices, safety information
 					2. Strong student can go over them a little quicker
 						1. Double check the answers even if it is an easier section
+				2. Two texts related to work
+					1. E.g. job application or company handbook
+					2. Examples: job adverts, travel information notices, safety information
+						1. Formal dress code
+						2. Advice for immigrants
+						3. Staff benefits
+				3. One longer text discussing academic or abstract topics
+					1. Examples: magazine or newspaper article (or textbooks from university)
+2. Filling in the answers
+	1. Capitalise or not?
+		1. it's up to you
+			1. Recommended - capitalize everything (computer marks so easy for computer to understand)
+	2. How many words?
+		1. What do the instructions actually mean?
+			1. Rubrics (instructions for tasks) - It is in Italics
+				1. *Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer*
+					1. Important to read
+						1. Example: 12 fresh crabs (acceptable)
+						2. fresh crabs
+						3. crabs
+						4. 12
+						5. fresh atlantic crabs (three words is wrong)
+						6. more than 12 crabs (is wrong)
+						7. twelve fresh crabs (wrong)
+						8. 12 to 20 crabs (wrong)
+	3. Include grammar words?
+		1. When are they required?
+	4. What about spelling?
+		1. Is it important?
 
 ### READING Test: FAQs ###
 ### READING Academic Test #1 (for Academic IELTS students ONLY) ###
