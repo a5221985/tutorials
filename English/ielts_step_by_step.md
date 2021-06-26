@@ -287,10 +287,21 @@
 					1. *i.e. not deducable from context, and necessary to understand in order to answer a question
 8. How many questions are there?
 	1. Academic
-		1. Section 1: +-13 questions
-		2. Section 2: +-13 questions
-		3. Section 3: +-14 questions
+		1. Section 1: +/- 13 questions
+		2. Section 2: +/- 13 questions
+		3. Section 3: +/- 14 questions
 	2. General Training
+		1. Section 1: +/- 14 in total
+		2. Section 2: 6/7 questions per text
+		3. Section 3: +/- 14 questions
+9. 40 in total - 1 point each
+	1. All questions demands same time somewhat
+10. Can I just write T instead of True?
+	1. Yes
+		1. And you can write
+			1. Y instead of Yes
+			2. NG instead of Not Given, etc.
+	2. Remember not to mix up Yes with True and No with False
 
 ### READING Academic Test #1 (for Academic IELTS students ONLY) ###
 ### READING Academic Test #1 - Feedback ###
