@@ -192,10 +192,25 @@
 						6. more than 12 crabs (is wrong)
 						7. twelve fresh crabs (wrong)
 						8. 12 to 20 crabs (wrong)
+						9. 'a' is also a word
 	3. Include grammar words?
 		1. When are they required?
+			1. 'a', 'the', ...
+			2. Are articles, prepositions, etc important? (depends)
+				1. Is it a note or a table/form? (how to tell this?)
+					1. If bullet points and no fullstop (no need to use a or the)
+						1. Don't think about grammer (like title in a newspaper)
+					2. If : is used
+				2. Is the answer part of a full sentence? (how to tell this?)
+					1. If fullstop exists, grammer is important
+						1. Do not add words not already there
 	4. What about spelling?
 		1. Is it important?
+			1. Yes - spelling mistakes are not okay
+				1. No vocabulary or grammar exam in IELTS
+					1. Everything is tested within the sections
+						1. Writing - marks reduced
+						2. Reading, Listening - 0 marks if even single error mistake 
 
 ### READING Test: FAQs ###
 ### READING Academic Test #1 (for Academic IELTS students ONLY) ###
