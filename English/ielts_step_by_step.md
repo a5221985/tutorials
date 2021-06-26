@@ -302,8 +302,16 @@
 			1. Y instead of Yes
 			2. NG instead of Not Given, etc.
 	2. Remember not to mix up Yes with True and No with False
+10. Can I use brackets in my answer?
+	1. No
+		1. Never use brackets in your answers
+			1. garden(s)
+				1. garden (use this) OR
+				2. gardens (use this)
 
 ### READING Academic Test #1 (for Academic IELTS students ONLY) ###
+1. [IELTS Academic Reading Test](https://www.udemy.com/course/ielts-step-by-step-all-skills-7-preparation-course/learn/lecture/21788480#content)
+
 ### READING Academic Test #1 - Feedback ###
 ### READING General Training Test #1 (for General Training students ONLY ###
 ### READING General Training Test #1 - Feedback ###
