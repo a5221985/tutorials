@@ -320,7 +320,30 @@
 
 ### READING General Training Test #1 - Feedback ###
 ### LISTENING Exam: General Info ###
-1. 
+1. Who?
+	1. 25% of marks
+	2. IELTS listening exam is the same for students taking the Academic (Ac) and General Training (GT)
+2. How long?
+	1. Takes 40 minutes
+		1. 30 minutes - actual exam
+		2. 10 minutes - transferring the answers to the answer sheet
+3. Details
+	1. The audio
+		1. You'll hear it only once
+	2. The answer sheet
+		1. Practice transferring your answers (keep it in mind)
+	3. Writing your answers down
+		1. We have to use a pencil (only)
+			1. Writing - pen is allowed
+	4. Similar to Reading answer sheet
+	5. Computer checks
+		1. Underscores for language code
+4. There are 4 sections. 10 points per section. 40 points in total
+	1. Section 1: Social (2 speakers)
+		1. 
+	2. Section 2: Social (1 speaker)
+	3. Section 3: academic (2 or 3 speakers (4 as well))
+	4. Section 4: academic (1 speaker) & technical
 
 ### LISTENING Exam FAQs ###
 ### LISTENING Test #1 ###
