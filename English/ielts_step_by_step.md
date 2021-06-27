@@ -377,13 +377,46 @@
 		1. An academic task
 			1. Minimum of two people talking - usually three (but up to four)
 				1. Young/old student & young/old professor
+					1. Confusing to work out who is talking if it is 4
 		2. Examples:
-			1. Discussing a project
-			2. Planning an academic presentation
+			1. Discussing a project (how to complete a project)
+			2. Planning an academic presentation (working on own or with tutor)
+				1. Advice from tutor and we need to take notes
 			3. Asking a university tutor for advice
 		3. Task type
 			1. Multiple
 	4. Section 4: academic (1 speaker) & technical
+		1. An academic talk
+			1. Usually a university lecture
+			2. One academic talking
+				1. One professor
+				2. One tutor
+				3. One scientist
+				4. ...
+		2. Example:
+			1. Lecture about biology, economic, business, history, etc... (technical and scientif words exists)
+				1. Don't worry about difficult words
+				2. Just focus on answers
+		3. Task type
+			1. Usually sentence completion
+				1. Fill in word or words
+5. Filling in the answers
+	1. Capitalise or not?
+		1. It's up to you
+			1. It is allowed in reading and listening (recommended)
+				1. Not allowed in writing
+				2. It will be clearer for computer
+		2. Read Rubric (similar to Reading section)
+	2. How many words?
+		1. What do the instructions actually mean? (understanding this)
+	3. Include 'grammar words'?
+		1. When are they required? (full stops)
+	4. What about spelling?
+		1. Is it important?
+6. Are articles, prepositions, etc important?
+	1. Note, table, or form
+		1. a, the, ... are not important
+		2. Usually one word is acceptable
 
 ### LISTENING Exam FAQs ###
 ### LISTENING Test #1 ###
