@@ -340,9 +340,49 @@
 		1. Underscores for language code
 4. There are 4 sections. 10 points per section. 40 points in total
 	1. Section 1: Social (2 speakers)
-		1. 
+		1. An everyday activity
+			1. Always two people
+			2. Usually a telephone conversation
+			3. Example:
+				1. Booking a restaurant
+				2. Asking about a music festival
+				3. Claiming insurance
+				4. Buying ticket
+				5. ...
+			4. Task type (almost always)
+				1. Note completion - someone taking notes for someone (Family excursions say)
+				2. From completion - info about person speaking (name, address, job, age, what they are interested in)
 	2. Section 2: Social (1 speaker)
+		1. A social/ work activity
+			1. One person talking
+			2. Introduction or talk (about something people don't know)
+				1. Example: Giving info about an activity to do in next hour or day say
+		2. Examples:
+			1. Explaining what a company does
+				1. Investors say
+				2. People who want to use the company say
+			2. Welcoming people to a tourist attraction
+				1. Physical
+				2. Phone in to a free number
+				3. ...
+					1. What is happening this week
+			3. Explaining a new job
+				1. Cheff in the kitchen is explaining to a person who wants to start the job
+		3. Task type
+			1. Multiple types
+				1. Table completion
+				2. Form completion
+				3. ...
 	3. Section 3: academic (2 or 3 speakers (4 as well))
+		1. An academic task
+			1. Minimum of two people talking - usually three (but up to four)
+				1. Young/old student & young/old professor
+		2. Examples:
+			1. Discussing a project
+			2. Planning an academic presentation
+			3. Asking a university tutor for advice
+		3. Task type
+			1. Multiple
 	4. Section 4: academic (1 speaker) & technical
 
 ### LISTENING Exam FAQs ###
