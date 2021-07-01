@@ -415,8 +415,18 @@
 		1. Is it important?
 6. Are articles, prepositions, etc important?
 	1. Note, table, or form
-		1. a, the, ... are not important
+		1. Articles a, the, ... are not important
+			1. If only one word is acceptable, put one word (no gap sometimes)
+			2. : - just the answer (the, a, ... are not required)
+			3. . at the end? a, the, ... are required (sentences)
 		2. Usually one word is acceptable
+7. Are small spelling mistakes okay?
+	1. No. There is no vocabulary or grammar exam in the IELTS (within the sections)
+	2. Your vocabulary and grammar is tested in the listening, reading, writing and speaking tests
+		1. A spelling mistake = 0 points
+		2. `-` might have to be used sometimes
+			1. `sugar-free` - single adjective
+8. 
 
 ### LISTENING Exam FAQs ###
 ### LISTENING Test #1 ###
