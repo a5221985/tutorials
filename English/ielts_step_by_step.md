@@ -455,6 +455,19 @@
 		2. The answers are too, usually (Person being spoken about)
 			1. Exceptions:
 				1. Single question but answer choices might be jumbled (to choose right choices and the order might be different)
+				2. Maps & Diagrams (answers are arranged differently but numbers are in the natural order)
+	4. Can I write on the question paper?
+		1. Yes, of course
+			1. In fat, we really should
+				1. Use 10 minutes at the end to neatly fill in the answers
+					1. Use eraser if made mistake
+				2. computer-based-test - not recommended by instructor
+					1. Cons
+						1. You can't skip ahead to see the questions in then next section
+						2. Only 2 minutes (instead of 10) to check yur answers at the end
+						3. You get a pen and paper, but you have to type at the same time that you listen (no question paper to write on)
+						4. Navigating forward and backwards can be confusing
+							1. There are examples to practice
 
 ### LISTENING Test #1 ###
 ### LISTENING Test #1 - Feedback ###
