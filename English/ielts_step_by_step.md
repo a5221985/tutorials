@@ -468,6 +468,13 @@
 						3. You get a pen and paper, but you have to type at the same time that you listen (no question paper to write on)
 						4. Navigating forward and backwards can be confusing
 							1. There are examples to practice
+	5. Can I get extra paper to write on?
+		1. No
+			1. You'll simply have to use the question paper conservativly
+			2. You can't bring in your own paper
+				1. Can bring only water and eraser
+			3. Writing - we can have as many as we want
+				
 
 ### LISTENING Test #1 ###
 ### LISTENING Test #1 - Feedback ###
