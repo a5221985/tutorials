@@ -426,9 +426,36 @@
 		1. A spelling mistake = 0 points
 		2. `-` might have to be used sometimes
 			1. `sugar-free` - single adjective
-8. 
+8. Word or just letters?
+	1. Just write letter from options
+9. What are the question types?
+	1. Multiple choice
+	2. Matching
+	3. Plan/Map/Diagram labelling
+	4. Form completion
+	5. Note completion
+	6. Table completion
+	7. Flow-chart completion
+	8. Summary completion
+	9. Sentence completion
+	10. Short answer question
 
 ### LISTENING Exam FAQs ###
+1. Frequenty Asked Questions
+	1. IELTS Listening score?
+		1. 30-31: 7
+		2. 32-34: 7.5
+		3. 35-36: 8
+	2. Do I lose points for incorrect answers?
+		1. No. You get points for correct answers.
+		2. Points will never be removed once you've got them
+		3. So, never leave an answer blank - guess the answer
+	3. What order do the questions and answers come in?
+		1. The questions are in the order that you hear them
+		2. The answers are too, usually (Person being spoken about)
+			1. Exceptions:
+				1. Single question but answer choices might be jumbled (to choose right choices and the order might be different)
+
 ### LISTENING Test #1 ###
 ### LISTENING Test #1 - Feedback ###
 ### SPEAKING An overview of the exam ###
