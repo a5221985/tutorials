@@ -57,3 +57,7 @@
 		5. Consquences
 			1. The customer information application will only require a single connection to the ActiveMQ broker instance (instead of 3 connections)
 			2. The gateway hubs can be expanded and consolidated without any coding changes to the application
+			3. The application doesn't need to be concerned about where the request came from
+	4. If Markdown or Wiki is used, we can add figures and descriptions
+4. ADR automations
+	1. [https://github.com/npryce/adr-tools](https://github.com/npryce/adr-tools)
