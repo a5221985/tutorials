@@ -50,4 +50,10 @@
 			1. The incoming gateway hub is federated into 3 separate hubs.
 			2. Access to the customer information functionality in the application is only through JMS using ActiveMQ via the hub. The two options are to use a centralized broker or to use dedicated broker instances for each hub instance
 		4. Decision
+			1. We will use a centralized message broker instance for all federated gateway hubs
+				1. It must be an affirmative decision
+			2. We currently have low request volumes (200 requests/sec) and anticipate this will remain stable for the foreseable future. Therefore we do not see a performance bottleneck issue.
+			3. We will leverage the ActiveMQ failover protocol coupled with clustered ActiveMQ broker instances to address any single point of failure issues
 		5. Consquences
+			1. The customer information application will only require a single connection to the ActiveMQ broker instance (instead of 3 connections)
+			2. The gateway hubs can be expanded and consolidated without any coding changes to the application
