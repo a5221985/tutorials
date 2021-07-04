@@ -61,3 +61,11 @@
 	4. If Markdown or Wiki is used, we can add figures and descriptions
 4. ADR automations
 	1. [https://github.com/npryce/adr-tools](https://github.com/npryce/adr-tools)
+	2. Commands:
+	
+			adr init doc/arch # for versioning in repo
+			adr new Central broker for hub
+			  doc/arch/adr-021.md # bring up in editor
+			adr new -s 21 Dedicated broker for hub
+			  doc/arch/adr-022.md # supersedes 21
+			  doc/arch/adr-021.md # superseded
