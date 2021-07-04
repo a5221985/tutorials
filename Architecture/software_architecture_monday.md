@@ -68,4 +68,30 @@
 			  doc/arch/adr-021.md # bring up in editor
 			adr new -s 21 Dedicated broker for hub
 			  doc/arch/adr-022.md # supersedes 21
-			  doc/arch/adr-021.md # superseded
+			  doc/arch/adr-021.md # superseded by 22 - marked and this doc is no longer valid
+			  
+5. Links:
+	1. [Architecture Decision Records](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions) - Michael Nygard
+	2. [Software Architecture Monday](https://www.developertoarchitect.com/lessons/)
+	3. [Upcoming Events](https://www.developertoarchitect.com/upcoming-events.html) - conferences and trainings
+
+## Lesson 86 - Becoming a Software Architect ##
+1. Roadmap for becoming software architect
+	
+		make sure you are prepared
+		|
+		v
+		develop a personal roadmap and radar (a direction for making decisions about projects - what I should work on, different jobs)
+		|    |    |
+		|    |    v
+		|    |    
+		|    v
+		|    learn architecture styles and patterns (language of architects)
+		v
+		start focusing on technical breadth
+		|
+		v
+		maintain your technical breadth
+		|
+		v
+		
