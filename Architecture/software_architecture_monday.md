@@ -113,4 +113,24 @@
 			3. Analyze technology and industry trends and keep current with the latest trends
 			4. Ensure compliance with the architecture
 				1. The architecture decisions might not be met if we don't ensure compliance
-			5. 	
+			5. Have exposure to multiple and diverse technologies, platforms, and environments
+			6. Have a certain level of business domain expertise (to collaborate and communicate with business stakeholders)
+				1. Trading OR
+				2. Banking OR
+				3. Retail OR
+				4. Finance OR
+				5. ...
+			7. Possess exceptional interpersonal skills, including teamwork, facilitation, and negotiation
+			8. Understand the political climante of the enterprise and be able to navigate the politics
+				1. To get things done
+3. References:
+	1. Tips for transitioning into software architecture interview (O'Reilly)
+		1. [https://www.youtube.com/watch?v=JV8HNsFWHD4](https://www.youtube.com/watch?v=JV8HNsFWHD4)
+	2. Fundamentals of Software Architecture - Mark Richards and Neil Ford
+
+## Lesson 87 - Becoming a Software Architect - Part 2 ##
+1. Develop a personal roadmap and radar
+	1. [developertoarchitect.com/lessons/lesson58.html](developertoarchitect.com/lessons/lesson58.html)
+		1. Watch this - introducing the process of certification
+		2. Download nomination packet
+			1. We can track our proficiencies and software architect
