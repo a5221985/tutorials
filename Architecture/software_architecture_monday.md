@@ -95,4 +95,22 @@
 		v
 		maintain your technical breadth	
 	
-2. 	
+2. Make sure you are prepared
+	1. a passion for creation of solutions for business problems
+		1. Understand business problem (on business side)
+			1. Build solutions that address those problems
+		2. An interest in developing strong people skills
+			1. Negotiations (know and develop)
+		3. A desire to mentor, coach, and lead teams
+			1. Sitting in cubicle is not right attitude for this
+		4. A willingness to stay technical but go broader rather than deeper
+			1. Focus is more on technical depth
+		5. An understanding of what is expected of a software architect
+			1. Make architecture decisions that guide technology decisions for the development teams (for team, division or entire company)
+				1. To support ilities (availability, scalability, performance, ...)
+			2. Continually analyze the architecture and recommend solutions for improvement
+				1. Architecture vitality
+			3. Analyze technology and industry trends and keep current with the latest trends
+			4. Ensure compliance with the architecture
+				1. The architecture decisions might not be met if we don't ensure compliance
+			5. 	
