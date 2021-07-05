@@ -82,16 +82,17 @@
 		|
 		v
 		develop a personal roadmap and radar (a direction for making decisions about projects - what I should work on, different jobs)
-		|    |    |
+		|    |    |    |
+		|    |    |    v
+		|    |    |    begin developing good soft skills (start becoming the "go-to" person on the team, make yourself known to business stakeholders (walk around and be seen) -> start developing negotioation skills): 1. start developing facilitation skills, 2. start developing leadership skills
 		|    |    v
-		|    |    
+		|    |    start focusing on tradeoff analysis (continually identify and analyze tradeoffs)
 		|    v
 		|    learn architecture styles and patterns (language of architects)
 		v
 		start focusing on technical breadth
 		|
 		v
-		maintain your technical breadth
-		|
-		v
-		
+		maintain your technical breadth	
+	
+2. 	
