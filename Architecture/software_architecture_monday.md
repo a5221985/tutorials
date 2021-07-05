@@ -141,19 +141,47 @@
 					4. Briefly describe how we established the technical vision
 		3. Sections:
 			1. Core foundational skills
-				1. CFSO1 - Apply Communication Skills (various levels of proficiencies)
-				2. CFSO2 - Lead Individuals & Teams
-				3. CFSO3 - Perform Conflict Resolution
+				1. CFS01 - Apply Communication Skills (various levels of proficiencies)
+				2. CFS02 - Lead Individuals & Teams
+				3. CFS03 - Perform Conflict Resolution
 					1. Negotiation and facilitation
-				4. CFSO4 - Manage Architectural Elements of an IT Project Plan
+				4. CFS04 - Manage Architectural Elements of an IT Project Plan
 					1. What aspects of architecture need to be coordinated within the plan
-				5. CFSO5 - Understand Business Aspects
+				5. CFS05 - Understand Business Aspects
 					1. Core business drivers
 					2. Talking business stakeholders
 					3. What are the business drivers and goals within the project
-				6. CFSO6 - Develop IT Architecture
+				6. CFS06 - Develop IT Architecture
 					1. Elements such as components, architecture style
-				7. CFSO7 - Use Modeling Techniques
-				8. CFSO8 - Perform Technical Solution Assessments
+				7. CFS07 - Use Modeling Techniques
+				8. CFS08 - Perform Technical Solution Assessments
+					1. Assessing an architecture
+				9. CFS09 - Apply IT Standards
+				10. CFS10 - Establish Technical Vision
+					1. Balance between being pragmatic and being visionary
+				11. CFS11 - Use of Techniques (of architecture)
+					1. Data analysis
+					2. Component analysis
+					3. ATAM
+					4. CBAM
+				12. CFS12 - Apply Methods (of architecture)
+				13. CFS13 - Define Solution to Requirements
+				14. CFS14 - Manage Stakeholder Requirements
+					1. Understand how stakeholder requirements are satisfied through architecture
+				15. CFS15 - Establish Architectural Decisions
+					1. Use of ADRs
+				16. CFS16 - Validate Conformance of Solution to the Architecture
+				17. CFS17 - Perform as Technology Advisor
+				18. EC01 - Experience Producing Architectures
+					1. Demonstrate that proficiency
+				19. EC02 - Breadth of Architecture Experience
+				20. EC03 - Experience with Different Technologies and Architectures
+					1. Core expectation
+					2. Charting and documenting experience
+				21. EC07 - Industry Knowledge
+				22. EC08 - Knowledge of IT Trends
+					1. Demonstrate where we have leveraged that knowledge
+				23. PD02 - Develop and Maintain IT Industry Knowledge
+				24. PD03 - Develop and Maintain Vertical Industry Knowledge
 			2. Experience skills
 			3. Professional development/ personal development
