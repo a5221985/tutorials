@@ -202,3 +202,17 @@
 	1. We can move CFS... from None to Applied and then to Proficient
 
 ## Lesson 88 - Becoming a Software Architecture - Part 3 ##
+1. Start focusing on technical breadth
+	1. Stuff you know (part of technical depth and technical breadth)
+	2. Stuff you know you don't know - familiar but cannot use it effectively (part of technical breadth)
+	3. Stuff you don't know you don't know - don't know that it even exists that will be perfect for your problem
+2. Maintain your technical breadth
+3. Knowledge triangle of developer
+	1. Stuff you know & stuff you know you don't know - both are close
+	2. Stuff you know & stuff you know you don't know grow together - senior developer
+		1. Bypassing stuff stuff you know you don't know
+4. Junior architect
+	1. Increase technical breadth sacrificing technical depth
+5. Senior architect
+	1. Increase technical breadth even more (much more) and maintain technical depth
+		1. There is a big difference between technical depth and technical breadth
