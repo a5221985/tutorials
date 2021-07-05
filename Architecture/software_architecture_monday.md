@@ -185,3 +185,20 @@
 				24. PD03 - Develop and Maintain Vertical Industry Knowledge
 			2. Experience skills
 			3. Professional development/ personal development
+2. Develop a personal roadmap and radar (concentric circles)
+	1. Core Experience Skills (CFS...)
+		1. Proficient
+		2. Applied
+		3. None (never applied)
+	2. Professional Development Skills (EC...)
+		1. Proficient
+		2. Applied
+		3. None
+	3. Core Foundational Skills (PD...)
+		1. Proficient
+		2. Applied
+		3. None
+3. Chart the core foundational skills in the radar
+	1. We can move CFS... from None to Applied and then to Proficient
+
+## Lesson 88 - Becoming a Software Architecture - Part 3 ##
