@@ -216,3 +216,26 @@
 5. Senior architect
 	1. Increase technical breadth even more (much more) and maintain technical depth
 		1. There is a big difference between technical depth and technical breadth
+6. Balance the triangle
+7. Lesson 3 - 20 minute rule
+	1. Before checking email
+		1. Spend 20 minutes to focus on technical breadth
+	2. Resources
+		1. ThoughtWorks technology radar
+		2. DZone refcardz
+			1. To become familiar with unknown
+8. Industry knowledge
+	1. Business Domain Knowledge
+		1. How to gain?
+			1. Start asking questions (ask if you don't understand)
+				1. Business owner
+				2. Analyst
+				3. Product owner
+			2. Ask before becoming a software architect
+	2. After the trade is made - book
+	3. Understanding insurance
+	4. How the us securities industry works
+	5. New science and retailing
+	6. Sources:
+		1. Amazon
+			1. Type "Trading industry", ...
