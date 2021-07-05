@@ -133,4 +133,27 @@
 	1. [developertoarchitect.com/lessons/lesson58.html](developertoarchitect.com/lessons/lesson58.html)
 		1. Watch this - introducing the process of certification
 		2. Download nomination packet
-			1. We can track our proficiencies and software architect
+			1. We can track our proficiencies as software architect
+				1. Example: Establish technical vision
+					1. Allows tracking dates
+					2. Allows tracking system we worked on
+					3. Allows tracking major activities and system we worked on
+					4. Briefly describe how we established the technical vision
+		3. Sections:
+			1. Core foundational skills
+				1. CFSO1 - Apply Communication Skills (various levels of proficiencies)
+				2. CFSO2 - Lead Individuals & Teams
+				3. CFSO3 - Perform Conflict Resolution
+					1. Negotiation and facilitation
+				4. CFSO4 - Manage Architectural Elements of an IT Project Plan
+					1. What aspects of architecture need to be coordinated within the plan
+				5. CFSO5 - Understand Business Aspects
+					1. Core business drivers
+					2. Talking business stakeholders
+					3. What are the business drivers and goals within the project
+				6. CFSO6 - Develop IT Architecture
+					1. Elements such as components, architecture style
+				7. CFSO7 - Use Modeling Techniques
+				8. CFSO8 - Perform Technical Solution Assessments
+			2. Experience skills
+			3. Professional development/ personal development
