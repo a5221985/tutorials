@@ -474,7 +474,20 @@
 			2. You can't bring in your own paper
 				1. Can bring only water and eraser
 			3. Writing - we can have as many as we want
-				
+				1. We can bring a pen
+	6. What accents will I hear in the exam?
+		1. Primarily South East English (London, Oxford, Cambridge), Australian (original) and American
+			1. May hear New Zealand, Canadian and South African English
+			2. Weak forms of British regional accents are also possible
+				1. Scottish (Standard English but has influence of regional accent)
+				2. Welsh
+				3. ...
+	7. Do candidates use headphones
+		1. Small group of exam candidates?
+			1. 10-20 people - loud speaker playing
+			2. Large centre - head phones may be
+		2. Phone the center to find out
+	8. 
 
 ### LISTENING Test #1 ###
 ### LISTENING Test #1 - Feedback ###
