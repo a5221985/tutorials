@@ -487,9 +487,33 @@
 			1. 10-20 people - loud speaker playing
 			2. Large centre - head phones may be
 		2. Phone the center to find out
-	8. 
+	8. How do I write times and dates?
+		1. 9 AM (space or no space)
+		2. 9.00am
+		3. 9:00 AM
+		4. 9.00
+		5. 9:00
+		6. 9 o'clock (not acceptable)
+		7. 20:00 - not a good idea (8 PM is better)
+		8. 25 May
+		9. 25th May
+		10. 25th of May (don't just to be safe - especially places where we don't write grammar words)
+	9. Can I use brackets in my answers?
+		1. No
+			1. Never use brackets in your answers
 
 ### LISTENING Test #1 ###
+1. Book 7 - Cambridge University Press
+	1. First listening test
+2. Listen
+	1. We have to complete the entire section to understand the stress and mental pressure
+		1. Academic English
+		2. Ability to focus on distractions
+		3. Time management
+		4. Note taking
+		5. ...
+	2. Print the pdf and follow along
+
 ### LISTENING Test #1 - Feedback ###
 ### SPEAKING An overview of the exam ###
 ### SPEAKING test with Yuriy (Ukranian/Russian speaker) ###
