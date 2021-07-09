@@ -518,7 +518,27 @@
 		1. No longer has example given (2021 for books to have new format) - cuts 40-50 seconds of reading ahead time
 	2. Section 1:
 		1. Telephone - passenge, official, land transport
-		2. 
+		2. Milton, 150 miles south west (147), 3-4 hours, rent a car at airport, public trnasport, cab (cost), gray hound bus (15 or 27.50 return), city centre (pretty fast), 1 departure a day, 11:30 AM, - 3:45 leaves, shuttle - airport shuttle (to hotel or private address) - 2 hours every - 35$, 65$ (bit more expensive), reserve a seat, booking right now
+		3. Shuttle form
+			1. date: 17-Oct, One person, Bus Time: 12:30, (baggage, coffee), Single; couple of days, Janet Thomson, FN: AC-AC936 London Heathrow, Vacation Model, 24 - Kitchener Street, Visa - 3303845020456837
+	3. Section 2:
+		1. PS Camping - talk about holidays
+		2. 25 years
+		3. Retail chain
+		4. Camp sites
+		5. Europe continental 15 years
+		6. 300 sites - Italy - 64 sites (own or exclusive), France majority, Switzerland, SPain (improved)
+		7. Activities - foodball/volleyboall, drama (singing, dancing, mime, ...)
+		8. Afternoon - poster/model making
+		9. Child friendly
+		10. No noise rule in envenings
+		11. At 9:30 ro 10:00
+		12. Expected quit after
+		13. Insured - need to take low cost cover (if not exists)
+		14. Advantages
+			1. Offers - 10% oof friends
+			2. Thank you present
+		15. Tents - standard, oven/cooking rings/mirrors, borrow barbeque, picnic, toys, games, children tents, fridge in tent, bench - cool boxes, washing - machines,clothes lines, mops and buckets for cleaning, cafe or shop (eat in instead of dine)
 
 ### LISTENING Test #1 - Feedback ###
 ### SPEAKING An overview of the exam ###
