@@ -506,7 +506,7 @@
 1. Book 7 - Cambridge University Press
 	1. First listening test
 2. Listen
-	1. We have to complete the entire section to understand the stress and mental pressure
+	1. We have to complete the entire section to understand the stress and mental pressure (techniques)
 		1. Academic English
 		2. Ability to focus on distractions
 		3. Time management
