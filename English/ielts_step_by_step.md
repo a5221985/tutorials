@@ -527,12 +527,12 @@
 		3. Retail chain
 		4. Camp sites
 		5. Europe continental 15 years
-		6. 300 sites - Italy - 64 sites (own or exclusive), France majority, Switzerland, SPain (improved)
+		6. 300 sites - Italy - 64 sites (own or exclusive), France majority, Switzerland, Spain (improved)
 		7. Activities - foodball/volleyboall, drama (singing, dancing, mime, ...)
 		8. Afternoon - poster/model making
 		9. Child friendly
 		10. No noise rule in envenings
-		11. At 9:30 ro 10:00
+		11. At 9:30 or 10:00
 		12. Expected quit after
 		13. Insured - need to take low cost cover (if not exists)
 		14. Advantages
