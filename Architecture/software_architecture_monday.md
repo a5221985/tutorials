@@ -239,3 +239,18 @@
 	6. Sources:
 		1. Amazon
 			1. Type "Trading industry", ...
+			2. ... Industry
+			3. Introductory guides/dummy guides
+9. Fundamentals of Software Architecture - Book
+10. [https://www.developertoarchitect.com/lessons/](https://www.developertoarchitect.com/lessons/)
+11. [https://www.developertoarchitect.com/training/](https://www.developertoarchitect.com/training/)
+12. [https://www.developertoarchitect.com/](https://www.developertoarchitect.com/)
+	1. Articles
+	2. Books
+	3. Videos
+
+## Lession 89 - Becoming a Software Architect (Part 4) ##
+1. Journey
+2. Learn Architecture Sytles and Patterns
+	1. It is part of the language of architecture
+	2. Architecture styels allow a system to support basic characteristics outside of the application functionality
