@@ -513,6 +513,12 @@
 		4. Note taking
 		5. ...
 	2. Print the pdf and follow along
+3. Structure
+	1. Part 1 - Section 1
+		1. No longer has example given (2021 for books to have new format) - cuts 40-50 seconds of reading ahead time
+	2. Section 1:
+		1. Telephone - passenge, official, land transport
+		2. 
 
 ### LISTENING Test #1 - Feedback ###
 ### SPEAKING An overview of the exam ###
