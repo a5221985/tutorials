@@ -539,6 +539,7 @@
 			1. Offers - 10% oof friends
 			2. Thank you present
 		15. Tents - standard, oven/cooking rings/mirrors, borrow barbeque, picnic, toys, games, children tents, fridge in tent, bench - cool boxes, washing - machines,clothes lines, mops and buckets for cleaning, cafe or shop (eat in instead of dine)
+		16. 
 
 ### LISTENING Test #1 - Feedback ###
 ### SPEAKING An overview of the exam ###
