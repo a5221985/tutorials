@@ -1,4 +1,204 @@
 # Software Architecture Monday #
+## When Should You Replace Your Architecture? ##
+1. Is my architecture okay?
+2. Should I replace my architecture or keep it the same?
+3. Architecture vitality:
+	1. How viable my architecture is today
+		1. 2, 5 years ago
+		2. Is it still sound
+	2. Drivers (as they change they may impact architecture (influence or reshape))
+		1. Business drivers
+			1. What are the needs and what is the business concerned about
+				1. Mergers and acquisitions
+				2. Time to market
+				3. Competitive advantage
+				4. User satisfaction
+		2. Technology environment
+			1. Deployment env: On prem vs cloud
+			2. Are we using containerization
+			3. CI-CD pipeline improvements or methodology
+		3. Organizational structure
+			1. How are the teams organized and the communication among them within the organization
+				1. Pools of devs & testers in silos vs cross functional teams & domain based teams
+				2. DevOps exists or not
+	3. Example: Business drivers - use star ratings for architecture
+		1. "We are a small startup that needs to get an application out the door as quickly and as inexpensive as possible"
+			1. Drivers:
+				1. Cost
+				2. Simplicity
+				3. Timeliness
+			2. From star ratings
+				1. Monolithic applications
+					1. Layered - most supported
+					2. Modular monolith - most supported
+					3. Microkernel
+						1. If shape of architecture matches our problem
+		2. "Now that we are successful, we need to scale to meet high customer volumes, and we need fast time-to-market to remain competitive"
+			1. Drivers:
+				1. Scalability
+				2. Agility - ability to respond quickly to change
+			2. From star ratings
+				1. Microservices - most supported (we need to move to this from monolithic)
+				2. Service-based
+				3. Monolithic - poorely supported
+
+## Transacted Messages ##
+1. Service A sends event to a topic
+	1. Service B, C, D receive the event
+		1. No coordination
+	2. There are times when we need to send different messages
+		1. Service B - white message
+		2. Service C - green message
+		3. Service D - blue message
+	3. We might need to
+		1. Monitor queue depth - for autoscaling OR
+		2. Secure information OR
+		3. Three different messages
+	4. Solution:
+		1. Point to point with a dedicated queue for each service
+	5. Example: (more like a command than an event)
+		1. Service A sends a message to Service B
+		2. Service A then sends a message to Service C
+		3. Service A then sends a message to Service D
+	4. Problems
+		1. Suppose Service A sends a message to Service B
+		2. Suppose Service A then sends a message to Service C
+		3. Now Service A has an exception and cannot send any further messages
+			1. Solution:
+				1. Start a transaction (on message broker)
+				2. Send message to Service B - it is not picked up yet
+				3. Send message to Service C - it is not picked up yet
+				4. Send message to Service D - it is not picked up yet
+				5. Now transaction is committed
+					1. All messages are released and picked up by services
+					2. We cannot control transactions in other services with messaging and event driven architecture
+		4. Failure scenario
+			1. Start a transaction
+			2. Send a message to Service B
+			3. Send a message to Service C
+			4. Now an exception occurred and I rollback
+			5. Messages are removed from both Service B and C
+	5. Example implementations:
+		1. JMS
+		
+				JMSContext jmsContext = cf.createContext(JMSContext.SESSION_TRANSACTED);
+				...
+				...
+				jmsContext.commit(); // or jmsContext.rollback();
+				
+		2. AMQP
+		
+				ConnectionFactory factory = new ConnectionFactory();
+				Connection conn = factory.newConnection();
+				Channel channel = conn.createChannel(); // like session in JMS
+				channel.txSelect(); // RabbitMQ
+				...
+				...
+				channel.txComit(); // or channel.txRollback();
+				
+## Domain vs Technial Partitioning ##
+1. Technical Partitioning:
+	1. N-Tiered (Layered)
+		1. Presentation Layer - customer screens
+		2. Business Layer - customer logic
+		3. Services Layer - customer utilities
+		4. Persistence Layer - customer sql
+		5. Database Layer - customer tables
+	2. Where is the customer domain?
+		1. It is everywhere (entire architecture)
+	3. What is the change scope?
+		1. At application level
+			1. Suppose we want to add an expire date to wishlist items
+				1. database layer: Add colum
+				2. persistence layer: Modify SQL
+				3. service layer: Utilities for data
+				4. business layer: Modify business rules
+				5. presentation layer: Modify presentation layer to show
+2. Domain partitioning
+	1. customer ui -> customer
+		1. Add an expire data to wishlist items
+			1. deployment unit?
+				1. Domain
+	2. payment ui -> payment
+	3. shipping and tracking ui -> shipping
+	4. shipping and tracking ui -> tracking
+3. Partitioning classification
+	1. Technically partitioned
+		1. Layered architecture
+		2. Pipeline architecture - different components
+			1. Filters
+				1. Producers
+				2. Consumers
+				3. Transformers
+				4. Testers
+			2. Domain is spread across
+	2. More technical partitioned and little domain partitioned
+		1. Microkernel architecture
+			1. each plugin is unique structure separate from the core domain of the system
+			2. At times we can use plugins to represent domain
+	3. More technical partitioned and little more domain partitioned
+		1. Event-driven architecture
+			1. Events and event processors are involved
+				1. Domain is spread across multiple event processors
+	4. In the middle:
+		1. Space-based architecture
+			1. Technically partitioned - due to artifacts and their roles
+				1. Caching
+				2. Data pumps
+				3. Data readers
+				4. Data writers
+				5. Data updaters
+			2. Domain partitioned
+				1. Services that are domain based is possible
+	5. More towards domain partitioned
+		1. Modular monolith
+		2. Service-based architecture
+		3. Microservices architecture
+			1. Change scope is at function level
+4. Representation of components
+	1. Through namespaces
+		1. Layered (technical focus)
+			1. app.presentation.customer.*
+			2. app.business.customer.*
+			3. app.services.customer.*
+			4. app.persistence.customer.*
+		2. Modular monolith (domain focus)
+			1. app.customer.presentation.*
+			2. app.customer.business.*
+			3. app.customer.services.*
+			4. app.customer.persistence.*
+5. Call:
+	1. If most changes are technical - replacing ui, replacing db, ...
+		1. Technical partitioned architecture is a good choice
+	2. If most changes are domain based
+		1. Domain partitioned architectured is a good choice
+
+## Why Enterprise Architecture Efforts Fail ##
+1. 1/3 of enterprise architecture fail or get abandoned
+2. Enterprise architecture - It is a bridge/glue between business strategy and operating model and IT operations/systems and infrasture and capabilities
+	1. It aligns the two from planning and design standpoint
+3. They might fail
+	1. Reasons
+		1. Enterprise architects
+			1. They have to work with business stakeholders
+				1. Business stakeholders tell EAs
+			2. EAs build roadmaps as to what needs to be done to satisfy or implement business initiative
+			3. The roadmap elements become projects that get sent to application architects
+			4. Application architects build detailed models as to what really needs to be done
+		2. Problems
+			1. They work in silos
+				1. Application architects might complain that EAs leave out too many details and they don't really know what needs to be done
+				2. Business stakeholders might complain that EAs dont know enough about the business and don't really fully accomplish or grasp what we are trying to accomplish
+		3. A solution:
+			1. Bidirectional collaborative communication
+			2. EAs become part of Business stakeholders and Application architects
+				1. They know the insides on both sides
+		4. Problems - Primary reason - Communication
+			1. Warning signs:
+				1. Business stakeholders stop listening to ea teams or don't care
+					1. They are in their way
+				2. Your EA team is seen as support staff and get assigned to projects
+
 ## Architecture Decision Records ##
 1. Architecturally significant
 	1. We will keep a collection of records (architecture decision records) for architecturally significant decisions: those that affect the structure (overall style - microservices, micro-kernel, service based, layered, ...), non-functional characteristics (ilities), dependencies (between services and components), interfaces (apis, ...), or construction techniques (processes, procedures, platforms and languages, ...) - Michael Nygard
@@ -254,3 +454,91 @@
 2. Learn Architecture Sytles and Patterns
 	1. It is part of the language of architecture
 	2. Architecture styels allow a system to support basic characteristics outside of the application functionality
+
+## Lesson 93 - What is Software Architecture? ##
+1. Perspective of software architecture
+2. Two parts:
+	1. The "structure"
+	2. The "process" (creation, maintenance, ...)
+3. Structure
+	1. Definition:
+		1. Definition:
+			1. It is the thing holding all of the source code
+		2. Dimensions:
+			1. Structure - how code is physically organized
+				1. Overall structure
+				2. An architectural style
+					1. Monolith
+					2. Microservices
+					3. Space based
+					4. ...
+			2. Architecture characteristics
+				1. Ilities: Architecture must support critical for success of the application (derived from business goals, business drivers and business concerns) - qualify what architecture style is suitable
+					1. Availability
+					2. Scalability
+					3. Maintainability
+					4. Performance
+					5. Reliability
+					6. Security
+					7. Elasticity
+					8. Learnability
+					9. Testability
+					10. Deployability
+					11. Recoverability
+					12. Observability
+			3. Architecture decisions
+				1. Only the business and service layers can access the persistence layer - a decision
+					1. Change can be control (presentation does not have to change if database changes)
+				2. They form principles and add to structural aspects
+			4. Architecture components (building blocks)
+				1. Parts:
+					1. Main components
+					2. Interfaces
+					3. Dependencies
+				2. What building blocks to be implemented
+				3. How the building blocks interrelate (services or components)
+				4. Overall structure and decisions that guides development team to implement the architecture
+
+## Lesson 108 - The Role of a Software Architect ##
+1. IT Career Energizer with Phil Burgess
+2. Role of a software architect
+	1. Identify and quantify and qualify architecture characteristics
+		1. Ilities - non-functional attributes
+		2. Needs close collaboration with business stakeholder (project sponsor or product owner) - to determine business needs and translate them into architectural characteristics
+		3. Ensuring they have not changed since last discussion (6 months or 1 year ago)
+	2. Select (or validate an existing) architecture style
+		1. Validation - do we have the right architecture style in place?
+			1. It may have been valid 5 years ago but business and technology changes and environments change (cloud)
+			2. Constant validation
+	3. Identify and analyze architecture components
+		1. Architecture component is a building block of an application
+			1. Manifested as a group of source code files within a directory, a namespace or a package structure
+		2. The components created an maintained as architects are put together to build the application or service
+	4. Identify, understand, and evaluate tradeoffs (very important)
+		1. First law: Everything in software architecture is a tradeoff
+			1. Identify a tradeoff, analyze and make a good decision
+		2. Make architecture decisions and justify those decisions & document the decisions
+			1. ADRs - effective way
+				1. Document
+				2. Justify
+				3. Showing consequences of decision
+	5. Govern decisions to ensure compliance with the architecture
+		1. How?
+			1. Automated fitness functions
+				1. RQInit
+				2. RQInit Net
+				3. Net Arc Test
+				4. Custom code
+			2. To analyse the architecture and ensure that the decisions are being complied
+			3. Architecture decisions can be automated + manual checks if required
+	6. Lead and guide development teams though the implementation of the architecture
+		1. Building soft skills, facilitating, mentoring, and coaching
+		2. Lead and guide team through the implementation of the architecture
+
+## Lesson 109 - BASE Transactions and Eventual Consistency ##
+1. ACID - Atomicity, Consistency, Isolation, Durability - transactions
+	1. We do commits and roll-backs
+	2. Guarantee that multiple updates (inserts say) to DB will be kept in sync
+	3. Durability - All the updates will be saved
+	4. The updates will be isolated (from prying eyes) until I do a commit on all of the information
+2. BASE - Basic Availability, Soft state, Eventual Consistency
