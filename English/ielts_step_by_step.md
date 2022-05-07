@@ -539,10 +539,63 @@
 			1. Offers - 10% oof friends
 			2. Thank you present
 		15. Tents - standard, oven/cooking rings/mirrors, borrow barbeque, picnic, toys, games, children tents, fridge in tent, bench - cool boxes, washing - machines,clothes lines, mops and buckets for cleaning, cafe or shop (eat in instead of dine)
-		16. 
+4. Tips:
+	1. Don't write everything and intensely concentrate on listening
+		1. Use info spoken carefully
+	2. Guess the answers first
+	3. Underline or highlight rubrik
+	4. Typical - mistakes are made and then corrected (be aware of that)
+	5. Highlight important words
+	6. Show interest in all topics or else we might make mistakes
+	7. Last section no break
+	8. There is a lot of babble in last section and previous section
 
 ### LISTENING Test #1 - Feedback ###
 ### SPEAKING An overview of the exam ###
+1. Applicable to both General and academic
+2. Overview
+	1. Speak as much as you can
+	2. Don't get frustrated with mistakes, just keep going (practice) - else affects first column - fluency
+		1. Timing:
+			1. Part 1: 5 minutes (Average 4.5 minutes)
+			2. Part 2: 4 minutes (2 minutes of speaking) + +/- 30 seconds
+			3. Part 3: 5 minutes (Examiner decides whether to ask one more at 4.5 minutes)
+			4. Total: Maximum 14 minutes
+		2. If we give short answers, extra questions will be asked
+	3. Part 1
+		1. Personal questions
+			1. Do you work or do you study? (present)
+			2. Why did you choose this job? (If job was selected) (past simple)
+			3. What kind of work would you like to do in the future? (future + hypothetical)
+				1. I would love to
+				2. I have planned to
+				3. I am probably going to
+		2. Now, let's talk about (not too politicial, not too deep)
+			1. Music
+				1. What kind of music do you like listening to?
+				2. What kind of music did you listen to as a child?
+				3. Has music changed over the years?
+			2. Toys
+			3. Sleeping
+			4. Art
+			5. Getting around (home to university, ...)
+			6. etc
+		3. Do you often... (present simple)
+		4. When you were a child, did you... (past simple)
+		5. What do you plan to... (future) - use paraphrasing (to show off higher level) - keen to say
+		6. How to perform:
+			1. Talk about feelings and emotions
+				1. How do I feel about something
+				2. How do I react to something
+				3. How does it make me feel
+	4. Part 2
+		1. Personal monologue
+			1. What ...?
+			2. When ...?
+			3. Where ...?
+			4. With whom ...?
+			5. and how you [felt/reacted,etc.] (drawing out your opinion)
+
 ### SPEAKING test with Yuriy (Ukranian/Russian speaker) ###
 ### SPEAKING practice + New Idioms, Colloctions and Set Phrases ###
 ### SPEAKING Feedback for Yuriy ###

@@ -154,24 +154,27 @@
 ### External ###
 ### Static ###
 ### Register ###
+### Quiz 1: (Quiz) ###
 ### (Challenge) ###
 
 ## Advanced Data Types ##
-### The #define Statement (Constants) ###
+### The #define Statement ###
 ### Using typedef ###
-### Variable Lenght Arrays ###
+### Variable Length Arrays ###
 ### (Challenge) Variable Length Arrays ###
 ### Flexible Array Members ###
 ### (Challenge) Flexible Array Members ###
 ### Complex Number Types ###
-### (Challenge) Complex Numbers Types ###
-### Designed Initializers ###
+### (Challenge) Complex Number Types ###
+### Designated Initializers ###
+### Quiz 2: (Quiz) ###
 ### (Demonstration) Challenge Solutions ###
 
 ## Type Qualifiers ##
 ### const ###
 ### volatile ###
 ### restrict ###
+### Quiz 3: (Quiz) ###
 
 ## Bit Manipulation ##
 ### Binary Numbers and Bits ###
@@ -188,27 +191,30 @@
 ### Using Bit Fields to Pack Data ###
 ### (Challenge) Using Bit Fields to Pack Data ###
 ### (Demonstration) Using Bit Fields to Pack Data ###
+### Quiz 4: (Quiz) ###
 
 ## Advanced Control Flow ##
 ### The goto Statement ###
 ### (Challenge) The goto Statement ###
 ### The null Statement ###
-### The comma Operator ###
+### The Comma Operator ###
 ### setjmp and longjmp Functions ###
 ### (Challenge) setjmp and longjmp Functions ###
 ### (Demonstration) Advanced Control Flow ###
+### Quiz 5: (Quiz) ###
 
 ## Input and Output ##
-### char Functions (input) ###
-### char Functions (output) ###
-### (Challenge) char Functions ###
-### (Demonstration) char Functions ###
-### string Functions ###
-### (Challenge) string Functions ###
-### (Demonstration) string Functions ###
+### Char Functions (input) ###
+### Char Functions (output) ###
+### (Challenge) Char Functions ###
+### (Demonstration) Char Functions ###
+### String Functions ###
+### (Challenge) String Functions ###
+### (Demonstration) String Functions ###
 ### Formatting Functions ###
 ### (Challenge) Formatting Functions ###
 ### (Demonstration) Formatting Functions ###
+### Quiz 6: (Quiz) ###
 
 ## Advanced Function Concepts ##
 ### Variadic Functions ###
@@ -220,6 +226,7 @@
 ### (Demonstration) Recursion ###
 ### Inline Functions ###
 ### _Noreturn Functions ###
+### Quiz 7: (Quiz) ###
 
 ## Unions ##
 ### Overview ###
@@ -227,19 +234,20 @@
 ### Accessing Union Members ###
 ### (Challenge) Unions ###
 ### (Demonstration) Unions ###
+### Quiz 8: (Quiz) ###
 
 ## The Preprocessor ##
 ### Overview ###
 ### Conditional Compilation ###
-### include Guards and #undef ###
+### Include Guards and #undef ###
 ### #pragma and #error ###
+### Quiz 9: (Quiz) ###
 
 ## Macros ##
 ### Overview ###
 ### Macros vs. Functions ###
 ### Constructing Your Own Macros ###
 ### Preprocessor Operators ###
-### Predefined Operators ###
 ### Predefined Macros ###
 ### (Challenge) Macros ###
 ### (Demonstration) Macros ###
@@ -250,17 +258,17 @@
 ### Debugging with the Preprocessor ###
 ### Debugging with gdb (Part 1) ###
 ### Debugging with gdb (Part 2) ###
-### Core Files ###
+### core files ###
 ### Profiling ###
-### static Analysis ###
+### Static Analysis ###
 ### (Challenge) ###
 ### (Demonstration) ###
 
 ## Advanced Pointers ##
-### Double Pointers (Pointer to Pointer) ###
-### Double Pointers (Pointer to Pointer) Part 2 ###
+### Double Pointers (Pointer to a Pointer) ###
+### Double Pointers (Pointer to a Pointer) Part 2 ###
 ### (Challenge) Double Pointers ###
-### (Demonstration) Double POinters ###
+### (Demonstration) Double Pointers ###
 ### Function Pointers ###
 ### (Challenge) Function Pointers ###
 ### (Demonstration) Function Pointers ###
@@ -268,7 +276,7 @@
 
 ## Static Libraries and Shared Objects ##
 ### Overview ###
-### Constructing a Static Library (Archive) ###
+### Constructing a Static Library (archive) ###
 ### (Challenge) Static Library ###
 ### (Demonstration) Static Library ###
 ### Constructing a Dynamic Library (Shared Object) ###
@@ -283,9 +291,10 @@
 ### General Utilities (stdlib.h) ###
 ### General Utilities (stdlib.h) Part 2 ###
 ### General Utilities (stdlib.h) Part 3 ###
-### Data and Time Functions ###
+### Date and Time Functions ###
 ### (Challenge) ###
 ### (Demonstration) ###
+### Quiz 11: (Quiz) ###
 
 ## Data Structures ##
 ### Abstract Data Types ###
@@ -299,6 +308,7 @@
 ### Queues (Implementation) ###
 ### Binary Trees (Overview) ###
 ### Binary Trees (Implementation) ###
+### Quiz 12: (Quiz) ###
 
 ## Interprocess Communication and Signals ##
 ### Interprocess Communication ###
@@ -306,7 +316,7 @@
 ### Raising a Signal ###
 ### Handling a Signal Using the Signal Function ###
 ### Handling a Signal Using Sigaction ###
-### The `fork()` System Call ###
+### The fork() System Call ###
 ### (Challenge) ###
 ### (Demonstration) ###
 
@@ -315,11 +325,12 @@
 ### Constructing a Thread ###
 ### Passing Arguments and Returning Values ###
 ### Common Thread Functions ###
-### Thread Synchronization ###
+### Thread Synchronization Concepts ###
 ### Mutexes ###
 ### Condition Variables ###
 ### (Challenge) ###
 ### (Demonstration) ###
+### Quiz 13: (Quiz) ###
 
 ## Networking (Sockets) ##
 ### Overview ###
@@ -329,7 +340,7 @@
 ### (Challenge) ###
 ### (Demonstration) ###
 
-## Conclustion ##
+## Conclusion ##
 ### Course Summary ###
 
 ## Extra Information - Source Code, and Other Stuff ##
