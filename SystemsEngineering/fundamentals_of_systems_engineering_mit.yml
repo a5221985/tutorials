@@ -1,0 +1,74 @@
+# Fundamentals of Systems Engineering #
+## Course Design and Orienting Students with the "V Model" ##
+1. Systems engineering - the art and science of coordinating and putting together te different disciplines in order to construct safe and efficient flying systems
+	1. Methodologies & processes
+2. V Model
+	1. Step by step through lifecycle of a system
+		1. Stakeholders
+		2. Concept of Operations
+		3. Pieces
+		4. Integration
+		5. Testing
+		6. Maintenance
+
+## Teaching the Class as a Small Private Online Course (SPOC) ##
+1. MOOCS - Massively Open Online Courses
+	1. Democratize education
+2. SPOC - Small Private Online Course
+	1. In-person or online - few dozen students
+
+## Engaging Students in the Design Process through the CanSat Competition ##
+1. CANSAT - Design of satellite that fits into a can launched to high altitude using sounding rocket
+	1. Step by step process
+2. Requirements
+	1. 47 requirements
+		1. Must fit in a can (payload fairing)
+		2. Must survive the launch (amount of G-loads and vibrations)
+        3. Payload separates into glider and container
+        4. Payload has to fly in circular fashion on its way down
+        5. Dyring its decent it should record temp, pressure & bonus points for recording images and transmit them to the ground
+        6. Students must design glider, container, ground station and procedures
+3. Approaches
+    1. Step by step - get right answer at every step (check ourselves at every step)
+    2. Waterfall of stage gate process - applied for very large systems (because it is expensive to do a lot of prototypes - get it right the first time)
+    3. Spiral development/agile/rapid development - Build quick prototypes and learn very quickly and iterate your design
+4. Class
+    1. Both approaches
+        1. Ideating concepts keeping in mind the requirements and end goal
+        2. Testing using modeling and simulation or using simple prototypes (paper, 3D printed versions, ...)
+
+## Learning from CanSat Examples ##
+1. Look at past examples - both successful and failed projects or designs
+    1. Problems might begin at requirements stage
+        1. Requirements are missing
+        2. There's redundancy
+        3. Overly ambiteous requirements (for the timeframe and budget)
+            1. We need tradeoff - how ambiteous we are, the schedule and the budget
+        4. We can evaluate what is feasible and what is not feasible and learn from past failures
+            1. We can learn
+        5. How to deploy the system and test it, how to communicate, how to collect data and post process it
+
+## Ideal Team Size for the CanSat Competition ##
+1. Team work is essential - any product is from teamwork
+    1. Share ideas
+    2. Be ready to compromise
+    3. 4-7 people is ideal
+        1. Smaller teams - less diversity of ideas, less brain power
+            1. If we break the system into components, we need sufficient team strength to do all of them and in time
+        2. 
+
+## Team Charters ##
+## Assessing Student Work Completed as Teams ##
+## Teaching with Concept Questions ##
+## Online Written and Oral Exams ##
+## Reflective Memos ##
+## Requirements Definition ##
+## Systems Modeling Languages ##
+## System Architecture and Concept Generation ##
+## Concept Selection and Tradespace Exploration ##
+## Design Definition and Multidisciplinary Optimization ##
+## Miscellaneous Topics - MBSE and Introduction to CAD (Guest Lecture from Solidworks) ##
+## Systems Integration and Interface Management ##
+## Verification and Validation ##
+## Commissioning and Operations ##
+## Lifecycle Management ##

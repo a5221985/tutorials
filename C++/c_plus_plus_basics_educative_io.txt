@@ -1,0 +1,191 @@
+# C++ Basics #
+## Introduction ##
+### A Bit About C++ ###
+### The History of C++ ###
+### Why Use C++? ###
+
+## Getting Started ##
+### Your First C++ Program ###
+### Printing Styles ###
+### C++ Comments ###
+### Challenge 1: Display Text on the Console ###
+### Solution Review: Display Text on the Console ###
+### Challenge 2: Display a Right-Angle Triangle ###
+### Solution Review: Display a Right-Angle Triangle ###
+### Quiz ###
+
+## Variables and Constants ##
+### Introduction to Variables ###
+### Variables in C++ ###
+### Identifiers in C++ ###
+### C++ Constants/ Literals ###
+### Challenge 1: Initialize a Variable and Overwrite its Value ###
+### Challenge 2: Swap the Values of Two Variables ###
+### Solution Review: Swap the Values of Two Variables ###
+### Quiz ###
+
+## Data Types and Input ##
+### Data Types ###
+### Primitive or Fundamental Data Types ###
+### Data Type Modifiers ###
+### Type-Casting ###
+### String and Escape Sequences ###
+### C++ User Input ###
+### Challenge 1: Convert Double Value into Integer ###
+### Solution Review: Convert Double Value into Integer ###
+### Quiz ###
+
+## Operators ##
+### Introduction to Operators ###
+### Arithmetic Operators ###
+### Assignment and Compound Assignment Operator ###
+### Relational Operators ###
+### Logical Operators ###
+### Bitwise Operators ###
+### Precedence and Associativity ###
+### Challenge 1: Find and Previous Alphabet ###
+### Solution Review: Find the Previous Alphabet ###
+### Challenge 2: Calculate Hours, Minutes, and Seconds ###
+### Solution Review: Calculate Hours, Minutes, and Seconds ###
+### Challenge 3: Calculate the Area of the Sphere ###
+### Solution Review: Calculate the Area of the Sphere ###
+### Quiz ###
+
+## Conditional Statements ##
+### Introduction to Conditional Statements ###
+### If Statement ###
+### If-else Statement ###
+### Nested else-if Statement ####
+### Switch Statement ###
+### Conditional Operator ###
+### Challenge 1: Find the Person with the Highest Salary ###
+### Solution Review: Find the Person with the Highest Salary ###
+### Challenge 2: Check if the Given Character is an Alphabet ###
+### Solution Review: Check if the Given Character is an Alphabet ###
+### Challenge 3: Display Day of the Week ###
+### Solution Review: Display Day of the Week ###
+### Quiz ###
+
+## Loops ##
+### Introduction to Loops ###
+### While Loop in C++ ###
+### do-while Loop ###
+### for Loop ###
+### Infinite Loop ###
+### Nested Loop ###
+### break Statement ###
+### continue Statement ###
+### Challenge 1: Calculate the Power of a Number ###
+### Solution Review: Calculate the Power of a Number ###
+### Challenge 2: Find out if the Given Number is Prime ###
+### Solution Review: Find out if the Given Number is Prime ###
+### Challenge 3: Convert Decimal Number to Binary ###
+### Solution Review: Convert Decimal Number to Binary ###
+### Challenge 4: Find out if the Given Number is a Palyndrome ###
+### Solution Review: Find out if the Given Number is a Palyndrome ###
+### Quiz ###
+
+## Functions ##
+### Functions in C++ ###
+### Declaring a Function ###
+### Defining a Function ####
+### Calling a Function ###
+### C++ Function Parameters ###
+### Pass by Value in Functions ###
+### Pass by Reference in Functions ###
+### Scope of Variable ###
+### Overwriting the Value of the Global Variable ###
+### Function Overloading ###
+### Lambda Functions ###
+### Challenge 1: Convert Digits from 0 to 5 into Text ###
+### Solution Review: Convert Digits from 0 to 5 into Text ###
+### Challenge 2: Set the Smallest Number to -1 ###
+### Solution: Set the Smallest Number to -1 ###
+### Challenge 3: Design a Calculator ###
+### Solution Review: Design a Calculator ###
+### Quiz ###
+
+## Recursion ##
+### What is Recursion? ###
+### Structure of a Recursive Program ###
+### Calculating the Factorial of a Number ###
+### Recursion vs Iteration ###
+### Challenge 1: Calculate the Power of a Number Recursively ###
+### Solution Review: Calculate the Power of a Number Recursively ###
+### Challenge 2: Count the Digits in a Number Using Recursion ###
+### Solution Review: Count the Digits in a Number Using Recursion ###
+### Challenge 3: Calculate the nth Fibonacci Number using Recursion ###
+### Solution Review: Calculate nth Fibonacci Number using Recursion ###
+### Quiz ###
+
+## Arrays ##
+### Introduction to Arrays ###
+### Constructing an Array ###
+### Accessing an Array ###
+### Arrays and Functions ###
+### Constructing a Two-Dimensional Array ###
+### Accessing Two-Dimensional Arrays ###
+### Challenge 1: Calculate the Average Marks of a Class ###
+### Solution Review: Calculate the Average Marks of a Class ###
+### Challenge 2: Left Rotate Array ###
+### Solution Review: Left Rotate Array ###
+### Challenge 3: Sort Elements of an Array in Descending Order ###
+### Solution Review: Sort Elements of an Array in Descending Order ###
+### Challenge 4: Add Main Diagonal Elements in a Matrix ###
+### Solution Review: Add Main Diagonal Elements in a Matrix ###
+### Challenge 5: Multiply Two Matrices ###
+### Solution Review: Multiply Two Matrices ###
+### Quiz ###
+
+## Pointers ##
+### Computer Memory ###
+### Variables and Memory ###
+### Address-of Operator ###
+### What is a Pointer? ###
+### Dereferencing Operator ###
+### References ###
+### Function and Pointers ###
+### Challenge 1: Calculate the Area of a Rectangle Using Pointers ###
+### Solution Review: Calculate the Area of a Rectangle Using Pointers ###
+### Challenge 2: Calculate the Sum and Absolute Difference ###
+### Solution Review: Calculate the Sum and Absolute Difference ###
+### Quiz ###
+
+## Dynamic Memory Allocation ##
+### Types of Allocation ###
+### Allocation of Dynamic Memory ###
+### Deallocation of Dynamic Memory ###
+### Dynamic Arrays ###
+### Challenge 1: Set the Odd Elements in a Dynamic Array to -1 ###
+### Solution Review: Set the Odd Elements in a Dynamic Array to -1 ###
+### Challenge 2: Delete an Element at a Specific Index ###
+### Solution Review: Delete an Element at a Specific Index ###
+### Challenge 3: Calculate Mean and Standard Deviation from Array ###
+### Solution Review: Calculate Mean and Standard Deviation from Array ###
+### Quiz ###
+
+## Mini Project ##
+### Mini Project 1: Grayscale to Binary Image ###
+
+## Mini Project ##
+### Hangman Game ###
+
+## Mini Projects Solution ##
+### Solution: Mini Project 1 ###
+### Solution: Mini Project 2 ###
+
+## Structures ##
+### Introduction to Structures ###
+### Defining Structure in C++ ###
+### Declaring Structure Variables in C++ ###
+### Initializing and Accessing Members of a Structure Variable in C++ ###
+### Array of Structures ###
+### Structure and Functions ###
+### Structure and Pointers ####
+### Challenge 1: Subtract Two Complex Numbers ###
+### Solution Review: Subtract Two Complex Numbers ###
+### Challenge 2: Calculate Overall Percentage of Student's Marks ###
+### Solution Review: Calculate Overall Percentage of Student's Marks ###
+### Challenge 3: Account Number of Customers with Balance < $500 ###
+### Solution Review: Account Number of Customers with Balance < $500 ###
+### Quiz ###

@@ -1,0 +1,15 @@
+System Design:
+
+Udemy:
+1. Developer To Architect: Mastering Software Architecture
+2. Domain Driven Design: Complete Software Architecture...
+3. Database Design
+4. Software Architecture (SOLID) & Design Patterns in Java
+5. Kubernetes for Beginners: Google Cloud, AWS & Azure
+6. AWS Certified Developer Associate
+7. Advanced Object Oriented Analysis of Hard Problems ...
+8. Be a Java professional. Let's implement a database server
+
+Educative.io:
+1. Scalability & System Design for Developers
+2. Grokking the Advanced System Design Interview

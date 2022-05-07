@@ -1,0 +1,105 @@
+Pre-lecture content - before lecture
+	Pre-requisites
+Extra reference material - after class
+Assignment - already discussed
+	1. Write code
+		1. To convert thoughts into code
+			1. Skill to master
+Home Work - novel problems
+	1. To approach problem from scratch
+		1. Understand a problem statement
+		2. Understand examples
+		3. Come up with efficient solution
+		4. Coding ourselves
+	2. If we get stuck
+		1. Go back to problem statement - ensure nothing is missed
+		2. Go through examples once again
+		3. Try to come up with extra examples for edge cases
+		4. Observations
+		5. Re-approach the problem using observations
+	3. If still stuck
+		1. Use Hint feature
+			1. Gives slight push only
+				1. We lose 10 points
+	4. If still stuck
+		1. Look at solution approach
+	5. If still stuck approach TA - using help request
+	6. Still stuck
+		1. Look at the complete solution
+			1. Pseudocode
+			2. Time complexity
+			3. Video explanation
+			
+Teaching Assistants
+1. Vast experience and knowledge
+	1. To overcome conceptual doubts
+	2. Tacking issues that we face while solving a problem
+	3. Keep you motivated with their support
+2. Raise problem help request or concept help request
+3. Problem help request - text based request
+	1. Time Limit Exceed (TLE)
+	2. Memory Limit Exceed (MLE)
+	3. Compilation Error
+	4. Runtime Error
+	5. Trouble in understanding a question
+	6. Problem related or algorithm related doubts
+4. Click on Ask for Help button
+	1. Help Categories - kind of issue
+	2. Provide issue description
+		1. Can provide test cases
+	3. Brief approach of solution tried
+	4. Any online helper - select a TA
+		1. TA assigned or any TA
+	5. Similar issues asked - other similar requests
+	6. Resolved
+		1. View Request
+			1. Answer of TA
+				1. Satisfied or Not
+5. Complete questions before next session - to maintain problem solving percentage
+
+Concept Help Request:
+1. What is it?
+	1. To raise conceptual doubts from the dashboard
+	2. Get on a call with a TA
+	3. Add upto 3 doubts
+2. Click on Get on a Call with TA option:
+	1. Sub-topic
+	2. Select doubts (upto 3)
+	3. Describe doubts
+	4. Select time slots (3 to 5)
+	5. Confirm and raise request
+3. Another way
+	1. Click on View classroom (When watching a recording session)
+	2. Click on Watch Recorded Session
+	3. Click on Bulb icon
+		1. CHR tab opens
+4. How to join CHR session
+	1. Click on Pending on TA
+	2. Click on Join Session button
+	3. Click on Join Session
+	4. Allow Camera and Microphone access
+	5. When TA joins, call will be connected automatically
+	6. Click on end call
+	5. Provide feedback
+	
+Mentors:
+1. Why
+	1. To understand your weak areas
+	2. To help you build strategy to upskill yourself
+	3. Make right career choices
+	4. Mock interviews & timely feedback
+	5. 1:1 interaction sessions
+2. Mentor Tab
+	1. Select Mentor based on type of guidance looking for
+		1. Linked In Profile
+		2. Info
+	2. Select Time Slot
+		1. Confirm
+	3. At scheduled time: Gray box will turn green
+	4. If not available, click on re-schedule
+	5. Sessions tab
+		1. Old sessions with recordings
+	6. Curriculum info is available for all future sessions and guidelines
+		1. We can click on Schedule Custom Session (for session agenda of our own)
+	7. Use chat option at the bottom to connect with mentor
+	8. Work on homework before approaching mentor

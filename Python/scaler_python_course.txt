@@ -1,0 +1,329 @@
+https://www.youtube.com/watch?v=1EeqQO9KY6I
+
+general purpose programming language:
+used for lots of things
+simple but powerful
+dynamically typed
+ - it is not weakly typed langauge - it is still strongly typed
+multi-paradigm
+	functional programming
+	object oriented programming
+	asynchronous programming
+	structural programming
+Mature ecosystem
+	Editor
+		PyCharm
+		Sublime - extensions
+		VS Code - extensions
+	Code Autoformatting
+		Black
+		SpyLink
+		FlickIt
+	Static Type Checkers
+		MyPy
+	version control system
+Applications written generally
+	Web-sites
+		Django
+		Flask
+	Data Analytics
+	Machine Learning
+		Ecosystem
+			NumPy
+			TensorFlow
+			SciPi
+			Matplotlib
+			Escaler
+			Pandas
+	DevOps
+		Scripting
+		Automation
+		Web-Scraping
+		Validation
+		Automated Testing
+Install Python
+	RealPython.com - guide to install python (android and iphone also)
+Online Interpreter
+	repl.it - to code python in browser
+		1. Select Python
+		2. Click on Create Repl
+Lecture notes: Description
+	github.com/scalaracadamy/introductiontopthon (see description)
+Real Python
+	Instructions on installing python (even iphone and android)
+
+Right hand side: REPL (Read Execute Print Loop)
+	1. Reads, execute, prints and waits
+Text editor and files on the left side
+>
+1 + 1
+Math operations:
+30 / 20 - 1.5 (not integer division) - floating point division
+30 // 20 - 1
+2 ** 5 # power
+2 ** (1/2) # sqaure root
+(-1) ** (1/2) # returns complex number - j is used instead of i (i is used in loops)
+	slight error
+BODMAS - we always use () (not [] or {}) in programming langauge
+Max range of integer - no limit (big integers)
+	2 ** 1000
+width = 2
+height = 40
+area = width * height # nothing is printed is specific to the REPL
+area # prints
+_ # last result
+ctrl + L # clear screen
+
+print('Hello, World!') # function
+
+Simicolons are optional in python (ignored)
+String is a datatype in Python
+my_string = 'Hello, World'
+print(my_string)
+# Python - use snake case a_b_c (not camel case)
+Double quotes is also fine - output gives single quotation
+'Lakshay said "hello"' # allowed
+"Laksay said \"hello\"" # allowed - escaped
+
+Other strings supported:
+f-strings
+byte-strings
+raw strings
+
+Comments:
+# single line comments
+1 + 1 # something here
+Doesn't have multi-line comments
+
+""" - multi-line
+
+"""
+hello
+"""
+
+'\nhello\n'
+
+input('Give me a string: ') # String is optional
+x = input()
+
+Adding two numer:
+a = input()
+b = input()
+a + b # appends into 1050
+type(a) # <class 'str'>
+
+a = int(input())
+b = int(intput())
+a + b # gives integer
+
+File does not print like REPL
+a = int(input('Enter first number: '))
+b = int(input('Enter second number: '))
+print('sum is: ', (a + b))
+
+chat.scaler.com - come and interact with other students
+
+Session 2:
+# numbers: int, float, complex
+square_area = 36
+circle_area = 6.28
+iota = (-1) ** (1/2)
+print(square_area, circle_area, iota) # prints with spaces
+print(iota / square_area)
+
+# endline '\n' the default separator
+print('\n')
+
+# Formatted strings - f-strings
+print(f"{square_area}\n{circle_area}\n{iota}")
+
+x = None # NULL
+print(x)
+
+Control flow:
+# control flow
+# <, >, >=, <=
+
+a = 3
+less_than_3 = a < 3
+print(less_than_3) # False
+print(type(less_than_3))
+
+equals_3 = (a == 3)
+
+s1 = "Interviewbit"
+s2 = "Scaler"
+print(s1 < s2) # lexicographically
+
+x = 5
+res_one = (x < 1) or (x >= 10)
+print(res_one)
+
+res_two = (x < 1) and (x >= 10)
+print(res_two)
+
+print(not res_two)
+
+# if, else, elif
+
+# x < 1 or x > 10 => message is rude
+x = int(input())
+
+if (x < 1):
+	# block of code gets executed if x < 1
+	print('Rude message')
+elif (x >= 1 and x <= 10):
+	print('Polite message')
+else:
+	print('Other message')
+	
+vegetable_market = ['onion', 'tomato', 'broccoli', 'cabbage']
+
+if 'carrot' in vegetable_market:
+	print('Bought carrot!')
+elif 'cabbage' in vegetable_market:
+	print('Bought cabbage!')
+else:
+	print('Came back empty handed!')
+	
+# play a game where you get 2 points after every 1 second
+# as long as you are alive in the game
+
+# print numbers from 1 to 10
+
+print(1)
+print(2)
+...
+
+for i in range(10): # used when we are sure when it will terminate
+    print(i)
+	
+# range() - list of numbers
+# for: iterate over values in some container/sequence
+
+for i in range(1, 11):
+    print(i)
+	
+# Converting to list
+list(range(0, 10))
+list(range(1, 11)) # last number is excluded
+
+# print all even numbers
+for i in range(0, 11, 2):
+	print(i)
+	
+# print all even numbers in reverse order
+for i in range(10, -1, -2):
+	print(i)
+	
+# print separated by spaces
+for i in range(0, 11):
+	print(i, end = ' ')
+print()
+
+# while loop
+counter = 1
+while (counter <= 10):
+	print(counter, end = ' ')
+	counter += 1
+	
+print()
+
+Multiline comments:
+
+'''
+Program to multiplication tables of numbers from 1 to n
+where n is the input from the user
+n = 5
+1 2 3 4 5 <- 1st multiples of numbers from 1 to n
+2 4 6 8 10 <- 2nd ...
+'''
+
+n = int(input())
+for i in range(1, 11): # rows
+	for j in range(1, n + 1): # columns
+		print("%2d"%(i * j), end = ' ')
+	print()
+		
+print()
+
+# break, continue
+# break - break if certain condition occurs
+
+name = ["Scaler", "Interviewbit", "scaler", "interviewbit"]
+for name in names:
+	print(name)
+	if (name == "scaler"):
+		break
+		
+for name in names:
+	if (name == "scaler"):
+		continue
+	print(name)
+	
+# break statement in a nested loop
+
+target = 'i'
+for name in names:
+	print(f"{name} in outer loop")
+	for char in name:
+		if (char == target)
+			print(f"Found {name} with letter: {target}")
+			print("Breaking out of the inner loop")
+			break # only the inner loop is terminated
+			
+# isPrime
+n = 37
+isPrime = True
+for i in range(3, n, 2):
+	if (n % i == 0):
+		print(f"{n} is not prime")
+		isPrime = False
+		break
+if (isPrime):
+	print(f"{n} is prime")
+
+# function
+# inputs, processing, can return some output
+'''
+- Reusability - we can re-use functions
+- Abstraction - just name and arguments are enough to use it (not internals
+	Well defined names is enough to understand its functionality
+- Maintenance - 
+- Debugging - easier (we can do it at function level)
+'''
+def print_function():
+	# logic or the main code
+	print("Printing hello to the screen")
+	
+print_function()
+
+def add_two_nums(num_one, num_two):
+	return num_one + num_two
+	
+x = int(input())
+y = int(input())
+res = add_two_nums(x, y)
+print(res)
+
+def print_function():
+	# logic of the main code
+	print("...")
+	return None # recommended
+	
+res = print_function()
+print(res)
+
+def max_of_three(nums_1, num_2, num_3):
+	if num_1 > num_2:
+		if num_1 > num_3:
+			return num_1
+		else:
+			return num_3
+	else:
+		if num_2 > num_3:
+			return num_2
+		else:
+			return num_3
+			
+print(max_of_three(2, 6, 3))

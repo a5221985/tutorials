@@ -2322,9 +2322,212 @@
 		
 	1. If lock is available, it gets acquired and enters critical section (no other thread is allowed)
 	2. If another thread reaches the lock() method, it would wait until lock is released
-	3. 
+	3. When first thread reaches `unlock()` method, it allows other threads to access the resource
+	4. `lockObject.tryLock()` - if lock is acquired, `true` is returned and indicates success in acquiring the lock
+		1. If lock is not acquired, `false` is returned indicating failure in acquiring the lock
+			1. It does not block the thread
+				1. With regular lock, the thread is blocked until the owner releases it
+			2. Thread can execute a different code & can come back
+8. Note about `tryLock()`
+	1. Does not block under any circumstances
+	2. No matter what the state of the lock is, it always returns
+	3. Use cases:
+		1. Real time applications - where suspending thread with `lock()` is not acceptable
+			1. Examples:
+				1. Vieo/Image processing
+				2. High speed/low latency trading systems
+				3. User interface applications
+9. Summary:
+	1. Learned a new type of lock - ReentrantLock
+		1. Same functionality and properties as `synchronized` lock
+		2. Provides more control and advanced features
+			1. Query methods for testing lock's internal state
+			2. `lockInterruptably()` - allows thread suspended on a lock to be interrupted
+			3. `tryLock()` - conditional locking
 
 ### ReentrantLock Part 2 - User Interface Application Example ###
+1. What we learn in this lecture
+	1. `ReentrantLock.tryLock()` use case in Real Time application (using JavaFX)
+2. Financial Assets Dashboard
+	1. Current prices of select number of investment assets
+		1. Prices of stocks
+		2. Prices of cryptocurrencies
+		3. (anything we want to monitor in a real time)
+	2. Implementation
+		1. Two threads
+			1. UI thread - shows animation in the background
+				1. Responds to mouse events
+				2. Shows current prices of assets
+			2. Background thread - makes network calls to exchanges and gets up to date prices for all the assets periodically
+		2. Shared resource
+			1. Between UI thread and worker thread
+				1. Worker thread can update prices
+				2. UI thread can get the prices and display them
+	3. Implementation:
+		
+			public static class PricesContainer {
+				private Lock lock = new ReentrantLock();
+
+				private double bitcoinPrice;
+				private double etherPrice;
+				private double litecoinPrice;
+				private double bitcoinCachPrice;
+				private double ripplePrice;
+
+				// getters and setters
+			}
+
+			public static class PricesContainer {...}
+
+			public static class PriceUpdater extends Thread {
+				private PricesContainer pricesContainer;
+				private Random random = new Random(); // to generate random prices
+				
+				public PriceUpdater(PricesContainer pricesContainer) {
+					this.pricesContainer = pricesContainer;
+				}
+
+				@Override
+				public void run() { // user must see all old prices or all new prices (not a combination)
+					while (true) {
+						pricesContainer.getLockObject().lock();
+
+						try {
+							try {
+								Thread.sleep(1000); // simulates a network call
+							} catch (InterruptedException e) {
+							}
+
+							pricesContainer.setBitcoinPrice(random.nextInt(20000));
+							pricesContainer.setEitherPrice(random.nextInt(2000));
+							pricesContainer.setLitecoinPrice(random.nextInt(500));
+							pricesContainer.setBitcoinCashPrice(random.nextInt(5000));
+							pricesContainer.setRipplePrice(random.nextDouble());
+						} finally {
+							pricesContainer.getLockObject().unlock();
+						}
+
+						try {
+							Thread.sleep(2000); // simulates other scenarios
+						} catch (InterruptedException e) {
+						}
+					}
+				}
+			}
+
+			// JavaFX - Used to build cross platform UI applications with Java
+			public class Main extends Application {
+				public static void main(String[] args) {
+					launch(args);
+				}
+
+				@Override
+				public void start(Stage primaryStage) { // JavaFX thread enters this method - similar to `run()`
+					primaryStage.setTitle("Cryptocurrency Prices");
+
+					GridPane grid = createGrid(); // table like format
+					Map<String, Label> cryptoLabels = createCryptoPriceLabels(); // placeholder to show text
+
+					addLabelsToGrid(cryptoLabels, grid);
+
+					double width = 300;
+					double height = 250;
+
+					StackPane root = new StackPane();
+
+					Rectangle background = createBackGroundRectangleAnimation(width, height);
+
+					root.getChildren().add(background);
+					root.getChildren().add(grid);
+
+					primaryStage.setScene(new Scene(root, width, height));
+					primaryStage.show();
+				}
+
+				private Map<String, Label> craeteCryptoPriceLabel() { //maps from assets name to label object
+					Label bitcoinPrice = new Label("0");
+					bitcoinPrice.setId("BTC");
+
+					Label etherPrice = new Label("0");
+					etherPrice.setId("ETH");
+
+					Label liteCoinPrice = new Label("0");
+					liteCoinPrice.setId("LTC");
+
+					Label bitcoinCashPrice = new Label("0");
+					bitcoinCashPrice.setId("BCH");
+
+					Label ripplePrice = new Label("0");
+					ripplePrice.setId("XRP");
+
+					Map<String, Label> cryptoLabelsMap = new HashMap<>();
+					cryptoLabelsMap.put("BTC", bitcoinPrice);
+					cryptoLabelsMap.put("ETH", etherPrice);
+					cryptoLabelsMap.put("LTC", liteCoinPrice);
+					cryptoLabelsMap.put("BTH", bitcoinCashPrice);
+					cryptoLabelsMap.put("XRP", ripplePrice);
+
+					return cryptoLabelsMap;
+				}
+
+				private GridPane createGrid() {
+					GridPane grid = new GridPane();
+					grid.setHgap(10);
+					grid.setVgap(10);
+					grid.setAlignment(Pos.CENTER);
+					return grid;
+				}
+
+				private void addLabelsToGrid(Map<String, Label> labels, GridPane gird) {
+					int row = 0;
+					for (Map.Entry<String, Label> entry : labels.entrySet()) {
+						String cryptoName = entry.getKey();
+						Label nameLabel = new Label(cryptoName);
+						nameLabel.setTextFill(Color.BLUE);
+						nameLabel.setOnMousePressed(event -> nameLabel.setTextFill(Color.RED));
+						nameLabel.setOnMOusePressed((EventHandler) event -> nameLabel.setTextFill(Color.BLUE));
+
+						grid.add(nameLabel, 0, row);
+						grid.add(entry.getValue(), 1, row);
+
+						row++;
+					}
+				}
+
+				private Rectangle createBackGroundRectanbleWithAnimation(double width, double height) {
+					Rectangle background = new Rectangle(width, height);
+					FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.LIGHTGREEN, Color.LIGHTBLUE);
+					fillTransition.setCycleCount(Timeline.INDEFINITE);
+					fillTransition.setAutoReverse(true);
+					fillTransition.play();
+					return background;
+				}
+
+				public static class PricesContainer {...}
+
+				public static class PriceUpdater extends Thread {
+					private PricesContainer pricesContainer;
+					private Random random = new Random();
+
+					public PriceUpdater(PricesContainer pricesContainer) {
+						this.pricesContainer = pricesContainer;
+					}
+
+					@Override
+					public void run() {
+						while (true) {
+							pricesContainer.getLockObject().lock();
+
+							try {
+								try {
+									// ...
+								}
+							}
+						}
+					}
+				}
+			}
+
 ### Quiz 10 - ReentrantLock ###
 ### Reentrant Read Write Lock & Database Implementation ###
 ### Quiz 11 - Read-Write Locks ###

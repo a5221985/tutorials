@@ -1,0 +1,100 @@
+# Bash Scripting Tutorial #
+1. A powerful component of a Linux system
+2. Supported on commandline and through scripts
+3. It is used to automate tasks
+4. Topics:
+	1. Examples to show capability of bash scripts
+	2. How to utilize different aspects of bash
+	
+## In This Bash Scripting Tutorial You Will Learn ##
+	1. How to write hello world Bash script
+	2. How to pass arguments to Bash script
+	3. How to use global and local variables in Bash
+	4. How to read user input
+	5. How to load and read arrays in Bash
+	6. How to compare integers and strings
+	7. How to detect file types in Bash
+	8. How to use `for`, `while`, and `until` loops
+	9. How to use functions in Bash
+	10. How to use `if` statements
+	11. How to use `case` statements
+	12. How to use quotes and special characters in Bash
+	13. How to perform arithmetic calculations with Bash
+	14. How to use Bash redirection
+
+## Hello World Bash Shell Script - Bash Scripting Tutorial ##
+1. Step 1: Find out where Bash interpreter is located
+
+		$ which bash
+		/bin/bash
+		
+	1. Shows that Bash shell is stored in `/bin/bash`
+2. Step 2: Define a file `hello_world.sh`
+
+		$ nano hello_world.sh
+		
+3. Step 3: Copy the following lines into the file
+
+		#!/bin/bash
+		# declare STRING variable
+		STRING="Hello World"
+		# print variable on a screen
+		echo $STRING
+		
+	1. Shebang: Every bash script starts with `#!`
+		1. We define the interpreter here: `/bin/bash`
+		
+4. Step 4: Make the file executable
+
+		$ chmod +x hello_world.sh
+		
+5. Step 5: Execute the bash script
+
+		$ ./hello_world.sh
+		Hello World
+
+## Simple Backup Bash Shell Script ##
+## Variables in Bash Scripts ##
+## Global vs. Local Variables ##
+## Passing Arguments to the Bash Script ##
+## Executing Shell Commands with Bash ##
+## Reading User Input ##
+## Bash Trap Command ##
+## Arrays ##
+### Declare Simple Bash Array ###
+### Read File Into Bash Array ###
+## Bash if/else/fi Statements ##
+### Nested if/else ###
+## Bash Comparisons ##
+### Arithmetic Comparisons ###
+### String Comparisons ###
+## Bash File Testing ##
+## Loops ##
+### Bash for Loop ###
+### Bash while Loop ###
+### Bash until Loop ###
+## Control Bash Loop with Input ##
+## Bash Functions ##
+## Bash Select ##
+## Case Statement Conditional ##
+## Bash Quotes and Quotations ##
+### Escaping Meta Characters ###
+### Single Quotes ###
+### Double Quotes ###
+### Bash Quoting with ANSI-C Style ###
+## Arithmetic Operations ##
+### Bash Addition Calculator Example ###
+### Bash Arithmetics ###
+### Round Floating Point Number ###
+### Bash Floating Point Calculations ###
+## Redirections ##
+### STDOUT From Bash Script to SRDERR ###
+### STDERR From Bash Script to STDOUT ###
+#### Stdout to Screen ####
+#### Stdout to File ####
+#### Stderr to File ####
+#### Stdout to Stderr ####
+#### Stderr to Stdout ####
+#### Stderr and Stdout to File ####
+## Closing THoughts ##
+### Related Linux Tutorials ###

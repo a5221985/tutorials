@@ -1,0 +1,500 @@
+# Domain Driven Design & Microservices for Architects #
+## Course Outline ##
+### Author Introductions and Course Outline ###
+1. Architects:
+	1. Software architect makes high-level design choices based on their experience, **knowledge** & **understanding** of software models, standards, tools, and techniques.
+2. Knowledge of all aspects of Microservices:
+	1. Focusses on business value
+		1. Not just technology aspects
+	2. Responsible for guiding IT/Business leaders & mentor dev teams
+	3. Responsible for delivery of targeted business benefits
+	4. Hands on is goot but not required for architect
+3. Courses helps in building foundation for DDD & Microservice Architecture
+	1. Trains us to guide microservices teams build microservices
+4. Part 1: Focusses on business
+	1. Domain Driven Design
+	2. Apply DDD strategic patterns
+		1. Ubiquitous language
+		2. Bounded Context
+5. Part 2: Focusses on Technology
+	3. Apply DDD Tactical patterns (to microservices)
+		1. Events Driven Architecture
+		2. REST | GraphQL
+		3. Data Management
+		4. Distributed Transactions
+		5. Messaging and Streaming
+		6. UML Flows
+	2. Helps make appropriate design choices
+6. Lessons:
+	1. Concepts with examples
+	2. Exercise: Apply the concepts
+		1. Microservices modeling or design problem
+		2. Solution to the problem
+	3. Hands on: UML design and implementation (of microservices components)
+	4. Quizzes: Part of the lessons
+	5. Setup sample code in local machine
+		1. Plant UML - modeling tool
+
+### Development Tools and Setup ###
+1. Dev Environment Setup:
+	1. IntelliJ IDE
+	2. Project repo and branches
+	3. UML diagram with PlantUML
+2. IntelliJ Community Edition but other IDEs are fine too:
+	1. Download and install
+	2. Get from version control option
+		1. https://gethub.com/acloudfan/MSFA-ACME_Sales-v1.0.git
+		2. https://gethub.com/acloudfan/MSFA-ACME_Products-v1.0.git
+3. Code is organized in multiple branches
+4. Switch to appropriate branch as instructed
+5. UML available under the directory /uml
+6. To checkout branches:
+	1. View > Tool Windows > Git
+	2. Select another branch > Right Click > Checkout
+		1. Downloads and builds
+7. https://plantuml.com
+	1. Used to draw UML diag
+	, using a human readable text description
+	2. It is a drawing tool NOT a modelling tool as it does not enforce any modeling contraint
+	3. Extension for UML
+		1. File > Settings... > Plugins
+			1. Search plantuml
+		2. Click on Installed
+			1. PlantUML integration
+	4. Select file under /uml
+	5. plantuml.com - documentation
+	6. New diagram:
+		1. Right click on /uml
+		2. PlantUML File
+		3. Sequence
+		4. test-sequence.puml
+	7. If diagram is not showing: Install Graphviz library
+		1. https://plantuml.com/graphviz-dot
+8. Gradle for dependencies
+	1. Build automation tool
+		1. `build.gradle` - gradle.org
+
+## Microservice Architecture ##
+### Microservices Architecture ###
+1. Topics:
+	1. Monolithic Architecture
+	2. Microservices Architecture
+	3. Realization of MSA
+2. A Traditional way of building applications
+	1. Modular: A well designed monolithic application consists of well defined modules
+		1. Using huge code bases
+		2. A common programming language is used for all components
+	2. There is tight coupling between components
+	3. Teams organized by technology & business
+		1. A few smaller teams
+			1. DB specialists
+			2. BAs
+			3. Infrastructure team
+			4. ...
+		2. Changes require coordination between all the teams involved
+	4. Generally spans across multiple business functions
+		1. Banking app may support multiple banking products as part of the same application
+3. Microservices Architecture
+	1. It arranges an application as a collection of loosely coupled services. In a microservices architecture, services are fine grained, and the protocols are light weight - Wikipedia
+	2. A service in a MSA is referred to as a Microservice
+		1. Self contained units built to realize a specific business capability
+			1. Retail: Orders, Shipping, Marketing
+			2. Bank: Retail accounts, credit cards, loans
+	3. Business capability & Microservices:
+		1. May be realized by one or more microservice
+			1. Prduct manufacturer + partner network:
+				1. Independent channels:
+					1. Customer Order Service
+					2. Partner Order Service
+4. Microservice Contracts
+	1. All interactions are via well-defined contracts
+		1. Shipping service: Exposes interface called - Ship Order(order details)
+			1. Invokes Update Status(delivery details) interface
+		2. Orders service: Exposes interface called - Update Status (delivery details)
+			1. Invokes Ship Order(order details) interface
+	2. Other microservices are well aware of the contracts
+5. MSA Realization
+	1. Demarcate Business Capability Boundaries
+		1. Each microservice realizes a specific business capability
+	2. Each business capability is mapped to one or more microservices
+		1. Domain Driven Design - helps us identify the business capability boundaries (Bounded Contexts)
+	3. Each microservice is assigned to a small IT team
+		1. The team is responsible for building and operating the microservice
+		2. Each team defines contract between microservices by coordinating with other teams
+		3. The team works with Domain experts to develop domain model
+		4. Technical design and development of the microservice
+			1. Team makes technical desicions
+				1. Strategic DDD patterns - Used for developing the domain model
+				2. Tactical DDD patterns - Used for building the microservices
+6. Business Benefit of MSA?
+	1. It helps business change at a faster pace
+		1. Why?
+
+### Business & Digital Transformation ###
+1. Business & Digital Transformation
+	1. Business transformation is an umbrella term that is used for referring to fundamental changes in how an organization conducts its business
+		1. Microsoft: Packaged Software to Subscription model (charging monthly and yearly)
+		2. Amazon: Online Bookstore to Marketplace (other vendors can also sell products)
+		3. Apple: Computers to iPod, iPhones, iPad, Music Store, ...
+2. Why do businesses need to transform?
+	1. Reasons:
+		1. Environmental changes e.g. new regulations (GDPR)
+		2. Competitive pressure e.g. rapid rollout of new products
+			1. Transformation is the choice
+		3. New opportunities e.g. innovative technology (internet in 90s say)
+		4. Customer demands e.g. expects immediate response
+			1. Otherwise they might lose to their competitors
+	2. Digital transformation:
+		1. Digital transformation is the process of using digital technologies to
+			1. Meet the needs of transformed business processes
+			2. Construct innovative customer engagement mechanisms
+		2. Digital transformation supports the business transformation initiatives
+			1. Target: Integrated supply chain inventories across (partner) network (stores and warehouses)
+				1. 2011 - Invested in digital technologies
+					1. Customers could place orders online
+					2. Pickup merchandize at store within few minutes
+		3. Capital One: Physcial bank to a digital bank
+			1. Depend on AWS cloud for different technology needs
+				1. For ever changing operating model
+		4. Amazon.com: Heavy use of AI/ML, API, Analytics, etc
+			1. Helps change business model at a very rapid pace
+				1. Helps construct new products in a short period of time
+	3. What happens to business that do not transform?
+		1. Fail to survive:
+			1. 1997 - started a in-mail-DVD subscription model
+			2. 2007 - Started streaming service using digital
+			3. Blockbuster: Failed to transform its business in time, to counter the threat posed by Netflix & newer digital technologies
+				1. 2021 - closed down
+	4. Continuous transformation
+		1. Transformation is not a one-time initiative:
+			1. Business need to change on a continous basis
+			2. Rapid changes are needed in systems and applications
+			3. Organizations need to keep up pace with new and evolving technologies
+	5. Example: Continuous Transformation
+		1. Continuous change + Adoption of digital technologies
+			1. Amazon Prime
+			2. Amazon Web
+			3. Services
+			4. Alexa
+			5. Amazon Drive
+			6. Echo
+			7. Kindle
+			8. Fire tablets
+			9. Fire TV
+			10. Video
+			11. Kindle Store
+			12. Music
+			13. Music unlimited
+			14. Amazon digital game
+			15. Store
+			16. Amazon studios
+			17. AmazonWireless
+	6. Transformation and software
+		1. Old ways of building software hinders transformation!!
+			1. Changes are slow - using older techs and architecture paradigms
+			2. Hard to integrate with newer digital technologies
+		2. Microservices architectue addresses these challenges!!!
+			1. Helps organizations move at a faster pace to achieve transformation at a faster pace
+3. How does MSA enable Transformation?
+	1. Change isolated to a set of microservices!!
+		1. Bank:
+			1. Retail accounts - business functionality for checking account and saving account
+			2. Credit cards
+				1. If this business strategy needs to be transformed
+					1. Transformation of credit cards requires changes only in this MS
+						1. Pace is much faster to make changes and release (in monolith, the modules are interdependent and hard to make changes faster and release)
+			3. Loans & mortgage
+4. Summary:
+	1. Organizations need to continously transform
+		1. Rapid changes to IT systems
+		2. Rapid adoption of new digital technologies
+		3. Speed to market is the key
+	2. Microservices architecture enables transformation
+
+### A Business Perspective of Microservices ###
+1. Business benefits of adopting microservices architecture
+	1. Microservices teams
+		1. How teams are organized for building microservices
+	2. Business capabilities and microservices
+		1. Relationship between business capabilities and microservices
+	3. Business benefits of MSA
+2. Microservice Ownership
+	1. Each service is built & operated by a small team
+		1. Teams are cross functional & supported by domain expert
+			1. Different skills exist in a team
+	2. Team size: ~8
+		1. We try to construct teams that are no longer than can be fed by two pizzas; we call that the two-pizza team rule
+		2. Idea: Better collaboration among smaller teams:
+			1. Frequent software releases
+			2. Faster response to changes in business
+			3. Technology becomes a competitive edge (for organization)
+3. Why are MS organized around business capabilities?
+	1. My thoughts:
+		1. Each capability can be changed independently
+		2. Capabilities can be changed at different pace
+		3. Certain capabilities may become obsolete or get replaced by other new capabilities without affecting the other capabilities
+	2. Trainer's thoughts:
+		1. Each service can evolve independently
+			1. Bank:
+				1. Retail Accounts
+				2. Credit Cards
+				3. Loans & Mortage - a change is required here
+					1. Monolithic application needs coordination among the teams
+						1. This slows down the process of making changes
+						2. Bank will be slow to release new products in the market
+					2. Microservices
+						1. Changes can be performed in each of the services independently
+							1. Faster response to changes in business!!
+		2. Services are easily replaceable
+			1. Loans and Mortage can be replaced with newer transformed business operating model
+				1. Caveat: No impact on other servides if contracts are not changing
+	3. Makes it easier for IT teams to understand the business
+		1. Team dealing with Retail Accounts need to know in detail about retail accounts and they don't need to know about Credit Cards much
+			1. IT teams don't need to dive deep into ALL business capabilities!!!
+				1. The team can focus on the microservice that they are building
+	4. HIGHER Alignemnt with business priorities
+		1. If retail account business is not undergoing frequent changes, team might decide to release every two weeks
+		2. If loan and mortgage business is undergoing some serious transformation, then the team might decide to release every day
+			1. Not time spent on managing conflicting business priorities
+				1. Faster speed to value for the business
+4. Microservice Architecture
+	1. Key to rapid transformation => faster speed to market
+		1. Support from IT team is required
+	2. Microservices Architecture is an enabler / Catalyst for continous business transformation
+		1. It helps move the IT teams at the same speed as the business!!
+5. Critical Success Factor:
+	1. Carving out the business scope of Microservices (to get the most benefit)
+		1. If NOT done correctly
+			1. Teams will be inter-dependent
+			2. Loss of advantage of MSA
+		2. This is where Domain Driven Design comes into picture!!!
+6. Summary:
+	1. Small teams => Faster speed to market
+	2. Microservices are organized around business capabilities
+		1. Enables IT teams to operate independently
+		2. Must carve out appropriate business scope to stay independent
+
+### A Tactical Perspective of Microservices ###
+1. Topics:
+	1. What is a microservice architecture?
+	2. Pros of MSA
+	3. Cons of MSA
+2. Microservices Architecture
+	1. Loosely coupled set of services - for building applications
+		1. Services interact with each other over a network (using light weight protocols)
+			1. HTTP
+		2. Light weight protocol - HTTP
+		3. Independent codebases | deployements
+			1. They can be independently deployed
+		4. Decentralized governance
+			1. Teams can make their own decisions on works best for services they own
+		5. Well defined business scope
+3. Loose Coupling:
+	1. Least amount of dependency between services
+		1. ONLY external interfaces are known to consumer services
+			1. Not internal implementation
+	2. Interactions are over the network
+		1. No code level dependencies
+4. Service Interactions
+	1. Services expose interfaces as API/HTTP
+		1. APIs are implemented as:
+			1. RESTful services
+			2. GraphQL APIs
+		2. Made available via HTTP protocol
+	2. Messaging is commonly used
+		1. Request/Reply pattern
+			1. RabbitMQ
+			2. ActiveMQ
+		2. Publish/Subscribe pattern
+			1. Kafka
+5. Advantages of Microservice Architecture:
+	1. Pros of MSA:
+		1. Changes are easier to manage
+			1. No impact on other services
+			2. No | Minimal coordination with other teams
+			3. Regression testing needed ONLY for changed service
+				1. Other microservices need not be tested
+		2. Deployments are Independent
+			1. Each team controls the frequency of deployments
+				1. Depending on requirements and other constraints
+			2. Higher productivity & Faster delivery
+6. Polyglot microservices
+	1. Each team may decide on tech stack
+		1. Orders: node
+		2. Shipping: spring framework
+			1. Some experts urge caution against using too many languages
+				1. May lead to challenges
+7. Failure Isolation
+	1. Failure in one service will not bring down entire system
+		1. Common scenario in monolith: If one component fails, it might bring down the entire system
+		2. Orders: continues to process orders and publishes to messaging broker
+		3. If shipping service is down, the message is still persisted and when it is back up, it will be able to process the message
+8. Service Scalability
+	1. Each service can scale independently
+		1. Black Friday: Heavy load on orders
+			1. Additional instances of Orders microservice may be created for extra load
+			2. Shipping microservice doesn't have to be scaled
+9. Disadvantages of Microservice Architecture
+	1. Poor performance due to network overheads
+		1. Compared to monolithic application
+	2. Complexity in managing data integrity
+		1. Each service manages its own database
+			1. Monolithic - common database - local transactions can be used for data integrity
+			2. Traditional Tx mechanisms don't work
+				1. Leading to higher complexity
+	3. Harder to monitor | debug
+		1. Independent processes need to be monitored
+			1. Challenging to monitor and debug 100s of microservices
+	4. Security threat
+		1. Each service exposes interfaces (API)
+			1. Expanded attach surface
+10. Cons of MSA:
+	1. Requires investment in new technologies (to address some of the disadvantages) - upfront investments
+		1. Infrastructure
+		2. Tools
+		3. Skills development
+11. Pros:
+	1. Change management - becomes easier + Deployments - can be carried out independently
+		1. Features can be released much faster
+			2. Speed to market
+	4. Failure isolation + Service Scalability (independent scaling)
+		1. Better quality - experienced by consumers
+12. Cons:
+	1. Poor n/w performance
+	2. Monitoring is a challenge
+	3. Data management
+	4. Security management
+
+### Adoption of Microservices Architecture ###
+1. Topics:
+	1. What is needed for MSA?
+		1. What organization needs
+	2. Building a business case
+		1. How a technologist can put a business case for gaining support for adoption of microservices in their organization
+	3. Brownfield Vs. Greenfield MS projects
+2. Adoption of MSA:
+	1. Acquire resources with new IT skills
+	2. Invest in technology e.g., cloud, containers, other tools for building and operating microservices
+	3. Change in processes e.g. DevOps
+		1. Newer ways to manage IT resources
+	4. Change in culture e.g. Faster decisions
+		1. Cannot happen overnight
+3. Successful adoption of microservices requires:
+	1. Commitment from Business & IT leaders
+4. Role of an Architect
+	1. Guide & Educate the Business & IT teams
+		1. In terms of cost and benefits of adoption of microservices architecture
+	2. Architect must spend time in building a business case for MSA adoption for your specific organization
+		1. It is easier for architect to get support from IT and business leaders - if there are business benefits of adoption microservices
+5. Think Business
+	1. Think of Business impact not technology
+		1. Customer experience - Is it going to improve customer experience at a rapid pace
+		2. New revenue streams
+		3. Lowered costs - of IT operations
+		4. Competitive advantage
+		5. Customer loyalty
+		6. Leverage opportunity
+	2. Specific business impact depends on the organization
+		1. As an architect I must understand organization's business to map benefits of microservices architecture to the organization
+6. Messaging Examples:
+	1. Technical vs Business Benefits
+		1. Architect who focuses on technology side would describe benefit as follows: "With microservices architecture we can release our software every 6 weeks rather than every 3 months like we do today"
+		2. Architect who focuses on business would describe benefit as follows: "IT can help business cut down the product development process to 6 weeks which is ~50% faster than our competitor!!"
+			1. This appeals more to the business stakeholders
+	2. Anothe example:
+		1. "Our monolith apps are difficult to change hence, adopting new digital technologies has been slow. We need to invest in MSA technologies to be able to move faster"
+		2. "Adoption of new digital technologies can help the business achieve the goals of increasing the Lifetime Value of our customer as MSA provides a foundation for faster adoption of these new digital technologies"
+			1. Focus should be to resonate with Business and IT leaders showing business benefit rather than just the technical benefits
+7. Business Case
+	1. Doesn't have to be a 50 pages long formal document
+		1. 5 to 7 slides are fine (to convey the right message)
+	2. Clearly layout the Business Value (quantify)
+		1. Clear messaging
+			1. Give numbers
+	3. Have a roadmap
+		1. How do you expect the organization to adopt the microservice
+			1. Indicate time to value - 3 months or 18 months to get there
+	4. Describe what you need to be successful
+		1. You want to get commitment from IT and business leadership
+			1. They must understand what they are getting into
+		2. Do a PoC to prove the value
+			1. Demonstrate the value with something live is useful
+8. Use your own template if the above is not appropriate for the business
+9. Microservices projects:
+	1. There are two types of microservices projects
+		1. Brownfield - refactor the existing monolithic app
+			1. Monolith to MSA:
+				1. Dealing with legacy technologies & IT debt
+			2. Refactor: Convert application to MSA
+				1. Big bang approach - All microservices are built in parallel
+				2. Incremental | Evolutionary approach - Pealing off parts of existing monolith and build microservices
+			3. Replace - Build a new app ground up
+		2. Greenfield - new application to be built ground up
+			1. Option to build MSA
+				1. Ground up - Build microservices from the get go
+					1. Considerations: Availability of technology & tools
+					2. Organization's readiness e.g., DevOps practices, processes
+						1. This is for teams experienced with microservices and working with organizations that have adoped it
+				2. Monolith first - Build a well-designed monolith app
+					1. Gain some experience building the application
+					2. After some experience peel off parts to construct MS
+						1. More: https://martinfowler.com/bliki/MonolithFirst.html
+
+## Introduction to Domain Driven Design ##
+### Domain, Sub-Domain and Domain Experts ###
+### Conceptual Models, Architecture and Design ###
+### Modeling Techniques & Architectural Styles ###
+### Domain Models ###
+### Modeling Techniques & Architectural Styles ###
+
+## Understanding the Business Domain ##
+### Why Understand the Business? ###
+### Introduction to Business Model Canvas ###
+### Exercise: ACME Travels Business Model Canvas ###
+
+## Domain Driven Design: Strategic Patterns ##
+### Introduction to DDD and Patterns ###
+### Business Subdomain Types ###
+### Exercise: ACME Subdomain Type Assignment ###
+### Understanding the Business Context ###
+### Business Domain Language ###
+### Strategic Pattern: Ubiquitous Language ###
+### Exercise: Define ACME's Ubiquitous Language ###
+### Strategic Pattern: Bounded Context ###
+### Discovering the Bounded Contexts in a Domain ###
+### Exercise: Identify ACME's Bounded Contexts ###
+
+## Bounded Context Relationships ##
+### Intro to DDD Integration Patterns ###
+### Managing BC Relationships Using Context Maps ###
+### Symmatric Relationship Patterns ###
+### Asymmetric Relationship Patterns ###
+### One to Many Relationship Patterns ###
+### Exercise: Context Mapping for a Bank ###
+
+## Domain Driven Design - Tactical Patterns ##
+### Intro to DDD Tactical Patterns ###
+### Entity Object - Pattern ###
+### Value Object - Pattern ###
+### Exercise: Identify Entity & VO in ACME Sales Model ###
+### Hands On: Building the ACME Sales Entities & VO in Java ###
+### Aggregate & Factory - Pattern ###
+### Exercise: ACME Sales Use Case ###
+### Hands On: UML for ACME Sales Aggregates ###
+### Model Behavior: Anemic & Rich Models ###
+### Repository Object - Pattern ###
+### Hands On: ACME Model Repository in UML & Java ###
+### Domain Service - Pattern ###
+### Application Services - Pattern ###
+### Infrastructure Services - Pattern ###
+### Hands On: ACME Domain Service, UML & Java ###
+### Hands On: Application and Infrastructure Services, UML & Java ###
+
+## Events Driven Architecture & Domain Events ##
+## Event Storming for Constructing Shared Knowledge ##
+## Microservices Data Management Patterns ##
+## Microservices DB Performance Management ##
+## Microservices Managing the Data Integrity ##
+## Microservices and Kafka ##
+## Managing Distributed Transactions with SAGA ##
+## Microservices and API ##

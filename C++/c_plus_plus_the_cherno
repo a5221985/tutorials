@@ -1,0 +1,99 @@
+# C++ - The Cherno #
+## Welcome to C++ ##
+## How to Setup C++ on Windows ##
+## How to Setup C++ on Mac ##
+## How to Setup C++ on Linux ##
+## How C++ Works ##
+## How the C++ Compiler Works ##
+## How the C++ Linker Works ##
+## Variables in C++ ##
+## Functions in C++ ##
+## C++ Header Files ##
+## How to Debug C++ In Visual Studio ##
+## Conditions and BRANCHES in C++ (if statements) ##
+## BEST Visual Studio Setup for C++ Projects! ##
+## Loops in C++ (for loops, while loops) ##
+## Control Flow in C++ (continue, break, return) ##
+## POINTERS in C++ ##
+## REFERENCES in C++ ##
+## CLASSES in C++ ##
+## CLASSES vs STRUCTS in C++ ##
+## How to Write a C++ Class ##
+## Static in C++ ##
+## Static for Classes and Structs in C++ ##
+## Local Static in C++ ##
+## ENUMS in C++ ##
+## Constructors in C++ ##
+## Destructors in C++ ##
+## Inheritance in C++ ##
+## Virtual Functions in C++ ##
+## Interfaces in C++ (Pure Virtual Functions) ##
+## Visibility in C++ ##
+## Arrays in C++ ##
+## How Strings Work in C++ (and how to use them) ##
+## String Linterals in C++ ##
+## CONST in C++ ##
+## The Mutable Keyword in C++ ##
+## Member Initializer Lists in C++ (Constructor Initializer List) ##
+## Ternary Operators in C++ (Conditional Assignment) ##
+## How to CREATE/INSTANTIATE OBJECTS in C++ ##
+## The NEW Keyword in C++ ##
+## Implicit Conversion and the Explicit Keyword in C++ ##
+## OPERATORS and OPERATOR OVERLOADING in C++ ##
+## The "this" Keyword in C++ ##
+## Object Lifetime in C++ (Stack/Scope Lifetime) ##
+## SMART POINTERS in C++ (std::unique_ptr, std::shared_ptr, std::weak_ptr) ##
+## Copying and Copy Constructors in C++ ##
+## The Arrow Operator in C++ ##
+## Dynamic Arrays in C++ (std::vector) ##
+## Optimizing the usage of std::vector in C++ ##
+## Using Libraries in C++ (Static Linking) ##
+## Using Dynamic Libraries in C++ ##
+## Making and Working with Libraries in C++ (Multiple Projects in Visual Studio) ##
+## How to Deal with Multiple Return Values in C++ ##
+## Templates in C++ ##
+## Stack vs Heap Memory in C++ ##
+## Macros in C++ ##
+## The "auto" Keyword in C++ ##
+## Static Arrays in C++ (std::array) ##
+## Function Pointers in C++ ##
+## Lambdas in C++ ##
+## Why I Don't "using namespace std" ##
+## Namespaces in C++ ##
+## Threads in C++ ##
+## Timing in C++ ##
+## Multidimensional Arrays in C++ (2D arrays) ##
+## Sorting in C++ ##
+## Type Punning in C++ ##
+## Unions in C++ ##
+## Virtual Destructors in C++ ##
+## Casting in C++ ##
+## Conditional and Action Breakpoints in C++ ##
+## Safety in Modern C++ and How to Teach It ##
+## Precompiled Headers in C++ ##
+## Dynamic Casting in C++ ##
+## BENCHMARKING in C++ (How to Measure Performance) ##
+## STRUCTURED BINDINGS in C++ ##
+## How to Deal with OPTIONAL DATA in C++ ##
+## Multiple TYPES of Data in a SINGLE VARIBLE in C++? ##
+## How to Store ANY Data in C++ ##
+## How to Make C++ Run FASTER (with std::async) ##
+## How to Make Your STRINGS FASTER in C++ ##
+## VISUAL BENCHMARKING in C++ (How to Measure Performance Visually) ##
+## SINGLETONS in C++ ##
+## Small String Optimization in C++ ##
+## Track MEMORY ALLOCATIONS the Easy Way in C++ ##
+## lvalues and rvalues in C++ ##
+## Continuous Integration in C++ ##
+## Static Analysis in C++ ##
+## Argument Evaluation Order in C++ ##
+## Move Semantics in C++ ##
+## std::move and the Move Assignment Operator in C++ ##
+## ARRAY - Making DATA STRUCTURES in C++ ##
+## VECTOR/DYNAMIC ARRAY - Making DATA STRUCTURES in C++ ##
+## ITERATORS in C++ ##
+## Writing an ITERATOR in C++ ##
+## How to REALLY Learn C++ ##
+## Intro to Binary and Bitwise Operators in C++ ##
+## Bitwise AND (&), OR (|), XOR (^) and NOT (~) in C++ ##
+## I Did a C++ University Assignment ##

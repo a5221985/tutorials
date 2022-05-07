@@ -63,31 +63,249 @@
 2. Personal Message
 3. Questions (they might already be answered)
 	1. Answer other student's questions if possible
-4. To become an expert in React
+4. To become an expert on React
 	1. Work on
 		1. Hands On + Assignments = EXPERT
 			1. Can be submitted
 5. Updates and Upgrades
 
 ### Download the Completed Projects ###
+1. Download from resources section of the lecture
+	1. React_Projects.zip
+		1. React projects
+
 ### Notes from Theory Lectures ###
+1. Download from resources section of the lecture
+	1. React_JS_course
+		1. Notes for theory lectures (helps with revision for interview)
+
 ### What are Single Page Applications ###
+1. SPAs
+	1. They are web applications that run **entirely** in a browser
+	2. They do not need any re-loads (loaded only once)
+		1. Traditional: User request causes creation of a new HTML page on the server side and sent back to user
+			1. Results in page refresh
+		2. If a request is sent to backend, backend only sends data
+			1. Frontend **dynamically updates HTML DOM without refreshing the entire page**
+	3. Advantages:
+		1. Great user experience
+			1. User might feel that the entire application is running on his machine
+		2. Fast
+			1. Data once fetched is available and doesn't need re-fetching
+		3. Easy Development
+			1. We can separate out frontend from the backend
+			2. We can use same backend with multiple frontends (web and mobile say)
+		4. Work Offline
+			1. Once all data is fetched, we can go offline and use can use the application
+				1. Only if create or update operations are required, he needs to connect to the backend
+	4. Disadvantages
+		1. Less secure
+			1. We need to enable cross-site scripting
+				1. Enables attackers to inject client side scripts that can crash our web app
+		2. Memory leaks
+			1. JS memory leaks in browser
+				1. Or else, the application might slow down and provide bad user experience 
+	4. Example:
+		1. Facebook
+		2. Gmail
+
 ### Three Problems with SPAs ###
+1. State Managmement
+	1. Most of the time, in SPA, time is spent keeping UI in sync with data
+	
+			User --> App --> Backend
+			
+		1. If user loads data by connecting to backend, then
+			1. Decide what in UI needs to be cleared
+			2. Which of the fields need to be made visible
+			3. Which of the fields need to be destroyed
+2. Slow DOM Manipulation
+	1. We need to query the elements in DOM and update those elements in the dom (slow and painful)
+		1. This needs to be done a lot in SPA
+3. View through HTML Templates
+	1. Working with HTML template engines like Mustache is painful
+		1. If user navigates through HTML, we will be dealing with tiny little pieces of HTML that will be rendered to UI at a time
+			1. The syntax might become complicated for sophisticated UIs (Templates)
+
 ### What and Why React? ###
+1. React
+	1. Popular & quickly growing
+2. Why?
+	1. Automatic UI State Management
+		1. Keeping track of UI and managing state can be complex and time consuming
+			1. Here the end-state is more important than intermittent steps taken by user
+	2. Lightning fast DOM Manipulation
+		1. Traditional SPAs - DOM manipulation is time consuming
+			1. React provides **virtual dom**
+				1. working with **virtual dom** is fast
+				2. React will update original dom as and when needed
+					1. Figures out diffs between virtual dom and original dom and makes least amount fo changes required to keep the UI in sync
+						1. The process is called **reconciliation**
+	3. APIs
+		1. React give easy to use API to construct re-usable React widgets
+			1. We can break down the UI into small chunks (instead of having one single html)
+		2. React gives APIs to combine the components into complex components
+	4. View through JavaScript
+		1. React gives the full power of JS
+			1. Views will be fully defined in JS
+			
+					ReactDOM.render(
+						<h1>React is Awesome!</h1>
+						<p>React is cool!</p>
+					);
+					
+		2. We can use HTML like syntax inside JS code
+			1. Called JSX
+	5. React is View in MVC (can connect to any backend)
+		1. M & C - Backend
+
 ### JSX ###
+1. React uses JSX
+	1 JavaScript XML
+	
+			<Hello name="Bharath">
+			
+		1. Hello - own UI element
+	2. JSX allows us to mix JS and HTML
+	
+			for (var course of courses) {
+				liElements.push(<li>{course}</li>);
+			}
+			
+2. Two ways to translate JSX into HTML and JS
+	1. babel.min.js - transpiles JSX into HTML and JS (Browser understandable)
+	2. Node + create-react-app (cli) - converts JSX into HTML and JS
+		1. Stored on disk automatically
+		2. When client requests, it is sent to web browser
 
 ## React in Action ##
 ### Construct the HTML Template ###
+1. First Reaction
+	1. Construct HTML
+	2. Include React Scripts
+	3. Include Babel Script (converts JSX into JS)
+	4. Use React API (to do something meaningful)
+2. Open Notpad++
+	1. New html and save in React_Scripts/firstReaction.html
+		
+			<!DOCTYPE html>
+			<html>
+				<head>
+					<title>First Reaction</title>
+				</head>
+				<body>
+					<script type="text/javascript">
+					</script>
+				</body>
+			</html>
+			
+	2. React library:
+		1. Search "cdn react links"
+		2. Click on CDN links
+			1. Grab first two scripts
+		3. Paste in <head> block
+			1. For react dom
+	3. Babel
+		1. Search "cdn babel standalone" (babel with node js is another option)
+		2. Click on first link
+		3. Grab babel.min.js
+		4. Script:
+		
+				<script src="<link>"></script>
+
 ### Babel Encoding ###
+1. Babel version might cause errors in browser (6.26.0 works)
+	1. Fix:
+		1. Add following in <body>
+		
+				<script charset="utf-8">
+				</script>
+
 ### Use React ###
+1. Task: 
+
+		<body>
+			<script type="text/babel"> <!-- for Babel to transpile -->
+				ReactDOM.render(<h1>First Reat</h1>, document.body); // JSX, dom element in which we want the JSX want to be rendered in
+			</script>
+		</body>
+		
+2. Open the script in browser
+
 ### Change the Container Element ###
+1. Rendering markup inside `document.body` is not a good practice (later)
+	1. We can pass any DOM element to render
+2. Open Browser:
+	1. ctrl + shift + i or alt + cmd + i
+		1. Rendering components directly inside document.body is discouraged
+			1. Its children are often manipulated by third-party scripts and browser extensions. This may lead to subtle reconciliation issues
+				1. Try rendering into container element constructed for the app
+	2. Fix:
+	
+			<body>
+				<div id="root"></div>
+				<script ...>
+					ReactDOM.render(..., document.getElementById("root")/>
+				</script>
+			</body>
+			
+3. Inspect HTML and JS:
+	1. Go to <head><script>
+	
+			ReactDOM.render(React.createElement(
+				"h1",
+				null,
+				"First React"
+			), document.getElementById("root");
+			
+		1. Babel transpiled JSX into plain JS code
+4. JSX syntax is very strict as compared to HTML
+	1. Openings have to be closed mandatorily
+
 ### Apply Styles ###
+1. We can use CSS styles directly in the React code
+
+		<head>
+			<style>
+				#root {
+					background-color: brown;
+				}
+				#root h1 {
+					font-size: 30px;
+					color: red;
+				}
+			</style>
+		</head>
+
 ### Quiz 1: React in Action ###
 ### Assignment 1: React in Action ###
+1. Wrap the following text inside `h1`: "You are the chooser of your destiny!"
+2. It must be child of `<div id="root">...</div>`
+3. Apply CSS (bgColor, font)
 
 ## Components ##
 ### Introduction ###
+1. A key feature of React using which we construct our own HTML like elements
+
+		<navbar>
+		<mymenu>
+		<footer>
+		
+	1. They have their own look and behavior
+	2. They generate HTML via JSX
+2. Open ebay.com
+	1. Header
+	2. Search bar
+	3. Menu
+	4. Carousal
+	5. Footer
+3. React is a bunch of components that can talk to each other or use each other
+4. Creation of component
+	1. `class` is created extending `React.Component` and override `render` method
+
 ### Construct a React Component ###
+1. 
+
 ### Using the React Component ###
 ### Using Properties or Attributes ###
 ### Child Elements ###
