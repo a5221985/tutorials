@@ -70,7 +70,7 @@
 3. Example: Put a time-stamp in file name using `date` command
 
 		#!/bin/bash
-		OF=myhome_directory_$(date +%Y%m%d).tar.gz # **(M)**
+		OF=myhome_directory_$(date +%Y%m%d).tar.gz
 		tar -czf $OF /home/linuxconfig
 
 ## Global vs. Local Variables ##
