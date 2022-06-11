@@ -100,3 +100,21 @@
 4. [What are the advantages of NoSQL Databases?](https://www.mongodb.com/nosql-explained/advantages)
 5. [NoSQL data modeling and schema design](https://www.mongodb.com/nosql-explained/data-modeling)
 6. [Exploring NoSQL database examples](https://www.mongodb.com/nosql-explained/examples)
+
+# Top 3 NoSQL Databases #
+1. MontoDB - Document Database
+2. Apache Cassandra - Scalability and Availability (when scaling app)
+3. Neo4J - Graph based
+
+# Top 3 Cloud Databases #
+1. MS SQL DB
+	1. Relational and transactional
+	2. ACID
+2. Amazon Aurora
+	1. Scalable
+	2. Relational and transactional
+	3. ACID
+3. Google Cloud SQL
+	1. Relational and transactional
+	2. ACID
+	3. Scalable

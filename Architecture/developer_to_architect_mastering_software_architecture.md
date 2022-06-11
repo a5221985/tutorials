@@ -2582,11 +2582,11 @@
 		3. Cost
 		4. ...
 	2. Benefits
-		1. For team
+		1. For team (developing or deploying)
 			1. These are secondary
 3. Primary impacts
 	1. Motivations
-		1. High scalability (decentralization and independenc)
+		1. Very High scalability (decentralization and independence)
 			1. How microservices provides this?
 		2. Frequent Deployment
 			1. Incremental features can be delivered to customer at a higher frequency
