@@ -24,6 +24,78 @@
 	4. Caching (distributed)
 	5. Deployment
 		1. Containers & orchestrators
+5. Design: draw.io
+	1. Monolithic architecture
+		1. Principles:
+			1. KISS
+			2. YAGNI
+			3. DRY
+		2. Functional Requirements
+			1. List products
+			2. Filter products as per brand and categories
+			3. Put products into the shopping cart
+			4. Apply coupon for discounts and see the total cost all for all of the items in shopping cart
+			5. Checkout the shopping cart and construct an order
+			6. List my old orders and order items history
+		3. Non-Functional Requirements
+			1. Scalability
+			2. Increase Concurrent user request count
+		4. Tech stack:
+			1. Load Balancer
+				1. Apache Nginx
+			2. Application
+				1. Java
+				2. Single War file
+				3. Tomcat Server
+			3. Database:
+				1. Oracle
+				2. PostgreSQL
+				3. MySQL
+	2. Layered Architecture
+		1. Principles:
+			1. KISS
+			2. YAGNI
+			3. DRY
+			4. SoC
+			5. SOLID
+		2. Components:
+			1. FrontEnd
+				1. UI
+			2. Backend
+				1. Business logic
+			3. RDBMS
+		3. Non-Functional Requirements
+			1. Scalability
+			2. Increase Concurrent user request
+			3. Maintainability
+	3. Service Oriented Architecture
+		1. Principles
+			1. KISS
+			2. YAGNI
+			3. DRY
+			4. SoC
+			5. SOLID
+			6. ESB
+		2. Components:
+			1. Consumer Groups
+				1. Web
+				2. Web
+				3. Mobile
+			2. SOA
+				1. ESB
+				2. CRM
+				3. OM
+				4. Billing
+				5. Shared
+			3. RDBMS
+	4. Microservices Architecture
+		1. Principles
+			1. KISS
+			2. YAGNI
+			3. DRY
+			4. SoC
+			5. SOLID
+			6. Database per Microservice
 
 ### Prerequisites and Tools ###
 ### Setting Up Design Environment ###
